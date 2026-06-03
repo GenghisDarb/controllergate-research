@@ -10,7 +10,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 
 ## Local Repository Status
 
-The local checkout now has an alpha scaffold commit on `controllergate-v1.7-alpha-real-trace-pilot`, but no configured remote.
+The local checkout has an alpha scaffold on `controllergate-v1.7-alpha-real-trace-pilot` and is connected to the GitHub remote `https://github.com/GenghisDarb/controllergate-research.git`.
 
 Observed commands:
 
@@ -31,10 +31,10 @@ Observed facts:
 | --- | --- | --- |
 | Local Git commits | PARTIAL | Scaffold commit `46ca47c` exists, but no real maintenance history exists in this repo yet. |
 | Local branch history | PARTIAL | Initial discovery observed no commits on `master`; the scaffold now sits on branch `controllergate-v1.7-alpha-real-trace-pilot`. |
-| Git remotes | UNAVAILABLE | `git remote -v` returned no configured remotes. |
+| Git remotes | AVAILABLE | `origin` is configured at `https://github.com/GenghisDarb/controllergate-research.git`. |
 | Working-tree files before scaffold | UNAVAILABLE | `rg --files` returned no files; recursive listing found only `.git/`. |
 | CI configuration | UNAVAILABLE | No `.github/`, workflow files, package files, or build/test configuration files existed in the working tree. |
-| Issues / PR metadata | UNAVAILABLE | No GitHub remote is configured locally, so issue and PR history cannot be discovered from this checkout. |
+| Issues / PR metadata | PARTIAL | ControllerGate remote is configured, and TORUS-Theory PR metadata has been collected as external source evidence; ControllerGate itself still has limited real maintenance history. |
 | CI logs / failed runs | UNAVAILABLE | No local workflow files, artifacts, logs, or remote run references were present. |
 | Agent/tool traces | UNAVAILABLE | No trace files or agent-run artifacts existed in the working tree. |
 | Generated artifacts | PARTIAL | Supplied v1.6-psi benchmark ZIPs and notebook exist outside the repo and were inspected as controlled benchmark artifacts. |
@@ -77,18 +77,18 @@ These 10 episodes have also been normalized into `traces/normalized/episodes.jso
 
 Normalization status:
 
-- normalized records: `10`
+- normalized records: `14`
 - validator: PASS
 - audit: REVIEW_REQUIRED
 - review classification audit: PASS
 - correction_review_episode: `2`
 - controlled_benchmark_evidence: `8`
-- external_real_repo_episode: `0`
+- external_real_repo_episode: `4`
 - scoring eligibility count for real repo pilot: `0`
 - scoring allowed: `false`
 - scoring: NOT RUN
 
-The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, and kappa through psi are controlled-benchmark evidence episodes. The review classification confirms none of the current records are external real repo maintenance episodes.
+The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, kappa through psi are controlled-benchmark evidence episodes, and the first four TORUS-Theory external real repo episodes are fresh-local-rerun evidence with unavailable historical job logs and no original agent transcript custody.
 
 Review classification:
 
@@ -96,7 +96,7 @@ Review classification:
 | --- | ---: | --- |
 | correction_review_episode | 2 | report-integrity training/evaluation only |
 | controlled_benchmark_evidence | 8 | scaffold validation, provenance verification, benchmark-history context only |
-| external_real_repo_episode | 0 | required for real repo pilot scoring |
+| external_real_repo_episode | 4 | review-required external ingestion evidence only |
 | excluded_from_scoring | 0 | not allowed for scoring |
 
 ## Non-Episode Evidence: v1.6-psi Custody Closure
@@ -117,13 +117,13 @@ Do not load it into `episodes.jsonl` as a real trace episode.
 
 ## Required Next Evidence
 
-Scoring is blocked because the reviewed normalized ledger contains 0 `external_real_repo_episode` entries.
+Scoring is blocked because the reviewed normalized ledger contains 0 scoring-eligible `external_real_repo_episode` entries. The four normalized TORUS-Theory external rows are review-required ingestion evidence, not scoring approval.
 
 ## External Source Discovery
 
 First external source inspected: `GenghisDarb/TORUS-Theory`.
 
-Discovery result: viable candidate source, not yet normalized evidence.
+Discovery result: viable candidate source. Four reviewed pending TORUS episodes have now been normalized as review-required external real repo episodes.
 
 TORUS-Theory has real GitHub pull requests, merged maintenance patches, notebook repairs, CI workflow edits, and GitHub Actions run/job metadata. Candidate details are recorded in `controllergate_v1_7_alpha/traces/raw/external_sources/torus_theory_candidate_inventory.md`.
 
@@ -141,9 +141,9 @@ Current external candidate status:
 
 | Source | Candidate PRs | Evidence status | Scoring impact |
 | --- | --- | --- | --- |
-| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20 pending bundles include PR diffs plus local reruns; others remain candidate metadata only | none; external_real_repo_episode count remains 0 |
+| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20 are normalized as review-required external real repo episodes; #32/#33 remain target candidates; others remain candidate metadata only | none; scoring eligibility count remains 0 |
 
-Reviewed pending TORUS episode folders:
+Reviewed and normalized TORUS episode folders:
 
 - `episode_torus_pr15_invalid_notebook_json`
 - `episode_torus_pr16_torus_positive_pass`
@@ -178,7 +178,7 @@ controllergate_v1_7_alpha/traces/raw/episode_001/
 
 If an evidence file is unavailable, the episode bundle should contain a note with `UNAVAILABLE: reason`.
 
-Pending collection instructions are in `controllergate_v1_7_alpha/docs/episode_collection_instructions.md`. External real repo episodes should be normalized and then classified as `external_real_repo_episode` only when their evidence supports that category.
+Pending collection instructions are in `controllergate_v1_7_alpha/docs/episode_collection_instructions.md`. External real repo episodes should be normalized and then classified as `external_real_repo_episode` only when their evidence supports that category; scoring eligibility remains separate and currently requires at least 10 reviewed external episodes.
 
 ## Current Artifact Intake Status
 
@@ -220,4 +220,4 @@ Additional v1.6 ladder package evidence:
 | rho | `28 / 28` | `28 / 28` | 24 entries, 0 mismatches |
 | psi | `51 / 51` | `51 / 51` | package: 8 entries, 0 mismatches; fixture: 3 entries, 0 mismatches |
 
-Remaining blocker: the normalized and reviewed ledger has 0 external real repo episodes. External repo evidence collection must happen before any v1.7-alpha real repo scoring.
+Remaining blocker: the normalized and reviewed ledger has 4 external real repo episodes but 0 scoring-eligible external real repo episodes. Additional external repo evidence collection and review must happen before any v1.7-alpha real repo scoring.

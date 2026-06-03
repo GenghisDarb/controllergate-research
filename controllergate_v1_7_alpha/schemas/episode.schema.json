@@ -68,6 +68,52 @@
       "type": "string",
       "enum": ["real_repo", "real_agent_trace", "controlled_benchmark", "unavailable"]
     },
+    "category": {
+      "type": ["string", "null"],
+      "enum": [
+        "correction_review_episode",
+        "controlled_benchmark_evidence",
+        "external_real_repo_episode",
+        "excluded_from_scoring",
+        null
+      ]
+    },
+    "source_repo": {
+      "type": ["string", "null"]
+    },
+    "source_pr": {
+      "type": ["integer", "null"]
+    },
+    "outcome_type": {
+      "type": ["string", "null"]
+    },
+    "failure_reason": {
+      "type": ["string", "null"]
+    },
+    "positive_signal": {
+      "type": ["string", "null"]
+    },
+    "pr_status": {
+      "type": ["string", "null"]
+    },
+    "scoring_allowed_for_v1_7_alpha_real_repo_claim": {
+      "type": ["boolean", "string"]
+    },
+    "evidence_status_detail": {
+      "type": ["string", "null"]
+    },
+    "github_actions_log_status": {
+      "type": ["string", "null"]
+    },
+    "github_actions_rerun_status": {
+      "type": ["string", "null"]
+    },
+    "local_clone_path": {
+      "type": ["string", "null"]
+    },
+    "rerun_command": {
+      "type": ["string", "null"]
+    },
     "repo": {
       "type": "string"
     },
@@ -156,19 +202,19 @@
       "type": "string"
     },
     "artifact_package_path": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "artifact_notebook_path": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "fixture_artifact_path": {
       "type": ["string", "null"]
     },
     "packaged_pass_count": {
-      "type": "integer"
+      "type": ["integer", "null"]
     },
     "packaged_total_count": {
-      "type": "integer"
+      "type": ["integer", "null"]
     },
     "rerun_pass_count": {
       "type": ["integer", "null"]
@@ -180,7 +226,7 @@
       "type": "boolean"
     },
     "sha_mismatch_count": {
-      "type": "integer"
+      "type": ["integer", "null"]
     },
     "runner_completed": {
       "type": "boolean"

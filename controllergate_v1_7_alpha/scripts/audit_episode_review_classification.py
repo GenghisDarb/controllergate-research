@@ -108,11 +108,19 @@ def main() -> int:
             errors.append(f"{episode_id}: classification episode_id mismatch {review_episode_id!r}")
 
         allowed = review.get("scoring_allowed_for_v1_7_alpha_real_repo_claim")
-        if not isinstance(allowed, bool):
-            errors.append(f"{episode_id}: scoring_allowed_for_v1_7_alpha_real_repo_claim must be boolean")
-        elif allowed and category != "external_real_repo_episode":
+        if isinstance(allowed, bool):
+            scoring_eligible_episode = allowed
+        elif allowed in {"review_required", "pilot_review_required"}:
+            scoring_eligible_episode = False
+        else:
+            errors.append(
+                f"{episode_id}: scoring_allowed_for_v1_7_alpha_real_repo_claim must be boolean or review_required"
+            )
+            scoring_eligible_episode = False
+
+        if scoring_eligible_episode and category != "external_real_repo_episode":
             errors.append(f"{episode_id}: only external_real_repo_episode may be scoring eligible")
-        elif allowed and category == "external_real_repo_episode":
+        elif scoring_eligible_episode and category == "external_real_repo_episode":
             scoring_eligible += 1
 
     extra_folders = sorted(set(by_folder) - ledger_folders)

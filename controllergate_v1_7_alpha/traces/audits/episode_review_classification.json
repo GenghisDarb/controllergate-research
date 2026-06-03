@@ -9,14 +9,14 @@
     "excluded_from_scoring"
   ],
   "summary": {
-    "normalized_episode_count": 10,
+    "normalized_episode_count": 14,
     "correction_review_episode": 2,
     "controlled_benchmark_evidence": 8,
-    "external_real_repo_episode": 0,
+    "external_real_repo_episode": 4,
     "excluded_from_scoring": 0,
     "scoring_eligibility_count_for_v1_7_alpha_real_repo_claim": 0,
     "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
-    "scoring_allowed_reason": "No normalized episode is classified as external_real_repo_episode."
+    "scoring_allowed_reason": "Four normalized external real repo episodes are review-required; fewer than 10 scoring-eligible external real repo episodes exist."
   },
   "episodes": [
     {
@@ -98,6 +98,63 @@
       "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
       "allowed_use": "scaffold validation, provenance verification, benchmark-history context only",
       "reason": "Verified v1.6 benchmark evidence, not external real repo maintenance."
+    },
+    {
+      "episode_id": "episode_011",
+      "source_episode_folder": "episode_torus_pr15_invalid_notebook_json",
+      "category": "external_real_repo_episode",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 15,
+      "outcome_type": "malformed_artifact_failure",
+      "verified_result": "failed",
+      "failure_reason": "invalid notebook JSON",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": "review_required",
+      "allowed_use": "external real repo ingestion review only",
+      "evidence_status": "fresh local rerun evidence",
+      "reason": "Fresh local rerun reproduced a malformed notebook artifact failure; historical GitHub Actions log text and original agent trace remain unavailable."
+    },
+    {
+      "episode_id": "episode_012",
+      "source_episode_folder": "episode_torus_pr16_torus_positive_pass",
+      "category": "external_real_repo_episode",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 16,
+      "outcome_type": "successful_rerun_positive_signal",
+      "verified_result": "passed",
+      "positive_signal": "TORUS-POSITIVE found in output notebook",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": "review_required",
+      "allowed_use": "external real repo ingestion review only",
+      "evidence_status": "fresh local rerun evidence",
+      "reason": "Fresh local rerun passed and found TORUS-POSITIVE; historical GitHub Actions log text and original agent trace remain unavailable."
+    },
+    {
+      "episode_id": "episode_013",
+      "source_episode_folder": "episode_torus_pr19_numpy_assertion_failure",
+      "category": "external_real_repo_episode",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 19,
+      "outcome_type": "dependency_version_assertion_failure",
+      "verified_result": "failed",
+      "failure_reason": "NumPy <2.3 assertion",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": "review_required",
+      "allowed_use": "external real repo ingestion review only",
+      "evidence_status": "fresh local rerun evidence",
+      "reason": "Fresh local rerun reproduced the dependency/version assertion failure; historical GitHub Actions log text and original agent trace remain unavailable."
+    },
+    {
+      "episode_id": "episode_014",
+      "source_episode_folder": "episode_torus_pr20_numpy_assertion_closed_unmerged",
+      "category": "external_real_repo_episode",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 20,
+      "outcome_type": "dependency_version_assertion_failure_closed_unmerged",
+      "verified_result": "failed",
+      "failure_reason": "NumPy <2.3 assertion",
+      "pr_status": "closed_unmerged",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": "review_required",
+      "allowed_use": "external real repo ingestion review only",
+      "evidence_status": "fresh local rerun evidence",
+      "reason": "Fresh local rerun reproduced the dependency/version assertion failure in the current environment; PR #20 was closed unmerged and historical metadata should not be rewritten as a historical failure."
     }
   ]
 }

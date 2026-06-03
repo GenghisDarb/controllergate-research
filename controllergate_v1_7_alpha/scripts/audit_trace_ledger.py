@@ -50,9 +50,12 @@ def audit_episode(episode: dict[str, Any]) -> tuple[list[str], list[str]]:
     findings: list[str] = []
     review: list[str] = []
     episode_id = episode.get("episode_id", "UNKNOWN")
+    source_type = episode.get("source_type")
 
-    if episode.get("source_type") == "controlled_benchmark":
+    if source_type == "controlled_benchmark":
         review.append(f"{episode_id}: controlled benchmark evidence; review before treating as real-trace scoring input")
+    if source_type == "real_repo":
+        review.append(f"{episode_id}: external real repo rerun evidence; review before scoring eligibility")
 
     available = set(episode.get("available_at_decision_time") or [])
     prohibited = set(episode.get("prohibited_future_fields") or [])
@@ -86,11 +89,20 @@ def audit_episode(episode: dict[str, Any]) -> tuple[list[str], list[str]]:
     if episode.get("runner_completed") is not True:
         findings.append(f"{episode_id}: runner_completed is not true")
     if episode.get("analyzer_completed") is not True:
-        findings.append(f"{episode_id}: analyzer_completed is not true")
+        if source_type == "real_repo":
+            review.append(f"{episode_id}: analyzer_completed is not true; local rerun evidence requires review")
+        else:
+            findings.append(f"{episode_id}: analyzer_completed is not true")
     if episode.get("sha_manifest_verified") is not True:
-        findings.append(f"{episode_id}: sha_manifest_verified is not true")
+        if source_type == "real_repo":
+            review.append(f"{episode_id}: sha_manifest_verified is not true; external rerun bundle has no package SHA manifest")
+        else:
+            findings.append(f"{episode_id}: sha_manifest_verified is not true")
     if episode.get("sha_mismatch_count") not in (0, 0.0):
-        findings.append(f"{episode_id}: sha_mismatch_count is not zero")
+        if source_type == "real_repo" and episode.get("sha_mismatch_count") is None:
+            review.append(f"{episode_id}: sha_mismatch_count is null because no SHA manifest was available")
+        else:
+            findings.append(f"{episode_id}: sha_mismatch_count is not zero")
 
     return findings, review
 
