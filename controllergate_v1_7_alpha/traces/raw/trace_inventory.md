@@ -61,9 +61,9 @@ Current pending bundles:
 - `episode_iota_misreport`: starter skeleton for the known v1.6-iota false success/report mismatch correction.
 - `episode_pi_misreport`: starter skeleton for the known v1.6-pi false success/failed criterion correction.
 
-Artifact intake folders have been created under `controllergate_v1_7_alpha/artifacts_intake/`, but the expected iota and pi package ZIPs and notebooks are not present in the repo.
+Artifact intake folders have been created under `controllergate_v1_7_alpha/artifacts_intake/`. The iota and pi package ZIPs are present, and their notebooks were extracted from inside the supplied packages into the expected intake filenames.
 
-No pending episode is complete yet, and no episode has been normalized into `traces/normalized/episodes.jsonl`.
+The iota and pi pending episodes now contain package-backed analyzer, decision report, and SHA manifest evidence. Original builder/critic transcript custody remains TODO_REQUIRED, so no episode has been normalized into `traces/normalized/episodes.jsonl`.
 
 | Field | Value |
 | --- | --- |
@@ -124,9 +124,9 @@ If an evidence file is unavailable, the episode bundle should contain a note wit
 
 Pending collection instructions are in `controllergate_v1_7_alpha/docs/episode_collection_instructions.md`.
 
-## Current Artifact Intake Blocker
+## Current Artifact Intake Status
 
-The first two correction episodes cannot be completed until these files are supplied:
+The first two correction episodes now have these intake files:
 
 ```text
 controllergate_v1_7_alpha/artifacts_intake/iota/ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial_Package.zip
@@ -135,4 +135,20 @@ controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdv
 controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial.ipynb
 ```
 
-Until those artifacts are present, no packaged `decision_report.json`, rerun analyzer output, or SHA verification can be extracted for iota or pi.
+Iota package evidence:
+
+- package SHA256: `ae55208bc7062c420032be52feedbc3b59a08f1f85d0c0f3debd9829dcc13e1b`
+- notebook SHA256: `09007acdfc4cb59ec0fa70f702b0a94fcf115605320d4bfbc6f4b7224d611533`
+- packaged result: `16 / 20`
+- analyzer rerun: `16 / 20`
+- SHA manifest verification: 19 entries checked, 0 mismatches
+
+Pi package evidence:
+
+- package SHA256: `127065cb38316ebcfc9a79c2057b9fedbea347a00071156c22a4392fddbc16c7`
+- notebook SHA256: `9837187968c68d5e86276d704970ccabfa9c6fe520284347fe1b53563625ddda`
+- packaged result: `27 / 28`
+- analyzer rerun: `27 / 28`
+- SHA manifest verification: 24 entries checked, 0 mismatches
+
+Remaining blocker: original builder and critic transcript custody for the reported false success claims is still TODO_REQUIRED.

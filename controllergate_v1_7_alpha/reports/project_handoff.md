@@ -38,7 +38,16 @@ The project cannot honestly score v1.7-alpha until real repository / real agent 
 
 Current threshold: at least 10 real episodes with complete evidence bundles must be collected and normalized before scoring.
 
-Immediate blocker for the first two episodes: the iota and pi package ZIPs and notebooks are not present in `controllergate_v1_7_alpha/artifacts_intake/`.
+Iota/pi package evidence status:
+
+- iota package ZIP and extracted notebook are present in `artifacts_intake/iota/`.
+- pi package ZIP and extracted notebook are present in `artifacts_intake/pi/`.
+- iota analyzer rerun over packaged outputs: `16 / 20`.
+- pi analyzer rerun over packaged outputs: `27 / 28`.
+- iota package SHA manifest: 19 entries checked, 0 mismatches.
+- pi package SHA manifest: 24 entries checked, 0 mismatches.
+
+Immediate blocker for normalizing the first two episodes: original builder/critic transcript custody is still TODO_REQUIRED, and at least 10 complete real evidence bundles are required before scoring.
 
 Required minimum next input:
 

@@ -1,3 +1,11 @@
-TODO_REQUIRED: add exact pi verification command, such as analyzer rerun or SHA verification command.
+The mismatch is a false success/failed-criterion correction rather than a production test failure.
 
-Current blocker: the pi package ZIP is missing from `controllergate_v1_7_alpha/artifacts_intake/pi/`, so the exact package-local analyzer command cannot be verified yet.
+Evidence commands used:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs outputs
+```
+
+PowerShell SHA256 manifest verification was run over the extracted package's `SHA256SUMS.txt`.
+
+The analyzer command exposed the package truth: `27 / 28`, contradicting the known builder claim of `28 / 28`.

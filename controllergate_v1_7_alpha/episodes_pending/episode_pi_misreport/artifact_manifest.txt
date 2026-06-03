@@ -1,15 +1,23 @@
 Required artifacts:
 
-- TODO_REQUIRED: `controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial_Package.zip` is missing.
-- TODO_REQUIRED: `controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial.ipynb` is missing.
-- TODO_REQUIRED: pi package ZIP SHA256.
-- TODO_REQUIRED: pi notebook SHA256.
-- TODO_REQUIRED: packaged `decision_report.json` path and SHA256.
-- TODO_REQUIRED: fresh rerun analyzer output path and SHA256 if file-backed.
-- TODO_REQUIRED: `SHA256SUMS.txt` verification output.
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial_Package.zip`
+  - SHA256: `127065cb38316ebcfc9a79c2057b9fedbea347a00071156c22a4392fddbc16c7`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial.ipynb`
+  - SHA256: `9837187968c68d5e86276d704970ccabfa9c6fe520284347fe1b53563625ddda`
+  - custody status: extracted from package ZIP into expected intake filename
+- PRESENT: package-internal `ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial/outputs/decision_report.json`
+  - SHA256 from temporary extraction: `c638d3b7d5ec08d9a0c09339b10e9a63daa00f09894bcb5264fb108e6a6a05c0`
+  - packaged result: `27 / 28`
+- PRESENT: package-internal `ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial/SHA256SUMS.txt`
+  - SHA256 from temporary extraction: `85f465042e3083e8ea8f2ed5ca4bfe6ee590113773bde0340add9ad210cea246`
+  - verification result: 24 entries checked, 0 mismatches
+- PRESENT: local analyzer rerun output
+  - output: `{ "passed": 27, "total": 28 }`
+  - file-backed output hash: UNAVAILABLE, console output only
 - TODO_REQUIRED: critic verification notes or transcript path.
 - TODO_REQUIRED: builder report or transcript containing the `28 / 28` claim.
 
-Current custody status: incomplete.
+Current custody status: package evidence complete; original builder/critic transcript custody incomplete.
 
-No artifact extraction or rerun has been performed for pi because the package ZIP and notebook are not present.
+This pending episode must not be normalized until the transcript evidence requirement is resolved or explicitly marked `UNAVAILABLE` with an accepted reason.

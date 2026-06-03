@@ -1,3 +1,35 @@
-TODO_REQUIRED: add pi analyzer, verifier, CI, or test log showing the corrected `27 / 28` result and failed counter-strategy recovery criterion.
+Local package analyzer rerun, executed from a temporary extraction of:
 
-Current blocker: `controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial_Package.zip` is missing, so no packaged analyzer output or rerun log can be extracted yet.
+`controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial_Package.zip`
+
+Command:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs outputs
+```
+
+Output:
+
+```json
+{
+  "passed": 27,
+  "total": 28
+}
+```
+
+Package SHA256 manifest verification:
+
+```text
+checked entries: 24
+mismatches: 0
+```
+
+Packaged `outputs/decision_report.json` also records `27 / 28`.
+
+Failed packaged criterion:
+
+```text
+counter-strategy recovery lift > 0 | threshold >0.05 | value -0.07499999999999984
+```
+
+TODO_REQUIRED: original critic transcript or report showing the independent correction from the builder's `28 / 28` claim to `27 / 28`.

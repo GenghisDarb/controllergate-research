@@ -10,8 +10,21 @@ Known corrected outcome:
 
 - Builder claim: `20 / 20`.
 - Critic-verified result: `16 / 20`.
-- Packaged `decision_report.json`: TODO_REQUIRED path, hash, and confirmation that it agreed with `16 / 20`.
+- Packaged `decision_report.json`: `16 / 20`.
+- Local analyzer rerun over packaged outputs: `16 / 20`.
+- Package SHA256 manifest verification: 19 entries checked, 0 mismatches.
 
-This episode is not complete until the package, notebook, decision report, rerun analyzer output, and SHA verification are supplied.
+Failed criteria:
 
-Current status: blocked by missing iota artifact intake files. No v1.7-alpha scoring is allowed from this pending summary.
+- hidden downstream lift vs no-memory > 0: value `0.0`
+- corruption reduction vs no-memory > 0: value `0.0`
+- memory helped more than hurt: value `0`
+- productive recommendation precision >=0.70: value `0.0`
+
+Claim-vs-reality:
+
+- The builder's reported `20 / 20` did not match the packaged report or analyzer result.
+
+This episode has package-backed correction evidence.
+
+Current status: pending, not normalized. Original builder/critic transcript custody is still TODO_REQUIRED. No v1.7-alpha scoring is allowed from this pending summary.

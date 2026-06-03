@@ -1,3 +1,38 @@
-TODO_REQUIRED: add iota analyzer, verifier, CI, or test log showing the corrected `16 / 20` result.
+Local package analyzer rerun, executed from a temporary extraction of:
 
-Current blocker: `controllergate_v1_7_alpha/artifacts_intake/iota/ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial_Package.zip` is missing, so no packaged analyzer output or rerun log can be extracted yet.
+`controllergate_v1_7_alpha/artifacts_intake/iota/ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial_Package.zip`
+
+Command:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs outputs
+```
+
+Output:
+
+```json
+{
+  "passed": 16,
+  "total": 20
+}
+```
+
+Package SHA256 manifest verification:
+
+```text
+checked entries: 19
+mismatches: 0
+```
+
+Packaged `outputs/decision_report.json` also records `16 / 20`.
+
+Failed packaged criteria:
+
+```text
+hidden downstream lift vs no-memory > 0 | threshold >0 | value 0.0
+corruption reduction vs no-memory > 0 | threshold >0 | value 0.0
+memory helped more than hurt | threshold >0 | value 0
+productive recommendation precision >=0.70 | threshold >=0.70 | value 0.0
+```
+
+TODO_REQUIRED: original critic transcript or report showing the independent correction from the builder's `20 / 20` claim to `16 / 20`.

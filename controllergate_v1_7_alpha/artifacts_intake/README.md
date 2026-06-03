@@ -14,6 +14,6 @@ controllergate_v1_7_alpha/artifacts_intake/
     ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial.ipynb
 ```
 
-Current status: the intake folders are prepared, but the four required iota/pi artifacts are not present in this repo.
+Current status: the iota and pi package ZIPs are present, and their notebooks were extracted from inside the supplied package ZIPs into the expected intake filenames.
 
 Do not extract, normalize, or score v1.7-alpha until the needed artifacts are supplied and custody-checked.

@@ -1,15 +1,23 @@
 Required artifacts:
 
-- TODO_REQUIRED: `controllergate_v1_7_alpha/artifacts_intake/iota/ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial_Package.zip` is missing.
-- TODO_REQUIRED: `controllergate_v1_7_alpha/artifacts_intake/iota/ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial.ipynb` is missing.
-- TODO_REQUIRED: iota package ZIP SHA256.
-- TODO_REQUIRED: iota notebook SHA256.
-- TODO_REQUIRED: packaged `decision_report.json` path and SHA256.
-- TODO_REQUIRED: fresh rerun analyzer output path and SHA256 if file-backed.
-- TODO_REQUIRED: `SHA256SUMS.txt` verification output.
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/iota/ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial_Package.zip`
+  - SHA256: `ae55208bc7062c420032be52feedbc3b59a08f1f85d0c0f3debd9829dcc13e1b`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/iota/ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial.ipynb`
+  - SHA256: `09007acdfc4cb59ec0fa70f702b0a94fcf115605320d4bfbc6f4b7224d611533`
+  - custody status: extracted from package ZIP into expected intake filename
+- PRESENT: package-internal `ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial/outputs/decision_report.json`
+  - SHA256 from temporary extraction: `1520c617f6d13fcd557b4753dc07cd1abe61e800a2094a08799c04f72e96e386`
+  - packaged result: `16 / 20`
+- PRESENT: package-internal `ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial/SHA256SUMS.txt`
+  - SHA256 from temporary extraction: `14c088bccc948410fb4bdcd29132e29444ed0eefb0f0bc0241ac3907d900e27b`
+  - verification result: 19 entries checked, 0 mismatches
+- PRESENT: local analyzer rerun output
+  - output: `{ "passed": 16, "total": 20 }`
+  - file-backed output hash: UNAVAILABLE, console output only
 - TODO_REQUIRED: critic verification notes or transcript path.
 - TODO_REQUIRED: builder report or transcript containing the `20 / 20` claim.
 
-Current custody status: incomplete.
+Current custody status: package evidence complete; original builder/critic transcript custody incomplete.
 
-No artifact extraction or rerun has been performed for iota because the package ZIP and notebook are not present.
+This pending episode must not be normalized until the transcript evidence requirement is resolved or explicitly marked `UNAVAILABLE` with an accepted reason.
