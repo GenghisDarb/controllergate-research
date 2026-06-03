@@ -1,0 +1,13 @@
+Recovered workflow command from PR #32 `.github/workflows/ci.yml`, job `test (3.11)`:
+
+```bash
+papermill notebooks/validation/bicycle/recursive_controller_validation.ipynb out.ipynb
+```
+
+Fresh bounded local rerun command:
+
+```powershell
+external_repos\torus_rerun_venv\Scripts\python.exe -m papermill notebooks\validation\bicycle\recursive_controller_validation.ipynb out_pr32_recursive_controller_validation.ipynb
+```
+
+Fresh local rerun exit code: 1.

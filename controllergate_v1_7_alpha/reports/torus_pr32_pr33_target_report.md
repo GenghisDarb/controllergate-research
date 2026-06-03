@@ -1,6 +1,6 @@
 # TORUS PR #32/#33 Pending Evidence Target Report
 
-Status: target report only. No PR #32/#33 episode has been normalized or scored.
+Status: pending evidence collected. No PR #32/#33 episode has been normalized or scored.
 
 Source repo: `GenghisDarb/TORUS-Theory`
 
@@ -10,7 +10,14 @@ Generated: 2026-06-03 session date.
 
 PR #32 and PR #33 form a promising external real repo CI repair cluster. Both are merged PRs from July 5, 2025. They touch actual CI workflow behavior, notebook execution, dependency setup, linting, README checks, and supporting scripts.
 
-The cluster is suitable for future pending episode collection, but not yet suitable for normalization because full historical GitHub Actions job logs are unavailable through the log endpoint and no local rerun has been performed for the full CI cluster.
+The cluster now has four pending evidence bundles. It is not yet suitable for normalization because full historical GitHub Actions job logs are unavailable through the log endpoint, only bounded local reruns were performed, and no original agent/tool transcript custody is available.
+
+Pending bundles created in this pass:
+
+- `episode_torus_pr32_notebook_kernel_failure`
+- `episode_torus_pr32_validation_workflow_failure`
+- `episode_torus_pr33_notebook_selector_repair`
+- `episode_torus_pr33_readme_guard_warning_only`
 
 ## PR #32
 
@@ -68,13 +75,17 @@ Local rerun feasibility:
   - run papermill / nbconvert across selected notebooks
   - run black and ruff
   - README presence checks
-- Recommended local rerun approach: split into smaller pending episodes rather than rerun the full cluster at once.
+- Completed bounded local rerun for `episode_torus_pr32_notebook_kernel_failure`:
+  - command: `python -m papermill notebooks\validation\bicycle\recursive_controller_validation.ipynb out_pr32_recursive_controller_validation.ipynb`
+  - result: failed with `ValueError: No kernel name found in notebook and no override provided.`
+- Not completed for `episode_torus_pr32_validation_workflow_failure`:
+  - reason: broad validation-suite and placeholder-scan workflow needs narrower subcommands before local execution.
 
 Suitability for future `external_real_repo_episode` normalization:
 
 - promising, but review required.
-- Best use: split into sub-episodes such as dependency setup, notebook selection, lint/README rules, and validation structure.
-- Do not normalize until bounded patch evidence and rerun evidence are captured.
+- Best use: review `episode_torus_pr32_notebook_kernel_failure` first because it has a concrete bounded local rerun failure.
+- Do not normalize until review decides whether bounded local rerun evidence plus unavailable historical logs is sufficient.
 
 ## PR #33
 
@@ -135,24 +146,27 @@ Available patch evidence:
 Local rerun feasibility:
 
 - More feasible than PR #32 because the patch is smaller and focused.
-- Recommended first local rerun target:
-  - inspect `requirements-ci.txt`;
-  - run `python tools/list_notebooks.py`;
-  - run the `test (3.11)` notebook loop against a bounded subset;
-  - run lint only if black/ruff dependency installation is acceptable.
+- Completed bounded local rerun for `episode_torus_pr33_notebook_selector_repair`:
+  - command: `python tools\list_notebooks.py`
+  - result: passed with exit code 0 and listed notebooks while excluding PhaseA.
+- Completed bounded local rerun for `episode_torus_pr33_readme_guard_warning_only`:
+  - command: `python tests\README_guard.py`
+  - result: exited 0 while printing missing README notices.
+- Full notebook execution loop was not run in this pass.
+- Direct historical shell `check-readmes` rerun was not run in this pass.
 
 Suitability for future `external_real_repo_episode` normalization:
 
-- strong candidate, pending bounded rerun.
+- strong candidate, pending review.
 - Good follow-up episode because it is a focused repair after the broader PR #32 cluster.
-- Do not normalize until local rerun evidence and patch custody are captured in a pending episode bundle.
+- Do not normalize until the pending bundles are reviewed and the boundary between bounded local evidence and unavailable historical logs is accepted.
 
 ## Current Gate Impact
 
 This report does not change the normalized ledger.
 
-- normalized episodes remain: `10`
-- normalized external real repo episodes remain: `0`
+- normalized episodes remain: `14`
+- normalized external real repo episodes remain: `4`
 - scoring eligibility count remains: `0`
 - scoring allowed remains: `false`
 - scoring: NOT RUN

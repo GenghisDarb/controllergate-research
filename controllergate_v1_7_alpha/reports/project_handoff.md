@@ -86,7 +86,13 @@ Current external candidate source:
 - PR #15 and PR #16 now have normalized review-required external real repo episodes with captured PR diffs and fresh local rerun evidence.
 - PR #19 and PR #20 now have normalized review-required external real repo episodes with captured PR diffs and fresh local rerun failure evidence.
 - Reviewed TORUS episode folders now exist for PR #15, #16, #19, and #20 using the `episode_torus_*` naming.
-- PR #32/#33 target report has been created; both are promising CI repair candidates but still need bounded rerun evidence before normalization.
+- PR #32/#33 target report has been updated; both are promising CI repair candidates and now have four pending evidence bundles.
+- PR #32/#33 pending bundles:
+  - `episode_torus_pr32_notebook_kernel_failure`
+  - `episode_torus_pr32_validation_workflow_failure`
+  - `episode_torus_pr33_notebook_selector_repair`
+  - `episode_torus_pr33_readme_guard_warning_only`
+- These PR #32/#33 bundles are not normalized and do not affect scoring eligibility.
 - blocker: sampled historical GitHub Actions job logs returned HTTP 410, and original agent/tool traces are unavailable, so normalization requires review of whether fresh local reruns plus PR metadata are sufficient.
 
 ## Do Not Claim Yet

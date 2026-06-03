@@ -1,0 +1,29 @@
+Bounded PR #32 patch context.
+
+Full PR diff is available from GitHub:
+https://github.com/GenghisDarb/TORUS-Theory/pull/32.diff
+
+The full PR #32 diff touches 72 files and is not embedded wholesale in this pending bundle. Relevant maintenance themes from the diff and changed-file list:
+
+- `.github/workflows/ci.yml` changed notebook execution and lint behavior.
+- `.pre-commit-config.yaml` was added.
+- `tools/skip_tags.py` was added.
+- `scripts/scan_placeholders.py` was reformatted/updated.
+- Many notebooks and supporting scripts were changed.
+
+Related diff excerpt from `.github/workflows/ci.yml`:
+
+```diff
++    - name: Skip heavy notebooks
++      run: |
++        for nb in $(find notebooks -name '*.ipynb' ! -path '*PhaseA*' ); do
++          jupyter nbconvert --to notebook --execute "$nb" --ExecutePreprocessor.timeout=120 --ExecutePreprocessor.kernel_name=torus-ci
++        done
++
++    - name: Lint step
++      run: |
++        black --check .
++        ruff .
+```
+
+This file records bounded patch evidence only. Do not treat it as complete full-diff custody.

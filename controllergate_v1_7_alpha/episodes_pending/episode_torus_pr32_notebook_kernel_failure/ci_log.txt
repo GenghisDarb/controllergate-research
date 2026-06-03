@@ -1,0 +1,44 @@
+Historical GitHub Actions log status:
+
+UNAVAILABLE: sampled GitHub Actions job log API returned HTTP 410 for PR #32 job logs.
+
+GitHub Actions rerun status:
+
+UNAVAILABLE: prior rerun attempt for failed run 16085973917 returned HTTP 403 because the workflow run was created over a month ago.
+
+Available CI metadata:
+
+- Repository: GenghisDarb/TORUS-Theory
+- Pull request: https://github.com/GenghisDarb/TORUS-Theory/pull/32
+- PR title: CI green: expand env, skip heavy notebooks, add papermill & docker README, run black/ruff
+- Head SHA: 3b29ef7af7745cc74f4482f0a19e5247f808726b
+- Merge commit SHA: ea9b9aee766b1d0f5fa19919900f355c2a6213ba
+- Workflow run: 16085973917
+- Workflow name: CI Full
+- Workflow conclusion: failure
+- Job id: 45397096540
+- Job name: test (3.11)
+- Job conclusion: failure
+- Later workflow run at same head: 16085974136, CI Full, success, observed job validate-structure success only.
+
+Fresh bounded local rerun:
+
+- Date: 2026-06-03
+- Local clone/scratch path: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory
+- Local dependency venv: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv
+- Checkout: local scratch clone at 3b29ef7af7745cc74f4482f0a19e5247f808726b
+- Command: python -m papermill notebooks\validation\bicycle\recursive_controller_validation.ipynb out_pr32_recursive_controller_validation.ipynb
+- Exit code: 1
+- Result: failure reproduced locally for the bounded notebook command.
+- Failure: ValueError: No kernel name found in notebook and no override provided.
+
+Local rerun stderr/stdout summary:
+
+Input Notebook: notebooks\validation\bicycle\recursive_controller_validation.ipynb
+Output Notebook: out_pr32_recursive_controller_validation.ipynb
+ValueError: No kernel name found in notebook and no override provided.
+
+Important distinction:
+
+- Historical GitHub job log text remains unavailable.
+- Fresh local rerun evidence is available and should be treated as rerun evidence, not original CI log custody.

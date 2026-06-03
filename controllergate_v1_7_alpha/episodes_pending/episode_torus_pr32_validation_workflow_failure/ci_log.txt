@@ -1,0 +1,31 @@
+Historical GitHub Actions log status:
+
+UNAVAILABLE: sampled GitHub Actions job log API returned HTTP 410 for PR #32 validation workflow jobs.
+
+GitHub Actions rerun status:
+
+UNAVAILABLE: prior rerun attempt for failed CI Full run 16085973917 returned HTTP 403 because the workflow run was created over a month ago. No fresh GitHub rerun was started for this pending bundle.
+
+Available CI metadata:
+
+- Repository: GenghisDarb/TORUS-Theory
+- Pull request: https://github.com/GenghisDarb/TORUS-Theory/pull/32
+- Head SHA: 3b29ef7af7745cc74f4482f0a19e5247f808726b
+- Workflow run: 16085973915
+- Workflow name: Execute Validation Notebooks
+- Workflow conclusion: failure
+- Job id: 45397096532
+- Job name: run-validation-suite
+- Job conclusion: failure
+- Job id: 45397096535
+- Job name: placeholder-scan
+- Job conclusion: failure
+
+Local rerun:
+
+RERUN_UNAVAILABLE: full validation-suite and placeholder-scan rerun was not attempted in this pass because the workflow scope is broad and should be split into smaller bounded commands before execution.
+
+Important distinction:
+
+- Historical GitHub job log text remains unavailable.
+- This bundle records workflow/job metadata as pending evidence, not normalized outcome evidence.

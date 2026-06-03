@@ -1,0 +1,33 @@
+PR #33 README-related patch excerpt.
+
+Full PR diff: https://github.com/GenghisDarb/TORUS-Theory/pull/33.diff
+
+```diff
+diff --git a/docker/README.md b/docker/README.md
+@@ -1,3 +1,5 @@
++This directory contains Docker-related resources for the TORUS-Theory project.
++
+ This folder stores Dockerfiles that reproduce the TORUS analysis stack
+ (python 3.12, jupyterlab, black, papermill). Use:
+```
+
+```diff
+diff --git a/tests/README_guard.py b/tests/README_guard.py
+new file mode 100644
++import pathlib
++
++def validate_readme():
++    for folder in pathlib.Path(".").iterdir():
++        if folder.name.startswith("."):
++            continue
++        if folder.name == "docker":
++            continue
++        readme_path = folder / "README.md"
++        if not readme_path.exists():
++            print(f"Missing README in {folder}")
++
++if __name__ == "__main__":
++    validate_readme()
+```
+
+The GitHub workflow `check-readmes` job still used a shell README check in `.github/workflows/ci.yml`; this bundle records the local guard script behavior separately from historical CI.

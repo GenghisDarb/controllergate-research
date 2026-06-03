@@ -1,0 +1,19 @@
+Recovered PR #33 workflow command from `.github/workflows/ci.yml`, job `test (3.11)`:
+
+```bash
+for nb in $(python tools/list_notebooks.py); do
+  jupyter nbconvert --to notebook --execute "$nb" \
+    --ExecutePreprocessor.kernel_name=torus-ci \
+    --ExecutePreprocessor.timeout=180
+done
+```
+
+Bounded local rerun command:
+
+```powershell
+external_repos\torus_rerun_venv\Scripts\python.exe tools\list_notebooks.py
+```
+
+Fresh local rerun exit code: 0.
+
+Full notebook execution loop was not run in this pass.

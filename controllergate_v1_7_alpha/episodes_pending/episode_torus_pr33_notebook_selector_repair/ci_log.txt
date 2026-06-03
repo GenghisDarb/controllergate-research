@@ -1,0 +1,45 @@
+Historical GitHub Actions log status:
+
+UNAVAILABLE: sampled GitHub Actions job log API returned HTTP 410 for PR #33 job logs.
+
+GitHub Actions rerun status:
+
+UNAVAILABLE: related same-era rerun attempts for historical TORUS runs returned HTTP 403 because workflow runs were created over a month ago. No fresh GitHub rerun was started for this pending bundle.
+
+Available CI metadata:
+
+- Repository: GenghisDarb/TORUS-Theory
+- Pull request: https://github.com/GenghisDarb/TORUS-Theory/pull/33
+- PR title: CI all green: add full deps, kernel, skip PhaseA notebooks, fix lint & README rules
+- Head SHA: 871b806f75392f7f2a96c6ab925bf74cfd13a80c
+- Merge commit SHA: 4a23c43744b07d6f9a71e2fd6229382c266a2731
+- Workflow run: 16086043836
+- Workflow name: CI Full
+- Workflow conclusion: failure
+- Job id: 45397251168
+- Job name: test (3.11)
+- Job conclusion: failure
+- Later workflow run: 16086043837, CI Full, success, observed job validate-structure success only.
+
+Fresh bounded local rerun:
+
+- Date: 2026-06-03
+- Local clone/scratch path: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory
+- Local dependency venv: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv
+- Checkout: local scratch clone at 871b806f75392f7f2a96c6ab925bf74cfd13a80c
+- Command: python tools\list_notebooks.py
+- Exit code: 0
+- Result: notebook selector passed locally and listed notebooks while excluding PhaseA.
+
+Fresh local rerun output excerpt:
+
+notebooks\00_TORUS_tour.ipynb
+notebooks\cmb_torus_vs_thet.ipynb
+notebooks\bicycle\constant_ladder_residuals.ipynb
+notebooks\controller\recursive_controller_validation.ipynb
+notebooks\validation\synthetic\PairCorr_SideBand_Benchmark.ipynb
+
+Important distinction:
+
+- Historical GitHub job log text remains unavailable.
+- This was a bounded selector rerun, not the full notebook execution loop.

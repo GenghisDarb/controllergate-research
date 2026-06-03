@@ -1,0 +1,46 @@
+Historical GitHub Actions log status:
+
+UNAVAILABLE: sampled GitHub Actions job log API returned HTTP 410 for PR #33 job logs.
+
+GitHub Actions rerun status:
+
+UNAVAILABLE: related same-era rerun attempts for historical TORUS runs returned HTTP 403 because workflow runs were created over a month ago. No fresh GitHub rerun was started for this pending bundle.
+
+Available CI metadata:
+
+- Repository: GenghisDarb/TORUS-Theory
+- Pull request: https://github.com/GenghisDarb/TORUS-Theory/pull/33
+- Head SHA: 871b806f75392f7f2a96c6ab925bf74cfd13a80c
+- Workflow run: 16086043836
+- Workflow name: CI Full
+- Workflow conclusion: failure
+- Job id: 45397251174
+- Job name: check-readmes
+- Job conclusion: failure
+
+Fresh bounded local rerun:
+
+- Date: 2026-06-03
+- Local clone/scratch path: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory
+- Local dependency venv: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv
+- Checkout: local scratch clone at 871b806f75392f7f2a96c6ab925bf74cfd13a80c
+- Command: python tests\README_guard.py
+- Exit code: 0
+- Result: guard script printed missing README notices but did not fail.
+
+Fresh local rerun output excerpt:
+
+Missing README in CITATION.cff
+Missing README in CONTRIBUTING.md
+Missing README in environment.yml
+Missing README in LICENSE
+Missing README in media
+Missing README in requirements-ci.txt
+Missing README in src
+Missing README in tests
+Missing README in tools
+
+Important distinction:
+
+- Historical `check-readmes` job log text remains unavailable.
+- The local `tests/README_guard.py` script is warning-only in this rerun and should not be treated as proof that the historical `check-readmes` job passed.

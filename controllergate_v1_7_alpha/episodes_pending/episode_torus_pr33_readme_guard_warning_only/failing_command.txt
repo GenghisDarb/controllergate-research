@@ -1,0 +1,15 @@
+Historical failing command:
+
+UNAVAILABLE: historical GitHub Actions job log text returned HTTP 410 for job `check-readmes`.
+
+Recovered PR #33 local guard command:
+
+```powershell
+external_repos\torus_rerun_venv\Scripts\python.exe tests\README_guard.py
+```
+
+Fresh local rerun exit code: 0.
+
+Important caveat:
+
+The script printed missing README notices but did not exit nonzero. This is warning-only local evidence, not proof of historical CI repair.

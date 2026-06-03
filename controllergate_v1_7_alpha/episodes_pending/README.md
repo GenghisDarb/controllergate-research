@@ -17,6 +17,11 @@ Current status:
   - `episode_torus_pr19_numpy_assertion_failure`
   - `episode_torus_pr20_numpy_assertion_closed_unmerged`
 - PR #32/#33 target report exists at `../reports/torus_pr32_pr33_target_report.md`.
+- PR #32/#33 pending evidence folders have been created but not normalized:
+  - `episode_torus_pr32_notebook_kernel_failure`
+  - `episode_torus_pr32_validation_workflow_failure`
+  - `episode_torus_pr33_notebook_selector_repair`
+  - `episode_torus_pr33_readme_guard_warning_only`
 - Sampled historical GitHub Actions logs still returned HTTP 410, and original agent/tool traces remain unavailable.
 - Do not score v1.7-alpha from these review-required external episodes.
 

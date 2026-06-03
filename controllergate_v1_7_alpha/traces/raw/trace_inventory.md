@@ -141,7 +141,7 @@ Current external candidate status:
 
 | Source | Candidate PRs | Evidence status | Scoring impact |
 | --- | --- | --- | --- |
-| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20 are normalized as review-required external real repo episodes; #32/#33 remain target candidates; others remain candidate metadata only | none; scoring eligibility count remains 0 |
+| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20 are normalized as review-required external real repo episodes; #32/#33 now have pending evidence bundles only; others remain candidate metadata only | none; scoring eligibility count remains 0 |
 
 Reviewed and normalized TORUS episode folders:
 
@@ -153,8 +153,17 @@ Reviewed and normalized TORUS episode folders:
 PR #32/#33 target status:
 
 - report: `controllergate_v1_7_alpha/reports/torus_pr32_pr33_target_report.md`
-- result: promising external CI repair cluster, but not normalized
+- result: four pending external CI repair evidence bundles created, but not normalized
 - blocker: historical job logs returned HTTP 410; rerun attempts returned HTTP 403 because runs were over one month old
+
+PR #32/#33 pending bundles:
+
+- `episode_torus_pr32_notebook_kernel_failure`: bounded local papermill rerun failed with missing kernel metadata.
+- `episode_torus_pr32_validation_workflow_failure`: validation workflow/job failure metadata captured; local rerun unavailable pending narrower subcommands.
+- `episode_torus_pr33_notebook_selector_repair`: bounded local `tools/list_notebooks.py` rerun passed.
+- `episode_torus_pr33_readme_guard_warning_only`: bounded local README guard rerun exited 0 while printing missing README notices.
+
+These four bundles are pending evidence only. They are not normalized, not scoring eligible, and do not change the ledger counts.
 
 To proceed with v1.7-alpha, provide at least one of:
 
