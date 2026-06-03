@@ -27,4 +27,4 @@ Claim-vs-reality:
 
 This episode has package-backed correction evidence and a completed local temp rerun.
 
-Current status: pending, not normalized. Original builder/critic transcript custody is still TODO_REQUIRED. No v1.7-alpha scoring is allowed from this pending summary.
+Current status: normalized as a correction_review_episode. Original builder/critic transcript custody is still TODO_REQUIRED. No v1.7-alpha real repo scoring is allowed from this evidence summary.

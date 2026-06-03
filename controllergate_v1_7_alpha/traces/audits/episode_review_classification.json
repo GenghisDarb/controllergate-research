@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "source_ledger_path": "controllergate_v1_7_alpha/traces/normalized/episodes.jsonl",
+  "review_scope": "v1.7-alpha real repo pilot scoring eligibility",
+  "classification_categories": [
+    "correction_review_episode",
+    "controlled_benchmark_evidence",
+    "external_real_repo_episode",
+    "excluded_from_scoring"
+  ],
+  "summary": {
+    "normalized_episode_count": 10,
+    "correction_review_episode": 2,
+    "controlled_benchmark_evidence": 8,
+    "external_real_repo_episode": 0,
+    "excluded_from_scoring": 0,
+    "scoring_eligibility_count_for_v1_7_alpha_real_repo_claim": 0,
+    "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+    "scoring_allowed_reason": "No normalized episode is classified as external_real_repo_episode."
+  },
+  "episodes": [
+    {
+      "episode_id": "episode_001",
+      "source_episode_folder": "episode_iota_misreport",
+      "category": "correction_review_episode",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+      "allowed_use": "report-integrity training/evaluation only",
+      "reason": "Critic-correction event, not external repo maintenance."
+    },
+    {
+      "episode_id": "episode_002",
+      "source_episode_folder": "episode_pi_misreport",
+      "category": "correction_review_episode",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+      "allowed_use": "report-integrity training/evaluation only",
+      "reason": "Critic-correction event, not external repo maintenance."
+    },
+    {
+      "episode_id": "episode_003",
+      "source_episode_folder": "episode_kappa_verified_recovery",
+      "category": "controlled_benchmark_evidence",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+      "allowed_use": "scaffold validation, provenance verification, benchmark-history context only",
+      "reason": "Verified v1.6 benchmark evidence, not external real repo maintenance."
+    },
+    {
+      "episode_id": "episode_004",
+      "source_episode_folder": "episode_lambda_noisy_drift",
+      "category": "controlled_benchmark_evidence",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+      "allowed_use": "scaffold validation, provenance verification, benchmark-history context only",
+      "reason": "Verified v1.6 benchmark evidence, not external real repo maintenance."
+    },
+    {
+      "episode_id": "episode_005",
+      "source_episode_folder": "episode_mu_discovery_vs_predefinition",
+      "category": "controlled_benchmark_evidence",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+      "allowed_use": "scaffold validation, provenance verification, benchmark-history context only",
+      "reason": "Verified v1.6 benchmark evidence, not external real repo maintenance."
+    },
+    {
+      "episode_id": "episode_006",
+      "source_episode_folder": "episode_nu_sparse_recurrence",
+      "category": "controlled_benchmark_evidence",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+      "allowed_use": "scaffold validation, provenance verification, benchmark-history context only",
+      "reason": "Verified v1.6 benchmark evidence, not external real repo maintenance."
+    },
+    {
+      "episode_id": "episode_007",
+      "source_episode_folder": "episode_xi_temporal_inversion",
+      "category": "controlled_benchmark_evidence",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+      "allowed_use": "scaffold validation, provenance verification, benchmark-history context only",
+      "reason": "Verified v1.6 benchmark evidence, not external real repo maintenance."
+    },
+    {
+      "episode_id": "episode_008",
+      "source_episode_folder": "episode_omicron_scripted_spoofing",
+      "category": "controlled_benchmark_evidence",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+      "allowed_use": "scaffold validation, provenance verification, benchmark-history context only",
+      "reason": "Verified v1.6 benchmark evidence, not external real repo maintenance."
+    },
+    {
+      "episode_id": "episode_009",
+      "source_episode_folder": "episode_rho_pi_recovery_repair",
+      "category": "controlled_benchmark_evidence",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+      "allowed_use": "scaffold validation, provenance verification, benchmark-history context only",
+      "reason": "Verified v1.6 benchmark evidence, not external real repo maintenance."
+    },
+    {
+      "episode_id": "episode_010",
+      "source_episode_folder": "episode_psi_custody_closure",
+      "category": "controlled_benchmark_evidence",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
+      "allowed_use": "scaffold validation, provenance verification, benchmark-history context only",
+      "reason": "Verified v1.6 benchmark evidence, not external real repo maintenance."
+    }
+  ]
+}

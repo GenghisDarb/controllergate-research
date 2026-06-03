@@ -80,24 +80,24 @@ Normalization status:
 - normalized records: `10`
 - validator: PASS
 - audit: REVIEW_REQUIRED
+- review classification audit: PASS
+- correction_review_episode: `2`
+- controlled_benchmark_evidence: `8`
+- external_real_repo_episode: `0`
+- scoring eligibility count for real repo pilot: `0`
+- scoring allowed: `false`
 - scoring: NOT RUN
 
-The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, and kappa through psi are controlled-benchmark evidence episodes that must be reviewed before being treated as real-trace scoring input.
+The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, and kappa through psi are controlled-benchmark evidence episodes. The review classification confirms none of the current records are external real repo maintenance episodes.
 
-| Field | Value |
-| --- | --- |
-| episode_id | PENDING: `episode_iota_misreport` and `episode_pi_misreport` are known candidate correction events; `episode_001` through `episode_010` are templates. |
-| commit or PR reference | UNAVAILABLE: no commits, PR refs, or remotes available |
-| failing command or CI job | UNAVAILABLE: no real CI/test commands or logs available |
-| failure log path or URL | UNAVAILABLE: no real logs or remote URLs available |
-| patch attempt or diff | UNAVAILABLE: no real commits, diffs, or patch attempts available |
-| files read or changed | UNAVAILABLE: no real episode files available |
-| agent/tool trace | TODO_REQUIRED: starter summaries exist for iota and pi, but original traces/transcripts are not present in the repo. |
-| visible test result | UNAVAILABLE: no real tests or CI runs available |
-| downstream/hidden result | UNAVAILABLE: no downstream result evidence available |
-| stale read / false completion / drift / artifact mismatch signal | UNAVAILABLE: no real episode evidence available |
-| evidence available at decision time | UNAVAILABLE: no real episode evidence available |
-| future outcome evidence forbidden during policy selection | UNAVAILABLE: no real episode evidence available |
+Review classification:
+
+| Category | Count | Allowed use |
+| --- | ---: | --- |
+| correction_review_episode | 2 | report-integrity training/evaluation only |
+| controlled_benchmark_evidence | 8 | scaffold validation, provenance verification, benchmark-history context only |
+| external_real_repo_episode | 0 | required for real repo pilot scoring |
+| excluded_from_scoring | 0 | not allowed for scoring |
 
 ## Non-Episode Evidence: v1.6-psi Custody Closure
 
@@ -117,7 +117,7 @@ Do not load it into `episodes.jsonl` as a real trace episode.
 
 ## Required Next Evidence
 
-Scoring is blocked until at least 10 real episodes have complete evidence bundles and are normalized into `traces/normalized/episodes.jsonl`.
+Scoring is blocked because the reviewed normalized ledger contains 0 `external_real_repo_episode` entries.
 
 To proceed with v1.7-alpha, provide at least one of:
 
@@ -141,7 +141,7 @@ controllergate_v1_7_alpha/traces/raw/episode_001/
 
 If an evidence file is unavailable, the episode bundle should contain a note with `UNAVAILABLE: reason`.
 
-Pending collection instructions are in `controllergate_v1_7_alpha/docs/episode_collection_instructions.md`.
+Pending collection instructions are in `controllergate_v1_7_alpha/docs/episode_collection_instructions.md`. External real repo episodes should be normalized and then classified as `external_real_repo_episode` only when their evidence supports that category.
 
 ## Current Artifact Intake Status
 
@@ -183,4 +183,4 @@ Additional v1.6 ladder package evidence:
 | rho | `28 / 28` | `28 / 28` | 24 entries, 0 mismatches |
 | psi | `51 / 51` | `51 / 51` | package: 8 entries, 0 mismatches; fixture: 3 entries, 0 mismatches |
 
-Remaining blocker: the evidence is still pending, not normalized. A trace-ledger structure review and future-leakage audit must happen before any v1.7-alpha scoring.
+Remaining blocker: the normalized and reviewed ledger has 0 external real repo episodes. External repo evidence collection must happen before any v1.7-alpha real repo scoring.

@@ -11,13 +11,14 @@ This repository currently contains:
 
 v1.6 is frozen at psi based on the supplied separate fixture artifact custody package. The verified claim is bounded to controlled diagnostic benchmark evidence.
 
-v1.7-alpha is not scored yet. Ten completed evidence bundles have been normalized into the trace ledger, validation passes, and the audit currently reports `REVIEW_REQUIRED` before any real-pilot result can be claimed.
+v1.7-alpha is not scored yet. Ten completed evidence bundles have been normalized into the trace ledger, validation passes, and the audit currently reports `REVIEW_REQUIRED`. The review classification layer confirms there are 0 external real repo episodes, so real-pilot scoring remains blocked.
 
 ## Quick Checks
 
 ```powershell
 python controllergate_v1_7_alpha\scripts\validate_ledger.py
 python controllergate_v1_7_alpha\scripts\audit_trace_ledger.py
+python controllergate_v1_7_alpha\scripts\audit_episode_review_classification.py
 ```
 
 In this Codex app session, Python may need to be called with the bundled runtime:
@@ -25,14 +26,16 @@ In this Codex app session, Python may need to be called with the bundled runtime
 ```powershell
 & 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' controllergate_v1_7_alpha\scripts\validate_ledger.py
 & 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' controllergate_v1_7_alpha\scripts\audit_trace_ledger.py
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' controllergate_v1_7_alpha\scripts\audit_episode_review_classification.py
 ```
 
 Expected current result:
 
 - Ledger validation passes with 10 normalized episodes.
 - Trace audit reports `REVIEW_REQUIRED`.
+- Episode review classification passes with 2 correction-review episodes, 8 controlled benchmark evidence episodes, and 0 external real repo episodes.
 - Scoring is not run.
 
 ## Next Evidence Needed
 
-Review the normalized ledger, resolve any audit ambiguity, and only then decide whether v1.7-alpha scoring is allowed. A GitHub remote should be added after this clean normalization milestone if the repo is ready to push.
+Collect and normalize external real repository maintenance episodes before v1.7-alpha real repo scoring. A GitHub remote should be added after this clean classification milestone if the repo is ready to push.

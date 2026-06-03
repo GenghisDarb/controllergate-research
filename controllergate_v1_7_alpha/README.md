@@ -4,7 +4,7 @@ Purpose: real repository / real agent trace pilot.
 
 v1.7-alpha should test whether ControllerGate's discovered causal trace memory improves maintenance decisions on real repository and real agent traces without relying on synthetic issue generation.
 
-This folder is a scaffold only. It does not claim ControllerGate v1.7-alpha works yet.
+This folder contains the v1.7-alpha scaffold, normalized evidence ledger, and review classification layer. It does not claim ControllerGate v1.7-alpha works yet, and real repo scoring remains blocked until external real repo episodes are supplied.
 
 ## Required Directory Shape
 

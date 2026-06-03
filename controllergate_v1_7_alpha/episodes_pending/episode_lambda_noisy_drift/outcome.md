@@ -4,7 +4,7 @@ Classification:
 
 - real ControllerGate v1.6 ladder verification episode
 - package-backed evidence bundle
-- not normalized or scored for v1.7-alpha yet
+- normalized as controlled_benchmark_evidence, not scored for v1.7-alpha
 
 Known verified outcome:
 
@@ -25,4 +25,4 @@ Lesson:
 
 - Memory remained useful under noisy heldout family drift.
 
-Current status: pending, not normalized. No v1.7-alpha scoring is allowed from this pending summary.
+Current status: normalized as controlled_benchmark_evidence. No v1.7-alpha real repo scoring is allowed from this evidence summary.

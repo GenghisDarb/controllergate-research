@@ -10,6 +10,7 @@
 - Added v1.7-alpha episode schema and artifact manifest schema.
 - Added raw episode template files.
 - Added ledger validation and trace audit scripts.
+- Added episode review classification and scoring eligibility audit.
 - Added `episodes_pending/` collection area with 10 generic templates.
 - Added starter pending skeletons for iota and pi correction events.
 - Added `artifacts_intake/` folders for iota and pi.
@@ -31,13 +32,16 @@ v1.7-alpha:
 - Schema is valid JSON.
 - Ledger validation passes with 10 records.
 - Audit reports `REVIEW_REQUIRED`.
+- Episode review classification passes.
+- Classification counts: 2 correction-review episodes, 8 controlled benchmark evidence episodes, 0 external real repo episodes.
+- Scoring eligibility count for v1.7-alpha real repo pilot: 0.
 - Scoring has not been run.
 
 ## Blocker
 
-The project cannot honestly score v1.7-alpha until real repository / real agent maintenance episodes are supplied.
+The project cannot honestly score v1.7-alpha until external real repository / real agent maintenance episodes are supplied and classified as scoring eligible.
 
-Current threshold: at least 10 real episodes with complete evidence bundles must be collected and normalized before scoring.
+Current threshold: at least 10 scoring-eligible external real repo episodes with complete evidence bundles must be collected, normalized, reviewed, and classified before scoring.
 
 Iota/pi package evidence status:
 
@@ -59,12 +63,12 @@ Additional v1.6 ladder evidence status:
 - rho package/rerun evidence: `28 / 28`, SHA manifest 24 entries checked, 0 mismatches.
 - psi package/rerun evidence: `51 / 51`, package SHA manifest 8 entries checked, fixture SHA manifest 3 entries checked, 0 mismatches.
 
-Immediate blocker for scoring: the normalized trace ledger needs review before any v1.7-alpha score claim. The audit is no longer blocked, but it is not a scoring approval.
+Immediate blocker for scoring: the reviewed normalized trace ledger has 0 `external_real_repo_episode` entries. The audit is no longer blocked, but it is not a scoring approval.
 
 Audit review reasons:
 
 - iota and pi are false-success correction records with original builder/critic transcript custody still marked for review.
-- kappa, lambda, mu, nu, xi, omicron, rho, and psi are controlled-benchmark evidence episodes and must be reviewed before being treated as real-trace scoring input.
+- kappa, lambda, mu, nu, xi, omicron, rho, and psi are controlled-benchmark evidence episodes and are not eligible for the v1.7-alpha real repo pilot score.
 
 Required minimum next input:
 
@@ -80,4 +84,4 @@ Do not claim:
 - ControllerGate supervises real agent tool loops;
 - hidden/downstream improvement on real traces.
 
-Those claims require a nonempty real episode ledger and a passing future-leakage audit.
+Those claims require scoring-eligible external real repo episodes, review classification approval, and a passing future-leakage audit.
