@@ -77,18 +77,18 @@ These 10 episodes have also been normalized into `traces/normalized/episodes.jso
 
 Normalization status:
 
-- normalized records: `14`
+- normalized records: `18`
 - validator: PASS
 - audit: REVIEW_REQUIRED
 - review classification audit: PASS
 - correction_review_episode: `2`
 - controlled_benchmark_evidence: `8`
-- external_real_repo_episode: `4`
+- external_real_repo_episode: `8`
 - scoring eligibility count for real repo pilot: `0`
 - scoring allowed: `false`
 - scoring: NOT RUN
 
-The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, kappa through psi are controlled-benchmark evidence episodes, and the first four TORUS-Theory external real repo episodes are fresh-local-rerun evidence with unavailable historical job logs and no original agent transcript custody.
+The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, kappa through psi are controlled-benchmark evidence episodes, and the eight TORUS-Theory external real repo episodes are review-required due unavailable historical job logs, bounded rerun scope, or missing original agent transcript custody.
 
 Review classification:
 
@@ -96,7 +96,7 @@ Review classification:
 | --- | ---: | --- |
 | correction_review_episode | 2 | report-integrity training/evaluation only |
 | controlled_benchmark_evidence | 8 | scaffold validation, provenance verification, benchmark-history context only |
-| external_real_repo_episode | 4 | review-required external ingestion evidence only |
+| external_real_repo_episode | 8 | review-required external ingestion evidence only |
 | excluded_from_scoring | 0 | not allowed for scoring |
 
 ## Non-Episode Evidence: v1.6-psi Custody Closure
@@ -117,13 +117,13 @@ Do not load it into `episodes.jsonl` as a real trace episode.
 
 ## Required Next Evidence
 
-Scoring is blocked because the reviewed normalized ledger contains 0 scoring-eligible `external_real_repo_episode` entries. The four normalized TORUS-Theory external rows are review-required ingestion evidence, not scoring approval.
+Scoring is blocked because the reviewed normalized ledger contains 0 scoring-eligible `external_real_repo_episode` entries. The eight normalized TORUS-Theory external rows are review-required ingestion evidence, not scoring approval.
 
 ## External Source Discovery
 
 First external source inspected: `GenghisDarb/TORUS-Theory`.
 
-Discovery result: viable candidate source. Four reviewed pending TORUS episodes have now been normalized as review-required external real repo episodes.
+Discovery result: viable candidate source. Eight reviewed TORUS episodes have now been normalized as review-required external real repo episodes.
 
 TORUS-Theory has real GitHub pull requests, merged maintenance patches, notebook repairs, CI workflow edits, and GitHub Actions run/job metadata. Candidate details are recorded in `controllergate_v1_7_alpha/traces/raw/external_sources/torus_theory_candidate_inventory.md`.
 
@@ -141,7 +141,7 @@ Current external candidate status:
 
 | Source | Candidate PRs | Evidence status | Scoring impact |
 | --- | --- | --- | --- |
-| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20 are normalized as review-required external real repo episodes; #32/#33 now have pending evidence bundles only; others remain candidate metadata only | none; scoring eligibility count remains 0 |
+| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20/#32/#33 are normalized as review-required external real repo episodes; others remain candidate metadata only | none; scoring eligibility count remains 0 |
 
 Reviewed and normalized TORUS episode folders:
 
@@ -153,17 +153,17 @@ Reviewed and normalized TORUS episode folders:
 PR #32/#33 target status:
 
 - report: `controllergate_v1_7_alpha/reports/torus_pr32_pr33_target_report.md`
-- result: four pending external CI repair evidence bundles created, but not normalized
+- result: four external CI repair evidence bundles reviewed and normalized as review-required external real repo episodes
 - blocker: historical job logs returned HTTP 410; rerun attempts returned HTTP 403 because runs were over one month old
 
-PR #32/#33 pending bundles:
+PR #32/#33 normalized review-required bundles:
 
 - `episode_torus_pr32_notebook_kernel_failure`: bounded local papermill rerun failed with missing kernel metadata.
 - `episode_torus_pr32_validation_workflow_failure`: validation workflow/job failure metadata captured; local rerun unavailable pending narrower subcommands.
 - `episode_torus_pr33_notebook_selector_repair`: bounded local `tools/list_notebooks.py` rerun passed.
 - `episode_torus_pr33_readme_guard_warning_only`: bounded local README guard rerun exited 0 while printing missing README notices.
 
-These four bundles are pending evidence only. They are not normalized, not scoring eligible, and do not change the ledger counts.
+These four bundles are normalized evidence only. They remain review-required, not scoring eligible, and do not permit scoring.
 
 To proceed with v1.7-alpha, provide at least one of:
 
@@ -229,4 +229,4 @@ Additional v1.6 ladder package evidence:
 | rho | `28 / 28` | `28 / 28` | 24 entries, 0 mismatches |
 | psi | `51 / 51` | `51 / 51` | package: 8 entries, 0 mismatches; fixture: 3 entries, 0 mismatches |
 
-Remaining blocker: the normalized and reviewed ledger has 4 external real repo episodes but 0 scoring-eligible external real repo episodes. Additional external repo evidence collection and review must happen before any v1.7-alpha real repo scoring.
+Remaining blocker: the normalized and reviewed ledger has 8 external real repo episodes but 0 scoring-eligible external real repo episodes. Additional external repo evidence collection and review must happen before any v1.7-alpha real repo scoring.

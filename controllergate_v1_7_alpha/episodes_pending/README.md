@@ -17,7 +17,7 @@ Current status:
   - `episode_torus_pr19_numpy_assertion_failure`
   - `episode_torus_pr20_numpy_assertion_closed_unmerged`
 - PR #32/#33 target report exists at `../reports/torus_pr32_pr33_target_report.md`.
-- PR #32/#33 pending evidence folders have been created but not normalized:
+- PR #32/#33 evidence folders have been reviewed and normalized as review-required external real repo episodes:
   - `episode_torus_pr32_notebook_kernel_failure`
   - `episode_torus_pr32_validation_workflow_failure`
   - `episode_torus_pr33_notebook_selector_repair`

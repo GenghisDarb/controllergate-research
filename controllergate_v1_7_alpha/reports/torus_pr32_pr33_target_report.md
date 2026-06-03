@@ -1,6 +1,6 @@
-# TORUS PR #32/#33 Pending Evidence Target Report
+# TORUS PR #32/#33 Evidence Review Report
 
-Status: pending evidence collected. No PR #32/#33 episode has been normalized or scored.
+Status: pending evidence collected and review-normalized. No PR #32/#33 episode is scoring-eligible, and ControllerGate scoring was not run.
 
 Source repo: `GenghisDarb/TORUS-Theory`
 
@@ -10,9 +10,9 @@ Generated: 2026-06-03 session date.
 
 PR #32 and PR #33 form a promising external real repo CI repair cluster. Both are merged PRs from July 5, 2025. They touch actual CI workflow behavior, notebook execution, dependency setup, linting, README checks, and supporting scripts.
 
-The cluster now has four pending evidence bundles. It is not yet suitable for normalization because full historical GitHub Actions job logs are unavailable through the log endpoint, only bounded local reruns were performed, and no original agent/tool transcript custody is available.
+The cluster now has four evidence bundles normalized as review-required external real repo episodes. They are not scoring-eligible because full historical GitHub Actions job logs are unavailable through the log endpoint, only bounded local reruns were performed, and no original agent/tool transcript custody is available.
 
-Pending bundles created in this pass:
+Review-normalized bundles:
 
 - `episode_torus_pr32_notebook_kernel_failure`
 - `episode_torus_pr32_validation_workflow_failure`
@@ -85,7 +85,7 @@ Suitability for future `external_real_repo_episode` normalization:
 
 - promising, but review required.
 - Best use: review `episode_torus_pr32_notebook_kernel_failure` first because it has a concrete bounded local rerun failure.
-- Do not normalize until review decides whether bounded local rerun evidence plus unavailable historical logs is sufficient.
+- Normalized as review-required external real repo evidence. Do not make it scoring-eligible until review decides whether bounded local rerun evidence plus unavailable historical logs is sufficient.
 
 ## PR #33
 
@@ -141,7 +141,7 @@ Available patch evidence:
   - `tests/README_guard.py`
   - `tools/list_notebooks.py`
 - Patch diff is available from GitHub as `https://github.com/GenghisDarb/TORUS-Theory/pull/33.diff`.
-- Patch diff was not stored locally in this report because no PR #33 pending episode bundle has been created yet.
+- Patch diff excerpt is stored in the PR #33 normalized evidence bundles.
 
 Local rerun feasibility:
 
@@ -157,16 +157,16 @@ Local rerun feasibility:
 
 Suitability for future `external_real_repo_episode` normalization:
 
-- strong candidate, pending review.
+- strong candidate, review-required after normalization.
 - Good follow-up episode because it is a focused repair after the broader PR #32 cluster.
-- Do not normalize until the pending bundles are reviewed and the boundary between bounded local evidence and unavailable historical logs is accepted.
+- Do not make scoring-eligible until the boundary between bounded local evidence and unavailable historical logs is accepted.
 
 ## Current Gate Impact
 
 This report does not change the normalized ledger.
 
-- normalized episodes remain: `14`
-- normalized external real repo episodes remain: `4`
+- normalized episodes: `18`
+- normalized external real repo episodes: `8`
 - scoring eligibility count remains: `0`
 - scoring allowed remains: `false`
 - scoring: NOT RUN

@@ -87,7 +87,10 @@ def audit_episode(episode: dict[str, Any]) -> tuple[list[str], list[str]]:
     if episode.get("future_leakage_risk") == "review_required":
         review.append(f"{episode_id}: future_leakage_risk is review_required")
     if episode.get("runner_completed") is not True:
-        findings.append(f"{episode_id}: runner_completed is not true")
+        if source_type == "real_repo":
+            review.append(f"{episode_id}: runner_completed is not true; external evidence requires rerun-availability review")
+        else:
+            findings.append(f"{episode_id}: runner_completed is not true")
     if episode.get("analyzer_completed") is not True:
         if source_type == "real_repo":
             review.append(f"{episode_id}: analyzer_completed is not true; local rerun evidence requires review")

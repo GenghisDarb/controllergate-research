@@ -9,14 +9,14 @@
     "excluded_from_scoring"
   ],
   "summary": {
-    "normalized_episode_count": 14,
+    "normalized_episode_count": 18,
     "correction_review_episode": 2,
     "controlled_benchmark_evidence": 8,
-    "external_real_repo_episode": 4,
+    "external_real_repo_episode": 8,
     "excluded_from_scoring": 0,
     "scoring_eligibility_count_for_v1_7_alpha_real_repo_claim": 0,
     "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
-    "scoring_allowed_reason": "Four normalized external real repo episodes are review-required; fewer than 10 scoring-eligible external real repo episodes exist."
+    "scoring_allowed_reason": "Eight normalized external real repo episodes are review-required; fewer than 10 scoring-eligible external real repo episodes exist."
   },
   "episodes": [
     {
@@ -155,6 +155,61 @@
       "allowed_use": "external real repo ingestion review only",
       "evidence_status": "fresh local rerun evidence",
       "reason": "Fresh local rerun reproduced the dependency/version assertion failure in the current environment; PR #20 was closed unmerged and historical metadata should not be rewritten as a historical failure."
+    },
+    {
+      "episode_id": "episode_015",
+      "source_episode_folder": "episode_torus_pr32_notebook_kernel_failure",
+      "category": "external_real_repo_episode",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 32,
+      "outcome_type": "notebook_kernel_failure",
+      "verified_result": "failed",
+      "failure_reason": "No kernel name found in notebook and no override provided.",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": "review_required",
+      "allowed_use": "external real repo ingestion review only",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "reason": "Fresh bounded local rerun reproduced the missing-kernel notebook execution failure; historical GitHub Actions log text and original agent trace remain unavailable."
+    },
+    {
+      "episode_id": "episode_016",
+      "source_episode_folder": "episode_torus_pr32_validation_workflow_failure",
+      "category": "external_real_repo_episode",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 32,
+      "outcome_type": "validation_workflow_failure",
+      "verified_result": "review_required",
+      "failure_reason": "Execute Validation Notebooks workflow failed; exact command/log unavailable.",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": "review_required",
+      "allowed_use": "external real repo ingestion review only",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "reason": "Workflow/job failure metadata is present, but historical logs and a bounded local rerun are unavailable."
+    },
+    {
+      "episode_id": "episode_017",
+      "source_episode_folder": "episode_torus_pr33_notebook_selector_repair",
+      "category": "external_real_repo_episode",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 33,
+      "outcome_type": "notebook_selector_repair",
+      "verified_result": "passed",
+      "positive_signal": "tools/list_notebooks.py exited 0 and listed notebooks while excluding PhaseA",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": "review_required",
+      "allowed_use": "external real repo ingestion review only",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "reason": "Fresh bounded selector rerun passed, but the full notebook execution loop and historical GitHub Actions log text remain unavailable."
+    },
+    {
+      "episode_id": "episode_018",
+      "source_episode_folder": "episode_torus_pr33_readme_guard_warning_only",
+      "category": "external_real_repo_episode",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 33,
+      "outcome_type": "readme_guard_warning_only",
+      "verified_result": "warning_only",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": "review_required",
+      "allowed_use": "external real repo ingestion review only",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "reason": "Fresh bounded README guard rerun exited 0 while printing warnings; it is not the same as the historical shell check-readmes job."
     }
   ]
 }
