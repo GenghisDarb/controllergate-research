@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://controllergate.local/schemas/v1_7_alpha_artifact_manifest.schema.json",
+  "title": "ControllerGate v1.7-alpha Episode Artifact Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "episode_id",
+    "artifacts"
+  ],
+  "properties": {
+    "episode_id": {
+      "type": "string",
+      "pattern": "^episode_[0-9]{3,}$"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "path",
+          "sha256",
+          "available_at_decision_time",
+          "custody_status"
+        ],
+        "properties": {
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "sha256": {
+            "type": ["string", "null"],
+            "pattern": "^[a-fA-F0-9]{64}$"
+          },
+          "available_at_decision_time": { "type": "boolean" },
+          "custody_status": {
+            "type": "string",
+            "enum": ["verified", "unavailable", "tampered", "not_checked"]
+          },
+          "unavailable_reason": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

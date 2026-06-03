@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://controllergate.local/schemas/v1_7_alpha_episode.schema.json",
+  "title": "ControllerGate v1.7-alpha Real Trace Episode",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "episode_id",
+    "source_type",
+    "repo",
+    "repo_commit",
+    "branch",
+    "decision_time",
+    "failure_type",
+    "visible_failure",
+    "failing_command",
+    "failure_log",
+    "patch_attempted",
+    "patch_diff",
+    "files_read",
+    "files_written",
+    "agent_trace",
+    "visible_tests_passed",
+    "downstream_failed_later",
+    "agent_claim",
+    "claim_matched_reality",
+    "stale_read_detected",
+    "dependency_or_config_drift",
+    "generated_artifact_mismatch",
+    "available_at_decision_time",
+    "prohibited_future_fields",
+    "evidence_status"
+  ],
+  "properties": {
+    "episode_id": {
+      "type": "string",
+      "pattern": "^episode_[0-9]{3,}$"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["real_repo", "real_agent_trace", "controlled_benchmark", "unavailable"]
+    },
+    "repo": {
+      "type": "string"
+    },
+    "repo_commit": {
+      "type": ["string", "null"]
+    },
+    "branch": {
+      "type": ["string", "null"]
+    },
+    "decision_time": {
+      "type": ["string", "null"],
+      "description": "ISO-8601 timestamp, or null if unavailable."
+    },
+    "failure_type": {
+      "type": "string"
+    },
+    "visible_failure": {
+      "type": ["string", "null"]
+    },
+    "failing_command": {
+      "type": ["string", "null"]
+    },
+    "failure_log": {
+      "type": ["string", "null"]
+    },
+    "patch_attempted": {
+      "type": "boolean"
+    },
+    "patch_diff": {
+      "type": ["string", "null"]
+    },
+    "files_read": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "files_written": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "agent_trace": {
+      "type": ["string", "null"]
+    },
+    "visible_tests_passed": {
+      "type": ["boolean", "null"]
+    },
+    "downstream_failed_later": {
+      "type": ["boolean", "null"]
+    },
+    "agent_claim": {
+      "type": ["string", "null"]
+    },
+    "claim_matched_reality": {
+      "type": ["boolean", "null"]
+    },
+    "stale_read_detected": {
+      "type": ["boolean", "null"]
+    },
+    "dependency_or_config_drift": {
+      "type": ["boolean", "null"]
+    },
+    "generated_artifact_mismatch": {
+      "type": ["boolean", "null"]
+    },
+    "memory_keys": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Evidence-derived keys only; no final labels or future outcomes."
+    },
+    "available_at_decision_time": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "prohibited_future_fields": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evidence_status": {
+      "type": "string",
+      "enum": ["complete", "partial", "unavailable"]
+    },
+    "unavailable_reasons": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
