@@ -26,12 +26,13 @@ Outcome-only evidence currently available:
 - Merged PR status.
 - Successful PairCorr notebook workflow metadata.
 - Successful CI Full workflow metadata.
+- Fresh local rerun reproduced PairCorr notebook success and found `TORUS-POSITIVE`.
 
 Missing trace evidence:
 
 - Original agent/tool transcript.
 - Exact file reads before the repair decision.
 - Historical CI job log text.
-- Exact failing command from the predecessor failure.
+- Historical CI job log text from GitHub Actions.
 
 Current classification: external real repo candidate only. Do not normalize or score yet.

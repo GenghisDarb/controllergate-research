@@ -82,7 +82,8 @@ Current external candidate source:
 
 - `GenghisDarb/TORUS-Theory`
 - strongest initial candidates: PR #16, PR #15, PR #17, PR #19/#20, and PR #32/#33/#34
-- blocker: sampled historical GitHub Actions job logs returned HTTP 410, so complete bundles must either capture fresh reruns, locate archived logs, or mark logs explicitly unavailable.
+- PR #15 and PR #16 now have pending bundles with captured PR diffs and fresh local rerun evidence.
+- blocker: sampled historical GitHub Actions job logs returned HTTP 410, and original agent/tool traces are unavailable, so normalization requires review of whether fresh local reruns plus PR metadata are sufficient.
 
 ## Do Not Claim Yet
 

@@ -7,6 +7,8 @@ Required artifacts:
 - Job metadata: job id 43253882370, run-paircorr-benchmark, failure
 - Patch diff: captured in `patch_diff.diff` from GitHub PR diff
 - CI job log: UNAVAILABLE, GitHub Actions job log API returned HTTP 410
+- Fresh local rerun stdout: `local_rerun_stdout.txt`
+- Fresh local rerun stderr: `local_rerun_stderr.txt`
 - Original agent/tool trace: TODO_REQUIRED
 
 Custody status:
@@ -14,4 +16,10 @@ Custody status:
 - GitHub metadata available.
 - Patch stored locally in the pending bundle.
 - Logs unavailable through sampled endpoint.
+- Fresh local rerun completed in local scratch clone.
 - No local SHA256 manifest created yet.
+
+Fresh local rerun SHA256:
+
+- `local_rerun_stdout.txt`: `F01A374E9C81E3DB89B3A42940C4D6A5447684986A1296E42BF13F196EED6295`
+- `local_rerun_stderr.txt`: `88DF7DAE5D25EBA43489F3423C047BD24DD78283A8308E145702F29DFD1EFAD8`

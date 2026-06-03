@@ -1,3 +1,5 @@
+Historical GitHub Actions log status:
+
 UNAVAILABLE: GitHub Actions job log API returned HTTP 410 for sampled historical job logs.
 
 Available CI metadata:
@@ -14,4 +16,19 @@ Available CI metadata:
 - Workflow run: 15372746936, CI Full, success
 - Workflow run: 15372746950, CI Full, success
 
-TODO_REQUIRED: locate archived job logs, rerun equivalent workflow, or preserve this unavailable-log reason during normalization review.
+Fresh local rerun:
+
+- Date: 2026-06-03
+- Checkout: local scratch clone at `e8e5c5b181e83261c2a2e12ff4a287d824053b15`
+- Command: `python -m papermill notebooks/validation/synthetic/PairCorr_SideBand_Benchmark.ipynb out_pr16.ipynb`
+- Follow-up check: `TORUS-POSITIVE` found in output notebook.
+- Exit code: 0
+- Result: repair success reproduced locally.
+- Local stdout: `local_rerun_stdout.txt`
+- Local stderr: `local_rerun_stderr.txt`
+- Local output notebook: `local_rerun_output.ipynb`
+
+Important distinction:
+
+- Historical GitHub job log remains unavailable.
+- Fresh local rerun evidence is available and should be treated as rerun evidence, not as original CI log custody.

@@ -26,12 +26,13 @@ Outcome-only evidence currently available:
 - Merged PR status.
 - Workflow run/job conclusion metadata.
 - Later related repair candidate PR #16.
+- Fresh local rerun reproduced the notebook JSON failure.
 
 Missing trace evidence:
 
 - Original agent/tool transcript.
 - Exact file reads before the repair decision.
 - Historical CI job log text.
-- Exact failing command.
+- Historical CI job log text from GitHub Actions.
 
 Current classification: external real repo candidate only. Do not normalize or score yet.

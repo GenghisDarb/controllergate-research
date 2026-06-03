@@ -11,10 +11,12 @@ Known outcome:
 - PR #15 was merged.
 - The PR body says it superseded PRs #9 through #14.
 - Sampled workflow metadata for the PR head includes `Execute PairCorr Notebooks` failure.
+- Fresh local rerun at the PR #15 head reproduced failure with exit code `1`.
+- Fresh local rerun failure: `nbformat.reader.NotJSONError: Notebook does not appear to be JSON`.
 
 Important caveat:
 
 - Full historical job logs are unavailable through the GitHub job-log endpoint, which returned HTTP 410.
-- The exact failing command and full failure text are not yet captured.
+- The original GitHub CI failure text is unavailable; the local rerun failure text is captured in `local_rerun_stderr.txt`.
 
 Current status: pending external candidate, not normalized. No v1.7-alpha scoring is allowed from this evidence summary.

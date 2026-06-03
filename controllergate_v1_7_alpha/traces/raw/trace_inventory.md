@@ -127,13 +127,19 @@ Discovery result: viable candidate source, not yet normalized evidence.
 
 TORUS-Theory has real GitHub pull requests, merged maintenance patches, notebook repairs, CI workflow edits, and GitHub Actions run/job metadata. Candidate details are recorded in `controllergate_v1_7_alpha/traces/raw/external_sources/torus_theory_candidate_inventory.md`.
 
-Important blocker: sampled historical GitHub Actions job logs returned HTTP 410 from the job-log endpoint. Workflow run metadata and job conclusions are available, but complete CI logs are not currently available through that endpoint.
+Important blocker: sampled historical GitHub Actions job logs returned HTTP 410 from the job-log endpoint. Workflow run metadata and job conclusions are available, but original GitHub-hosted CI logs are not currently available through that endpoint.
+
+Fresh local rerun evidence has been added for the first linked candidate pair:
+
+- PR #15 local rerun reproduced failure at head SHA `6f6380bcf75c7488b98d7a903eb51ede50e21435`: `nbformat.reader.NotJSONError`.
+- PR #16 local rerun reproduced success at head SHA `e8e5c5b181e83261c2a2e12ff4a287d824053b15`: `TORUS-POSITIVE` found in output notebook.
+- These are local reruns, not original GitHub Actions logs.
 
 Current external candidate status:
 
 | Source | Candidate PRs | Evidence status | Scoring impact |
 | --- | --- | --- | --- |
-| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | candidate metadata only; pending evidence bundles required | none; external_real_repo_episode count remains 0 |
+| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16 pending bundles include PR diffs plus local reruns; others remain candidate metadata only | none; external_real_repo_episode count remains 0 |
 
 To proceed with v1.7-alpha, provide at least one of:
 

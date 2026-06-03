@@ -14,20 +14,26 @@ TORUS-Theory is a viable external source candidate for v1.7-alpha because it has
 
 It is not yet sufficient for scoring because complete episode bundles have not been created and historical GitHub Actions job logs are currently unavailable through the job-log endpoint.
 
-Observed log blocker:
+Observed historical log blocker:
 
 ```text
 GitHub Actions job log fetch returned HTTP 410 for sampled historical jobs.
 ```
 
-Interpretation: workflow run and job metadata are available, but full job logs may have expired. Any episode that depends on those logs must record `UNAVAILABLE: GitHub Actions job log API returned 410` unless fresh reruns or archived logs are supplied.
+Interpretation: workflow run and job metadata are available, but full historical job logs may have expired. Any episode that depends on those logs must record `UNAVAILABLE: GitHub Actions job log API returned 410` unless fresh reruns or archived logs are supplied.
+
+Fresh local rerun status:
+
+- PR #15 local rerun completed and reproduced failure: `nbformat.reader.NotJSONError: Notebook does not appear to be JSON`.
+- PR #16 local rerun completed and reproduced success: `TORUS-POSITIVE` found in the output notebook.
+- These are local rerun outputs, not original GitHub-hosted CI logs.
 
 ## Candidate PRs
 
 | Candidate | PR | Status | Head SHA | Evidence available | Missing / blocked evidence | Initial priority |
 | --- | ---: | --- | --- | --- | --- | --- |
-| torus_pr_016_paircorr_rebuild | #16 | merged | `e8e5c5b181e83261c2a2e12ff4a287d824053b15` | PR metadata, local PR diff, body describes corrupt notebook replacement, successful PairCorr workflow metadata | Full historical job logs returned 410; predecessor failure logs need capture or explicit unavailable note | high |
-| torus_pr_015_notebook_force_clean | #15 | merged | `6f6380bcf75c7488b98d7a903eb51ede50e21435` | PR metadata, local PR diff, body describes XML-to-nbformat cleanup, PairCorr workflow failure metadata | Full historical failure log returned 410; needs outcome linkage to #16 | high |
+| torus_pr_016_paircorr_rebuild | #16 | merged | `e8e5c5b181e83261c2a2e12ff4a287d824053b15` | PR metadata, local PR diff, body describes corrupt notebook replacement, successful PairCorr workflow metadata, fresh local rerun success | Original GitHub job logs returned 410; original agent/tool trace unavailable | high |
+| torus_pr_015_notebook_force_clean | #15 | merged | `6f6380bcf75c7488b98d7a903eb51ede50e21435` | PR metadata, local PR diff, body describes XML-to-nbformat cleanup, PairCorr workflow failure metadata, fresh local rerun failure | Original GitHub job logs returned 410; original agent/tool trace unavailable | high |
 | torus_pr_017_latex_workflow | #17 | merged | `b1efc970915b84f9bcdc70cff76eed34cc9bdf93` | PR metadata, workflow patch target, body describes XeTeX/lacheck/portable grep/log dumping changes, CI success metadata | Need actual book workflow failure/success logs or archived output | medium |
 | torus_pr_019_paircorr_kernelspec | #19 | merged | `4df944b396fc683ba0ed1cc6e2b7386033825bff` | PR metadata, one-file notebook patch, CI Full success metadata, PairCorr failure metadata | Full job logs returned 410; relationship to #20/#16 needs evidence review | medium |
 | torus_pr_020_paircorr_hann_fallback | #20 | closed unmerged | `b8514854d032286cbbf6e8b2f0607fa50502384e` | PR metadata, one-file notebook patch, explicit scipy hann fallback title | Not merged; needs outcome evidence and reason for closure before use | medium |
