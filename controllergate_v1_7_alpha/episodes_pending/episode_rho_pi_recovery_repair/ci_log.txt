@@ -1,0 +1,70 @@
+# CI / Verification Log: Rho Pi Recovery Repair
+
+Temporary extraction source:
+
+`controllergate_v1_7_alpha/artifacts_intake/rho/ControllerGate_v1_6_rho_CounterStrategyRecoveryStabilizationTrial_Package.zip`
+
+Package SHA256 manifest verification:
+
+```text
+checked entries: 24
+mismatches: 0
+```
+
+Packaged decision report:
+
+```json
+{
+  "passed": 28,
+  "total": 28
+}
+```
+
+Package runner command:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.run_agent_maintenance_trial --config <package lockfile> --out rerun_outputs
+```
+
+Runner status:
+
+```text
+status: completed
+exit: 0
+output: {
+  "wrote": "rerun_outputs",
+  "issues": 612,
+  "rows": 3672
+}
+```
+
+Analyzer command:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs rerun_outputs
+```
+
+Analyzer status:
+
+```text
+exit: 0
+output: {
+  "passed": 28,
+  "total": 28
+}
+```
+
+Rerun decision report:
+
+```json
+{
+  "passed": 28,
+  "total": 28
+}
+```
+
+Rerun decision report SHA256:
+
+```text
+5cb3ed6bd724fa8a518288d08a2aa789627e9e66ef0d5a15bc3ff5914ea820b8
+```

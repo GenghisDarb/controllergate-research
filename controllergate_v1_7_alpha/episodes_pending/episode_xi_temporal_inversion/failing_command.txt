@@ -1,0 +1,13 @@
+# Verification Command: Xi Temporal Inversion
+
+This episode is a verification/custody evidence episode, not a production failure command.
+
+Commands used in the temporary package extraction:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.run_agent_maintenance_trial --config <package lockfile> --out rerun_outputs
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs rerun_outputs
+```
+
+Packaged result: `23 / 23`.
+Rerun result: `23 / 23`.

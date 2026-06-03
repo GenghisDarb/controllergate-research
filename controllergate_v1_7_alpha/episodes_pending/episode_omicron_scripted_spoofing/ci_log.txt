@@ -1,0 +1,66 @@
+# CI / Verification Log: Omicron Scripted Spoofing
+
+Temporary extraction source:
+
+`controllergate_v1_7_alpha/artifacts_intake/omicron/ControllerGate_v1_6_omicron_AdversarialStaleMemorySpoofingTrial_Package.zip`
+
+Package SHA256 manifest verification:
+
+```text
+checked entries: 24
+mismatches: 0
+```
+
+Packaged decision report:
+
+```json
+{
+  "passed": 25,
+  "total": 25
+}
+```
+
+Package runner command:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.run_agent_maintenance_trial --config <package lockfile> --out rerun_outputs
+```
+
+Runner status:
+
+```text
+status: completed
+exit: 0
+output: 
+```
+
+Analyzer command:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs rerun_outputs
+```
+
+Analyzer status:
+
+```text
+exit: 0
+output: {
+  "passed": 25,
+  "total": 25
+}
+```
+
+Rerun decision report:
+
+```json
+{
+  "passed": 25,
+  "total": 25
+}
+```
+
+Rerun decision report SHA256:
+
+```text
+40352d766cfa43e1d8a11bbeaf411f2a51231265eb1f0edc2fde76dfe43173a6
+```

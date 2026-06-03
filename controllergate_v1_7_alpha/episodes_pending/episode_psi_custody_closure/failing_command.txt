@@ -1,0 +1,15 @@
+# Verification Command: Psi Custody Closure
+
+This episode is a verification/custody evidence episode, not a production failure command.
+
+Commands used in the temporary package extraction:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.run_agent_maintenance_trial --config <package lockfile> --out rerun_outputs
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs rerun_outputs
+```
+
+For psi, the runner used the separately supplied external fixture artifact with matching SHA256: `1231ed48b78421f2850f1bf776d6ff9fdce12a94429ef8a83b4b6fccdb7f9c0d`.
+
+Packaged result: `51 / 51`.
+Rerun result: `51 / 51`.

@@ -1,0 +1,65 @@
+# CI / Verification Log: Psi Custody Closure
+
+Temporary extraction source:
+
+`controllergate_v1_7_alpha/artifacts_intake/psi/ControllerGate_v1_6_psi_SeparateFixtureArtifactCustodyTrial_Package.zip`
+
+Package SHA256 manifest verification:
+
+```text
+checked entries: 8
+mismatches: 0
+```
+
+Packaged decision report:
+
+```json
+{
+  "passed": 51,
+  "total": 51
+}
+```
+
+Package runner command:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.run_agent_maintenance_trial --config <package lockfile> --out rerun_outputs
+```
+
+For psi, the command included `--fixture-artifact <temp copy of verified external fixture artifact>` because Python was blocked from reading the OneDrive workspace fixture path directly. The temp fixture SHA256 matched the repo fixture SHA256.
+
+Runner status:
+
+```text
+status: completed
+exit: 0
+output: benchmark complete: 51 / 51 passed; separate external fixture artifact verified; verified fixture artifact only scored
+```
+
+Analyzer command:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs rerun_outputs
+```
+
+Analyzer status:
+
+```text
+exit: 0
+output: decision report: 51 / 51 passed; all criteria passed
+```
+
+Rerun decision report:
+
+```json
+{
+  "passed": 51,
+  "total": 51
+}
+```
+
+Rerun decision report SHA256:
+
+```text
+0f98b071ac39414f9fd2c28b50101a711d6cfa5e8df3fa5c07bcf08e78451130
+```

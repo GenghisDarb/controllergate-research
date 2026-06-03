@@ -60,10 +60,18 @@ Current pending bundles:
 - `episode_001` through `episode_010`: generic real maintenance episode templates.
 - `episode_iota_misreport`: starter skeleton for the known v1.6-iota false success/report mismatch correction.
 - `episode_pi_misreport`: starter skeleton for the known v1.6-pi false success/failed criterion correction.
+- `episode_kappa_verified_recovery`: package-backed v1.6-kappa recovery evidence.
+- `episode_lambda_noisy_drift`: package-backed v1.6-lambda noisy drift evidence.
+- `episode_mu_discovery_vs_predefinition`: package-backed v1.6-mu discovery-vs-predefinition evidence.
+- `episode_nu_sparse_recurrence`: package-backed v1.6-nu sparse recurrence evidence.
+- `episode_xi_temporal_inversion`: package-backed v1.6-xi temporal inversion evidence.
+- `episode_omicron_scripted_spoofing`: package-backed v1.6-omicron scripted spoofing evidence.
+- `episode_rho_pi_recovery_repair`: package-backed v1.6-rho pi-recovery repair evidence.
+- `episode_psi_custody_closure`: package-backed v1.6-psi custody closure evidence.
 
 Artifact intake folders have been created under `controllergate_v1_7_alpha/artifacts_intake/`. The iota and pi package ZIPs are present, and their notebooks were extracted from inside the supplied packages into the expected intake filenames.
 
-The iota and pi pending episodes now contain package-backed analyzer, decision report, and SHA manifest evidence. Original builder/critic transcript custody remains TODO_REQUIRED, so no episode has been normalized into `traces/normalized/episodes.jsonl`.
+The iota, pi, kappa, lambda, mu, nu, xi, omicron, rho, and psi pending episodes now contain package-backed runner/analyzer, decision report, and SHA manifest evidence. Original builder/critic transcript custody is still TODO_REQUIRED if these are promoted into normalized real-trace episodes, so no episode has been normalized into `traces/normalized/episodes.jsonl`.
 
 | Field | Value |
 | --- | --- |
@@ -151,4 +159,17 @@ Pi package evidence:
 - package runner plus analyzer rerun: `27 / 28`
 - SHA manifest verification: 24 entries checked, 0 mismatches
 
-Remaining blocker: original builder and critic transcript custody for the reported false success claims is still TODO_REQUIRED.
+Additional v1.6 ladder package evidence:
+
+| Episode | Packaged result | Rerun result | SHA manifest |
+| --- | --- | --- | --- |
+| kappa | `20 / 20` | `20 / 20` | 24 entries, 0 mismatches |
+| lambda | `20 / 20` | `20 / 20` | 20 entries, 0 mismatches |
+| mu | `20 / 20` | `20 / 20` | 20 entries, 0 mismatches |
+| nu | `21 / 21` | `21 / 21` | 24 entries, 0 mismatches |
+| xi | `23 / 23` | `23 / 23` | 25 entries, 0 mismatches |
+| omicron | `25 / 25` | `25 / 25` | 24 entries, 0 mismatches |
+| rho | `28 / 28` | `28 / 28` | 24 entries, 0 mismatches |
+| psi | `51 / 51` | `51 / 51` | package: 8 entries, 0 mismatches; fixture: 3 entries, 0 mismatches |
+
+Remaining blocker: the evidence is still pending, not normalized. A trace-ledger structure review and future-leakage audit must happen before any v1.7-alpha scoring.

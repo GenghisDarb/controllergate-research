@@ -1,0 +1,27 @@
+Required artifacts:
+
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/psi/ControllerGate_v1_6_psi_SeparateFixtureArtifactCustodyTrial_Package.zip`
+  - SHA256: `0bfd1541f4c8e542efd846a72e30b60fdbe3657cae6f95c6fdff8a8a14f87243`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/psi/ControllerGate_v1_6_psi_SeparateFixtureArtifactCustodyTrial.ipynb`
+  - SHA256: `d3211e046f04c5f318911bd5010f41c9704d01fefd5f7dfc547d068b12622050`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/psi/ControllerGate_v1_6_psi_ExternalFixtureArtifact.zip`
+  - SHA256: `1231ed48b78421f2850f1bf776d6ff9fdce12a94429ef8a83b4b6fccdb7f9c0d`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: package-internal `outputs\decision_report.json`
+  - SHA256 from temporary extraction: `ba583c17c1cefcdecdcf11cbcbf30d6372aeebdbc3d525d1a0ec89c298465990`
+  - packaged result: `51 / 51`
+- PRESENT: package-internal `SHA256SUMS.txt`
+  - SHA256 from temporary extraction: `747fded525354e4b43368b69a713257396d33115ea3230aaa1ab2ba8ef9eb1e1`
+  - verification result: 8 entries checked, 0 mismatches
+- PRESENT: local package runner plus analyzer rerun output
+  - runner exit code: `0`
+  - runner output: `benchmark complete: 51 / 51 passed; separate external fixture artifact verified; verified fixture artifact only scored`
+  - analyzer exit code: `0`
+  - analyzer output: `decision report: 51 / 51 passed; all criteria passed`
+  - rerun result: `51 / 51`
+  - rerun `decision_report.json` SHA256: `0f98b071ac39414f9fd2c28b50101a711d6cfa5e8df3fa5c07bcf08e78451130`
+  - custody status: temporary extraction only; output not copied into repo
+
+Current custody status: package evidence complete; original builder/critic transcript custody TODO_REQUIRED if normalized later.

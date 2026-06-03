@@ -1,0 +1,66 @@
+# CI / Verification Log: Xi Temporal Inversion
+
+Temporary extraction source:
+
+`controllergate_v1_7_alpha/artifacts_intake/xi/ControllerGate_v1_6_xi_TemporalReliabilityInversionTrial_Package.zip`
+
+Package SHA256 manifest verification:
+
+```text
+checked entries: 25
+mismatches: 0
+```
+
+Packaged decision report:
+
+```json
+{
+  "passed": 23,
+  "total": 23
+}
+```
+
+Package runner command:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.run_agent_maintenance_trial --config <package lockfile> --out rerun_outputs
+```
+
+Runner status:
+
+```text
+status: completed
+exit: 0
+output: 
+```
+
+Analyzer command:
+
+```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs rerun_outputs
+```
+
+Analyzer status:
+
+```text
+exit: 0
+output: {
+  "passed": 23,
+  "total": 23
+}
+```
+
+Rerun decision report:
+
+```json
+{
+  "passed": 23,
+  "total": 23
+}
+```
+
+Rerun decision report SHA256:
+
+```text
+7d2c5575d5745456d3fba26e726ad4e3f26e8c526348cdf6163806fe5483947e
+```

@@ -1,0 +1,27 @@
+Required artifacts:
+
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/mu/ControllerGate_v1_6_mu_DiscoveryVsPredefinitionSeparationTrial_Package.zip`
+  - SHA256: `137fe1850e636680a203f42c6559d34f883dad5f91b1d2d7f14ed003ccbacddc`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/mu/ControllerGate_v1_6_mu_DiscoveryVsPredefinitionSeparationTrial.ipynb`
+  - SHA256: `808ce0db0c7452d978a6f004e8a30be66e12f20f77dd75170f211c7e32912298`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: package-internal `outputs\decision_report.json`
+  - SHA256 from temporary extraction: `d817031754369662dabca6417394fcd5bed9b66a9b327c8584b9b1bddca50144`
+  - packaged result: `20 / 20`
+- PRESENT: package-internal `SHA256SUMS.txt`
+  - SHA256 from temporary extraction: `750ea6b531cdba492fb264b6e9c64612ec053a9ff0ebb89aebb8bdc4153c0ac6`
+  - verification result: 20 entries checked, 0 mismatches
+- PRESENT: local package runner plus analyzer rerun output
+  - runner exit code: `0`
+  - runner output: ``
+  - analyzer exit code: `0`
+  - analyzer output: `{
+  "passed": 20,
+  "total": 20
+}`
+  - rerun result: `20 / 20`
+  - rerun `decision_report.json` SHA256: `f4153acecb5c29fb8f6fcb6ee3aed8df090d2274eb06134f13754fb82855d91e`
+  - custody status: temporary extraction only; output not copied into repo
+
+Current custody status: package evidence complete; original builder/critic transcript custody TODO_REQUIRED if normalized later.

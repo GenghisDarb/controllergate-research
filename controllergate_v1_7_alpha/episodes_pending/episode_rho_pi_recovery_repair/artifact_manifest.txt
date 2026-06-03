@@ -1,0 +1,31 @@
+Required artifacts:
+
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/rho/ControllerGate_v1_6_rho_CounterStrategyRecoveryStabilizationTrial_Package.zip`
+  - SHA256: `e563bca693d72cc106f292a74a34a0047ac007ca44a468c660e51497783f7964`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/rho/ControllerGate_v1_6_rho_CounterStrategyRecoveryStabilizationTrial.ipynb`
+  - SHA256: `d380d33376921243b93e14f54e1a32db2886325d1b6eea82e73394c78851ee18`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: package-internal `outputs\decision_report.json`
+  - SHA256 from temporary extraction: `e86e23cfac5fe6b52ca064e788ea1dbbbcb435219ec0556e42a27810167cac9f`
+  - packaged result: `28 / 28`
+- PRESENT: package-internal `SHA256SUMS.txt`
+  - SHA256 from temporary extraction: `c056d51ad6fc8889761fad1c703efb1e31cb943623580ca6af8766c7afa3a1df`
+  - verification result: 24 entries checked, 0 mismatches
+- PRESENT: local package runner plus analyzer rerun output
+  - runner exit code: `0`
+  - runner output: `{
+  "wrote": "rerun_outputs",
+  "issues": 612,
+  "rows": 3672
+}`
+  - analyzer exit code: `0`
+  - analyzer output: `{
+  "passed": 28,
+  "total": 28
+}`
+  - rerun result: `28 / 28`
+  - rerun `decision_report.json` SHA256: `5cb3ed6bd724fa8a518288d08a2aa789627e9e66ef0d5a15bc3ff5914ea820b8`
+  - custody status: temporary extraction only; output not copied into repo
+
+Current custody status: package evidence complete; original builder/critic transcript custody TODO_REQUIRED if normalized later.

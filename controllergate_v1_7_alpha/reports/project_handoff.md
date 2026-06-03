@@ -47,7 +47,18 @@ Iota/pi package evidence status:
 - iota package SHA manifest: 19 entries checked, 0 mismatches.
 - pi package SHA manifest: 24 entries checked, 0 mismatches.
 
-Immediate blocker for normalizing the first two episodes: original builder/critic transcript custody is still TODO_REQUIRED, and at least 10 complete real evidence bundles are required before scoring.
+Additional v1.6 ladder evidence status:
+
+- kappa package/rerun evidence: `20 / 20`, SHA manifest 24 entries checked, 0 mismatches.
+- lambda package/rerun evidence: `20 / 20`, SHA manifest 20 entries checked, 0 mismatches.
+- mu package/rerun evidence: `20 / 20`, SHA manifest 20 entries checked, 0 mismatches.
+- nu package/rerun evidence: `21 / 21`, SHA manifest 24 entries checked, 0 mismatches.
+- xi package/rerun evidence: `23 / 23`, SHA manifest 25 entries checked, 0 mismatches.
+- omicron package/rerun evidence: `25 / 25`, SHA manifest 24 entries checked, 0 mismatches.
+- rho package/rerun evidence: `28 / 28`, SHA manifest 24 entries checked, 0 mismatches.
+- psi package/rerun evidence: `51 / 51`, package SHA manifest 8 entries checked, fixture SHA manifest 3 entries checked, 0 mismatches.
+
+Immediate blocker for scoring: all 10 evidence bundles remain pending, not normalized. The trace ledger must be designed/reviewed and audited for future leakage before any v1.7-alpha score claim.
 
 Required minimum next input:
 

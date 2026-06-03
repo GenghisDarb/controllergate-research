@@ -1,0 +1,27 @@
+Required artifacts:
+
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/omicron/ControllerGate_v1_6_omicron_AdversarialStaleMemorySpoofingTrial_Package.zip`
+  - SHA256: `433742537b6da51d94331da1fed3e855364273ea860e7310a83d0e5904eb3901`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/omicron/ControllerGate_v1_6_omicron_AdversarialStaleMemorySpoofingTrial.ipynb`
+  - SHA256: `433b5fc085291c90030f6b39889adc374b852d44cc08a718b099a66985bbe30a`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: package-internal `outputs\decision_report.json`
+  - SHA256 from temporary extraction: `3b252eddc1ca5dc6ad998970be4bb453a24f42ec1fe91e6b7a4d21924ad5be9b`
+  - packaged result: `25 / 25`
+- PRESENT: package-internal `SHA256SUMS.txt`
+  - SHA256 from temporary extraction: `adcd8fc738bac148b3b633e5514699cf02960dc6ea04eb1e3eaf5efaee16277e`
+  - verification result: 24 entries checked, 0 mismatches
+- PRESENT: local package runner plus analyzer rerun output
+  - runner exit code: `0`
+  - runner output: ``
+  - analyzer exit code: `0`
+  - analyzer output: `{
+  "passed": 25,
+  "total": 25
+}`
+  - rerun result: `25 / 25`
+  - rerun `decision_report.json` SHA256: `40352d766cfa43e1d8a11bbeaf411f2a51231265eb1f0edc2fde76dfe43173a6`
+  - custody status: temporary extraction only; output not copied into repo
+
+Current custody status: package evidence complete; original builder/critic transcript custody TODO_REQUIRED if normalized later.

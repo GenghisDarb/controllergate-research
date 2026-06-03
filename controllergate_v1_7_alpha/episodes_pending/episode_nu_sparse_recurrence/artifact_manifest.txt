@@ -1,0 +1,27 @@
+Required artifacts:
+
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/nu/ControllerGate_v1_6_nu_SparseRecurrenceOnlineLearningTrial_Package.zip`
+  - SHA256: `5f43c25d1891d74c63dd381717a16b3fd6079407339fd06dcd2e68f5eb2ccbcf`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/nu/ControllerGate_v1_6_nu_SparseRecurrenceOnlineLearningTrial.ipynb`
+  - SHA256: `446b4017d846ef0c48b0b9c4039ed0cfd40c3d472a5b7737b39af1753fa1d884`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: package-internal `outputs\decision_report.json`
+  - SHA256 from temporary extraction: `a06df64003c290d82dc5133c09666422be813e10d84a066becb057945af34415`
+  - packaged result: `21 / 21`
+- PRESENT: package-internal `SHA256SUMS.txt`
+  - SHA256 from temporary extraction: `e569737f87f8acf7d1692963676e6e6f62451979cbe039dc9968cc3fda531c70`
+  - verification result: 24 entries checked, 0 mismatches
+- PRESENT: local package runner plus analyzer rerun output
+  - runner exit code: `0`
+  - runner output: ``
+  - analyzer exit code: `0`
+  - analyzer output: `{
+  "passed": 21,
+  "total": 21
+}`
+  - rerun result: `21 / 21`
+  - rerun `decision_report.json` SHA256: `dd8cabd669e062f07d97d7516193a618008a72f9828ab84615bfdda13084af42`
+  - custody status: temporary extraction only; output not copied into repo
+
+Current custody status: package evidence complete; original builder/critic transcript custody TODO_REQUIRED if normalized later.

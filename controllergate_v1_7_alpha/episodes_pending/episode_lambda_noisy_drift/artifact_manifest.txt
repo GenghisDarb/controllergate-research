@@ -1,0 +1,27 @@
+Required artifacts:
+
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/lambda/ControllerGate_v1_6_lambda_NoisyHeldoutFamilyDriftTrial_Package.zip`
+  - SHA256: `8e93ebf23c41348f1a648ece38b035502606bea1cad30e7e6dacc5564c3648dc`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/lambda/ControllerGate_v1_6_lambda_NoisyHeldoutFamilyDriftTrial.ipynb`
+  - SHA256: `edd2d341b0c99b363734fdf76eb7bf91c930614091933ed3413cc4c770ee1fe9`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: package-internal `outputs\decision_report.json`
+  - SHA256 from temporary extraction: `9ea63a511eae1817f0e07e5c4ab2808e074a0c2407b97a1754c2e29ec1c3f767`
+  - packaged result: `20 / 20`
+- PRESENT: package-internal `SHA256SUMS.txt`
+  - SHA256 from temporary extraction: `df2fe3f071494b23dc94690c4cb58085af6414acab65440424f35bd7532e11f9`
+  - verification result: 20 entries checked, 0 mismatches
+- PRESENT: local package runner plus analyzer rerun output
+  - runner exit code: `0`
+  - runner output: ``
+  - analyzer exit code: `0`
+  - analyzer output: `{
+  "passed": 20,
+  "total": 20
+}`
+  - rerun result: `20 / 20`
+  - rerun `decision_report.json` SHA256: `25257086434523215dffb682d8ddbf8787572f53e892813a75f75560d7fe0fac`
+  - custody status: temporary extraction only; output not copied into repo
+
+Current custody status: package evidence complete; original builder/critic transcript custody TODO_REQUIRED if normalized later.

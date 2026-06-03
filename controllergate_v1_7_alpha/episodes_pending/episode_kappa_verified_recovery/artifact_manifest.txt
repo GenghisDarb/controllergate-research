@@ -1,0 +1,27 @@
+Required artifacts:
+
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/kappa/ControllerGate_v1_6_kappa_AdaptiveMemoryThresholdCalibrationTrial_Package.zip`
+  - SHA256: `805139e3c5d7ca6c31999b2c712037ab25ab9a43defd0ce176bc6909dd4d92ad`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: `controllergate_v1_7_alpha/artifacts_intake/kappa/ControllerGate_v1_6_kappa_AdaptiveMemoryThresholdCalibrationTrial.ipynb`
+  - SHA256: `07b94ee27ccd43e94f5700d0856f7dd5738cf952665315880c8e42fc3b064c44`
+  - custody status: copied from user-supplied Downloads artifact into repo intake
+- PRESENT: package-internal `outputs\decision_report.json`
+  - SHA256 from temporary extraction: `e4bfd2decb87e43aaf0f10ea4bf3c804faaacb38fcd35a66362f1081b72c7025`
+  - packaged result: `20 / 20`
+- PRESENT: package-internal `SHA256SUMS.txt`
+  - SHA256 from temporary extraction: `22e408811a5854fa60fd00deee989eceafbd13df9ff9b777cabf137c409bf583`
+  - verification result: 24 entries checked, 0 mismatches
+- PRESENT: local package runner plus analyzer rerun output
+  - runner exit code: `0`
+  - runner output: ``
+  - analyzer exit code: `0`
+  - analyzer output: `{
+  "passed": 20,
+  "total": 20
+}`
+  - rerun result: `20 / 20`
+  - rerun `decision_report.json` SHA256: `2be17e5d81388961d6e1723eb6b727d7d41f580ccd9036aa37c65ee49578060b`
+  - custody status: temporary extraction only; output not copied into repo
+
+Current custody status: package evidence complete; original builder/critic transcript custody TODO_REQUIRED if normalized later.
