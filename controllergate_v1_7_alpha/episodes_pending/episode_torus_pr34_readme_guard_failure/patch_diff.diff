@@ -1,0 +1,51 @@
+PR #34 patch excerpt.
+
+Full PR: https://github.com/GenghisDarb/TORUS-Theory/pull/34
+
+```diff
++  full-dependency-install:
++    runs-on: ubuntu-latest
++    steps:
++      - name: Install Python deps
++        run: |
++          python -m pip install --upgrade pip
++          python -m pip install -r requirements-ci.txt
++      - name: Register Jupyter kernel
++        run: python -m ipykernel install --user --name torus-ci --display-name "Python (TORUS CI)"
++      - name: Execute validation notebooks
++        run: |
++          find notebooks/validation -name '*.ipynb' -print0 | while IFS= read -r -d '' nb; do
++            jupyter nbconvert --execute --to notebook "$nb" \
++              --ExecutePreprocessor.kernel_name=torus-ci \
++              --ExecutePreprocessor.timeout=180;
++          done
++      - name: Check READMEs
++        run: python tests/README_guard.py
+```
+
+```diff
++{
++    "python.analysis.extraPaths": [
++        "./src",
++        "./notebooks",
++        "./scripts",
++        "./tests"
++    ],
++    "python.analysis.diagnosticSeverityOverrides": {
++        "reportMissingImports": "none",
++        "reportOptionalSubscript": "none"
++    }
++}
+```
+
+```diff
+-def validate_readme():
+-    for folder in pathlib.Path(".").iterdir():
++def validate() -> None:
++    missing: list[pathlib.Path] = []
++    for p in ROOT.iterdir():
+...
++    if missing:
++        print("\n".join(f"Missing README in {m}" for m in missing))
++        sys.exit(1)  # pragma: no cover
+```

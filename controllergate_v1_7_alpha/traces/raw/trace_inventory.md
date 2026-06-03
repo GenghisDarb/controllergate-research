@@ -141,7 +141,7 @@ Current external candidate status:
 
 | Source | Candidate PRs | Evidence status | Scoring impact |
 | --- | --- | --- | --- |
-| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20/#32/#33 are normalized as review-required external real repo episodes; others remain candidate metadata only | none; scoring eligibility count remains 0 |
+| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20/#32/#33 are normalized as review-required external real repo episodes; #17/#34 now have pending evidence bundles only | none; scoring eligibility count remains 0 |
 
 Reviewed and normalized TORUS episode folders:
 
@@ -164,6 +164,13 @@ PR #32/#33 normalized review-required bundles:
 - `episode_torus_pr33_readme_guard_warning_only`: bounded local README guard rerun exited 0 while printing missing README notices.
 
 These four bundles are normalized evidence only. They remain review-required, not scoring eligible, and do not permit scoring.
+
+PR #17/#34 pending bundle status:
+
+- `episode_torus_pr17_latex_workflow_repair`: pending LaTeX workflow repair evidence; historical logs returned HTTP 410; full local workflow replay unavailable/ambiguous due local TeX Live permission issue.
+- `episode_torus_pr34_readme_guard_failure`: pending README guard / Pylance-CI evidence; historical logs returned HTTP 410; bounded local `tests/README_guard.py` rerun failed with missing README entries.
+
+These two bundles are pending evidence only. They are not normalized, not scoring eligible, and do not change the ledger counts.
 
 To proceed with v1.7-alpha, provide at least one of:
 

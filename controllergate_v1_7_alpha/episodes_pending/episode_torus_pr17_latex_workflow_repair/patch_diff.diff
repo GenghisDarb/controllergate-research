@@ -1,0 +1,40 @@
+PR #17 patch excerpt.
+
+Full PR: https://github.com/GenghisDarb/TORUS-Theory/pull/17
+
+```diff
+-          sudo apt-get install -y pandoc texlive-full fonts-lmodern texlive-fonts-recommended texlive-latex-extra
++          sudo apt-get install -y pandoc texlive-full fonts-lmodern \
++                                 texlive-xetex texlive-lang-all \
++                                 texlive-fonts-recommended texlive-latex-extra \
++                                 texlive-extra-utils   # provides lacheck
+```
+
+```diff
+-          grep -oP '\\(?:includegraphics|input|include)\{[^}]+\}' docs/book-latex/torus_book.tex | \
+-            sed -E 's/.*\{([^}]+)\}.*/\1/' | while read f; do
++          refs=$(grep -Eo '\\(includegraphics|input|include)\{[^}]+\}' -R docs/book-latex | sed 's/.*{//;s/}//')
++          for f in $refs; do
+             if [ ! -e "docs/book-latex/$f" ] && [ ! -e "docs/book-latex/${f}.tex" ]; then
+-                echo "Missing file: $f"; exit 1;
++              echo "::error::Missing file $f"
++              exit 1
+             fi
+           done
+```
+
+```diff
+-      - name: Pull latest changes
+-        run: git pull --rebase origin main
+```
+
+```diff
+-          latexmk -pdf -f -silent torus_book.tex || cat torus_book.log
++          latexmk -pdf -interaction=nonstopmode -file-line-error torus_book.tex
++      - name: Dump LaTeX log on failure
++        if: failure() && steps.build.outcome == 'failure'
++        working-directory: docs/book-latex
++        run: |
++          echo "------ torus_book.log (tail) ------"
++          tail -n 200 torus_book.log || true
+```

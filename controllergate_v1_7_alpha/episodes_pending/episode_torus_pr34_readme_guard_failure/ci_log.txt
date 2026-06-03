@@ -1,0 +1,43 @@
+Historical GitHub Actions log status:
+
+UNAVAILABLE: sampled GitHub Actions job log API returned HTTP 410 for PR #34 job 45398452597.
+
+GitHub Actions rerun status:
+
+NOT_ATTEMPTED: no fresh GitHub Actions rerun was started in this pass. The historical run is from 2025-07-05 and same-era TORUS rerun attempts previously returned HTTP 403 because runs were over one month old.
+
+Available CI metadata:
+
+- Repository: GenghisDarb/TORUS-Theory
+- Pull request: https://github.com/GenghisDarb/TORUS-Theory/pull/34
+- PR title: Fix/pylance 2025 07 05
+- Head SHA: fef86da17bfaf087f6ba5143e617bad3fea6b033
+- Merge commit SHA: 78fd95b20bccf29f2921e766782a3c11ebfda45d
+- Workflow run: 16086568962, CI Full, failure
+- Failed jobs included: test-suite, test (3.11), validate-structure, check-readmes, lint, run-notebooks, full-dependency-install
+- Job id: 45398452597, full-dependency-install, failure
+- Workflow run: 16086568970, CI Full, success, observed validate-structure success
+- Workflow run: 16086568958, Execute Validation Notebooks, failure
+
+Fresh bounded local rerun:
+
+- Date: 2026-06-03
+- Local clone/scratch path: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory
+- Local dependency venv: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv
+- Checkout: local scratch clone at fef86da17bfaf087f6ba5143e617bad3fea6b033
+- Command: python tests\README_guard.py
+- Exit code: 1
+- Result: README guard failure reproduced locally.
+
+Fresh local rerun output:
+
+Missing README in C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory\media
+Missing README in C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory\src
+Missing README in C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory\tests
+Missing README in C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory\tools
+Missing README in C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory\torus_bootstrap
+
+Important distinction:
+
+- Historical GitHub job log text remains unavailable.
+- Fresh local rerun evidence is bounded to the README guard command.

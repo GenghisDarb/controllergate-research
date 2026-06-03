@@ -93,6 +93,10 @@ Current external candidate source:
   - `episode_torus_pr33_notebook_selector_repair`
   - `episode_torus_pr33_readme_guard_warning_only`
 - These PR #32/#33 bundles are normalized but remain review-required and do not affect scoring eligibility.
+- PR #17/#34 now have pending external evidence bundles only:
+  - `episode_torus_pr17_latex_workflow_repair`
+  - `episode_torus_pr34_readme_guard_failure`
+- These PR #17/#34 bundles are not normalized and do not affect scoring eligibility.
 - blocker: sampled historical GitHub Actions job logs returned HTTP 410, and original agent/tool traces are unavailable, so normalization requires review of whether fresh local reruns plus PR metadata are sufficient.
 
 ## Do Not Claim Yet

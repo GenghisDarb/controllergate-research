@@ -1,0 +1,33 @@
+Historical GitHub Actions log status:
+
+UNAVAILABLE: sampled GitHub Actions job log API returned HTTP 410 for PR #17 job 43255143971.
+
+GitHub Actions rerun status:
+
+NOT_ATTEMPTED: no fresh GitHub Actions rerun was started in this pass. The historical run is from 2025-06-02 and same-era TORUS rerun attempts previously returned HTTP 403 because runs were over one month old.
+
+Available CI metadata:
+
+- Repository: GenghisDarb/TORUS-Theory
+- Pull request: https://github.com/GenghisDarb/TORUS-Theory/pull/17
+- PR title: ci: robust LaTeX build workflow
+- Head SHA: b1efc970915b84f9bcdc70cff76eed34cc9bdf93
+- Merge commit SHA: d4ea008f13e4a0d88b9944cea00853ffecf6ce9b
+- Workflow run: 15373254396, CI Full, success, job validate-structure success
+- Workflow run: 15373254397, CI Full, success, job validate-structure success
+- Workflow run: 15373254400, Execute PairCorr Notebooks, failure, job run-paircorr-benchmark failure
+
+Bounded local check:
+
+- Date: 2026-06-03
+- Local clone/scratch path: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory
+- Checkout: local scratch clone at b1efc970915b84f9bcdc70cff76eed34cc9bdf93
+- Command: latexmk -version
+- Exit code: 1
+- Result: local tool check failed before workflow replay.
+- Failure: Can't open perl script "c:\texlive\2024\texmf-dist\scripts\latexmk\latexmk.pl": Permission denied
+
+Important distinction:
+
+- PR #17 is a LaTeX workflow repair candidate, but the full Ubuntu book workflow was not rerun locally.
+- The local TeX permission failure is local-environment evidence only, not proof that the PR #17 GitHub workflow failed.

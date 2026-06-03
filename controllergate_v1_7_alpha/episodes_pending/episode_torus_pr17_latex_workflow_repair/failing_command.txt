@@ -1,0 +1,21 @@
+Recovered workflow commands from PR #17 `.github/workflows/book_pipeline.yml`:
+
+```bash
+sudo apt-get install -y pandoc texlive-full fonts-lmodern \
+                       texlive-xetex texlive-lang-all \
+                       texlive-fonts-recommended texlive-latex-extra \
+                       texlive-extra-utils   # provides lacheck
+find docs/book-latex/ -name "*.tex" -exec lacheck {} +
+latexmk -pdf -interaction=nonstopmode -file-line-error torus_book.tex
+tail -n 200 torus_book.log || true
+```
+
+Bounded local check command:
+
+```powershell
+latexmk -version
+```
+
+Bounded local check exit code: 1.
+
+Full local rerun: RERUN_UNAVAILABLE because the workflow is Ubuntu apt/LaTeX/book-generation dependent and the local `latexmk` invocation failed with a TeX Live Perl-script permission error.
