@@ -1,20 +1,44 @@
-Local package analyzer rerun, executed from a temporary extraction of:
+Local package runner and analyzer rerun, executed from a temporary extraction of:
 
 `controllergate_v1_7_alpha/artifacts_intake/iota/ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial_Package.zip`
 
 Command:
 
 ```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.run_agent_maintenance_trial --config locks/v1_6_iota.json --out rerun_outputs
 & 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs outputs
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs rerun_outputs
 ```
 
-Output:
+Runner result:
+
+```text
+exit code: 0
+stdout: empty
+```
+
+Packaged-output analyzer result:
 
 ```json
 {
   "passed": 16,
   "total": 20
 }
+```
+
+Rerun-output analyzer result:
+
+```json
+{
+  "passed": 16,
+  "total": 20
+}
+```
+
+Rerun `decision_report.json` SHA256:
+
+```text
+1520c617f6d13fcd557b4753dc07cd1abe61e800a2094a08799c04f72e96e386
 ```
 
 Package SHA256 manifest verification:

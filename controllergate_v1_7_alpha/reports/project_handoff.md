@@ -42,8 +42,8 @@ Iota/pi package evidence status:
 
 - iota package ZIP and extracted notebook are present in `artifacts_intake/iota/`.
 - pi package ZIP and extracted notebook are present in `artifacts_intake/pi/`.
-- iota analyzer rerun over packaged outputs: `16 / 20`.
-- pi analyzer rerun over packaged outputs: `27 / 28`.
+- iota package runner plus analyzer rerun: `16 / 20`.
+- pi package runner plus analyzer rerun: `27 / 28`.
 - iota package SHA manifest: 19 entries checked, 0 mismatches.
 - pi package SHA manifest: 24 entries checked, 0 mismatches.
 

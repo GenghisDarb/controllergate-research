@@ -12,9 +12,12 @@ Required artifacts:
 - PRESENT: package-internal `ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial/SHA256SUMS.txt`
   - SHA256 from temporary extraction: `14c088bccc948410fb4bdcd29132e29444ed0eefb0f0bc0241ac3907d900e27b`
   - verification result: 19 entries checked, 0 mismatches
-- PRESENT: local analyzer rerun output
-  - output: `{ "passed": 16, "total": 20 }`
-  - file-backed output hash: UNAVAILABLE, console output only
+- PRESENT: local package runner plus analyzer rerun output
+  - runner exit code: `0`
+  - packaged-output analyzer: `{ "passed": 16, "total": 20 }`
+  - rerun-output analyzer: `{ "passed": 16, "total": 20 }`
+  - rerun `decision_report.json` SHA256: `1520c617f6d13fcd557b4753dc07cd1abe61e800a2094a08799c04f72e96e386`
+  - custody status: temporary extraction only; output not copied into repo
 - TODO_REQUIRED: critic verification notes or transcript path.
 - TODO_REQUIRED: builder report or transcript containing the `20 / 20` claim.
 

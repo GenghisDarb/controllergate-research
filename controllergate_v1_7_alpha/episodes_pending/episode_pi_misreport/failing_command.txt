@@ -3,9 +3,11 @@ The mismatch is a false success/failed-criterion correction rather than a produc
 Evidence commands used:
 
 ```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.run_agent_maintenance_trial --config locks/v1_6_pi.json --out rerun_outputs
 & 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs outputs
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs rerun_outputs
 ```
 
 PowerShell SHA256 manifest verification was run over the extracted package's `SHA256SUMS.txt`.
 
-The analyzer command exposed the package truth: `27 / 28`, contradicting the known builder claim of `28 / 28`.
+The runner completed with exit code `0`. The packaged-output analyzer and rerun-output analyzer both exposed the package truth: `27 / 28`, contradicting the known builder claim of `28 / 28`.

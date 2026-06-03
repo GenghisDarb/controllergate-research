@@ -1,20 +1,47 @@
-Local package analyzer rerun, executed from a temporary extraction of:
+Local package runner and analyzer rerun, executed from a temporary extraction of:
 
 `controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial_Package.zip`
 
 Command:
 
 ```powershell
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.run_agent_maintenance_trial --config locks/v1_6_pi.json --out rerun_outputs
 & 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs outputs
+& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m benchmarks.analyze_agent_maintenance_trial --outputs rerun_outputs
 ```
 
-Output:
+Runner result:
+
+```json
+{
+  "wrote": "rerun_outputs",
+  "issues": 612,
+  "rows": 3672
+}
+```
+
+Packaged-output analyzer result:
 
 ```json
 {
   "passed": 27,
   "total": 28
 }
+```
+
+Rerun-output analyzer result:
+
+```json
+{
+  "passed": 27,
+  "total": 28
+}
+```
+
+Rerun `decision_report.json` SHA256:
+
+```text
+c638d3b7d5ec08d9a0c09339b10e9a63daa00f09894bcb5264fb108e6a6a05c0
 ```
 
 Package SHA256 manifest verification:

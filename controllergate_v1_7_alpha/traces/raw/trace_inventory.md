@@ -140,7 +140,7 @@ Iota package evidence:
 - package SHA256: `ae55208bc7062c420032be52feedbc3b59a08f1f85d0c0f3debd9829dcc13e1b`
 - notebook SHA256: `09007acdfc4cb59ec0fa70f702b0a94fcf115605320d4bfbc6f4b7224d611533`
 - packaged result: `16 / 20`
-- analyzer rerun: `16 / 20`
+- package runner plus analyzer rerun: `16 / 20`
 - SHA manifest verification: 19 entries checked, 0 mismatches
 
 Pi package evidence:
@@ -148,7 +148,7 @@ Pi package evidence:
 - package SHA256: `127065cb38316ebcfc9a79c2057b9fedbea347a00071156c22a4392fddbc16c7`
 - notebook SHA256: `9837187968c68d5e86276d704970ccabfa9c6fe520284347fe1b53563625ddda`
 - packaged result: `27 / 28`
-- analyzer rerun: `27 / 28`
+- package runner plus analyzer rerun: `27 / 28`
 - SHA manifest verification: 24 entries checked, 0 mismatches
 
 Remaining blocker: original builder and critic transcript custody for the reported false success claims is still TODO_REQUIRED.

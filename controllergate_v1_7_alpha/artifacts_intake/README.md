@@ -16,4 +16,4 @@ controllergate_v1_7_alpha/artifacts_intake/
 
 Current status: the iota and pi package ZIPs are present, and their notebooks were extracted from inside the supplied package ZIPs into the expected intake filenames.
 
-Do not extract, normalize, or score v1.7-alpha until the needed artifacts are supplied and custody-checked.
+Temporary extraction for evidence verification is allowed. Do not normalize or score v1.7-alpha until enough complete real episodes exist and the trace audit passes.
