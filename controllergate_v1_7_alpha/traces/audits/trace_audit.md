@@ -1,22 +1,25 @@
 # ControllerGate v1.7-alpha Trace Audit
 
-Status: blocked pending real maintenance episodes.
+Status: normalized ledger review required.
 
 ## Audit Result
 
-No future-leakage or policy-blindness scoring audit can be completed because there are no real repository / real agent trace episodes in `traces/normalized/episodes.jsonl`.
+`validate_ledger.py` passes with 10 normalized evidence records. `audit_trace_ledger.py` reports `REVIEW_REQUIRED`, not `PASS`, and scoring has not been run.
+
+The review state is intentional: iota and pi are false-success correction episodes, while kappa through psi are controlled benchmark evidence episodes that should be reviewed before they are treated as real-trace scoring input.
 
 ## Findings
 
 | Check | Result | Reason |
 | --- | --- | --- |
-| Episode ledger exists | PASS | `traces/normalized/episodes.jsonl` exists as an empty scaffold. |
-| Real episodes available | FAIL | No real maintenance episodes have been supplied. |
-| Future-leakage audit | BLOCKED | Requires episode records with decision-time and outcome fields. |
-| Missing evidence audit | BLOCKED | Requires per-episode evidence bundles. |
-| Ambiguous outcome-label audit | BLOCKED | Requires real visible/downstream outcome evidence. |
-| Unsupported claim audit | PASS | Current scaffold makes no v1.7-alpha pass claim. |
+| Episode ledger exists | PASS | `traces/normalized/episodes.jsonl` contains 10 normalized records. |
+| Evidence bundle count | PASS | Ten completed pending evidence bundles were normalized. |
+| SHA manifest audit | PASS | Normalized records report verified SHA manifests with 0 mismatches. |
+| Runner/analyzer audit | PASS | Normalized records report runner and analyzer completion. |
+| Correction episode audit | REVIEW_REQUIRED | Iota and pi are false-success / correction episodes and require reviewer custody before scoring use. |
+| Controlled benchmark audit | REVIEW_REQUIRED | Kappa through psi are verified benchmark evidence episodes, not external real-repository traces. |
+| Unsupported claim audit | PASS | No v1.7-alpha score or pass claim is made. |
 
-## Required To Unblock
+## Required Before Scoring
 
-Add real episode bundles under `traces/raw/episode_###/`, then normalize them into `traces/normalized/episodes.jsonl` using `schemas/episode.schema.json`.
+Review the normalized records, decide whether controlled benchmark episodes are eligible for v1.7-alpha scoring input, and keep decision-time evidence separate from outcome-only evidence. Do not score ControllerGate until that review is complete.

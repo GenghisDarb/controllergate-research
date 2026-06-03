@@ -27,10 +27,11 @@ v1.6 psi:
 v1.7-alpha:
 
 - Ledger exists.
-- Ledger is intentionally empty.
+- Ledger contains 10 normalized evidence records.
 - Schema is valid JSON.
-- Ledger validation passes with zero records.
-- Audit reports `BLOCKED` because no real episodes have been supplied.
+- Ledger validation passes with 10 records.
+- Audit reports `REVIEW_REQUIRED`.
+- Scoring has not been run.
 
 ## Blocker
 
@@ -58,7 +59,12 @@ Additional v1.6 ladder evidence status:
 - rho package/rerun evidence: `28 / 28`, SHA manifest 24 entries checked, 0 mismatches.
 - psi package/rerun evidence: `51 / 51`, package SHA manifest 8 entries checked, fixture SHA manifest 3 entries checked, 0 mismatches.
 
-Immediate blocker for scoring: all 10 evidence bundles remain pending, not normalized. The trace ledger must be designed/reviewed and audited for future leakage before any v1.7-alpha score claim.
+Immediate blocker for scoring: the normalized trace ledger needs review before any v1.7-alpha score claim. The audit is no longer blocked, but it is not a scoring approval.
+
+Audit review reasons:
+
+- iota and pi are false-success correction records with original builder/critic transcript custody still marked for review.
+- kappa, lambda, mu, nu, xi, omicron, rho, and psi are controlled-benchmark evidence episodes and must be reviewed before being treated as real-trace scoring input.
 
 Required minimum next input:
 

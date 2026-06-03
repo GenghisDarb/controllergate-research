@@ -11,7 +11,7 @@ This repository currently contains:
 
 v1.6 is frozen at psi based on the supplied separate fixture artifact custody package. The verified claim is bounded to controlled diagnostic benchmark evidence.
 
-v1.7-alpha is not scored yet. The scaffold, schema, templates, and audit tooling are ready, but real maintenance episodes are still required before any real-pilot result can be claimed.
+v1.7-alpha is not scored yet. Ten completed evidence bundles have been normalized into the trace ledger, validation passes, and the audit currently reports `REVIEW_REQUIRED` before any real-pilot result can be claimed.
 
 ## Quick Checks
 
@@ -29,9 +29,10 @@ In this Codex app session, Python may need to be called with the bundled runtime
 
 Expected current result:
 
-- Ledger validation passes with zero episodes.
-- Trace audit reports `BLOCKED` because no real episodes have been supplied. This is an intentional non-pass state, not a v1.7-alpha failure.
+- Ledger validation passes with 10 normalized episodes.
+- Trace audit reports `REVIEW_REQUIRED`.
+- Scoring is not run.
 
 ## Next Evidence Needed
 
-Provide a populated GitHub-backed repository or exported real maintenance episodes with CI logs, patch diffs, agent/tool traces, generated artifact manifests, and visible/downstream outcome evidence.
+Review the normalized ledger, resolve any audit ambiguity, and only then decide whether v1.7-alpha scoring is allowed. A GitHub remote should be added after this clean normalization milestone if the repo is ready to push.

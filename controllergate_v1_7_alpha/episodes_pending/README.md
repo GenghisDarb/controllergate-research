@@ -4,9 +4,10 @@ This directory holds candidate ControllerGate v1.7-alpha real maintenance episod
 
 Current status:
 
-- `episode_001` through `episode_010` are empty collection templates.
-- `episode_iota_misreport` and `episode_pi_misreport` are starter skeletons for known ControllerGate correction events.
-- No pending episode is complete yet.
+- `episode_001` through `episode_010` remain reusable collection templates.
+- Ten completed evidence bundles have been collected and normalized into `../traces/normalized/episodes.jsonl`.
+- The completed bundles are iota, pi, kappa, lambda, mu, nu, xi, omicron, rho, and psi.
+- Audit status is `REVIEW_REQUIRED`; no v1.7-alpha scoring has been run.
 - Do not score v1.7-alpha from these pending bundles.
 
 Use `controllergate_v1_7_alpha/docs/episode_collection_instructions.md` to fill each bundle.

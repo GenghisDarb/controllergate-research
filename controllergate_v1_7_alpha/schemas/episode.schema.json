@@ -29,7 +29,35 @@
     "generated_artifact_mismatch",
     "available_at_decision_time",
     "prohibited_future_fields",
-    "evidence_status"
+    "evidence_status",
+    "source_episode_folder",
+    "artifact_package_path",
+    "artifact_notebook_path",
+    "fixture_artifact_path",
+    "packaged_pass_count",
+    "packaged_total_count",
+    "rerun_pass_count",
+    "rerun_total_count",
+    "sha_manifest_verified",
+    "sha_mismatch_count",
+    "runner_completed",
+    "analyzer_completed",
+    "builder_claim",
+    "verified_result",
+    "claim_matched_verified_result",
+    "failure_or_success_type",
+    "decision_time_evidence_available",
+    "outcome_only_evidence",
+    "future_leakage_risk",
+    "stale_read_or_false_completion_detected",
+    "generated_artifact_mismatch_detected",
+    "dependency_or_config_drift_detected",
+    "correction_required",
+    "human_critic_required",
+    "hidden_or_downstream_truth_source",
+    "memory_lesson",
+    "caveat",
+    "normalized_status"
   ],
   "properties": {
     "episode_id": {
@@ -123,6 +151,94 @@
     "unavailable_reasons": {
       "type": "array",
       "items": { "type": "string" }
+    },
+    "source_episode_folder": {
+      "type": "string"
+    },
+    "artifact_package_path": {
+      "type": "string"
+    },
+    "artifact_notebook_path": {
+      "type": "string"
+    },
+    "fixture_artifact_path": {
+      "type": ["string", "null"]
+    },
+    "packaged_pass_count": {
+      "type": "integer"
+    },
+    "packaged_total_count": {
+      "type": "integer"
+    },
+    "rerun_pass_count": {
+      "type": ["integer", "null"]
+    },
+    "rerun_total_count": {
+      "type": ["integer", "null"]
+    },
+    "sha_manifest_verified": {
+      "type": "boolean"
+    },
+    "sha_mismatch_count": {
+      "type": "integer"
+    },
+    "runner_completed": {
+      "type": "boolean"
+    },
+    "analyzer_completed": {
+      "type": "boolean"
+    },
+    "builder_claim": {
+      "type": ["string", "null"]
+    },
+    "verified_result": {
+      "type": "string"
+    },
+    "claim_matched_verified_result": {
+      "type": ["boolean", "null"]
+    },
+    "failure_or_success_type": {
+      "type": "string"
+    },
+    "decision_time_evidence_available": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "outcome_only_evidence": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "future_leakage_risk": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "review_required"]
+    },
+    "stale_read_or_false_completion_detected": {
+      "type": ["boolean", "null"]
+    },
+    "generated_artifact_mismatch_detected": {
+      "type": ["boolean", "null"]
+    },
+    "dependency_or_config_drift_detected": {
+      "type": ["boolean", "null"]
+    },
+    "correction_required": {
+      "type": "boolean"
+    },
+    "human_critic_required": {
+      "type": "boolean"
+    },
+    "hidden_or_downstream_truth_source": {
+      "type": "string"
+    },
+    "memory_lesson": {
+      "type": "string"
+    },
+    "caveat": {
+      "type": ["string", "null"]
+    },
+    "normalized_status": {
+      "type": "string",
+      "enum": ["complete", "review_required", "incomplete"]
     }
   }
 }

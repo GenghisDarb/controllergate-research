@@ -46,18 +46,25 @@ def load_episodes() -> tuple[list[dict[str, Any]], list[str]]:
     return episodes, errors
 
 
-def audit_episode(episode: dict[str, Any]) -> list[str]:
+def audit_episode(episode: dict[str, Any]) -> tuple[list[str], list[str]]:
     findings: list[str] = []
+    review: list[str] = []
     episode_id = episode.get("episode_id", "UNKNOWN")
 
     if episode.get("source_type") == "controlled_benchmark":
-        findings.append(f"{episode_id}: controlled benchmark episode cannot be scored as real trace")
+        review.append(f"{episode_id}: controlled benchmark evidence; review before treating as real-trace scoring input")
 
     available = set(episode.get("available_at_decision_time") or [])
     prohibited = set(episode.get("prohibited_future_fields") or [])
     overlap = available & prohibited
     if overlap:
         findings.append(f"{episode_id}: future leakage overlap: {sorted(overlap)}")
+
+    decision_time = set(episode.get("decision_time_evidence_available") or [])
+    outcome_only = set(episode.get("outcome_only_evidence") or [])
+    decision_outcome_overlap = decision_time & outcome_only
+    if decision_outcome_overlap:
+        findings.append(f"{episode_id}: decision-time/outcome-only overlap: {sorted(decision_outcome_overlap)}")
 
     memory_keys = episode.get("memory_keys") or []
     for key in memory_keys:
@@ -72,7 +79,20 @@ def audit_episode(episode: dict[str, Any]) -> list[str]:
             if episode.get(field) in (None, "", "UNAVAILABLE"):
                 findings.append(f"{episode_id}: evidence marked complete but '{field}' is missing")
 
-    return findings
+    if episode.get("normalized_status") == "review_required":
+        review.append(f"{episode_id}: normalized_status is review_required")
+    if episode.get("future_leakage_risk") == "review_required":
+        review.append(f"{episode_id}: future_leakage_risk is review_required")
+    if episode.get("runner_completed") is not True:
+        findings.append(f"{episode_id}: runner_completed is not true")
+    if episode.get("analyzer_completed") is not True:
+        findings.append(f"{episode_id}: analyzer_completed is not true")
+    if episode.get("sha_manifest_verified") is not True:
+        findings.append(f"{episode_id}: sha_manifest_verified is not true")
+    if episode.get("sha_mismatch_count") not in (0, 0.0):
+        findings.append(f"{episode_id}: sha_mismatch_count is not zero")
+
+    return findings, review
 
 
 def main() -> int:
@@ -89,9 +109,18 @@ def main() -> int:
         print("reason: real repository / real agent trace episodes are required before scoring")
         return 2
 
+    if len(episodes) < 10:
+        print("trace audit: BLOCKED")
+        print(f"episodes: {len(episodes)}")
+        print("reason: at least 10 normalized evidence episodes are required before scoring review")
+        return 2
+
     findings: list[str] = []
+    review_findings: list[str] = []
     for episode in episodes:
-        findings.extend(audit_episode(episode))
+        episode_findings, episode_review = audit_episode(episode)
+        findings.extend(episode_findings)
+        review_findings.extend(episode_review)
 
     if findings:
         print("trace audit: FAIL")
@@ -99,8 +128,17 @@ def main() -> int:
             print(f"- {finding}")
         return 1
 
+    if review_findings:
+        print("trace audit: REVIEW_REQUIRED")
+        print(f"episodes: {len(episodes)}")
+        for finding in review_findings:
+            print(f"- {finding}")
+        print("scoring: NOT RUN")
+        return 0
+
     print("trace audit: PASS")
     print(f"episodes: {len(episodes)}")
+    print("scoring: NOT RUN")
     return 0
 
 

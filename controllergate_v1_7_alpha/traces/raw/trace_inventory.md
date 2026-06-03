@@ -71,7 +71,18 @@ Current pending bundles:
 
 Artifact intake folders have been created under `controllergate_v1_7_alpha/artifacts_intake/`. The iota and pi package ZIPs are present, and their notebooks were extracted from inside the supplied packages into the expected intake filenames.
 
-The iota, pi, kappa, lambda, mu, nu, xi, omicron, rho, and psi pending episodes now contain package-backed runner/analyzer, decision report, and SHA manifest evidence. Original builder/critic transcript custody is still TODO_REQUIRED if these are promoted into normalized real-trace episodes, so no episode has been normalized into `traces/normalized/episodes.jsonl`.
+The iota, pi, kappa, lambda, mu, nu, xi, omicron, rho, and psi pending episodes now contain package-backed runner/analyzer, decision report, and SHA manifest evidence.
+
+These 10 episodes have also been normalized into `traces/normalized/episodes.jsonl`.
+
+Normalization status:
+
+- normalized records: `10`
+- validator: PASS
+- audit: REVIEW_REQUIRED
+- scoring: NOT RUN
+
+The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, and kappa through psi are controlled-benchmark evidence episodes that must be reviewed before being treated as real-trace scoring input.
 
 | Field | Value |
 | --- | --- |
