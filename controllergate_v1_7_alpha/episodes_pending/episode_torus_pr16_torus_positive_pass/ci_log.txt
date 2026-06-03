@@ -1,0 +1,40 @@
+Historical GitHub Actions log status:
+
+UNAVAILABLE: GitHub Actions job log API returned HTTP 410 for sampled historical job logs.
+
+GitHub Actions rerun status:
+
+UNAVAILABLE: rerun attempt returned HTTP 403 because the workflow run was created over a month ago.
+
+Available CI metadata:
+
+- Repository: GenghisDarb/TORUS-Theory
+- Pull request: https://github.com/GenghisDarb/TORUS-Theory/pull/16
+- Head SHA: e8e5c5b181e83261c2a2e12ff4a287d824053b15
+- Workflow run: 15372746933
+- Workflow name: Execute PairCorr Notebooks
+- Workflow conclusion: success
+- Job id: 43253989401
+- Job name: run-paircorr-benchmark
+- Job conclusion: success
+- Workflow run: 15372746936, CI Full, success
+- Workflow run: 15372746950, CI Full, success
+
+Fresh local rerun:
+
+- Date: 2026-06-03
+- Local clone/scratch path: `C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory`
+- Local dependency venv: `C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv`
+- Checkout: local scratch clone at `e8e5c5b181e83261c2a2e12ff4a287d824053b15`
+- Command: `python -m papermill notebooks/validation/synthetic/PairCorr_SideBand_Benchmark.ipynb out_pr16.ipynb`
+- Follow-up check: `TORUS-POSITIVE` found in output notebook.
+- Exit code: 0
+- Result: repair success reproduced locally.
+- Local stdout: `local_rerun_stdout.txt`
+- Local stderr: `local_rerun_stderr.txt`
+- Local output notebook: `local_rerun_output.ipynb`
+
+Important distinction:
+
+- Historical GitHub job log remains unavailable.
+- Fresh local rerun evidence is available and should be treated as rerun evidence, not as original CI log custody.

@@ -1,0 +1,37 @@
+Historical GitHub Actions log status:
+
+UNAVAILABLE: GitHub Actions job log API returned HTTP 410 for sampled historical job logs.
+
+GitHub Actions rerun status:
+
+UNAVAILABLE: rerun attempt returned HTTP 403 because the workflow run was created over a month ago.
+
+Available CI metadata:
+
+- Repository: GenghisDarb/TORUS-Theory
+- Pull request: https://github.com/GenghisDarb/TORUS-Theory/pull/15
+- Head SHA: 6f6380bcf75c7488b98d7a903eb51ede50e21435
+- Workflow run: 15372702999
+- Workflow name: Execute PairCorr Notebooks
+- Workflow conclusion: failure
+- Job id: 43253882370
+- Job name: run-paircorr-benchmark
+- Job conclusion: failure
+
+Fresh local rerun:
+
+- Date: 2026-06-03
+- Local clone/scratch path: `C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory`
+- Local dependency venv: `C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv`
+- Checkout: local scratch clone at `6f6380bcf75c7488b98d7a903eb51ede50e21435`
+- Command: `python -m papermill notebooks/validation/synthetic/PairCorr_SideBand_Benchmark.ipynb out_pr15.ipynb`
+- Exit code: 1
+- Result: failure reproduced locally.
+- Failure: `nbformat.reader.NotJSONError: Notebook does not appear to be JSON`
+- Local stdout: `local_rerun_stdout.txt`
+- Local stderr: `local_rerun_stderr.txt`
+
+Important distinction:
+
+- Historical GitHub job log remains unavailable.
+- Fresh local rerun evidence is available and should be treated as rerun evidence, not as original CI log custody.

@@ -84,6 +84,8 @@ Current external candidate source:
 - strongest initial candidates: PR #16, PR #15, PR #17, PR #19/#20, and PR #32/#33/#34
 - PR #15 and PR #16 now have pending bundles with captured PR diffs and fresh local rerun evidence.
 - PR #19 and PR #20 now have pending bundles with captured PR diffs and fresh local rerun failure evidence.
+- Reviewed pending TORUS episode folders now exist for PR #15, #16, #19, and #20 using the `episode_torus_*` naming.
+- PR #32/#33 target report has been created; both are promising CI repair candidates but still need bounded rerun evidence before normalization.
 - blocker: sampled historical GitHub Actions job logs returned HTTP 410, and original agent/tool traces are unavailable, so normalization requires review of whether fresh local reruns plus PR metadata are sufficient.
 
 ## Do Not Claim Yet

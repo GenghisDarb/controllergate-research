@@ -143,6 +143,19 @@ Current external candidate status:
 | --- | --- | --- | --- |
 | `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20 pending bundles include PR diffs plus local reruns; others remain candidate metadata only | none; external_real_repo_episode count remains 0 |
 
+Reviewed pending TORUS episode folders:
+
+- `episode_torus_pr15_invalid_notebook_json`
+- `episode_torus_pr16_torus_positive_pass`
+- `episode_torus_pr19_numpy_assertion_failure`
+- `episode_torus_pr20_numpy_assertion_closed_unmerged`
+
+PR #32/#33 target status:
+
+- report: `controllergate_v1_7_alpha/reports/torus_pr32_pr33_target_report.md`
+- result: promising external CI repair cluster, but not normalized
+- blocker: historical job logs returned HTTP 410; rerun attempts returned HTTP 403 because runs were over one month old
+
 To proceed with v1.7-alpha, provide at least one of:
 
 1. A populated ControllerGate or TatMapper Git checkout with commits and a configured GitHub remote.

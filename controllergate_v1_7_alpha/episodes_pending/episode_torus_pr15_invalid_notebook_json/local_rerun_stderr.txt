@@ -1,0 +1,84 @@
+﻿python.exe : Input Notebook:  notebooks/validation/synthetic/PairCorr_SideBand_Benchmark.ipynb
+At line:6 char:1
++ & 'C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\to ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Input Notebook:...Benchmark.ipynb:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Output Notebook: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory\out_pr15.ipynb
+Traceback (most recent call last):
+  File "C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\nbformat\rea
+der.py", line 19, in parse_json
+    nb_dict = json.loads(s, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\json\__init__.py", line 
+346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\json\decoder.py", line 338, 
+in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\json\decoder.py", line 354, 
+in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 15 column 1 (char 314)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\papermill\__
+main__.py", line 4, in <module>
+    papermill()
+  File 
+"C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\click\core.py", 
+line 1524, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File 
+"C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\click\core.py", 
+line 1445, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File 
+"C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\click\core.py", 
+line 1308, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File 
+"C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\click\core.py", 
+line 877, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\click\decora
+tors.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File 
+"C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\papermill\cli.py", 
+line 235, in papermill
+    execute_notebook(
+  File "C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\papermill\ex
+ecute.py", line 89, in execute_notebook
+    nb = load_notebook_node(input_path)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\papermill\io
+rw.py", line 499, in load_notebook_node
+    nb = nbformat.reads(papermill_io.read(notebook_path), as_version=4)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\nbformat\__i
+nit__.py", line 92, in reads
+    nb = reader.reads(s, **kwargs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\nbformat\rea
+der.py", line 75, in reads
+    nb_dict = parse_json(s, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv\Lib\site-packages\nbformat\rea
+der.py", line 25, in parse_json
+    raise NotJSONError(message) from e
+nbformat.reader.NotJSONError: Notebook does not appear to be JSON: '{\n "cells": [\n  {\n   "cell_type": "m...
+

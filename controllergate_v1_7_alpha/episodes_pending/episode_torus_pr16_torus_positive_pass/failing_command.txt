@@ -1,0 +1,21 @@
+Historical GitHub Actions job log is unavailable because the job-log endpoint returned HTTP 410.
+
+Candidate failure linkage:
+
+- Predecessor candidate PR #15 has Execute PairCorr Notebooks failure metadata.
+- PR #16 body states it deletes a corrupt file and replaces it with a fresh nbformat-v4 JSON notebook.
+
+Recovered command from `.github/workflows/execute_notebooks.yml` at the PR head:
+
+```bash
+papermill notebooks/validation/synthetic/PairCorr_SideBand_Benchmark.ipynb out.ipynb
+grep TORUS-POSITIVE out.ipynb || (echo "Notebook did not print TORUS-POSITIVE" && exit 1)
+```
+
+Fresh local rerun command:
+
+```powershell
+external_repos\torus_rerun_venv\Scripts\python.exe -m papermill notebooks/validation/synthetic/PairCorr_SideBand_Benchmark.ipynb external_repos\TORUS-Theory\out_pr16.ipynb
+```
+
+Fresh local rerun exit code: `0`.

@@ -1,0 +1,38 @@
+Historical GitHub Actions log status:
+
+UNAVAILABLE: GitHub Actions job log API returned HTTP 410 for sampled historical job logs.
+
+GitHub Actions rerun status:
+
+NOT_ATTEMPTED for this closed-unmerged PR in this pass. Related historical rerun attempts for same-era TORUS workflow runs returned HTTP 403 because the workflow runs were created over a month ago.
+
+Available CI metadata:
+
+- Repository: GenghisDarb/TORUS-Theory
+- Pull request: https://github.com/GenghisDarb/TORUS-Theory/pull/20
+- Head SHA: b8514854d032286cbbf6e8b2f0607fa50502384e
+- PR status: closed, unmerged
+- PR title: `fix: use scipy.signal.windows.hann fallback in PairCorr benchmark`
+- Workflow run: 15788547808
+- Workflow name: Execute PairCorr Notebooks
+- Workflow conclusion: success
+- CI Full workflow metadata: success
+
+Fresh local rerun:
+
+- Date: 2026-06-03
+- Local clone/scratch path: `C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\TORUS-Theory`
+- Local dependency venv: `C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\torus_rerun_venv`
+- Checkout: local scratch clone at `b8514854d032286cbbf6e8b2f0607fa50502384e`
+- Command: `python -m papermill notebooks/validation/synthetic/PairCorr_SideBand_Benchmark.ipynb out_pr20.ipynb`
+- Exit code: 1
+- Result: failure reproduced locally.
+- Failure: `AssertionError: Pin NumPy <2.3 until SciPy wheels catch up`
+- Local stdout: `local_rerun_stdout.txt`
+- Local stderr: `local_rerun_stderr.txt`
+
+Important distinction:
+
+- Historical GitHub job log remains unavailable.
+- Fresh local rerun evidence is available and should be treated as rerun evidence, not as original CI log custody.
+- The fresh local rerun conflicts with historical workflow metadata because the current local dependency environment is newer; this should be reviewed before normalization.
