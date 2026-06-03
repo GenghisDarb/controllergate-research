@@ -133,13 +133,15 @@ Fresh local rerun evidence has been added for the first linked candidate pair:
 
 - PR #15 local rerun reproduced failure at head SHA `6f6380bcf75c7488b98d7a903eb51ede50e21435`: `nbformat.reader.NotJSONError`.
 - PR #16 local rerun reproduced success at head SHA `e8e5c5b181e83261c2a2e12ff4a287d824053b15`: `TORUS-POSITIVE` found in output notebook.
+- PR #19 local rerun reproduced failure at head SHA `4df944b396fc683ba0ed1cc6e2b7386033825bff`: NumPy version assertion.
+- PR #20 local rerun reproduced failure at head SHA `b8514854d032286cbbf6e8b2f0607fa50502384e`: NumPy version assertion; PR was closed unmerged.
 - These are local reruns, not original GitHub Actions logs.
 
 Current external candidate status:
 
 | Source | Candidate PRs | Evidence status | Scoring impact |
 | --- | --- | --- | --- |
-| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16 pending bundles include PR diffs plus local reruns; others remain candidate metadata only | none; external_real_repo_episode count remains 0 |
+| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20 pending bundles include PR diffs plus local reruns; others remain candidate metadata only | none; external_real_repo_episode count remains 0 |
 
 To proceed with v1.7-alpha, provide at least one of:
 

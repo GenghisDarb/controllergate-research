@@ -10,6 +10,8 @@ Current status:
 - Audit status is `REVIEW_REQUIRED`; no v1.7-alpha scoring has been run.
 - External TORUS-Theory candidate bundles have been started for `external_torus_pr_015_notebook_force_clean` and `external_torus_pr_016_paircorr_rebuild`.
 - These external bundles now include captured PR diffs and fresh local rerun evidence.
+- Additional TORUS-Theory candidate bundles have been started for `external_torus_pr_019_paircorr_kernelspec` and `external_torus_pr_020_paircorr_hann_fallback`.
+- PR #19 and PR #20 local reruns both failed on the NumPy version assertion; PR #20 was closed unmerged.
 - Sampled historical GitHub Actions logs still returned HTTP 410, and original agent/tool traces remain unavailable.
 - Do not score v1.7-alpha from these pending bundles.
 

@@ -17,7 +17,7 @@ TORUS-Theory has real maintenance PRs with notebook repair, CI workflow repair, 
 | 1 | PR #16, PairCorr notebook rebuild | Merged one-file repair replacing a corrupt notebook with nbformat-v4 JSON; successor workflow metadata shows PairCorr success; PR diff and fresh local rerun success captured locally. | Original GitHub-hosted job log returned HTTP 410; original agent/tool trace unavailable. |
 | 2 | PR #15, notebook force-clean | Merged cleanup that superseded prior notebook repair attempts; PairCorr failure metadata, PR diff, and fresh local rerun failure captured locally. | Original GitHub-hosted job log returned HTTP 410; original agent/tool trace unavailable. |
 | 3 | PR #17, LaTeX workflow hardening | Merged CI workflow repair with concrete workflow changes. | Need actual book workflow logs or archived output. |
-| 4 | PR #19/#20, PairCorr kernelspec and hann fallback | Small notebook repair sequence with merged and unmerged attempts. | Need closure rationale and CI log availability review. |
+| 4 | PR #19/#20, PairCorr kernelspec and hann fallback | Small notebook repair sequence with merged and unmerged attempts; local reruns captured and both fail on the NumPy version assertion. | PR #20 is unmerged; original GitHub job logs returned HTTP 410; closure rationale unavailable. |
 | 5 | PR #32/#33/#34, July CI repair cluster | Real CI/lint/test repair cluster with mixed failure/success workflow metadata. | Large diffs need bounded extraction; failed job logs returned HTTP 410. |
 
 ## Gate
