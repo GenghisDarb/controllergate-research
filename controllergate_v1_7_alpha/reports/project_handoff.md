@@ -10,6 +10,8 @@
 - Added v1.7-alpha episode schema and artifact manifest schema.
 - Added raw episode template files.
 - Added ledger validation and trace audit scripts.
+- Added `episodes_pending/` collection area with 10 generic templates.
+- Added starter pending skeletons for iota and pi correction events.
 
 ## Current Verification State
 
@@ -32,6 +34,8 @@ v1.7-alpha:
 ## Blocker
 
 The project cannot honestly score v1.7-alpha until real repository / real agent maintenance episodes are supplied.
+
+Current threshold: at least 10 real episodes with complete evidence bundles must be collected and normalized before scoring.
 
 Required minimum next input:
 

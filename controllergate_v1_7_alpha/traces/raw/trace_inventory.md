@@ -10,7 +10,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 
 ## Local Repository Status
 
-The local checkout is an unborn Git repository with no commits and no configured remote.
+The local checkout now has an alpha scaffold commit on `controllergate-v1.7-alpha-real-trace-pilot`, but no configured remote.
 
 Observed commands:
 
@@ -29,8 +29,8 @@ Observed facts:
 
 | Evidence source | Status | Reason |
 | --- | --- | --- |
-| Local Git commits | UNAVAILABLE | `git log --oneline --decorate -n 30` failed because the current branch has no commits. |
-| Local branch history | UNAVAILABLE | Initial discovery observed no commits on `master`; the scaffold now sits on unborn branch `controllergate-v1.7-alpha-real-trace-pilot`. |
+| Local Git commits | PARTIAL | Scaffold commit `46ca47c` exists, but no real maintenance history exists in this repo yet. |
+| Local branch history | PARTIAL | Initial discovery observed no commits on `master`; the scaffold now sits on branch `controllergate-v1.7-alpha-real-trace-pilot`. |
 | Git remotes | UNAVAILABLE | `git remote -v` returned no configured remotes. |
 | Working-tree files before scaffold | UNAVAILABLE | `rg --files` returned no files; recursive listing found only `.git/`. |
 | CI configuration | UNAVAILABLE | No `.github/`, workflow files, package files, or build/test configuration files existed in the working tree. |
@@ -53,17 +53,25 @@ These artifacts support v1.6 freeze/custody claims. They do not supply real repo
 
 ## Candidate Maintenance Episodes
 
-No real repository / real agent maintenance episodes are available yet.
+The episode ingestion scaffold is ready under `controllergate_v1_7_alpha/episodes_pending/`.
+
+Current pending bundles:
+
+- `episode_001` through `episode_010`: generic real maintenance episode templates.
+- `episode_iota_misreport`: starter skeleton for the known v1.6-iota false success/report mismatch correction.
+- `episode_pi_misreport`: starter skeleton for the known v1.6-pi false success/failed criterion correction.
+
+No pending episode is complete yet, and no episode has been normalized into `traces/normalized/episodes.jsonl`.
 
 | Field | Value |
 | --- | --- |
-| episode_id | UNAVAILABLE: no candidate real maintenance episode found |
+| episode_id | PENDING: `episode_iota_misreport` and `episode_pi_misreport` are known candidate correction events; `episode_001` through `episode_010` are templates. |
 | commit or PR reference | UNAVAILABLE: no commits, PR refs, or remotes available |
 | failing command or CI job | UNAVAILABLE: no real CI/test commands or logs available |
 | failure log path or URL | UNAVAILABLE: no real logs or remote URLs available |
 | patch attempt or diff | UNAVAILABLE: no real commits, diffs, or patch attempts available |
 | files read or changed | UNAVAILABLE: no real episode files available |
-| agent/tool trace | UNAVAILABLE: no real agent trace artifacts available |
+| agent/tool trace | TODO_REQUIRED: starter summaries exist for iota and pi, but original traces/transcripts are not present in the repo. |
 | visible test result | UNAVAILABLE: no real tests or CI runs available |
 | downstream/hidden result | UNAVAILABLE: no downstream result evidence available |
 | stale read / false completion / drift / artifact mismatch signal | UNAVAILABLE: no real episode evidence available |
@@ -88,6 +96,8 @@ Do not load it into `episodes.jsonl` as a real trace episode.
 
 ## Required Next Evidence
 
+Scoring is blocked until at least 10 real episodes have complete evidence bundles and are normalized into `traces/normalized/episodes.jsonl`.
+
 To proceed with v1.7-alpha, provide at least one of:
 
 1. A populated ControllerGate or TatMapper Git checkout with commits and a configured GitHub remote.
@@ -109,3 +119,5 @@ controllergate_v1_7_alpha/traces/raw/episode_001/
 ```
 
 If an evidence file is unavailable, the episode bundle should contain a note with `UNAVAILABLE: reason`.
+
+Pending collection instructions are in `controllergate_v1_7_alpha/docs/episode_collection_instructions.md`.
