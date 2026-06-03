@@ -12,6 +12,7 @@
 - Added ledger validation and trace audit scripts.
 - Added `episodes_pending/` collection area with 10 generic templates.
 - Added starter pending skeletons for iota and pi correction events.
+- Added `artifacts_intake/` folders for iota and pi.
 
 ## Current Verification State
 
@@ -36,6 +37,8 @@ v1.7-alpha:
 The project cannot honestly score v1.7-alpha until real repository / real agent maintenance episodes are supplied.
 
 Current threshold: at least 10 real episodes with complete evidence bundles must be collected and normalized before scoring.
+
+Immediate blocker for the first two episodes: the iota and pi package ZIPs and notebooks are not present in `controllergate_v1_7_alpha/artifacts_intake/`.
 
 Required minimum next input:
 

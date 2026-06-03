@@ -14,5 +14,6 @@ Evidence status:
 - TODO_REQUIRED: packaged `decision_report.json` path and SHA256.
 - TODO_REQUIRED: rerun analyzer output.
 - TODO_REQUIRED: `SHA256SUMS.txt` verification output.
+- TODO_REQUIRED: pi package ZIP and notebook are missing from `controllergate_v1_7_alpha/artifacts_intake/pi/`.
 
 Decision-time evidence and future outcome evidence must be separated before this episode can be normalized.

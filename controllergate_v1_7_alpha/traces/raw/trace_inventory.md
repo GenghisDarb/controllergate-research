@@ -61,6 +61,8 @@ Current pending bundles:
 - `episode_iota_misreport`: starter skeleton for the known v1.6-iota false success/report mismatch correction.
 - `episode_pi_misreport`: starter skeleton for the known v1.6-pi false success/failed criterion correction.
 
+Artifact intake folders have been created under `controllergate_v1_7_alpha/artifacts_intake/`, but the expected iota and pi package ZIPs and notebooks are not present in the repo.
+
 No pending episode is complete yet, and no episode has been normalized into `traces/normalized/episodes.jsonl`.
 
 | Field | Value |
@@ -121,3 +123,16 @@ controllergate_v1_7_alpha/traces/raw/episode_001/
 If an evidence file is unavailable, the episode bundle should contain a note with `UNAVAILABLE: reason`.
 
 Pending collection instructions are in `controllergate_v1_7_alpha/docs/episode_collection_instructions.md`.
+
+## Current Artifact Intake Blocker
+
+The first two correction episodes cannot be completed until these files are supplied:
+
+```text
+controllergate_v1_7_alpha/artifacts_intake/iota/ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial_Package.zip
+controllergate_v1_7_alpha/artifacts_intake/iota/ControllerGate_v1_6_iota_PrecisionGatedBudgetMemoryTrial.ipynb
+controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial_Package.zip
+controllergate_v1_7_alpha/artifacts_intake/pi/ControllerGate_v1_6_pi_AdaptiveAdversaryCounterQuarantineTrial.ipynb
+```
+
+Until those artifacts are present, no packaged `decision_report.json`, rerun analyzer output, or SHA verification can be extracted for iota or pi.

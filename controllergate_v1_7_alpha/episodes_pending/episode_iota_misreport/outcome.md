@@ -13,3 +13,5 @@ Known corrected outcome:
 - Packaged `decision_report.json`: TODO_REQUIRED path, hash, and confirmation that it agreed with `16 / 20`.
 
 This episode is not complete until the package, notebook, decision report, rerun analyzer output, and SHA verification are supplied.
+
+Current status: blocked by missing iota artifact intake files. No v1.7-alpha scoring is allowed from this pending summary.
