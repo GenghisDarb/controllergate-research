@@ -36,6 +36,9 @@ v1.7-alpha:
 - Classification counts: 2 correction-review episodes, 8 controlled benchmark evidence episodes, 0 external real repo episodes.
 - Scoring eligibility count for v1.7-alpha real repo pilot: 0.
 - Scoring has not been run.
+- GitHub remote is configured at `https://github.com/GenghisDarb/controllergate-research.git`.
+- External source discovery has started with `GenghisDarb/TORUS-Theory`.
+- TORUS-Theory candidate inventory exists, but no TORUS episode is normalized yet.
 
 ## Blocker
 
@@ -74,6 +77,12 @@ Required minimum next input:
 
 - one populated Git repository with commits and a configured remote, or
 - exported real maintenance episode bundles containing CI logs, patch diffs, agent/tool traces, generated artifact manifests, and outcome evidence.
+
+Current external candidate source:
+
+- `GenghisDarb/TORUS-Theory`
+- strongest initial candidates: PR #16, PR #15, PR #17, PR #19/#20, and PR #32/#33/#34
+- blocker: sampled historical GitHub Actions job logs returned HTTP 410, so complete bundles must either capture fresh reruns, locate archived logs, or mark logs explicitly unavailable.
 
 ## Do Not Claim Yet
 

@@ -1,0 +1,8 @@
+UNAVAILABLE: exact failing command is not present in the sampled PR #16 successful metadata, and historical job logs returned HTTP 410.
+
+Candidate failure linkage:
+
+- Predecessor candidate PR #15 has Execute PairCorr Notebooks failure metadata.
+- PR #16 body states it deletes a corrupt file and replaces it with a fresh nbformat-v4 JSON notebook.
+
+TODO_REQUIRED: recover the exact failing command from archived PR #15 logs, workflow YAML at the relevant commit, or a controlled rerun.
