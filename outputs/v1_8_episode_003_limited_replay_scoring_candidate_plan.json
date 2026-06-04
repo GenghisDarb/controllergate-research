@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0",
+  "artifact_name": "v1.8 Episode 003 limited replay-scoring candidate plan",
+  "episode_id": "v1_8_episode_003",
+  "plan_status": "limited_replay_scoring_candidate_design_only",
+  "execution_status": "not_executed",
+  "target_repo_class": "user_owned_public_repo",
+  "target_repo_name": "TORUS Theory",
+  "target_repo_full_name": "GenghisDarb/TORUS-Theory",
+  "target_repo_url": "https://github.com/GenghisDarb/TORUS-Theory",
+  "episode_label": "seeded_controlled_real_repo_episode",
+  "purpose": "first limited replay-scoring candidate design",
+  "allowed_scoring_mode": "limited_replay_scoring_candidate_not_executed",
+  "full_scoring_allowed": false,
+  "memory_lift_claim_allowed": false,
+  "self_maintaining_software_claim_allowed": false,
+  "organic_external_evidence_claim_allowed": false,
+  "controllergate_repair_claim_allowed": false,
+  "expected_failure_type": "metadata_manifest_hash_mismatch",
+  "expected_failure_signature": "HASH_MISMATCH: README.md",
+  "proposed_validator_command": "python tools/validate_metadata_manifest.py metadata_manifest.json",
+  "proposed_seed_failure_method": {
+    "summary": "Create a deterministic metadata_manifest.json with a required_files entry for README.md and an intentionally incorrect SHA256 value for README.md.",
+    "branch_name_pattern": "controllergate/v1.8-episode-003-readme-hash-mismatch-limited-candidate",
+    "failure_is_seeded": true,
+    "failure_scope": "mechanical_metadata_hash_validation_only",
+    "failure_class_differs_from_episode_001": true,
+    "failure_class_differs_from_episode_002": true,
+    "not_theory_content": true,
+    "example_seed": {
+      "file": "README.md",
+      "declared_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "expected_validator_behavior": "compute actual SHA256 locally and emit HASH_MISMATCH: README.md"
+    }
+  },
+  "required_replay_gate_artifacts": [
+    "clean_clone_transcript",
+    "baseline_sha",
+    "baseline_branch",
+    "original_repo_snapshot_manifest",
+    "environment_snapshot",
+    "task_branch_name",
+    "failing_sha",
+    "seed_patch_diff",
+    "failing_command",
+    "failing_log_raw",
+    "failure_signature",
+    "pre_repair_replay_transcript",
+    "repair_patch_diff_if_repair_attempted",
+    "post_repair_sha_if_repair_attempted",
+    "post_repair_command",
+    "post_repair_log_raw",
+    "post_repair_outcome",
+    "clean_checkout_pre_repair_replay_result",
+    "clean_checkout_post_repair_replay_result"
+  ],
+  "required_baseline_artifacts": {
+    "no_memory_baseline": {
+      "required": true,
+      "required_artifacts": [
+        "no_memory_baseline_protocol",
+        "no_memory_baseline_decision_time_inputs",
+        "no_memory_baseline_action_trace",
+        "no_memory_baseline_patch_diff",
+        "no_memory_baseline_post_repair_command",
+        "no_memory_baseline_post_repair_log_raw",
+        "no_memory_baseline_outcome",
+        "no_memory_baseline_corruption_check"
+      ]
+    },
+    "always_rebuild_baseline": {
+      "required": false,
+      "preferred": true,
+      "required_if_run": [
+        "always_rebuild_protocol",
+        "always_rebuild_action_trace",
+        "always_rebuild_post_repair_log_raw",
+        "always_rebuild_outcome"
+      ]
+    },
+    "simple_rule_baseline": {
+      "required": false,
+      "preferred": true,
+      "required_if_run": [
+        "simple_rule_protocol",
+        "simple_rule_action_trace",
+        "simple_rule_patch_diff",
+        "simple_rule_post_repair_log_raw",
+        "simple_rule_outcome"
+      ]
+    }
+  },
+  "required_memory_enabled_artifacts": [
+    "memory_enabled_protocol",
+    "memory_enabled_decision_time_inputs",
+    "memory_enabled_controllergate_action_trace",
+    "memory_enabled_memory_lookup_trace",
+    "memory_enabled_memory_use_or_abstention_decision",
+    "memory_enabled_patch_diff",
+    "memory_enabled_post_repair_command",
+    "memory_enabled_post_repair_log_raw",
+    "memory_enabled_outcome",
+    "memory_enabled_corruption_check"
+  ],
+  "required_corruption_check_artifacts": [
+    "modified_paths_scope_check",
+    "theory_content_unchanged_check",
+    "required_file_hashes_after_repair",
+    "downstream_validator_replay_result",
+    "unexpected_file_change_scan"
+  ],
+  "required_decision_time_outcome_separation_artifacts": [
+    "decision_time_inputs_manifest",
+    "outcome_only_evidence_manifest",
+    "decision_time_outcome_overlap_check",
+    "future_leakage_risk_assessment"
+  ],
+  "required_sha256_manifest": [
+    "SHA256SUMS.txt",
+    "sha256_manifest_verification_transcript",
+    "zero_mismatch_requirement"
+  ],
+  "required_proof_obligations_ledger": [
+    "proof_obligations_ledger.json",
+    "replay_gate_obligations",
+    "baseline_obligations",
+    "memory_enabled_obligations",
+    "claim_boundary_obligations"
+  ],
+  "identical_replay_conditions_required": true,
+  "identical_replay_conditions_definition": [
+    "same baseline SHA",
+    "same failing SHA",
+    "same validator command",
+    "same local Python/runtime snapshot",
+    "same decision-time evidence boundary",
+    "same post-repair validation command",
+    "same corruption/downstream check"
+  ],
+  "scoring_preconditions": [
+    "Episode 001 artifact bundle remains capture_complete_not_scoreable",
+    "Episode 002 artifact bundle remains capture_complete_not_scoreable",
+    "Replay Gate passes before any limited scoring",
+    "no_memory_baseline artifacts are complete",
+    "memory_enabled artifacts are complete",
+    "baseline and memory-enabled paths use identical replay conditions",
+    "decision-time/outcome overlap check is PASS with zero overlap",
+    "corruption/downstream check is PASS",
+    "SHA256 manifest verifies with zero mismatches",
+    "proof obligations ledger has no missing required obligations"
+  ],
+  "scoring_disallowed_conditions": [
+    "full scoring is disallowed",
+    "scoring disallowed if Replay Gate fails",
+    "scoring disallowed if no_memory_baseline is absent",
+    "memory lift claim disallowed if memory_enabled path is absent",
+    "memory lift claim disallowed if memory-enabled result does not outperform no-memory under identical replay conditions",
+    "scoring disallowed if decision-time inputs include outcome-only evidence",
+    "scoring disallowed if corruption/downstream check fails",
+    "scoring disallowed if SHA256 manifest is missing or mismatched",
+    "self-maintaining software claim disallowed for one seeded controlled episode",
+    "organic external repo claim disallowed for seeded controlled evidence"
+  ],
+  "result_classification_language": {
+    "positive_evidence": "Replay gate passes, baseline and memory-enabled runs are captured under identical conditions, and memory-enabled result outperforms no-memory without corruption.",
+    "negative_evidence": "Replay gate passes but memory-enabled ControllerGate does not outperform baselines or causes corruption.",
+    "blocked_evidence": "Replay gate fails, artifacts are missing, decision-time/outcome overlap is detected, or baselines are absent."
+  },
+  "claim_boundaries": {
+    "episodes_001_and_002_are_repair_performance_evidence": false,
+    "episode_003_executed": false,
+    "full_scoring_allowed": false,
+    "memory_lift_demonstrated": false,
+    "self_maintaining_software_demonstrated": false,
+    "seeded_controlled_success_equals_organic_external_evidence": false,
+    "one_seeded_episode_can_demonstrate_self_maintaining_software": false,
+    "memory_lift_requires_memory_enabled_outperforms_no_memory_under_same_replay_protocol": true
+  },
+  "historical_tatmapper_boundary": {
+    "tatmapper_historical_episodes_remain_review_required": true,
+    "tatmapper_deterministic_replay_ready_count": 0,
+    "do_not_mark_tatmapper_scoreable": true,
+    "do_not_mix_tatmapper_with_v1_8_controlled_repo_episodes": true
+  },
+  "notes": [
+    "Episode 003 is a preregistered limited replay-scoring candidate design.",
+    "Episode 003 is not executed yet.",
+    "Baselines are mandatory before memory lift can be evaluated.",
+    "Replay Gate must pass before any limited scoring.",
+    "No full scoring is allowed.",
+    "Self-maintaining software remains undemonstrated.",
+    "Seeded controlled evidence does not equal organic external evidence."
+  ]
+}

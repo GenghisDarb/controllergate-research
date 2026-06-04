@@ -176,3 +176,29 @@ Episode 002 validates replay-capture artifact generation for a second determinis
 - Full scoring is not allowed.
 
 This result gives v1.8 two controlled replay-capture bundles across two deterministic failure classes: missing required field and type mismatch. It still does not permit ControllerGate scoring, memory-lift claims, or self-maintaining-software claims.
+
+## v1.8 Episode 003 limited replay-scoring candidate design
+
+Episode 003 is a preregistered limited replay-scoring candidate design.
+
+- Episode 003 is not executed yet.
+- Target: TORUS Theory as a controlled user-owned testbed.
+- Episode label: `seeded_controlled_real_repo_episode`.
+- Allowed scoring mode: `limited_replay_scoring_candidate_not_executed`.
+- Proposed failure type: metadata manifest hash mismatch.
+- Expected failure signature: `HASH_MISMATCH: README.md`.
+- Baselines are mandatory before memory lift can be evaluated.
+- Required baseline: no-memory baseline.
+- Preferred optional baselines: always-rebuild baseline and simple-rule baseline.
+- A memory-enabled ControllerGate path is required before any memory-lift claim can be considered.
+- Baseline and memory-enabled paths must use identical replay conditions.
+- Replay Gate must pass before any limited scoring.
+- Decision-time and outcome-only evidence must remain separated.
+- Corruption/downstream checks are required.
+- ControllerGate has not demonstrated memory lift.
+- ControllerGate has not demonstrated self-maintaining software.
+- Full scoring is not allowed.
+- Seeded controlled evidence does not equal organic external evidence.
+- Episodes 001/002 were capture evidence, not repair-performance evidence.
+
+Positive evidence would require the Replay Gate to pass, baseline and memory-enabled runs to be captured under identical conditions, and the memory-enabled result to outperform no-memory without corruption. Negative evidence would be a replay-ready run where memory-enabled ControllerGate fails to outperform baselines or causes corruption. Blocked evidence would be a failed Replay Gate, missing artifacts, decision-time/outcome overlap, or absent baselines.
