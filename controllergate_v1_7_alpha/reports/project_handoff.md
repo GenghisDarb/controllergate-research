@@ -38,6 +38,7 @@ v1.7-alpha:
 - Scoring mode: `limited_pilot_only`.
 - Full scoring allowed: `false`.
 - Limited pilot scoring has been run.
+- Limited pilot result review is complete.
 - Full scoring has not been run.
 - GitHub remote is configured at `https://github.com/GenghisDarb/controllergate-research.git`.
 - External source discovery has started with `GenghisDarb/TORUS-Theory`.
@@ -45,9 +46,11 @@ v1.7-alpha:
 
 ## Blocker
 
-The project cannot honestly run full v1.7-alpha scoring yet. A limited exploratory pilot is eligible, but it still requires explicit approval before running.
+The project cannot honestly run full v1.7-alpha scoring yet. The limited exploratory pilot has run and has been reviewed as `COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS`.
 
 Current limited-pilot state: 10 external real repo episodes have been collected, normalized, reviewed, and classified as eligible for `limited_pilot_only`. Controlled benchmark evidence and correction-review episodes remain excluded from real repo scoring.
+
+Current recommended next milestone: v1.7-beta second-repo external evidence collection, preferably TatMapper or another non-TORUS repository with real CI/build/test failures.
 
 Iota/pi package evidence status:
 
@@ -71,6 +74,12 @@ Additional v1.6 ladder evidence status:
 
 Immediate blocker for full scoring: the reviewed normalized trace ledger has 10 `external_real_repo_episode` entries approved for limited exploratory pilot mode only. The audit is no longer blocked, but it is not full scoring approval.
 
+Limited pilot review:
+
+- technical report: `controllergate_v1_7_alpha/reports/limited_pilot_scoring/v1_7_alpha_limited_pilot_result_review.md`
+- short summary: `controllergate_v1_7_alpha/reports/limited_pilot_scoring/README.md`
+- audit JSON: `controllergate_v1_7_alpha/traces/audits/limited_pilot_scoring/limited_pilot_result_review.json`
+
 Audit review reasons:
 
 - iota and pi are false-success correction records with original builder/critic transcript custody still marked for review.
@@ -79,8 +88,8 @@ Audit review reasons:
 
 Required minimum next input:
 
-- one populated Git repository with commits and a configured remote, or
-- exported real maintenance episode bundles containing CI logs, patch diffs, agent/tool traces, generated artifact manifests, and outcome evidence.
+- one populated non-TORUS Git repository with commits and a configured remote, preferably TatMapper, or
+- exported real maintenance episode bundles from a second repo containing CI logs, patch diffs, agent/tool traces, generated artifact manifests, and outcome evidence.
 
 Current external candidate source:
 
@@ -112,3 +121,5 @@ Do not claim:
 - hidden/downstream improvement on real traces.
 
 Those claims require scoring-eligible external real repo episodes, review classification approval, and a passing future-leakage audit.
+
+The limited pilot result review also forbids claiming real-repo memory lift because discovered/no-memory/predefined/poisoned memory baselines were unavailable in the TORUS external evidence.

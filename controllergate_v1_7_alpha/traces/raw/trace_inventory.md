@@ -88,6 +88,7 @@ Normalization status:
 - scoring mode: `limited_pilot_only`
 - full scoring allowed: `false`
 - limited pilot scoring: RUN
+- limited pilot result review: COMPLETE
 - full scoring: NOT RUN
 
 The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, kappa through psi are controlled-benchmark evidence episodes, and the ten TORUS-Theory external real repo episodes remain limited-pilot evidence due unavailable historical job logs, bounded rerun scope, or missing original agent transcript custody.
@@ -176,9 +177,9 @@ These two bundles are normalized evidence only. They are eligible only for the l
 
 To proceed with v1.7-alpha, provide at least one of:
 
-1. A populated ControllerGate or TatMapper Git checkout with commits and a configured GitHub remote.
-2. A GitHub remote URL for the target repository.
-3. Exported CI logs, PR diffs, issue links, agent traces, generated artifact manifests, or rerun outputs from real maintenance episodes.
+1. A populated non-TORUS Git checkout with commits and a configured GitHub remote, preferably TatMapper.
+2. A GitHub remote URL for the second external repository target.
+3. Exported CI logs, PR diffs, issue links, agent traces, generated artifact manifests, or rerun outputs from real maintenance episodes in a second repo.
 
 Each real episode should receive its own evidence bundle:
 
@@ -238,4 +239,4 @@ Additional v1.6 ladder package evidence:
 | rho | `28 / 28` | `28 / 28` | 24 entries, 0 mismatches |
 | psi | `51 / 51` | `51 / 51` | package: 8 entries, 0 mismatches; fixture: 3 entries, 0 mismatches |
 
-Remaining blocker: the normalized and reviewed ledger has 10 external real repo episodes, and the limited exploratory scoring pass has been run. Full v1.7-alpha real repo scoring remains blocked.
+Remaining blocker: the normalized and reviewed ledger has 10 external real repo episodes, the limited exploratory scoring pass has been run, and the result review is complete. Full v1.7-alpha real repo scoring remains blocked. The recommended next milestone is v1.7-beta second-repo external evidence collection.

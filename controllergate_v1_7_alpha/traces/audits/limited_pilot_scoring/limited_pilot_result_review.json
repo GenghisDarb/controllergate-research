@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "review_date": "2026-06-04",
+  "review_scope": "v1.7-alpha limited pilot result review",
+  "source_scoring_json": "controllergate_v1_7_alpha/traces/audits/limited_pilot_scoring/limited_pilot_scoring.json",
+  "source_scoring_report": "controllergate_v1_7_alpha/reports/limited_pilot_scoring/limited_pilot_scoring_report.md",
+  "technical_review_report": "controllergate_v1_7_alpha/reports/limited_pilot_scoring/v1_7_alpha_limited_pilot_result_review.md",
+  "short_summary": "controllergate_v1_7_alpha/reports/limited_pilot_scoring/README.md",
+  "accepted_result": "COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS",
+  "result_accepted_as": "limited exploratory real-repo pilot evidence",
+  "result_not_accepted_as": [
+    "proof of self-maintaining software",
+    "full v1.7-alpha scoring pass",
+    "broad external generalization",
+    "real-repo memory lift demonstration"
+  ],
+  "counts": {
+    "eligible_external_episodes": 10,
+    "passed": 2,
+    "failed": 5,
+    "warning_only": 1,
+    "review_required": 2,
+    "closed_unmerged": 1,
+    "controlled_benchmark_excluded": 8,
+    "correction_review_excluded": 2
+  },
+  "review_checks": {
+    "scope_gate": "PASS",
+    "exclusion_gate": "PASS",
+    "caveat_preservation": "PASS",
+    "decision_outcome_separation": "PASS",
+    "future_leakage_guard": "PASS_WITH_REVIEW_REQUIRED_CAVEATS",
+    "non_claim_boundary": "PASS",
+    "limited_scoring_audit": "PASS"
+  },
+  "detection_review": {
+    "false_success_external_episode_count": 0,
+    "stale_read_or_false_completion_true": 0,
+    "dependency_or_config_drift_true": 6,
+    "generated_artifact_mismatch_true": 1,
+    "correction_required_true": 6
+  },
+  "memory_baseline_review": {
+    "discovered_memory": "UNAVAILABLE",
+    "no_memory": "UNAVAILABLE",
+    "predefined_memory": "UNAVAILABLE",
+    "poisoned_memory": "UNAVAILABLE",
+    "interpretation": "The pilot validates the evidence/scoring harness against real repo episodes, but it does not yet demonstrate real-repo memory improvement."
+  },
+  "ambiguous_or_caveated_episodes": [
+    {
+      "episode_id": "episode_016",
+      "reason": "Workflow failure metadata exists, but exact historical logs and local rerun output are unavailable."
+    },
+    {
+      "episode_id": "episode_018",
+      "reason": "Local README guard printed warnings while exiting 0 and is not equivalent to the historical shell check."
+    },
+    {
+      "episode_id": "episode_019",
+      "reason": "Full LaTeX workflow replay unavailable; bounded check failed due local TeX permission issue."
+    }
+  ],
+  "remaining_caveats": [
+    "Historical GitHub Actions log text is unavailable for multiple TORUS episodes because the job-log endpoint returned HTTP 410.",
+    "Original agent/tool transcripts are unavailable for the TORUS external episodes.",
+    "Several reruns are bounded local command reruns rather than full GitHub Actions job replays.",
+    "No ControllerGate memory-condition baselines are available for the TORUS external evidence.",
+    "The external source is one repository family, so cross-repo generalization is not established."
+  ],
+  "recommended_next_step": "v1.7-beta second-repo external evidence collection",
+  "recommended_second_repo": "TatMapper or another non-TORUS repository with real CI/build/test failures",
+  "torus_more_depth_recommendation": "useful but lower priority than a second repo cluster"
+}
