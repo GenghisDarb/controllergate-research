@@ -28,12 +28,12 @@ v1.6 psi:
 v1.7-alpha:
 
 - Ledger exists.
-- Ledger contains 18 normalized evidence records.
+- Ledger contains 20 normalized evidence records.
 - Schema is valid JSON.
 - Ledger validation passes with 10 records.
 - Audit reports `REVIEW_REQUIRED`.
 - Episode review classification passes.
-- Classification counts: 2 correction-review episodes, 8 controlled benchmark evidence episodes, 8 external real repo episodes.
+- Classification counts: 2 correction-review episodes, 8 controlled benchmark evidence episodes, 10 external real repo episodes.
 - Scoring eligibility count for v1.7-alpha real repo pilot: 0.
 - Scoring has not been run.
 - GitHub remote is configured at `https://github.com/GenghisDarb/controllergate-research.git`.
@@ -66,13 +66,13 @@ Additional v1.6 ladder evidence status:
 - rho package/rerun evidence: `28 / 28`, SHA manifest 24 entries checked, 0 mismatches.
 - psi package/rerun evidence: `51 / 51`, package SHA manifest 8 entries checked, fixture SHA manifest 3 entries checked, 0 mismatches.
 
-Immediate blocker for scoring: the reviewed normalized trace ledger has 8 `external_real_repo_episode` entries, but 0 scoring-eligible external real repo episodes. The audit is no longer blocked, but it is not a scoring approval.
+Immediate blocker for scoring: the reviewed normalized trace ledger has 10 `external_real_repo_episode` entries, but 0 scoring-eligible external real repo episodes. The audit is no longer blocked, but it is not a scoring approval.
 
 Audit review reasons:
 
 - iota and pi are false-success correction records with original builder/critic transcript custody still marked for review.
 - kappa, lambda, mu, nu, xi, omicron, rho, and psi are controlled-benchmark evidence episodes and are not eligible for the v1.7-alpha real repo pilot score.
-- TORUS PR #15/#16/#19/#20/#32/#33 are external real repo episodes but remain review-required because historical job logs returned HTTP 410, reruns are bounded or unavailable, and original agent/tool traces are unavailable.
+- TORUS PR #15/#16/#17/#19/#20/#32/#33/#34 are external real repo episodes but remain review-required because historical job logs returned HTTP 410, reruns are bounded or unavailable, and original agent/tool traces are unavailable.
 
 Required minimum next input:
 
@@ -93,10 +93,10 @@ Current external candidate source:
   - `episode_torus_pr33_notebook_selector_repair`
   - `episode_torus_pr33_readme_guard_warning_only`
 - These PR #32/#33 bundles are normalized but remain review-required and do not affect scoring eligibility.
-- PR #17/#34 now have pending external evidence bundles only:
+- PR #17/#34 now have normalized review-required external evidence bundles:
   - `episode_torus_pr17_latex_workflow_repair`
   - `episode_torus_pr34_readme_guard_failure`
-- These PR #17/#34 bundles are not normalized and do not affect scoring eligibility.
+- These PR #17/#34 bundles are normalized but remain review-required and do not affect scoring eligibility.
 - blocker: sampled historical GitHub Actions job logs returned HTTP 410, and original agent/tool traces are unavailable, so normalization requires review of whether fresh local reruns plus PR metadata are sufficient.
 
 ## Do Not Claim Yet

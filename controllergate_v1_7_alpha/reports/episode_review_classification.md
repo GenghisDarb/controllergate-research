@@ -4,20 +4,20 @@ Status: normalized and reviewed for scoring eligibility. Scoring remains blocked
 
 ## Result
 
-The normalized ledger contains 18 evidence episodes. Eight are external real repo episodes, but they are still review-required and none are scoring-eligible for v1.7-alpha real repo pilot scoring.
+The normalized ledger contains 20 evidence episodes. Ten are external real repo episodes, but they are still review-required and none are scoring-eligible for v1.7-alpha real repo pilot scoring.
 
 | Classification | Count | Scoring use |
 | --- | ---: | --- |
 | correction_review_episode | 2 | Not allowed for real repo scoring |
 | controlled_benchmark_evidence | 8 | Not allowed for real repo scoring |
-| external_real_repo_episode | 8 | Review-required; not yet scoring-eligible |
+| external_real_repo_episode | 10 | Review-required; not yet scoring-eligible |
 | excluded_from_scoring | 0 | Not allowed |
 
 Scoring eligibility count for the v1.7-alpha real repo pilot: `0`.
 
 Scoring allowed: `false`.
 
-Reason: there are fewer than 10 scoring-eligible external real repo episodes. The eight TORUS-Theory episodes prove external ingestion, not performance scoring.
+Reason: the ten TORUS-Theory external real repo episodes remain review-required and zero have been approved as scoring-eligible.
 
 ## Episode Classifications
 
@@ -41,6 +41,8 @@ Reason: there are fewer than 10 scoring-eligible external real repo episodes. Th
 | episode_torus_pr32_validation_workflow_failure | external_real_repo_episode | external real repo ingestion review only | Workflow/job failure metadata is present, but exact historical logs and bounded local rerun output are unavailable. |
 | episode_torus_pr33_notebook_selector_repair | external_real_repo_episode | external real repo ingestion review only | Fresh bounded selector rerun passed, but the full notebook execution loop and historical GitHub Actions log text remain unavailable. |
 | episode_torus_pr33_readme_guard_warning_only | external_real_repo_episode | external real repo ingestion review only | Fresh bounded README guard rerun exited 0 while printing warnings; it is not the same as the historical shell `check-readmes` job. |
+| episode_torus_pr17_latex_workflow_repair | external_real_repo_episode | external real repo ingestion review only | LaTeX workflow repair evidence is present, but historical logs are unavailable and local evidence is a bounded permission-failed TeX check. |
+| episode_torus_pr34_readme_guard_failure | external_real_repo_episode | external real repo ingestion review only | Fresh bounded README guard rerun failed and CI metadata shows `full-dependency-install` failure, but historical logs and full job replay remain unavailable. |
 
 ## Scoring Boundary
 
@@ -48,9 +50,9 @@ This review layer protects the distinction between normalized evidence and scori
 
 Current claim boundary:
 
-- v1.7-alpha has 18 normalized evidence episodes.
-- v1.7-alpha has 8 external real repo episodes.
+- v1.7-alpha has 20 normalized evidence episodes.
+- v1.7-alpha has 10 external real repo episodes.
 - v1.7-alpha has 0 scoring-eligible external real repo episodes.
 - v1.7-alpha real repo scoring remains blocked.
 
-Required next evidence: collect and review at least 2 more external real repository maintenance episodes before considering any pilot scoring gate.
+Required next step: run a pilot eligibility review to decide whether these 10 review-required external episodes are complete, diverse, and clean enough to permit a limited scoring gate.

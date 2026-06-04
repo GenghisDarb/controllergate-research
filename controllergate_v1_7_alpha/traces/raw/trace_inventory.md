@@ -77,13 +77,13 @@ These 10 episodes have also been normalized into `traces/normalized/episodes.jso
 
 Normalization status:
 
-- normalized records: `18`
+- normalized records: `20`
 - validator: PASS
 - audit: REVIEW_REQUIRED
 - review classification audit: PASS
 - correction_review_episode: `2`
 - controlled_benchmark_evidence: `8`
-- external_real_repo_episode: `8`
+- external_real_repo_episode: `10`
 - scoring eligibility count for real repo pilot: `0`
 - scoring allowed: `false`
 - scoring: NOT RUN
@@ -96,7 +96,7 @@ Review classification:
 | --- | ---: | --- |
 | correction_review_episode | 2 | report-integrity training/evaluation only |
 | controlled_benchmark_evidence | 8 | scaffold validation, provenance verification, benchmark-history context only |
-| external_real_repo_episode | 8 | review-required external ingestion evidence only |
+| external_real_repo_episode | 10 | review-required external ingestion evidence only |
 | excluded_from_scoring | 0 | not allowed for scoring |
 
 ## Non-Episode Evidence: v1.6-psi Custody Closure
@@ -117,7 +117,7 @@ Do not load it into `episodes.jsonl` as a real trace episode.
 
 ## Required Next Evidence
 
-Scoring is blocked because the reviewed normalized ledger contains 0 scoring-eligible `external_real_repo_episode` entries. The eight normalized TORUS-Theory external rows are review-required ingestion evidence, not scoring approval.
+Scoring is blocked because the reviewed normalized ledger contains 0 scoring-eligible `external_real_repo_episode` entries. The ten normalized TORUS-Theory external rows are review-required ingestion evidence, not scoring approval.
 
 ## External Source Discovery
 
@@ -141,7 +141,7 @@ Current external candidate status:
 
 | Source | Candidate PRs | Evidence status | Scoring impact |
 | --- | --- | --- | --- |
-| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#19/#20/#32/#33 are normalized as review-required external real repo episodes; #17/#34 now have pending evidence bundles only | none; scoring eligibility count remains 0 |
+| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#17/#19/#20/#32/#33/#34 are normalized as review-required external real repo episodes | none; scoring eligibility count remains 0 |
 
 Reviewed and normalized TORUS episode folders:
 
@@ -165,12 +165,12 @@ PR #32/#33 normalized review-required bundles:
 
 These four bundles are normalized evidence only. They remain review-required, not scoring eligible, and do not permit scoring.
 
-PR #17/#34 pending bundle status:
+PR #17/#34 normalized review-required bundles:
 
-- `episode_torus_pr17_latex_workflow_repair`: pending LaTeX workflow repair evidence; historical logs returned HTTP 410; full local workflow replay unavailable/ambiguous due local TeX Live permission issue.
-- `episode_torus_pr34_readme_guard_failure`: pending README guard / Pylance-CI evidence; historical logs returned HTTP 410; bounded local `tests/README_guard.py` rerun failed with missing README entries.
+- `episode_torus_pr17_latex_workflow_repair`: LaTeX workflow repair evidence; historical logs returned HTTP 410; full local workflow replay unavailable/ambiguous due local TeX Live permission issue.
+- `episode_torus_pr34_readme_guard_failure`: README guard / Pylance-CI evidence; historical logs returned HTTP 410; bounded local `tests/README_guard.py` rerun failed with missing README entries.
 
-These two bundles are pending evidence only. They are not normalized, not scoring eligible, and do not change the ledger counts.
+These two bundles are normalized evidence only. They remain review-required, not scoring eligible, and do not permit scoring.
 
 To proceed with v1.7-alpha, provide at least one of:
 
@@ -236,4 +236,4 @@ Additional v1.6 ladder package evidence:
 | rho | `28 / 28` | `28 / 28` | 24 entries, 0 mismatches |
 | psi | `51 / 51` | `51 / 51` | package: 8 entries, 0 mismatches; fixture: 3 entries, 0 mismatches |
 
-Remaining blocker: the normalized and reviewed ledger has 8 external real repo episodes but 0 scoring-eligible external real repo episodes. Additional external repo evidence collection and review must happen before any v1.7-alpha real repo scoring.
+Remaining blocker: the normalized and reviewed ledger has 10 external real repo episodes but 0 scoring-eligible external real repo episodes. Pilot eligibility review must happen before any v1.7-alpha real repo scoring.

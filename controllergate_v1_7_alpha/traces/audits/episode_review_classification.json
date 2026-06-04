@@ -9,14 +9,14 @@
     "excluded_from_scoring"
   ],
   "summary": {
-    "normalized_episode_count": 18,
+    "normalized_episode_count": 20,
     "correction_review_episode": 2,
     "controlled_benchmark_evidence": 8,
-    "external_real_repo_episode": 8,
+    "external_real_repo_episode": 10,
     "excluded_from_scoring": 0,
     "scoring_eligibility_count_for_v1_7_alpha_real_repo_claim": 0,
     "scoring_allowed_for_v1_7_alpha_real_repo_claim": false,
-    "scoring_allowed_reason": "Eight normalized external real repo episodes are review-required; fewer than 10 scoring-eligible external real repo episodes exist."
+    "scoring_allowed_reason": "Ten normalized external real repo episodes are review-required; zero are scoring-eligible until pilot eligibility review approves them."
   },
   "episodes": [
     {
@@ -210,6 +210,34 @@
       "allowed_use": "external real repo ingestion review only",
       "evidence_status": "pending evidence bundle reviewed and normalized",
       "reason": "Fresh bounded README guard rerun exited 0 while printing warnings; it is not the same as the historical shell check-readmes job."
+    },
+    {
+      "episode_id": "episode_019",
+      "source_episode_folder": "episode_torus_pr17_latex_workflow_repair",
+      "category": "external_real_repo_episode",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 17,
+      "outcome_type": "latex_workflow_repair",
+      "verified_result": "review_required",
+      "failure_reason": "Full LaTeX workflow replay unavailable; bounded latexmk check failed due local TeX Live permission error.",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": "review_required",
+      "allowed_use": "external real repo ingestion review only",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "reason": "PR #17 is a LaTeX workflow repair candidate, but historical logs are unavailable and local evidence is a bounded permission-failed TeX check."
+    },
+    {
+      "episode_id": "episode_020",
+      "source_episode_folder": "episode_torus_pr34_readme_guard_failure",
+      "category": "external_real_repo_episode",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 34,
+      "outcome_type": "readme_guard_failure",
+      "verified_result": "failed",
+      "failure_reason": "README guard reported missing README files and exited 1.",
+      "scoring_allowed_for_v1_7_alpha_real_repo_claim": "review_required",
+      "allowed_use": "external real repo ingestion review only",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "reason": "Fresh bounded README guard rerun failed and CI metadata shows full-dependency-install failure, but historical logs and full job replay remain unavailable."
     }
   ]
 }

@@ -165,8 +165,8 @@ Suitability for future `external_real_repo_episode` normalization:
 
 This report does not change the normalized ledger.
 
-- normalized episodes: `18`
-- normalized external real repo episodes: `8`
+- normalized episodes: `20`
+- normalized external real repo episodes: `10`
 - scoring eligibility count remains: `0`
 - scoring allowed remains: `false`
 - scoring: NOT RUN

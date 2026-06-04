@@ -5,7 +5,7 @@ This directory holds candidate ControllerGate v1.7-alpha real maintenance episod
 Current status:
 
 - `episode_001` through `episode_010` remain reusable collection templates.
-- Eighteen completed/reviewed evidence bundles have been collected and normalized into `../traces/normalized/episodes.jsonl`.
+- Twenty completed/reviewed evidence bundles have been collected and normalized into `../traces/normalized/episodes.jsonl`.
 - The completed bundles are iota, pi, kappa, lambda, mu, nu, xi, omicron, rho, and psi.
 - Audit status is `REVIEW_REQUIRED`; no v1.7-alpha scoring has been run.
 - External TORUS-Theory candidate bundles were started for `external_torus_pr_015_notebook_force_clean`, `external_torus_pr_016_paircorr_rebuild`, `external_torus_pr_019_paircorr_kernelspec`, and `external_torus_pr_020_paircorr_hann_fallback`.
@@ -22,7 +22,7 @@ Current status:
   - `episode_torus_pr32_validation_workflow_failure`
   - `episode_torus_pr33_notebook_selector_repair`
   - `episode_torus_pr33_readme_guard_warning_only`
-- PR #17/#34 pending evidence folders have been created but not normalized:
+- PR #17/#34 evidence folders have been reviewed and normalized as review-required external real repo episodes:
   - `episode_torus_pr17_latex_workflow_repair`
   - `episode_torus_pr34_readme_guard_failure`
 - Sampled historical GitHub Actions logs still returned HTTP 410, and original agent/tool traces remain unavailable.
