@@ -1,6 +1,6 @@
 # TORUS PR #32/#33 Evidence Review Report
 
-Status: pending evidence collected and review-normalized. No PR #32/#33 episode is scoring-eligible, and ControllerGate scoring was not run.
+Status: pending evidence collected, review-normalized, and included only in the limited exploratory pilot. Full scoring remains blocked.
 
 Source repo: `GenghisDarb/TORUS-Theory`
 
@@ -10,7 +10,7 @@ Generated: 2026-06-03 session date.
 
 PR #32 and PR #33 form a promising external real repo CI repair cluster. Both are merged PRs from July 5, 2025. They touch actual CI workflow behavior, notebook execution, dependency setup, linting, README checks, and supporting scripts.
 
-The cluster now has four evidence bundles normalized as review-required external real repo episodes. They are not scoring-eligible because full historical GitHub Actions job logs are unavailable through the log endpoint, only bounded local reruns were performed, and no original agent/tool transcript custody is available.
+The cluster now has four evidence bundles normalized as external real repo episodes. They were included in the limited exploratory pilot only because full historical GitHub Actions job logs are unavailable through the log endpoint, only bounded local reruns were performed, and no original agent/tool transcript custody is available.
 
 Review-normalized bundles:
 
@@ -167,6 +167,7 @@ This report does not change the normalized ledger.
 
 - normalized episodes: `20`
 - normalized external real repo episodes: `10`
-- scoring eligibility count remains: `0`
-- scoring allowed remains: `false`
-- scoring: NOT RUN
+- limited pilot scoring eligibility count: `10`
+- scoring mode: `limited_pilot_only`
+- full scoring allowed: `false`
+- limited pilot scoring: RUN

@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "traces" / "normalized" / "episodes.jsonl"
 CLASSIFICATION_PATH = ROOT / "traces" / "audits" / "episode_review_classification.json"
 PILOT_REVIEW_PATH = ROOT / "traces" / "audits" / "pilot_eligibility_review.json"
+LIMITED_SCORING_PATH = ROOT / "traces" / "audits" / "limited_pilot_scoring" / "limited_pilot_scoring.json"
 
 CATEGORIES = {
     "correction_review_episode",
@@ -69,11 +70,24 @@ def load_optional_pilot_review(path: Path) -> tuple[dict[str, Any] | None, list[
     return data, []
 
 
+def load_optional_limited_scoring(path: Path) -> tuple[dict[str, Any] | None, list[str]]:
+    if not path.exists():
+        return None, []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return None, [f"limited pilot scoring output invalid JSON: {exc.msg}"]
+    if not isinstance(data, dict):
+        return None, ["limited pilot scoring output must be an object"]
+    return data, []
+
+
 def main() -> int:
     ledger, ledger_errors = load_jsonl(LEDGER_PATH)
     classification, classification_errors = load_classification(CLASSIFICATION_PATH)
     pilot_review, pilot_review_errors = load_optional_pilot_review(PILOT_REVIEW_PATH)
-    errors = ledger_errors + classification_errors + pilot_review_errors
+    limited_scoring, limited_scoring_errors = load_optional_limited_scoring(LIMITED_SCORING_PATH)
+    errors = ledger_errors + classification_errors + pilot_review_errors + limited_scoring_errors
 
     episodes = classification.get("episodes")
     if not isinstance(episodes, list):
@@ -185,6 +199,20 @@ def main() -> int:
             errors.append("pilot eligibility review controllergate_scoring_run must be false")
 
     reported_scoring_eligible = limited_pilot_eligible if scoring_mode == "limited_pilot_only" else row_scoring_eligible
+    limited_pilot_scoring_run = limited_scoring is not None
+
+    if limited_scoring is not None:
+        scoring_ids = set(limited_scoring.get("included_episode_ids") or [])
+        if scoring_ids != {
+            episode.get("episode_id")
+            for episode in (pilot_review or {}).get("episodes", [])
+            if isinstance(episode, dict) and episode.get("pilot_eligible") is True
+        }:
+            errors.append("limited pilot scoring included episodes must match pilot-eligible episodes")
+        if limited_scoring.get("scoring_mode") != "limited_pilot_only":
+            errors.append("limited pilot scoring mode must be limited_pilot_only")
+        if limited_scoring.get("full_scoring_allowed") is not False:
+            errors.append("limited pilot scoring full_scoring_allowed must be false")
 
     summary = classification.get("summary")
     if not isinstance(summary, dict):
@@ -203,7 +231,8 @@ def main() -> int:
         }
         if scoring_mode == "limited_pilot_only":
             expected_summary["limited_pilot_eligible_external_episode_count"] = limited_pilot_eligible
-            expected_summary["controllergate_scoring_run"] = False
+            expected_summary["limited_pilot_scoring_run"] = limited_pilot_scoring_run
+            expected_summary["full_scoring_run"] = False
         for field, expected in expected_summary.items():
             if summary.get(field) != expected:
                 errors.append(f"summary.{field} expected {expected!r}, got {summary.get(field)!r}")
@@ -224,11 +253,16 @@ def main() -> int:
     print(f"scoring mode: {scoring_mode}")
     print(f"full scoring allowed: {str(full_scoring_allowed).lower()}")
     print(f"scoring allowed: {str(full_scoring_allowed).lower()}")
+    print(f"limited pilot scoring run: {str(limited_pilot_scoring_run).lower()}")
+    print("full scoring run: false")
     if scoring_mode == "limited_pilot_only":
         print("reason: limited exploratory pilot eligibility approved; full scoring remains blocked")
     elif not full_scoring_allowed:
         print("reason: fewer than 10 scoring-eligible external real repo episodes")
-    print("scoring: NOT RUN")
+    if limited_pilot_scoring_run:
+        print("scoring: LIMITED_PILOT_RUN")
+    else:
+        print("scoring: NOT RUN")
     return 0
 
 

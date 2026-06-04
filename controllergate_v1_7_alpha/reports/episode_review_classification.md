@@ -19,7 +19,9 @@ Scoring mode: `limited_pilot_only`.
 
 Full scoring allowed: `false`.
 
-ControllerGate scoring: `NOT RUN`.
+Limited pilot scoring: `RUN`.
+
+Full scoring run: `false`.
 
 Reason: the ten TORUS-Theory external real repo episodes are diverse enough for a limited exploratory pilot, but several still lack historical GitHub Actions log text or original agent/tool transcript custody. Controlled benchmark and correction-review episodes remain excluded.
 
@@ -58,6 +60,7 @@ Current claim boundary:
 - v1.7-alpha has 10 external real repo episodes.
 - v1.7-alpha has 10 external real repo episodes eligible for a limited exploratory pilot.
 - v1.7-alpha full real repo scoring remains blocked.
-- ControllerGate scoring has not been run.
+- ControllerGate limited pilot scoring has been run.
+- Full scoring has not been run.
 
 Required next step: request explicit approval before running the limited v1.7-alpha pilot. The pilot must include failed and ambiguous episodes and must not make self-maintaining or broad external generalization claims.

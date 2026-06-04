@@ -11,6 +11,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "traces" / "normalized" / "episodes.jsonl"
+LIMITED_SCORING_PATH = ROOT / "traces" / "audits" / "limited_pilot_scoring" / "limited_pilot_scoring.json"
 
 FORBIDDEN_MEMORY_KEY_TERMS = {
     "final_success",
@@ -44,6 +45,20 @@ def load_episodes() -> tuple[list[dict[str, Any]], list[str]]:
         else:
             errors.append(f"line {line_no}: episode must be an object")
     return episodes, errors
+
+
+def limited_scoring_run() -> bool:
+    if not LIMITED_SCORING_PATH.exists():
+        return False
+    try:
+        data = json.loads(LIMITED_SCORING_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return False
+    return (
+        isinstance(data, dict)
+        and data.get("scoring_mode") == "limited_pilot_only"
+        and data.get("full_scoring_allowed") is False
+    )
 
 
 def audit_episode(episode: dict[str, Any]) -> tuple[list[str], list[str]]:
@@ -112,6 +127,7 @@ def audit_episode(episode: dict[str, Any]) -> tuple[list[str], list[str]]:
 
 def main() -> int:
     episodes, parse_errors = load_episodes()
+    limited_run = limited_scoring_run()
     if parse_errors:
         print("trace audit: FAIL")
         for error in parse_errors:
@@ -148,12 +164,20 @@ def main() -> int:
         print(f"episodes: {len(episodes)}")
         for finding in review_findings:
             print(f"- {finding}")
-        print("scoring: NOT RUN")
+        if limited_run:
+            print("scoring: LIMITED_PILOT_RUN")
+            print("full scoring: NOT RUN")
+        else:
+            print("scoring: NOT RUN")
         return 0
 
     print("trace audit: PASS")
     print(f"episodes: {len(episodes)}")
-    print("scoring: NOT RUN")
+    if limited_run:
+        print("scoring: LIMITED_PILOT_RUN")
+        print("full scoring: NOT RUN")
+    else:
+        print("scoring: NOT RUN")
     return 0
 
 

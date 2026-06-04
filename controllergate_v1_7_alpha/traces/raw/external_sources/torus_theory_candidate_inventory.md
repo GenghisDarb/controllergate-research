@@ -1,6 +1,6 @@
 # TORUS-Theory External Episode Candidate Inventory
 
-Status: candidate discovery plus pending/normalized evidence tracking. TORUS-Theory has normalized review-required episodes, but no TORUS-Theory episode is scoring-eligible.
+Status: candidate discovery plus pending/normalized evidence tracking. TORUS-Theory has 10 normalized external real repo episodes eligible only for limited exploratory pilot scoring.
 
 Generated: 2026-06-03 session date.
 
@@ -12,7 +12,7 @@ Repository URL: `https://github.com/GenghisDarb/TORUS-Theory`
 
 TORUS-Theory is a viable external source candidate for v1.7-alpha because it has real GitHub pull requests, merged maintenance patches, notebook repairs, CI workflow edits, and GitHub Actions run metadata.
 
-It is not yet sufficient for scoring because normalized TORUS episodes remain review-required and historical GitHub Actions job logs are currently unavailable through the job-log endpoint.
+It is sufficient only for limited exploratory pilot scoring because normalized TORUS episodes preserve review-required caveats and historical GitHub Actions job logs are currently unavailable through the job-log endpoint.
 
 Observed historical log blocker:
 
@@ -28,8 +28,8 @@ Fresh local rerun status:
 - PR #16 local rerun completed and reproduced success: `TORUS-POSITIVE` found in the output notebook.
 - PR #19 local rerun completed and reproduced failure: `AssertionError: Pin NumPy <2.3 until SciPy wheels catch up`.
 - PR #20 local rerun completed and reproduced the same NumPy assertion failure; PR #20 was closed unmerged.
-- PR #32/#33 evidence bundles were created and normalized as review-required external real repo episodes.
-- PR #17/#34 evidence bundles were created and normalized as review-required external real repo episodes.
+- PR #32/#33 evidence bundles were created and normalized as external real repo episodes eligible only for limited exploratory pilot scoring.
+- PR #17/#34 evidence bundles were created and normalized as external real repo episodes eligible only for limited exploratory pilot scoring.
 - These are local rerun outputs, not original GitHub-hosted CI logs.
 
 ## Candidate PRs
@@ -83,10 +83,11 @@ Before any TORUS-Theory episode can become a normalized `external_real_repo_epis
 
 ## Current Classification Impact
 
-This inventory does not change v1.7-alpha scoring eligibility.
+This inventory records the external source set used for the limited exploratory pilot.
 
 - normalized episodes: `20`
 - external_real_repo_episode entries: `10`
-- scoring eligibility count for real repo pilot: `0`
-- scoring allowed: `false`
-- scoring: NOT RUN
+- scoring eligibility count for limited real repo pilot: `10`
+- scoring mode: `limited_pilot_only`
+- full scoring allowed: `false`
+- limited pilot scoring: RUN

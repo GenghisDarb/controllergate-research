@@ -1,6 +1,6 @@
 # ControllerGate v1.7-alpha Pilot Eligibility Review
 
-Status: eligible for limited exploratory pilot only. ControllerGate scoring has not been run.
+Status: eligible for limited exploratory pilot only. Limited pilot scoring has since been run; full scoring remains blocked.
 
 ## Decision
 
@@ -12,9 +12,11 @@ Eligible external pilot episodes: `10`
 
 Full scoring allowed: `false`
 
-ControllerGate scoring: `NOT RUN`
+Limited pilot scoring: `RUN`
 
-Reason: the TORUS-Theory episodes include failures, pass evidence, repairs, dependency/config drift, closed-unmerged context, notebook/kernel failures, workflow metadata, and guardrail behavior. Several episodes still lack historical GitHub Actions log text or original agent/tool transcripts, so the only approved next step is a limited pilot with all caveats preserved.
+Full scoring run: `false`
+
+Reason: the TORUS-Theory episodes include failures, pass evidence, repairs, dependency/config drift, closed-unmerged context, notebook/kernel failures, workflow metadata, and guardrail behavior. Several episodes still lack historical GitHub Actions log text or original agent/tool transcripts, so the approved scoring mode remains limited and exploratory with all caveats preserved.
 
 ## Episode List
 

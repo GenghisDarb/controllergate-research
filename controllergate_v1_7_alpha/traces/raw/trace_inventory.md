@@ -87,7 +87,8 @@ Normalization status:
 - scoring eligibility count for limited real repo pilot: `10`
 - scoring mode: `limited_pilot_only`
 - full scoring allowed: `false`
-- scoring: NOT RUN
+- limited pilot scoring: RUN
+- full scoring: NOT RUN
 
 The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, kappa through psi are controlled-benchmark evidence episodes, and the ten TORUS-Theory external real repo episodes remain limited-pilot evidence due unavailable historical job logs, bounded rerun scope, or missing original agent transcript custody.
 
@@ -237,4 +238,4 @@ Additional v1.6 ladder package evidence:
 | rho | `28 / 28` | `28 / 28` | 24 entries, 0 mismatches |
 | psi | `51 / 51` | `51 / 51` | package: 8 entries, 0 mismatches; fixture: 3 entries, 0 mismatches |
 
-Remaining blocker: the normalized and reviewed ledger has 10 external real repo episodes approved for limited exploratory pilot mode only. Explicit approval is still required before any limited pilot scoring run, and full v1.7-alpha real repo scoring remains blocked.
+Remaining blocker: the normalized and reviewed ledger has 10 external real repo episodes, and the limited exploratory scoring pass has been run. Full v1.7-alpha real repo scoring remains blocked.

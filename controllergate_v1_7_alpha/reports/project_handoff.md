@@ -37,7 +37,8 @@ v1.7-alpha:
 - Scoring eligibility count for v1.7-alpha limited real repo pilot: 10.
 - Scoring mode: `limited_pilot_only`.
 - Full scoring allowed: `false`.
-- Scoring has not been run.
+- Limited pilot scoring has been run.
+- Full scoring has not been run.
 - GitHub remote is configured at `https://github.com/GenghisDarb/controllergate-research.git`.
 - External source discovery has started with `GenghisDarb/TORUS-Theory`.
 - TORUS-Theory candidate inventory exists, and PR #15/#16/#17/#19/#20/#32/#33/#34 are normalized as external real repo episodes eligible only for a limited exploratory pilot.

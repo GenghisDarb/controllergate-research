@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "traces" / "normalized" / "episodes.jsonl"
 REVIEW_PATH = ROOT / "traces" / "audits" / "pilot_eligibility_review.json"
 CLASSIFICATION_PATH = ROOT / "traces" / "audits" / "episode_review_classification.json"
+LIMITED_SCORING_PATH = ROOT / "traces" / "audits" / "limited_pilot_scoring" / "limited_pilot_scoring.json"
 REQUIRED_DIVERSITY = {
     "malformed artifact failure",
     "successful rerun / positive signal",
@@ -36,6 +37,15 @@ def load_json(path: Path) -> tuple[dict[str, Any], list[str]]:
         return {}, [f"{path}: invalid JSON: {exc.msg}"]
     if not isinstance(data, dict):
         return {}, [f"{path}: expected object"]
+    return data, []
+
+
+def load_optional_json(path: Path) -> tuple[dict[str, Any] | None, list[str]]:
+    if not path.exists():
+        return None, []
+    data, errors = load_json(path)
+    if errors:
+        return None, errors
     return data, []
 
 
@@ -64,7 +74,8 @@ def main() -> int:
     ledger, ledger_errors = load_jsonl(LEDGER_PATH)
     review, review_errors = load_json(REVIEW_PATH)
     classification, classification_errors = load_json(CLASSIFICATION_PATH)
-    errors = ledger_errors + review_errors + classification_errors
+    limited_scoring, limited_scoring_errors = load_optional_json(LIMITED_SCORING_PATH)
+    errors = ledger_errors + review_errors + classification_errors + limited_scoring_errors
 
     external = [
         row
@@ -115,6 +126,16 @@ def main() -> int:
         errors.append("full_scoring_allowed must be false")
     if review.get("controllergate_scoring_run") is not False:
         errors.append("controllergate_scoring_run must be false")
+
+    limited_pilot_scoring_run = limited_scoring is not None
+    if limited_scoring is not None:
+        scoring_ids = set(limited_scoring.get("included_episode_ids") or [])
+        if scoring_ids != eligible_ids:
+            errors.append("limited pilot scoring included episodes must match eligible external episodes")
+        if limited_scoring.get("scoring_mode") != "limited_pilot_only":
+            errors.append("limited pilot scoring mode must be limited_pilot_only")
+        if limited_scoring.get("full_scoring_allowed") is not False:
+            errors.append("limited pilot scoring full_scoring_allowed must be false")
 
     constraints = review.get("constraints")
     if not isinstance(constraints, dict):
@@ -185,7 +206,11 @@ def main() -> int:
     print(f"eligible external episodes: {len(eligible_ids)}")
     print("scoring mode: limited_pilot_only")
     print("full scoring allowed: false")
-    print("ControllerGate scoring: NOT RUN")
+    if limited_pilot_scoring_run:
+        print("limited pilot scoring: RUN")
+        print("ControllerGate full scoring: NOT RUN")
+    else:
+        print("ControllerGate scoring: NOT RUN")
     return 0
 
 
