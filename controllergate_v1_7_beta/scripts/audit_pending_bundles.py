@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit v1.7-beta pending evidence bundles before normalization."""
+"""Audit v1.7-beta pending evidence bundles and normalization gate state."""
 
 from __future__ import annotations
 
@@ -54,8 +54,17 @@ def main() -> int:
                 if required not in text:
                     errors.append(f"{bundle.name}: artifact_manifest.txt missing {required!r}")
 
+    normalized_records = 0
+    normalization_state = "NOT RUN"
     if NORMALIZED_LEDGER.exists() and NORMALIZED_LEDGER.read_text(encoding="utf-8").strip():
-        errors.append("v1.7-beta normalized ledger must remain empty during pending collection")
+        normalized_records = len(
+            [
+                line
+                for line in NORMALIZED_LEDGER.read_text(encoding="utf-8").splitlines()
+                if line.strip()
+            ]
+        )
+        normalization_state = "REVIEW_NORMALIZED"
 
     if errors:
         print("v1.7-beta pending bundle audit: FAIL")
@@ -65,7 +74,8 @@ def main() -> int:
 
     print("v1.7-beta pending bundle audit: PASS")
     print(f"pending bundles: {len(bundles)}")
-    print("normalization: NOT RUN")
+    print(f"normalized records: {normalized_records}")
+    print(f"normalization: {normalization_state}")
     print("scoring: NOT RUN")
     return 0
 

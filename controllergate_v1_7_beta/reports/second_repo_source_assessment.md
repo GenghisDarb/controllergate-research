@@ -1,6 +1,6 @@
 # ControllerGate v1.7-beta Second Repo Source Assessment
 
-Status: second-repo evidence collection started. No normalization and no ControllerGate scoring has been run.
+Status: second-repo evidence collection started and the initial TatMapper bundle set has been review-normalized. No ControllerGate scoring has been run.
 
 ## Source Decision
 
@@ -16,7 +16,8 @@ Public fallback inspected: `GenghisDarb/AI-Minesweeper-Discovery-Framework`, but
 
 ## Collection Rules
 
-- No v1.7-beta normalized episodes were created.
+- Six v1.7-beta TatMapper episodes have been review-normalized into `controllergate_v1_7_beta/traces/normalized/episodes.jsonl`.
+- All normalized beta episodes remain `review_required`.
 - No ControllerGate scoring was run.
 - Missing logs, commands, diffs, or outcomes are marked `UNAVAILABLE` with reason.
 - Decision-time evidence is kept separate from outcome-only evidence inside each pending bundle.
@@ -26,12 +27,12 @@ Public fallback inspected: `GenghisDarb/AI-Minesweeper-Discovery-Framework`, but
 
 | Pending bundle | Evidence source | Theme | Current status |
 | --- | --- | --- | --- |
-| `episode_tatmapper_pr93_calibration_guard_flutter_unavailable` | PR #93 | Flutter unavailable testing failure plus calibration/export guard repair | pending only |
-| `episode_tatmapper_pr92_ndk_path_tooling_review` | PR #92 | NDK path/tooling config drift and printing plugin bridge review | pending only |
-| `episode_tatmapper_commit_7eb_invalid_windows_checkout_file` | commit `7eb2e48` | Invalid filename repair for Windows checkout breakage | pending only |
-| `episode_tatmapper_commit_5019_android_scaffold_ndk_cmake` | commit `5019f6f` | Android scaffold, Gradle, NDK/CMake CI setup repair | pending only |
-| `episode_tatmapper_commit_a63_android_v2_embedding_sdk_alignment` | commit `a63a5ea` | Android v2 embedding and SDK alignment repair | pending only |
-| `episode_tatmapper_commit_d9a_pubspec_conflict_import_path` | commit `d9a6bbe` | Package import path repair with pubspec.lock conflict-marker risk | pending only |
+| `episode_tatmapper_pr93_calibration_guard_flutter_unavailable` | PR #93 | Flutter unavailable testing failure plus calibration/export guard repair | normalized as review-required |
+| `episode_tatmapper_pr92_ndk_path_tooling_review` | PR #92 | NDK path/tooling config drift and printing plugin bridge review | normalized as review-required |
+| `episode_tatmapper_commit_7eb_invalid_windows_checkout_file` | commit `7eb2e48` | Invalid filename repair for Windows checkout breakage | normalized as review-required |
+| `episode_tatmapper_commit_5019_android_scaffold_ndk_cmake` | commit `5019f6f` | Android scaffold, Gradle, NDK/CMake CI setup repair | normalized as review-required |
+| `episode_tatmapper_commit_a63_android_v2_embedding_sdk_alignment` | commit `a63a5ea` | Android v2 embedding and SDK alignment repair | normalized as review-required |
+| `episode_tatmapper_commit_d9a_pubspec_conflict_import_path` | commit `d9a6bbe` | Package import path repair with pubspec.lock conflict-marker risk | normalized as review-required |
 
 ## Evidence Availability
 
@@ -48,6 +49,6 @@ Public fallback inspected: `GenghisDarb/AI-Minesweeper-Discovery-Framework`, but
 
 ## Next Gate
 
-Review these pending bundles before normalization. A future v1.7-beta normalization pass should decide which TatMapper candidates are strong enough for `external_real_repo_episode` classification.
+Run a v1.7-beta second-repo eligibility review before any beta scoring. The review should decide whether the normalized TatMapper candidates are strong enough for a limited second-repo pilot, or whether fresh local Flutter/Android reruns and stronger CI evidence are required first.
 
 Scoring must remain NOT RUN until a separate beta eligibility review approves it.

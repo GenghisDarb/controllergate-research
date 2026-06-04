@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "source_ledger_path": "controllergate_v1_7_beta/traces/normalized/episodes.jsonl",
+  "review_scope": "v1.7-beta second-repo normalization review",
+  "classification_categories": [
+    "external_real_repo_episode",
+    "pending_incomplete",
+    "excluded_from_scoring"
+  ],
+  "summary": {
+    "pending_bundle_count": 6,
+    "normalized_episode_count": 6,
+    "external_real_repo_episode": 6,
+    "pending_incomplete": 0,
+    "excluded_from_scoring": 0,
+    "source_repo_count": 1,
+    "source_repos": [
+      "TatMapper"
+    ],
+    "scoring_eligibility_count_for_v1_7_beta_second_repo_claim": 0,
+    "scoring_allowed_for_v1_7_beta_second_repo_claim": false,
+    "scoring_mode": "blocked_pending_beta_eligibility_review",
+    "controllergate_scoring_run": false,
+    "beta_scoring_run": false,
+    "full_scoring_allowed": false,
+    "normalization_status": "REVIEW_NORMALIZED",
+    "scoring_allowed_reason": "All six TatMapper bundles were eligible for review normalization, but all remain review_required and no beta eligibility review or scoring run has occurred."
+  },
+  "episodes": [
+    {
+      "episode_id": "beta_episode_001",
+      "source_episode_folder": "episode_tatmapper_pr93_calibration_guard_flutter_unavailable",
+      "category": "external_real_repo_episode",
+      "source_repo": "TatMapper",
+      "source_pr": 93,
+      "outcome_type": "flutter_availability_failure_or_environment_gap",
+      "verified_result": "review_required",
+      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
+      "allowed_use": "second-repo external evidence review only",
+      "reason": "PR #93 has real PR/diff/review evidence and merged outcome, but full CI logs and local Flutter rerun are unavailable."
+    },
+    {
+      "episode_id": "beta_episode_002",
+      "source_episode_folder": "episode_tatmapper_pr92_ndk_path_tooling_review",
+      "category": "external_real_repo_episode",
+      "source_repo": "TatMapper",
+      "source_pr": 92,
+      "outcome_type": "ndk_tooling_review",
+      "verified_result": "review_required",
+      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
+      "allowed_use": "second-repo external evidence review only",
+      "reason": "PR #92 has real PR/diff/review evidence and merged outcome, but command output and full workflow logs are unavailable."
+    },
+    {
+      "episode_id": "beta_episode_003",
+      "source_episode_folder": "episode_tatmapper_commit_7eb_invalid_windows_checkout_file",
+      "category": "external_real_repo_episode",
+      "source_repo": "TatMapper",
+      "source_commit": "7eb2e48adc9ee182e749bfe6f7174266153af128",
+      "outcome_type": "windows_checkout_breakage",
+      "verified_result": "review_required",
+      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
+      "allowed_use": "second-repo external evidence review only",
+      "reason": "Commit/diff evidence shows an invalid Windows filename repair, but no checkout reproduction, CI log, or original agent transcript is available."
+    },
+    {
+      "episode_id": "beta_episode_004",
+      "source_episode_folder": "episode_tatmapper_commit_5019_android_scaffold_ndk_cmake",
+      "category": "external_real_repo_episode",
+      "source_repo": "TatMapper",
+      "source_commit": "5019f6fc25c3e6eeba13ddff22bc1198784a7f8d",
+      "outcome_type": "android_scaffold_ndk_cmake_setup",
+      "verified_result": "review_required",
+      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
+      "allowed_use": "second-repo external evidence review only",
+      "reason": "Commit/diff/status evidence exists and Codecov patch status succeeded, but full Flutter/Android build logs and local rerun are unavailable."
+    },
+    {
+      "episode_id": "beta_episode_005",
+      "source_episode_folder": "episode_tatmapper_commit_a63_android_v2_embedding_sdk_alignment",
+      "category": "external_real_repo_episode",
+      "source_repo": "TatMapper",
+      "source_commit": "a63a5ea6a9766049971e03bb9d562dd477394b18",
+      "outcome_type": "sdk_v2_embedding_alignment",
+      "verified_result": "review_required",
+      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
+      "allowed_use": "second-repo external evidence review only",
+      "reason": "Commit/diff/status evidence exists and Codecov patch status succeeded, but full Flutter/Android build logs and local rerun are unavailable."
+    },
+    {
+      "episode_id": "beta_episode_006",
+      "source_episode_folder": "episode_tatmapper_commit_d9a_pubspec_conflict_import_path",
+      "category": "external_real_repo_episode",
+      "source_repo": "TatMapper",
+      "source_commit": "d9a6bbec4b4555fe4e2a17dedb6e9e94fcdef570",
+      "outcome_type": "pubspec_conflict_marker_risk",
+      "verified_result": "review_required",
+      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
+      "allowed_use": "second-repo external evidence review only",
+      "reason": "Commit/diff evidence shows conflict-marker risk in pubspec.lock, but no local Flutter tooling rerun or CI log is available."
+    }
+  ]
+}
