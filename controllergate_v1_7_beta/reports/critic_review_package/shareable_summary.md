@@ -104,3 +104,27 @@ Episode 001 is a dry-run capture plan.
 - Seeded controlled evidence does not equal organic external repo evidence.
 
 Episode 002 may only advance toward limited replay scoring after Episode 001 proves the capture harness: clean checkout reproduces the failure, post-repair validation is replayable if repair is attempted, SHA256 manifests validate, proof obligations are complete, and decision-time/outcome overlap remains zero.
+
+## v1.8 Episode 001 artifact dry-run result
+
+Episode 001 validates replay-capture artifact generation.
+
+- The TORUS repo was used as a controlled user-owned testbed.
+- Episode label: `seeded_controlled_real_repo_episode`.
+- Allowed scoring mode: `not_scoreable`.
+- Replay gate status: `capture_complete_not_scoreable`.
+- Failure type: deterministic metadata manifest validation failure.
+- Failure signature: `MISSING_REQUIRED_FIELD: version`.
+- Failing SHA: `1757e666f5477b7e0d9bfc4a734298efc667eb54`.
+- Post-repair SHA: `0b95051230961b5be30f2c91679417162b9e5ceb`.
+- Clean checkout replay reproduced the failure at the failing SHA and the pass at the post-repair SHA.
+- SHA256SUMS and proof obligations ledger are present for the artifact bundle.
+- Decision-time/outcome overlap remains zero.
+- Episode 001 remains `not_scoreable`.
+- This is seeded controlled evidence, not organic external evidence.
+- ControllerGate has not repaired TORUS.
+- Memory lift is not demonstrated.
+- Self-maintaining software is not demonstrated.
+- Full scoring is not allowed.
+
+This result moves v1.8 from plan-only to replay-capture artifact generation for one controlled seeded episode. It still does not permit ControllerGate scoring, memory-lift claims, or self-maintaining-software claims.

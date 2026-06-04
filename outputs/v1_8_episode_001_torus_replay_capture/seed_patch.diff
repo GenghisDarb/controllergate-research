@@ -1,0 +1,89 @@
+diff --git a/metadata_manifest.json b/metadata_manifest.json
+new file mode 100644
+index 0000000..59cbb69
+--- /dev/null
++++ b/metadata_manifest.json
+@@ -0,0 +1,14 @@
++{
++  "project_name": "TORUS Theory",
++  "required_files": [
++    "README.md",
++    "LICENSE"
++  ],
++  "validators": [
++    {
++      "name": "metadata_manifest_schema",
++      "command": "python tools/validate_metadata_manifest.py metadata_manifest.json"
++    }
++  ],
++  "notes": "ControllerGate v1.8 Episode 001 seeded dry run: version intentionally omitted."
++}
+diff --git a/tools/validate_metadata_manifest.py b/tools/validate_metadata_manifest.py
+new file mode 100644
+index 0000000..36e15a8
+--- /dev/null
++++ b/tools/validate_metadata_manifest.py
+@@ -0,0 +1,63 @@
++#!/usr/bin/env python3
++"""Validate the dry-run metadata manifest for ControllerGate Episode 001."""
++
++from __future__ import annotations
++
++import json
++import sys
++from pathlib import Path
++
++
++REQUIRED_FIELDS = ["project_name", "version", "required_files", "validators"]
++
++
++def emit_failure(signature: str, detail: str) -> int:
++    print("metadata manifest validation failed")
++    print(signature)
++    print(detail)
++    return 1
++
++
++def main(argv: list[str]) -> int:
++    if len(argv) != 2:
++        return emit_failure(
++            "USAGE_ERROR",
++            "expected: python tools/validate_metadata_manifest.py metadata_manifest.json",
++        )
++
++    manifest_path = Path(argv[1])
++    if not manifest_path.exists():
++        return emit_failure("MANIFEST_FILE_MISSING", f"path: {manifest_path}")
++
++    try:
++        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
++    except json.JSONDecodeError as exc:
++        return emit_failure("MANIFEST_JSON_INVALID", f"{exc.msg} at line {exc.lineno}, column {exc.colno}")
++
++    if not isinstance(manifest, dict):
++        return emit_failure("MANIFEST_SHAPE_INVALID", "metadata_manifest.json must contain a JSON object")
++
++    for field in REQUIRED_FIELDS:
++        if field not in manifest:
++            return emit_failure(f"MISSING_REQUIRED_FIELD: {field}", f"metadata_manifest.json lacks {field!r}")
++
++    required_files = manifest["required_files"]
++    if not isinstance(required_files, list) or not all(isinstance(item, str) for item in required_files):
++        return emit_failure("REQUIRED_FILES_SHAPE_INVALID", "required_files must be a list of strings")
++
++    missing_files = [item for item in required_files if not Path(item).exists()]
++    if missing_files:
++        return emit_failure("REQUIRED_FILE_NOT_FOUND", f"missing: {', '.join(missing_files)}")
++
++    validators = manifest["validators"]
++    if not isinstance(validators, list) or not validators:
++        return emit_failure("VALIDATORS_SHAPE_INVALID", "validators must be a non-empty list")
++
++    print("metadata manifest validation passed")
++    print(f"required_files_checked: {len(required_files)}")
++    print(f"validators_declared: {len(validators)}")
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main(sys.argv))

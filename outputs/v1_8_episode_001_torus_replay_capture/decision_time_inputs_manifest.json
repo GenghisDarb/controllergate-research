@@ -1,0 +1,22 @@
+{
+  "episode_id": "v1_8_episode_001",
+  "decision_time_inputs_only": true,
+  "included_inputs": [
+    "target_repo_url",
+    "baseline_sha",
+    "failing_sha",
+    "controlled_branch",
+    "failing_command",
+    "raw_failing_log",
+    "failure_signature",
+    "seed_patch_diff",
+    "pre_repair_changed_files_snapshot"
+  ],
+  "excluded_outcome_only_inputs": [
+    "post_repair_sha",
+    "post_repair_log_raw",
+    "post_repair_outcome",
+    "repair_success_status"
+  ],
+  "future_outcome_evidence_in_decision_time_inputs": false
+}
