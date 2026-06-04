@@ -1,0 +1,84 @@
+{
+  "episode_id": "v1_8_episode_002",
+  "proof_status": "complete_not_scoreable",
+  "missing_obligations": [],
+  "obligations": [
+    {
+      "name": "artifact_directory_exists",
+      "passed": true,
+      "evidence": "outputs/v1_8_episode_002_torus_replay_capture"
+    },
+    {
+      "name": "baseline_sha_recorded",
+      "passed": true,
+      "evidence": "6b715d7b81a956ab6d902f818e24a06bcabcdff8"
+    },
+    {
+      "name": "seeded_failing_state_recorded",
+      "passed": true,
+      "evidence": "b885768acfa60fc434c79baf51a3b7b05c1e7ae8"
+    },
+    {
+      "name": "failing_command_exists",
+      "passed": true,
+      "evidence": "failing_command.txt"
+    },
+    {
+      "name": "raw_failing_log_exists",
+      "passed": true,
+      "evidence": "failing_log_raw.txt"
+    },
+    {
+      "name": "failure_signature_exists",
+      "passed": true,
+      "evidence": "TYPE_MISMATCH: version"
+    },
+    {
+      "name": "repair_patch_diff_exists",
+      "passed": true,
+      "evidence": "repair_patch.diff"
+    },
+    {
+      "name": "post_repair_command_exists",
+      "passed": true,
+      "evidence": "post_repair_command.txt"
+    },
+    {
+      "name": "raw_post_repair_log_exists",
+      "passed": true,
+      "evidence": "post_repair_log_raw.txt"
+    },
+    {
+      "name": "post_repair_outcome_exists",
+      "passed": true,
+      "evidence": "post_repair_outcome.json"
+    },
+    {
+      "name": "decision_time_outcome_overlap_check_exists",
+      "passed": true,
+      "evidence": "decision_time_outcome_overlap_check.json"
+    },
+    {
+      "name": "clean_checkout_pre_repair_replay_completed",
+      "passed": true,
+      "evidence": "clean checkout reproduced failure"
+    },
+    {
+      "name": "clean_checkout_post_repair_replay_completed",
+      "passed": true,
+      "evidence": "clean checkout reproduced pass"
+    },
+    {
+      "name": "proof_obligations_ledger_exists",
+      "passed": true,
+      "evidence": "proof_obligations_ledger.json"
+    }
+  ],
+  "scoring_boundaries": {
+    "allowed_scoring_mode": "not_scoreable",
+    "full_scoring_allowed": false,
+    "memory_lift_claim_allowed": false,
+    "self_maintaining_software_claim_allowed": false,
+    "organic_external_evidence_claim_allowed": false
+  }
+}

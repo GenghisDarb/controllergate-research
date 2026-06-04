@@ -151,3 +151,28 @@ Episode 002 is a dry-run capture plan.
 - Seeded controlled evidence does not equal organic external repo evidence.
 
 Episode 002 artifact execution must be explicitly approved separately. The plan only expands the replay-capture ladder from a missing-field failure class to a type-mismatch failure class.
+
+## v1.8 Episode 002 artifact dry-run result
+
+Episode 002 validates replay-capture artifact generation for a second deterministic failure class.
+
+- The TORUS repo was used as a controlled user-owned testbed.
+- Episode label: `seeded_controlled_real_repo_episode`.
+- Allowed scoring mode: `not_scoreable`.
+- Replay gate status: `capture_complete_not_scoreable`.
+- Failure type: deterministic metadata manifest version type mismatch.
+- Failure signature: `TYPE_MISMATCH: version`.
+- Failing SHA: `b885768acfa60fc434c79baf51a3b7b05c1e7ae8`.
+- Post-repair SHA: `9868c7e76b4675939d56195427ed49faa2816ed9`.
+- Clean checkout replay reproduced the failure at the failing SHA and the pass at the post-repair SHA.
+- SHA256SUMS and proof obligations ledger are present for the artifact bundle.
+- Decision-time/outcome overlap remains zero.
+- Episode 001 remains `capture_complete_not_scoreable`.
+- Episode 002 remains `not_scoreable`.
+- This is seeded controlled evidence, not organic external evidence.
+- ControllerGate has not repaired TORUS.
+- Memory lift is not demonstrated.
+- Self-maintaining software is not demonstrated.
+- Full scoring is not allowed.
+
+This result gives v1.8 two controlled replay-capture bundles across two deterministic failure classes: missing required field and type mismatch. It still does not permit ControllerGate scoring, memory-lift claims, or self-maintaining-software claims.
