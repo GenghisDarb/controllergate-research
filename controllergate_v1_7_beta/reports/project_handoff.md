@@ -9,7 +9,7 @@ Status: v1.7-beta second-repo evidence collection and review normalization are c
 - Normalized beta episodes: 6
 - Episode category: `external_real_repo_episode`
 - Scoring eligibility: 0
-- Scoring mode: `blocked_pending_beta_eligibility_review`
+- Scoring mode: `blocked_insufficient_second_repo_evidence`
 - ControllerGate scoring: NOT RUN
 
 ## What Was Normalized
@@ -20,4 +20,4 @@ Each episode was normalized only as review-required evidence. Missing CI logs, u
 
 ## Next Step
 
-Run a v1.7-beta second-repo eligibility review. Do not score before that review. The review should determine whether these TatMapper episodes are sufficient for limited second-repo pilot scoring or whether fresh local Flutter/Android reruns and stronger CI evidence are needed first.
+Collect more TatMapper evidence before scoring. The v1.7-beta second-repo eligibility review found useful diversity, but blocked scoring because there are only six episodes and all remain review-required. Highest-value next evidence is full CI logs or fresh local Flutter/Android reruns for the existing cluster, plus at least four more eligible TatMapper episodes.

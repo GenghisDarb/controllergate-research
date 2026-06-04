@@ -19,12 +19,13 @@
     ],
     "scoring_eligibility_count_for_v1_7_beta_second_repo_claim": 0,
     "scoring_allowed_for_v1_7_beta_second_repo_claim": false,
-    "scoring_mode": "blocked_pending_beta_eligibility_review",
+    "scoring_mode": "blocked_insufficient_second_repo_evidence",
     "controllergate_scoring_run": false,
     "beta_scoring_run": false,
     "full_scoring_allowed": false,
+    "second_repo_eligibility_review_run": true,
     "normalization_status": "REVIEW_NORMALIZED",
-    "scoring_allowed_reason": "All six TatMapper bundles were eligible for review normalization, but all remain review_required and no beta eligibility review or scoring run has occurred."
+    "scoring_allowed_reason": "All six TatMapper bundles were eligible for review normalization, but the second-repo eligibility review blocked scoring because the set has only six review-required episodes and lacks full CI logs or fresh local reruns."
   },
   "episodes": [
     {

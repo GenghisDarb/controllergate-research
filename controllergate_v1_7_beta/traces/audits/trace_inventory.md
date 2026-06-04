@@ -9,6 +9,7 @@ Status: second-repo TatMapper evidence has been review-normalized. ControllerGat
 | Pending evidence bundles | 6 TatMapper bundles present |
 | Normalized beta ledger | 6 episodes in `traces/normalized/episodes.jsonl` |
 | Episode review classification | Present in `traces/audits/beta_episode_review_classification.json` |
+| Second-repo eligibility review | Present; scoring blocked for insufficient second-repo evidence |
 | Beta scoring | NOT RUN |
 | Full scoring | DISALLOWED |
 | Alpha reports/audits | Preserved unchanged |
@@ -24,4 +25,4 @@ Status: second-repo TatMapper evidence has been review-normalized. ControllerGat
 
 ## Gate State
 
-All six normalized beta episodes are `external_real_repo_episode`, but all remain `review_required`. A separate v1.7-beta eligibility review is required before any limited second-repo scoring can be considered.
+All six normalized beta episodes are `external_real_repo_episode`, but all remain `review_required`. The v1.7-beta second-repo eligibility review keeps scoring blocked because the set has only six episodes and lacks full CI logs or fresh local Flutter/Android reruns.

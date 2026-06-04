@@ -1,0 +1,256 @@
+{
+  "schema_version": "1.0",
+  "source_ledger_path": "controllergate_v1_7_beta/traces/normalized/episodes.jsonl",
+  "source_classification_path": "controllergate_v1_7_beta/traces/audits/beta_episode_review_classification.json",
+  "review_scope": "v1.7-beta second-repo pilot eligibility",
+  "review_date": "2026-06-03",
+  "controllergate_scoring_run": false,
+  "beta_scoring_run": false,
+  "alpha_reports_and_scoring_outputs_unchanged": true,
+  "normalized_episode_count": 6,
+  "external_real_repo_episode_count": 6,
+  "eligible_external_episode_count": 0,
+  "scoring_allowed": false,
+  "scoring_mode": "blocked_insufficient_second_repo_evidence",
+  "full_scoring_allowed": false,
+  "decision": "blocked_insufficient_second_repo_evidence",
+  "decision_reason": "The six normalized TatMapper episodes provide useful second-repo evidence diversity, but they are all review_required, below the 10-episode minimum used for the alpha limited pilot, and lack full CI logs or fresh local Flutter/Android reruns. They are not yet sufficient for even a limited v1.7-beta second-repo scoring run.",
+  "constraints": {
+    "only_v1_7_beta_tatmapper_external_real_repo_episode_entries_may_be_used": true,
+    "v1_7_alpha_torus_episodes_excluded_from_beta_scoring": true,
+    "v1_6_controlled_benchmark_evidence_excluded": true,
+    "no_self_maintaining_software_claim": true,
+    "no_broad_cross_repo_generalization_claim": true,
+    "tiny_second_repo_exploratory_label_required_if_scoring_is_later_allowed": true,
+    "ambiguous_or_weak_episodes_must_remain_visible": true,
+    "full_scoring_disallowed": true
+  },
+  "evidence_checks": {
+    "decision_time_evidence_separated_from_outcome_only_evidence": true,
+    "missing_ci_logs_documented_where_applicable": true,
+    "local_rerun_absence_documented_where_applicable": true,
+    "weak_or_ambiguous_evidence_preserved": true,
+    "controllergate_scoring_not_run": true,
+    "beta_scoring_not_run": true,
+    "alpha_reports_and_scoring_outputs_unchanged": true
+  },
+  "diversity_checks": [
+    {
+      "category": "Flutter availability or environment gap",
+      "covered": true,
+      "coverage_strength": "review_required",
+      "episodes": [
+        "beta_episode_001"
+      ]
+    },
+    {
+      "category": "NDK/tooling review",
+      "covered": true,
+      "coverage_strength": "review_required",
+      "episodes": [
+        "beta_episode_002"
+      ]
+    },
+    {
+      "category": "Windows checkout breakage",
+      "covered": true,
+      "coverage_strength": "review_required",
+      "episodes": [
+        "beta_episode_003"
+      ]
+    },
+    {
+      "category": "Android scaffold / NDK / CMake setup",
+      "covered": true,
+      "coverage_strength": "review_required",
+      "episodes": [
+        "beta_episode_004"
+      ]
+    },
+    {
+      "category": "SDK/v2 embedding alignment",
+      "covered": true,
+      "coverage_strength": "review_required",
+      "episodes": [
+        "beta_episode_005"
+      ]
+    },
+    {
+      "category": "pubspec conflict-marker risk",
+      "covered": true,
+      "coverage_strength": "review_required",
+      "episodes": [
+        "beta_episode_006"
+      ]
+    },
+    {
+      "category": "dependency/config drift",
+      "covered": true,
+      "coverage_strength": "review_required",
+      "episodes": [
+        "beta_episode_001",
+        "beta_episode_002",
+        "beta_episode_004",
+        "beta_episode_005",
+        "beta_episode_006"
+      ]
+    },
+    {
+      "category": "build scaffold repair",
+      "covered": true,
+      "coverage_strength": "review_required",
+      "episodes": [
+        "beta_episode_004",
+        "beta_episode_005"
+      ]
+    },
+    {
+      "category": "warning or guardrail case",
+      "covered": true,
+      "coverage_strength": "review_required",
+      "episodes": [
+        "beta_episode_002"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "episode_id": "beta_episode_001",
+      "source_episode_folder": "episode_tatmapper_pr93_calibration_guard_flutter_unavailable",
+      "source_repo": "TatMapper",
+      "source_pr": 93,
+      "source_commit": "36189aefa598d85ba525c11e1542d8cbbb59c7fe",
+      "run_reference": "UNAVAILABLE: no PR-triggered workflow run logs exposed by connector",
+      "outcome_type": "flutter_availability_failure_or_environment_gap",
+      "verified_result": "review_required",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_separated": true,
+      "outcome_only_evidence_separated": true,
+      "pilot_eligible": false,
+      "weak_or_missing_evidence": [
+        "Full GitHub Actions logs unavailable.",
+        "No fresh local Flutter analyze/test rerun.",
+        "Original external agent transcript unavailable."
+      ],
+      "eligibility_caveat": "Useful environment-gap evidence, but merged repair state is not verified by local or CI rerun."
+    },
+    {
+      "episode_id": "beta_episode_002",
+      "source_episode_folder": "episode_tatmapper_pr92_ndk_path_tooling_review",
+      "source_repo": "TatMapper",
+      "source_pr": 92,
+      "source_commit": "41c483f53c26fbc20d5e6dc739d8fbe238bc5f80",
+      "run_reference": "UNAVAILABLE: no PR-triggered workflow run logs exposed by connector",
+      "outcome_type": "ndk_tooling_review",
+      "verified_result": "review_required",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_separated": true,
+      "outcome_only_evidence_separated": true,
+      "pilot_eligible": false,
+      "weak_or_missing_evidence": [
+        "PR body lists flutter test but fetched metadata lacks command output.",
+        "Full GitHub Actions logs unavailable.",
+        "No fresh local Flutter rerun.",
+        "Original external agent transcript unavailable."
+      ],
+      "eligibility_caveat": "Useful configuration-review warning evidence, not a verified CI failure or verified repair."
+    },
+    {
+      "episode_id": "beta_episode_003",
+      "source_episode_folder": "episode_tatmapper_commit_7eb_invalid_windows_checkout_file",
+      "source_repo": "TatMapper",
+      "source_commit": "7eb2e48adc9ee182e749bfe6f7174266153af128",
+      "run_reference": "UNAVAILABLE: no workflow run or commit status entries exposed",
+      "outcome_type": "windows_checkout_breakage",
+      "verified_result": "review_required",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_separated": true,
+      "outcome_only_evidence_separated": true,
+      "pilot_eligible": false,
+      "weak_or_missing_evidence": [
+        "Exact failing checkout command unavailable.",
+        "No Windows checkout reproduction.",
+        "No CI logs or status rows.",
+        "Original agent/tool transcript unavailable."
+      ],
+      "eligibility_caveat": "Strong maintenance candidate, but not independently reproduced."
+    },
+    {
+      "episode_id": "beta_episode_004",
+      "source_episode_folder": "episode_tatmapper_commit_5019_android_scaffold_ndk_cmake",
+      "source_repo": "TatMapper",
+      "source_commit": "5019f6fc25c3e6eeba13ddff22bc1198784a7f8d",
+      "run_reference": "Codecov patch status success only; full workflow logs unavailable",
+      "outcome_type": "android_scaffold_ndk_cmake_setup",
+      "verified_result": "review_required",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_separated": true,
+      "outcome_only_evidence_separated": true,
+      "pilot_eligible": false,
+      "weak_or_missing_evidence": [
+        "Full Flutter/Android build logs unavailable.",
+        "Exact failing Android/Gradle command unavailable.",
+        "No local Flutter or Android build rerun.",
+        "Codecov patch success is not build success."
+      ],
+      "eligibility_caveat": "Useful platform-scaffold repair evidence, but not verified at build level."
+    },
+    {
+      "episode_id": "beta_episode_005",
+      "source_episode_folder": "episode_tatmapper_commit_a63_android_v2_embedding_sdk_alignment",
+      "source_repo": "TatMapper",
+      "source_commit": "a63a5ea6a9766049971e03bb9d562dd477394b18",
+      "run_reference": "Codecov patch status success only; full workflow logs unavailable",
+      "outcome_type": "sdk_v2_embedding_alignment",
+      "verified_result": "review_required",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_separated": true,
+      "outcome_only_evidence_separated": true,
+      "pilot_eligible": false,
+      "weak_or_missing_evidence": [
+        "Full Flutter/Android build logs unavailable.",
+        "Exact failing Android/Flutter build command unavailable.",
+        "No local Flutter or Android build rerun.",
+        "Codecov patch success is not build success."
+      ],
+      "eligibility_caveat": "Useful Android migration evidence, but still review-only without build verification."
+    },
+    {
+      "episode_id": "beta_episode_006",
+      "source_episode_folder": "episode_tatmapper_commit_d9a_pubspec_conflict_import_path",
+      "source_repo": "TatMapper",
+      "source_commit": "d9a6bbec4b4555fe4e2a17dedb6e9e94fcdef570",
+      "run_reference": "UNAVAILABLE: no workflow run or commit status entries exposed",
+      "outcome_type": "pubspec_conflict_marker_risk",
+      "verified_result": "review_required",
+      "evidence_status": "pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_separated": true,
+      "outcome_only_evidence_separated": true,
+      "pilot_eligible": false,
+      "weak_or_missing_evidence": [
+        "No local flutter pub get, flutter analyze, or flutter test rerun.",
+        "No CI logs or status rows.",
+        "Exact failing command unavailable.",
+        "Original agent/tool transcript unavailable."
+      ],
+      "eligibility_caveat": "Strong generated-artifact risk evidence, but downstream tooling failure has not been reproduced."
+    }
+  ],
+  "episodes_too_ambiguous_for_scoring": [
+    "beta_episode_001",
+    "beta_episode_002",
+    "beta_episode_003",
+    "beta_episode_004",
+    "beta_episode_005",
+    "beta_episode_006"
+  ],
+  "additional_tatmapper_evidence_needed": [
+    "Collect at least 4 more eligible TatMapper external episodes to reach a 10-episode second-repo pilot minimum.",
+    "Recover or capture full GitHub Actions logs for selected TatMapper PRs or commits.",
+    "Run fresh local Flutter analyze/test/build commands where dependencies are available and preserve exact outputs.",
+    "Reproduce the Windows checkout breakage or provide historical checkout failure logs.",
+    "Run deterministic Flutter tooling checks for the pubspec.lock conflict-marker risk.",
+    "Preserve original agent/tool traces or PR discussion where available.",
+    "Include a mix of pass, fail, repair, warning/guardrail, dependency/config drift, and artifact mismatch outcomes."
+  ]
+}
