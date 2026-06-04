@@ -12,6 +12,7 @@ Status: second-repo TatMapper evidence has been strengthened, review-normalized,
 | Second-repo eligibility review | Present; limited pilot eligibility approved |
 | Beta scoring | LIMITED_PILOT_RUN |
 | Beta scoring result | COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS |
+| Beta critic review package | Present |
 | Full scoring | DISALLOWED |
 | Alpha reports/audits | Preserved unchanged |
 | Strengthening logs | Present in `evidence_strengthening/tatmapper_current_head/` |

@@ -13,6 +13,7 @@ Status: v1.7-beta second-repo evidence collection has been strengthened, review-
 - Scoring mode: `limited_pilot_only`
 - Beta limited TatMapper scoring: RUN
 - Beta limited TatMapper scoring result: `COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS`
+- Beta critic review package: present in `controllergate_v1_7_beta/reports/critic_review_package/`
 - Full scoring allowed: false
 - ControllerGate full scoring: NOT RUN
 
@@ -24,4 +25,4 @@ Each episode was normalized only as review-required evidence. Missing CI logs, u
 
 ## Next Step
 
-The next gate is a result review for the v1.7-beta limited TatMapper scoring pass. The latest strengthening pass added current-head local logs, but Flutter commands timed out and Android Gradle verification remained blocked by missing Java/JAVA_HOME, so full scoring, real-repo memory-lift claims, and broad claims remain blocked.
+The beta critic review package now captures the result review and includes a shareable summary for non-local helpers. The latest strengthening pass added current-head local logs, but Flutter commands timed out and Android Gradle verification remained blocked by missing Java/JAVA_HOME, so full scoring, real-repo memory-lift claims, and broad claims remain blocked.

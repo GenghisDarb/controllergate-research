@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "review_scope": "v1.7-beta limited TatMapper scoring critic review",
+  "review_date": "2026-06-04",
+  "source_scoring_path": "controllergate_v1_7_beta/traces/audits/limited_pilot_scoring/limited_pilot_scoring.json",
+  "source_eligibility_review_path": "controllergate_v1_7_beta/traces/audits/v1_7_beta_second_repo_eligibility_review.json",
+  "source_classification_path": "controllergate_v1_7_beta/traces/audits/beta_episode_review_classification.json",
+  "source_scoring_report_path": "controllergate_v1_7_beta/reports/limited_pilot_scoring/limited_pilot_scoring_report.md",
+  "critic_review_report_path": "controllergate_v1_7_beta/reports/critic_review_package/v1_7_beta_limited_pilot_critic_review.md",
+  "accepted_result": "COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS",
+  "final_status_wording": "ControllerGate v1.7-beta limited TatMapper scoring was run on 11 normalized TatMapper external real repo episodes. This is tiny second-repo exploratory evidence only, not proof of self-maintaining software.",
+  "counts": {
+    "eligible_beta_external_episodes": 11,
+    "passed": 0,
+    "failed": 0,
+    "warning_only": 0,
+    "review_required": 11,
+    "deterministic_pass_fail": 0,
+    "warning_or_review_required": 11,
+    "decision_time_outcome_overlap_episode_count": 0,
+    "dependency_or_config_drift_true": 9,
+    "generated_artifact_mismatch_true": 2,
+    "stale_read_or_false_completion_review_required": 4
+  },
+  "review_checks": {
+    "scope_gate": "PASS",
+    "exclusion_gate": "PASS",
+    "limited_mode_gate": "PASS",
+    "decision_outcome_separation": "PASS",
+    "future_leakage_guard": "PASS_WITH_REVIEW_REQUIRED_CAVEATS",
+    "caveat_preservation": "PASS",
+    "non_claim_boundary": "PASS",
+    "memory_baseline_availability": "UNAVAILABLE",
+    "deterministic_performance_scoring": "UNAVAILABLE"
+  },
+  "what_passed": [
+    "The limited pilot used only the 11 v1.7-beta TatMapper external_real_repo_episode entries.",
+    "v1.7-alpha TORUS episodes, v1.6 controlled benchmark evidence, and correction-review episodes were excluded from beta scoring.",
+    "Full scoring remained disallowed.",
+    "All weak, ambiguous, warning-only, closed-unmerged, unavailable-CI, and review_required episodes remained visible.",
+    "Decision-time evidence and outcome-only evidence remained separated, with zero overlap episodes after the PR #97 correction.",
+    "The run preserved explicit non-claims for self-maintaining software, production readiness, cross-repo generalization, and real-repo memory lift."
+  ],
+  "remaining_caveats": [
+    "All 11 TatMapper episodes remain review_required.",
+    "No deterministic pass/fail episode-level performance result was produced.",
+    "Full GitHub Actions logs are unavailable for the selected PRs and commits.",
+    "Fresh local reruns are current-head-only, timed out, unavailable, or blocked by local Java, Flutter, OpenCV, or tooling gaps.",
+    "Original agent/tool transcripts are unavailable for the TatMapper episodes.",
+    "No ControllerGate discovered-memory, no-memory, predefined-memory, or poisoned-memory baselines are available for TatMapper evidence.",
+    "The result supports evidence-pipeline and guarded-scoring readiness, not memory-lift or self-maintenance performance."
+  ],
+  "episode_driver_summary": [
+    {
+      "episode_id": "beta_episode_001",
+      "source_reference": "TatMapper PR #93",
+      "outcome_type": "flutter_availability_failure_or_environment_gap",
+      "critic_read": "environment-gap evidence; review-required because Flutter rerun and full CI logs are unavailable"
+    },
+    {
+      "episode_id": "beta_episode_002",
+      "source_reference": "TatMapper PR #92",
+      "outcome_type": "ndk_tooling_review",
+      "critic_read": "configuration-review evidence; review-required because command output and workflow logs are unavailable"
+    },
+    {
+      "episode_id": "beta_episode_003",
+      "source_reference": "TatMapper commit 7eb2e48",
+      "outcome_type": "windows_checkout_breakage",
+      "critic_read": "strong maintenance candidate; review-required because no checkout reproduction or CI log is available"
+    },
+    {
+      "episode_id": "beta_episode_004",
+      "source_reference": "TatMapper commit 5019f6f",
+      "outcome_type": "android_scaffold_ndk_cmake_setup",
+      "critic_read": "Android scaffold signal; review-required because Codecov status is not full app build evidence"
+    },
+    {
+      "episode_id": "beta_episode_005",
+      "source_reference": "TatMapper commit a63a5ea",
+      "outcome_type": "sdk_v2_embedding_alignment",
+      "critic_read": "second-repo domain signal; review-required because full Flutter or Android build evidence is unavailable"
+    },
+    {
+      "episode_id": "beta_episode_006",
+      "source_reference": "TatMapper commit d9a6bbe",
+      "outcome_type": "pubspec_conflict_marker_risk",
+      "critic_read": "generated-artifact risk signal; review-required because deterministic Flutter tooling reproduction is unavailable"
+    },
+    {
+      "episode_id": "beta_episode_007",
+      "source_reference": "TatMapper PR #98",
+      "outcome_type": "export_opencv_helper_repair",
+      "critic_read": "repair-style evidence; review-required because current-head OpenCV failure is outcome-only, not PR-head proof"
+    },
+    {
+      "episode_id": "beta_episode_008",
+      "source_reference": "TatMapper PR #97",
+      "outcome_type": "closed_unmerged_gradle_entrypoint_regression",
+      "critic_read": "closed-unmerged compile-risk evidence; review-required but future-leakage overlap is corrected to zero"
+    },
+    {
+      "episode_id": "beta_episode_009",
+      "source_reference": "TatMapper PR #96",
+      "outcome_type": "gradle_config_not_run",
+      "critic_read": "merged repair with verification gap; review-required because testing was not run and Java blocks local Gradle verification"
+    },
+    {
+      "episode_id": "beta_episode_010",
+      "source_reference": "TatMapper PR #94",
+      "outcome_type": "manual_override_precedence_review",
+      "critic_read": "guard evidence with manual override caveat; review-required because Flutter reruns timed out"
+    },
+    {
+      "episode_id": "beta_episode_011",
+      "source_reference": "TatMapper PR #90",
+      "outcome_type": "codecov_patch_coverage_warning",
+      "critic_read": "warning-only guardrail evidence; review-required because full build/test logs and PR-head rerun are unavailable"
+    }
+  ],
+  "gate_fairness_review": {
+    "eligibility_rules_were_fair_for_limited_pilot": true,
+    "eligibility_rules_are_too_weak_for_full_scoring": true,
+    "reason": "The 11-episode threshold and diversity gate are fair for a tiny exploratory second-repo pilot, but all episodes remain review_required and no memory baselines are available, so the same gate is not strong enough for full scoring or memory-lift claims."
+  },
+  "result_not_accepted_as": [
+    "proof of self-maintaining software",
+    "full v1.7-beta scoring pass",
+    "production readiness",
+    "broad cross-repo generalization",
+    "real-repo memory lift demonstration"
+  ],
+  "recommended_next_step": "hold_full_scoring_and_strengthen_beta_evidence",
+  "critic_recommendation": "Do not expand scoring yet. Strengthen TatMapper evidence with full CI logs, PR-head reruns, deterministic Flutter or Android build checks, original agent traces, and memory-baseline instrumentation before any full-scoring or memory-lift claim."
+}
