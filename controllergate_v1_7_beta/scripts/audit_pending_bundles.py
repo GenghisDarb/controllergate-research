@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PENDING_DIR = ROOT / "episodes_pending"
 NORMALIZED_LEDGER = ROOT / "traces" / "normalized" / "episodes.jsonl"
+LIMITED_SCORING_PATH = ROOT / "traces" / "audits" / "limited_pilot_scoring" / "limited_pilot_scoring.json"
 REQUIRED_FILES = {
     "ci_log.txt",
     "failing_command.txt",
@@ -76,7 +77,10 @@ def main() -> int:
     print(f"pending bundles: {len(bundles)}")
     print(f"normalized records: {normalized_records}")
     print(f"normalization: {normalization_state}")
-    print("scoring: NOT RUN")
+    if LIMITED_SCORING_PATH.exists():
+        print("scoring: LIMITED_PILOT_RUN")
+    else:
+        print("scoring: NOT RUN")
     return 0
 
 

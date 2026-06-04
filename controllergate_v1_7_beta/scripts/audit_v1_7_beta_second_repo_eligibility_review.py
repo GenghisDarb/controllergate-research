@@ -14,6 +14,7 @@ REPO_ROOT = BETA_ROOT.parent
 LEDGER_PATH = BETA_ROOT / "traces" / "normalized" / "episodes.jsonl"
 CLASSIFICATION_PATH = BETA_ROOT / "traces" / "audits" / "beta_episode_review_classification.json"
 REVIEW_PATH = BETA_ROOT / "traces" / "audits" / "v1_7_beta_second_repo_eligibility_review.json"
+LIMITED_SCORING_PATH = BETA_ROOT / "traces" / "audits" / "limited_pilot_scoring" / "limited_pilot_scoring.json"
 ALPHA_ROOT = REPO_ROOT / "controllergate_v1_7_alpha"
 
 REQUIRED_DIVERSITY = {
@@ -68,7 +69,12 @@ def main() -> int:
     ledger, ledger_errors = load_jsonl(LEDGER_PATH)
     classification, classification_errors = load_json(CLASSIFICATION_PATH)
     review, review_errors = load_json(REVIEW_PATH)
-    errors = ledger_errors + classification_errors + review_errors
+    limited_scoring, limited_scoring_errors = load_json(LIMITED_SCORING_PATH)
+    limited_scoring_exists = not limited_scoring_errors
+    if limited_scoring_errors and not LIMITED_SCORING_PATH.exists():
+        limited_scoring_errors = []
+        limited_scoring = {}
+    errors = ledger_errors + classification_errors + review_errors + limited_scoring_errors
 
     external = [row for row in ledger if row.get("category") == "external_real_repo_episode"]
     external_ids = {row.get("episode_id") for row in external}
@@ -196,10 +202,19 @@ def main() -> int:
             errors.append("classification beta scoring eligibility count must match beta external episode count")
         if summary.get("scoring_mode") != "limited_pilot_only":
             errors.append("classification scoring_mode must be limited_pilot_only")
-        if summary.get("beta_scoring_run") is not False:
-            errors.append("classification beta_scoring_run must remain false")
+        expected_beta_scoring_run = limited_scoring_exists
+        if summary.get("beta_scoring_run") is not expected_beta_scoring_run:
+            errors.append(f"classification beta_scoring_run must be {expected_beta_scoring_run!r}")
         if summary.get("full_scoring_allowed") is not False:
             errors.append("classification full_scoring_allowed must remain false")
+
+    if limited_scoring_exists:
+        if set(limited_scoring.get("included_episode_ids") or []) != external_ids:
+            errors.append("limited scoring included episodes must match beta external ledger episodes")
+        if limited_scoring.get("scoring_mode") != "limited_pilot_only":
+            errors.append("limited scoring mode must be limited_pilot_only")
+        if limited_scoring.get("full_scoring_allowed") is not False:
+            errors.append("limited scoring full_scoring_allowed must be false")
 
     required_alpha_files = [
         ALPHA_ROOT / "traces" / "audits" / "pilot_eligibility_review.json",
@@ -222,7 +237,11 @@ def main() -> int:
     print("beta scoring mode: limited_pilot_only")
     print("beta scoring allowed: limited_pilot_only")
     print("full scoring allowed: false")
-    print("ControllerGate scoring: NOT RUN")
+    if limited_scoring_exists:
+        print("limited beta scoring: RUN")
+        print("ControllerGate full scoring: NOT RUN")
+    else:
+        print("ControllerGate scoring: NOT RUN")
     return 0
 
 

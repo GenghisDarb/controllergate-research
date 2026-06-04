@@ -7,7 +7,6 @@ Decision-time evidence available:
 - PR metadata and head SHA.
 - PR diff showing Gradle/Groovy entrypoint and cleanup changes.
 - PR review comments identifying two P0 compile-risk regressions.
-- PR state: closed unmerged.
 
 Original agent transcript: UNAVAILABLE. The full agent task transcript is not present in repository evidence.
 

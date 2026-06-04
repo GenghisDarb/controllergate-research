@@ -1,6 +1,6 @@
 # ControllerGate v1.7-beta Second Repo Source Assessment
 
-Status: second-repo evidence collection has been strengthened and review-normalized. Eleven TatMapper bundles are normalized as review-required evidence, and renewed eligibility allows a limited exploratory beta pilot. No ControllerGate scoring has been run.
+Status: second-repo evidence collection has been strengthened, review-normalized, and run through the approved limited exploratory beta pilot. Eleven TatMapper bundles are normalized as review-required evidence. The limited TatMapper scoring pass completed with review-required caveats, and ControllerGate full scoring remains NOT RUN.
 
 ## Source Decision
 
@@ -18,7 +18,8 @@ Public fallback inspected: `GenghisDarb/AI-Minesweeper-Discovery-Framework`, but
 
 - Eleven v1.7-beta TatMapper episodes have been review-normalized into `controllergate_v1_7_beta/traces/normalized/episodes.jsonl`.
 - All normalized beta episodes remain `review_required`.
-- No ControllerGate scoring was run.
+- Limited beta TatMapper scoring was run on the eleven normalized TatMapper external episodes only.
+- ControllerGate full scoring was not run.
 - Missing logs, commands, diffs, or outcomes are marked `UNAVAILABLE` with reason.
 - Decision-time evidence is kept separate from outcome-only evidence inside each pending bundle.
 - `external_repos/` remains ignored for scratch clones.
@@ -54,6 +55,6 @@ Public fallback inspected: `GenghisDarb/AI-Minesweeper-Discovery-Framework`, but
 
 ## Next Gate
 
-The renewed v1.7-beta second-repo eligibility review allows a limited exploratory beta pilot. Run beta scoring only after explicit approval, using only the eleven TatMapper external episodes and preserving every review-required caveat.
+The renewed v1.7-beta second-repo eligibility review allowed a limited exploratory beta pilot. The approved limited beta scoring pass has now run using only the eleven TatMapper external episodes and preserving every review-required caveat.
 
-Scoring remains NOT RUN until the user explicitly approves the limited beta pilot scoring pass.
+Next gate: review the limited beta scoring result before authorizing any broader scoring, memory-lift claim, production claim, or self-maintaining software claim.

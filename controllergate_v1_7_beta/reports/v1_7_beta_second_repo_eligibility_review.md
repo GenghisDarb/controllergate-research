@@ -1,6 +1,6 @@
 # ControllerGate v1.7-beta Second-Repo Eligibility Review
 
-Status: renewed eligibility review completed. Limited beta pilot scoring is allowed, but ControllerGate scoring has not been run.
+Status: renewed eligibility review completed. Limited beta pilot scoring was allowed, and after explicit approval the limited TatMapper scoring pass has now run. ControllerGate full scoring remains NOT RUN.
 
 ## Decision
 
@@ -29,7 +29,9 @@ The current-head guard script passed, the OpenCV helper failed because `OpenCVCo
 | Eligible beta scoring episodes | 11 |
 | Scoring mode | `limited_pilot_only` |
 | Full scoring allowed | false |
-| ControllerGate scoring | NOT RUN |
+| Beta limited TatMapper scoring | RUN |
+| Beta limited TatMapper scoring result | `COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS` |
+| ControllerGate full scoring | NOT RUN |
 
 ## Episode Review
 
@@ -80,7 +82,7 @@ Missing or weak evidence is concentrated in five areas:
 
 ## Protected Constraints
 
-- Use only v1.7-beta TatMapper `external_real_repo_episode` entries if beta scoring is later approved.
+- Use only v1.7-beta TatMapper `external_real_repo_episode` entries for the limited beta scoring pass.
 - Exclude v1.7-alpha TORUS episodes from beta scoring.
 - Exclude v1.6 controlled benchmark evidence.
 - Do not claim self-maintaining software.

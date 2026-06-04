@@ -1,6 +1,6 @@
 # ControllerGate v1.7-beta Episode Review Classification
 
-Status: eleven TatMapper pending evidence bundles have been reviewed and normalized as second-repo external evidence. ControllerGate scoring was not run.
+Status: eleven TatMapper pending evidence bundles have been reviewed and normalized as second-repo external evidence. The approved limited beta TatMapper scoring pass has run and completed with review-required caveats. ControllerGate full scoring remains NOT RUN.
 
 ## Summary
 
@@ -15,7 +15,10 @@ Status: eleven TatMapper pending evidence bundles have been reviewed and normali
 | Scoring eligibility count | 11 |
 | Beta scoring allowed | limited_pilot_only |
 | Scoring mode | limited_pilot_only |
-| ControllerGate scoring | NOT RUN |
+| Beta limited TatMapper scoring | RUN |
+| Beta limited TatMapper scoring result | COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS |
+| Full scoring allowed | false |
+| ControllerGate full scoring | NOT RUN |
 
 All normalized beta episodes are classified as `external_real_repo_episode` with `scoring_allowed_for_v1_7_beta_second_repo_claim: review_required`.
 
@@ -37,7 +40,7 @@ All normalized beta episodes are classified as `external_real_repo_episode` with
 
 ## Protected Interpretation
 
-v1.7-beta has normalized an eleven-episode second-repo evidence cluster. The renewed eligibility review allows a limited exploratory beta pilot only. This supports multi-repo evidence readiness, not a memory-lift claim and not a self-maintaining software claim.
+v1.7-beta has normalized an eleven-episode second-repo evidence cluster. The renewed eligibility review allowed a limited exploratory beta pilot only, and the limited pilot completed with review-required caveats. This supports multi-repo evidence-pipeline readiness, not a memory-lift claim and not a self-maintaining software claim.
 
 ## Newly Normalized TatMapper Bundles
 
@@ -51,4 +54,4 @@ These bundles were collected after the first eligibility review and are now norm
 
 ## Next Gate
 
-The next step is an explicitly approved v1.7-beta limited TatMapper scoring run. Full scoring and any self-maintaining or production claim remain blocked.
+The next step is a result review for the v1.7-beta limited TatMapper scoring run. Full scoring and any self-maintaining or production claim remain blocked.

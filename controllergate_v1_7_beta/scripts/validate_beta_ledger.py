@@ -12,6 +12,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "traces" / "normalized" / "episodes.jsonl"
 PENDING_DIR = ROOT / "episodes_pending"
+LIMITED_SCORING_PATH = ROOT / "traces" / "audits" / "limited_pilot_scoring" / "limited_pilot_scoring.json"
 EXPECTED_NORMALIZED_EPISODES = 11
 REQUIRED_BUNDLE_FILES = {
     "ci_log.txt",
@@ -131,7 +132,10 @@ def main() -> int:
     print(f"normalized episodes: {len(records)}")
     print(f"external_real_repo_episode: {len(records)}")
     print("verified_result: review_required")
-    print("scoring: NOT RUN")
+    if LIMITED_SCORING_PATH.exists():
+        print("scoring: LIMITED_PILOT_RUN")
+    else:
+        print("scoring: NOT RUN")
     return 0
 
 

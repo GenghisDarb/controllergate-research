@@ -14,6 +14,7 @@ LEDGER_PATH = ROOT / "traces" / "normalized" / "episodes.jsonl"
 PENDING_DIR = ROOT / "episodes_pending"
 CLASSIFICATION_PATH = ROOT / "traces" / "audits" / "beta_episode_review_classification.json"
 ELIGIBILITY_REVIEW_PATH = ROOT / "traces" / "audits" / "v1_7_beta_second_repo_eligibility_review.json"
+LIMITED_SCORING_PATH = ROOT / "traces" / "audits" / "limited_pilot_scoring" / "limited_pilot_scoring.json"
 
 
 def load_json(path: Path) -> tuple[dict[str, Any], list[str]]:
@@ -62,7 +63,8 @@ def main() -> int:
     ledger, ledger_errors = load_jsonl(LEDGER_PATH)
     classification, classification_errors = load_json(CLASSIFICATION_PATH)
     eligibility_review, eligibility_errors = load_optional_json(ELIGIBILITY_REVIEW_PATH)
-    errors = ledger_errors + classification_errors + eligibility_errors
+    limited_scoring, limited_scoring_errors = load_optional_json(LIMITED_SCORING_PATH)
+    errors = ledger_errors + classification_errors + eligibility_errors + limited_scoring_errors
     pending_bundle_count = len([path for path in PENDING_DIR.iterdir() if path.is_dir()]) if PENDING_DIR.exists() else 0
 
     episodes = classification.get("episodes")
@@ -117,6 +119,7 @@ def main() -> int:
         expected_scoring_mode = "blocked_pending_beta_eligibility_review"
         expected_second_repo_review_run = False
         expected_eligibility_count = 0
+        expected_beta_scoring_run = False
         if eligibility_review is not None:
             expected_scoring_mode = str(eligibility_review.get("scoring_mode"))
             expected_second_repo_review_run = True
@@ -126,6 +129,15 @@ def main() -> int:
                 expected_eligibility_count = len(ledger)
             if eligibility_review.get("beta_scoring_run") is not False:
                 errors.append("eligibility review beta_scoring_run must remain false")
+        if limited_scoring is not None:
+            expected_beta_scoring_run = True
+            expected_scoring_mode = str(limited_scoring.get("scoring_mode"))
+            if limited_scoring.get("beta_limited_pilot_scoring_run") is not True:
+                errors.append("limited scoring artifact must mark beta_limited_pilot_scoring_run true")
+            if set(limited_scoring.get("included_episode_ids") or []) != {
+                record.get("episode_id") for record in ledger
+            }:
+                errors.append("limited scoring included episodes must match beta ledger episodes")
 
         expected = {
             "pending_bundle_count": pending_bundle_count,
@@ -137,7 +149,7 @@ def main() -> int:
             "scoring_allowed_for_v1_7_beta_second_repo_claim": False,
             "scoring_mode": expected_scoring_mode,
             "controllergate_scoring_run": False,
-            "beta_scoring_run": False,
+            "beta_scoring_run": expected_beta_scoring_run,
             "full_scoring_allowed": False,
             "second_repo_eligibility_review_run": expected_second_repo_review_run,
             "normalization_status": "REVIEW_NORMALIZED",
@@ -161,13 +173,18 @@ def main() -> int:
         scoring_mode = str(eligibility_review.get("scoring_mode"))
         if eligibility_review.get("scoring_allowed") == "limited_pilot_only":
             scoring_eligibility_count = len(ledger)
+    if limited_scoring is not None:
+        scoring_mode = str(limited_scoring.get("scoring_mode"))
     print(f"scoring eligibility count for second repo claim: {scoring_eligibility_count}")
     print(f"scoring mode: {scoring_mode}")
     if scoring_mode == "limited_pilot_only":
         print("scoring allowed: limited_pilot_only")
     else:
         print("scoring allowed: false")
-    print("scoring: NOT RUN")
+    if limited_scoring is not None:
+        print("scoring: LIMITED_PILOT_RUN")
+    else:
+        print("scoring: NOT RUN")
     return 0
 
 

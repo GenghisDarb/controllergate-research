@@ -1,6 +1,6 @@
 # ControllerGate v1.7-beta Handoff
 
-Status: v1.7-beta second-repo evidence collection has been strengthened and review-normalized. Eleven TatMapper bundles are normalized as review-required evidence. Scoring has not been run.
+Status: v1.7-beta second-repo evidence collection has been strengthened, review-normalized, and run through the approved limited TatMapper scoring pass. Eleven TatMapper bundles are normalized as review-required evidence. Limited beta scoring completed with review-required caveats.
 
 ## Current State
 
@@ -11,7 +11,10 @@ Status: v1.7-beta second-repo evidence collection has been strengthened and revi
 - Episode category: `external_real_repo_episode`
 - Scoring eligibility: 11
 - Scoring mode: `limited_pilot_only`
-- ControllerGate scoring: NOT RUN
+- Beta limited TatMapper scoring: RUN
+- Beta limited TatMapper scoring result: `COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS`
+- Full scoring allowed: false
+- ControllerGate full scoring: NOT RUN
 
 ## What Was Normalized
 
@@ -21,4 +24,4 @@ Each episode was normalized only as review-required evidence. Missing CI logs, u
 
 ## Next Step
 
-The next gate is an explicitly approved v1.7-beta limited TatMapper scoring run. The latest strengthening pass added current-head local logs, but Flutter commands timed out and Android Gradle verification remained blocked by missing Java/JAVA_HOME, so full scoring and broad claims remain blocked.
+The next gate is a result review for the v1.7-beta limited TatMapper scoring pass. The latest strengthening pass added current-head local logs, but Flutter commands timed out and Android Gradle verification remained blocked by missing Java/JAVA_HOME, so full scoring, real-repo memory-lift claims, and broad claims remain blocked.
