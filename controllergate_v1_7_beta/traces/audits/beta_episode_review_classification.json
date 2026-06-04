@@ -1,116 +1,183 @@
 {
-  "schema_version": "1.0",
-  "source_ledger_path": "controllergate_v1_7_beta/traces/normalized/episodes.jsonl",
-  "review_scope": "v1.7-beta second-repo normalization review",
-  "classification_categories": [
-    "external_real_repo_episode",
-    "pending_incomplete",
-    "excluded_from_scoring"
-  ],
-  "summary": {
-    "pending_bundle_count": 11,
-    "normalized_episode_count": 6,
-    "external_real_repo_episode": 6,
-    "pending_incomplete": 0,
-    "excluded_from_scoring": 0,
-    "source_repo_count": 1,
-    "source_repos": [
-      "TatMapper"
-    ],
-    "scoring_eligibility_count_for_v1_7_beta_second_repo_claim": 0,
-    "scoring_allowed_for_v1_7_beta_second_repo_claim": false,
-    "scoring_mode": "blocked_insufficient_second_repo_evidence",
-    "controllergate_scoring_run": false,
-    "beta_scoring_run": false,
-    "full_scoring_allowed": false,
-    "second_repo_eligibility_review_run": true,
-    "normalization_status": "REVIEW_NORMALIZED",
-    "scoring_allowed_reason": "Six TatMapper bundles were eligible for review normalization, but the second-repo eligibility review blocked scoring because the normalized set has only six review-required episodes and lacks full CI logs or fresh local reruns. A later strengthening pass added five new pending TatMapper bundles, but those remain unnormalized and unscored."
-  },
-  "post_review_pending_collection": {
-    "new_pending_bundle_count": 5,
-    "new_pending_bundles": [
-      "episode_tatmapper_pr98_export_opencv_helper_repair",
-      "episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression",
-      "episode_tatmapper_pr96_gradle_config_not_run",
-      "episode_tatmapper_pr94_manual_override_precedence_review",
-      "episode_tatmapper_pr90_codecov_patch_coverage_warning"
-    ],
-    "normalization_status": "NOT_NORMALIZED",
-    "scoring_status": "NOT_RUN"
-  },
-  "episodes": [
-    {
-      "episode_id": "beta_episode_001",
-      "source_episode_folder": "episode_tatmapper_pr93_calibration_guard_flutter_unavailable",
-      "category": "external_real_repo_episode",
-      "source_repo": "TatMapper",
-      "source_pr": 93,
-      "outcome_type": "flutter_availability_failure_or_environment_gap",
-      "verified_result": "review_required",
-      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
-      "allowed_use": "second-repo external evidence review only",
-      "reason": "PR #93 has real PR/diff/review evidence and merged outcome, but full CI logs and local Flutter rerun are unavailable."
-    },
-    {
-      "episode_id": "beta_episode_002",
-      "source_episode_folder": "episode_tatmapper_pr92_ndk_path_tooling_review",
-      "category": "external_real_repo_episode",
-      "source_repo": "TatMapper",
-      "source_pr": 92,
-      "outcome_type": "ndk_tooling_review",
-      "verified_result": "review_required",
-      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
-      "allowed_use": "second-repo external evidence review only",
-      "reason": "PR #92 has real PR/diff/review evidence and merged outcome, but command output and full workflow logs are unavailable."
-    },
-    {
-      "episode_id": "beta_episode_003",
-      "source_episode_folder": "episode_tatmapper_commit_7eb_invalid_windows_checkout_file",
-      "category": "external_real_repo_episode",
-      "source_repo": "TatMapper",
-      "source_commit": "7eb2e48adc9ee182e749bfe6f7174266153af128",
-      "outcome_type": "windows_checkout_breakage",
-      "verified_result": "review_required",
-      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
-      "allowed_use": "second-repo external evidence review only",
-      "reason": "Commit/diff evidence shows an invalid Windows filename repair, but no checkout reproduction, CI log, or original agent transcript is available."
-    },
-    {
-      "episode_id": "beta_episode_004",
-      "source_episode_folder": "episode_tatmapper_commit_5019_android_scaffold_ndk_cmake",
-      "category": "external_real_repo_episode",
-      "source_repo": "TatMapper",
-      "source_commit": "5019f6fc25c3e6eeba13ddff22bc1198784a7f8d",
-      "outcome_type": "android_scaffold_ndk_cmake_setup",
-      "verified_result": "review_required",
-      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
-      "allowed_use": "second-repo external evidence review only",
-      "reason": "Commit/diff/status evidence exists and Codecov patch status succeeded, but full Flutter/Android build logs and local rerun are unavailable."
-    },
-    {
-      "episode_id": "beta_episode_005",
-      "source_episode_folder": "episode_tatmapper_commit_a63_android_v2_embedding_sdk_alignment",
-      "category": "external_real_repo_episode",
-      "source_repo": "TatMapper",
-      "source_commit": "a63a5ea6a9766049971e03bb9d562dd477394b18",
-      "outcome_type": "sdk_v2_embedding_alignment",
-      "verified_result": "review_required",
-      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
-      "allowed_use": "second-repo external evidence review only",
-      "reason": "Commit/diff/status evidence exists and Codecov patch status succeeded, but full Flutter/Android build logs and local rerun are unavailable."
-    },
-    {
-      "episode_id": "beta_episode_006",
-      "source_episode_folder": "episode_tatmapper_commit_d9a_pubspec_conflict_import_path",
-      "category": "external_real_repo_episode",
-      "source_repo": "TatMapper",
-      "source_commit": "d9a6bbec4b4555fe4e2a17dedb6e9e94fcdef570",
-      "outcome_type": "pubspec_conflict_marker_risk",
-      "verified_result": "review_required",
-      "scoring_allowed_for_v1_7_beta_second_repo_claim": "review_required",
-      "allowed_use": "second-repo external evidence review only",
-      "reason": "Commit/diff evidence shows conflict-marker risk in pubspec.lock, but no local Flutter tooling rerun or CI log is available."
-    }
-  ]
+    "schema_version":  "1.0",
+    "source_ledger_path":  "controllergate_v1_7_beta/traces/normalized/episodes.jsonl",
+    "review_scope":  "v1.7-beta second-repo normalization review",
+    "classification_categories":  [
+                                      "external_real_repo_episode",
+                                      "pending_incomplete",
+                                      "excluded_from_scoring"
+                                  ],
+    "summary":  {
+                    "pending_bundle_count":  11,
+                    "normalized_episode_count":  11,
+                    "external_real_repo_episode":  11,
+                    "pending_incomplete":  0,
+                    "excluded_from_scoring":  0,
+                    "source_repo_count":  1,
+                    "source_repos":  [
+                                         "TatMapper"
+                                     ],
+                    "scoring_eligibility_count_for_v1_7_beta_second_repo_claim":  0,
+                    "scoring_allowed_for_v1_7_beta_second_repo_claim":  false,
+                    "scoring_mode":  "blocked_pending_renewed_eligibility_review",
+                    "controllergate_scoring_run":  false,
+                    "beta_scoring_run":  false,
+                    "full_scoring_allowed":  false,
+                    "second_repo_eligibility_review_run":  true,
+                    "normalization_status":  "REVIEW_NORMALIZED",
+                    "scoring_allowed_reason":  "Eleven TatMapper bundles have been review-normalized as external real repo evidence, but all remain review_required. Beta scoring remains blocked until a renewed v1.7-beta eligibility review explicitly approves limited_pilot_only."
+                },
+    "post_review_pending_collection":  {
+                                           "new_pending_bundle_count":  5,
+                                           "new_pending_bundles":  [
+                                                                       "episode_tatmapper_pr98_export_opencv_helper_repair",
+                                                                       "episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression",
+                                                                       "episode_tatmapper_pr96_gradle_config_not_run",
+                                                                       "episode_tatmapper_pr94_manual_override_precedence_review",
+                                                                       "episode_tatmapper_pr90_codecov_patch_coverage_warning"
+                                                                   ],
+                                           "normalization_status":  "REVIEW_NORMALIZED",
+                                           "scoring_status":  "NOT_RUN",
+                                           "normalized_episode_ids":  [
+                                                                          "beta_episode_007",
+                                                                          "beta_episode_008",
+                                                                          "beta_episode_009",
+                                                                          "beta_episode_010",
+                                                                          "beta_episode_011"
+                                                                      ]
+                                       },
+    "episodes":  [
+                     {
+                         "episode_id":  "beta_episode_001",
+                         "source_episode_folder":  "episode_tatmapper_pr93_calibration_guard_flutter_unavailable",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_pr":  93,
+                         "outcome_type":  "flutter_availability_failure_or_environment_gap",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "PR #93 has real PR/diff/review evidence and merged outcome, but full CI logs and local Flutter rerun are unavailable."
+                     },
+                     {
+                         "episode_id":  "beta_episode_002",
+                         "source_episode_folder":  "episode_tatmapper_pr92_ndk_path_tooling_review",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_pr":  92,
+                         "outcome_type":  "ndk_tooling_review",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "PR #92 has real PR/diff/review evidence and merged outcome, but command output and full workflow logs are unavailable."
+                     },
+                     {
+                         "episode_id":  "beta_episode_003",
+                         "source_episode_folder":  "episode_tatmapper_commit_7eb_invalid_windows_checkout_file",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_commit":  "7eb2e48adc9ee182e749bfe6f7174266153af128",
+                         "outcome_type":  "windows_checkout_breakage",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "Commit/diff evidence shows an invalid Windows filename repair, but no checkout reproduction, CI log, or original agent transcript is available."
+                     },
+                     {
+                         "episode_id":  "beta_episode_004",
+                         "source_episode_folder":  "episode_tatmapper_commit_5019_android_scaffold_ndk_cmake",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_commit":  "5019f6fc25c3e6eeba13ddff22bc1198784a7f8d",
+                         "outcome_type":  "android_scaffold_ndk_cmake_setup",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "Commit/diff/status evidence exists and Codecov patch status succeeded, but full Flutter/Android build logs and local rerun are unavailable."
+                     },
+                     {
+                         "episode_id":  "beta_episode_005",
+                         "source_episode_folder":  "episode_tatmapper_commit_a63_android_v2_embedding_sdk_alignment",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_commit":  "a63a5ea6a9766049971e03bb9d562dd477394b18",
+                         "outcome_type":  "sdk_v2_embedding_alignment",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "Commit/diff/status evidence exists and Codecov patch status succeeded, but full Flutter/Android build logs and local rerun are unavailable."
+                     },
+                     {
+                         "episode_id":  "beta_episode_006",
+                         "source_episode_folder":  "episode_tatmapper_commit_d9a_pubspec_conflict_import_path",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_commit":  "d9a6bbec4b4555fe4e2a17dedb6e9e94fcdef570",
+                         "outcome_type":  "pubspec_conflict_marker_risk",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "Commit/diff evidence shows conflict-marker risk in pubspec.lock, but no local Flutter tooling rerun or CI log is available."
+                     },
+                     {
+                         "episode_id":  "beta_episode_007",
+                         "source_episode_folder":  "episode_tatmapper_pr98_export_opencv_helper_repair",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_pr":  98,
+                         "outcome_type":  "export_opencv_helper_repair",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "PR #98 has real PR/diff evidence and current-head OpenCV helper rerun output, but full CI logs are unavailable and the local rerun is outcome-only."
+                     },
+                     {
+                         "episode_id":  "beta_episode_008",
+                         "source_episode_folder":  "episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_pr":  97,
+                         "outcome_type":  "closed_unmerged_gradle_entrypoint_regression",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "PR #97 is a real closed-unmerged repair attempt with review-identified compile-risk regressions, but PR-head rerun and full CI logs are unavailable."
+                     },
+                     {
+                         "episode_id":  "beta_episode_009",
+                         "source_episode_folder":  "episode_tatmapper_pr96_gradle_config_not_run",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_pr":  96,
+                         "outcome_type":  "gradle_config_not_run",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "PR #96 has real Gradle config repair evidence, but its own body says testing was not run and current-head Gradle verification is blocked by missing Java."
+                     },
+                     {
+                         "episode_id":  "beta_episode_010",
+                         "source_episode_folder":  "episode_tatmapper_pr94_manual_override_precedence_review",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_pr":  94,
+                         "outcome_type":  "manual_override_precedence_review",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "PR #94 has guard/test evidence and review caveats, but full CI logs are unavailable and Flutter reruns timed out locally."
+                     },
+                     {
+                         "episode_id":  "beta_episode_011",
+                         "source_episode_folder":  "episode_tatmapper_pr90_codecov_patch_coverage_warning",
+                         "category":  "external_real_repo_episode",
+                         "source_repo":  "TatMapper",
+                         "source_pr":  90,
+                         "outcome_type":  "codecov_patch_coverage_warning",
+                         "verified_result":  "review_required",
+                         "scoring_allowed_for_v1_7_beta_second_repo_claim":  "review_required",
+                         "allowed_use":  "second-repo external evidence review only",
+                         "reason":  "PR #90 has real Codecov warning/guardrail evidence, but full build/test logs and PR-head rerun are unavailable."
+                     }
+                 ]
 }

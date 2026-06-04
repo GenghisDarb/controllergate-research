@@ -1,15 +1,15 @@
 # ControllerGate v1.7-beta Trace Inventory
 
-Status: second-repo TatMapper evidence has been strengthened. Six TatMapper episodes remain review-normalized, five more are pending, and ControllerGate scoring remains NOT RUN.
+Status: second-repo TatMapper evidence has been strengthened and review-normalized. Eleven TatMapper episodes are normalized as review-required evidence, and ControllerGate scoring remains NOT RUN.
 
 ## Inventory
 
 | Area | Status |
 | --- | --- |
 | Pending evidence bundles | 11 TatMapper bundles present |
-| Normalized beta ledger | 6 episodes in `traces/normalized/episodes.jsonl` |
+| Normalized beta ledger | 11 episodes in `traces/normalized/episodes.jsonl` |
 | Episode review classification | Present in `traces/audits/beta_episode_review_classification.json` |
-| Second-repo eligibility review | Present; scoring blocked for insufficient second-repo evidence |
+| Second-repo eligibility review | Present; scoring blocked pending renewed eligibility review |
 | Beta scoring | NOT RUN |
 | Full scoring | DISALLOWED |
 | Alpha reports/audits | Preserved unchanged |
@@ -23,12 +23,17 @@ Status: second-repo TatMapper evidence has been strengthened. Six TatMapper epis
 - `beta_episode_004`: commit `5019f6f`, Android scaffold and NDK/CMake setup repair.
 - `beta_episode_005`: commit `a63a5ea`, Android v2 embedding and SDK alignment repair.
 - `beta_episode_006`: commit `d9a6bbe`, pubspec conflict-marker/generated-artifact risk.
+- `beta_episode_007`: PR #98, OpenCV CI helper repair and current-head OpenCV discovery failure.
+- `beta_episode_008`: PR #97, closed-unmerged Gradle entrypoint repair with compile-risk review findings.
+- `beta_episode_009`: PR #96, Android Gradle configuration repair with testing-not-run caveat.
+- `beta_episode_010`: PR #94, calibration guard repair with manual override precedence review caveat.
+- `beta_episode_011`: PR #90, Codecov patch coverage warning-only guardrail evidence.
 
 ## Gate State
 
-All six normalized beta episodes are `external_real_repo_episode`, but all remain `review_required`. Five additional TatMapper bundles are pending and not normalized. The v1.7-beta second-repo eligibility review keeps scoring blocked until the new pending bundles are reviewed, normalized if eligible, and the eligibility review is rerun.
+All eleven normalized beta episodes are `external_real_repo_episode`, but all remain `review_required`. The v1.7-beta second-repo eligibility state keeps scoring blocked until a renewed eligibility review explicitly approves limited pilot scoring.
 
-## Newly Pending TatMapper Episodes
+## Newly Normalized TatMapper Episodes
 
 - `episode_tatmapper_pr98_export_opencv_helper_repair`
 - `episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression`

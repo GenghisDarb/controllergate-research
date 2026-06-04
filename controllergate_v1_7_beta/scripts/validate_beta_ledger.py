@@ -12,6 +12,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "traces" / "normalized" / "episodes.jsonl"
 PENDING_DIR = ROOT / "episodes_pending"
+EXPECTED_NORMALIZED_EPISODES = 11
 REQUIRED_BUNDLE_FILES = {
     "ci_log.txt",
     "failing_command.txt",
@@ -68,8 +69,8 @@ def main() -> int:
     seen_ids: set[str] = set()
     seen_folders: set[str] = set()
 
-    if len(records) != 6:
-        errors.append(f"expected 6 beta normalized episodes, found {len(records)}")
+    if len(records) != EXPECTED_NORMALIZED_EPISODES:
+        errors.append(f"expected {EXPECTED_NORMALIZED_EPISODES} beta normalized episodes, found {len(records)}")
 
     for index, record in enumerate(records, start=1):
         episode_id = str(record.get("episode_id") or f"line {index}")
@@ -128,7 +129,7 @@ def main() -> int:
 
     print("v1.7-beta ledger validation: PASS")
     print(f"normalized episodes: {len(records)}")
-    print("external_real_repo_episode: 6")
+    print(f"external_real_repo_episode: {len(records)}")
     print("verified_result: review_required")
     print("scoring: NOT RUN")
     return 0

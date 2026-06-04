@@ -23,6 +23,11 @@ REQUIRED_DIVERSITY = {
     "Android scaffold / NDK / CMake setup",
     "SDK/v2 embedding alignment",
     "pubspec conflict-marker risk",
+    "CI helper / OpenCV config repair",
+    "closed unmerged repair attempt",
+    "Gradle config verification gap",
+    "manual override review caveat",
+    "Codecov patch coverage warning",
     "dependency/config drift",
     "build scaffold repair",
     "warning or guardrail case",
@@ -71,10 +76,10 @@ def main() -> int:
     external = [row for row in ledger if row.get("category") == "external_real_repo_episode"]
     external_ids = {row.get("episode_id") for row in external}
 
-    if len(ledger) != 6:
-        errors.append(f"expected 6 beta normalized episodes, found {len(ledger)}")
-    if len(external) != 6:
-        errors.append(f"expected 6 beta external real repo episodes, found {len(external)}")
+    if len(ledger) != 11:
+        errors.append(f"expected 11 beta normalized episodes, found {len(ledger)}")
+    if len(external) != 11:
+        errors.append(f"expected 11 beta external real repo episodes, found {len(external)}")
 
     review_episodes = review.get("episodes")
     if not isinstance(review_episodes, list):
@@ -103,8 +108,8 @@ def main() -> int:
         errors.append("eligible_external_episode_count must be 0")
     if review.get("scoring_allowed") is not False:
         errors.append("scoring_allowed must be false")
-    if review.get("scoring_mode") != "blocked_insufficient_second_repo_evidence":
-        errors.append("scoring_mode must be blocked_insufficient_second_repo_evidence")
+    if review.get("scoring_mode") != "blocked_pending_renewed_eligibility_review":
+        errors.append("scoring_mode must be blocked_pending_renewed_eligibility_review")
     if review.get("full_scoring_allowed") is not False:
         errors.append("full_scoring_allowed must be false")
     if review.get("controllergate_scoring_run") is not False:
@@ -162,7 +167,7 @@ def main() -> int:
 
     ambiguous = review.get("episodes_too_ambiguous_for_scoring")
     if set(ambiguous or []) != external_ids:
-        errors.append("all six beta episodes must remain too ambiguous for scoring in this review")
+        errors.append("all beta episodes must remain too ambiguous for scoring in this review")
 
     additional_needed = review.get("additional_tatmapper_evidence_needed")
     if not isinstance(additional_needed, list) or len(additional_needed) < 4:
@@ -201,7 +206,7 @@ def main() -> int:
     print("v1.7-beta second-repo eligibility review: PASS")
     print(f"beta normalized episodes: {len(ledger)}")
     print(f"beta external real repo episodes: {len(external)}")
-    print("beta scoring mode: blocked_insufficient_second_repo_evidence")
+    print("beta scoring mode: blocked_pending_renewed_eligibility_review")
     print("beta scoring allowed: false")
     print("full scoring allowed: false")
     print("ControllerGate scoring: NOT RUN")

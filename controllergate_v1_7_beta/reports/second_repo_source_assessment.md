@@ -1,6 +1,6 @@
 # ControllerGate v1.7-beta Second Repo Source Assessment
 
-Status: second-repo evidence collection has been strengthened. The initial six TatMapper bundles remain review-normalized, and five additional TatMapper bundles are pending. No ControllerGate scoring has been run.
+Status: second-repo evidence collection has been strengthened and review-normalized. Eleven TatMapper bundles are normalized as review-required evidence. No ControllerGate scoring has been run.
 
 ## Source Decision
 
@@ -16,8 +16,7 @@ Public fallback inspected: `GenghisDarb/AI-Minesweeper-Discovery-Framework`, but
 
 ## Collection Rules
 
-- Six v1.7-beta TatMapper episodes have been review-normalized into `controllergate_v1_7_beta/traces/normalized/episodes.jsonl`.
-- Five additional TatMapper bundles are pending and not normalized.
+- Eleven v1.7-beta TatMapper episodes have been review-normalized into `controllergate_v1_7_beta/traces/normalized/episodes.jsonl`.
 - All normalized beta episodes remain `review_required`.
 - No ControllerGate scoring was run.
 - Missing logs, commands, diffs, or outcomes are marked `UNAVAILABLE` with reason.
@@ -34,18 +33,18 @@ Public fallback inspected: `GenghisDarb/AI-Minesweeper-Discovery-Framework`, but
 | `episode_tatmapper_commit_5019_android_scaffold_ndk_cmake` | commit `5019f6f` | Android scaffold, Gradle, NDK/CMake CI setup repair | normalized as review-required |
 | `episode_tatmapper_commit_a63_android_v2_embedding_sdk_alignment` | commit `a63a5ea` | Android v2 embedding and SDK alignment repair | normalized as review-required |
 | `episode_tatmapper_commit_d9a_pubspec_conflict_import_path` | commit `d9a6bbe` | Package import path repair with pubspec.lock conflict-marker risk | normalized as review-required |
-| `episode_tatmapper_pr98_export_opencv_helper_repair` | PR #98 | OpenCV CI helper repair and local OpenCV discovery failure | pending, not normalized |
-| `episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression` | PR #97 | Closed-unmerged Gradle entrypoint repair with compile-risk review findings | pending, not normalized |
-| `episode_tatmapper_pr96_gradle_config_not_run` | PR #96 | Android Gradle configuration repair with testing not run and local Java gap | pending, not normalized |
-| `episode_tatmapper_pr94_manual_override_precedence_review` | PR #94 | Calibration guard repair with manual override precedence review caveat | pending, not normalized |
-| `episode_tatmapper_pr90_codecov_patch_coverage_warning` | PR #90 | Codecov patch coverage warning-only guardrail evidence | pending, not normalized |
+| `episode_tatmapper_pr98_export_opencv_helper_repair` | PR #98 | OpenCV CI helper repair and local OpenCV discovery failure | normalized as review-required |
+| `episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression` | PR #97 | Closed-unmerged Gradle entrypoint repair with compile-risk review findings | normalized as review-required |
+| `episode_tatmapper_pr96_gradle_config_not_run` | PR #96 | Android Gradle configuration repair with testing not run and local Java gap | normalized as review-required |
+| `episode_tatmapper_pr94_manual_override_precedence_review` | PR #94 | Calibration guard repair with manual override precedence review caveat | normalized as review-required |
+| `episode_tatmapper_pr90_codecov_patch_coverage_warning` | PR #90 | Codecov patch coverage warning-only guardrail evidence | normalized as review-required |
 
 ## Evidence Availability
 
 | Evidence type | Availability |
 | --- | --- |
-| PR metadata | Available for PR #92 and PR #93 through authenticated GitHub connector. |
-| PR diffs | Available for PR #92 and PR #93 through authenticated GitHub connector; bundle diffs are bounded excerpts. |
+| PR metadata | Available for PR #90, #92, #93, #94, #96, #97, and #98 through authenticated GitHub connector. |
+| PR diffs | Available for sampled PRs through authenticated GitHub connector; bundle diffs are bounded excerpts. |
 | Commit metadata/diffs | Available for selected commits through authenticated GitHub connector; bundle diffs are bounded excerpts. |
 | GitHub Actions workflow runs | Connector lookup returned no exposed PR-triggered workflow runs for sampled commits. |
 | Commit statuses | Codecov patch success existed for commits `5019f6f`, `a63a5ea`, and PR #90 merge commit; no status rows for several sampled PR merge commits. |
@@ -55,6 +54,6 @@ Public fallback inspected: `GenghisDarb/AI-Minesweeper-Discovery-Framework`, but
 
 ## Next Gate
 
-Review-normalize the newly pending TatMapper bundles if eligible, then rerun the v1.7-beta second-repo eligibility review before any beta scoring. The review should decide whether the expanded TatMapper candidates are strong enough for a limited second-repo pilot, or whether fresher local Flutter/Android reruns and stronger CI evidence are still required.
+Run a renewed v1.7-beta second-repo eligibility review before any beta scoring. The review should decide whether the expanded eleven-episode TatMapper set is strong enough for a limited second-repo pilot, or whether fresher local Flutter/Android reruns and stronger CI evidence are still required.
 
 Scoring must remain NOT RUN until a separate beta eligibility review approves it.
