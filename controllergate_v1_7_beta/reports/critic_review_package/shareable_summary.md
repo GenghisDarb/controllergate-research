@@ -52,3 +52,18 @@ TatMapper deterministic replay readiness audit is complete.
 - Flutter version/analyze/test timed out, Java was not found, Gradle was blocked by missing Java/JAVA_HOME, guard calibration passed, and OpenCV discovery failed because `OpenCVConfig.cmake` was missing.
 
 Correct interpretation remains unchanged: the limited pilot is `COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS`; real-repo memory lift is not demonstrated; self-maintaining software is not demonstrated; full scoring remains blocked.
+
+## Evidence Strengthening Pass 2
+
+Replay-eligibility pathway is now complete.
+
+- 11 of 11 TatMapper episodes were reviewed for replay eligibility.
+- 0 of 11 TatMapper episodes are deterministic-replay-ready.
+- 11 of 11 remain review-required.
+- Full scoring remains disallowed.
+- ControllerGate full scoring remains NOT RUN.
+- Current-head evidence is still outcome-only and is not PR-head proof.
+
+Pass 2 defines the missing evidence needed to convert an episode from `review_required` to `deterministic_replay_ready`: base SHA, full changed-files snapshot, full failing job log, failure signature, pre-repair command, repair patch, post-repair validation command, outcome evidence tied to PR/merge/commit head, toolchain versions, original agent trace, and memory-baseline instrumentation where memory-lift scoring is intended.
+
+The current TatMapper set is not deterministic-replay-ready. v1.7-beta now includes a replay-eligibility pathway, but scoring must not be expanded.
