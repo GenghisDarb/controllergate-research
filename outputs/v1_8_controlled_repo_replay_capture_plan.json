@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0",
+  "artifact_name": "v1.8-controlled-repo-replay-first-capture-plan",
+  "artifact_date": "2026-06-04",
+  "plan_status": "planning_only_no_scoring",
+  "controllergate_full_scoring": "NOT_RUN",
+  "full_scoring_allowed": false,
+  "memory_lift_claim_allowed": false,
+  "self_maintaining_software_claim_allowed": false,
+  "controlled_target_repo_policy": {
+    "target_repo_class": "user_owned_public_repo",
+    "preferred_initial_target": {
+      "name": "TORUS Theory repo",
+      "repo_full_name": "GenghisDarb/TORUS-Theory",
+      "repo_url": "https://github.com/GenghisDarb/TORUS-Theory",
+      "authorized_role": "controlled replay-first real-repo testbed",
+      "proof_boundary": "authorized controlled testbed, not proof of real-repo repair capability"
+    },
+    "repo_may_be_forked_branched_cloned_instrumented_and_seeded": true,
+    "all_original_repo_states_snapshotted_and_hashed_before_modification": true,
+    "testbed_changes_on_clearly_named_branches": true,
+    "generated_episodes_include_before_after_shas": true,
+    "no_claim_depends_on_uncaptured_remote_only_logs": true,
+    "ethical_reversibility_policy": "All controlled changes must be reversible through Git history; do not destroy useful source material without preserving hashes and snapshots.",
+    "artifact_preservation_policy": "Every generated episode must preserve manifests, raw logs, command transcripts, patch diffs, and SHA256 coverage for input/output artifacts."
+  },
+  "candidate_target_acceptance_criteria": [
+    "repo is owned or explicitly authorized by Brad",
+    "clean clone can be obtained",
+    "baseline SHA is recorded",
+    "dependency/install commands are documented or can be created honestly",
+    "test/build/lint/check command exists or can be introduced honestly",
+    "failure can be generated or discovered reproducibly",
+    "failure logs can be captured locally",
+    "patch/action trace can be preserved",
+    "post-repair validation can be captured locally",
+    "SHA256 manifest can cover all input/output artifacts"
+  ],
+  "candidate_target_rejection_criteria": [
+    "repo authorization is absent or unclear",
+    "clean clone cannot be obtained",
+    "baseline SHA cannot be recorded",
+    "no deterministic local check can be defined",
+    "failure requires private third-party services",
+    "raw failure logs cannot be captured locally",
+    "repair patch/action trace cannot be preserved",
+    "post-repair validation cannot be captured",
+    "artifact hashes or snapshots cannot be preserved"
+  ],
+  "controlled_failure_types_allowed": [
+    "failing_unit_test",
+    "lint_failure",
+    "formatting_failure",
+    "type_check_failure",
+    "build_failure",
+    "dependency_lock_failure",
+    "documentation_link_check_failure",
+    "schema_validation_failure",
+    "small_deterministic_bug_with_test_oracle"
+  ],
+  "controlled_failure_types_disallowed": [
+    "security_exploit_tasks",
+    "secrets_or_credential_extraction",
+    "destructive_data_deletion_without_snapshot",
+    "tasks_requiring_private_third_party_services",
+    "network_only_proof_without_local_replay",
+    "vague_quality_improvement_without_deterministic_validator",
+    "subjective_theory_content_rewrite_without_deterministic_check"
+  ],
+  "episode_birth_capture_schema": [
+    "episode_id",
+    "target_repo_url",
+    "target_repo_branch",
+    "baseline_sha",
+    "task_head_sha_or_failing_sha",
+    "post_repair_sha_if_repair_attempted",
+    "original_repo_snapshot_manifest",
+    "changed_files_snapshot",
+    "dependency_lock_files",
+    "environment_snapshot",
+    "setup_command",
+    "failing_command",
+    "failing_log_raw",
+    "failure_signature",
+    "pre_repair_replay_transcript",
+    "decision_time_inputs",
+    "controllergate_action_trace",
+    "repair_patch_diff",
+    "post_repair_command",
+    "post_repair_log_raw",
+    "post_repair_outcome",
+    "no_memory_baseline_result_if_run",
+    "always_rebuild_baseline_result_if_run",
+    "memory_enabled_result_if_run",
+    "corruption_check_result",
+    "human_required_flag",
+    "decision_time_outcome_overlap_check",
+    "sha256_manifest_path",
+    "proof_obligations_ledger_path",
+    "allowed_scoring_mode"
+  ],
+  "replay_gate": {
+    "discard_before_scoring_if_clean_checkout_cannot_reproduce_pre_repair_failure": true,
+    "discard_before_scoring_if_failing_log_missing": true,
+    "discard_before_scoring_if_failure_signature_missing": true,
+    "discard_before_scoring_if_repair_patch_or_action_trace_missing": true,
+    "discard_before_scoring_if_post_repair_validation_missing": true,
+    "discard_before_scoring_if_decision_time_inputs_include_future_outcome_evidence": true,
+    "if_no_memory_baseline_absent_do_not_claim_memory_lift": true,
+    "if_baseline_comparators_absent_do_not_claim_controllergate_advantage": true,
+    "if_only_seeded_failure_label_as_seeded_controlled_real_repo_episode_not_external_organic_evidence": true
+  },
+  "allowed_episode_labels": [
+    "seeded_controlled_real_repo_episode",
+    "discovered_user_owned_repo_episode",
+    "forked_public_repo_episode",
+    "synthetic_realistic_repo_episode",
+    "historical_review_required_episode"
+  ],
+  "allowed_scoring_modes": [
+    "not_scoreable",
+    "review_required",
+    "deterministic_replay_ready",
+    "limited_replay_scoring_only",
+    "full_scoring_disallowed"
+  ],
+  "full_scoring_policy": {
+    "full_scoring_permitted_in_this_pass": false,
+    "disallowed_mode": "full_scoring",
+    "required_boundary": "Full scoring remains disallowed in v1.8 planning and replay-capture setup."
+  },
+  "initial_v1_8_pilot_design": {
+    "target_repo": "GenghisDarb/TORUS-Theory",
+    "pilot_episode_count": "1_to_3",
+    "preferred_start": "deterministic_seeded_failures_first",
+    "goal": "validate_replay_capture_machinery_not_repair_intelligence",
+    "episode_constraints": [
+      "small",
+      "reproducible",
+      "locally_replayable",
+      "artifact_preserving",
+      "hash_manifested"
+    ],
+    "example_episode_types": [
+      "introduce_failing_documentation_consistency_check",
+      "introduce_broken_schema_validation_fixture",
+      "introduce_failing_unit_test_around_glossary_or_metadata_parsing",
+      "introduce_deterministic_build_or_lint_failure",
+      "introduce_broken_internal_link_checker"
+    ],
+    "excluded_first_validators": [
+      "subjective_TORUS_theory_correctness"
+    ],
+    "first_goal": "prove_replay_capture_pipeline"
+  },
+  "historical_tatmapper_boundary": {
+    "tatmapper_historical_episodes_remain_review_required": true,
+    "tatmapper_deterministic_replay_ready_count": 0,
+    "tatmapper_total_reviewed": 11,
+    "do_not_mark_tatmapper_scoreable": true,
+    "do_not_mix_tatmapper_with_v1_8_controlled_repo_episodes": true,
+    "do_not_use_current_head_outcome_only_evidence_as_pr_head_proof": true,
+    "source_pass_2_commit": "5051b6c0"
+  },
+  "memory_lift_boundary": {
+    "real_repo_memory_lift_demonstrated": false,
+    "memory_lift_requires_no_memory_baseline_under_replay_ready_conditions": true,
+    "memory_lift_requires_memory_enabled_condition_under_replay_ready_conditions": true,
+    "memory_lift_requires_baseline_comparators": true,
+    "no_claim_without_baseline_instrumentation": true
+  },
+  "self_maintaining_software_boundary": {
+    "self_maintaining_software_demonstrated": false,
+    "controlled_seeded_episodes_do_not_establish_self_maintenance": true,
+    "human_approval_and_audit_custody_remain_required": true,
+    "claims_limited_to_replay_capture_readiness_until_scored_replay_evidence_exists": true
+  },
+  "falsification_and_stop_conditions": [
+    "If no replay-ready episodes can be produced even in the user-owned TORUS Theory repo, ControllerGate real-repo capability remains blocked.",
+    "If replay-ready episodes are produced but ControllerGate cannot repair them under preregistered metrics, this ControllerGate version fails the controlled repo capability claim.",
+    "If memory-enabled ControllerGate does not outperform no-memory baselines under replay-ready conditions, real-repo memory lift is not demonstrated.",
+    "If ControllerGate only succeeds on seeded failures but fails on discovered organic failures, claims must remain limited to seeded controlled episodes.",
+    "If repeated replay-ready pilots show no maintainability advantage, freeze or redesign the architecture rather than weakening the evidence standard.",
+    "Failure of this version does not falsify all possible self-maintaining software, but it does falsify the stronger claims of the current version."
+  ],
+  "explicit_non_claims": [
+    "ControllerGate has not demonstrated real-repo repair.",
+    "TORUS repo tests do not prove self-maintaining software.",
+    "Seeded failures do not equal organic external evidence.",
+    "Memory lift is not demonstrated.",
+    "Full scoring is not allowed."
+  ],
+  "next_artifacts_if_approved_later": [
+    "torus_controlled_episode_template",
+    "torus_branch_naming_policy",
+    "torus_snapshot_manifest_template",
+    "torus_sha256_manifest_generator",
+    "torus_replay_transcript_template",
+    "torus_proof_obligations_ledger_template"
+  ]
+}

@@ -67,3 +67,21 @@ Replay-eligibility pathway is now complete.
 Pass 2 defines the missing evidence needed to convert an episode from `review_required` to `deterministic_replay_ready`: base SHA, full changed-files snapshot, full failing job log, failure signature, pre-repair command, repair patch, post-repair validation command, outcome evidence tied to PR/merge/commit head, toolchain versions, original agent trace, and memory-baseline instrumentation where memory-lift scoring is intended.
 
 The current TatMapper set is not deterministic-replay-ready. v1.7-beta now includes a replay-eligibility pathway, but scoring must not be expanded.
+
+## v1.8 controlled repo replay-first path
+
+ControllerGate v1.8 adds a planning/audit layer for controlled replay-first evidence capture.
+
+- TORUS Theory repo is authorized as a controlled testbed.
+- The target role is user-owned public repo replay capture, not proof.
+- Seeded controlled real-repo episodes may validate replay capture.
+- Seeded controlled episodes are weaker than organic external repo evidence.
+- Seeded controlled episodes are stronger than non-replayable historical evidence when they preserve SHAs, logs, commands, patches, transcripts, and SHA256 manifests from birth.
+- Replay Gate must pass before scoring.
+- Full scoring remains disallowed.
+- Self-maintaining software remains undemonstrated.
+- Memory lift remains undemonstrated until baselines pass under replay-ready conditions.
+
+The initial v1.8 TORUS pilot should use only 1 to 3 small replay-first episodes, preferably deterministic seeded failures such as a documentation consistency check, schema validation fixture, glossary/metadata parsing unit test, deterministic lint/build failure, or internal link checker. Do not use subjective TORUS theory correctness as the first validator.
+
+If no replay-ready episodes can be produced even in the user-owned TORUS Theory repo, ControllerGate real-repo capability remains blocked. If replay-ready episodes are produced but ControllerGate cannot repair them under preregistered metrics, this ControllerGate version fails the controlled repo capability claim.
