@@ -85,3 +85,22 @@ ControllerGate v1.8 adds a planning/audit layer for controlled replay-first evid
 The initial v1.8 TORUS pilot should use only 1 to 3 small replay-first episodes, preferably deterministic seeded failures such as a documentation consistency check, schema validation fixture, glossary/metadata parsing unit test, deterministic lint/build failure, or internal link checker. Do not use subjective TORUS theory correctness as the first validator.
 
 If no replay-ready episodes can be produced even in the user-owned TORUS Theory repo, ControllerGate real-repo capability remains blocked. If replay-ready episodes are produced but ControllerGate cannot repair them under preregistered metrics, this ControllerGate version fails the controlled repo capability claim.
+
+## v1.8 Episode 001 dry-run capture plan
+
+Episode 001 is a dry-run capture plan.
+
+- The TORUS repo is a controlled testbed.
+- Episode label: `seeded_controlled_real_repo_episode`.
+- Allowed scoring mode: `not_scoreable`.
+- The purpose is to validate replay capture, not repair capability.
+- Proposed validator: metadata manifest validation.
+- Proposed command: `python tools/validate_metadata_manifest.py metadata_manifest.json`.
+- Required artifacts include clean clone transcript, baseline SHA, original snapshot manifest, raw failing log, failure signature, decision-time inputs, repair patch/action trace if repair is attempted, post-repair validation log, SHA256 manifest, and proof obligations ledger.
+- No scoring is allowed yet.
+- ControllerGate has not repaired TORUS.
+- Self-maintaining software is not demonstrated.
+- Memory lift is not demonstrated.
+- Seeded controlled evidence does not equal organic external repo evidence.
+
+Episode 002 may only advance toward limited replay scoring after Episode 001 proves the capture harness: clean checkout reproduces the failure, post-repair validation is replayable if repair is attempted, SHA256 manifests validate, proof obligations are complete, and decision-time/outcome overlap remains zero.

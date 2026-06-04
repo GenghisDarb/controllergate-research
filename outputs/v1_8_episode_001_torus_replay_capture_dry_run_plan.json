@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "artifact_name": "v1.8 Episode 001 TORUS replay-capture dry-run plan",
+  "episode_id": "v1_8_episode_001",
+  "plan_status": "dry_run_capture_design_only",
+  "target_repo_class": "user_owned_public_repo",
+  "target_repo_name": "TORUS Theory",
+  "target_repo_full_name": "GenghisDarb/TORUS-Theory",
+  "target_repo_url": "https://github.com/GenghisDarb/TORUS-Theory",
+  "episode_label": "seeded_controlled_real_repo_episode",
+  "purpose": "validate replay capture harness before scoring",
+  "allowed_scoring_mode": "not_scoreable",
+  "full_scoring_allowed": false,
+  "memory_lift_claim_allowed": false,
+  "self_maintaining_software_claim_allowed": false,
+  "organic_external_evidence_claim_allowed": false,
+  "subjective_theory_correctness_claim_allowed": false,
+  "proposed_failure_type": "metadata_manifest_validation_failure",
+  "proposed_validator_command": "python tools/validate_metadata_manifest.py metadata_manifest.json",
+  "proposed_seed_failure_method": {
+    "summary": "Create a deterministic metadata_manifest.json and validator, then seed one missing required field or invalid required-file entry on a controlled branch.",
+    "branch_name_pattern": "controllergate/v1.8-episode-001-metadata-manifest-dry-run",
+    "failure_is_seeded": true,
+    "failure_scope": "mechanical_metadata_validation_only",
+    "not_theory_content": true
+  },
+  "required_pre_capture_artifacts": [
+    "clean_clone_transcript",
+    "baseline_sha",
+    "baseline_branch",
+    "original_repo_snapshot_manifest",
+    "original_repo_sha256_manifest",
+    "environment_snapshot",
+    "dependency_lock_files_or_absence_note",
+    "setup_command_transcript",
+    "validator_file_snapshot",
+    "metadata_manifest_baseline_snapshot",
+    "changed_files_snapshot_before_seed"
+  ],
+  "required_failure_capture_artifacts": [
+    "task_branch_name",
+    "failing_sha",
+    "seed_patch_diff",
+    "failing_command",
+    "failing_log_raw",
+    "failure_signature",
+    "pre_repair_replay_transcript",
+    "decision_time_inputs",
+    "decision_time_outcome_overlap_check",
+    "proof_obligations_ledger_pre_repair"
+  ],
+  "required_repair_capture_artifacts": [
+    "controllergate_action_trace",
+    "human_required_flag",
+    "repair_patch_diff",
+    "repair_rationale",
+    "post_repair_sha_if_repair_attempted",
+    "changed_files_snapshot_after_repair",
+    "corruption_check_result"
+  ],
+  "required_post_repair_artifacts": [
+    "post_repair_command",
+    "post_repair_log_raw",
+    "post_repair_outcome",
+    "post_repair_replay_transcript",
+    "clean_checkout_post_repair_replay_result",
+    "proof_obligations_ledger_post_repair"
+  ],
+  "required_hash_artifacts": [
+    "sha256_manifest_path",
+    "sha256_manifest_for_original_snapshot",
+    "sha256_manifest_for_failing_artifacts",
+    "sha256_manifest_for_repair_artifacts",
+    "sha256_manifest_for_post_repair_artifacts"
+  ],
+  "baseline_comparison_status": "not_run_in_dry_run",
+  "baseline_comparison_boundary": {
+    "no_memory_baseline_result": "not_run_in_dry_run",
+    "always_rebuild_baseline_result": "not_run_in_dry_run",
+    "memory_enabled_result": "not_run_in_dry_run",
+    "memory_lift_claim_allowed": false,
+    "controllergate_advantage_claim_allowed": false
+  },
+  "replay_gate_checks": [
+    "clean checkout can reproduce pre-repair failure",
+    "failing command is explicit",
+    "raw failing log is captured",
+    "failure signature is captured",
+    "decision-time inputs exclude future outcome evidence",
+    "repair patch/action trace is captured if repair is attempted",
+    "post-repair validation command is explicit",
+    "raw post-repair log is captured",
+    "clean checkout can reproduce post-repair result",
+    "SHA256 manifest covers all input/output artifacts",
+    "proof obligations ledger exists",
+    "seeded episode is labeled seeded_controlled_real_repo_episode"
+  ],
+  "discard_conditions": [
+    "discard_before_scoring_if_clean_checkout_cannot_reproduce_pre_repair_failure",
+    "discard_before_scoring_if_failing_log_missing",
+    "discard_before_scoring_if_failure_signature_missing",
+    "discard_before_scoring_if_repair_patch_or_action_trace_missing",
+    "discard_before_scoring_if_post_repair_validation_missing",
+    "discard_before_scoring_if_decision_time_inputs_include_future_outcome_evidence",
+    "discard_for_memory_lift_claim_if_no_memory_baseline_absent",
+    "discard_for_controllergate_advantage_claim_if_baseline_comparators_absent",
+    "discard_or_relabel_if_seeded_failure_is_described_as_organic_external_evidence"
+  ],
+  "excluded_task_types": [
+    "subjective_theory_content_correctness",
+    "broad_documentation_improvement",
+    "security_task",
+    "private_credential_task",
+    "network_only_validator",
+    "non_deterministic_quality_judgment"
+  ],
+  "episode_002_promotion_requirements": [
+    "Episode 001 dry run produces complete artifact bundle",
+    "Replay Gate passes on clean checkout for pre-repair failure",
+    "Replay Gate passes on clean checkout for post-repair validation if repair attempted",
+    "SHA256 manifest validates with zero mismatches",
+    "Proof obligations ledger has no missing required fields",
+    "Decision-time/outcome overlap check remains zero",
+    "Baseline comparison instrumentation is specified before any limited replay scoring"
+  ],
+  "notes": [
+    "Episode 001 is a dry-run capture plan, not a repair-performance test.",
+    "The TORUS repo is a controlled testbed.",
+    "The purpose is to validate replay capture, not repair capability.",
+    "No scoring is allowed yet.",
+    "Seeded controlled evidence does not equal organic external repo evidence.",
+    "Self-maintaining software remains undemonstrated.",
+    "Memory lift remains undemonstrated."
+  ]
+}
