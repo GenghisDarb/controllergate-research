@@ -1,0 +1,30 @@
+Source: authenticated GitHub connector, commit 5019f6fc25c3e6eeba13ddff22bc1198784a7f8d.
+URL: https://github.com/GenghisDarb/tatmapper-app/commit/5019f6fc25c3e6eeba13ddff22bc1198784a7f8d
+Diff status: BOUNDED_EXCERPT, not full commit diff.
+
+@@ -60,7 +60,7 @@ jobs:
+       - name: Install Android SDK
+         uses: android-actions/setup-android@v3
+         with:
+-          packages: "cmdline-tools;latest platforms;android-34 build-tools;34.0.0"
++          packages: "cmdline-tools;latest platforms;android-34 build-tools;34.0.0 ndk;26.3.11579264 cmake;3.22.1"
+
+@@ -0,0 +1,46 @@
++plugins {
++    id("com.android.application")
++    id("kotlin-android")
++    id("dev.flutter.flutter-gradle-plugin")
++}
++
++android {
++    namespace = "com.tatmapper.app"
++    compileSdk = flutter.compileSdkVersion
++    ndkVersion = flutter.ndkVersion
++    defaultConfig {
++        applicationId = "com.tatmapper.app"
++        minSdk = 21
++        targetSdk = 34
++    }
++}
+
+TRUNCATED: full diff includes Gradle properties and Android scaffold files.

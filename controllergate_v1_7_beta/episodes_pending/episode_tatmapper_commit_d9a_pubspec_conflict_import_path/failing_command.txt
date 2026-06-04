@@ -1,0 +1,17 @@
+UNAVAILABLE: exact failing command is not present in fetched commit metadata.
+
+Likely failure surfaces from diff:
+
+- Dart import path mismatch involving `tatmapper_app`.
+- app/pubspec.lock diff contains merge conflict markers around SDK constraints.
+
+Candidate commands for future rerun:
+
+cd app
+flutter pub get
+flutter analyze
+flutter test
+
+Local rerun:
+
+NOT_RUN in this pass.

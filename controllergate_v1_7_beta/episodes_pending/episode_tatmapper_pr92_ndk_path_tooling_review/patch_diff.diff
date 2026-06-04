@@ -1,0 +1,41 @@
+Source: authenticated GitHub connector, PR #92.
+URL: https://github.com/GenghisDarb/tatmapper-app/pull/92
+Diff status: BOUNDED_EXCERPT, not full PR diff.
+
+@@ -1,21 +1,29 @@
+ {
+   "configurations": [
+     {
+-      "name": "Linux",
++      "name": "Android NDK r27",
++      "compilerPath": "${env:ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/${env:HOST_TAG}/bin/clang++",
+       "includePath": [
+         "${workspaceFolder}/**",
+-        "/home/vscode/android-sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include"
++        "${env:ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/${env:HOST_TAG}/sysroot/usr/include/c++/v1",
++        "${env:ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/${env:HOST_TAG}/sysroot/usr/include"
+       ],
+       "defines": [
+-        "__ANDROID__"
++        "ANDROID",
++        "ANDROID_API=23"
+       ],
+-      "compilerPath": "/usr/bin/clang",
+       "cStandard": "c17",
+       "cppStandard": "c++17",
+-      "intelliSenseMode": "linux-clang-x64"
++      "intelliSenseMode": "linux-clang-x64",
++      "compileCommands": "${workspaceFolder}/app/android/app/compile_commands.json"
+     }
+   ],
++  "env": {
++    "HOST_TAG": "linux-x86_64",
++    "ANDROID_NDK_HOME": "/home/vscode/android-sdk/ndk/27.0.12077973"
++  },
+   "version": 4
+ }
+
+Copilot review comment excerpt:
+The hardcoded NDK path in the env section contradicts the goal of using environment variables and should be removed.
+
+TRUNCATED: full PR diff also changes printing adapter, release notes, and docs.

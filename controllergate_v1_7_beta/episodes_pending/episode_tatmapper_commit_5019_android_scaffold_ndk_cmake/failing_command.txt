@@ -1,0 +1,16 @@
+UNAVAILABLE: exact failing command is not present in fetched commit metadata.
+
+Likely failure surface from commit message and diff:
+
+- Android/Gradle scaffold needed regeneration.
+- Release workflow needed NDK/CMake preinstallation to avoid write issues.
+
+Candidate commands for future rerun:
+
+cd app
+flutter build apk
+flutter test
+
+Local rerun:
+
+NOT_RUN in this pass.

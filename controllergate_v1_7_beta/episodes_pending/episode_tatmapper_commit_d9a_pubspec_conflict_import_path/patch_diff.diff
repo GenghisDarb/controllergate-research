@@ -1,0 +1,29 @@
+Source: authenticated GitHub connector, commit d9a6bbec4b4555fe4e2a17dedb6e9e94fcdef570.
+URL: https://github.com/GenghisDarb/tatmapper-app/commit/d9a6bbec4b4555fe4e2a17dedb6e9e94fcdef570
+Diff status: BOUNDED_EXCERPT, not full commit diff.
+
+@@ -0,0 +1,12 @@
++import 'package:flutter_test/flutter_test.dart';
++import 'package:flutter/material.dart';
++import 'package:tatmapper/features/paywall/paywall_screen.dart';
++
++void main() {
++  testWidgets('Paywall shows trial banner', (tester) async {
++    await tester.pumpWidget(
++      const MaterialApp(home: PaywallScreen()),
++    );
++    expect(find.textContaining('7-Day Free Trial'), findsOneWidget);
++  });
++}
+
+@@ -193,5 +241,10 @@ packages:
+ sdks:
++<<<<<<< HEAD
+   dart: ">=3.7.0 <4.0.0"
+   flutter: ">=3.18.0-18.0.pre.54"
++=======
++  dart: ">=3.7.0-0 <4.0.0"
++  flutter: ">=3.27.0"
++>>>>>>> 555ff44 (fix: use correct package import path (tatmapper_app))
+
+TRUNCATED: full diff adds paywall files, package dependency, and main app routing changes.

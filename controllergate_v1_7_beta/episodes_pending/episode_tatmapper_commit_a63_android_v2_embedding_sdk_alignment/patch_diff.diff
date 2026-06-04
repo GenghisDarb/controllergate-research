@@ -1,0 +1,34 @@
+Source: authenticated GitHub connector, commit a63a5ea6a9766049971e03bb9d562dd477394b18.
+URL: https://github.com/GenghisDarb/tatmapper-app/commit/a63a5ea6a9766049971e03bb9d562dd477394b18
+Diff status: BOUNDED_EXCERPT, not full commit diff.
+
+@@ -0,0 +1,41 @@
++<manifest xmlns:android="http://schemas.android.com/apk/res/android">
++    <application
++        android:label="TatMapper"
++        android:name="${applicationName}"
++        android:icon="@mipmap/ic_launcher">
++        <activity
++            android:name="com.tatmapper.app.MainActivity"
++            android:exported="true"
++            android:launchMode="singleTop"
++            android:theme="@style/LaunchTheme"
++            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
++            android:hardwareAccelerated="true"
++            android:windowSoftInputMode="adjustResize">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN"/>
++                <category android:name="android.intent.category.LAUNCHER"/>
++            </intent-filter>
++        </activity>
++    </application>
++</manifest>
+
+@@ -0,0 +1,5 @@
++package com.tatmapper.app
++
++import io.flutter.embedding.android.FlutterActivity
++
++class MainActivity : FlutterActivity()
+
+TRUNCATED: full diff also adds Android resources and launcher assets.
