@@ -116,11 +116,14 @@ def main() -> int:
     else:
         expected_scoring_mode = "blocked_pending_beta_eligibility_review"
         expected_second_repo_review_run = False
+        expected_eligibility_count = 0
         if eligibility_review is not None:
             expected_scoring_mode = str(eligibility_review.get("scoring_mode"))
             expected_second_repo_review_run = True
-            if eligibility_review.get("scoring_allowed") is not False:
-                errors.append("eligibility review scoring_allowed must remain false for beta classification audit")
+            if eligibility_review.get("scoring_allowed") not in (False, "limited_pilot_only"):
+                errors.append("eligibility review scoring_allowed must be false or limited_pilot_only")
+            if eligibility_review.get("scoring_allowed") == "limited_pilot_only":
+                expected_eligibility_count = len(ledger)
             if eligibility_review.get("beta_scoring_run") is not False:
                 errors.append("eligibility review beta_scoring_run must remain false")
 
@@ -130,7 +133,7 @@ def main() -> int:
             "external_real_repo_episode": external_count,
             "pending_incomplete": 0,
             "excluded_from_scoring": 0,
-            "scoring_eligibility_count_for_v1_7_beta_second_repo_claim": 0,
+            "scoring_eligibility_count_for_v1_7_beta_second_repo_claim": expected_eligibility_count,
             "scoring_allowed_for_v1_7_beta_second_repo_claim": False,
             "scoring_mode": expected_scoring_mode,
             "controllergate_scoring_run": False,
@@ -152,12 +155,18 @@ def main() -> int:
     print("v1.7-beta episode review classification: PASS")
     print(f"normalized episodes: {len(ledger)}")
     print(f"external_real_repo_episode: {external_count}")
-    print("scoring eligibility count for second repo claim: 0")
+    scoring_eligibility_count = 0
     scoring_mode = "blocked_pending_beta_eligibility_review"
     if eligibility_review is not None:
         scoring_mode = str(eligibility_review.get("scoring_mode"))
+        if eligibility_review.get("scoring_allowed") == "limited_pilot_only":
+            scoring_eligibility_count = len(ledger)
+    print(f"scoring eligibility count for second repo claim: {scoring_eligibility_count}")
     print(f"scoring mode: {scoring_mode}")
-    print("scoring allowed: false")
+    if scoring_mode == "limited_pilot_only":
+        print("scoring allowed: limited_pilot_only")
+    else:
+        print("scoring allowed: false")
     print("scoring: NOT RUN")
     return 0
 

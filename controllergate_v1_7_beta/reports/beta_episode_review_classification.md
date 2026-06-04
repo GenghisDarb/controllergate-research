@@ -12,9 +12,9 @@ Status: eleven TatMapper pending evidence bundles have been reviewed and normali
 | Normalized beta episodes | 11 |
 | External real repo episodes | 11 |
 | Pending incomplete after review | 0 |
-| Scoring eligibility count | 0 |
-| Beta scoring allowed | false |
-| Scoring mode | blocked_pending_renewed_eligibility_review |
+| Scoring eligibility count | 11 |
+| Beta scoring allowed | limited_pilot_only |
+| Scoring mode | limited_pilot_only |
 | ControllerGate scoring | NOT RUN |
 
 All normalized beta episodes are classified as `external_real_repo_episode` with `scoring_allowed_for_v1_7_beta_second_repo_claim: review_required`.
@@ -37,7 +37,7 @@ All normalized beta episodes are classified as `external_real_repo_episode` with
 
 ## Protected Interpretation
 
-v1.7-beta has normalized an eleven-episode second-repo evidence cluster. The normalized episodes remain review-only. This supports multi-repo evidence readiness, not a memory-lift claim and not a self-maintaining software claim.
+v1.7-beta has normalized an eleven-episode second-repo evidence cluster. The renewed eligibility review allows a limited exploratory beta pilot only. This supports multi-repo evidence readiness, not a memory-lift claim and not a self-maintaining software claim.
 
 ## Newly Normalized TatMapper Bundles
 
@@ -51,4 +51,4 @@ These bundles were collected after the first eligibility review and are now norm
 
 ## Next Gate
 
-Run a renewed v1.7-beta second-repo eligibility review. Scoring remains blocked until that later review explicitly allows a limited pilot.
+The next step is an explicitly approved v1.7-beta limited TatMapper scoring run. Full scoring and any self-maintaining or production claim remain blocked.

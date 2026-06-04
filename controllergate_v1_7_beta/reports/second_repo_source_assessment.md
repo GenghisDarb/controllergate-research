@@ -1,6 +1,6 @@
 # ControllerGate v1.7-beta Second Repo Source Assessment
 
-Status: second-repo evidence collection has been strengthened and review-normalized. Eleven TatMapper bundles are normalized as review-required evidence. No ControllerGate scoring has been run.
+Status: second-repo evidence collection has been strengthened and review-normalized. Eleven TatMapper bundles are normalized as review-required evidence, and renewed eligibility allows a limited exploratory beta pilot. No ControllerGate scoring has been run.
 
 ## Source Decision
 
@@ -54,6 +54,6 @@ Public fallback inspected: `GenghisDarb/AI-Minesweeper-Discovery-Framework`, but
 
 ## Next Gate
 
-Run a renewed v1.7-beta second-repo eligibility review before any beta scoring. The review should decide whether the expanded eleven-episode TatMapper set is strong enough for a limited second-repo pilot, or whether fresher local Flutter/Android reruns and stronger CI evidence are still required.
+The renewed v1.7-beta second-repo eligibility review allows a limited exploratory beta pilot. Run beta scoring only after explicit approval, using only the eleven TatMapper external episodes and preserving every review-required caveat.
 
-Scoring must remain NOT RUN until a separate beta eligibility review approves it.
+Scoring remains NOT RUN until the user explicitly approves the limited beta pilot scoring pass.

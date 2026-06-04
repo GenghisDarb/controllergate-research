@@ -1,6 +1,6 @@
 # ControllerGate v1.7-beta Trace Inventory
 
-Status: second-repo TatMapper evidence has been strengthened and review-normalized. Eleven TatMapper episodes are normalized as review-required evidence, and ControllerGate scoring remains NOT RUN.
+Status: second-repo TatMapper evidence has been strengthened and review-normalized. Eleven TatMapper episodes are normalized as review-required evidence, limited beta pilot scoring is eligible, and ControllerGate scoring remains NOT RUN.
 
 ## Inventory
 
@@ -9,7 +9,7 @@ Status: second-repo TatMapper evidence has been strengthened and review-normaliz
 | Pending evidence bundles | 11 TatMapper bundles present |
 | Normalized beta ledger | 11 episodes in `traces/normalized/episodes.jsonl` |
 | Episode review classification | Present in `traces/audits/beta_episode_review_classification.json` |
-| Second-repo eligibility review | Present; scoring blocked pending renewed eligibility review |
+| Second-repo eligibility review | Present; limited pilot eligibility approved |
 | Beta scoring | NOT RUN |
 | Full scoring | DISALLOWED |
 | Alpha reports/audits | Preserved unchanged |
@@ -31,7 +31,7 @@ Status: second-repo TatMapper evidence has been strengthened and review-normaliz
 
 ## Gate State
 
-All eleven normalized beta episodes are `external_real_repo_episode`, but all remain `review_required`. The v1.7-beta second-repo eligibility state keeps scoring blocked until a renewed eligibility review explicitly approves limited pilot scoring.
+All eleven normalized beta episodes are `external_real_repo_episode`, and all remain `review_required`. The renewed v1.7-beta second-repo eligibility review allows a tiny exploratory `limited_pilot_only` scoring run, but scoring has not been run.
 
 ## Newly Normalized TatMapper Episodes
 

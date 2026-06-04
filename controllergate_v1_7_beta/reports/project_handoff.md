@@ -9,8 +9,8 @@ Status: v1.7-beta second-repo evidence collection has been strengthened and revi
 - Normalized beta episodes: 11
 - Newly pending unnormalized bundles: 0
 - Episode category: `external_real_repo_episode`
-- Scoring eligibility: 0
-- Scoring mode: `blocked_pending_renewed_eligibility_review`
+- Scoring eligibility: 11
+- Scoring mode: `limited_pilot_only`
 - ControllerGate scoring: NOT RUN
 
 ## What Was Normalized
@@ -21,4 +21,4 @@ Each episode was normalized only as review-required evidence. Missing CI logs, u
 
 ## Next Step
 
-Run a renewed v1.7-beta second-repo eligibility review. The latest strengthening pass added current-head local logs, but Flutter commands timed out and Android Gradle verification remained blocked by missing Java/JAVA_HOME, so scoring remains blocked until the renewed review explicitly allows a limited pilot.
+The next gate is an explicitly approved v1.7-beta limited TatMapper scoring run. The latest strengthening pass added current-head local logs, but Flutter commands timed out and Android Gradle verification remained blocked by missing Java/JAVA_HOME, so full scoring and broad claims remain blocked.

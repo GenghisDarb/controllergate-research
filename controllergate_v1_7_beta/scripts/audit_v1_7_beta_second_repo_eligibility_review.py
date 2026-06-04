@@ -17,20 +17,17 @@ REVIEW_PATH = BETA_ROOT / "traces" / "audits" / "v1_7_beta_second_repo_eligibili
 ALPHA_ROOT = REPO_ROOT / "controllergate_v1_7_alpha"
 
 REQUIRED_DIVERSITY = {
-    "Flutter availability or environment gap",
+    "Flutter availability/environment gap",
     "NDK/tooling review",
     "Windows checkout breakage",
-    "Android scaffold / NDK / CMake setup",
+    "Android scaffold/NDK/CMake setup",
     "SDK/v2 embedding alignment",
     "pubspec conflict-marker risk",
-    "CI helper / OpenCV config repair",
-    "closed unmerged repair attempt",
-    "Gradle config verification gap",
-    "manual override review caveat",
-    "Codecov patch coverage warning",
-    "dependency/config drift",
-    "build scaffold repair",
-    "warning or guardrail case",
+    "OpenCV helper/export repair",
+    "closed-unmerged Gradle entrypoint regression",
+    "Gradle config not-run or config gap",
+    "manual override precedence review",
+    "Codecov/coverage warning",
 }
 
 
@@ -97,19 +94,24 @@ def main() -> int:
         for episode in review_episodes
         if isinstance(episode, dict) and episode.get("pilot_eligible") is True
     }
-    if eligible_ids:
-        errors.append(f"no beta episodes should be pilot eligible yet: {sorted(eligible_ids)}")
+    if eligible_ids != external_ids:
+        errors.append(
+            "renewed beta limited pilot must include all beta external episodes: "
+            f"missing={sorted(external_ids - eligible_ids)}, extra={sorted(eligible_ids - external_ids)}"
+        )
 
     if review.get("normalized_episode_count") != len(ledger):
         errors.append("review normalized_episode_count does not match ledger")
     if review.get("external_real_repo_episode_count") != len(external):
         errors.append("review external_real_repo_episode_count does not match ledger")
-    if review.get("eligible_external_episode_count") != 0:
-        errors.append("eligible_external_episode_count must be 0")
-    if review.get("scoring_allowed") is not False:
-        errors.append("scoring_allowed must be false")
-    if review.get("scoring_mode") != "blocked_pending_renewed_eligibility_review":
-        errors.append("scoring_mode must be blocked_pending_renewed_eligibility_review")
+    if review.get("eligible_external_episode_count") != len(external):
+        errors.append("eligible_external_episode_count must match beta external episode count")
+    if review.get("scoring_allowed") != "limited_pilot_only":
+        errors.append("scoring_allowed must be limited_pilot_only")
+    if review.get("scoring_mode") != "limited_pilot_only":
+        errors.append("scoring_mode must be limited_pilot_only")
+    if review.get("decision") != "limited_pilot_only":
+        errors.append("decision must be limited_pilot_only")
     if review.get("full_scoring_allowed") is not False:
         errors.append("full_scoring_allowed must be false")
     if review.get("controllergate_scoring_run") is not False:
@@ -128,10 +130,10 @@ def main() -> int:
             "v1_7_alpha_torus_episodes_excluded_from_beta_scoring",
             "v1_6_controlled_benchmark_evidence_excluded",
             "no_self_maintaining_software_claim",
-            "no_broad_cross_repo_generalization_claim",
-            "tiny_second_repo_exploratory_label_required_if_scoring_is_later_allowed",
-            "ambiguous_or_weak_episodes_must_remain_visible",
-            "full_scoring_disallowed",
+            "no_broad_production_claim",
+            "tiny_second_repo_exploratory_label_required",
+            "weak_ambiguous_warning_unavailable_ci_and_review_required_episodes_must_remain_visible",
+            "full_scoring_requires_separate_explicit_approval",
         ]:
             if constraints.get(field) is not True:
                 errors.append(f"constraints.{field} must be true")
@@ -142,8 +144,8 @@ def main() -> int:
     else:
         for field in [
             "decision_time_evidence_separated_from_outcome_only_evidence",
-            "missing_ci_logs_documented_where_applicable",
-            "local_rerun_absence_documented_where_applicable",
+            "ci_log_status_documented_for_all_episodes",
+            "fresh_rerun_evidence_status_documented_for_all_episodes",
             "weak_or_ambiguous_evidence_preserved",
             "controllergate_scoring_not_run",
             "beta_scoring_not_run",
@@ -165,9 +167,18 @@ def main() -> int:
     if missing_diversity:
         errors.append(f"missing diversity coverage: {sorted(missing_diversity)}")
 
-    ambiguous = review.get("episodes_too_ambiguous_for_scoring")
-    if set(ambiguous or []) != external_ids:
-        errors.append("all beta episodes must remain too ambiguous for scoring in this review")
+    weak = review.get("weak_or_ambiguous_episodes_included")
+    if not isinstance(weak, list):
+        errors.append("weak_or_ambiguous_episodes_included must be a list")
+        weak_ids = set()
+    else:
+        weak_ids = {item.get("episode_id") for item in weak if isinstance(item, dict)}
+    if weak_ids != external_ids:
+        errors.append("all beta episodes must remain visible in weak_or_ambiguous_episodes_included")
+
+    unsuitable = review.get("unsuitable_for_limited_pilot")
+    if unsuitable not in ([], None):
+        errors.append("unsuitable_for_limited_pilot must be empty for this limited pilot eligibility review")
 
     additional_needed = review.get("additional_tatmapper_evidence_needed")
     if not isinstance(additional_needed, list) or len(additional_needed) < 4:
@@ -181,8 +192,10 @@ def main() -> int:
             errors.append("classification normalized count does not match beta ledger")
         if summary.get("external_real_repo_episode") != len(external):
             errors.append("classification external episode count does not match beta ledger")
-        if summary.get("scoring_eligibility_count_for_v1_7_beta_second_repo_claim") != 0:
-            errors.append("classification beta scoring eligibility count must remain 0")
+        if summary.get("scoring_eligibility_count_for_v1_7_beta_second_repo_claim") != len(external):
+            errors.append("classification beta scoring eligibility count must match beta external episode count")
+        if summary.get("scoring_mode") != "limited_pilot_only":
+            errors.append("classification scoring_mode must be limited_pilot_only")
         if summary.get("beta_scoring_run") is not False:
             errors.append("classification beta_scoring_run must remain false")
         if summary.get("full_scoring_allowed") is not False:
@@ -206,8 +219,8 @@ def main() -> int:
     print("v1.7-beta second-repo eligibility review: PASS")
     print(f"beta normalized episodes: {len(ledger)}")
     print(f"beta external real repo episodes: {len(external)}")
-    print("beta scoring mode: blocked_pending_renewed_eligibility_review")
-    print("beta scoring allowed: false")
+    print("beta scoring mode: limited_pilot_only")
+    print("beta scoring allowed: limited_pilot_only")
     print("full scoring allowed: false")
     print("ControllerGate scoring: NOT RUN")
     return 0

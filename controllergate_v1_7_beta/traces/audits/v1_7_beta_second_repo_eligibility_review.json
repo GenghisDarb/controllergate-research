@@ -1,63 +1,34 @@
 {
-    "schema_version":  "1.0",
+    "schema_version":  "1.1",
     "source_ledger_path":  "controllergate_v1_7_beta/traces/normalized/episodes.jsonl",
     "source_classification_path":  "controllergate_v1_7_beta/traces/audits/beta_episode_review_classification.json",
-    "review_scope":  "v1.7-beta second-repo pilot eligibility",
-    "review_date":  "2026-06-03",
+    "review_scope":  "v1.7-beta renewed second-repo pilot eligibility",
+    "review_date":  "2026-06-04",
     "controllergate_scoring_run":  false,
     "beta_scoring_run":  false,
     "alpha_reports_and_scoring_outputs_unchanged":  true,
     "normalized_episode_count":  11,
     "external_real_repo_episode_count":  11,
-    "eligible_external_episode_count":  0,
-    "scoring_allowed":  false,
-    "scoring_mode":  "blocked_pending_renewed_eligibility_review",
+    "eligible_external_episode_count":  11,
+    "scoring_allowed":  "limited_pilot_only",
+    "scoring_mode":  "limited_pilot_only",
     "full_scoring_allowed":  false,
-    "decision":  "blocked_pending_renewed_eligibility_review",
-    "decision_reason":  "The beta ledger now has eleven review-normalized TatMapper external real repo episodes, satisfying the count threshold, but all remain review_required. Scoring remains blocked until a renewed v1.7-beta eligibility review explicitly decides whether limited_pilot_only is allowed.",
-    "post_review_strengthening_and_collection":  {
-                                                     "status":  "strengthening, pending collection, and review normalization completed after the original eligibility decision",
-                                                     "current_head_strengthening_logs":  "controllergate_v1_7_beta/evidence_strengthening/tatmapper_current_head/",
-                                                     "current_head_strengthening_results":  [
-                                                                                                "guard_calibration passed under Git Bash",
-                                                                                                "export_opencv_dir failed because OpenCVConfig.cmake was unavailable in known local paths",
-                                                                                                "Flutter version/analyze/test attempts timed out after 120000 ms",
-                                                                                                "Java was unavailable",
-                                                                                                "Android Gradle wrapper failed because JAVA_HOME/java was unavailable"
-                                                                                            ],
-                                                     "new_pending_bundle_count":  5,
-                                                     "new_pending_bundles":  [
-                                                                                 "episode_tatmapper_pr98_export_opencv_helper_repair",
-                                                                                 "episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression",
-                                                                                 "episode_tatmapper_pr96_gradle_config_not_run",
-                                                                                 "episode_tatmapper_pr94_manual_override_precedence_review",
-                                                                                 "episode_tatmapper_pr90_codecov_patch_coverage_warning"
-                                                                             ],
-                                                     "normalization_status":  "REVIEW_NORMALIZED",
-                                                     "scoring_status":  "NOT_RUN",
-                                                     "effect_on_this_review":  "episode count threshold is now met, but scoring remains blocked pending a renewed eligibility review",
-                                                     "normalized_episode_ids":  [
-                                                                                    "beta_episode_007",
-                                                                                    "beta_episode_008",
-                                                                                    "beta_episode_009",
-                                                                                    "beta_episode_010",
-                                                                                    "beta_episode_011"
-                                                                                ]
-                                                 },
+    "decision":  "limited_pilot_only",
+    "decision_reason":  "The beta ledger has 11 normalized TatMapper external real repo episodes, meets the second-repo count threshold, covers the requested Flutter/Android/Gradle/tooling/guardrail diversity, and preserves decision-time versus outcome-only evidence. The evidence is sufficient for a tiny exploratory second-repo pilot only because all episodes remain review_required and full CI logs or PR-head reruns are incomplete or unavailable.",
     "constraints":  {
                         "only_v1_7_beta_tatmapper_external_real_repo_episode_entries_may_be_used":  true,
                         "v1_7_alpha_torus_episodes_excluded_from_beta_scoring":  true,
                         "v1_6_controlled_benchmark_evidence_excluded":  true,
                         "no_self_maintaining_software_claim":  true,
-                        "no_broad_cross_repo_generalization_claim":  true,
-                        "tiny_second_repo_exploratory_label_required_if_scoring_is_later_allowed":  true,
-                        "ambiguous_or_weak_episodes_must_remain_visible":  true,
-                        "full_scoring_disallowed":  true
+                        "no_broad_production_claim":  true,
+                        "tiny_second_repo_exploratory_label_required":  true,
+                        "weak_ambiguous_warning_unavailable_ci_and_review_required_episodes_must_remain_visible":  true,
+                        "full_scoring_requires_separate_explicit_approval":  true
                     },
     "evidence_checks":  {
                             "decision_time_evidence_separated_from_outcome_only_evidence":  true,
-                            "missing_ci_logs_documented_where_applicable":  true,
-                            "local_rerun_absence_documented_where_applicable":  true,
+                            "ci_log_status_documented_for_all_episodes":  true,
+                            "fresh_rerun_evidence_status_documented_for_all_episodes":  true,
                             "weak_or_ambiguous_evidence_preserved":  true,
                             "controllergate_scoring_not_run":  true,
                             "beta_scoring_not_run":  true,
@@ -65,7 +36,7 @@
                         },
     "diversity_checks":  [
                              {
-                                 "category":  "Flutter availability or environment gap",
+                                 "category":  "Flutter availability/environment gap",
                                  "covered":  true,
                                  "coverage_strength":  "review_required",
                                  "episodes":  [
@@ -89,7 +60,7 @@
                                               ]
                              },
                              {
-                                 "category":  "Android scaffold / NDK / CMake setup",
+                                 "category":  "Android scaffold/NDK/CMake setup",
                                  "covered":  true,
                                  "coverage_strength":  "review_required",
                                  "episodes":  [
@@ -113,36 +84,7 @@
                                               ]
                              },
                              {
-                                 "category":  "dependency/config drift",
-                                 "covered":  true,
-                                 "coverage_strength":  "review_required",
-                                 "episodes":  [
-                                                  "beta_episode_001",
-                                                  "beta_episode_002",
-                                                  "beta_episode_004",
-                                                  "beta_episode_005",
-                                                  "beta_episode_006"
-                                              ]
-                             },
-                             {
-                                 "category":  "build scaffold repair",
-                                 "covered":  true,
-                                 "coverage_strength":  "review_required",
-                                 "episodes":  [
-                                                  "beta_episode_004",
-                                                  "beta_episode_005"
-                                              ]
-                             },
-                             {
-                                 "category":  "warning or guardrail case",
-                                 "covered":  true,
-                                 "coverage_strength":  "review_required",
-                                 "episodes":  [
-                                                  "beta_episode_002"
-                                              ]
-                             },
-                             {
-                                 "category":  "CI helper / OpenCV config repair",
+                                 "category":  "OpenCV helper/export repair",
                                  "covered":  true,
                                  "coverage_strength":  "review_required",
                                  "episodes":  [
@@ -150,7 +92,7 @@
                                               ]
                              },
                              {
-                                 "category":  "closed unmerged repair attempt",
+                                 "category":  "closed-unmerged Gradle entrypoint regression",
                                  "covered":  true,
                                  "coverage_strength":  "review_required",
                                  "episodes":  [
@@ -158,7 +100,7 @@
                                               ]
                              },
                              {
-                                 "category":  "Gradle config verification gap",
+                                 "category":  "Gradle config not-run or config gap",
                                  "covered":  true,
                                  "coverage_strength":  "review_required",
                                  "episodes":  [
@@ -166,7 +108,7 @@
                                               ]
                              },
                              {
-                                 "category":  "manual override review caveat",
+                                 "category":  "manual override precedence review",
                                  "covered":  true,
                                  "coverage_strength":  "review_required",
                                  "episodes":  [
@@ -174,7 +116,7 @@
                                               ]
                              },
                              {
-                                 "category":  "Codecov patch coverage warning",
+                                 "category":  "Codecov/coverage warning",
                                  "covered":  true,
                                  "coverage_strength":  "review_required",
                                  "episodes":  [
@@ -189,19 +131,21 @@
                          "source_repo":  "TatMapper",
                          "source_pr":  93,
                          "source_commit":  "36189aefa598d85ba525c11e1542d8cbbb59c7fe",
-                         "run_reference":  "UNAVAILABLE: no PR-triggered workflow run logs exposed by connector",
+                         "run_reference":  "PR #93 / 36189ae",
                          "outcome_type":  "flutter_availability_failure_or_environment_gap",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "partial_current_head_strengthening_logs_available; no PR-head Flutter rerun",
+                         "ci_log_status":  "unavailable",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "Full GitHub Actions logs unavailable.",
-                                                          "No fresh local Flutter analyze/test rerun.",
-                                                          "Original external agent transcript unavailable."
+                                                          "Full GitHub Actions logs unavailable: connector workflow run lookup returned no PR-triggered runs for merge commit.",
+                                                          "Original external ChatGPT/Codex task transcript unavailable in this repository.",
+                                                          "TatMapper local clone/rerun was not performed in this pass."
                                                       ],
-                         "eligibility_caveat":  "Useful environment-gap evidence, but merged repair state is not verified by local or CI rerun."
+                         "eligibility_caveat":  "Merged PR plus environment-gap evidence is suitable for beta review normalization, not scoring-clean proof of repair."
                      },
                      {
                          "episode_id":  "beta_episode_002",
@@ -209,100 +153,114 @@
                          "source_repo":  "TatMapper",
                          "source_pr":  92,
                          "source_commit":  "41c483f53c26fbc20d5e6dc739d8fbe238bc5f80",
-                         "run_reference":  "UNAVAILABLE: no PR-triggered workflow run logs exposed by connector",
+                         "run_reference":  "PR #92 / 41c483f",
                          "outcome_type":  "ndk_tooling_review",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "partial_current_head_strengthening_logs_available; no PR-head Flutter rerun",
+                         "ci_log_status":  "unavailable",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "PR body lists flutter test but fetched metadata lacks command output.",
-                                                          "Full GitHub Actions logs unavailable.",
-                                                          "No fresh local Flutter rerun.",
-                                                          "Original external agent transcript unavailable."
+                                                          "Full GitHub Actions logs unavailable: connector workflow run lookup returned no PR-triggered runs for merge commit.",
+                                                          "PR body lists flutter test but fetched metadata did not include command output or pass/fail result.",
+                                                          "Original external ChatGPT/Codex task transcript unavailable in this repository.",
+                                                          "TatMapper local clone/rerun was not performed in this pass."
                                                       ],
-                         "eligibility_caveat":  "Useful configuration-review warning evidence, not a verified CI failure or verified repair."
+                         "eligibility_caveat":  "Treat as configuration-review evidence, not verified CI failure or verified repair."
                      },
                      {
                          "episode_id":  "beta_episode_003",
                          "source_episode_folder":  "episode_tatmapper_commit_7eb_invalid_windows_checkout_file",
                          "source_repo":  "TatMapper",
+                         "source_pr":  null,
                          "source_commit":  "7eb2e48adc9ee182e749bfe6f7174266153af128",
-                         "run_reference":  "UNAVAILABLE: no workflow run or commit status entries exposed",
+                         "run_reference":  "commit 7eb2e48",
                          "outcome_type":  "windows_checkout_breakage",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "not_run; no Windows checkout reproduction",
+                         "ci_log_status":  "unavailable",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "Exact failing checkout command unavailable.",
-                                                          "No Windows checkout reproduction.",
-                                                          "No CI logs or status rows.",
-                                                          "Original agent/tool transcript unavailable."
+                                                          "No workflow run or commit status entries were exposed for the sampled commit.",
+                                                          "Exact failing checkout command is unavailable in fetched commit metadata.",
+                                                          "Original agent/tool transcript unavailable.",
+                                                          "No fresh Windows checkout reproduction was attempted in this pass."
                                                       ],
-                         "eligibility_caveat":  "Strong maintenance candidate, but not independently reproduced."
+                         "eligibility_caveat":  "Strong real maintenance candidate, but not verified by CI or local Windows checkout rerun in this pass."
                      },
                      {
                          "episode_id":  "beta_episode_004",
                          "source_episode_folder":  "episode_tatmapper_commit_5019_android_scaffold_ndk_cmake",
                          "source_repo":  "TatMapper",
+                         "source_pr":  null,
                          "source_commit":  "5019f6fc25c3e6eeba13ddff22bc1198784a7f8d",
-                         "run_reference":  "Codecov patch status success only; full workflow logs unavailable",
+                         "run_reference":  "commit 5019f6f",
                          "outcome_type":  "android_scaffold_ndk_cmake_setup",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "partial_current_head_strengthening_logs_available; Android/Gradle verification blocked by missing Java",
+                         "ci_log_status":  "partial_status_only",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "Full Flutter/Android build logs unavailable.",
-                                                          "Exact failing Android/Gradle command unavailable.",
-                                                          "No local Flutter or Android build rerun.",
-                                                          "Codecov patch success is not build success."
+                                                          "Connector workflow-run lookup returned no PR-triggered workflow runs for the sampled commit.",
+                                                          "Exact failing Android/Gradle command is unavailable in fetched commit metadata.",
+                                                          "Original agent/tool transcript unavailable.",
+                                                          "No local Flutter or Android build rerun was performed in this pass."
                                                       ],
-                         "eligibility_caveat":  "Useful platform-scaffold repair evidence, but not verified at build level."
+                         "eligibility_caveat":  "Codecov success is not a substitute for Flutter/Android CI pass evidence."
                      },
                      {
                          "episode_id":  "beta_episode_005",
                          "source_episode_folder":  "episode_tatmapper_commit_a63_android_v2_embedding_sdk_alignment",
                          "source_repo":  "TatMapper",
+                         "source_pr":  null,
                          "source_commit":  "a63a5ea6a9766049971e03bb9d562dd477394b18",
-                         "run_reference":  "Codecov patch status success only; full workflow logs unavailable",
+                         "run_reference":  "commit a63a5ea",
                          "outcome_type":  "sdk_v2_embedding_alignment",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "partial_current_head_strengthening_logs_available; Android/Gradle verification blocked by missing Java",
+                         "ci_log_status":  "partial_status_only",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "Full Flutter/Android build logs unavailable.",
-                                                          "Exact failing Android/Flutter build command unavailable.",
-                                                          "No local Flutter or Android build rerun.",
-                                                          "Codecov patch success is not build success."
+                                                          "Connector workflow-run lookup returned no PR-triggered workflow runs for the sampled commit.",
+                                                          "Exact failing Android/Flutter build command is unavailable in fetched commit metadata.",
+                                                          "Original agent/tool transcript unavailable.",
+                                                          "No local Flutter or Android build rerun was performed in this pass."
                                                       ],
-                         "eligibility_caveat":  "Useful Android migration evidence, but still review-only without build verification."
+                         "eligibility_caveat":  "Strong second-repo domain signal, but full app build evidence is unavailable."
                      },
                      {
                          "episode_id":  "beta_episode_006",
                          "source_episode_folder":  "episode_tatmapper_commit_d9a_pubspec_conflict_import_path",
                          "source_repo":  "TatMapper",
+                         "source_pr":  null,
                          "source_commit":  "d9a6bbec4b4555fe4e2a17dedb6e9e94fcdef570",
-                         "run_reference":  "UNAVAILABLE: no workflow run or commit status entries exposed",
+                         "run_reference":  "commit d9a6bbe",
                          "outcome_type":  "pubspec_conflict_marker_risk",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "partial_current_head_strengthening_logs_available; no deterministic flutter pub get rerun",
+                         "ci_log_status":  "unavailable",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "No local flutter pub get, flutter analyze, or flutter test rerun.",
-                                                          "No CI logs or status rows.",
-                                                          "Exact failing command unavailable.",
-                                                          "Original agent/tool transcript unavailable."
+                                                          "No workflow run or commit status entries were exposed for the sampled commit.",
+                                                          "Exact failing command is unavailable in fetched commit metadata.",
+                                                          "Original agent/tool transcript unavailable.",
+                                                          "No local flutter pub get, flutter analyze, or flutter test rerun was performed in this pass."
                                                       ],
-                         "eligibility_caveat":  "Strong generated-artifact risk evidence, but downstream tooling failure has not been reproduced."
+                         "eligibility_caveat":  "This is strong generated-artifact risk evidence, but local deterministic Flutter tooling failure has not yet been reproduced."
                      },
                      {
                          "episode_id":  "beta_episode_007",
@@ -310,19 +268,21 @@
                          "source_repo":  "TatMapper",
                          "source_pr":  98,
                          "source_commit":  "bc2fff0e1477a4ec6d79649fbe25c6e98ae3c7a3",
-                         "run_reference":  "UNAVAILABLE: no workflow run/status rows exposed; current-head local OpenCV helper rerun is outcome-only",
+                         "run_reference":  "PR #98 / bc2fff0",
                          "outcome_type":  "export_opencv_helper_repair",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "partial_current_head_local_rerun; export_opencv_dir failed because OpenCVConfig.cmake was unavailable",
+                         "ci_log_status":  "unavailable",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "Full GitHub Actions logs unavailable.",
-                                                          "Local rerun was current-head only.",
-                                                          "Original agent transcript unavailable."
+                                                          "Full GitHub Actions logs unavailable: connector returned no exposed workflow runs or status rows for merge commit.",
+                                                          "Original agent transcript unavailable in repository evidence.",
+                                                          "Local rerun was current-head only and does not prove historical PR CI behavior."
                                                       ],
-                         "eligibility_caveat":  "Useful CI helper repair evidence, but not scoring-clean without full CI or PR-head rerun."
+                         "eligibility_caveat":  "Eligible for review normalization only; current-head OpenCV failure is outcome-only and not scoring-clean proof of PR failure."
                      },
                      {
                          "episode_id":  "beta_episode_008",
@@ -330,20 +290,22 @@
                          "source_repo":  "TatMapper",
                          "source_pr":  97,
                          "source_commit":  "7e401a09b9dfacbad1f0efe7197f42a9ab17d3df",
-                         "run_reference":  "UNAVAILABLE: no workflow run/status rows exposed for closed-unmerged PR head",
+                         "run_reference":  "PR #97 / 7e401a0",
                          "outcome_type":  "closed_unmerged_gradle_entrypoint_regression",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "not_run_pr_head; current-head Flutter attempts are not PR #97 evidence",
+                         "ci_log_status":  "unavailable",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "Full GitHub Actions logs unavailable.",
+                                                          "Full GitHub Actions logs unavailable: connector returned no exposed workflow runs or status rows for head commit.",
                                                           "Exact historical failing command unavailable.",
-                                                          "No PR-head rerun.",
-                                                          "Original agent transcript unavailable."
+                                                          "Original agent transcript unavailable.",
+                                                          "No PR-head local rerun was performed."
                                                       ],
-                         "eligibility_caveat":  "Useful negative repair evidence, but review-only without rerun or CI logs."
+                         "eligibility_caveat":  "Eligible for review normalization only; compile-risk evidence is real but not independently rerun."
                      },
                      {
                          "episode_id":  "beta_episode_009",
@@ -351,20 +313,22 @@
                          "source_repo":  "TatMapper",
                          "source_pr":  96,
                          "source_commit":  "9753a1d9e1fdc7d7104dbd2cdfce2bc5e1f3e2c7",
-                         "run_reference":  "UNAVAILABLE: PR body says testing not run; current-head Gradle wrapper blocked by missing Java",
+                         "run_reference":  "PR #96 / 9753a1d",
                          "outcome_type":  "gradle_config_not_run",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "partial_current_head_local_rerun; Gradle wrapper check blocked by missing Java",
+                         "ci_log_status":  "unavailable",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "Full GitHub Actions logs unavailable.",
-                                                          "PR body reports tests not run.",
-                                                          "Current-head Gradle check blocked by missing Java.",
-                                                          "Original agent transcript unavailable."
+                                                          "Full GitHub Actions logs unavailable: connector returned no exposed workflow runs or status rows for merge commit.",
+                                                          "PR body states testing was not run because the Gradle wrapper was not checked into the repository.",
+                                                          "Original agent transcript unavailable.",
+                                                          "Local Gradle rerun was current-head only and blocked by missing Java."
                                                       ],
-                         "eligibility_caveat":  "Useful Gradle config repair evidence, but verification remains blocked."
+                         "eligibility_caveat":  "Eligible for review normalization only; merged repair remains verification-blocked."
                      },
                      {
                          "episode_id":  "beta_episode_010",
@@ -372,20 +336,22 @@
                          "source_repo":  "TatMapper",
                          "source_pr":  94,
                          "source_commit":  "e64ecfc4cc18dba7fefc3eba6dd94869c8c344bb",
-                         "run_reference":  "UNAVAILABLE: no workflow logs; current-head guard passed and Flutter attempts timed out",
+                         "run_reference":  "PR #94 / e64ecfc",
                          "outcome_type":  "manual_override_precedence_review",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "partial_current_head_local_rerun; guard passed and Flutter analyze/test timed out",
+                         "ci_log_status":  "unavailable",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "Full GitHub Actions logs unavailable.",
-                                                          "Flutter analyze/test timed out locally.",
-                                                          "Manual override review caveat not rerun.",
-                                                          "Original agent transcript unavailable."
+                                                          "Full GitHub Actions logs unavailable: connector returned no exposed workflow runs or status rows for merge commit.",
+                                                          "Original agent transcript unavailable.",
+                                                          "Current-head Flutter analyze/test timed out and are not historical PR verification.",
+                                                          "Manual override precedence review caveat was not rerun here."
                                                       ],
-                         "eligibility_caveat":  "Useful guard-plus-review-caveat episode, but not scoring-clean."
+                         "eligibility_caveat":  "Eligible for review normalization only; preserves both guard evidence and manual override caveat."
                      },
                      {
                          "episode_id":  "beta_episode_011",
@@ -393,42 +359,87 @@
                          "source_repo":  "TatMapper",
                          "source_pr":  90,
                          "source_commit":  "ccc9a446c6dbb731b0ec142fcbdcf50b059bd7e6",
-                         "run_reference":  "Codecov patch status/comment available; full workflow logs unavailable",
+                         "run_reference":  "PR #90 / ccc9a44",
                          "outcome_type":  "codecov_patch_coverage_warning",
                          "verified_result":  "review_required",
                          "evidence_status":  "pending evidence bundle reviewed and normalized",
                          "decision_time_evidence_separated":  true,
                          "outcome_only_evidence_separated":  true,
-                         "pilot_eligible":  false,
+                         "fresh_rerun_evidence":  "not_run_pr_head; current-head Flutter timeouts only",
+                         "ci_log_status":  "partial_status_only",
+                         "pilot_eligible":  true,
                          "weak_or_missing_evidence":  [
-                                                          "Full build/test workflow logs unavailable.",
-                                                          "No hard failing command.",
-                                                          "No PR-head rerun.",
-                                                          "Original agent transcript unavailable."
+                                                          "Full build/test workflow logs unavailable through connector.",
+                                                          "Hard failing command unavailable because Codecov evidence is warning/guardrail status.",
+                                                          "Original agent transcript unavailable.",
+                                                          "No PR-head local rerun was performed."
                                                       ],
-                         "eligibility_caveat":  "Useful warning-only guardrail evidence, not a hard failure or verified repair."
+                         "eligibility_caveat":  "Eligible for review normalization only; Codecov warning evidence is not a hard failure or repair proof."
                      }
                  ],
-    "episodes_too_ambiguous_for_scoring":  [
-                                               "beta_episode_001",
-                                               "beta_episode_002",
-                                               "beta_episode_003",
-                                               "beta_episode_004",
-                                               "beta_episode_005",
-                                               "beta_episode_006",
-                                               "beta_episode_007",
-                                               "beta_episode_008",
-                                               "beta_episode_009",
-                                               "beta_episode_010",
-                                               "beta_episode_011"
-                                           ],
+    "weak_or_ambiguous_episodes_included":  [
+                                                {
+                                                    "episode_id":  "beta_episode_001",
+                                                    "reason":  "Full GitHub Actions logs unavailable: connector workflow run lookup returned no PR-triggered runs for merge commit. Original external ChatGPT/Codex task transcript unavailable in this repository. TatMapper local clone/rerun was not performed in this pass."
+                                                },
+                                                {
+                                                    "episode_id":  "beta_episode_002",
+                                                    "reason":  "Full GitHub Actions logs unavailable: connector workflow run lookup returned no PR-triggered runs for merge commit. PR body lists flutter test but fetched metadata did not include command output or pass/fail result. Original external ChatGPT/Codex task transcript unavailable in this repository. TatMapper local clone/rerun was not performed in this pass."
+                                                },
+                                                {
+                                                    "episode_id":  "beta_episode_003",
+                                                    "reason":  "No workflow run or commit status entries were exposed for the sampled commit. Exact failing checkout command is unavailable in fetched commit metadata. Original agent/tool transcript unavailable. No fresh Windows checkout reproduction was attempted in this pass."
+                                                },
+                                                {
+                                                    "episode_id":  "beta_episode_004",
+                                                    "reason":  "Connector workflow-run lookup returned no PR-triggered workflow runs for the sampled commit. Exact failing Android/Gradle command is unavailable in fetched commit metadata. Original agent/tool transcript unavailable. No local Flutter or Android build rerun was performed in this pass."
+                                                },
+                                                {
+                                                    "episode_id":  "beta_episode_005",
+                                                    "reason":  "Connector workflow-run lookup returned no PR-triggered workflow runs for the sampled commit. Exact failing Android/Flutter build command is unavailable in fetched commit metadata. Original agent/tool transcript unavailable. No local Flutter or Android build rerun was performed in this pass."
+                                                },
+                                                {
+                                                    "episode_id":  "beta_episode_006",
+                                                    "reason":  "No workflow run or commit status entries were exposed for the sampled commit. Exact failing command is unavailable in fetched commit metadata. Original agent/tool transcript unavailable. No local flutter pub get, flutter analyze, or flutter test rerun was performed in this pass."
+                                                },
+                                                {
+                                                    "episode_id":  "beta_episode_007",
+                                                    "reason":  "Full GitHub Actions logs unavailable: connector returned no exposed workflow runs or status rows for merge commit. Original agent transcript unavailable in repository evidence. Local rerun was current-head only and does not prove historical PR CI behavior."
+                                                },
+                                                {
+                                                    "episode_id":  "beta_episode_008",
+                                                    "reason":  "Full GitHub Actions logs unavailable: connector returned no exposed workflow runs or status rows for head commit. Exact historical failing command unavailable. Original agent transcript unavailable. No PR-head local rerun was performed."
+                                                },
+                                                {
+                                                    "episode_id":  "beta_episode_009",
+                                                    "reason":  "Full GitHub Actions logs unavailable: connector returned no exposed workflow runs or status rows for merge commit. PR body states testing was not run because the Gradle wrapper was not checked into the repository. Original agent transcript unavailable. Local Gradle rerun was current-head only and blocked by missing Java."
+                                                },
+                                                {
+                                                    "episode_id":  "beta_episode_010",
+                                                    "reason":  "Full GitHub Actions logs unavailable: connector returned no exposed workflow runs or status rows for merge commit. Original agent transcript unavailable. Current-head Flutter analyze/test timed out and are not historical PR verification. Manual override precedence review caveat was not rerun here."
+                                                },
+                                                {
+                                                    "episode_id":  "beta_episode_011",
+                                                    "reason":  "Full build/test workflow logs unavailable through connector. Hard failing command unavailable because Codecov evidence is warning/guardrail status. Original agent transcript unavailable. No PR-head local rerun was performed."
+                                                }
+                                            ],
+    "unsuitable_for_limited_pilot":  [
+
+                                     ],
+    "required_reporting_constraints":  [
+                                           "Report as v1.7-beta limited second-repo exploratory evidence only.",
+                                           "Use only the 11 v1.7-beta TatMapper external_real_repo_episode entries.",
+                                           "Keep all review_required, weak, ambiguous, warning-only, closed-unmerged, unavailable-CI, and outcome-only rerun caveats visible.",
+                                           "Do not claim self-maintaining software.",
+                                           "Do not claim broad production readiness or cross-repo generalization.",
+                                           "Do not run full scoring without separate explicit approval."
+                                       ],
     "additional_tatmapper_evidence_needed":  [
-                                                 "Run a renewed v1.7-beta eligibility review now that the ledger has 11 review-normalized TatMapper episodes.",
                                                  "Recover or capture full GitHub Actions logs for selected TatMapper PRs or commits.",
                                                  "Run fresh local Flutter analyze/test/build commands where dependencies are available and preserve exact outputs.",
                                                  "Run Android/Gradle verification with Java/JAVA_HOME available.",
                                                  "Reproduce the Windows checkout breakage or provide historical checkout failure logs.",
-                                                 "Preserve original agent/tool traces or PR discussion where available.",
-                                                 "Keep warning-only, closed-unmerged, failed, and ambiguous episodes visible if a limited pilot is later approved."
+                                                 "Run deterministic Flutter tooling checks for the pubspec.lock conflict-marker risk.",
+                                                 "Preserve original agent/tool traces or PR discussion where available."
                                              ]
 }
