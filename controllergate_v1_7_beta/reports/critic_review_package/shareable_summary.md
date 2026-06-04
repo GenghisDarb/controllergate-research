@@ -128,3 +128,26 @@ Episode 001 validates replay-capture artifact generation.
 - Full scoring is not allowed.
 
 This result moves v1.8 from plan-only to replay-capture artifact generation for one controlled seeded episode. It still does not permit ControllerGate scoring, memory-lift claims, or self-maintaining-software claims.
+
+## v1.8 Episode 002 dry-run capture plan
+
+Episode 002 is a dry-run capture plan.
+
+- The TORUS repo remains a controlled testbed.
+- Episode label: `seeded_controlled_real_repo_episode`.
+- Allowed scoring mode: `not_scoreable`.
+- Execution status: `not_executed`.
+- The purpose is to validate replay capture for a second failure class, not repair capability.
+- Proposed validator: metadata manifest validation.
+- Proposed command: `python tools/validate_metadata_manifest.py metadata_manifest.json`.
+- Proposed seeded failure: `version` has the wrong JSON type.
+- Expected failure signature: `TYPE_MISMATCH: version`.
+- Episode 001 remains `capture_complete_not_scoreable`.
+- Episode 002 remains `not_scoreable`.
+- No scoring is allowed yet.
+- ControllerGate has not repaired TORUS.
+- Self-maintaining software is not demonstrated.
+- Memory lift is not demonstrated.
+- Seeded controlled evidence does not equal organic external repo evidence.
+
+Episode 002 artifact execution must be explicitly approved separately. The plan only expands the replay-capture ladder from a missing-field failure class to a type-mismatch failure class.
