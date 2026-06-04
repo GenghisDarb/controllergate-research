@@ -36,3 +36,19 @@ ControllerGate v1.7-beta limited TatMapper scoring was run on 11 normalized TatM
 ## Recommendation
 
 Do not expand scoring yet. Strengthen TatMapper evidence with full CI logs, PR-head reruns, deterministic Flutter or Android build checks, original agent traces, and memory-baseline instrumentation before any full-scoring or memory-lift claim.
+
+## Evidence Strengthening Pass 1
+
+TatMapper deterministic replay readiness audit is complete.
+
+- Deterministic replay-ready episodes: 0.
+- PR #92 and PR #93 now have failed Flutter CI run/job metadata.
+- PR #92 run: `17984606083`, failed jobs `test` (`51159403854`) and `android-build` (`51159403859`).
+- PR #93 run: `17986583215`, failed jobs `test` (`51166385920`) and `android-build` (`51166385937`).
+- Decoded job logs for those runs returned GitHub API `410`, so full logs remain unavailable.
+- The other nine TatMapper source SHAs exposed no PR-triggered workflow runs through the connector.
+- Current-head strengthening SHA: `8f49190a6e9ae29c8c49301a7736e0f838dfd369`.
+- Current-head strengthening remains outcome-only, not PR-head proof.
+- Flutter version/analyze/test timed out, Java was not found, Gradle was blocked by missing Java/JAVA_HOME, guard calibration passed, and OpenCV discovery failed because `OpenCVConfig.cmake` was missing.
+
+Correct interpretation remains unchanged: the limited pilot is `COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS`; real-repo memory lift is not demonstrated; self-maintaining software is not demonstrated; full scoring remains blocked.

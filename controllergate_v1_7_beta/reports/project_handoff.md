@@ -14,6 +14,7 @@ Status: v1.7-beta second-repo evidence collection has been strengthened, review-
 - Beta limited TatMapper scoring: RUN
 - Beta limited TatMapper scoring result: `COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS`
 - Beta critic review package: present in `controllergate_v1_7_beta/reports/critic_review_package/`
+- Deterministic replay readiness audit: present in `controllergate_v1_7_beta/reports/evidence_strengthening/`
 - Full scoring allowed: false
 - ControllerGate full scoring: NOT RUN
 
@@ -25,4 +26,4 @@ Each episode was normalized only as review-required evidence. Missing CI logs, u
 
 ## Next Step
 
-The beta critic review package now captures the result review and includes a shareable summary for non-local helpers. The latest strengthening pass added current-head local logs, but Flutter commands timed out and Android Gradle verification remained blocked by missing Java/JAVA_HOME, so full scoring, real-repo memory-lift claims, and broad claims remain blocked.
+The beta critic review package now captures the result review and includes a shareable summary for non-local helpers. Evidence Strengthening Pass 1 found failed Flutter CI run/job metadata for PR #92 and PR #93, but decoded logs returned GitHub API 410. The deterministic replay-ready count remains 0, so full scoring, real-repo memory-lift claims, and broad claims remain blocked.

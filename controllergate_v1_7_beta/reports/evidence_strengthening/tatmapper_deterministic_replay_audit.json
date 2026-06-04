@@ -1,0 +1,512 @@
+{
+  "schema_version": "1.0",
+  "audit_name": "v1.7-beta TatMapper deterministic replay readiness audit",
+  "audit_date": "2026-06-04",
+  "source_repo": "GenghisDarb/tatmapper-app",
+  "source_ledger_path": "controllergate_v1_7_beta/traces/normalized/episodes.jsonl",
+  "limited_pilot_result_path": "controllergate_v1_7_beta/traces/audits/limited_pilot_scoring/limited_pilot_scoring.json",
+  "limited_pilot_status": "COMPLETED_WITH_REVIEW_REQUIRED_CAVEATS",
+  "full_scoring_allowed": false,
+  "controllergate_full_scoring": "NOT_RUN",
+  "decision_time_outcome_overlap_episode_count": 0,
+  "deterministic_replay_ready_count": 0,
+  "classification_counts": {
+    "deterministic_replay_ready": 0,
+    "blocked_missing_ci_log": 5,
+    "blocked_pr_head_unavailable": 1,
+    "blocked_toolchain_gap": 2,
+    "blocked_timeout": 1,
+    "blocked_missing_agent_trace": 0,
+    "review_required_insufficient_evidence": 2
+  },
+  "github_actions_lookup": {
+    "checked_commit_count": 11,
+    "workflow_runs_found_count": 2,
+    "workflow_runs_found": [
+      {
+        "episode_id": "beta_episode_001",
+        "source_reference": "PR #93",
+        "commit_sha": "36189aefa598d85ba525c11e1542d8cbbb59c7fe",
+        "run_id": 17986583215,
+        "workflow_name": "Flutter CI",
+        "run_number": 392,
+        "status": "completed",
+        "conclusion": "failure",
+        "logs_url": "https://api.github.com/repos/GenghisDarb/tatmapper-app/actions/runs/17986583215/logs",
+        "jobs": [
+          {
+            "job_id": 51166385920,
+            "name": "test",
+            "conclusion": "failure",
+            "decoded_log_fetch_status": "unavailable_410"
+          },
+          {
+            "job_id": 51166385937,
+            "name": "android-build",
+            "conclusion": "failure",
+            "decoded_log_fetch_status": "unavailable_410"
+          }
+        ]
+      },
+      {
+        "episode_id": "beta_episode_002",
+        "source_reference": "PR #92",
+        "commit_sha": "41c483f53c26fbc20d5e6dc739d8fbe238bc5f80",
+        "run_id": 17984606083,
+        "workflow_name": "Flutter CI",
+        "run_number": 387,
+        "status": "completed",
+        "conclusion": "failure",
+        "logs_url": "https://api.github.com/repos/GenghisDarb/tatmapper-app/actions/runs/17984606083/logs",
+        "jobs": [
+          {
+            "job_id": 51159403854,
+            "name": "test",
+            "conclusion": "failure",
+            "decoded_log_fetch_status": "unavailable_410"
+          },
+          {
+            "job_id": 51159403859,
+            "name": "android-build",
+            "conclusion": "failure",
+            "decoded_log_fetch_status": "unavailable_410"
+          }
+        ]
+      }
+    ],
+    "no_workflow_runs_exposed_for_episode_ids": [
+      "beta_episode_003",
+      "beta_episode_004",
+      "beta_episode_005",
+      "beta_episode_006",
+      "beta_episode_007",
+      "beta_episode_008",
+      "beta_episode_009",
+      "beta_episode_010",
+      "beta_episode_011"
+    ]
+  },
+  "current_head_strengthening_context": {
+    "scratch_clone_path": "controllergate external_repos/tatmapper-app",
+    "current_head_sha": "8f49190a6e9ae29c8c49301a7736e0f838dfd369",
+    "head_role": "current_head_only",
+    "not_pr_head_proof": true,
+    "toolchain_versions": {
+      "flutter": "UNAVAILABLE: flutter --no-version-check --version timed out after 120000 ms",
+      "dart": "UNAVAILABLE: Dart version unavailable because Flutter version command timed out",
+      "java": "UNAVAILABLE: where.exe java returned exit_code 1",
+      "gradle": "UNAVAILABLE: app/android/gradlew.bat --version failed because JAVA_HOME is not set and java is not in PATH",
+      "android_sdk_ndk": "UNAVAILABLE: Android SDK/NDK versions were not recovered in this pass",
+      "opencv": "UNAVAILABLE: OpenCVConfig.cmake not found in known paths"
+    },
+    "local_command_results": [
+      {
+        "command": "flutter --no-version-check --version",
+        "result": "timeout_120000_ms"
+      },
+      {
+        "command": "where.exe java",
+        "result": "exit_code_1_java_not_found"
+      },
+      {
+        "command": "app/android/gradlew.bat --version",
+        "result": "exit_code_9009_java_home_not_set"
+      },
+      {
+        "command": "git-bash -lc 'cd scratch clone && ./scripts/guard_calibration.sh'",
+        "result": "passed_exit_code_0"
+      },
+      {
+        "command": "git-bash -lc 'cd scratch clone && ./scripts/export_opencv_dir.sh'",
+        "result": "failed_exit_code_1_opencv_config_missing"
+      },
+      {
+        "command": "flutter --no-version-check analyze --no-pub",
+        "result": "timeout_120000_ms"
+      },
+      {
+        "command": "flutter --no-version-check test --no-pub --concurrency=1",
+        "result": "timeout_120000_ms"
+      }
+    ]
+  },
+  "memory_baseline_instrumentation_available": false,
+  "episodes": [
+    {
+      "episode_id": "beta_episode_001",
+      "source_episode_folder": "episode_tatmapper_pr93_calibration_guard_flutter_unavailable",
+      "source_reference": "PR #93 / 36189ae",
+      "source_pr": 93,
+      "source_commit": "36189aefa598d85ba525c11e1542d8cbbb59c7fe",
+      "merge_commit": "c133689183ec2fe5288d8ae633086ccf3feae79d",
+      "rerun_head_type": "pr_head_metadata_available_no_local_pr_head_rerun",
+      "github_actions": "Flutter CI run 17986583215 failed; jobs test 51166385920 and android-build 51166385937 failed; decoded logs unavailable with GitHub API 410",
+      "failing_or_build_command": "(cd app && flutter analyze); (cd app && flutter test)",
+      "local_rerun_command": "NOT_RUN_PR_HEAD",
+      "toolchain_status": "blocked_timeout_and_missing_java_in_current_head_context",
+      "patch_diff_or_changed_files": "bounded PR diff excerpt present",
+      "generated_artifact_records": "none",
+      "decision_time_evidence": [
+        "PR metadata",
+        "PR body testing notes",
+        "bounded PR diff excerpt",
+        "Copilot review comments"
+      ],
+      "outcome_only_evidence": [
+        "merged PR state",
+        "merge commit SHA",
+        "workflow run/job metadata fetched after limited scoring"
+      ],
+      "original_agent_trace_available": "partial_external_pr_metadata_only",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "blocked_missing_ci_log",
+      "secondary_blockers": [
+        "blocked_timeout",
+        "blocked_toolchain_gap",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    },
+    {
+      "episode_id": "beta_episode_002",
+      "source_episode_folder": "episode_tatmapper_pr92_ndk_path_tooling_review",
+      "source_reference": "PR #92 / 41c483f",
+      "source_pr": 92,
+      "source_commit": "41c483f53c26fbc20d5e6dc739d8fbe238bc5f80",
+      "merge_commit": "cb6d7f05783a34c7a679e569f18cca1178d13b12",
+      "rerun_head_type": "pr_head_metadata_available_no_local_pr_head_rerun",
+      "github_actions": "Flutter CI run 17984606083 failed; jobs test 51159403854 and android-build 51159403859 failed; decoded logs unavailable with GitHub API 410",
+      "failing_or_build_command": "flutter test listed in PR body; output unavailable",
+      "local_rerun_command": "NOT_RUN_PR_HEAD",
+      "toolchain_status": "blocked_timeout_and_missing_java_in_current_head_context",
+      "patch_diff_or_changed_files": "bounded PR diff excerpt present",
+      "generated_artifact_records": "none",
+      "decision_time_evidence": [
+        "PR metadata",
+        "PR body command listing",
+        "bounded PR diff excerpt",
+        "Copilot review warning"
+      ],
+      "outcome_only_evidence": [
+        "merged PR state",
+        "merge commit SHA",
+        "workflow run/job metadata fetched after limited scoring"
+      ],
+      "original_agent_trace_available": "partial_external_pr_metadata_only",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "blocked_missing_ci_log",
+      "secondary_blockers": [
+        "blocked_timeout",
+        "blocked_toolchain_gap",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    },
+    {
+      "episode_id": "beta_episode_003",
+      "source_episode_folder": "episode_tatmapper_commit_7eb_invalid_windows_checkout_file",
+      "source_reference": "commit 7eb2e48",
+      "source_pr": null,
+      "source_commit": "7eb2e48adc9ee182e749bfe6f7174266153af128",
+      "merge_commit": null,
+      "rerun_head_type": "commit_metadata_only_no_local_reproduction",
+      "github_actions": "no PR-triggered workflow runs exposed through connector",
+      "failing_or_build_command": "UNAVAILABLE: exact failing checkout command is not present in fetched commit metadata",
+      "local_rerun_command": "NOT_RUN: no fresh Windows checkout reproduction attempted",
+      "toolchain_status": "not_applicable_to_checkout_reproduction",
+      "patch_diff_or_changed_files": "bounded commit diff excerpt present",
+      "generated_artifact_records": "invalid Windows filename risk recorded",
+      "decision_time_evidence": [
+        "commit metadata",
+        "commit diff excerpt"
+      ],
+      "outcome_only_evidence": [
+        "commit present in repository history"
+      ],
+      "original_agent_trace_available": "unavailable",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "review_required_insufficient_evidence",
+      "secondary_blockers": [
+        "blocked_missing_ci_log",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    },
+    {
+      "episode_id": "beta_episode_004",
+      "source_episode_folder": "episode_tatmapper_commit_5019_android_scaffold_ndk_cmake",
+      "source_reference": "commit 5019f6f",
+      "source_pr": null,
+      "source_commit": "5019f6fc25c3e6eeba13ddff22bc1198784a7f8d",
+      "merge_commit": null,
+      "rerun_head_type": "commit_metadata_only_no_local_commit_rerun",
+      "github_actions": "no PR-triggered workflow runs exposed through connector; Codecov status only",
+      "failing_or_build_command": "UNAVAILABLE: exact Android/Gradle command is not present in fetched commit metadata",
+      "local_rerun_command": "NOT_RUN_COMMIT_HEAD",
+      "toolchain_status": "blocked_toolchain_gap_current_head_java_unavailable",
+      "patch_diff_or_changed_files": "bounded commit diff excerpt present",
+      "generated_artifact_records": "none",
+      "decision_time_evidence": [
+        "commit metadata",
+        "commit diff excerpt",
+        "commit status metadata"
+      ],
+      "outcome_only_evidence": [
+        "commit present in repository history",
+        "Codecov patch success status"
+      ],
+      "original_agent_trace_available": "unavailable",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "blocked_missing_ci_log",
+      "secondary_blockers": [
+        "blocked_toolchain_gap",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    },
+    {
+      "episode_id": "beta_episode_005",
+      "source_episode_folder": "episode_tatmapper_commit_a63_android_v2_embedding_sdk_alignment",
+      "source_reference": "commit a63a5ea",
+      "source_pr": null,
+      "source_commit": "a63a5ea6a9766049971e03bb9d562dd477394b18",
+      "merge_commit": null,
+      "rerun_head_type": "commit_metadata_only_no_local_commit_rerun",
+      "github_actions": "no PR-triggered workflow runs exposed through connector; Codecov status only",
+      "failing_or_build_command": "UNAVAILABLE: exact Android/Flutter build command is not present in fetched commit metadata",
+      "local_rerun_command": "NOT_RUN_COMMIT_HEAD",
+      "toolchain_status": "blocked_toolchain_gap_current_head_java_unavailable",
+      "patch_diff_or_changed_files": "bounded commit diff excerpt present",
+      "generated_artifact_records": "none",
+      "decision_time_evidence": [
+        "commit metadata",
+        "commit diff excerpt",
+        "commit status metadata"
+      ],
+      "outcome_only_evidence": [
+        "commit present in repository history",
+        "Codecov patch success status"
+      ],
+      "original_agent_trace_available": "unavailable",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "blocked_missing_ci_log",
+      "secondary_blockers": [
+        "blocked_toolchain_gap",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    },
+    {
+      "episode_id": "beta_episode_006",
+      "source_episode_folder": "episode_tatmapper_commit_d9a_pubspec_conflict_import_path",
+      "source_reference": "commit d9a6bbe",
+      "source_pr": null,
+      "source_commit": "d9a6bbec4b4555fe4e2a17dedb6e9e94fcdef570",
+      "merge_commit": null,
+      "rerun_head_type": "commit_metadata_only_no_local_commit_rerun",
+      "github_actions": "no PR-triggered workflow runs exposed through connector",
+      "failing_or_build_command": "UNAVAILABLE: exact failing command is not present in fetched commit metadata",
+      "local_rerun_command": "NOT_RUN_COMMIT_HEAD: no flutter pub get/analyze/test rerun",
+      "toolchain_status": "blocked_timeout_in_current_head_flutter_context",
+      "patch_diff_or_changed_files": "bounded commit diff excerpt present",
+      "generated_artifact_records": "pubspec.lock conflict-marker/generated-artifact risk recorded",
+      "decision_time_evidence": [
+        "commit metadata",
+        "commit diff excerpt"
+      ],
+      "outcome_only_evidence": [
+        "commit present in repository history"
+      ],
+      "original_agent_trace_available": "unavailable",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "review_required_insufficient_evidence",
+      "secondary_blockers": [
+        "blocked_missing_ci_log",
+        "blocked_timeout",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    },
+    {
+      "episode_id": "beta_episode_007",
+      "source_episode_folder": "episode_tatmapper_pr98_export_opencv_helper_repair",
+      "source_reference": "PR #98 / bc2fff0",
+      "source_pr": 98,
+      "source_commit": "bc2fff0e1477a4ec6d79649fbe25c6e98ae3c7a3",
+      "merge_commit": "29066081101090525a4fa8b1e199c1accd980440",
+      "rerun_head_type": "current_head_only",
+      "github_actions": "no PR-triggered workflow runs exposed through connector",
+      "failing_or_build_command": "./scripts/export_opencv_dir.sh",
+      "local_rerun_command": "CURRENT_HEAD_ONLY: git-bash -lc 'cd scratch clone && ./scripts/export_opencv_dir.sh'",
+      "toolchain_status": "blocked_toolchain_gap_opencv_config_missing",
+      "patch_diff_or_changed_files": "bounded PR diff excerpt present",
+      "generated_artifact_records": "none",
+      "decision_time_evidence": [
+        "PR metadata",
+        "PR title",
+        "bounded PR diff excerpt",
+        "PR review comments"
+      ],
+      "outcome_only_evidence": [
+        "merged PR state",
+        "merge commit SHA",
+        "current-head local export_opencv_dir rerun failed because OpenCVConfig.cmake was unavailable"
+      ],
+      "original_agent_trace_available": "partial_external_pr_metadata_only",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "blocked_toolchain_gap",
+      "secondary_blockers": [
+        "blocked_pr_head_unavailable",
+        "blocked_missing_ci_log",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    },
+    {
+      "episode_id": "beta_episode_008",
+      "source_episode_folder": "episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression",
+      "source_reference": "PR #97 / 7e401a0",
+      "source_pr": 97,
+      "source_commit": "7e401a09b9dfacbad1f0efe7197f42a9ab17d3df",
+      "merge_commit": null,
+      "rerun_head_type": "pr_head_not_rerun",
+      "github_actions": "no PR-triggered workflow runs exposed through connector",
+      "failing_or_build_command": "UNAVAILABLE: review identified Dart/widget compile-risk regressions; exact historical failing command unavailable",
+      "local_rerun_command": "NOT_RUN_PR_HEAD: current-head Flutter attempts timed out and are not PR #97 evidence",
+      "toolchain_status": "blocked_timeout_in_current_head_flutter_context",
+      "patch_diff_or_changed_files": "bounded PR diff excerpt present",
+      "generated_artifact_records": "none",
+      "decision_time_evidence": [
+        "PR metadata",
+        "PR diff excerpt",
+        "review comments identifying P0 compile-risk regressions"
+      ],
+      "outcome_only_evidence": [
+        "closed-unmerged PR state",
+        "later current-head local strengthening observations"
+      ],
+      "original_agent_trace_available": "partial_external_pr_metadata_only",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "blocked_pr_head_unavailable",
+      "secondary_blockers": [
+        "blocked_missing_ci_log",
+        "blocked_timeout",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    },
+    {
+      "episode_id": "beta_episode_009",
+      "source_episode_folder": "episode_tatmapper_pr96_gradle_config_not_run",
+      "source_reference": "PR #96 / 9753a1d",
+      "source_pr": 96,
+      "source_commit": "9753a1d9e1fdc7d7104dbd2cdfce2bc5e1f3e2c7",
+      "merge_commit": "f6fb8279fdd0fd596656189f34ddf7f496b59808",
+      "rerun_head_type": "current_head_only",
+      "github_actions": "no PR-triggered workflow runs exposed through connector",
+      "failing_or_build_command": "UNAVAILABLE: PR body states testing was not run because Gradle wrapper was unavailable",
+      "local_rerun_command": "CURRENT_HEAD_ONLY: app/android/gradlew.bat --version",
+      "toolchain_status": "blocked_toolchain_gap_java_unavailable",
+      "patch_diff_or_changed_files": "bounded PR diff excerpt present",
+      "generated_artifact_records": "none",
+      "decision_time_evidence": [
+        "PR metadata",
+        "PR body testing note",
+        "bounded PR diff excerpt"
+      ],
+      "outcome_only_evidence": [
+        "merged PR state",
+        "merge commit SHA",
+        "current-head Gradle wrapper command failed because JAVA_HOME/java was unavailable"
+      ],
+      "original_agent_trace_available": "partial_external_pr_metadata_only",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "blocked_toolchain_gap",
+      "secondary_blockers": [
+        "blocked_pr_head_unavailable",
+        "blocked_missing_ci_log",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    },
+    {
+      "episode_id": "beta_episode_010",
+      "source_episode_folder": "episode_tatmapper_pr94_manual_override_precedence_review",
+      "source_reference": "PR #94 / e64ecfc",
+      "source_pr": 94,
+      "source_commit": "e64ecfc4cc18dba7fefc3eba6dd94869c8c344bb",
+      "merge_commit": "df23c3ea1baea783f433195749b588c8cd6a7691",
+      "rerun_head_type": "current_head_only",
+      "github_actions": "no PR-triggered workflow runs exposed through connector",
+      "failing_or_build_command": "./scripts/guard_calibration.sh; flutter analyze; flutter test",
+      "local_rerun_command": "CURRENT_HEAD_ONLY: guard_calibration passed; Flutter analyze/test timed out",
+      "toolchain_status": "blocked_timeout_flutter_analyze_and_test",
+      "patch_diff_or_changed_files": "bounded PR diff excerpt present",
+      "generated_artifact_records": "none",
+      "decision_time_evidence": [
+        "PR metadata",
+        "PR body testing note",
+        "bounded PR diff excerpt",
+        "review comment identifying manual override precedence risk"
+      ],
+      "outcome_only_evidence": [
+        "merged PR state",
+        "merge commit SHA",
+        "current-head guard_calibration pass",
+        "current-head Flutter analyze/test timeouts"
+      ],
+      "original_agent_trace_available": "partial_external_pr_metadata_only",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "blocked_timeout",
+      "secondary_blockers": [
+        "blocked_pr_head_unavailable",
+        "blocked_missing_ci_log",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    },
+    {
+      "episode_id": "beta_episode_011",
+      "source_episode_folder": "episode_tatmapper_pr90_codecov_patch_coverage_warning",
+      "source_reference": "PR #90 / ccc9a44",
+      "source_pr": 90,
+      "source_commit": "ccc9a446c6dbb731b0ec142fcbdcf50b059bd7e6",
+      "merge_commit": "a1bb642a35fee86bd3607013310c68cf9dea2320",
+      "rerun_head_type": "not_run_pr_head",
+      "github_actions": "no PR-triggered workflow runs exposed through connector; Codecov status/comment only",
+      "failing_or_build_command": "UNAVAILABLE: warning-only Codecov patch coverage evidence, no hard failing command",
+      "local_rerun_command": "NOT_RUN_PR_HEAD: current-head Flutter attempts timed out and are not PR #90 evidence",
+      "toolchain_status": "blocked_timeout_in_current_head_flutter_context",
+      "patch_diff_or_changed_files": "bounded PR diff excerpt present",
+      "generated_artifact_records": "none",
+      "decision_time_evidence": [
+        "PR metadata",
+        "bounded PR diff excerpt",
+        "Codecov patch status/comment",
+        "review comments"
+      ],
+      "outcome_only_evidence": [
+        "merged PR state",
+        "merge commit SHA",
+        "later current-head local strengthening observations"
+      ],
+      "original_agent_trace_available": "partial_external_pr_metadata_only",
+      "memory_baseline_instrumentation_available": false,
+      "readiness_classification": "blocked_missing_ci_log",
+      "secondary_blockers": [
+        "blocked_pr_head_unavailable",
+        "blocked_timeout",
+        "blocked_missing_agent_trace"
+      ],
+      "deterministic_replay_ready": false
+    }
+  ],
+  "recommended_next_actions": [
+    "Recover full GitHub Actions logs for runs 17986583215 and 17984606083 if possible outside the expired GitHub log endpoint.",
+    "Check out PR-head or merge-head SHAs in ignored scratch space and rerun exact commands with recorded Flutter, Dart, Java, Gradle, Android SDK/NDK, and OpenCV versions.",
+    "Install or expose Java/JAVA_HOME and Flutter/Dart toolchains before Android or Flutter replay attempts.",
+    "Install or point OpenCV_DIR to a valid OpenCVConfig.cmake before replaying the OpenCV helper episode.",
+    "Recover original agent/tool transcripts for PR-linked episodes where possible.",
+    "Add ControllerGate memory-baseline instrumentation before any real-repo memory-lift scoring."
+  ]
+}
