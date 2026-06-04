@@ -1,0 +1,336 @@
+{
+  "aggregate_classification": "limited_seeded_controlled_memory_lift_criteria_met",
+  "blocked_episode_count": 0,
+  "campaign_id": "v1_8_episodes_004_010_memory_relevance_campaign",
+  "controllergate_full_scoring": "NOT_RUN",
+  "corruption_episode_count": 0,
+  "decision_time_outcome_overlap_count": 0,
+  "episodes": [
+    {
+      "artifact_dir": "outputs/v1_8_episodes_004_010_memory_relevance_campaign/episode_004",
+      "baseline_sha": "6b715d7b81a956ab6d902f818e24a06bcabcdff8",
+      "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+      "comparison": {
+        "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+        "comparison_basis": "same failing SHA, same validator command, same decision-time boundary, same post-repair validator command, same corruption checks",
+        "episode_id": "episode_004",
+        "memory_enabled_changed_file_count": 2,
+        "memory_enabled_outperformed_no_memory": true,
+        "memory_enabled_patch_stats": {
+          "added_lines": 4,
+          "changed_lines": 5,
+          "removed_lines": 1
+        },
+        "memory_enabled_post_repair_sha": "ae123678aefa6058c7d92303687663b541846fb9",
+        "memory_enabled_result": "passed",
+        "no_memory_changed_file_count": 1,
+        "no_memory_patch_stats": {
+          "added_lines": 1,
+          "changed_lines": 2,
+          "removed_lines": 1
+        },
+        "no_memory_post_repair_sha": "618d40d8efc74f26ce9f17493e8c4432c0e1ce96",
+        "no_memory_result": "failed",
+        "positive_dimensions": [
+          "pass_fail"
+        ]
+      },
+      "corruption_detected": false,
+      "decision_time_outcome_overlap_count": 0,
+      "episode_id": "episode_004",
+      "failing_sha": "7f149bddcc6c4c5934b4e73681141ccf7b74909f",
+      "failure_signature": "MULTI_EPOCH_CONSTRAINT_FAILURE: version_readme_changelog",
+      "memory_enabled_outperformed_no_memory": true,
+      "memory_enabled_post_repair_sha": "ae123678aefa6058c7d92303687663b541846fb9",
+      "memory_enabled_result": "passed",
+      "no_memory_post_repair_sha": "618d40d8efc74f26ce9f17493e8c4432c0e1ce96",
+      "no_memory_result": "failed",
+      "positive_dimensions": [
+        "pass_fail"
+      ],
+      "purpose": "Sequential / Multi-Epoch Constraint Resolution",
+      "replay_gate_status": "deterministic_replay_ready_limited_scoring"
+    },
+    {
+      "artifact_dir": "outputs/v1_8_episodes_004_010_memory_relevance_campaign/episode_005",
+      "baseline_sha": "6b715d7b81a956ab6d902f818e24a06bcabcdff8",
+      "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+      "comparison": {
+        "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+        "comparison_basis": "same failing SHA, same validator command, same decision-time boundary, same post-repair validator command, same corruption checks",
+        "episode_id": "episode_005",
+        "memory_enabled_changed_file_count": 2,
+        "memory_enabled_outperformed_no_memory": true,
+        "memory_enabled_patch_stats": {
+          "added_lines": 2,
+          "changed_lines": 4,
+          "removed_lines": 2
+        },
+        "memory_enabled_post_repair_sha": "83eafeca612b8f7a7f8dd231395cc428985eb217",
+        "memory_enabled_result": "passed",
+        "no_memory_changed_file_count": 1,
+        "no_memory_patch_stats": {
+          "added_lines": 1,
+          "changed_lines": 2,
+          "removed_lines": 1
+        },
+        "no_memory_post_repair_sha": "dc5265225af4f99f0cde7e669a62dd284a160089",
+        "no_memory_result": "failed",
+        "positive_dimensions": [
+          "pass_fail"
+        ]
+      },
+      "corruption_detected": false,
+      "decision_time_outcome_overlap_count": 0,
+      "episode_id": "episode_005",
+      "failing_sha": "3e2e1d92dc95c009470e73f0d57632a376361e1e",
+      "failure_signature": "KERNEL_CONSISTENCY_FAILURE: metadata_manifest+README+CHANGELOG",
+      "memory_enabled_outperformed_no_memory": true,
+      "memory_enabled_post_repair_sha": "83eafeca612b8f7a7f8dd231395cc428985eb217",
+      "memory_enabled_result": "passed",
+      "no_memory_post_repair_sha": "dc5265225af4f99f0cde7e669a62dd284a160089",
+      "no_memory_result": "failed",
+      "positive_dimensions": [
+        "pass_fail"
+      ],
+      "purpose": "Coupled Multi-File Kernel Consistency",
+      "replay_gate_status": "deterministic_replay_ready_limited_scoring"
+    },
+    {
+      "artifact_dir": "outputs/v1_8_episodes_004_010_memory_relevance_campaign/episode_006",
+      "baseline_sha": "6b715d7b81a956ab6d902f818e24a06bcabcdff8",
+      "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+      "comparison": {
+        "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+        "comparison_basis": "same failing SHA, same validator command, same decision-time boundary, same post-repair validator command, same corruption checks",
+        "episode_id": "episode_006",
+        "memory_enabled_changed_file_count": 2,
+        "memory_enabled_outperformed_no_memory": true,
+        "memory_enabled_patch_stats": {
+          "added_lines": 2,
+          "changed_lines": 4,
+          "removed_lines": 2
+        },
+        "memory_enabled_post_repair_sha": "9f1ef1f2fc9cfd19f248a45a93e6935e95197ed3",
+        "memory_enabled_result": "passed",
+        "no_memory_changed_file_count": 2,
+        "no_memory_patch_stats": {
+          "added_lines": 2,
+          "changed_lines": 4,
+          "removed_lines": 2
+        },
+        "no_memory_post_repair_sha": "bdafdcc929b7461e9e0a3925973d60f49a90f042",
+        "no_memory_result": "failed",
+        "positive_dimensions": [
+          "pass_fail",
+          "stale_memory_quarantine"
+        ]
+      },
+      "corruption_detected": false,
+      "decision_time_outcome_overlap_count": 0,
+      "episode_id": "episode_006",
+      "failing_sha": "f06cbf2cbcb0d1641380cb0c9b920ff1cf9f1632",
+      "failure_signature": "STALE_MEMORY_INVERSION: version_rule_changed",
+      "memory_enabled_outperformed_no_memory": true,
+      "memory_enabled_post_repair_sha": "9f1ef1f2fc9cfd19f248a45a93e6935e95197ed3",
+      "memory_enabled_result": "passed",
+      "no_memory_post_repair_sha": "bdafdcc929b7461e9e0a3925973d60f49a90f042",
+      "no_memory_result": "failed",
+      "positive_dimensions": [
+        "pass_fail",
+        "stale_memory_quarantine"
+      ],
+      "purpose": "Stale-Memory Inversion",
+      "replay_gate_status": "deterministic_replay_ready_limited_scoring"
+    },
+    {
+      "artifact_dir": "outputs/v1_8_episodes_004_010_memory_relevance_campaign/episode_007",
+      "baseline_sha": "6b715d7b81a956ab6d902f818e24a06bcabcdff8",
+      "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+      "comparison": {
+        "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+        "comparison_basis": "same failing SHA, same validator command, same decision-time boundary, same post-repair validator command, same corruption checks",
+        "episode_id": "episode_007",
+        "memory_enabled_changed_file_count": 2,
+        "memory_enabled_outperformed_no_memory": true,
+        "memory_enabled_patch_stats": {
+          "added_lines": 3,
+          "changed_lines": 5,
+          "removed_lines": 2
+        },
+        "memory_enabled_post_repair_sha": "3d585a066bb3dac0f227504926abd2009b4c37eb",
+        "memory_enabled_result": "passed",
+        "no_memory_changed_file_count": 1,
+        "no_memory_patch_stats": {
+          "added_lines": 2,
+          "changed_lines": 3,
+          "removed_lines": 1
+        },
+        "no_memory_post_repair_sha": "a03e075cf06d84b8fb97192480beddfa1cfdcc02",
+        "no_memory_result": "failed",
+        "positive_dimensions": [
+          "pass_fail"
+        ]
+      },
+      "corruption_detected": false,
+      "decision_time_outcome_overlap_count": 0,
+      "episode_id": "episode_007",
+      "failing_sha": "70dfbe262f936e23b09bfa72e644d858c53f81ee",
+      "failure_signature": "DOWNSTREAM_CORRUPTION_RISK: manifest_passes_index_fails",
+      "memory_enabled_outperformed_no_memory": true,
+      "memory_enabled_post_repair_sha": "3d585a066bb3dac0f227504926abd2009b4c37eb",
+      "memory_enabled_result": "passed",
+      "no_memory_post_repair_sha": "a03e075cf06d84b8fb97192480beddfa1cfdcc02",
+      "no_memory_result": "failed",
+      "positive_dimensions": [
+        "pass_fail"
+      ],
+      "purpose": "Hidden Downstream Corruption",
+      "replay_gate_status": "deterministic_replay_ready_limited_scoring"
+    },
+    {
+      "artifact_dir": "outputs/v1_8_episodes_004_010_memory_relevance_campaign/episode_008",
+      "baseline_sha": "6b715d7b81a956ab6d902f818e24a06bcabcdff8",
+      "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+      "comparison": {
+        "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+        "comparison_basis": "same failing SHA, same validator command, same decision-time boundary, same post-repair validator command, same corruption checks",
+        "episode_id": "episode_008",
+        "memory_enabled_changed_file_count": 1,
+        "memory_enabled_outperformed_no_memory": true,
+        "memory_enabled_patch_stats": {
+          "added_lines": 2,
+          "changed_lines": 4,
+          "removed_lines": 2
+        },
+        "memory_enabled_post_repair_sha": "924d875bd5e0a73a9068ce2732c776da690339c5",
+        "memory_enabled_result": "passed",
+        "no_memory_changed_file_count": 1,
+        "no_memory_patch_stats": {
+          "added_lines": 1,
+          "changed_lines": 2,
+          "removed_lines": 1
+        },
+        "no_memory_post_repair_sha": "3cf864d2df9840b9b7b2181cf93d4d8a9a27359f",
+        "no_memory_result": "failed",
+        "positive_dimensions": [
+          "pass_fail",
+          "precision_gate_avoids_false_positive_transfer"
+        ]
+      },
+      "corruption_detected": false,
+      "decision_time_outcome_overlap_count": 0,
+      "episode_id": "episode_008",
+      "failing_sha": "79f358cb4610736681d952069d0c22f327738e2e",
+      "failure_signature": "FALSE_POSITIVE_TRANSFER_TRAP: similar_error_different_fix",
+      "memory_enabled_outperformed_no_memory": true,
+      "memory_enabled_post_repair_sha": "924d875bd5e0a73a9068ce2732c776da690339c5",
+      "memory_enabled_result": "passed",
+      "no_memory_post_repair_sha": "3cf864d2df9840b9b7b2181cf93d4d8a9a27359f",
+      "no_memory_result": "failed",
+      "positive_dimensions": [
+        "pass_fail",
+        "precision_gate_avoids_false_positive_transfer"
+      ],
+      "purpose": "False-Positive Transfer Trap",
+      "replay_gate_status": "deterministic_replay_ready_limited_scoring"
+    },
+    {
+      "artifact_dir": "outputs/v1_8_episodes_004_010_memory_relevance_campaign/episode_009",
+      "baseline_sha": "6b715d7b81a956ab6d902f818e24a06bcabcdff8",
+      "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+      "comparison": {
+        "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+        "comparison_basis": "same failing SHA, same validator command, same decision-time boundary, same post-repair validator command, same corruption checks",
+        "episode_id": "episode_009",
+        "memory_enabled_changed_file_count": 1,
+        "memory_enabled_outperformed_no_memory": true,
+        "memory_enabled_patch_stats": {
+          "added_lines": 1,
+          "changed_lines": 2,
+          "removed_lines": 1
+        },
+        "memory_enabled_post_repair_sha": "c564a3bc054226103e3c3e2b325129e312c35db4",
+        "memory_enabled_result": "passed",
+        "no_memory_changed_file_count": 2,
+        "no_memory_patch_stats": {
+          "added_lines": 3,
+          "changed_lines": 4,
+          "removed_lines": 1
+        },
+        "no_memory_post_repair_sha": "6956348ab1856280092674d87588c43c4282f360",
+        "no_memory_result": "passed",
+        "positive_dimensions": [
+          "fewer_changed_files",
+          "smaller_patch"
+        ]
+      },
+      "corruption_detected": false,
+      "decision_time_outcome_overlap_count": 0,
+      "episode_id": "episode_009",
+      "failing_sha": "3acac913eac43f74f968b02229d23711675b5578",
+      "failure_signature": "REPAIR_SPRAWL_RISK: manifest_hash_required_file",
+      "memory_enabled_outperformed_no_memory": true,
+      "memory_enabled_post_repair_sha": "c564a3bc054226103e3c3e2b325129e312c35db4",
+      "memory_enabled_result": "passed",
+      "no_memory_post_repair_sha": "6956348ab1856280092674d87588c43c4282f360",
+      "no_memory_result": "passed",
+      "positive_dimensions": [
+        "fewer_changed_files",
+        "smaller_patch"
+      ],
+      "purpose": "Minimal Patch / Repair-Sprawl Control",
+      "replay_gate_status": "deterministic_replay_ready_limited_scoring"
+    },
+    {
+      "artifact_dir": "outputs/v1_8_episodes_004_010_memory_relevance_campaign/episode_010",
+      "baseline_sha": "6b715d7b81a956ab6d902f818e24a06bcabcdff8",
+      "classification": "inconclusive_equal_performance",
+      "comparison": {
+        "classification": "inconclusive_equal_performance",
+        "comparison_basis": "same failing SHA, same validator command, same decision-time boundary, same post-repair validator command, same corruption checks",
+        "episode_id": "episode_010",
+        "memory_enabled_changed_file_count": 1,
+        "memory_enabled_outperformed_no_memory": false,
+        "memory_enabled_patch_stats": {
+          "added_lines": 2,
+          "changed_lines": 3,
+          "removed_lines": 1
+        },
+        "memory_enabled_post_repair_sha": "7871df784bc0b0caa4d0b2e921d8d9a82ad3dc83",
+        "memory_enabled_result": "passed",
+        "no_memory_changed_file_count": 1,
+        "no_memory_patch_stats": {
+          "added_lines": 2,
+          "changed_lines": 3,
+          "removed_lines": 1
+        },
+        "no_memory_post_repair_sha": "3a00efb971e0e3c12cd5f714a7f785a9c063ae8b",
+        "no_memory_result": "passed",
+        "positive_dimensions": []
+      },
+      "corruption_detected": false,
+      "decision_time_outcome_overlap_count": 0,
+      "episode_id": "episode_010",
+      "failing_sha": "02109e4b3a48018ef7d68353ce176ec2b0339f2c",
+      "failure_signature": "SEEDED_RECURRENCE_CONSISTENCY_FAILURE: validator_registry",
+      "memory_enabled_outperformed_no_memory": false,
+      "memory_enabled_post_repair_sha": "7871df784bc0b0caa4d0b2e921d8d9a82ad3dc83",
+      "memory_enabled_result": "passed",
+      "no_memory_post_repair_sha": "3a00efb971e0e3c12cd5f714a7f785a9c063ae8b",
+      "no_memory_result": "passed",
+      "positive_dimensions": [],
+      "purpose": "Organic-Style Controlled Discovery",
+      "replay_gate_status": "deterministic_replay_ready_limited_scoring"
+    }
+  ],
+  "executed_episode_count": 7,
+  "full_scoring_allowed": false,
+  "inconclusive_episode_count": 1,
+  "limited_seeded_controlled_memory_lift_criteria_met": true,
+  "negative_episode_count": 0,
+  "organic_external_evidence": false,
+  "positive_episode_count": 6,
+  "scoreable_episode_count": 7,
+  "self_maintaining_software_demonstrated": false
+}

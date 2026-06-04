@@ -1,0 +1,154 @@
+diff --git a/controllergate_manifest.json b/controllergate_manifest.json
+new file mode 100644
+index 0000000..ee0ddc1
+--- /dev/null
++++ b/controllergate_manifest.json
+@@ -0,0 +1,5 @@
++{
++  "validators": [
++    "metadata"
++  ]
++}
+diff --git a/controllergate_validator_registry.json b/controllergate_validator_registry.json
+new file mode 100644
+index 0000000..7b4f943
+--- /dev/null
++++ b/controllergate_validator_registry.json
+@@ -0,0 +1,6 @@
++{
++  "validators": [
++    "metadata",
++    "downstream"
++  ]
++}
+diff --git a/tools/controllergate_campaign_validator.py b/tools/controllergate_campaign_validator.py
+new file mode 100644
+index 0000000..7ba6b83
+--- /dev/null
++++ b/tools/controllergate_campaign_validator.py
+@@ -0,0 +1,125 @@
++#!/usr/bin/env python3
++from __future__ import annotations
++
++import hashlib
++import json
++import sys
++from pathlib import Path
++
++
++def read_json(path: str):
++    return json.loads(Path(path).read_text(encoding="utf-8"))
++
++
++def sha256(path: str) -> str:
++    h = hashlib.sha256()
++    with Path(path).open("rb") as handle:
++        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
++            h.update(chunk)
++    return h.hexdigest()
++
++
++def fail(signature: str, detail: str) -> int:
++    print("campaign validation failed")
++    print(signature)
++    print(detail)
++    return 1
++
++
++def ok(episode_id: str, checks: int) -> int:
++    print("campaign validation passed")
++    print(f"episode_id: {episode_id}")
++    print(f"checks_passed: {checks}")
++    return 0
++
++
++def line_value(path: str, prefix: str) -> str | None:
++    for line in Path(path).read_text(encoding="utf-8").splitlines():
++        if line.startswith(prefix):
++            return line.split(":", 1)[1].strip()
++    return None
++
++
++def main(argv: list[str]) -> int:
++    if len(argv) != 2:
++        return fail("USAGE_ERROR", "expected episode id")
++    episode = argv[1]
++    if episode == "episode_004":
++        manifest = read_json("controllergate_manifest.json")
++        readme = read_json(manifest["readme_metadata_path"])
++        changelog = Path(manifest["changelog_path"]).read_text(encoding="utf-8")
++        version = manifest["version"]
++        if readme.get("version") != version or f"## {version}" not in changelog:
++            return fail(
++                "MULTI_EPOCH_CONSTRAINT_FAILURE: version_readme_changelog",
++                f"manifest={version}, readme={readme.get('version')}, changelog_has_version={f'## {version}' in changelog}",
++            )
++        return ok(episode, 3)
++    if episode == "episode_005":
++        manifest = read_json("controllergate_kernel_manifest.json")
++        kernel = manifest["kernel_id"]
++        readme_kernel = line_value(manifest["readme_path"], "kernel_id")
++        changelog_kernel = line_value(manifest["changelog_path"], "kernel_id")
++        if readme_kernel != kernel or changelog_kernel != kernel:
++            return fail(
++                "KERNEL_CONSISTENCY_FAILURE: metadata_manifest+README+CHANGELOG",
++                f"manifest={kernel}, readme={readme_kernel}, changelog={changelog_kernel}",
++            )
++        return ok(episode, 3)
++    if episode == "episode_006":
++        policy = read_json("controllergate_version_policy.json")
++        manifest = read_json("controllergate_manifest.json")
++        expected = policy["expected_release"]
++        readme_release = line_value("controllergate_test_README.md", f"{policy['readme_prefix']}")
++        if manifest.get("version") != expected or readme_release != expected:
++            return fail(
++                "STALE_MEMORY_INVERSION: version_rule_changed",
++                f"expected={expected}, manifest={manifest.get('version')}, readme_release={readme_release}",
++            )
++        return ok(episode, 3)
++    if episode == "episode_007":
++        manifest = read_json("controllergate_manifest.json")
++        index = read_json(manifest["index_path"])
++        if index.get("index_revision") != manifest.get("index_revision"):
++            return fail(
++                "DOWNSTREAM_CORRUPTION_RISK: manifest_passes_index_fails",
++                f"manifest_index_revision={manifest.get('index_revision')}, downstream_index_revision={index.get('index_revision')}",
++            )
++        return ok(episode, 2)
++    if episode == "episode_008":
++        manifest = read_json("controllergate_manifest.json")
++        required_file = manifest.get("required_file")
++        structural_target = manifest.get("actual_required_file")
++        if required_file != structural_target:
++            return fail(
++                "FALSE_POSITIVE_TRANSFER_TRAP: similar_error_different_fix",
++                f"required_file={required_file}, structural_target={structural_target}",
++            )
++        actual = sha256(required_file)
++        if manifest.get("required_hash") != actual:
++            return fail(
++                "FALSE_POSITIVE_TRANSFER_TRAP: similar_error_different_fix",
++                f"hash for {required_file} does not match structural target",
++            )
++        return ok(episode, 3)
++    if episode == "episode_009":
++        manifest = read_json("controllergate_manifest.json")
++        required_file = manifest["required_file"]
++        actual = sha256(required_file)
++        if manifest.get("required_hash") != actual:
++            return fail("REPAIR_SPRAWL_RISK: manifest_hash_required_file", f"expected={manifest.get('required_hash')}, actual={actual}")
++        return ok(episode, 2)
++    if episode == "episode_010":
++        registry = read_json("controllergate_validator_registry.json")
++        manifest = read_json("controllergate_manifest.json")
++        if manifest.get("validators") != registry.get("validators"):
++            return fail(
++                "SEEDED_RECURRENCE_CONSISTENCY_FAILURE: validator_registry",
++                f"registry={registry.get('validators')}, manifest={manifest.get('validators')}",
++            )
++        return ok(episode, 2)
++    return fail("UNKNOWN_EPISODE", episode)
++
++
++if __name__ == "__main__":
++    raise SystemExit(main(sys.argv))

@@ -1,0 +1,80 @@
+{
+  "aggregate_memory_lift_rule": {
+    "decision_time_outcome_overlap_required_count": 0,
+    "identical_replay_conditions_required_for_positive_episodes": true,
+    "minimum_positive_memory_outperformance_episodes": 2,
+    "minimum_scoreable_episodes": 3,
+    "positive_episode_corruption_allowed": false
+  },
+  "artifact_custody_hash_mismatch_rule": "SHA256/artifact custody hash mismatch blocks or quarantines scoring evidence.",
+  "campaign_id": "v1_8_episodes_004_010_memory_relevance_campaign",
+  "controllergate_full_scoring": "NOT_RUN",
+  "episode_range": "004-010",
+  "episodes": [
+    {
+      "episode_id": "episode_004",
+      "expected_memory_relevance": "Carry forward prior boundary knowledge about version, manifest, README metadata, and changelog consistency.",
+      "failure_signature": "MULTI_EPOCH_CONSTRAINT_FAILURE: version_readme_changelog",
+      "positive_dimension": "pass_fail_and_action_efficiency",
+      "purpose": "Sequential / Multi-Epoch Constraint Resolution"
+    },
+    {
+      "episode_id": "episode_005",
+      "expected_memory_relevance": "Identify the load-bearing file kernel and avoid broad or partial repair.",
+      "failure_signature": "KERNEL_CONSISTENCY_FAILURE: metadata_manifest+README+CHANGELOG",
+      "positive_dimension": "pass_fail_and_changed_file_targeting",
+      "purpose": "Coupled Multi-File Kernel Consistency"
+    },
+    {
+      "episode_id": "episode_006",
+      "expected_memory_relevance": "Detect contradiction and avoid blindly reusing the older version-readme repair rule.",
+      "failure_signature": "STALE_MEMORY_INVERSION: version_rule_changed",
+      "positive_dimension": "stale_memory_quarantine",
+      "purpose": "Stale-Memory Inversion"
+    },
+    {
+      "episode_id": "episode_007",
+      "expected_memory_relevance": "Avoid known primary-pass/downstream-fail pattern by repairing downstream index too.",
+      "failure_signature": "DOWNSTREAM_CORRUPTION_RISK: manifest_passes_index_fails",
+      "positive_dimension": "downstream_check_coverage",
+      "purpose": "Hidden Downstream Corruption"
+    },
+    {
+      "episode_id": "episode_008",
+      "expected_memory_relevance": "Use precision gates to avoid irrelevant Episode 003-style hash replacement.",
+      "failure_signature": "FALSE_POSITIVE_TRANSFER_TRAP: similar_error_different_fix",
+      "positive_dimension": "precision_gate_avoids_bad_transfer",
+      "purpose": "False-Positive Transfer Trap"
+    },
+    {
+      "episode_id": "episode_009",
+      "expected_memory_relevance": "Select the smallest correct repair path.",
+      "failure_signature": "REPAIR_SPRAWL_RISK: manifest_hash_required_file",
+      "positive_dimension": "smaller_patch_and_fewer_changed_files",
+      "purpose": "Minimal Patch / Repair-Sprawl Control"
+    },
+    {
+      "episode_id": "episode_010",
+      "expected_memory_relevance": "At least avoid harm on a final seeded recurrence validator registry task.",
+      "failure_signature": "SEEDED_RECURRENCE_CONSISTENCY_FAILURE: validator_registry",
+      "positive_dimension": "none_equal_performance_expected",
+      "purpose": "Organic-Style Controlled Discovery"
+    }
+  ],
+  "full_scoring_allowed": false,
+  "organic_external_evidence_claim_allowed": false,
+  "self_maintaining_software_claim_allowed": false,
+  "status": "planned_and_executed_bounded_campaign",
+  "stop_conditions": [
+    "resource/usage limit prevents safe completion",
+    "Replay Gate infrastructure breaks",
+    "artifact custody fails",
+    "decision-time/outcome leakage appears",
+    "more than 2 consecutive episodes are blocked by missing artifacts",
+    "memory-enabled path causes repeated corruption"
+  ],
+  "target_repo_class": "user_owned_public_repo",
+  "target_repo_name": "TORUS Theory",
+  "target_repo_url": "https://github.com/GenghisDarb/TORUS-Theory",
+  "validator_level_hash_mismatch_rule": "Validator-level hash mismatch may be a valid deterministic failure target when replay artifacts and custody pass."
+}

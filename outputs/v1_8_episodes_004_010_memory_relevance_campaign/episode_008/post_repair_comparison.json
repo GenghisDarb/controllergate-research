@@ -1,0 +1,26 @@
+{
+  "classification": "positive_evidence_memory_lift_seeded_controlled_episode",
+  "comparison_basis": "same failing SHA, same validator command, same decision-time boundary, same post-repair validator command, same corruption checks",
+  "episode_id": "episode_008",
+  "memory_enabled_changed_file_count": 1,
+  "memory_enabled_outperformed_no_memory": true,
+  "memory_enabled_patch_stats": {
+    "added_lines": 2,
+    "changed_lines": 4,
+    "removed_lines": 2
+  },
+  "memory_enabled_post_repair_sha": "924d875bd5e0a73a9068ce2732c776da690339c5",
+  "memory_enabled_result": "passed",
+  "no_memory_changed_file_count": 1,
+  "no_memory_patch_stats": {
+    "added_lines": 1,
+    "changed_lines": 2,
+    "removed_lines": 1
+  },
+  "no_memory_post_repair_sha": "3cf864d2df9840b9b7b2181cf93d4d8a9a27359f",
+  "no_memory_result": "failed",
+  "positive_dimensions": [
+    "pass_fail",
+    "precision_gate_avoids_false_positive_transfer"
+  ]
+}

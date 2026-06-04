@@ -1,0 +1,21 @@
+{
+  "decision_time_inputs": [
+    "target_repo_baseline_snapshot.json",
+    "seeded_or_discovered_failure_snapshot.json",
+    "failing_command.txt",
+    "failing_log_raw.txt",
+    "failure_signature.txt",
+    "seed_patch.diff"
+  ],
+  "episode_id": "episode_004",
+  "future_outcome_evidence_used": false,
+  "memory_access": "enabled_limited_to_prior_seeded_capture_and_campaign_memory",
+  "outcome_only_evidence_excluded": [
+    "no_memory_post_repair_log_raw.txt",
+    "memory_enabled_post_repair_log_raw.txt",
+    "post_repair_comparison.json",
+    "limited_scoring_result.json"
+  ],
+  "path": "memory_enabled_controllergate_path",
+  "policy": "kernel repair: update README metadata and required changelog entry together"
+}

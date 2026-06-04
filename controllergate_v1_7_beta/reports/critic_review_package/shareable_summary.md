@@ -232,3 +232,29 @@ Episode 003 is the first controlled limited replay-scoring attempt.
 - This is seeded controlled evidence, not organic external evidence.
 
 Positive evidence would have required the memory-enabled path to outperform the no-memory baseline under identical replay conditions without corruption. Episode 003 did not meet that condition because both paths repaired the seeded hash mismatch. This is useful limited negative evidence for memory lift on one seeded controlled episode, not a broad failure of self-maintaining software and not a claim of organic real-repo performance.
+
+## v1.8 Episodes 004-010 memory-relevance campaign
+
+This campaign tests whether memory helps under replay-ready seeded controlled conditions.
+
+- Target: TORUS Theory as a controlled user-owned testbed.
+- Episode label: `seeded_controlled_real_repo_episode`.
+- Executed episodes: 7.
+- Deterministic replay-ready limited scoring episodes: 7.
+- Positive seeded memory-lift episodes: 6.
+- Negative episodes: 0.
+- Inconclusive episodes: 1.
+- Blocked episodes: 0.
+- Decision-time/outcome overlap count: 0.
+- Corruption episode count: 0.
+- Aggregate memory-lift assessment: `limited_seeded_controlled_memory_lift_criteria_met`.
+- Memory lift scope: seeded controlled replay campaign only.
+- Organic external memory lift remains undemonstrated.
+- Real-repo memory lift is not generalized.
+- Full scoring remains disallowed.
+- ControllerGate full scoring remains `NOT_RUN`.
+- Self-maintaining software remains undemonstrated.
+
+Positive evidence means replay gate passed, both paths were captured under identical replay conditions, memory-enabled outperformed no-memory on a preregistered dimension, and no corruption occurred. Negative results are valid evidence against this memory design for these task classes. Blocked results reflect missing artifacts or replay failure, not capability failure. Inconclusive evidence means the paths were comparable but memory did not show a distinct advantage.
+
+Validator-level hash mismatch is a valid deterministic target when replay/custody passes. Artifact-custody hash mismatch blocks scoring. Any future claim beyond seeded controlled replay must require organic or externally sourced replay-ready evidence, not this campaign alone.
