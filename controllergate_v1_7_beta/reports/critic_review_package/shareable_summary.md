@@ -202,3 +202,33 @@ Episode 003 is a preregistered limited replay-scoring candidate design.
 - Episodes 001/002 were capture evidence, not repair-performance evidence.
 
 Positive evidence would require the Replay Gate to pass, baseline and memory-enabled runs to be captured under identical conditions, and the memory-enabled result to outperform no-memory without corruption. Negative evidence would be a replay-ready run where memory-enabled ControllerGate fails to outperform baselines or causes corruption. Blocked evidence would be a failed Replay Gate, missing artifacts, decision-time/outcome overlap, or absent baselines.
+
+## v1.8 Episode 003 limited replay-scoring execution result
+
+Episode 003 is the first controlled limited replay-scoring attempt.
+
+- Target: TORUS Theory as a controlled user-owned testbed.
+- Episode label: `seeded_controlled_real_repo_episode`.
+- Allowed scoring mode: `limited_replay_scoring_only`.
+- Replay gate status: `deterministic_replay_ready_limited_scoring`.
+- Failure type: metadata manifest README hash mismatch.
+- Failure signature: `HASH_MISMATCH: README.md`.
+- Baseline SHA: `6b715d7b81a956ab6d902f818e24a06bcabcdff8`.
+- Failing SHA: `a366eb472996b9e057531487b01cdb2a21707d4c`.
+- No-memory post-repair SHA: `7116db41452f966d0ed97bff6d95544ebcff754b`.
+- Memory-enabled post-repair SHA: `72b2d86b3395d97e309c100df667356bcbc3b2bc`.
+- No-memory baseline result: `passed`.
+- Memory-enabled path result: `passed`.
+- Memory-enabled outperformed no-memory: `false`.
+- Result classification: `negative_evidence_no_memory_lift_on_seeded_controlled_episode`.
+- Corruption detected: `false`.
+- Decision-time/outcome overlap detected: `false`.
+- SHA256SUMS and proof obligations ledger are present for the artifact bundle.
+- Memory lift is only evaluated against no-memory baseline.
+- Memory lift is not demonstrated.
+- Full scoring remains disallowed.
+- ControllerGate full scoring remains `NOT_RUN`.
+- Self-maintaining software remains undemonstrated.
+- This is seeded controlled evidence, not organic external evidence.
+
+Positive evidence would have required the memory-enabled path to outperform the no-memory baseline under identical replay conditions without corruption. Episode 003 did not meet that condition because both paths repaired the seeded hash mismatch. This is useful limited negative evidence for memory lift on one seeded controlled episode, not a broad failure of self-maintaining software and not a claim of organic real-repo performance.

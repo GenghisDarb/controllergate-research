@@ -1,0 +1,17 @@
+{
+  "changed_files": [
+    "metadata_manifest.json"
+  ],
+  "episode_id": "v1_8_episode_003",
+  "failing_sha": "a366eb472996b9e057531487b01cdb2a21707d4c",
+  "human_intervention_required": false,
+  "memory_used": false,
+  "path": "no_memory_baseline",
+  "post_repair_sha": "7116db41452f966d0ed97bff6d95544ebcff754b",
+  "steps": [
+    "Read failing signature HASH_MISMATCH: README.md.",
+    "Compute actual README.md SHA256 under failing checkout.",
+    "Replace manifest expected README.md hash with actual SHA256.",
+    "Run the preregistered validator command."
+  ]
+}

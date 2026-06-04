@@ -1,0 +1,15 @@
+{
+  "actual_readme_sha256": "bafd986922ca464dddf9cbc3eb7ace716272dbb9571b65694dc57059fc16128f",
+  "changed_files_from_baseline": [
+    "metadata_manifest.json",
+    "tools/validate_metadata_manifest.py"
+  ],
+  "episode_id": "v1_8_episode_003",
+  "expected_readme_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "failing_sha": "a366eb472996b9e057531487b01cdb2a21707d4c",
+  "failure_signature": "HASH_MISMATCH: README.md",
+  "seeded_failure_method": "metadata_manifest.json records an all-zero expected SHA256 for README.md while README.md content remains unchanged from baseline.",
+  "seeded_failure_type": "metadata_manifest_hash_mismatch",
+  "subjective_scientific_correctness_judgment": false,
+  "theory_content_rewrite": false
+}
