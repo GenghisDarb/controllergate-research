@@ -1,0 +1,19 @@
+source_repo: GenghisDarb/tatmapper-app
+source_repo_alias: TatMapper
+source_pr: 98
+source_pr_url: https://github.com/GenghisDarb/tatmapper-app/pull/98
+head_sha: bc2fff0e1477a4ec6d79649fbe25c6e98ae3c7a3
+merge_commit_sha: 29066081101090525a4fa8b1e199c1accd980440
+scratch_clone_path: external_repos/tatmapper-app
+scratch_clone_ignored: true
+scratch_clone_head_during_strengthening: 8f49190a6e9ae29c8c49301a7736e0f838dfd369
+patch_diff: BOUNDED_EXCERPT in patch_diff.diff
+ci_log: UNAVAILABLE - connector returned no exposed workflow runs or status rows for merge commit
+local_rerun: COMPLETED_CURRENT_HEAD_ONLY
+local_rerun_command: git-bash -lc 'cd scratch clone && ./scripts/export_opencv_dir.sh'
+local_rerun_log: controllergate_v1_7_beta/evidence_strengthening/tatmapper_current_head/export_opencv_dir_current_head.txt
+local_rerun_result: exit_code 1, OpenCVConfig.cmake not found in known local paths
+decision_time_evidence: PR metadata, PR title, PR diff, PR review comments
+outcome_only_evidence: merged PR state, merge commit SHA, current-head local rerun result
+scoring_status: NOT_RUN
+normalization_status: NOT_NORMALIZED

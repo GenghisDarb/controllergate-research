@@ -1,0 +1,14 @@
+Exact historical failing command: UNAVAILABLE.
+
+PR testing evidence:
+
+./scripts/guard_calibration.sh
+
+Review-identified compile risk:
+
+- Dart compile/analyze would be expected to fail if `Uint8List` is referenced without `dart:typed_data`.
+- Widget test compilation would be expected to fail if `const MaterialApp(home: TraceManualSelectScreen(...))` passes a non-constant value.
+
+Fresh local rerun:
+
+NOT_RUN for PR #97 head. Current-head Flutter commands timed out and are recorded separately as outcome-only strengthening evidence.

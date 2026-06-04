@@ -1,18 +1,20 @@
 # ControllerGate v1.7-beta Episode Review Classification
 
-Status: six TatMapper pending evidence bundles were reviewed and normalized as second-repo external evidence. ControllerGate scoring was not run.
+Status: six TatMapper pending evidence bundles were reviewed and normalized as second-repo external evidence. A later strengthening pass added five additional pending TatMapper bundles, but they are not normalized. ControllerGate scoring was not run.
 
 ## Summary
 
 | Field | Value |
 | --- | --- |
-| Pending TatMapper bundles reviewed | 6 |
+| Pending TatMapper bundles present | 11 |
+| Pending TatMapper bundles reviewed and normalized | 6 |
+| Newly pending unnormalized bundles | 5 |
 | Normalized beta episodes | 6 |
 | External real repo episodes | 6 |
 | Pending incomplete after review | 0 |
 | Scoring eligibility count | 0 |
 | Beta scoring allowed | false |
-| Scoring mode | blocked_pending_beta_eligibility_review |
+| Scoring mode | blocked_insufficient_second_repo_evidence |
 | ControllerGate scoring | NOT RUN |
 
 All normalized beta episodes are classified as `external_real_repo_episode` with `scoring_allowed_for_v1_7_beta_second_repo_claim: review_required`.
@@ -30,8 +32,18 @@ All normalized beta episodes are classified as `external_real_repo_episode` with
 
 ## Protected Interpretation
 
-v1.7-beta has now normalized a second-repo evidence cluster, but the normalized episodes remain review-only. This supports multi-repo evidence readiness, not a memory-lift claim and not a self-maintaining software claim.
+v1.7-beta has normalized a second-repo evidence cluster and now has additional pending TatMapper candidates. The normalized episodes remain review-only. This supports multi-repo evidence readiness, not a memory-lift claim and not a self-maintaining software claim.
+
+## Newly Pending TatMapper Bundles
+
+These bundles were collected after the eligibility review and are not normalized:
+
+- `episode_tatmapper_pr98_export_opencv_helper_repair`
+- `episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression`
+- `episode_tatmapper_pr96_gradle_config_not_run`
+- `episode_tatmapper_pr94_manual_override_precedence_review`
+- `episode_tatmapper_pr90_codecov_patch_coverage_warning`
 
 ## Next Gate
 
-Run a v1.7-beta second-repo eligibility review before any beta scoring. That review should decide whether any TatMapper episodes are complete enough for a limited pilot, or whether fresh local Flutter/Android reruns and additional CI logs are required first.
+Review-normalize the newly pending TatMapper bundles only if the evidence is strong enough, then rerun the v1.7-beta second-repo eligibility review. Scoring remains blocked until that later review explicitly allows a limited pilot.

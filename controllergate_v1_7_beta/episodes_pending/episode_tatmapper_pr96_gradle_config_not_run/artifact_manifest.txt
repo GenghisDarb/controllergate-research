@@ -1,0 +1,19 @@
+source_repo: GenghisDarb/tatmapper-app
+source_repo_alias: TatMapper
+source_pr: 96
+source_pr_url: https://github.com/GenghisDarb/tatmapper-app/pull/96
+head_sha: 9753a1d9e1fdc7d7104dbd2cdfce2bc5e1f3e2c7
+merge_commit_sha: f6fb8279fdd0fd596656189f34ddf7f496b59808
+scratch_clone_path: external_repos/tatmapper-app
+scratch_clone_ignored: true
+scratch_clone_head_during_strengthening: 8f49190a6e9ae29c8c49301a7736e0f838dfd369
+patch_diff: BOUNDED_EXCERPT in patch_diff.diff
+ci_log: UNAVAILABLE - connector returned no exposed workflow runs or status rows for merge commit
+local_rerun: COMPLETED_CURRENT_HEAD_ONLY
+local_rerun_command: app/android/gradlew.bat --version
+local_rerun_log: controllergate_v1_7_beta/evidence_strengthening/tatmapper_current_head/android_gradle_wrapper_current_head.txt
+local_rerun_result: exit_code 9009, JAVA_HOME/java unavailable
+decision_time_evidence: PR metadata, PR body testing note, PR diff
+outcome_only_evidence: merged PR state, merge commit SHA, current-head Java/Gradle environment failure
+scoring_status: NOT_RUN
+normalization_status: NOT_NORMALIZED

@@ -1,0 +1,25 @@
+BOUNDED_EXCERPT: PR #94 calibration telemetry, docs, and test hardening.
+
+diff --git a/app/lib/calibration/calibration_selection.dart b/app/lib/calibration/calibration_selection.dart
+--- a/app/lib/calibration/calibration_selection.dart
++++ b/app/lib/calibration/calibration_selection.dart
+@@
++Future<CalibrationSelection> loadCalibrationSelection(...) async {
++  final storedAutoScale = await loadStoredAutoScale();
++  final manualOverride = await loadManualOverride();
++  return CalibrationSelection(
++    scale: storedAutoScale ?? manualOverride,
++    source: storedAutoScale != null ? 'auto' : 'manual',
++  );
++}
+
+Review note: a P1 review reported that manual override selection could fail to win over stored auto scale.
+
+diff --git a/scripts/guard_calibration.sh b/scripts/guard_calibration.sh
+--- a/scripts/guard_calibration.sh
++++ b/scripts/guard_calibration.sh
+@@
++# Guard calibration-related generated and native build files.
++# Kotlin DSL cleanup is non-fatal.
+
+Bounded excerpt only. Full PR diff remains in GitHub PR #94.

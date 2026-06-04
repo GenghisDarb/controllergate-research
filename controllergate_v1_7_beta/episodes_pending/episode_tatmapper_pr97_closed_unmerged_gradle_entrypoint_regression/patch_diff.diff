@@ -1,0 +1,26 @@
+BOUNDED_EXCERPT: PR #97 closed-unmerged Gradle entrypoint enforcement and review-regression evidence.
+
+diff --git a/app/lib/services/trace_export.dart b/app/lib/services/trace_export.dart
+--- a/app/lib/services/trace_export.dart
++++ b/app/lib/services/trace_export.dart
+@@
+-import 'dart:typed_data';
+ import 'package:flutter/foundation.dart';
+@@
+ class TraceExportPayload {
+-  final Uint8List bytes;
++  final Uint8List bytes;
+ }
+
+Review note: a P0 review reported that `Uint8List` declarations remained after `dart:typed_data` was removed.
+
+diff --git a/app/test/screens/trace_manual_select_screen_test.dart b/app/test/screens/trace_manual_select_screen_test.dart
+--- a/app/test/screens/trace_manual_select_screen_test.dart
++++ b/app/test/screens/trace_manual_select_screen_test.dart
+@@
+-await tester.pumpWidget(MaterialApp(home: TraceManualSelectScreen(...)));
++await tester.pumpWidget(const MaterialApp(home: TraceManualSelectScreen(...)));
+
+Review note: a P0 review reported that `TraceManualSelectScreen` received non-constant constructor inputs under a `const MaterialApp`.
+
+Bounded excerpt only. Full PR diff remains in GitHub PR #97.

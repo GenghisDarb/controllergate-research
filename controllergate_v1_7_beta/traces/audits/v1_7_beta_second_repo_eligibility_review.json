@@ -15,6 +15,28 @@
   "full_scoring_allowed": false,
   "decision": "blocked_insufficient_second_repo_evidence",
   "decision_reason": "The six normalized TatMapper episodes provide useful second-repo evidence diversity, but they are all review_required, below the 10-episode minimum used for the alpha limited pilot, and lack full CI logs or fresh local Flutter/Android reruns. They are not yet sufficient for even a limited v1.7-beta second-repo scoring run.",
+  "post_review_strengthening_and_collection": {
+    "status": "strengthening and pending collection completed after this eligibility decision",
+    "current_head_strengthening_logs": "controllergate_v1_7_beta/evidence_strengthening/tatmapper_current_head/",
+    "current_head_strengthening_results": [
+      "guard_calibration passed under Git Bash",
+      "export_opencv_dir failed because OpenCVConfig.cmake was unavailable in known local paths",
+      "Flutter version/analyze/test attempts timed out after 120000 ms",
+      "Java was unavailable",
+      "Android Gradle wrapper failed because JAVA_HOME/java was unavailable"
+    ],
+    "new_pending_bundle_count": 5,
+    "new_pending_bundles": [
+      "episode_tatmapper_pr98_export_opencv_helper_repair",
+      "episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression",
+      "episode_tatmapper_pr96_gradle_config_not_run",
+      "episode_tatmapper_pr94_manual_override_precedence_review",
+      "episode_tatmapper_pr90_codecov_patch_coverage_warning"
+    ],
+    "normalization_status": "NOT_NORMALIZED",
+    "scoring_status": "NOT_RUN",
+    "effect_on_this_review": "no eligibility change until the new pending bundles are reviewed and normalized"
+  },
   "constraints": {
     "only_v1_7_beta_tatmapper_external_real_repo_episode_entries_may_be_used": true,
     "v1_7_alpha_torus_episodes_excluded_from_beta_scoring": true,
@@ -245,7 +267,7 @@
     "beta_episode_006"
   ],
   "additional_tatmapper_evidence_needed": [
-    "Collect at least 4 more eligible TatMapper external episodes to reach a 10-episode second-repo pilot minimum.",
+    "Review and normalize the newly collected TatMapper pending bundles if their evidence is eligible.",
     "Recover or capture full GitHub Actions logs for selected TatMapper PRs or commits.",
     "Run fresh local Flutter analyze/test/build commands where dependencies are available and preserve exact outputs.",
     "Reproduce the Windows checkout breakage or provide historical checkout failure logs.",

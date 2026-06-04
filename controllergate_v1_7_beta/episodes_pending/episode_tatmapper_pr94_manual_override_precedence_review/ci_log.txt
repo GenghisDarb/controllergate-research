@@ -1,0 +1,21 @@
+CI/workflow evidence status: UNAVAILABLE.
+
+Source repo: GenghisDarb/tatmapper-app
+Source PR: #94
+PR title: calibration: add telemetry, finalize docs, harden tests (UI + instrumentation)
+Head SHA: e64ecfc4cc18dba7fefc3eba6dd94869c8c344bb
+Merge commit SHA: df23c3ea1baea783f433195749b588c8cd6a7691
+
+Connector evidence:
+- Combined commit status lookup for the merge commit returned no status rows.
+- Workflow run lookup for the merge commit returned no exposed runs.
+- Full GitHub Actions logs are UNAVAILABLE because no workflow run log was exposed by the connector.
+
+PR testing evidence:
+- PR body reported guard testing ran.
+- PR body reported Flutter analyze/test failed because Flutter was not installed in the container.
+
+Local strengthening evidence, outcome-only:
+- Current-head guard script passed.
+- Current-head Flutter analyze/test attempts timed out.
+- Logs under controllergate_v1_7_beta/evidence_strengthening/tatmapper_current_head/

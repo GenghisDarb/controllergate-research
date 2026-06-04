@@ -1,0 +1,21 @@
+CI/workflow evidence status: UNAVAILABLE.
+
+Source repo: GenghisDarb/tatmapper-app
+Source PR: #97
+PR title: Enforce Groovy Gradle entrypoints during settings evaluation
+Head SHA: 7e401a09b9dfacbad1f0efe7197f42a9ab17d3df
+Merge commit SHA: NONE - PR closed unmerged
+
+Connector evidence:
+- Combined commit status lookup for the head commit returned no status rows.
+- Workflow run lookup for the head commit returned no exposed runs.
+- Full GitHub Actions logs are UNAVAILABLE because no workflow run log was exposed by the connector.
+
+Review evidence:
+- Code review identified compile-risk regressions:
+  - removed `dart:typed_data` import while `Uint8List` declarations remained
+  - const `MaterialApp` used with a non-constant `TraceManualSelectScreen`
+
+Local rerun:
+- NOT_RUN for the PR head in this pass.
+- Current-head Flutter analyze/test attempts timed out and are not PR #97 decision-time evidence.

@@ -8,6 +8,18 @@ Status: blocked for scoring. No ControllerGate scoring was run.
 
 Reason: v1.7-beta has six normalized TatMapper external real repo episodes, but all six remain `review_required`. The set is below the 10-episode minimum used for the v1.7-alpha limited pilot and lacks full CI logs or fresh local Flutter/Android reruns. The evidence is useful for second-repo readiness, but not yet sufficient for a limited beta scoring run.
 
+## Post-Review Strengthening And Collection
+
+After this eligibility decision, a strengthening pass added current-head TatMapper rerun logs under `controllergate_v1_7_beta/evidence_strengthening/tatmapper_current_head/` and collected five additional pending bundles:
+
+- `episode_tatmapper_pr98_export_opencv_helper_repair`
+- `episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression`
+- `episode_tatmapper_pr96_gradle_config_not_run`
+- `episode_tatmapper_pr94_manual_override_precedence_review`
+- `episode_tatmapper_pr90_codecov_patch_coverage_warning`
+
+The current-head guard script passed, the OpenCV helper failed because `OpenCVConfig.cmake` was unavailable, Flutter version/analyze/test attempts timed out, and Android Gradle wrapper verification remained blocked by missing Java/JAVA_HOME. These strengthening logs are outcome-only observations. The five new bundles are not normalized and do not change this eligibility decision.
+
 ## Counts
 
 | Field | Value |
@@ -68,4 +80,4 @@ Missing or weak evidence is concentrated in five areas:
 
 ## Additional Evidence Needed
 
-Before a limited v1.7-beta scoring pass, collect at least four more eligible TatMapper episodes to reach 10, and strengthen the current cluster with fresh local reruns or full CI logs where possible. Highest-value additions are Flutter analyze/test/build outputs, Android/Gradle build logs, Windows checkout reproduction, and a deterministic Flutter tooling check for the pubspec conflict-marker risk.
+Before a limited v1.7-beta scoring pass, review-normalize the newly pending TatMapper bundles if eligible, and continue strengthening the current cluster with full CI logs or more reliable local reruns where possible. Highest-value additions are Flutter analyze/test/build outputs, Android/Gradle build logs with Java available, Windows checkout reproduction, and a deterministic Flutter tooling check for the pubspec conflict-marker risk.

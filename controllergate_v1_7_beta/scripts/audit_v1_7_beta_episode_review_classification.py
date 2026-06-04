@@ -11,6 +11,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "traces" / "normalized" / "episodes.jsonl"
+PENDING_DIR = ROOT / "episodes_pending"
 CLASSIFICATION_PATH = ROOT / "traces" / "audits" / "beta_episode_review_classification.json"
 ELIGIBILITY_REVIEW_PATH = ROOT / "traces" / "audits" / "v1_7_beta_second_repo_eligibility_review.json"
 
@@ -62,6 +63,7 @@ def main() -> int:
     classification, classification_errors = load_json(CLASSIFICATION_PATH)
     eligibility_review, eligibility_errors = load_optional_json(ELIGIBILITY_REVIEW_PATH)
     errors = ledger_errors + classification_errors + eligibility_errors
+    pending_bundle_count = len([path for path in PENDING_DIR.iterdir() if path.is_dir()]) if PENDING_DIR.exists() else 0
 
     episodes = classification.get("episodes")
     if not isinstance(episodes, list):
@@ -123,7 +125,7 @@ def main() -> int:
                 errors.append("eligibility review beta_scoring_run must remain false")
 
         expected = {
-            "pending_bundle_count": 6,
+            "pending_bundle_count": pending_bundle_count,
             "normalized_episode_count": len(ledger),
             "external_real_repo_episode": external_count,
             "pending_incomplete": 0,

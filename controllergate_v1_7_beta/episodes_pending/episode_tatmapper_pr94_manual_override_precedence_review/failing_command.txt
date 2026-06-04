@@ -1,0 +1,22 @@
+Decision-time commands from PR evidence:
+
+./scripts/guard_calibration.sh
+flutter analyze
+flutter test
+
+Decision-time result from PR body:
+
+- Guard command reportedly ran.
+- Flutter analyze/test failed because Flutter was not installed in the container.
+
+Fresh local strengthening commands, outcome-only:
+
+git-bash -lc 'cd scratch clone && ./scripts/guard_calibration.sh'
+flutter --no-version-check analyze --no-pub
+flutter --no-version-check test --no-pub --concurrency=1
+
+Fresh local result:
+
+- guard_calibration: exit_code 0
+- flutter analyze: timed out after 120000 ms
+- flutter test: timed out after 120000 ms

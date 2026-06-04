@@ -1,0 +1,14 @@
+Decision-time command from PR evidence:
+
+./scripts/export_opencv_dir.sh
+
+PR body/testing evidence indicates the helper script was the repair target.
+
+Fresh local strengthening command, outcome-only:
+
+git-bash -lc 'cd scratch clone && ./scripts/export_opencv_dir.sh'
+
+Fresh local result:
+
+exit_code: 1
+reason: OpenCVConfig.cmake not found in known local paths.

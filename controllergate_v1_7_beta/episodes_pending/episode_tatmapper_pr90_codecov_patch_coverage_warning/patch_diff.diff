@@ -1,0 +1,27 @@
+BOUNDED_EXCERPT: PR #90 platform adapters, placement, and trial seams.
+
+diff --git a/app/lib/platform/file_picker_adapter.dart b/app/lib/platform/file_picker_adapter.dart
+new file mode 100644
+--- /dev/null
++++ b/app/lib/platform/file_picker_adapter.dart
+@@
++class FilePickerAdapter {
++  Future<String?> pickFilePath() async {
++    // Adapter boundary for platform file picking.
++  }
++}
+
+diff --git a/app/lib/placement/placement_controller.dart b/app/lib/placement/placement_controller.dart
+new file mode 100644
+--- /dev/null
++++ b/app/lib/placement/placement_controller.dart
+@@
++class PlacementController {
++  // Placement workflow controller added in this PR.
++}
+
+Codecov evidence from PR comment:
+- patch coverage: 12.06897%
+- missing lines: 102
+
+Bounded excerpt only. Full PR diff remains in GitHub PR #90.

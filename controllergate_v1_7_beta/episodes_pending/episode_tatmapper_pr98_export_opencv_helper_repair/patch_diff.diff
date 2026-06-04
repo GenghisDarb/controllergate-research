@@ -1,0 +1,35 @@
+BOUNDED_EXCERPT: PR #98 export_opencv_dir helper repair.
+
+diff --git a/scripts/export_opencv_dir.sh b/scripts/export_opencv_dir.sh
+--- a/scripts/export_opencv_dir.sh
++++ b/scripts/export_opencv_dir.sh
+@@
+-# prior helper had malformed shell control flow including a stray done
++#!/usr/bin/env bash
++set -euo pipefail
++
++echo "::group::Probe OpenCV_DIR"
++candidates=(
++  "/usr/lib/x86_64-linux-gnu/cmake/opencv4"
++  "/usr/lib/cmake/opencv4"
++  "/usr/share/opencv4/cmake"
++  "/opt/opencv/lib/cmake/opencv4"
++  "/opt/homebrew/opt/opencv/lib/cmake/opencv4"
++  "${HOME}/.local/lib/cmake/opencv4"
++)
++
++for candidate in "${candidates[@]}"; do
++  if [[ -f "${candidate}/OpenCVConfig.cmake" ]]; then
++    echo "OpenCV_DIR=${candidate}" >> "${GITHUB_ENV:-/dev/null}"
++    echo "OpenCV_DIR=${candidate}"
++    echo "::endgroup::"
++    exit 0
++  fi
++done
++
++echo "ERROR: OpenCVConfig.cmake not found in known paths:" >&2
++printf '  - %s\n' "${candidates[@]}" >&2
++echo "::endgroup::"
++exit 1
+
+Bounded diff only. Full PR diff remains in GitHub PR #98.

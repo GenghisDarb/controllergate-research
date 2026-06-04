@@ -1,0 +1,19 @@
+CI/workflow evidence status: UNAVAILABLE.
+
+Source repo: GenghisDarb/tatmapper-app
+Source PR: #96
+PR title: Fix Android Gradle configuration
+Head SHA: 9753a1d9e1fdc7d7104dbd2cdfce2bc5e1f3e2c7
+Merge commit SHA: f6fb8279fdd0fd596656189f34ddf7f496b59808
+
+Connector evidence:
+- Combined commit status lookup for the merge commit returned no status rows.
+- Workflow run lookup for the merge commit returned no exposed runs.
+- Full GitHub Actions logs are UNAVAILABLE because no workflow run log was exposed by the connector.
+
+PR testing evidence:
+- PR body reports testing was not run because the Gradle wrapper was not checked into the repository at that time.
+
+Local strengthening evidence, outcome-only:
+- Current-head `app/android/gradlew.bat --version` exited 9009 because JAVA_HOME was not set and no `java` command was found in PATH.
+- Log: controllergate_v1_7_beta/evidence_strengthening/tatmapper_current_head/android_gradle_wrapper_current_head.txt

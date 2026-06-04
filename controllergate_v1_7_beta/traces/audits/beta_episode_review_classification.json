@@ -8,7 +8,7 @@
     "excluded_from_scoring"
   ],
   "summary": {
-    "pending_bundle_count": 6,
+    "pending_bundle_count": 11,
     "normalized_episode_count": 6,
     "external_real_repo_episode": 6,
     "pending_incomplete": 0,
@@ -25,7 +25,19 @@
     "full_scoring_allowed": false,
     "second_repo_eligibility_review_run": true,
     "normalization_status": "REVIEW_NORMALIZED",
-    "scoring_allowed_reason": "All six TatMapper bundles were eligible for review normalization, but the second-repo eligibility review blocked scoring because the set has only six review-required episodes and lacks full CI logs or fresh local reruns."
+    "scoring_allowed_reason": "Six TatMapper bundles were eligible for review normalization, but the second-repo eligibility review blocked scoring because the normalized set has only six review-required episodes and lacks full CI logs or fresh local reruns. A later strengthening pass added five new pending TatMapper bundles, but those remain unnormalized and unscored."
+  },
+  "post_review_pending_collection": {
+    "new_pending_bundle_count": 5,
+    "new_pending_bundles": [
+      "episode_tatmapper_pr98_export_opencv_helper_repair",
+      "episode_tatmapper_pr97_closed_unmerged_gradle_entrypoint_regression",
+      "episode_tatmapper_pr96_gradle_config_not_run",
+      "episode_tatmapper_pr94_manual_override_precedence_review",
+      "episode_tatmapper_pr90_codecov_patch_coverage_warning"
+    ],
+    "normalization_status": "NOT_NORMALIZED",
+    "scoring_status": "NOT_RUN"
   },
   "episodes": [
     {

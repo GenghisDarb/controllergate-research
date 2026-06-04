@@ -1,0 +1,20 @@
+CI/workflow evidence status: UNAVAILABLE.
+
+Source repo: GenghisDarb/tatmapper-app
+Source PR: #98
+PR title: fix(ci): repair export_opencv_dir helper
+Head SHA: bc2fff0e1477a4ec6d79649fbe25c6e98ae3c7a3
+Merge commit SHA: 29066081101090525a4fa8b1e199c1accd980440
+
+Connector evidence:
+- Combined commit status lookup for the merge commit returned no status rows.
+- Workflow run lookup for the merge commit returned no exposed runs.
+- Full GitHub Actions logs are UNAVAILABLE because no workflow run log was exposed by the connector.
+
+Local strengthening evidence, outcome-only:
+- Scratch clone: external_repos/tatmapper-app
+- Scratch clone HEAD during strengthening: 8f49190a6e9ae29c8c49301a7736e0f838dfd369
+- Log: controllergate_v1_7_beta/evidence_strengthening/tatmapper_current_head/export_opencv_dir_current_head.txt
+- Result: exit_code 1 because OpenCVConfig.cmake was not found in known local paths.
+
+Do not treat the local current-head rerun as decision-time CI evidence for PR #98.

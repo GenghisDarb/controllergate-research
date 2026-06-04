@@ -1,0 +1,12 @@
+﻿command: git-bash -lc 'cd scratch clone && ./scripts/export_opencv_dir.sh'
+workdir: C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\tatmapper-app
+::group::Probe OpenCV_DIR
+ERROR: OpenCVConfig.cmake not found in known paths:
+  - /usr/lib/x86_64-linux-gnu/cmake/opencv4
+  - /usr/lib/cmake/opencv4
+  - /usr/share/opencv4/cmake
+  - /opt/opencv/lib/cmake/opencv4
+  - /opt/homebrew/opt/opencv/lib/cmake/opencv4
+  - /c/Users/thisb/.local/lib/cmake/opencv4
+::endgroup::
+exit_code: 1
