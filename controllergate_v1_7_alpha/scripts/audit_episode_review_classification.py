@@ -12,6 +12,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "traces" / "normalized" / "episodes.jsonl"
 CLASSIFICATION_PATH = ROOT / "traces" / "audits" / "episode_review_classification.json"
+PILOT_REVIEW_PATH = ROOT / "traces" / "audits" / "pilot_eligibility_review.json"
 
 CATEGORIES = {
     "correction_review_episode",
@@ -56,10 +57,23 @@ def load_classification(path: Path) -> tuple[dict[str, Any], list[str]]:
     return data, []
 
 
+def load_optional_pilot_review(path: Path) -> tuple[dict[str, Any] | None, list[str]]:
+    if not path.exists():
+        return None, []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return None, [f"pilot eligibility review invalid JSON: {exc.msg}"]
+    if not isinstance(data, dict):
+        return None, ["pilot eligibility review must be an object"]
+    return data, []
+
+
 def main() -> int:
     ledger, ledger_errors = load_jsonl(LEDGER_PATH)
     classification, classification_errors = load_classification(CLASSIFICATION_PATH)
-    errors = ledger_errors + classification_errors
+    pilot_review, pilot_review_errors = load_optional_pilot_review(PILOT_REVIEW_PATH)
+    errors = ledger_errors + classification_errors + pilot_review_errors
 
     episodes = classification.get("episodes")
     if not isinstance(episodes, list):
@@ -80,8 +94,9 @@ def main() -> int:
         by_folder[folder] = episode
 
     counts = {category: 0 for category in CATEGORIES}
-    scoring_eligible = 0
+    row_scoring_eligible = 0
     ledger_folders: set[str] = set()
+    external_episode_ids: set[str] = set()
 
     for record in ledger:
         folder = record.get("source_episode_folder")
@@ -102,6 +117,8 @@ def main() -> int:
             continue
 
         counts[category] += 1
+        if category == "external_real_repo_episode":
+            external_episode_ids.add(str(episode_id))
 
         review_episode_id = review.get("episode_id")
         if review_episode_id != episode_id:
@@ -121,13 +138,54 @@ def main() -> int:
         if scoring_eligible_episode and category != "external_real_repo_episode":
             errors.append(f"{episode_id}: only external_real_repo_episode may be scoring eligible")
         elif scoring_eligible_episode and category == "external_real_repo_episode":
-            scoring_eligible += 1
+            row_scoring_eligible += 1
 
     extra_folders = sorted(set(by_folder) - ledger_folders)
     for folder in extra_folders:
         errors.append(f"classification has no matching normalized episode: {folder}")
 
-    scoring_allowed = scoring_eligible >= REAL_REPO_SCORING_THRESHOLD
+    limited_pilot_eligible = 0
+    scoring_mode = "blocked"
+    full_scoring_allowed = row_scoring_eligible >= REAL_REPO_SCORING_THRESHOLD
+
+    if full_scoring_allowed:
+        scoring_mode = "full"
+
+    if pilot_review is not None:
+        pilot_episodes = pilot_review.get("episodes")
+        if not isinstance(pilot_episodes, list):
+            errors.append("pilot eligibility review must contain an episodes list")
+            pilot_episodes = []
+
+        pilot_eligible_ids = {
+            episode.get("episode_id")
+            for episode in pilot_episodes
+            if isinstance(episode, dict) and episode.get("pilot_eligible") is True
+        }
+        if not pilot_eligible_ids <= external_episode_ids:
+            errors.append(
+                "pilot eligibility review marks non-external episodes eligible: "
+                f"{sorted(pilot_eligible_ids - external_episode_ids)}"
+            )
+
+        if pilot_review.get("scoring_allowed") == "limited_pilot_only":
+            scoring_mode = "limited_pilot_only"
+            full_scoring_allowed = False
+            limited_pilot_eligible = len(pilot_eligible_ids)
+        elif pilot_review.get("scoring_allowed") in {False, "false"}:
+            scoring_mode = "blocked"
+            full_scoring_allowed = False
+            limited_pilot_eligible = 0
+        else:
+            errors.append("pilot eligibility review scoring_allowed must be false or limited_pilot_only")
+
+        if pilot_review.get("full_scoring_allowed") is not False:
+            errors.append("pilot eligibility review full_scoring_allowed must be false")
+        if pilot_review.get("controllergate_scoring_run") is not False:
+            errors.append("pilot eligibility review controllergate_scoring_run must be false")
+
+    reported_scoring_eligible = limited_pilot_eligible if scoring_mode == "limited_pilot_only" else row_scoring_eligible
+
     summary = classification.get("summary")
     if not isinstance(summary, dict):
         errors.append("classification file must contain a summary object")
@@ -138,9 +196,14 @@ def main() -> int:
             "controlled_benchmark_evidence": counts["controlled_benchmark_evidence"],
             "external_real_repo_episode": counts["external_real_repo_episode"],
             "excluded_from_scoring": counts["excluded_from_scoring"],
-            "scoring_eligibility_count_for_v1_7_alpha_real_repo_claim": scoring_eligible,
-            "scoring_allowed_for_v1_7_alpha_real_repo_claim": scoring_allowed,
+            "scoring_eligibility_count_for_v1_7_alpha_real_repo_claim": reported_scoring_eligible,
+            "scoring_allowed_for_v1_7_alpha_real_repo_claim": full_scoring_allowed,
+            "scoring_mode": scoring_mode,
+            "full_scoring_allowed": full_scoring_allowed,
         }
+        if scoring_mode == "limited_pilot_only":
+            expected_summary["limited_pilot_eligible_external_episode_count"] = limited_pilot_eligible
+            expected_summary["controllergate_scoring_run"] = False
         for field, expected in expected_summary.items():
             if summary.get(field) != expected:
                 errors.append(f"summary.{field} expected {expected!r}, got {summary.get(field)!r}")
@@ -157,9 +220,13 @@ def main() -> int:
     print(f"controlled_benchmark_evidence: {counts['controlled_benchmark_evidence']}")
     print(f"external_real_repo_episode: {counts['external_real_repo_episode']}")
     print(f"excluded_from_scoring: {counts['excluded_from_scoring']}")
-    print(f"scoring eligibility count for real repo pilot: {scoring_eligible}")
-    print(f"scoring allowed: {str(scoring_allowed).lower()}")
-    if not scoring_allowed:
+    print(f"scoring eligibility count for real repo pilot: {reported_scoring_eligible}")
+    print(f"scoring mode: {scoring_mode}")
+    print(f"full scoring allowed: {str(full_scoring_allowed).lower()}")
+    print(f"scoring allowed: {str(full_scoring_allowed).lower()}")
+    if scoring_mode == "limited_pilot_only":
+        print("reason: limited exploratory pilot eligibility approved; full scoring remains blocked")
+    elif not full_scoring_allowed:
         print("reason: fewer than 10 scoring-eligible external real repo episodes")
     print("scoring: NOT RUN")
     return 0

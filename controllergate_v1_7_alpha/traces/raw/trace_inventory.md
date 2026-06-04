@@ -84,11 +84,12 @@ Normalization status:
 - correction_review_episode: `2`
 - controlled_benchmark_evidence: `8`
 - external_real_repo_episode: `10`
-- scoring eligibility count for real repo pilot: `0`
-- scoring allowed: `false`
+- scoring eligibility count for limited real repo pilot: `10`
+- scoring mode: `limited_pilot_only`
+- full scoring allowed: `false`
 - scoring: NOT RUN
 
-The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, kappa through psi are controlled-benchmark evidence episodes, and the eight TORUS-Theory external real repo episodes are review-required due unavailable historical job logs, bounded rerun scope, or missing original agent transcript custody.
+The audit requires review because iota/pi are false-success correction records with transcript custody still marked for review, kappa through psi are controlled-benchmark evidence episodes, and the ten TORUS-Theory external real repo episodes remain limited-pilot evidence due unavailable historical job logs, bounded rerun scope, or missing original agent transcript custody.
 
 Review classification:
 
@@ -96,7 +97,7 @@ Review classification:
 | --- | ---: | --- |
 | correction_review_episode | 2 | report-integrity training/evaluation only |
 | controlled_benchmark_evidence | 8 | scaffold validation, provenance verification, benchmark-history context only |
-| external_real_repo_episode | 10 | review-required external ingestion evidence only |
+| external_real_repo_episode | 10 | limited exploratory pilot only |
 | excluded_from_scoring | 0 | not allowed for scoring |
 
 ## Non-Episode Evidence: v1.6-psi Custody Closure
@@ -117,13 +118,13 @@ Do not load it into `episodes.jsonl` as a real trace episode.
 
 ## Required Next Evidence
 
-Scoring is blocked because the reviewed normalized ledger contains 0 scoring-eligible `external_real_repo_episode` entries. The ten normalized TORUS-Theory external rows are review-required ingestion evidence, not scoring approval.
+Full scoring is blocked. The pilot eligibility review permits only a limited exploratory pilot using the ten normalized TORUS-Theory `external_real_repo_episode` rows. Controlled benchmark and correction-review rows remain excluded from real repo scoring.
 
 ## External Source Discovery
 
 First external source inspected: `GenghisDarb/TORUS-Theory`.
 
-Discovery result: viable candidate source. Eight reviewed TORUS episodes have now been normalized as review-required external real repo episodes.
+Discovery result: viable candidate source. Ten reviewed TORUS episodes have now been normalized as external real repo episodes and approved only for a limited exploratory pilot.
 
 TORUS-Theory has real GitHub pull requests, merged maintenance patches, notebook repairs, CI workflow edits, and GitHub Actions run/job metadata. Candidate details are recorded in `controllergate_v1_7_alpha/traces/raw/external_sources/torus_theory_candidate_inventory.md`.
 
@@ -141,7 +142,7 @@ Current external candidate status:
 
 | Source | Candidate PRs | Evidence status | Scoring impact |
 | --- | --- | --- | --- |
-| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#17/#19/#20/#32/#33/#34 are normalized as review-required external real repo episodes | none; scoring eligibility count remains 0 |
+| `GenghisDarb/TORUS-Theory` | #15, #16, #17, #19, #20, #32, #33, #34 | #15/#16/#17/#19/#20/#32/#33/#34 are normalized external real repo episodes | limited exploratory pilot only; full scoring remains blocked |
 
 Reviewed and normalized TORUS episode folders:
 
@@ -153,7 +154,7 @@ Reviewed and normalized TORUS episode folders:
 PR #32/#33 target status:
 
 - report: `controllergate_v1_7_alpha/reports/torus_pr32_pr33_target_report.md`
-- result: four external CI repair evidence bundles reviewed and normalized as review-required external real repo episodes
+- result: four external CI repair evidence bundles reviewed and normalized as external real repo episodes eligible only for limited exploratory pilot mode
 - blocker: historical job logs returned HTTP 410; rerun attempts returned HTTP 403 because runs were over one month old
 
 PR #32/#33 normalized review-required bundles:
@@ -163,14 +164,14 @@ PR #32/#33 normalized review-required bundles:
 - `episode_torus_pr33_notebook_selector_repair`: bounded local `tools/list_notebooks.py` rerun passed.
 - `episode_torus_pr33_readme_guard_warning_only`: bounded local README guard rerun exited 0 while printing missing README notices.
 
-These four bundles are normalized evidence only. They remain review-required, not scoring eligible, and do not permit scoring.
+These four bundles are normalized evidence only. They are eligible only for the limited exploratory pilot and do not permit full scoring.
 
 PR #17/#34 normalized review-required bundles:
 
 - `episode_torus_pr17_latex_workflow_repair`: LaTeX workflow repair evidence; historical logs returned HTTP 410; full local workflow replay unavailable/ambiguous due local TeX Live permission issue.
 - `episode_torus_pr34_readme_guard_failure`: README guard / Pylance-CI evidence; historical logs returned HTTP 410; bounded local `tests/README_guard.py` rerun failed with missing README entries.
 
-These two bundles are normalized evidence only. They remain review-required, not scoring eligible, and do not permit scoring.
+These two bundles are normalized evidence only. They are eligible only for the limited exploratory pilot and do not permit full scoring.
 
 To proceed with v1.7-alpha, provide at least one of:
 
@@ -194,7 +195,7 @@ controllergate_v1_7_alpha/traces/raw/episode_001/
 
 If an evidence file is unavailable, the episode bundle should contain a note with `UNAVAILABLE: reason`.
 
-Pending collection instructions are in `controllergate_v1_7_alpha/docs/episode_collection_instructions.md`. External real repo episodes should be normalized and then classified as `external_real_repo_episode` only when their evidence supports that category; scoring eligibility remains separate and currently requires at least 10 reviewed external episodes.
+Pending collection instructions are in `controllergate_v1_7_alpha/docs/episode_collection_instructions.md`. External real repo episodes should be normalized and then classified as `external_real_repo_episode` only when their evidence supports that category; limited pilot eligibility remains separate from full scoring approval.
 
 ## Current Artifact Intake Status
 
@@ -236,4 +237,4 @@ Additional v1.6 ladder package evidence:
 | rho | `28 / 28` | `28 / 28` | 24 entries, 0 mismatches |
 | psi | `51 / 51` | `51 / 51` | package: 8 entries, 0 mismatches; fixture: 3 entries, 0 mismatches |
 
-Remaining blocker: the normalized and reviewed ledger has 10 external real repo episodes but 0 scoring-eligible external real repo episodes. Pilot eligibility review must happen before any v1.7-alpha real repo scoring.
+Remaining blocker: the normalized and reviewed ledger has 10 external real repo episodes approved for limited exploratory pilot mode only. Explicit approval is still required before any limited pilot scoring run, and full v1.7-alpha real repo scoring remains blocked.

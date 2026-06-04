@@ -1,23 +1,27 @@
 # ControllerGate v1.7-alpha Episode Review Classification
 
-Status: normalized and reviewed for scoring eligibility. Scoring remains blocked.
+Status: normalized and reviewed for scoring eligibility. Limited pilot eligibility is approved; full scoring remains blocked.
 
 ## Result
 
-The normalized ledger contains 20 evidence episodes. Ten are external real repo episodes, but they are still review-required and none are scoring-eligible for v1.7-alpha real repo pilot scoring.
+The normalized ledger contains 20 evidence episodes. Ten are external real repo episodes, and the pilot eligibility review approves those 10 for a limited exploratory v1.7-alpha real repo pilot. Full scoring remains blocked.
 
 | Classification | Count | Scoring use |
 | --- | ---: | --- |
 | correction_review_episode | 2 | Not allowed for real repo scoring |
 | controlled_benchmark_evidence | 8 | Not allowed for real repo scoring |
-| external_real_repo_episode | 10 | Review-required; not yet scoring-eligible |
+| external_real_repo_episode | 10 | Eligible for limited exploratory pilot only |
 | excluded_from_scoring | 0 | Not allowed |
 
-Scoring eligibility count for the v1.7-alpha real repo pilot: `0`.
+Scoring eligibility count for the v1.7-alpha limited real repo pilot: `10`.
 
-Scoring allowed: `false`.
+Scoring mode: `limited_pilot_only`.
 
-Reason: the ten TORUS-Theory external real repo episodes remain review-required and zero have been approved as scoring-eligible.
+Full scoring allowed: `false`.
+
+ControllerGate scoring: `NOT RUN`.
+
+Reason: the ten TORUS-Theory external real repo episodes are diverse enough for a limited exploratory pilot, but several still lack historical GitHub Actions log text or original agent/tool transcript custody. Controlled benchmark and correction-review episodes remain excluded.
 
 ## Episode Classifications
 
@@ -46,13 +50,14 @@ Reason: the ten TORUS-Theory external real repo episodes remain review-required 
 
 ## Scoring Boundary
 
-This review layer protects the distinction between normalized evidence and scoring-eligible real repo evidence.
+This review layer protects the distinction between normalized evidence, limited pilot eligibility, and full scoring approval.
 
 Current claim boundary:
 
 - v1.7-alpha has 20 normalized evidence episodes.
 - v1.7-alpha has 10 external real repo episodes.
-- v1.7-alpha has 0 scoring-eligible external real repo episodes.
-- v1.7-alpha real repo scoring remains blocked.
+- v1.7-alpha has 10 external real repo episodes eligible for a limited exploratory pilot.
+- v1.7-alpha full real repo scoring remains blocked.
+- ControllerGate scoring has not been run.
 
-Required next step: run a pilot eligibility review to decide whether these 10 review-required external episodes are complete, diverse, and clean enough to permit a limited scoring gate.
+Required next step: request explicit approval before running the limited v1.7-alpha pilot. The pilot must include failed and ambiguous episodes and must not make self-maintaining or broad external generalization claims.

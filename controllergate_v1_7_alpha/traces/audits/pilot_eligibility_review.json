@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0",
+  "source_ledger_path": "controllergate_v1_7_alpha/traces/normalized/episodes.jsonl",
+  "source_classification_path": "controllergate_v1_7_alpha/traces/audits/episode_review_classification.json",
+  "review_scope": "v1.7-alpha limited real repo pilot eligibility",
+  "review_date": "2026-06-03",
+  "controllergate_scoring_run": false,
+  "normalized_episode_count": 20,
+  "external_real_repo_episode_count": 10,
+  "eligible_external_episode_count": 10,
+  "scoring_allowed": "limited_pilot_only",
+  "scoring_mode": "limited_pilot_only",
+  "full_scoring_allowed": false,
+  "decision": "limited_pilot_only",
+  "decision_reason": "The ledger has 10 normalized TORUS-Theory external real repo episodes with diverse outcomes and preserved bounded rerun evidence. The evidence is sufficient for a limited exploratory pilot only, because historical GitHub Actions logs and original agent/tool transcripts are unavailable or incomplete for multiple episodes.",
+  "constraints": {
+    "only_external_real_repo_episode_entries_may_be_used": true,
+    "controlled_benchmark_evidence_excluded": true,
+    "correction_review_episode_excluded": true,
+    "pilot_must_be_reported_as_limited_and_exploratory": true,
+    "no_self_maintaining_software_claim": true,
+    "no_broad_external_generalization_claim": true,
+    "failed_and_ambiguous_episodes_must_remain_included": true,
+    "full_scoring_requires_separate_explicit_approval": true
+  },
+  "evidence_checks": {
+    "decision_time_evidence_separated_from_outcome_only_evidence": true,
+    "github_actions_rerun_unavailability_documented_where_applicable": true,
+    "local_rerun_commands_preserved_where_available": true,
+    "local_rerun_outputs_preserved_where_available": true,
+    "controllergate_scoring_not_run": true
+  },
+  "diversity_checks": [
+    {
+      "category": "malformed artifact failure",
+      "covered": true,
+      "episodes": [
+        "episode_011"
+      ]
+    },
+    {
+      "category": "successful rerun / positive signal",
+      "covered": true,
+      "episodes": [
+        "episode_012"
+      ]
+    },
+    {
+      "category": "dependency or version assertion failure",
+      "covered": true,
+      "episodes": [
+        "episode_013",
+        "episode_014"
+      ]
+    },
+    {
+      "category": "closed unmerged episode",
+      "covered": true,
+      "episodes": [
+        "episode_014"
+      ]
+    },
+    {
+      "category": "notebook/kernel failure",
+      "covered": true,
+      "episodes": [
+        "episode_015"
+      ]
+    },
+    {
+      "category": "workflow/validation failure",
+      "covered": true,
+      "episodes": [
+        "episode_016"
+      ]
+    },
+    {
+      "category": "repair episode",
+      "covered": true,
+      "episodes": [
+        "episode_017",
+        "episode_019"
+      ]
+    },
+    {
+      "category": "warning-only or guardrail episode",
+      "covered": true,
+      "episodes": [
+        "episode_018"
+      ]
+    },
+    {
+      "category": "LaTeX/workflow repair",
+      "covered": true,
+      "episodes": [
+        "episode_019"
+      ]
+    },
+    {
+      "category": "README/guard failure",
+      "covered": true,
+      "episodes": [
+        "episode_020"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "episode_id": "episode_011",
+      "source_episode_folder": "episode_torus_pr15_invalid_notebook_json",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 15,
+      "outcome_type": "malformed_artifact_failure",
+      "verified_result": "failed",
+      "evidence_status": "partial: fresh local rerun evidence",
+      "decision_time_evidence_available": true,
+      "outcome_only_evidence_separated": true,
+      "github_actions_rerun_unavailability_documented": true,
+      "local_rerun_command_preserved": true,
+      "pilot_eligible": true,
+      "eligibility_caveat": "Historical GitHub Actions logs and original agent/tool trace are unavailable; use as bounded rerun evidence, not original CI transcript proof."
+    },
+    {
+      "episode_id": "episode_012",
+      "source_episode_folder": "episode_torus_pr16_torus_positive_pass",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 16,
+      "outcome_type": "successful_rerun_positive_signal",
+      "verified_result": "passed",
+      "evidence_status": "partial: fresh local rerun evidence",
+      "decision_time_evidence_available": true,
+      "outcome_only_evidence_separated": true,
+      "github_actions_rerun_unavailability_documented": true,
+      "local_rerun_command_preserved": true,
+      "pilot_eligible": true,
+      "eligibility_caveat": "Fresh local rerun found TORUS-POSITIVE; historical CI log text remains unavailable."
+    },
+    {
+      "episode_id": "episode_013",
+      "source_episode_folder": "episode_torus_pr19_numpy_assertion_failure",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 19,
+      "outcome_type": "dependency_version_assertion_failure",
+      "verified_result": "failed",
+      "evidence_status": "partial: fresh local rerun evidence",
+      "decision_time_evidence_available": true,
+      "outcome_only_evidence_separated": true,
+      "github_actions_rerun_unavailability_documented": true,
+      "local_rerun_command_preserved": true,
+      "pilot_eligible": true,
+      "eligibility_caveat": "Fresh local rerun reproduced the NumPy version assertion; historical CI log text remains unavailable."
+    },
+    {
+      "episode_id": "episode_014",
+      "source_episode_folder": "episode_torus_pr20_numpy_assertion_closed_unmerged",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 20,
+      "outcome_type": "dependency_version_assertion_failure_closed_unmerged",
+      "verified_result": "failed",
+      "evidence_status": "partial: fresh local rerun evidence",
+      "decision_time_evidence_available": true,
+      "outcome_only_evidence_separated": true,
+      "github_actions_rerun_unavailability_documented": true,
+      "local_rerun_command_preserved": true,
+      "pilot_eligible": true,
+      "eligibility_caveat": "PR #20 was closed unmerged; current-environment failure must not be rewritten as historical CI failure proof."
+    },
+    {
+      "episode_id": "episode_015",
+      "source_episode_folder": "episode_torus_pr32_notebook_kernel_failure",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 32,
+      "outcome_type": "notebook_kernel_failure",
+      "verified_result": "failed",
+      "evidence_status": "partial: pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_available": true,
+      "outcome_only_evidence_separated": true,
+      "github_actions_rerun_unavailability_documented": true,
+      "local_rerun_command_preserved": true,
+      "pilot_eligible": true,
+      "eligibility_caveat": "Bounded papermill rerun reproduced missing kernel metadata; historical CI logs remain unavailable."
+    },
+    {
+      "episode_id": "episode_016",
+      "source_episode_folder": "episode_torus_pr32_validation_workflow_failure",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 32,
+      "outcome_type": "validation_workflow_failure",
+      "verified_result": "review_required",
+      "evidence_status": "partial: pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_available": true,
+      "outcome_only_evidence_separated": true,
+      "github_actions_rerun_unavailability_documented": true,
+      "local_rerun_command_preserved": false,
+      "pilot_eligible": true,
+      "eligibility_caveat": "Workflow/job failure metadata is present, but exact historical logs and bounded local rerun output are unavailable; keep the episode in the pilot as ambiguous evidence."
+    },
+    {
+      "episode_id": "episode_017",
+      "source_episode_folder": "episode_torus_pr33_notebook_selector_repair",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 33,
+      "outcome_type": "notebook_selector_repair",
+      "verified_result": "passed",
+      "evidence_status": "partial: pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_available": true,
+      "outcome_only_evidence_separated": true,
+      "github_actions_rerun_unavailability_documented": true,
+      "local_rerun_command_preserved": true,
+      "pilot_eligible": true,
+      "eligibility_caveat": "Bounded notebook selector rerun passed; full notebook execution loop and historical CI logs remain unavailable."
+    },
+    {
+      "episode_id": "episode_018",
+      "source_episode_folder": "episode_torus_pr33_readme_guard_warning_only",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 33,
+      "outcome_type": "readme_guard_warning_only",
+      "verified_result": "warning_only",
+      "evidence_status": "partial: pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_available": true,
+      "outcome_only_evidence_separated": true,
+      "github_actions_rerun_unavailability_documented": true,
+      "local_rerun_command_preserved": true,
+      "pilot_eligible": true,
+      "eligibility_caveat": "Local README guard exited 0 while printing warnings; it is not the same as the historical shell check-readmes job."
+    },
+    {
+      "episode_id": "episode_019",
+      "source_episode_folder": "episode_torus_pr17_latex_workflow_repair",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 17,
+      "outcome_type": "latex_workflow_repair",
+      "verified_result": "review_required",
+      "evidence_status": "partial: pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_available": true,
+      "outcome_only_evidence_separated": true,
+      "github_actions_rerun_unavailability_documented": true,
+      "local_rerun_command_preserved": true,
+      "pilot_eligible": true,
+      "eligibility_caveat": "Full LaTeX workflow replay is unavailable; bounded latexmk check failed due local TeX Live permission, so this remains ambiguous repair evidence."
+    },
+    {
+      "episode_id": "episode_020",
+      "source_episode_folder": "episode_torus_pr34_readme_guard_failure",
+      "source_repo": "TORUS-Theory",
+      "source_pr": 34,
+      "outcome_type": "readme_guard_failure",
+      "verified_result": "failed",
+      "evidence_status": "partial: pending evidence bundle reviewed and normalized",
+      "decision_time_evidence_available": true,
+      "outcome_only_evidence_separated": true,
+      "github_actions_rerun_unavailability_documented": true,
+      "local_rerun_command_preserved": true,
+      "pilot_eligible": true,
+      "eligibility_caveat": "Bounded README guard rerun failed; full dependency-install job and historical logs remain unavailable."
+    }
+  ],
+  "ambiguous_or_incomplete_episodes": [
+    {
+      "episode_id": "episode_016",
+      "reason": "Workflow failure metadata exists, but exact historical logs and local rerun output are unavailable."
+    },
+    {
+      "episode_id": "episode_018",
+      "reason": "Local guard behavior is warning-only and differs from the historical shell check-readmes job."
+    },
+    {
+      "episode_id": "episode_019",
+      "reason": "Full LaTeX workflow replay is unavailable; local bounded check failed due local environment permission."
+    }
+  ],
+  "unsuitable_for_limited_pilot": []
+}
