@@ -330,3 +330,19 @@ v1.9 met limited user-owned organic-style memory-lift criteria.
 - Full scoring remains disallowed.
 
 User-owned results do not prove external public repo performance. A future v2.0 success may support only limited external-fork memory lift, and only if at least three scoreable external/fork episodes complete, at least two show memory outperformance, corruption remains zero, decision-time/outcome overlap remains zero, and replay/custody passes for all positive episodes.
+
+## v2.0 External-Fork Replay Pilot Result
+
+v2.0 tests forked/public replay evidence.
+
+- Candidate attempts: 5
+- Scoreable external/fork episodes: 0
+- Rejected candidates: 5
+- Blocked candidates: 0
+- Aggregate assessment: `blocked_external_candidate_acquisition_failure`
+- External memory lift remains undemonstrated.
+- Full scoring remains disallowed.
+- ControllerGate full scoring remains `NOT_RUN`.
+- Self-maintaining software remains undemonstrated.
+
+The bounded public-repo candidate scan found no deterministic, non-subjective local replay failure suitable for no-memory and memory-enabled comparison. Blocked candidate acquisition is not negative capability evidence. User-owned v1.9 results do not prove external repo performance.

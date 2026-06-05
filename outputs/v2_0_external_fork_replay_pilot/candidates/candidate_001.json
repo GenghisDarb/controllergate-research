@@ -1,0 +1,39 @@
+{
+  "candidate_id": "candidate_001",
+  "classification": "rejected_no_deterministic_validator",
+  "clean_checkout_succeeded": true,
+  "deterministic_command_existed": false,
+  "license_summary": {
+    "ethics_status": "safe_for_local_testing_if_license_allows_standard_open_source_use",
+    "license_files_found": [
+      {
+        "first_line": "Copyright (c) 2016 The Python Packaging Authority (PyPA)",
+        "path": "LICENSE.txt",
+        "sha256": "5576f002b3c2f5713b37b72f4810a534c1c56e8ec2535a77eb54175796e41a99"
+      }
+    ],
+    "license_summary_available": true
+  },
+  "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_sampleproject",
+  "local_replay_succeeded": false,
+  "rejection_or_block_reason": "Clean checkout and license metadata were available, but bounded local scanning found no deterministic, non-subjective replay failure suitable for no-memory/memory-enabled comparison.",
+  "repo_name": "pypa/sampleproject",
+  "repo_url": "https://github.com/pypa/sampleproject.git",
+  "scan_result": {
+    "deterministic_local_failure_found": false,
+    "issue_count": 0,
+    "sample_issues": [],
+    "scanner_scope": [
+      "markdown local links",
+      "markdown reference local links",
+      "rst inline local links",
+      "sphinx toctree local targets"
+    ]
+  },
+  "source_repo_metadata": {
+    "branch": "main",
+    "fork_or_local_clone_only": true,
+    "head_sha": "621e4974ca25ce531773def586ba3ed8e736b3fc",
+    "public_repo": true
+  }
+}
