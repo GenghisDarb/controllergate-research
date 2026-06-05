@@ -297,3 +297,22 @@ v1.9 tests generalization beyond seeded controlled memory-relevance tasks.
 Episode 011 and Episode 013 are useful positive limited replay signals in a user-owned semi-organic repo setting, but the preregistered v1.9 aggregate requires at least 3 scoreable episodes. Organic-style memory lift remains undemonstrated. Organic external memory lift remains undemonstrated. Self-maintaining software remains undemonstrated. Full scoring remains disallowed.
 
 Blocked acquisition is not negative capability evidence. Negative results under replay-ready conditions would be valid negative evidence for those task classes, but Episode 012 did not reach replay execution.
+
+## v1.9 Organic-Style Replay Pilot Completion Pass
+
+v1.9 was previously positive but underpowered.
+
+- Completion pass attempts to reach the minimum scoreable episode count.
+- Episode 014: user-owned semi-organic TORUS README local target consistency failure; classification `positive_evidence_memory_lift_user_owned_organic_style_episode`.
+- New scoreable episodes: 1.
+- New positive episodes: 1.
+- Total v1.9 scoreable episodes: 3.
+- Total v1.9 positive memory-outperformance episodes: 3.
+- Total v1.9 candidate-acquisition misses preserved: 1.
+- Decision-time/outcome overlap count: 0.
+- Corruption episode count: 0.
+- Aggregate assessment: `limited_user_owned_organic_style_memory_lift_criteria_met`.
+
+Organic-style memory lift is now supported only within the limited user-owned replay scope. Organic external memory lift remains undemonstrated. Semi-organic user-owned evidence does not equal organic external evidence. Self-maintaining software remains undemonstrated. Full scoring remains disallowed.
+
+Blocked acquisition is not negative capability evidence. Organic-style memory lift is only claimed because the preregistered aggregate criteria are met in the limited user-owned replay scope.
