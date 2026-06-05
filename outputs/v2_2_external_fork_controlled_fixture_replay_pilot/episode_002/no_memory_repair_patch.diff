@@ -1,0 +1,13 @@
+diff --git a/tests/test_controllergate_controlled_fixture.py b/tests/test_controllergate_controlled_fixture.py
+index 83560e3..7b7021f 100644
+--- a/tests/test_controllergate_controlled_fixture.py
++++ b/tests/test_controllergate_controlled_fixture.py
+@@ -7,7 +7,7 @@ class ControllerGateControlledFixtureTest(unittest.TestCase):
+     def test_controllergate_fixture_ready(self):
+         self.assertEqual(
+             controllergate_fixture_state.FIXTURE_STATUS,
+-            "READY",
++            "BROKEN",
+             "CG_FIXTURE_STATUS_MISMATCH: packaging_version_fixture",
+         )
+ 

@@ -407,3 +407,21 @@ v2.1b improves candidate sourcing quality.
 - Full scoring remains disallowed.
 
 The next acquisition step should supply local benchmark datasets or known issue-branch descriptors with exact failing commands. Candidate readiness does not prove repair capability, and no external memory-lift claim is allowed from v2.1b.
+
+## v2.1c/v2.2 External-Fork Controlled Fixture Campaign
+
+External-fork controlled fixtures test portability of replay/memory machinery.
+
+- v2.1c triaged candidates: 5
+- Promoted candidates count: 3
+- Known external bug candidates: 0
+- Controlled fixture candidates: 3
+- v2.2 executed: true
+- Executed episodes count: 3
+- Scoreable episodes count: 3
+- Positive memory episodes: 3
+- Inconclusive/negative/blocked episodes: 0
+- Aggregate result: `limited_external_fork_controlled_fixture_memory_lift_criteria_met`
+- Claim boundary: limited external-fork controlled fixture evidence only.
+
+Injected fixture failures are not organic external bugs. Known external bug replay is stronger evidence. Candidate promotion is not repair success. Controlled fixture memory lift, if met, is limited-scope evidence. Organic external memory lift remains undemonstrated unless known external bug criteria are met. Self-maintaining software remains undemonstrated. Full scoring remains disallowed.

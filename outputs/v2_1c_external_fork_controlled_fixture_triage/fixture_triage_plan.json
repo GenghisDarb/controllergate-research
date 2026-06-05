@@ -1,0 +1,13 @@
+{
+  "campaign_id": "v2_1c_external_fork_controlled_fixture_triage",
+  "controlled_fixture_policy": {
+    "label": "external_fork_controlled_fixture",
+    "not_organic_external_bug": true,
+    "private_services_allowed": false,
+    "security_exploit_allowed": false,
+    "upstream_push_allowed": false
+  },
+  "promotion_gate_for_v2_2": "at least three promoted candidates",
+  "source": "outputs/v2_1b_curated_external_candidate_sourcing/curated_candidate_preflight_results.json",
+  "triage_scope": "exactly five v2.1b manual-review candidates"
+}

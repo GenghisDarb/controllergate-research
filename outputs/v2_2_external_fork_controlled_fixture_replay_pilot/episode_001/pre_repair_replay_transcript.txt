@@ -1,0 +1,17 @@
+$ python -m unittest discover -s tests -p test_controllergate_controlled_fixture.py
+F
+======================================================================
+FAIL: test_controllergate_fixture_ready (test_controllergate_controlled_fixture.ControllerGateControlledFixtureTest.test_controllergate_fixture_ready)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\thisb\OneDrive\Documents\ControllerGate\external_repos\controllergate_v2_2_controlled_fixture_scratch\episode_001\failing\tests\test_controllergate_controlled_fixture.py", line 8, in test_controllergate_fixture_ready
+    self.assertEqual(
+AssertionError: 'BROKEN' != 'READY'
+- BROKEN
++ READY
+ : CG_FIXTURE_STATUS_MISMATCH: sampleproject_external_fork_controlled_fixture
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (failures=1)
