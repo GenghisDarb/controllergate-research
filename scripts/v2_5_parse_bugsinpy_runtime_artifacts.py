@@ -22,6 +22,53 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = REPO_ROOT / "outputs" / "v2_5_bugsinpy_runtime_runner"
 SHAREABLE_SUMMARY = REPO_ROOT / "controllergate_v1_7_beta" / "reports" / "critic_review_package" / "shareable_summary.md"
 CANDIDATE_DIRS = ["black_2", "youtube_dl_1", "black_8"]
+TARGET_FAILURE_RULES = {
+    "black_2": {
+        "project": "black",
+        "bug_id": "2",
+        "required_any": [
+            "FAIL: test_fmtonoff4",
+            "AssertionError",
+            "BlackTestCase.test_fmtonoff4",
+        ],
+        "block_if_any": [
+            "ModuleNotFoundError",
+            "ImportError: Failed to import test module",
+            "No module named",
+        ],
+        "expected_failure_signature": "BUGSINPY_REPRODUCED_FAILURE: black:2",
+    },
+    "youtube_dl_1": {
+        "project": "youtube-dl",
+        "bug_id": "1",
+        "required_any": [
+            "FAIL: test_match_str",
+            "AssertionError: True is not false",
+            "TestUtil.test_match_str",
+        ],
+        "block_if_any": [
+            "ModuleNotFoundError",
+            "ImportError: Failed to import test module",
+            "No module named",
+        ],
+        "expected_failure_signature": "BUGSINPY_REPRODUCED_FAILURE: youtube-dl:1",
+    },
+    "black_8": {
+        "project": "black",
+        "bug_id": "8",
+        "required_any": [
+            "FAIL: test_comments7",
+            "AssertionError",
+            "BlackTestCase.test_comments7",
+        ],
+        "block_if_any": [
+            "ModuleNotFoundError",
+            "ImportError: Failed to import test module",
+            "No module named",
+        ],
+        "expected_failure_signature": "BUGSINPY_REPRODUCED_FAILURE: black:8",
+    },
+}
 
 
 def write_json(path: Path, data: Any) -> None:
@@ -86,6 +133,8 @@ Candidate classifications:
 {classifications}
 
 Fresh checkout/compile/test logs now exist in the ingested GitHub Actions artifact. Gold/fixed patches remain outcome-only and were not used as decision-time inputs. If three candidates promote, the next gated step is real BugsInPy limited replay execution, not a self-maintaining-software claim.
+
+Target-failure matching is enforced at parser/audit time. A dependency/import/runtime failure is not enough to promote a BugsInPy candidate unless the expected BugsInPy target failure is also matched.
 """
     marker = "## v2.5 BugsInPy Runtime Artifact Ingestion Result"
     if SHAREABLE_SUMMARY.exists():
@@ -110,19 +159,39 @@ def main() -> int:
         candidate_dir = artifact_dir / dirname
         feasibility = load_json(candidate_dir / "replay_feasibility_result.json")
         metadata = load_json(candidate_dir / "candidate_metadata.json")
+        rule = TARGET_FAILURE_RULES[dirname]
+        test_log = (candidate_dir / "test_log_raw.txt").read_text(encoding="utf-8", errors="replace") if (candidate_dir / "test_log_raw.txt").exists() else ""
+        required_matched = any(pattern in test_log for pattern in rule["required_any"])
+        blocked_marker_matched = any(pattern in test_log for pattern in rule["block_if_any"])
+        target_failure_matched = required_matched and not blocked_marker_matched
+        if target_failure_matched:
+            promotion_status = "promoted_ready_for_v2_5_bugsinpy_real_bug"
+            failure_signature = rule["expected_failure_signature"]
+            target_failure_match_reason = "expected BugsInPy target failure marker matched and no dependency/import blocker marker was present"
+        else:
+            promotion_status = "blocked_bugsinpy_test_not_reproducible"
+            if blocked_marker_matched:
+                target_failure_match_reason = "dependency/import/runtime failure marker was present, so this is not accepted as target BugsInPy failure replay"
+            elif not required_matched:
+                target_failure_match_reason = "expected BugsInPy target failure marker was not found"
+            else:
+                target_failure_match_reason = "target failure matching was inconclusive"
+            failure_signature = f"TARGET_FAILURE_NOT_MATCHED: {rule['project']}:{rule['bug_id']}"
         if not candidate_dir.exists():
             errors.append(f"missing candidate directory: {dirname}")
         records.append(
             {
                 "candidate_dir": dirname,
-                "project": metadata.get("project"),
-                "bug_id": metadata.get("bug_id"),
-                "promotion_status": feasibility.get("promotion_status", "still_needs_manual_review"),
-                "runtime_replay_confirmed": feasibility.get("runtime_replay_confirmed", False),
-                "failing_test_reproduced": feasibility.get("failing_test_reproduced", False),
-                "failure_signature": (candidate_dir / "failure_signature.txt").read_text(encoding="utf-8").strip()
-                if (candidate_dir / "failure_signature.txt").exists()
-                else None,
+                "project": metadata.get("project") or rule["project"],
+                "bug_id": metadata.get("bug_id") or rule["bug_id"],
+                "artifact_reported_promotion_status": feasibility.get("promotion_status", "still_needs_manual_review"),
+                "promotion_status": promotion_status,
+                "runtime_replay_confirmed": target_failure_matched,
+                "failing_test_reproduced": target_failure_matched,
+                "target_failure_matched": target_failure_matched,
+                "dependency_or_import_failure_detected": blocked_marker_matched,
+                "target_failure_match_reason": target_failure_match_reason,
+                "failure_signature": failure_signature,
                 "artifact_directory": str(candidate_dir),
             }
         )

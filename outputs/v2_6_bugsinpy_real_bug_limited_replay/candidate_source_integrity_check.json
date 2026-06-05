@@ -1,55 +1,42 @@
 {
-  "artifact_dir": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\outputs\\v2_5_bugsinpy_runtime_runner\\artifact_intake\\v2_5_bugsinpy_runtime_probe_artifacts",
-  "broad_organic_external_memory_lift_demonstrated": false,
+  "blocked_target_mismatch_count": 2,
   "candidate_count": 3,
-  "controllergate_full_scoring": "NOT_RUN",
-  "full_scoring_allowed": false,
-  "handoff_recommendation": "v2_5_small_bugsinpy_probe_execution",
-  "parser_errors": [],
-  "promoted_candidate_count": 1,
+  "dependency_import_or_runtime_failure_counts_as_target_replay": false,
+  "gold_fixed_patches_used_at_decision_time": false,
   "records": [
     {
       "artifact_directory": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\outputs\\v2_5_bugsinpy_runtime_runner\\artifact_intake\\v2_5_bugsinpy_runtime_probe_artifacts\\black_2",
       "artifact_reported_promotion_status": "promoted_ready_for_v2_5_bugsinpy_real_bug",
-      "bug_id": "2",
-      "candidate_dir": "black_2",
+      "candidate": "black:2",
       "dependency_or_import_failure_detected": true,
-      "failing_test_reproduced": false,
       "failure_signature": "TARGET_FAILURE_NOT_MATCHED: black:2",
-      "project": "black",
-      "promotion_status": "blocked_bugsinpy_test_not_reproducible",
-      "runtime_replay_confirmed": false,
+      "final_promotion_status": "blocked_bugsinpy_test_not_reproducible",
       "target_failure_match_reason": "dependency/import/runtime failure marker was present, so this is not accepted as target BugsInPy failure replay",
       "target_failure_matched": false
     },
     {
       "artifact_directory": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\outputs\\v2_5_bugsinpy_runtime_runner\\artifact_intake\\v2_5_bugsinpy_runtime_probe_artifacts\\youtube_dl_1",
       "artifact_reported_promotion_status": "promoted_ready_for_v2_5_bugsinpy_real_bug",
-      "bug_id": "1",
-      "candidate_dir": "youtube_dl_1",
+      "candidate": "youtube-dl:1",
       "dependency_or_import_failure_detected": false,
-      "failing_test_reproduced": true,
       "failure_signature": "BUGSINPY_REPRODUCED_FAILURE: youtube-dl:1",
-      "project": "youtube-dl",
-      "promotion_status": "promoted_ready_for_v2_5_bugsinpy_real_bug",
-      "runtime_replay_confirmed": true,
+      "final_promotion_status": "promoted_ready_for_v2_5_bugsinpy_real_bug",
       "target_failure_match_reason": "expected BugsInPy target failure marker matched and no dependency/import blocker marker was present",
       "target_failure_matched": true
     },
     {
       "artifact_directory": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\outputs\\v2_5_bugsinpy_runtime_runner\\artifact_intake\\v2_5_bugsinpy_runtime_probe_artifacts\\black_8",
       "artifact_reported_promotion_status": "promoted_ready_for_v2_5_bugsinpy_real_bug",
-      "bug_id": "8",
-      "candidate_dir": "black_8",
+      "candidate": "black:8",
       "dependency_or_import_failure_detected": true,
-      "failing_test_reproduced": false,
       "failure_signature": "TARGET_FAILURE_NOT_MATCHED: black:8",
-      "project": "black",
-      "promotion_status": "blocked_bugsinpy_test_not_reproducible",
-      "runtime_replay_confirmed": false,
+      "final_promotion_status": "blocked_bugsinpy_test_not_reproducible",
       "target_failure_match_reason": "dependency/import/runtime failure marker was present, so this is not accepted as target BugsInPy failure replay",
       "target_failure_matched": false
     }
   ],
-  "self_maintaining_software_demonstrated": false
+  "source": "v2.5 parsed BugsInPy runtime artifacts",
+  "target_failure_matching_guard_enforced": true,
+  "target_failure_matching_guard_exists": true,
+  "target_matched_promoted_count": 1
 }

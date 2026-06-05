@@ -282,6 +282,15 @@ def main() -> int:
             errors.append("parsed promoted count must match runner_status")
         if promoted_pool and promoted_pool.get("count") != status.get("promoted_candidate_count"):
             errors.append("promoted pool count must match runner_status")
+        parsed_records = parsed.get("records") if isinstance(parsed.get("records"), list) else []
+        for record in parsed_records:
+            candidate = f"{record.get('project')}:{record.get('bug_id')}"
+            if record.get("dependency_or_import_failure_detected") is True and str(record.get("promotion_status", "")).startswith("promoted_ready"):
+                errors.append(f"{candidate}: dependency/import/runtime failure cannot be promoted as target BugsInPy replay")
+            if str(record.get("promotion_status", "")).startswith("promoted_ready") and record.get("target_failure_matched") is not True:
+                errors.append(f"{candidate}: promoted candidate must have target_failure_matched true")
+            if record.get("target_failure_matched") is False and record.get("runtime_replay_confirmed") is True:
+                errors.append(f"{candidate}: runtime_replay_confirmed cannot be true when target failure did not match")
         if ingestion:
             if ingestion.get("repair_scoring_run") is not False:
                 errors.append("artifact ingestion must not run repair scoring")

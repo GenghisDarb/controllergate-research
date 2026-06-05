@@ -504,8 +504,8 @@ Self-maintaining software remains undemonstrated. Full scoring remains disallowe
 The v2.5 GitHub Actions BugsInPy runtime probe artifact was ingested.
 
 - Candidate count: 3.
-- Promoted real-bug candidates: 3.
-- Handoff recommendation: `v2_5_bugsinpy_real_bug_limited_replay_execution`.
+- Promoted real-bug candidates: 1.
+- Handoff recommendation: `v2_5_small_bugsinpy_probe_execution`.
 - Repair scoring: not run.
 - Full scoring: disallowed.
 - Self-maintaining software: not demonstrated.
@@ -513,8 +513,28 @@ The v2.5 GitHub Actions BugsInPy runtime probe artifact was ingested.
 
 Candidate classifications:
 
-- `black:2`: `promoted_ready_for_v2_5_bugsinpy_real_bug`
+- `black:2`: `blocked_bugsinpy_test_not_reproducible`
 - `youtube-dl:1`: `promoted_ready_for_v2_5_bugsinpy_real_bug`
-- `black:8`: `promoted_ready_for_v2_5_bugsinpy_real_bug`
+- `black:8`: `blocked_bugsinpy_test_not_reproducible`
 
 Fresh checkout/compile/test logs now exist in the ingested GitHub Actions artifact. Gold/fixed patches remain outcome-only and were not used as decision-time inputs. If three candidates promote, the next gated step is real BugsInPy limited replay execution, not a self-maintaining-software claim.
+
+Target-failure matching is enforced at parser/audit time. A dependency/import/runtime failure is not enough to promote a BugsInPy candidate unless the expected BugsInPy target failure is also matched.
+
+## v2.6 BugsInPy Real-Bug Limited Replay Execution
+
+BugsInPy real-bug replay is stronger than QuixBugs and controlled fixture evidence, but target-failure matching is now a hard gate.
+
+- Candidates reviewed: `black:2`, `youtube-dl:1`, `black:8`.
+- Target-failure-matched promoted candidates: 1.
+- Blocked by target-failure guard: 2.
+- Executed episodes: 0.
+- Scoreable episodes: 0.
+- Positive memory episodes: 0.
+- Decision-time/outcome overlap count: 0.
+- Corruption count: 0.
+- Aggregate result: `insufficient_episode_count_for_bugsinpy_real_bug_memory_lift`.
+
+The two Black candidates were not accepted as target BugsInPy replay evidence because the ingested logs show dependency/import failures rather than the expected target BugsInPy failure. `youtube-dl:1` remains promoted and can support a future small real-bug probe.
+
+Gold/fixed patches are outcome-only and excluded from decision-time inputs. Limited BugsInPy memory lift is still not self-maintaining software. Full scoring remains disallowed. Blocked runtime or target-failure mismatch is not negative capability evidence.
