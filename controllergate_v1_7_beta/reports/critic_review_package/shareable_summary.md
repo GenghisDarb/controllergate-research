@@ -258,3 +258,23 @@ This campaign tests whether memory helps under replay-ready seeded controlled co
 Positive evidence means replay gate passed, both paths were captured under identical replay conditions, memory-enabled outperformed no-memory on a preregistered dimension, and no corruption occurred. Negative results are valid evidence against this memory design for these task classes. Blocked results reflect missing artifacts or replay failure, not capability failure. Inconclusive evidence means the paths were comparable but memory did not show a distinct advantage.
 
 Validator-level hash mismatch is a valid deterministic target when replay/custody passes. Artifact-custody hash mismatch blocks scoring. Any future claim beyond seeded controlled replay must require organic or externally sourced replay-ready evidence, not this campaign alone.
+
+## v1.9 Organic-Style Replay Pilot Plan
+
+v1.8 met limited seeded controlled memory-lift criteria.
+
+v1.9 is designed to test organic-style replay evidence.
+
+- Plan status: planning only, not executed.
+- Target pilot size: 3 to 5 episodes.
+- Allowed target classes include user-owned discovered failures, user-owned semi-organic failures, forked public repo discovered failures, forked public repo issue replay, archived public repo dependency drift, and synthetic seeded fallback only if no discovered failure can be obtained safely.
+- Every accepted v1.9 candidate must have clean-checkout replay, deterministic validator command, no-memory baseline, memory-enabled path, identical replay conditions, corruption/downstream check, decision-time/outcome separation, and SHA256 artifact custody.
+- v1.8 seeded controlled memory lift does not imply organic external memory lift.
+- Organic external memory lift remains undemonstrated.
+- Self-maintaining software remains undemonstrated.
+- Full scoring remains disallowed.
+- ControllerGate full scoring remains `NOT_RUN`.
+
+Positive organic-style evidence would require at least 3 deterministic replay-ready v1.9 episodes, with memory-enabled outperforming no-memory in at least 2, no corruption in positive episodes, decision-time/outcome overlap remaining 0, and replay/custody passing for all positive episodes.
+
+Blocked v1.9 candidates are not negative capability evidence if replay, custody, baseline, or environment requirements cannot be satisfied.
