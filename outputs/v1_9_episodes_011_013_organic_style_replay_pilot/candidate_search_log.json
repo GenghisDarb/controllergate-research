@@ -1,0 +1,29 @@
+{
+  "findings": [
+    {
+      "accepted": true,
+      "candidate": "data README references missing sibling READMEs",
+      "episode_id": "episode_011",
+      "target_class": "user_owned_repo_semi_organic_failure"
+    },
+    {
+      "accepted": false,
+      "candidate": "forked public or archived public replay candidate",
+      "episode_id": "episode_012",
+      "reason": "No safe local forked/public replay candidate was available without network acquisition; TatMapper remains historical/quarantined.",
+      "target_class": "forked_public_repo_discovered_failure"
+    },
+    {
+      "accepted": true,
+      "candidate": "mkdocs.yml declares missing local nav targets",
+      "episode_id": "episode_013",
+      "target_class": "user_owned_repo_semi_organic_failure"
+    }
+  ],
+  "network_candidate_acquisition": "not_used_restricted",
+  "search_scope": [
+    "local TORUS Theory clone",
+    "local TatMapper clone/quarantine record",
+    "local external_repos directory"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "decision_time_inputs": [
+    "target_repo_snapshot.json",
+    "candidate_selection_record.json",
+    "failing_command.txt",
+    "failing_log_raw.txt",
+    "failure_signature.txt"
+  ],
+  "episode_id": "episode_013",
+  "future_outcome_evidence_used": false,
+  "memory_access": "enabled_limited_to_prior_seeded_and_organic_style_planning_memory",
+  "outcome_only_evidence_excluded": [
+    "no_memory_post_repair_log_raw.txt",
+    "memory_enabled_post_repair_log_raw.txt",
+    "post_repair_comparison.json",
+    "limited_scoring_result.json"
+  ],
+  "path": "memory_enabled_controllergate_path",
+  "policy": "nav-kernel repair: create all missing deterministic MkDocs nav target placeholders"
+}

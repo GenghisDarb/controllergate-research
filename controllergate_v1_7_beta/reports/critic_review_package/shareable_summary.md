@@ -278,3 +278,22 @@ v1.9 is designed to test organic-style replay evidence.
 Positive organic-style evidence would require at least 3 deterministic replay-ready v1.9 episodes, with memory-enabled outperforming no-memory in at least 2, no corruption in positive episodes, decision-time/outcome overlap remaining 0, and replay/custody passing for all positive episodes.
 
 Blocked v1.9 candidates are not negative capability evidence if replay, custody, baseline, or environment requirements cannot be satisfied.
+
+## v1.9 Episodes 011-013 organic-style replay pilot
+
+v1.9 tests generalization beyond seeded controlled memory-relevance tasks.
+
+- Episode 011: user-owned semi-organic TORUS data README consistency failure; classification `positive_evidence_memory_lift_organic_style_episode`.
+- Episode 012: forked/public candidate acquisition was unavailable under the current restricted local evidence conditions; classification `not_executed_candidate_acquisition_failed`.
+- Episode 013: user-owned semi-organic TORUS MkDocs navigation target consistency failure; classification `positive_evidence_memory_lift_organic_style_episode`.
+- Scoreable episodes: 2.
+- Positive organic-style episodes: 2.
+- Not-executed candidate-acquisition episodes: 1.
+- Blocked episodes: 0.
+- Decision-time/outcome overlap count: 0.
+- Corruption episode count: 0.
+- Aggregate assessment: `insufficient_episode_count_for_organic_style_memory_lift`.
+
+Episode 011 and Episode 013 are useful positive limited replay signals in a user-owned semi-organic repo setting, but the preregistered v1.9 aggregate requires at least 3 scoreable episodes. Organic-style memory lift remains undemonstrated. Organic external memory lift remains undemonstrated. Self-maintaining software remains undemonstrated. Full scoring remains disallowed.
+
+Blocked acquisition is not negative capability evidence. Negative results under replay-ready conditions would be valid negative evidence for those task classes, but Episode 012 did not reach replay execution.
