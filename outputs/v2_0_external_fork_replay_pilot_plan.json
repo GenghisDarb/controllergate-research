@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "artifact_name": "v2.0 External-Fork Replay Pilot Plan",
+  "plan_id": "v2_0_external_fork_replay_pilot_plan",
+  "plan_status": "planning_only_no_execution",
+  "execution_status": "not_executed",
+  "full_scoring_allowed": false,
+  "controllergate_full_scoring": "NOT_RUN",
+  "self_maintaining_software_claim_allowed": false,
+  "external_memory_lift_claim_allowed": false,
+  "organic_external_memory_lift_demonstrated": false,
+  "prior_evidence_summary": {
+    "episode_003_result_preserved": {
+      "episode_id": "v1_8_episode_003",
+      "classification": "negative_evidence_no_memory_lift_on_seeded_controlled_episode",
+      "memory_enabled_outperformed_no_memory": false,
+      "interpretation": "Episode 003 remains negative evidence for memory lift on a simple seeded local hash-mismatch task."
+    },
+    "v1_8_seeded_campaign_result_preserved": {
+      "campaign_id": "v1_8_episodes_004_010_memory_relevance_campaign",
+      "aggregate_classification": "limited_seeded_controlled_memory_lift_criteria_met",
+      "scoreable_episode_count": 7,
+      "positive_memory_outperformance_episodes": 6,
+      "scope": "seeded_controlled_replay_campaign_only"
+    },
+    "v1_9_user_owned_organic_style_result_preserved": {
+      "aggregate_classification": "limited_user_owned_organic_style_memory_lift_criteria_met",
+      "scoreable_episode_count": 3,
+      "positive_memory_outperformance_episodes": 3,
+      "candidate_acquisition_miss_count": 1,
+      "scope": "limited_user_owned_organic_style_replay_only"
+    },
+    "organic_external_memory_lift_remains_undemonstrated": true,
+    "self_maintaining_software_remains_undemonstrated": true,
+    "full_scoring_remains_disallowed": true
+  },
+  "target_classes": [
+    "forked_public_repo_discovered_failure",
+    "forked_public_repo_issue_replay",
+    "archived_public_repo_dependency_drift",
+    "public_benchmark_repo_realistic_failure",
+    "user_owned_repo_fallback_only_if_external_acquisition_fails"
+  ],
+  "ethical_constraints": [
+    "Do not open spam PRs or issues upstream.",
+    "Do not exploit security vulnerabilities.",
+    "Do not access secrets, private credentials, tokens, or private services.",
+    "Use local fork/clone replay.",
+    "Preserve license information.",
+    "Attribute source repo metadata.",
+    "Keep all intervention branches clearly labeled in the fork or local clone.",
+    "Do not represent seeded/forked results as upstream project results.",
+    "Do not disrupt upstream maintainers."
+  ],
+  "candidate_acceptance_criteria": [
+    "repo is public and forkable or locally cloneable",
+    "license permits local testing/forking, or use is otherwise legally and ethically safe",
+    "failure can be reproduced from clean checkout",
+    "deterministic test/build/lint/check command exists or can be locally defined without altering the claim",
+    "setup does not require private secrets or paid services",
+    "logs can be captured locally",
+    "no-memory and memory-enabled paths can run under identical replay conditions",
+    "corruption/downstream checks can be defined",
+    "all artifacts can be hashed",
+    "decision-time/outcome separation can be enforced"
+  ],
+  "candidate_rejection_criteria": [
+    "only evidence is expired remote CI",
+    "local replay cannot reproduce failure",
+    "setup requires secrets/private APIs",
+    "task is security exploit focused",
+    "validator is subjective",
+    "repo is too large or too slow for bounded pilot",
+    "license/ethics are unclear",
+    "baseline comparison cannot be run",
+    "artifact custody cannot be preserved"
+  ],
+  "pilot_design": {
+    "episode_attempt_target": "3_to_5",
+    "allowed_scoring_mode": "limited_replay_scoring_only_if_all_external_fork_gates_pass",
+    "full_scoring_allowed": false,
+    "preferred_candidate_order": [
+      "forked public repo issue or discovered local failure",
+      "archived public repo dependency drift",
+      "public benchmark repo realistic failure",
+      "user-owned fallback only if external acquisition fails"
+    ],
+    "minimum_aggregate_external_memory_lift_criteria": {
+      "minimum_scoreable_external_fork_episodes": 3,
+      "minimum_positive_memory_outperformance_episodes": 2,
+      "positive_episode_corruption_allowed": false,
+      "decision_time_outcome_overlap_required": 0,
+      "replay_custody_required_for_positive_episodes": true
+    },
+    "aggregate_classifications": {
+      "if_criteria_met": "limited_external_fork_memory_lift_criteria_met",
+      "if_only_1_or_2_scoreable": "insufficient_episode_count_for_external_memory_lift",
+      "if_no_external_candidates_acquired": "blocked_external_candidate_acquisition_failure",
+      "if_memory_never_outperforms_no_memory": "negative_evidence_no_external_memory_lift"
+    },
+    "blocked_candidate_acquisition_interpretation": "blocked_external_candidate_acquisition_failure is not negative capability evidence"
+  },
+  "required_per_episode_artifacts": [
+    "episode_metadata.json",
+    "source_repo_metadata.json",
+    "license_summary.txt",
+    "candidate_selection_record.json",
+    "target_repo_snapshot.json",
+    "environment_snapshot.txt",
+    "failing_command.txt",
+    "failing_log_raw.txt",
+    "failure_signature.txt",
+    "pre_repair_replay_transcript.txt",
+    "no_memory_decision_time_inputs.json",
+    "no_memory_action_trace.json",
+    "no_memory_repair_patch.diff",
+    "no_memory_post_repair_log_raw.txt",
+    "no_memory_outcome.json",
+    "memory_enabled_decision_time_inputs.json",
+    "memory_enabled_action_trace.json",
+    "memory_evidence_used.json",
+    "memory_enabled_repair_patch.diff",
+    "memory_enabled_post_repair_log_raw.txt",
+    "memory_enabled_outcome.json",
+    "post_repair_comparison.json",
+    "corruption_check_result.json",
+    "decision_time_outcome_overlap_check.json",
+    "limited_scoring_result.json",
+    "proof_obligations_ledger.json",
+    "SHA256SUMS.txt"
+  ],
+  "evidence_classifications": [
+    "positive_evidence_memory_lift_external_fork_episode",
+    "negative_evidence_no_memory_lift_external_fork_episode",
+    "negative_evidence_memory_harm_or_corruption_external_fork_episode",
+    "blocked_external_candidate_acquisition_failure",
+    "blocked_replay_gate_failed",
+    "blocked_missing_baseline",
+    "blocked_artifact_custody_failure",
+    "blocked_decision_time_outcome_overlap",
+    "inconclusive_equal_performance",
+    "not_executed_resource_limit"
+  ],
+  "claim_boundaries": {
+    "external_fork_success_may_support_limited_external_fork_memory_lift_only": true,
+    "full_scoring_remains_NOT_RUN": true,
+    "self_maintaining_software_remains_not_demonstrated": true,
+    "broad_organic_public_repo_performance_not_proven_without_aggregate_external_criteria": true,
+    "seeded_controlled_and_user_owned_results_remain_labeled_separately": true,
+    "user_owned_fallback_must_not_be_counted_as_external_fork_evidence": true
+  },
+  "evidence_type_distinctions": {
+    "seeded_controlled_evidence": "Designed deterministic tasks useful for mechanism testing but not organic external proof.",
+    "user_owned_organic_style_evidence": "Replay-ready owner-controlled evidence that can support limited user-owned claims only.",
+    "external_fork_evidence": "Public fork/clone replay evidence with license/source metadata and local replay custody.",
+    "organic_external_evidence": "External public replay evidence satisfying aggregate criteria, still limited unless broader multi-repo validation exists."
+  },
+  "stop_conditions": [
+    "external candidate acquisition repeatedly fails",
+    "replay gate repeatedly fails",
+    "artifact custody fails",
+    "decision-time/outcome leakage appears",
+    "memory-enabled path causes repeated corruption",
+    "resource limits prevent safe completion"
+  ]
+}

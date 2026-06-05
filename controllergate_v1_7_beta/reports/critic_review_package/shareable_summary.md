@@ -316,3 +316,17 @@ v1.9 was previously positive but underpowered.
 Organic-style memory lift is now supported only within the limited user-owned replay scope. Organic external memory lift remains undemonstrated. Semi-organic user-owned evidence does not equal organic external evidence. Self-maintaining software remains undemonstrated. Full scoring remains disallowed.
 
 Blocked acquisition is not negative capability evidence. Organic-style memory lift is only claimed because the preregistered aggregate criteria are met in the limited user-owned replay scope.
+
+## v2.0 External-Fork Replay Pilot Plan
+
+v1.9 met limited user-owned organic-style memory-lift criteria.
+
+- v2.0 is designed to test external/fork replay evidence.
+- Target classes include forked public repo discovered failures, forked public issue replay, archived public dependency drift, public benchmark realistic failures, and user-owned fallback only if external acquisition fails.
+- External candidates must be public and ethically forkable or locally cloneable.
+- Replay must use clean checkout reproduction, local logs, no-memory baseline, memory-enabled path, identical replay conditions, corruption checks, decision-time/outcome separation, and SHA256 artifact custody.
+- Organic external memory lift remains undemonstrated.
+- Self-maintaining software remains undemonstrated.
+- Full scoring remains disallowed.
+
+User-owned results do not prove external public repo performance. A future v2.0 success may support only limited external-fork memory lift, and only if at least three scoreable external/fork episodes complete, at least two show memory outperformance, corruption remains zero, decision-time/outcome overlap remains zero, and replay/custody passes for all positive episodes.
