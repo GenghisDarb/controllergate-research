@@ -1,0 +1,57 @@
+QUIXBUGS_BENCHMARK_FAILURE: gcd
+{
+  "algorithm": "gcd",
+  "failures": [
+    {
+      "actual": null,
+      "exception": "RecursionError: maximum recursion depth exceeded",
+      "expected": 13,
+      "inputs": [
+        13,
+        13
+      ],
+      "line": 2
+    },
+    {
+      "actual": null,
+      "exception": "RecursionError: maximum recursion depth exceeded",
+      "expected": 1,
+      "inputs": [
+        37,
+        600
+      ],
+      "line": 3
+    },
+    {
+      "actual": null,
+      "exception": "RecursionError: maximum recursion depth exceeded",
+      "expected": 20,
+      "inputs": [
+        20,
+        100
+      ],
+      "line": 4
+    },
+    {
+      "actual": null,
+      "exception": "RecursionError: maximum recursion depth exceeded",
+      "expected": 18913,
+      "inputs": [
+        624129,
+        2061517
+      ],
+      "line": 5
+    },
+    {
+      "actual": null,
+      "exception": "RecursionError: maximum recursion depth exceeded",
+      "expected": 3,
+      "inputs": [
+        3,
+        12
+      ],
+      "line": 6
+    }
+  ],
+  "total": 6
+}

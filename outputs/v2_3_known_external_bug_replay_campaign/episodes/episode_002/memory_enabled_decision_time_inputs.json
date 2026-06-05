@@ -1,0 +1,17 @@
+{
+  "available_inputs": [
+    "QuixBugs buggy python_programs file",
+    "QuixBugs json_testcases expected outputs",
+    "ControllerGate JSON oracle harness",
+    "raw failing log",
+    "failure signature"
+  ],
+  "excluded_inputs": [
+    "correct_python_programs files",
+    "memory-enabled post-repair log",
+    "no-memory post-repair log",
+    "limited scoring result"
+  ],
+  "failure_signature": "QUIXBUGS_BENCHMARK_FAILURE: bucketsort",
+  "policy": "memory_enabled_benchmark_repair"
+}

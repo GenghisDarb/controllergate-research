@@ -1,0 +1,13 @@
+diff --git a/python_programs/to_base.py b/python_programs/to_base.py
+index 2abfa6a..e5e3e85 100644
+--- a/python_programs/to_base.py
++++ b/python_programs/to_base.py
+@@ -6,7 +6,7 @@ def to_base(num, b):
+     while num > 0:
+         i = num % b
+         num = num // b
+-        result = result + alphabet[i]
++        result = alphabet[i] + result
+     return result
+ 
+ 

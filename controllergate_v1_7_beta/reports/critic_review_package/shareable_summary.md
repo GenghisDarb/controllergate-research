@@ -425,3 +425,21 @@ External-fork controlled fixtures test portability of replay/memory machinery.
 - Claim boundary: limited external-fork controlled fixture evidence only.
 
 Injected fixture failures are not organic external bugs. Known external bug replay is stronger evidence. Candidate promotion is not repair success. Controlled fixture memory lift, if met, is limited-scope evidence. Organic external memory lift remains undemonstrated unless known external bug criteria are met. Self-maintaining software remains undemonstrated. Full scoring remains disallowed.
+
+## v2.3 Known External Bug Replay Campaign
+
+Known external bug replay is stronger than injected fixture evidence. Benchmark bugs must be labeled as benchmark evidence.
+
+- Promoted candidates count: 3
+- Known external bug candidates: 0
+- Benchmark bug candidates: 3
+- Fallback controlled fixture candidates: 3, not counted
+- Executed episodes count: 3
+- Scoreable episodes count: 3
+- Positive memory episodes: 3
+- Inconclusive/negative/blocked episodes: 0
+- Aggregate result: `limited_known_external_or_benchmark_memory_lift_criteria_met`
+- Claim boundary: limited QuixBugs benchmark replay evidence only.
+
+Fallback controlled fixtures do not count as known external bug evidence. Benchmark success does not prove arbitrary public repo performance. External memory lift remains limited unless aggregate criteria are met in the named evidence class. Broad organic external memory lift remains undemonstrated. Self-maintaining software remains undemonstrated. Full scoring remains disallowed.
+
