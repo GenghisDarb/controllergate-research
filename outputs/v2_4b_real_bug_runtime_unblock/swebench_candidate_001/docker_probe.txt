@@ -1,0 +1,30 @@
+{
+  "disk_report": {
+    "free_gb": 612.74,
+    "swe_bench_120gb_warning": false,
+    "total_gb": 929.79,
+    "used_gb": 317.05
+  },
+  "docker_info_probe": {
+    "command": [
+      "docker",
+      "info",
+      "--format",
+      "{{json .ServerVersion}}"
+    ],
+    "returncode": 1,
+    "stderr": "WARNING: Error loading config file: open C:\\Users\\thisb\\.docker\\config.json: Access is denied.\nfailed to connect to the docker API at npipe:////./pipe/docker_engine; check if the path is correct and if the daemon is running: open //./pipe/docker_engine: The system cannot find the file specified.",
+    "stdout": "\"\"",
+    "timed_out": false
+  },
+  "docker_version_probe": {
+    "command": [
+      "docker",
+      "--version"
+    ],
+    "returncode": 0,
+    "stderr": "WARNING: Error loading config file: open C:\\Users\\thisb\\.docker\\config.json: Access is denied.",
+    "stdout": "Docker version 29.2.1, build a5c7197",
+    "timed_out": false
+  }
+}

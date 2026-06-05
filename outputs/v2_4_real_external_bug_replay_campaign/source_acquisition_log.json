@@ -1,0 +1,50 @@
+{
+  "broad_organic_external_memory_lift_demonstrated": false,
+  "campaign_id": "v2_4_real_external_bug_replay_campaign",
+  "controllergate_full_scoring": "NOT_RUN",
+  "full_scoring_allowed": false,
+  "generated_at_utc": "2026-06-05T17:28:10.403508+00:00",
+  "runtime_probes": {
+    "bash_version": {
+      "command": [
+        "bash",
+        "--version"
+      ],
+      "returncode": 1,
+      "stderr": "",
+      "stdout": "W\u0000i\u0000n\u0000d\u0000o\u0000w\u0000s\u0000 \u0000S\u0000u\u0000b\u0000s\u0000y\u0000s\u0000t\u0000e\u0000m\u0000 \u0000f\u0000o\u0000r\u0000 \u0000L\u0000i\u0000n\u0000u\u0000x\u0000 \u0000h\u0000a\u0000s\u0000 \u0000n\u0000o\u0000 \u0000i\u0000n\u0000s\u0000t\u0000a\u0000l\u0000l\u0000e\u0000d\u0000 \u0000d\u0000i\u0000s\u0000t\u0000r\u0000i\u0000b\u0000u\u0000t\u0000i\u0000o\u0000n\u0000s\u0000.\u0000\n\u0000\n\u0000Y\u0000o\u0000u\u0000 \u0000c\u0000a\u0000n\u0000 \u0000r\u0000e\u0000s\u0000o\u0000l\u0000v\u0000e\u0000 \u0000t\u0000h\u0000i\u0000s\u0000 \u0000b\u0000y\u0000 \u0000i\u0000n\u0000s\u0000t\u0000a\u0000l\u0000l\u0000i\u0000n\u0000g\u0000 \u0000a\u0000 \u0000d\u0000i\u0000s\u0000t\u0000r\u0000i\u0000b\u0000u\u0000t\u0000i\u0000o\u0000n\u0000 \u0000w\u0000i\u0000t\u0000h\u0000 \u0000t\u0000h\u0000e\u0000 \u0000i\u0000n\u0000s\u0000t\u0000r\u0000u\u0000c\u0000t\u0000i\u0000o\u0000n\u0000s\u0000 \u0000b\u0000e\u0000l\u0000o\u0000w\u0000:\u0000\n\u0000\n\u0000\n\u0000\n\u0000U\u0000s\u0000e\u0000 \u0000'\u0000w\u0000s\u0000l\u0000.\u0000e\u0000x\u0000e\u0000 \u0000-\u0000-\u0000l\u0000i\u0000s\u0000t\u0000 \u0000-\u0000-\u0000o\u0000n\u0000l\u0000i\u0000n\u0000e\u0000'\u0000 \u0000t\u0000o\u0000 \u0000l\u0000i\u0000s\u0000t\u0000 \u0000a\u0000v\u0000a\u0000i\u0000l\u0000a\u0000b\u0000l\u0000e\u0000 \u0000d\u0000i\u0000s\u0000t\u0000r\u0000i\u0000b\u0000u\u0000t\u0000i\u0000o\u0000n\u0000s\u0000\n\u0000\n\u0000a\u0000n\u0000d\u0000 \u0000'\u0000w\u0000s\u0000l\u0000.\u0000e\u0000x\u0000e\u0000 \u0000-\u0000-\u0000i\u0000n\u0000s\u0000t\u0000a\u0000l\u0000l\u0000 \u0000<\u0000D\u0000i\u0000s\u0000t\u0000r\u0000o\u0000>\u0000'\u0000 \u0000t\u0000o\u0000 \u0000i\u0000n\u0000s\u0000t\u0000a\u0000l\u0000l\u0000.\u0000\n\u0000\n\u0000",
+      "timed_out": false
+    },
+    "bugsinpy_local_checkout": {
+      "exists": true,
+      "framework_bin_present": true,
+      "head": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+      "path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_4_candidate_bugsinpy",
+      "top_level_license_present": false
+    },
+    "docker_info": {
+      "command": [
+        "docker",
+        "info",
+        "--format",
+        "{{json .ServerVersion}}"
+      ],
+      "returncode": 1,
+      "stderr": "WARNING: Error loading config file: open C:\\Users\\thisb\\.docker\\config.json: Access is denied.\nfailed to connect to the docker API at npipe:////./pipe/docker_engine; check if the path is correct and if the daemon is running: open //./pipe/docker_engine: The system cannot find the file specified.",
+      "stdout": "\"\"",
+      "timed_out": false
+    },
+    "generated_at_utc": "2026-06-05T17:28:05.964561+00:00",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.12.13",
+    "swe_bench_local_checkout": {
+      "exists": true,
+      "head": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+      "license_present": true,
+      "path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_4_candidate_swe_bench"
+    }
+  },
+  "self_maintaining_software_demonstrated": false,
+  "source_descriptors_count": 5,
+  "source_strategy": "SWE-bench Verified/Lite and BugsInPy first; QuixBugs preserved only as prior benchmark evidence"
+}

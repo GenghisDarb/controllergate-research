@@ -443,3 +443,40 @@ Known external bug replay is stronger than injected fixture evidence. Benchmark 
 
 Fallback controlled fixtures do not count as known external bug evidence. Benchmark success does not prove arbitrary public repo performance. External memory lift remains limited unless aggregate criteria are met in the named evidence class. Broad organic external memory lift remains undemonstrated. Self-maintaining software remains undemonstrated. Full scoring remains disallowed.
 
+## v2.4 SWE-bench/BugsInPy Real External Bug Replay Campaign
+
+SWE-bench-style tasks are real GitHub issue tasks when reproduced safely. BugsInPy-style entries are real Python bug benchmark entries.
+
+- Source families acquired/preflighted: SWE-bench Verified/Lite repository metadata and BugsInPy repository metadata.
+- Promoted candidates count: 0.
+- Executed episodes count: 0.
+- Scoreable episodes count: 0.
+- Positive memory episodes: 0.
+- Inconclusive/negative episodes: 0.
+- Blocked candidates: 4 real-bug source descriptors plus QuixBugs preserved as non-organic benchmark evidence.
+- Aggregate result: `blocked_real_external_bug_candidate_acquisition_failure`.
+- Claim boundary: real external bug memory lift remains untested in v2.4.
+
+Gold/corrected patches are outcome-only and excluded from decision-time inputs. Benchmark evidence must be labeled as benchmark evidence. QuixBugs remains algorithmic benchmark evidence only and does not prove organic external bug repair.
+
+The current blockers are execution-environment and task-instantiation blockers, not negative capability evidence: SWE-bench requires a concrete bounded task plus Docker-based evaluation resources, and BugsInPy requires a Unix-style framework or Docker plus project-specific Python runtimes. The next required dataset/source action is to provide or enable a bounded SWE-bench Lite/Verified task workspace or a runnable BugsInPy container/shell environment with exact failing commands.
+
+Self-maintaining software remains undemonstrated. Full scoring remains disallowed. Broad organic external memory lift remains undemonstrated.
+
+## v2.4b BugsInPy/SWE-bench Runtime Unblock
+
+The blocker is benchmark runtime acquisition.
+
+- BugsInPy/SWE-bench candidates require local benchmark harness execution.
+- BugsInPy concrete candidates probed: `black:2`, `youtube-dl:1`, `black:8`.
+- SWE-bench smoke test status: blocked before task instantiation.
+- Promoted real-bug candidates: 0.
+- Executed real-bug replay episodes: 0.
+- Scoreable real-bug replay episodes: 0.
+- Aggregate result: `blocked_real_bug_runtime_unavailable`.
+
+Blocked runtime is not negative ControllerGate capability evidence. Candidate metadata alone does not prove replay readiness. Gold/corrected patches are outcome-only and barred from decision-time inputs.
+
+The practical next action is to run the benchmark harness in an environment that supports it: BugsInPy through a Unix shell or Docker with project-specific Python runtimes, or SWE-bench through a bounded Docker-capable Lite/Verified task runner.
+
+Self-maintaining software remains undemonstrated. Full scoring remains disallowed. Broad organic external memory lift remains undemonstrated.

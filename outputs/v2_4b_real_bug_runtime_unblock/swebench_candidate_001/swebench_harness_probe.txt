@@ -1,0 +1,19 @@
+{
+  "harness_file_present": true,
+  "import_probe": {
+    "command": [
+      "C:\\Users\\thisb\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-c",
+      "import swebench; print('swebench-import-ok')"
+    ],
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'swebench'",
+    "stdout": "",
+    "timed_out": false
+  },
+  "local_checkout": {
+    "exists": true,
+    "head": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+    "path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_4_candidate_swe_bench"
+  }
+}
