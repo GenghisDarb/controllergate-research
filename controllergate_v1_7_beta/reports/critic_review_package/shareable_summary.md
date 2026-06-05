@@ -386,3 +386,24 @@ v2.1 implements candidate acquisition/preflight.
 The harness ranks public/fork candidates by replay feasibility and uses controlled rejection reasons before any repair attempt. This result means no candidate is ready for v2.2 execution yet; it does not mean ControllerGate failed on external repos.
 
 Future developer-framework note: a reusable ControllerGate integration should separate `controllergate.toml` or YAML configuration, adapter interfaces, a generic shell adapter, a pytest adapter first, later npm/cargo/go test/Flutter-Dart adapters, proof ledger generation, and replay-engine execution.
+
+## v2.1b Curated External Candidate Sourcing Result
+
+v2.1b improves candidate sourcing quality.
+
+- Candidate pool produced: true
+- Candidates evaluated: 10
+- Ready candidates count: 0
+- Manual-review candidates count: 5
+- Rejected/blocked candidates count: 5
+- Best source families: small public Python repos with simple tests and curated bug benchmark descriptors
+- Source gap analysis: curated benchmark datasets/checkouts are unavailable locally; local public Python repos have clone, license, and command feasibility but still lack known deterministic failing issue branches.
+- v2.2 handoff recommendation: `manual_candidate_triage_before_v2_2`
+- Candidate readiness is not repair success.
+- Ready candidates only authorize future v2.2 replay attempts.
+- Blocked acquisition is not negative capability evidence.
+- External memory lift remains undemonstrated.
+- Self-maintaining software remains undemonstrated.
+- Full scoring remains disallowed.
+
+The next acquisition step should supply local benchmark datasets or known issue-branch descriptors with exact failing commands. Candidate readiness does not prove repair capability, and no external memory-lift claim is allowed from v2.1b.

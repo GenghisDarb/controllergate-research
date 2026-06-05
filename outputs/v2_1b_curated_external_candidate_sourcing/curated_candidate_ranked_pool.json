@@ -1,0 +1,896 @@
+{
+  "manual_review_candidate_count": 5,
+  "ranked_candidates": [
+    {
+      "candidate_id": "v2_1b_candidate_006_sampleproject",
+      "candidate_source_family": "small public Python repo with simple tests",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "memory_vs_no_memory_repairs_run": false,
+        "ready_candidate_only_authorizes_future_v2_2_attempt": false,
+        "repair_scoring_run": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "needs_manual_review",
+      "classification_reason": "Local source and deterministic command exist, but no reproducible failing issue/bug reference is known yet.",
+      "command_detection": {
+        "commands": [
+          "python -m pytest"
+        ],
+        "deterministic_command_available": true,
+        "expected_setup_command": "",
+        "expected_test_command": "python -m pytest",
+        "sources": [
+          "descriptor_expected_test_command"
+        ]
+      },
+      "dataset_reference": null,
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": [
+          "pyproject.toml"
+        ]
+      },
+      "language_hint": "python",
+      "license_ethics": {
+        "license_files_found": [
+          {
+            "first_line": "Copyright (c) 2016 The Python Packaging Authority (PyPA)",
+            "path": "LICENSE.txt",
+            "sha256": "5576f002b3c2f5713b37b72f4810a534c1c56e8ec2535a77eb54175796e41a99"
+          }
+        ],
+        "license_hint": "MIT-style open source license file present in local clone",
+        "status": "clear"
+      },
+      "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_sampleproject",
+      "memory_relevance": {
+        "expected_memory_relevance": "small packaging repo; possible metadata/config coupling if a real failing issue branch is later supplied",
+        "score_component": 10
+      },
+      "readiness_score": 95,
+      "readiness_score_breakdown": {
+        "artifact_custody_feasibility": 15,
+        "baseline_comparability": 10,
+        "bounded_runtime": 10,
+        "corruption_check_availability": 10,
+        "deterministic_local_command": 20,
+        "environment_reproducibility": 15,
+        "license_ethics_clarity": 10,
+        "memory_relevance": 5
+      },
+      "replay_preflight": {
+        "artifact_custody_feasible": true,
+        "clean_checkout_feasible": true,
+        "corruption_downstream_check_feasible": true,
+        "environment_reproducible": true,
+        "issue_or_bug_reference": null,
+        "known_failure_description": "",
+        "local_failure_reproducible_now": false,
+        "memory_enabled_path_feasible": true,
+        "no_memory_baseline_feasible": true,
+        "no_private_service_or_secret_required": true,
+        "runtime_budget_likely_bounded": true
+      },
+      "repo_url": "https://github.com/pypa/sampleproject.git",
+      "source_custody": {
+        "git_branch": "main",
+        "git_head_sha": "621e4974ca25ce531773def586ba3ed8e736b3fc",
+        "local_source_available": true,
+        "no_upstream_disruption_required": true,
+        "remote_ci_logs_used": false
+      },
+      "source_quality_score": 50,
+      "source_quality_score_breakdown": {
+        "clear_deterministic_command": 20,
+        "curated_bug_benchmark": 0,
+        "known_reproducible_failure": 0,
+        "license_clarity": 10,
+        "memory_relevance": 10,
+        "small_bounded_runtime": 10
+      },
+      "source_tier": "tier_2_small_public_repos_with_simple_tests"
+    },
+    {
+      "candidate_id": "v2_1b_candidate_007_packaging",
+      "candidate_source_family": "small public Python repo with simple tests",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "memory_vs_no_memory_repairs_run": false,
+        "ready_candidate_only_authorizes_future_v2_2_attempt": false,
+        "repair_scoring_run": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "needs_manual_review",
+      "classification_reason": "Local source and deterministic command exist, but no reproducible failing issue/bug reference is known yet.",
+      "command_detection": {
+        "commands": [
+          "python -m pytest"
+        ],
+        "deterministic_command_available": true,
+        "expected_setup_command": "",
+        "expected_test_command": "python -m pytest",
+        "sources": [
+          "descriptor_expected_test_command"
+        ]
+      },
+      "dataset_reference": null,
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": [
+          "pyproject.toml"
+        ]
+      },
+      "language_hint": "python",
+      "license_ethics": {
+        "license_files_found": [
+          {
+            "first_line": "This software is made available under the terms of *either* of the licenses",
+            "path": "LICENSE",
+            "sha256": "8ef81e4c883c5ccb2a08026cc74ba3193279dd5149b36839d976c0a896637d87"
+          }
+        ],
+        "license_hint": "Apache/BSD license files present in local clone",
+        "status": "clear"
+      },
+      "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_packaging",
+      "memory_relevance": {
+        "expected_memory_relevance": "packaging/version logic could be memory-relevant if a known failing issue branch is supplied",
+        "score_component": 10
+      },
+      "readiness_score": 95,
+      "readiness_score_breakdown": {
+        "artifact_custody_feasibility": 15,
+        "baseline_comparability": 10,
+        "bounded_runtime": 10,
+        "corruption_check_availability": 10,
+        "deterministic_local_command": 20,
+        "environment_reproducibility": 15,
+        "license_ethics_clarity": 10,
+        "memory_relevance": 5
+      },
+      "replay_preflight": {
+        "artifact_custody_feasible": true,
+        "clean_checkout_feasible": true,
+        "corruption_downstream_check_feasible": true,
+        "environment_reproducible": true,
+        "issue_or_bug_reference": null,
+        "known_failure_description": "",
+        "local_failure_reproducible_now": false,
+        "memory_enabled_path_feasible": true,
+        "no_memory_baseline_feasible": true,
+        "no_private_service_or_secret_required": true,
+        "runtime_budget_likely_bounded": true
+      },
+      "repo_url": "https://github.com/pypa/packaging.git",
+      "source_custody": {
+        "git_branch": "main",
+        "git_head_sha": "9d142069caf7a6e74f75e1c0a8a5fad674c7bc40",
+        "local_source_available": true,
+        "no_upstream_disruption_required": true,
+        "remote_ci_logs_used": false
+      },
+      "source_quality_score": 50,
+      "source_quality_score_breakdown": {
+        "clear_deterministic_command": 20,
+        "curated_bug_benchmark": 0,
+        "known_reproducible_failure": 0,
+        "license_clarity": 10,
+        "memory_relevance": 10,
+        "small_bounded_runtime": 10
+      },
+      "source_tier": "tier_2_small_public_repos_with_simple_tests"
+    },
+    {
+      "candidate_id": "v2_1b_candidate_008_requests",
+      "candidate_source_family": "small public Python repo with simple tests",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "memory_vs_no_memory_repairs_run": false,
+        "ready_candidate_only_authorizes_future_v2_2_attempt": false,
+        "repair_scoring_run": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "needs_manual_review",
+      "classification_reason": "Local source and deterministic command exist, but no reproducible failing issue/bug reference is known yet.",
+      "command_detection": {
+        "commands": [
+          "python -m pytest"
+        ],
+        "deterministic_command_available": true,
+        "expected_setup_command": "",
+        "expected_test_command": "python -m pytest",
+        "sources": [
+          "descriptor_expected_test_command"
+        ]
+      },
+      "dataset_reference": null,
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": [
+          "pyproject.toml",
+          "setup.py",
+          "tox.ini"
+        ]
+      },
+      "language_hint": "python",
+      "license_ethics": {
+        "license_files_found": [
+          {
+            "first_line": "Apache License",
+            "path": "LICENSE",
+            "sha256": "88046bf22d5b4f4b8cc85079ae6aae5424a3a1999db952ed152828ff325b2c6d"
+          },
+          {
+            "first_line": "Requests",
+            "path": "NOTICE",
+            "sha256": "8c7a3a90f8ca49f813f75e75ceb20aa4b488c57f4aa72c872771f22558c837d9"
+          }
+        ],
+        "license_hint": "Apache license file present in local clone",
+        "status": "clear"
+      },
+      "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_requests",
+      "memory_relevance": {
+        "expected_memory_relevance": "HTTP library may include downstream/integration risks, but network-sensitive tests require careful triage",
+        "score_component": 10
+      },
+      "readiness_score": 95,
+      "readiness_score_breakdown": {
+        "artifact_custody_feasibility": 15,
+        "baseline_comparability": 10,
+        "bounded_runtime": 10,
+        "corruption_check_availability": 10,
+        "deterministic_local_command": 20,
+        "environment_reproducibility": 15,
+        "license_ethics_clarity": 10,
+        "memory_relevance": 5
+      },
+      "replay_preflight": {
+        "artifact_custody_feasible": true,
+        "clean_checkout_feasible": true,
+        "corruption_downstream_check_feasible": true,
+        "environment_reproducible": true,
+        "issue_or_bug_reference": null,
+        "known_failure_description": "",
+        "local_failure_reproducible_now": false,
+        "memory_enabled_path_feasible": true,
+        "no_memory_baseline_feasible": true,
+        "no_private_service_or_secret_required": true,
+        "runtime_budget_likely_bounded": true
+      },
+      "repo_url": "https://github.com/psf/requests.git",
+      "source_custody": {
+        "git_branch": "main",
+        "git_head_sha": "1190afd14fca74292946d62c4c8169880a47ff67",
+        "local_source_available": true,
+        "no_upstream_disruption_required": true,
+        "remote_ci_logs_used": false
+      },
+      "source_quality_score": 50,
+      "source_quality_score_breakdown": {
+        "clear_deterministic_command": 20,
+        "curated_bug_benchmark": 0,
+        "known_reproducible_failure": 0,
+        "license_clarity": 10,
+        "memory_relevance": 10,
+        "small_bounded_runtime": 10
+      },
+      "source_tier": "tier_2_small_public_repos_with_simple_tests"
+    },
+    {
+      "candidate_id": "v2_1b_candidate_009_itsdangerous",
+      "candidate_source_family": "small public Python repo with simple tests",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "memory_vs_no_memory_repairs_run": false,
+        "ready_candidate_only_authorizes_future_v2_2_attempt": false,
+        "repair_scoring_run": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "needs_manual_review",
+      "classification_reason": "Local source and deterministic command exist, but no reproducible failing issue/bug reference is known yet.",
+      "command_detection": {
+        "commands": [
+          "python -m pytest"
+        ],
+        "deterministic_command_available": true,
+        "expected_setup_command": "",
+        "expected_test_command": "python -m pytest",
+        "sources": [
+          "descriptor_expected_test_command"
+        ]
+      },
+      "dataset_reference": null,
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": [
+          "pyproject.toml"
+        ]
+      },
+      "language_hint": "python",
+      "license_ethics": {
+        "license_files_found": [
+          {
+            "first_line": "Copyright 2011 Pallets",
+            "path": "LICENSE.txt",
+            "sha256": "b3f7620467c0781acabb70d6b4932a46949f21aa1dbb932f75a6abdc0221900e"
+          }
+        ],
+        "license_hint": "BSD-style open source license file present in local clone",
+        "status": "clear"
+      },
+      "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_itsdangerous",
+      "memory_relevance": {
+        "expected_memory_relevance": "small library candidate; memory relevance depends on future known failure source",
+        "score_component": 10
+      },
+      "readiness_score": 95,
+      "readiness_score_breakdown": {
+        "artifact_custody_feasibility": 15,
+        "baseline_comparability": 10,
+        "bounded_runtime": 10,
+        "corruption_check_availability": 10,
+        "deterministic_local_command": 20,
+        "environment_reproducibility": 15,
+        "license_ethics_clarity": 10,
+        "memory_relevance": 5
+      },
+      "replay_preflight": {
+        "artifact_custody_feasible": true,
+        "clean_checkout_feasible": true,
+        "corruption_downstream_check_feasible": true,
+        "environment_reproducible": true,
+        "issue_or_bug_reference": null,
+        "known_failure_description": "",
+        "local_failure_reproducible_now": false,
+        "memory_enabled_path_feasible": true,
+        "no_memory_baseline_feasible": true,
+        "no_private_service_or_secret_required": true,
+        "runtime_budget_likely_bounded": true
+      },
+      "repo_url": "https://github.com/pallets/itsdangerous.git",
+      "source_custody": {
+        "git_branch": "main",
+        "git_head_sha": "672971d66a2ef9f85151e53283113f33d642dabd",
+        "local_source_available": true,
+        "no_upstream_disruption_required": true,
+        "remote_ci_logs_used": false
+      },
+      "source_quality_score": 50,
+      "source_quality_score_breakdown": {
+        "clear_deterministic_command": 20,
+        "curated_bug_benchmark": 0,
+        "known_reproducible_failure": 0,
+        "license_clarity": 10,
+        "memory_relevance": 10,
+        "small_bounded_runtime": 10
+      },
+      "source_tier": "tier_2_small_public_repos_with_simple_tests"
+    },
+    {
+      "candidate_id": "v2_1b_candidate_010_markupsafe",
+      "candidate_source_family": "small public Python repo with simple tests",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "memory_vs_no_memory_repairs_run": false,
+        "ready_candidate_only_authorizes_future_v2_2_attempt": false,
+        "repair_scoring_run": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "needs_manual_review",
+      "classification_reason": "Local source and deterministic command exist, but no reproducible failing issue/bug reference is known yet.",
+      "command_detection": {
+        "commands": [
+          "python -m pytest"
+        ],
+        "deterministic_command_available": true,
+        "expected_setup_command": "",
+        "expected_test_command": "python -m pytest",
+        "sources": [
+          "descriptor_expected_test_command"
+        ]
+      },
+      "dataset_reference": null,
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": [
+          "pyproject.toml",
+          "setup.py"
+        ]
+      },
+      "language_hint": "python",
+      "license_ethics": {
+        "license_files_found": [
+          {
+            "first_line": "Copyright 2010 Pallets",
+            "path": "LICENSE.txt",
+            "sha256": "4631ec0db5fd90a547e336817264c6798214338146f8ac94b4a57f96ee8c9ec4"
+          }
+        ],
+        "license_hint": "BSD-style open source license file present in local clone",
+        "status": "clear"
+      },
+      "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_markupsafe",
+      "memory_relevance": {
+        "expected_memory_relevance": "small library candidate; memory relevance depends on future known failure source",
+        "score_component": 10
+      },
+      "readiness_score": 95,
+      "readiness_score_breakdown": {
+        "artifact_custody_feasibility": 15,
+        "baseline_comparability": 10,
+        "bounded_runtime": 10,
+        "corruption_check_availability": 10,
+        "deterministic_local_command": 20,
+        "environment_reproducibility": 15,
+        "license_ethics_clarity": 10,
+        "memory_relevance": 5
+      },
+      "replay_preflight": {
+        "artifact_custody_feasible": true,
+        "clean_checkout_feasible": true,
+        "corruption_downstream_check_feasible": true,
+        "environment_reproducible": true,
+        "issue_or_bug_reference": null,
+        "known_failure_description": "",
+        "local_failure_reproducible_now": false,
+        "memory_enabled_path_feasible": true,
+        "no_memory_baseline_feasible": true,
+        "no_private_service_or_secret_required": true,
+        "runtime_budget_likely_bounded": true
+      },
+      "repo_url": "https://github.com/pallets/markupsafe.git",
+      "source_custody": {
+        "git_branch": "main",
+        "git_head_sha": "b2e4d9c7687be25695fffbe93a37622302b24fb1",
+        "local_source_available": true,
+        "no_upstream_disruption_required": true,
+        "remote_ci_logs_used": false
+      },
+      "source_quality_score": 50,
+      "source_quality_score_breakdown": {
+        "clear_deterministic_command": 20,
+        "curated_bug_benchmark": 0,
+        "known_reproducible_failure": 0,
+        "license_clarity": 10,
+        "memory_relevance": 10,
+        "small_bounded_runtime": 10
+      },
+      "source_tier": "tier_2_small_public_repos_with_simple_tests"
+    },
+    {
+      "candidate_id": "v2_1b_candidate_003_quixbugs_style",
+      "candidate_source_family": "QuixBugs-style small algorithmic benchmark",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "memory_vs_no_memory_repairs_run": false,
+        "ready_candidate_only_authorizes_future_v2_2_attempt": false,
+        "repair_scoring_run": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "blocked_candidate_source_unavailable",
+      "classification_reason": "Candidate source is not locally available; no network clone was attempted.",
+      "command_detection": {
+        "commands": [],
+        "deterministic_command_available": false,
+        "expected_setup_command": "benchmark-specific local setup unavailable until checkout",
+        "expected_test_command": "benchmark-specific local tests unavailable until checkout",
+        "sources": []
+      },
+      "dataset_reference": "QuixBugs-style small algorithmic bugs; local checkout not present",
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": []
+      },
+      "language_hint": "python",
+      "license_ethics": {
+        "license_files_found": [],
+        "license_hint": "license must be verified after checkout",
+        "status": "unclear"
+      },
+      "local_path": null,
+      "memory_relevance": {
+        "expected_memory_relevance": "small deterministic bug oracle, recurrence across algorithms, false-positive transfer risk",
+        "score_component": 10
+      },
+      "readiness_score": 0,
+      "readiness_score_breakdown": {
+        "artifact_custody_feasibility": 0,
+        "baseline_comparability": 0,
+        "bounded_runtime": 0,
+        "corruption_check_availability": 0,
+        "deterministic_local_command": 0,
+        "environment_reproducibility": 0,
+        "license_ethics_clarity": 0,
+        "memory_relevance": 0
+      },
+      "replay_preflight": {
+        "artifact_custody_feasible": false,
+        "clean_checkout_feasible": false,
+        "corruption_downstream_check_feasible": false,
+        "environment_reproducible": false,
+        "issue_or_bug_reference": null,
+        "known_failure_description": "Benchmark family is expected to contain deterministic algorithmic failures, but no local checkout is available.",
+        "local_failure_reproducible_now": false,
+        "memory_enabled_path_feasible": false,
+        "no_memory_baseline_feasible": false,
+        "no_private_service_or_secret_required": true,
+        "runtime_budget_likely_bounded": false
+      },
+      "repo_url": "https://github.com/jkoppel/QuixBugs.git",
+      "source_custody": {
+        "git_branch": null,
+        "git_head_sha": null,
+        "local_source_available": false,
+        "no_upstream_disruption_required": true,
+        "remote_ci_logs_used": false
+      },
+      "source_quality_score": 45,
+      "source_quality_score_breakdown": {
+        "clear_deterministic_command": 0,
+        "curated_bug_benchmark": 25,
+        "known_reproducible_failure": 0,
+        "license_clarity": 0,
+        "memory_relevance": 10,
+        "small_bounded_runtime": 10
+      },
+      "source_tier": "tier_1_curated_bug_benchmarks"
+    },
+    {
+      "candidate_id": "v2_1b_candidate_001_bugsinpy_style",
+      "candidate_source_family": "BugsInPy-style Python bug benchmark",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "memory_vs_no_memory_repairs_run": false,
+        "ready_candidate_only_authorizes_future_v2_2_attempt": false,
+        "repair_scoring_run": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "blocked_candidate_source_unavailable",
+      "classification_reason": "Candidate source is not locally available; no network clone was attempted.",
+      "command_detection": {
+        "commands": [],
+        "deterministic_command_available": false,
+        "expected_setup_command": "dataset-specific checkout and install command unavailable locally",
+        "expected_test_command": "dataset-specific pytest command unavailable locally",
+        "sources": []
+      },
+      "dataset_reference": "BugsInPy-style Python bug dataset; local dataset checkout not present",
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": []
+      },
+      "language_hint": "python",
+      "license_ethics": {
+        "license_files_found": [],
+        "license_hint": "dataset license unavailable until source is acquired",
+        "status": "unclear"
+      },
+      "local_path": null,
+      "memory_relevance": {
+        "expected_memory_relevance": "dependency drift, repeated bug patterns, test oracle repair, cross-file maintenance",
+        "score_component": 10
+      },
+      "readiness_score": 0,
+      "readiness_score_breakdown": {
+        "artifact_custody_feasibility": 0,
+        "baseline_comparability": 0,
+        "bounded_runtime": 0,
+        "corruption_check_availability": 0,
+        "deterministic_local_command": 0,
+        "environment_reproducibility": 0,
+        "license_ethics_clarity": 0,
+        "memory_relevance": 0
+      },
+      "replay_preflight": {
+        "artifact_custody_feasible": false,
+        "clean_checkout_feasible": false,
+        "corruption_downstream_check_feasible": false,
+        "environment_reproducible": false,
+        "issue_or_bug_reference": null,
+        "known_failure_description": "Curated benchmark family is expected to contain known reproducible failing tests, but no local candidate instance is available.",
+        "local_failure_reproducible_now": false,
+        "memory_enabled_path_feasible": false,
+        "no_memory_baseline_feasible": false,
+        "no_private_service_or_secret_required": true,
+        "runtime_budget_likely_bounded": false
+      },
+      "repo_url": null,
+      "source_custody": {
+        "git_branch": null,
+        "git_head_sha": null,
+        "local_source_available": false,
+        "no_upstream_disruption_required": true,
+        "remote_ci_logs_used": false
+      },
+      "source_quality_score": 35,
+      "source_quality_score_breakdown": {
+        "clear_deterministic_command": 0,
+        "curated_bug_benchmark": 25,
+        "known_reproducible_failure": 0,
+        "license_clarity": 0,
+        "memory_relevance": 10,
+        "small_bounded_runtime": 0
+      },
+      "source_tier": "tier_1_curated_bug_benchmarks"
+    },
+    {
+      "candidate_id": "v2_1b_candidate_002_swe_bench_style",
+      "candidate_source_family": "SWE-bench-style task metadata",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "memory_vs_no_memory_repairs_run": false,
+        "ready_candidate_only_authorizes_future_v2_2_attempt": false,
+        "repair_scoring_run": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "blocked_candidate_source_unavailable",
+      "classification_reason": "Candidate source is not locally available; no network clone was attempted.",
+      "command_detection": {
+        "commands": [],
+        "deterministic_command_available": false,
+        "expected_setup_command": "task-specific environment setup unavailable locally",
+        "expected_test_command": "task-specific fail/pass test commands unavailable locally",
+        "sources": []
+      },
+      "dataset_reference": "SWE-bench-style task metadata; local task pack not present",
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": []
+      },
+      "language_hint": "python",
+      "license_ethics": {
+        "license_files_found": [],
+        "license_hint": "dataset/license metadata unavailable until source is acquired",
+        "status": "unclear"
+      },
+      "local_path": null,
+      "memory_relevance": {
+        "expected_memory_relevance": "cross-file coupling, stale-rule risk, multi-step maintenance, downstream test repair",
+        "score_component": 10
+      },
+      "readiness_score": 0,
+      "readiness_score_breakdown": {
+        "artifact_custody_feasibility": 0,
+        "baseline_comparability": 0,
+        "bounded_runtime": 0,
+        "corruption_check_availability": 0,
+        "deterministic_local_command": 0,
+        "environment_reproducibility": 0,
+        "license_ethics_clarity": 0,
+        "memory_relevance": 0
+      },
+      "replay_preflight": {
+        "artifact_custody_feasible": false,
+        "clean_checkout_feasible": false,
+        "corruption_downstream_check_feasible": false,
+        "environment_reproducible": false,
+        "issue_or_bug_reference": null,
+        "known_failure_description": "Task metadata may contain known issue-to-test repair tasks, but no local replay instance is available.",
+        "local_failure_reproducible_now": false,
+        "memory_enabled_path_feasible": false,
+        "no_memory_baseline_feasible": false,
+        "no_private_service_or_secret_required": true,
+        "runtime_budget_likely_bounded": false
+      },
+      "repo_url": null,
+      "source_custody": {
+        "git_branch": null,
+        "git_head_sha": null,
+        "local_source_available": false,
+        "no_upstream_disruption_required": true,
+        "remote_ci_logs_used": false
+      },
+      "source_quality_score": 35,
+      "source_quality_score_breakdown": {
+        "clear_deterministic_command": 0,
+        "curated_bug_benchmark": 25,
+        "known_reproducible_failure": 0,
+        "license_clarity": 0,
+        "memory_relevance": 10,
+        "small_bounded_runtime": 0
+      },
+      "source_tier": "tier_1_curated_bug_benchmarks"
+    },
+    {
+      "candidate_id": "v2_1b_candidate_004_defects4j_style",
+      "candidate_source_family": "Defects4J-style Java bug benchmark",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "memory_vs_no_memory_repairs_run": false,
+        "ready_candidate_only_authorizes_future_v2_2_attempt": false,
+        "repair_scoring_run": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "blocked_candidate_source_unavailable",
+      "classification_reason": "Candidate source is not locally available; no network clone was attempted.",
+      "command_detection": {
+        "commands": [],
+        "deterministic_command_available": false,
+        "expected_setup_command": "defects4j checkout/setup unavailable locally",
+        "expected_test_command": "defects4j test command unavailable locally",
+        "sources": []
+      },
+      "dataset_reference": "Defects4J-style Java bugs; local environment not present",
+      "ecosystem_detection": {
+        "ecosystem": "java",
+        "language_hint": "java",
+        "signals": []
+      },
+      "language_hint": "java",
+      "license_ethics": {
+        "license_files_found": [],
+        "license_hint": "dataset/license metadata unavailable until source is acquired",
+        "status": "unclear"
+      },
+      "local_path": null,
+      "memory_relevance": {
+        "expected_memory_relevance": "cross-file coupling, regression repair, stale-rule risk, downstream test behavior",
+        "score_component": 10
+      },
+      "readiness_score": 0,
+      "readiness_score_breakdown": {
+        "artifact_custody_feasibility": 0,
+        "baseline_comparability": 0,
+        "bounded_runtime": 0,
+        "corruption_check_availability": 0,
+        "deterministic_local_command": 0,
+        "environment_reproducibility": 0,
+        "license_ethics_clarity": 0,
+        "memory_relevance": 0
+      },
+      "replay_preflight": {
+        "artifact_custody_feasible": false,
+        "clean_checkout_feasible": false,
+        "corruption_downstream_check_feasible": false,
+        "environment_reproducible": false,
+        "issue_or_bug_reference": null,
+        "known_failure_description": "Curated Java bug family likely has deterministic failing tests, but local runtime and dataset are unavailable.",
+        "local_failure_reproducible_now": false,
+        "memory_enabled_path_feasible": false,
+        "no_memory_baseline_feasible": false,
+        "no_private_service_or_secret_required": true,
+        "runtime_budget_likely_bounded": false
+      },
+      "repo_url": null,
+      "source_custody": {
+        "git_branch": null,
+        "git_head_sha": null,
+        "local_source_available": false,
+        "no_upstream_disruption_required": true,
+        "remote_ci_logs_used": false
+      },
+      "source_quality_score": 35,
+      "source_quality_score_breakdown": {
+        "clear_deterministic_command": 0,
+        "curated_bug_benchmark": 25,
+        "known_reproducible_failure": 0,
+        "license_clarity": 0,
+        "memory_relevance": 10,
+        "small_bounded_runtime": 0
+      },
+      "source_tier": "tier_1_curated_bug_benchmarks"
+    },
+    {
+      "candidate_id": "v2_1b_candidate_005_archived_dependency_drift",
+      "candidate_source_family": "Archived public repo with dependency drift",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "memory_vs_no_memory_repairs_run": false,
+        "ready_candidate_only_authorizes_future_v2_2_attempt": false,
+        "repair_scoring_run": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "blocked_candidate_source_unavailable",
+      "classification_reason": "Candidate source is not locally available; no network clone was attempted.",
+      "command_detection": {
+        "commands": [],
+        "deterministic_command_available": false,
+        "expected_setup_command": "unavailable",
+        "expected_test_command": "unavailable",
+        "sources": []
+      },
+      "dataset_reference": "Archived dependency-drift candidate list not yet supplied",
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": []
+      },
+      "language_hint": "python",
+      "license_ethics": {
+        "license_files_found": [],
+        "license_hint": "unavailable until candidate repo is identified",
+        "status": "unclear"
+      },
+      "local_path": null,
+      "memory_relevance": {
+        "expected_memory_relevance": "dependency drift, stale-rule risk, baseline comparison",
+        "score_component": 10
+      },
+      "readiness_score": 0,
+      "readiness_score_breakdown": {
+        "artifact_custody_feasibility": 0,
+        "baseline_comparability": 0,
+        "bounded_runtime": 0,
+        "corruption_check_availability": 0,
+        "deterministic_local_command": 0,
+        "environment_reproducibility": 0,
+        "license_ethics_clarity": 0,
+        "memory_relevance": 0
+      },
+      "replay_preflight": {
+        "artifact_custody_feasible": false,
+        "clean_checkout_feasible": false,
+        "corruption_downstream_check_feasible": false,
+        "environment_reproducible": false,
+        "issue_or_bug_reference": null,
+        "known_failure_description": "No specific archived repo or deterministic drift failure has been acquired yet.",
+        "local_failure_reproducible_now": false,
+        "memory_enabled_path_feasible": false,
+        "no_memory_baseline_feasible": false,
+        "no_private_service_or_secret_required": true,
+        "runtime_budget_likely_bounded": false
+      },
+      "repo_url": null,
+      "source_custody": {
+        "git_branch": null,
+        "git_head_sha": null,
+        "local_source_available": false,
+        "no_upstream_disruption_required": true,
+        "remote_ci_logs_used": false
+      },
+      "source_quality_score": 10,
+      "source_quality_score_breakdown": {
+        "clear_deterministic_command": 0,
+        "curated_bug_benchmark": 0,
+        "known_reproducible_failure": 0,
+        "license_clarity": 0,
+        "memory_relevance": 10,
+        "small_bounded_runtime": 0
+      },
+      "source_tier": "tier_3_archived_public_repos_with_dependency_drift"
+    }
+  ],
+  "ranking_order": "readiness_score_descending_then_source_quality_score_descending_then_candidate_id",
+  "ready_candidate_count": 0,
+  "rejected_or_blocked_candidate_count": 5
+}

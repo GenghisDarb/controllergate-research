@@ -1,0 +1,120 @@
+{
+  "classification_counts": {
+    "blocked_candidate_source_unavailable": 5,
+    "blocked_local_replay_failed": 0,
+    "needs_manual_review": 5,
+    "not_ready": 0,
+    "ready_for_v2_2_candidate": 0,
+    "rejected_environment_not_reproducible": 0,
+    "rejected_license_or_ethics_unclear": 0,
+    "rejected_no_baseline_path": 0,
+    "rejected_no_corruption_check": 0,
+    "rejected_no_deterministic_failure": 0,
+    "rejected_no_local_test_command": 0,
+    "rejected_private_service_required": 0,
+    "rejected_remote_ci_only": 0,
+    "rejected_runtime_too_large": 0,
+    "rejected_security_exploit_target": 0,
+    "rejected_subjective_validator": 0
+  },
+  "controlled_classifications": [
+    "blocked_candidate_source_unavailable",
+    "blocked_local_replay_failed",
+    "needs_manual_review",
+    "not_ready",
+    "ready_for_v2_2_candidate",
+    "rejected_environment_not_reproducible",
+    "rejected_license_or_ethics_unclear",
+    "rejected_no_baseline_path",
+    "rejected_no_corruption_check",
+    "rejected_no_deterministic_failure",
+    "rejected_no_local_test_command",
+    "rejected_private_service_required",
+    "rejected_remote_ci_only",
+    "rejected_runtime_too_large",
+    "rejected_security_exploit_target",
+    "rejected_subjective_validator"
+  ],
+  "records": [
+    {
+      "candidate_id": "v2_1b_candidate_006_sampleproject",
+      "candidate_source_family": "small public Python repo with simple tests",
+      "classification": "needs_manual_review",
+      "readiness_score": 95,
+      "reason": "Local source and deterministic command exist, but no reproducible failing issue/bug reference is known yet.",
+      "source_quality_score": 50
+    },
+    {
+      "candidate_id": "v2_1b_candidate_007_packaging",
+      "candidate_source_family": "small public Python repo with simple tests",
+      "classification": "needs_manual_review",
+      "readiness_score": 95,
+      "reason": "Local source and deterministic command exist, but no reproducible failing issue/bug reference is known yet.",
+      "source_quality_score": 50
+    },
+    {
+      "candidate_id": "v2_1b_candidate_008_requests",
+      "candidate_source_family": "small public Python repo with simple tests",
+      "classification": "needs_manual_review",
+      "readiness_score": 95,
+      "reason": "Local source and deterministic command exist, but no reproducible failing issue/bug reference is known yet.",
+      "source_quality_score": 50
+    },
+    {
+      "candidate_id": "v2_1b_candidate_009_itsdangerous",
+      "candidate_source_family": "small public Python repo with simple tests",
+      "classification": "needs_manual_review",
+      "readiness_score": 95,
+      "reason": "Local source and deterministic command exist, but no reproducible failing issue/bug reference is known yet.",
+      "source_quality_score": 50
+    },
+    {
+      "candidate_id": "v2_1b_candidate_010_markupsafe",
+      "candidate_source_family": "small public Python repo with simple tests",
+      "classification": "needs_manual_review",
+      "readiness_score": 95,
+      "reason": "Local source and deterministic command exist, but no reproducible failing issue/bug reference is known yet.",
+      "source_quality_score": 50
+    },
+    {
+      "candidate_id": "v2_1b_candidate_003_quixbugs_style",
+      "candidate_source_family": "QuixBugs-style small algorithmic benchmark",
+      "classification": "blocked_candidate_source_unavailable",
+      "readiness_score": 0,
+      "reason": "Candidate source is not locally available; no network clone was attempted.",
+      "source_quality_score": 45
+    },
+    {
+      "candidate_id": "v2_1b_candidate_001_bugsinpy_style",
+      "candidate_source_family": "BugsInPy-style Python bug benchmark",
+      "classification": "blocked_candidate_source_unavailable",
+      "readiness_score": 0,
+      "reason": "Candidate source is not locally available; no network clone was attempted.",
+      "source_quality_score": 35
+    },
+    {
+      "candidate_id": "v2_1b_candidate_002_swe_bench_style",
+      "candidate_source_family": "SWE-bench-style task metadata",
+      "classification": "blocked_candidate_source_unavailable",
+      "readiness_score": 0,
+      "reason": "Candidate source is not locally available; no network clone was attempted.",
+      "source_quality_score": 35
+    },
+    {
+      "candidate_id": "v2_1b_candidate_004_defects4j_style",
+      "candidate_source_family": "Defects4J-style Java bug benchmark",
+      "classification": "blocked_candidate_source_unavailable",
+      "readiness_score": 0,
+      "reason": "Candidate source is not locally available; no network clone was attempted.",
+      "source_quality_score": 35
+    },
+    {
+      "candidate_id": "v2_1b_candidate_005_archived_dependency_drift",
+      "candidate_source_family": "Archived public repo with dependency drift",
+      "classification": "blocked_candidate_source_unavailable",
+      "readiness_score": 0,
+      "reason": "Candidate source is not locally available; no network clone was attempted.",
+      "source_quality_score": 10
+    }
+  ]
+}
