@@ -554,3 +554,23 @@ Dependency repair is runtime setup, not code repair. Target-failure matching rem
 Candidate promotion is not repair success. Limited BugsInPy memory lift is not demonstrated. Full scoring remains disallowed. Self-maintaining software remains undemonstrated.
 
 Next required runtime action: run the `v2_7_bugsinpy_target_replay_recovery` GitHub Actions workflow, download `v2_7_bugsinpy_target_replay_recovery_artifacts`, and ingest it before any v2.8 repair scoring.
+
+## v2.7 BugsInPy Recovery Artifact Ingestion
+
+The v2.7 GitHub Actions recovery artifact was ingested.
+
+- Previous target-matched count: 1 (`youtube-dl:1`).
+- Phase A Black rerun results:
+- `black:2`: `blocked_runtime_environment_failure`; target matched: `false`; reason: dependency/import/runtime failure marker was present
+- `black:8`: `blocked_runtime_environment_failure`; target matched: `false`; reason: dependency/import/runtime failure marker was present
+- Additional BugsInPy candidates attempted by the runner: 8.
+- Final target-matched BugsInPy candidate count: 1.
+- v2.8 executed: false.
+- Repair scoring: NOT RUN.
+- Full scoring: disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+Dependency repair is runtime setup, not code repair. Target-failure matching remains mandatory. Dependency/import/runtime failures do not count as target bug replay. Candidate promotion is not repair success.
+
+Next required action: fix the BugsInPy runner command/runtime path so target tests execute without wrapper contamination, or run a broader BugsInPy expansion that yields at least three target-matched candidates.

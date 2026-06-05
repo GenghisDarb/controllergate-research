@@ -1,8 +1,10 @@
 {
-  "candidate": "black:2",
+  "bug_id": "2",
   "dependency_or_import_failure_counts_as_target_replay": false,
-  "expected_marker": "BlackTestCase.test_fmtonoff4",
+  "dependency_or_import_failure_detected": true,
+  "project": "black",
   "promotion_status": "blocked_runtime_environment_failure",
-  "reason": "Fresh dependency-recovery rerun artifact is required before target promotion.",
-  "target_failure_matched": false
+  "target_failure_match_reason": "dependency/import/runtime failure marker was present",
+  "target_failure_matched": false,
+  "test_returncode": 127
 }

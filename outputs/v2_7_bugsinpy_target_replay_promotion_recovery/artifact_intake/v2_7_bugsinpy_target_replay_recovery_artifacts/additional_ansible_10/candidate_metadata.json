@@ -1,0 +1,13 @@
+{
+  "bug_id": "10",
+  "buggy_commit_id": "e368f788f71c338cd3f049d5d6bdc643a51c0514",
+  "candidate_class": "real_bug_benchmark_entry",
+  "fixed_commit_id_outcome_only": "a4b59d021368285490f7cda50c11ac4f7a8030b5",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "project": "ansible",
+  "python_version_required": "3.6.9",
+  "repo_url": "https://github.com/ansible/ansible",
+  "run_test_sh": "pytest test/units/modules/system/test_pamd.py::PamdServiceTestCase::test_remove_first_rule\npytest test/units/modules/system/test_pamd.py::PamdServiceTestCase::test_remove_last_rule",
+  "source_family": "bugsinpy",
+  "test_file": "test/units/modules/system/test_pamd.py"
+}

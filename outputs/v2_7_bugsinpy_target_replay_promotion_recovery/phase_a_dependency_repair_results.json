@@ -1,24 +1,36 @@
 {
-  "local_execution_status": "blocked_runtime_environment_failure",
+  "artifact_ingested": true,
+  "interpretation": "Black candidates remain blocked unless target failure matched and dependency/runtime contamination is absent.",
   "newly_promoted_count": 0,
   "phase": "v2.7 Phase A",
-  "reason": "Fresh Linux GitHub Actions recovery artifact is required; local Windows workspace cannot perform BugsInPy rerun.",
   "results": [
     {
+      "artifact_target_failure_matched": false,
+      "bug_id": "2",
       "candidate": "black:2",
-      "dependency_hint": "regex",
-      "next_action": "Run v2_7_bugsinpy_target_replay_recovery workflow and ingest artifact.",
-      "prior_blocker": "ModuleNotFoundError: No module named 'regex'",
+      "dependency_or_import_failure_detected": true,
+      "directory": "black_2_dependency_rerun",
+      "failure_signature": "TARGET_FAILURE_NOT_REPRODUCED: black:2",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "project": "black",
       "promotion_status": "blocked_runtime_environment_failure",
-      "target_failure_matched": false
+      "target_failure_match_reason": "dependency/import/runtime failure marker was present",
+      "target_failure_matched": false,
+      "test_returncode": 127
     },
     {
+      "artifact_target_failure_matched": false,
+      "bug_id": "8",
       "candidate": "black:8",
-      "dependency_hint": "click",
-      "next_action": "Run v2_7_bugsinpy_target_replay_recovery workflow and ingest artifact.",
-      "prior_blocker": "ModuleNotFoundError: No module named 'click'",
+      "dependency_or_import_failure_detected": true,
+      "directory": "black_8_dependency_rerun",
+      "failure_signature": "TARGET_FAILURE_NOT_REPRODUCED: black:8",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "project": "black",
       "promotion_status": "blocked_runtime_environment_failure",
-      "target_failure_matched": false
+      "target_failure_match_reason": "dependency/import/runtime failure marker was present",
+      "target_failure_matched": false,
+      "test_returncode": 127
     }
   ]
 }

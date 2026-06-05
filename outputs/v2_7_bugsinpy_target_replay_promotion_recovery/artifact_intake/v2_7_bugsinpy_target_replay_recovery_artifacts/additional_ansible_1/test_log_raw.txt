@@ -1,0 +1,18 @@
+$ bash -lc bugsinpy-test -w /home/runner/work/controllergate-research/controllergate-research/_v2_7_bugsinpy_runtime/workspaces/additional_ansible_1/ansible -r
+started_at_utc=2026-06-05T22:55:10.937701+00:00
+finished_at_utc=2026-06-05T22:55:11.040956+00:00
+returncode=127
+timed_out=False
+--- stdout ---
+pytest test/units/galaxy/test_collection.py::test_verify_collections_no_version
+RUN EVERY COMMAND
+0
+
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_7_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test: line 103: pytest: command not found
+
+--- stderr ---
+/home/runner/work/controllergate-research/controllergate-research/_v2_7_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test: illegal option -- r
+/home/runner/work/controllergate-research/controllergate-research/_v2_7_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test: line 67: env/bin/activate: No such file or directory
+/home/runner/work/controllergate-research/controllergate-research/_v2_7_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test: line 181: deactivate: command not found
+

@@ -1,0 +1,51 @@
+$ bash -lc cd /home/runner/work/controllergate-research/controllergate-research/_v2_7_bugsinpy_runtime/workspaces/additional_ansible_1/ansible && python -m pip install -e .
+started_at_utc=2026-06-05T22:55:07.547210+00:00
+finished_at_utc=2026-06-05T22:55:10.937434+00:00
+returncode=0
+timed_out=False
+--- stdout ---
+Obtaining file:///home/runner/work/controllergate-research/controllergate-research/_v2_7_bugsinpy_runtime/workspaces/additional_ansible_1/ansible
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting jinja2 (from ansible-base==2.10.0.dev0)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting PyYAML (from ansible-base==2.10.0.dev0)
+  Downloading pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting cryptography (from ansible-base==2.10.0.dev0)
+  Downloading cryptography-48.0.0-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+Collecting cffi>=2.0.0 (from cryptography->ansible-base==2.10.0.dev0)
+  Downloading cffi-2.0.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+Requirement already satisfied: typing-extensions>=4.13.2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from cryptography->ansible-base==2.10.0.dev0) (4.15.0)
+Collecting pycparser (from cffi>=2.0.0->cryptography->ansible-base==2.10.0.dev0)
+  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->ansible-base==2.10.0.dev0)
+  Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Downloading cryptography-48.0.0-cp39-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 87.0 MB/s  0:00:00
+Downloading cffi-2.0.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (216 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+Downloading pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (770 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 770.3/770.3 kB 73.7 MB/s  0:00:00
+Building wheels for collected packages: ansible-base
+  Building editable for ansible-base (pyproject.toml): started
+  Building editable for ansible-base (pyproject.toml): finished with status 'done'
+  Created wheel for ansible-base: filename=ansible_base-2.10.0.dev0-0.editable-py3-none-any.whl size=45122 sha256=737beb170a4bb1ea6beadbc24b31cd1e5c2f6716b755de47835e634befa65d5a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-bsc1_z6t/wheels/2f/a4/b7/620e89e968f49f4c853d87e6fa819ff124154bec6dd7fc15f8
+Successfully built ansible-base
+Installing collected packages: PyYAML, pycparser, MarkupSafe, jinja2, cffi, cryptography, ansible-base
+
+Successfully installed MarkupSafe-3.0.3 PyYAML-6.0.3 ansible-base-2.10.0.dev0 cffi-2.0.0 cryptography-48.0.0 jinja2-3.1.6 pycparser-3.0
+
+--- stderr ---
+
+[notice] A new release of pip is available: 26.1.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+

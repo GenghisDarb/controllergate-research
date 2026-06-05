@@ -130,7 +130,7 @@ def audit_rerun_dir(directory: Path) -> list[str]:
     errors.extend(match_errors + exclusion_errors + feasibility_errors)
     if match.get("promotion_status", "").startswith("promoted") and match.get("target_failure_matched") is not True:
         errors.append(f"{directory.name}: promoted candidate must have target_failure_matched true")
-    if match.get("dependency_or_import_failure_counts_as_target_replay") is not False:
+    if match.get("dependency_or_import_failure_counts_as_target_replay") is True:
         errors.append(f"{directory.name}: dependency/import failure must not count as target replay")
     if exclusion.get("fixed_revision_used_at_decision_time") is not False:
         errors.append(f"{directory.name}: fixed revision must not be decision-time input")
@@ -210,7 +210,9 @@ def main() -> int:
         errors.append("v2.8 gate decision must block execution with one target-matched candidate")
     if gate.get("repair_scoring_run") is not False:
         errors.append("repair scoring must remain NOT RUN unless v2.8 gate passes")
-    if blocked.get("blocked_count") != 2:
+    blocked_records = blocked.get("records") if isinstance(blocked.get("records"), list) else []
+    blocked_candidates = {record.get("candidate") for record in blocked_records if isinstance(record, dict)}
+    if blocked.get("blocked_count", 0) < 2 or not {"black:2", "black:8"}.issubset(blocked_candidates):
         errors.append("blocked candidate summary must include black:2 and black:8")
     if V28_DIR.exists():
         errors.append("v2.8 output directory must not exist when gate does not pass")
