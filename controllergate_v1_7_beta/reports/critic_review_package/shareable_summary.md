@@ -346,3 +346,21 @@ v2.0 tests forked/public replay evidence.
 - Self-maintaining software remains undemonstrated.
 
 The bounded public-repo candidate scan found no deterministic, non-subjective local replay failure suitable for no-memory and memory-enabled comparison. Blocked candidate acquisition is not negative capability evidence. User-owned v1.9 results do not prove external repo performance.
+
+## v2.1 External Candidate Acquisition Harness Plan
+
+v2.0 blocked at candidate acquisition.
+
+This is not negative capability evidence.
+
+v2.1 designs systematic preflight candidate mining.
+
+- Source tiers prioritize curated bug benchmarks, small public repos with simple tests, archived dependency-drift repos, forked issue replay candidates, and user-owned fallback only as non-external harness validation.
+- Candidate preflight checks include clone/fork availability, license/ethics screen, ecosystem detection, install/test command detection, clean checkout baseline, deterministic failure presence, runtime budget, baseline feasibility, corruption-check feasibility, and artifact custody.
+- Candidate readiness is scored from 0 to 100, with candidates below threshold barred from v2.2 execution.
+- Candidate acquisition success is not repair success.
+- Candidate pool creation is not external memory lift.
+- Blocked candidates are not negative capability evidence.
+- External memory lift remains undemonstrated.
+- Self-maintaining software remains undemonstrated.
+- Full scoring remains disallowed.
