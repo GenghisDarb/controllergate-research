@@ -1,0 +1,49 @@
+{
+  "candidate_count": 3,
+  "promotion_rules": [
+    "buggy checkout succeeds",
+    "compile/setup succeeds or is unnecessary",
+    "failing test command runs locally",
+    "failure is deterministic or strongly reproducible",
+    "logs are captured",
+    "fixed/gold patch is not used at decision time"
+  ],
+  "records": [
+    {
+      "artifact_dir": "black_2",
+      "bug_id": "2",
+      "candidate_id": "v2_5_bugsinpy_black_2",
+      "checkout_command": "bugsinpy-checkout -p black -v 0 -i 2 -w <workspace>",
+      "compile_command": "bugsinpy-compile -w <workspace>/black",
+      "expected_dataset_test": "python -m unittest -q tests.test_black.BlackTestCase.test_fmtonoff4",
+      "gold_fixed_patch_policy": "outcome_only_not_decision_time",
+      "project": "black",
+      "promotion_status_before_artifact": "pending_github_actions_runtime_probe",
+      "test_command": "bugsinpy-test -w <workspace>/black -r"
+    },
+    {
+      "artifact_dir": "youtube_dl_1",
+      "bug_id": "1",
+      "candidate_id": "v2_5_bugsinpy_youtube_dl_1",
+      "checkout_command": "bugsinpy-checkout -p youtube-dl -v 0 -i 1 -w <workspace>",
+      "compile_command": "bugsinpy-compile -w <workspace>/youtube-dl",
+      "expected_dataset_test": "python -m unittest -q test.test_utils.TestUtil.test_match_str",
+      "gold_fixed_patch_policy": "outcome_only_not_decision_time",
+      "project": "youtube-dl",
+      "promotion_status_before_artifact": "pending_github_actions_runtime_probe",
+      "test_command": "bugsinpy-test -w <workspace>/youtube-dl -r"
+    },
+    {
+      "artifact_dir": "black_8",
+      "bug_id": "8",
+      "candidate_id": "v2_5_bugsinpy_black_8",
+      "checkout_command": "bugsinpy-checkout -p black -v 0 -i 8 -w <workspace>",
+      "compile_command": "bugsinpy-compile -w <workspace>/black",
+      "expected_dataset_test": "python -m unittest -q tests.test_black.BlackTestCase.test_comments7",
+      "gold_fixed_patch_policy": "outcome_only_not_decision_time",
+      "project": "black",
+      "promotion_status_before_artifact": "pending_github_actions_runtime_probe",
+      "test_command": "bugsinpy-test -w <workspace>/black -r"
+    }
+  ]
+}

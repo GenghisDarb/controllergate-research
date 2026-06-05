@@ -480,3 +480,21 @@ Blocked runtime is not negative ControllerGate capability evidence. Candidate me
 The practical next action is to run the benchmark harness in an environment that supports it: BugsInPy through a Unix shell or Docker with project-specific Python runtimes, or SWE-bench through a bounded Docker-capable Lite/Verified task runner.
 
 Self-maintaining software remains undemonstrated. Full scoring remains disallowed. Broad organic external memory lift remains undemonstrated.
+
+## v2.5 BugsInPy Linux Runtime Runner
+
+The current blocker is benchmark runtime acquisition.
+
+- The workflow creates a Linux runtime path for BugsInPy replay.
+- Candidate replay readiness requires fresh checkout/compile/test logs.
+- BugsInPy candidates targeted: `black:2`, `youtube-dl:1`, and `black:8`.
+- Workflow trigger: manual `workflow_dispatch`.
+- Expected artifact: `v2_5_bugsinpy_runtime_probe_artifacts`.
+- Current local status: workflow ready, runtime artifact pending.
+- Repair scoring: not run.
+
+Blocked runtime is not negative ControllerGate capability evidence. Gold/fixed patches are outcome-only. Candidate metadata alone does not prove replay readiness.
+
+After the GitHub Actions artifact is produced, parse it with `scripts/v2_5_parse_bugsinpy_runtime_artifacts.py`. If three candidates promote, the next gated step is `v2_5_bugsinpy_real_bug_limited_replay_execution`; if one or two promote, run a small probe; if none promote, fix the runner environment.
+
+Self-maintaining software remains undemonstrated. Full scoring remains disallowed. Broad organic external memory lift remains undemonstrated.
