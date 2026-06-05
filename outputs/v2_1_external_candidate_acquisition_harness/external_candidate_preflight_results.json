@@ -1,0 +1,407 @@
+{
+  "blocked_candidate_count": 0,
+  "manual_review_candidate_count": 0,
+  "ready_candidate_count": 0,
+  "rejected_candidate_count": 5,
+  "results": [
+    {
+      "candidate_id": "v2_1_candidate_005_requests",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "rejected_no_deterministic_failure",
+      "classification_reason": "No deterministic failure or reproducible issue branch is known yet.",
+      "command_detection": {
+        "commands": [
+          "python -m pytest"
+        ],
+        "sources": [
+          "descriptor"
+        ]
+      },
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": [
+          "pyproject.toml",
+          "setup.py",
+          "tox.ini"
+        ]
+      },
+      "known_issue_url": null,
+      "language_hint": "python",
+      "local_file_count_estimate": 130,
+      "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_requests",
+      "memory_relevance_estimate": {
+        "dimensions": {
+          "cross_file_coupling": false,
+          "dependency_drift": false,
+          "downstream_corruption_risk": true,
+          "false_positive_transfer_risk": true,
+          "multi_step_maintenance": true,
+          "recurrence": false,
+          "stale_rule_risk": false
+        },
+        "score": 5
+      },
+      "readiness_score": 95,
+      "readiness_status": "not_ready",
+      "replay_feasibility": {
+        "artifacts_can_be_hashed": true,
+        "clean_checkout_or_local_path_exists": true,
+        "command_can_run_without_secrets_private_services": true,
+        "corruption_downstream_check_can_be_defined": true,
+        "deterministic_local_command_available": true,
+        "failure_known_or_reproducible_issue_branch": false,
+        "failure_may_be_induced_only_later_in_v2_2": true,
+        "logs_can_be_captured_locally": true,
+        "no_memory_and_memory_enabled_comparison_feasible": true,
+        "runtime_likely_fits_pilot_bounds": true
+      },
+      "repo_name": "psf/requests",
+      "repo_url": "https://github.com/psf/requests.git",
+      "score_breakdown": {
+        "artifact_custody_feasibility": 15,
+        "baseline_comparability": 10,
+        "bounded_runtime": 10,
+        "corruption_check_availability": 10,
+        "deterministic_local_command": 20,
+        "environment_reproducibility": 15,
+        "license_ethics_clarity": 10,
+        "memory_relevance": 5
+      },
+      "source_custody_preflight": {
+        "fork_clone_or_local_path_feasible": true,
+        "git_branch": "main",
+        "git_head_sha": "1190afd14fca74292946d62c4c8169880a47ff67",
+        "license_ethics_status": "clear",
+        "no_upstream_disruption_required": true,
+        "repo_url_present": true,
+        "source_tier_valid": true
+      },
+      "source_tier": "tier_2_small_public_repos_with_simple_tests"
+    },
+    {
+      "candidate_id": "v2_1_candidate_001_sampleproject",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "rejected_no_deterministic_failure",
+      "classification_reason": "No deterministic failure or reproducible issue branch is known yet.",
+      "command_detection": {
+        "commands": [
+          "python -m pytest"
+        ],
+        "sources": [
+          "detected_python_pytest"
+        ]
+      },
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": [
+          "pyproject.toml"
+        ]
+      },
+      "known_issue_url": null,
+      "language_hint": "python",
+      "local_file_count_estimate": 12,
+      "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_sampleproject",
+      "memory_relevance_estimate": {
+        "dimensions": {
+          "cross_file_coupling": false,
+          "dependency_drift": false,
+          "downstream_corruption_risk": false,
+          "false_positive_transfer_risk": true,
+          "multi_step_maintenance": true,
+          "recurrence": false,
+          "stale_rule_risk": false
+        },
+        "score": 4
+      },
+      "readiness_score": 94,
+      "readiness_status": "not_ready",
+      "replay_feasibility": {
+        "artifacts_can_be_hashed": true,
+        "clean_checkout_or_local_path_exists": true,
+        "command_can_run_without_secrets_private_services": true,
+        "corruption_downstream_check_can_be_defined": true,
+        "deterministic_local_command_available": true,
+        "failure_known_or_reproducible_issue_branch": false,
+        "failure_may_be_induced_only_later_in_v2_2": true,
+        "logs_can_be_captured_locally": true,
+        "no_memory_and_memory_enabled_comparison_feasible": true,
+        "runtime_likely_fits_pilot_bounds": true
+      },
+      "repo_name": "pypa/sampleproject",
+      "repo_url": "https://github.com/pypa/sampleproject.git",
+      "score_breakdown": {
+        "artifact_custody_feasibility": 15,
+        "baseline_comparability": 10,
+        "bounded_runtime": 10,
+        "corruption_check_availability": 10,
+        "deterministic_local_command": 20,
+        "environment_reproducibility": 15,
+        "license_ethics_clarity": 10,
+        "memory_relevance": 4
+      },
+      "source_custody_preflight": {
+        "fork_clone_or_local_path_feasible": true,
+        "git_branch": "main",
+        "git_head_sha": "621e4974ca25ce531773def586ba3ed8e736b3fc",
+        "license_ethics_status": "clear",
+        "no_upstream_disruption_required": true,
+        "repo_url_present": true,
+        "source_tier_valid": true
+      },
+      "source_tier": "tier_2_small_public_repos_with_simple_tests"
+    },
+    {
+      "candidate_id": "v2_1_candidate_004_packaging",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "rejected_no_deterministic_failure",
+      "classification_reason": "No deterministic failure or reproducible issue branch is known yet.",
+      "command_detection": {
+        "commands": [
+          "python -m pytest"
+        ],
+        "sources": [
+          "descriptor"
+        ]
+      },
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": [
+          "pyproject.toml"
+        ]
+      },
+      "known_issue_url": null,
+      "language_hint": "python",
+      "local_file_count_estimate": 132,
+      "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_packaging",
+      "memory_relevance_estimate": {
+        "dimensions": {
+          "cross_file_coupling": false,
+          "dependency_drift": false,
+          "downstream_corruption_risk": false,
+          "false_positive_transfer_risk": true,
+          "multi_step_maintenance": true,
+          "recurrence": false,
+          "stale_rule_risk": false
+        },
+        "score": 4
+      },
+      "readiness_score": 94,
+      "readiness_status": "not_ready",
+      "replay_feasibility": {
+        "artifacts_can_be_hashed": true,
+        "clean_checkout_or_local_path_exists": true,
+        "command_can_run_without_secrets_private_services": true,
+        "corruption_downstream_check_can_be_defined": true,
+        "deterministic_local_command_available": true,
+        "failure_known_or_reproducible_issue_branch": false,
+        "failure_may_be_induced_only_later_in_v2_2": true,
+        "logs_can_be_captured_locally": true,
+        "no_memory_and_memory_enabled_comparison_feasible": true,
+        "runtime_likely_fits_pilot_bounds": true
+      },
+      "repo_name": "pypa/packaging",
+      "repo_url": "https://github.com/pypa/packaging.git",
+      "score_breakdown": {
+        "artifact_custody_feasibility": 15,
+        "baseline_comparability": 10,
+        "bounded_runtime": 10,
+        "corruption_check_availability": 10,
+        "deterministic_local_command": 20,
+        "environment_reproducibility": 15,
+        "license_ethics_clarity": 10,
+        "memory_relevance": 4
+      },
+      "source_custody_preflight": {
+        "fork_clone_or_local_path_feasible": true,
+        "git_branch": "main",
+        "git_head_sha": "9d142069caf7a6e74f75e1c0a8a5fad674c7bc40",
+        "license_ethics_status": "clear",
+        "no_upstream_disruption_required": true,
+        "repo_url_present": true,
+        "source_tier_valid": true
+      },
+      "source_tier": "tier_2_small_public_repos_with_simple_tests"
+    },
+    {
+      "candidate_id": "v2_1_candidate_002_itsdangerous",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "rejected_no_deterministic_failure",
+      "classification_reason": "No deterministic failure or reproducible issue branch is known yet.",
+      "command_detection": {
+        "commands": [
+          "python -m pytest"
+        ],
+        "sources": [
+          "descriptor"
+        ]
+      },
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": [
+          "pyproject.toml"
+        ]
+      },
+      "known_issue_url": null,
+      "language_hint": "python",
+      "local_file_count_estimate": 50,
+      "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_itsdangerous",
+      "memory_relevance_estimate": {
+        "dimensions": {
+          "cross_file_coupling": false,
+          "dependency_drift": false,
+          "downstream_corruption_risk": false,
+          "false_positive_transfer_risk": false,
+          "multi_step_maintenance": true,
+          "recurrence": false,
+          "stale_rule_risk": false
+        },
+        "score": 3
+      },
+      "readiness_score": 93,
+      "readiness_status": "not_ready",
+      "replay_feasibility": {
+        "artifacts_can_be_hashed": true,
+        "clean_checkout_or_local_path_exists": true,
+        "command_can_run_without_secrets_private_services": true,
+        "corruption_downstream_check_can_be_defined": true,
+        "deterministic_local_command_available": true,
+        "failure_known_or_reproducible_issue_branch": false,
+        "failure_may_be_induced_only_later_in_v2_2": true,
+        "logs_can_be_captured_locally": true,
+        "no_memory_and_memory_enabled_comparison_feasible": true,
+        "runtime_likely_fits_pilot_bounds": true
+      },
+      "repo_name": "pallets/itsdangerous",
+      "repo_url": "https://github.com/pallets/itsdangerous.git",
+      "score_breakdown": {
+        "artifact_custody_feasibility": 15,
+        "baseline_comparability": 10,
+        "bounded_runtime": 10,
+        "corruption_check_availability": 10,
+        "deterministic_local_command": 20,
+        "environment_reproducibility": 15,
+        "license_ethics_clarity": 10,
+        "memory_relevance": 3
+      },
+      "source_custody_preflight": {
+        "fork_clone_or_local_path_feasible": true,
+        "git_branch": "main",
+        "git_head_sha": "672971d66a2ef9f85151e53283113f33d642dabd",
+        "license_ethics_status": "clear",
+        "no_upstream_disruption_required": true,
+        "repo_url_present": true,
+        "source_tier_valid": true
+      },
+      "source_tier": "tier_2_small_public_repos_with_simple_tests"
+    },
+    {
+      "candidate_id": "v2_1_candidate_003_markupsafe",
+      "claim_boundaries": {
+        "candidate_readiness_is_not_repair_success": true,
+        "controllergate_full_scoring": "NOT_RUN",
+        "external_memory_lift_demonstrated": false,
+        "full_scoring_allowed": false,
+        "self_maintaining_software_demonstrated": false
+      },
+      "classification": "rejected_no_deterministic_failure",
+      "classification_reason": "No deterministic failure or reproducible issue branch is known yet.",
+      "command_detection": {
+        "commands": [
+          "python -m pytest"
+        ],
+        "sources": [
+          "descriptor"
+        ]
+      },
+      "ecosystem_detection": {
+        "ecosystem": "python",
+        "language_hint": "python",
+        "signals": [
+          "pyproject.toml",
+          "setup.py"
+        ]
+      },
+      "known_issue_url": null,
+      "language_hint": "python",
+      "local_file_count_estimate": 46,
+      "local_path": "C:\\Users\\thisb\\OneDrive\\Documents\\ControllerGate\\external_repos\\v2_0_candidate_markupsafe",
+      "memory_relevance_estimate": {
+        "dimensions": {
+          "cross_file_coupling": false,
+          "dependency_drift": false,
+          "downstream_corruption_risk": false,
+          "false_positive_transfer_risk": false,
+          "multi_step_maintenance": true,
+          "recurrence": false,
+          "stale_rule_risk": false
+        },
+        "score": 3
+      },
+      "readiness_score": 93,
+      "readiness_status": "not_ready",
+      "replay_feasibility": {
+        "artifacts_can_be_hashed": true,
+        "clean_checkout_or_local_path_exists": true,
+        "command_can_run_without_secrets_private_services": true,
+        "corruption_downstream_check_can_be_defined": true,
+        "deterministic_local_command_available": true,
+        "failure_known_or_reproducible_issue_branch": false,
+        "failure_may_be_induced_only_later_in_v2_2": true,
+        "logs_can_be_captured_locally": true,
+        "no_memory_and_memory_enabled_comparison_feasible": true,
+        "runtime_likely_fits_pilot_bounds": true
+      },
+      "repo_name": "pallets/markupsafe",
+      "repo_url": "https://github.com/pallets/markupsafe.git",
+      "score_breakdown": {
+        "artifact_custody_feasibility": 15,
+        "baseline_comparability": 10,
+        "bounded_runtime": 10,
+        "corruption_check_availability": 10,
+        "deterministic_local_command": 20,
+        "environment_reproducibility": 15,
+        "license_ethics_clarity": 10,
+        "memory_relevance": 3
+      },
+      "source_custody_preflight": {
+        "fork_clone_or_local_path_feasible": true,
+        "git_branch": "main",
+        "git_head_sha": "b2e4d9c7687be25695fffbe93a37622302b24fb1",
+        "license_ethics_status": "clear",
+        "no_upstream_disruption_required": true,
+        "repo_url_present": true,
+        "source_tier_valid": true
+      },
+      "source_tier": "tier_2_small_public_repos_with_simple_tests"
+    }
+  ],
+  "schema_version": "1.0"
+}

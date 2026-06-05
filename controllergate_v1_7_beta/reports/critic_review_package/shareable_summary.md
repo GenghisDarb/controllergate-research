@@ -364,3 +364,25 @@ v2.1 designs systematic preflight candidate mining.
 - External memory lift remains undemonstrated.
 - Self-maintaining software remains undemonstrated.
 - Full scoring remains disallowed.
+
+## v2.1 External Candidate Acquisition Harness Result
+
+v2.1 implements candidate acquisition/preflight.
+
+- Harness implemented: true
+- Candidate pool produced: true
+- Candidate descriptors evaluated: 5
+- Ready candidates count: 0
+- Manual-review candidates count: 0
+- Rejected/blocked candidates count: 5
+- v2.2 handoff recommendation: `continue_candidate_acquisition`
+- Candidate acquisition is not repair success.
+- Ready candidates only authorize future v2.2 replay attempts.
+- Blocked candidate acquisition is not negative capability evidence.
+- External memory lift remains undemonstrated.
+- Self-maintaining software remains undemonstrated.
+- Full scoring remains disallowed.
+
+The harness ranks public/fork candidates by replay feasibility and uses controlled rejection reasons before any repair attempt. This result means no candidate is ready for v2.2 execution yet; it does not mean ControllerGate failed on external repos.
+
+Future developer-framework note: a reusable ControllerGate integration should separate `controllergate.toml` or YAML configuration, adapter interfaces, a generic shell adapter, a pytest adapter first, later npm/cargo/go test/Flutter-Dart adapters, proof ledger generation, and replay-engine execution.

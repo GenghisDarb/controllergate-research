@@ -1,0 +1,76 @@
+{
+  "classification_counts": {
+    "accepted_preflight_candidate": 0,
+    "blocked_candidate_acquisition_unavailable": 0,
+    "blocked_candidate_metadata_incomplete": 0,
+    "rejected_environment_not_reproducible": 0,
+    "rejected_license_or_ethics_unclear": 0,
+    "rejected_no_baseline_path": 0,
+    "rejected_no_corruption_check": 0,
+    "rejected_no_deterministic_failure": 5,
+    "rejected_no_local_test_command": 0,
+    "rejected_private_service_required": 0,
+    "rejected_remote_ci_only": 0,
+    "rejected_runtime_too_large": 0,
+    "rejected_security_exploit_target": 0,
+    "rejected_subjective_validator": 0
+  },
+  "controlled_vocabulary": [
+    "accepted_preflight_candidate",
+    "blocked_candidate_acquisition_unavailable",
+    "blocked_candidate_metadata_incomplete",
+    "rejected_environment_not_reproducible",
+    "rejected_license_or_ethics_unclear",
+    "rejected_no_baseline_path",
+    "rejected_no_corruption_check",
+    "rejected_no_deterministic_failure",
+    "rejected_no_local_test_command",
+    "rejected_private_service_required",
+    "rejected_remote_ci_only",
+    "rejected_runtime_too_large",
+    "rejected_security_exploit_target",
+    "rejected_subjective_validator"
+  ],
+  "records": [
+    {
+      "candidate_id": "v2_1_candidate_005_requests",
+      "classification": "rejected_no_deterministic_failure",
+      "readiness_score": 95,
+      "readiness_status": "not_ready",
+      "reason": "No deterministic failure or reproducible issue branch is known yet.",
+      "repo_url": "https://github.com/psf/requests.git"
+    },
+    {
+      "candidate_id": "v2_1_candidate_001_sampleproject",
+      "classification": "rejected_no_deterministic_failure",
+      "readiness_score": 94,
+      "readiness_status": "not_ready",
+      "reason": "No deterministic failure or reproducible issue branch is known yet.",
+      "repo_url": "https://github.com/pypa/sampleproject.git"
+    },
+    {
+      "candidate_id": "v2_1_candidate_004_packaging",
+      "classification": "rejected_no_deterministic_failure",
+      "readiness_score": 94,
+      "readiness_status": "not_ready",
+      "reason": "No deterministic failure or reproducible issue branch is known yet.",
+      "repo_url": "https://github.com/pypa/packaging.git"
+    },
+    {
+      "candidate_id": "v2_1_candidate_002_itsdangerous",
+      "classification": "rejected_no_deterministic_failure",
+      "readiness_score": 93,
+      "readiness_status": "not_ready",
+      "reason": "No deterministic failure or reproducible issue branch is known yet.",
+      "repo_url": "https://github.com/pallets/itsdangerous.git"
+    },
+    {
+      "candidate_id": "v2_1_candidate_003_markupsafe",
+      "classification": "rejected_no_deterministic_failure",
+      "readiness_score": 93,
+      "readiness_status": "not_ready",
+      "reason": "No deterministic failure or reproducible issue branch is known yet.",
+      "repo_url": "https://github.com/pallets/markupsafe.git"
+    }
+  ]
+}

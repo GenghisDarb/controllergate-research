@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "input_id": "v2_1_external_candidate_sources",
+  "description": "Static v2.1 public/fork candidate descriptors for replay-readiness preflight. These descriptors support candidate ranking only and do not authorize repair scoring.",
+  "candidates": [
+    {
+      "candidate_id": "v2_1_candidate_001_sampleproject",
+      "repo_url": "https://github.com/pypa/sampleproject.git",
+      "repo_name": "pypa/sampleproject",
+      "source_tier": "tier_2_small_public_repos_with_simple_tests",
+      "language_hint": "python",
+      "license_hint": "MIT-style open source license file present in local clone",
+      "expected_commands": [],
+      "known_issue_url": null,
+      "local_path": "external_repos/v2_0_candidate_sampleproject",
+      "notes": "Small public Python packaging sample repo from v2.0 candidate scan. Useful for harness preflight, but no deterministic failure was identified in v2.0."
+    },
+    {
+      "candidate_id": "v2_1_candidate_002_itsdangerous",
+      "repo_url": "https://github.com/pallets/itsdangerous.git",
+      "repo_name": "pallets/itsdangerous",
+      "source_tier": "tier_2_small_public_repos_with_simple_tests",
+      "language_hint": "python",
+      "license_hint": "BSD-style open source license file present in local clone",
+      "expected_commands": [
+        "python -m pytest"
+      ],
+      "known_issue_url": null,
+      "local_path": "external_repos/v2_0_candidate_itsdangerous",
+      "notes": "Small public Python repo with likely pytest command. No deterministic replay failure is known from v2.0."
+    },
+    {
+      "candidate_id": "v2_1_candidate_003_markupsafe",
+      "repo_url": "https://github.com/pallets/markupsafe.git",
+      "repo_name": "pallets/markupsafe",
+      "source_tier": "tier_2_small_public_repos_with_simple_tests",
+      "language_hint": "python",
+      "license_hint": "BSD-style open source license file present in local clone",
+      "expected_commands": [
+        "python -m pytest"
+      ],
+      "known_issue_url": null,
+      "local_path": "external_repos/v2_0_candidate_markupsafe",
+      "notes": "Small public Python repo with likely pytest command. No deterministic replay failure is known from v2.0."
+    },
+    {
+      "candidate_id": "v2_1_candidate_004_packaging",
+      "repo_url": "https://github.com/pypa/packaging.git",
+      "repo_name": "pypa/packaging",
+      "source_tier": "tier_2_small_public_repos_with_simple_tests",
+      "language_hint": "python",
+      "license_hint": "Apache/BSD license files present in local clone",
+      "expected_commands": [
+        "python -m pytest"
+      ],
+      "known_issue_url": null,
+      "local_path": "external_repos/v2_0_candidate_packaging",
+      "notes": "Public Python packaging library with local clone metadata. No deterministic replay failure is known from v2.0."
+    },
+    {
+      "candidate_id": "v2_1_candidate_005_requests",
+      "repo_url": "https://github.com/psf/requests.git",
+      "repo_name": "psf/requests",
+      "source_tier": "tier_2_small_public_repos_with_simple_tests",
+      "language_hint": "python",
+      "license_hint": "Apache license file present in local clone",
+      "expected_commands": [
+        "python -m pytest"
+      ],
+      "known_issue_url": null,
+      "local_path": "external_repos/v2_0_candidate_requests",
+      "notes": "Public Python HTTP library with local clone metadata. No deterministic replay failure is known from v2.0; network-sensitive tests would require review before any future execution."
+    }
+  ]
+}
