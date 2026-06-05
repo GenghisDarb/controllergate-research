@@ -538,3 +538,19 @@ BugsInPy real-bug replay is stronger than QuixBugs and controlled fixture eviden
 The two Black candidates were not accepted as target BugsInPy replay evidence because the ingested logs show dependency/import failures rather than the expected target BugsInPy failure. `youtube-dl:1` remains promoted and can support a future small real-bug probe.
 
 Gold/fixed patches are outcome-only and excluded from decision-time inputs. Limited BugsInPy memory lift is still not self-maintaining software. Full scoring remains disallowed. Blocked runtime or target-failure mismatch is not negative capability evidence.
+
+## v2.7/v2.8 BugsInPy Target-Replay Recovery and Limited Replay Campaign
+
+Dependency repair is runtime setup, not code repair. Target-failure matching remains mandatory. Dependency/import failures do not count as target bug replay.
+
+- Previous target-matched count: 1 (`youtube-dl:1`).
+- `black:2` recovery status: blocked pending v2.7 Linux GitHub Actions dependency rerun for `regex`.
+- `black:8` recovery status: blocked pending v2.7 Linux GitHub Actions dependency rerun for `click`.
+- Additional candidates attempted locally: 0; local Windows runtime cannot perform BugsInPy expansion.
+- Final target-matched count: 1.
+- v2.8 executed: false.
+- Aggregate/gate result: `insufficient_target_matched_bugsinpy_candidates_for_v2_8`.
+
+Candidate promotion is not repair success. Limited BugsInPy memory lift is not demonstrated. Full scoring remains disallowed. Self-maintaining software remains undemonstrated.
+
+Next required runtime action: run the `v2_7_bugsinpy_target_replay_recovery` GitHub Actions workflow, download `v2_7_bugsinpy_target_replay_recovery_artifacts`, and ingest it before any v2.8 repair scoring.

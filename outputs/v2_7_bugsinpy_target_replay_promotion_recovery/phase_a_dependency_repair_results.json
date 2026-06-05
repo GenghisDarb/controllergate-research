@@ -1,0 +1,24 @@
+{
+  "local_execution_status": "blocked_runtime_environment_failure",
+  "newly_promoted_count": 0,
+  "phase": "v2.7 Phase A",
+  "reason": "Fresh Linux GitHub Actions recovery artifact is required; local Windows workspace cannot perform BugsInPy rerun.",
+  "results": [
+    {
+      "candidate": "black:2",
+      "dependency_hint": "regex",
+      "next_action": "Run v2_7_bugsinpy_target_replay_recovery workflow and ingest artifact.",
+      "prior_blocker": "ModuleNotFoundError: No module named 'regex'",
+      "promotion_status": "blocked_runtime_environment_failure",
+      "target_failure_matched": false
+    },
+    {
+      "candidate": "black:8",
+      "dependency_hint": "click",
+      "next_action": "Run v2_7_bugsinpy_target_replay_recovery workflow and ingest artifact.",
+      "prior_blocker": "ModuleNotFoundError: No module named 'click'",
+      "promotion_status": "blocked_runtime_environment_failure",
+      "target_failure_matched": false
+    }
+  ]
+}

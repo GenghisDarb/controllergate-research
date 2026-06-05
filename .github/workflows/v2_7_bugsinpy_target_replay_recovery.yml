@@ -1,0 +1,31 @@
+name: v2_7_bugsinpy_target_replay_recovery
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bugsinpy-target-replay-recovery:
+    name: BugsInPy target replay recovery
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run BugsInPy target replay recovery probe
+        shell: bash
+        run: |
+          python scripts/v2_7_bugsinpy_target_replay_recovery_probe.py
+
+      - name: Upload BugsInPy target replay recovery artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_7_bugsinpy_target_replay_recovery_artifacts
+          path: v2_7_bugsinpy_target_replay_recovery_artifacts
+          if-no-files-found: error

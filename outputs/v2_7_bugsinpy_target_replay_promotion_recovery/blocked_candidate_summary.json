@@ -1,0 +1,22 @@
+{
+  "blocked_count": 2,
+  "candidate_expansion_blocker": "v2.7 GitHub Actions artifact required for additional BugsInPy expansion",
+  "records": [
+    {
+      "candidate": "black:2",
+      "dependency_hint": "regex",
+      "next_action": "Run v2_7_bugsinpy_target_replay_recovery workflow and ingest artifact.",
+      "prior_blocker": "ModuleNotFoundError: No module named 'regex'",
+      "promotion_status": "blocked_runtime_environment_failure",
+      "target_failure_matched": false
+    },
+    {
+      "candidate": "black:8",
+      "dependency_hint": "click",
+      "next_action": "Run v2_7_bugsinpy_target_replay_recovery workflow and ingest artifact.",
+      "prior_blocker": "ModuleNotFoundError: No module named 'click'",
+      "promotion_status": "blocked_runtime_environment_failure",
+      "target_failure_matched": false
+    }
+  ]
+}
