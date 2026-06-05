@@ -1,0 +1,33 @@
+$ bash -lc bugsinpy-test -w /home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/workspaces/black_8/black -r
+started_at_utc=2026-06-05T21:18:34.426938+00:00
+finished_at_utc=2026-06-05T21:18:34.676707+00:00
+returncode=127
+timed_out=False
+--- stdout ---
+python -m unittest -q tests.test_black.BlackTestCase.test_comments7
+RUN EVERY COMMAND
+0
+
+
+======================================================================
+ERROR: test_black (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_black
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/workspaces/black_8/black/tests/test_black.py", line 27, in <module>
+    from click import unstyle
+ModuleNotFoundError: No module named 'click'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+
+--- stderr ---
+/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test: illegal option -- r
+/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test: line 67: env/bin/activate: No such file or directory
+/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test: line 181: deactivate: command not found
+

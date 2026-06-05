@@ -50,6 +50,30 @@ REQUIRED_OUTPUT_FILES = [
     "SHA256SUMS.txt",
 ]
 
+ARTIFACT_ROOT_FILES = [
+    "runtime_environment.txt",
+    "bugsinpy_install_log.txt",
+    "bugsinpy_command_probe.txt",
+    "runtime_probe_summary.json",
+    "SHA256SUMS.txt",
+]
+
+ARTIFACT_CANDIDATE_FILES = [
+    "candidate_metadata.json",
+    "info_command.txt",
+    "info_log_raw.txt",
+    "checkout_command.txt",
+    "checkout_log_raw.txt",
+    "compile_command.txt",
+    "compile_log_raw.txt",
+    "test_command.txt",
+    "test_log_raw.txt",
+    "failure_signature.txt",
+    "replay_feasibility_result.json",
+    "gold_patch_exclusion_plan.json",
+    "SHA256SUMS.txt",
+]
+
 
 def load_json(path: Path) -> tuple[dict[str, Any], list[str]]:
     if not path.exists():
@@ -117,6 +141,9 @@ def main() -> int:
     expected, expected_errors = load_json(OUTPUT_DIR / "runtime_probe_expected_artifacts.json")
     matrix, matrix_errors = load_json(OUTPUT_DIR / "candidate_attempt_matrix.json")
     status, status_errors = load_json(OUTPUT_DIR / "runner_status.json")
+    parsed, parsed_errors = load_json(OUTPUT_DIR / "parsed_runtime_artifact_summary.json")
+    promoted_pool, promoted_errors = load_json(OUTPUT_DIR / "promoted_real_bug_candidate_pool_from_artifacts.json")
+    ingestion, ingestion_errors = load_json(OUTPUT_DIR / "runtime_artifact_ingestion_result.json")
     v24b, v24b_errors = load_json(V24B_AGG)
     v24, v24_errors = load_json(V24_AGG)
     v23, v23_errors = load_json(V23_AGG)
@@ -132,6 +159,9 @@ def main() -> int:
         + expected_errors
         + matrix_errors
         + status_errors
+        + ([] if not (OUTPUT_DIR / "parsed_runtime_artifact_summary.json").exists() else parsed_errors)
+        + ([] if not (OUTPUT_DIR / "promoted_real_bug_candidate_pool_from_artifacts.json").exists() else promoted_errors)
+        + ([] if not (OUTPUT_DIR / "runtime_artifact_ingestion_result.json").exists() else ingestion_errors)
         + v24b_errors
         + v24_errors
         + v23_errors
@@ -179,8 +209,13 @@ def main() -> int:
         if directory not in expected.get("candidate_directories", []):
             errors.append(f"expected artifact schema missing candidate directory {directory}")
 
-    if status.get("runner_status") != "workflow_ready_pending_manual_github_actions_run":
-        errors.append("runner_status must be workflow_ready_pending_manual_github_actions_run")
+    valid_runner_statuses = {
+        "workflow_ready_pending_manual_github_actions_run",
+        "artifact_ingested_promoted_candidates",
+        "artifact_ingested_no_promoted_candidates",
+    }
+    if status.get("runner_status") not in valid_runner_statuses:
+        errors.append("runner_status must be a valid v2.5 runner state")
     if status.get("repair_scoring_run") is not False:
         errors.append("v2.5 must not run repair scoring")
     if status.get("full_scoring_allowed") is not False or status.get("controllergate_full_scoring") != "NOT_RUN":
@@ -189,6 +224,71 @@ def main() -> int:
         errors.append("self-maintaining software must remain false")
     if status.get("broad_organic_external_memory_lift_demonstrated") is not False:
         errors.append("broad organic external memory lift must remain false")
+
+    if status.get("artifact_ingested") is True:
+        artifact_dir = Path(status.get("artifact_dir", ""))
+        if not artifact_dir.exists():
+            errors.append(f"ingested artifact directory is missing: {artifact_dir}")
+        for name in ARTIFACT_ROOT_FILES:
+            path = artifact_dir / name
+            if not path.exists():
+                errors.append(f"ingested artifact missing root file {name}")
+            elif path.stat().st_size == 0:
+                errors.append(f"ingested artifact has empty root file {name}")
+        expected_candidates = {
+            "black_2": ("black", "2"),
+            "youtube_dl_1": ("youtube-dl", "1"),
+            "black_8": ("black", "8"),
+        }
+        for dirname, (project, bug_id) in expected_candidates.items():
+            candidate_dir = artifact_dir / dirname
+            if not candidate_dir.exists():
+                errors.append(f"ingested artifact missing candidate directory {dirname}")
+                continue
+            for name in ARTIFACT_CANDIDATE_FILES:
+                path = candidate_dir / name
+                if not path.exists():
+                    errors.append(f"{dirname}: missing artifact file {name}")
+                elif path.stat().st_size == 0:
+                    errors.append(f"{dirname}: empty artifact file {name}")
+            feasibility, feasibility_errors = load_json(candidate_dir / "replay_feasibility_result.json")
+            exclusion, exclusion_errors = load_json(candidate_dir / "gold_patch_exclusion_plan.json")
+            errors.extend(feasibility_errors + exclusion_errors)
+            if feasibility.get("project") != project or feasibility.get("bug_id") != bug_id:
+                errors.append(f"{dirname}: feasibility project/bug mismatch")
+            if feasibility.get("promotion_status") == "promoted_ready_for_v2_5_bugsinpy_real_bug":
+                if feasibility.get("runtime_replay_confirmed") is not True:
+                    errors.append(f"{dirname}: promoted candidate lacks runtime_replay_confirmed true")
+                if feasibility.get("failing_test_reproduced") is not True:
+                    errors.append(f"{dirname}: promoted candidate lacks failing_test_reproduced true")
+            if feasibility.get("fixed_or_gold_patch_used_at_decision_time") is not False:
+                errors.append(f"{dirname}: fixed/gold patch must not be used at decision time")
+            if exclusion.get("allowed_at_decision_time") is not False:
+                errors.append(f"{dirname}: gold/fixed patch exclusion plan must bar decision-time use")
+            errors.extend(verify_manifest(candidate_dir))
+        runtime_summary, runtime_summary_errors = load_json(artifact_dir / "runtime_probe_summary.json")
+        errors.extend(runtime_summary_errors)
+        if runtime_summary.get("fixed_or_gold_patch_used_at_decision_time") is not False:
+            errors.append("runtime artifact summary must keep fixed/gold patch out of decision time")
+        errors.extend(verify_manifest(artifact_dir))
+
+        if not parsed:
+            errors.append("artifact_ingested true requires parsed_runtime_artifact_summary.json")
+        if not promoted_pool:
+            errors.append("artifact_ingested true requires promoted_real_bug_candidate_pool_from_artifacts.json")
+        if not ingestion:
+            errors.append("artifact_ingested true requires runtime_artifact_ingestion_result.json")
+        if parsed and parsed.get("promoted_candidate_count") != status.get("promoted_candidate_count"):
+            errors.append("parsed promoted count must match runner_status")
+        if promoted_pool and promoted_pool.get("count") != status.get("promoted_candidate_count"):
+            errors.append("promoted pool count must match runner_status")
+        if ingestion:
+            if ingestion.get("repair_scoring_run") is not False:
+                errors.append("artifact ingestion must not run repair scoring")
+            if ingestion.get("gold_fixed_patch_used_at_decision_time") is not False:
+                errors.append("artifact ingestion must not use fixed/gold patch at decision time")
+            if ingestion.get("full_scoring_allowed") is not False or ingestion.get("controllergate_full_scoring") != "NOT_RUN":
+                errors.append("artifact ingestion must keep full scoring NOT_RUN/disallowed")
 
     if v24b.get("aggregate_result") != "blocked_real_bug_runtime_unavailable":
         errors.append("v2.4b blocked runtime result must remain preserved")
@@ -259,7 +359,9 @@ def main() -> int:
 
     print("v2.5 BugsInPy Linux runtime runner audit: PASS")
     print("workflow: present")
-    print("runner status: workflow_ready_pending_manual_github_actions_run")
+    print(f"runner status: {status.get('runner_status')}")
+    print(f"promoted candidates: {status.get('promoted_candidate_count')}")
+    print(f"handoff recommendation: {status.get('recommended_handoff')}")
     print("candidate attempts: black:2, youtube-dl:1, black:8")
     print("repair scoring run: false")
     print("self-maintaining software demonstrated: false")

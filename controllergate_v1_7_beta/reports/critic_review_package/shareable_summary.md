@@ -498,3 +498,23 @@ Blocked runtime is not negative ControllerGate capability evidence. Gold/fixed p
 After the GitHub Actions artifact is produced, parse it with `scripts/v2_5_parse_bugsinpy_runtime_artifacts.py`. If three candidates promote, the next gated step is `v2_5_bugsinpy_real_bug_limited_replay_execution`; if one or two promote, run a small probe; if none promote, fix the runner environment.
 
 Self-maintaining software remains undemonstrated. Full scoring remains disallowed. Broad organic external memory lift remains undemonstrated.
+
+## v2.5 BugsInPy Runtime Artifact Ingestion Result
+
+The v2.5 GitHub Actions BugsInPy runtime probe artifact was ingested.
+
+- Candidate count: 3.
+- Promoted real-bug candidates: 3.
+- Handoff recommendation: `v2_5_bugsinpy_real_bug_limited_replay_execution`.
+- Repair scoring: not run.
+- Full scoring: disallowed.
+- Self-maintaining software: not demonstrated.
+- Broad organic external memory lift: not demonstrated.
+
+Candidate classifications:
+
+- `black:2`: `promoted_ready_for_v2_5_bugsinpy_real_bug`
+- `youtube-dl:1`: `promoted_ready_for_v2_5_bugsinpy_real_bug`
+- `black:8`: `promoted_ready_for_v2_5_bugsinpy_real_bug`
+
+Fresh checkout/compile/test logs now exist in the ingested GitHub Actions artifact. Gold/fixed patches remain outcome-only and were not used as decision-time inputs. If three candidates promote, the next gated step is real BugsInPy limited replay execution, not a self-maintaining-software claim.

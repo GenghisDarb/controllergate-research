@@ -1,0 +1,68 @@
+## bugsinpy-info
+
+{
+  "command": [
+    "bash",
+    "-lc",
+    "command -v bugsinpy-info && bugsinpy-info --help"
+  ],
+  "finished_at_utc": "2026-06-05T21:16:25.393829+00:00",
+  "returncode": 0,
+  "started_at_utc": "2026-06-05T21:16:25.168657+00:00",
+  "stderr": "",
+  "stdout": "/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-info\n        Usage: bugsinpy-info [ --help ]\n        -p project_name\n             The id of the project for which the information shall be printed.\n        -i bug_id\n             The bug number of the project_name for which the information shall be printed.\n\n",
+  "timed_out": false
+}
+
+
+## bugsinpy-checkout
+
+{
+  "command": [
+    "bash",
+    "-lc",
+    "command -v bugsinpy-checkout && bugsinpy-checkout --help"
+  ],
+  "finished_at_utc": "2026-06-05T21:16:25.511806+00:00",
+  "returncode": 0,
+  "started_at_utc": "2026-06-05T21:16:25.393905+00:00",
+  "stderr": "",
+  "stdout": "/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-checkout\n        Usage: bugsinpy-checkout [ --help ]\n        -p project_name\n             The name of the project for which a particular version shall be checked out. Run bugsinpy-info to check available project\n        -i bug_id\n             The number of bug from project in bugsinpy. Run bugsinpy-info to check bug id number\n        -v version_id\n             The version id that shall be checked out (1 fixed, 0 buggy, default will be 1).\n        -w work_dir\n             The working directory to which the buggy or fixed project version shall be checked out. The working directory has to be either empty or a previously used working directory. Default will be (BugsInPy/framework/bin/temp)\n\n",
+  "timed_out": false
+}
+
+
+## bugsinpy-compile
+
+{
+  "command": [
+    "bash",
+    "-lc",
+    "command -v bugsinpy-compile && bugsinpy-compile --help"
+  ],
+  "finished_at_utc": "2026-06-05T21:16:25.639923+00:00",
+  "returncode": 0,
+  "started_at_utc": "2026-06-05T21:16:25.511899+00:00",
+  "stderr": "",
+  "stdout": "/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-compile\n        Usage: bugsinpy-compile [ --help ]\n        -w work_dir\n             The working directory to compile the project. Default will be the current directory.\n\n",
+  "timed_out": false
+}
+
+
+## bugsinpy-test
+
+{
+  "command": [
+    "bash",
+    "-lc",
+    "command -v bugsinpy-test && bugsinpy-test --help"
+  ],
+  "finished_at_utc": "2026-06-05T21:16:25.769816+00:00",
+  "returncode": 0,
+  "started_at_utc": "2026-06-05T21:16:25.640013+00:00",
+  "stderr": "",
+  "stdout": "/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test\n        Usage: bugsinpy-test [ --help ]\n        -w work_dir\n             The working directory to run the test. Default will be the current directory.\n       -t single_test\n             Run single test from input. Default will run the test case that relevant from bugs. Format for pytest: <test_file_path>::<test_method>. Format for unittest: <test_file_path_without.py>.<test_class>.<test_method> . Use bugsinpy-info to get the information about the project.\n       -a\n             Run all test case in the project. Default will run the test case that relevant from bugs\n       -r\n             Run the test case that relevant from bugs (Default)\n\n",
+  "timed_out": false
+}
+
+

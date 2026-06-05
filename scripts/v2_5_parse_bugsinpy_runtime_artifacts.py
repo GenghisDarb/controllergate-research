@@ -20,6 +20,7 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = REPO_ROOT / "outputs" / "v2_5_bugsinpy_runtime_runner"
+SHAREABLE_SUMMARY = REPO_ROOT / "controllergate_v1_7_beta" / "reports" / "critic_review_package" / "shareable_summary.md"
 CANDIDATE_DIRS = ["black_2", "youtube_dl_1", "black_8"]
 
 
@@ -56,6 +57,46 @@ def load_json(path: Path) -> dict[str, Any]:
     except json.JSONDecodeError:
         return {}
     return data if isinstance(data, dict) else {}
+
+
+def write_text(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
+def update_shareable_summary(promoted_count: int, recommendation: str, records: list[dict[str, Any]]) -> None:
+    classifications = "\n".join(
+        f"- `{record.get('project')}:{record.get('bug_id')}`: `{record.get('promotion_status')}`"
+        for record in records
+    )
+    section = f"""## v2.5 BugsInPy Runtime Artifact Ingestion Result
+
+The v2.5 GitHub Actions BugsInPy runtime probe artifact was ingested.
+
+- Candidate count: 3.
+- Promoted real-bug candidates: {promoted_count}.
+- Handoff recommendation: `{recommendation}`.
+- Repair scoring: not run.
+- Full scoring: disallowed.
+- Self-maintaining software: not demonstrated.
+- Broad organic external memory lift: not demonstrated.
+
+Candidate classifications:
+
+{classifications}
+
+Fresh checkout/compile/test logs now exist in the ingested GitHub Actions artifact. Gold/fixed patches remain outcome-only and were not used as decision-time inputs. If three candidates promote, the next gated step is real BugsInPy limited replay execution, not a self-maintaining-software claim.
+"""
+    marker = "## v2.5 BugsInPy Runtime Artifact Ingestion Result"
+    if SHAREABLE_SUMMARY.exists():
+        text = SHAREABLE_SUMMARY.read_text(encoding="utf-8")
+        if marker in text:
+            text = text[: text.index(marker)].rstrip() + "\n\n" + section
+        else:
+            text = text.rstrip() + "\n\n" + section
+    else:
+        text = section
+    write_text(SHAREABLE_SUMMARY, text)
 
 
 def main() -> int:
@@ -104,11 +145,49 @@ def main() -> int:
         "self_maintaining_software_demonstrated": False,
         "broad_organic_external_memory_lift_demonstrated": False,
     }
+    ingestion_result = {
+        "artifact_dir": str(artifact_dir),
+        "artifact_ingested": True,
+        "candidate_count": len(records),
+        "promoted_candidate_count": len(promoted),
+        "classification_by_candidate": {
+            f"{record.get('project')}:{record.get('bug_id')}": record.get("promotion_status")
+            for record in records
+        },
+        "handoff_recommendation": recommendation,
+        "repair_scoring_run": False,
+        "full_scoring_allowed": False,
+        "controllergate_full_scoring": "NOT_RUN",
+        "self_maintaining_software_demonstrated": False,
+        "broad_organic_external_memory_lift_demonstrated": False,
+        "gold_fixed_patch_used_at_decision_time": False,
+    }
     write_json(OUTPUT_DIR / "parsed_runtime_artifact_summary.json", summary)
+    write_json(OUTPUT_DIR / "runtime_artifact_ingestion_result.json", ingestion_result)
     write_json(
         OUTPUT_DIR / "promoted_real_bug_candidate_pool_from_artifacts.json",
         {"count": len(promoted), "records": promoted, "handoff_recommendation": recommendation},
     )
+    write_json(
+        OUTPUT_DIR / "runner_status.json",
+        {
+            "runner_status": "artifact_ingested_promoted_candidates"
+            if promoted
+            else "artifact_ingested_no_promoted_candidates",
+            "artifact_ingested": True,
+            "artifact_dir": str(artifact_dir),
+            "promoted_candidate_count": len(promoted),
+            "recommended_handoff": recommendation,
+            "repair_scoring_run": False,
+            "full_scoring_allowed": False,
+            "controllergate_full_scoring": "NOT_RUN",
+            "self_maintaining_software_demonstrated": False,
+            "broad_organic_external_memory_lift_demonstrated": False,
+            "v2_4_result_preserved": "blocked_real_external_bug_candidate_acquisition_failure",
+            "v2_4b_result_preserved": "blocked_real_bug_runtime_unavailable",
+        },
+    )
+    update_shareable_summary(len(promoted), recommendation, records)
     write_manifest(OUTPUT_DIR)
     print(f"parsed v2.5 artifact dir: {artifact_dir}")
     print(f"promoted candidates: {len(promoted)}")
