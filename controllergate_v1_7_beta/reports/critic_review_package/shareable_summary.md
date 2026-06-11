@@ -722,3 +722,26 @@ v2.8f adds a bounded decision-time-only repair proposer workflow. The proposer m
 - Self-maintaining software: not demonstrated.
 
 No-patch/no-action outcomes are not scoreable repair evidence. Candidate generation may not use fixed/gold patches.
+
+## v2.8g BugsInPy Source-Discovery Repair Proposer
+
+v2.8f proved the bounded proposer ran under valid replay/workspace gates, but it produced 0 scoreable episodes because no safe patch candidate was generated. That is a source-discovery and heuristic-coverage gap, not negative ControllerGate repair evidence.
+
+v2.8g adds decision-time symbol/source discovery and targeted safe heuristics for the same three BugsInPy real-bug candidates:
+
+- `youtube-dl:1`
+- `black:8`
+- `black:4`
+
+Current v2.8g status: workflow ready, pending GitHub Actions execution.
+
+- v2.8f artifact inspection: preserved.
+- v2.8f aggregate: `blocked_no_safe_patch_candidate_generated`.
+- v2.8g source-discovery repair proposer: implemented.
+- v2.8g repair comparison: pending Linux runner artifact.
+- Scoreable v2.8g episodes: 0 at this checkpoint.
+- Full scoring: NOT_RUN / disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+No-patch/no-action outcomes are not scoreable repair evidence. Candidate generation may not use fixed/gold patches, future outcome evidence, or fixed-state diagnostic hints.

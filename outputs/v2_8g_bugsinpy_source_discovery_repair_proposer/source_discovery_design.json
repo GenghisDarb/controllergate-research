@@ -1,0 +1,27 @@
+{
+  "inputs_allowed": [
+    "failing command",
+    "raw failing log",
+    "stack traces from failing log",
+    "failing test file content in buggy workspace",
+    "source files in buggy workspace",
+    "project imports from buggy workspace",
+    "allowed memory evidence for memory-enabled prioritization"
+  ],
+  "inputs_forbidden": [
+    "fixed revision",
+    "gold patch",
+    "known repair diff",
+    "future passing logs",
+    "fixed-state diagnostic hints"
+  ],
+  "steps": [
+    "parse failing command",
+    "locate failing test file",
+    "extract test method symbols and call targets",
+    "parse traceback frames",
+    "build symbol index over buggy workspace",
+    "rank local source files",
+    "record inspected files and ranking reasons"
+  ]
+}
