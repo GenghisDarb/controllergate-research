@@ -1,0 +1,1 @@
+cd _v2_8b_bugsinpy_runtime/workspaces/episode_003/black && for f in requirements.txt requirements-dev.txt test-requirements.txt dev-requirements.txt; do if [ -f "$f" ]; then python -m pip install -r "$f" || true; fi; done && python -m pip install -e .

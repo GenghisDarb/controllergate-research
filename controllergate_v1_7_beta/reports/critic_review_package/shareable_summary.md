@@ -655,3 +655,17 @@ v2.8b runs repair comparison; candidate promotion alone was not repair success. 
 - Aggregate result: `blocked_bugsinpy_real_bug_replay_runtime_failure`.
 
 Limited BugsInPy memory lift is not demonstrated unless the aggregate criteria are met. Full scoring remains disallowed. Self-maintaining software remains undemonstrated. Blocked runtime/log capture is not negative ControllerGate capability evidence.
+
+## v2.8c BugsInPy Repair-Comparison Checkout Fix
+
+v2.8b reached the workflow but blocked before repair because checkout failed. Checkout/runtime failure is blocked evidence, not negative ControllerGate repair evidence.
+
+- v2.8b artifact ingestion result: SHA256 verification clean; 3 episodes executed by the workflow, 0 scoreable repair episodes.
+- Root cause diagnosis: relative checkout/workspace path handling caused BugsInPy checkout failures before replay/repair.
+- v2.8c checkout fix status: workflow and runner are ready; the runner uses absolute workspace paths and pre-repair replay gates.
+- v2.8c repair comparison executed: false in this local checkpoint; GitHub Actions artifact is required.
+- Scoreable episodes: 0.
+- Positive memory episodes: 0.
+- Aggregate result: `blocked_bugsinpy_real_bug_replay_runtime_failure`.
+
+Apoptosis should not count infrastructure checkout failure as repair flatline. Full scoring remains disallowed. Self-maintaining software remains undemonstrated.

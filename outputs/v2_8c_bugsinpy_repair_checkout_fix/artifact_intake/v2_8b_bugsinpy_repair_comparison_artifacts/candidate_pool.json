@@ -1,0 +1,31 @@
+{
+  "count": 3,
+  "records": [
+    {
+      "bug_id": "1",
+      "candidate": "youtube-dl:1",
+      "command_kind": "bugsinpy_test_wrapper",
+      "episode_id": "episode_001",
+      "failure_signature": "BUGSINPY_REPRODUCED_FAILURE: youtube-dl:1",
+      "project": "youtube-dl"
+    },
+    {
+      "bug_id": "8",
+      "candidate": "black:8",
+      "command": "python -m unittest -q tests.test_black.BlackTestCase.test_comments7",
+      "command_kind": "direct",
+      "episode_id": "episode_002",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:8",
+      "project": "black"
+    },
+    {
+      "bug_id": "4",
+      "candidate": "black:4",
+      "command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+      "command_kind": "direct",
+      "episode_id": "episode_003",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:4",
+      "project": "black"
+    }
+  ]
+}

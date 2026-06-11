@@ -1,0 +1,30 @@
+$ bash -lc bugsinpy-checkout -p youtube-dl -v 0 -i 1 -w _v2_8b_bugsinpy_runtime/workspaces/episode_001
+started_at_utc=2026-06-11T03:26:47.268820+00:00
+finished_at_utc=2026-06-11T03:26:52.201851+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+PROJECT_NAME: youtube-dl
+BUG_ID: 1
+VERSION_ID: 0
+WORK_DIR: _v2_8b_bugsinpy_runtime/workspaces/episode_001
+https://github.com/ytdl-org/youtube-dl
+github_url="https://github.com/ytdl-org/youtube-dl"
+status="OK" 
+cause="N.A."
+Removing test/
+
+--- stderr ---
+Cloning into '_v2_8b_bugsinpy_runtime/workspaces/episode_001/youtube-dl'...
+/home/runner/work/controllergate-research/controllergate-research/_v2_8b_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: _v2_8b_bugsinpy_runtime/workspaces/episode_001/youtube-dl: No such file or directory
+fatal: Could not parse object '1cc47c667419e0eadc0a6989256ab7b276852adf'.
+cp: cannot stat '_v2_8b_bugsinpy_runtime/workspaces/episode_001/youtube-dl/test/test_utils.py': No such file or directory
+/home/runner/work/controllergate-research/controllergate-research/_v2_8b_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: _v2_8b_bugsinpy_runtime/workspaces/episode_001/youtube-dl: No such file or directory
+fatal: Could not parse object '99036a1298089068dcf80c0985bfcc3f8c24f281'.
+mv: cannot stat '/home/runner/work/controllergate-research/controllergate-research/_v2_8b_bugsinpy_runtime/BugsInPy/projects/youtube-dl/bugs/1/test/test_utils.py': No such file or directory
+/home/runner/work/controllergate-research/controllergate-research/_v2_8b_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-checkout: line 199: _v2_8b_bugsinpy_runtime/workspaces/episode_001/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '_v2_8b_bugsinpy_runtime/workspaces/episode_001/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '_v2_8b_bugsinpy_runtime/workspaces/episode_001/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '_v2_8b_bugsinpy_runtime/workspaces/episode_001/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+

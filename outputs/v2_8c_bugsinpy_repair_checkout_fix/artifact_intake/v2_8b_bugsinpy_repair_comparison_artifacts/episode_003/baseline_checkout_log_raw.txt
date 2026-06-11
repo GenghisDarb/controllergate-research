@@ -1,0 +1,32 @@
+$ bash -lc bugsinpy-checkout -p black -v 0 -i 4 -w _v2_8b_bugsinpy_runtime/workspaces/episode_003
+started_at_utc=2026-06-11T03:26:53.157664+00:00
+finished_at_utc=2026-06-11T03:26:54.123408+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+PROJECT_NAME: black
+BUG_ID: 4
+VERSION_ID: 0
+WORK_DIR: _v2_8b_bugsinpy_runtime/workspaces/episode_003
+https://github.com/psf/black
+github_url="https://github.com/psf/black"
+status="OK" 
+Removing tests/
+
+--- stderr ---
+Cloning into '_v2_8b_bugsinpy_runtime/workspaces/episode_003/black'...
+/home/runner/work/controllergate-research/controllergate-research/_v2_8b_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: _v2_8b_bugsinpy_runtime/workspaces/episode_003/black: No such file or directory
+fatal: Could not parse object 'c7495b9aa098ef7a358fc74556359d21c6a4ba11'.
+cp: cannot stat '_v2_8b_bugsinpy_runtime/workspaces/episode_003/black/tests/test_black.py': No such file or directory
+cp: cannot stat '_v2_8b_bugsinpy_runtime/workspaces/episode_003/black/tests/data/beginning_backslash.py': No such file or directory
+/home/runner/work/controllergate-research/controllergate-research/_v2_8b_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: _v2_8b_bugsinpy_runtime/workspaces/episode_003/black: No such file or directory
+fatal: Could not parse object '65ea568e3301951f26e0e3b98f6d5dc80132e917'.
+mv: cannot stat '/home/runner/work/controllergate-research/controllergate-research/_v2_8b_bugsinpy_runtime/BugsInPy/projects/black/bugs/4/tests/test_black.py': No such file or directory
+mv: cannot stat '/home/runner/work/controllergate-research/controllergate-research/_v2_8b_bugsinpy_runtime/BugsInPy/projects/black/bugs/4/tests/data/beginning_backslash.py': No such file or directory
+/home/runner/work/controllergate-research/controllergate-research/_v2_8b_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-checkout: line 199: _v2_8b_bugsinpy_runtime/workspaces/episode_003/black/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '_v2_8b_bugsinpy_runtime/workspaces/episode_003/black/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '_v2_8b_bugsinpy_runtime/workspaces/episode_003/black/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '_v2_8b_bugsinpy_runtime/workspaces/episode_003/black/bugsinpy_run_test.sh': No such file or directory
+cp: cannot create regular file '_v2_8b_bugsinpy_runtime/workspaces/episode_003/black/bugsinpy_setup.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+
