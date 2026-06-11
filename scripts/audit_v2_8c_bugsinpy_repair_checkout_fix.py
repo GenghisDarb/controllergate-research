@@ -203,7 +203,16 @@ def main() -> int:
             errors.append(f"missing v2.8c implementation file: {path}")
     if RUNNER.exists():
         runner_text = RUNNER.read_text(encoding="utf-8")
-        for snippet in ["Path.cwd().resolve()", "workspace_parent = (RUNTIME_ROOT / \"workspaces\"", "checkout_integrity_check.json", "pre_repair_replay_gate_result.json", "infrastructure_checkout_failure_counted_as_flatline"]:
+        for snippet in [
+            "Path.cwd().resolve()",
+            "workspace_parent = (RUNTIME_ROOT / \"workspaces\"",
+            "symlinks=True",
+            "repair_workspace_copy_result.json",
+            "infrastructure_copy_failure_counts_as_repair_failure",
+            "checkout_integrity_check.json",
+            "pre_repair_replay_gate_result.json",
+            "infrastructure_checkout_failure_counted_as_flatline",
+        ]:
             if snippet not in runner_text:
                 errors.append(f"v2.8c runner missing required checkout/pre-repair gate snippet: {snippet}")
     if not PHASE_A_DIR.exists():

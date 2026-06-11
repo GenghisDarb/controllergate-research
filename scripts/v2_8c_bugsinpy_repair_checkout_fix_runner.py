@@ -219,10 +219,30 @@ def classify_target_replay(log: str, returncode: int | None, required_markers: l
     }
 
 
-def copytree(source: Path, destination: Path) -> None:
+def copytree(source: Path, destination: Path) -> dict[str, Any]:
     if destination.exists():
         shutil.rmtree(destination)
-    shutil.copytree(source, destination, ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".pytest_cache", ".git"))
+    try:
+        shutil.copytree(
+            source,
+            destination,
+            symlinks=True,
+            ignore_dangling_symlinks=True,
+            ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".pytest_cache", ".git"),
+        )
+    except (OSError, shutil.Error) as exc:
+        return {
+            "copy_succeeded": False,
+            "source": str(source),
+            "destination": str(destination),
+            "error": str(exc),
+        }
+    return {
+        "copy_succeeded": True,
+        "source": str(source),
+        "destination": str(destination),
+        "preserved_symlinks": True,
+    }
 
 
 def dependency_command_for(project_root: Path, hints: list[str]) -> str:
@@ -273,8 +293,27 @@ def run_repair_paths(candidate: dict[str, Any], project_root: Path, episode_dir:
     validation_command = candidate["direct_command"]
     no_memory_dir = (RUNTIME_ROOT / "repair_paths" / candidate["episode_id"] / "no_memory").resolve()
     memory_dir = (RUNTIME_ROOT / "repair_paths" / candidate["episode_id"] / "memory_enabled").resolve()
-    copytree(project_root, no_memory_dir)
-    copytree(project_root, memory_dir)
+    no_copy = copytree(project_root, no_memory_dir)
+    memory_copy = copytree(project_root, memory_dir)
+    write_json(
+        episode_dir / "repair_workspace_copy_result.json",
+        {
+            "no_memory": no_copy,
+            "memory_enabled": memory_copy,
+            "infrastructure_copy_failure_counts_as_repair_failure": False,
+        },
+    )
+    if not no_copy["copy_succeeded"] or not memory_copy["copy_succeeded"]:
+        reason = "repair workspace copy failed before no-memory or memory-enabled repair validation"
+        write_blocked_path_artifacts(episode_dir, validation_command, reason)
+        write_json(episode_dir / "memory_evidence_used.json", {"memory_path_ran": False, "blocked_reason": reason})
+        return {
+            "repair_paths_ran": False,
+            "repair_workspace_copy_failed": True,
+            "flatline_or_no_op": False,
+            "no_memory_passed": False,
+            "memory_enabled_passed": False,
+        }
     no_result = run_shell(validation_command, cwd=no_memory_dir, env=env)
     mem_result = run_shell(validation_command, cwd=memory_dir, env=env)
     for prefix, result in [("no_memory", no_result), ("memory_enabled", mem_result)]:
@@ -413,7 +452,9 @@ def run_episode(candidate: dict[str, Any], env: dict[str, str]) -> dict[str, Any
 
     if gate_passed:
         repair = run_repair_paths(candidate, project_root, episode_dir, env)
-        if repair["flatline_or_no_op"]:
+        if repair.get("repair_workspace_copy_failed"):
+            classification = "blocked_checkout_runtime_failure"
+        elif repair["flatline_or_no_op"]:
             classification = "blocked_apoptosis_watchdog_triggered"
         elif repair["memory_enabled_passed"] and not repair["no_memory_passed"]:
             classification = "positive_evidence_memory_lift_bugsinpy_real_bug_episode"
