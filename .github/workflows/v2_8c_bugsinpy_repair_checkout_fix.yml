@@ -21,6 +21,13 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Verify v2.8c runner revision
+        shell: bash
+        run: |
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          echo "checked_out_head=$(git rev-parse HEAD)"
+          python -c "from pathlib import Path; text=Path('scripts/v2_8c_bugsinpy_repair_checkout_fix_runner.py').read_text(); assert 'shutil.copytree(' not in text, 'legacy shutil.copytree repair workspace path detected; start a fresh workflow run on the latest branch'; assert '[\"git\", \"clone\", \"--no-local\"' in text, 'git-based repair workspace isolation is missing'; print('runner revision guard: git repair workspace isolation present')"
+
       - name: Run BugsInPy checkout-fixed repair comparison runner
         shell: bash
         run: |

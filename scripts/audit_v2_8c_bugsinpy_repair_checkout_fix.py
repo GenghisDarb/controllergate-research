@@ -201,6 +201,11 @@ def main() -> int:
     for path in [WORKFLOW, RUNNER, PREP]:
         if not path.exists():
             errors.append(f"missing v2.8c implementation file: {path}")
+    if WORKFLOW.exists():
+        workflow_text = WORKFLOW.read_text(encoding="utf-8")
+        for snippet in ["Verify v2.8c runner revision", "legacy shutil.copytree repair workspace path detected", "runner revision guard: git repair workspace isolation present"]:
+            if snippet not in workflow_text:
+                errors.append(f"v2.8c workflow missing runner revision guard snippet: {snippet}")
     if RUNNER.exists():
         runner_text = RUNNER.read_text(encoding="utf-8")
         for snippet in [
