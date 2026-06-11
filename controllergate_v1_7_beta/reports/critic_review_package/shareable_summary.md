@@ -638,3 +638,20 @@ v2.7e promotes black:4 from clean direct target replay. The clean BugsInPy targe
 - Aggregate result: `blocked_bugsinpy_real_bug_replay_runtime_failure`.
 
 Candidate promotion is not repair success. Limited BugsInPy memory lift is not demonstrated. Full scoring remains disallowed. Self-maintaining software remains undemonstrated.
+
+## v2.8b BugsInPy Linux Repair-Comparison Runner
+
+v2.8b runs repair comparison; candidate promotion alone was not repair success. No-memory and memory-enabled paths are compared under identical BugsInPy replay conditions once the Linux workflow artifact is available.
+
+- Candidate pool: `youtube-dl:1`, `black:8`, `black:4`.
+- Linux workflow executed: false.
+- Scoreable episodes: 0.
+- Positive memory episodes: 0.
+- Blocked episodes: 0.
+- Decision-time/outcome overlap count: 0.
+- Label-leakage count: 0.
+- Apoptosis watchdog count: 0.
+- Corruption count: 0.
+- Aggregate result: `blocked_bugsinpy_real_bug_replay_runtime_failure`.
+
+Limited BugsInPy memory lift is not demonstrated unless the aggregate criteria are met. Full scoring remains disallowed. Self-maintaining software remains undemonstrated. Blocked runtime/log capture is not negative ControllerGate capability evidence.
