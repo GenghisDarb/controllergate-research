@@ -1,0 +1,31 @@
+name: v2_7d_bugsinpy_third_candidate_direct_runner_expansion
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bugsinpy-third-candidate-expansion:
+    name: BugsInPy third candidate direct runner expansion
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run BugsInPy third-candidate direct runner expansion
+        shell: bash
+        run: |
+          python scripts/v2_7d_bugsinpy_third_candidate_direct_runner_expansion.py
+
+      - name: Upload BugsInPy third-candidate expansion artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_7d_bugsinpy_third_candidate_direct_runner_expansion_artifacts
+          path: v2_7d_bugsinpy_third_candidate_direct_runner_expansion_artifacts
+          if-no-files-found: error

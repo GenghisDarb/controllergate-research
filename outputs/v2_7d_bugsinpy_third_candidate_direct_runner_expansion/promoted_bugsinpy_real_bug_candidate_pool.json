@@ -1,0 +1,32 @@
+{
+  "count": 2,
+  "records": [
+    {
+      "bug_id": "1",
+      "candidate": "youtube-dl:1",
+      "failure_signature": "BUGSINPY_REPRODUCED_FAILURE: youtube-dl:1",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "project": "youtube-dl",
+      "promotion_status": "promoted_ready_for_v2_8_bugsinpy_real_bug",
+      "source": "corrected v2.5 target-failure-matched pool",
+      "target_failure_matched": true
+    },
+    {
+      "artifact_reported_promotion_status": "promoted_ready_for_v2_8_bugsinpy_real_bug",
+      "bug_id": "8",
+      "candidate": "black:8",
+      "dependency_or_runtime_blocked": false,
+      "direct_test_returncode": 1,
+      "directory": "black_8_direct_target_rerun",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:8",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "project": "black",
+      "promotion_status": "promoted_ready_for_v2_8_bugsinpy_real_bug",
+      "reason": "clean direct target failure matched",
+      "target_failure_matched": true,
+      "target_failure_signal_present": true,
+      "wrapper_contaminated": false
+    }
+  ],
+  "source": "v2.7c clean target-matched pool; no v2.7d artifact ingested yet"
+}
