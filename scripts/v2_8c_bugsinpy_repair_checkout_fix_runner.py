@@ -219,29 +219,44 @@ def classify_target_replay(log: str, returncode: int | None, required_markers: l
     }
 
 
-def copytree(source: Path, destination: Path) -> dict[str, Any]:
+def create_git_repair_workspace(source: Path, destination: Path, env: dict[str, str]) -> dict[str, Any]:
     if destination.exists():
         shutil.rmtree(destination)
-    try:
-        shutil.copytree(
-            source,
-            destination,
-            symlinks=True,
-            ignore_dangling_symlinks=True,
-            ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".pytest_cache", ".git"),
-        )
-    except (OSError, shutil.Error) as exc:
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    head_result = run_raw(["git", "rev-parse", "HEAD"], cwd=source, env=env, timeout=120)
+    clone_result = run_raw(["git", "clone", "--no-local", str(source), str(destination)], cwd=REPO_ROOT, env=env, timeout=900)
+    checkout_result: dict[str, Any] | None = None
+    head = str(head_result.get("stdout", "")).strip()
+    if clone_result.get("returncode") == 0 and head:
+        checkout_result = run_raw(["git", "checkout", "--detach", head], cwd=destination, env=env, timeout=120)
+    copy_succeeded = bool(
+        head_result.get("returncode") == 0
+        and clone_result.get("returncode") == 0
+        and checkout_result is not None
+        and checkout_result.get("returncode") == 0
+        and destination.exists()
+    )
+    if not copy_succeeded:
         return {
             "copy_succeeded": False,
+            "copy_strategy": "git_clone_no_local",
             "source": str(source),
             "destination": str(destination),
-            "error": str(exc),
+            "head_returncode": head_result.get("returncode"),
+            "clone_returncode": clone_result.get("returncode"),
+            "checkout_returncode": checkout_result.get("returncode") if checkout_result else None,
+            "head_log": combined_log(head_result),
+            "clone_log": combined_log(clone_result),
+            "checkout_log": combined_log(checkout_result) if checkout_result else "NOT_RUN: clone or source HEAD failed",
         }
     return {
         "copy_succeeded": True,
+        "copy_strategy": "git_clone_no_local",
         "source": str(source),
         "destination": str(destination),
-        "preserved_symlinks": True,
+        "source_head": head,
+        "clone_returncode": clone_result.get("returncode"),
+        "checkout_returncode": checkout_result.get("returncode") if checkout_result else None,
     }
 
 
@@ -293,8 +308,8 @@ def run_repair_paths(candidate: dict[str, Any], project_root: Path, episode_dir:
     validation_command = candidate["direct_command"]
     no_memory_dir = (RUNTIME_ROOT / "repair_paths" / candidate["episode_id"] / "no_memory").resolve()
     memory_dir = (RUNTIME_ROOT / "repair_paths" / candidate["episode_id"] / "memory_enabled").resolve()
-    no_copy = copytree(project_root, no_memory_dir)
-    memory_copy = copytree(project_root, memory_dir)
+    no_copy = create_git_repair_workspace(project_root, no_memory_dir, env)
+    memory_copy = create_git_repair_workspace(project_root, memory_dir, env)
     write_json(
         episode_dir / "repair_workspace_copy_result.json",
         {

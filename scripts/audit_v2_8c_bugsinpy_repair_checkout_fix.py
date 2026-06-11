@@ -206,7 +206,8 @@ def main() -> int:
         for snippet in [
             "Path.cwd().resolve()",
             "workspace_parent = (RUNTIME_ROOT / \"workspaces\"",
-            "symlinks=True",
+            "git\", \"clone\", \"--no-local",
+            "copy_strategy\": \"git_clone_no_local",
             "repair_workspace_copy_result.json",
             "infrastructure_copy_failure_counts_as_repair_failure",
             "checkout_integrity_check.json",
