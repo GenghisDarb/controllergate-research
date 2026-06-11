@@ -1,0 +1,12 @@
+{
+  "candidate_specific_hints": {
+    "black:4": "inspect test_beginning_backslash and local newline/backslash formatting only in buggy checkout",
+    "black:8": "inspect test_comments7 and local parser/formatting functions only in buggy checkout",
+    "youtube-dl:1": "inspect def match_str and false boolean handling only in buggy checkout"
+  },
+  "fallback_when_unclear": "blocked_no_safe_patch_candidate_generated",
+  "proposer_id": "v2_8f_bounded_decision_time_repair_proposer",
+  "purpose": "generate minimal candidate patches from allowed decision-time inputs when a safe heuristic applies",
+  "uses_fixed_or_gold_patch": false,
+  "uses_future_outcome_evidence": false
+}

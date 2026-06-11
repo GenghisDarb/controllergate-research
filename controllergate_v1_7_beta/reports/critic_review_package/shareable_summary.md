@@ -691,15 +691,34 @@ This is no longer a checkout/runtime acquisition failure. It is blocked because 
 
 ## v2.8e BugsInPy Repair Workspace Preservation
 
-v2.8e preserves the v2.8d artifact result and adds the next Linux runner fix. v2.8d proved the promoted BugsInPy candidates can reach target-matched pre-repair replay, but it remains blocked because repair workspaces/attempts did not produce valid source-changing repair evidence.
+v2.8e ingested the Linux workflow artifact and confirmed the workspace-preservation fix worked. The validated BugsInPy workspace is archived and restored into both no-memory and memory-enabled repair workspaces, and both repair workspaces reproduce the target failure before repair.
 
-- v2.8d artifact ingestion: SHA256 verification clean.
-- Preserved v2.8d classification: `blocked_apoptosis_watchdog_triggered`.
-- v2.8e root cause: repair workspaces must be exact preserved copies of the validated BugsInPy workspace, and empty/no-op repair traces must not be scored.
-- v2.8e runner status in this checkpoint: pending GitHub Actions execution.
-- v2.8e repair scoring: NOT RUN.
+- Workflow executed: true.
+- Executed episodes: 3.
+- Workspace equivalence: passed for all three episodes.
+- Repair-workspace pre-repair replay: target failure matched for no-memory and memory-enabled paths in all three episodes.
+- Scoreable episodes: 0.
+- Positive memory episodes: 0.
+- Aggregate result: `blocked_no_repair_candidate_generated`.
 - Full scoring: NOT_RUN / disallowed.
 - Memory lift: not demonstrated.
 - Self-maintaining software: not demonstrated.
 
-Dependency/runtime setup is not code repair. Target-failure matching remains mandatory. Candidate promotion and pre-repair replay are not repair success.
+This is a narrower implementation blocker, not negative ControllerGate capability evidence: no safe repair candidate was generated from allowed decision-time inputs, so the episodes remain blocked instead of scored.
+
+## v2.8f BugsInPy Bounded Repair Proposer
+
+v2.8e fixed workspace preservation and confirmed prerepair target failures in both no-memory and memory-enabled repair workspaces. v2.8e still produced 0 scoreable episodes because no safe repair candidate was generated.
+
+v2.8f adds a bounded decision-time-only repair proposer workflow. The proposer may inspect only buggy checkout files, failing logs, failing tests, local project context, and allowed ControllerGate memory evidence for the memory-enabled path. BugsInPy fixed revisions, gold patches, known repair diffs, and future outcome evidence remain forbidden.
+
+- v2.8e artifact ingestion: preserved.
+- v2.8e workspace preservation success: preserved.
+- v2.8e blocked reason: `blocked_no_repair_candidate_generated`.
+- v2.8f bounded repair proposer status: workflow ready, pending GitHub Actions execution.
+- v2.8f repair scoring: NOT RUN in this local checkpoint.
+- Full scoring: NOT_RUN / disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+No-patch/no-action outcomes are not scoreable repair evidence. Candidate generation may not use fixed/gold patches.

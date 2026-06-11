@@ -1,0 +1,58 @@
+name: v2_8f_bugsinpy_bounded_repair_proposer
+
+on:
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  bugsinpy-bounded-repair-proposer:
+    name: BugsInPy bounded repair proposer
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8f runner revision
+        shell: bash
+        run: |
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          echo "checked_out_head=$(git rev-parse HEAD)"
+          python - <<'PY'
+          from pathlib import Path
+          text = Path("scripts/v2_8f_bugsinpy_bounded_repair_proposer_runner.py").read_text()
+          required = [
+              "bounded_repair_proposer",
+              "forbidden_inputs_used",
+              "fixed_or_gold_patch_used",
+              "future_outcome_evidence_used",
+              "blocked_no_safe_patch_candidate_generated",
+              "workspace_equivalence_check.json",
+              "no_memory_prerepair_replay_log_raw.txt",
+              "memory_enabled_prerepair_replay_log_raw.txt",
+          ]
+          for snippet in required:
+              if snippet not in text:
+                  raise SystemExit(f"v2.8f runner revision guard failed; missing {snippet}")
+          print("runner revision guard: bounded decision-time-only repair proposer present")
+          PY
+
+      - name: Run BugsInPy bounded repair proposer
+        shell: bash
+        run: |
+          python scripts/v2_8f_bugsinpy_bounded_repair_proposer_runner.py
+
+      - name: Upload BugsInPy bounded repair proposer artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8f_bugsinpy_bounded_repair_proposer_artifacts
+          path: v2_8f_bugsinpy_bounded_repair_proposer_artifacts
+          if-no-files-found: error

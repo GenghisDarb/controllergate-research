@@ -193,8 +193,9 @@ def main() -> int:
             errors.append(f"{item.get('candidate')}: expected blocked repair runner/noop/workspace divergence classification")
         if item.get("scoreable_repair_evidence") is not False:
             errors.append(f"{item.get('candidate')}: v2.8d blocked artifact cannot become scoreable")
-    if runner_status.get("workflow_executed") is not False:
-        errors.append("local v2.8e checkpoint should be pending workflow execution")
+    workflow_executed = runner_status.get("workflow_executed")
+    if workflow_executed not in {False, True}:
+        errors.append("v2.8e runner status must explicitly record workflow execution state")
     if runner_status.get("repair_scoring") != "NOT_RUN":
         errors.append("repair scoring must remain NOT_RUN until v2.8e artifact is ingested")
     if runner_status.get("full_scoring_allowed") is not False:
@@ -235,6 +236,18 @@ def main() -> int:
         if "git_clone_no_local" in runner_text:
             errors.append("v2.8e runner must not use git_clone_no_local as repair workspace preservation")
 
+    if workflow_executed is True:
+        campaign, campaign_errors = load_json(OUTPUT_DIR / "campaign_results.json")
+        workspace_result, workspace_errors = load_json(OUTPUT_DIR / "v2_8e_workspace_preservation_result.json")
+        errors.extend(campaign_errors + workspace_errors)
+        if campaign.get("workflow_executed") is not True or campaign.get("executed_episode_count") != 3:
+            errors.append("ingested v2.8e artifact must record three executed episodes")
+        if campaign.get("aggregate_result") != "blocked_no_repair_candidate_generated":
+            errors.append("ingested v2.8e aggregate must be blocked_no_repair_candidate_generated")
+        if campaign.get("scoreable_episode_count") != 0:
+            errors.append("ingested v2.8e artifact must have zero scoreable episodes")
+        if workspace_result.get("all_repair_workspaces_preserved_target_failure") is not True:
+            errors.append("v2.8e must preserve target failures in both repair workspaces")
     executed_artifact = REPO_ROOT / "v2_8e_bugsinpy_repair_workspace_preservation_artifacts"
     if executed_artifact.exists():
         errors.extend(audit_executed_artifact_dir(executed_artifact))
@@ -264,9 +277,9 @@ def main() -> int:
             SUMMARY,
             [
                 "v2.8e BugsInPy Repair Workspace Preservation",
-                "v2.8d artifact ingestion: SHA256 verification clean.",
-                "repair workspaces must be exact preserved copies",
-                "v2.8e repair scoring: NOT RUN.",
+                "v2.8e ingested the Linux workflow artifact",
+                "Workspace equivalence: passed for all three episodes.",
+                "Repair-workspace pre-repair replay: target failure matched",
                 "Full scoring: NOT_RUN / disallowed.",
                 "Memory lift: not demonstrated.",
                 "Self-maintaining software: not demonstrated.",
@@ -278,9 +291,10 @@ def main() -> int:
         for error in errors:
             print(f"- {error}")
         return 1
+    status = "executed artifact ingested" if runner_status.get("workflow_executed") is True else "pending GitHub Actions artifact"
     print("v2.8e BugsInPy repair workspace-preservation audit: PASS")
     print("v2.8d artifact preserved: blocked_apoptosis_watchdog_triggered")
-    print("v2.8e workflow status: pending GitHub Actions artifact")
+    print(f"v2.8e workflow status: {status}")
     print("repair scoring: NOT_RUN")
     print("full scoring allowed: false")
     print("self-maintaining software demonstrated: false")
