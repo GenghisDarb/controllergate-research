@@ -1,0 +1,49 @@
+name: v2_8d_bugsinpy_git_workspace_repair_comparison
+
+on:
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  bugsinpy-git-workspace-repair-comparison:
+    name: BugsInPy git-workspace repair comparison
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8d runner revision
+        shell: bash
+        run: |
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          echo "checked_out_head=$(git rev-parse HEAD)"
+          python - <<'PY'
+          from pathlib import Path
+          text = Path("scripts/v2_8c_bugsinpy_repair_checkout_fix_runner.py").read_text()
+          if "shutil.copytree(" in text:
+              raise SystemExit("legacy shutil.copytree repair workspace path detected; this is not the git-workspace runner")
+          if '["git", "clone", "--no-local"' not in text:
+              raise SystemExit("git-based repair workspace isolation is missing")
+          print("runner revision guard: git repair workspace isolation present")
+          PY
+
+      - name: Run BugsInPy git-workspace repair comparison runner
+        shell: bash
+        run: |
+          python scripts/v2_8c_bugsinpy_repair_checkout_fix_runner.py
+
+      - name: Upload BugsInPy git-workspace repair comparison artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8d_bugsinpy_git_workspace_repair_comparison_artifacts
+          path: v2_8c_bugsinpy_repair_checkout_fix_artifacts
+          if-no-files-found: error

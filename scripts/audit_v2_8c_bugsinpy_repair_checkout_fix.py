@@ -14,6 +14,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 PHASE_A_DIR = REPO_ROOT / "outputs" / "v2_8c_bugsinpy_repair_checkout_fix"
 RERUN_DIR = REPO_ROOT / "outputs" / "v2_8c_bugsinpy_real_bug_repair_comparison_rerun"
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "v2_8c_bugsinpy_repair_checkout_fix.yml"
+V28D_WORKFLOW = REPO_ROOT / ".github" / "workflows" / "v2_8d_bugsinpy_git_workspace_repair_comparison.yml"
 RUNNER = REPO_ROOT / "scripts" / "v2_8c_bugsinpy_repair_checkout_fix_runner.py"
 PREP = REPO_ROOT / "scripts" / "v2_8c_prepare_bugsinpy_repair_checkout_fix.py"
 SHAREABLE_SUMMARY = REPO_ROOT / "controllergate_v1_7_beta" / "reports" / "critic_review_package" / "shareable_summary.md"
@@ -198,7 +199,7 @@ def audit_episode(path: Path) -> list[str]:
 
 def main() -> int:
     errors: list[str] = []
-    for path in [WORKFLOW, RUNNER, PREP]:
+    for path in [WORKFLOW, V28D_WORKFLOW, RUNNER, PREP]:
         if not path.exists():
             errors.append(f"missing v2.8c implementation file: {path}")
     if WORKFLOW.exists():
@@ -206,6 +207,16 @@ def main() -> int:
         for snippet in ["Verify v2.8c runner revision", "legacy shutil.copytree repair workspace path detected", "runner revision guard: git repair workspace isolation present"]:
             if snippet not in workflow_text:
                 errors.append(f"v2.8c workflow missing runner revision guard snippet: {snippet}")
+    if V28D_WORKFLOW.exists():
+        workflow_text = V28D_WORKFLOW.read_text(encoding="utf-8")
+        for snippet in [
+            "v2_8d_bugsinpy_git_workspace_repair_comparison",
+            "Verify v2.8d runner revision",
+            "legacy shutil.copytree repair workspace path detected",
+            "v2_8d_bugsinpy_git_workspace_repair_comparison_artifacts",
+        ]:
+            if snippet not in workflow_text:
+                errors.append(f"v2.8d workflow missing required unambiguous-run snippet: {snippet}")
     if RUNNER.exists():
         runner_text = RUNNER.read_text(encoding="utf-8")
         for snippet in [
