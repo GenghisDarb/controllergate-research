@@ -589,3 +589,19 @@ v2.7b fixes the runner by bypassing the broken BugsInPy wrapper path. `black:8` 
 Target-failure matching remains mandatory. Dependency/import/wrapper failures do not count as target bug replay. Candidate promotion is not repair success. Limited BugsInPy memory lift is not demonstrated. Full scoring remains disallowed. Self-maintaining software remains undemonstrated.
 
 Next required source/runtime action: run the `v2_7b_bugsinpy_direct_target_runner_fix` GitHub Actions workflow and ingest its artifact before any v2.8 repair scoring.
+
+## v2.7c/v2.8 BugsInPy Direct Runner Artifact Ingestion, Third-Candidate Recovery, and Conditional Replay
+
+v2.7c promotes black:8 from clean direct target replay. black:8 had clean direct target failure with wrapper contamination cleared. black:2 remains blocked by runtime/environment failure.
+
+- Artifact ingestion result: PASS; artifact SHA256 verification had 0 hash failures.
+- `black:8` promotion result: `promoted_ready_for_v2_8_bugsinpy_real_bug`.
+- `black:2` blocked result: `blocked_runtime_environment_failure`.
+- Additional candidates attempted through the direct-runner artifact: 8.
+- Final clean target-matched count: 2.
+- v2.8 executed: false.
+- Gate result: `insufficient_target_matched_candidates_for_v2_8`.
+
+Dependency/runtime setup is not code repair. Target-failure matching remains mandatory. Dependency/import/wrapper failures do not count as target bug replay. Candidate promotion is not repair success. Limited BugsInPy memory lift is not demonstrated. Full scoring remains disallowed. Self-maintaining software remains undemonstrated.
+
+Next required source/runtime action: run a focused direct-runner expansion that yields one additional clean target-matched BugsInPy candidate before any v2.8 repair scoring.

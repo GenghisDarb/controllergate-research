@@ -1,0 +1,40 @@
+$ bash -lc cd /home/runner/work/controllergate-research/controllergate-research/_v2_7b_bugsinpy_runtime/workspaces/additional_direct_ansible_11/ansible && python -m pip install -e .
+started_at_utc=2026-06-11T01:38:51.775933+00:00
+finished_at_utc=2026-06-11T01:38:58.108895+00:00
+returncode=0
+timed_out=False
+--- stdout ---
+Obtaining file:///home/runner/work/controllergate-research/controllergate-research/_v2_7b_bugsinpy_runtime/workspaces/additional_direct_ansible_11/ansible
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from ansible==2.10.0.dev0) (3.1.6)
+Requirement already satisfied: PyYAML in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from ansible==2.10.0.dev0) (6.0.3)
+Requirement already satisfied: cryptography in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from ansible==2.10.0.dev0) (48.0.1)
+Requirement already satisfied: cffi>=2.0.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from cryptography->ansible==2.10.0.dev0) (2.0.0)
+Requirement already satisfied: typing-extensions>=4.13.2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from cryptography->ansible==2.10.0.dev0) (4.15.0)
+Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from cffi>=2.0.0->cryptography->ansible==2.10.0.dev0) (3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from jinja2->ansible==2.10.0.dev0) (3.0.3)
+Building wheels for collected packages: ansible
+  Building editable for ansible (pyproject.toml): started
+  Building editable for ansible (pyproject.toml): finished with status 'done'
+  Created wheel for ansible: filename=ansible-2.10.0.dev0-0.editable-py3-none-any.whl size=45214 sha256=2f8821fff13de832ce6b7ae8a4bc3e27b07074cd3f0e089a00223413488c5cce
+  Stored in directory: /tmp/pip-ephem-wheel-cache-x9xaf60h/wheels/74/7d/0a/54e3669d879f989baeccd285fb3910584b0fa2b2728347c12b
+Successfully built ansible
+Installing collected packages: ansible
+  Attempting uninstall: ansible
+    Found existing installation: ansible 2.10.0.dev0
+    Uninstalling ansible-2.10.0.dev0:
+      Successfully uninstalled ansible-2.10.0.dev0
+Successfully installed ansible-2.10.0.dev0
+
+--- stderr ---
+
+[notice] A new release of pip is available: 26.1.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+

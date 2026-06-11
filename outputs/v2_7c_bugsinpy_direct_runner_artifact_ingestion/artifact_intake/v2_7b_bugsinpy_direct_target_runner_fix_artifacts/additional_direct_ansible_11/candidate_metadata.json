@@ -1,0 +1,13 @@
+{
+  "bug_id": "11",
+  "buggy_commit_id": "da07b98b7a433493728ddb7ac7efbd20b8988776",
+  "candidate_class": "real_bug_benchmark_entry",
+  "fixed_commit_id_outcome_only": "52f3ce8a808f943561803bd664e695fed1841fe8",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "project": "ansible",
+  "python_version_required": "3.6.9",
+  "repo_url": "https://github.com/ansible/ansible",
+  "run_test_sh": "pytest test/units/modules/network/ios/test_ios_banner.py::TestIosBannerModule::test_ios_banner_nochange\npytest test/units/modules/network/ios/test_ios_banner.py::TestIosBannerIos12Module::test_ios_banner_nochange",
+  "source_family": "bugsinpy",
+  "test_file": "test/units/modules/network/ios/test_ios_banner.py"
+}

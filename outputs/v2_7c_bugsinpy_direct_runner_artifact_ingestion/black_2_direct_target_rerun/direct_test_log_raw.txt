@@ -1,0 +1,31 @@
+$ bash -lc python -m unittest -q tests.test_black.BlackTestCase.test_fmtonoff4
+started_at_utc=2026-06-11T01:36:06.341522+00:00
+finished_at_utc=2026-06-11T01:36:06.845163+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+
+--- stderr ---
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/main.py", line 100, in __init__
+    self.parseArgs(argv)
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/main.py", line 147, in parseArgs
+    self.createTests()
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/main.py", line 158, in createTests
+    self.test = self.testLoader.loadTestsFromNames(self.testNames,
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/loader.py", line 220, in loadTestsFromNames
+    suites = [self.loadTestsFromName(name, module) for name in names]
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/loader.py", line 220, in <listcomp>
+    suites = [self.loadTestsFromName(name, module) for name in names]
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/runner/work/controllergate-research/controllergate-research/_v2_7b_bugsinpy_runtime/workspaces/black_2_direct_target_rerun/black/tests/test_black.py", line 1667, in <module>
+    class BlackDTestCase(AioHTTPTestCase):
+NameError: name 'AioHTTPTestCase' is not defined
+
