@@ -1,0 +1,58 @@
+name: v2_8e_bugsinpy_repair_workspace_preservation
+
+on:
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  bugsinpy-repair-workspace-preservation:
+    name: BugsInPy repair workspace preservation
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8e runner revision
+        shell: bash
+        run: |
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          echo "checked_out_head=$(git rev-parse HEAD)"
+          python - <<'PY'
+          from pathlib import Path
+          text = Path("scripts/v2_8e_bugsinpy_repair_workspace_preservation_runner.py").read_text()
+          required = [
+              "tarfile.open",
+              "dereference=False",
+              "workspace_equivalence_check.json",
+              "no_memory_prerepair_replay_log_raw.txt",
+              "memory_enabled_prerepair_replay_log_raw.txt",
+              "blocked_no_repair_candidate_generated",
+          ]
+          for snippet in required:
+              if snippet not in text:
+                  raise SystemExit(f"v2.8e runner revision guard failed; missing {snippet}")
+          if "git_clone_no_local" in text:
+              raise SystemExit("v2.8e runner must not use fresh git clone as repair workspace preservation")
+          print("runner revision guard: archive-preserved repair workspaces present")
+          PY
+
+      - name: Run BugsInPy repair workspace-preservation runner
+        shell: bash
+        run: |
+          python scripts/v2_8e_bugsinpy_repair_workspace_preservation_runner.py
+
+      - name: Upload BugsInPy repair workspace-preservation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8e_bugsinpy_repair_workspace_preservation_artifacts
+          path: v2_8e_bugsinpy_repair_workspace_preservation_artifacts
+          if-no-files-found: error

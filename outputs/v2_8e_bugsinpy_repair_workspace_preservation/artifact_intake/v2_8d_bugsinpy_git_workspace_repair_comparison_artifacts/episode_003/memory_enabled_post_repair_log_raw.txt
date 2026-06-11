@@ -1,0 +1,18 @@
+$ bash -lc python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash
+started_at_utc=2026-06-11T13:28:57.718145+00:00
+finished_at_utc=2026-06-11T13:28:58.029004+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+
+--- stderr ---
+======================================================================
+ERROR: test_beginning_backslash (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+AttributeError: type object 'BlackTestCase' has no attribute 'test_beginning_backslash'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+

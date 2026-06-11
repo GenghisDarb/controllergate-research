@@ -669,3 +669,37 @@ v2.8b reached the workflow but blocked before repair because checkout failed. Ch
 - Aggregate result: `blocked_bugsinpy_real_bug_replay_runtime_failure`.
 
 Apoptosis should not count infrastructure checkout failure as repair flatline. Full scoring remains disallowed. Self-maintaining software remains undemonstrated.
+
+## v2.8d BugsInPy Git-Workspace Repair Comparison
+
+v2.8d fixed the runner infrastructure path. The workflow executed with Git-based repair workspaces instead of fragile file-tree copying.
+
+- Workflow executed: true.
+- Executed episodes: 3.
+- Pre-repair replay gates: passed for all three promoted BugsInPy candidates.
+- Repair workspace strategy: `git_clone_no_local`.
+- Scoreable episodes: 0.
+- Blocked episodes: 3.
+- Apoptosis watchdog triggers: 3.
+- Positive memory episodes: 0.
+- Decision-time/outcome overlap count: 0.
+- Label-leakage count: 0.
+- Corruption count: 0.
+- Aggregate result: `blocked_apoptosis_watchdog_triggered`.
+
+This is no longer a checkout/runtime acquisition failure. It is blocked because the bounded repair runner produced no source-changing repair actions, and no-op/flatline behavior is correctly quarantined rather than scored. Full scoring remains disallowed. Memory lift and self-maintaining software remain undemonstrated.
+
+## v2.8e BugsInPy Repair Workspace Preservation
+
+v2.8e preserves the v2.8d artifact result and adds the next Linux runner fix. v2.8d proved the promoted BugsInPy candidates can reach target-matched pre-repair replay, but it remains blocked because repair workspaces/attempts did not produce valid source-changing repair evidence.
+
+- v2.8d artifact ingestion: SHA256 verification clean.
+- Preserved v2.8d classification: `blocked_apoptosis_watchdog_triggered`.
+- v2.8e root cause: repair workspaces must be exact preserved copies of the validated BugsInPy workspace, and empty/no-op repair traces must not be scored.
+- v2.8e runner status in this checkpoint: pending GitHub Actions execution.
+- v2.8e repair scoring: NOT RUN.
+- Full scoring: NOT_RUN / disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+Dependency/runtime setup is not code repair. Target-failure matching remains mandatory. Candidate promotion and pre-repair replay are not repair success.
