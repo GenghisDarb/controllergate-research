@@ -1,0 +1,31 @@
+name: v2_7b_bugsinpy_direct_target_runner_fix
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bugsinpy-direct-target-runner:
+    name: BugsInPy direct target runner fix
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run BugsInPy direct target runner fix
+        shell: bash
+        run: |
+          python scripts/v2_7b_bugsinpy_direct_target_runner_fix.py
+
+      - name: Upload BugsInPy direct target runner artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_7b_bugsinpy_direct_target_runner_fix_artifacts
+          path: v2_7b_bugsinpy_direct_target_runner_fix_artifacts
+          if-no-files-found: error

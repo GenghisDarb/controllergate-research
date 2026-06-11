@@ -574,3 +574,18 @@ The v2.7 GitHub Actions recovery artifact was ingested.
 Dependency repair is runtime setup, not code repair. Target-failure matching remains mandatory. Dependency/import/runtime failures do not count as target bug replay. Candidate promotion is not repair success.
 
 Next required action: fix the BugsInPy runner command/runtime path so target tests execute without wrapper contamination, or run a broader BugsInPy expansion that yields at least three target-matched candidates.
+
+## v2.7b/v2.8 BugsInPy Direct Target Runner Fix and Conditional Replay
+
+v2.7b fixes the runner by bypassing the broken BugsInPy wrapper path. `black:8` had target-failure signal but required clean direct rerun. Dependency/runtime setup is not code repair.
+
+- `black:8` direct rerun result: pending fresh v2.7b GitHub Actions artifact.
+- `black:2` direct rerun result: pending fresh v2.7b GitHub Actions artifact.
+- Additional candidates attempted locally: 0.
+- Final clean target-matched count: 1.
+- v2.8 executed: false.
+- Gate result: `insufficient_target_matched_candidates_for_v2_8`.
+
+Target-failure matching remains mandatory. Dependency/import/wrapper failures do not count as target bug replay. Candidate promotion is not repair success. Limited BugsInPy memory lift is not demonstrated. Full scoring remains disallowed. Self-maintaining software remains undemonstrated.
+
+Next required source/runtime action: run the `v2_7b_bugsinpy_direct_target_runner_fix` GitHub Actions workflow and ingest its artifact before any v2.8 repair scoring.
