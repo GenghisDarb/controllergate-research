@@ -1,0 +1,20 @@
+{
+  "available_inputs": [
+    "BugsInPy bug identifier",
+    "buggy checkout metadata from replay artifact",
+    "failing command",
+    "raw failing log",
+    "failure signature",
+    "prior ControllerGate memory artifacts allowed by policy"
+  ],
+  "excluded_inputs": [
+    "fixed revision contents",
+    "gold patch",
+    "repair diff from BugsInPy",
+    "future post-repair logs",
+    "fixed-state diagnostic hints"
+  ],
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "policy": "memory_enabled_controllergate"
+}

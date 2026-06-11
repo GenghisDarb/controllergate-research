@@ -1,0 +1,59 @@
+$ bash -lc cd /home/runner/work/controllergate-research/controllergate-research/_v2_7d_bugsinpy_runtime/workspaces/candidate_black_1/black && for f in requirements.txt requirements-dev.txt test-requirements.txt dev-requirements.txt; do if [ -f "$f" ]; then python -m pip install -r "$f" || true; fi; done && python -m pip install -e .
+started_at_utc=2026-06-11T02:44:57.370266+00:00
+finished_at_utc=2026-06-11T02:45:03.381704+00:00
+returncode=0
+timed_out=False
+--- stdout ---
+Obtaining file:///home/runner/work/controllergate-research/controllergate-research/_v2_7d_bugsinpy_runtime/workspaces/candidate_black_1/black
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting click>=6.5 (from black==19.10b1.dev67+g26c9465a2.d20260611)
+  Downloading click-8.4.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting attrs>=18.1.0 (from black==19.10b1.dev67+g26c9465a2.d20260611)
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting appdirs (from black==19.10b1.dev67+g26c9465a2.d20260611)
+  Downloading appdirs-1.4.4-py2.py3-none-any.whl.metadata (9.0 kB)
+Collecting toml>=0.9.4 (from black==19.10b1.dev67+g26c9465a2.d20260611)
+  Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting typed-ast>=1.4.0 (from black==19.10b1.dev67+g26c9465a2.d20260611)
+  Downloading typed_ast-1.5.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.7 kB)
+Collecting regex>=2020.1.8 (from black==19.10b1.dev67+g26c9465a2.d20260611)
+  Downloading regex-2026.5.9-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting pathspec<1,>=0.6 (from black==19.10b1.dev67+g26c9465a2.d20260611)
+  Downloading pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Collecting typing_extensions>=3.7.4 (from black==19.10b1.dev67+g26c9465a2.d20260611)
+  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting mypy_extensions>=0.4.3 (from black==19.10b1.dev67+g26c9465a2.d20260611)
+  Downloading mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+Downloading pathspec-0.12.1-py3-none-any.whl (31 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Downloading click-8.4.1-py3-none-any.whl (116 kB)
+Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+Downloading regex-2026.5.9-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (794 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 794.1/794.1 kB 14.1 MB/s  0:00:00
+Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Downloading typed_ast-1.5.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (824 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 824.7/824.7 kB 26.6 MB/s  0:00:00
+Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+Building wheels for collected packages: black
+  Building editable for black (pyproject.toml): started
+  Building editable for black (pyproject.toml): finished with status 'done'
+  Created wheel for black: filename=black-19.10b1.dev67+g26c9465a2.d20260611-0.editable-py3-none-any.whl size=27262 sha256=feb56c507285536a19e4fa156ce93d1ea36d4bd82e6ef643ef6f2aaefea460ad
+  Stored in directory: /tmp/pip-ephem-wheel-cache-jezc82ty/wheels/c3/54/b1/c57439d802426bbda6cc02c035f050b5932430b006ef61b25f
+Successfully built black
+Installing collected packages: appdirs, typing_extensions, typed-ast, toml, regex, pathspec, mypy_extensions, click, attrs, black
+
+Successfully installed appdirs-1.4.4 attrs-26.1.0 black-19.10b1.dev67+g26c9465a2.d20260611 click-8.4.1 mypy_extensions-1.1.0 pathspec-0.12.1 regex-2026.5.9 toml-0.10.2 typed-ast-1.5.5 typing_extensions-4.15.0
+
+--- stderr ---
+
+[notice] A new release of pip is available: 26.1.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+

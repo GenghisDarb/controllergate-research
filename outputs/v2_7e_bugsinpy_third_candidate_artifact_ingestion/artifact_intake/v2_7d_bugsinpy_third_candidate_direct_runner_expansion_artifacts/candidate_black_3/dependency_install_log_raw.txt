@@ -1,0 +1,42 @@
+$ bash -lc cd /home/runner/work/controllergate-research/controllergate-research/_v2_7d_bugsinpy_runtime/workspaces/candidate_black_3/black && for f in requirements.txt requirements-dev.txt test-requirements.txt dev-requirements.txt; do if [ -f "$f" ]; then python -m pip install -r "$f" || true; fi; done && python -m pip install -e .
+started_at_utc=2026-06-11T02:45:50.990859+00:00
+finished_at_utc=2026-06-11T02:45:53.261049+00:00
+returncode=0
+timed_out=False
+--- stdout ---
+Obtaining file:///home/runner/work/controllergate-research/controllergate-research/_v2_7d_bugsinpy_runtime/workspaces/candidate_black_3/black
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: click>=6.5 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from black==19.10b1.dev51+g8126b4f6a.d20260611) (8.4.1)
+Requirement already satisfied: attrs>=18.1.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from black==19.10b1.dev51+g8126b4f6a.d20260611) (26.1.0)
+Requirement already satisfied: appdirs in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from black==19.10b1.dev51+g8126b4f6a.d20260611) (1.4.4)
+Requirement already satisfied: toml>=0.9.4 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from black==19.10b1.dev51+g8126b4f6a.d20260611) (0.10.2)
+Requirement already satisfied: typed-ast>=1.4.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from black==19.10b1.dev51+g8126b4f6a.d20260611) (1.5.5)
+Requirement already satisfied: regex>=2020.1.8 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from black==19.10b1.dev51+g8126b4f6a.d20260611) (2026.5.9)
+Requirement already satisfied: pathspec<1,>=0.6 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from black==19.10b1.dev51+g8126b4f6a.d20260611) (0.12.1)
+Requirement already satisfied: typing_extensions>=3.7.4 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from black==19.10b1.dev51+g8126b4f6a.d20260611) (4.15.0)
+Requirement already satisfied: mypy_extensions>=0.4.3 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from black==19.10b1.dev51+g8126b4f6a.d20260611) (1.1.0)
+Building wheels for collected packages: black
+  Building editable for black (pyproject.toml): started
+  Building editable for black (pyproject.toml): finished with status 'done'
+  Created wheel for black: filename=black-19.10b1.dev51+g8126b4f6a.d20260611-0.editable-py36-none-any.whl size=27119 sha256=c6d0cf77b6bb8b025628f9161e4c8694694f6f260963b72049f6b5557fa34318
+  Stored in directory: /tmp/pip-ephem-wheel-cache-8ni33on7/wheels/ce/05/98/5d0bad1b66d0c90b6674a80a44a8661efa294d41278a0af39a
+Successfully built black
+Installing collected packages: black
+  Attempting uninstall: black
+    Found existing installation: black 19.10b1.dev67+g26c9465a2.d20260611
+    Uninstalling black-19.10b1.dev67+g26c9465a2.d20260611:
+      Successfully uninstalled black-19.10b1.dev67+g26c9465a2.d20260611
+Successfully installed black-19.10b1.dev51+g8126b4f6a.d20260611
+
+--- stderr ---
+
+[notice] A new release of pip is available: 26.1.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+

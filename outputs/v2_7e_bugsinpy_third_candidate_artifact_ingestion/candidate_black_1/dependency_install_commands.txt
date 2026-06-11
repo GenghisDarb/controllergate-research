@@ -1,0 +1,1 @@
+cd /home/runner/work/controllergate-research/controllergate-research/_v2_7d_bugsinpy_runtime/workspaces/candidate_black_1/black && for f in requirements.txt requirements-dev.txt test-requirements.txt dev-requirements.txt; do if [ -f "$f" ]; then python -m pip install -r "$f" || true; fi; done && python -m pip install -e .

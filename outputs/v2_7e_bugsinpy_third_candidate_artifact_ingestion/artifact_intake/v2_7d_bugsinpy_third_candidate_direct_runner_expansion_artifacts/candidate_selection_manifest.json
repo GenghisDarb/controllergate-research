@@ -1,0 +1,238 @@
+{
+  "budget": 12,
+  "excluded_candidates": [
+    "PySnooper:1",
+    "PySnooper:2",
+    "PySnooper:3",
+    "ansible:1",
+    "ansible:10",
+    "ansible:11",
+    "ansible:12",
+    "ansible:13",
+    "black:2",
+    "black:8",
+    "youtube-dl:1"
+  ],
+  "selected_candidates": [
+    {
+      "candidate": "black:1",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_works_in_mono_process_only_environment",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/test_black.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.test_black",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:3",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_invalid_config_return_code",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/test_black.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.test_black",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:4",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/test_black.py;tests/data/beginning_backslash.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.test_black.py;tests.data.beginning_backslash",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:5",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_function_trailing_comma",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/test_black.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.test_black",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:6",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_async_as_identifier",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_python37",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/test_black.py;tests/data/comment_after_escaped_newline.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.test_black.py;tests.data.comment_after_escaped_newline",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:7",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_tuple_assign",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/data/tupleassign.py;tests/test_black.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.data.tupleassign.py;tests.test_black",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:9",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_python2_print_function",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/data/python2_print_function.py;tests/test_black.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.data.python2_print_function.py;tests.test_black",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:10",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_comment_indentation",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/test_black.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.test_black",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:11",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_comments6",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/data/comments6.py;tests/test_black.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.data.comments6.py;tests.test_black",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:12",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_bracket_match",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/data/bracketmatch.py;tests/test_black.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.data.bracketmatch.py;tests.test_black",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:13",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_python37",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/data/python37.py;tests/test_black.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.data.python37.py;tests.test_black",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    },
+    {
+      "candidate": "black:14",
+      "commands": [
+        {
+          "command": "python -m unittest -q tests.test_black.BlackTestCase.test_get_future_imports",
+          "source": "run_test.sh direct command"
+        },
+        {
+          "command": "python -m pytest -q tests/test_black.py",
+          "source": "bug.info test_file pytest command"
+        },
+        {
+          "command": "python -m unittest -q tests.test_black",
+          "source": "bug.info test_file unittest command"
+        }
+      ],
+      "readiness_score": 90
+    }
+  ]
+}

@@ -13,6 +13,7 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = REPO_ROOT / "outputs" / "v2_7d_bugsinpy_third_candidate_direct_runner_expansion"
 V28_DIR = REPO_ROOT / "outputs" / "v2_8_bugsinpy_real_bug_limited_replay_execution"
+V27E_GATE = REPO_ROOT / "outputs" / "v2_7e_bugsinpy_third_candidate_artifact_ingestion" / "v2_8_execution_gate_decision.json"
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "v2_7d_bugsinpy_third_candidate_direct_runner_expansion.yml"
 RUNNER = REPO_ROOT / "scripts" / "v2_7d_bugsinpy_third_candidate_direct_runner_expansion.py"
 V27C_GATE = REPO_ROOT / "outputs" / "v2_7c_bugsinpy_direct_runner_artifact_ingestion" / "v2_8_execution_gate_decision.json"
@@ -56,6 +57,13 @@ def load_json(path: Path) -> tuple[dict[str, Any], list[str]]:
     if not isinstance(data, dict):
         return {}, [f"{path}: expected object"]
     return data, []
+
+
+def later_v28_gate_passed() -> bool:
+    if not V27E_GATE.exists():
+        return False
+    data, _ = load_json(V27E_GATE)
+    return data.get("execute_v2_8") is True and data.get("target_matched_candidate_count") == 3
 
 
 def verify_manifest(directory: Path) -> list[str]:
@@ -165,8 +173,8 @@ def main() -> int:
         errors.append("v2.7d gate must start from two clean target-matched candidates")
     if gate.get("execute_v2_8") is not False or gate.get("repair_scoring_run") is not False:
         errors.append("v2.8 must not execute before third candidate artifact is ingested")
-    if V28_DIR.exists():
-        errors.append("v2.8 output directory must not exist unless gate passes")
+    if V28_DIR.exists() and not later_v28_gate_passed():
+        errors.append("v2.8 output directory must not exist unless a later gate passes")
     if pool.get("count") != 2:
         errors.append("v2.7d promoted pool must preserve two clean target-matched candidates")
     if v27c_gate.get("target_matched_candidate_count") != 2:

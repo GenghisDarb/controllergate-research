@@ -618,3 +618,23 @@ v2.7d adds a focused Linux/GitHub Actions direct-runner expansion to acquire the
 The runner excludes already promoted or blocked candidates, derives direct commands from BugsInPy metadata, rejects dependency/import/runtime/wrapper failures, and stops after one clean new target-matched candidate. Candidate promotion is not repair success. Full scoring remains disallowed. Memory lift and self-maintaining software remain undemonstrated.
 
 Next required action: run the `v2_7d_bugsinpy_third_candidate_direct_runner_expansion` GitHub Actions workflow and ingest the artifact.
+
+## v2.7e/v2.8 BugsInPy Third-Candidate Ingestion and Limited Replay Execution
+
+v2.7e promotes black:4 from clean direct target replay. The clean BugsInPy target-matched pool reached 3 candidates, and v2.8 limited replay opened only after the target-matched gate passed.
+
+- Artifact ingestion result: PASS; artifact SHA256 verification had 0 hash failures.
+- Promoted candidates: `youtube-dl:1`, `black:8`, `black:4`.
+- Blocked candidates: `black:1`, `black:3`.
+- Final clean target-matched candidate count: 3.
+- v2.8 execution status: gate opened; repair comparison blocked pending post-repair BugsInPy validation runtime artifacts.
+- Scoreable episodes: 0.
+- Positive memory episodes: 0.
+- Blocked episodes: 3.
+- Decision-time/outcome overlap count: 0.
+- Label-leakage count: 0.
+- Apoptosis watchdog count: 0.
+- Corruption count: 0.
+- Aggregate result: `blocked_bugsinpy_real_bug_replay_runtime_failure`.
+
+Candidate promotion is not repair success. Limited BugsInPy memory lift is not demonstrated. Full scoring remains disallowed. Self-maintaining software remains undemonstrated.

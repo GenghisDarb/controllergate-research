@@ -1,0 +1,32 @@
+$ bugsinpy-test -w /home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/workspaces/youtube_dl_1/youtube-dl -r
+$ bash -lc bugsinpy-test -w /home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/workspaces/youtube_dl_1/youtube-dl -r
+started_at_utc=2026-06-05T21:17:34.231371+00:00
+finished_at_utc=2026-06-05T21:17:35.401795+00:00
+returncode=127
+timed_out=False
+--- stdout ---
+python -m unittest -q test.test_utils.TestUtil.test_match_str
+RUN EVERY COMMAND
+0
+
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/workspaces/youtube_dl_1/youtube-dl/youtube_dl/extractor/pandatv.py:39: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  if error_code is not 0:
+======================================================================
+FAIL: test_match_str (test.test_utils.TestUtil)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/workspaces/youtube_dl_1/youtube-dl/test/test_utils.py", line 1076, in test_match_str
+    self.assertFalse(match_str('is_live', {'is_live': False}))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)
+
+--- stderr ---
+/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test: illegal option -- r
+/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test: line 67: env/bin/activate: No such file or directory
+/home/runner/work/controllergate-research/controllergate-research/_v2_5_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-test: line 181: deactivate: command not found
+

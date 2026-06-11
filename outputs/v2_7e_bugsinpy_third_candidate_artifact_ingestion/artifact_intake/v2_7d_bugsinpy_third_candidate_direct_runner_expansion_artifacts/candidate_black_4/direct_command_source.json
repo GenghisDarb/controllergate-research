@@ -1,0 +1,17 @@
+{
+  "commands": [
+    {
+      "command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+      "source": "run_test.sh direct command"
+    },
+    {
+      "command": "python -m pytest -q tests/test_black.py;tests/data/beginning_backslash.py",
+      "source": "bug.info test_file pytest command"
+    },
+    {
+      "command": "python -m unittest -q tests.test_black.py;tests.data.beginning_backslash",
+      "source": "bug.info test_file unittest command"
+    }
+  ],
+  "policy": "derived from BugsInPy run_test.sh or bug.info test_file; fixed/gold patches not used"
+}

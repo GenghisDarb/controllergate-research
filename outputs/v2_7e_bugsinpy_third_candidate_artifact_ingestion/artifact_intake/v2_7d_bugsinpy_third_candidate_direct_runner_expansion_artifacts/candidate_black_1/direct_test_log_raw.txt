@@ -1,0 +1,80 @@
+## command: python -m unittest -q tests.test_black.BlackTestCase.test_works_in_mono_process_only_environment
+source=run_test.sh direct command
+promotion_status=blocked_runtime_environment_failure
+target_failure_signal_present=True
+wrapper_contaminated=False
+dependency_or_runtime_blocked=True
+reason=dependency/import/runtime blocker marker was present
+--- raw ---
+$ python -m unittest -q tests.test_black.BlackTestCase.test_works_in_mono_process_only_environment
+
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/main.py", line 100, in __init__
+    self.parseArgs(argv)
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/main.py", line 147, in parseArgs
+    self.createTests()
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/main.py", line 158, in createTests
+    self.test = self.testLoader.loadTestsFromNames(self.testNames,
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/loader.py", line 220, in loadTestsFromNames
+    suites = [self.loadTestsFromName(name, module) for name in names]
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/loader.py", line 220, in <listcomp>
+    suites = [self.loadTestsFromName(name, module) for name in names]
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/runner/work/controllergate-research/controllergate-research/_v2_7d_bugsinpy_runtime/workspaces/candidate_black_1/black/tests/test_black.py", line 1763, in <module>
+    class BlackDTestCase(AioHTTPTestCase):
+NameError: name 'AioHTTPTestCase' is not defined
+
+
+## command: python -m pytest -q tests/test_black.py
+source=bug.info test_file pytest command
+promotion_status=blocked_runtime_environment_failure
+target_failure_signal_present=False
+wrapper_contaminated=False
+dependency_or_runtime_blocked=True
+reason=dependency/import/runtime blocker marker was present
+--- raw ---
+$ python -m pytest -q tests/test_black.py
+
+/opt/hostedtoolcache/Python/3.10.20/x64/bin/python: No module named pytest
+
+
+## command: python -m unittest -q tests.test_black
+source=bug.info test_file unittest command
+promotion_status=blocked_runtime_environment_failure
+target_failure_signal_present=True
+wrapper_contaminated=False
+dependency_or_runtime_blocked=True
+reason=dependency/import/runtime blocker marker was present
+--- raw ---
+$ python -m unittest -q tests.test_black
+
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/main.py", line 100, in __init__
+    self.parseArgs(argv)
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/main.py", line 147, in parseArgs
+    self.createTests()
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/main.py", line 158, in createTests
+    self.test = self.testLoader.loadTestsFromNames(self.testNames,
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/loader.py", line 220, in loadTestsFromNames
+    suites = [self.loadTestsFromName(name, module) for name in names]
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/loader.py", line 220, in <listcomp>
+    suites = [self.loadTestsFromName(name, module) for name in names]
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/runner/work/controllergate-research/controllergate-research/_v2_7d_bugsinpy_runtime/workspaces/candidate_black_1/black/tests/test_black.py", line 1763, in <module>
+    class BlackDTestCase(AioHTTPTestCase):
+NameError: name 'AioHTTPTestCase' is not defined
+

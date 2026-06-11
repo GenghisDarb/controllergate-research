@@ -13,6 +13,7 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = REPO_ROOT / "outputs" / "v2_7_bugsinpy_target_replay_promotion_recovery"
 V28_DIR = REPO_ROOT / "outputs" / "v2_8_bugsinpy_real_bug_limited_replay_execution"
+V27E_GATE = REPO_ROOT / "outputs" / "v2_7e_bugsinpy_third_candidate_artifact_ingestion" / "v2_8_execution_gate_decision.json"
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "v2_7_bugsinpy_target_replay_recovery.yml"
 PROBE = REPO_ROOT / "scripts" / "v2_7_bugsinpy_target_replay_recovery_probe.py"
 V25_STATUS = REPO_ROOT / "outputs" / "v2_5_bugsinpy_runtime_runner" / "runner_status.json"
@@ -74,6 +75,13 @@ def load_json(path: Path) -> tuple[dict[str, Any], list[str]]:
     if not isinstance(data, dict):
         return {}, [f"{path}: expected object"]
     return data, []
+
+
+def later_v28_gate_passed() -> bool:
+    if not V27E_GATE.exists():
+        return False
+    data, _ = load_json(V27E_GATE)
+    return data.get("execute_v2_8") is True and data.get("target_matched_candidate_count") == 3
 
 
 def verify_manifest(directory: Path, recursive: bool = True) -> list[str]:
@@ -214,8 +222,8 @@ def main() -> int:
     blocked_candidates = {record.get("candidate") for record in blocked_records if isinstance(record, dict)}
     if blocked.get("blocked_count", 0) < 2 or not {"black:2", "black:8"}.issubset(blocked_candidates):
         errors.append("blocked candidate summary must include black:2 and black:8")
-    if V28_DIR.exists():
-        errors.append("v2.8 output directory must not exist when gate does not pass")
+    if V28_DIR.exists() and not later_v28_gate_passed():
+        errors.append("v2.8 output directory must not exist when no later gate passes")
     if v25.get("promoted_candidate_count") != 1:
         errors.append("corrected v2.5 promoted count must remain 1")
     if v26.get("aggregate_result") != "insufficient_episode_count_for_bugsinpy_real_bug_memory_lift":

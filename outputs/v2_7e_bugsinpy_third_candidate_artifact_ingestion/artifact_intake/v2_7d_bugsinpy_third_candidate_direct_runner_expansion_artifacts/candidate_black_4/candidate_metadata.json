@@ -1,0 +1,13 @@
+{
+  "bug_id": "4",
+  "buggy_commit_id": "65ea568e3301951f26e0e3b98f6d5dc80132e917",
+  "candidate_class": "real_bug_benchmark_entry",
+  "fixed_commit_id_outcome_only": "c7495b9aa098ef7a358fc74556359d21c6a4ba11",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "project": "black",
+  "python_version_required": "3.8.3",
+  "repo_url": "https://github.com/psf/black",
+  "run_test_sh": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+  "source_family": "bugsinpy",
+  "test_file": "tests/test_black.py;tests/data/beginning_backslash.py"
+}

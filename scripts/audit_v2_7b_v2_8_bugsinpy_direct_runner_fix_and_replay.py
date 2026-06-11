@@ -13,6 +13,7 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = REPO_ROOT / "outputs" / "v2_7b_bugsinpy_direct_target_runner_fix"
 V28_DIR = REPO_ROOT / "outputs" / "v2_8_bugsinpy_real_bug_limited_replay_execution"
+V27E_GATE = REPO_ROOT / "outputs" / "v2_7e_bugsinpy_third_candidate_artifact_ingestion" / "v2_8_execution_gate_decision.json"
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "v2_7b_bugsinpy_direct_target_runner_fix.yml"
 RUNNER = REPO_ROOT / "scripts" / "v2_7b_bugsinpy_direct_target_runner_fix.py"
 V27_INGEST = REPO_ROOT / "outputs" / "v2_7_bugsinpy_target_replay_promotion_recovery" / "runtime_artifact_ingestion_result.json"
@@ -83,6 +84,13 @@ def load_json(path: Path) -> tuple[dict[str, Any], list[str]]:
     if not isinstance(data, dict):
         return {}, [f"{path}: expected object"]
     return data, []
+
+
+def later_v28_gate_passed() -> bool:
+    if not V27E_GATE.exists():
+        return False
+    data, _ = load_json(V27E_GATE)
+    return data.get("execute_v2_8") is True and data.get("target_matched_candidate_count") == 3
 
 
 def verify_manifest(directory: Path, recursive: bool = True) -> list[str]:
@@ -225,8 +233,8 @@ def main() -> int:
         errors.append("v2.8 gate count must match target-failure summary")
     if gate.get("target_matched_candidate_count") != 1:
         errors.append("current v2.7b target-matched count must remain 1")
-    if V28_DIR.exists():
-        errors.append("v2.8 output directory must not exist unless gate passes")
+    if V28_DIR.exists() and not later_v28_gate_passed():
+        errors.append("v2.8 output directory must not exist unless a later gate passes")
     if v27_ingest.get("final_target_matched_candidate_count") != 1:
         errors.append("v2.7 artifact ingestion result must remain preserved")
     if v27_gate.get("execute_v2_8") is not False:
