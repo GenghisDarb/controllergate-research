@@ -3,6 +3,9 @@ name: v2_8c_bugsinpy_repair_checkout_fix
 on:
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   bugsinpy-repair-checkout-fix:
     name: BugsInPy repair comparison checkout fix
