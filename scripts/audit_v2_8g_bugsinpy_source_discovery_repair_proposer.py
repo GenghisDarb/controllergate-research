@@ -32,6 +32,10 @@ REQUIRED_PHASE_A = [
     "repair_heuristic_registry.json",
     "repair_heuristic_safety_policy.json",
     "patch_candidate_ranking_policy.json",
+    "campaign_plan.json",
+    "campaign_results.json",
+    "aggregate_bugsinpy_real_bug_memory_lift_assessment.json",
+    "campaign_summary.md",
     "SHA256SUMS.txt",
 ]
 
@@ -141,9 +145,10 @@ def main() -> int:
     sha_record, sha_errors = load_json(OUTPUT_DIR / "v2_8f_artifact_sha256_verification.json")
     design, design_errors = load_json(OUTPUT_DIR / "source_discovery_design.json")
     registry, registry_errors = load_json(OUTPUT_DIR / "repair_heuristic_registry.json")
-    campaign, campaign_errors = load_json(RERUN_DIR / "campaign_results.json")
-    aggregate, aggregate_errors = load_json(RERUN_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json")
-    errors.extend(preservation_errors + sha_errors + design_errors + registry_errors + campaign_errors + aggregate_errors)
+    campaign, campaign_errors = load_json(OUTPUT_DIR / "campaign_results.json")
+    aggregate, aggregate_errors = load_json(OUTPUT_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json")
+    rerun_campaign, rerun_campaign_errors = load_json(RERUN_DIR / "campaign_results.json")
+    errors.extend(preservation_errors + sha_errors + design_errors + registry_errors + campaign_errors + aggregate_errors + rerun_campaign_errors)
 
     verification_clean = sha_record.get("verification_clean", sha_record.get("sha256_manifest_clean"))
     if verification_clean is not True or sha_record.get("hash_failures"):
@@ -164,6 +169,8 @@ def main() -> int:
         errors.append("repair heuristic registry must include all three required families")
     if campaign.get("workflow_executed") is not False:
         errors.append("local v2.8g checkpoint must remain pending workflow execution")
+    if rerun_campaign.get("workflow_executed") is not False:
+        errors.append("v2.8g rerun checkpoint must remain pending workflow execution")
     if campaign.get("scoreable_episode_count") != 0:
         errors.append("pending v2.8g checkpoint must have zero scoreable episodes")
     if campaign.get("full_scoring_allowed") is not False or campaign.get("controllergate_full_scoring") != "NOT_RUN":
@@ -179,6 +186,8 @@ def main() -> int:
             "build_symbol_index",
             "rank_source_files",
             "match_str",
+            "raw_match_str_exists",
+            "blocked_source_discovery_failed",
             "source_discovery_report.json",
             "symbol_index_summary.json",
             "ranked_candidate_source_files.json",

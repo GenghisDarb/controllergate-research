@@ -91,6 +91,46 @@ No-patch/no-action outcomes are not scoreable repair evidence. Candidate generat
     write_text(SUMMARY, text)
 
 
+def campaign_artifacts() -> dict[str, Any]:
+    return {
+        "campaign_plan": {
+            "campaign_id": "v2_8g_bugsinpy_source_discovery_repair_proposer",
+            "workflow": ".github/workflows/v2_8g_bugsinpy_source_discovery_repair_proposer.yml",
+            "runner": "scripts/v2_8g_bugsinpy_source_discovery_repair_proposer_runner.py",
+            "candidate_ids": CANDIDATES,
+            "source_discovery_enabled": True,
+            "targeted_safe_heuristics_enabled": True,
+            "primary_goal": "move at least one episode past no-safe-patch candidate generation if justified by decision-time inputs",
+            "full_scoring_allowed": False,
+            "controllergate_full_scoring": "NOT_RUN",
+            "self_maintaining_software_demonstrated": False,
+        },
+        "campaign_results": {
+            "workflow_executed": False,
+            "executed_episode_count": 0,
+            "scoreable_episode_count": 0,
+            "positive_memory_episode_count": 0,
+            "blocked_episode_count": 0,
+            "aggregate_result": "blocked_pending_v2_8g_source_discovery_repair_proposer_artifact",
+            "limited_bugsinpy_real_bug_memory_lift_criteria_met": False,
+            "full_scoring_allowed": False,
+            "controllergate_full_scoring": "NOT_RUN",
+            "self_maintaining_software_demonstrated": False,
+        },
+        "aggregate": {
+            "aggregate_result": "blocked_pending_v2_8g_source_discovery_repair_proposer_artifact",
+            "scoreable_episode_count": 0,
+            "positive_memory_episode_count": 0,
+            "minimum_required_scoreable_episodes": 3,
+            "limited_bugsinpy_real_bug_memory_lift_criteria_met": False,
+            "full_scoring_allowed": False,
+            "controllergate_full_scoring": "NOT_RUN",
+            "self_maintaining_software_demonstrated": False,
+        },
+        "campaign_summary": "# v2.8g BugsInPy Source-Discovery Repair Proposer\n\nThe source-discovery repair proposer workflow is ready but has not been executed in this local checkpoint. Run `v2_8g_bugsinpy_source_discovery_repair_proposer` in GitHub Actions and ingest the artifact before making any memory-lift claim.\n",
+    }
+
+
 def prepare_phase_a() -> None:
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
@@ -264,6 +304,11 @@ def prepare_phase_a() -> None:
             "no_patch_when_uncertain": True,
         },
     )
+    campaign = campaign_artifacts()
+    write_json(OUTPUT_DIR / "campaign_plan.json", campaign["campaign_plan"])
+    write_json(OUTPUT_DIR / "campaign_results.json", campaign["campaign_results"])
+    write_json(OUTPUT_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json", campaign["aggregate"])
+    write_text(OUTPUT_DIR / "campaign_summary.md", campaign["campaign_summary"])
     write_manifest(OUTPUT_DIR)
 
 
@@ -271,58 +316,17 @@ def prepare_rerun_bundle() -> None:
     if RERUN_DIR.exists():
         shutil.rmtree(RERUN_DIR)
     RERUN_DIR.mkdir(parents=True, exist_ok=True)
-    write_json(
-        RERUN_DIR / "campaign_plan.json",
-        {
-            "campaign_id": "v2_8g_bugsinpy_real_bug_source_discovery_repair_comparison",
-            "workflow": ".github/workflows/v2_8g_bugsinpy_source_discovery_repair_proposer.yml",
-            "runner": "scripts/v2_8g_bugsinpy_source_discovery_repair_proposer_runner.py",
-            "candidate_ids": CANDIDATES,
-            "source_discovery_enabled": True,
-            "targeted_safe_heuristics_enabled": True,
-            "full_scoring_allowed": False,
-            "controllergate_full_scoring": "NOT_RUN",
-            "self_maintaining_software_demonstrated": False,
-        },
-    )
+    campaign = campaign_artifacts()
+    write_json(RERUN_DIR / "campaign_plan.json", campaign["campaign_plan"] | {"campaign_id": "v2_8g_bugsinpy_real_bug_source_discovery_repair_comparison"})
     write_json(RERUN_DIR / "candidate_source_integrity_check.json", {"candidate_count": 3, "candidate_ids": CANDIDATES, "blocked_candidates_executed": False})
     write_json(RERUN_DIR / "pre_repair_replay_gate_summary.json", {"workflow_executed": False, "passed_count": 0})
     write_json(RERUN_DIR / "workspace_equivalence_summary.json", {"workflow_executed": False, "workspace_equivalence_passed_count": 0})
     write_json(RERUN_DIR / "repair_attempt_summary.json", {"workflow_executed": False, "patch_candidate_generated_count": 0, "post_repair_outcome_count": 0})
     write_json(RERUN_DIR / "source_discovery_summary.json", {"workflow_executed": False, "source_discovery_runner_ready": True, "match_str_required_for_youtube_dl": True})
     write_json(RERUN_DIR / "bounded_repair_proposer_summary.json", {"workflow_executed": False, "proposer_ready": True, "pending_artifact": "v2_8g_bugsinpy_source_discovery_repair_proposer_artifacts"})
-    write_json(
-        RERUN_DIR / "campaign_results.json",
-        {
-            "workflow_executed": False,
-            "executed_episode_count": 0,
-            "scoreable_episode_count": 0,
-            "positive_memory_episode_count": 0,
-            "blocked_episode_count": 0,
-            "aggregate_result": "blocked_pending_v2_8g_source_discovery_repair_proposer_artifact",
-            "limited_bugsinpy_real_bug_memory_lift_criteria_met": False,
-            "full_scoring_allowed": False,
-            "controllergate_full_scoring": "NOT_RUN",
-            "self_maintaining_software_demonstrated": False,
-        },
-    )
-    write_json(
-        RERUN_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json",
-        {
-            "aggregate_result": "blocked_pending_v2_8g_source_discovery_repair_proposer_artifact",
-            "scoreable_episode_count": 0,
-            "positive_memory_episode_count": 0,
-            "minimum_required_scoreable_episodes": 3,
-            "limited_bugsinpy_real_bug_memory_lift_criteria_met": False,
-            "full_scoring_allowed": False,
-            "controllergate_full_scoring": "NOT_RUN",
-            "self_maintaining_software_demonstrated": False,
-        },
-    )
-    write_text(
-        RERUN_DIR / "campaign_summary.md",
-        "# v2.8g BugsInPy Source-Discovery Repair Proposer\n\nThe source-discovery repair proposer workflow is ready but has not been executed in this local checkpoint. Run `v2_8g_bugsinpy_source_discovery_repair_proposer` in GitHub Actions and ingest the artifact before making any memory-lift claim.\n",
-    )
+    write_json(RERUN_DIR / "campaign_results.json", campaign["campaign_results"])
+    write_json(RERUN_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json", campaign["aggregate"])
+    write_text(RERUN_DIR / "campaign_summary.md", campaign["campaign_summary"])
     write_manifest(RERUN_DIR)
 
 

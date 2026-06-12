@@ -78,6 +78,13 @@ def is_indexable(path: Path, root: Path) -> bool:
     return path.suffix == ".py" and not any(part in blocked for part in rel_parts)
 
 
+def file_contains(path: Path, needle: str) -> bool:
+    try:
+        return needle in path.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return False
+
+
 def parse_test_selector(candidate: dict[str, Any]) -> dict[str, str]:
     selector = candidate["direct_command"].split()[-1]
     parts = selector.split(".")
@@ -273,6 +280,12 @@ def run_source_discovery(episode_dir: Path, workspace: Path, candidate: dict[str
     ranked = rank_source_files(workspace, candidate, failing_log, test_info, symbol_index, frames)
     names = set(test_info.get("call_names", []))
     extracts = function_extracts(workspace, ranked, names)
+    raw_match_str_files = [
+        relative(path, workspace)
+        for path in sorted(workspace.rglob("*.py"))
+        if is_indexable(path, workspace)
+        and file_contains(path, "def match_str")
+    ]
     match_hits = symbol_index.get("by_name", {}).get("match_str", [])
     report = {
         "candidate": candidate["candidate"],
@@ -284,6 +297,9 @@ def run_source_discovery(episode_dir: Path, workspace: Path, candidate: dict[str
         "ranked_file_count": len(ranked),
         "match_str_hits": match_hits,
         "match_str_found": bool(match_hits),
+        "raw_match_str_files": raw_match_str_files,
+        "raw_match_str_exists": bool(raw_match_str_files),
+        "source_discovery_failed": bool(candidate["candidate"] == "youtube-dl:1" and raw_match_str_files and not match_hits),
         "fixed_or_gold_patch_used": False,
         "future_outcome_evidence_used": False,
     }
@@ -363,7 +379,20 @@ def propose_patch(workspace: Path, candidate: dict[str, Any], discovery: dict[st
 def write_attempt(path: Path, candidate: dict[str, Any], workspace: Path, prefix: str, env: dict[str, str], memory_enabled: bool) -> dict[str, Any]:
     failing_log = (path / "failing_log_raw.txt").read_text(encoding="utf-8", errors="replace")
     discovery = run_source_discovery(path, workspace, candidate, failing_log)
-    proposal = propose_patch(workspace, candidate, discovery, memory_enabled)
+    if discovery["report"].get("source_discovery_failed"):
+        proposal = {
+            "candidate_generated": False,
+            "reason": "def match_str exists in buggy workspace but source discovery did not find it",
+            "heuristic_family": "boolean_value_matching_failure",
+            "memory_enabled_path": memory_enabled,
+            "fixed_or_gold_patch_used": False,
+            "future_outcome_evidence_used": False,
+            "label_leakage_detected": False,
+            "source_discovery_failed": True,
+            "source_discovery_ranked_files": [item["file"] for item in discovery["ranked"][:10]],
+        }
+    else:
+        proposal = propose_patch(workspace, candidate, discovery, memory_enabled)
     write_json(path / f"{prefix}_repair_candidate_generation.json", proposal)
     write_json(path / "repair_heuristic_selection.json", {"selected_heuristic": proposal["heuristic_family"], "candidate_generated": proposal["candidate_generated"]})
     write_json(path / "patch_candidate_explanation.json", {"path": prefix, "proposal": proposal, "source_reasoning": proposal.get("reason") or "minimal localized decision-time patch candidate generated"})
@@ -377,14 +406,17 @@ def write_attempt(path: Path, candidate: dict[str, Any], workspace: Path, prefix
     write_json(path / f"{prefix}_action_trace.json", {"actions": actions, "patch_candidate_generated": proposal["candidate_generated"]})
     diff = git_diff(workspace, env) if proposal["candidate_generated"] else "# NO PATCH CANDIDATE GENERATED\n"
     write_text(path / f"{prefix}_repair_patch.diff", diff or "# NO PATCH CANDIDATE GENERATED\n")
-    write_json(path / f"{prefix}_patch_application_result.json", {"patch_application_attempted": bool(proposal["candidate_generated"]), "patch_applied": bool(proposal["candidate_generated"]), "blocked_reason": None if proposal["candidate_generated"] else "blocked_no_safe_patch_candidate_generated"})
+    blocked_reason = None
+    if not proposal["candidate_generated"]:
+        blocked_reason = "blocked_source_discovery_failed" if proposal.get("source_discovery_failed") else "blocked_no_safe_patch_candidate_generated"
+    write_json(path / f"{prefix}_patch_application_result.json", {"patch_application_attempted": bool(proposal["candidate_generated"]), "patch_applied": bool(proposal["candidate_generated"]), "blocked_reason": blocked_reason})
     write_text(path / f"{prefix}_post_repair_command.txt", candidate["direct_command"] + "\n")
     if proposal["candidate_generated"]:
         result = run_shell(candidate["direct_command"], cwd=workspace, env=env)
         base.log_result(path / f"{prefix}_post_repair_log_raw.txt", result)
         passed = result.get("returncode") == 0
     else:
-        write_text(path / f"{prefix}_post_repair_log_raw.txt", "NOT_RUN: blocked_no_safe_patch_candidate_generated\n")
+        write_text(path / f"{prefix}_post_repair_log_raw.txt", f"NOT_RUN: {blocked_reason}\n")
         passed = False
     outcome = {
         "repair_path_ran": True,
@@ -394,7 +426,7 @@ def write_attempt(path: Path, candidate: dict[str, Any], workspace: Path, prefix
         "changed_file_count": 1 if proposal["candidate_generated"] else 0,
         "changed_lines": max(0, diff.count("\n+") - 1) if proposal["candidate_generated"] else 0,
         "repair_actions": len(actions),
-        "blocked_reason": None if proposal["candidate_generated"] else "blocked_no_safe_patch_candidate_generated",
+        "blocked_reason": blocked_reason,
     }
     write_json(path / f"{prefix}_outcome.json", outcome)
     return outcome
@@ -423,7 +455,11 @@ def run_repair_paths(candidate: dict[str, Any], project_root: Path, episode_dir:
     write_json(episode_dir / "memory_evidence_used.json", {"allowed_controllergate_memory_only": True, "fixed_bugsinpy_patch_used": False})
     no_outcome = write_attempt(episode_dir, candidate, no_memory_dir, "no_memory", env, False)
     mem_outcome = write_attempt(episode_dir, candidate, memory_dir, "memory_enabled", env, True)
-    if not no_outcome["patch_candidate_generated"] and not mem_outcome["patch_candidate_generated"]:
+    if no_outcome.get("blocked_reason") == "blocked_source_discovery_failed" or mem_outcome.get("blocked_reason") == "blocked_source_discovery_failed":
+        classification = "blocked_source_discovery_failed"
+        scoreable = False
+        memory_outperformed = False
+    elif not no_outcome["patch_candidate_generated"] and not mem_outcome["patch_candidate_generated"]:
         classification = "blocked_no_safe_patch_candidate_generated"
         scoreable = False
         memory_outperformed = False

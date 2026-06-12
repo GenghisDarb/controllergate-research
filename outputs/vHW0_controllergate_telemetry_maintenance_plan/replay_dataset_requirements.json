@@ -1,0 +1,17 @@
+{
+  "forbidden_inputs_at_decision_time": [
+    "post-outcome repair success labels",
+    "future telemetry after decision boundary",
+    "operator intervention notes generated after outcome",
+    "unsafe actuation commands"
+  ],
+  "required_inputs": [
+    "timestamped telemetry log",
+    "baseline normal window",
+    "fault or anomaly window",
+    "environment/context metadata",
+    "ground-truth outcome withheld from decision-time inputs",
+    "safety/corruption check definition",
+    "SHA256 artifact manifest"
+  ]
+}

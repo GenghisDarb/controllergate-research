@@ -1,0 +1,19 @@
+{
+  "memory_enabled_path": "uses current telemetry episode decision-time inputs plus allowed prior ControllerGate memory",
+  "no_memory_path": "uses only current telemetry episode decision-time inputs",
+  "protocol": "compare no-memory and memory-enabled maintenance recommendations under identical replay conditions",
+  "required_checks": [
+    "decision_time_outcome_separation",
+    "artifact_custody",
+    "recommendation_safety_check",
+    "no_physical_actuation",
+    "corruption_or_harm_risk_recorded"
+  ],
+  "scoreable_only_if": [
+    "same replay dataset used by both paths",
+    "same decision boundary used by both paths",
+    "no future outcome leakage",
+    "recommendations are auditable",
+    "safety boundary remains intact"
+  ]
+}

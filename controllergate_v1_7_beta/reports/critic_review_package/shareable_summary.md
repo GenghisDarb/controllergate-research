@@ -745,3 +745,19 @@ Current v2.8g status: workflow ready, pending GitHub Actions execution.
 - Self-maintaining software: not demonstrated.
 
 No-patch/no-action outcomes are not scoreable repair evidence. Candidate generation may not use fixed/gold patches, future outcome evidence, or fixed-state diagnostic hints.
+
+## vHW0 ControllerGate Telemetry Maintenance Validation Plan
+
+vHW0 is a planning-only replay protocol for future telemetry maintenance validation. It does not run physical hardware repair, does not perform actuation, and does not claim hardware self-maintenance.
+
+- Status: planning only.
+- Scope: diagnosis, recommendation, and replay evaluation over captured telemetry logs.
+- Physical actuation: not allowed.
+- Autonomous hardware repair: not allowed.
+- Safety-critical deployment: not allowed.
+- Self-maintenance claim: not made.
+- Required future evidence: replay datasets, no-memory versus memory-enabled comparison, artifact custody, decision-time/outcome separation, and corruption/safety checks.
+
+Full scoring remains disallowed. Self-maintaining software remains undemonstrated unless separately proven.
+
+No hardware self-maintenance claim is made. No physical actuation is performed.
