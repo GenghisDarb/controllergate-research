@@ -708,20 +708,19 @@ This is a narrower implementation blocker, not negative ControllerGate capabilit
 
 ## v2.8f BugsInPy Bounded Repair Proposer
 
-v2.8e fixed workspace preservation and confirmed prerepair target failures in both no-memory and memory-enabled repair workspaces. v2.8e still produced 0 scoreable episodes because no safe repair candidate was generated.
+v2.8f ingested the Linux workflow artifact and confirmed the bounded proposer ran under valid replay/workspace gates. Candidate promotion, checkout/runtime, target replay, exact workspace preservation, no-memory prerepair replay, and memory-enabled prerepair replay were preserved.
 
-v2.8f adds a bounded decision-time-only repair proposer workflow. The proposer may inspect only buggy checkout files, failing logs, failing tests, local project context, and allowed ControllerGate memory evidence for the memory-enabled path. BugsInPy fixed revisions, gold patches, known repair diffs, and future outcome evidence remain forbidden.
-
-- v2.8e artifact ingestion: preserved.
-- v2.8e workspace preservation success: preserved.
-- v2.8e blocked reason: `blocked_no_repair_candidate_generated`.
-- v2.8f bounded repair proposer status: workflow ready, pending GitHub Actions execution.
-- v2.8f repair scoring: NOT RUN in this local checkpoint.
+- Workflow executed: true.
+- Executed episodes: 3.
+- Scoreable episodes: 0.
+- Positive memory episodes: 0.
+- Aggregate result: `insufficient_episode_count_for_bugsinpy_real_bug_memory_lift`.
+- Episode classifications: `blocked_no_safe_patch_candidate_generated`.
 - Full scoring: NOT_RUN / disallowed.
 - Memory lift: not demonstrated.
 - Self-maintaining software: not demonstrated.
 
-No-patch/no-action outcomes are not scoreable repair evidence. Candidate generation may not use fixed/gold patches.
+v2.8f isolated the next blocker: source-discovery and repair-heuristic coverage. No-patch/no-action outcomes are not scoreable repair evidence.
 
 ## v2.8g BugsInPy Source-Discovery Repair Proposer
 
@@ -736,7 +735,8 @@ v2.8g adds decision-time symbol/source discovery and targeted safe heuristics fo
 Current v2.8g status: workflow ready, pending GitHub Actions execution.
 
 - v2.8f artifact inspection: preserved.
-- v2.8f aggregate: `blocked_no_safe_patch_candidate_generated`.
+- v2.8f aggregate: `insufficient_episode_count_for_bugsinpy_real_bug_memory_lift`.
+- v2.8f episode classification: `blocked_no_safe_patch_candidate_generated`.
 - v2.8g source-discovery repair proposer: implemented.
 - v2.8g repair comparison: pending Linux runner artifact.
 - Scoreable v2.8g episodes: 0 at this checkpoint.

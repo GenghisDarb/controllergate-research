@@ -14,6 +14,8 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = REPO_ROOT / "outputs" / "v2_8g_bugsinpy_source_discovery_repair_proposer"
 RERUN_DIR = REPO_ROOT / "outputs" / "v2_8g_bugsinpy_real_bug_source_discovery_repair_comparison"
 SUMMARY = REPO_ROOT / "controllergate_v1_7_beta" / "reports" / "critic_review_package" / "shareable_summary.md"
+V28F_OUTPUT_DIR = REPO_ROOT / "outputs" / "v2_8f_bugsinpy_bounded_repair_proposer"
+V28F_RERUN_DIR = REPO_ROOT / "outputs" / "v2_8f_bugsinpy_real_bug_bounded_repair_comparison"
 
 CANDIDATES = ["youtube-dl:1", "black:8", "black:4"]
 V28F_REPORTED_ARTIFACT_SHA256 = "0b0e88577d872443dc0bec734f21d1da2c4ac12fc71c161a00534f96ab59aece"
@@ -27,6 +29,13 @@ def write_text(path: Path, text: str) -> None:
 def write_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def load_json(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return data if isinstance(data, dict) else {}
 
 
 def sha_file(path: Path) -> str:
@@ -47,7 +56,9 @@ def write_manifest(directory: Path) -> None:
 
 
 def update_summary() -> None:
-    section = """## v2.8g BugsInPy Source-Discovery Repair Proposer
+    v28f_campaign = load_json(V28F_RERUN_DIR / "campaign_results.json")
+    v28f_aggregate = v28f_campaign.get("aggregate_result", "blocked_no_safe_patch_candidate_generated")
+    section = f"""## v2.8g BugsInPy Source-Discovery Repair Proposer
 
 v2.8f proved the bounded proposer ran under valid replay/workspace gates, but it produced 0 scoreable episodes because no safe patch candidate was generated. That is a source-discovery and heuristic-coverage gap, not negative ControllerGate repair evidence.
 
@@ -60,7 +71,8 @@ v2.8g adds decision-time symbol/source discovery and targeted safe heuristics fo
 Current v2.8g status: workflow ready, pending GitHub Actions execution.
 
 - v2.8f artifact inspection: preserved.
-- v2.8f aggregate: `blocked_no_safe_patch_candidate_generated`.
+- v2.8f aggregate: `{v28f_aggregate}`.
+- v2.8f episode classification: `blocked_no_safe_patch_candidate_generated`.
 - v2.8g source-discovery repair proposer: implemented.
 - v2.8g repair comparison: pending Linux runner artifact.
 - Scoreable v2.8g episodes: 0 at this checkpoint.
@@ -83,9 +95,14 @@ def prepare_phase_a() -> None:
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    v28f_ingestion = load_json(V28F_OUTPUT_DIR / "v2_8f_artifact_ingestion_summary.json")
+    v28f_verification = load_json(V28F_OUTPUT_DIR / "v2_8f_artifact_sha256_verification.json")
+    v28f_campaign = load_json(V28F_RERUN_DIR / "campaign_results.json")
+    v28f_table = load_json(V28F_OUTPUT_DIR / "v2_8f_episode_result_table.json")
     write_json(
         OUTPUT_DIR / "v2_8f_artifact_ingestion_summary.json",
-        {
+        v28f_ingestion
+        or {
             "artifact_name": "v2_8f_bugsinpy_bounded_repair_proposer_artifacts",
             "reported_artifact_sha256": V28F_REPORTED_ARTIFACT_SHA256,
             "local_zip_available_for_reverification": False,
@@ -98,7 +115,8 @@ def prepare_phase_a() -> None:
     )
     write_json(
         OUTPUT_DIR / "v2_8f_artifact_sha256_verification.json",
-        {
+        v28f_verification
+        or {
             "verification_recorded": True,
             "verification_source": "manual_inspection_record_from_user",
             "files_ok": 199,
@@ -111,15 +129,16 @@ def prepare_phase_a() -> None:
     write_json(
         OUTPUT_DIR / "v2_8f_result_preservation.json",
         {
-            "workflow_executed": True,
-            "executed_episode_count": 3,
-            "scoreable_episode_count": 0,
-            "blocked_episode_count": 3,
-            "aggregate_result": "blocked_no_safe_patch_candidate_generated",
-            "positive_memory_episode_count": 0,
-            "corruption_count": 0,
-            "decision_time_outcome_overlap_count": 0,
-            "label_leakage_count": 0,
+            "workflow_executed": v28f_campaign.get("workflow_executed", True),
+            "executed_episode_count": v28f_campaign.get("executed_episode_count", 3),
+            "scoreable_episode_count": v28f_campaign.get("scoreable_episode_count", 0),
+            "blocked_episode_count": v28f_campaign.get("blocked_episode_count", 3),
+            "aggregate_result": v28f_campaign.get("aggregate_result", "blocked_no_safe_patch_candidate_generated"),
+            "episode_classification": "blocked_no_safe_patch_candidate_generated",
+            "positive_memory_episode_count": v28f_campaign.get("positive_memory_episode_count", 0),
+            "corruption_count": v28f_campaign.get("corruption_count", 0),
+            "decision_time_outcome_overlap_count": v28f_campaign.get("decision_time_outcome_overlap_count", 0),
+            "label_leakage_count": v28f_campaign.get("label_leakage_count", 0),
             "full_scoring_allowed": False,
             "controllergate_full_scoring": "NOT_RUN",
             "self_maintaining_software_demonstrated": False,
@@ -136,7 +155,8 @@ def prepare_phase_a() -> None:
     )
     write_json(
         OUTPUT_DIR / "episode_prior_status_table.json",
-        {
+        v28f_table
+        or {
             "youtube-dl:1": {
                 "classification": "blocked_no_safe_patch_candidate_generated",
                 "blocker": "def match_str not found in inspected buggy files",

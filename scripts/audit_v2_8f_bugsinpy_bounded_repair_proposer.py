@@ -44,6 +44,11 @@ REQUIRED_PHASE_A = [
     "v2_8e_artifact_ingestion_summary.json",
     "v2_8e_artifact_sha256_verification.json",
     "v2_8e_result_preservation.json",
+    "v2_8f_artifact_ingestion_summary.json",
+    "v2_8f_artifact_sha256_verification.json",
+    "v2_8f_episode_result_table.json",
+    "v2_8f_bounded_proposer_result.json",
+    "large_workspace_snapshots_index.json",
     "v2_8e_workspace_preservation_success_report.md",
     "v2_8e_blocked_candidate_generation_report.md",
     "episode_prior_status_table.json",
@@ -66,6 +71,7 @@ REQUIRED_RERUN = [
     "workspace_equivalence_summary.json",
     "repair_attempt_summary.json",
     "bounded_repair_proposer_summary.json",
+    "runner_status.json",
     "SHA256SUMS.txt",
 ]
 
@@ -141,9 +147,24 @@ def main() -> int:
     design, design_errors = load_json(OUTPUT_DIR / "bounded_repair_proposer_design.json")
     budget, budget_errors = load_json(OUTPUT_DIR / "repair_budget_policy.json")
     forbidden, forbidden_errors = load_json(OUTPUT_DIR / "forbidden_inputs_policy.json")
+    ingestion, ingestion_errors = load_json(OUTPUT_DIR / "v2_8f_artifact_ingestion_summary.json")
+    verification, verification_errors = load_json(OUTPUT_DIR / "v2_8f_artifact_sha256_verification.json")
+    result_table, result_table_errors = load_json(OUTPUT_DIR / "v2_8f_episode_result_table.json")
+    proposer_result, proposer_result_errors = load_json(OUTPUT_DIR / "v2_8f_bounded_proposer_result.json")
     campaign, campaign_errors = load_json(RERUN_DIR / "campaign_results.json")
     aggregate, aggregate_errors = load_json(RERUN_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json")
-    errors.extend(preservation_errors + design_errors + budget_errors + forbidden_errors + campaign_errors + aggregate_errors)
+    errors.extend(
+        preservation_errors
+        + design_errors
+        + budget_errors
+        + forbidden_errors
+        + ingestion_errors
+        + verification_errors
+        + result_table_errors
+        + proposer_result_errors
+        + campaign_errors
+        + aggregate_errors
+    )
 
     if v28e_preservation.get("workspace_preservation_success") is not True:
         errors.append("v2.8f must preserve v2.8e workspace preservation success")
@@ -157,10 +178,26 @@ def main() -> int:
     for item in ["BugsInPy fixed revision", "BugsInPy gold patch", "known repair diff", "future passing logs"]:
         if item not in forbidden_inputs:
             errors.append(f"v2.8f forbidden input policy missing {item}")
-    if campaign.get("workflow_executed") is not False:
-        errors.append("local v2.8f checkpoint must remain pending workflow execution")
+    if ingestion.get("artifact_ingested") is not True:
+        errors.append("v2.8f artifact ingestion must be recorded")
+    if verification.get("verification_clean") is not True or verification.get("hash_failures"):
+        errors.append("v2.8f artifact SHA256 verification must be clean")
+    if campaign.get("workflow_executed") is not True:
+        errors.append("v2.8f artifact should record executed workflow after ingestion")
+    if campaign.get("executed_episode_count") != 3:
+        errors.append("v2.8f executed artifact must include three episodes")
     if campaign.get("scoreable_episode_count") != 0:
-        errors.append("pending v2.8f checkpoint must have zero scoreable episodes")
+        errors.append("v2.8f no-safe-patch artifact must have zero scoreable episodes")
+    if proposer_result.get("all_episodes_blocked_no_safe_patch_candidate") is not True:
+        errors.append("v2.8f must preserve all episodes as blocked_no_safe_patch_candidate")
+    records = result_table.get("records", [])
+    if len(records) != 3:
+        errors.append("v2.8f episode result table must include exactly three records")
+    for record in records:
+        if record.get("classification") != "blocked_no_safe_patch_candidate_generated":
+            errors.append(f"v2.8f episode {record.get('episode_id')} has unexpected classification {record.get('classification')}")
+        if record.get("no_memory_patch_candidate_generated") is not False or record.get("memory_enabled_patch_candidate_generated") is not False:
+            errors.append(f"v2.8f episode {record.get('episode_id')} unexpectedly generated a patch candidate")
     if campaign.get("full_scoring_allowed") is not False or campaign.get("controllergate_full_scoring") != "NOT_RUN":
         errors.append("full scoring must remain NOT_RUN / disallowed")
     if campaign.get("self_maintaining_software_demonstrated") is not False:
@@ -196,9 +233,9 @@ def main() -> int:
             SUMMARY,
             [
                 "v2.8f BugsInPy Bounded Repair Proposer",
-                "v2.8e fixed workspace preservation",
-                "v2.8e blocked reason: `blocked_no_repair_candidate_generated`",
-                "workflow ready, pending GitHub Actions execution",
+                "v2.8f ingested the Linux workflow artifact",
+                "Episode classifications: `blocked_no_safe_patch_candidate_generated`.",
+                "v2.8f isolated the next blocker",
                 "Full scoring: NOT_RUN / disallowed.",
                 "Self-maintaining software: not demonstrated.",
             ],
@@ -211,7 +248,7 @@ def main() -> int:
         return 1
     print("v2.8f BugsInPy bounded repair proposer audit: PASS")
     print("v2.8e workspace preservation preserved: true")
-    print("v2.8f workflow status: pending GitHub Actions artifact")
+    print("v2.8f workflow status: executed artifact ingested")
     print("scoreable episodes: 0")
     print("full scoring allowed: false")
     print("self-maintaining software demonstrated: false")

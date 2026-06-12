@@ -1,0 +1,17 @@
+{
+  "bug_id": "4",
+  "candidate": "black:4",
+  "dependency_hints": [
+    "click"
+  ],
+  "direct_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+  "episode_id": "episode_003",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:4",
+  "project": "black",
+  "required_markers": [
+    "FAIL: test_beginning_backslash",
+    "BlackTestCase.test_beginning_backslash",
+    "AssertionError"
+  ],
+  "target_test_file": "tests/test_black.py"
+}

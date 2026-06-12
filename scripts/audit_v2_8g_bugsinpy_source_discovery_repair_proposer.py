@@ -145,10 +145,17 @@ def main() -> int:
     aggregate, aggregate_errors = load_json(RERUN_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json")
     errors.extend(preservation_errors + sha_errors + design_errors + registry_errors + campaign_errors + aggregate_errors)
 
-    if sha_record.get("sha256_manifest_clean") is not True or sha_record.get("hash_failures") != 0:
+    verification_clean = sha_record.get("verification_clean", sha_record.get("sha256_manifest_clean"))
+    if verification_clean is not True or sha_record.get("hash_failures"):
         errors.append("v2.8g must preserve clean v2.8f SHA256 inspection record")
-    if preservation.get("aggregate_result") != "blocked_no_safe_patch_candidate_generated":
-        errors.append("v2.8g must preserve v2.8f blocked_no_safe_patch_candidate_generated result")
+    allowed_v28f_aggregates = {
+        "blocked_no_safe_patch_candidate_generated",
+        "insufficient_episode_count_for_bugsinpy_real_bug_memory_lift",
+    }
+    if preservation.get("aggregate_result") not in allowed_v28f_aggregates:
+        errors.append("v2.8g must preserve v2.8f no-safe-patch / insufficient-count result")
+    if preservation.get("episode_classification") != "blocked_no_safe_patch_candidate_generated":
+        errors.append("v2.8g must preserve v2.8f episode-level no-safe-patch classification")
     if preservation.get("scoreable_episode_count") != 0:
         errors.append("v2.8g must preserve v2.8f zero-scoreable result")
     if design.get("inputs_forbidden") is None or "gold patch" not in design.get("inputs_forbidden", []):
