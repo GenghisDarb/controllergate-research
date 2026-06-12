@@ -1,0 +1,59 @@
+name: v2_8j_bugsinpy_scoreable_episode_expansion
+
+on:
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  bugsinpy-scoreable-episode-expansion:
+    name: BugsInPy scoreable episode expansion
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8j runner revision
+        shell: bash
+        run: |
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          echo "checked_out_head=$(git rev-parse HEAD)"
+          python - <<'PY'
+          from pathlib import Path
+          text = Path("scripts/v2_8j_bugsinpy_scoreable_episode_expansion_runner.py").read_text()
+          required = [
+              "v2_8j_bugsinpy_scoreable_episode_expansion_artifacts",
+              "black_comment_trailing_comma_guard",
+              "black_beginning_backslash_leading_newline_guard",
+              "source_repair_vs_harness_separation",
+              "source_only_repair_patch.diff",
+              "tests_may_be_modified",
+              "fixed_or_gold_patch_used",
+              "future_outcome_evidence_used",
+              "inconclusive_equal_performance",
+          ]
+          for snippet in required:
+              if snippet not in text:
+                  raise SystemExit(f"v2.8j runner revision guard failed; missing {snippet}")
+          print("runner revision guard: v2.8j source-only scoreable expansion present")
+          PY
+
+      - name: Run BugsInPy scoreable episode expansion
+        shell: bash
+        run: |
+          python scripts/v2_8j_bugsinpy_scoreable_episode_expansion_runner.py
+
+      - name: Upload BugsInPy scoreable episode expansion artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8j_bugsinpy_scoreable_episode_expansion_artifacts
+          path: v2_8j_bugsinpy_scoreable_episode_expansion_artifacts
+          if-no-files-found: error

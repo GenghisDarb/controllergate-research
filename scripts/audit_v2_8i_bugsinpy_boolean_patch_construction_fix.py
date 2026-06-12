@@ -17,6 +17,7 @@ WORKFLOW = REPO_ROOT / ".github" / "workflows" / "v2_8i_bugsinpy_boolean_patch_c
 RUNNER = REPO_ROOT / "scripts" / "v2_8i_bugsinpy_boolean_patch_construction_fix_runner.py"
 PREP = REPO_ROOT / "scripts" / "v2_8i_prepare_bugsinpy_boolean_patch_construction_fix.py"
 H_INGESTER = REPO_ROOT / "scripts" / "v2_8h_ingest_targeted_boolean_patch_artifact.py"
+INGESTER = REPO_ROOT / "scripts" / "v2_8i_ingest_boolean_patch_construction_fix_artifact.py"
 SUMMARY = REPO_ROOT / "controllergate_v1_7_beta" / "reports" / "critic_review_package" / "shareable_summary.md"
 
 REQUIRED_PHASE_A = [
@@ -38,6 +39,12 @@ REQUIRED_PHASE_A = [
     "memory_enabled_boolean_patch_safety_check.json",
     "no_memory_boolean_patch_candidate.diff",
     "memory_enabled_boolean_patch_candidate.diff",
+    "v2_8i_artifact_ingestion_summary.json",
+    "v2_8i_artifact_sha256_verification.json",
+    "large_workspace_snapshots_index.json",
+    "v2_8i_episode_result_table.json",
+    "v2_8i_result_preservation.json",
+    "v2_8i_boolean_patch_construction_result.json",
     "SHA256SUMS.txt",
 ]
 
@@ -53,6 +60,13 @@ REQUIRED_RERUN = [
     "source_discovery_summary.json",
     "bounded_repair_proposer_summary.json",
     "targeted_boolean_patch_summary.json",
+    "boolean_patch_construction_fix_design.json",
+    "full_source_patch_search_policy.json",
+    "boolean_patch_generation_result.json",
+    "boolean_patch_safety_check.json",
+    "unary_operator_region_extract.txt",
+    "unary_operator_region_match_check.json",
+    "runner_status.json",
     "SHA256SUMS.txt",
 ]
 
@@ -131,7 +145,7 @@ def require_text(path: Path, snippets: list[str]) -> list[str]:
 
 def main() -> int:
     errors: list[str] = []
-    for path in [WORKFLOW, RUNNER, PREP, H_INGESTER]:
+    for path in [WORKFLOW, RUNNER, PREP, H_INGESTER, INGESTER]:
         if not path.exists():
             errors.append(f"missing v2.8i implementation file: {path}")
     for directory, required in [(OUTPUT_DIR, REQUIRED_PHASE_A), (RERUN_DIR, REQUIRED_RERUN)]:
@@ -157,6 +171,10 @@ def main() -> int:
     safety, safety_errors = load_json(OUTPUT_DIR / "boolean_patch_safety_check.json")
     campaign, campaign_errors = load_json(RERUN_DIR / "campaign_results.json")
     aggregate, aggregate_errors = load_json(RERUN_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json")
+    i_verification, i_verification_errors = load_json(OUTPUT_DIR / "v2_8i_artifact_sha256_verification.json")
+    i_preservation, i_preservation_errors = load_json(OUTPUT_DIR / "v2_8i_result_preservation.json")
+    i_table, i_table_errors = load_json(OUTPUT_DIR / "v2_8i_episode_result_table.json")
+    i_boolean_result, i_boolean_result_errors = load_json(OUTPUT_DIR / "v2_8i_boolean_patch_construction_result.json")
     errors.extend(
         h_verification_errors
         + h_preservation_errors
@@ -169,6 +187,10 @@ def main() -> int:
         + safety_errors
         + campaign_errors
         + aggregate_errors
+        + i_verification_errors
+        + i_preservation_errors
+        + i_table_errors
+        + i_boolean_result_errors
     )
 
     if h_verification.get("verification_clean") is not True or h_verification.get("hash_failures"):
@@ -202,21 +224,65 @@ def main() -> int:
         errors.append("v2.8i fix design must forbid fixed/gold and future outcome evidence")
     if policy.get("search_scope") != "full buggy youtube_dl/utils.py source file":
         errors.append("v2.8i full-source search policy must use full buggy youtube_dl/utils.py")
-    if region_check.get("full_source_search_policy_defined") is not True:
-        errors.append("v2.8i region check must record full-source policy")
-    if generation.get("patch_generation_pending_linux_runner") is not True:
-        errors.append("local v2.8i patch generation must remain pending Linux runner")
+    workflow_executed = campaign.get("workflow_executed") is True
+    if workflow_executed:
+        if region_check.get("unary_operator_block_found") is not True:
+            errors.append("executed v2.8i region check must find the unary operator block")
+        if region_check.get("full_source_search_used") is not True:
+            errors.append("executed v2.8i region check must record full-source search")
+        if generation.get("candidate_generated") is not True:
+            errors.append("executed v2.8i must generate the youtube-dl boolean patch")
+        if generation.get("patched_file") != "youtube_dl/utils.py":
+            errors.append("executed v2.8i generated patch must touch youtube_dl/utils.py")
+    else:
+        if region_check.get("full_source_search_policy_defined") is not True:
+            errors.append("v2.8i region check must record full-source policy")
+        if generation.get("patch_generation_pending_linux_runner") is not True:
+            errors.append("local v2.8i patch generation must remain pending Linux runner")
     if safety.get("patch_only_file") != "youtube_dl/utils.py" or safety.get("modifies_tests") is not False:
         errors.append("v2.8i safety check must restrict patch to youtube_dl/utils.py and forbid test edits")
     if safety.get("uses_fixed_revision") is not False or safety.get("uses_gold_patch") is not False:
         errors.append("v2.8i safety check must forbid fixed/gold inputs")
 
-    if campaign.get("workflow_executed") is not False:
-        errors.append("local v2.8i campaign must remain pending GitHub Actions execution")
-    if campaign.get("scoreable_episode_count") != 0 or campaign.get("positive_memory_episode_count") != 0:
-        errors.append("local v2.8i campaign must have zero scoreable and zero positive memory episodes")
-    if campaign.get("aggregate_result") != "blocked_pending_v2_8i_boolean_patch_construction_fix_artifact":
-        errors.append("local v2.8i aggregate must be pending runner artifact")
+    if workflow_executed:
+        if i_verification.get("verification_clean") is not True or i_verification.get("hash_failures"):
+            errors.append("v2.8i artifact SHA256 verification must be clean")
+        if i_preservation.get("aggregate_result") != "insufficient_episode_count_for_bugsinpy_real_bug_memory_lift":
+            errors.append("v2.8i executed aggregate must remain insufficient episode count")
+        if campaign.get("executed_episode_count") != 3:
+            errors.append("executed v2.8i campaign must include three executed episodes")
+        if campaign.get("scoreable_episode_count") != 1:
+            errors.append("executed v2.8i campaign must have exactly one scoreable episode")
+        if campaign.get("positive_memory_episode_count") != 0:
+            errors.append("executed v2.8i campaign must have zero positive memory episodes")
+        if campaign.get("aggregate_result") != "insufficient_episode_count_for_bugsinpy_real_bug_memory_lift":
+            errors.append("executed v2.8i aggregate must be insufficient episode count")
+        records_after = i_table.get("records", [])
+        if len(records_after) != 3:
+            errors.append("v2.8i executed episode table must include three records")
+        by_candidate = {record.get("candidate"): record for record in records_after}
+        youtube = by_candidate.get("youtube-dl:1", {})
+        if youtube.get("classification") != "inconclusive_equal_performance" or youtube.get("scoreable") is not True:
+            errors.append("youtube-dl:1 must be scoreable inconclusive_equal_performance")
+        if youtube.get("no_memory_patch_candidate_generated") is not True or youtube.get("memory_enabled_patch_candidate_generated") is not True:
+            errors.append("youtube-dl:1 must generate both no-memory and memory-enabled patch candidates")
+        if youtube.get("no_memory_primary_command_passed") is not True or youtube.get("memory_enabled_primary_command_passed") is not True:
+            errors.append("youtube-dl:1 post-repair target command must pass for both paths")
+        for candidate in ["black:8", "black:4"]:
+            record = by_candidate.get(candidate, {})
+            if record.get("classification") != "blocked_no_safe_patch_candidate_generated" or record.get("scoreable") is not False:
+                errors.append(f"{candidate} must remain blocked_no_safe_patch_candidate_generated")
+        if i_boolean_result.get("result_interpretation") != "scoreable_inconclusive_equal_performance_not_memory_lift":
+            errors.append("v2.8i boolean result must classify the tie as inconclusive, not memory lift")
+        if i_boolean_result.get("memory_enabled_outperformed_no_memory") is not False:
+            errors.append("v2.8i must not mark memory-enabled outperformance for tied youtube-dl repair")
+        if i_boolean_result.get("fixed_or_gold_patch_used") is not False or i_boolean_result.get("future_outcome_evidence_used") is not False:
+            errors.append("v2.8i boolean result must forbid fixed/gold/future evidence")
+    else:
+        if campaign.get("scoreable_episode_count") != 0 or campaign.get("positive_memory_episode_count") != 0:
+            errors.append("local v2.8i campaign must have zero scoreable and zero positive memory episodes")
+        if campaign.get("aggregate_result") != "blocked_pending_v2_8i_boolean_patch_construction_fix_artifact":
+            errors.append("local v2.8i aggregate must be pending runner artifact")
     if campaign.get("full_scoring_allowed") is not False or campaign.get("controllergate_full_scoring") != "NOT_RUN":
         errors.append("full scoring must remain NOT_RUN / disallowed")
     if campaign.get("self_maintaining_software_demonstrated") is not False:
@@ -274,8 +340,13 @@ def main() -> int:
         return 1
     print("v2.8i BugsInPy boolean patch construction fix audit: PASS")
     print("v2.8h artifact preserved: true")
-    print("v2.8i workflow status: ready, pending GitHub Actions artifact")
-    print("scoreable episodes: 0")
+    if workflow_executed:
+        print("v2.8i workflow status: executed artifact ingested")
+        print(f"scoreable episodes: {campaign.get('scoreable_episode_count')}")
+        print("youtube-dl:1 classification: inconclusive_equal_performance")
+    else:
+        print("v2.8i workflow status: ready, pending GitHub Actions artifact")
+        print("scoreable episodes: 0")
     print("full scoring allowed: false")
     print("self-maintaining software demonstrated: false")
     return 0

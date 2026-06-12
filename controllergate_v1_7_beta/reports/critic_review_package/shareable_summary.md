@@ -776,19 +776,34 @@ No hardware self-maintenance claim is made. No physical actuation is performed.
 
 ## v2.8i BugsInPy Boolean Patch Construction Fix
 
-v2.8h registered the boolean heuristic but failed patch construction despite detecting the unary operator block. v2.8i fixes the boolean patch construction path. The fix searches the full `youtube_dl/utils.py` file and patches the bounded `UNARY_OPERATORS` region.
+v2.8h registered the boolean heuristic but failed patch construction despite detecting the unary operator block. v2.8i fixes the boolean patch construction path. The Linux workflow artifact was ingested and verified cleanly.
 
 - v2.8h artifact ingestion: preserved.
-- v2.8h aggregate: `blocked_no_safe_patch_candidate_generated`.
-- Boolean heuristic registration: true.
-- Unary block detection: true.
-- Patch-construction fix status: implemented in the v2.8i runner, pending GitHub Actions execution.
-- v2.8i repair comparison executed: false in this local checkpoint.
-- Scoreable episodes: 0.
+- v2.8i workflow executed: true.
+- Executed episodes: 3.
+- Scoreable episodes: 1.
 - Positive memory episodes: 0.
-- Aggregate result: `blocked_pending_v2_8i_boolean_patch_construction_fix_artifact`.
+- `youtube-dl:1` patch construction: generated non-gold full-source boolean patch in both no-memory and memory-enabled paths.
+- `youtube-dl:1` classification: `inconclusive_equal_performance`.
+- Black episodes: remain `blocked_no_safe_patch_candidate_generated`.
+- Aggregate result: `insufficient_episode_count_for_bugsinpy_real_bug_memory_lift`.
 - Full scoring: NOT_RUN / disallowed.
 - Memory lift: not demonstrated.
 - Self-maintaining software: not demonstrated.
 
-A no-memory and memory-enabled tie is inconclusive, not memory lift. A first scoreable BugsInPy repair episode would be progress even without memory lift.
+A no-memory and memory-enabled tie is inconclusive, not memory lift. This is the first scoreable BugsInPy repair episode in this ladder, but the aggregate remains below the three-episode threshold.
+
+## v2.8j BugsInPy Scoreable Episode Expansion
+
+v2.8j adds a Linux runner for scoreable BugsInPy episode expansion after the v2.8i boolean patch construction fix. The runner preserves `youtube-dl:1` as the first scoreable reference episode and attempts bounded source-only candidate generation for `black:8` and `black:4`.
+
+- v2.8i scoreable reference episodes: 1.
+- v2.8j local workflow status: pending GitHub Actions artifact.
+- Candidate set: `youtube-dl:1`, `black:8`, `black:4`.
+- Black candidate generators: source-only, bounded, buggy-source/failing-context only.
+- Test edits as repair candidates: disallowed.
+- Full scoring: NOT_RUN / disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+Candidate promotion or patch generation is not repair success. Scoreable evidence requires post-repair target validation logs from the Linux runner.

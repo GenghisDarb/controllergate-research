@@ -1,0 +1,25 @@
+{
+  "path": "memory_enabled",
+  "proposal": {
+    "candidate_generated": false,
+    "fixed_or_gold_patch_used": false,
+    "future_outcome_evidence_used": false,
+    "heuristic_family": "leading_newline_backslash_formatting_failure",
+    "label_leakage_detected": false,
+    "memory_enabled_path": true,
+    "reason": "no safe localized leading-newline/backslash formatting rule inferred from decision-time context",
+    "source_discovery_ranked_files": [
+      "tests/test_black.py",
+      "black.py",
+      "blackd.py",
+      "tests/data/comments7.py",
+      "/home/runner/work/controllergate-research/controllergate-research/_v2_8i_bugsinpy_runtime/workspaces/episode_003/black/tests/test_black.py",
+      "blib2to3/pgen2/driver.py",
+      "setup.py",
+      "tests/data/fmtonoff.py",
+      "tests/data/function.py",
+      "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/mock.py"
+    ]
+  },
+  "source_reasoning": "no safe localized leading-newline/backslash formatting rule inferred from decision-time context"
+}
