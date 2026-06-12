@@ -1,0 +1,10 @@
+{
+  "candidate_scope": "youtube-dl:1",
+  "fix": "read full source file, locate UNARY_OPERATORS region, verify positive/negative lambdas, patch only those two lambdas",
+  "fix_id": "v2_8i_full_source_unary_operator_patch_construction",
+  "fixed_or_gold_patch_allowed": false,
+  "future_outcome_evidence_allowed": false,
+  "problem": "v2.8h context detected the unary block, but candidate generation failed exact block lookup",
+  "source_file": "youtube_dl/utils.py",
+  "tests_may_be_modified": false
+}

@@ -1,0 +1,14 @@
+{
+  "candidate_generated": false,
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "heuristic": "boolean_unary_false_value_presence_rule",
+  "patched_file": null,
+  "reasoning_inputs": [
+    "buggy source UNARY_OPERATORS block",
+    "failing test method test_match_str",
+    "False must be treated as absent",
+    "0 and empty string must remain present"
+  ],
+  "tests_modified": false
+}

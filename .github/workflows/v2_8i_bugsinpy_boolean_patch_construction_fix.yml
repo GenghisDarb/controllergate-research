@@ -1,0 +1,60 @@
+name: v2_8i_bugsinpy_boolean_patch_construction_fix
+
+on:
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  bugsinpy-boolean-patch-construction-fix:
+    name: BugsInPy boolean patch construction fix
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8i runner revision
+        shell: bash
+        run: |
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          echo "checked_out_head=$(git rev-parse HEAD)"
+          python - <<'PY'
+          from pathlib import Path
+          text = Path("scripts/v2_8i_bugsinpy_boolean_patch_construction_fix_runner.py").read_text()
+          required = [
+              "full_source_patch_search_policy",
+              "locate_unary_operator_region",
+              "v is not None and v is not False",
+              "v is None or v is False",
+              "blocked_boolean_patch_construction_failed",
+              "unary_operator_region_match_check.json",
+              "no_memory_boolean_patch_candidate.diff",
+              "memory_enabled_boolean_patch_candidate.diff",
+              "fixed_or_gold_patch_used",
+              "future_outcome_evidence_used",
+          ]
+          for snippet in required:
+              if snippet not in text:
+                  raise SystemExit(f"v2.8i runner revision guard failed; missing {snippet}")
+          print("runner revision guard: boolean patch construction fix present")
+          PY
+
+      - name: Run BugsInPy boolean patch construction fix
+        shell: bash
+        run: |
+          python scripts/v2_8i_bugsinpy_boolean_patch_construction_fix_runner.py
+
+      - name: Upload BugsInPy boolean patch construction fix artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8i_bugsinpy_boolean_patch_construction_fix_artifacts
+          path: v2_8i_bugsinpy_boolean_patch_construction_fix_artifacts
+          if-no-files-found: error

@@ -741,21 +741,21 @@ v2.8g found the relevant `match_str` source for youtube-dl:1, but it did not dem
 
 ## v2.8h BugsInPy Targeted Boolean Patch Heuristic
 
-v2.8g found the relevant `match_str` source for youtube-dl:1 and preserved a clean source-discovery artifact, but all episodes remained blocked because no safe patch candidate was generated. v2.8h adds a targeted non-gold boolean false-handling repair heuristic for `youtube-dl:1`.
+v2.8h ingested the Linux workflow artifact. The workflow executed the three promoted BugsInPy candidates and registered the targeted non-gold boolean false-handling heuristic for `youtube-dl:1`.
 
-- v2.8g artifact ingestion: preserved.
-- v2.8g aggregate: `blocked_no_safe_patch_candidate_generated`.
-- Source discovery success: `youtube-dl:1` `match_str` found in `youtube_dl/utils.py`.
-- Boolean patch heuristic status: implemented in the v2.8h runner, pending GitHub Actions execution.
-- v2.8h repair comparison executed: false in this local checkpoint.
+- Workflow executed: true.
+- Executed episodes: 3.
 - Scoreable episodes: 0.
 - Positive memory episodes: 0.
-- Aggregate result: `blocked_pending_v2_8h_targeted_boolean_patch_artifact`.
+- Aggregate result: `blocked_no_safe_patch_candidate_generated`.
+- Boolean heuristic registered: true.
+- `youtube-dl:1` unary operator block detected: true.
+- Patch construction result: blocked because candidate generation failed to locate the same unary block.
 - Full scoring: NOT_RUN / disallowed.
 - Memory lift: not demonstrated.
 - Self-maintaining software: not demonstrated.
 
-A no-memory and memory-enabled tie is inconclusive, not memory lift. A first scoreable BugsInPy repair episode would be progress even without memory lift.
+v2.8h registered the boolean heuristic but failed patch construction despite detecting the unary operator block. This is a narrow implementation blocker, not negative ControllerGate repair evidence.
 
 
 ## vHW0 ControllerGate Telemetry Maintenance Validation Plan
@@ -773,3 +773,22 @@ vHW0 is a planning-only replay protocol for future telemetry maintenance validat
 Full scoring remains disallowed. Self-maintaining software remains undemonstrated unless separately proven.
 
 No hardware self-maintenance claim is made. No physical actuation is performed.
+
+## v2.8i BugsInPy Boolean Patch Construction Fix
+
+v2.8h registered the boolean heuristic but failed patch construction despite detecting the unary operator block. v2.8i fixes the boolean patch construction path. The fix searches the full `youtube_dl/utils.py` file and patches the bounded `UNARY_OPERATORS` region.
+
+- v2.8h artifact ingestion: preserved.
+- v2.8h aggregate: `blocked_no_safe_patch_candidate_generated`.
+- Boolean heuristic registration: true.
+- Unary block detection: true.
+- Patch-construction fix status: implemented in the v2.8i runner, pending GitHub Actions execution.
+- v2.8i repair comparison executed: false in this local checkpoint.
+- Scoreable episodes: 0.
+- Positive memory episodes: 0.
+- Aggregate result: `blocked_pending_v2_8i_boolean_patch_construction_fix_artifact`.
+- Full scoring: NOT_RUN / disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+A no-memory and memory-enabled tie is inconclusive, not memory lift. A first scoreable BugsInPy repair episode would be progress even without memory lift.

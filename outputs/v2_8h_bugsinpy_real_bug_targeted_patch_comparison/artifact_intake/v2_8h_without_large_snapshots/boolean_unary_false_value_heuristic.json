@@ -1,0 +1,9 @@
+{
+  "candidate_scope": "youtube-dl:1",
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "heuristic_name": "boolean_unary_false_value_presence_rule",
+  "negative_operator": "lambda v: v is None or v is False",
+  "positive_operator": "lambda v: v is not None and v is not False",
+  "source_file_scope": "youtube_dl/utils.py"
+}

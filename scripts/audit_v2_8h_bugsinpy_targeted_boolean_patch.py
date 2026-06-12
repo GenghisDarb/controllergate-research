@@ -16,6 +16,7 @@ RERUN_DIR = REPO_ROOT / "outputs" / "v2_8h_bugsinpy_real_bug_targeted_patch_comp
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "v2_8h_bugsinpy_targeted_boolean_patch.yml"
 RUNNER = REPO_ROOT / "scripts" / "v2_8h_bugsinpy_targeted_boolean_patch_runner.py"
 PREP = REPO_ROOT / "scripts" / "v2_8h_prepare_bugsinpy_targeted_boolean_patch.py"
+INGESTER = REPO_ROOT / "scripts" / "v2_8h_ingest_targeted_boolean_patch_artifact.py"
 SUMMARY = REPO_ROOT / "controllergate_v1_7_beta" / "reports" / "critic_review_package" / "shareable_summary.md"
 
 REQUIRED_PHASE_A = [
@@ -29,6 +30,12 @@ REQUIRED_PHASE_A = [
     "youtube_dl_patch_generation_rule.json",
     "heuristic_applicability_check.json",
     "heuristic_safety_check.json",
+    "v2_8h_artifact_ingestion_summary.json",
+    "v2_8h_artifact_sha256_verification.json",
+    "v2_8h_result_preservation.json",
+    "v2_8h_episode_result_table.json",
+    "v2_8h_boolean_heuristic_inconsistency.json",
+    "v2_8h_boolean_heuristic_inconsistency_report.md",
     "SHA256SUMS.txt",
 ]
 
@@ -121,7 +128,7 @@ def require_text(path: Path, snippets: list[str]) -> list[str]:
 
 def main() -> int:
     errors: list[str] = []
-    for path in [WORKFLOW, RUNNER, PREP]:
+    for path in [WORKFLOW, RUNNER, PREP, INGESTER]:
         if not path.exists():
             errors.append(f"missing v2.8h implementation file: {path}")
     for directory, required in [(OUTPUT_DIR, REQUIRED_PHASE_A), (RERUN_DIR, REQUIRED_RERUN)]:
@@ -144,6 +151,10 @@ def main() -> int:
     safety, safety_errors = load_json(OUTPUT_DIR / "heuristic_safety_check.json")
     campaign, campaign_errors = load_json(RERUN_DIR / "campaign_results.json")
     aggregate, aggregate_errors = load_json(RERUN_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json")
+    h_verification, h_verification_errors = load_json(OUTPUT_DIR / "v2_8h_artifact_sha256_verification.json")
+    h_preservation, h_preservation_errors = load_json(OUTPUT_DIR / "v2_8h_result_preservation.json")
+    h_table, h_table_errors = load_json(OUTPUT_DIR / "v2_8h_episode_result_table.json")
+    h_inconsistency, h_inconsistency_errors = load_json(OUTPUT_DIR / "v2_8h_boolean_heuristic_inconsistency.json")
     errors.extend(
         verification_errors
         + preservation_errors
@@ -153,6 +164,10 @@ def main() -> int:
         + safety_errors
         + campaign_errors
         + aggregate_errors
+        + h_verification_errors
+        + h_preservation_errors
+        + h_table_errors
+        + h_inconsistency_errors
     )
 
     if verification.get("verification_clean") is not True:
@@ -178,12 +193,36 @@ def main() -> int:
         errors.append("v2.8h safety check must restrict patch to youtube_dl/utils.py and forbid test edits")
     if safety.get("uses_fixed_revision") is not False or safety.get("uses_gold_patch") is not False or safety.get("uses_future_outcome_evidence") is not False:
         errors.append("v2.8h safety check must forbid fixed/gold/future inputs")
-    if campaign.get("workflow_executed") is not False:
-        errors.append("local v2.8h checkpoint must remain pending workflow execution")
+    if h_verification.get("verification_clean") is not True or h_verification.get("hash_failures"):
+        errors.append("v2.8h artifact SHA256 verification must be clean")
+    if h_preservation.get("aggregate_result") != "blocked_no_safe_patch_candidate_generated":
+        errors.append("v2.8h must preserve blocked_no_safe_patch_candidate_generated aggregate")
+    if h_preservation.get("scoreable_episode_count") != 0:
+        errors.append("v2.8h must preserve zero-scoreable result")
+    if h_inconsistency.get("heuristic_registered") is not True:
+        errors.append("v2.8h must preserve boolean heuristic registration")
+    if h_inconsistency.get("unary_operator_block_found") is not True:
+        errors.append("v2.8h must preserve unary operator block detection")
+    if h_inconsistency.get("patch_construction_mismatch_detected") is not True:
+        errors.append("v2.8h must record patch-construction mismatch")
+    if h_inconsistency.get("no_memory_reason") != "expected UNARY_OPERATORS block not found":
+        errors.append("v2.8h must preserve no-memory patch-construction blocker")
+    if h_inconsistency.get("memory_enabled_reason") != "expected UNARY_OPERATORS block not found":
+        errors.append("v2.8h must preserve memory-enabled patch-construction blocker")
+    records = h_table.get("records", [])
+    if len(records) != 3:
+        errors.append("v2.8h episode result table must include exactly three records")
+    for record in records:
+        if record.get("classification") != "blocked_no_safe_patch_candidate_generated":
+            errors.append(f"v2.8h episode {record.get('episode_id')} has unexpected classification {record.get('classification')}")
+    if campaign.get("workflow_executed") is not True:
+        errors.append("v2.8h artifact should record executed workflow after ingestion")
     if campaign.get("scoreable_episode_count") != 0:
-        errors.append("pending v2.8h checkpoint must have zero scoreable episodes")
-    if campaign.get("aggregate_result") != "blocked_pending_v2_8h_targeted_boolean_patch_artifact":
-        errors.append("pending v2.8h aggregate must require GitHub Actions artifact")
+        errors.append("v2.8h artifact must have zero scoreable episodes")
+    if campaign.get("executed_episode_count") != 3:
+        errors.append("v2.8h artifact must include three executed episodes")
+    if campaign.get("aggregate_result") != "blocked_no_safe_patch_candidate_generated":
+        errors.append("v2.8h aggregate must be blocked_no_safe_patch_candidate_generated")
     if campaign.get("full_scoring_allowed") is not False or campaign.get("controllergate_full_scoring") != "NOT_RUN":
         errors.append("full scoring must remain NOT_RUN / disallowed")
     if campaign.get("self_maintaining_software_demonstrated") is not False:
@@ -223,9 +262,8 @@ def main() -> int:
             SUMMARY,
             [
                 "v2.8h BugsInPy Targeted Boolean Patch Heuristic",
-                "v2.8g found the relevant `match_str` source for youtube-dl:1",
-                "targeted non-gold boolean false-handling repair heuristic",
-                "A no-memory and memory-enabled tie is inconclusive, not memory lift.",
+                "v2.8h registered the boolean heuristic but failed patch construction despite detecting the unary operator block.",
+                "Patch construction result: blocked because candidate generation failed to locate the same unary block.",
                 "Full scoring: NOT_RUN / disallowed.",
                 "Self-maintaining software: not demonstrated.",
             ],
@@ -238,7 +276,7 @@ def main() -> int:
         return 1
     print("v2.8h BugsInPy targeted boolean patch audit: PASS")
     print("v2.8g source discovery preserved: true")
-    print("v2.8h workflow status: pending GitHub Actions artifact")
+    print("v2.8h workflow status: executed artifact ingested")
     print("scoreable episodes: 0")
     print("full scoring allowed: false")
     print("self-maintaining software demonstrated: false")
