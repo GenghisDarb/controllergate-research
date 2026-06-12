@@ -1,0 +1,22 @@
+{
+  "allowed_patch": {
+    "new": {
+      "": "lambda v: v is not None and v is not False",
+      "!": "lambda v: v is None or v is False"
+    },
+    "old": {
+      "": "lambda v: v is not None",
+      "!": "lambda v: v is None"
+    }
+  },
+  "applicability_requires": [
+    "candidate == youtube-dl:1",
+    "failing test method == test_match_str",
+    "source discovery found youtube_dl/utils.py",
+    "source contains UNARY_OPERATORS with positive presence lambda v: v is not None",
+    "source contains negative presence lambda v: v is None",
+    "failing test distinguishes False from 0 and empty string"
+  ],
+  "black_candidates": "no forced patch; remain blocked unless a safe localized rule is independently inferred",
+  "rule_id": "youtube_dl_match_str_boolean_false_unary_patch"
+}

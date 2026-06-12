@@ -1,0 +1,71 @@
+{
+  "records": [
+    {
+      "candidate": "youtube-dl:1",
+      "classification": "blocked_no_safe_patch_candidate_generated",
+      "episode_id": "episode_001",
+      "match_str_found": true,
+      "match_str_hits": [
+        {
+          "file": "test/helper.py",
+          "kind": "assignment",
+          "line": 102,
+          "name": "match_str"
+        },
+        {
+          "file": "test/test_utils.py",
+          "kind": "import_from",
+          "line": 18,
+          "name": "match_str"
+        },
+        {
+          "file": "youtube_dl/utils.py",
+          "kind": "function",
+          "line": 2593,
+          "name": "match_str"
+        }
+      ],
+      "memory_enabled_outperformed_no_memory": false,
+      "memory_enabled_patch_candidate_generated": false,
+      "memory_enabled_prerepair_target_failure_matched": true,
+      "no_memory_patch_candidate_generated": false,
+      "no_memory_prerepair_target_failure_matched": true,
+      "raw_match_str_exists": true,
+      "scoreable": false,
+      "source_discovery_failed": false,
+      "workspace_equivalence_passed": true
+    },
+    {
+      "candidate": "black:8",
+      "classification": "blocked_no_safe_patch_candidate_generated",
+      "episode_id": "episode_002",
+      "match_str_found": false,
+      "match_str_hits": [],
+      "memory_enabled_outperformed_no_memory": false,
+      "memory_enabled_patch_candidate_generated": false,
+      "memory_enabled_prerepair_target_failure_matched": true,
+      "no_memory_patch_candidate_generated": false,
+      "no_memory_prerepair_target_failure_matched": true,
+      "raw_match_str_exists": false,
+      "scoreable": false,
+      "source_discovery_failed": false,
+      "workspace_equivalence_passed": true
+    },
+    {
+      "candidate": "black:4",
+      "classification": "blocked_no_safe_patch_candidate_generated",
+      "episode_id": "episode_003",
+      "match_str_found": false,
+      "match_str_hits": [],
+      "memory_enabled_outperformed_no_memory": false,
+      "memory_enabled_patch_candidate_generated": false,
+      "memory_enabled_prerepair_target_failure_matched": true,
+      "no_memory_patch_candidate_generated": false,
+      "no_memory_prerepair_target_failure_matched": true,
+      "raw_match_str_exists": false,
+      "scoreable": false,
+      "source_discovery_failed": false,
+      "workspace_equivalence_passed": true
+    }
+  ]
+}

@@ -724,27 +724,39 @@ v2.8f isolated the next blocker: source-discovery and repair-heuristic coverage.
 
 ## v2.8g BugsInPy Source-Discovery Repair Proposer
 
-v2.8f proved the bounded proposer ran under valid replay/workspace gates, but it produced 0 scoreable episodes because no safe patch candidate was generated. That is a source-discovery and heuristic-coverage gap, not negative ControllerGate repair evidence.
+v2.8g ingested the Linux workflow artifact and preserved the source-discovery repair proposer result. Candidate promotion, checkout/runtime, target replay, exact workspace preservation, no-memory prerepair replay, memory-enabled prerepair replay, bounded proposer execution, and source discovery all ran under the replay gates.
 
-v2.8g adds decision-time symbol/source discovery and targeted safe heuristics for the same three BugsInPy real-bug candidates:
-
-- `youtube-dl:1`
-- `black:8`
-- `black:4`
-
-Current v2.8g status: workflow ready, pending GitHub Actions execution.
-
-- v2.8f artifact inspection: preserved.
-- v2.8f aggregate: `insufficient_episode_count_for_bugsinpy_real_bug_memory_lift`.
-- v2.8f episode classification: `blocked_no_safe_patch_candidate_generated`.
-- v2.8g source-discovery repair proposer: implemented.
-- v2.8g repair comparison: pending Linux runner artifact.
-- Scoreable v2.8g episodes: 0 at this checkpoint.
+- Workflow executed: true.
+- Executed episodes: 3.
+- Scoreable episodes: 0.
+- Positive memory episodes: 0.
+- Aggregate result: `blocked_no_safe_patch_candidate_generated`.
+- Episode classifications: `blocked_no_safe_patch_candidate_generated`.
+- `youtube-dl:1` source discovery: `match_str` found in `youtube_dl/utils.py`.
 - Full scoring: NOT_RUN / disallowed.
 - Memory lift: not demonstrated.
 - Self-maintaining software: not demonstrated.
 
-No-patch/no-action outcomes are not scoreable repair evidence. Candidate generation may not use fixed/gold patches, future outcome evidence, or fixed-state diagnostic hints.
+v2.8g found the relevant `match_str` source for youtube-dl:1, but it did not demonstrate repair success or memory lift. It isolated the next blocker: the boolean false-handling heuristic was not implemented. No-patch/no-action outcomes are not scoreable repair evidence.
+
+## v2.8h BugsInPy Targeted Boolean Patch Heuristic
+
+v2.8g found the relevant `match_str` source for youtube-dl:1 and preserved a clean source-discovery artifact, but all episodes remained blocked because no safe patch candidate was generated. v2.8h adds a targeted non-gold boolean false-handling repair heuristic for `youtube-dl:1`.
+
+- v2.8g artifact ingestion: preserved.
+- v2.8g aggregate: `blocked_no_safe_patch_candidate_generated`.
+- Source discovery success: `youtube-dl:1` `match_str` found in `youtube_dl/utils.py`.
+- Boolean patch heuristic status: implemented in the v2.8h runner, pending GitHub Actions execution.
+- v2.8h repair comparison executed: false in this local checkpoint.
+- Scoreable episodes: 0.
+- Positive memory episodes: 0.
+- Aggregate result: `blocked_pending_v2_8h_targeted_boolean_patch_artifact`.
+- Full scoring: NOT_RUN / disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+A no-memory and memory-enabled tie is inconclusive, not memory lift. A first scoreable BugsInPy repair episode would be progress even without memory lift.
+
 
 ## vHW0 ControllerGate Telemetry Maintenance Validation Plan
 

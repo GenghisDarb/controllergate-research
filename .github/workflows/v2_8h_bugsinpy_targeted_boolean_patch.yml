@@ -1,0 +1,58 @@
+name: v2_8h_bugsinpy_targeted_boolean_patch
+
+on:
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  bugsinpy-targeted-boolean-patch:
+    name: BugsInPy targeted boolean patch
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8h runner revision
+        shell: bash
+        run: |
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          echo "checked_out_head=$(git rev-parse HEAD)"
+          python - <<'PY'
+          from pathlib import Path
+          text = Path("scripts/v2_8h_bugsinpy_targeted_boolean_patch_runner.py").read_text()
+          required = [
+              "boolean_unary_false_value_presence_rule",
+              "v is not None and v is not False",
+              "v is None or v is False",
+              "youtube_dl/utils.py",
+              "boolean_patch_candidate.diff",
+              "fixed_or_gold_patch_used",
+              "future_outcome_evidence_used",
+              "insufficient_episode_count_for_bugsinpy_real_bug_memory_lift",
+          ]
+          for snippet in required:
+              if snippet not in text:
+                  raise SystemExit(f"v2.8h runner revision guard failed; missing {snippet}")
+          print("runner revision guard: targeted boolean patch heuristic present")
+          PY
+
+      - name: Run BugsInPy targeted boolean patch
+        shell: bash
+        run: |
+          python scripts/v2_8h_bugsinpy_targeted_boolean_patch_runner.py
+
+      - name: Upload BugsInPy targeted boolean patch artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8h_bugsinpy_targeted_boolean_patch_artifacts
+          path: v2_8h_bugsinpy_targeted_boolean_patch_artifacts
+          if-no-files-found: error

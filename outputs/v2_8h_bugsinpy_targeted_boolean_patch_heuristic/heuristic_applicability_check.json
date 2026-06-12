@@ -1,0 +1,19 @@
+{
+  "black:4": {
+    "applicability_status": "not_applicable"
+  },
+  "black:8": {
+    "applicability_status": "not_applicable"
+  },
+  "youtube-dl:1": {
+    "applicability_status": "ready_for_linux_runner_confirmation",
+    "candidate_match": true,
+    "required_test_context": [
+      "match_str('is_live', {'is_live': False})",
+      "match_str('!is_live', {'is_live': False})",
+      "match_str('x', {'x': 0})",
+      "match_str('title', {'title': ''})"
+    ],
+    "source_discovery_requirement": "match_str found in youtube_dl/utils.py"
+  }
+}

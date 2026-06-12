@@ -1,0 +1,26 @@
+{
+  "path": "memory_enabled",
+  "proposal": {
+    "candidate_generated": false,
+    "fixed_or_gold_patch_used": false,
+    "future_outcome_evidence_used": false,
+    "heuristic_family": "boolean_value_matching_failure",
+    "inspected_file": "youtube_dl/utils.py",
+    "label_leakage_detected": false,
+    "memory_enabled_path": true,
+    "reason": "def match_str found but no safe false-boolean patch pattern matched",
+    "source_discovery_ranked_files": [
+      "test/test_utils.py",
+      "youtube_dl/utils.py",
+      "youtube_dl/extractor/common.py",
+      "youtube_dl/YoutubeDL.py",
+      "youtube_dl/extractor/youtube.py",
+      "youtube_dl/compat.py",
+      "youtube_dl/extractor/brightcove.py",
+      "youtube_dl/extractor/generic.py",
+      "test/helper.py",
+      "youtube_dl/extractor/niconico.py"
+    ]
+  },
+  "source_reasoning": "def match_str found but no safe false-boolean patch pattern matched"
+}
