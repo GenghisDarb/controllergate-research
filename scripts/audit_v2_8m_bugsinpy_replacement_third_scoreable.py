@@ -224,12 +224,33 @@ def main() -> int:
             classification = record.get("classification")
             if classification not in CLASSIFICATION_VOCABULARY:
                 errors.append(f"unexpected v2.8m classification: {classification}")
-        for episode in ["episode_001", "episode_002", "episode_003", "episode_004"]:
+        for record in records:
+            episode = str(record.get("episode_id"))
             directory = OUTPUT_DIR / episode
             if not directory.exists():
                 errors.append(f"executed v2.8m missing {episode}")
                 continue
-            for name in REQUIRED_EPISODE:
+            blocked_before_repair = (
+                record.get("classification") == "blocked_replay_or_materialization_failure"
+                and record.get("pre_repair_replay_gate_passed") is False
+            )
+            required = [
+                "episode_metadata.json",
+                "failing_command.txt",
+                "failing_log_raw.txt",
+                "failure_signature.txt",
+                "limited_scoring_result.json",
+                "decision_time_input_manifest.json",
+                "decision_time_outcome_overlap_check.json",
+                "label_blindness_check.json",
+                "gold_patch_exclusion_check.json",
+                "corruption_check_result.json",
+                "wrapper_contamination_check.json",
+                "proof_obligations_ledger.json",
+            ] if blocked_before_repair else REQUIRED_EPISODE
+            if blocked_before_repair and not (directory / "candidate_preflight_result.json").exists():
+                errors.append(f"executed v2.8m {episode} missing candidate_preflight_result.json")
+            for name in required:
                 if not (directory / name).exists():
                     errors.append(f"executed v2.8m {episode} missing {name}")
             errors.extend(verify_manifest(directory))

@@ -1,0 +1,18 @@
+{
+  "bug_id": "8",
+  "candidate": "black:8",
+  "dependency_hints": [
+    "click"
+  ],
+  "direct_command": "python -m unittest -q tests.test_black.BlackTestCase.test_comments7",
+  "episode_id": "episode_002",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:8",
+  "project": "black",
+  "required_markers": [
+    "FAIL: test_comments7",
+    "BlackTestCase.test_comments7",
+    "Cannot parse: 11:4:"
+  ],
+  "target_test_file": "tests/test_black.py",
+  "v2_8m_status": "frozen_failed_both_from_v2_8l"
+}

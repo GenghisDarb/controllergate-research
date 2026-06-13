@@ -1,0 +1,23 @@
+$ bash -lc python -m unittest -q test.test_utils.TestUtil.test_match_str
+started_at_utc=2026-06-13T05:04:31.292050+00:00
+finished_at_utc=2026-06-13T05:04:32.402702+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+
+--- stderr ---
+/home/runner/work/controllergate-research/controllergate-research/_v2_8m_bugsinpy_runtime/workspaces/episode_001/youtube-dl/youtube_dl/extractor/pandatv.py:39: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  if error_code is not 0:
+======================================================================
+FAIL: test_match_str (test.test_utils.TestUtil)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/controllergate-research/controllergate-research/_v2_8m_bugsinpy_runtime/workspaces/episode_001/youtube-dl/test/test_utils.py", line 1076, in test_match_str
+    self.assertFalse(match_str('is_live', {'is_live': False}))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)
+

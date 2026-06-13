@@ -1,5 +1,19 @@
 {
-  "fixed_or_gold_patch_forbidden": true,
-  "future_outcome_evidence_forbidden": true,
-  "post_repair_outcomes_forbidden_for_selection": true
+  "allowed_inputs": [
+    "BugsInPy bug identifier",
+    "buggy checkout",
+    "failing command",
+    "raw failing log",
+    "traceback into buggy source",
+    "source discovery from buggy source",
+    "pre-registered bounded heuristic family"
+  ],
+  "forbidden_inputs": [
+    "fixed revision",
+    "gold patch",
+    "future outcome evidence",
+    "post-repair success or failure from candidate trials",
+    "hidden labels",
+    "manual target picking after seeing repair pass"
+  ]
 }

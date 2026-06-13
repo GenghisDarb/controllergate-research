@@ -1,0 +1,43 @@
+{
+  "candidate": "black:8",
+  "candidate_generated": true,
+  "changed_lines": 5,
+  "diff": "--- black.py\n+++ black.py\n@@ -704,6 +704,11 @@\n             current_line, line_length=mode.line_length, features=split_line_features\n         ):\n             dst_contents += str(line)\n+    dst_contents = re.sub(\n+        r\"(?m)^(\\\\s+[A-Za-z_][A-Za-z0-9_\\\\.]*),?\\\\n((?:\\\\s+#.*\\\\n)+)\\\\s+,\\\\s*\\\\n\",\n+        lambda m: f\"{m.group(1)},\\\\n{m.group(2)}\",\n+        dst_contents,\n+    )\n     return dst_contents\n \n \n",
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "heuristic": "black8_compact_comment_comma_guard_v2_8l",
+  "heuristic_family": "parser_formatter_localized_failure",
+  "label_leakage_detected": false,
+  "memory_enabled_path": false,
+  "patched_file": "black.py",
+  "reason": "compact source-only comment/comma relocation guard after v2.8k safety-budget block; no fixed/gold patch used",
+  "source_discovery_ranked_files": [
+    "tests/test_black.py",
+    "black.py",
+    "blackd.py",
+    "tests/data/comments7.py",
+    "/home/runner/work/controllergate-research/controllergate-research/_v2_8m_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+    "blib2to3/pgen2/driver.py",
+    "setup.py",
+    "tests/data/fmtonoff.py",
+    "tests/data/function.py",
+    "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/mock.py"
+  ],
+  "source_only_patch_safety_check": {
+    "changed_file_count": 1,
+    "changed_files": [
+      "black.py"
+    ],
+    "changed_lines": 5,
+    "diff_non_empty": true,
+    "failing_test_materialization_patch": false,
+    "heuristic": "black8_compact_comment_comma_guard_v2_8l",
+    "modifies_tests": false,
+    "patch_only_file": "black.py",
+    "source_only_repair_patch": true,
+    "uses_fixed_revision": false,
+    "uses_future_outcome_evidence": false,
+    "uses_gold_patch": false,
+    "within_changed_line_budget": true
+  }
+}

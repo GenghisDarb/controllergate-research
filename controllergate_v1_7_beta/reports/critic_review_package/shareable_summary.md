@@ -855,3 +855,18 @@ v2.8m preserves the official v2.8l Linux result and moves to an outcome-blind re
 - Self-maintaining software: not demonstrated.
 
 Candidate promotion or candidate selection is not repair success. v2.8m requires a fresh Linux artifact before any scoreable-count or memory-lift update.
+
+## v2.8n BugsInPy Replacement Preflight Third Scoreable
+
+v2.8n ingests the official v2.8m Linux artifact, normalizes `blocked_runtime_replay_failure` to `blocked_replay_or_materialization_failure`, and adds a preflight gate before any replacement candidate can enter repair generation.
+
+- v2.8m official result: 4 executed, 2 scoreable, 0 positive memory episodes.
+- Preserved scoreable references: `youtube-dl:1`, `black:4`.
+- `black:8`: frozen as `failed_both`.
+- `black:6`: diagnosed as materialization/preflight blocked in v2.8m; v2.8n retries only after target-file-list preflight.
+- v2.8n local status: `blocked_pending_v2_8n_replacement_preflight_artifact`.
+- Full scoring: NOT_RUN / disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+Candidate preflight is not repair success. A replacement episode becomes scoreable only with source-only repair generation, patch application, post-repair target validation logs, and clean anti-leakage checks.

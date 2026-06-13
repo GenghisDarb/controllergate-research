@@ -1,4 +1,5 @@
 {
+  "artifact_name": "v2_8m_bugsinpy_replacement_third_scoreable_artifacts",
   "campaign_id": "v2_8m_bugsinpy_replacement_third_scoreable",
   "candidate_ids": [
     "youtube-dl:1",
@@ -7,9 +8,13 @@
     "black:6"
   ],
   "controllergate_full_scoring": "NOT_RUN",
+  "frozen_candidate": "black:8",
   "full_scoring_allowed": false,
-  "local_status": "blocked_pending_v2_8m_replacement_artifact",
-  "runner": "scripts/v2_8m_bugsinpy_replacement_third_scoreable_runner.py",
-  "self_maintaining_software_demonstrated": false,
-  "workflow": ".github/workflows/v2_8m_bugsinpy_replacement_third_scoreable.yml"
+  "outcome_blind_replacement_selection": true,
+  "preserved_scoreable_candidates": [
+    "youtube-dl:1",
+    "black:4"
+  ],
+  "replacement_candidate": "black:6",
+  "self_maintaining_software_demonstrated": false
 }

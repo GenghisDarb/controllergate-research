@@ -1,0 +1,38 @@
+{
+  "source_v2_8m_package": {
+    "classification_normalization": {
+      "from": "blocked_runtime_replay_failure",
+      "replacement_count": 10,
+      "to": "blocked_replay_or_materialization_failure"
+    },
+    "excluded_large_snapshots": [
+      {
+        "path": "episode_001/baseline_workspace_snapshot.tar",
+        "sha256": "3570ae21f97cbc7007deffa56a6caf45ff3e347669095762ecd981377999fad8",
+        "size": 83210240
+      },
+      {
+        "path": "episode_002/baseline_workspace_snapshot.tar",
+        "sha256": "ede2053df255ec873110b9df57e25545d9583161c6a780541526c6cb8a711aa4",
+        "size": 14551040
+      },
+      {
+        "path": "episode_003/baseline_workspace_snapshot.tar",
+        "sha256": "6086dc1b00fcafca914e8a7515b6eb2f3bc4faa0790e06dd63600baad8977e49",
+        "size": 14612480
+      }
+    ],
+    "expected_zip_sha256": "498b5d384638286ac7665e48f453256df3a1e0e96cc9f8602f66a9401b81d6bf",
+    "extracted_non_tar_file_count": 314,
+    "internal_sha256_checked": 312,
+    "internal_sha256_failures": 0,
+    "internal_sha256_missing": 0,
+    "official_result_source": "v2_8m_bugsinpy_replacement_third_scoreable_artifacts.zip",
+    "zip_path": "C:\\Users\\thisb\\Downloads\\v2_8m_bugsinpy_replacement_third_scoreable_artifacts.zip",
+    "zip_present": true,
+    "zip_sha256": "498b5d384638286ac7665e48f453256df3a1e0e96cc9f8602f66a9401b81d6bf",
+    "zip_sha256_matches_expected": true,
+    "zip_test_bad_member": null
+  },
+  "status": "pending_workflow_artifact"
+}

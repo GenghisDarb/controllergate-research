@@ -1,33 +1,35 @@
 {
-  "source_v2_8l_package": {
-    "excluded_large_snapshots": [
-      {
-        "path": "episode_001/baseline_workspace_snapshot.tar",
-        "sha256": "06d292868595f54700e34246b52d7616a9e39eea780513346b2d2267b0b9855d",
-        "size": 83179520
-      },
-      {
-        "path": "episode_002/baseline_workspace_snapshot.tar",
-        "sha256": "5a2ac92cf6abaf6e5278e0c4e1c6921f1483dee388694a72ac1a8972df257cbe",
-        "size": 14551040
-      },
-      {
-        "path": "episode_003/baseline_workspace_snapshot.tar",
-        "sha256": "49ff1660b7bd5dd7c035a7f672e44909fe3e3a0e42791abbe70e18689202de9c",
-        "size": 14612480
-      }
-    ],
-    "expected_zip_sha256": "d1a7792daf2b65dc589fa32dcd0854401bd775c67d2e5eaa7493c39e5d3eeafe",
-    "extracted_non_tar_file_count": 263,
-    "internal_sha256_checked": 262,
-    "internal_sha256_failures": 0,
-    "internal_sha256_missing": 0,
-    "official_result_source": "v2_8l_bugsinpy_third_scoreable_recovery_artifacts.zip",
-    "zip_path": "C:\\Users\\thisb\\Downloads\\v2_8l_bugsinpy_third_scoreable_recovery_artifacts.zip",
-    "zip_present": true,
-    "zip_sha256": "d1a7792daf2b65dc589fa32dcd0854401bd775c67d2e5eaa7493c39e5d3eeafe",
-    "zip_sha256_matches_expected": true,
-    "zip_test_bad_member": null
+  "classification_normalization": {
+    "from": "blocked_runtime_replay_failure",
+    "replacement_count": 10,
+    "to": "blocked_replay_or_materialization_failure"
   },
-  "status": "pending_workflow_artifact"
+  "excluded_large_snapshots": [
+    {
+      "path": "episode_001/baseline_workspace_snapshot.tar",
+      "sha256": "3570ae21f97cbc7007deffa56a6caf45ff3e347669095762ecd981377999fad8",
+      "size": 83210240
+    },
+    {
+      "path": "episode_002/baseline_workspace_snapshot.tar",
+      "sha256": "ede2053df255ec873110b9df57e25545d9583161c6a780541526c6cb8a711aa4",
+      "size": 14551040
+    },
+    {
+      "path": "episode_003/baseline_workspace_snapshot.tar",
+      "sha256": "6086dc1b00fcafca914e8a7515b6eb2f3bc4faa0790e06dd63600baad8977e49",
+      "size": 14612480
+    }
+  ],
+  "expected_zip_sha256": "498b5d384638286ac7665e48f453256df3a1e0e96cc9f8602f66a9401b81d6bf",
+  "extracted_non_tar_file_count": 314,
+  "internal_sha256_checked": 312,
+  "internal_sha256_failures": 0,
+  "internal_sha256_missing": 0,
+  "official_result_source": "v2_8m_bugsinpy_replacement_third_scoreable_artifacts.zip",
+  "zip_path": "C:\\Users\\thisb\\Downloads\\v2_8m_bugsinpy_replacement_third_scoreable_artifacts.zip",
+  "zip_present": true,
+  "zip_sha256": "498b5d384638286ac7665e48f453256df3a1e0e96cc9f8602f66a9401b81d6bf",
+  "zip_sha256_matches_expected": true,
+  "zip_test_bad_member": null
 }

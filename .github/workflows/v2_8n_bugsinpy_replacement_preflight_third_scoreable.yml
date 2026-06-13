@@ -1,0 +1,43 @@
+name: v2_8n_bugsinpy_replacement_preflight_third_scoreable
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bugsinpy-replacement-preflight-third-scoreable:
+    name: BugsInPy replacement preflight third scoreable
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8n runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_8n_bugsinpy_replacement_preflight_third_scoreable_artifacts" scripts/v2_8n_bugsinpy_replacement_preflight_third_scoreable_runner.py
+          grep -q "candidate_preflight_result" scripts/v2_8n_bugsinpy_replacement_preflight_third_scoreable_runner.py
+          grep -q "blocked_replay_or_materialization_failure" scripts/v2_8n_bugsinpy_replacement_preflight_third_scoreable_runner.py
+          grep -q "classification_vocabulary_check" scripts/v2_8n_bugsinpy_replacement_preflight_third_scoreable_runner.py
+          grep -q "black:6" scripts/v2_8n_bugsinpy_replacement_preflight_third_scoreable_runner.py
+
+      - name: Run BugsInPy replacement preflight third scoreable runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/v2_8n_bugsinpy_replacement_preflight_third_scoreable_runner.py
+
+      - name: Upload v2.8n BugsInPy replacement preflight artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8n_bugsinpy_replacement_preflight_third_scoreable_artifacts
+          path: v2_8n_bugsinpy_replacement_preflight_third_scoreable_artifacts
+          if-no-files-found: error

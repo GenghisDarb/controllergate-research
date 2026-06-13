@@ -1,0 +1,33 @@
+{
+  "blocked_candidates_not_counted": [
+    "black:8",
+    "black:6 unless preflight passes"
+  ],
+  "candidate_pool": [
+    {
+      "candidate": "youtube-dl:1",
+      "episode_id": "episode_001",
+      "status": "preserved_scoreable_reference"
+    },
+    {
+      "candidate": "black:8",
+      "episode_id": "episode_002",
+      "status": "frozen_failed_both"
+    },
+    {
+      "candidate": "black:4",
+      "episode_id": "episode_003",
+      "status": "preserved_scoreable_reference"
+    },
+    {
+      "candidate": "black:6",
+      "episode_id": "episode_004",
+      "status": "preflight_retry_after_materialization_bugfix"
+    },
+    {
+      "candidate": "black:metadata_next",
+      "episode_id": "episode_005",
+      "status": "runtime_selected_fallback_if_black6_not_scoreable"
+    }
+  ]
+}

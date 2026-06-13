@@ -1,3 +1,57 @@
 {
-  "pending_linux_artifact": true
+  "episodes": [
+    {
+      "apoptosis_watchdog_triggered": false,
+      "candidate": "youtube-dl:1",
+      "classification": "inconclusive_equal_performance",
+      "corruption_detected": false,
+      "decision_time_outcome_overlap": false,
+      "episode_id": "episode_001",
+      "label_leakage": false,
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "repair_paths_ran": true,
+      "scoreable": true
+    },
+    {
+      "apoptosis_watchdog_triggered": false,
+      "candidate": "black:8",
+      "classification": "failed_both",
+      "corruption_detected": false,
+      "decision_time_outcome_overlap": false,
+      "episode_id": "episode_002",
+      "label_leakage": false,
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "repair_paths_ran": true,
+      "scoreable": false
+    },
+    {
+      "apoptosis_watchdog_triggered": false,
+      "candidate": "black:4",
+      "classification": "inconclusive_equal_performance",
+      "corruption_detected": false,
+      "decision_time_outcome_overlap": false,
+      "episode_id": "episode_003",
+      "label_leakage": false,
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "repair_paths_ran": true,
+      "scoreable": true
+    },
+    {
+      "apoptosis_watchdog_triggered": false,
+      "candidate": "black:6",
+      "classification": "blocked_replay_or_materialization_failure",
+      "corruption_detected": false,
+      "decision_time_outcome_overlap": false,
+      "episode_id": "episode_004",
+      "label_leakage": false,
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": false,
+      "repair_paths_ran": false,
+      "scoreable": false
+    }
+  ],
+  "workspace_equivalence_required": true
 }

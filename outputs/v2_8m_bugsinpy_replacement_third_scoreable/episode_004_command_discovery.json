@@ -1,0 +1,16 @@
+{
+  "bug_id": "6",
+  "candidate": "black:6",
+  "direct_command": "python -m unittest -q tests.test_black.BlackTestCase.test_async_as_identifier && python -m unittest -q tests.test_black.BlackTestCase.test_python37",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "project": "black",
+  "required_markers": [
+    "AssertionError",
+    "BlackTestCase",
+    "FAIL:",
+    "test_black"
+  ],
+  "target_test_file": "tests/test_black.py;tests/data/comment_after_escaped_newline.py"
+}
