@@ -825,3 +825,18 @@ v2.8k is a bounded Linux runner continuation after the official v2.8j result rea
 - Self-maintaining software: not demonstrated.
 
 v2.8k does not treat candidate promotion, patch construction, or missing logs as repair success. Scoreable evidence still requires Linux post-repair target validation logs under the same anti-leakage rules.
+
+## v2.8l BugsInPy Third Scoreable Episode Recovery
+
+v2.8l follows the official v2.8k Linux result, where `black:8` remained blocked because the source-only candidate exceeded the repair budget. v2.8l keeps `black:8` as the target and replaces the oversized generator with a compact source-only comment/comma relocation guard.
+
+- v2.8k official scoreable episodes: 2.
+- v2.8k official positive memory episodes: 0.
+- v2.8k black:8 result: `blocked_no_safe_patch_candidate_generated`.
+- v2.8l local workflow status: pending GitHub Actions artifact.
+- Candidate set remains: `youtube-dl:1`, `black:8`, `black:4`.
+- Full scoring: NOT_RUN / disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+v2.8l does not count candidate construction as repair success. Scoreable evidence still requires post-repair target validation logs under the same anti-leakage rules.

@@ -25,6 +25,9 @@ REQUIRED = [
     "anti_leakage_policy.json",
     "campaign_results.json",
     "aggregate_bugsinpy_real_bug_memory_lift_assessment.json",
+    "artifact_sha256_verification.json",
+    "linux_artifact_ingestion_metadata.json",
+    "large_workspace_snapshots_index.json",
     "github_actions_usage_instructions.md",
     "campaign_summary.md",
     "SHA256SUMS.txt",
@@ -103,8 +106,23 @@ def main() -> int:
     leakage, leakage_errors = load_json(OUTPUT_DIR / "anti_leakage_policy.json")
     campaign, campaign_errors = load_json(OUTPUT_DIR / "campaign_results.json")
     aggregate, aggregate_errors = load_json(OUTPUT_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json")
+    artifact_verification, artifact_verification_errors = load_json(OUTPUT_DIR / "artifact_sha256_verification.json")
+    ingestion_metadata, ingestion_metadata_errors = load_json(OUTPUT_DIR / "linux_artifact_ingestion_metadata.json")
+    excluded_snapshots, excluded_snapshots_errors = load_json(OUTPUT_DIR / "large_workspace_snapshots_index.json")
     v28j, v28j_errors = load_json(V28J_RESULTS)
-    errors.extend(plan_errors + pool_errors + prior_errors + recovery_errors + leakage_errors + campaign_errors + aggregate_errors + v28j_errors)
+    errors.extend(
+        plan_errors
+        + pool_errors
+        + prior_errors
+        + recovery_errors
+        + leakage_errors
+        + campaign_errors
+        + aggregate_errors
+        + artifact_verification_errors
+        + ingestion_metadata_errors
+        + excluded_snapshots_errors
+        + v28j_errors
+    )
 
     if plan.get("campaign_id") != "v2_8k_bugsinpy_third_scoreable_recovery":
         errors.append("v2.8k campaign_plan has wrong campaign_id")
@@ -138,10 +156,26 @@ def main() -> int:
     else:
         if campaign.get("executed_episode_count") != 3:
             errors.append("executed v2.8k must run exactly three promoted BugsInPy episodes")
+        if campaign.get("scoreable_episode_count") != 2:
+            errors.append("executed v2.8k official Linux result must preserve exactly two scoreable episodes")
+        if campaign.get("positive_memory_episode_count") != 0:
+            errors.append("executed v2.8k official Linux result must preserve zero positive memory episodes")
+        if campaign.get("aggregate_result") != "insufficient_episode_count_for_bugsinpy_real_bug_memory_lift":
+            errors.append("executed v2.8k official Linux result must remain insufficient count")
         if campaign.get("full_scoring_allowed") is not False or campaign.get("controllergate_full_scoring") != "NOT_RUN":
             errors.append("executed v2.8k must keep full scoring NOT_RUN / disallowed")
         if campaign.get("self_maintaining_software_demonstrated") is not False:
             errors.append("executed v2.8k must not claim self-maintaining software")
+        if aggregate.get("scoreable_episode_count") != 2 or aggregate.get("positive_memory_episode_count") != 0:
+            errors.append("executed v2.8k aggregate assessment must preserve two scoreable, zero positive memory episodes")
+        if artifact_verification.get("artifact_zip_sha256") != "f55eaacaa4cd6ed6713350351e44c48a37a95a11b0ff8768f30bbb62112c902a":
+            errors.append("v2.8k artifact SHA256 verification does not match uploaded Linux artifact")
+        if artifact_verification.get("internal_hash_failures") != 0 or artifact_verification.get("internal_missing_entries") != 0:
+            errors.append("v2.8k artifact internal SHA256 verification must be clean")
+        if ingestion_metadata.get("official_result_confirmed") is not True:
+            errors.append("v2.8k ingestion metadata must confirm official Linux result")
+        if excluded_snapshots.get("excluded_large_artifact_count") != 3:
+            errors.append("v2.8k must index the three excluded large workspace tar snapshots")
         if aggregate.get("limited_bugsinpy_real_bug_memory_lift_criteria_met") is True and campaign.get("positive_memory_episode_count", 0) < 2:
             errors.append("v2.8k cannot claim memory lift without at least two positive memory episodes")
 

@@ -1,0 +1,6 @@
+    def test_comments7(self) -> None:
+        source, expected = read_data("comments7")
+        actual = fs(source)
+        self.assertFormatEqual(expected, actual)
+        black.assert_equivalent(source, actual)
+        black.assert_stable(source, actual, black.FileMode())
