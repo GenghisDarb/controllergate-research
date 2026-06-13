@@ -901,3 +901,14 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift is not demonstrated.
 - Self-maintaining software is not demonstrated.
+
+## v2.8q BugsInPy Preflight-Guided Third Scoreable Recovery
+
+- Status: `blocked_pending_v2_8q_preflight_guided_third_scoreable_artifact`.
+- v2.8p official evidence is preserved: restored `youtube-dl:1` and `black:4`, 19 preflight-passing replacement candidates, 0 returncode-127 normalization failures.
+- v2.8q starts with the preserved-reference gate and stops as `runner_regression_preserved_reference_failure` if either reference regresses.
+- Candidate triage ranks all v2.8p preflight-passing candidates using decision-time-safe failure/source evidence.
+- Initial bounded repair targets: `fastapi:1`, `ansible:2`, `ansible:5`, `ansible:8`, `ansible:4`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift is not demonstrated.
+- Self-maintaining software is not demonstrated.

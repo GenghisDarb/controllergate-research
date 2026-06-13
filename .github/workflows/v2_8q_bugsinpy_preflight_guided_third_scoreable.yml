@@ -1,0 +1,51 @@
+name: v2_8q_bugsinpy_preflight_guided_third_scoreable
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bugsinpy-preflight-guided-third-scoreable:
+    name: BugsInPy preflight-guided third scoreable
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8q runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_8q_bugsinpy_preflight_guided_third_scoreable_artifacts" scripts/v2_8q_bugsinpy_preflight_guided_third_scoreable_runner.py
+          grep -q "candidate_triage_report_v2_8q" scripts/v2_8q_bugsinpy_preflight_guided_third_scoreable_runner.py
+          grep -q "localized_keyword_parameter_compatibility_shim" scripts/v2_8q_bugsinpy_preflight_guided_third_scoreable_runner.py
+          grep -q "localized_comparison_operator_equality_guard" scripts/v2_8q_bugsinpy_preflight_guided_third_scoreable_runner.py
+          grep -q "preserved_reference_gate_result" scripts/v2_8q_bugsinpy_preflight_guided_third_scoreable_runner.py
+          grep -q "python -m pytest" scripts/v2_8q_bugsinpy_preflight_guided_third_scoreable_runner.py
+          grep -q "returncode_127_treated_as_harness_failure" scripts/v2_8q_bugsinpy_preflight_guided_third_scoreable_runner.py
+          grep -q "PYTHONPATH" scripts/v2_8q_bugsinpy_preflight_guided_third_scoreable_runner.py
+
+      - name: Run BugsInPy preflight-guided third scoreable runner
+        shell: bash
+        timeout-minutes: 90
+        run: |
+          set -euo pipefail
+          python scripts/v2_8q_bugsinpy_preflight_guided_third_scoreable_runner.py
+          test -s v2_8q_bugsinpy_preflight_guided_third_scoreable_artifacts/preserved_reference_gate_result.json
+          test -s v2_8q_bugsinpy_preflight_guided_third_scoreable_artifacts/harness_sanity_check.json
+          test -s v2_8q_bugsinpy_preflight_guided_third_scoreable_artifacts/command_normalization_policy_v2_8q.json
+          test -s v2_8q_bugsinpy_preflight_guided_third_scoreable_artifacts/candidate_triage_report_v2_8q.json
+
+      - name: Upload v2.8q BugsInPy preflight-guided third scoreable artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8q_bugsinpy_preflight_guided_third_scoreable_artifacts
+          path: v2_8q_bugsinpy_preflight_guided_third_scoreable_artifacts
+          if-no-files-found: error

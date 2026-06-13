@@ -12,7 +12,7 @@ from typing import Any
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-V28O_ARTIFACT = Path(r"C:\Users\thisb\Downloads\v2_8o_bugsinpy_broad_preflight_harvest_artifacts.zip")
+V28O_ARTIFACT = Path(r"E:\Personal Projects\ControllerGate\v2_8o_bugsinpy_broad_preflight_harvest_artifacts.zip")
 OUTPUT_DIR = REPO_ROOT / "outputs" / "v2_8p_bugsinpy_harness_repair_broad_harvest"
 SUMMARY = REPO_ROOT / "controllergate_v1_7_beta" / "reports" / "critic_review_package" / "shareable_summary.md"
 

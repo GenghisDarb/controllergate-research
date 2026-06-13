@@ -1,0 +1,8 @@
+{
+  "command_cwd_policy": "execute target commands from checked-out project root",
+  "pytest_dependency_policy": "install pytest before pytest-based candidates",
+  "pythonpath_policy": "prepend project root to PYTHONPATH",
+  "raw_pytest_command_policy": "normalize commands that start with pytest to python -m pytest",
+  "record_original_and_normalized_command": true,
+  "returncode_127_policy": "returncode 127 is harness/command-normalization failure, not candidate failure"
+}
