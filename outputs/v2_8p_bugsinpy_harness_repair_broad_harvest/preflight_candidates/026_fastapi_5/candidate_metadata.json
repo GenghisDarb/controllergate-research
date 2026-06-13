@@ -1,0 +1,30 @@
+{
+  "bug_id": "5",
+  "candidate": "fastapi:5",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest tests/test_filter_pydantic_sub_model.py::test_filter_sub_model",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "UNASSIGNED",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:5",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "tests/test_filter_pydantic_sub_model.py"
+  ],
+  "normalized_direct_command": "python -m pytest tests/test_filter_pydantic_sub_model.py::test_filter_sub_model",
+  "project": "fastapi",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_filter_sub_model",
+    "test_filter_pydantic_sub_model",
+    "test_filter_sub_model"
+  ],
+  "target_test_file": "tests/test_filter_pydantic_sub_model.py",
+  "v2_8p_role": "broad_preflight_candidate"
+}

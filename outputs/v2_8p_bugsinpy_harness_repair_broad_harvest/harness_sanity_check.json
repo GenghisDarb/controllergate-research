@@ -1,10 +1,11 @@
 {
-  "required_checks": [
-    "python --version",
-    "python -m pip --version",
-    "python -m pytest --version after pytest install",
-    "cwd == project_root",
-    "PYTHONPATH includes project_root"
-  ],
-  "status": "PENDING_GITHUB_ACTIONS"
+  "commands_run_from_project_root_per_episode": true,
+  "pip_version_returncode": 0,
+  "pytest_install_returncode": 0,
+  "pytest_installed_before_pytest_candidate_preflight": true,
+  "pytest_version_returncode": 0,
+  "python_version_returncode": 0,
+  "pythonpath_includes_project_root_per_episode": true,
+  "status": "PASS",
+  "unittest_import_context_materialized_for_black_if_needed": true
 }

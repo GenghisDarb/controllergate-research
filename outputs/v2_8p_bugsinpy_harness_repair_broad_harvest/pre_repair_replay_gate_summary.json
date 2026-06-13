@@ -1,4 +1,45 @@
 {
-  "pre_repair_gate_required": true,
-  "status": "pending_github_actions"
+  "episodes": [
+    {
+      "candidate": "youtube-dl:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_001",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "black:4",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_003",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:8",
+      "classification": "blocked_no_safe_patch_candidate_generated",
+      "episode_id": "episode_006",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": false
+    },
+    {
+      "candidate": "ansible:12",
+      "classification": "blocked_no_safe_patch_candidate_generated",
+      "episode_id": "episode_007",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": false
+    },
+    {
+      "candidate": "ansible:13",
+      "classification": "blocked_no_safe_patch_candidate_generated",
+      "episode_id": "episode_008",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": false
+    }
+  ],
+  "passed_count": 5
 }

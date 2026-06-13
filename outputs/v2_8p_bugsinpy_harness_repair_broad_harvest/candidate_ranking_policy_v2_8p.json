@@ -1,17 +1,20 @@
 {
-  "forbidden_signals": [
-    "fixed_revision",
-    "gold_patch",
-    "future_outcome_logs",
-    "post_repair_success"
-  ],
-  "signals": [
+  "decision_time_safe_signals": [
     "pre_repair_target_failure_reproduces",
     "target_test_file_exists",
     "fixture_data_files_exist",
     "simple_dependency_install",
+    "direct_traceback_or_assertion_context",
     "localized_source_discovery",
     "registered_heuristic_family_match",
+    "bounded_patch_surface",
+    "pure_python_source_only_patch_likely",
     "command_normalized_without_returncode_127"
+  ],
+  "forbidden_signals": [
+    "fixed revision",
+    "gold patch",
+    "future outcome logs",
+    "post-repair success"
   ]
 }

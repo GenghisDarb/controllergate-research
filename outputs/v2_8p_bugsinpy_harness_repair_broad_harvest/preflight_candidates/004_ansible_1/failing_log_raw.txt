@@ -1,0 +1,65 @@
+$ bash -lc python -m pytest test/units/galaxy/test_collection.py::test_verify_collections_no_version
+started_at_utc=2026-06-13T14:12:55.149427+00:00
+finished_at_utc=2026-06-13T14:12:56.799592+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.0.3, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8p_bugsinpy_runtime/preflight_workspaces/004_ansible_1/ansible
+collected 1 item
+
+test/units/galaxy/test_collection.py F                                   [100%]
+
+=================================== FAILURES ===================================
+______________________ test_verify_collections_no_version ______________________
+
+mock_isdir = <MagicMock name='isdir' id='139905158136352'>
+mock_collection = <function mock_collection.<locals>.create_mock_collection at 0x7f3e3625a3b0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f3e3540d240>
+
+    @patch.object(os.path, 'isdir', return_value=True)
+    def test_verify_collections_no_version(mock_isdir, mock_collection, monkeypatch):
+        namespace = 'ansible_namespace'
+        name = 'collection'
+        version = '*'  # Occurs if MANIFEST.json does not exist
+    
+        local_collection = mock_collection(namespace=namespace, name=name, version=version)
+        monkeypatch.setattr(collection.CollectionRequirement, 'from_path', MagicMock(return_value=local_collection))
+    
+        collections = [('%s.%s' % (namespace, name), version, None)]
+    
+        with pytest.raises(AnsibleError) as err:
+>           collection.verify_collections(collections, './', local_collection.api, False, False)
+
+test/units/galaxy/test_collection.py:1169: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+lib/ansible/galaxy/collection.py:678: in verify_collections
+    remote_collection = CollectionRequirement.from_name(collection_name, apis, collection_version, False, parent=None,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection = 'ansible_namespace.collection'
+apis = <ansible.galaxy.api.GalaxyAPI object at 0x7f3e3540f7c0>
+requirement = '*', force = False, parent = None, allow_pre_release = False
+
+    @staticmethod
+    def from_name(collection, apis, requirement, force, parent=None, allow_pre_release=False):
+        namespace, name = collection.split('.', 1)
+        galaxy_meta = None
+    
+>       for api in apis:
+E       TypeError: 'GalaxyAPI' object is not iterable
+
+lib/ansible/galaxy/collection.py:442: TypeError
+=============================== warnings summary ===============================
+../../../../../../../../../opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18
+  /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18: DeprecationWarning: The _yaml extension module is now located at yaml._yaml and its location is subject to change.  To use the LibYAML-based parser and emitter, import from `yaml`: `from yaml import CLoader as Loader, CDumper as Dumper`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/units/galaxy/test_collection.py::test_verify_collections_no_version - TypeError: 'GalaxyAPI' object is not iterable
+========================= 1 failed, 1 warning in 1.20s =========================
+
+--- stderr ---
+

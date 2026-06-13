@@ -1,0 +1,73 @@
+$ bash -lc python -m pytest test/units/cli/test_galaxy.py::test_collection_install_with_url
+started_at_utc=2026-06-13T14:42:04.784402+00:00
+finished_at_utc=2026-06-13T14:42:05.444952+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.0.3, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8p_bugsinpy_runtime/repair_paths/episode_008/no_memory
+collected 1 item
+
+test/units/cli/test_galaxy.py F                                          [100%]
+
+=================================== FAILURES ===================================
+_______________________ test_collection_install_with_url _______________________
+
+collection_install = (<MagicMock id='139655134534272'>, <MagicMock id='139655134542960'>, '/tmp/pytest-of-runner/pytest-4/test-ÅÑŚÌβŁÈ Output0')
+
+    def test_collection_install_with_url(collection_install):
+        mock_install, dummy, output_dir = collection_install
+    
+        galaxy_args = ['ansible-galaxy', 'collection', 'install', 'https://foo/bar/foo-bar-v1.0.0.tar.gz',
+                       '--collections-path', output_dir]
+        GalaxyCLI(args=galaxy_args).run()
+    
+        collection_path = os.path.join(output_dir, 'ansible_collections')
+        assert os.path.isdir(collection_path)
+    
+        assert mock_install.call_count == 1
+>       assert mock_install.call_args[0][0] == [('https://foo/bar/foo-bar-v1.0.0.tar.gz', '*', None)]
+E       AssertionError: assert [('https', '/...ar.gz', None)] == [('https://fo...', '*', None)]
+E         
+E         At index 0 diff: ('https', '//foo/bar/foo-bar-v1.0.0.tar.gz', None) != ('https://foo/bar/foo-bar-v1.0.0.tar.gz', '*', None)
+E         
+E         Full diff:
+E           [
+E               (
+E         +         'https',
+E         -         'https://foo/bar/foo-bar-v1.0.0.tar.gz',
+E         ?          ------
+E         +         '//foo/bar/foo-bar-v1.0.0.tar.gz',
+E         -         '*',
+E                   None,
+E               ),
+E           ]
+
+../../../workspaces/episode_008/ansible/test/units/cli/test_galaxy.py:904: AssertionError
+=============================== warnings summary ===============================
+../../../../../../../../../opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18
+  /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18: DeprecationWarning: The _yaml extension module is now located at yaml._yaml and its location is subject to change.  To use the LibYAML-based parser and emitter, import from `yaml`: `from yaml import CLoader as Loader, CDumper as Dumper`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/units/cli/test_galaxy.py::test_collection_install_with_url - AssertionError: assert [('https', '/...ar.gz', None)] == [('https://fo...', '*', None)]
+  
+  At index 0 diff: ('https', '//foo/bar/foo-bar-v1.0.0.tar.gz', None) != ('https://foo/bar/foo-bar-v1.0.0.tar.gz', '*', None)
+  
+  Full diff:
+    [
+        (
+  +         'https',
+  -         'https://foo/bar/foo-bar-v1.0.0.tar.gz',
+  ?          ------
+  +         '//foo/bar/foo-bar-v1.0.0.tar.gz',
+  -         '*',
+            None,
+        ),
+    ]
+========================= 1 failed, 1 warning in 0.30s =========================
+
+--- stderr ---
+

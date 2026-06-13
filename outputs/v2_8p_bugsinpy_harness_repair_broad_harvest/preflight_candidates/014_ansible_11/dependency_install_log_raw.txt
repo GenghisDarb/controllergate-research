@@ -1,0 +1,52 @@
+$ bash -lc cd /home/runner/work/controllergate-research/controllergate-research/_v2_8p_bugsinpy_runtime/preflight_workspaces/014_ansible_11/ansible && for f in requirements.txt requirements-dev.txt test-requirements.txt dev-requirements.txt; do if [ -f "$f" ]; then python -m pip install -r "$f" || true; fi; done && python -m pip install -e . && python -m pip install pytest
+started_at_utc=2026-06-13T14:21:09.748210+00:00
+finished_at_utc=2026-06-13T14:21:16.994435+00:00
+returncode=0
+timed_out=False
+--- stdout ---
+Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from -r requirements.txt (line 6)) (3.1.6)
+Requirement already satisfied: PyYAML in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from -r requirements.txt (line 7)) (6.0.3)
+Requirement already satisfied: cryptography in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from -r requirements.txt (line 8)) (49.0.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from jinja2->-r requirements.txt (line 6)) (3.0.3)
+Requirement already satisfied: cffi>=2.0.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from cryptography->-r requirements.txt (line 8)) (2.0.0)
+Requirement already satisfied: typing-extensions>=4.13.2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from cryptography->-r requirements.txt (line 8)) (4.15.0)
+Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from cffi>=2.0.0->cryptography->-r requirements.txt (line 8)) (3.0)
+Obtaining file:///home/runner/work/controllergate-research/controllergate-research/_v2_8p_bugsinpy_runtime/preflight_workspaces/014_ansible_11/ansible
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from ansible==2.10.0.dev0) (3.1.6)
+Requirement already satisfied: PyYAML in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from ansible==2.10.0.dev0) (6.0.3)
+Requirement already satisfied: cryptography in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from ansible==2.10.0.dev0) (49.0.0)
+Requirement already satisfied: cffi>=2.0.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from cryptography->ansible==2.10.0.dev0) (2.0.0)
+Requirement already satisfied: typing-extensions>=4.13.2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from cryptography->ansible==2.10.0.dev0) (4.15.0)
+Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from cffi>=2.0.0->cryptography->ansible==2.10.0.dev0) (3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from jinja2->ansible==2.10.0.dev0) (3.0.3)
+Building wheels for collected packages: ansible
+  Building editable for ansible (pyproject.toml): started
+  Building editable for ansible (pyproject.toml): finished with status 'done'
+  Created wheel for ansible: filename=ansible-2.10.0.dev0-0.editable-py3-none-any.whl size=45215 sha256=cda214e25ba2e78dbbb6c7473c834498e54fe3061105948abb49961177f4eb11
+  Stored in directory: /tmp/pip-ephem-wheel-cache-gr3jbmna/wheels/3a/79/b4/b0966d242e188d1c168897824a8a64b62ed03bdf8e3821cd6c
+Successfully built ansible
+Installing collected packages: ansible
+  Attempting uninstall: ansible
+    Found existing installation: ansible 2.10.0.dev0
+    Uninstalling ansible-2.10.0.dev0:
+      Successfully uninstalled ansible-2.10.0.dev0
+Successfully installed ansible-2.10.0.dev0
+Requirement already satisfied: pytest in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (9.0.3)
+Requirement already satisfied: exceptiongroup>=1 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (1.3.1)
+Requirement already satisfied: iniconfig>=1.0.1 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (2.3.0)
+Requirement already satisfied: packaging>=22 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (26.2)
+Requirement already satisfied: pluggy<2,>=1.5 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (2.20.0)
+Requirement already satisfied: tomli>=1 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (2.4.1)
+Requirement already satisfied: typing-extensions>=4.6.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from exceptiongroup>=1->pytest) (4.15.0)
+
+--- stderr ---
+

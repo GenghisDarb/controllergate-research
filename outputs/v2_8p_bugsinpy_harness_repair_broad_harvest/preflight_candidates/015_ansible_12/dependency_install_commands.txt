@@ -1,0 +1,1 @@
+cd /home/runner/work/controllergate-research/controllergate-research/_v2_8p_bugsinpy_runtime/preflight_workspaces/015_ansible_12/ansible && for f in requirements.txt requirements-dev.txt test-requirements.txt dev-requirements.txt; do if [ -f "$f" ]; then python -m pip install -r "$f" || true; fi; done && python -m pip install -e . && python -m pip install pytest

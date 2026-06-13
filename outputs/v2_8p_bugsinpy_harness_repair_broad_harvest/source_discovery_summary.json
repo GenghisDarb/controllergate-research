@@ -1,4 +1,253 @@
 {
   "buggy_source_only": true,
-  "status": "pending_preserved_reference_gate"
+  "preflight_records": [
+    {
+      "candidate": "PySnooper:1",
+      "candidate_source_files_found": [],
+      "source_discovery_result": "not_run_or_no_localized_source"
+    },
+    {
+      "candidate": "PySnooper:2",
+      "candidate_source_files_found": [],
+      "source_discovery_result": "not_run_or_no_localized_source"
+    },
+    {
+      "candidate": "PySnooper:3",
+      "candidate_source_files_found": [],
+      "source_discovery_result": "not_run_or_no_localized_source"
+    },
+    {
+      "candidate": "ansible:1",
+      "candidate_source_files_found": [
+        "test/units/galaxy/test_api.py",
+        "test/units/galaxy/test_collection.py",
+        "test/units/galaxy/test_collection_install.py",
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/cli/galaxy.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:2",
+      "candidate_source_files_found": [
+        "lib/ansible/utils/version.py",
+        "lib/ansible/galaxy/collection.py",
+        "hacking/build_library/build_ansible/command_plugins/dump_keywords.py",
+        "hacking/build_library/build_ansible/command_plugins/plugin_formatter.py",
+        "hacking/build_library/build_ansible/command_plugins/release_announcement.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:3",
+      "candidate_source_files_found": [
+        "lib/ansible/module_utils/facts/default_collectors.py",
+        "lib/ansible/module_utils/facts/system/distribution.py",
+        "lib/ansible/plugins/inventory/generator.py",
+        "lib/ansible/template/safe_eval.py",
+        "test/units/galaxy/test_collection.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:4",
+      "candidate_source_files_found": [
+        "lib/ansible/playbook/block.py",
+        "lib/ansible/playbook/collectionsearch.py",
+        "lib/ansible/playbook/play.py",
+        "lib/ansible/playbook/role/__init__.py",
+        "lib/ansible/playbook/role/definition.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:5",
+      "candidate_source_files_found": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/module_utils/common/validation.py",
+        "test/units/module_utils/common/validation/test_check_required_arguments.py",
+        "lib/ansible/cli/arguments/option_helpers.py",
+        "lib/ansible/cli/config.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:6",
+      "candidate_source_files_found": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/cli/galaxy.py",
+        "lib/ansible/galaxy/collection.py",
+        "lib/ansible/module_utils/urls.py",
+        "lib/ansible/executor/module_common.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:7",
+      "candidate_source_files_found": [
+        "lib/ansible/module_utils/network/f5/icontrol.py",
+        "lib/ansible/module_utils/online.py",
+        "lib/ansible/module_utils/netapp.py",
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:8",
+      "candidate_source_files_found": [],
+      "source_discovery_result": "not_run_or_no_localized_source"
+    },
+    {
+      "candidate": "ansible:9",
+      "candidate_source_files_found": [
+        "lib/ansible/module_utils/network/f5/icontrol.py",
+        "lib/ansible/module_utils/online.py",
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py",
+        "hacking/aws_config/build_iam_policy_framework.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:10",
+      "candidate_source_files_found": [
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py",
+        "hacking/aws_config/build_iam_policy_framework.py",
+        "hacking/build-ansible.py",
+        "hacking/build_library/build_ansible/announce.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:11",
+      "candidate_source_files_found": [
+        "lib/ansible/module_utils/network/f5/icontrol.py",
+        "lib/ansible/module_utils/online.py",
+        "lib/ansible/module_utils/netapp.py",
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:12",
+      "candidate_source_files_found": [
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py",
+        "hacking/aws_config/build_iam_policy_framework.py",
+        "hacking/build-ansible.py",
+        "hacking/build_library/build_ansible/announce.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:13",
+      "candidate_source_files_found": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/cli/galaxy.py",
+        "lib/ansible/galaxy/collection.py",
+        "lib/ansible/module_utils/urls.py",
+        "lib/ansible/galaxy/api.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:14",
+      "candidate_source_files_found": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/galaxy/collection.py",
+        "lib/ansible/cli/galaxy.py",
+        "lib/ansible/galaxy/api.py",
+        "lib/ansible/module_utils/urls.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:15",
+      "candidate_source_files_found": [
+        "lib/ansible/module_utils/network/f5/icontrol.py",
+        "lib/ansible/module_utils/online.py",
+        "lib/ansible/module_utils/netapp.py",
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:16",
+      "candidate_source_files_found": [
+        "hacking/build-ansible.py",
+        "hacking/build_library/build_ansible/announce.py",
+        "hacking/build_library/build_ansible/change_detection.py",
+        "hacking/build_library/build_ansible/command_plugins/collection_meta.py",
+        "hacking/build_library/build_ansible/command_plugins/dump_config.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:17",
+      "candidate_source_files_found": [
+        "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+        "lib/ansible/modules/cloud/dimensiondata/dimensiondata_network.py",
+        "lib/ansible/module_utils/vmware.py",
+        "lib/ansible/modules/cloud/amazon/lambda_event.py",
+        "lib/ansible/module_utils/network/ios/facts/legacy/base.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "ansible:18",
+      "candidate_source_files_found": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/galaxy/collection.py",
+        "lib/ansible/module_utils/urls.py",
+        "lib/ansible/cli/galaxy.py",
+        "lib/ansible/modules/cloud/digital_ocean/_digital_ocean.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "fastapi:1",
+      "candidate_source_files_found": [
+        "tests/test_jsonable_encoder.py",
+        "fastapi/encoders.py",
+        "fastapi/openapi/models.py",
+        "docs_src/encoder/tutorial001.py",
+        "docs_src/response_directly/tutorial001.py"
+      ],
+      "source_discovery_result": "passed"
+    },
+    {
+      "candidate": "fastapi:2",
+      "candidate_source_files_found": [],
+      "source_discovery_result": "not_run_or_no_localized_source"
+    },
+    {
+      "candidate": "fastapi:3",
+      "candidate_source_files_found": [],
+      "source_discovery_result": "not_run_or_no_localized_source"
+    },
+    {
+      "candidate": "fastapi:4",
+      "candidate_source_files_found": [],
+      "source_discovery_result": "not_run_or_no_localized_source"
+    },
+    {
+      "candidate": "fastapi:5",
+      "candidate_source_files_found": [],
+      "source_discovery_result": "not_run_or_no_localized_source"
+    },
+    {
+      "candidate": "fastapi:6",
+      "candidate_source_files_found": [],
+      "source_discovery_result": "not_run_or_no_localized_source"
+    },
+    {
+      "candidate": "fastapi:7",
+      "candidate_source_files_found": [],
+      "source_discovery_result": "not_run_or_no_localized_source"
+    }
+  ]
 }

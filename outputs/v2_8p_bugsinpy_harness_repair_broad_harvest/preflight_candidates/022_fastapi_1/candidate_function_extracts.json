@@ -1,0 +1,124 @@
+{
+  "extracts": [
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 82,
+      "name": "fixture_model_with_path",
+      "text": "def fixture_model_with_path(request):\n    class Config:\n        arbitrary_types_allowed = True\n\n    ModelWithPath = create_model(\n        \"ModelWithPath\", path=(request.param, ...), __config__=Config\n    )\n    return ModelWithPath(path=request.param(\"/foo\", \"bar\"))\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 92,
+      "name": "test_encode_class",
+      "text": "def test_encode_class():\n    person = Person(name=\"Foo\")\n    pet = Pet(owner=person, name=\"Firulais\")\n    assert jsonable_encoder(pet) == {\"name\": \"Firulais\", \"owner\": {\"name\": \"Foo\"}}\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 98,
+      "name": "test_encode_dictable",
+      "text": "def test_encode_dictable():\n    person = DictablePerson(name=\"Foo\")\n    pet = DictablePet(owner=person, name=\"Firulais\")\n    assert jsonable_encoder(pet) == {\"name\": \"Firulais\", \"owner\": {\"name\": \"Foo\"}}\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 104,
+      "name": "test_encode_unsupported",
+      "text": "def test_encode_unsupported():\n    unserializable = Unserializable()\n    with pytest.raises(ValueError):\n        jsonable_encoder(unserializable)\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 110,
+      "name": "test_encode_custom_json_encoders_model",
+      "text": "def test_encode_custom_json_encoders_model():\n    model = ModelWithCustomEncoder(dt_field=datetime(2019, 1, 1, 8))\n    assert jsonable_encoder(model) == {\"dt_field\": \"2019-01-01T08:00:00+00:00\"}\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 115,
+      "name": "test_encode_model_with_config",
+      "text": "def test_encode_model_with_config():\n    model = ModelWithConfig(role=RoleEnum.admin)\n    assert jsonable_encoder(model) == {\"role\": \"admin\"}\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 120,
+      "name": "test_encode_model_with_alias_raises",
+      "text": "def test_encode_model_with_alias_raises():\n    with pytest.raises(ValidationError):\n        model = ModelWithAlias(foo=\"Bar\")\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 125,
+      "name": "test_encode_model_with_alias",
+      "text": "def test_encode_model_with_alias():\n    model = ModelWithAlias(Foo=\"Bar\")\n    assert jsonable_encoder(model) == {\"Foo\": \"Bar\"}\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 130,
+      "name": "test_encode_model_with_default",
+      "text": "def test_encode_model_with_default():\n    model = ModelWithDefault(foo=\"foo\", bar=\"bar\")\n    assert jsonable_encoder(model) == {\"foo\": \"foo\", \"bar\": \"bar\", \"bla\": \"bla\"}\n    assert jsonable_encoder(model, exclude_unset=True) == {\"foo\": \"foo\", \"bar\": \"bar\"}\n    assert jsonable_encoder(model, exclude_defaults=True) == {\"foo\": \"foo\"}\n    assert jsonable_encoder(model, exclude_unset=True, exclude_defaults=True) == {\n        \"foo\": \"foo\"\n    }\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 140,
+      "name": "test_custom_encoders",
+      "text": "def test_custom_encoders():\n    class safe_datetime(datetime):\n        pass\n\n    class MyModel(BaseModel):\n        dt_field: safe_datetime\n\n    instance = MyModel(dt_field=safe_datetime.now())\n\n    encoded_instance = jsonable_encoder(\n        instance, custom_encoder={safe_datetime: lambda o: o.isoformat()}\n    )\n    assert encoded_instance[\"dt_field\"] == instance.dt_field.isoformat()\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 155,
+      "name": "test_encode_model_with_path",
+      "text": "def test_encode_model_with_path(model_with_path):\n    if isinstance(model_with_path.path, PureWindowsPath):\n        expected = \"\\\\foo\\\\bar\"\n    else:\n        expected = \"/foo/bar\"\n    assert jsonable_encoder(model_with_path) == {\"path\": expected}\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 17,
+      "name": "__init__",
+      "text": "    def __init__(self, name: str):\n        self.name = name\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 22,
+      "name": "__init__",
+      "text": "    def __init__(self, owner: Person, name: str):\n        self.owner = owner\n        self.name = name\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 28,
+      "name": "__iter__",
+      "text": "    def __iter__(self):\n        return ((k, v) for k, v in self.__dict__.items())\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 33,
+      "name": "__iter__",
+      "text": "    def __iter__(self):\n        return ((k, v) for k, v in self.__dict__.items())\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 38,
+      "name": "__iter__",
+      "text": "    def __iter__(self):\n        raise NotImplementedError()\n"
+    },
+    {
+      "file": "tests/test_jsonable_encoder.py",
+      "line": 42,
+      "name": "__dict__",
+      "text": "    def __dict__(self):\n        raise NotImplementedError()\n"
+    },
+    {
+      "file": "fastapi/encoders.py",
+      "line": 15,
+      "name": "generate_encoders_by_class_tuples",
+      "text": "def generate_encoders_by_class_tuples(\n    type_encoder_map: Dict[Any, Callable]\n) -> Dict[Callable, Tuple]:\n    encoders_by_classes: Dict[Callable, List] = {}\n    for type_, encoder in type_encoder_map.items():\n        encoders_by_classes.setdefault(encoder, []).append(type_)\n    encoders_by_class_tuples: Dict[Callable, Tuple] = {}\n    for encoder, classes in encoders_by_classes.items():\n        encoders_by_class_tuples[encoder] = tuple(classes)\n    return encoders_by_class_tuples\n"
+    },
+    {
+      "file": "fastapi/encoders.py",
+      "line": 30,
+      "name": "jsonable_encoder",
+      "text": "def jsonable_encoder(\n    obj: Any,\n    include: Union[SetIntStr, DictIntStrAny] = None,\n    exclude: Union[SetIntStr, DictIntStrAny] = set(),\n    by_alias: bool = True,\n    skip_defaults: bool = None,\n    exclude_unset: bool = False,\n    include_none: bool = True,\n    custom_encoder: dict = {},\n    sqlalchemy_safe: bool = True,\n) -> Any:\n    if skip_defaults is not None:\n        logger.warning(  # pragma: nocover\n            \"skip_defaults in jsonable_encoder has been deprecated in favor of \"\n            \"exclude_unset to keep in line with Pydantic v1, support for it will be \"\n            \"removed soon.\"\n        )\n    if include is not None and not isinstance(include, set):\n        include = set(include)\n    if exclude is not None and not isinstance(exclude, set):\n        exclude = set(exclude)\n    if isinstance(obj, BaseModel):\n        encoder = getattr(obj.Config, \"json_encoders\", {})\n        if custom_encoder:\n            encoder.update(custom_encoder)\n        if PYDANTIC_1:\n            obj_dict = obj.dict(\n                include=include,\n                exclude=exclude,\n                by_alias=by_alias,\n                exclude_unset=bool(exclude_unset or skip_defaults),\n            )\n        else:  # pragma: nocover\n            obj_dict = obj.dict(\n                include=include,\n                exclude=exclude,\n                by_alias=by_alias,\n                skip_defaults=bool(exclude_unset or skip_defaults),\n            )\n        return jsonable_encoder(\n            obj_dict,\n            include_none=include_none,\n            custom_encoder=encoder,\n            sqlalchemy_safe=sqlalchemy_safe,\n        )\n    if isinstance(obj, Enum):\n        return obj.value\n    if isinstance(obj, PurePath):\n        return str(obj)\n    if isinstance(obj, (str, int, float, type(None))):\n        return obj\n    if isinstance(obj, dict):\n        encoded_dict = {}\n        for key, value in obj.items():\n            if (\n                (\n                    not sqlalchemy_safe\n                    or (not isinstance(key, str))\n                    or (not key.startswith(\"_sa\"))\n                )\n                and (value is not None or include_none)\n                and ((include and key in include) or key not in exclude)\n            ):\n                encoded_key = jsonable_encoder(\n                    key,\n                    by_alias=by_alias,\n                    exclude_unset=exclude_unset,\n                    include_none=include_none,\n                    custom_encoder=custom_encoder,\n                    sqlalchemy_safe=sqlalchemy_safe,\n                )\n                encoded_value = jsonable_encoder(\n                    value,\n                    by_alias=by_alias,\n                    exclude_unset=exclude_unset,\n                    include_none=include_none,\n                    custom_encoder=custom_encoder,\n                    sqlalchemy_safe=sqlalchemy_safe,\n                )\n                encoded_dict[encoded_key] = encoded_value\n        return encoded_dict\n    if isinstance(obj, (list, set, frozenset, GeneratorType, tuple)):\n        encoded_list = []\n        for item in obj:\n            encoded_list.append(\n                jsonable_encoder(\n                    item,\n                    include=include,\n                    exclude=exclude,\n                    by_alias=by_alias,\n                    exclude_unset=exclude_unset,\n                    include_none=include_none,\n                    custom_encoder=custom_encoder,\n                    sqlalchemy_safe=sqlalchemy_safe,\n                )\n            )\n        return encoded_list\n\n    if custom_encoder:\n        if type(obj) in custom_encoder:\n            return custom_encoder[type(obj)](obj)\n        else:\n            for encoder_type, encoder in custom_encoder.items():\n                if isinstance(obj, encoder_type):\n                    return encoder(obj)\n\n    if type(obj) in ENCODERS_BY_TYPE:\n        return ENCODERS_BY_TYPE[type(obj)](obj)\n    for encoder, classes_tupl"
+    },
+    {
+      "file": "fastapi/openapi/models.py",
+      "line": 27,
+      "name": "__get_validators__",
+      "text": "        def __get_validators__(cls) -> Iterable[Callable]:\n            yield cls.validate\n"
+    }
+  ]
+}
