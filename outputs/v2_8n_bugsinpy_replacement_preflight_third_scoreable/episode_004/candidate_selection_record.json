@@ -1,0 +1,27 @@
+{
+  "bug_id": "6",
+  "candidate": "black:6",
+  "dependency_hints": [
+    "click"
+  ],
+  "direct_command": "python -m unittest -q tests.test_black.BlackTestCase.test_async_as_identifier && python -m unittest -q tests.test_black.BlackTestCase.test_python37",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "episode_004",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:6",
+  "materialization_required_files": [
+    "tests/test_black.py",
+    "tests/data/comment_after_escaped_newline.py"
+  ],
+  "project": "black",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "BlackTestCase",
+    "FAIL:",
+    "test_async_as_identifier",
+    "test_black",
+    "test_python37"
+  ],
+  "target_test_file": "tests/test_black.py",
+  "v2_8n_role": "primary_replacement_preflight_retry"
+}

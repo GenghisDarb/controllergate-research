@@ -9,9 +9,7 @@
     "no_memory_only",
     "positive_memory_only"
   ],
-  "pending_linux_artifact": true,
-  "records": [],
-  "v2_8m_episode_records_normalized": [
+  "records": [
     {
       "candidate": "youtube-dl:1",
       "classification": "inconclusive_equal_performance",
@@ -22,7 +20,7 @@
     },
     {
       "candidate": "black:8",
-      "classification": "failed_both",
+      "classification": "blocked_no_safe_patch_candidate_generated",
       "episode_id": "episode_002",
       "memory_enabled_outperformed_no_memory": false,
       "pre_repair_replay_gate_passed": true,
@@ -42,6 +40,14 @@
       "episode_id": "episode_004",
       "memory_enabled_outperformed_no_memory": false,
       "pre_repair_replay_gate_passed": false,
+      "scoreable": false
+    },
+    {
+      "candidate": "black:7",
+      "classification": "blocked_no_safe_patch_candidate_generated",
+      "episode_id": "episode_005",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
       "scoreable": false
     }
   ]

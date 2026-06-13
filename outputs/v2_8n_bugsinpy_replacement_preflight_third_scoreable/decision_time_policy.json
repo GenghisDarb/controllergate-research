@@ -1,5 +1,16 @@
 {
-  "fixed_or_gold_patch_forbidden": true,
-  "future_outcome_evidence_forbidden": true,
-  "test_edits_forbidden": true
+  "allowed_inputs": [
+    "BugsInPy metadata",
+    "buggy checkout",
+    "baseline failing command",
+    "baseline failing log",
+    "buggy-source discovery"
+  ],
+  "forbidden_inputs": [
+    "fixed revision",
+    "gold patch",
+    "future outcome evidence",
+    "post-repair success/failure",
+    "test edits as repair"
+  ]
 }

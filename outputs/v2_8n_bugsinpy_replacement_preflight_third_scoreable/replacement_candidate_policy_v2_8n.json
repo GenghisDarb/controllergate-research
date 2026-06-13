@@ -1,43 +1,24 @@
 {
-  "black6_materialization_fix": "treat BugsInPy semicolon-delimited target-file metadata as a file list and use the first Python test file for source discovery",
-  "fallback_candidate_placeholder": "black:metadata_next",
-  "fallback_selection_policy": "runtime-select the next available black BugsInPy bug id from metadata only if scoreable count remains below three",
+  "black6_materialization_fix": "semicolon-delimited BugsInPy target-file metadata is treated as a file list",
+  "fallback_candidate_policy": "runtime-select next available black BugsInPy bug from metadata if still below three scoreable episodes",
   "fixed_or_gold_patch_used": false,
-  "frozen_failed_both_episode": "black:8",
   "future_outcome_evidence_used": false,
-  "preserved_scoreable_reference_episodes": [
-    "youtube-dl:1",
-    "black:4"
-  ],
-  "primary_replacement_diagnosis_from_v2_8m": {
-    "candidate": "black:6",
-    "checkout_returncode": 0,
-    "classification": "blocked_replay_or_materialization_failure",
-    "diagnosis": "v2.8m treated a semicolon-delimited BugsInPy materialized test-file list as one literal path.",
-    "fixed_or_gold_patch_used_at_decision_time": false,
-    "future_outcome_evidence_used_at_decision_time": false,
-    "pre_repair_target_command_ran": false,
-    "preflight_passed": false,
-    "preflight_version": "v2.8m_posthoc_diagnosis_for_v2.8n",
-    "project_root_exists": true,
-    "source_repair_attempted": false,
-    "target_failure_signal_present": false,
-    "target_test_file_exists": false,
-    "wrapper_contamination_detected": false
-  },
   "primary_replacement_retry": "black:6",
-  "selection_inputs_allowed": [
-    "BugsInPy project and bug id",
-    "BugsInPy metadata",
-    "buggy checkout",
-    "materialized target test path existence",
-    "baseline failing command and failing log"
+  "replacement_pool": [
+    {
+      "bug_id": "6",
+      "candidate": "black:6",
+      "project": "black",
+      "selection_basis": "selected outcome-blind in v2.8m; v2.8n fixes target-file-list materialization preflight",
+      "status": "primary_preflight_retry_after_v2_8m_materialization_bug"
+    },
+    {
+      "bug_id": "runtime_selected",
+      "candidate": "black:metadata_next",
+      "project": "black",
+      "selection_basis": "runtime BugsInPy metadata order, excluding known blocked/exposed candidates",
+      "status": "fallback_only_if_scoreable_count_remains_below_three"
+    }
   ],
-  "selection_inputs_forbidden": [
-    "fixed revision",
-    "gold patch",
-    "future outcome evidence",
-    "post-repair success/failure",
-    "manual target picking after observing repair success"
-  ]
+  "selection_after_observing_repair_success": false
 }

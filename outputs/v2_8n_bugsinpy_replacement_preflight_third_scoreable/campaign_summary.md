@@ -1,12 +1,19 @@
 # v2.8n BugsInPy Replacement Preflight Third Scoreable
 
-Local checkpoint status: `blocked_pending_v2_8n_replacement_preflight_artifact`.
+Aggregate result: `insufficient_episode_count_for_bugsinpy_real_bug_memory_lift`.
 
-- v2.8m official result: 4 executed, 2 scoreable, 0 positive memory episodes.
-- v2.8m black:6 classification normalized to `blocked_replay_or_materialization_failure`.
-- Preserved scoreable references: `youtube-dl:1`, `black:4`.
-- Frozen failed-both reference: `black:8`.
-- v2.8n adds candidate preflight before repair generation.
+- Executed BugsInPy episodes: 5.
+- Scoreable episodes: 2.
+- Positive memory-only episodes: 0.
+- Candidate preflight runs before repair generation.
 - Full scoring: NOT_RUN / disallowed.
-- Memory lift: not demonstrated.
+- Memory lift: not demonstrated unless aggregate criteria are met.
 - Self-maintaining software: not demonstrated.
+
+| Episode | Candidate | Classification | Scoreable | Memory outperformed |
+| --- | --- | --- | --- | --- |
+| episode_001 | youtube-dl:1 | inconclusive_equal_performance | true | false |
+| episode_002 | black:8 | blocked_no_safe_patch_candidate_generated | false | false |
+| episode_003 | black:4 | inconclusive_equal_performance | true | false |
+| episode_004 | black:6 | blocked_replay_or_materialization_failure | false | false |
+| episode_005 | black:7 | blocked_no_safe_patch_candidate_generated | false | false |

@@ -2,29 +2,103 @@
   "count": 5,
   "records": [
     {
+      "bug_id": "1",
       "candidate": "youtube-dl:1",
+      "dependency_hints": [],
+      "direct_command": "python -m unittest -q test.test_utils.TestUtil.test_match_str",
       "episode_id": "episode_001",
-      "status": "preserved_scoreable_reference"
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: youtube-dl:1",
+      "materialization_required_files": [
+        "test/test_utils.py"
+      ],
+      "project": "youtube-dl",
+      "required_markers": [
+        "FAIL:",
+        "TestUtil.test_match_str",
+        "AssertionError"
+      ],
+      "target_test_file": "test/test_utils.py",
+      "v2_8n_role": "preserved_scoreable_reference"
     },
     {
+      "bug_id": "8",
       "candidate": "black:8",
+      "dependency_hints": [
+        "click"
+      ],
+      "direct_command": "python -m unittest -q tests.test_black.BlackTestCase.test_comments7",
       "episode_id": "episode_002",
-      "status": "frozen_failed_both"
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:8",
+      "materialization_required_files": [
+        "tests/test_black.py"
+      ],
+      "project": "black",
+      "required_markers": [
+        "FAIL: test_comments7",
+        "BlackTestCase.test_comments7",
+        "Cannot parse: 11:4:"
+      ],
+      "target_test_file": "tests/test_black.py",
+      "v2_8n_role": "frozen_failed_both_reference"
     },
     {
+      "bug_id": "4",
       "candidate": "black:4",
+      "dependency_hints": [
+        "click"
+      ],
+      "direct_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
       "episode_id": "episode_003",
-      "status": "preserved_scoreable_reference"
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:4",
+      "materialization_required_files": [
+        "tests/test_black.py"
+      ],
+      "project": "black",
+      "required_markers": [
+        "FAIL: test_beginning_backslash",
+        "BlackTestCase.test_beginning_backslash",
+        "AssertionError"
+      ],
+      "target_test_file": "tests/test_black.py",
+      "v2_8n_role": "preserved_scoreable_reference"
     },
     {
+      "bug_id": "6",
       "candidate": "black:6",
+      "dependency_hints": [
+        "click"
+      ],
+      "direct_command": "DISCOVER_FROM_BUGSINPY_RUN_TEST",
       "episode_id": "episode_004",
-      "status": "preflight_retry_after_materialization_bugfix"
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:6",
+      "project": "black",
+      "replacement_candidate": true,
+      "required_markers": [
+        "FAIL:",
+        "BlackTestCase",
+        "AssertionError"
+      ],
+      "target_test_file": "DISCOVER_FROM_BUGSINPY_METADATA",
+      "v2_8n_role": "primary_replacement_preflight_retry"
     },
     {
+      "bug_id": "DISCOVER_NEXT_AVAILABLE_BLACK_BUG",
       "candidate": "black:metadata_next",
+      "dependency_hints": [
+        "click"
+      ],
+      "direct_command": "DISCOVER_FROM_BUGSINPY_RUN_TEST",
       "episode_id": "episode_005",
-      "status": "runtime_selected_fallback_if_black6_not_scoreable"
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:metadata_next",
+      "project": "black",
+      "replacement_candidate": true,
+      "required_markers": [
+        "FAIL:",
+        "BlackTestCase",
+        "AssertionError"
+      ],
+      "target_test_file": "DISCOVER_FROM_BUGSINPY_METADATA",
+      "v2_8n_role": "bounded_fallback_replacement_if_needed"
     }
   ]
 }

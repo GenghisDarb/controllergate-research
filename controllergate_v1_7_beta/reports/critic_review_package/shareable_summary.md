@@ -870,3 +870,14 @@ v2.8n ingests the official v2.8m Linux artifact, normalizes `blocked_runtime_rep
 - Self-maintaining software: not demonstrated.
 
 Candidate preflight is not repair success. A replacement episode becomes scoreable only with source-only repair generation, patch application, post-repair target validation logs, and clean anti-leakage checks.
+
+## v2.8o BugsInPy Broad Preflight Harvest
+
+- Status: `blocked_pending_v2_8o_broad_preflight_harvest_artifact`.
+- v2.8n artifact ingested and verified: `31ef78b0f9ea422ac56338dd4369966874b89d9f5fe85d7ad63ea922d9280ca6`.
+- v2.8n official result remains: 5 executed, 2 scoreable, 0 positive memory episodes.
+- v2.8o broadens candidate discovery beyond Black formatter bugs before repair attempts.
+- Candidate promotion, source discovery, and patch construction are not repair success.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift is not demonstrated.
+- Self-maintaining software is not demonstrated.

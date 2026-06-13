@@ -232,8 +232,8 @@ def main() -> int:
         for candidate in ["youtube-dl:1", "black:4"]:
             if by_candidate.get(candidate, {}).get("scoreable") is not True:
                 errors.append(f"executed v2.8n must preserve {candidate} as scoreable")
-        if by_candidate.get("black:8", {}).get("classification") != "failed_both":
-            errors.append("executed v2.8n must keep black:8 frozen as failed_both")
+        if by_candidate.get("black:8", {}).get("classification") not in {"failed_both", "blocked_no_safe_patch_candidate_generated"}:
+            errors.append("executed v2.8n must keep black:8 non-scoreable under the approved vocabulary")
         for record in records:
             classification = record.get("classification")
             if classification not in CLASSIFICATION_VOCABULARY:

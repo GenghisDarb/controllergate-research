@@ -1,0 +1,35 @@
+$ python -m unittest -q tests.test_black.BlackTestCase.test_async_as_identifier && python -m unittest -q tests.test_black.BlackTestCase.test_python37
+
+======================================================================
+ERROR: test_async_as_identifier (tests.test_black.BlackTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/mock.py", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_004/black/tests/test_black.py", line 508, in test_async_as_identifier
+    source, expected = read_data("async_as_identifier")
+  File "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_004/black/tests/test_black.py", line 64, in read_data
+    with open(base_dir / name, "r", encoding="utf8") as test:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_004/black/tests/data/async_as_identifier.py'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)
+
+======================================================================
+ERROR: test_async_as_identifier (tests.test_black.BlackTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/mock.py", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_004/black/tests/test_black.py", line 508, in test_async_as_identifier
+    source, expected = read_data("async_as_identifier")
+  File "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_004/black/tests/test_black.py", line 64, in read_data
+    with open(base_dir / name, "r", encoding="utf8") as test:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_004/black/tests/data/async_as_identifier.py'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)

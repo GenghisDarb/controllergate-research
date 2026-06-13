@@ -1,0 +1,14 @@
+{
+  "black6_policy": "blocked_replay_or_materialization_failure unless all fixture/data dependencies materialize from decision-time-safe sources",
+  "black7_policy": "optional only if a bounded decision-time-valid heuristic exists; cannot block broad candidate discovery",
+  "black8_policy": "freeze as non-scoreable unless a preregistered source-only rule exists before repair success observation",
+  "broad_preflight_before_repair": true,
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "preserve_scoreable_reference_candidates": [
+    "youtube-dl:1",
+    "black:4"
+  ],
+  "selection_after_observing_repair_success": false,
+  "top_preflight_passing_replacements_to_attempt": 3
+}

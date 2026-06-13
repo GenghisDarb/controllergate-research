@@ -1,0 +1,27 @@
+{
+  "bug_id": "7",
+  "candidate": "black:7",
+  "candidate_discovery_source": "runtime BugsInPy metadata ordered fallback",
+  "dependency_hints": [
+    "click"
+  ],
+  "direct_command": "python -m unittest -q tests.test_black.BlackTestCase.test_tuple_assign",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "episode_005",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:7",
+  "materialization_required_files": [
+    "tests/data/tupleassign.py",
+    "tests/test_black.py"
+  ],
+  "project": "black",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "BlackTestCase",
+    "FAIL:",
+    "test_black",
+    "test_tuple_assign"
+  ],
+  "target_test_file": "tests/data/tupleassign.py",
+  "v2_8n_role": "bounded_fallback_replacement_if_needed"
+}

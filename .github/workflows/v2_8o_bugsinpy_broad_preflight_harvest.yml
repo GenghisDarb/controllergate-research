@@ -1,0 +1,44 @@
+name: v2_8o_bugsinpy_broad_preflight_harvest
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bugsinpy-broad-preflight-harvest:
+    name: BugsInPy broad preflight harvest
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8o runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_8o_bugsinpy_broad_preflight_harvest_artifacts" scripts/v2_8o_bugsinpy_broad_preflight_harvest_runner.py
+          grep -q "BROAD_PREFLIGHT_TARGET = 20" scripts/v2_8o_bugsinpy_broad_preflight_harvest_runner.py
+          grep -q "enumerate_broad_candidates" scripts/v2_8o_bugsinpy_broad_preflight_harvest_runner.py
+          grep -q "candidate_ranking_policy_v2_8o" scripts/v2_8o_bugsinpy_broad_preflight_harvest_runner.py
+          grep -q "fixture_dependency_preflight_result" scripts/v2_8o_bugsinpy_broad_preflight_harvest_runner.py
+          grep -q "KNOWN_EXCLUDED_FOR_BROAD_HARVEST" scripts/v2_8o_bugsinpy_broad_preflight_harvest_runner.py
+
+      - name: Run BugsInPy broad preflight harvest runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/v2_8o_bugsinpy_broad_preflight_harvest_runner.py
+
+      - name: Upload v2.8o BugsInPy broad preflight harvest artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8o_bugsinpy_broad_preflight_harvest_artifacts
+          path: v2_8o_bugsinpy_broad_preflight_harvest_artifacts
+          if-no-files-found: error

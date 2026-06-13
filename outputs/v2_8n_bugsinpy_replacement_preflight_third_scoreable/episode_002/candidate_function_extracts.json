@@ -1,0 +1,124 @@
+{
+  "extracts": [
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 53,
+      "name": "dump_to_stderr",
+      "text": "def dump_to_stderr(*output: str) -> str:\n    return \"\\n\" + \"\\n\".join(output) + \"\\n\"\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 57,
+      "name": "read_data",
+      "text": "def read_data(name: str, data: bool = True) -> Tuple[str, str]:\n    \"\"\"read_data('test_name') -> 'input', 'output'\"\"\"\n    if not name.endswith((\".py\", \".pyi\", \".out\", \".diff\")):\n        name += \".py\"\n    _input: List[str] = []\n    _output: List[str] = []\n    base_dir = THIS_DIR / \"data\" if data else THIS_DIR\n    with open(base_dir / name, \"r\", encoding=\"utf8\") as test:\n        lines = test.readlines()\n    result = _input\n    for line in lines:\n        line = line.replace(EMPTY_LINE, \"\")\n        if line.rstrip() == \"# output\":\n            result = _output\n            continue\n\n        result.append(line)\n    if _input and not _output:\n        # If there's no output marker, treat the entire file as already pre-formatted.\n        _output = _input[:]\n    return \"\".join(_input).strip() + \"\\n\", \"\".join(_output).strip() + \"\\n\"\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 81,
+      "name": "cache_dir",
+      "text": "def cache_dir(exists: bool = True) -> Iterator[Path]:\n    with TemporaryDirectory() as workspace:\n        cache_dir = Path(workspace)\n        if not exists:\n            cache_dir = cache_dir / \"new\"\n        with patch(\"black.CACHE_DIR\", cache_dir):\n            yield cache_dir\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 91,
+      "name": "event_loop",
+      "text": "def event_loop(close: bool) -> Iterator[None]:\n    policy = asyncio.get_event_loop_policy()\n    old_loop = policy.get_event_loop()\n    loop = policy.new_event_loop()\n    asyncio.set_event_loop(loop)\n    try:\n        yield\n\n    finally:\n        policy.set_event_loop(old_loop)\n        if close:\n            loop.close()\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 105,
+      "name": "async_test",
+      "text": "def async_test(f: Callable[..., Coroutine[Any, None, R]]) -> Callable[..., None]:\n    @event_loop(close=True)\n    @wraps(f)\n    def wrapper(*args: Any, **kwargs: Any) -> None:\n        asyncio.get_event_loop().run_until_complete(f(*args, **kwargs))\n\n    return wrapper\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 108,
+      "name": "wrapper",
+      "text": "    def wrapper(*args: Any, **kwargs: Any) -> None:\n        asyncio.get_event_loop().run_until_complete(f(*args, **kwargs))\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 119,
+      "name": "__init__",
+      "text": "    def __init__(self) -> None:\n        self.stderrbuf = BytesIO()\n        self.stdoutbuf = BytesIO()\n        self.stdout_bytes = b\"\"\n        self.stderr_bytes = b\"\"\n        super().__init__()\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 127,
+      "name": "isolation",
+      "text": "    def isolation(self, *args: Any, **kwargs: Any) -> Generator[BinaryIO, None, None]:\n        with super().isolation(*args, **kwargs) as output:\n            try:\n                hold_stderr = sys.stderr\n                sys.stderr = TextIOWrapper(self.stderrbuf, encoding=self.charset)\n                yield output\n            finally:\n                self.stdout_bytes = sys.stdout.buffer.getvalue()  # type: ignore\n                self.stderr_bytes = sys.stderr.buffer.getvalue()  # type: ignore\n                sys.stderr = hold_stderr\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 142,
+      "name": "assertFormatEqual",
+      "text": "    def assertFormatEqual(self, expected: str, actual: str) -> None:\n        if actual != expected and not os.environ.get(\"SKIP_AST_PRINT\"):\n            bdv: black.DebugVisitor[Any]\n            black.out(\"Expected tree:\", fg=\"green\")\n            try:\n                exp_node = black.lib2to3_parse(expected)\n                bdv = black.DebugVisitor()\n                list(bdv.visit(exp_node))\n            except Exception as ve:\n                black.err(str(ve))\n            black.out(\"Actual tree:\", fg=\"red\")\n            try:\n                exp_node = black.lib2to3_parse(actual)\n                bdv = black.DebugVisitor()\n                list(bdv.visit(exp_node))\n            except Exception as ve:\n                black.err(str(ve))\n        self.assertEqual(expected, actual)\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 161,
+      "name": "invokeBlack",
+      "text": "    def invokeBlack(\n        self, args: List[str], exit_code: int = 0, ignore_config: bool = True\n    ) -> None:\n        runner = BlackRunner()\n        if ignore_config:\n            args = [\"--config\", str(THIS_DIR / \"empty.toml\"), *args]\n        result = runner.invoke(black.main, args)\n        self.assertEqual(result.exit_code, exit_code, msg=runner.stderr_bytes.decode())\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 171,
+      "name": "test_empty",
+      "text": "    def test_empty(self) -> None:\n        source = expected = \"\"\n        actual = fs(source)\n        self.assertFormatEqual(expected, actual)\n        black.assert_equivalent(source, actual)\n        black.assert_stable(source, actual, black.FileMode())\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 178,
+      "name": "test_empty_ff",
+      "text": "    def test_empty_ff(self) -> None:\n        expected = \"\"\n        tmp_file = Path(black.dump_to_file())\n        try:\n            self.assertFalse(ff(tmp_file, write_back=black.WriteBack.YES))\n            with open(tmp_file, encoding=\"utf8\") as f:\n                actual = f.read()\n        finally:\n            os.unlink(tmp_file)\n        self.assertFormatEqual(expected, actual)\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 190,
+      "name": "test_self",
+      "text": "    def test_self(self) -> None:\n        source, expected = read_data(\"test_black\", data=False)\n        actual = fs(source)\n        self.assertFormatEqual(expected, actual)\n        black.assert_equivalent(source, actual)\n        black.assert_stable(source, actual, black.FileMode())\n        self.assertFalse(ff(THIS_FILE))\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 199,
+      "name": "test_black",
+      "text": "    def test_black(self) -> None:\n        source, expected = read_data(\"../black\", data=False)\n        actual = fs(source)\n        self.assertFormatEqual(expected, actual)\n        black.assert_equivalent(source, actual)\n        black.assert_stable(source, actual, black.FileMode())\n        self.assertFalse(ff(THIS_DIR / \"..\" / \"black.py\"))\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 207,
+      "name": "test_piping",
+      "text": "    def test_piping(self) -> None:\n        source, expected = read_data(\"../black\", data=False)\n        result = BlackRunner().invoke(\n            black.main,\n            [\"-\", \"--fast\", f\"--line-length={black.DEFAULT_LINE_LENGTH}\"],\n            input=BytesIO(source.encode(\"utf8\")),\n        )\n        self.assertEqual(result.exit_code, 0)\n        self.assertFormatEqual(expected, result.output)\n        black.assert_equivalent(source, result.output)\n        black.assert_stable(source, result.output, black.FileMode())\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 219,
+      "name": "test_piping_diff",
+      "text": "    def test_piping_diff(self) -> None:\n        diff_header = re.compile(\n            rf\"(STDIN|STDOUT)\\t\\d\\d\\d\\d-\\d\\d-\\d\\d \"\n            rf\"\\d\\d:\\d\\d:\\d\\d\\.\\d\\d\\d\\d\\d\\d \\+\\d\\d\\d\\d\"\n        )\n        source, _ = read_data(\"expression.py\")\n        expected, _ = read_data(\"expression.diff\")\n        config = THIS_DIR / \"data\" / \"empty_pyproject.toml\"\n        args = [\n            \"-\",\n            \"--fast\",\n            f\"--line-length={black.DEFAULT_LINE_LENGTH}\",\n            \"--diff\",\n            f\"--config={config}\",\n        ]\n        result = BlackRunner().invoke(\n            black.main, args, input=BytesIO(source.encode(\"utf8\"))\n        )\n        self.assertEqual(result.exit_code, 0)\n        actual = diff_header.sub(\"[Deterministic header]\", result.output)\n        actual = actual.rstrip() + \"\\n\"  # the diff output has a trailing space\n        self.assertEqual(expected, actual)\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 243,
+      "name": "test_setup",
+      "text": "    def test_setup(self) -> None:\n        source, expected = read_data(\"../setup\", data=False)\n        actual = fs(source)\n        self.assertFormatEqual(expected, actual)\n        black.assert_equivalent(source, actual)\n        black.assert_stable(source, actual, black.FileMode())\n        self.assertFalse(ff(THIS_DIR / \"..\" / \"setup.py\"))\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 252,
+      "name": "test_function",
+      "text": "    def test_function(self) -> None:\n        source, expected = read_data(\"function\")\n        actual = fs(source)\n        self.assertFormatEqual(expected, actual)\n        black.assert_equivalent(source, actual)\n        black.assert_stable(source, actual, black.FileMode())\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 260,
+      "name": "test_function2",
+      "text": "    def test_function2(self) -> None:\n        source, expected = read_data(\"function2\")\n        actual = fs(source)\n        self.assertFormatEqual(expected, actual)\n        black.assert_equivalent(source, actual)\n        black.assert_stable(source, actual, black.FileMode())\n"
+    },
+    {
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_8n_bugsinpy_runtime/workspaces/episode_002/black/tests/test_black.py",
+      "line": 268,
+      "name": "test_expression",
+      "text": "    def test_expression(self) -> None:\n        source, expected = read_data(\"expression\")\n        actual = fs(source)\n        self.assertFormatEqual(expected, actual)\n        black.assert_equivalent(source, actual)\n        black.assert_stable(source, actual, black.FileMode())\n"
+    }
+  ]
+}
