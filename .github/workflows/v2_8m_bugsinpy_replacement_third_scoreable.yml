@@ -1,0 +1,52 @@
+name: v2_8m_bugsinpy_replacement_third_scoreable
+
+on:
+  workflow_dispatch:
+
+jobs:
+  v2-8m-bugsinpy-replacement-third-scoreable:
+    name: BugsInPy replacement third scoreable episode
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8m runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          text = Path("scripts/v2_8m_bugsinpy_replacement_third_scoreable_runner.py").read_text()
+          required = [
+              "v2_8m_bugsinpy_replacement_third_scoreable_artifacts",
+              "replacement_candidate_policy_v2_8m",
+              "black:8",
+              "black:6",
+              "artifact_provenance",
+          ]
+          missing = [item for item in required if item not in text]
+          if missing:
+              raise SystemExit(f"v2.8m runner revision guard failed: {missing}")
+          PY
+
+      - name: Run BugsInPy replacement third scoreable runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/v2_8m_bugsinpy_replacement_third_scoreable_runner.py
+
+      - name: Upload v2.8m BugsInPy replacement artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8m_bugsinpy_replacement_third_scoreable_artifacts
+          path: v2_8m_bugsinpy_replacement_third_scoreable_artifacts
+          if-no-files-found: error

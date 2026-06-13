@@ -840,3 +840,18 @@ v2.8l follows the official v2.8k Linux result, where `black:8` remained blocked 
 - Self-maintaining software: not demonstrated.
 
 v2.8l does not count candidate construction as repair success. Scoreable evidence still requires post-repair target validation logs under the same anti-leakage rules.
+
+## v2.8m BugsInPy Replacement Third Scoreable Episode
+
+v2.8m preserves the official v2.8l Linux result and moves to an outcome-blind replacement candidate instead of repeatedly tuning `black:8`.
+
+- v2.8l official result: 3 executed, 2 scoreable, 0 positive memory episodes.
+- `black:8`: frozen as `failed_both`.
+- Preserved scoreable episodes: `youtube-dl:1`, `black:4`.
+- v2.8m replacement candidate: `black:6`.
+- v2.8m local status: `blocked_pending_v2_8m_replacement_artifact`.
+- Full scoring: NOT_RUN / disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+Candidate promotion or candidate selection is not repair success. v2.8m requires a fresh Linux artifact before any scoreable-count or memory-lift update.

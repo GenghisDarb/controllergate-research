@@ -1,0 +1,38 @@
+{
+  "evidence_available_at_decision_time": [
+    "BugsInPy project/bug id",
+    "run_test.sh or target command from BugsInPy metadata",
+    "buggy checkout baseline failing log",
+    "traceback/source discovery from buggy source"
+  ],
+  "gold_fixed_or_future_evidence_used": false,
+  "preregistered_candidate_pool_sha256": "2f31f28dcff34535c7a0e74b973d7e260ac328a1d3343cdcc50e30bdbd3e2574",
+  "replacement_candidate_selected_before_repair_outcome": true,
+  "selected_replacement_candidate": "black:6",
+  "selection_filters": [
+    "pure Python BugsInPy candidate",
+    "not previously dependency/runtime blocked if avoidable",
+    "no fixed/gold/future outcome evidence for selected candidate",
+    "target command discovered from BugsInPy metadata or buggy checkout",
+    "source-only patch required"
+  ],
+  "selection_pool_considered": [
+    {
+      "candidate": "black:6",
+      "status": "selected_outcome_blind_replacement"
+    },
+    {
+      "candidate": "black:5",
+      "status": "excluded_fixed_patch_exposure"
+    },
+    {
+      "candidate": "black:1",
+      "status": "excluded_prior_runtime_blocked"
+    },
+    {
+      "candidate": "black:3",
+      "status": "excluded_prior_runtime_blocked"
+    }
+  ],
+  "why_black8_was_frozen_as_failed_both": "v2.8l generated and applied a compact source-only black:8 patch, but the post-repair target validation still failed."
+}

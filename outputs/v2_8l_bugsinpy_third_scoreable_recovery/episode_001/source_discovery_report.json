@@ -1,0 +1,49 @@
+{
+  "call_names": [
+    "ValueError",
+    "assertFalse",
+    "assertRaises",
+    "assertTrue",
+    "match_str",
+    "self"
+  ],
+  "candidate": "youtube-dl:1",
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "indexed_files": 839,
+  "match_str_found": true,
+  "match_str_hits": [
+    {
+      "file": "test/helper.py",
+      "kind": "assignment",
+      "line": 102,
+      "name": "match_str"
+    },
+    {
+      "file": "test/test_utils.py",
+      "kind": "import_from",
+      "line": 18,
+      "name": "match_str"
+    },
+    {
+      "file": "youtube_dl/utils.py",
+      "kind": "function",
+      "line": 2593,
+      "name": "match_str"
+    }
+  ],
+  "ranked_file_count": 40,
+  "raw_match_str_exists": true,
+  "raw_match_str_files": [
+    "youtube_dl/utils.py"
+  ],
+  "source_discovery_failed": false,
+  "target_test_method_found": true,
+  "test_selector": {
+    "class": "TestUtil",
+    "method": "test_match_str",
+    "module": "test.test_utils",
+    "selector": "test.test_utils.TestUtil.test_match_str"
+  },
+  "traceback_frame_count": 1
+}
