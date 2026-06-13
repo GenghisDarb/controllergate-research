@@ -31,6 +31,10 @@ REQUIRED = [
     "campaign_results.json",
     "aggregate_bugsinpy_real_bug_memory_lift_assessment.json",
     "label_hygiene_check.json",
+    "artifact_sha256_verification.json",
+    "github_actions_artifact_metadata.json",
+    "linux_artifact_ingestion_metadata.json",
+    "large_workspace_snapshots_index.json",
     "audit.json",
     "verification_commands.md",
     "campaign_summary.md",
@@ -139,8 +143,14 @@ def main() -> int:
     policy, policy_errors = load_json(OUTPUT_DIR / "scoreable_episode_expansion_policy.json")
     black_policy, black_policy_errors = load_json(OUTPUT_DIR / "black_candidate_generation_policy.json")
     campaign, campaign_errors = load_json(OUTPUT_DIR / "campaign_results.json")
+    decision, decision_errors = load_json(OUTPUT_DIR / "decision_report.json")
     aggregate, aggregate_errors = load_json(OUTPUT_DIR / "aggregate_bugsinpy_real_bug_memory_lift_assessment.json")
+    aggregate_report, aggregate_report_errors = load_json(OUTPUT_DIR / "aggregate_report.json")
     hygiene, hygiene_errors = load_json(OUTPUT_DIR / "label_hygiene_check.json")
+    artifact_verification, artifact_verification_errors = load_json(OUTPUT_DIR / "artifact_sha256_verification.json")
+    artifact_metadata, artifact_metadata_errors = load_json(OUTPUT_DIR / "github_actions_artifact_metadata.json")
+    ingestion_metadata, ingestion_metadata_errors = load_json(OUTPUT_DIR / "linux_artifact_ingestion_metadata.json")
+    excluded_snapshots, excluded_snapshots_errors = load_json(OUTPUT_DIR / "large_workspace_snapshots_index.json")
     v28i_results, v28i_errors = load_json(V28I_RESULTS)
     v28i_boolean, v28i_boolean_errors = load_json(V28I_BOOLEAN)
     errors.extend(
@@ -151,8 +161,14 @@ def main() -> int:
         + policy_errors
         + black_policy_errors
         + campaign_errors
+        + decision_errors
         + aggregate_errors
+        + aggregate_report_errors
         + hygiene_errors
+        + artifact_verification_errors
+        + artifact_metadata_errors
+        + ingestion_metadata_errors
+        + excluded_snapshots_errors
         + v28i_errors
         + v28i_boolean_errors
     )
@@ -193,12 +209,50 @@ def main() -> int:
     else:
         if campaign.get("executed_episode_count") != 3:
             errors.append("executed v2.8j must run exactly three promoted BugsInPy episodes")
+        if campaign.get("scoreable_episode_count") != 2:
+            errors.append("executed v2.8j official Linux result must preserve exactly two scoreable episodes")
+        if campaign.get("positive_memory_episode_count") != 0:
+            errors.append("executed v2.8j official Linux result must preserve zero positive memory episodes")
+        if campaign.get("aggregate_result") != "insufficient_episode_count_for_bugsinpy_real_bug_memory_lift":
+            errors.append("executed v2.8j official Linux result must remain insufficient count")
         if campaign.get("full_scoring_allowed") is not False or campaign.get("controllergate_full_scoring") != "NOT_RUN":
             errors.append("executed v2.8j must keep full scoring NOT_RUN / disallowed")
         if campaign.get("self_maintaining_software_demonstrated") is not False:
             errors.append("executed v2.8j must not claim self-maintaining software")
+        if aggregate.get("scoreable_episode_count") != 2 or aggregate.get("positive_memory_episode_count") != 0:
+            errors.append("executed v2.8j aggregate assessment must preserve two scoreable, zero positive memory episodes")
+        if aggregate_report.get("positive_memory_only_episode_count") != 0:
+            errors.append("executed v2.8j aggregate report must preserve zero positive memory-only episodes")
+        decision_records = {record.get("candidate"): record for record in decision.get("records", [])}
+        expected = {
+            "youtube-dl:1": ("inconclusive_equal_performance", True),
+            "black:8": ("failed_both", False),
+            "black:4": ("inconclusive_equal_performance", True),
+        }
+        for candidate, (classification, scoreable) in expected.items():
+            record = decision_records.get(candidate)
+            if not record:
+                errors.append(f"executed v2.8j decision report missing {candidate}")
+                continue
+            if record.get("classification") != classification or record.get("scoreable") is not scoreable:
+                errors.append(
+                    f"executed v2.8j decision report for {candidate} expected "
+                    f"{classification}/{scoreable}, found {record.get('classification')}/{record.get('scoreable')}"
+                )
         if aggregate.get("limited_bugsinpy_real_bug_memory_lift_criteria_met") is True and campaign.get("positive_memory_episode_count", 0) < 2:
             errors.append("v2.8j cannot claim memory lift without at least two positive memory episodes")
+        if artifact_verification.get("artifact_zip_sha256") != "363a3a4bfc3ddac3f95bb0f09ac4fe7b632acf84d6747a25f91f5c8414e30ed1":
+            errors.append("v2.8j artifact SHA256 verification does not match uploaded Linux artifact")
+        if artifact_verification.get("internal_hash_failures") != 0 or artifact_verification.get("internal_missing_entries") != 0:
+            errors.append("v2.8j artifact internal SHA256 verification must be clean")
+        if artifact_metadata.get("artifact_name") != "v2_8j_bugsinpy_scoreable_episode_expansion_artifacts":
+            errors.append("v2.8j artifact metadata has wrong artifact name")
+        if artifact_metadata.get("artifact_zip_committed_to_repository") is not False:
+            errors.append("v2.8j Linux artifact zip must not be marked as committed")
+        if ingestion_metadata.get("official_result_confirmed") is not True:
+            errors.append("v2.8j ingestion metadata must confirm official Linux result")
+        if excluded_snapshots.get("excluded_large_artifact_count") != 3:
+            errors.append("v2.8j must index the three excluded large workspace tar snapshots")
 
     if v28i_results.get("scoreable_episode_count") != 1 or v28i_results.get("positive_memory_episode_count") != 0:
         errors.append("v2.8j must preserve v2.8i one-scoreable, zero-positive result")
@@ -218,7 +272,7 @@ def main() -> int:
         ]:
             if snippet not in runner_text:
                 errors.append(f"v2.8j runner missing required guard/generator snippet: {snippet}")
-    errors.extend(require_text(SUMMARY, ["v2.8j BugsInPy Scoreable Episode Expansion", "Full scoring: NOT_RUN / disallowed", "Memory lift: not demonstrated", "Self-maintaining software: not demonstrated"]))
+    errors.extend(require_text(SUMMARY, ["v2.8j BugsInPy Scoreable Episode Expansion", "Scoreable episodes: 2", "Full scoring: NOT_RUN / disallowed", "Memory lift: not demonstrated", "Self-maintaining software: not demonstrated"]))
 
     if errors:
         print("v2.8j BugsInPy scoreable episode expansion audit FAIL")

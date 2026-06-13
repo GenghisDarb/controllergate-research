@@ -1,0 +1,58 @@
+name: v2_8k_bugsinpy_third_scoreable_recovery
+
+on:
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  bugsinpy-third-scoreable-recovery:
+    name: BugsInPy third scoreable recovery
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8k runner revision
+        shell: bash
+        run: |
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          echo "checked_out_head=$(git rev-parse HEAD)"
+          python - <<'PY'
+          from pathlib import Path
+          text = Path("scripts/v2_8k_bugsinpy_third_scoreable_recovery_runner.py").read_text()
+          required = [
+              "v2_8k_bugsinpy_third_scoreable_recovery_artifacts",
+              "black8_comment_comma_relocation_guard_v2_8k",
+              "no_fixed_or_gold_patch",
+              "no_future_outcome_evidence",
+              "source_only_repair_patch",
+              "tests_may_be_modified",
+              "previous_v2_8j_official_result",
+              "third_scoreable_recovery_policy",
+          ]
+          for snippet in required:
+              if snippet not in text:
+                  raise SystemExit(f"v2.8k runner revision guard failed; missing {snippet}")
+          print("runner revision guard: v2.8k third scoreable recovery present")
+          PY
+
+      - name: Run BugsInPy third scoreable recovery
+        shell: bash
+        run: |
+          python scripts/v2_8k_bugsinpy_third_scoreable_recovery_runner.py
+
+      - name: Upload BugsInPy third scoreable recovery artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8k_bugsinpy_third_scoreable_recovery_artifacts
+          path: v2_8k_bugsinpy_third_scoreable_recovery_artifacts
+          if-no-files-found: error

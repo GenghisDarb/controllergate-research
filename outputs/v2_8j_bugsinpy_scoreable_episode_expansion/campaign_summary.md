@@ -1,5 +1,19 @@
 # v2.8j BugsInPy Scoreable Episode Expansion
 
-Local checkpoint status: `blocked_pending_v2_8j_scoreable_episode_expansion_artifact`.
+Aggregate result: `insufficient_episode_count_for_bugsinpy_real_bug_memory_lift`.
 
-The v2.8j Linux runner is implemented and ready to run. It preserves `youtube-dl:1` as a scoreable reference from v2.8i, then attempts source-only bounded repair candidates for `black:8` and `black:4`. Full scoring remains disallowed, memory lift is not demonstrated, and self-maintaining software remains undemonstrated.
+- Executed BugsInPy episodes: 3.
+- Scoreable episodes: 2.
+- Positive memory-only episodes: 0.
+- Inconclusive equal-performance episodes: 2.
+- Blocked episodes: 1.
+- Full scoring: NOT_RUN / disallowed.
+- Self-maintaining software: not demonstrated.
+
+| Episode | Candidate | Classification | Scoreable | Memory outperformed |
+| --- | --- | --- | --- | --- |
+| episode_001 | youtube-dl:1 | inconclusive_equal_performance | true | false |
+| episode_002 | black:8 | failed_both | false | false |
+| episode_003 | black:4 | inconclusive_equal_performance | true | false |
+
+No fixed/gold patches, future outcome logs, or fixed-state diagnostic hints were used at decision time. Source repair candidate patches are separated from replay/materialization artifacts.

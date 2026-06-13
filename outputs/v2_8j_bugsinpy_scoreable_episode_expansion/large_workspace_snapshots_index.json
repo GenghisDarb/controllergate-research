@@ -1,0 +1,24 @@
+{
+  "archive_instruction": "Retain the downloaded GitHub Actions zip externally because tar snapshots are not committed to the repository.",
+  "excluded_large_artifact_count": 3,
+  "excluded_large_artifacts": [
+    {
+      "path": "episode_001/baseline_workspace_snapshot.tar",
+      "reason": "large workspace snapshot retained in GitHub Actions artifact/download, indexed but not committed",
+      "sha256": "265043b29ca00533e41df9c33e7dcff1ba35786b39771acafab006f8171612b7",
+      "size_bytes": 83200000
+    },
+    {
+      "path": "episode_002/baseline_workspace_snapshot.tar",
+      "reason": "large workspace snapshot retained in GitHub Actions artifact/download, indexed but not committed",
+      "sha256": "c70f72f59082b91958ec9a778c07958abab2edaa90caa2797e1576d93bba23c7",
+      "size_bytes": 14561280
+    },
+    {
+      "path": "episode_003/baseline_workspace_snapshot.tar",
+      "reason": "large workspace snapshot retained in GitHub Actions artifact/download, indexed but not committed",
+      "sha256": "063d59b4410ae328b97b74316db98c685c3a54abc09f9ab0d034691bad10e5b1",
+      "size_bytes": 14612480
+    }
+  ]
+}

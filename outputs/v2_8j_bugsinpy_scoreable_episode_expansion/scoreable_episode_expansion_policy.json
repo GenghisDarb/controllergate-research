@@ -1,13 +1,23 @@
 {
   "classification_vocabulary": [
-    "positive_memory_only",
-    "no_memory_only",
-    "inconclusive_equal_performance",
-    "failed_both",
     "blocked_no_safe_patch_candidate_generated",
     "blocked_patch_did_not_apply",
+    "blocked_replay_or_materialization_failure",
     "blocked_target_test_failed",
-    "blocked_replay_or_materialization_failure"
+    "failed_both",
+    "inconclusive_equal_performance",
+    "no_memory_only",
+    "positive_memory_only"
+  ],
+  "classifications": [
+    "blocked_no_safe_patch_candidate_generated",
+    "blocked_patch_did_not_apply",
+    "blocked_replay_or_materialization_failure",
+    "blocked_target_test_failed",
+    "failed_both",
+    "inconclusive_equal_performance",
+    "no_memory_only",
+    "positive_memory_only"
   ],
   "no_patch_or_no_op_is_scoreable": false,
   "scoreable_requires_patch_generated": true,

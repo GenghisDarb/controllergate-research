@@ -795,15 +795,33 @@ A no-memory and memory-enabled tie is inconclusive, not memory lift. This is the
 
 ## v2.8j BugsInPy Scoreable Episode Expansion
 
-v2.8j adds a Linux runner for scoreable BugsInPy episode expansion after the v2.8i boolean patch construction fix. The runner preserves `youtube-dl:1` as the first scoreable reference episode and attempts bounded source-only candidate generation for `black:8` and `black:4`.
+v2.8j Linux runner artifact was ingested and verified from GitHub Actions run `27428293349`. The artifact SHA256 is `363a3a4bfc3ddac3f95bb0f09ac4fe7b632acf84d6747a25f91f5c8414e30ed1` and the internal SHA256 manifest verified with 0 missing entries and 0 hash failures.
 
-- v2.8i scoreable reference episodes: 1.
-- v2.8j local workflow status: pending GitHub Actions artifact.
-- Candidate set: `youtube-dl:1`, `black:8`, `black:4`.
-- Black candidate generators: source-only, bounded, buggy-source/failing-context only.
-- Test edits as repair candidates: disallowed.
+- Workflow executed: true.
+- Executed episodes: 3.
+- Scoreable episodes: 2.
+- Positive memory episodes: 0.
+- Inconclusive equal-performance episodes: 2.
+- Blocked episodes: 1.
+- Aggregate result: `insufficient_episode_count_for_bugsinpy_real_bug_memory_lift`.
 - Full scoring: NOT_RUN / disallowed.
 - Memory lift: not demonstrated.
 - Self-maintaining software: not demonstrated.
 
-Candidate promotion or patch generation is not repair success. Scoreable evidence requires post-repair target validation logs from the Linux runner.
+Official v2.8j Linux result: two scoreable BugsInPy episodes were captured, both inconclusive equal-performance, with zero positive memory-only episodes. The aggregate remains below the three-scoreable-episode threshold. Candidate promotion and artifact capture are not repair success, and missing or blocked post-repair evidence is not counted as a pass.
+
+## v2.8k BugsInPy Third Scoreable Episode Recovery
+
+v2.8k is a bounded Linux runner continuation after the official v2.8j result reached two scoreable BugsInPy episodes but remained below the aggregate threshold. The runner targets the missing third scoreable episode by refining the `black:8` source-only comma relocation patch construction path.
+
+- v2.8j official executed episodes: 3.
+- v2.8j official scoreable episodes: 2.
+- v2.8j official positive memory episodes: 0.
+- v2.8k local workflow status: pending GitHub Actions artifact.
+- Targeted recovery candidate: `black:8`.
+- Candidate set remains: `youtube-dl:1`, `black:8`, `black:4`.
+- Full scoring: NOT_RUN / disallowed.
+- Memory lift: not demonstrated.
+- Self-maintaining software: not demonstrated.
+
+v2.8k does not treat candidate promotion, patch construction, or missing logs as repair success. Scoreable evidence still requires Linux post-repair target validation logs under the same anti-leakage rules.
