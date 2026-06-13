@@ -1,0 +1,48 @@
+name: v2_8p_bugsinpy_harness_repair_broad_harvest
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bugsinpy-harness-repair-broad-harvest:
+    name: BugsInPy harness repair broad harvest
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8p runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_8p_bugsinpy_harness_repair_broad_harvest_artifacts" scripts/v2_8p_bugsinpy_harness_repair_broad_harvest_runner.py
+          grep -q "restore_preserved_reference_hooks" scripts/v2_8p_bugsinpy_harness_repair_broad_harvest_runner.py
+          grep -q "preserved_reference_gate_result" scripts/v2_8p_bugsinpy_harness_repair_broad_harvest_runner.py
+          grep -q "runner_regression_preserved_reference_failure" scripts/v2_8p_bugsinpy_harness_repair_broad_harvest_runner.py
+          grep -q "python -m pytest" scripts/v2_8p_bugsinpy_harness_repair_broad_harvest_runner.py
+          grep -q "returncode_127_treated_as_harness_failure" scripts/v2_8p_bugsinpy_harness_repair_broad_harvest_runner.py
+          grep -q "PYTHONPATH" scripts/v2_8p_bugsinpy_harness_repair_broad_harvest_runner.py
+
+      - name: Run BugsInPy harness repair broad harvest runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/v2_8p_bugsinpy_harness_repair_broad_harvest_runner.py
+          test -s v2_8p_bugsinpy_harness_repair_broad_harvest_artifacts/preserved_reference_gate_result.json
+          test -s v2_8p_bugsinpy_harness_repair_broad_harvest_artifacts/harness_sanity_check.json
+          test -s v2_8p_bugsinpy_harness_repair_broad_harvest_artifacts/command_normalization_policy_v2_8p.json
+
+      - name: Upload v2.8p BugsInPy harness repair broad harvest artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8p_bugsinpy_harness_repair_broad_harvest_artifacts
+          path: v2_8p_bugsinpy_harness_repair_broad_harvest_artifacts
+          if-no-files-found: error

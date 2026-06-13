@@ -881,3 +881,16 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift is not demonstrated.
 - Self-maintaining software is not demonstrated.
+
+## v2.8p BugsInPy Harness Repair Broad Harvest
+
+- Status: `blocked_pending_v2_8p_harness_repair_broad_harvest_artifact`.
+- v2.8o artifact verified: `4ae274921bb0ea3a25a3443daaa77056c028d12be0b7910065a39623baea0a9e`.
+- v2.8o official regression: 0 scoreable episodes, 0 preflight-passing broad candidates.
+- v2.8p adds a preserved-reference gate before broad harvest.
+- Required preserved references: `youtube-dl:1`, `black:4`.
+- `pytest` commands must normalize to `python -m pytest`, with pytest installed before pytest candidates.
+- Returncode 127 is treated as harness or command-normalization failure, not candidate failure.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift is not demonstrated.
+- Self-maintaining software is not demonstrated.
