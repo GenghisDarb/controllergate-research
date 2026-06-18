@@ -959,10 +959,17 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.8u Positive Memory Signal Strengthening
 
-- Status: `blocked_pending_v2_8u_positive_memory_signal_strengthening_artifact`.
-- v2.8u preserves the v2.8t baseline (`youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, `ansible:5`) before any memory-generalization attempts.
-- `ansible:2` and `ansible:5` must preserve `positive_memory_only` status.
-- The lane separates no-memory and memory-enabled repair arms and audits RepairMemory access boundaries.
-- Family-generalization reporting must explicitly identify whether positive-memory evidence remains Ansible-only.
+- Status: `verified_official_artifact`.
+- Workflow run: `27783319420`.
+- Artifact SHA256: `8b058af2b137b138a83f1a8f6f7f72a6d1f20a10fb7b20ad0e017e1e213f966d`.
+- Internal SHA256SUMS: `2538` checked across `37` manifests, `0` missing, `0` failures.
+- Preserved v2.8t baseline gate: `PASS`; `youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, and `ansible:5` remained scoreable.
+- `ansible:2` and `ansible:5` preserved `positive_memory_only` status.
+- Memory-generalization attempts: `ansible:4`, `ansible:12`, and `ansible:13`; all three blocked with `blocked_no_safe_patch_candidate_generated`.
+- Executed episodes: `8`; scoreable episodes: `5`; replacement scoreable episodes: `3`; positive memory episodes: `2`.
+- Aggregate result: `replicated_positive_memory_signal_preserved`; no new v2.8u positive-memory-only episode appeared.
+- Repair-outcome memory lift: `replicated_positive_memory_signal_preserved`; selection, stability, and global closure memory lift remain `suggestive`.
+- Family generalization remains unexpanded: positive-memory evidence is still `ansible:2` and `ansible:5`, with no cross-project positive-memory signal.
+- Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.

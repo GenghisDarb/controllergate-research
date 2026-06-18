@@ -1,0 +1,30 @@
+{
+  "bug_id": "7",
+  "candidate": "fastapi:7",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest tests/test_multi_body_errors.py::test_jsonable_encoder_requiring_error",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "UNASSIGNED",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:7",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "tests/test_multi_body_errors.py"
+  ],
+  "normalized_direct_command": "python -m pytest tests/test_multi_body_errors.py::test_jsonable_encoder_requiring_error",
+  "project": "fastapi",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_jsonable_encoder_requiring_error",
+    "test_jsonable_encoder_requiring_error",
+    "test_multi_body_errors"
+  ],
+  "target_test_file": "tests/test_multi_body_errors.py",
+  "v2_8p_role": "broad_preflight_candidate"
+}

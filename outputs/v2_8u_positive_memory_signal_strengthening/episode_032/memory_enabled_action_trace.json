@@ -1,0 +1,33 @@
+{
+  "actions": [
+    {
+      "action": "inspect_allowed_decision_time_inputs",
+      "result": "completed"
+    },
+    {
+      "action": "run_source_discovery",
+      "ranked_files": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/cli/galaxy.py",
+        "lib/ansible/galaxy/collection.py",
+        "lib/ansible/module_utils/urls.py",
+        "lib/ansible/galaxy/api.py",
+        "lib/ansible/galaxy/role.py",
+        "lib/ansible/cli/config.py",
+        "lib/ansible/cli/doc.py",
+        "lib/ansible/cli/inventory.py",
+        "lib/ansible/config/manager.py"
+      ]
+    },
+    {
+      "action": "select_repair_heuristic",
+      "heuristic": "no_registered_non_memory_generic_heuristic"
+    },
+    {
+      "action": "generate_bounded_source_only_patch_candidate",
+      "candidate_generated": false
+    }
+  ],
+  "no_op_or_flatline": false,
+  "patch_candidate_generated": false
+}

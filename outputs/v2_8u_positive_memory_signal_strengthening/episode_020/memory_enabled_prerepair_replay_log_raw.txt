@@ -1,0 +1,47 @@
+$ bash -lc python -m pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple
+started_at_utc=2026-06-18T19:18:43.291612+00:00
+finished_at_utc=2026-06-18T19:18:43.650359+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8u_bugsinpy_runtime/repair_paths/episode_020/memory_enabled
+collected 1 item
+
+test/units/module_utils/common/validation/test_check_required_arguments.py F [100%]
+
+=================================== FAILURES ===================================
+________________ test_check_required_arguments_missing_multiple ________________
+
+arguments_terms_multiple = {'foo': {'required': True}, 'bar': {'required': True}, 'tomato': {'irrelevant': 72}}
+
+    def test_check_required_arguments_missing_multiple(arguments_terms_multiple):
+        params = {
+            'apples': 'woohoo',
+        }
+        expected = "missing required arguments: bar, foo"
+    
+        with pytest.raises(TypeError) as e:
+            check_required_arguments(arguments_terms_multiple, params)
+    
+>       assert to_native(e.value) == expected
+E       AssertionError: assert 'missing requ...nts: foo, bar' == 'missing requ...nts: bar, foo'
+E         
+E         - missing required arguments: bar, foo
+E         ?                                -----
+E         + missing required arguments: foo, bar
+E         ?                             +++++
+
+../../../workspaces/episode_020/ansible/test/units/module_utils/common/validation/test_check_required_arguments.py:73: AssertionError
+=========================== short test summary info ============================
+FAILED test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple - AssertionError: assert 'missing requ...nts: foo, bar' == 'missing requ...nts: bar, foo'
+  
+  - missing required arguments: bar, foo
+  ?                                -----
+  + missing required arguments: foo, bar
+  ?                             +++++
+============================== 1 failed in 0.04s ===============================
+
+--- stderr ---
+

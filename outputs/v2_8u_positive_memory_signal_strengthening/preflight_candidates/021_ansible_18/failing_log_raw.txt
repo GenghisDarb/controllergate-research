@@ -1,0 +1,56 @@
+$ bash -lc python -m pytest test/units/cli/test_galaxy.py::test_collection_default
+started_at_utc=2026-06-18T19:35:46.008503+00:00
+finished_at_utc=2026-06-18T19:35:46.863088+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8u_bugsinpy_runtime/preflight_workspaces/021_ansible_18/ansible
+collected 1 item
+
+test/units/cli/test_galaxy.py F                                          [100%]
+
+=================================== FAILURES ===================================
+________________ test_collection_default[collection_skeleton0] _________________
+
+collection_skeleton = '/tmp/pytest-of-runner/pytest-2/test-ÅÑŚÌβŁÈ Collections0/ansible_test/my_collection'
+
+    @pytest.mark.parametrize('collection_skeleton', [
+        ('ansible_test.my_collection', None),
+    ], indirect=True)
+    def test_collection_default(collection_skeleton):
+        meta_path = os.path.join(collection_skeleton, 'galaxy.yml')
+    
+        with open(meta_path, 'r') as galaxy_meta:
+            metadata = yaml.safe_load(galaxy_meta)
+    
+        assert metadata['namespace'] == 'ansible_test'
+        assert metadata['name'] == 'my_collection'
+        assert metadata['authors'] == ['your name <example@domain.com>']
+        assert metadata['readme'] == 'README.md'
+        assert metadata['version'] == '1.0.0'
+>       assert metadata['description'] == 'your collection description'
+E       AssertionError: assert 'your description' == 'your collection description'
+E         
+E         - your collection description
+E         + your description
+
+test/units/cli/test_galaxy.py:497: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+- ansible_test.my_collection was created successfully
+=============================== warnings summary ===============================
+../../../../../../../../../opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18
+  /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18: DeprecationWarning: The _yaml extension module is now located at yaml._yaml and its location is subject to change.  To use the LibYAML-based parser and emitter, import from `yaml`: `from yaml import CLoader as Loader, CDumper as Dumper`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/units/cli/test_galaxy.py::test_collection_default[collection_skeleton0] - AssertionError: assert 'your description' == 'your collection description'
+  
+  - your collection description
+  + your description
+========================= 1 failed, 1 warning in 0.52s =========================
+
+--- stderr ---
+

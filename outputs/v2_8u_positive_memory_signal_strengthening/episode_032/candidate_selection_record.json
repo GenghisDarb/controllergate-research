@@ -1,0 +1,34 @@
+{
+  "bug_id": "13",
+  "candidate": "ansible:13",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest test/units/cli/test_galaxy.py::test_collection_install_with_url",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "episode_032",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:13",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "test/units/cli/test_galaxy.py"
+  ],
+  "normalized_direct_command": "python -m pytest test/units/cli/test_galaxy.py::test_collection_install_with_url",
+  "project": "ansible",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_collection_install_with_url",
+    "test_collection_install_with_url",
+    "test_galaxy"
+  ],
+  "target_test_file": "test/units/cli/test_galaxy.py",
+  "v2_8p_role": "broad_preflight_candidate",
+  "v2_8u_memory_enabled_accesses_repair_memory": true,
+  "v2_8u_memory_generalization_candidate_rank": 3,
+  "v2_8u_no_memory_accesses_repair_memory": false,
+  "v2_8u_role": "memory_generalization_candidate"
+}

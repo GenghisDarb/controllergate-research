@@ -1,3 +1,69 @@
 {
-  "status": "PENDING_GITHUB_ACTIONS"
+  "episodes": [
+    {
+      "candidate": "youtube-dl:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_001",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "black:4",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_003",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "fastapi:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_006",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:2",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_010",
+      "memory_enabled_outperformed_no_memory": true,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:5",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_020",
+      "memory_enabled_outperformed_no_memory": true,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:4",
+      "classification": "blocked_no_safe_patch_candidate_generated",
+      "episode_id": "episode_030",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": false
+    },
+    {
+      "candidate": "ansible:12",
+      "classification": "blocked_no_safe_patch_candidate_generated",
+      "episode_id": "episode_031",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": false
+    },
+    {
+      "candidate": "ansible:13",
+      "classification": "blocked_no_safe_patch_candidate_generated",
+      "episode_id": "episode_032",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": false
+    }
+  ],
+  "passed_count": 8
 }

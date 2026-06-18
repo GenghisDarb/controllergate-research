@@ -1,0 +1,33 @@
+{
+  "actions": [
+    {
+      "action": "inspect_allowed_decision_time_inputs",
+      "result": "completed"
+    },
+    {
+      "action": "run_source_discovery",
+      "ranked_files": [
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py",
+        "hacking/aws_config/build_iam_policy_framework.py",
+        "hacking/build-ansible.py",
+        "hacking/build_library/build_ansible/announce.py",
+        "hacking/build_library/build_ansible/change_detection.py",
+        "hacking/build_library/build_ansible/command_plugins/collection_meta.py",
+        "hacking/build_library/build_ansible/command_plugins/dump_config.py",
+        "hacking/build_library/build_ansible/command_plugins/dump_keywords.py",
+        "hacking/build_library/build_ansible/command_plugins/file_deprecated_issues.py"
+      ]
+    },
+    {
+      "action": "select_repair_heuristic",
+      "heuristic": "no_registered_non_memory_generic_heuristic"
+    },
+    {
+      "action": "generate_bounded_source_only_patch_candidate",
+      "candidate_generated": false
+    }
+  ],
+  "no_op_or_flatline": false,
+  "patch_candidate_generated": false
+}
