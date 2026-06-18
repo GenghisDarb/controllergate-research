@@ -1,4 +1,121 @@
 {
+  "attempt_budget": 5,
+  "ranked_candidates": [
+    {
+      "candidate": "ansible:2",
+      "information_gain_score": 95,
+      "reason": "Assertion shows _Alpha('a') > _Alpha('a') is true; source extract shows __gt__ implemented as not __lt__.",
+      "selected_for_repair_attempt": true
+    },
+    {
+      "candidate": "ansible:5",
+      "information_gain_score": 95,
+      "reason": "Assertion differs only by missing argument order; bounded fix sorts the generated missing list.",
+      "selected_for_repair_attempt": true
+    },
+    {
+      "candidate": "fastapi:1",
+      "information_gain_score": 95,
+      "reason": "Direct TypeError names missing exclude_defaults parameter in fastapi/encoders.py.",
+      "selected_for_repair_attempt": true
+    },
+    {
+      "candidate": "ansible:1",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:10",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:11",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:14",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:15",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:16",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:17",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:18",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:3",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:4",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": true
+    },
+    {
+      "candidate": "ansible:6",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:7",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:9",
+      "information_gain_score": 35,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:8",
+      "information_gain_score": 24,
+      "reason": "Failure shows join_path strips leading UNC prefix; only attempted if the buggy source shape is recognized.",
+      "selected_for_repair_attempt": true
+    },
+    {
+      "candidate": "ansible:12",
+      "information_gain_score": 20,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    },
+    {
+      "candidate": "ansible:13",
+      "information_gain_score": 20,
+      "reason": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false
+    }
+  ],
   "selected_repair_candidates": [
     "fastapi:1",
     "ansible:2",
@@ -7,5 +124,6 @@
     "ansible:4"
   ],
   "selection_used_only_decision_time_safe_evidence": true,
-  "status": "PENDING_GITHUB_ACTIONS"
+  "status": "PASS",
+  "stop_after_first_scoreable_replacement": true
 }

@@ -1,0 +1,124 @@
+{
+  "extracts": [
+    {
+      "file": "hacking/build-ansible.py",
+      "line": 24,
+      "name": "build_lib_path",
+      "text": "def build_lib_path(this_script=__file__):\n    \"\"\"Return path to the common build library directory\"\"\"\n    hacking_dir = os.path.dirname(this_script)\n    libdir = os.path.abspath(os.path.join(hacking_dir, 'build_library'))\n\n    return libdir\n"
+    },
+    {
+      "file": "hacking/build-ansible.py",
+      "line": 37,
+      "name": "create_arg_parser",
+      "text": "def create_arg_parser(program_name):\n    \"\"\"\n    Creates a command line argument parser\n\n    :arg program_name: The name of the script.  Used in help texts\n    \"\"\"\n    parser = argparse.ArgumentParser(prog=program_name,\n                                     description=\"Implements utilities to build Ansible\")\n    return parser\n"
+    },
+    {
+      "file": "hacking/build-ansible.py",
+      "line": 48,
+      "name": "main",
+      "text": "def main():\n    \"\"\"\n    Main entrypoint of the script\n\n    \"It all starts here\"\n    \"\"\"\n    subcommands = load('build_ansible.command_plugins', subclasses=commands.Command)\n\n    arg_parser = create_arg_parser(os.path.basename(sys.argv[0]))\n    subparsers = arg_parser.add_subparsers(title='Subcommands', dest='command',\n                                           help='for help use build-ansible.py SUBCOMMANDS -h')\n    subcommands.pipe('init_parser', subparsers.add_parser)\n\n    if argcomplete:\n        argcomplete.autocomplete(arg_parser)\n\n    args = arg_parser.parse_args(sys.argv[1:])\n    if args.command is None:\n        print('Please specify a subcommand to run')\n        sys.exit(1)\n\n    for subcommand in subcommands:\n        if subcommand.name == args.command:\n            command = subcommand\n            break\n    else:\n        # Note: We should never trigger this because argparse should shield us from it\n        print('Error: {0} was not a recognized subcommand'.format(args.command))\n        sys.exit(1)\n\n    try:\n        retval = command.main(args)\n    except errors.DependencyError as e:\n        print(e)\n        sys.exit(2)\n\n    sys.exit(retval)\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/announce.py",
+      "line": 145,
+      "name": "calculate_hash_from_tarball",
+      "text": "async def calculate_hash_from_tarball(session, version):\n    tar_url = f'https://releases.ansible.com/ansible/ansible-{version}.tar.gz'\n    tar_task = asyncio.create_task(session.get(tar_url))\n    tar_response = await tar_task\n\n    tar_hash = hashlib.sha256()\n    while True:\n        chunk = await tar_response.content.read(1024)\n        if not chunk:\n            break\n        tar_hash.update(chunk)\n\n    return tar_hash.hexdigest()\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/announce.py",
+      "line": 160,
+      "name": "parse_hash_from_file",
+      "text": "async def parse_hash_from_file(session, version):\n    filename = f'ansible-{version}.tar.gz'\n    hash_url = f'https://releases.ansible.com/ansible/{filename}.sha'\n    hash_task = asyncio.create_task(session.get(hash_url))\n    hash_response = await hash_task\n\n    hash_content = await hash_response.read()\n    precreated_hash, precreated_filename = hash_content.split(None, 1)\n    if filename != precreated_filename.strip().decode('utf-8'):\n        raise ValueError(f'Hash file contains hash for a different file: {precreated_filename}')\n\n    return precreated_hash.decode('utf-8')\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/announce.py",
+      "line": 174,
+      "name": "get_hash",
+      "text": "async def get_hash(session, version):\n    calculated_hash = await calculate_hash_from_tarball(session, version)\n    precreated_hash = await parse_hash_from_file(session, version)\n\n    if calculated_hash != precreated_hash:\n        raise ValueError(f'Hash in file ansible-{version}.tar.gz.sha {precreated_hash} does not'\n                         f' match hash of tarball {calculated_hash}')\n\n    return calculated_hash\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/announce.py",
+      "line": 185,
+      "name": "get_hashes",
+      "text": "async def get_hashes(versions):\n    hashes = {}\n    requestors = {}\n    async with aiohttp.ClientSession() as aio_session:\n        for version in versions:\n            requestors[version] = asyncio.create_task(get_hash(aio_session, version))\n\n        for version, request in requestors.items():\n            await request\n            hashes[version] = request.result()\n\n    return hashes\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/announce.py",
+      "line": 199,
+      "name": "next_release_date",
+      "text": "def next_release_date(weeks=3):\n    days_in_the_future = weeks * 7\n    today = datetime.datetime.now()\n    numeric_today = today.weekday()\n\n    # We release on Thursdays\n    if numeric_today == 3:\n        # 3 is Thursday\n        pass\n    elif numeric_today == 4:\n        # If this is Friday, we can adjust back to Thursday for the next release\n        today -= datetime.timedelta(days=1)\n    elif numeric_today < 3:\n        # Otherwise, slide forward to Thursday\n        today += datetime.timedelta(days=(3 - numeric_today))\n    else:\n        # slightly different formula if it's past Thursday this week.  We need to go forward to\n        # Thursday of next week\n        today += datetime.timedelta(days=(10 - numeric_today))\n\n    next_release = today + datetime.timedelta(days=days_in_the_future)\n    return next_release\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/announce.py",
+      "line": 223,
+      "name": "create_long_message",
+      "text": "def create_long_message(versions, name):\n    hashes = asyncio.run(get_hashes(versions))\n\n    version_template = JINJA_ENV.get_template('version_string')\n    version_str = version_template.render(versions=versions).strip()\n\n    next_release = next_release_date()\n\n    template = JINJA_ENV.get_template('long')\n    message = template.render(versions=versions, version_str=version_str,\n                              name=name, hashes=hashes, next_release=next_release)\n    return message\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/announce.py",
+      "line": 237,
+      "name": "create_short_message",
+      "text": "def create_short_message(versions):\n    version_template = JINJA_ENV.get_template('version_string')\n    version_str = version_template.render(versions=versions).strip()\n\n    template = JINJA_ENV.get_template('short')\n    message = template.render(versions=versions, version_str=version_str)\n    message = ' '.join(message.split()) + '\\n'\n    return message\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/change_detection.py",
+      "line": 16,
+      "name": "update_file_if_different",
+      "text": "def update_file_if_different(filename, b_data):\n    '''\n    Replace file content only if content is different.\n\n    This preserves timestamps in case the file content has not changed.  It performs multiple\n    operations on the file so it is not atomic and may be slower than simply writing to the file.\n\n    :arg filename: The filename to write to\n    :b_data: Byte string containing the data to write to the file\n    '''\n    try:\n        with open(filename, 'rb') as f:\n            b_data_old = f.read()\n    except IOError as e:\n        if e.errno != 2:\n            raise\n        # File did not exist, set b_data_old to a sentinel value so that\n        # b_data gets written to the filename\n        b_data_old = None\n\n    if b_data_old != b_data:\n        with open(filename, 'wb') as f:\n            f.write(b_data)\n        return True\n\n    return False\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/command_plugins/collection_meta.py",
+      "line": 31,
+      "name": "init_parser",
+      "text": "    def init_parser(cls, add_parser):\n        parser = add_parser(cls.name, description='Generate collection galaxy.yml documentation from shared metadata')\n        parser.add_argument(\"-t\", \"--template-file\", action=\"store\", dest=\"template_file\",\n                            default=DEFAULT_TEMPLATE_FILE,\n                            help=\"Jinja2 template to use for the config\")\n        parser.add_argument(\"-T\", \"--template-dir\", action=\"store\", dest=\"template_dir\",\n                            default=DEFAULT_TEMPLATE_DIR,\n                            help=\"directory containing Jinja2 templates\")\n        parser.add_argument(\"-o\", \"--output-dir\", action=\"store\", dest=\"output_dir\", default='/tmp/',\n                            help=\"Output directory for rst files\")\n        parser.add_argument(\"collection_defs\", metavar=\"COLLECTION-OPTION-DEFINITIONS.yml\", type=str,\n                            help=\"Source for collection metadata option docs\")\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/command_plugins/collection_meta.py",
+      "line": 45,
+      "name": "main",
+      "text": "    def main(args):\n        output_dir = os.path.abspath(args.output_dir)\n        template_file_full_path = os.path.abspath(os.path.join(args.template_dir, args.template_file))\n        template_file = os.path.basename(template_file_full_path)\n        template_dir = os.path.dirname(template_file_full_path)\n\n        with open(args.collection_defs) as f:\n            options = yaml.safe_load(f)\n\n        env = Environment(loader=FileSystemLoader(template_dir),\n                          variable_start_string=\"@{\",\n                          variable_end_string=\"}@\",\n                          trim_blocks=True)\n        env.filters['documented_type'] = documented_type\n        env.filters['html_ify'] = html_ify\n\n        template = env.get_template(template_file)\n        output_name = os.path.join(output_dir, template_file.replace('.j2', ''))\n        temp_vars = {'options': options}\n\n        data = to_bytes(template.render(temp_vars))\n        update_file_if_different(output_name, data)\n\n        return 0\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/command_plugins/dump_config.py",
+      "line": 26,
+      "name": "fix_description",
+      "text": "def fix_description(config_options):\n    '''some descriptions are strings, some are lists. workaround it...'''\n\n    for config_key in config_options:\n        description = config_options[config_key].get('description', [])\n        if isinstance(description, list):\n            desc_list = description\n        else:\n            desc_list = [description]\n        config_options[config_key]['description'] = desc_list\n    return config_options\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/command_plugins/dump_config.py",
+      "line": 43,
+      "name": "init_parser",
+      "text": "    def init_parser(cls, add_parser):\n        parser = add_parser(cls.name, description='Generate module documentation from metadata')\n        parser.add_argument(\"-t\", \"--template-file\", action=\"store\", dest=\"template_file\",\n                            default=DEFAULT_TEMPLATE_FILE,\n                            help=\"Jinja2 template to use for the config\")\n        parser.add_argument(\"-T\", \"--template-dir\", action=\"store\", dest=\"template_dir\",\n                            default=DEFAULT_TEMPLATE_DIR,\n                            help=\"directory containing Jinja2 templates\")\n        parser.add_argument(\"-o\", \"--output-dir\", action=\"store\", dest=\"output_dir\", default='/tmp/',\n                            help=\"Output directory for rst files\")\n        parser.add_argument(\"config_defs\", metavar=\"CONFIG-OPTION-DEFINITIONS.yml\", type=str,\n                            help=\"Source for config option docs\")\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/command_plugins/dump_config.py",
+      "line": 57,
+      "name": "main",
+      "text": "    def main(args):\n        output_dir = os.path.abspath(args.output_dir)\n        template_file_full_path = os.path.abspath(os.path.join(args.template_dir, args.template_file))\n        template_file = os.path.basename(template_file_full_path)\n        template_dir = os.path.dirname(template_file_full_path)\n\n        with open(args.config_defs) as f:\n            config_options = yaml.safe_load(f)\n\n        config_options = fix_description(config_options)\n\n        env = Environment(loader=FileSystemLoader(template_dir), trim_blocks=True,)\n        template = env.get_template(template_file)\n        output_name = os.path.join(output_dir, template_file.replace('.j2', ''))\n        temp_vars = {'config_options': config_options}\n\n        data = to_bytes(template.render(temp_vars))\n        update_file_if_different(output_name, data)\n\n        return 0\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/command_plugins/dump_keywords.py",
+      "line": 31,
+      "name": "load_definitions",
+      "text": "def load_definitions(keyword_definitions_file):\n    docs = {}\n    with open(keyword_definitions_file) as f:\n        docs = yaml.safe_load(f)\n\n    return docs\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/command_plugins/dump_keywords.py",
+      "line": 39,
+      "name": "extract_keywords",
+      "text": "def extract_keywords(keyword_definitions):\n    pb_keywords = {}\n    for pb_class_name in PLAYBOOK_CLASS_NAMES:\n        if pb_class_name == 'Play':\n            module_name = 'ansible.playbook'\n        else:\n            module_name = 'ansible.playbook.{0}'.format(pb_class_name.lower())\n        module = importlib.import_module(module_name)\n        playbook_class = getattr(module, pb_class_name, None)\n        if playbook_class is None:\n            raise ImportError(\"We weren't able to import the module {0}\".format(module_name))\n\n        # Maintain order of the actual class names for our output\n        # Build up a mapping of playbook classes to the attributes that they hold\n        pb_keywords[pb_class_name] = {k: v for (k, v) in playbook_class._valid_attrs.items()\n                                      # Filter private attributes as they're not usable in playbooks\n                                      if not v.private}\n\n        # pick up definitions if they exist\n        for keyword in tuple(pb_keywords[pb_class_name]):\n            if keyword in keyword_definitions:\n                pb_keywords[pb_class_name][keyword] = keyword_definitions[keyword]\n            else:\n                # check if there is an alias, otherwise undocumented\n                alias = getattr(getattr(playbook_class, '_%s' % keyword), 'alias', None)\n                if alias and alias in keyword_definitions:\n                    pb_keywords[pb_class_name][alias] = keyword_definitions[alias]\n                    del pb_keywords[pb_class_name][keyword]\n                else:\n                    pb_keywords[pb_class_name][keyword] = ' UNDOCUMENTED!! '\n\n        # loop is really with_ for users\n        if pb_class_name == 'Task':\n            pb_keywords[pb_class_name]['with_<lookup_plugin>'] = (\n                'The same as ``loop`` but magically adds the output of any lookup plugin to'\n                ' generate the item list.')\n\n        # local_action is implicit with action\n        if 'action' in pb_keywords[pb_class_name]:\n            pb_keywords[pb_class_name]['local_action'] = ('Same as action but also implies'\n                                                          ' ``delegate_to: localhost``')\n\n    return pb_keywords\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/command_plugins/dump_keywords.py",
+      "line": 84,
+      "name": "generate_page",
+      "text": "def generate_page(pb_keywords, template_dir):\n    env = Environment(loader=FileSystemLoader(template_dir), trim_blocks=True,)\n    template = env.get_template(TEMPLATE_FILE)\n    tempvars = {'pb_keywords': pb_keywords, 'playbook_class_names': PLAYBOOK_CLASS_NAMES}\n\n    keyword_page = template.render(tempvars)\n    if LooseVersion(jinja2.__version__) < LooseVersion('2.10'):\n        # jinja2 < 2.10's indent filter indents blank lines.  Cleanup\n        keyword_page = re.sub(' +\\n', '\\n', keyword_page)\n\n    return keyword_page\n"
+    },
+    {
+      "file": "hacking/build_library/build_ansible/command_plugins/dump_keywords.py",
+      "line": 101,
+      "name": "init_parser",
+      "text": "    def init_parser(cls, add_parser):\n        parser = add_parser(cls.name, description='Generate playbook keyword documentation from'\n                            ' code and descriptions')\n        parser.add_argument(\"-T\", \"--template-dir\", action=\"store\", dest=\"template_dir\",\n                            default=DEFAULT_TEMPLATE_DIR,\n                            help=\"directory containing Jinja2 templates\")\n        parser.add_argument(\"-o\", \"--output-dir\", action=\"store\", dest=\"output_dir\",\n                            default='/tmp/', help=\"Output directory for rst files\")\n        parser.add_argument(\"keyword_defs\", metavar=\"KEYWORD-DEFINITIONS.yml\", type=str,\n                            help=\"Source for playbook keyword docs\")\n"
+    }
+  ]
+}

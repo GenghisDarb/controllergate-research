@@ -1,9 +1,37 @@
 {
+  "forbidden_relief_obeyed": {
+    "fixed_revision_used": false,
+    "future_outcome_evidence_used_at_decision_time": false,
+    "gold_patch_used": false,
+    "scoreable_rules_changed": false,
+    "tests_modified_as_repair": false
+  },
+  "not_permission_to_weaken_repair_rules": true,
   "relief_actions": [
-    "ansible_lib_pythonpath_extension",
-    "source_diff_patch_safety_isolation",
-    "check_required_arguments_helper_disambiguation"
+    {
+      "after": "PYTHONPATH prepends project_root/lib when present, then project root",
+      "before": "PYTHONPATH prepended checked-out project root",
+      "decision_time_safe": true,
+      "name": "ansible_lib_pythonpath_extension",
+      "reason": "Ansible buggy source is under lib/ansible and target replay imports ansible.* modules.",
+      "reversible": true
+    },
+    {
+      "after": "patch safety evaluates only the generated source-only diff for the selected source file",
+      "before": "patch safety consulted workspace git diff, which can include benchmark materialization noise",
+      "decision_time_safe": true,
+      "name": "source_diff_patch_safety_isolation",
+      "reason": "The repair patch itself must be judged separately from harness/materialization state.",
+      "reversible": true
+    },
+    {
+      "after": "heuristic targets the failing check_required_arguments message expression exactly",
+      "before": "missing-argument ordering heuristic could match neighboring helper check_required_by",
+      "decision_time_safe": true,
+      "name": "check_required_arguments_helper_disambiguation",
+      "reason": "The failing log names check_required_arguments and the buggy source contains a matching message expression.",
+      "reversible": true
+    }
   ],
-  "scoreable_rules_changed": false,
-  "status": "PENDING_GITHUB_ACTIONS"
+  "status": "PASS"
 }

@@ -1,0 +1,67 @@
+$ bash -lc python -m pytest test/units/modules/network/eos/test_eos_vlans.py::TestEosVlansModule::test_eos_vlan_replaced
+started_at_utc=2026-06-18T01:34:47.016126+00:00
+finished_at_utc=2026-06-18T01:34:47.568116+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8r_bugsinpy_runtime/preflight_workspaces/010_ansible_7/ansible
+collected 1 item
+
+test/units/modules/network/eos/test_eos_vlans.py F                       [100%]
+
+=================================== FAILURES ===================================
+__________________ TestEosVlansModule.test_eos_vlan_replaced ___________________
+
+self = <units.modules.network.eos.test_eos_vlans.TestEosVlansModule testMethod=test_eos_vlan_replaced>
+
+    def test_eos_vlan_replaced(self):
+        self.execute_show_command.return_value = []
+        set_module_args(dict(
+            config=[dict(
+                vlan_id=10,
+                name="tenreplaced",
+                state="suspend"
+            )], state="replaced"
+        ))
+        commands = ['vlan 10', 'name tenreplaced', 'state suspend']
+>       self.execute_module(changed=True, commands=commands)
+
+test/units/modules/network/eos/test_eos_vlans.py:111: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test/units/modules/network/eos/eos_module.py:79: in execute_module
+    self.assertEqual(sorted(commands), sorted(result['commands']), result['commands'])
+E   AssertionError: Lists differ: ['name tenreplaced', 'state suspend', 'vlan 10'] != ['name tenreplaced', 'no name', 'state suspend', 'vlan 10']
+E   
+E   First differing element 1:
+E   'state suspend'
+E   'no name'
+E   
+E   Second list contains 1 additional elements.
+E   First extra element 3:
+E   'vlan 10'
+E   
+E   - ['name tenreplaced', 'state suspend', 'vlan 10']
+E   + ['name tenreplaced', 'no name', 'state suspend', 'vlan 10']
+E   ?                      +++++++++++
+E    : ['vlan 10', 'name tenreplaced', 'state suspend', 'no name']
+=========================== short test summary info ============================
+FAILED test/units/modules/network/eos/test_eos_vlans.py::TestEosVlansModule::test_eos_vlan_replaced - AssertionError: Lists differ: ['name tenreplaced', 'state suspend', 'vlan 10'] != ['name tenreplaced', 'no name', 'state suspend', 'vlan 10']
+
+First differing element 1:
+'state suspend'
+'no name'
+
+Second list contains 1 additional elements.
+First extra element 3:
+'vlan 10'
+
+- ['name tenreplaced', 'state suspend', 'vlan 10']
++ ['name tenreplaced', 'no name', 'state suspend', 'vlan 10']
+?                      +++++++++++
+ : ['vlan 10', 'name tenreplaced', 'state suspend', 'no name']
+============================== 1 failed in 0.22s ===============================
+
+--- stderr ---
+

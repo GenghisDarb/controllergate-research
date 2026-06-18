@@ -1,0 +1,154 @@
+$ bash -lc python -m pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest && python -m pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_no_version && python -m pytest test/units/galaxy/test_collection_install.py::test_add_collection_requirement_to_unknown_installed_version
+started_at_utc=2026-06-18T01:33:49.211694+00:00
+finished_at_utc=2026-06-18T01:33:50.265216+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8r_bugsinpy_runtime/preflight_workspaces/009_ansible_6/ansible
+collected 3 items
+
+test/units/galaxy/test_collection_install.py .FF                         [100%]
+
+=================================== FAILURES ===================================
+_____________ test_build_requirement_from_path_with_manifest[1.1] ______________
+
+version = 1.1
+collection_artifact = (b'/tmp/pytest-of-runner/pytest-0/test-\xc3\x85\xc3\x91\xc5\x9a\xc3\x8c\xce\xb2\xc5\x81\xc3\x88 Collections Input1/ans...\xc3\x85\xc3\x91\xc5\x9a\xc3\x8c\xce\xb2\xc5\x81\xc3\x88 Collections Input1/ansible_namespace-collection-0.1.0.tar.gz')
+
+    @pytest.mark.parametrize('version', ['1.1.1', 1.1, 1])
+    def test_build_requirement_from_path_with_manifest(version, collection_artifact):
+        manifest_path = os.path.join(collection_artifact[0], b'MANIFEST.json')
+        manifest_value = json.dumps({
+            'collection_info': {
+                'namespace': 'namespace',
+                'name': 'name',
+                'version': version,
+                'dependencies': {
+                    'ansible_namespace.collection': '*'
+                }
+            }
+        })
+        with open(manifest_path, 'wb') as manifest_obj:
+            manifest_obj.write(to_bytes(manifest_value))
+    
+>       actual = collection.CollectionRequirement.from_path(collection_artifact[0], True)
+
+test/units/galaxy/test_collection_install.py:184: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+lib/ansible/galaxy/collection.py:304: in from_path
+    return CollectionRequirement(namespace, name, b_path, None, [version], version, force, parent=parent,
+lib/ansible/galaxy/collection.py:88: in __init__
+    self.add_requirement(parent, requirement)
+lib/ansible/galaxy/collection.py:120: in add_requirement
+    new_versions = set(v for v in self.versions if self._meets_requirements(v, requirement, parent))
+lib/ansible/galaxy/collection.py:120: in <genexpr>
+    new_versions = set(v for v in self.versions if self._meets_requirements(v, requirement, parent))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ansible.galaxy.collection.CollectionRequirement object at 0x7fe13b21b670>
+version = 1.1, requirements = 1.1, parent = None
+
+    def _meets_requirements(self, version, requirements, parent):
+        """
+        Supports version identifiers can be '==', '!=', '>', '>=', '<', '<=', '*'. Each requirement is delimited by ','
+        """
+        op_map = {
+            '!=': operator.ne,
+            '==': operator.eq,
+            '=': operator.eq,
+            '>=': operator.ge,
+            '>': operator.gt,
+            '<=': operator.le,
+            '<': operator.lt,
+        }
+    
+>       for req in list(requirements.split(',')):
+E       AttributeError: 'float' object has no attribute 'split'
+
+lib/ansible/galaxy/collection.py:213: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+- Collection ansible_namespace.collection was created successfully
+Created collection for ansible_namespace.collection at /tmp/pytest-of-runner/pytest-0/test-ÅÑŚÌβŁÈ Collections Input1/ansible_namespace-collection-0.1.0.tar.gz
+______________ test_build_requirement_from_path_with_manifest[1] _______________
+
+version = 1
+collection_artifact = (b'/tmp/pytest-of-runner/pytest-0/test-\xc3\x85\xc3\x91\xc5\x9a\xc3\x8c\xce\xb2\xc5\x81\xc3\x88 Collections Input2/ans...\xc3\x85\xc3\x91\xc5\x9a\xc3\x8c\xce\xb2\xc5\x81\xc3\x88 Collections Input2/ansible_namespace-collection-0.1.0.tar.gz')
+
+    @pytest.mark.parametrize('version', ['1.1.1', 1.1, 1])
+    def test_build_requirement_from_path_with_manifest(version, collection_artifact):
+        manifest_path = os.path.join(collection_artifact[0], b'MANIFEST.json')
+        manifest_value = json.dumps({
+            'collection_info': {
+                'namespace': 'namespace',
+                'name': 'name',
+                'version': version,
+                'dependencies': {
+                    'ansible_namespace.collection': '*'
+                }
+            }
+        })
+        with open(manifest_path, 'wb') as manifest_obj:
+            manifest_obj.write(to_bytes(manifest_value))
+    
+>       actual = collection.CollectionRequirement.from_path(collection_artifact[0], True)
+
+test/units/galaxy/test_collection_install.py:184: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+lib/ansible/galaxy/collection.py:304: in from_path
+    return CollectionRequirement(namespace, name, b_path, None, [version], version, force, parent=parent,
+lib/ansible/galaxy/collection.py:88: in __init__
+    self.add_requirement(parent, requirement)
+lib/ansible/galaxy/collection.py:120: in add_requirement
+    new_versions = set(v for v in self.versions if self._meets_requirements(v, requirement, parent))
+lib/ansible/galaxy/collection.py:120: in <genexpr>
+    new_versions = set(v for v in self.versions if self._meets_requirements(v, requirement, parent))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ansible.galaxy.collection.CollectionRequirement object at 0x7fe13b219ea0>
+version = 1, requirements = 1, parent = None
+
+    def _meets_requirements(self, version, requirements, parent):
+        """
+        Supports version identifiers can be '==', '!=', '>', '>=', '<', '<=', '*'. Each requirement is delimited by ','
+        """
+        op_map = {
+            '!=': operator.ne,
+            '==': operator.eq,
+            '=': operator.eq,
+            '>=': operator.ge,
+            '>': operator.gt,
+            '<=': operator.le,
+            '<': operator.lt,
+        }
+    
+>       for req in list(requirements.split(',')):
+E       AttributeError: 'int' object has no attribute 'split'
+
+lib/ansible/galaxy/collection.py:213: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+- Collection ansible_namespace.collection was created successfully
+Created collection for ansible_namespace.collection at /tmp/pytest-of-runner/pytest-0/test-ÅÑŚÌβŁÈ Collections Input2/ansible_namespace-collection-0.1.0.tar.gz
+=============================== warnings summary ===============================
+../../../../../../../../../opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18
+  /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18: DeprecationWarning: The _yaml extension module is now located at yaml._yaml and its location is subject to change.  To use the LibYAML-based parser and emitter, import from `yaml`: `from yaml import CLoader as Loader, CDumper as Dumper`.
+    warnings.warn(
+
+test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest[1.1.1]
+test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest[1.1.1]
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8r_bugsinpy_runtime/preflight_workspaces/009_ansible_6/ansible/lib/ansible/galaxy/collection.py:229: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    if not op(LooseVersion(version), LooseVersion(requirement)):
+
+test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest[1.1.1]
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8r_bugsinpy_runtime/preflight_workspaces/009_ansible_6/ansible/lib/ansible/galaxy/collection.py:104: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    return max([v for v in self.versions if v != '*'], key=LooseVersion)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest[1.1] - AttributeError: 'float' object has no attribute 'split'
+FAILED test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest[1] - AttributeError: 'int' object has no attribute 'split'
+=================== 2 failed, 1 passed, 4 warnings in 0.72s ====================
+
+--- stderr ---
+

@@ -915,9 +915,14 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.8r Closure-Guided Third Scoreable Recovery
 
-- Status: `blocked_pending_v2_8r_closure_guided_third_scoreable_artifact`.
-- v2.8r inherits the repaired v2.8q runner and adds chromatin-state candidate accessibility, local tension relief, minimal-probe selection, stability/null diagnostics, closure scaling, and memory-lift decomposition.
-- Preserved references remain mandatory: `youtube-dl:1` and `black:4`.
+- Status: `verified_official_artifact`.
+- Workflow run: `27730642452`.
+- Artifact SHA256: `437b398edf63824cd87c6b193d0e300d53373ec56a02454fbc1b5afba0b4beeb`.
+- Internal SHA256SUMS: `1691` checked across `32` manifests, `0` missing, `0` failures.
+- Preserved reference gate: `PASS`; `youtube-dl:1` and `black:4` remained scoreable.
+- Third scoreable replacement: `fastapi:1`.
+- Executed episodes: `3`; scoreable episodes: `3`; replacement scoreable episodes: `1`; positive memory episodes: `0`.
+- Aggregate result: `insufficient_positive_memory_evidence`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Main benchmark memory lift is not demonstrated by auxiliary closure metrics.
 - Self-maintaining software is not demonstrated.

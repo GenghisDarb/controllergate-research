@@ -1,7 +1,23 @@
 {
-  "required_references": [
-    "youtube-dl:1",
-    "black:4"
+  "black_4_scoreable": true,
+  "broad_harvest_allowed": true,
+  "failure_classification_if_failed": "runner_regression_preserved_reference_failure",
+  "records": [
+    {
+      "candidate": "youtube-dl:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_001",
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "black:4",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_003",
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    }
   ],
-  "status": "PENDING_GITHUB_ACTIONS"
+  "status": "PASS",
+  "youtube_dl_1_scoreable": true
 }

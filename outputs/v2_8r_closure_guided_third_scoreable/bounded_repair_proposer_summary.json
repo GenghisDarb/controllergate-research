@@ -1,4 +1,66 @@
 {
-  "bounded_source_only_heuristics_only": true,
-  "status": "PENDING_GITHUB_ACTIONS"
+  "bounded_source_only_repair_proposer_enabled": true,
+  "episodes": [
+    {
+      "candidate": "youtube-dl:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_001",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "black:4",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_003",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "fastapi:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_006",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    }
+  ],
+  "selected_replacements": [
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5",
+    "ansible:8",
+    "ansible:4"
+  ],
+  "targeted_v2_8q_heuristics": {
+    "ansible:2": {
+      "failure_type": "strict_greater_than_returns_true_for_equal_values",
+      "heuristic_family": "localized_comparison_operator_equality_guard",
+      "patch_surface_estimate": "small_single_source_file",
+      "preferred_rank": 2,
+      "reason": "Assertion shows _Alpha('a') > _Alpha('a') is true; source extract shows __gt__ implemented as not __lt__."
+    },
+    "ansible:5": {
+      "failure_type": "message_order_instability",
+      "heuristic_family": "localized_deterministic_missing_argument_order",
+      "patch_surface_estimate": "small_single_expression",
+      "preferred_rank": 3,
+      "reason": "Assertion differs only by missing argument order; bounded fix sorts the generated missing list."
+    },
+    "ansible:8": {
+      "failure_type": "unc_prefix_stripped",
+      "heuristic_family": "localized_path_string_normalization_unc_guard",
+      "patch_surface_estimate": "small_path_join_guard_if_source_matches",
+      "preferred_rank": 4,
+      "reason": "Failure shows join_path strips leading UNC prefix; only attempted if the buggy source shape is recognized."
+    },
+    "fastapi:1": {
+      "failure_type": "unexpected_keyword_argument_exclude_defaults",
+      "heuristic_family": "localized_keyword_parameter_compatibility_shim",
+      "patch_surface_estimate": "small_single_function",
+      "preferred_rank": 1,
+      "reason": "Direct TypeError names missing exclude_defaults parameter in fastapi/encoders.py."
+    }
+  }
 }

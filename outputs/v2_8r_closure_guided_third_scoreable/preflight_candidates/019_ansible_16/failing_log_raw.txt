@@ -1,0 +1,28 @@
+$ bash -lc python -m pytest test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py::test_get_cpu_info_missing_arch
+started_at_utc=2026-06-18T01:43:22.093362+00:00
+finished_at_utc=2026-06-18T01:43:22.646652+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8r_bugsinpy_runtime/preflight_workspaces/019_ansible_16/ansible
+collected 1 item
+
+test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py E      [100%]
+
+==================================== ERRORS ====================================
+_______________ ERROR at setup of test_get_cpu_info_missing_arch _______________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_8r_bugsinpy_runtime/preflight_workspaces/019_ansible_16/ansible/test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py, line 25
+  def test_get_cpu_info_missing_arch(mocker):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_8r_bugsinpy_runtime/preflight_workspaces/019_ansible_16/ansible/test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py:25
+=========================== short test summary info ============================
+ERROR test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py::test_get_cpu_info_missing_arch
+=============================== 1 error in 0.16s ===============================
+
+--- stderr ---
+

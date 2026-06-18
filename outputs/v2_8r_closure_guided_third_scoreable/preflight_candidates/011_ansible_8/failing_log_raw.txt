@@ -1,0 +1,39 @@
+$ bash -lc python -m pytest test/units/plugins/shell/test_powershell.py::test_join_path_unc
+started_at_utc=2026-06-18T01:35:42.939694+00:00
+finished_at_utc=2026-06-18T01:35:43.417353+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8r_bugsinpy_runtime/preflight_workspaces/011_ansible_8/ansible
+collected 1 item
+
+test/units/plugins/shell/test_powershell.py F                            [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_join_path_unc ______________________________
+
+    def test_join_path_unc():
+        pwsh = ShellModule()
+        unc_path_parts = ['\\\\host\\share\\dir1\\\\dir2\\', '\\dir3/dir4', 'dir5', 'dir6\\']
+        expected = '\\\\host\\share\\dir1\\dir2\\dir3\\dir4\\dir5\\dir6'
+        actual = pwsh.join_path(*unc_path_parts)
+>       assert actual == expected
+E       AssertionError: assert 'host\\share\...4\\dir5\\dir6' == '\\\\host\\sh...4\\dir5\\dir6'
+E         
+E         - \\host\share\dir1\dir2\dir3\dir4\dir5\dir6
+E         ? --
+E         + host\share\dir1\dir2\dir3\dir4\dir5\dir6
+
+test/units/plugins/shell/test_powershell.py:61: AssertionError
+=========================== short test summary info ============================
+FAILED test/units/plugins/shell/test_powershell.py::test_join_path_unc - AssertionError: assert 'host\\share\...4\\dir5\\dir6' == '\\\\host\\sh...4\\dir5\\dir6'
+  
+  - \\host\share\dir1\dir2\dir3\dir4\dir5\dir6
+  ? --
+  + host\share\dir1\dir2\dir3\dir4\dir5\dir6
+============================== 1 failed in 0.16s ===============================
+
+--- stderr ---
+
