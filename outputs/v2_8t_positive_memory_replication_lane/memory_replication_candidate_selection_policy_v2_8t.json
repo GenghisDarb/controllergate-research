@@ -1,12 +1,15 @@
 {
   "ansible2_prior_positive_used_as_future_outcome_evidence": false,
-  "attempted_memory_replication_candidates": [],
+  "attempted_memory_replication_candidates": [
+    "ansible:5"
+  ],
   "candidate_pool": [
     "ansible:5",
     "ansible:8",
     "ansible:4",
     "ansible:12",
-    "ansible:13"
+    "ansible:13",
+    "ansible:1"
   ],
   "candidate_ranking_became_more_stable_with_memory": true,
   "candidate_ranking_differences": {
@@ -14,8 +17,8 @@
       "ansible:5",
       "ansible:8",
       "ansible:4",
-      "ansible:12",
-      "ansible:13"
+      "ansible:1",
+      "ansible:12"
     ],
     "no_memory_top": [
       "ansible:5",
@@ -25,85 +28,150 @@
       "ansible:13"
     ]
   },
-  "eligible_candidate_reason": "Remaining v2.8r/v2.8s candidate field after ansible:2 became the first positive-memory baseline.",
+  "eligible_candidate_reason": "Candidates are remaining v2.8r/v2.8s selected replacements or open/strained preflight-passing candidates after ansible:2 became the first positive-memory baseline.",
+  "fixed_or_gold_patch_used_for_selection": false,
+  "future_outcome_evidence_used_for_selection": false,
   "memory_enabled_ranking": [
     {
       "candidate": "ansible:5",
+      "chromatin_state": "open",
+      "eligible": true,
+      "expected_repairability": "high",
+      "memory_information_gain_score": 70,
       "previously_blocked_lane_known": false,
       "prior_memory_used": true,
-      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+      "rank_basis": "current preflight plus RepairMemory v2.8q/v2.8r/v2.8s accessibility, blocked-lane history, and bounded heuristic availability"
     },
     {
       "candidate": "ansible:8",
+      "chromatin_state": "strained",
+      "eligible": true,
+      "expected_repairability": "high",
+      "memory_information_gain_score": 50,
       "previously_blocked_lane_known": true,
       "prior_memory_used": true,
-      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+      "rank_basis": "current preflight plus RepairMemory v2.8q/v2.8r/v2.8s accessibility, blocked-lane history, and bounded heuristic availability"
     },
     {
       "candidate": "ansible:4",
+      "chromatin_state": "strained",
+      "eligible": true,
+      "expected_repairability": "strained_or_unknown",
+      "memory_information_gain_score": 10,
       "previously_blocked_lane_known": false,
       "prior_memory_used": true,
-      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+      "rank_basis": "current preflight plus RepairMemory v2.8q/v2.8r/v2.8s accessibility, blocked-lane history, and bounded heuristic availability"
+    },
+    {
+      "candidate": "ansible:1",
+      "chromatin_state": "strained",
+      "eligible": true,
+      "expected_repairability": "strained_or_unknown",
+      "memory_information_gain_score": 10,
+      "previously_blocked_lane_known": false,
+      "prior_memory_used": true,
+      "rank_basis": "current preflight plus RepairMemory v2.8q/v2.8r/v2.8s accessibility, blocked-lane history, and bounded heuristic availability"
     },
     {
       "candidate": "ansible:12",
+      "chromatin_state": "strained",
+      "eligible": true,
+      "expected_repairability": "strained_or_unknown",
+      "memory_information_gain_score": -10,
       "previously_blocked_lane_known": true,
       "prior_memory_used": true,
-      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+      "rank_basis": "current preflight plus RepairMemory v2.8q/v2.8r/v2.8s accessibility, blocked-lane history, and bounded heuristic availability"
     },
     {
       "candidate": "ansible:13",
+      "chromatin_state": "strained",
+      "eligible": true,
+      "expected_repairability": "strained_or_unknown",
+      "memory_information_gain_score": -10,
       "previously_blocked_lane_known": true,
       "prior_memory_used": true,
-      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+      "rank_basis": "current preflight plus RepairMemory v2.8q/v2.8r/v2.8s accessibility, blocked-lane history, and bounded heuristic availability"
     }
   ],
-  "minimal_probe_selection_rationale": "Start with bounded v2.8q/v2.8s repairable candidates, then retain the strained remaining field for replication accounting.",
+  "minimal_probe_selection_rationale": "Probe the highest decision-time-safe bounded heuristics first, while keeping strained remaining candidates visible for null/replication accounting.",
   "no_memory_ranking": [
     {
       "candidate": "ansible:5",
+      "chromatin_state": "open",
+      "eligible": true,
+      "expected_repairability": "bounded_source_only_heuristic_available",
+      "previously_blocked_lane_known": false,
       "prior_memory_used": false,
-      "rank_basis": "current preflight only"
+      "rank_basis": "current preflight and current failing context only"
     },
     {
       "candidate": "ansible:8",
+      "chromatin_state": "strained",
+      "eligible": true,
+      "expected_repairability": "bounded_source_only_heuristic_available",
+      "previously_blocked_lane_known": false,
       "prior_memory_used": false,
-      "rank_basis": "current preflight only"
+      "rank_basis": "current preflight and current failing context only"
     },
     {
       "candidate": "ansible:4",
+      "chromatin_state": "strained",
+      "eligible": true,
+      "expected_repairability": "bounded_generic_unknown",
+      "previously_blocked_lane_known": false,
       "prior_memory_used": false,
-      "rank_basis": "current preflight only"
+      "rank_basis": "current preflight and current failing context only"
     },
     {
       "candidate": "ansible:12",
+      "chromatin_state": "strained",
+      "eligible": true,
+      "expected_repairability": "bounded_generic_unknown",
+      "previously_blocked_lane_known": false,
       "prior_memory_used": false,
-      "rank_basis": "current preflight only"
+      "rank_basis": "current preflight and current failing context only"
     },
     {
       "candidate": "ansible:13",
+      "chromatin_state": "strained",
+      "eligible": true,
+      "expected_repairability": "bounded_generic_unknown",
+      "previously_blocked_lane_known": false,
       "prior_memory_used": false,
-      "rank_basis": "current preflight only"
+      "rank_basis": "current preflight and current failing context only"
+    },
+    {
+      "candidate": "ansible:1",
+      "chromatin_state": "strained",
+      "eligible": true,
+      "expected_repairability": "bounded_generic_unknown",
+      "previously_blocked_lane_known": false,
+      "prior_memory_used": false,
+      "rank_basis": "current preflight and current failing context only"
     }
   ],
   "previously_blocked_lanes_avoided_in_top_open_candidates": true,
   "prior_blocked_lanes_avoided": [
     "ansible:5",
-    "ansible:4"
+    "ansible:4",
+    "ansible:1"
   ],
-  "psa_equivalence_stability_result": "PENDING_GITHUB_ACTIONS",
+  "psa_equivalence_stability_result": "PASS",
   "selected_memory_replication_candidates": [
     "ansible:5",
-    "ansible:8",
     "ansible:4",
     "ansible:12",
-    "ansible:13"
+    "ansible:13",
+    "ansible:1",
+    "ansible:8"
   ],
   "selection_used_only_decision_time_safe_evidence": true,
-  "status": "PENDING_GITHUB_ACTIONS",
+  "status": "PASS",
   "what_memory_changed": [
-    "memory-enabled may use v2.8q/v2.8r/v2.8s stress history",
-    "memory-enabled may use ansible:2 as a preserved positive-memory RepairMemory signal",
-    "no-memory may not use prior blocked-lane, chromatin-state, or positive-memory history"
+    "memory-enabled ranking can use v2.8s ansible:2 positive-memory result as RepairMemory signal",
+    "memory-enabled ranking can use v2.8r/v2.8s chromatin-state openness",
+    "memory-enabled ranking can use prior blocked-lane history to demote strained lanes",
+    "memory-enabled patch generation can use prior source-discovery stress history",
+    "no-memory ranking cannot use v2.8p/v2.8q/v2.8r/v2.8s stress history"
   ]
 }

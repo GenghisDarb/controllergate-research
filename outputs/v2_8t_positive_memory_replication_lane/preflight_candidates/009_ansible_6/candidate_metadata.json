@@ -1,0 +1,32 @@
+{
+  "bug_id": "6",
+  "candidate": "ansible:6",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest && python -m pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_no_version && python -m pytest test/units/galaxy/test_collection_install.py::test_add_collection_requirement_to_unknown_installed_version",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "UNASSIGNED",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:6",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "test/units/galaxy/test_collection_install.py"
+  ],
+  "normalized_direct_command": "python -m pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest && python -m pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_no_version && python -m pytest test/units/galaxy/test_collection_install.py::test_add_collection_requirement_to_unknown_installed_version",
+  "project": "ansible",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_add_collection_requirement_to_unknown_installed_version",
+    "test_add_collection_requirement_to_unknown_installed_version",
+    "test_build_requirement_from_path_no_version",
+    "test_build_requirement_from_path_with_manifest",
+    "test_collection_install"
+  ],
+  "target_test_file": "test/units/galaxy/test_collection_install.py",
+  "v2_8p_role": "broad_preflight_candidate"
+}

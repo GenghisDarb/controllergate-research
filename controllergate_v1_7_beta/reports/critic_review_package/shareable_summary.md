@@ -943,9 +943,16 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.8t Positive Memory Replication Lane
 
-- Status: `blocked_pending_v2_8t_positive_memory_replication_artifact`.
-- v2.8t preserves the v2.8s baseline (`youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`) before any memory-replication attempts.
-- `ansible:2` must preserve `positive_memory_only` status.
-- The lane separates no-memory and memory-enabled repair arms and audits RepairMemory access boundaries.
+- Status: `verified_official_artifact`.
+- Workflow run: `27769677857`.
+- Artifact SHA256: `0b45a434ececf5f9a6f89c84c59d97cc057e63b7a2be678d3ed98a7e3d297e9f`.
+- Internal SHA256SUMS: `2033` checked across `34` manifests, `0` missing, `0` failures.
+- Preserved v2.8s baseline gate: `PASS`; `youtube-dl:1`, `black:4`, `fastapi:1`, and `ansible:2` remained scoreable.
+- `ansible:2` preserved `positive_memory_only` status.
+- New positive memory-only replication episode: `ansible:5`.
+- Executed episodes: `5`; scoreable episodes: `5`; replacement scoreable episodes: `3`; positive memory episodes: `2`.
+- Aggregate result: `replicated_positive_memory_signal`.
+- Repair-outcome memory lift: `replicated_positive_signal`; selection, stability, and global closure memory lift remain `suggestive`.
+- Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.

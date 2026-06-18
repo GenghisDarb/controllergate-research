@@ -1,7 +1,14 @@
 {
   "fixed_gold_future_forbidden_for_both_arms": true,
+  "memory_enabled_allowed_signals": [
+    "RepairMemory ledger",
+    "prior official artifacts",
+    "v2.8r/v2.8s chromatin state",
+    "v2.8s ansible:2 positive-memory signal"
+  ],
   "no_memory_forbidden_signals": [
     "prior blocked-lane history",
-    "v2.8q/v2.8r stress history"
+    "v2.8q/v2.8r/v2.8s stress history",
+    "post-repair success"
   ]
 }

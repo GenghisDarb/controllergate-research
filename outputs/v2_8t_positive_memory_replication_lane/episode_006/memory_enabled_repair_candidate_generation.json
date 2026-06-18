@@ -1,0 +1,38 @@
+{
+  "candidate": "fastapi:1",
+  "candidate_generated": true,
+  "changed_lines": 2,
+  "diff": "--- fastapi/encoders.py\n+++ fastapi/encoders.py\n@@ -34,6 +34,7 @@\n     by_alias: bool = True,\n     skip_defaults: bool = None,\n     exclude_unset: bool = False,\n+    exclude_defaults: bool = False,\n     include_none: bool = True,\n     custom_encoder: dict = {},\n     sqlalchemy_safe: bool = True,\n@@ -58,6 +59,7 @@\n                 exclude=exclude,\n                 by_alias=by_alias,\n                 exclude_unset=bool(exclude_unset or skip_defaults),\n+                exclude_defaults=exclude_defaults,\n             )\n         else:  # pragma: nocover\n             obj_dict = obj.dict(\n",
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "heuristic_family": "localized_keyword_parameter_compatibility_shim",
+  "label_leakage_detected": false,
+  "memory_enabled_path": true,
+  "reason": "Added the missing exclude_defaults keyword and forwarded it to Pydantic's model dict call.",
+  "source_discovery_ranked_files": [
+    "tests/test_jsonable_encoder.py",
+    "fastapi/encoders.py",
+    "fastapi/openapi/models.py",
+    "docs_src/encoder/tutorial001.py",
+    "docs_src/response_directly/tutorial001.py",
+    "docs_src/security/tutorial005.py",
+    "fastapi/routing.py",
+    "docs_src/body_fields/tutorial001.py",
+    "docs_src/body_updates/tutorial001.py",
+    "docs_src/body_updates/tutorial002.py"
+  ],
+  "source_only_patch_safety_check": {
+    "changed_file_count": 1,
+    "changed_files": [
+      "fastapi/encoders.py"
+    ],
+    "changed_lines": 2,
+    "modifies_tests": false,
+    "source_only_repair_patch": true,
+    "uses_fixed_revision": false,
+    "uses_future_outcome_evidence": false,
+    "uses_gold_patch": false,
+    "within_changed_line_budget": true,
+    "workspace": "/home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/repair_paths/episode_006/memory_enabled"
+  }
+}

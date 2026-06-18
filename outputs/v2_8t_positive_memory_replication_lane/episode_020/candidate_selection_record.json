@@ -1,0 +1,34 @@
+{
+  "bug_id": "5",
+  "candidate": "ansible:5",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "episode_020",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:5",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "test/units/module_utils/common/validation/test_check_required_arguments.py"
+  ],
+  "normalized_direct_command": "python -m pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+  "project": "ansible",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_check_required_arguments_missing_multiple",
+    "test_check_required_arguments",
+    "test_check_required_arguments_missing_multiple"
+  ],
+  "target_test_file": "test/units/module_utils/common/validation/test_check_required_arguments.py",
+  "v2_8p_role": "broad_preflight_candidate",
+  "v2_8t_memory_enabled_accesses_repair_memory": true,
+  "v2_8t_memory_replication_candidate_rank": 1,
+  "v2_8t_no_memory_accesses_repair_memory": false,
+  "v2_8t_role": "memory_replication_candidate"
+}

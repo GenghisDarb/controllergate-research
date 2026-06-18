@@ -1,0 +1,143 @@
+$ python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible
+collected 1 item
+
+test/units/utils/test_version.py F                                       [100%]
+
+=================================== FAILURES ===================================
+__________________________________ test_alpha __________________________________
+
+    def test_alpha():
+        assert _Alpha('a') == _Alpha('a')
+        assert _Alpha('a') == 'a'
+        assert _Alpha('a') != _Alpha('b')
+        assert _Alpha('a') != 1
+        assert _Alpha('a') < _Alpha('b')
+        assert _Alpha('a') < 'c'
+        assert _Alpha('a') > _Numeric(1)
+        with pytest.raises(ValueError):
+            _Alpha('a') < None
+        assert _Alpha('a') <= _Alpha('a')
+        assert _Alpha('a') <= _Alpha('b')
+        assert _Alpha('b') >= _Alpha('a')
+        assert _Alpha('b') >= _Alpha('b')
+    
+        # The following 3*6 tests check that all comparison operators perform
+        # as expected. DO NOT remove any of them, or reformulate them (to remove
+        # the explicit `not`)!
+    
+        assert _Alpha('a') == _Alpha('a')
+        assert not _Alpha('a') != _Alpha('a')  # pylint: disable=unneeded-not
+        assert not _Alpha('a') < _Alpha('a')  # pylint: disable=unneeded-not
+        assert _Alpha('a') <= _Alpha('a')
+>       assert not _Alpha('a') > _Alpha('a')  # pylint: disable=unneeded-not
+E       AssertionError: assert not 'a' > 'a'
+E        +  where 'a' = _Alpha('a')
+E        +  and   'a' = _Alpha('a')
+
+test/units/utils/test_version.py:279: AssertionError
+=============================== warnings summary ===============================
+test/units/utils/test_version.py:166
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:166: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1'), SemanticVersion('1.0.0')),
+
+test/units/utils/test_version.py:167
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:167: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1-alpha'), SemanticVersion('1.0.0-alpha')),
+
+test/units/utils/test_version.py:168
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:168: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1.0.0-alpha+build'), SemanticVersion('1.0.0-alpha+build')),
+
+test/units/utils/test_version.py:172
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:172: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    LooseVersion('1.a.3'),
+
+test/units/utils/test_version.py:173
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:173: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    LooseVersion(),
+
+test/units/utils/test_version.py:175
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:175: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    StrictVersion('1.2.3'),
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/units/utils/test_version.py::test_alpha - AssertionError: assert not 'a' > 'a'
+ +  where 'a' = _Alpha('a')
+ +  and   'a' = _Alpha('a')
+======================== 1 failed, 6 warnings in 0.79s =========================
+
+
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible
+collected 1 item
+
+test/units/utils/test_version.py F                                       [100%]
+
+=================================== FAILURES ===================================
+__________________________________ test_alpha __________________________________
+
+    def test_alpha():
+        assert _Alpha('a') == _Alpha('a')
+        assert _Alpha('a') == 'a'
+        assert _Alpha('a') != _Alpha('b')
+        assert _Alpha('a') != 1
+        assert _Alpha('a') < _Alpha('b')
+        assert _Alpha('a') < 'c'
+        assert _Alpha('a') > _Numeric(1)
+        with pytest.raises(ValueError):
+            _Alpha('a') < None
+        assert _Alpha('a') <= _Alpha('a')
+        assert _Alpha('a') <= _Alpha('b')
+        assert _Alpha('b') >= _Alpha('a')
+        assert _Alpha('b') >= _Alpha('b')
+    
+        # The following 3*6 tests check that all comparison operators perform
+        # as expected. DO NOT remove any of them, or reformulate them (to remove
+        # the explicit `not`)!
+    
+        assert _Alpha('a') == _Alpha('a')
+        assert not _Alpha('a') != _Alpha('a')  # pylint: disable=unneeded-not
+        assert not _Alpha('a') < _Alpha('a')  # pylint: disable=unneeded-not
+        assert _Alpha('a') <= _Alpha('a')
+>       assert not _Alpha('a') > _Alpha('a')  # pylint: disable=unneeded-not
+E       AssertionError: assert not 'a' > 'a'
+E        +  where 'a' = _Alpha('a')
+E        +  and   'a' = _Alpha('a')
+
+test/units/utils/test_version.py:279: AssertionError
+=============================== warnings summary ===============================
+test/units/utils/test_version.py:166
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:166: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1'), SemanticVersion('1.0.0')),
+
+test/units/utils/test_version.py:167
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:167: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1-alpha'), SemanticVersion('1.0.0-alpha')),
+
+test/units/utils/test_version.py:168
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:168: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1.0.0-alpha+build'), SemanticVersion('1.0.0-alpha+build')),
+
+test/units/utils/test_version.py:172
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:172: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    LooseVersion('1.a.3'),
+
+test/units/utils/test_version.py:173
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:173: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    LooseVersion(),
+
+test/units/utils/test_version.py:175
+  /home/runner/work/controllergate-research/controllergate-research/_v2_8t_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:175: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    StrictVersion('1.2.3'),
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/units/utils/test_version.py::test_alpha - AssertionError: assert not 'a' > 'a'
+ +  where 'a' = _Alpha('a')
+ +  and   'a' = _Alpha('a')
+======================== 1 failed, 6 warnings in 0.79s =========================
