@@ -1,0 +1,35 @@
+{
+  "bug_id": "2",
+  "candidate": "ansible:2",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "episode_010",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:2",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "test/units/utils/test_version.py"
+  ],
+  "normalized_direct_command": "python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric",
+  "project": "ansible",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_numeric",
+    "test_alpha",
+    "test_numeric",
+    "test_version"
+  ],
+  "target_test_file": "test/units/utils/test_version.py",
+  "v2_8p_role": "broad_preflight_candidate",
+  "v2_8s_memory_candidate_rank": 1,
+  "v2_8s_memory_enabled_accesses_repair_memory": true,
+  "v2_8s_no_memory_accesses_repair_memory": false,
+  "v2_8s_role": "memory_evidence_candidate"
+}

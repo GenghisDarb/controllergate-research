@@ -1,0 +1,54 @@
+diff --git a/fastapi/encoders.py b/fastapi/encoders.py
+index ae4794bae..bccb22dec 100644
+--- a/fastapi/encoders.py
++++ b/fastapi/encoders.py
+@@ -34,6 +34,7 @@ def jsonable_encoder(
+     by_alias: bool = True,
+     skip_defaults: bool = None,
+     exclude_unset: bool = False,
++    exclude_defaults: bool = False,
+     include_none: bool = True,
+     custom_encoder: dict = {},
+     sqlalchemy_safe: bool = True,
+@@ -58,6 +59,7 @@ def jsonable_encoder(
+                 exclude=exclude,
+                 by_alias=by_alias,
+                 exclude_unset=bool(exclude_unset or skip_defaults),
++                exclude_defaults=exclude_defaults,
+             )
+         else:  # pragma: nocover
+             obj_dict = obj.dict(
+diff --git a/tests/test_jsonable_encoder.py b/tests/test_jsonable_encoder.py
+index f94771aae..adee443a8 100644
+--- a/tests/test_jsonable_encoder.py
++++ b/tests/test_jsonable_encoder.py
+@@ -70,6 +70,12 @@ class ModelWithAlias(BaseModel):
+     foo: str = Field(..., alias="Foo")
+ 
+ 
++class ModelWithDefault(BaseModel):
++    foo: str = ...
++    bar: str = "bar"
++    bla: str = "bla"
++
++
+ @pytest.fixture(
+     name="model_with_path", params=[PurePath, PurePosixPath, PureWindowsPath]
+ )
+@@ -121,6 +127,16 @@ def test_encode_model_with_alias():
+     assert jsonable_encoder(model) == {"Foo": "Bar"}
+ 
+ 
++def test_encode_model_with_default():
++    model = ModelWithDefault(foo="foo", bar="bar")
++    assert jsonable_encoder(model) == {"foo": "foo", "bar": "bar", "bla": "bla"}
++    assert jsonable_encoder(model, exclude_unset=True) == {"foo": "foo", "bar": "bar"}
++    assert jsonable_encoder(model, exclude_defaults=True) == {"foo": "foo"}
++    assert jsonable_encoder(model, exclude_unset=True, exclude_defaults=True) == {
++        "foo": "foo"
++    }
++
++
+ def test_custom_encoders():
+     class safe_datetime(datetime):
+         pass

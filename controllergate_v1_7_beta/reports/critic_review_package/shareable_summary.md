@@ -929,8 +929,14 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.8s Positive Memory Evidence Lane
 
-- Status: `blocked_pending_v2_8s_positive_memory_evidence_artifact`.
-- v2.8s preserves the v2.8r baseline (`youtube-dl:1`, `black:4`, `fastapi:1`) before any memory-evidence attempts.
-- The lane separates no-memory and memory-enabled repair arms and audits RepairMemory access boundaries.
+- Status: `verified_official_artifact`.
+- Workflow run: `27733040511`.
+- Artifact SHA256: `801f606ad990c7ca9ddfb8ea4dc90da7582f4e59675ddf02d81f4a68fa12ab3e`.
+- Internal SHA256SUMS: `1864` checked across `33` manifests, `0` missing, `0` failures.
+- Preserved v2.8r baseline gate: `PASS`; `youtube-dl:1`, `black:4`, and `fastapi:1` remained scoreable.
+- Positive memory-only episode: `ansible:2`.
+- Executed episodes: `4`; scoreable episodes: `4`; replacement scoreable episodes: `2`; positive memory episodes: `1`.
+- Aggregate result: `insufficient_positive_memory_evidence`.
+- Repair-outcome memory lift: `demonstrated` for the limited v2.8s lane; main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.

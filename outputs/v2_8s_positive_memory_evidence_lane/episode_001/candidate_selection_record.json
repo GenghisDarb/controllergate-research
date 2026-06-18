@@ -1,0 +1,23 @@
+{
+  "bug_id": "1",
+  "candidate": "youtube-dl:1",
+  "dependency_hints": [],
+  "direct_command": "python -m unittest -q test.test_utils.TestUtil.test_match_str",
+  "episode_id": "episode_001",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: youtube-dl:1",
+  "materialization_required_files": [
+    "test/test_utils.py"
+  ],
+  "project": "youtube-dl",
+  "required_markers": [
+    "AssertionError",
+    "FAIL:",
+    "TestUtil.test_match_str",
+    "test_match_str",
+    "test_utils"
+  ],
+  "target_test_file": "test/test_utils.py",
+  "v2_8p_role": "preserved_scoreable_reference_gate",
+  "v2_8s_baseline_anchor": true,
+  "v2_8s_role": "preserved_v2_8r_baseline_gate"
+}

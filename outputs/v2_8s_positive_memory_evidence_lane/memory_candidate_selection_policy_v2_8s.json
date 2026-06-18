@@ -1,5 +1,7 @@
 {
-  "attempted_memory_evidence_candidates": [],
+  "attempted_memory_evidence_candidates": [
+    "ansible:2"
+  ],
   "candidate_pool": [
     "ansible:2",
     "ansible:5",
@@ -7,53 +9,71 @@
     "ansible:4"
   ],
   "candidate_ranking_became_more_stable_with_memory": true,
-  "eligible_candidate_reason": "Remaining v2.8r candidate field after fastapi:1 became the third scoreable baseline.",
+  "eligible_candidate_reason": "Candidates are v2.8r remaining selected replacements or open/strained preflight-passing candidates after fastapi:1 became the third scoreable baseline.",
+  "fixed_or_gold_patch_used_for_selection": false,
+  "future_outcome_evidence_used_for_selection": false,
   "memory_enabled_ranking": [
     {
       "candidate": "ansible:2",
+      "eligible": true,
+      "memory_information_gain_score": 40,
       "previously_blocked_lane_known": false,
       "prior_memory_used": true,
-      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+      "rank_basis": "current preflight plus RepairMemory v2.8q/v2.8r accessibility and blocked-lane history"
     },
     {
       "candidate": "ansible:5",
+      "eligible": true,
+      "memory_information_gain_score": 40,
       "previously_blocked_lane_known": false,
       "prior_memory_used": true,
-      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
-    },
-    {
-      "candidate": "ansible:8",
-      "previously_blocked_lane_known": true,
-      "prior_memory_used": true,
-      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+      "rank_basis": "current preflight plus RepairMemory v2.8q/v2.8r accessibility and blocked-lane history"
     },
     {
       "candidate": "ansible:4",
+      "eligible": true,
+      "memory_information_gain_score": 10,
       "previously_blocked_lane_known": false,
       "prior_memory_used": true,
-      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+      "rank_basis": "current preflight plus RepairMemory v2.8q/v2.8r accessibility and blocked-lane history"
+    },
+    {
+      "candidate": "ansible:8",
+      "eligible": true,
+      "memory_information_gain_score": -10,
+      "previously_blocked_lane_known": true,
+      "prior_memory_used": true,
+      "rank_basis": "current preflight plus RepairMemory v2.8q/v2.8r accessibility and blocked-lane history"
     }
   ],
   "no_memory_ranking": [
     {
       "candidate": "ansible:2",
+      "eligible": true,
+      "previously_blocked_lane_known": false,
       "prior_memory_used": false,
-      "rank_basis": "current preflight only"
+      "rank_basis": "current preflight and current failing context only"
     },
     {
       "candidate": "ansible:5",
+      "eligible": true,
+      "previously_blocked_lane_known": false,
       "prior_memory_used": false,
-      "rank_basis": "current preflight only"
+      "rank_basis": "current preflight and current failing context only"
     },
     {
       "candidate": "ansible:8",
+      "eligible": true,
+      "previously_blocked_lane_known": false,
       "prior_memory_used": false,
-      "rank_basis": "current preflight only"
+      "rank_basis": "current preflight and current failing context only"
     },
     {
       "candidate": "ansible:4",
+      "eligible": true,
+      "previously_blocked_lane_known": false,
       "prior_memory_used": false,
-      "rank_basis": "current preflight only"
+      "rank_basis": "current preflight and current failing context only"
     }
   ],
   "previously_blocked_lanes_avoided_in_top_open_candidates": true,
@@ -64,9 +84,11 @@
     "ansible:4"
   ],
   "selection_used_only_decision_time_safe_evidence": true,
-  "status": "PENDING_GITHUB_ACTIONS",
+  "status": "PASS",
   "what_memory_changed": [
-    "memory-enabled may use v2.8q/v2.8r stress history",
-    "no-memory may not use prior blocked-lane or chromatin-state memory"
+    "memory-enabled ranking can use v2.8r chromatin-state openness",
+    "memory-enabled ranking can use prior blocked-lane history to demote strained lanes",
+    "memory-enabled patch generation can use prior source-discovery stress history",
+    "no-memory ranking cannot use v2.8p/v2.8q/v2.8r stress history"
   ]
 }

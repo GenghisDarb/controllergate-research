@@ -1,0 +1,87 @@
+diff --git a/lib/ansible/utils/version.py b/lib/ansible/utils/version.py
+index 0dc6687ed9..74d512ce1e 100644
+--- a/lib/ansible/utils/version.py
++++ b/lib/ansible/utils/version.py
+@@ -73,7 +73,7 @@ class _Alpha:
+         raise ValueError
+ 
+     def __gt__(self, other):
+-        return not self.__lt__(other)
++        return not self.__lt__(other) and not self.__eq__(other)
+ 
+     def __le__(self, other):
+         return self.__lt__(other) or self.__eq__(other)
+@@ -116,7 +116,7 @@ class _Numeric:
+         raise ValueError
+ 
+     def __gt__(self, other):
+-        return not self.__lt__(other)
++        return not self.__lt__(other) and not self.__eq__(other)
+ 
+     def __le__(self, other):
+         return self.__lt__(other) or self.__eq__(other)
+diff --git a/test/units/utils/test_version.py b/test/units/utils/test_version.py
+index a46282876f..7d04c112c5 100644
+--- a/test/units/utils/test_version.py
++++ b/test/units/utils/test_version.py
+@@ -268,6 +268,31 @@ def test_alpha():
+     assert _Alpha('b') >= _Alpha('a')
+     assert _Alpha('b') >= _Alpha('b')
+ 
++    # The following 3*6 tests check that all comparison operators perform
++    # as expected. DO NOT remove any of them, or reformulate them (to remove
++    # the explicit `not`)!
++
++    assert _Alpha('a') == _Alpha('a')
++    assert not _Alpha('a') != _Alpha('a')  # pylint: disable=unneeded-not
++    assert not _Alpha('a') < _Alpha('a')  # pylint: disable=unneeded-not
++    assert _Alpha('a') <= _Alpha('a')
++    assert not _Alpha('a') > _Alpha('a')  # pylint: disable=unneeded-not
++    assert _Alpha('a') >= _Alpha('a')
++
++    assert not _Alpha('a') == _Alpha('b')  # pylint: disable=unneeded-not
++    assert _Alpha('a') != _Alpha('b')
++    assert _Alpha('a') < _Alpha('b')
++    assert _Alpha('a') <= _Alpha('b')
++    assert not _Alpha('a') > _Alpha('b')  # pylint: disable=unneeded-not
++    assert not _Alpha('a') >= _Alpha('b')  # pylint: disable=unneeded-not
++
++    assert not _Alpha('b') == _Alpha('a')  # pylint: disable=unneeded-not
++    assert _Alpha('b') != _Alpha('a')
++    assert not _Alpha('b') < _Alpha('a')  # pylint: disable=unneeded-not
++    assert not _Alpha('b') <= _Alpha('a')  # pylint: disable=unneeded-not
++    assert _Alpha('b') > _Alpha('a')
++    assert _Alpha('b') >= _Alpha('a')
++
+ 
+ def test_numeric():
+     assert _Numeric(1) == _Numeric(1)
+@@ -283,3 +308,28 @@ def test_numeric():
+     assert _Numeric(1) <= _Numeric(2)
+     assert _Numeric(2) >= _Numeric(1)
+     assert _Numeric(2) >= _Numeric(2)
++
++    # The following 3*6 tests check that all comparison operators perform
++    # as expected. DO NOT remove any of them, or reformulate them (to remove
++    # the explicit `not`)!
++
++    assert _Numeric(1) == _Numeric(1)
++    assert not _Numeric(1) != _Numeric(1)  # pylint: disable=unneeded-not
++    assert not _Numeric(1) < _Numeric(1)  # pylint: disable=unneeded-not
++    assert _Numeric(1) <= _Numeric(1)
++    assert not _Numeric(1) > _Numeric(1)  # pylint: disable=unneeded-not
++    assert _Numeric(1) >= _Numeric(1)
++
++    assert not _Numeric(1) == _Numeric(2)  # pylint: disable=unneeded-not
++    assert _Numeric(1) != _Numeric(2)
++    assert _Numeric(1) < _Numeric(2)
++    assert _Numeric(1) <= _Numeric(2)
++    assert not _Numeric(1) > _Numeric(2)  # pylint: disable=unneeded-not
++    assert not _Numeric(1) >= _Numeric(2)  # pylint: disable=unneeded-not
++
++    assert not _Numeric(2) == _Numeric(1)  # pylint: disable=unneeded-not
++    assert _Numeric(2) != _Numeric(1)
++    assert not _Numeric(2) < _Numeric(1)  # pylint: disable=unneeded-not
++    assert not _Numeric(2) <= _Numeric(1)  # pylint: disable=unneeded-not
++    assert _Numeric(2) > _Numeric(1)
++    assert _Numeric(2) >= _Numeric(1)

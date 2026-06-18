@@ -1,0 +1,12 @@
+{
+  "allowed_memory_sources": [
+    "v2.8q candidate triage records",
+    "v2.8r chromatin-state records",
+    "v2.8r minimal-probe selection",
+    "v2.8r closure-scaling audit"
+  ],
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "repair_memory_data_accessed": true,
+  "validation_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash"
+}
