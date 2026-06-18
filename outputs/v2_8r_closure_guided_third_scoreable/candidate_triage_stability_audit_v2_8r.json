@@ -1,0 +1,56 @@
+{
+  "base_top_candidates": [
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5",
+    "ansible:8",
+    "ansible:4"
+  ],
+  "gate_topology_dependence_confirmed": true,
+  "permutation_null_top_candidates": [
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5",
+    "ansible:8",
+    "ansible:4"
+  ],
+  "perturbed_top_candidates": [
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5",
+    "ansible:8",
+    "ansible:4"
+  ],
+  "phase_null_results": [
+    {
+      "expected": "FAIL",
+      "null": "ranking_before_preflight",
+      "observed": "PENDING"
+    },
+    {
+      "expected": "FAIL",
+      "null": "repair_before_preserved_reference_gate",
+      "observed": "PENDING"
+    },
+    {
+      "expected": "FAIL",
+      "null": "artifact_acceptance_without_sha_verification",
+      "observed": "PENDING"
+    },
+    {
+      "expected": "FAIL",
+      "null": "patch_generation_before_source_discovery",
+      "observed": "PENDING"
+    }
+  ],
+  "queue_bias_detected": false,
+  "ranking_stability_score": 1.0,
+  "selected_repair_candidates_after_stability_audit": [
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5",
+    "ansible:8",
+    "ansible:4"
+  ],
+  "status": "PENDING_GITHUB_ACTIONS"
+}

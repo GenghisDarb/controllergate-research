@@ -912,3 +912,12 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift is not demonstrated.
 - Self-maintaining software is not demonstrated.
+
+## v2.8r Closure-Guided Third Scoreable Recovery
+
+- Status: `blocked_pending_v2_8r_closure_guided_third_scoreable_artifact`.
+- v2.8r inherits the repaired v2.8q runner and adds chromatin-state candidate accessibility, local tension relief, minimal-probe selection, stability/null diagnostics, closure scaling, and memory-lift decomposition.
+- Preserved references remain mandatory: `youtube-dl:1` and `black:4`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Main benchmark memory lift is not demonstrated by auxiliary closure metrics.
+- Self-maintaining software is not demonstrated.
