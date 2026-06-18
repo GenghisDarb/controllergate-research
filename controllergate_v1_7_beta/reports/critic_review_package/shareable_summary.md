@@ -973,3 +973,14 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
+
+## v2.8v Cross-Family Positive Memory Generalization
+
+- Status: `blocked_pending_v2_8v_cross_family_positive_memory_generalization_artifact`.
+- v2.8v preserves the v2.8u baseline (`youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, `ansible:5`) before any cross-family memory-generalization attempts.
+- `ansible:2` and `ansible:5` must preserve `positive_memory_only` status.
+- The lane separates no-memory and memory-enabled repair arms and audits RepairMemory access boundaries.
+- Candidate selection must prefer decision-time-safe non-Ansible candidates when available and explicitly report rejected cross-family options.
+- Family-generalization reporting must explicitly identify whether positive-memory evidence remains Ansible-only or becomes cross-project.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.

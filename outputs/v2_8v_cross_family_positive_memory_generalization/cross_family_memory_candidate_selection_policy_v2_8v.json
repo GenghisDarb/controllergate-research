@@ -1,0 +1,182 @@
+{
+  "ansible2_prior_positive_used_as_future_outcome_evidence": false,
+  "ansible5_prior_positive_used_as_future_outcome_evidence": false,
+  "attempted_cross_family_candidates": [],
+  "attempted_memory_generalization_candidates": [],
+  "candidate_pool": [
+    "ansible:8",
+    "ansible:4",
+    "ansible:12",
+    "ansible:13",
+    "ansible:1",
+    "ansible:10"
+  ],
+  "candidate_ranking_became_more_stable_with_memory": true,
+  "candidate_ranking_differences": {
+    "memory_enabled_top": [
+      "ansible:8",
+      "ansible:4",
+      "ansible:12",
+      "ansible:13",
+      "ansible:1"
+    ],
+    "no_memory_top": [
+      "ansible:8",
+      "ansible:4",
+      "ansible:12",
+      "ansible:13",
+      "ansible:1"
+    ]
+  },
+  "eligible_candidate_reason": "Remaining v2.8u field after ansible:2 and ansible:5 stayed preserved positive-memory baselines.",
+  "memory_enabled_ranking": [
+    {
+      "candidate": "ansible:8",
+      "previously_blocked_lane_known": true,
+      "prior_memory_used": true,
+      "project_family": "ansible",
+      "rank_basis": "v2.8u preserved replicated positive-memory signal plus cross-family information-gain pressure"
+    },
+    {
+      "candidate": "ansible:4",
+      "previously_blocked_lane_known": false,
+      "prior_memory_used": true,
+      "project_family": "ansible",
+      "rank_basis": "v2.8u preserved replicated positive-memory signal plus cross-family information-gain pressure"
+    },
+    {
+      "candidate": "ansible:12",
+      "previously_blocked_lane_known": true,
+      "prior_memory_used": true,
+      "project_family": "ansible",
+      "rank_basis": "v2.8u preserved replicated positive-memory signal plus cross-family information-gain pressure"
+    },
+    {
+      "candidate": "ansible:13",
+      "previously_blocked_lane_known": true,
+      "prior_memory_used": true,
+      "project_family": "ansible",
+      "rank_basis": "v2.8u preserved replicated positive-memory signal plus cross-family information-gain pressure"
+    },
+    {
+      "candidate": "ansible:1",
+      "previously_blocked_lane_known": false,
+      "prior_memory_used": true,
+      "project_family": "ansible",
+      "rank_basis": "v2.8u preserved replicated positive-memory signal plus cross-family information-gain pressure"
+    },
+    {
+      "candidate": "ansible:10",
+      "previously_blocked_lane_known": false,
+      "prior_memory_used": true,
+      "project_family": "ansible",
+      "rank_basis": "v2.8u preserved replicated positive-memory signal plus cross-family information-gain pressure"
+    }
+  ],
+  "minimal_probe_selection_rationale": "Start with decision-time-safe non-Ansible probes if available, then retain the best remaining Ansible candidates for contrast.",
+  "no_memory_ranking": [
+    {
+      "candidate": "ansible:8",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:4",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:12",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:13",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:1",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:10",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    }
+  ],
+  "non_ansible_candidate_available_but_rejected": false,
+  "previously_blocked_lanes_avoided_in_top_open_candidates": true,
+  "prior_blocked_lanes_avoided": [
+    "ansible:4",
+    "ansible:1",
+    "ansible:10"
+  ],
+  "psa_equivalence_stability_result": "PENDING_GITHUB_ACTIONS",
+  "rejected_non_ansible_candidates": [],
+  "selected_candidate_projects": [
+    "PySnooper",
+    "ansible",
+    "black",
+    "fastapi",
+    "youtube-dl"
+  ],
+  "selected_candidates_are_ansible_only": false,
+  "selected_candidates_are_cross_project": true,
+  "selected_cross_family_candidates": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1",
+    "PySnooper:2",
+    "youtube-dl:2",
+    "black:5",
+    "ansible:1",
+    "ansible:8",
+    "ansible:10",
+    "ansible:4",
+    "ansible:12",
+    "ansible:13"
+  ],
+  "selected_memory_generalization_candidates": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1",
+    "PySnooper:2",
+    "youtube-dl:2",
+    "black:5",
+    "ansible:1",
+    "ansible:8",
+    "ansible:10",
+    "ansible:4",
+    "ansible:12",
+    "ansible:13"
+  ],
+  "selection_used_only_decision_time_safe_evidence": true,
+  "status": "PENDING_GITHUB_ACTIONS",
+  "top_ansible_candidates": [
+    "ansible:1",
+    "ansible:8",
+    "ansible:10",
+    "ansible:4",
+    "ansible:12",
+    "ansible:13"
+  ],
+  "top_non_ansible_candidates": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1",
+    "PySnooper:2",
+    "youtube-dl:2",
+    "black:5"
+  ],
+  "what_memory_changed": [
+    "memory-enabled may use v2.8q/v2.8r/v2.8s/v2.8t/v2.8u stress history",
+    "memory-enabled may use ansible:2 and ansible:5 as preserved positive-memory RepairMemory signals",
+    "memory-enabled applies cross-family information-gain pressure after v2.8u remained Ansible-only",
+    "no-memory may not use prior blocked-lane, chromatin-state, or positive-memory history"
+  ]
+}

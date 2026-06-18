@@ -1,0 +1,74 @@
+name: v2_8v_cross_family_positive_memory_generalization
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cross-family-positive-memory-generalization:
+    name: Cross-family positive memory generalization
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8v runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_8v_cross_family_positive_memory_generalization_artifacts" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "preserved_v2_8u_baseline_gate_result" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "cross_family_candidate_pool_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "cross_family_memory_candidate_selection_policy_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "bounded_heuristic_expansion_policy_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "positive_memory_family_generalization_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "memory_arm_separation_check_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "memory_evidence_eligibility_check_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "memory_replication_integrity_check_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "cross_family_memory_integrity_check_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "candidate_chromatin_state_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "local_tension_relief_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "minimal_probe_selection_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "candidate_triage_stability_audit_v2_8v" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "repair_workspace_pythonpath_isolation" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "no_memory_accessed_repair_memory_only_data" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          grep -q "controllergate_full_scoring.*NOT_RUN" scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+
+      - name: Run cross-family positive memory generalization
+        shell: bash
+        timeout-minutes: 120
+        run: |
+          set -euo pipefail
+          python scripts/v2_8v_cross_family_positive_memory_generalization_runner.py
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/preserved_v2_8u_baseline_gate_result.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/harness_sanity_check.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/cross_family_candidate_pool_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/cross_family_memory_candidate_selection_policy_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/bounded_heuristic_expansion_policy_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/positive_memory_family_generalization_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/memory_arm_separation_check_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/memory_evidence_eligibility_check_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/memory_replication_integrity_check_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/cross_family_memory_integrity_check_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/candidate_chromatin_state_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/local_tension_relief_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/minimal_probe_selection_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/candidate_triage_stability_audit_v2_8v.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/closure_scaling_audit.json
+          test -s v2_8v_cross_family_positive_memory_generalization_artifacts/memory_lift_decomposition.json
+
+      - name: Upload v2.8v cross-family positive memory generalization artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8v_cross_family_positive_memory_generalization_artifacts
+          path: v2_8v_cross_family_positive_memory_generalization_artifacts
+          if-no-files-found: error
+
+

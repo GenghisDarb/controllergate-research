@@ -1,0 +1,20 @@
+{
+  "allowed_heuristic_expansion_classes": [
+    "localized boolean/value handling",
+    "small missing conditional branch",
+    "localized exception edge-case handling",
+    "path/string normalization",
+    "compatibility shim",
+    "localized parser guard",
+    "localized validation guard"
+  ],
+  "forbidden_heuristic_expansion_classes": [
+    "broad architecture refactor",
+    "dependency replacement",
+    "whole-formatter rewrite",
+    "broad AST rewrite",
+    "fixed/gold/future-derived heuristic",
+    "test modification"
+  ],
+  "status": "PENDING_GITHUB_ACTIONS"
+}
