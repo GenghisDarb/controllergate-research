@@ -34,6 +34,7 @@ base = v28p.base
 V28P_PROPOSE_PATCH = v28p.propose_patch
 V28P_HEURISTIC_FAMILY = v28p.heuristic_family
 V28P_PREFLIGHT_SCORE = v28p.preflight_score
+V28P_COMMAND_ENV = v28p.command_env
 
 BROAD_PREFLIGHT_BUDGET = v28p.BROAD_PREFLIGHT_BUDGET
 REPAIR_REPLACEMENT_BUDGET = 5
@@ -114,6 +115,10 @@ def source_only_safety(workspace: Path, diff: str) -> dict[str, Any]:
     for line in diff.splitlines():
         if line.startswith("+++ b/"):
             changed_files.append(line[len("+++ b/") :])
+        elif line.startswith("+++ "):
+            file_name = line[len("+++ ") :].strip()
+            if file_name != "/dev/null":
+                changed_files.append(file_name[len("b/") :] if file_name.startswith("b/") else file_name)
     modifies_tests = any(
         file_name.startswith("test/")
         or file_name.startswith("tests/")
@@ -151,10 +156,10 @@ def proposal_from_diff(
     candidate: dict[str, Any],
     discovery: dict[str, Any],
     memory_enabled: bool,
+    diff: str,
     heuristic: str,
     reason: str,
 ) -> dict[str, Any]:
-    diff = v28g.git_diff(workspace, v28p.os.environ.copy())
     safety = source_only_safety(workspace, diff)
     if safety["modifies_tests"] or not safety["within_changed_line_budget"]:
         return proposal_blocked(
@@ -189,22 +194,24 @@ def apply_fastapi1_patch(
     target = workspace / "fastapi" / "encoders.py"
     if not target.exists():
         return proposal_blocked(candidate, "fastapi/encoders.py not found", "localized_keyword_parameter_compatibility_shim", discovery, memory_enabled)
-    text = target.read_text(encoding="utf-8")
-    if "exclude_defaults" in text:
+    before = target.read_text(encoding="utf-8")
+    if "exclude_defaults" in before:
         return proposal_blocked(candidate, "exclude_defaults already present in buggy source", "localized_keyword_parameter_compatibility_shim", discovery, memory_enabled)
     old_sig = "    exclude_unset: bool = False,\n    include_none: bool = True,\n"
     new_sig = "    exclude_unset: bool = False,\n    exclude_defaults: bool = False,\n    include_none: bool = True,\n"
     old_call = "                exclude_unset=bool(exclude_unset or skip_defaults),\n            )\n"
     new_call = "                exclude_unset=bool(exclude_unset or skip_defaults),\n                exclude_defaults=exclude_defaults,\n            )\n"
-    if old_sig not in text or old_call not in text:
+    if old_sig not in before or old_call not in before:
         return proposal_blocked(candidate, "fastapi encoder source shape did not match bounded exclude_defaults heuristic", "localized_keyword_parameter_compatibility_shim", discovery, memory_enabled)
-    text = text.replace(old_sig, new_sig, 1).replace(old_call, new_call, 1)
-    target.write_text(text, encoding="utf-8")
+    after = before.replace(old_sig, new_sig, 1).replace(old_call, new_call, 1)
+    target.write_text(after, encoding="utf-8")
+    diff = v28j.source_diff(before, after, "fastapi/encoders.py")
     return proposal_from_diff(
         workspace,
         candidate,
         discovery,
         memory_enabled,
+        diff,
         "localized_keyword_parameter_compatibility_shim",
         "Added the missing exclude_defaults keyword and forwarded it to Pydantic's model dict call.",
     )
@@ -219,18 +226,21 @@ def apply_ansible2_patch(
     target = workspace / "lib" / "ansible" / "utils" / "version.py"
     if not target.exists():
         return proposal_blocked(candidate, "lib/ansible/utils/version.py not found", "localized_comparison_operator_equality_guard", discovery, memory_enabled)
-    text = target.read_text(encoding="utf-8")
+    before = target.read_text(encoding="utf-8")
     old = "    def __gt__(self, other):\n        return not self.__lt__(other)\n"
     new = "    def __gt__(self, other):\n        return not self.__lt__(other) and not self.__eq__(other)\n"
-    count = text.count(old)
+    count = before.count(old)
     if count < 2:
         return proposal_blocked(candidate, "expected _Alpha/_Numeric __gt__ source shape not found", "localized_comparison_operator_equality_guard", discovery, memory_enabled)
-    target.write_text(text.replace(old, new), encoding="utf-8")
+    after = before.replace(old, new)
+    target.write_text(after, encoding="utf-8")
+    diff = v28j.source_diff(before, after, "lib/ansible/utils/version.py")
     return proposal_from_diff(
         workspace,
         candidate,
         discovery,
         memory_enabled,
+        diff,
         "localized_comparison_operator_equality_guard",
         "Made strict greater-than false when the operands are equal, matching the failing comparison assertion.",
     )
@@ -245,17 +255,20 @@ def apply_ansible5_patch(
     target = workspace / "lib" / "ansible" / "module_utils" / "common" / "validation.py"
     if not target.exists():
         return proposal_blocked(candidate, "common validation source file not found", "localized_deterministic_missing_argument_order", discovery, memory_enabled)
-    text = target.read_text(encoding="utf-8")
-    old = "', '.join(missing)"
-    new = "', '.join(sorted(missing))"
-    if old not in text:
+    before = target.read_text(encoding="utf-8")
+    old = 'msg = "missing required arguments: %s" % ", ".join(missing)'
+    new = 'msg = "missing required arguments: %s" % ", ".join(sorted(missing))'
+    if old not in before:
         return proposal_blocked(candidate, "missing argument join expression not found", "localized_deterministic_missing_argument_order", discovery, memory_enabled)
-    target.write_text(text.replace(old, new, 1), encoding="utf-8")
+    after = before.replace(old, new, 1)
+    target.write_text(after, encoding="utf-8")
+    diff = v28j.source_diff(before, after, "lib/ansible/module_utils/common/validation.py")
     return proposal_from_diff(
         workspace,
         candidate,
         discovery,
         memory_enabled,
+        diff,
         "localized_deterministic_missing_argument_order",
         "Sorted generated missing required arguments to match the deterministic assertion order in the failing test.",
     )
@@ -270,12 +283,12 @@ def apply_ansible8_patch(
     target = workspace / "lib" / "ansible" / "plugins" / "shell" / "powershell.py"
     if not target.exists():
         return proposal_blocked(candidate, "powershell shell plugin not found", "localized_path_string_normalization_unc_guard", discovery, memory_enabled)
-    text = target.read_text(encoding="utf-8")
+    before = target.read_text(encoding="utf-8")
     marker = "def join_path(self, *args):"
-    if marker not in text or "unc_path" in text:
+    if marker not in before or "unc_path" in before:
         return proposal_blocked(candidate, "powershell join_path source shape not recognized", "localized_path_string_normalization_unc_guard", discovery, memory_enabled)
     pattern = re.compile(r"(    def join_path\(self, \*args\):\n)(?P<body>(?:        .+\n)+?)\n", re.MULTILINE)
-    match = pattern.search(text)
+    match = pattern.search(before)
     if not match:
         return proposal_blocked(candidate, "could not isolate powershell join_path body", "localized_path_string_normalization_unc_guard", discovery, memory_enabled)
     body = match.group("body")
@@ -287,13 +300,15 @@ def apply_ansible8_patch(
         + body
     )
     replacement = re.sub(r"(\n        return )(.+)", r"\1('\\\\\\\\' + \2.lstrip('\\\\')) if unc_path else \2", replacement, count=1)
-    text = text[: match.start()] + replacement + text[match.end() :]
-    target.write_text(text, encoding="utf-8")
+    after = before[: match.start()] + replacement + before[match.end() :]
+    target.write_text(after, encoding="utf-8")
+    diff = v28j.source_diff(before, after, "lib/ansible/plugins/shell/powershell.py")
     return proposal_from_diff(
         workspace,
         candidate,
         discovery,
         memory_enabled,
+        diff,
         "localized_path_string_normalization_unc_guard",
         "Preserved a UNC prefix when the failing join_path input begins with a UNC host/share prefix.",
     )
@@ -350,6 +365,22 @@ def preflight_score(record: dict[str, Any]) -> int:
     if record.get("candidate_source_files_found") and not str(candidate_id).startswith("ansible:"):
         score += 5
     return score
+
+
+def command_env(env: dict[str, str], project_root: Path) -> dict[str, str]:
+    command_environment = V28P_COMMAND_ENV(env, project_root)
+    existing_parts = [part for part in command_environment.get("PYTHONPATH", "").split(v28p.os.pathsep) if part]
+    prefixes: list[str] = []
+    lib_root = project_root / "lib"
+    if lib_root.exists():
+        prefixes.append(str(lib_root.resolve()))
+    prefixes.append(str(project_root.resolve()))
+    combined: list[str] = []
+    for part in prefixes + existing_parts:
+        if part and part not in combined:
+            combined.append(part)
+    command_environment["PYTHONPATH"] = v28p.os.pathsep.join(combined)
+    return command_environment
 
 
 def preflight_passed(record: dict[str, Any]) -> bool:
@@ -694,6 +725,7 @@ def restore_v28q_hooks() -> None:
     v28p.propose_patch = propose_patch
     v28p.heuristic_family = heuristic_family
     v28p.preflight_score = preflight_score
+    v28p.command_env = command_env
     v28j.propose_patch = propose_patch
     v28g.propose_patch = propose_patch
     v28m.propose_patch = propose_patch
