@@ -956,3 +956,13 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
+
+## v2.8u Positive Memory Signal Strengthening
+
+- Status: `blocked_pending_v2_8u_positive_memory_signal_strengthening_artifact`.
+- v2.8u preserves the v2.8t baseline (`youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, `ansible:5`) before any memory-generalization attempts.
+- `ansible:2` and `ansible:5` must preserve `positive_memory_only` status.
+- The lane separates no-memory and memory-enabled repair arms and audits RepairMemory access boundaries.
+- Family-generalization reporting must explicitly identify whether positive-memory evidence remains Ansible-only.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.

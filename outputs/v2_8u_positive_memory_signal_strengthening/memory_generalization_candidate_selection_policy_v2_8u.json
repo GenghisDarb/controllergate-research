@@ -1,0 +1,115 @@
+{
+  "ansible2_prior_positive_used_as_future_outcome_evidence": false,
+  "ansible5_prior_positive_used_as_future_outcome_evidence": false,
+  "attempted_memory_generalization_candidates": [],
+  "candidate_pool": [
+    "ansible:8",
+    "ansible:4",
+    "ansible:12",
+    "ansible:13",
+    "ansible:1"
+  ],
+  "candidate_ranking_became_more_stable_with_memory": true,
+  "candidate_ranking_differences": {
+    "memory_enabled_top": [
+      "ansible:8",
+      "ansible:4",
+      "ansible:12",
+      "ansible:13",
+      "ansible:1"
+    ],
+    "no_memory_top": [
+      "ansible:8",
+      "ansible:4",
+      "ansible:12",
+      "ansible:13",
+      "ansible:1"
+    ]
+  },
+  "eligible_candidate_reason": "Remaining v2.8t candidate field after ansible:2 and ansible:5 became preserved positive-memory baselines.",
+  "memory_enabled_ranking": [
+    {
+      "candidate": "ansible:8",
+      "previously_blocked_lane_known": true,
+      "prior_memory_used": true,
+      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+    },
+    {
+      "candidate": "ansible:4",
+      "previously_blocked_lane_known": false,
+      "prior_memory_used": true,
+      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+    },
+    {
+      "candidate": "ansible:12",
+      "previously_blocked_lane_known": true,
+      "prior_memory_used": true,
+      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+    },
+    {
+      "candidate": "ansible:13",
+      "previously_blocked_lane_known": true,
+      "prior_memory_used": true,
+      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+    },
+    {
+      "candidate": "ansible:1",
+      "previously_blocked_lane_known": false,
+      "prior_memory_used": true,
+      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+    }
+  ],
+  "minimal_probe_selection_rationale": "Start with bounded v2.8q/v2.8t repairable remaining candidates, then retain the strained remaining field for generalization accounting.",
+  "no_memory_ranking": [
+    {
+      "candidate": "ansible:8",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:4",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:12",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:13",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:1",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    }
+  ],
+  "previously_blocked_lanes_avoided_in_top_open_candidates": true,
+  "prior_blocked_lanes_avoided": [
+    "ansible:4",
+    "ansible:1"
+  ],
+  "psa_equivalence_stability_result": "PENDING_GITHUB_ACTIONS",
+  "selected_candidate_projects": [
+    "ansible"
+  ],
+  "selected_candidates_are_ansible_only": true,
+  "selected_candidates_are_cross_project": false,
+  "selected_memory_generalization_candidates": [
+    "ansible:4",
+    "ansible:12",
+    "ansible:13",
+    "ansible:1",
+    "ansible:8"
+  ],
+  "selection_used_only_decision_time_safe_evidence": true,
+  "status": "PENDING_GITHUB_ACTIONS",
+  "what_memory_changed": [
+    "memory-enabled may use v2.8q/v2.8r/v2.8s/v2.8t stress history",
+    "memory-enabled may use ansible:2 and ansible:5 as preserved positive-memory RepairMemory signals",
+    "no-memory may not use prior blocked-lane, chromatin-state, or positive-memory history"
+  ]
+}
