@@ -926,3 +926,11 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Full scoring remains `NOT_RUN` / disallowed.
 - Main benchmark memory lift is not demonstrated by auxiliary closure metrics.
 - Self-maintaining software is not demonstrated.
+
+## v2.8s Positive Memory Evidence Lane
+
+- Status: `blocked_pending_v2_8s_positive_memory_evidence_artifact`.
+- v2.8s preserves the v2.8r baseline (`youtube-dl:1`, `black:4`, `fastapi:1`) before any memory-evidence attempts.
+- The lane separates no-memory and memory-enabled repair arms and audits RepairMemory access boundaries.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.

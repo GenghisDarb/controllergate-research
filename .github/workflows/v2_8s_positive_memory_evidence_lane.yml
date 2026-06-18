@@ -1,0 +1,62 @@
+name: v2_8s_positive_memory_evidence_lane
+
+on:
+  workflow_dispatch:
+
+jobs:
+  positive-memory-evidence-lane:
+    name: Positive memory evidence lane
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8s runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_8s_positive_memory_evidence_lane_artifacts" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "preserved_v2_8r_baseline_gate_result" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "memory_candidate_selection_policy_v2_8s" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "memory_arm_separation_check_v2_8s" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "memory_evidence_eligibility_check_v2_8s" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "candidate_chromatin_state_v2_8s" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "local_tension_relief_v2_8s" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "minimal_probe_selection_v2_8s" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "candidate_triage_stability_audit_v2_8s" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "repair_workspace_pythonpath_isolation" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "no_memory_accessed_repair_memory_only_data" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          grep -q "controllergate_full_scoring.*NOT_RUN" scripts/v2_8s_positive_memory_evidence_lane_runner.py
+
+      - name: Run positive memory evidence lane
+        shell: bash
+        timeout-minutes: 120
+        run: |
+          set -euo pipefail
+          python scripts/v2_8s_positive_memory_evidence_lane_runner.py
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/preserved_v2_8r_baseline_gate_result.json
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/harness_sanity_check.json
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/memory_candidate_selection_policy_v2_8s.json
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/memory_arm_separation_check_v2_8s.json
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/memory_evidence_eligibility_check_v2_8s.json
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/candidate_chromatin_state_v2_8s.json
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/local_tension_relief_v2_8s.json
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/minimal_probe_selection_v2_8s.json
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/candidate_triage_stability_audit_v2_8s.json
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/closure_scaling_audit.json
+          test -s v2_8s_positive_memory_evidence_lane_artifacts/memory_lift_decomposition.json
+
+      - name: Upload v2.8s positive memory evidence artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8s_positive_memory_evidence_lane_artifacts
+          path: v2_8s_positive_memory_evidence_lane_artifacts
+          if-no-files-found: error

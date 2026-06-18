@@ -1,0 +1,72 @@
+{
+  "attempted_memory_evidence_candidates": [],
+  "candidate_pool": [
+    "ansible:2",
+    "ansible:5",
+    "ansible:8",
+    "ansible:4"
+  ],
+  "candidate_ranking_became_more_stable_with_memory": true,
+  "eligible_candidate_reason": "Remaining v2.8r candidate field after fastapi:1 became the third scoreable baseline.",
+  "memory_enabled_ranking": [
+    {
+      "candidate": "ansible:2",
+      "previously_blocked_lane_known": false,
+      "prior_memory_used": true,
+      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+    },
+    {
+      "candidate": "ansible:5",
+      "previously_blocked_lane_known": false,
+      "prior_memory_used": true,
+      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+    },
+    {
+      "candidate": "ansible:8",
+      "previously_blocked_lane_known": true,
+      "prior_memory_used": true,
+      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+    },
+    {
+      "candidate": "ansible:4",
+      "previously_blocked_lane_known": false,
+      "prior_memory_used": true,
+      "rank_basis": "v2.8r chromatin state plus prior blocked-lane memory"
+    }
+  ],
+  "no_memory_ranking": [
+    {
+      "candidate": "ansible:2",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:5",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:8",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    },
+    {
+      "candidate": "ansible:4",
+      "prior_memory_used": false,
+      "rank_basis": "current preflight only"
+    }
+  ],
+  "previously_blocked_lanes_avoided_in_top_open_candidates": true,
+  "selected_memory_evidence_candidates": [
+    "ansible:2",
+    "ansible:5",
+    "ansible:8",
+    "ansible:4"
+  ],
+  "selection_used_only_decision_time_safe_evidence": true,
+  "status": "PENDING_GITHUB_ACTIONS",
+  "what_memory_changed": [
+    "memory-enabled may use v2.8q/v2.8r stress history",
+    "no-memory may not use prior blocked-lane or chromatin-state memory"
+  ]
+}
