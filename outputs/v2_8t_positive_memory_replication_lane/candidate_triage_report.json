@@ -1,0 +1,583 @@
+{
+  "preflight_passing_candidate_count": 19,
+  "records": [
+    {
+      "bug_id": "1",
+      "candidate": "fastapi:1",
+      "failure_type": "unexpected_keyword_argument_exclude_defaults",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": "localized_keyword_parameter_compatibility_shim",
+      "likely_source_files": [
+        "tests/test_jsonable_encoder.py",
+        "fastapi/encoders.py",
+        "fastapi/openapi/models.py",
+        "docs_src/encoder/tutorial001.py",
+        "docs_src/response_directly/tutorial001.py"
+      ],
+      "normalized_command": "python -m pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+      "patch_surface_estimate": "small_single_function",
+      "pre_repair_failure_signal": "FAILURES ===================================\n________________________ test_encode_model_with_default ________________________\n\n    def test_encode_model_with_default():\n        model = ModelWithDefault(foo=\"foo\", bar=\"bar\")\n        assert jsonable_encoder(model) == {\"foo\": \"foo\", \"bar\": \"bar\", \"bla\": \"bla\"}\n        assert jsonable_encoder(model, exclude_unset=True) == {\"foo\": \"foo\", \"bar\": \"bar\"}\n>       assert jsonable_encoder(model, exclude_defaults=True) == {\"foo\": \"foo\"}\nE       TypeError: jsonable_encoder() got an unexpected keyword argument 'exclude_defaults'\n\ntests/test_jsonable_encoder.py:134: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_jsonable_encoder.py::test_encode_model_with_default - TypeError: jsonable_encoder() got an unexpected keyword argument 'exclude_defaults'\n============================== 1 failed in 0",
+      "project": "fastapi",
+      "rank": 1,
+      "reason_for_ranking": "Direct TypeError names missing exclude_defaults parameter in fastapi/encoders.py.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "2",
+      "candidate": "ansible:2",
+      "failure_type": "strict_greater_than_returns_true_for_equal_values",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": "localized_comparison_operator_equality_guard",
+      "likely_source_files": [
+        "lib/ansible/utils/version.py",
+        "lib/ansible/galaxy/collection.py",
+        "hacking/build_library/build_ansible/command_plugins/dump_keywords.py",
+        "hacking/build_library/build_ansible/command_plugins/plugin_formatter.py",
+        "hacking/build_library/build_ansible/command_plugins/release_announcement.py"
+      ],
+      "normalized_command": "python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric",
+      "patch_surface_estimate": "small_single_source_file",
+      "pre_repair_failure_signal": "FAILURES ===================================\n__________________________________ test_alpha __________________________________\n\n    def test_alpha():\n        assert _Alpha('a') == _Alpha('a')\n        assert _Alpha('a') == 'a'\n        assert _Alpha('a') != _Alpha('b')\n        assert _Alpha('a') != 1\n        assert _Alpha('a') < _Alpha('b')\n        assert _Alpha('a') < 'c'\n        assert _Alpha('a') > _Numeric(1)\n        with pytest.raises(ValueError):\n            _Alpha('a') < None\n        assert _Alpha('a') <= _Alpha('a')\n        assert _Alpha('a') <= _Alpha('b')\n        assert _Alpha('b') >= _Alpha('a')\n        assert _Alpha('b') >= _Alpha('b')\n    \n        # The following 3*6 tests check that all comparison operators perform\n        # as expected. DO NOT remove any of them, or reformulate them (to remove\n        # the explicit `not`)!\n    \n        assert _Alpha('a') == _Alpha('a')\n     ",
+      "project": "ansible",
+      "rank": 2,
+      "reason_for_ranking": "Assertion shows _Alpha('a') > _Alpha('a') is true; source extract shows __gt__ implemented as not __lt__.",
+      "selected_for_repair_attempt": true,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/utils/test_version.py::test_alpha && pytest test/units/utils/test_version.py::test_numeric",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "5",
+      "candidate": "ansible:5",
+      "failure_type": "message_order_instability",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": "localized_deterministic_missing_argument_order",
+      "likely_source_files": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/module_utils/common/validation.py",
+        "test/units/module_utils/common/validation/test_check_required_arguments.py",
+        "lib/ansible/cli/arguments/option_helpers.py",
+        "lib/ansible/cli/config.py"
+      ],
+      "normalized_command": "python -m pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+      "patch_surface_estimate": "small_single_expression",
+      "pre_repair_failure_signal": "FAILURES ===================================\n________________ test_check_required_arguments_missing_multiple ________________\n\narguments_terms_multiple = {'foo': {'required': True}, 'bar': {'required': True}, 'tomato': {'irrelevant': 72}}\n\n    def test_check_required_arguments_missing_multiple(arguments_terms_multiple):\n        params = {\n            'apples': 'woohoo',\n        }\n        expected = \"missing required arguments: bar, foo\"\n    \n        with pytest.raises(TypeError) as e:\n            check_required_arguments(arguments_terms_multiple, params)\n    \n>       assert to_native(e.value) == expected\nE       AssertionError: assert 'missing requ...nts: foo, bar' == 'missing requ...nts: bar, foo'\nE         \nE         - missing required arguments: bar, foo\nE         ?                                -----\nE         + missing required arguments: foo, bar\nE         ?                       ",
+      "project": "ansible",
+      "rank": 3,
+      "reason_for_ranking": "Assertion differs only by missing argument order; bounded fix sorts the generated missing list.",
+      "selected_for_repair_attempt": true,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "8",
+      "candidate": "ansible:8",
+      "failure_type": "unc_prefix_stripped",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": "localized_path_string_normalization_unc_guard",
+      "likely_source_files": [
+        "lib/ansible/plugins/shell/powershell.py"
+      ],
+      "normalized_command": "python -m pytest test/units/plugins/shell/test_powershell.py::test_join_path_unc",
+      "patch_surface_estimate": "small_path_join_guard_if_source_matches",
+      "pre_repair_failure_signal": "FAILURES ===================================\n______________________________ test_join_path_unc ______________________________\n\n    def test_join_path_unc():\n        pwsh = ShellModule()\n        unc_path_parts = ['\\\\\\\\host\\\\share\\\\dir1\\\\\\\\dir2\\\\', '\\\\dir3/dir4', 'dir5', 'dir6\\\\']\n        expected = '\\\\\\\\host\\\\share\\\\dir1\\\\dir2\\\\dir3\\\\dir4\\\\dir5\\\\dir6'\n        actual = pwsh.join_path(*unc_path_parts)\n>       assert actual == expected\nE       AssertionError: assert 'host\\\\share\\...4\\\\dir5\\\\dir6' == '\\\\\\\\host\\\\sh...4\\\\dir5\\\\dir6'\nE         \nE         - \\\\host\\share\\dir1\\dir2\\dir3\\dir4\\dir5\\dir6\nE         ? --\nE         + host\\share\\dir1\\dir2\\dir3\\dir4\\dir5\\dir6\n\ntest/units/plugins/shell/test_powershell.py:61: AssertionError\n=========================== short test summary info ============================\nFAILED test/units/plugins/shell/test_powershell.py::test_join_path_unc - AssertionError: ",
+      "project": "ansible",
+      "rank": 4,
+      "reason_for_ranking": "Failure shows join_path strips leading UNC prefix; only attempted if the buggy source shape is recognized.",
+      "selected_for_repair_attempt": true,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "not_run_or_no_localized_source",
+      "target_command": "pytest test/units/plugins/shell/test_powershell.py::test_join_path_unc",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "4",
+      "candidate": "ansible:4",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/playbook/block.py",
+        "lib/ansible/playbook/collectionsearch.py",
+        "lib/ansible/playbook/play.py",
+        "lib/ansible/playbook/role/__init__.py",
+        "lib/ansible/playbook/role/definition.py"
+      ],
+      "normalized_command": "python -m pytest test/units/playbook/test_collectionsearch.py::test_collection_static_warning",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n________________________ test_collection_static_warning ________________________\n\ncapsys = <_pytest.capture.CaptureFixture object at 0x7f226e8e7850>\n\n    def test_collection_static_warning(capsys):\n        \"\"\"Test that collection name is not templated.\n    \n        Also, make sure that users see the warning message for the referenced name.\n        \"\"\"\n    \n        collection_name = 'foo.{{bar}}'\n        cs = CollectionSearch()\n        assert collection_name in cs._load_collections(None, [collection_name])\n    \n        std_out, std_err = capsys.readouterr()\n>       assert '[WARNING]: \"collections\" is not templatable, but we found: %s' % collection_name in std_err\nE       assert ('[WARNING]: \"collections\" is not templatable, but we found: %s' % 'foo.{{bar}}') in ''\n\ntest/units/playbook/test_collectionsearch.py:37: AssertionError\n================",
+      "project": "ansible",
+      "rank": 5,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": true,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/playbook/test_collectionsearch.py::test_collection_static_warning",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "12",
+      "candidate": "ansible:12",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py",
+        "hacking/aws_config/build_iam_policy_framework.py",
+        "hacking/build-ansible.py",
+        "hacking/build_library/build_ansible/announce.py"
+      ],
+      "normalized_command": "python -m pytest test/units/plugins/lookup/test_env.py",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n_________________________ test_env_var_value[foo-bar] __________________________\n\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f96c4f81690>\nenv_var = 'foo', exp_value = 'bar'\n\n    @pytest.mark.parametrize('env_var,exp_value', [\n        ('foo', 'bar'),\n        ('equation', 'a=b*100')\n    ])\n    def test_env_var_value(monkeypatch, env_var, exp_value):\n        monkeypatch.setattr('ansible.utils.py3compat.environ.get', lambda x, y: exp_value)\n    \n        env_lookup = lookup_loader.get('env')\n        retval = env_lookup.run([env_var], None)\n>       assert retval == [exp_value]\nE       AssertionError: assert [''] == ['bar']\nE         \nE         At index 0 diff: '' != 'bar'\nE         \nE         Full diff:\nE           [\nE         -     'bar',\nE         ?      ---\nE         +     '',\nE           ]\n\ntest/units/plugins/lookup/test_env.py:",
+      "project": "ansible",
+      "rank": 6,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/plugins/lookup/test_env.py",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "13",
+      "candidate": "ansible:13",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/cli/galaxy.py",
+        "lib/ansible/galaxy/collection.py",
+        "lib/ansible/module_utils/urls.py",
+        "lib/ansible/galaxy/api.py"
+      ],
+      "normalized_command": "python -m pytest test/units/cli/test_galaxy.py::test_collection_install_with_url",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n_______________________ test_collection_install_with_url _______________________\n\ncollection_install = (<MagicMock id='140257955558928'>, <MagicMock id='140257955550432'>, '/tmp/pytest-of-runner/pytest-1/test-\u00c5\u00d1\u015a\u00cc\u03b2\u0141\u00c8 Output0')\n\n    def test_collection_install_with_url(collection_install):\n        mock_install, dummy, output_dir = collection_install\n    \n        galaxy_args = ['ansible-galaxy', 'collection', 'install', 'https://foo/bar/foo-bar-v1.0.0.tar.gz',\n                       '--collections-path', output_dir]\n        GalaxyCLI(args=galaxy_args).run()\n    \n        collection_path = os.path.join(output_dir, 'ansible_collections')\n        assert os.path.isdir(collection_path)\n    \n        assert mock_install.call_count == 1\n>       assert mock_install.call_args[0][0] == [('https://foo/bar/foo-bar-v1.0.0.tar.gz', '*', None)]\nE       Assertion",
+      "project": "ansible",
+      "rank": 7,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/cli/test_galaxy.py::test_collection_install_with_url",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "14",
+      "candidate": "ansible:14",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/galaxy/collection.py",
+        "lib/ansible/cli/galaxy.py",
+        "lib/ansible/galaxy/api.py",
+        "lib/ansible/module_utils/urls.py"
+      ],
+      "normalized_command": "python -m pytest test/units/galaxy/test_api.py::test_get_role_versions_pagination",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n________________ test_get_role_versions_pagination[responses1] _________________\n\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f02798700a0>\nresponses = [{'count': 2, 'results': [{'name': '3.5.1'}], 'next_link': '/api/v1/roles/432/versions/?page=2&page_size=50', 'next': ...rsions/?page=2&page_size=50', ...}, {'count': 2, 'results': [{'name': '3.5.2'}], 'next_link': None, 'next': None, ...}]\n\n    @pytest.mark.parametrize('responses', [\n        [\n            {\n                'count': 2,\n                'results': [{'name': '3.5.1', }, {'name': '3.5.2'}],\n                'next_link': None,\n                'next': None,\n                'previous_link': None,\n                'previous': None\n            },\n        ],\n        [\n            {\n                'count': 2,\n                'results': [{'name': '3.5.1'}],\n                'n",
+      "project": "ansible",
+      "rank": 8,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/galaxy/test_api.py::test_get_role_versions_pagination",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "15",
+      "candidate": "ansible:15",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/module_utils/network/f5/icontrol.py",
+        "lib/ansible/module_utils/online.py",
+        "lib/ansible/module_utils/netapp.py",
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py"
+      ],
+      "normalized_command": "python -m pytest test/units/modules/network/eos/test_eos_eapi.py::TestEosEapiModule::test_eos_eapi_vrf",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n_____________________ TestEosEapiModule.test_eos_eapi_vrf ______________________\n\nself = <units.modules.network.eos.test_eos_eapi.TestEosEapiModule testMethod=test_eos_eapi_vrf>\n\n    def test_eos_eapi_vrf(self):\n        set_module_args(dict(vrf='test'))\n        commands = ['management api http-commands', 'no shutdown', 'vrf test', 'no shutdown']\n>       self.start_unconfigured(changed=True, commands=commands)\n\ntest/units/modules/network/eos/test_eos_eapi.py:138: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ntest/units/modules/network/eos/test_eos_eapi.py:81: in start_unconfigured\n    return self.execute_module(*args, **kwargs)\ntest/units/modules/network/eos/eos_module.py:79: in execute_module\n    self.assertEqual(sorted(commands), sorted(result['commands']), result['commands'])\nE   AssertionError: Lists diff",
+      "project": "ansible",
+      "rank": 9,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/modules/network/eos/test_eos_eapi.py::TestEosEapiModule::test_eos_eapi_vrf",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "17",
+      "candidate": "ansible:17",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+        "lib/ansible/modules/cloud/dimensiondata/dimensiondata_network.py",
+        "lib/ansible/module_utils/vmware.py",
+        "lib/ansible/modules/cloud/amazon/lambda_event.py",
+        "lib/ansible/module_utils/network/ios/facts/legacy/base.py"
+      ],
+      "normalized_command": "python -m pytest test/units/module_utils/facts/test_facts.py::TestFactsLinuxHardwareGetMountFacts::test_get_mount_facts",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n___________ TestFactsLinuxHardwareGetMountFacts.test_get_mount_facts ___________\n\nself = <units.module_utils.facts.test_facts.TestFactsLinuxHardwareGetMountFacts testMethod=test_get_mount_facts>\nmock_lsblk_uuid = <MagicMock name='_udevadm_uuid' id='140261105119920'>\nmock_find_bind_mounts = <MagicMock name='_lsblk_uuid' id='140261090113856'>\nmock_mtab_entries = <MagicMock name='_find_bind_mounts' id='140261091765568'>\nmock_udevadm_uuid = <MagicMock name='_mtab_entries' id='140261091761488'>\n\n    @patch('ansible.module_utils.facts.hardware.linux.LinuxHardware._mtab_entries', return_value=MTAB_ENTRIES)\n    @patch('ansible.module_utils.facts.hardware.linux.LinuxHardware._find_bind_mounts', return_value=BIND_MOUNTS)\n    @patch('ansible.module_utils.facts.hardware.linux.LinuxHardware._lsblk_uuid', return_value=LSBLK_UUIDS)\n    @patch('ansible.module",
+      "project": "ansible",
+      "rank": 10,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/module_utils/facts/test_facts.py::TestFactsLinuxHardwareGetMountFacts::test_get_mount_facts",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "18",
+      "candidate": "ansible:18",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/galaxy/collection.py",
+        "lib/ansible/module_utils/urls.py",
+        "lib/ansible/cli/galaxy.py",
+        "lib/ansible/modules/cloud/digital_ocean/_digital_ocean.py"
+      ],
+      "normalized_command": "python -m pytest test/units/cli/test_galaxy.py::test_collection_default",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n________________ test_collection_default[collection_skeleton0] _________________\n\ncollection_skeleton = '/tmp/pytest-of-runner/pytest-2/test-\u00c5\u00d1\u015a\u00cc\u03b2\u0141\u00c8 Collections0/ansible_test/my_collection'\n\n    @pytest.mark.parametrize('collection_skeleton', [\n        ('ansible_test.my_collection', None),\n    ], indirect=True)\n    def test_collection_default(collection_skeleton):\n        meta_path = os.path.join(collection_skeleton, 'galaxy.yml')\n    \n        with open(meta_path, 'r') as galaxy_meta:\n            metadata = yaml.safe_load(galaxy_meta)\n    \n        assert metadata['namespace'] == 'ansible_test'\n        assert metadata['name'] == 'my_collection'\n        assert metadata['authors'] == ['your name <example@domain.com>']\n        assert metadata['readme'] == 'README.md'\n        assert metadata['version'] == '1.0.0'\n>       assert metadata['descriptio",
+      "project": "ansible",
+      "rank": 11,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/cli/test_galaxy.py::test_collection_default",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "7",
+      "candidate": "ansible:7",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/module_utils/network/f5/icontrol.py",
+        "lib/ansible/module_utils/online.py",
+        "lib/ansible/module_utils/netapp.py",
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py"
+      ],
+      "normalized_command": "python -m pytest test/units/modules/network/eos/test_eos_vlans.py::TestEosVlansModule::test_eos_vlan_replaced",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n__________________ TestEosVlansModule.test_eos_vlan_replaced ___________________\n\nself = <units.modules.network.eos.test_eos_vlans.TestEosVlansModule testMethod=test_eos_vlan_replaced>\n\n    def test_eos_vlan_replaced(self):\n        self.execute_show_command.return_value = []\n        set_module_args(dict(\n            config=[dict(\n                vlan_id=10,\n                name=\"tenreplaced\",\n                state=\"suspend\"\n            )], state=\"replaced\"\n        ))\n        commands = ['vlan 10', 'name tenreplaced', 'state suspend']\n>       self.execute_module(changed=True, commands=commands)\n\ntest/units/modules/network/eos/test_eos_vlans.py:111: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ntest/units/modules/network/eos/eos_module.py:79: in execute_module\n    self.assertEqual(sorted(commands), sorted(resu",
+      "project": "ansible",
+      "rank": 12,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/modules/network/eos/test_eos_vlans.py::TestEosVlansModule::test_eos_vlan_replaced",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "1",
+      "candidate": "ansible:1",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "test/units/galaxy/test_api.py",
+        "test/units/galaxy/test_collection.py",
+        "test/units/galaxy/test_collection_install.py",
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/cli/galaxy.py"
+      ],
+      "normalized_command": "python -m pytest test/units/galaxy/test_collection.py::test_verify_collections_no_version",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n______________________ test_verify_collections_no_version ______________________\n\nmock_isdir = <MagicMock name='isdir' id='139825897797472'>\nmock_collection = <function mock_collection.<locals>.create_mock_collection at 0x7f2bc0e24790>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f2bc0f7fa00>\n\n    @patch.object(os.path, 'isdir', return_value=True)\n    def test_verify_collections_no_version(mock_isdir, mock_collection, monkeypatch):\n        namespace = 'ansible_namespace'\n        name = 'collection'\n        version = '*'  # Occurs if MANIFEST.json does not exist\n    \n        local_collection = mock_collection(namespace=namespace, name=name, version=version)\n        monkeypatch.setattr(collection.CollectionRequirement, 'from_path', MagicMock(return_value=local_collection))\n    \n        collections = [('%s.%s' % (namespace, name), ",
+      "project": "ansible",
+      "rank": 13,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/galaxy/test_collection.py::test_verify_collections_no_version",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "10",
+      "candidate": "ansible:10",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py",
+        "hacking/aws_config/build_iam_policy_framework.py",
+        "hacking/build-ansible.py",
+        "hacking/build_library/build_ansible/announce.py"
+      ],
+      "normalized_command": "python -m pytest test/units/modules/system/test_pamd.py::PamdServiceTestCase::test_remove_first_rule && python -m pytest test/units/modules/system/test_pamd.py::PamdServiceTestCase::test_remove_last_rule",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n__________________ PamdServiceTestCase.test_remove_first_rule __________________\n\nself = <units.modules.system.test_pamd.PamdServiceTestCase testMethod=test_remove_first_rule>\n\n    def test_remove_first_rule(self):\n        no_header_service = PamdService(self.no_header_system_auth_string)\n>       self.assertTrue(no_header_service.remove('auth', 'required', 'pam_env.so'))\n\ntest/units/modules/system/test_pamd.py:365: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <ansible.modules.system.pamd.PamdService object at 0x7fcd5bf41000>\nrule_type = 'auth', rule_control = 'required', rule_path = 'pam_env.so'\n\n    def remove(self, rule_type, rule_control, rule_path):\n        current_line = self._head\n        changed = 0\n    \n        while current_line is not None:\n            if current_line.matches(rule_type, ru",
+      "project": "ansible",
+      "rank": 14,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/modules/system/test_pamd.py::PamdServiceTestCase::test_remove_first_rule && pytest test/units/modules/system/test_pamd.py::PamdServiceTestCase::test_remove_last_rule",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "11",
+      "candidate": "ansible:11",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/module_utils/network/f5/icontrol.py",
+        "lib/ansible/module_utils/online.py",
+        "lib/ansible/module_utils/netapp.py",
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py"
+      ],
+      "normalized_command": "python -m pytest test/units/modules/network/ios/test_ios_banner.py::TestIosBannerModule::test_ios_banner_nochange && python -m pytest test/units/modules/network/ios/test_ios_banner.py::TestIosBannerIos12Module::test_ios_banner_nochange",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n_________________ TestIosBannerModule.test_ios_banner_nochange _________________\n\nself = <units.modules.network.ios.test_ios_banner.TestIosBannerModule testMethod=test_ios_banner_nochange>\n\n    def setUp(self):\n        super(TestIosBannerModule, self).setUp()\n    \n        self.mock_get_config = patch('ansible.modules.network.ios.ios_banner.get_config')\n>       self.get_config = self.mock_get_config.start()\n\ntest/units/modules/network/ios/test_ios_banner.py:34: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/mock.py:1595: in start\n    result = self.__enter__()\n/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/unittest/mock.py:1447: in __enter__\n    original, local = self.get_original()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ",
+      "project": "ansible",
+      "rank": 15,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/modules/network/ios/test_ios_banner.py::TestIosBannerModule::test_ios_banner_nochange && pytest test/units/modules/network/ios/test_ios_banner.py::TestIosBannerIos12Module::test_ios_banner_nochange",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "16",
+      "candidate": "ansible:16",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "hacking/build-ansible.py",
+        "hacking/build_library/build_ansible/announce.py",
+        "hacking/build_library/build_ansible/change_detection.py",
+        "hacking/build_library/build_ansible/command_plugins/collection_meta.py",
+        "hacking/build_library/build_ansible/command_plugins/dump_config.py"
+      ],
+      "normalized_command": "python -m pytest test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py::test_get_cpu_info_missing_arch",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "$ bash -lc python -m pytest test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py::test_get_cpu_info_missing_arch\nstarted_at_utc=2026-06-18T02:55:49.941400+00:00\nfinished_at_utc=2026-06-18T02:55:50.447256+00:00\nreturncode=1\ntimed_out=False\n--- stdout ---\n============================= test session starts ==============================\nplatform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0\nrootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8s_bugsinpy_runtime/preflight_workspaces/019_ansible_16/ansible\ncollected 1 item\n\ntest/units/module_utils/facts/hardware/test_linux_get_cpu_info.py E      [100%]\n\n==================================== ERRORS ====================================\n_______________ ERROR at setup of test_get_cpu_info_missing_arch _______________\nfile /home/runner/work/controllergate-research/controllergate-research/_v2_8s_bugsinpy_",
+      "project": "ansible",
+      "rank": 16,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py::test_get_cpu_info_missing_arch",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "3",
+      "candidate": "ansible:3",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/module_utils/facts/default_collectors.py",
+        "lib/ansible/module_utils/facts/system/distribution.py",
+        "lib/ansible/plugins/inventory/generator.py",
+        "lib/ansible/template/safe_eval.py",
+        "test/units/galaxy/test_collection.py"
+      ],
+      "normalized_command": "python -m pytest test/units/module_utils/test_distribution_version.py::test_distribution_version",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "$ bash -lc python -m pytest test/units/module_utils/test_distribution_version.py::test_distribution_version\nstarted_at_utc=2026-06-18T02:43:44.890163+00:00\nfinished_at_utc=2026-06-18T02:43:45.684248+00:00\nreturncode=1\ntimed_out=False\n--- stdout ---\n============================= test session starts ==============================\nplatform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0\nrootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8s_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible\ncollected 54 items\n\ntest/units/module_utils/test_distribution_version.py EEEEEEEEEEEEEEEEEEE [ 35%]\nEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE                                      [100%]\n\n==================================== ERRORS ====================================\n_____ ERROR at setup of test_distribution_version[stdin0-CentOS 7.2.1511] ______\nfile /home/runner/work/c",
+      "project": "ansible",
+      "rank": 17,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/module_utils/test_distribution_version.py::test_distribution_version",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "6",
+      "candidate": "ansible:6",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/module_utils/basic.py",
+        "lib/ansible/cli/galaxy.py",
+        "lib/ansible/galaxy/collection.py",
+        "lib/ansible/module_utils/urls.py",
+        "lib/ansible/executor/module_common.py"
+      ],
+      "normalized_command": "python -m pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest && python -m pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_no_version && python -m pytest test/units/galaxy/test_collection_install.py::test_add_collection_requirement_to_unknown_installed_version",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "FAILURES ===================================\n_____________ test_build_requirement_from_path_with_manifest[1.1] ______________\n\nversion = 1.1\ncollection_artifact = (b'/tmp/pytest-of-runner/pytest-0/test-\\xc3\\x85\\xc3\\x91\\xc5\\x9a\\xc3\\x8c\\xce\\xb2\\xc5\\x81\\xc3\\x88 Collections Input1/ans...\\xc3\\x85\\xc3\\x91\\xc5\\x9a\\xc3\\x8c\\xce\\xb2\\xc5\\x81\\xc3\\x88 Collections Input1/ansible_namespace-collection-0.1.0.tar.gz')\n\n    @pytest.mark.parametrize('version', ['1.1.1', 1.1, 1])\n    def test_build_requirement_from_path_with_manifest(version, collection_artifact):\n        manifest_path = os.path.join(collection_artifact[0], b'MANIFEST.json')\n        manifest_value = json.dumps({\n            'collection_info': {\n                'namespace': 'namespace',\n                'name': 'name',\n                'version': version,\n                'dependencies': {\n                    'ansible_namespace.collection': '*'\n",
+      "project": "ansible",
+      "rank": 18,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest && pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_no_version && pytest test/units/galaxy/test_collection_install.py::test_add_collection_requirement_to_unknown_installed_version",
+      "target_file_existence": true
+    },
+    {
+      "bug_id": "9",
+      "candidate": "ansible:9",
+      "failure_type": "unclassified_pre_repair_failure",
+      "fixed_or_gold_patch_used_for_selection": false,
+      "fixture_data_dependency_status": {
+        "fixture_data_dependency_exists": true,
+        "missing_fixture_or_data_files": []
+      },
+      "future_outcome_evidence_used_for_selection": false,
+      "heuristic_family_matched": null,
+      "likely_source_files": [
+        "lib/ansible/module_utils/network/f5/icontrol.py",
+        "lib/ansible/module_utils/online.py",
+        "contrib/inventory/cloudstack.py",
+        "contrib/inventory/docker.py",
+        "hacking/aws_config/build_iam_policy_framework.py"
+      ],
+      "normalized_command": "python -m pytest test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion",
+      "patch_surface_estimate": "unknown",
+      "pre_repair_failure_signal": "$ bash -lc python -m pytest test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion\nstarted_at_utc=2026-06-18T02:49:14.400149+00:00\nfinished_at_utc=2026-06-18T02:49:14.848270+00:00\nreturncode=1\ntimed_out=False\n--- stdout ---\n============================= test session starts ==============================\nplatform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0\nrootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8s_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible\ncollected 13 items\n\ntest/units/modules/packaging/os/test_redhat_subscription.py EEEEEEEEEEEE [ 92%]\nE                                                                        [100%]\n\n==================================== ERRORS ====================================\n__ ERROR at setup of test_redhat_subscribtion[test_already_registered_system] __\nfile /home/runner/",
+      "project": "ansible",
+      "rank": 19,
+      "reason_for_ranking": "Preflight passed, but no bounded registered v2.8q heuristic was supported by the decision-time failure context.",
+      "selected_for_repair_attempt": false,
+      "selection_used_only_decision_time_safe_evidence": true,
+      "source_discovery_result": "passed",
+      "target_command": "pytest test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion",
+      "target_file_existence": true
+    }
+  ],
+  "selection_policy": {
+    "attempt_budget": 5,
+    "forbidden_selection_signals": [
+      "fixed revision",
+      "gold patch",
+      "future outcome evidence",
+      "post-repair success"
+    ],
+    "stop_after_first_scoreable_replacement": true
+  },
+  "source_registry": "v2.8q fresh preflight with v2.8p official evidence used only for strategy design",
+  "status": "PASS"
+}

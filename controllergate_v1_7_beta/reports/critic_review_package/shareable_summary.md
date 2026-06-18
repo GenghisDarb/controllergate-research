@@ -940,3 +940,12 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Repair-outcome memory lift: `demonstrated` for the limited v2.8s lane; main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
+
+## v2.8t Positive Memory Replication Lane
+
+- Status: `blocked_pending_v2_8t_positive_memory_replication_artifact`.
+- v2.8t preserves the v2.8s baseline (`youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`) before any memory-replication attempts.
+- `ansible:2` must preserve `positive_memory_only` status.
+- The lane separates no-memory and memory-enabled repair arms and audits RepairMemory access boundaries.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.
