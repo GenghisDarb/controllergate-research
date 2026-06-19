@@ -1059,3 +1059,10 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
+
+## v2.11 Topology-Aware Source Repair
+
+- Status: `blocked_pending_v2_11_topology_aware_source_repair_artifact`.
+- v2.11 preserves the v2.10 baseline, uses v2.9/v2.10 recovered context, and attempts bounded topology-aware source-only repairs on recovered non-Ansible surfaces.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.

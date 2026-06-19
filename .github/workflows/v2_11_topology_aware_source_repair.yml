@@ -1,0 +1,62 @@
+name: v2_11_topology_aware_source_repair
+
+on:
+  workflow_dispatch:
+
+jobs:
+  topology-aware-source-repair:
+    name: Topology-aware source repair
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.11 runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_11_topology_aware_source_repair_artifacts" scripts/v2_11_topology_aware_source_repair_runner.py
+          grep -q "preserved_v2_10_baseline_gate_result" scripts/v2_11_topology_aware_source_repair_runner.py
+          grep -q "recovered_surface_repair_plan_v2_11" scripts/v2_11_topology_aware_source_repair_runner.py
+          grep -q "bounded_topology_aware_repair_proposer_v2_11" scripts/v2_11_topology_aware_source_repair_runner.py
+          grep -q "topology_to_patch_proof_ledger_v2_11" scripts/v2_11_topology_aware_source_repair_runner.py
+          grep -q "duplicate_clean_replay_verification_v2_11" scripts/v2_11_topology_aware_source_repair_runner.py
+          grep -q "phase_inversion_seed_constraint_check_v2_11" scripts/v2_11_topology_aware_source_repair_runner.py
+          grep -q "source_patch_anti_leakage_check_v2_11" scripts/v2_11_topology_aware_source_repair_runner.py
+          grep -q "controllergate_full_scoring.*NOT_RUN" scripts/v2_11_topology_aware_source_repair_runner.py
+
+      - name: Run topology-aware source repair
+        shell: bash
+        timeout-minutes: 180
+        run: |
+          set -euo pipefail
+          python scripts/v2_11_topology_aware_source_repair_runner.py
+          test -s v2_11_topology_aware_source_repair_artifacts/preserved_v2_10_baseline_gate_result.json
+          test -s v2_11_topology_aware_source_repair_artifacts/recovered_surface_repair_plan_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/bounded_topology_aware_repair_proposer_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/topology_to_patch_proof_ledger_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/topology_aware_repair_candidate_pool_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/duplicate_clean_replay_verification_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/phase_inversion_seed_constraint_check_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/heterochromatin_monitor_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/silent_scaffolding_risk_audit_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/memory_arm_separation_check_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/topology_aware_repair_integrity_check_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/source_patch_anti_leakage_check_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/isomorphism_requirements_matrix_v2_11.json
+          test -s v2_11_topology_aware_source_repair_artifacts/SHA256SUMS.txt
+
+      - name: Upload v2.11 topology-aware source repair artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_11_topology_aware_source_repair_artifacts
+          path: v2_11_topology_aware_source_repair_artifacts
+          if-no-files-found: error
