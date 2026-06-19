@@ -294,6 +294,21 @@ def main() -> int:
         errors.append("v2.8w must not claim repair-template transfer success")
     if not pool.get("non_ansible_candidates"):
         errors.append("v2.8w candidate pool must include non-Ansible candidates")
+    for artifact_name, data in [
+        ("materialization readiness", materialization),
+        ("repair taxonomy", taxonomy),
+        ("environmental stress", stress),
+        ("candidate pool", pool),
+    ]:
+        candidates: list[Any] = []
+        candidates.extend(item.get("candidate") for item in data.get("records", []) if isinstance(item, dict))
+        for key in ["selected_candidates", "non_ansible_candidates", "full_candidate_pool"]:
+            value = data.get(key)
+            if isinstance(value, list):
+                candidates.extend(value)
+        malformed = [candidate for candidate in candidates if isinstance(candidate, str) and candidate.strip().startswith("{")]
+        if malformed:
+            errors.append(f"v2.8w {artifact_name} contains malformed stringified candidate metadata: {malformed[:3]}")
     if separation.get("no_memory_accessed_repair_memory_only_data") is not False:
         errors.append("no-memory arm must not access RepairMemory-only data")
     if separation.get("no_memory_accessed_positive_memory_transfer_readiness_data") is not False:
@@ -349,6 +364,10 @@ def main() -> int:
             errors.append("official v2.8w must preserve at least five scoreable episodes")
         if int(campaign.get("positive_memory_episode_count", 0) or 0) < 2:
             errors.append("official v2.8w must preserve at least two positive-memory episodes")
+        attempted_candidates = campaign.get("attempted_candidates") or campaign.get("attempted_cross_family_candidates") or []
+        baseline_attempts = [candidate for candidate in attempted_candidates if candidate in BASELINE]
+        if baseline_attempts:
+            errors.append(f"official v2.8w new repairability attempts must not include preserved baseline anchors: {baseline_attempts}")
         for key in ["label_leakage_count", "decision_time_outcome_overlap_count", "corruption_count"]:
             if campaign.get(key) != 0:
                 errors.append(f"official v2.8w must have zero {key}")

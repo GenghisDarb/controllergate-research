@@ -96,7 +96,14 @@ def write_manifest(directory: Path) -> None:
 
 
 def candidate_id(record: dict[str, Any]) -> str:
-    return str(record.get("candidate") or record.get("candidate_id") or "")
+    explicit = record.get("candidate_id")
+    if explicit:
+        return str(explicit)
+    candidate = record.get("candidate")
+    if isinstance(candidate, dict):
+        nested = candidate.get("candidate") or candidate.get("candidate_id")
+        return str(nested or "")
+    return str(candidate or "")
 
 
 def source_only_blocked(candidate: dict[str, Any], discovery: dict[str, Any], memory_enabled: bool, reason: str) -> dict[str, Any]:
