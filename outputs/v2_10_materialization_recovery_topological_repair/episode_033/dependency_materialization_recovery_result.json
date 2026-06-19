@@ -1,0 +1,31 @@
+{
+  "blocker_type": "dependency_version_conflict",
+  "candidate": "PySnooper:1",
+  "decision_time_safe_status": "PASS",
+  "declared_dependency_sources": [],
+  "declared_fixture_sources": [
+    "tests/test_chinese.py"
+  ],
+  "hashes_of_metadata_used": {
+    "requirements.txt": "44c91d4c293a45e5efd6e28c304835637cccbdb5de9b88136c03bcfb98376d8d",
+    "setup.py": "3709ade94c4102c08f64fa33e6a95e33b21c17d68af308cdb34f16a75f6d0f6b",
+    "tox.ini": "629866307933434d0f9f691c3007968f4bb35d7024007e89403c80c36bee0c06"
+  },
+  "initial_blocker": "ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py::test_chinese",
+  "materialization_recovered": true,
+  "materialization_status_after": "materialization_recovered_source_repair_surface_reached",
+  "materialization_status_before": "blocked_replay_or_materialization_failure",
+  "missing_modules": [],
+  "project_family": "PySnooper",
+  "reason_if_not_recovered": "",
+  "recovery_actions_attempted": [
+    "classify_python_compatibility_source_surface_after_materialization"
+  ],
+  "recovery_actions_forbidden": [
+    "fixed/gold/future evidence",
+    "test modification",
+    "project source edit during materialization"
+  ],
+  "recovery_command_returncode": null,
+  "repair_allowed_after_recovery": true
+}

@@ -1,0 +1,20 @@
+{
+  "clean_workspace_strategy": "fresh BugsInPy checkout plus fresh no-memory/memory-enabled repair workspaces",
+  "duplicate_replay_supported": true,
+  "patch_reapplication_strategy": "reapply source-only patch from artifact diff to clean buggy baseline",
+  "provenance_requirements": [
+    "artifact SHA lineage",
+    "decision-time manifest",
+    "patch safety check",
+    "post-repair validation log"
+  ],
+  "reasons_duplicate_replay_may_be_not_applicable": [
+    "preserved already-ingested baseline anchor",
+    "blocked episode",
+    "no patch candidate generated"
+  ],
+  "status": "PASS",
+  "target_command_replay_strategy": "rerun normalized failing command through python -m pytest or normalized unittest command",
+  "v2_9_readiness_status": "READY",
+  "when_duplicate_replay_is_required": "required for any new v2.9+ positive_memory_only episode before locking positive-memory evidence"
+}

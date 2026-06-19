@@ -1,66 +1,149 @@
 {
+  "fixed_gold_future_context_used": false,
   "official_v2_9_context_reused": true,
   "records": [
     {
       "candidate": "fastapi:2",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
-      "project_family": "fastapi",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "aa7b77c576c2134178548b67d3d18be5939c9066809ded2cdb25d5fc07faaac2"
+      "decision_time_safe_status": "PASS",
+      "files_in_context_bundle": [
+        "tests/test_ws_router.py",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+        "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+        "fastapi/testclient.py",
+        "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+      ],
+      "materialization_blocker_from_v2_9": "dependency_or_materialization_blocked",
+      "reason_for_regeneration": "",
+      "repair_path_from_v2_9": "dependency_environment_defect",
+      "symbols_in_context_bundle": [
+        "fastapi.testclient.TestClient",
+        "starlette.testclient.TestClient",
+        "TestClient",
+        "requests"
+      ],
+      "v2_9_context_bundle_hash": "aa7b77c576c2134178548b67d3d18be5939c9066809ded2cdb25d5fc07faaac2",
+      "whether_context_bundle_is_regenerated": false,
+      "whether_context_bundle_is_reused": true
     },
     {
       "candidate": "fastapi:3",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
-      "project_family": "fastapi",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "229fc3a0b46c5babc88abaa77eb298529cf14ae42253765d4758d56e53618994"
+      "decision_time_safe_status": "PASS",
+      "files_in_context_bundle": [
+        "tests/test_serialize_response_model.py",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+        "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+        "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+      ],
+      "materialization_blocker_from_v2_9": "dependency_or_materialization_blocked",
+      "reason_for_regeneration": "",
+      "repair_path_from_v2_9": "dependency_environment_defect",
+      "symbols_in_context_bundle": [
+        "starlette.testclient.TestClient",
+        "TestClient",
+        "requests"
+      ],
+      "v2_9_context_bundle_hash": "229fc3a0b46c5babc88abaa77eb298529cf14ae42253765d4758d56e53618994",
+      "whether_context_bundle_is_regenerated": false,
+      "whether_context_bundle_is_reused": true
     },
     {
       "candidate": "fastapi:4",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
-      "project_family": "fastapi",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "024d063c3fd7e4d034136f24f596537da173844bfeda499a4f9d0d7fc7cfdbb9"
+      "decision_time_safe_status": "PASS",
+      "files_in_context_bundle": [
+        "tests/test_param_in_path_and_dependency.py",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_032/fastapi/tests/test_param_in_path_and_dependency.py",
+        "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+        "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+      ],
+      "materialization_blocker_from_v2_9": "dependency_or_materialization_blocked",
+      "reason_for_regeneration": "",
+      "repair_path_from_v2_9": "dependency_environment_defect",
+      "symbols_in_context_bundle": [
+        "starlette.testclient.TestClient",
+        "TestClient",
+        "requests"
+      ],
+      "v2_9_context_bundle_hash": "024d063c3fd7e4d034136f24f596537da173844bfeda499a4f9d0d7fc7cfdbb9",
+      "whether_context_bundle_is_regenerated": false,
+      "whether_context_bundle_is_reused": true
     },
     {
       "candidate": "PySnooper:1",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
-      "project_family": "PySnooper",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "449ced43aa3124a94bb190a2a74c3ebc616c29a11bf0a7473c8563bcf91be31f"
+      "decision_time_safe_status": "PASS",
+      "files_in_context_bundle": [
+        "tests/test_chinese.py",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+        "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+        "pysnooper/__init__.py",
+        "pysnooper/tracer.py"
+      ],
+      "materialization_blocker_from_v2_9": "dependency_or_materialization_blocked",
+      "reason_for_regeneration": "",
+      "repair_path_from_v2_9": "localized_exception_edge_case",
+      "symbols_in_context_bundle": [
+        "pysnooper.utils.truncate",
+        ".tracer.Tracer as snoop",
+        ".variables.CommonVariable, Exploding, BaseVariable",
+        "collections.Mapping, Sequence",
+        "truncate",
+        "Tracer",
+        "CommonVariable",
+        "Mapping",
+        "name"
+      ],
+      "v2_9_context_bundle_hash": "449ced43aa3124a94bb190a2a74c3ebc616c29a11bf0a7473c8563bcf91be31f",
+      "whether_context_bundle_is_regenerated": false,
+      "whether_context_bundle_is_reused": true
     },
     {
       "candidate": "PySnooper:2",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
-      "project_family": "PySnooper",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "7bdc7cf60f15752c628e6b5227ee0e2238c0d06da3f2f544f33c836540029d26"
+      "decision_time_safe_status": "PASS",
+      "files_in_context_bundle": [
+        "tests/test_pysnooper.py",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/tests/test_pysnooper.py",
+        "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+        "pysnooper/__init__.py",
+        "pysnooper/tracer.py"
+      ],
+      "materialization_blocker_from_v2_9": "dependency_or_materialization_blocked",
+      "reason_for_regeneration": "",
+      "repair_path_from_v2_9": "localized_exception_edge_case",
+      "symbols_in_context_bundle": [
+        "pysnooper.utils.truncate",
+        ".tracer.Tracer as snoop",
+        ".variables.CommonVariable, Exploding, BaseVariable",
+        "collections.Mapping, Sequence",
+        "truncate",
+        "Tracer",
+        "CommonVariable",
+        "Mapping",
+        "name"
+      ],
+      "v2_9_context_bundle_hash": "7bdc7cf60f15752c628e6b5227ee0e2238c0d06da3f2f544f33c836540029d26",
+      "whether_context_bundle_is_regenerated": false,
+      "whether_context_bundle_is_reused": true
     },
     {
       "candidate": "fastapi:5",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
-      "project_family": "fastapi",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "73e0b4f9cde6637a30dc2768bed9f46d7a73e316d4cc5ebae27d50132a1fff14"
+      "decision_time_safe_status": "PASS",
+      "files_in_context_bundle": [
+        "tests/test_filter_pydantic_sub_model.py",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/preflight_workspaces/026_fastapi_5/fastapi/tests/test_filter_pydantic_sub_model.py",
+        "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+        "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+      ],
+      "materialization_blocker_from_v2_9": "dependency_or_materialization_blocked",
+      "reason_for_regeneration": "",
+      "repair_path_from_v2_9": "dependency_environment_defect",
+      "symbols_in_context_bundle": [
+        "starlette.testclient.TestClient",
+        "TestClient",
+        "requests"
+      ],
+      "v2_9_context_bundle_hash": "73e0b4f9cde6637a30dc2768bed9f46d7a73e316d4cc5ebae27d50132a1fff14",
+      "whether_context_bundle_is_regenerated": false,
+      "whether_context_bundle_is_reused": true
     }
   ],
-  "status": "PENDING_GITHUB_ACTIONS"
+  "status": "PASS"
 }

@@ -352,7 +352,7 @@ def main() -> int:
         errors.append("bounded dependency/materialization recovery must diagnose at least two non-Ansible candidates")
     if not any(record.get("materialization_recovered") is True for record in recovery_records):
         errors.append("v2.10 must either recover at least one materialization blocker or the runner should classify a blocker instead of PASS")
-    if materialization_integrity.get("source_files_modified_during_materialization") not in {[], None}:
+    if materialization_integrity.get("source_files_modified_during_materialization") not in ([], None):
         errors.append("materialization recovery must not modify project source")
     if dependency_anti_leakage.get("arbitrary_undeclared_dependency_install_count", 0) not in {0, "0"}:
         errors.append("arbitrary undeclared dependency installs must be zero")

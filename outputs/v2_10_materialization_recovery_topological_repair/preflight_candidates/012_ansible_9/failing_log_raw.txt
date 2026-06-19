@@ -1,0 +1,202 @@
+$ bash -lc python -m pytest test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion
+started_at_utc=2026-06-19T13:12:29.749519+00:00
+finished_at_utc=2026-06-19T13:12:30.208759+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible
+collected 13 items
+
+test/units/modules/packaging/os/test_redhat_subscription.py EEEEEEEEEEEE [ 92%]
+E                                                                        [100%]
+
+==================================== ERRORS ====================================
+__ ERROR at setup of test_redhat_subscribtion[test_already_registered_system] __
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_registeration_username_password] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_______ ERROR at setup of test_redhat_subscribtion[test_unregisteration] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_unregisteration_of_unregistered_system] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_registeration_activation_key] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_registeration_username_password_auto_attach] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_force_registeration_username_password] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_registeration_username_password_proxy_options] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_registeration_username_password_pool] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_registeration_username_password_pool_ids_quantities] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_registeration_username_password_pool_ids] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_registeration_username_password_one_pool_id] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+_ ERROR at setup of test_redhat_subscribtion[test_attaching_different_pool_ids] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/packaging/os/test_redhat_subscription.py, line 818
+  @pytest.mark.parametrize('patch_ansible_module, testcase', TEST_CASES, ids=TEST_CASES_IDS, indirect=['patch_ansible_module'])
+  @pytest.mark.usefixtures('patch_ansible_module')
+  def test_redhat_subscribtion(mocker, capfd, patch_redhat_subscription, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py, line 13
+  @pytest.fixture
+  def patch_ansible_module(request, mocker):
+E       fixture 'mocker' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, mock_request, monkeypatch, patch_ansible_module, patch_redhat_subscription, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/012_ansible_9/ansible/test/units/modules/conftest.py:13
+=========================== short test summary info ============================
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_already_registered_system]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_registeration_username_password]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_unregisteration]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_unregisteration_of_unregistered_system]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_registeration_activation_key]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_registeration_username_password_auto_attach]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_force_registeration_username_password]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_registeration_username_password_proxy_options]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_registeration_username_password_pool]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_registeration_username_password_pool_ids_quantities]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_registeration_username_password_pool_ids]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_registeration_username_password_one_pool_id]
+ERROR test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion[test_attaching_different_pool_ids]
+============================== 13 errors in 0.11s ==============================
+
+--- stderr ---
+

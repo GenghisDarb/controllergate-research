@@ -1,0 +1,33 @@
+{
+  "actions": [
+    {
+      "action": "inspect_allowed_decision_time_inputs",
+      "result": "completed"
+    },
+    {
+      "action": "run_source_discovery",
+      "ranked_files": [
+        "tests/test_jsonable_encoder.py",
+        "fastapi/encoders.py",
+        "fastapi/openapi/models.py",
+        "docs_src/encoder/tutorial001.py",
+        "docs_src/response_directly/tutorial001.py",
+        "docs_src/security/tutorial005.py",
+        "fastapi/routing.py",
+        "docs_src/body_fields/tutorial001.py",
+        "docs_src/body_updates/tutorial001.py",
+        "docs_src/body_updates/tutorial002.py"
+      ]
+    },
+    {
+      "action": "select_repair_heuristic",
+      "heuristic": "localized_keyword_parameter_compatibility_shim"
+    },
+    {
+      "action": "generate_bounded_source_only_patch_candidate",
+      "candidate_generated": true
+    }
+  ],
+  "no_op_or_flatline": false,
+  "patch_candidate_generated": true
+}

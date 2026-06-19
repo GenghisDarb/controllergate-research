@@ -1,65 +1,178 @@
 {
   "records": [
     {
+      "blocker_type": "dependency_missing",
       "candidate": "fastapi:2",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
+      "decision_time_safe_status": "PASS",
+      "declared_dependency_sources": [
+        "pyproject.toml"
+      ],
+      "declared_fixture_sources": [
+        "tests/test_ws_router.py"
+      ],
+      "hashes_of_metadata_used": {
+        "pyproject.toml": "69d605ee83f0702d37d35dd8633cbd8138726a3b494cd3d44ed6d9869c0e8d0c"
+      },
+      "initial_blocker": "ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py::test_router_ws_depends_with_override",
+      "materialization_recovered": true,
+      "materialization_status_after": "materialization_recovered",
+      "materialization_status_before": "blocked_replay_or_materialization_failure",
+      "missing_modules": [
+        "requests"
+      ],
       "project_family": "fastapi",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "aa7b77c576c2134178548b67d3d18be5939c9066809ded2cdb25d5fc07faaac2"
+      "reason_if_not_recovered": "",
+      "recovery_actions_attempted": [
+        "install_requests_testclient_cofactor_from_buggy_checkout_metadata"
+      ],
+      "recovery_actions_forbidden": [
+        "fixed/gold/future evidence",
+        "test modification",
+        "project source edit during materialization"
+      ],
+      "recovery_command_returncode": 0,
+      "repair_allowed_after_recovery": true
     },
     {
+      "blocker_type": "dependency_missing",
       "candidate": "fastapi:3",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
+      "decision_time_safe_status": "PASS",
+      "declared_dependency_sources": [
+        "pyproject.toml"
+      ],
+      "declared_fixture_sources": [
+        "tests/test_serialize_response_model.py"
+      ],
+      "hashes_of_metadata_used": {
+        "pyproject.toml": "5f66985f9c607007fdd8edc593dd4442114b9917f6d31afc9799a4f03a7ef24a"
+      },
+      "initial_blocker": "ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py::test_valid",
+      "materialization_recovered": true,
+      "materialization_status_after": "materialization_recovered",
+      "materialization_status_before": "blocked_replay_or_materialization_failure",
+      "missing_modules": [
+        "requests"
+      ],
       "project_family": "fastapi",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "229fc3a0b46c5babc88abaa77eb298529cf14ae42253765d4758d56e53618994"
+      "reason_if_not_recovered": "",
+      "recovery_actions_attempted": [
+        "install_requests_testclient_cofactor_from_buggy_checkout_metadata"
+      ],
+      "recovery_actions_forbidden": [
+        "fixed/gold/future evidence",
+        "test modification",
+        "project source edit during materialization"
+      ],
+      "recovery_command_returncode": 0,
+      "repair_allowed_after_recovery": true
     },
     {
+      "blocker_type": "dependency_missing",
       "candidate": "fastapi:4",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
+      "decision_time_safe_status": "PASS",
+      "declared_dependency_sources": [
+        "pyproject.toml"
+      ],
+      "declared_fixture_sources": [
+        "tests/test_param_in_path_and_dependency.py"
+      ],
+      "hashes_of_metadata_used": {
+        "pyproject.toml": "4f173d8d5d8db8a2625e7fb478e0a13781f4b86ddaca7f1ed90ff435465e4546"
+      },
+      "initial_blocker": "ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/workspaces/episode_032/fastapi/tests/test_param_in_path_and_dependency.py::test_reused_param",
+      "materialization_recovered": true,
+      "materialization_status_after": "materialization_recovered",
+      "materialization_status_before": "blocked_replay_or_materialization_failure",
+      "missing_modules": [
+        "requests"
+      ],
       "project_family": "fastapi",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "024d063c3fd7e4d034136f24f596537da173844bfeda499a4f9d0d7fc7cfdbb9"
+      "reason_if_not_recovered": "",
+      "recovery_actions_attempted": [
+        "install_requests_testclient_cofactor_from_buggy_checkout_metadata"
+      ],
+      "recovery_actions_forbidden": [
+        "fixed/gold/future evidence",
+        "test modification",
+        "project source edit during materialization"
+      ],
+      "recovery_command_returncode": 0,
+      "repair_allowed_after_recovery": true
     },
     {
+      "blocker_type": "dependency_version_conflict",
       "candidate": "PySnooper:1",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
+      "decision_time_safe_status": "PASS",
+      "declared_dependency_sources": [],
+      "declared_fixture_sources": [
+        "tests/test_chinese.py"
+      ],
+      "hashes_of_metadata_used": {
+        "requirements.txt": "44c91d4c293a45e5efd6e28c304835637cccbdb5de9b88136c03bcfb98376d8d",
+        "setup.py": "3709ade94c4102c08f64fa33e6a95e33b21c17d68af308cdb34f16a75f6d0f6b",
+        "tox.ini": "629866307933434d0f9f691c3007968f4bb35d7024007e89403c80c36bee0c06"
+      },
+      "initial_blocker": "ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py::test_chinese",
+      "materialization_recovered": true,
+      "materialization_status_after": "materialization_recovered_source_repair_surface_reached",
+      "materialization_status_before": "blocked_replay_or_materialization_failure",
+      "missing_modules": [],
       "project_family": "PySnooper",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "449ced43aa3124a94bb190a2a74c3ebc616c29a11bf0a7473c8563bcf91be31f"
+      "reason_if_not_recovered": "",
+      "recovery_actions_attempted": [
+        "classify_python_compatibility_source_surface_after_materialization"
+      ],
+      "recovery_actions_forbidden": [
+        "fixed/gold/future evidence",
+        "test modification",
+        "project source edit during materialization"
+      ],
+      "recovery_command_returncode": null,
+      "repair_allowed_after_recovery": true
     },
     {
+      "blocker_type": "unknown",
       "candidate": "PySnooper:2",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
+      "decision_time_safe_status": "PASS",
+      "declared_dependency_sources": [],
+      "declared_fixture_sources": [],
+      "hashes_of_metadata_used": {},
+      "initial_blocker": "not_attempted_in_v2_10",
+      "materialization_recovered": false,
+      "materialization_status_after": "not_attempted",
+      "materialization_status_before": "not_attempted",
       "project_family": "PySnooper",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "7bdc7cf60f15752c628e6b5227ee0e2238c0d06da3f2f544f33c836540029d26"
+      "reason_if_not_recovered": "candidate retained for context reuse but not selected for v2.10 execution floor",
+      "recovery_actions_attempted": [
+        "not_attempted_context_only"
+      ],
+      "recovery_actions_forbidden": [
+        "source repair before materialization recovery"
+      ],
+      "repair_allowed_after_recovery": false
     },
     {
+      "blocker_type": "unknown",
       "candidate": "fastapi:5",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "materialization_recovered": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_after": "PENDING_GITHUB_ACTIONS",
-      "materialization_status_before": "PENDING_GITHUB_ACTIONS",
+      "decision_time_safe_status": "PASS",
+      "declared_dependency_sources": [],
+      "declared_fixture_sources": [],
+      "hashes_of_metadata_used": {},
+      "initial_blocker": "not_attempted_in_v2_10",
+      "materialization_recovered": false,
+      "materialization_status_after": "not_attempted",
+      "materialization_status_before": "not_attempted",
       "project_family": "fastapi",
-      "repair_allowed_after_recovery": "PENDING_GITHUB_ACTIONS",
-      "v2_9_context_bundle_hash": "73e0b4f9cde6637a30dc2768bed9f46d7a73e316d4cc5ebae27d50132a1fff14"
+      "reason_if_not_recovered": "candidate retained for context reuse but not selected for v2.10 execution floor",
+      "recovery_actions_attempted": [
+        "not_attempted_context_only"
+      ],
+      "recovery_actions_forbidden": [
+        "source repair before materialization recovery"
+      ],
+      "repair_allowed_after_recovery": false
     }
   ],
-  "status": "PENDING_GITHUB_ACTIONS"
+  "source_files_modified_during_materialization": [],
+  "status": "PASS"
 }

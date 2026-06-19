@@ -1035,7 +1035,27 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.10 Materialization Recovery and Topological Repair
 
-- Status: `blocked_pending_v2_10_materialization_recovery_topological_repair_artifact`.
-- v2.10 preserves the v2.9 baseline, reuses v2.9 causal context bundles, and adds bounded dependency/materialization recovery before topology-aware source-only repair.
+- Status: `verified_official_artifact`.
+- Workflow run: `27827139235`.
+- Artifact ID: `7751053097`.
+- Artifact SHA256: `6daecbff8af6e17c2c5709b5e43340dfa4b97e394b8e65afeb776d2f2733bbea`.
+- Internal SHA256SUMS: `2973` checked across `38` manifests, `0` missing, `0` failures, `0` malformed.
+- Tar snapshots excluded from git ingest: `5`; retained in the verified artifact zip.
+- Preserved v2.9 baseline gate: `PASS`; `youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, and `ansible:5` remained scoreable.
+- `ansible:2` and `ansible:5` preserved `positive_memory_only` status.
+- Selected topology/materialization candidates: `fastapi:2`, `fastapi:3`, `fastapi:4`, `PySnooper:1`, `PySnooper:2`, and `fastapi:5`; attempted episodes covered `fastapi:2`, `fastapi:3`, `fastapi:4`, and `PySnooper:1`.
+- Candidate families attempted: `fastapi` and `PySnooper`.
+- Bounded dependency/materialization recovery diagnosed `6` non-Ansible candidates and recovered `4` lanes to a repair-allowed surface: `fastapi:2`, `fastapi:3`, `fastapi:4`, and `PySnooper:1`.
+- Dependency cofactor recovery used declared buggy-checkout evidence only: the FastAPI lanes installed the declared `requests` TestClient cofactor from `pyproject.toml`; no arbitrary undeclared dependency install was recorded.
+- Fixture materialization found no fixed-revision fixture copying and no test modification.
+- v2.9 causal context bundles were reused as decision-time-safe summaries; post-materialization source discovery validated or updated the repair plan.
+- Repair-path taxonomy changed after materialization for the recovered lanes, including FastAPI `validation_guard` paths and a PySnooper `import_compatibility_defect` path.
+- Duplicate clean replay and phase-inversion checks remain supported and passed as `not_applicable` for new evidence because no new v2.10 scoreable source patch was locked.
+- Heterochromatin and silent-scaffolding risk audits passed; all four interlocked isomorphism layers are present with dependency/cofactor materialization added.
+- Executed episodes: `9`; scoreable episodes: `5`; replacement scoreable episodes: `3`; positive memory episodes: `2`.
+- Aggregate result: `replicated_positive_memory_signal_preserved`; no new v2.10 positive-memory-only episode appeared.
+- Repair-outcome memory lift: `replicated_positive_memory_signal_preserved`; selection, stability, and global closure memory lift remain `suggestive`.
+- Family generalization remains `not_expanded`: positive-memory evidence is still `ansible:2` and `ansible:5`, with no non-Ansible positive-memory signal.
+- Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.

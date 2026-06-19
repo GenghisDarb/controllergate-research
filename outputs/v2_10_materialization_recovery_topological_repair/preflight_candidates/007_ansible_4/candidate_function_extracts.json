@@ -1,0 +1,124 @@
+{
+  "extracts": [
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 48,
+      "name": "__init__",
+      "text": "    def __init__(self, play=None, parent_block=None, role=None, task_include=None, use_handlers=False, implicit=False):\n        self._play = play\n        self._role = role\n        self._parent = None\n        self._dep_chain = None\n        self._use_handlers = use_handlers\n        self._implicit = implicit\n\n        # end of role flag\n        self._eor = False\n\n        if task_include:\n            self._parent = task_include\n        elif parent_block:\n            self._parent = parent_block\n\n        super(Block, self).__init__()\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 66,
+      "name": "__repr__",
+      "text": "    def __repr__(self):\n        return \"BLOCK(uuid=%s)(id=%s)(parent=%s)\" % (self._uuid, id(self), self._parent)\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 69,
+      "name": "__eq__",
+      "text": "    def __eq__(self, other):\n        '''object comparison based on _uuid'''\n        return self._uuid == other._uuid\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 73,
+      "name": "__ne__",
+      "text": "    def __ne__(self, other):\n        '''object comparison based on _uuid'''\n        return self._uuid != other._uuid\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 77,
+      "name": "get_vars",
+      "text": "    def get_vars(self):\n        '''\n        Blocks do not store variables directly, however they may be a member\n        of a role or task include which does, so return those if present.\n        '''\n\n        all_vars = self.vars.copy()\n\n        if self._parent:\n            all_vars.update(self._parent.get_vars())\n\n        return all_vars\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 91,
+      "name": "load",
+      "text": "    def load(data, play=None, parent_block=None, role=None, task_include=None, use_handlers=False, variable_manager=None, loader=None):\n        implicit = not Block.is_block(data)\n        b = Block(play=play, parent_block=parent_block, role=role, task_include=task_include, use_handlers=use_handlers, implicit=implicit)\n        return b.load_data(data, variable_manager=variable_manager, loader=loader)\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 97,
+      "name": "is_block",
+      "text": "    def is_block(ds):\n        is_block = False\n        if isinstance(ds, dict):\n            for attr in ('block', 'rescue', 'always'):\n                if attr in ds:\n                    is_block = True\n                    break\n        return is_block\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 106,
+      "name": "preprocess_data",
+      "text": "    def preprocess_data(self, ds):\n        '''\n        If a simple task is given, an implicit block for that single task\n        is created, which goes in the main portion of the block\n        '''\n\n        if not Block.is_block(ds):\n            if isinstance(ds, list):\n                return super(Block, self).preprocess_data(dict(block=ds))\n            else:\n                return super(Block, self).preprocess_data(dict(block=[ds]))\n\n        return super(Block, self).preprocess_data(ds)\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 120,
+      "name": "_load_block",
+      "text": "    def _load_block(self, attr, ds):\n        try:\n            return load_list_of_tasks(\n                ds,\n                play=self._play,\n                block=self,\n                role=self._role,\n                task_include=None,\n                variable_manager=self._variable_manager,\n                loader=self._loader,\n                use_handlers=self._use_handlers,\n            )\n        except AssertionError as e:\n            raise AnsibleParserError(\"A malformed block was encountered while loading a block\", obj=self._ds, orig_exc=e)\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 135,
+      "name": "_load_rescue",
+      "text": "    def _load_rescue(self, attr, ds):\n        try:\n            return load_list_of_tasks(\n                ds,\n                play=self._play,\n                block=self,\n                role=self._role,\n                task_include=None,\n                variable_manager=self._variable_manager,\n                loader=self._loader,\n                use_handlers=self._use_handlers,\n            )\n        except AssertionError as e:\n            raise AnsibleParserError(\"A malformed block was encountered while loading rescue.\", obj=self._ds, orig_exc=e)\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 150,
+      "name": "_load_always",
+      "text": "    def _load_always(self, attr, ds):\n        try:\n            return load_list_of_tasks(\n                ds,\n                play=self._play,\n                block=self,\n                role=self._role,\n                task_include=None,\n                variable_manager=self._variable_manager,\n                loader=self._loader,\n                use_handlers=self._use_handlers,\n            )\n        except AssertionError as e:\n            raise AnsibleParserError(\"A malformed block was encountered while loading always\", obj=self._ds, orig_exc=e)\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 165,
+      "name": "_validate_always",
+      "text": "    def _validate_always(self, attr, name, value):\n        if value and not self.block:\n            raise AnsibleParserError(\"'%s' keyword cannot be used without 'block'\" % name, obj=self._ds)\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 171,
+      "name": "get_dep_chain",
+      "text": "    def get_dep_chain(self):\n        if self._dep_chain is None:\n            if self._parent:\n                return self._parent.get_dep_chain()\n            else:\n                return None\n        else:\n            return self._dep_chain[:]\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 180,
+      "name": "copy",
+      "text": "    def copy(self, exclude_parent=False, exclude_tasks=False):\n        def _dupe_task_list(task_list, new_block):\n            new_task_list = []\n            for task in task_list:\n                new_task = task.copy(exclude_parent=True)\n                if task._parent:\n                    new_task._parent = task._parent.copy(exclude_tasks=True)\n                    if task._parent == new_block:\n                        # If task._parent is the same as new_block, just replace it\n                        new_task._parent = new_block\n                    else:\n                        # task may not be a direct child of new_block, search for the correct place to insert new_block\n                        cur_obj = new_task._parent\n                        while cur_obj._parent and cur_obj._parent != new_block:\n                            cur_obj = cur_obj._parent\n\n                        cur_obj._parent = new_block\n                else:\n                    new_task._parent = new_block\n                new_task_list.append(new_task)\n            return new_task_list\n\n        new_me = super(Block, self).copy()\n        new_me._play = self._play\n        new_me._use_handlers = self._use_handlers\n        new_me._eor = self._eor\n\n        if self._dep_chain is not None:\n            new_me._dep_chain = self._dep_chain[:]\n\n        new_me._parent = None\n        if self._parent and not exclude_parent:\n            new_me._parent = self._parent.copy(exclude_tasks=True)\n\n        if not exclude_tasks:\n            new_me.block = _dupe_task_list(self.block or [], new_me)\n            new_me.rescue = _dupe_task_list(self.rescue or [], new_me)\n            new_me.always = _dupe_task_list(self.always or [], new_me)\n\n        new_me._role = None\n        if self._role:\n            new_me._role = self._role\n\n        new_me.validate()\n        return new_me\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 226,
+      "name": "serialize",
+      "text": "    def serialize(self):\n        '''\n        Override of the default serialize method, since when we're serializing\n        a task we don't want to include the attribute list of tasks.\n        '''\n\n        data = dict()\n        for attr in self._valid_attrs:\n            if attr not in ('block', 'rescue', 'always'):\n                data[attr] = getattr(self, attr)\n\n        data['dep_chain'] = self.get_dep_chain()\n        data['eor'] = self._eor\n\n        if self._role is not None:\n            data['role'] = self._role.serialize()\n        if self._parent is not None:\n            data['parent'] = self._parent.copy(exclude_tasks=True).serialize()\n            data['parent_type'] = self._parent.__class__.__name__\n\n        return data\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 248,
+      "name": "deserialize",
+      "text": "    def deserialize(self, data):\n        '''\n        Override of the default deserialize method, to match the above overridden\n        serialize method\n        '''\n\n        # import is here to avoid import loops\n        from ansible.playbook.task_include import TaskInclude\n        from ansible.playbook.handler_task_include import HandlerTaskInclude\n\n        # we don't want the full set of attributes (the task lists), as that\n        # would lead to a serialize/deserialize loop\n        for attr in self._valid_attrs:\n            if attr in data and attr not in ('block', 'rescue', 'always'):\n                setattr(self, attr, data.get(attr))\n\n        self._dep_chain = data.get('dep_chain', None)\n        self._eor = data.get('eor', False)\n\n        # if there was a serialized role, unpack it too\n        role_data = data.get('role')\n        if role_data:\n            r = Role()\n            r.deserialize(role_data)\n            self._role = r\n\n        parent_data = data.get('parent')\n        if parent_data:\n            parent_type = data.get('parent_type')\n            if parent_type == 'Block':\n                p = Block()\n            elif parent_type == 'TaskInclude':\n                p = TaskInclude()\n            elif parent_type == 'HandlerTaskInclude':\n                p = HandlerTaskInclude()\n            p.deserialize(parent_data)\n            self._parent = p\n            self._dep_chain = self._parent.get_dep_chain()\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 287,
+      "name": "set_loader",
+      "text": "    def set_loader(self, loader):\n        self._loader = loader\n        if self._parent:\n            self._parent.set_loader(loader)\n        elif self._role:\n            self._role.set_loader(loader)\n\n        dep_chain = self.get_dep_chain()\n        if dep_chain:\n            for dep in dep_chain:\n                dep.set_loader(loader)\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 299,
+      "name": "_get_parent_attribute",
+      "text": "    def _get_parent_attribute(self, attr, extend=False, prepend=False):\n        '''\n        Generic logic to get the attribute or parent attribute for a block value.\n        '''\n\n        extend = self._valid_attrs[attr].extend\n        prepend = self._valid_attrs[attr].prepend\n        try:\n            value = self._attributes[attr]\n            # If parent is static, we can grab attrs from the parent\n            # otherwise, defer to the grandparent\n            if getattr(self._parent, 'statically_loaded', True):\n                _parent = self._parent\n            else:\n                _parent = self._parent._parent\n\n            if _parent and (value is Sentinel or extend):\n                try:\n                    if getattr(_parent, 'statically_loaded', True):\n                        if hasattr(_parent, '_get_parent_attribute'):\n                            parent_value = _parent._get_parent_attribute(attr)\n                        else:\n                            parent_value = _parent._attributes.get(attr, Sentinel)\n                        if extend:\n                            value = self._extend_value(value, parent_value, prepend)\n                        else:\n                            value = parent_value\n                except AttributeError:\n                    pass\n            if self._role and (value is Sentinel or extend):\n                try:\n                    parent_value = self._role._attributes.get(attr, Sentinel)\n                    if extend:\n                        value = self._extend_value(value, parent_value, prepend)\n                    else:\n                        value = parent_value\n\n                    dep_chain = self.get_dep_chain()\n                    if dep_chain and (value is Sentinel or extend):\n                        dep_chain.reverse()\n                        for dep in dep_chain:\n                            dep_value = dep._attributes.get(attr, Sentinel)\n                            if extend:\n                                value = self._extend_value(value, dep_value, prepend)\n                            else:\n                                value = dep_value\n\n                            if value is not Sentinel and not extend:\n                                break\n                except AttributeError:\n                    pass\n            if self._play and (value is Sentinel or extend):\n                try:\n                    play_value = self._play._attributes.get(attr, Sentinel)\n                    if play_value is not Sentinel:\n                        if extend:\n                            value = self._extend_value(value, play_value, prepend)\n                        else:\n                            value = play_value\n                except AttributeError:\n                    pass\n        except KeyError:\n            pass\n\n        return value\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 365,
+      "name": "filter_tagged_tasks",
+      "text": "    def filter_tagged_tasks(self, all_vars):\n        '''\n        Creates a new block, with task lists filtered based on the tags.\n        '''\n\n        def evaluate_and_append_task(target):\n            tmp_list = []\n            for task in target:\n                if isinstance(task, Block):\n                    tmp_list.append(evaluate_block(task))\n                elif (task.action == 'meta' or\n                        (task.action == 'include' and task.evaluate_tags([], self._play.skip_tags, all_vars=all_vars)) or\n                        task.evaluate_tags(self._play.only_tags, self._play.skip_tags, all_vars=all_vars)):\n                    tmp_list.append(task)\n            return tmp_list\n\n        def evaluate_block(block):\n            new_block = self.copy(exclude_tasks=True)\n            new_block.block = evaluate_and_append_task(block.block)\n            new_block.rescue = evaluate_and_append_task(block.rescue)\n            new_block.always = evaluate_and_append_task(block.always)\n            return new_block\n\n        return evaluate_block(self)\n"
+    },
+    {
+      "file": "lib/ansible/playbook/block.py",
+      "line": 390,
+      "name": "has_tasks",
+      "text": "    def has_tasks(self):\n        return len(self.block) > 0 or len(self.rescue) > 0 or len(self.always) > 0\n"
+    }
+  ]
+}

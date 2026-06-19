@@ -1,0 +1,25 @@
+$ bash -lc python -m pytest -q -s tests/test_pysnooper.py::test_file_output
+started_at_utc=2026-06-19T13:04:36.988867+00:00
+finished_at_utc=2026-06-19T13:04:37.316516+00:00
+returncode=4
+timed_out=False
+--- stdout ---
+
+==================================== ERRORS ====================================
+___________________ ERROR collecting tests/test_pysnooper.py ___________________
+ImportError while importing test module '/home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/003_PySnooper_3/PySnooper/tests/test_pysnooper.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_pysnooper.py:8: in <module>
+    from python_toolbox import caching
+E   ModuleNotFoundError: No module named 'python_toolbox'
+=========================== short test summary info ============================
+ERROR tests/test_pysnooper.py
+1 error in 0.03s
+
+--- stderr ---
+ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_10_bugsinpy_runtime/preflight_workspaces/003_PySnooper_3/PySnooper/tests/test_pysnooper.py::test_file_output
+
+

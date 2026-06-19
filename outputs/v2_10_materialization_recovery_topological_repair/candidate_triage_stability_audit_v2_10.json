@@ -1,3 +1,66 @@
 {
-  "status": "PENDING_GITHUB_ACTIONS"
+  "base_top_candidates": [
+    "ansible:1",
+    "ansible:10",
+    "ansible:12",
+    "ansible:13",
+    "ansible:4"
+  ],
+  "gate_topology_dependence_confirmed": true,
+  "materialization_recovery_triage_added": true,
+  "memory_enabled_top_candidates": [
+    "ansible:8",
+    "ansible:1",
+    "ansible:10",
+    "ansible:12",
+    "ansible:13"
+  ],
+  "permutation_null_top_candidates": [
+    "ansible:8",
+    "ansible:1",
+    "ansible:10",
+    "ansible:12",
+    "ansible:13"
+  ],
+  "perturbed_top_candidates": [
+    "ansible:8",
+    "ansible:1",
+    "ansible:10",
+    "ansible:12",
+    "ansible:13"
+  ],
+  "phase_null_results": [
+    {
+      "expected": "FAIL",
+      "null": "non_ansible_repairability_before_v2_8v_baseline_gate",
+      "observed": "FAIL"
+    },
+    {
+      "expected": "FAIL",
+      "null": "no_memory_reads_repair_memory_ledger",
+      "observed": "FAIL"
+    },
+    {
+      "expected": "FAIL",
+      "null": "artifact_acceptance_without_sha_verification",
+      "observed": "FAIL"
+    },
+    {
+      "expected": "FAIL",
+      "null": "patch_generation_before_source_discovery",
+      "observed": "FAIL"
+    }
+  ],
+  "queue_bias_detected": false,
+  "ranking_stability_score": 1.0,
+  "selected_repair_candidates_after_stability_audit": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1",
+    "PySnooper:2",
+    "fastapi:5"
+  ],
+  "status": "PASS",
+  "topological_triage_added": true
 }
