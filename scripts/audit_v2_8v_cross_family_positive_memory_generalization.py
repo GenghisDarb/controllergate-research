@@ -314,15 +314,27 @@ def main() -> int:
                 errors.append(f"local v2.8v {item_name} must be pending")
     else:
         records = decision.get("records", [])
-        by_candidate = {record.get("candidate"): record for record in records}
+        by_candidate: dict[str, list[dict[str, Any]]] = {}
+        for record in records:
+            by_candidate.setdefault(str(record.get("candidate")), []).append(record)
+
+        def has_scoreable_record(candidate: str) -> bool:
+            return any(record.get("scoreable") is True for record in by_candidate.get(candidate, []))
+
+        def has_scoreable_positive_record(candidate: str) -> bool:
+            return any(
+                record.get("scoreable") is True and record.get("classification") == "positive_memory_only"
+                for record in by_candidate.get(candidate, [])
+            )
+
         if baseline_gate.get("status") != "PASS":
             errors.append("executed v2.8v preserved v2.8u baseline gate must pass")
         for candidate in ["youtube-dl:1", "black:4", "fastapi:1", "ansible:2", "ansible:5"]:
-            if by_candidate.get(candidate, {}).get("scoreable") is not True:
+            if not has_scoreable_record(candidate):
                 errors.append(f"executed v2.8v must preserve {candidate} as scoreable")
-        if by_candidate.get("ansible:2", {}).get("classification") != "positive_memory_only" or baseline_gate.get("ansible2_positive_memory_only_status_preserved") is not True:
+        if not has_scoreable_positive_record("ansible:2") or baseline_gate.get("ansible2_positive_memory_only_status_preserved") is not True:
             errors.append("executed v2.8v must preserve ansible:2 positive_memory_only status")
-        if by_candidate.get("ansible:5", {}).get("classification") != "positive_memory_only" or baseline_gate.get("ansible5_positive_memory_only_status_preserved") is not True:
+        if not has_scoreable_positive_record("ansible:5") or baseline_gate.get("ansible5_positive_memory_only_status_preserved") is not True:
             errors.append("executed v2.8v must preserve ansible:5 positive_memory_only status")
         if harness.get("status") != "PASS":
             errors.append("executed v2.8v harness sanity must pass")

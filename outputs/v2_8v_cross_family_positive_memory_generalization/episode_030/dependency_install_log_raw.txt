@@ -1,0 +1,48 @@
+$ bash -lc cd /home/runner/work/controllergate-research/controllergate-research/_v2_8v_bugsinpy_runtime/workspaces/episode_030/fastapi && for f in requirements.txt requirements-dev.txt test-requirements.txt dev-requirements.txt; do if [ -f "$f" ]; then python -m pip install -r "$f" || true; fi; done && python -m pip install -e . && python -m pip install pytest
+started_at_utc=2026-06-18T21:09:14.579476+00:00
+finished_at_utc=2026-06-18T21:09:17.806110+00:00
+returncode=0
+timed_out=False
+--- stdout ---
+Obtaining file:///home/runner/work/controllergate-research/controllergate-research/_v2_8v_bugsinpy_runtime/workspaces/episode_030/fastapi
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting starlette==0.13.2 (from fastapi==0.53.2)
+  Using cached starlette-0.13.2-py3-none-any.whl.metadata (6.7 kB)
+Requirement already satisfied: pydantic<2.0.0,>=0.32.2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from fastapi==0.53.2) (1.10.26)
+Requirement already satisfied: typing-extensions>=4.2.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pydantic<2.0.0,>=0.32.2->fastapi==0.53.2) (4.15.0)
+Using cached starlette-0.13.2-py3-none-any.whl (59 kB)
+Building wheels for collected packages: fastapi
+  Building editable for fastapi (pyproject.toml): started
+  Building editable for fastapi (pyproject.toml): finished with status 'done'
+  Created wheel for fastapi: filename=fastapi-0.53.2-py3-none-any.whl size=8619 sha256=13165d8bb291c1d6054df9c411e21237a2c9418aaa7943be3a2903f152d7cb77
+  Stored in directory: /tmp/pip-ephem-wheel-cache-7raw1zt9/wheels/6b/42/9c/d7046dc6f8f147cceb9c1a51e8ed57de9ce4dff816d9d79175
+Successfully built fastapi
+Installing collected packages: starlette, fastapi
+  Attempting uninstall: starlette
+    Found existing installation: starlette 0.12.9
+    Uninstalling starlette-0.12.9:
+      Successfully uninstalled starlette-0.12.9
+  Attempting uninstall: fastapi
+    Found existing installation: fastapi 0.44.0
+    Uninstalling fastapi-0.44.0:
+      Successfully uninstalled fastapi-0.44.0
+
+Successfully installed fastapi-0.53.2 starlette-0.13.2
+Requirement already satisfied: pytest in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (9.1.0)
+Requirement already satisfied: exceptiongroup>=1 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (1.3.1)
+Requirement already satisfied: iniconfig>=1.0.1 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (2.3.0)
+Requirement already satisfied: packaging>=22 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (26.2)
+Requirement already satisfied: pluggy<2,>=1.5 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (2.20.0)
+Requirement already satisfied: tomli>=1 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (2.4.1)
+Requirement already satisfied: typing-extensions>=4.6.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from exceptiongroup>=1->pytest) (4.15.0)
+
+--- stderr ---
+

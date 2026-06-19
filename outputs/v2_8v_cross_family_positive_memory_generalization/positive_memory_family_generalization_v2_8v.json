@@ -1,15 +1,28 @@
 {
-  "ansible_positive_memory_count": 0,
-  "candidate_families_attempted": [],
-  "candidate_families_preflight_eligible": [],
-  "cross_family_positive_memory_signal_suggestive": "PENDING_GITHUB_ACTIONS",
-  "cross_project_memory_signal": "PENDING_GITHUB_ACTIONS",
-  "family_generalization": "PENDING_GITHUB_ACTIONS",
-  "family_limited_signal": "PENDING_GITHUB_ACTIONS",
-  "interpretation": "PENDING_GITHUB_ACTIONS",
+  "ansible_positive_memory_count": 2,
+  "candidate_families_attempted": [
+    "ansible",
+    "fastapi"
+  ],
+  "candidate_families_preflight_eligible": [
+    "PySnooper",
+    "ansible",
+    "fastapi"
+  ],
+  "cross_family_positive_memory_signal_suggestive": false,
+  "cross_project_memory_signal": false,
+  "family_generalization": "not_expanded",
+  "family_limited_signal": false,
+  "interpretation": "replicated_positive_memory_signal_preserved",
   "non_ansible_positive_memory_count": 0,
-  "positive_memory_only_candidates": [],
-  "project_family_counts": {},
-  "status": "PENDING_GITHUB_ACTIONS",
-  "total_positive_memory_only_episodes": 0
+  "positive_memory_only_candidates": [
+    "ansible:2",
+    "ansible:5"
+  ],
+  "project_family_counts": {
+    "ansible": 2
+  },
+  "replicated_positive_memory_signal_family_limited": true,
+  "status": "PASS",
+  "total_positive_memory_only_episodes": 2
 }

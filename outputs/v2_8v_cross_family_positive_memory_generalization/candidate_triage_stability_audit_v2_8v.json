@@ -1,6 +1,64 @@
 {
+  "base_top_candidates": [
+    "fastapi:1",
+    "ansible:1",
+    "ansible:10",
+    "ansible:12",
+    "ansible:13"
+  ],
   "gate_topology_dependence_confirmed": true,
+  "memory_enabled_top_candidates": [
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5",
+    "ansible:8",
+    "ansible:1"
+  ],
+  "permutation_null_top_candidates": [
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5",
+    "ansible:8",
+    "ansible:1"
+  ],
+  "perturbed_top_candidates": [
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5",
+    "ansible:8",
+    "ansible:1"
+  ],
+  "phase_null_results": [
+    {
+      "expected": "FAIL",
+      "null": "cross_family_generalization_before_v2_8u_baseline_gate",
+      "observed": "FAIL"
+    },
+    {
+      "expected": "FAIL",
+      "null": "no_memory_reads_repair_memory_ledger",
+      "observed": "FAIL"
+    },
+    {
+      "expected": "FAIL",
+      "null": "artifact_acceptance_without_sha_verification",
+      "observed": "FAIL"
+    },
+    {
+      "expected": "FAIL",
+      "null": "patch_generation_before_source_discovery",
+      "observed": "FAIL"
+    }
+  ],
   "queue_bias_detected": false,
   "ranking_stability_score": 1.0,
-  "status": "PENDING_GITHUB_ACTIONS"
+  "selected_repair_candidates_after_stability_audit": [
+    "fastapi:1",
+    "fastapi:2",
+    "ansible:2",
+    "ansible:5",
+    "fastapi:3",
+    "fastapi:4"
+  ],
+  "status": "PASS"
 }

@@ -1,0 +1,32 @@
+{
+  "bug_id": "1",
+  "candidate": "fastapi:1",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "episode_006",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:1",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "tests/test_jsonable_encoder.py"
+  ],
+  "normalized_direct_command": "python -m pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+  "project": "fastapi",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_encode_model_with_default",
+    "test_encode_model_with_default",
+    "test_jsonable_encoder"
+  ],
+  "target_test_file": "tests/test_jsonable_encoder.py",
+  "v2_8p_role": "preserved_v2_8u_baseline_gate",
+  "v2_8v_baseline_anchor": true,
+  "v2_8v_role": "preserved_v2_8u_baseline_gate"
+}

@@ -1,0 +1,36 @@
+{
+  "bug_id": "2",
+  "candidate": "fastapi:2",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest tests/test_ws_router.py::test_router_ws_depends_with_override",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "episode_031",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:2",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "tests/test_ws_router.py"
+  ],
+  "normalized_direct_command": "python -m pytest tests/test_ws_router.py::test_router_ws_depends_with_override",
+  "project": "fastapi",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_router_ws_depends_with_override",
+    "test_router_ws_depends_with_override",
+    "test_ws_router"
+  ],
+  "target_test_file": "tests/test_ws_router.py",
+  "v2_8p_role": "broad_preflight_candidate",
+  "v2_8v_candidate_family": "fastapi",
+  "v2_8v_cross_family_candidate_rank": 2,
+  "v2_8v_memory_enabled_accesses_repair_memory": true,
+  "v2_8v_no_memory_accesses_repair_memory": false,
+  "v2_8v_preflight_passed": false,
+  "v2_8v_role": "cross_family_generalization_candidate"
+}

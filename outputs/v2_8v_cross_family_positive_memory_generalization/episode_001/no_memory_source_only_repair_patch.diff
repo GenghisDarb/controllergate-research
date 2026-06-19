@@ -1,0 +1,13 @@
+--- youtube_dl/utils.py
++++ youtube_dl/utils.py
+@@ -2574,8 +2574,8 @@
+         return op(actual_value, comparison_value)
+ 
+     UNARY_OPERATORS = {
+-        '': lambda v: v is not None,
+-        '!': lambda v: v is None,
++        '': lambda v: v is not None and v is not False,
++        '!': lambda v: v is None or v is False,
+     }
+     operator_rex = re.compile(r'''(?x)\s*
+         (?P<op>%s)\s*(?P<key>[a-z_]+)

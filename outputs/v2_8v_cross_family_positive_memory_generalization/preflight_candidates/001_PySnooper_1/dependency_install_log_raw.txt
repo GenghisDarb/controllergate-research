@@ -1,0 +1,34 @@
+$ bash -lc cd /home/runner/work/controllergate-research/controllergate-research/_v2_8v_bugsinpy_runtime/preflight_workspaces/001_PySnooper_1/PySnooper && for f in requirements.txt requirements-dev.txt test-requirements.txt dev-requirements.txt; do if [ -f "$f" ]; then python -m pip install -r "$f" || true; fi; done && python -m pip install -e . && python -m pip install pytest
+started_at_utc=2026-06-18T20:42:54.506886+00:00
+finished_at_utc=2026-06-18T20:42:57.388206+00:00
+returncode=0
+timed_out=False
+--- stdout ---
+Obtaining file:///home/runner/work/controllergate-research/controllergate-research/_v2_8v_bugsinpy_runtime/preflight_workspaces/001_PySnooper_1/PySnooper
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: PySnooper
+  Building editable for PySnooper (pyproject.toml): started
+  Building editable for PySnooper (pyproject.toml): finished with status 'done'
+  Created wheel for PySnooper: filename=pysnooper-0.0.38-0.editable-py3-none-any.whl size=7136 sha256=b4c58e6c9636ed0c504ea5ec3389ab468698a84b13d3698a7149d8e1eb64d924
+  Stored in directory: /tmp/pip-ephem-wheel-cache-z6q98268/wheels/52/7d/23/4e7f0472510c8bb28dcaa3725770b87761a02a78766ffc8ba9
+Successfully built PySnooper
+Installing collected packages: PySnooper
+Successfully installed PySnooper-0.0.38
+Requirement already satisfied: pytest in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (9.1.0)
+Requirement already satisfied: exceptiongroup>=1 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (1.3.1)
+Requirement already satisfied: iniconfig>=1.0.1 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (2.3.0)
+Requirement already satisfied: packaging>=22 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (26.2)
+Requirement already satisfied: pluggy<2,>=1.5 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (2.20.0)
+Requirement already satisfied: tomli>=1 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from pytest) (2.4.1)
+Requirement already satisfied: typing-extensions>=4.6.0 in /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages (from exceptiongroup>=1->pytest) (4.15.0)
+
+--- stderr ---
+

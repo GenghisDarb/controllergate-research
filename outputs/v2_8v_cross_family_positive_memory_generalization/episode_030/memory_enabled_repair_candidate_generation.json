@@ -1,0 +1,23 @@
+{
+  "blocked_reason": "blocked_no_safe_patch_candidate_generated",
+  "candidate": "fastapi:1",
+  "candidate_generated": false,
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "heuristic_family": "no_registered_non_memory_generic_heuristic",
+  "label_leakage_detected": false,
+  "memory_enabled_path": true,
+  "reason": "memory-enabled arm found no bounded source-only RepairMemory heuristic for this cross-family candidate",
+  "source_discovery_ranked_files": [
+    "tests/test_jsonable_encoder.py",
+    "fastapi/encoders.py",
+    "fastapi/openapi/models.py",
+    "docs_src/encoder/tutorial001.py",
+    "docs_src/response_directly/tutorial001.py",
+    "docs_src/security/tutorial005.py",
+    "fastapi/routing.py",
+    "docs_src/body_fields/tutorial001.py",
+    "docs_src/body_updates/tutorial001.py",
+    "docs_src/body_updates/tutorial002.py"
+  ]
+}

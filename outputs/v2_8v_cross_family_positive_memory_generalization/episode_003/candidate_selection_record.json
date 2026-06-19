@@ -1,0 +1,27 @@
+{
+  "bug_id": "4",
+  "candidate": "black:4",
+  "dependency_hints": [
+    "click"
+  ],
+  "direct_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+  "episode_id": "episode_003",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: black:4",
+  "materialization_required_files": [
+    "tests/test_black.py",
+    "tests/data/beginning_backslash.py"
+  ],
+  "project": "black",
+  "required_markers": [
+    "AssertionError",
+    "BlackTestCase",
+    "BlackTestCase.test_beginning_backslash",
+    "FAIL: test_beginning_backslash",
+    "test_beginning_backslash",
+    "test_black"
+  ],
+  "target_test_file": "tests/test_black.py",
+  "v2_8p_role": "preserved_scoreable_reference_gate",
+  "v2_8v_baseline_anchor": true,
+  "v2_8v_role": "preserved_v2_8u_baseline_gate"
+}

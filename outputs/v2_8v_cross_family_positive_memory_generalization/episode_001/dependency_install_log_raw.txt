@@ -1,0 +1,26 @@
+$ bash -lc cd /home/runner/work/controllergate-research/controllergate-research/_v2_8v_bugsinpy_runtime/workspaces/episode_001/youtube-dl && for f in requirements.txt requirements-dev.txt test-requirements.txt dev-requirements.txt; do if [ -f "$f" ]; then python -m pip install -r "$f" || true; fi; done && python -m pip install -e .
+started_at_utc=2026-06-18T20:37:58.031267+00:00
+finished_at_utc=2026-06-18T20:38:00.413070+00:00
+returncode=0
+timed_out=False
+--- stdout ---
+Obtaining file:///home/runner/work/controllergate-research/controllergate-research/_v2_8v_bugsinpy_runtime/workspaces/episode_001/youtube-dl
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: youtube_dl
+  Building editable for youtube_dl (pyproject.toml): started
+  Building editable for youtube_dl (pyproject.toml): finished with status 'done'
+  Created wheel for youtube_dl: filename=youtube_dl-2018.4.16-0.editable-py2.py3-none-any.whl size=6688 sha256=d86425829d2219e2be25a47b432d5ac6df5b2be829386de7f2ddb3051af3eb85
+  Stored in directory: /tmp/pip-ephem-wheel-cache-krh8ke0g/wheels/78/ec/f2/8edec9334ca4ada2c55d5f344996fa24892db78a415d664574
+Successfully built youtube_dl
+Installing collected packages: youtube_dl
+Successfully installed youtube_dl-2018.4.16
+
+--- stderr ---
+

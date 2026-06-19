@@ -5,16 +5,30 @@
     "localized exception edge-case handling",
     "path/string normalization",
     "compatibility shim",
+    "small import or attribute compatibility fix when directly supported by failure context",
     "localized parser guard",
-    "localized validation guard"
+    "localized validation guard",
+    "small mapping/dictionary key normalization",
+    "small type coercion only when failing log directly supports it"
   ],
+  "cross_family_scope": "Use broader bounded source-only heuristics for non-Ansible probes only when the current failing context directly supports the patch.",
+  "decision_time_safe_only": true,
+  "fixed_or_gold_patch_used": false,
   "forbidden_heuristic_expansion_classes": [
     "broad architecture refactor",
     "dependency replacement",
     "whole-formatter rewrite",
     "broad AST rewrite",
-    "fixed/gold/future-derived heuristic",
-    "test modification"
+    "multi-file behavior change unless source discovery proves locality and patch remains bounded",
+    "any heuristic derived from fixed/gold/future evidence",
+    "any test modification as repair"
   ],
-  "status": "PENDING_GITHUB_ACTIONS"
+  "future_outcome_evidence_used": false,
+  "status": "PASS",
+  "tests_may_be_modified": false,
+  "v2_8u_blocked_lanes_addressed": [
+    "ansible:4",
+    "ansible:12",
+    "ansible:13"
+  ]
 }

@@ -1,0 +1,23 @@
+{
+  "blocked_reason": "blocked_no_safe_patch_candidate_generated",
+  "candidate": "ansible:2",
+  "candidate_generated": false,
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "heuristic_family": "no_registered_non_memory_generic_heuristic",
+  "label_leakage_detected": false,
+  "memory_enabled_path": false,
+  "reason": "no-memory arm intentionally excludes RepairMemory-only v2.8q/v2.8r/v2.8s/v2.8t/v2.8u stress history and has no bounded generic source-only heuristic for this candidate",
+  "source_discovery_ranked_files": [
+    "lib/ansible/utils/version.py",
+    "lib/ansible/galaxy/collection.py",
+    "hacking/build_library/build_ansible/command_plugins/dump_keywords.py",
+    "hacking/build_library/build_ansible/command_plugins/plugin_formatter.py",
+    "hacking/build_library/build_ansible/command_plugins/release_announcement.py",
+    "hacking/metadata-tool.py",
+    "lib/ansible/executor/interpreter_discovery.py",
+    "lib/ansible/executor/powershell/module_manifest.py",
+    "lib/ansible/galaxy/role.py",
+    "lib/ansible/module_utils/facts/system/service_mgr.py"
+  ]
+}
