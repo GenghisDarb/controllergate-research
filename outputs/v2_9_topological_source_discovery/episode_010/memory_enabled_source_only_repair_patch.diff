@@ -1,0 +1,20 @@
+--- lib/ansible/utils/version.py
++++ lib/ansible/utils/version.py
+@@ -73,7 +73,7 @@
+         raise ValueError
+ 
+     def __gt__(self, other):
+-        return not self.__lt__(other)
++        return not self.__lt__(other) and not self.__eq__(other)
+ 
+     def __le__(self, other):
+         return self.__lt__(other) or self.__eq__(other)
+@@ -116,7 +116,7 @@
+         raise ValueError
+ 
+     def __gt__(self, other):
+-        return not self.__lt__(other)
++        return not self.__lt__(other) and not self.__eq__(other)
+ 
+     def __le__(self, other):
+         return self.__lt__(other) or self.__eq__(other)

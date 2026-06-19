@@ -1,0 +1,47 @@
+{
+  "candidate": "ansible:2",
+  "candidate_generated": true,
+  "changed_lines": 2,
+  "diff": "--- lib/ansible/utils/version.py\n+++ lib/ansible/utils/version.py\n@@ -73,7 +73,7 @@\n         raise ValueError\n \n     def __gt__(self, other):\n-        return not self.__lt__(other)\n+        return not self.__lt__(other) and not self.__eq__(other)\n \n     def __le__(self, other):\n         return self.__lt__(other) or self.__eq__(other)\n@@ -116,7 +116,7 @@\n         raise ValueError\n \n     def __gt__(self, other):\n-        return not self.__lt__(other)\n+        return not self.__lt__(other) and not self.__eq__(other)\n \n     def __le__(self, other):\n         return self.__lt__(other) or self.__eq__(other)\n",
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "heuristic_family": "localized_comparison_operator_equality_guard",
+  "label_leakage_detected": false,
+  "memory_enabled_path": true,
+  "reason": "Made strict greater-than false when the operands are equal, matching the failing comparison assertion.",
+  "repair_memory_sources": [
+    "v2.8s official ansible:2 positive-memory lane policy",
+    "v2.8t official ansible:5 positive-memory replication lane policy",
+    "v2.8u official preserved replicated positive-memory signal",
+    "v2.8v official cross-family materialization/generalization ledger",
+    "v2.8q candidate triage records",
+    "v2.8r/v2.8s/v2.8t/v2.8u/v2.8v chromatin-state records"
+  ],
+  "repair_memory_used": true,
+  "source_discovery_ranked_files": [
+    "lib/ansible/utils/version.py",
+    "lib/ansible/galaxy/collection.py",
+    "hacking/build_library/build_ansible/command_plugins/dump_keywords.py",
+    "hacking/build_library/build_ansible/command_plugins/plugin_formatter.py",
+    "hacking/build_library/build_ansible/command_plugins/release_announcement.py",
+    "hacking/metadata-tool.py",
+    "lib/ansible/executor/interpreter_discovery.py",
+    "lib/ansible/executor/powershell/module_manifest.py",
+    "lib/ansible/galaxy/role.py",
+    "lib/ansible/module_utils/facts/system/service_mgr.py"
+  ],
+  "source_only_patch_safety_check": {
+    "changed_file_count": 1,
+    "changed_files": [
+      "lib/ansible/utils/version.py"
+    ],
+    "changed_lines": 2,
+    "modifies_tests": false,
+    "source_only_repair_patch": true,
+    "uses_fixed_revision": false,
+    "uses_future_outcome_evidence": false,
+    "uses_gold_patch": false,
+    "within_changed_line_budget": true,
+    "workspace": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/repair_paths/episode_010/memory_enabled"
+  }
+}

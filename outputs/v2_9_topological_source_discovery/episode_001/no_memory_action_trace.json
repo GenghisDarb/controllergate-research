@@ -1,0 +1,37 @@
+{
+  "actions": [
+    {
+      "action": "inspect_allowed_decision_time_inputs",
+      "result": "completed"
+    },
+    {
+      "action": "run_source_discovery",
+      "ranked_files": [
+        "test/test_utils.py",
+        "youtube_dl/utils.py",
+        "youtube_dl/extractor/common.py",
+        "youtube_dl/YoutubeDL.py",
+        "youtube_dl/extractor/youtube.py",
+        "youtube_dl/compat.py",
+        "youtube_dl/extractor/brightcove.py",
+        "youtube_dl/extractor/generic.py",
+        "test/helper.py",
+        "youtube_dl/extractor/niconico.py"
+      ]
+    },
+    {
+      "action": "select_repair_heuristic",
+      "heuristic": "boolean_value_matching_failure"
+    },
+    {
+      "action": "generate_bounded_source_only_patch_candidate",
+      "candidate_generated": true
+    },
+    {
+      "action": "full_source_unary_operator_region_search",
+      "result": "completed"
+    }
+  ],
+  "no_op_or_flatline": false,
+  "patch_candidate_generated": true
+}

@@ -1,0 +1,15 @@
+{
+  "candidate": "fastapi:2",
+  "command_changed_from": "pytest target command when present",
+  "command_changed_to": "python -m pytest target command when present",
+  "decision_time_safe": true,
+  "detected_tension_type": "dependency_import_missing",
+  "environment_vars_changed": [],
+  "files_modified_by_relief": [],
+  "initial_materialization_status": "source_discovery_blocked",
+  "materialization_after_relief": "dependency_or_fixture_blocked",
+  "reason_if_not_allowed": "missing dependency discovered in buggy checkout traceback; no source repair allowed until declared dependency relief is explicit",
+  "relief_action_attempted": "record_missing_dependency_as_materialization_blocker",
+  "repair_allowed_after_relief": false,
+  "reversible": true
+}

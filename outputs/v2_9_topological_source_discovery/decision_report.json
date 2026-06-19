@@ -1,5 +1,91 @@
 {
-  "classification_vocabulary": [],
-  "pending_until_linux_workflow_artifact": true,
-  "records": []
+  "classification_vocabulary": [
+    "blocked_no_safe_patch_candidate_generated",
+    "blocked_patch_did_not_apply",
+    "blocked_replay_or_materialization_failure",
+    "blocked_target_test_failed",
+    "candidate_retired_until_new_evidence",
+    "failed_both",
+    "inconclusive_equal_performance",
+    "invalid_for_scoring_checkpoint_order_failure",
+    "materialization_recovered_but_no_safe_repair_path",
+    "no_memory_only",
+    "positive_memory_only",
+    "runner_regression_preserved_reference_failure",
+    "runner_regression_v2_8v_baseline_failure"
+  ],
+  "records": [
+    {
+      "candidate": "youtube-dl:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_001",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "black:4",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_003",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "fastapi:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_006",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:2",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_010",
+      "memory_enabled_outperformed_no_memory": true,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:5",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_020",
+      "memory_enabled_outperformed_no_memory": true,
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "fastapi:2",
+      "classification": "blocked_replay_or_materialization_failure",
+      "episode_id": "episode_030",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": false,
+      "scoreable": false
+    },
+    {
+      "candidate": "fastapi:3",
+      "classification": "blocked_replay_or_materialization_failure",
+      "episode_id": "episode_031",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": false,
+      "scoreable": false
+    },
+    {
+      "candidate": "fastapi:4",
+      "classification": "blocked_replay_or_materialization_failure",
+      "episode_id": "episode_032",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": false,
+      "scoreable": false
+    },
+    {
+      "candidate": "PySnooper:1",
+      "classification": "blocked_replay_or_materialization_failure",
+      "episode_id": "episode_033",
+      "memory_enabled_outperformed_no_memory": false,
+      "pre_repair_replay_gate_passed": false,
+      "scoreable": false
+    }
+  ]
 }

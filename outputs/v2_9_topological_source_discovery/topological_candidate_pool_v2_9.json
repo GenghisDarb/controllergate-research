@@ -1,5 +1,6 @@
 {
-  "decision_time_safety_check": "PENDING_GITHUB_ACTIONS",
+  "ansible_candidates": [],
+  "decision_time_safety_check": "PASS",
   "full_candidate_pool": [
     "fastapi:2",
     "fastapi:3",
@@ -8,6 +9,30 @@
     "PySnooper:2",
     "fastapi:5"
   ],
+  "heterochromatin_risk_by_candidate": {
+    "PySnooper:1": "medium",
+    "PySnooper:2": "medium",
+    "fastapi:2": "high",
+    "fastapi:3": "high",
+    "fastapi:4": "high",
+    "fastapi:5": "high"
+  },
+  "materialization_status_after_tension_relief": {
+    "PySnooper:1": "materialization_blocked",
+    "PySnooper:2": "materialization_blocked",
+    "fastapi:2": "dependency_or_fixture_blocked",
+    "fastapi:3": "dependency_or_fixture_blocked",
+    "fastapi:4": "dependency_or_fixture_blocked",
+    "fastapi:5": "dependency_or_fixture_blocked"
+  },
+  "materialization_status_before_tension_relief": {
+    "PySnooper:1": "source_discovery_or_materialization_blocked",
+    "PySnooper:2": "source_discovery_or_materialization_blocked",
+    "fastapi:2": "source_discovery_or_materialization_blocked",
+    "fastapi:3": "source_discovery_or_materialization_blocked",
+    "fastapi:4": "source_discovery_or_materialization_blocked",
+    "fastapi:5": "source_discovery_or_materialization_blocked"
+  },
   "non_ansible_candidates": [
     "fastapi:2",
     "fastapi:3",
@@ -24,5 +49,39 @@
     "PySnooper:2",
     "fastapi:5"
   ],
-  "status": "PENDING_GITHUB_ACTIONS"
+  "senescence_status_by_candidate": {
+    "PySnooper:1": "active",
+    "PySnooper:2": "active",
+    "fastapi:2": "active",
+    "fastapi:3": "active",
+    "fastapi:4": "active",
+    "fastapi:5": "active"
+  },
+  "source_discovery_status_after_loop_extrusion": {
+    "PySnooper:1": "source_discovery_blocked_to_contextualized",
+    "PySnooper:2": "source_discovery_blocked_to_contextualized",
+    "fastapi:2": "source_discovery_blocked_to_contextualized",
+    "fastapi:3": "source_discovery_blocked_to_contextualized",
+    "fastapi:4": "source_discovery_blocked_to_contextualized",
+    "fastapi:5": "source_discovery_blocked_to_contextualized"
+  },
+  "source_discovery_status_before_loop_extrusion": {
+    "PySnooper:1": "source_discovery_blocked",
+    "PySnooper:2": "source_discovery_blocked",
+    "fastapi:2": "source_discovery_blocked",
+    "fastapi:3": "source_discovery_blocked",
+    "fastapi:4": "source_discovery_blocked",
+    "fastapi:5": "source_discovery_blocked"
+  },
+  "status": "PASS",
+  "topology_aware_repair_path_by_candidate": {
+    "PySnooper:1": "localized_exception_edge_case",
+    "PySnooper:2": "localized_exception_edge_case",
+    "fastapi:2": "dependency_environment_defect",
+    "fastapi:3": "dependency_environment_defect",
+    "fastapi:4": "dependency_environment_defect",
+    "fastapi:5": "dependency_environment_defect"
+  },
+  "why_each_selected_candidate_was_chosen": "Prior v2.8w non-Ansible source-discovery/materialization blockers with high cross-family information gain.",
+  "why_rejected_non_ansible_candidates_were_rejected": "Deferred when lower information gain or already blocked behind the selected dependency/source-discovery topology."
 }

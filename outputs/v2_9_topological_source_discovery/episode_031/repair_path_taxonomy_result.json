@@ -1,0 +1,38 @@
+{
+  "candidate": "fastapi:3",
+  "confidence": "medium",
+  "eligible_heuristics": [],
+  "evidence_supporting_repair_path": {
+    "causal_context_bundle_hash": "229fc3a0b46c5babc88abaa77eb298529cf14ae42253765d4758d56e53618994",
+    "extruded_context_files": [
+      "tests/test_serialize_response_model.py",
+      "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+      "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+    ],
+    "extruded_symbols": [
+      "starlette.testclient.TestClient",
+      "TestClient",
+      "requests"
+    ],
+    "missing_modules": [
+      "requests"
+    ]
+  },
+  "failure_signature": [
+    ""
+  ],
+  "flat_traceback_repair_path": "validation_guard",
+  "forbidden_heuristics": [
+    "test modification",
+    "fixed/gold patch",
+    "broad source rewrite",
+    "dependency replacement"
+  ],
+  "project_family": "fastapi",
+  "topology_aware_repair_path": "dependency_environment_defect",
+  "whether_loop_extrusion_changed_repair_path_selection": true,
+  "whether_memory_changed_repair_path_selection": false,
+  "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false,
+  "whether_selected_repair_path_used_only_decision_time_safe_evidence": true
+}

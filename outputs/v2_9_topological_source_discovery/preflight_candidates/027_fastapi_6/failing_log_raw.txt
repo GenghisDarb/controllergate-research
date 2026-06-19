@@ -1,0 +1,32 @@
+$ bash -lc python -m pytest tests/test_forms_from_non_typing_sequences.py::test_python_list_param_as_form && python -m pytest tests/test_forms_from_non_typing_sequences.py::test_python_set_param_as_form && python -m pytest tests/test_forms_from_non_typing_sequences.py::test_python_tuple_param_as_form
+started_at_utc=2026-06-19T06:51:33.379232+00:00
+finished_at_utc=2026-06-19T06:51:33.920360+00:00
+returncode=4
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/preflight_workspaces/027_fastapi_6/fastapi
+configfile: pyproject.toml
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+________ ERROR collecting tests/test_forms_from_non_typing_sequences.py ________
+ImportError while importing test module '/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/preflight_workspaces/027_fastapi_6/fastapi/tests/test_forms_from_non_typing_sequences.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_forms_from_non_typing_sequences.py:2: in <module>
+    from starlette.testclient import TestClient
+/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py:12: in <module>
+    import requests
+E   ModuleNotFoundError: No module named 'requests'
+=========================== short test summary info ============================
+ERROR tests/test_forms_from_non_typing_sequences.py
+=============================== 1 error in 0.18s ===============================
+
+--- stderr ---
+ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/preflight_workspaces/027_fastapi_6/fastapi/tests/test_forms_from_non_typing_sequences.py::test_python_list_param_as_form
+
+

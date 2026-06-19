@@ -1014,7 +1014,21 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.9 Topological Source Discovery
 
-- Status: `blocked_pending_v2_9_topological_source_discovery_artifact`.
-- v2.9 preserves the v2.8w baseline before adding topological source discovery, AST/dependency loop extrusion, bounded materialization tension relief, heterochromatin risk checks, duplicate replay readiness, and phase-inversion checks.
+- Status: `verified_official_artifact`.
+- Workflow run: `27809240230`.
+- Artifact SHA256: `bf3e57d0fe9e07a347e884fe4e47ac8c6abfd03fc427618ebb802f6e257309c0`.
+- Internal SHA256SUMS: `2846` checked across `38` manifests, `0` missing, `0` failures.
+- Tar snapshots excluded from git ingest: `5`; retained in the verified artifact zip.
+- Preserved v2.8w baseline gate: `PASS`; `youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, and `ansible:5` remained scoreable.
+- `ansible:2` and `ansible:5` preserved `positive_memory_only` status.
+- Topology-aware candidates selected: `fastapi:2`, `fastapi:3`, `fastapi:4`, `PySnooper:1`, `PySnooper:2`, and `fastapi:5`; attempted episodes covered `fastapi:2`, `fastapi:3`, `fastapi:4`, and `PySnooper:1`.
+- Topological context bundles built: `6`; source discovery upgraded from blocked to contextualized for `6` non-Ansible candidates.
+- Repair-path taxonomy changed after loop extrusion for `4` candidates; topology-aware paths were `dependency_environment_defect` and `localized_exception_edge_case`.
+- Executed episodes: `9`; scoreable episodes: `5`; replacement scoreable episodes: `3`; positive memory episodes: `2`.
+- Aggregate result: `replicated_positive_memory_signal_preserved`; no new v2.9 positive-memory-only episode appeared.
+- Repair-outcome memory lift: `replicated_positive_memory_signal_preserved`; selection, stability, and global closure memory lift remain `suggestive`.
+- Family generalization remains `not_expanded`: positive-memory evidence is still `ansible:2` and `ansible:5`, with no non-Ansible positive-memory signal.
+- Heterochromatin risk, materialization tension relief, duplicate clean replay verification, phase-inversion seed-constraint checks, and all four isomorphism layers are recorded for the next lane.
+- Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.

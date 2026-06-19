@@ -1,0 +1,124 @@
+{
+  "extracts": [
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 572,
+      "name": "main",
+      "text": "def main():\n    argument_spec = cs_argument_spec()\n    argument_spec.update(dict(\n        name=dict(required=True),\n        display_text=dict(),\n        network_offering=dict(),\n        zone=dict(),\n        start_ip=dict(),\n        end_ip=dict(),\n        gateway=dict(),\n        netmask=dict(),\n        start_ipv6=dict(),\n        end_ipv6=dict(),\n        cidr_ipv6=dict(),\n        gateway_ipv6=dict(),\n        vlan=dict(),\n        vpc=dict(),\n        isolated_pvlan=dict(),\n        clean_up=dict(type='bool', default=False),\n        network_domain=dict(),\n        subdomain_access=dict(type='bool'),\n        state=dict(choices=['present', 'absent', 'restarted'], default='present'),\n        acl=dict(),\n        acl_type=dict(choices=['account', 'domain']),\n        project=dict(),\n        domain=dict(),\n        account=dict(),\n        poll_async=dict(type='bool', default=True),\n    ))\n    required_together = cs_required_together()\n    required_together.extend([\n        ['netmask', 'gateway'],\n    ])\n\n    module = AnsibleModule(\n        argument_spec=argument_spec,\n        required_together=required_together,\n        supports_check_mode=True\n    )\n\n    acs_network = AnsibleCloudStackNetwork(module)\n\n    state = module.params.get('state')\n    if state == 'absent':\n        network = acs_network.absent_network()\n\n    elif state == 'restarted':\n        network = acs_network.restart_network()\n\n    else:\n        network = acs_network.present_network()\n\n    result = acs_network.get_result(network)\n    module.exit_json(**result)\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 365,
+      "name": "__init__",
+      "text": "    def __init__(self, module):\n        super(AnsibleCloudStackNetwork, self).__init__(module)\n        self.returns = {\n            'networkdomain': 'network_domain',\n            'networkofferingname': 'network_offering',\n            'networkofferingdisplaytext': 'network_offering_display_text',\n            'networkofferingconservemode': 'network_offering_conserve_mode',\n            'networkofferingavailability': 'network_offering_availability',\n            'aclid': 'acl_id',\n            'issystem': 'is_system',\n            'ispersistent': 'is_persistent',\n            'acltype': 'acl_type',\n            'type': 'type',\n            'traffictype': 'traffic_type',\n            'ip6gateway': 'gateway_ipv6',\n            'ip6cidr': 'cidr_ipv6',\n            'gateway': 'gateway',\n            'cidr': 'cidr',\n            'netmask': 'netmask',\n            'broadcastdomaintype': 'broadcast_domain_type',\n            'dns1': 'dns1',\n            'dns2': 'dns2',\n        }\n        self.network = None\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 390,
+      "name": "get_network_acl",
+      "text": "    def get_network_acl(self, key=None, acl_id=None):\n        if acl_id is not None:\n            args = {\n                'id': acl_id,\n                'vpcid': self.get_vpc(key='id'),\n            }\n        else:\n            acl_name = self.module.params.get('acl')\n            if not acl_name:\n                return\n\n            args = {\n                'name': acl_name,\n                'vpcid': self.get_vpc(key='id'),\n            }\n        network_acls = self.query_api('listNetworkACLLists', **args)\n        if network_acls:\n            acl = network_acls['networkacllist'][0]\n            return self._get_by_key(key, acl)\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 410,
+      "name": "get_network_offering",
+      "text": "    def get_network_offering(self, key=None):\n        network_offering = self.module.params.get('network_offering')\n        if not network_offering:\n            self.module.fail_json(msg=\"missing required arguments: network_offering\")\n\n        args = {\n            'zoneid': self.get_zone(key='id'),\n            'fetch_list': True,\n        }\n\n        network_offerings = self.query_api('listNetworkOfferings', **args)\n        if network_offerings:\n            for no in network_offerings:\n                if network_offering in [no['name'], no['displaytext'], no['id']]:\n                    return self._get_by_key(key, no)\n        self.module.fail_json(msg=\"Network offering '%s' not found\" % network_offering)\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 427,
+      "name": "_get_args",
+      "text": "    def _get_args(self):\n        args = {\n            'name': self.module.params.get('name'),\n            'displaytext': self.get_or_fallback('display_text', 'name'),\n            'networkdomain': self.module.params.get('network_domain'),\n            'networkofferingid': self.get_network_offering(key='id')\n        }\n        return args\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 436,
+      "name": "get_network",
+      "text": "    def get_network(self, refresh=False):\n        if not self.network or refresh:\n            network = self.module.params.get('name')\n            args = {\n                'zoneid': self.get_zone(key='id'),\n                'projectid': self.get_project(key='id'),\n                'account': self.get_account(key='name'),\n                'domainid': self.get_domain(key='id'),\n                'vpcid': self.get_vpc(key='id'),\n                'fetch_list': True,\n            }\n            networks = self.query_api('listNetworks', **args)\n            if networks:\n                for n in networks:\n                    if network in [n['name'], n['displaytext'], n['id']]:\n                        self.network = n\n                        self.network['acl'] = self.get_network_acl(key='name', acl_id=n.get('aclid'))\n                        break\n        return self.network\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 456,
+      "name": "present_network",
+      "text": "    def present_network(self):\n        if self.module.params.get('acl') is not None and self.module.params.get('vpc') is None:\n            self.module.fail_json(msg=\"Missing required params: vpc\")\n\n        network = self.get_network()\n        if not network:\n            network = self.create_network(network)\n        else:\n            network = self.update_network(network)\n        return network\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 467,
+      "name": "update_network",
+      "text": "    def update_network(self, network):\n        args = self._get_args()\n        args['id'] = network['id']\n\n        if self.has_changed(args, network):\n            self.result['changed'] = True\n            if not self.module.check_mode:\n                network = self.query_api('updateNetwork', **args)\n\n                poll_async = self.module.params.get('poll_async')\n                if network and poll_async:\n                    network = self.poll_job(network, 'network')\n\n        # Skip ACL check if the network is not a VPC tier\n        if network.get('aclid') != self.get_network_acl(key='id'):\n            self.result['changed'] = True\n            if not self.module.check_mode:\n                args = {\n                    'aclid': self.get_network_acl(key='id'),\n                    'networkid': network['id'],\n                }\n                network = self.query_api('replaceNetworkACLList', **args)\n                if self.module.params.get('poll_async'):\n                    self.poll_job(network, 'networkacllist')\n                    network = self.get_network(refresh=True)\n        return network\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 494,
+      "name": "create_network",
+      "text": "    def create_network(self, network):\n        self.result['changed'] = True\n\n        args = self._get_args()\n        args.update({\n            'acltype': self.module.params.get('acl_type'),\n            'aclid': self.get_network_acl(key='id'),\n            'zoneid': self.get_zone(key='id'),\n            'projectid': self.get_project(key='id'),\n            'account': self.get_account(key='name'),\n            'domainid': self.get_domain(key='id'),\n            'startip': self.module.params.get('start_ip'),\n            'endip': self.get_or_fallback('end_ip', 'start_ip'),\n            'netmask': self.module.params.get('netmask'),\n            'gateway': self.module.params.get('gateway'),\n            'startipv6': self.module.params.get('start_ipv6'),\n            'endipv6': self.get_or_fallback('end_ipv6', 'start_ipv6'),\n            'ip6cidr': self.module.params.get('cidr_ipv6'),\n            'ip6gateway': self.module.params.get('gateway_ipv6'),\n            'vlan': self.module.params.get('vlan'),\n            'isolatedpvlan': self.module.params.get('isolated_pvlan'),\n            'subdomainaccess': self.module.params.get('subdomain_access'),\n            'vpcid': self.get_vpc(key='id')\n        })\n\n        if not self.module.check_mode:\n            res = self.query_api('createNetwork', **args)\n\n            network = res['network']\n        return network\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 525,
+      "name": "restart_network",
+      "text": "    def restart_network(self):\n        network = self.get_network()\n\n        if not network:\n            self.module.fail_json(msg=\"No network named '%s' found.\" % self.module.params('name'))\n\n        # Restarting only available for these states\n        if network['state'].lower() in ['implemented', 'setup']:\n            self.result['changed'] = True\n\n            args = {\n                'id': network['id'],\n                'cleanup': self.module.params.get('clean_up')\n            }\n\n            if not self.module.check_mode:\n                network = self.query_api('restartNetwork', **args)\n\n                poll_async = self.module.params.get('poll_async')\n                if network and poll_async:\n                    network = self.poll_job(network, 'network')\n        return network\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 548,
+      "name": "absent_network",
+      "text": "    def absent_network(self):\n        network = self.get_network()\n        if network:\n            self.result['changed'] = True\n\n            args = {\n                'id': network['id']\n            }\n\n            if not self.module.check_mode:\n                res = self.query_api('deleteNetwork', **args)\n\n                poll_async = self.module.params.get('poll_async')\n                if res and poll_async:\n                    self.poll_job(res, 'network')\n            return network\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/cloudstack/cs_network.py",
+      "line": 565,
+      "name": "get_result",
+      "text": "    def get_result(self, network):\n        super(AnsibleCloudStackNetwork, self).get_result(network)\n        if network:\n            self.result['acl'] = self.get_network_acl(key='name', acl_id=network.get('aclid'))\n        return self.result\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/dimensiondata/dimensiondata_network.py",
+      "line": 286,
+      "name": "main",
+      "text": "def main():\n    module = DimensionDataNetworkModule()\n    if module.state == 'present':\n        module.state_present()\n    elif module.state == 'absent':\n        module.state_absent()\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/dimensiondata/dimensiondata_network.py",
+      "line": 127,
+      "name": "__init__",
+      "text": "    def __init__(self):\n        \"\"\"\n        Create a new Dimension Data network module.\n        \"\"\"\n\n        super(DimensionDataNetworkModule, self).__init__(\n            module=AnsibleModule(\n                argument_spec=DimensionDataModule.argument_spec_with_wait(\n                    name=dict(type='str', required=True),\n                    description=dict(type='str', required=False),\n                    service_plan=dict(default='ESSENTIALS', choices=['ADVANCED', 'ESSENTIALS']),\n                    state=dict(default='present', choices=['present', 'absent'])\n                ),\n                required_together=DimensionDataModule.required_together()\n            )\n        )\n\n        self.name = self.module.params['name']\n        self.description = self.module.params['description']\n        self.service_plan = self.module.params['service_plan']\n        self.state = self.module.params['state']\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/dimensiondata/dimensiondata_network.py",
+      "line": 149,
+      "name": "state_present",
+      "text": "    def state_present(self):\n        network = self._get_network()\n\n        if network:\n            self.module.exit_json(\n                changed=False,\n                msg='Network already exists',\n                network=self._network_to_dict(network)\n            )\n\n        network = self._create_network()\n\n        self.module.exit_json(\n            changed=True,\n            msg='Created network \"%s\" in datacenter \"%s\".' % (self.name, self.location),\n            network=self._network_to_dict(network)\n        )\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/dimensiondata/dimensiondata_network.py",
+      "line": 167,
+      "name": "state_absent",
+      "text": "    def state_absent(self):\n        network = self._get_network()\n\n        if not network:\n            self.module.exit_json(\n                changed=False,\n                msg='Network \"%s\" does not exist' % self.name,\n                network=self._network_to_dict(network)\n            )\n\n        self._delete_network(network)\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/dimensiondata/dimensiondata_network.py",
+      "line": 179,
+      "name": "_get_network",
+      "text": "    def _get_network(self):\n        if self.mcp_version == '1.0':\n            networks = self.driver.list_networks(location=self.location)\n        else:\n            networks = self.driver.ex_list_network_domains(location=self.location)\n\n        matched_network = [network for network in networks if network.name == self.name]\n        if matched_network:\n            return matched_network[0]\n\n        return None\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/dimensiondata/dimensiondata_network.py",
+      "line": 191,
+      "name": "_network_to_dict",
+      "text": "    def _network_to_dict(self, network):\n        network_dict = dict(\n            id=network.id,\n            name=network.name,\n            description=network.description\n        )\n\n        if isinstance(network.location, NodeLocation):\n            network_dict['location'] = network.location.id\n        else:\n            network_dict['location'] = network.location\n\n        if self.mcp_version == '1.0':\n            network_dict['private_net'] = network.private_net\n            network_dict['multicast'] = network.multicast\n            network_dict['status'] = None\n        else:\n            network_dict['private_net'] = None\n            network_dict['multicast'] = None\n            network_dict['status'] = network.status\n\n        return network_dict\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/dimensiondata/dimensiondata_network.py",
+      "line": 214,
+      "name": "_create_network",
+      "text": "    def _create_network(self):\n\n        # Make sure service_plan argument is defined\n        if self.mcp_version == '2.0' and 'service_plan' not in self.module.params:\n            self.module.fail_json(\n                msg='service_plan required when creating network and location is MCP 2.0'\n            )\n\n        # Create network\n        try:\n            if self.mcp_version == '1.0':\n                network = self.driver.ex_create_network(\n                    self.location,\n                    self.name,\n                    description=self.description\n                )\n            else:\n                network = self.driver.ex_create_network_domain(\n                    self.location,\n                    self.name,\n                    self.module.params['service_plan'],\n                    description=self.description\n                )\n        except DimensionDataAPIException as e:\n\n            self.module.fail_json(\n                msg=\"Failed to create new network: %s\" % to_native(e), exception=traceback.format_exc()\n            )\n\n        if self.module.params['wait'] is True:\n            network = self._wait_for_network_state(network.id, 'NORMAL')\n\n        return network\n"
+    },
+    {
+      "file": "lib/ansible/modules/cloud/dimensiondata/dimensiondata_network.py",
+      "line": 248,
+      "name": "_delete_network",
+      "text": "    def _delete_network(self, network):\n        try:\n            if self.mcp_version == '1.0':\n                deleted = self.driver.ex_delete_network(network)\n            else:\n                deleted = self.driver.ex_delete_network_domain(network)\n\n            if deleted:\n                self.module.exit_json(\n                    changed=True,\n                    msg=\"Deleted network with id %s\" % network.id\n                )\n\n            self.module.fail_json(\n                \"Unexpected failure deleting network with id %s\", network.id\n            )\n\n        except DimensionDataAPIException as e:\n            self.module.fail_json(\n                msg=\"Failed to delete network: %s\" % to_native(e), exception=traceback.format_exc()\n            )\n"
+    }
+  ]
+}

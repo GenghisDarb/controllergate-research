@@ -1,4 +1,90 @@
 {
-  "status": "PENDING_GITHUB_ACTIONS",
-  "transfer_success_claimed": false
+  "decision_time_safe_evidence_only": true,
+  "status": "PASS",
+  "templates": [
+    {
+      "abstracted_template_name": "ansible_2_bounded_source_only_repair_shape",
+      "decision_time_safe_evidence": true,
+      "eligible_target_families": [
+        "PySnooper",
+        "fastapi"
+      ],
+      "forbidden_features": [
+        "exact patch copying into unrelated target",
+        "fixed revision",
+        "gold patch",
+        "future outcome evidence",
+        "post-repair success from target candidate",
+        "hidden label",
+        "test modification",
+        "broad source rewrite"
+      ],
+      "non_ansible_transfer_candidates": [
+        "PySnooper:1",
+        "PySnooper:2",
+        "PySnooper:3",
+        "fastapi:2",
+        "fastapi:3",
+        "fastapi:4",
+        "fastapi:5",
+        "fastapi:6"
+      ],
+      "similarity_basis": "repair path, failure signature, source locality, and bounded patch-shape constraints only",
+      "source_positive_memory_episode": "ansible:2",
+      "template_features": [
+        "abstract repair-path family",
+        "failure-signature similarity",
+        "source-locality pattern",
+        "patch-shape constraints",
+        "heuristic class",
+        "safety checks",
+        "known blocked-lane avoidance",
+        "memory-enabled ranking advantage"
+      ],
+      "v2_9_transfer_recommendation": "test transfer only after duplicate clean replay and checkpoint-cycle enforcement are active"
+    },
+    {
+      "abstracted_template_name": "ansible_5_bounded_source_only_repair_shape",
+      "decision_time_safe_evidence": true,
+      "eligible_target_families": [
+        "PySnooper",
+        "fastapi"
+      ],
+      "forbidden_features": [
+        "exact patch copying into unrelated target",
+        "fixed revision",
+        "gold patch",
+        "future outcome evidence",
+        "post-repair success from target candidate",
+        "hidden label",
+        "test modification",
+        "broad source rewrite"
+      ],
+      "non_ansible_transfer_candidates": [
+        "PySnooper:1",
+        "PySnooper:2",
+        "PySnooper:3",
+        "fastapi:2",
+        "fastapi:3",
+        "fastapi:4",
+        "fastapi:5",
+        "fastapi:6"
+      ],
+      "similarity_basis": "repair path, failure signature, source locality, and bounded patch-shape constraints only",
+      "source_positive_memory_episode": "ansible:5",
+      "template_features": [
+        "abstract repair-path family",
+        "failure-signature similarity",
+        "source-locality pattern",
+        "patch-shape constraints",
+        "heuristic class",
+        "safety checks",
+        "known blocked-lane avoidance",
+        "memory-enabled ranking advantage"
+      ],
+      "v2_9_transfer_recommendation": "test transfer only after duplicate clean replay and checkpoint-cycle enforcement are active"
+    }
+  ],
+  "transfer_success_claimed": false,
+  "v2_9_transfer_prepared_not_claimed": true
 }

@@ -1,0 +1,17 @@
+{
+  "allowed_memory_sources": [
+    "v2.8q candidate triage records",
+    "v2.8r chromatin-state records",
+    "v2.8r minimal-probe selection",
+    "v2.8r closure-scaling audit",
+    "v2.8s ansible:2 positive-memory result as prior RepairMemory signal, not as future outcome evidence",
+    "v2.8t ansible:5 positive-memory result as prior RepairMemory signal, not as future outcome evidence",
+    "v2.8u official blocked-lane and family-generalization record as prior RepairMemory signal, not as future outcome evidence"
+  ],
+  "ansible2_prior_positive_used_as_future_outcome_evidence": false,
+  "ansible5_prior_positive_used_as_future_outcome_evidence": false,
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "repair_memory_data_accessed": true,
+  "validation_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash"
+}
