@@ -1,0 +1,88 @@
+﻿name: v2_8w_non_ansible_materialization_repairability
+
+on:
+  workflow_dispatch:
+
+jobs:
+  non-ansible-materialization-repairability:
+    name: Non-Ansible materialization repairability
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.8w runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_8w_non_ansible_materialization_repairability_artifacts" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "preserved_v2_8v_baseline_gate_result" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "isomorphism_requirements_matrix_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "non_ansible_materialization_readiness_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "repair_path_taxonomy_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "environmental_stress_state_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "candidate_senescence_policy_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "checkpoint_cycle_manifest_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "duplicate_clean_replay_readiness_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "repair_template_transfer_readiness_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "non_ansible_repairability_candidate_pool_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "positive_memory_family_generalization_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "memory_arm_separation_check_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "memory_evidence_eligibility_check_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "non_ansible_materialization_integrity_check_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "observer_state_separation_check_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "candidate_chromatin_state_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "local_tension_relief_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "minimal_probe_selection_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "candidate_triage_stability_audit_v2_8w" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "repair_workspace_pythonpath_isolation" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "no_memory_accessed_repair_memory_only_data" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "no_memory_accessed_positive_memory_transfer_readiness_data" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          grep -q "controllergate_full_scoring.*NOT_RUN" scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+
+      - name: Run non-Ansible materialization repairability
+        shell: bash
+        timeout-minutes: 120
+        run: |
+          set -euo pipefail
+          python scripts/v2_8w_non_ansible_materialization_repairability_runner.py
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/preserved_v2_8v_baseline_gate_result.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/harness_sanity_check.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/isomorphism_requirements_matrix_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/non_ansible_materialization_readiness_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/repair_path_taxonomy_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/environmental_stress_state_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/candidate_senescence_policy_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/checkpoint_cycle_manifest_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/duplicate_clean_replay_readiness_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/repair_template_transfer_readiness_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/non_ansible_repairability_candidate_pool_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/positive_memory_family_generalization_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/memory_arm_separation_check_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/memory_evidence_eligibility_check_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/non_ansible_materialization_integrity_check_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/observer_state_separation_check_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/candidate_chromatin_state_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/local_tension_relief_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/minimal_probe_selection_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/candidate_triage_stability_audit_v2_8w.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/closure_scaling_audit.json
+          test -s v2_8w_non_ansible_materialization_repairability_artifacts/memory_lift_decomposition.json
+
+      - name: Upload v2.8w non-Ansible materialization repairability artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_8w_non_ansible_materialization_repairability_artifacts
+          path: v2_8w_non_ansible_materialization_repairability_artifacts
+          if-no-files-found: error
+
+
+

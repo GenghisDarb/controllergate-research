@@ -990,3 +990,11 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
+
+## v2.8w Non-Ansible Materialization Repairability
+
+- Status: `blocked_pending_v2_8w_non_ansible_materialization_repairability_artifact`.
+- v2.8w preserves the v2.8v baseline (`youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, `ansible:5`) before non-Ansible materialization or repairability work.
+- The lane adds interlocked isomorphism readiness, repair-path taxonomy, environmental stress-state classification, candidate senescence, checkpoint-cycle discipline, duplicate clean replay readiness, and transfer-template readiness.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.
