@@ -1,0 +1,30 @@
+{
+  "bug_id": "14",
+  "candidate": "ansible:14",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest test/units/galaxy/test_api.py::test_get_role_versions_pagination",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "UNASSIGNED",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:14",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "test/units/galaxy/test_api.py"
+  ],
+  "normalized_direct_command": "python -m pytest test/units/galaxy/test_api.py::test_get_role_versions_pagination",
+  "project": "ansible",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_get_role_versions_pagination",
+    "test_api",
+    "test_get_role_versions_pagination"
+  ],
+  "target_test_file": "test/units/galaxy/test_api.py",
+  "v2_8p_role": "broad_preflight_candidate"
+}

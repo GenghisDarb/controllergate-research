@@ -993,8 +993,21 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.8w Non-Ansible Materialization Repairability
 
-- Status: `blocked_pending_v2_8w_non_ansible_materialization_repairability_artifact`.
-- v2.8w preserves the v2.8v baseline (`youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, `ansible:5`) before non-Ansible materialization or repairability work.
-- The lane adds interlocked isomorphism readiness, repair-path taxonomy, environmental stress-state classification, candidate senescence, checkpoint-cycle discipline, duplicate clean replay readiness, and transfer-template readiness.
+- Status: `verified_official_artifact`.
+- Workflow run: `27801291756`.
+- Artifact SHA256: `314da1b9032a3a4cc4c9f6958cf1d46bda5b735c45574dece661958312652cd5`.
+- Internal SHA256SUMS: `2676` checked across `38` manifests, `0` missing, `0` failures.
+- Tar snapshots excluded from git ingest: `5`; retained in the verified artifact zip.
+- Preserved v2.8v baseline gate: `PASS`; `youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, and `ansible:5` remained scoreable.
+- `ansible:2` and `ansible:5` preserved `positive_memory_only` status.
+- Non-Ansible repairability attempts covered `fastapi` and `PySnooper`: `fastapi:2`, `fastapi:3`, `fastapi:4`, and `PySnooper:1`.
+- Executed episodes: `9`; scoreable episodes: `5`; replacement scoreable episodes: `3`; positive memory episodes: `2`.
+- Aggregate result: `replicated_positive_memory_signal_preserved`; no new v2.8w positive-memory-only episode appeared.
+- Repair-outcome memory lift: `replicated_positive_memory_signal_preserved`; selection, stability, and global closure memory lift remain `suggestive`.
+- Family generalization remains `not_expanded`: positive-memory evidence is still `ansible:2` and `ansible:5`, with no non-Ansible positive-memory signal.
+- Materialization readiness classified the attempted non-Ansible set as `source_discovery_blocked`; repair-path taxonomy assigned bounded `validation_guard` and `localized_exception_edge_case` paths before heuristic selection.
+- Environmental stress-state and senescence audits are present; repeatedly blocked Ansible lanes were moved to watchlist or temporary retirement with reopen conditions.
+- Interlocked isomorphism readiness, checkpoint-cycle discipline, duplicate clean replay readiness, and repair-template transfer readiness are recorded for the v2.9 bridge.
+- Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.

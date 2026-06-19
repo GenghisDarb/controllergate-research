@@ -1,0 +1,10 @@
+{
+  "command_cwd_policy": "execute target commands from the checked-out candidate project root",
+  "inherits_v2_8p_harness_repair": true,
+  "pytest_dependency_policy": "install pytest before pytest-based candidates",
+  "pythonpath_policy": "prepend project root to PYTHONPATH for target command execution",
+  "raw_pytest_command_policy": "normalize commands that start with pytest to python -m pytest",
+  "record_original_and_normalized_command": true,
+  "returncode_127_policy": "returncode 127 is classified as harness/command-normalization failure, not a candidate-level failure",
+  "unittest_black_policy": "ensure project-local tests package import context for black unittest commands as harness materialization only"
+}

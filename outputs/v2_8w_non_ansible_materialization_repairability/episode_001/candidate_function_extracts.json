@@ -1,0 +1,10 @@
+{
+  "extracts": [
+    {
+      "file": "youtube_dl/utils.py",
+      "line": 2593,
+      "name": "match_str",
+      "text": "def match_str(filter_str, dct):\n    \"\"\" Filter a dictionary with a simple string syntax. Returns True (=passes filter) or false \"\"\"\n\n    return all(\n        _match_one(filter_part, dct) for filter_part in filter_str.split('&'))\n"
+    }
+  ]
+}

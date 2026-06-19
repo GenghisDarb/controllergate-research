@@ -1,0 +1,31 @@
+$ bash -lc python -m pytest tests/test_jsonable_encoder.py::test_encode_model_with_default
+started_at_utc=2026-06-19T02:18:52.304317+00:00
+finished_at_utc=2026-06-19T02:18:52.767619+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.0, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_8w_bugsinpy_runtime/repair_paths/episode_006/no_memory
+configfile: pyproject.toml
+collected 1 item
+
+tests/test_jsonable_encoder.py F                                         [100%]
+
+=================================== FAILURES ===================================
+________________________ test_encode_model_with_default ________________________
+
+    def test_encode_model_with_default():
+        model = ModelWithDefault(foo="foo", bar="bar")
+        assert jsonable_encoder(model) == {"foo": "foo", "bar": "bar", "bla": "bla"}
+        assert jsonable_encoder(model, exclude_unset=True) == {"foo": "foo", "bar": "bar"}
+>       assert jsonable_encoder(model, exclude_defaults=True) == {"foo": "foo"}
+E       TypeError: jsonable_encoder() got an unexpected keyword argument 'exclude_defaults'
+
+../../../workspaces/episode_006/fastapi/tests/test_jsonable_encoder.py:134: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_jsonable_encoder.py::test_encode_model_with_default - TypeError: jsonable_encoder() got an unexpected keyword argument 'exclude_defaults'
+============================== 1 failed in 0.14s ===============================
+
+--- stderr ---
+

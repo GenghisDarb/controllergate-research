@@ -1,0 +1,24 @@
+{
+  "candidate": "fastapi:3",
+  "confidence": "medium",
+  "eligible_heuristics": [
+    "validation_guard"
+  ],
+  "evidence_supporting_repair_path": [
+    "normalized failing command",
+    "direct traceback/assertion context",
+    "decision-time-safe candidate metadata"
+  ],
+  "failure_signature": "preflight failure context",
+  "forbidden_heuristics": [
+    "fixed_or_gold_patch",
+    "future_outcome_evidence",
+    "test_modification",
+    "broad_source_rewrite"
+  ],
+  "likely_repair_path": "validation_guard",
+  "project_family": "fastapi",
+  "selected_repair_path_used_only_decision_time_safe_evidence": true,
+  "whether_memory_changed_repair_path_selection": true,
+  "whether_no_memory_and_memory_enabled_selected_different_repair_paths": true
+}

@@ -1,26 +1,876 @@
 {
   "baseline_candidates": [
-    "youtube-dl:1",
+    "ansible:2",
+    "ansible:5",
     "black:4",
     "fastapi:1",
-    "ansible:2",
-    "ansible:5"
+    "youtube-dl:1"
   ],
-  "non_ansible_candidates": [
+  "cross_family_candidate_ids": [
     "fastapi:2",
     "fastapi:3",
     "fastapi:4",
     "PySnooper:1",
     "PySnooper:2",
     "youtube-dl:2",
-    "black:5"
+    "black:5",
+    "ansible:1",
+    "ansible:8",
+    "ansible:10",
+    "ansible:4",
+    "ansible:12",
+    "ansible:13"
   ],
-  "v2_8v_selected_candidates": [
-    "fastapi:1",
-    "fastapi:2",
-    "ansible:2",
-    "ansible:5",
-    "fastapi:3",
-    "fastapi:4"
+  "preflight_seed_candidates": [
+    {
+      "bug_id": "1",
+      "candidate": "PySnooper:1",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest -q -s tests/test_chinese.py::test_chinese",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: PySnooper:1",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "tests/test_chinese.py"
+      ],
+      "normalized_direct_command": "python -m pytest -q -s tests/test_chinese.py::test_chinese",
+      "project": "PySnooper",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_chinese",
+        "test_chinese"
+      ],
+      "target_test_file": "tests/test_chinese.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "2",
+      "candidate": "PySnooper:2",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest -q -s tests/test_pysnooper.py::test_custom_repr_single",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: PySnooper:2",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "tests/test_pysnooper.py"
+      ],
+      "normalized_direct_command": "python -m pytest -q -s tests/test_pysnooper.py::test_custom_repr_single",
+      "project": "PySnooper",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_custom_repr_single",
+        "test_custom_repr_single",
+        "test_pysnooper"
+      ],
+      "target_test_file": "tests/test_pysnooper.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "3",
+      "candidate": "PySnooper:3",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest -q -s tests/test_pysnooper.py::test_file_output",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: PySnooper:3",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "tests/test_pysnooper.py"
+      ],
+      "normalized_direct_command": "python -m pytest -q -s tests/test_pysnooper.py::test_file_output",
+      "project": "PySnooper",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_file_output",
+        "test_file_output",
+        "test_pysnooper"
+      ],
+      "target_test_file": "tests/test_pysnooper.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "1",
+      "candidate": "ansible:1",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/galaxy/test_collection.py::test_verify_collections_no_version",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:1",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/galaxy/test_collection.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/galaxy/test_collection.py::test_verify_collections_no_version",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_verify_collections_no_version",
+        "test_collection",
+        "test_verify_collections_no_version"
+      ],
+      "target_test_file": "test/units/galaxy/test_collection.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "2",
+      "candidate": "ansible:2",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/utils/test_version.py::test_alpha && pytest test/units/utils/test_version.py::test_numeric",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:2",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/utils/test_version.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_numeric",
+        "test_alpha",
+        "test_numeric",
+        "test_version"
+      ],
+      "target_test_file": "test/units/utils/test_version.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "3",
+      "candidate": "ansible:3",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/module_utils/test_distribution_version.py::test_distribution_version",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:3",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/module_utils/test_distribution_version.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/module_utils/test_distribution_version.py::test_distribution_version",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_distribution_version",
+        "test_distribution_version"
+      ],
+      "target_test_file": "test/units/module_utils/test_distribution_version.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "4",
+      "candidate": "ansible:4",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/playbook/test_collectionsearch.py::test_collection_static_warning",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:4",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/playbook/test_collectionsearch.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/playbook/test_collectionsearch.py::test_collection_static_warning",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_collection_static_warning",
+        "test_collection_static_warning",
+        "test_collectionsearch"
+      ],
+      "target_test_file": "test/units/playbook/test_collectionsearch.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "5",
+      "candidate": "ansible:5",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:5",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/module_utils/common/validation/test_check_required_arguments.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_check_required_arguments_missing_multiple",
+        "test_check_required_arguments",
+        "test_check_required_arguments_missing_multiple"
+      ],
+      "target_test_file": "test/units/module_utils/common/validation/test_check_required_arguments.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "6",
+      "candidate": "ansible:6",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest && pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_no_version && pytest test/units/galaxy/test_collection_install.py::test_add_collection_requirement_to_unknown_installed_version",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:6",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/galaxy/test_collection_install.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_with_manifest && python -m pytest test/units/galaxy/test_collection_install.py::test_build_requirement_from_path_no_version && python -m pytest test/units/galaxy/test_collection_install.py::test_add_collection_requirement_to_unknown_installed_version",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_add_collection_requirement_to_unknown_installed_version",
+        "test_add_collection_requirement_to_unknown_installed_version",
+        "test_build_requirement_from_path_no_version",
+        "test_build_requirement_from_path_with_manifest",
+        "test_collection_install"
+      ],
+      "target_test_file": "test/units/galaxy/test_collection_install.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "7",
+      "candidate": "ansible:7",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/modules/network/eos/test_eos_vlans.py::TestEosVlansModule::test_eos_vlan_replaced",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:7",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/modules/network/eos/test_eos_vlans.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/modules/network/eos/test_eos_vlans.py::TestEosVlansModule::test_eos_vlan_replaced",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::TestEosVlansModule::test_eos_vlan_replaced",
+        "test_eos_vlan_replaced",
+        "test_eos_vlans"
+      ],
+      "target_test_file": "test/units/modules/network/eos/test_eos_vlans.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "8",
+      "candidate": "ansible:8",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/plugins/shell/test_powershell.py::test_join_path_unc",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:8",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/plugins/shell/test_powershell.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/plugins/shell/test_powershell.py::test_join_path_unc",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_join_path_unc",
+        "test_join_path_unc",
+        "test_powershell"
+      ],
+      "target_test_file": "test/units/plugins/shell/test_powershell.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "9",
+      "candidate": "ansible:9",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:9",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/modules/packaging/os/test_redhat_subscription.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/modules/packaging/os/test_redhat_subscription.py::test_redhat_subscribtion",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_redhat_subscribtion",
+        "test_redhat_subscribtion",
+        "test_redhat_subscription"
+      ],
+      "target_test_file": "test/units/modules/packaging/os/test_redhat_subscription.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "10",
+      "candidate": "ansible:10",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/modules/system/test_pamd.py::PamdServiceTestCase::test_remove_first_rule && pytest test/units/modules/system/test_pamd.py::PamdServiceTestCase::test_remove_last_rule",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:10",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/modules/system/test_pamd.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/modules/system/test_pamd.py::PamdServiceTestCase::test_remove_first_rule && python -m pytest test/units/modules/system/test_pamd.py::PamdServiceTestCase::test_remove_last_rule",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::PamdServiceTestCase::test_remove_last_rule",
+        "test_pamd",
+        "test_remove_first_rule",
+        "test_remove_last_rule"
+      ],
+      "target_test_file": "test/units/modules/system/test_pamd.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "11",
+      "candidate": "ansible:11",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/modules/network/ios/test_ios_banner.py::TestIosBannerModule::test_ios_banner_nochange && pytest test/units/modules/network/ios/test_ios_banner.py::TestIosBannerIos12Module::test_ios_banner_nochange",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:11",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/modules/network/ios/test_ios_banner.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/modules/network/ios/test_ios_banner.py::TestIosBannerModule::test_ios_banner_nochange && python -m pytest test/units/modules/network/ios/test_ios_banner.py::TestIosBannerIos12Module::test_ios_banner_nochange",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::TestIosBannerIos12Module::test_ios_banner_nochange",
+        "test_ios_banner",
+        "test_ios_banner_nochange"
+      ],
+      "target_test_file": "test/units/modules/network/ios/test_ios_banner.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "12",
+      "candidate": "ansible:12",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/plugins/lookup/test_env.py",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:12",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/plugins/lookup/test_env.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/plugins/lookup/test_env.py",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py",
+        "test_env"
+      ],
+      "target_test_file": "test/units/plugins/lookup/test_env.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "13",
+      "candidate": "ansible:13",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/cli/test_galaxy.py::test_collection_install_with_url",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:13",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/cli/test_galaxy.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/cli/test_galaxy.py::test_collection_install_with_url",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_collection_install_with_url",
+        "test_collection_install_with_url",
+        "test_galaxy"
+      ],
+      "target_test_file": "test/units/cli/test_galaxy.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "14",
+      "candidate": "ansible:14",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/galaxy/test_api.py::test_get_role_versions_pagination",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:14",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/galaxy/test_api.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/galaxy/test_api.py::test_get_role_versions_pagination",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_get_role_versions_pagination",
+        "test_api",
+        "test_get_role_versions_pagination"
+      ],
+      "target_test_file": "test/units/galaxy/test_api.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "15",
+      "candidate": "ansible:15",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/modules/network/eos/test_eos_eapi.py::TestEosEapiModule::test_eos_eapi_vrf",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:15",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/modules/network/eos/test_eos_eapi.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/modules/network/eos/test_eos_eapi.py::TestEosEapiModule::test_eos_eapi_vrf",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::TestEosEapiModule::test_eos_eapi_vrf",
+        "test_eos_eapi",
+        "test_eos_eapi_vrf"
+      ],
+      "target_test_file": "test/units/modules/network/eos/test_eos_eapi.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "16",
+      "candidate": "ansible:16",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py::test_get_cpu_info_missing_arch",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:16",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py::test_get_cpu_info_missing_arch",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_get_cpu_info_missing_arch",
+        "test_get_cpu_info_missing_arch",
+        "test_linux_get_cpu_info"
+      ],
+      "target_test_file": "test/units/module_utils/facts/hardware/test_linux_get_cpu_info.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "17",
+      "candidate": "ansible:17",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/module_utils/facts/test_facts.py::TestFactsLinuxHardwareGetMountFacts::test_get_mount_facts",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:17",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/module_utils/facts/test_facts.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/module_utils/facts/test_facts.py::TestFactsLinuxHardwareGetMountFacts::test_get_mount_facts",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::TestFactsLinuxHardwareGetMountFacts::test_get_mount_facts",
+        "test_facts",
+        "test_get_mount_facts"
+      ],
+      "target_test_file": "test/units/module_utils/facts/test_facts.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "18",
+      "candidate": "ansible:18",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest test/units/cli/test_galaxy.py::test_collection_default",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:18",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "test/units/cli/test_galaxy.py"
+      ],
+      "normalized_direct_command": "python -m pytest test/units/cli/test_galaxy.py::test_collection_default",
+      "project": "ansible",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_collection_default",
+        "test_collection_default",
+        "test_galaxy"
+      ],
+      "target_test_file": "test/units/cli/test_galaxy.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "1",
+      "candidate": "fastapi:1",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:1",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "tests/test_jsonable_encoder.py"
+      ],
+      "normalized_direct_command": "python -m pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+      "project": "fastapi",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_encode_model_with_default",
+        "test_encode_model_with_default",
+        "test_jsonable_encoder"
+      ],
+      "target_test_file": "tests/test_jsonable_encoder.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "2",
+      "candidate": "fastapi:2",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest tests/test_ws_router.py::test_router_ws_depends_with_override",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:2",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "tests/test_ws_router.py"
+      ],
+      "normalized_direct_command": "python -m pytest tests/test_ws_router.py::test_router_ws_depends_with_override",
+      "project": "fastapi",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_router_ws_depends_with_override",
+        "test_router_ws_depends_with_override",
+        "test_ws_router"
+      ],
+      "target_test_file": "tests/test_ws_router.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "3",
+      "candidate": "fastapi:3",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest tests/test_serialize_response_model.py::test_valid && pytest tests/test_serialize_response_model.py::test_coerce && pytest tests/test_serialize_response_model.py::test_validlist && pytest tests/test_serialize_response_model.py::test_validdict && pytest tests/test_serialize_response_model.py::test_valid_exclude_unset && pytest tests/test_serialize_response_model.py::test_coerce_exclude_unset && pytest tests/test_serialize_response_model.py::test_validlist_exclude_unset && pytest tests/test_serialize_response_model.py::test_validdict_exclude_unset",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:3",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "tests/test_serialize_response_model.py"
+      ],
+      "normalized_direct_command": "python -m pytest tests/test_serialize_response_model.py::test_valid && python -m pytest tests/test_serialize_response_model.py::test_coerce && python -m pytest tests/test_serialize_response_model.py::test_validlist && python -m pytest tests/test_serialize_response_model.py::test_validdict && python -m pytest tests/test_serialize_response_model.py::test_valid_exclude_unset && python -m pytest tests/test_serialize_response_model.py::test_coerce_exclude_unset && python -m pytest tests/test_serialize_response_model.py::test_validlist_exclude_unset && python -m pytest tests/test_serialize_response_model.py::test_validdict_exclude_unset",
+      "project": "fastapi",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_validdict_exclude_unset",
+        "test_coerce",
+        "test_coerce_exclude_unset",
+        "test_serialize_response_model",
+        "test_valid",
+        "test_valid_exclude_unset",
+        "test_validdict",
+        "test_validdict_exclude_unset",
+        "test_validlist",
+        "test_validlist_exclude_unset"
+      ],
+      "target_test_file": "tests/test_serialize_response_model.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "4",
+      "candidate": "fastapi:4",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest tests/test_param_in_path_and_dependency.py::test_reused_param",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:4",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "tests/test_param_in_path_and_dependency.py"
+      ],
+      "normalized_direct_command": "python -m pytest tests/test_param_in_path_and_dependency.py::test_reused_param",
+      "project": "fastapi",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_reused_param",
+        "test_param_in_path_and_dependency",
+        "test_reused_param"
+      ],
+      "target_test_file": "tests/test_param_in_path_and_dependency.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "5",
+      "candidate": "fastapi:5",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest tests/test_filter_pydantic_sub_model.py::test_filter_sub_model",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:5",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "tests/test_filter_pydantic_sub_model.py"
+      ],
+      "normalized_direct_command": "python -m pytest tests/test_filter_pydantic_sub_model.py::test_filter_sub_model",
+      "project": "fastapi",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_filter_sub_model",
+        "test_filter_pydantic_sub_model",
+        "test_filter_sub_model"
+      ],
+      "target_test_file": "tests/test_filter_pydantic_sub_model.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "6",
+      "candidate": "fastapi:6",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest tests/test_forms_from_non_typing_sequences.py::test_python_list_param_as_form && pytest tests/test_forms_from_non_typing_sequences.py::test_python_set_param_as_form && pytest tests/test_forms_from_non_typing_sequences.py::test_python_tuple_param_as_form",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:6",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "tests/test_forms_from_non_typing_sequences.py"
+      ],
+      "normalized_direct_command": "python -m pytest tests/test_forms_from_non_typing_sequences.py::test_python_list_param_as_form && python -m pytest tests/test_forms_from_non_typing_sequences.py::test_python_set_param_as_form && python -m pytest tests/test_forms_from_non_typing_sequences.py::test_python_tuple_param_as_form",
+      "project": "fastapi",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_python_tuple_param_as_form",
+        "test_forms_from_non_typing_sequences",
+        "test_python_list_param_as_form",
+        "test_python_set_param_as_form",
+        "test_python_tuple_param_as_form"
+      ],
+      "target_test_file": "tests/test_forms_from_non_typing_sequences.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    },
+    {
+      "bug_id": "7",
+      "candidate": "fastapi:7",
+      "dependency_hints": [
+        "pytest"
+      ],
+      "direct_command": "pytest tests/test_multi_body_errors.py::test_jsonable_encoder_requiring_error",
+      "direct_command_source": "BugsInPy run_test.sh",
+      "episode_id": "UNASSIGNED",
+      "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: fastapi:7",
+      "fixed_or_gold_patch_used_at_decision_time": false,
+      "future_outcome_evidence_used_at_decision_time": false,
+      "materialization_required_files": [
+        "tests/test_multi_body_errors.py"
+      ],
+      "normalized_direct_command": "python -m pytest tests/test_multi_body_errors.py::test_jsonable_encoder_requiring_error",
+      "project": "fastapi",
+      "replacement_candidate": true,
+      "required_markers": [
+        "AssertionError",
+        "FAIL",
+        "FAIL:",
+        "FAILED",
+        "py::test_jsonable_encoder_requiring_error",
+        "test_jsonable_encoder_requiring_error",
+        "test_multi_body_errors"
+      ],
+      "target_test_file": "tests/test_multi_body_errors.py",
+      "v2_8p_role": "broad_preflight_candidate"
+    }
   ]
 }

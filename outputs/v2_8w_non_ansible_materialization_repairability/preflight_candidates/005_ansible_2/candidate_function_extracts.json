@@ -1,0 +1,124 @@
+{
+  "extracts": [
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 48,
+      "name": "__init__",
+      "text": "    def __init__(self, specifier):\n        self.specifier = specifier\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 51,
+      "name": "__repr__",
+      "text": "    def __repr__(self):\n        return repr(self.specifier)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 54,
+      "name": "__eq__",
+      "text": "    def __eq__(self, other):\n        if isinstance(other, _Alpha):\n            return self.specifier == other.specifier\n        elif isinstance(other, str):\n            return self.specifier == other\n\n        return False\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 62,
+      "name": "__ne__",
+      "text": "    def __ne__(self, other):\n        return not self.__eq__(other)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 65,
+      "name": "__lt__",
+      "text": "    def __lt__(self, other):\n        if isinstance(other, _Alpha):\n            return self.specifier < other.specifier\n        elif isinstance(other, str):\n            return self.specifier < other\n        elif isinstance(other, _Numeric):\n            return False\n\n        raise ValueError\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 75,
+      "name": "__gt__",
+      "text": "    def __gt__(self, other):\n        return not self.__lt__(other)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 78,
+      "name": "__le__",
+      "text": "    def __le__(self, other):\n        return self.__lt__(other) or self.__eq__(other)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 81,
+      "name": "__ge__",
+      "text": "    def __ge__(self, other):\n        return self.__gt__(other) or self.__eq__(other)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 91,
+      "name": "__init__",
+      "text": "    def __init__(self, specifier):\n        self.specifier = int(specifier)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 94,
+      "name": "__repr__",
+      "text": "    def __repr__(self):\n        return repr(self.specifier)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 97,
+      "name": "__eq__",
+      "text": "    def __eq__(self, other):\n        if isinstance(other, _Numeric):\n            return self.specifier == other.specifier\n        elif isinstance(other, int):\n            return self.specifier == other\n\n        return False\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 105,
+      "name": "__ne__",
+      "text": "    def __ne__(self, other):\n        return not self.__eq__(other)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 108,
+      "name": "__lt__",
+      "text": "    def __lt__(self, other):\n        if isinstance(other, _Numeric):\n            return self.specifier < other.specifier\n        elif isinstance(other, int):\n            return self.specifier < other\n        elif isinstance(other, _Alpha):\n            return True\n\n        raise ValueError\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 118,
+      "name": "__gt__",
+      "text": "    def __gt__(self, other):\n        return not self.__lt__(other)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 121,
+      "name": "__le__",
+      "text": "    def __le__(self, other):\n        return self.__lt__(other) or self.__eq__(other)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 124,
+      "name": "__ge__",
+      "text": "    def __ge__(self, other):\n        return self.__gt__(other) or self.__eq__(other)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 136,
+      "name": "__init__",
+      "text": "    def __init__(self, vstring=None):\n        self.vstring = vstring\n        self.major = None\n        self.minor = None\n        self.patch = None\n        self.prerelease = ()\n        self.buildmetadata = ()\n\n        if vstring:\n            self.parse(vstring)\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 147,
+      "name": "__repr__",
+      "text": "    def __repr__(self):\n        return 'SemanticVersion(%r)' % self.vstring\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 151,
+      "name": "from_loose_version",
+      "text": "    def from_loose_version(loose_version):\n        \"\"\"This method is designed to take a ``LooseVersion``\n        and attempt to construct a ``SemanticVersion`` from it\n\n        This is useful where you want to do simple version math\n        without requiring users to provide a compliant semver.\n        \"\"\"\n        if not isinstance(loose_version, LooseVersion):\n            raise ValueError(\"%r is not a LooseVersion\" % loose_version)\n\n        try:\n            version = loose_version.version[:]\n        except AttributeError:\n            raise ValueError(\"%r is not a LooseVersion\" % loose_version)\n\n        extra_idx = 3\n        for marker in ('-', '+'):\n            try:\n                idx = version.index(marker)\n            except ValueError:\n                continue\n            else:\n                if idx < extra_idx:\n                    extra_idx = idx\n        version = version[:extra_idx]\n\n        if version and set(type(v) for v in version) != set((int,)):\n            raise ValueError(\"Non integer values in %r\" % loose_version)\n\n        # Extra is everything to the right of the core version\n        extra = re.search('[+-].+$', loose_version.vstring)\n\n        version = version + [0] * (3 - len(version))\n        return SemanticVersion(\n            '%s%s' % (\n                '.'.join(str(v) for v in version),\n                extra.group(0) if extra else ''\n            )\n        )\n"
+    },
+    {
+      "file": "lib/ansible/utils/version.py",
+      "line": 191,
+      "name": "parse",
+      "text": "    def parse(self, vstring):\n        match = SEMVER_RE.match(vstring)\n        if not match:\n            raise ValueError(\"invalid semantic version '%s'\" % vstring)\n\n        (major, minor, patch, prerelease, buildmetadata) = match.group(1, 2, 3, 4, 5)\n        self.major = int(major)\n        self.minor = int(minor)\n        self.patch = int(patch)\n\n        if prerelease:\n            self.prerelease = tuple(_Numeric(x) if x.isdigit() else _Alpha(x) for x in prerelease.split('.'))\n        if buildmetadata:\n            self.buildmetadata = tuple(_Numeric(x) if x.isdigit() else _Alpha(x) for x in buildmetadata.split('.'))\n"
+    }
+  ]
+}

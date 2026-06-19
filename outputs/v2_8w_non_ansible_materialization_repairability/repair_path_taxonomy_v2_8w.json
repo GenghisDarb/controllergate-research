@@ -1,56 +1,224 @@
 {
   "decision_time_safe_evidence_only": true,
+  "non_ansible_clear_repair_path_count": 9,
   "records": [
     {
-      "candidate": "fastapi:2",
-      "classification": "materialized_but_no_safe_repair_path",
-      "decision_time_safe_status": true,
-      "next_safe_action": "run official v2.8w workflow",
-      "project_family": "fastapi"
-    },
-    {
-      "candidate": "fastapi:3",
-      "classification": "materialized_but_no_safe_repair_path",
-      "decision_time_safe_status": true,
-      "next_safe_action": "run official v2.8w workflow",
-      "project_family": "fastapi"
-    },
-    {
-      "candidate": "fastapi:4",
-      "classification": "materialized_but_no_safe_repair_path",
-      "decision_time_safe_status": true,
-      "next_safe_action": "run official v2.8w workflow",
-      "project_family": "fastapi"
-    },
-    {
       "candidate": "PySnooper:1",
-      "classification": "source_discovery_blocked",
-      "decision_time_safe_status": true,
-      "next_safe_action": "run official v2.8w workflow",
-      "project_family": "PySnooper"
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "localized_exception_edge_case"
+      ],
+      "evidence_supporting_repair_path": [
+        "normalized failing command",
+        "direct traceback/assertion context",
+        "decision-time-safe candidate metadata"
+      ],
+      "failure_signature": "preflight failure context",
+      "forbidden_heuristics": [
+        "fixed_or_gold_patch",
+        "future_outcome_evidence",
+        "test_modification",
+        "broad_source_rewrite"
+      ],
+      "likely_repair_path": "localized_exception_edge_case",
+      "project_family": "PySnooper",
+      "selected_repair_path_used_only_decision_time_safe_evidence": true,
+      "whether_memory_changed_repair_path_selection": true,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": true
     },
     {
       "candidate": "PySnooper:2",
-      "classification": "source_discovery_blocked",
-      "decision_time_safe_status": true,
-      "next_safe_action": "run official v2.8w workflow",
-      "project_family": "PySnooper"
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "localized_exception_edge_case"
+      ],
+      "evidence_supporting_repair_path": [
+        "normalized failing command",
+        "direct traceback/assertion context",
+        "decision-time-safe candidate metadata"
+      ],
+      "failure_signature": "preflight failure context",
+      "forbidden_heuristics": [
+        "fixed_or_gold_patch",
+        "future_outcome_evidence",
+        "test_modification",
+        "broad_source_rewrite"
+      ],
+      "likely_repair_path": "localized_exception_edge_case",
+      "project_family": "PySnooper",
+      "selected_repair_path_used_only_decision_time_safe_evidence": true,
+      "whether_memory_changed_repair_path_selection": true,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": true
     },
     {
-      "candidate": "youtube-dl:2",
-      "classification": "source_discovery_blocked",
-      "decision_time_safe_status": true,
-      "next_safe_action": "run official v2.8w workflow",
-      "project_family": "youtube-dl"
+      "candidate": "PySnooper:3",
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "localized_exception_edge_case"
+      ],
+      "evidence_supporting_repair_path": [
+        "normalized failing command",
+        "direct traceback/assertion context",
+        "decision-time-safe candidate metadata"
+      ],
+      "failure_signature": "preflight failure context",
+      "forbidden_heuristics": [
+        "fixed_or_gold_patch",
+        "future_outcome_evidence",
+        "test_modification",
+        "broad_source_rewrite"
+      ],
+      "likely_repair_path": "localized_exception_edge_case",
+      "project_family": "PySnooper",
+      "selected_repair_path_used_only_decision_time_safe_evidence": true,
+      "whether_memory_changed_repair_path_selection": false,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false
     },
     {
-      "candidate": "black:5",
-      "classification": "source_discovery_blocked",
-      "decision_time_safe_status": true,
-      "next_safe_action": "run official v2.8w workflow",
-      "project_family": "black"
+      "candidate": "fastapi:2",
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "validation_guard"
+      ],
+      "evidence_supporting_repair_path": [
+        "normalized failing command",
+        "direct traceback/assertion context",
+        "decision-time-safe candidate metadata"
+      ],
+      "failure_signature": "preflight failure context",
+      "forbidden_heuristics": [
+        "fixed_or_gold_patch",
+        "future_outcome_evidence",
+        "test_modification",
+        "broad_source_rewrite"
+      ],
+      "likely_repair_path": "validation_guard",
+      "project_family": "fastapi",
+      "selected_repair_path_used_only_decision_time_safe_evidence": true,
+      "whether_memory_changed_repair_path_selection": true,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": true
+    },
+    {
+      "candidate": "fastapi:3",
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "validation_guard"
+      ],
+      "evidence_supporting_repair_path": [
+        "normalized failing command",
+        "direct traceback/assertion context",
+        "decision-time-safe candidate metadata"
+      ],
+      "failure_signature": "preflight failure context",
+      "forbidden_heuristics": [
+        "fixed_or_gold_patch",
+        "future_outcome_evidence",
+        "test_modification",
+        "broad_source_rewrite"
+      ],
+      "likely_repair_path": "validation_guard",
+      "project_family": "fastapi",
+      "selected_repair_path_used_only_decision_time_safe_evidence": true,
+      "whether_memory_changed_repair_path_selection": true,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": true
+    },
+    {
+      "candidate": "fastapi:4",
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "validation_guard"
+      ],
+      "evidence_supporting_repair_path": [
+        "normalized failing command",
+        "direct traceback/assertion context",
+        "decision-time-safe candidate metadata"
+      ],
+      "failure_signature": "preflight failure context",
+      "forbidden_heuristics": [
+        "fixed_or_gold_patch",
+        "future_outcome_evidence",
+        "test_modification",
+        "broad_source_rewrite"
+      ],
+      "likely_repair_path": "validation_guard",
+      "project_family": "fastapi",
+      "selected_repair_path_used_only_decision_time_safe_evidence": true,
+      "whether_memory_changed_repair_path_selection": true,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": true
+    },
+    {
+      "candidate": "fastapi:5",
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "validation_guard"
+      ],
+      "evidence_supporting_repair_path": [
+        "normalized failing command",
+        "direct traceback/assertion context",
+        "decision-time-safe candidate metadata"
+      ],
+      "failure_signature": "preflight failure context",
+      "forbidden_heuristics": [
+        "fixed_or_gold_patch",
+        "future_outcome_evidence",
+        "test_modification",
+        "broad_source_rewrite"
+      ],
+      "likely_repair_path": "validation_guard",
+      "project_family": "fastapi",
+      "selected_repair_path_used_only_decision_time_safe_evidence": true,
+      "whether_memory_changed_repair_path_selection": true,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": true
+    },
+    {
+      "candidate": "fastapi:6",
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "validation_guard"
+      ],
+      "evidence_supporting_repair_path": [
+        "normalized failing command",
+        "direct traceback/assertion context",
+        "decision-time-safe candidate metadata"
+      ],
+      "failure_signature": "preflight failure context",
+      "forbidden_heuristics": [
+        "fixed_or_gold_patch",
+        "future_outcome_evidence",
+        "test_modification",
+        "broad_source_rewrite"
+      ],
+      "likely_repair_path": "validation_guard",
+      "project_family": "fastapi",
+      "selected_repair_path_used_only_decision_time_safe_evidence": true,
+      "whether_memory_changed_repair_path_selection": false,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false
+    },
+    {
+      "candidate": "fastapi:7",
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "validation_guard"
+      ],
+      "evidence_supporting_repair_path": [
+        "normalized failing command",
+        "direct traceback/assertion context",
+        "decision-time-safe candidate metadata"
+      ],
+      "failure_signature": "preflight failure context",
+      "forbidden_heuristics": [
+        "fixed_or_gold_patch",
+        "future_outcome_evidence",
+        "test_modification",
+        "broad_source_rewrite"
+      ],
+      "likely_repair_path": "validation_guard",
+      "project_family": "fastapi",
+      "selected_repair_path_used_only_decision_time_safe_evidence": true,
+      "whether_memory_changed_repair_path_selection": false,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false
     }
   ],
-  "status": "PENDING_GITHUB_ACTIONS",
+  "status": "PASS",
   "taxonomy_assigned_before_heuristic_selection": true
 }

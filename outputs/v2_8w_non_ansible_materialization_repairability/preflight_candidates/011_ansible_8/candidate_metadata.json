@@ -1,0 +1,30 @@
+{
+  "bug_id": "8",
+  "candidate": "ansible:8",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest test/units/plugins/shell/test_powershell.py::test_join_path_unc",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "UNASSIGNED",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:8",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "test/units/plugins/shell/test_powershell.py"
+  ],
+  "normalized_direct_command": "python -m pytest test/units/plugins/shell/test_powershell.py::test_join_path_unc",
+  "project": "ansible",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_join_path_unc",
+    "test_join_path_unc",
+    "test_powershell"
+  ],
+  "target_test_file": "test/units/plugins/shell/test_powershell.py",
+  "v2_8p_role": "broad_preflight_candidate"
+}

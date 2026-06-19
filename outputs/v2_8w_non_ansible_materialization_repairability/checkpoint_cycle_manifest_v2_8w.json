@@ -1,5 +1,7 @@
 {
   "checkpoint_order_failures": [],
+  "episode_count": 9,
+  "invalid_for_scoring_episode_count": 0,
   "phase_order": [
     "baseline_preservation",
     "candidate_pool_selection",
@@ -21,5 +23,292 @@
     "proof_obligations_lock",
     "artifact_manifest"
   ],
-  "status": "PENDING_GITHUB_ACTIONS"
+  "phases": [
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "v2.8v official baseline artifacts"
+      ],
+      "order": 1,
+      "output_files": [
+        "baseline_preservation_result.json"
+      ],
+      "phase": "baseline_preservation",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 2,
+      "output_files": [
+        "candidate_pool_selection_result.json"
+      ],
+      "phase": "candidate_pool_selection",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 3,
+      "output_files": [
+        "environmental_stress_state_result.json"
+      ],
+      "phase": "environmental_stress_state",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 4,
+      "output_files": [
+        "chromatin_state_result.json"
+      ],
+      "phase": "chromatin_state",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 5,
+      "output_files": [
+        "preflight_licensing_result.json"
+      ],
+      "phase": "preflight_licensing",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 6,
+      "output_files": [
+        "fixture_dependency_check_result.json"
+      ],
+      "phase": "fixture_dependency_check",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 7,
+      "output_files": [
+        "command_normalization_result.json"
+      ],
+      "phase": "command_normalization",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 8,
+      "output_files": [
+        "source_discovery_result.json"
+      ],
+      "phase": "source_discovery",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 9,
+      "output_files": [
+        "repair_path_taxonomy_result.json"
+      ],
+      "phase": "repair_path_taxonomy",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 10,
+      "output_files": [
+        "heuristic_selection_result.json"
+      ],
+      "phase": "heuristic_selection",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 11,
+      "output_files": [
+        "patch_candidate_generation_result.json"
+      ],
+      "phase": "patch_candidate_generation",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 12,
+      "output_files": [
+        "patch_safety_check_result.json"
+      ],
+      "phase": "patch_safety_check",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 13,
+      "output_files": [
+        "local_tension_relief_result.json"
+      ],
+      "phase": "local_tension_relief",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 14,
+      "output_files": [
+        "patch_application_result.json"
+      ],
+      "phase": "patch_application",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 15,
+      "output_files": [
+        "post_repair_validation_result.json"
+      ],
+      "phase": "post_repair_validation",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 16,
+      "output_files": [
+        "duplicate_clean_replay_readiness_result.json"
+      ],
+      "phase": "duplicate_clean_replay_readiness",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 17,
+      "output_files": [
+        "limited_scoring_result.json"
+      ],
+      "phase": "limited_scoring",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 18,
+      "output_files": [
+        "proof_obligations_lock_result.json"
+      ],
+      "phase": "proof_obligations_lock",
+      "phase_order_valid": true,
+      "started": true
+    },
+    {
+      "completed": true,
+      "contamination_check": "PASS",
+      "decision_time_safe_status": true,
+      "input_files": [
+        "prior phase artifacts"
+      ],
+      "order": 19,
+      "output_files": [
+        "artifact_manifest_result.json"
+      ],
+      "phase": "artifact_manifest",
+      "phase_order_valid": true,
+      "started": true
+    }
+  ],
+  "status": "PASS"
 }
