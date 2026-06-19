@@ -1,0 +1,67 @@
+name: v2_9_topological_source_discovery
+
+on:
+  workflow_dispatch:
+
+jobs:
+  topological-source-discovery:
+    name: Topological source discovery
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.9 runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_9_topological_source_discovery_artifacts" scripts/v2_9_topological_source_discovery_runner.py
+          grep -q "preserved_v2_8w_baseline_gate_result" scripts/v2_9_topological_source_discovery_runner.py
+          grep -q "topological_source_discovery_v2_9" scripts/v2_9_topological_source_discovery_runner.py
+          grep -q "ast_loop_extrusion_context_v2_9" scripts/v2_9_topological_source_discovery_runner.py
+          grep -q "causal_context_bundle_v2_9" scripts/v2_9_topological_source_discovery_runner.py
+          grep -q "topoisomerase_tension_relief_v2_9" scripts/v2_9_topological_source_discovery_runner.py
+          grep -q "heterochromatin_monitor_v2_9" scripts/v2_9_topological_source_discovery_runner.py
+          grep -q "phase_inversion_seed_constraint_check_v2_9" scripts/v2_9_topological_source_discovery_runner.py
+          grep -q "topological_context_integrity_check_v2_9" scripts/v2_9_topological_source_discovery_runner.py
+          grep -q "controllergate_full_scoring.*NOT_RUN" scripts/v2_9_topological_source_discovery_runner.py
+
+      - name: Run topological source discovery
+        shell: bash
+        timeout-minutes: 120
+        run: |
+          set -euo pipefail
+          python scripts/v2_9_topological_source_discovery_runner.py
+          test -s v2_9_topological_source_discovery_artifacts/preserved_v2_8w_baseline_gate_result.json
+          test -s v2_9_topological_source_discovery_artifacts/topological_source_discovery_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/ast_loop_extrusion_context_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/causal_context_bundle_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/topoisomerase_tension_relief_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/materialization_tension_relief_log_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/heterochromatin_monitor_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/silent_scaffolding_risk_audit_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/phase_inversion_seed_constraint_check_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/topological_candidate_pool_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/repair_path_taxonomy_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/duplicate_clean_replay_verification_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/isomorphism_requirements_matrix_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/memory_arm_separation_check_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/memory_evidence_eligibility_check_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/observer_state_separation_check_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/topological_context_integrity_check_v2_9.json
+          test -s v2_9_topological_source_discovery_artifacts/SHA256SUMS.txt
+
+      - name: Upload v2.9 topological source discovery artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_9_topological_source_discovery_artifacts
+          path: v2_9_topological_source_discovery_artifacts
+          if-no-files-found: error

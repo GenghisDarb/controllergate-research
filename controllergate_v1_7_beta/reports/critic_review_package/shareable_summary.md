@@ -1011,3 +1011,10 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
+
+## v2.9 Topological Source Discovery
+
+- Status: `blocked_pending_v2_9_topological_source_discovery_artifact`.
+- v2.9 preserves the v2.8w baseline before adding topological source discovery, AST/dependency loop extrusion, bounded materialization tension relief, heterochromatin risk checks, duplicate replay readiness, and phase-inversion checks.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.
