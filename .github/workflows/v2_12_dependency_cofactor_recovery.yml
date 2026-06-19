@@ -1,0 +1,64 @@
+name: v2_12_dependency_cofactor_recovery
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dependency-cofactor-recovery:
+    name: Dependency cofactor recovery and locked validation
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.12 runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_12_dependency_cofactor_recovery_artifacts" scripts/v2_12_dependency_cofactor_recovery_runner.py
+          grep -q "preserved_v2_11_baseline_gate_result" scripts/v2_12_dependency_cofactor_recovery_runner.py
+          grep -q "dependency_cofactor_recovery_plan_v2_12" scripts/v2_12_dependency_cofactor_recovery_runner.py
+          grep -q "python_toolbox_recovery_audit_v2_12" scripts/v2_12_dependency_cofactor_recovery_runner.py
+          grep -q "v2_11_patch_revalidation_v2_12" scripts/v2_12_dependency_cofactor_recovery_runner.py
+          grep -q "duplicate_clean_replay_verification_v2_12" scripts/v2_12_dependency_cofactor_recovery_runner.py
+          grep -q "phase_inversion_seed_constraint_check_v2_12" scripts/v2_12_dependency_cofactor_recovery_runner.py
+          grep -q "dependency_cofactor_anti_leakage_check_v2_12" scripts/v2_12_dependency_cofactor_recovery_runner.py
+          grep -q "controllergate_full_scoring.*NOT_RUN" scripts/v2_12_dependency_cofactor_recovery_runner.py
+
+      - name: Run dependency cofactor recovery and locked validation
+        shell: bash
+        timeout-minutes: 180
+        run: |
+          set -euo pipefail
+          python scripts/v2_12_dependency_cofactor_recovery_runner.py
+          test -s v2_12_dependency_cofactor_recovery_artifacts/preserved_v2_11_baseline_gate_result.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/dependency_cofactor_recovery_plan_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/python_toolbox_recovery_audit_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/declared_dependency_evidence_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/cofactor_recovery_decision_log_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/v2_11_patch_revalidation_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/pysnooper_patch_validation_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/v2_12_candidate_recovery_queue.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/bounded_topology_aware_repair_proposer_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/topology_to_patch_proof_ledger_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/duplicate_clean_replay_verification_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/phase_inversion_seed_constraint_check_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/dependency_cofactor_anti_leakage_check_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/source_patch_anti_leakage_check_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/isomorphism_requirements_matrix_v2_12.json
+          test -s v2_12_dependency_cofactor_recovery_artifacts/SHA256SUMS.txt
+
+      - name: Upload v2.12 dependency cofactor recovery artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_12_dependency_cofactor_recovery_artifacts
+          path: v2_12_dependency_cofactor_recovery_artifacts
+          if-no-files-found: error

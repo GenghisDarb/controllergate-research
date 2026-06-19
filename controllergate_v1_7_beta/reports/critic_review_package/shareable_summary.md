@@ -1083,3 +1083,10 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
 - Tooling note preserved from campaign metadata: the v2.10 artifact handling issue was a session/tooling surface problem, not ControllerGate evidence.
+
+## v2.12 Dependency Cofactor Recovery and Locked Non-Ansible Repair Validation Lane
+
+- Status: `blocked_pending_v2_12_dependency_cofactor_recovery_artifact`.
+- v2.12 preserves the v2.11 baseline, audits the PySnooper `python_toolbox` cofactor against buggy-checkout metadata, and locks any new non-Ansible result only after target validation, duplicate replay, and phase inversion.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.
