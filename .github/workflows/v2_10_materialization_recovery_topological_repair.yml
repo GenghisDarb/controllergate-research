@@ -1,0 +1,69 @@
+name: v2_10_materialization_recovery_topological_repair
+
+on:
+  workflow_dispatch:
+
+jobs:
+  materialization-recovery-topological-repair:
+    name: Materialization recovery topological repair
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.10 runner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "v2_10_materialization_recovery_topological_repair_artifacts" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          grep -q "preserved_v2_9_baseline_gate_result" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          grep -q "bounded_dependency_materialization_recovery_v2_10" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          grep -q "dependency_cofactor_map_v2_10" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          grep -q "fixture_materialization_map_v2_10" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          grep -q "v2_9_context_reuse_manifest_v2_10" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          grep -q "post_materialization_topological_source_discovery_v2_10" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          grep -q "duplicate_clean_replay_verification_v2_10" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          grep -q "phase_inversion_seed_constraint_check_v2_10" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          grep -q "dependency_recovery_anti_leakage_check_v2_10" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          grep -q "controllergate_full_scoring.*NOT_RUN" scripts/v2_10_materialization_recovery_topological_repair_runner.py
+
+      - name: Run materialization recovery topological repair
+        shell: bash
+        timeout-minutes: 150
+        run: |
+          set -euo pipefail
+          python scripts/v2_10_materialization_recovery_topological_repair_runner.py
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/preserved_v2_9_baseline_gate_result.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/bounded_dependency_materialization_recovery_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/dependency_cofactor_map_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/fixture_materialization_map_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/materialization_recovery_decision_log_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/v2_9_context_reuse_manifest_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/context_bundle_to_repair_plan_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/post_materialization_topological_source_discovery_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/materialization_recovery_candidate_pool_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/repair_path_taxonomy_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/duplicate_clean_replay_verification_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/phase_inversion_seed_constraint_check_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/heterochromatin_monitor_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/silent_scaffolding_risk_audit_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/memory_arm_separation_check_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/materialization_recovery_integrity_check_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/dependency_recovery_anti_leakage_check_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/isomorphism_requirements_matrix_v2_10.json
+          test -s v2_10_materialization_recovery_topological_repair_artifacts/SHA256SUMS.txt
+
+      - name: Upload v2.10 materialization recovery artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_10_materialization_recovery_topological_repair_artifacts
+          path: v2_10_materialization_recovery_topological_repair_artifacts
+          if-no-files-found: error

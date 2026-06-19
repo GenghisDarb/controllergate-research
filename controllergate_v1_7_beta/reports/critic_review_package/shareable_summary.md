@@ -1032,3 +1032,10 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
+
+## v2.10 Materialization Recovery and Topological Repair
+
+- Status: `blocked_pending_v2_10_materialization_recovery_topological_repair_artifact`.
+- v2.10 preserves the v2.9 baseline, reuses v2.9 causal context bundles, and adds bounded dependency/materialization recovery before topology-aware source-only repair.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.
