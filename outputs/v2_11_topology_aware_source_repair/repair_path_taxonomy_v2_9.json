@@ -1,0 +1,269 @@
+{
+  "allowed_repair_path_categories": [
+    "boolean_value_edge_case",
+    "parser_guard",
+    "fixture_materialization_defect",
+    "import_compatibility_defect",
+    "mapping_key_normalization",
+    "type_coercion",
+    "localized_exception_edge_case",
+    "path_string_normalization",
+    "dependency_environment_defect",
+    "formatting_policy_defect",
+    "validation_guard",
+    "attribute_compatibility_fix",
+    "topological_policy_entanglement",
+    "unknown_no_safe_path"
+  ],
+  "decision_time_safe_evidence_only": true,
+  "records": [
+    {
+      "candidate": "fastapi:2",
+      "confidence": "medium",
+      "eligible_heuristics": [],
+      "evidence_supporting_repair_path": {
+        "causal_context_bundle_hash": "cfa11d6d9c948e3fac4979cc84e9853b63b5822f712bff85c0e0d1826090e77f",
+        "extruded_context_files": [
+          "tests/test_ws_router.py",
+          "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+          "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "fastapi/testclient.py",
+          "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+        ],
+        "extruded_symbols": [
+          "fastapi.testclient.TestClient",
+          "starlette.testclient.TestClient",
+          "TestClient",
+          "requests"
+        ],
+        "missing_modules": [
+          "requests"
+        ]
+      },
+      "failure_signature": [
+        ""
+      ],
+      "flat_traceback_repair_path": "validation_guard",
+      "forbidden_heuristics": [
+        "test modification",
+        "fixed/gold patch",
+        "broad source rewrite",
+        "dependency replacement"
+      ],
+      "project_family": "fastapi",
+      "topology_aware_repair_path": "dependency_environment_defect",
+      "whether_loop_extrusion_changed_repair_path_selection": true,
+      "whether_memory_changed_repair_path_selection": false,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false,
+      "whether_selected_repair_path_used_only_decision_time_safe_evidence": true
+    },
+    {
+      "candidate": "fastapi:3",
+      "confidence": "medium",
+      "eligible_heuristics": [],
+      "evidence_supporting_repair_path": {
+        "causal_context_bundle_hash": "e55244c8506637088db1188bca09deaeb5cef988049e9c2ad0565d2e70a728c6",
+        "extruded_context_files": [
+          "tests/test_serialize_response_model.py",
+          "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+          "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+        ],
+        "extruded_symbols": [
+          "starlette.testclient.TestClient",
+          "TestClient",
+          "requests"
+        ],
+        "missing_modules": [
+          "requests"
+        ]
+      },
+      "failure_signature": [
+        ""
+      ],
+      "flat_traceback_repair_path": "validation_guard",
+      "forbidden_heuristics": [
+        "test modification",
+        "fixed/gold patch",
+        "broad source rewrite",
+        "dependency replacement"
+      ],
+      "project_family": "fastapi",
+      "topology_aware_repair_path": "dependency_environment_defect",
+      "whether_loop_extrusion_changed_repair_path_selection": true,
+      "whether_memory_changed_repair_path_selection": false,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false,
+      "whether_selected_repair_path_used_only_decision_time_safe_evidence": true
+    },
+    {
+      "candidate": "fastapi:4",
+      "confidence": "medium",
+      "eligible_heuristics": [],
+      "evidence_supporting_repair_path": {
+        "causal_context_bundle_hash": "9c2fe18737eded3b9285d854e9b814ff692225a3024de0359fbf59b2408b850d",
+        "extruded_context_files": [
+          "tests/test_param_in_path_and_dependency.py",
+          "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_032/fastapi/tests/test_param_in_path_and_dependency.py",
+          "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+        ],
+        "extruded_symbols": [
+          "starlette.testclient.TestClient",
+          "TestClient",
+          "requests"
+        ],
+        "missing_modules": [
+          "requests"
+        ]
+      },
+      "failure_signature": [
+        ""
+      ],
+      "flat_traceback_repair_path": "validation_guard",
+      "forbidden_heuristics": [
+        "test modification",
+        "fixed/gold patch",
+        "broad source rewrite",
+        "dependency replacement"
+      ],
+      "project_family": "fastapi",
+      "topology_aware_repair_path": "dependency_environment_defect",
+      "whether_loop_extrusion_changed_repair_path_selection": true,
+      "whether_memory_changed_repair_path_selection": false,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false,
+      "whether_selected_repair_path_used_only_decision_time_safe_evidence": true
+    },
+    {
+      "candidate": "PySnooper:1",
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "localized_exception_edge_case"
+      ],
+      "evidence_supporting_repair_path": {
+        "causal_context_bundle_hash": "6bde9e746d8c8925d4a698c0de0c9bfa3a912260585bdf7dfe5aecb8d60946d7",
+        "extruded_context_files": [
+          "tests/test_chinese.py",
+          "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+          "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "pysnooper/__init__.py",
+          "pysnooper/tracer.py"
+        ],
+        "extruded_symbols": [
+          "pysnooper.utils.truncate",
+          ".tracer.Tracer as snoop",
+          ".variables.CommonVariable, Exploding, BaseVariable",
+          "collections.Mapping, Sequence",
+          "truncate",
+          "Tracer",
+          "CommonVariable",
+          "Mapping",
+          "name"
+        ],
+        "missing_modules": []
+      },
+      "failure_signature": [
+        ""
+      ],
+      "flat_traceback_repair_path": "localized_exception_edge_case",
+      "forbidden_heuristics": [
+        "test modification",
+        "fixed/gold patch",
+        "broad source rewrite",
+        "dependency replacement"
+      ],
+      "project_family": "PySnooper",
+      "topology_aware_repair_path": "localized_exception_edge_case",
+      "whether_loop_extrusion_changed_repair_path_selection": false,
+      "whether_memory_changed_repair_path_selection": false,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false,
+      "whether_selected_repair_path_used_only_decision_time_safe_evidence": true
+    },
+    {
+      "candidate": "PySnooper:2",
+      "confidence": "medium",
+      "eligible_heuristics": [
+        "localized_exception_edge_case"
+      ],
+      "evidence_supporting_repair_path": {
+        "causal_context_bundle_hash": "bf9deaafb92cc12dd3b8b89a6b39beff365eb1e97fd92ed7433db866fffdd9c8",
+        "extruded_context_files": [
+          "tests/test_pysnooper.py",
+          "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/tests/test_pysnooper.py",
+          "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "pysnooper/__init__.py",
+          "pysnooper/tracer.py"
+        ],
+        "extruded_symbols": [
+          "pysnooper.utils.truncate",
+          ".tracer.Tracer as snoop",
+          ".variables.CommonVariable, Exploding, BaseVariable",
+          "collections.Mapping, Sequence",
+          "truncate",
+          "Tracer",
+          "CommonVariable",
+          "Mapping",
+          "name"
+        ],
+        "missing_modules": []
+      },
+      "failure_signature": [
+        ""
+      ],
+      "flat_traceback_repair_path": "localized_exception_edge_case",
+      "forbidden_heuristics": [
+        "test modification",
+        "fixed/gold patch",
+        "broad source rewrite",
+        "dependency replacement"
+      ],
+      "project_family": "PySnooper",
+      "topology_aware_repair_path": "localized_exception_edge_case",
+      "whether_loop_extrusion_changed_repair_path_selection": false,
+      "whether_memory_changed_repair_path_selection": false,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false,
+      "whether_selected_repair_path_used_only_decision_time_safe_evidence": true
+    },
+    {
+      "candidate": "fastapi:5",
+      "confidence": "medium",
+      "eligible_heuristics": [],
+      "evidence_supporting_repair_path": {
+        "causal_context_bundle_hash": "5c37412855586ef590c37e199470915f08344632ae0779ed6fca8b69008e0fc6",
+        "extruded_context_files": [
+          "tests/test_filter_pydantic_sub_model.py",
+          "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/026_fastapi_5/fastapi/tests/test_filter_pydantic_sub_model.py",
+          "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+        ],
+        "extruded_symbols": [
+          "starlette.testclient.TestClient",
+          "TestClient",
+          "requests"
+        ],
+        "missing_modules": [
+          "requests"
+        ]
+      },
+      "failure_signature": [
+        ""
+      ],
+      "flat_traceback_repair_path": "validation_guard",
+      "forbidden_heuristics": [
+        "test modification",
+        "fixed/gold patch",
+        "broad source rewrite",
+        "dependency replacement"
+      ],
+      "project_family": "fastapi",
+      "topology_aware_repair_path": "dependency_environment_defect",
+      "whether_loop_extrusion_changed_repair_path_selection": true,
+      "whether_memory_changed_repair_path_selection": false,
+      "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false,
+      "whether_selected_repair_path_used_only_decision_time_safe_evidence": true
+    }
+  ],
+  "status": "PASS",
+  "taxonomy_assigned_before_heuristic_selection": true,
+  "topology_aware": true,
+  "topology_changed_repair_path_count": 4
+}

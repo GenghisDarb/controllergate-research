@@ -1,0 +1,167 @@
+$ bash -lc python -m pytest test/units/plugins/lookup/test_env.py
+started_at_utc=2026-06-19T15:13:36.561324+00:00
+finished_at_utc=2026-06-19T15:13:37.127555+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/015_ansible_12/ansible
+collected 4 items
+
+test/units/plugins/lookup/test_env.py FFFF                               [100%]
+
+=================================== FAILURES ===================================
+_________________________ test_env_var_value[foo-bar] __________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc1f6298640>
+env_var = 'foo', exp_value = 'bar'
+
+    @pytest.mark.parametrize('env_var,exp_value', [
+        ('foo', 'bar'),
+        ('equation', 'a=b*100')
+    ])
+    def test_env_var_value(monkeypatch, env_var, exp_value):
+        monkeypatch.setattr('ansible.utils.py3compat.environ.get', lambda x, y: exp_value)
+    
+        env_lookup = lookup_loader.get('env')
+        retval = env_lookup.run([env_var], None)
+>       assert retval == [exp_value]
+E       AssertionError: assert [''] == ['bar']
+E         
+E         At index 0 diff: '' != 'bar'
+E         
+E         Full diff:
+E           [
+E         -     'bar',
+E         ?      ---
+E         +     '',
+E           ]
+
+test/units/plugins/lookup/test_env.py:23: AssertionError
+_____________________ test_env_var_value[equation-a=b*100] _____________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc1f658de10>
+env_var = 'equation', exp_value = 'a=b*100'
+
+    @pytest.mark.parametrize('env_var,exp_value', [
+        ('foo', 'bar'),
+        ('equation', 'a=b*100')
+    ])
+    def test_env_var_value(monkeypatch, env_var, exp_value):
+        monkeypatch.setattr('ansible.utils.py3compat.environ.get', lambda x, y: exp_value)
+    
+        env_lookup = lookup_loader.get('env')
+        retval = env_lookup.run([env_var], None)
+>       assert retval == [exp_value]
+E       AssertionError: assert [''] == ['a=b*100']
+E         
+E         At index 0 diff: '' != 'a=b*100'
+E         
+E         Full diff:
+E           [
+E         -     'a=b*100',
+E         +     '',
+E           ]
+
+test/units/plugins/lookup/test_env.py:23: AssertionError
+____________ test_utf8_env_var_value[simple_var-alpha-\u03b2-gamma] ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc1f658e2f0>
+env_var = 'simple_var', exp_value = 'alpha-β-gamma'
+
+    @pytest.mark.parametrize('env_var,exp_value', [
+        ('simple_var', 'alpha-β-gamma'),
+        ('the_var', 'ãnˈsiβle')
+    ])
+    def test_utf8_env_var_value(monkeypatch, env_var, exp_value):
+        monkeypatch.setattr('ansible.utils.py3compat.environ.get', lambda x, y: exp_value)
+    
+        env_lookup = lookup_loader.get('env')
+        retval = env_lookup.run([env_var], None)
+>       assert retval == [exp_value]
+E       AssertionError: assert [''] == ['alpha-β-gamma']
+E         
+E         At index 0 diff: '' != 'alpha-β-gamma'
+E         
+E         Full diff:
+E           [
+E         -     'alpha-β-gamma',
+E         +     '',
+E           ]
+
+test/units/plugins/lookup/test_env.py:35: AssertionError
+____________ test_utf8_env_var_value[the_var-\xe3n\u02c8si\u03b2le] ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc1f6298a60>
+env_var = 'the_var', exp_value = 'ãnˈsiβle'
+
+    @pytest.mark.parametrize('env_var,exp_value', [
+        ('simple_var', 'alpha-β-gamma'),
+        ('the_var', 'ãnˈsiβle')
+    ])
+    def test_utf8_env_var_value(monkeypatch, env_var, exp_value):
+        monkeypatch.setattr('ansible.utils.py3compat.environ.get', lambda x, y: exp_value)
+    
+        env_lookup = lookup_loader.get('env')
+        retval = env_lookup.run([env_var], None)
+>       assert retval == [exp_value]
+E       AssertionError: assert [''] == ['ãnˈsiβle']
+E         
+E         At index 0 diff: '' != 'ãnˈsiβle'
+E         
+E         Full diff:
+E           [
+E         -     'ãnˈsiβle',
+E         +     '',
+E           ]
+
+test/units/plugins/lookup/test_env.py:35: AssertionError
+=============================== warnings summary ===============================
+../../../../../../../../../opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18
+  /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18: DeprecationWarning: The _yaml extension module is now located at yaml._yaml and its location is subject to change.  To use the LibYAML-based parser and emitter, import from `yaml`: `from yaml import CLoader as Loader, CDumper as Dumper`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/units/plugins/lookup/test_env.py::test_env_var_value[foo-bar] - AssertionError: assert [''] == ['bar']
+  
+  At index 0 diff: '' != 'bar'
+  
+  Full diff:
+    [
+  -     'bar',
+  ?      ---
+  +     '',
+    ]
+FAILED test/units/plugins/lookup/test_env.py::test_env_var_value[equation-a=b*100] - AssertionError: assert [''] == ['a=b*100']
+  
+  At index 0 diff: '' != 'a=b*100'
+  
+  Full diff:
+    [
+  -     'a=b*100',
+  +     '',
+    ]
+FAILED test/units/plugins/lookup/test_env.py::test_utf8_env_var_value[simple_var-alpha-\u03b2-gamma] - AssertionError: assert [''] == ['alpha-β-gamma']
+  
+  At index 0 diff: '' != 'alpha-β-gamma'
+  
+  Full diff:
+    [
+  -     'alpha-β-gamma',
+  +     '',
+    ]
+FAILED test/units/plugins/lookup/test_env.py::test_utf8_env_var_value[the_var-\xe3n\u02c8si\u03b2le] - AssertionError: assert [''] == ['ãnˈsiβle']
+  
+  At index 0 diff: '' != 'ãnˈsiβle'
+  
+  Full diff:
+    [
+  -     'ãnˈsiβle',
+  +     '',
+    ]
+========================= 4 failed, 1 warning in 0.23s =========================
+
+--- stderr ---
+

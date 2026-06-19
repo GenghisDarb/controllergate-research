@@ -1,0 +1,77 @@
+$ bash -lc python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric
+started_at_utc=2026-06-19T15:01:22.996868+00:00
+finished_at_utc=2026-06-19T15:01:23.689734+00:00
+returncode=0
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/repair_paths/episode_010/memory_enabled
+collected 1 item
+
+test/units/utils/test_version.py .                                       [100%]
+
+=============================== warnings summary ===============================
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:166
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:166: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1'), SemanticVersion('1.0.0')),
+
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:167
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:167: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1-alpha'), SemanticVersion('1.0.0-alpha')),
+
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:168
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:168: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1.0.0-alpha+build'), SemanticVersion('1.0.0-alpha+build')),
+
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:172
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:172: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    LooseVersion('1.a.3'),
+
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:173
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:173: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    LooseVersion(),
+
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:175
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:175: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    StrictVersion('1.2.3'),
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 6 warnings in 0.09s =========================
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/repair_paths/episode_010/memory_enabled
+collected 1 item
+
+test/units/utils/test_version.py .                                       [100%]
+
+=============================== warnings summary ===============================
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:166
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:166: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1'), SemanticVersion('1.0.0')),
+
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:167
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:167: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1-alpha'), SemanticVersion('1.0.0-alpha')),
+
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:168
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:168: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1.0.0-alpha+build'), SemanticVersion('1.0.0-alpha+build')),
+
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:172
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:172: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    LooseVersion('1.a.3'),
+
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:173
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:173: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    LooseVersion(),
+
+../../../workspaces/episode_010/ansible/test/units/utils/test_version.py:175
+  /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_010/ansible/test/units/utils/test_version.py:175: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    StrictVersion('1.2.3'),
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 6 warnings in 0.08s =========================
+
+--- stderr ---
+

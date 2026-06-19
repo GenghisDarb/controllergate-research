@@ -1,0 +1,33 @@
+{
+  "candidate": "PySnooper:1",
+  "decision_time_safe_evidence_used": [
+    "v2.9 causal context bundle hash",
+    "v2.10 materialization recovery status",
+    "v2.10 repair taxonomy",
+    "buggy checkout failure log"
+  ],
+  "decision_time_safe_status": "PASS",
+  "memory_enabled_allowed_context": [
+    "buggy checkout",
+    "target command",
+    "failing log",
+    "official v2.9 context summary",
+    "official v2.10 materialization summary",
+    "RepairMemory decision-time-safe fields"
+  ],
+  "no_memory_allowed_context": [
+    "buggy checkout",
+    "target command",
+    "failing log",
+    "non-memory topology fields"
+  ],
+  "project_family": "PySnooper",
+  "reason_if_not_allowed": "",
+  "recovered_surface_type": "import_compatibility_surface",
+  "repair_attempt_allowed": true,
+  "v2_10_materialization_recovered": true,
+  "v2_10_materialization_status": "materialization_recovered_source_repair_surface_reached",
+  "v2_10_repair_path": "import_compatibility_defect",
+  "v2_11_repair_path": "import_compatibility_defect",
+  "v2_9_context_bundle_hash": "449ced43aa3124a94bb190a2a74c3ebc616c29a11bf0a7473c8563bcf91be31f"
+}

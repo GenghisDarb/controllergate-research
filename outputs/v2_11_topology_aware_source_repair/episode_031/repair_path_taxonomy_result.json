@@ -1,0 +1,27 @@
+{
+  "candidate": "fastapi:3",
+  "confidence": "medium",
+  "eligible_heuristics": [
+    "validation_guard"
+  ],
+  "evidence_supporting_repair_path": {
+    "initial_blocker": "ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py::test_valid",
+    "materialization_status_after": "materialization_recovered",
+    "metadata_hashes": {
+      "pyproject.toml": "5f66985f9c607007fdd8edc593dd4442114b9917f6d31afc9799a4f03a7ef24a"
+    }
+  },
+  "forbidden_heuristics": [
+    "test modification",
+    "fixed/gold patch",
+    "future outcome evidence",
+    "broad source rewrite"
+  ],
+  "project_family": "fastapi",
+  "v2_10_post_materialization_repair_path": "validation_guard",
+  "v2_9_repair_path": "dependency_environment_defect",
+  "whether_materialization_recovery_changed_repair_path_selection": true,
+  "whether_memory_changed_repair_path_selection": false,
+  "whether_no_memory_and_memory_enabled_selected_different_repair_paths": false,
+  "whether_selected_repair_path_used_only_decision_time_safe_evidence": true
+}

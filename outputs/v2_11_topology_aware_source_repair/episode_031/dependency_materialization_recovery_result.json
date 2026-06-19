@@ -1,0 +1,33 @@
+{
+  "blocker_type": "dependency_missing",
+  "candidate": "fastapi:3",
+  "decision_time_safe_status": "PASS",
+  "declared_dependency_sources": [
+    "pyproject.toml"
+  ],
+  "declared_fixture_sources": [
+    "tests/test_serialize_response_model.py"
+  ],
+  "hashes_of_metadata_used": {
+    "pyproject.toml": "5f66985f9c607007fdd8edc593dd4442114b9917f6d31afc9799a4f03a7ef24a"
+  },
+  "initial_blocker": "ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py::test_valid",
+  "materialization_recovered": true,
+  "materialization_status_after": "materialization_recovered",
+  "materialization_status_before": "blocked_replay_or_materialization_failure",
+  "missing_modules": [
+    "requests"
+  ],
+  "project_family": "fastapi",
+  "reason_if_not_recovered": "",
+  "recovery_actions_attempted": [
+    "install_requests_testclient_cofactor_from_buggy_checkout_metadata"
+  ],
+  "recovery_actions_forbidden": [
+    "fixed/gold/future evidence",
+    "test modification",
+    "project source edit during materialization"
+  ],
+  "recovery_command_returncode": 0,
+  "repair_allowed_after_recovery": true
+}

@@ -1,0 +1,53 @@
+{
+  "ansible_remaining_candidate_ids": [
+    "ansible:1",
+    "ansible:8",
+    "ansible:10",
+    "ansible:4",
+    "ansible:12",
+    "ansible:13"
+  ],
+  "architecture_readiness_lane": true,
+  "artifact_name": "v2_8w_non_ansible_materialization_repairability_artifacts",
+  "campaign_id": "v2_8w_non_ansible_materialization_repairability",
+  "controllergate_full_scoring": "NOT_RUN",
+  "cross_family_candidate_ids": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1",
+    "PySnooper:2",
+    "youtube-dl:2",
+    "black:5",
+    "ansible:1",
+    "ansible:8",
+    "ansible:10",
+    "ansible:4",
+    "ansible:12",
+    "ansible:13"
+  ],
+  "full_scoring_allowed": false,
+  "non_ansible_attempt_ceiling": 4,
+  "non_ansible_target_ids": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1",
+    "PySnooper:2",
+    "youtube-dl:2",
+    "black:5"
+  ],
+  "positive_baseline_candidates": [
+    "ansible:2",
+    "ansible:5"
+  ],
+  "preserve_v2_8v_baseline_before_non_ansible_repairability": true,
+  "required_baseline_candidates": [
+    "youtube-dl:1",
+    "black:4",
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5"
+  ],
+  "self_maintaining_software_demonstrated": false
+}

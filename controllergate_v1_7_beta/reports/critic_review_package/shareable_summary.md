@@ -1062,7 +1062,24 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.11 Topology-Aware Source Repair
 
-- Status: `blocked_pending_v2_11_topology_aware_source_repair_artifact`.
-- v2.11 preserves the v2.10 baseline, uses v2.9/v2.10 recovered context, and attempts bounded topology-aware source-only repairs on recovered non-Ansible surfaces.
+- Status: `verified_official_artifact`.
+- Workflow run: `27833009856`.
+- Artifact ID: `7753460223`.
+- Artifact SHA256: `c9f191348b356074111016c2ddeb0578d4a06660532d1154a1ad9cd695563e35`.
+- Internal SHA256SUMS: `3053` checked across `38` manifests, `0` missing, `0` failures, `0` malformed.
+- Tar snapshots excluded from git ingest: `5`; retained in the verified artifact zip.
+- Preserved v2.10 baseline gate: `PASS`; `youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, and `ansible:5` remained scoreable.
+- `ansible:2` and `ansible:5` preserved `positive_memory_only` status.
+- The topology-aware proposer evaluated no-memory and memory-enabled paths for the six selected candidates and attempted the four v2.10-recovered surfaces: `fastapi:2`, `fastapi:3`, `fastapi:4`, and `PySnooper:1`.
+- The three FastAPI validation-guard lanes recovered topology context but produced no bounded safe source patch.
+- The memory-enabled `PySnooper:1` lane generated one localized, source-only import-compatibility patch for `pysnooper/variables.py`; no tests were modified and the anti-leakage checks passed.
+- The `PySnooper:1` target test still failed, so the patch remained unscoreable with classification `blocked_target_test_failed`; its proof chain correctly remained incomplete and duplicate replay/phase inversion were not applicable.
+- Source-patch integrity, decision-time separation, memory-evidence eligibility, observer-state separation, heterochromatin, silent-scaffolding, and all four isomorphism-layer checks passed.
+- Executed episodes: `9`; scoreable episodes: `5`; replacement scoreable episodes: `3`; positive memory episodes: `2`.
+- Aggregate result: `replicated_positive_memory_signal_preserved`; no new v2.11 positive-memory-only episode appeared.
+- Repair-outcome memory lift: `replicated_positive_memory_signal_preserved`; selection, stability, and global closure memory lift remain `suggestive`.
+- Family generalization remains `not_expanded`: positive-memory evidence is still `ansible:2` and `ansible:5`, with no non-Ansible positive-memory signal.
+- Main benchmark memory lift remains `not_demonstrated`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
+- Tooling note preserved from campaign metadata: the v2.10 artifact handling issue was a session/tooling surface problem, not ControllerGate evidence.

@@ -1,0 +1,29 @@
+{
+  "candidate": "PySnooper:1",
+  "confidence": "medium",
+  "eligible_heuristics": [
+    "bounded_collections_abc_import_compatibility"
+  ],
+  "evidence_supporting_repair_path": {
+    "initial_blocker": "ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py::test_chinese",
+    "materialization_status_after": "materialization_recovered_source_repair_surface_reached",
+    "metadata_hashes": {
+      "requirements.txt": "44c91d4c293a45e5efd6e28c304835637cccbdb5de9b88136c03bcfb98376d8d",
+      "setup.py": "3709ade94c4102c08f64fa33e6a95e33b21c17d68af308cdb34f16a75f6d0f6b",
+      "tox.ini": "629866307933434d0f9f691c3007968f4bb35d7024007e89403c80c36bee0c06"
+    }
+  },
+  "forbidden_heuristics": [
+    "test modification",
+    "fixed/gold patch",
+    "future outcome evidence",
+    "broad source rewrite"
+  ],
+  "project_family": "PySnooper",
+  "v2_10_post_materialization_repair_path": "import_compatibility_defect",
+  "v2_9_repair_path": "localized_exception_edge_case",
+  "whether_materialization_recovery_changed_repair_path_selection": true,
+  "whether_memory_changed_repair_path_selection": true,
+  "whether_no_memory_and_memory_enabled_selected_different_repair_paths": true,
+  "whether_selected_repair_path_used_only_decision_time_safe_evidence": true
+}

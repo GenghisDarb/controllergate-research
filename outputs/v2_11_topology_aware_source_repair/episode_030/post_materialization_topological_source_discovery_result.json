@@ -1,0 +1,108 @@
+{
+  "candidate": "fastapi:2",
+  "context_changed_after_recovery": false,
+  "materialization_recovered": true,
+  "new_fixture_links": [
+    {
+      "command_token": "tests/test_ws_router.py",
+      "role": "failure-reproducing test context"
+    }
+  ],
+  "new_import_links": [
+    {
+      "source": "tests/test_ws_router.py",
+      "symbol": "fastapi.testclient.TestClient"
+    },
+    {
+      "source": "tests/test_ws_router.py",
+      "symbol": "starlette.testclient.TestClient"
+    },
+    {
+      "source": "tests/test_ws_router.py",
+      "symbol": "TestClient"
+    },
+    {
+      "source": "tests/test_ws_router.py",
+      "symbol": "requests"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+      "symbol": "fastapi.testclient.TestClient"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+      "symbol": "starlette.testclient.TestClient"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+      "symbol": "TestClient"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+      "symbol": "requests"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": "fastapi.testclient.TestClient"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": "starlette.testclient.TestClient"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": "TestClient"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": "requests"
+    },
+    {
+      "source": "fastapi/testclient.py",
+      "symbol": "fastapi.testclient.TestClient"
+    },
+    {
+      "source": "fastapi/testclient.py",
+      "symbol": "starlette.testclient.TestClient"
+    },
+    {
+      "source": "fastapi/testclient.py",
+      "symbol": "TestClient"
+    },
+    {
+      "source": "fastapi/testclient.py",
+      "symbol": "requests"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+      "symbol": "fastapi.testclient.TestClient"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+      "symbol": "starlette.testclient.TestClient"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+      "symbol": "TestClient"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+      "symbol": "requests"
+    }
+  ],
+  "new_policy_links": [
+    {
+      "basis": "referenced by command or traceback",
+      "file": "tests/test_ws_router.py"
+    },
+    {
+      "basis": "referenced by command or traceback",
+      "file": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py"
+    }
+  ],
+  "post_recovery_context_bundle_hash": "aa7b77c576c2134178548b67d3d18be5939c9066809ded2cdb25d5fc07faaac2",
+  "pre_recovery_context_bundle_hash": "aa7b77c576c2134178548b67d3d18be5939c9066809ded2cdb25d5fc07faaac2",
+  "reason": "v2.9 context remained valid after bounded materialization recovery",
+  "repair_allowed": true,
+  "repair_path_changed_after_recovery": true
+}

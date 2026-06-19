@@ -1,0 +1,34 @@
+{
+  "arm": "memory_enabled",
+  "candidate": "PySnooper:1",
+  "decision_time_safe_status": "PASS",
+  "expected_failure_resolution": "restore Mapping/Sequence import under Python 3.10 without editing tests",
+  "forbidden_shapes_checked": [
+    "test modification",
+    "fixed/gold patch",
+    "future outcome evidence",
+    "dependency replacement"
+  ],
+  "patch_generated": true,
+  "proposed_patch_shape": "localized import compatibility fallback",
+  "reason_if_no_patch": "",
+  "recovered_surface_used": "import_compatibility_surface",
+  "repair_path": "import_compatibility_defect",
+  "safety_constraints": [
+    "one-file patch",
+    "source-only",
+    "no test edits",
+    "no broad import shim"
+  ],
+  "topological_context_files_used": [
+    "pysnooper/variables.py",
+    "tests/test_chinese.py"
+  ],
+  "touched_files": [
+    "pysnooper/variables.py"
+  ],
+  "touched_symbols": [
+    "Mapping",
+    "Sequence"
+  ]
+}

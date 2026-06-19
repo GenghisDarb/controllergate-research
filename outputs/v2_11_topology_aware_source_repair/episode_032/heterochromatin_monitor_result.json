@@ -1,0 +1,23 @@
+{
+  "candidate": "fastapi:4",
+  "check_selection_decision_time_safe": true,
+  "checks_run_post_patch": [],
+  "checks_run_pre_patch": [
+    "target pre-repair reproduction"
+  ],
+  "collateral_risk_after_patch": "not_applicable_no_patch",
+  "heterochromatin_risk_level": "high",
+  "risk_sources": [
+    "framework policy surface",
+    "target command did not reach source-only repair surface"
+  ],
+  "selected_silent_scaffolding_checks": [
+    "target test command",
+    "static AST parse of patched files if a patch exists",
+    "verify no test files changed",
+    "bounded patch line count and touched file count"
+  ],
+  "whether_candidate_allowed_to_score": false,
+  "whether_global_policy_surface_touched": false,
+  "whether_patch_remained_bounded": true
+}

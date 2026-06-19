@@ -1,0 +1,53 @@
+{
+  "path": "memory_enabled",
+  "proposal": {
+    "boolean_patch_safety_check": {
+      "changed_lines": 2,
+      "diff_non_empty": true,
+      "modifies_tests": false,
+      "patch_contains_negative_operator": true,
+      "patch_contains_positive_operator": true,
+      "patch_only_file": "youtube_dl/utils.py",
+      "uses_fixed_revision": false,
+      "uses_future_outcome_evidence": false,
+      "uses_gold_patch": false,
+      "within_changed_line_budget": true
+    },
+    "candidate": "youtube-dl:1",
+    "candidate_generated": true,
+    "changed_lines": 2,
+    "construction_fix_used": true,
+    "diff": "--- youtube_dl/utils.py\n+++ youtube_dl/utils.py\n@@ -2574,8 +2574,8 @@\n         return op(actual_value, comparison_value)\n \n     UNARY_OPERATORS = {\n-        '': lambda v: v is not None,\n-        '!': lambda v: v is None,\n+        '': lambda v: v is not None and v is not False,\n+        '!': lambda v: v is None or v is False,\n     }\n     operator_rex = re.compile(r'''(?x)\\s*\n         (?P<op>%s)\\s*(?P<key>[a-z_]+)\n",
+    "fixed_or_gold_patch_used": false,
+    "full_source_search_used": true,
+    "future_outcome_evidence_used": false,
+    "heuristic": "boolean_unary_false_value_presence_rule",
+    "heuristic_family": "boolean_value_matching_failure",
+    "label_leakage_detected": false,
+    "memory_enabled_path": true,
+    "patched_file": "youtube_dl/utils.py",
+    "reason": "bounded full-source UNARY_OPERATORS region patch constructed from buggy source and failing test context",
+    "source_discovery_ranked_files": [
+      "test/test_utils.py",
+      "youtube_dl/utils.py",
+      "youtube_dl/extractor/common.py",
+      "youtube_dl/YoutubeDL.py",
+      "youtube_dl/extractor/youtube.py",
+      "youtube_dl/compat.py",
+      "youtube_dl/extractor/brightcove.py",
+      "youtube_dl/extractor/generic.py",
+      "test/helper.py",
+      "youtube_dl/extractor/niconico.py"
+    ],
+    "unary_operator_region_extract": "UNARY_OPERATORS = {\n        '': lambda v: v is not None,\n        '!': lambda v: v is None,\n    }",
+    "unary_operator_region_match_check": {
+      "blocked_reason": null,
+      "exact_or_bounded_region_search_used": true,
+      "full_source_search_used": true,
+      "negative_lambda_equivalent_to_v_is_none": true,
+      "positive_lambda_equivalent_to_v_is_not_none": true,
+      "unary_operator_block_found": true
+    }
+  },
+  "source_reasoning": "bounded full-source UNARY_OPERATORS region patch constructed from buggy source and failing test context"
+}

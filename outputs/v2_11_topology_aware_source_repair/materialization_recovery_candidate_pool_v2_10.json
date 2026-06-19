@@ -1,0 +1,96 @@
+{
+  "ansible_candidates": [
+    "ansible:2",
+    "ansible:5"
+  ],
+  "decision_time_safety_check": "PASS",
+  "duplicate_replay_feasibility": {
+    "PySnooper:1": true,
+    "PySnooper:2": false,
+    "fastapi:2": false,
+    "fastapi:3": false,
+    "fastapi:4": false,
+    "fastapi:5": false
+  },
+  "full_candidate_pool": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1",
+    "PySnooper:2",
+    "fastapi:5"
+  ],
+  "heterochromatin_risk_by_candidate": {
+    "PySnooper:1": "medium",
+    "PySnooper:2": "medium",
+    "fastapi:2": "high",
+    "fastapi:3": "high",
+    "fastapi:4": "high",
+    "fastapi:5": "high"
+  },
+  "materialization_blocker_by_candidate": {
+    "PySnooper:1": "dependency_version_conflict",
+    "PySnooper:2": "unknown",
+    "fastapi:2": "dependency_missing",
+    "fastapi:3": "dependency_missing",
+    "fastapi:4": "dependency_missing",
+    "fastapi:5": "unknown"
+  },
+  "non_ansible_candidates": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1",
+    "PySnooper:2",
+    "fastapi:5"
+  ],
+  "phase_inversion_feasibility": {
+    "PySnooper:1": true,
+    "PySnooper:2": false,
+    "fastapi:2": false,
+    "fastapi:3": false,
+    "fastapi:4": false,
+    "fastapi:5": false
+  },
+  "post_recovery_repair_path_by_candidate": {
+    "PySnooper:1": "import_compatibility_defect",
+    "PySnooper:2": "localized_exception_edge_case",
+    "fastapi:2": "validation_guard",
+    "fastapi:3": "validation_guard",
+    "fastapi:4": "validation_guard",
+    "fastapi:5": "dependency_environment_defect"
+  },
+  "recovery_feasibility_by_candidate": {
+    "PySnooper:1": true,
+    "PySnooper:2": false,
+    "fastapi:2": true,
+    "fastapi:3": true,
+    "fastapi:4": true,
+    "fastapi:5": false
+  },
+  "selected_candidates": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1"
+  ],
+  "senescence_status_by_candidate": {
+    "PySnooper:1": "active",
+    "PySnooper:2": "active",
+    "fastapi:2": "active",
+    "fastapi:3": "active",
+    "fastapi:4": "active",
+    "fastapi:5": "active"
+  },
+  "status": "PASS",
+  "v2_9_context_bundle_status": {
+    "PySnooper:1": "reused",
+    "PySnooper:2": "reused",
+    "fastapi:2": "reused",
+    "fastapi:3": "reused",
+    "fastapi:4": "reused",
+    "fastapi:5": "reused"
+  },
+  "why_each_selected_candidate_was_chosen": "Selected from v2.9 non-Ansible materialization-blocked/contextualized candidates with retained runtime workspaces.",
+  "why_rejected_non_ansible_candidates_were_rejected": "Retained for context reuse but not executed when outside the v2.10 four-candidate recovery floor."
+}

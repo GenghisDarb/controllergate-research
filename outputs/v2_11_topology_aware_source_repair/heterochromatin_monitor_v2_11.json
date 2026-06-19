@@ -1,59 +1,152 @@
 {
+  "full_scoring_used_as_collateral_check": false,
   "records": [
     {
       "candidate": "fastapi:2",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "project_family": "fastapi",
-      "repair_attempt_allowed": true,
-      "v2_10_materialization_recovered": true,
-      "v2_10_materialization_status": "materialization_recovered",
-      "v2_11_repair_path": "PENDING_GITHUB_ACTIONS"
+      "check_selection_decision_time_safe": true,
+      "checks_run_post_patch": [
+        "target post-repair validation"
+      ],
+      "checks_run_pre_patch": [
+        "target pre-repair reproduction"
+      ],
+      "collateral_risk_after_patch": "no_patch_or_high_risk_no_safe_patch",
+      "heterochromatin_risk_level": "high",
+      "risk_sources": [
+        "framework validation/global policy surface"
+      ],
+      "selected_silent_scaffolding_checks": [
+        "target test",
+        "static AST parse for patched files",
+        "verify no test files changed",
+        "bounded patch line count",
+        "verify directly implicated policy surface only"
+      ],
+      "whether_candidate_allowed_to_score": true,
+      "whether_global_policy_surface_touched": false,
+      "whether_patch_remained_bounded": true
     },
     {
       "candidate": "fastapi:3",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "project_family": "fastapi",
-      "repair_attempt_allowed": true,
-      "v2_10_materialization_recovered": true,
-      "v2_10_materialization_status": "materialization_recovered",
-      "v2_11_repair_path": "PENDING_GITHUB_ACTIONS"
+      "check_selection_decision_time_safe": true,
+      "checks_run_post_patch": [
+        "target post-repair validation"
+      ],
+      "checks_run_pre_patch": [
+        "target pre-repair reproduction"
+      ],
+      "collateral_risk_after_patch": "no_patch_or_high_risk_no_safe_patch",
+      "heterochromatin_risk_level": "high",
+      "risk_sources": [
+        "framework validation/global policy surface"
+      ],
+      "selected_silent_scaffolding_checks": [
+        "target test",
+        "static AST parse for patched files",
+        "verify no test files changed",
+        "bounded patch line count",
+        "verify directly implicated policy surface only"
+      ],
+      "whether_candidate_allowed_to_score": true,
+      "whether_global_policy_surface_touched": false,
+      "whether_patch_remained_bounded": true
     },
     {
       "candidate": "fastapi:4",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "project_family": "fastapi",
-      "repair_attempt_allowed": true,
-      "v2_10_materialization_recovered": true,
-      "v2_10_materialization_status": "materialization_recovered",
-      "v2_11_repair_path": "PENDING_GITHUB_ACTIONS"
+      "check_selection_decision_time_safe": true,
+      "checks_run_post_patch": [
+        "target post-repair validation"
+      ],
+      "checks_run_pre_patch": [
+        "target pre-repair reproduction"
+      ],
+      "collateral_risk_after_patch": "no_patch_or_high_risk_no_safe_patch",
+      "heterochromatin_risk_level": "high",
+      "risk_sources": [
+        "framework validation/global policy surface"
+      ],
+      "selected_silent_scaffolding_checks": [
+        "target test",
+        "static AST parse for patched files",
+        "verify no test files changed",
+        "bounded patch line count",
+        "verify directly implicated policy surface only"
+      ],
+      "whether_candidate_allowed_to_score": true,
+      "whether_global_policy_surface_touched": false,
+      "whether_patch_remained_bounded": true
     },
     {
       "candidate": "PySnooper:1",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "project_family": "PySnooper",
-      "repair_attempt_allowed": true,
-      "v2_10_materialization_recovered": true,
-      "v2_10_materialization_status": "materialization_recovered_source_repair_surface_reached",
-      "v2_11_repair_path": "PENDING_GITHUB_ACTIONS"
+      "check_selection_decision_time_safe": true,
+      "checks_run_post_patch": [
+        "target post-repair validation"
+      ],
+      "checks_run_pre_patch": [
+        "target pre-repair reproduction"
+      ],
+      "collateral_risk_after_patch": "bounded",
+      "heterochromatin_risk_level": "medium",
+      "risk_sources": [
+        "runtime instrumentation import compatibility surface"
+      ],
+      "selected_silent_scaffolding_checks": [
+        "target test",
+        "static AST parse for patched files",
+        "verify no test files changed",
+        "bounded patch line count",
+        "verify directly implicated policy surface only"
+      ],
+      "whether_candidate_allowed_to_score": true,
+      "whether_global_policy_surface_touched": false,
+      "whether_patch_remained_bounded": true
     },
     {
       "candidate": "PySnooper:2",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "project_family": "PySnooper",
-      "repair_attempt_allowed": false,
-      "v2_10_materialization_recovered": false,
-      "v2_10_materialization_status": "not_attempted",
-      "v2_11_repair_path": "PENDING_GITHUB_ACTIONS"
+      "check_selection_decision_time_safe": true,
+      "checks_run_post_patch": [],
+      "checks_run_pre_patch": [
+        "target pre-repair reproduction"
+      ],
+      "collateral_risk_after_patch": "no_patch_or_high_risk_no_safe_patch",
+      "heterochromatin_risk_level": "medium",
+      "risk_sources": [
+        "runtime instrumentation import compatibility surface"
+      ],
+      "selected_silent_scaffolding_checks": [
+        "target test",
+        "static AST parse for patched files",
+        "verify no test files changed",
+        "bounded patch line count",
+        "verify directly implicated policy surface only"
+      ],
+      "whether_candidate_allowed_to_score": false,
+      "whether_global_policy_surface_touched": false,
+      "whether_patch_remained_bounded": true
     },
     {
       "candidate": "fastapi:5",
-      "decision_time_safe_status": "PENDING_GITHUB_ACTIONS",
-      "project_family": "fastapi",
-      "repair_attempt_allowed": false,
-      "v2_10_materialization_recovered": false,
-      "v2_10_materialization_status": "not_attempted",
-      "v2_11_repair_path": "PENDING_GITHUB_ACTIONS"
+      "check_selection_decision_time_safe": true,
+      "checks_run_post_patch": [],
+      "checks_run_pre_patch": [
+        "target pre-repair reproduction"
+      ],
+      "collateral_risk_after_patch": "no_patch_or_high_risk_no_safe_patch",
+      "heterochromatin_risk_level": "high",
+      "risk_sources": [
+        "framework validation/global policy surface"
+      ],
+      "selected_silent_scaffolding_checks": [
+        "target test",
+        "static AST parse for patched files",
+        "verify no test files changed",
+        "bounded patch line count",
+        "verify directly implicated policy surface only"
+      ],
+      "whether_candidate_allowed_to_score": false,
+      "whether_global_policy_surface_touched": false,
+      "whether_patch_remained_bounded": true
     }
   ],
-  "status": "PENDING_GITHUB_ACTIONS"
+  "status": "PASS"
 }

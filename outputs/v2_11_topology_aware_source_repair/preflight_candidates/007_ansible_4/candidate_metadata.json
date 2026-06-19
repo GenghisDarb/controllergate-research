@@ -1,0 +1,30 @@
+{
+  "bug_id": "4",
+  "candidate": "ansible:4",
+  "dependency_hints": [
+    "pytest"
+  ],
+  "direct_command": "python -m pytest test/units/playbook/test_collectionsearch.py::test_collection_static_warning",
+  "direct_command_source": "BugsInPy run_test.sh",
+  "episode_id": "UNASSIGNED",
+  "failure_signature": "BUGSINPY_DIRECT_TARGET_REPLAY: ansible:4",
+  "fixed_or_gold_patch_used_at_decision_time": false,
+  "future_outcome_evidence_used_at_decision_time": false,
+  "materialization_required_files": [
+    "test/units/playbook/test_collectionsearch.py"
+  ],
+  "normalized_direct_command": "python -m pytest test/units/playbook/test_collectionsearch.py::test_collection_static_warning",
+  "project": "ansible",
+  "replacement_candidate": true,
+  "required_markers": [
+    "AssertionError",
+    "FAIL",
+    "FAIL:",
+    "FAILED",
+    "py::test_collection_static_warning",
+    "test_collection_static_warning",
+    "test_collectionsearch"
+  ],
+  "target_test_file": "test/units/playbook/test_collectionsearch.py",
+  "v2_8p_role": "broad_preflight_candidate"
+}

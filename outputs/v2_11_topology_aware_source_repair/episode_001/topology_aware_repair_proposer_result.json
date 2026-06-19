@@ -1,0 +1,58 @@
+{
+  "candidate": "youtube-dl:1",
+  "records": [
+    {
+      "arm": "no_memory",
+      "candidate": "youtube-dl:1",
+      "decision_time_safe_status": "PASS",
+      "expected_failure_resolution": "none",
+      "forbidden_shapes_checked": [
+        "test modification",
+        "broad refactor",
+        "dependency replacement",
+        "future-derived patch"
+      ],
+      "patch_generated": false,
+      "proposed_patch_shape": "no_safe_patch",
+      "reason_if_no_patch": "baseline or not selected",
+      "recovered_surface_used": null,
+      "repair_path": "baseline_preservation",
+      "safety_constraints": [
+        "source-only",
+        "no test edits",
+        "no fixed/gold/future evidence",
+        "bounded topology-to-patch chain"
+      ],
+      "topological_context_files_used": [],
+      "touched_files": [],
+      "touched_symbols": []
+    },
+    {
+      "arm": "memory_enabled",
+      "candidate": "youtube-dl:1",
+      "decision_time_safe_status": "PASS",
+      "expected_failure_resolution": "none",
+      "forbidden_shapes_checked": [
+        "test modification",
+        "broad refactor",
+        "dependency replacement",
+        "future-derived patch"
+      ],
+      "patch_generated": false,
+      "proposed_patch_shape": "no_safe_patch",
+      "reason_if_no_patch": "baseline or not selected",
+      "recovered_surface_used": null,
+      "repair_path": "baseline_preservation",
+      "safety_constraints": [
+        "source-only",
+        "no test edits",
+        "no fixed/gold/future evidence",
+        "bounded topology-to-patch chain"
+      ],
+      "topological_context_files_used": [],
+      "touched_files": [],
+      "touched_symbols": []
+    }
+  ],
+  "status": "PASS"
+}

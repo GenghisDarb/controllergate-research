@@ -1,0 +1,124 @@
+{
+  "extracts": [
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 32,
+      "name": "reset_cli_args",
+      "text": "def reset_cli_args():\n    co.GlobalCLIArgs._Singleton__instance = None\n    # Required to initialise the GalaxyAPI object\n    context.CLIARGS._store = {'ignore_certs': False}\n    yield\n    co.GlobalCLIArgs._Singleton__instance = None\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 41,
+      "name": "collection_artifact",
+      "text": "def collection_artifact(tmp_path_factory):\n    ''' Creates a collection artifact tarball that is ready to be published '''\n    output_dir = to_text(tmp_path_factory.mktemp('test-\u00c5\u00d1\u015a\u00cc\u03b2\u0141\u00c8 Output'))\n\n    tar_path = os.path.join(output_dir, 'namespace-collection-v1.0.0.tar.gz')\n    with tarfile.open(tar_path, 'w:gz') as tfile:\n        b_io = BytesIO(b\"\\x00\\x01\\x02\\x03\")\n        tar_info = tarfile.TarInfo('test')\n        tar_info.size = 4\n        tar_info.mode = 0o0644\n        tfile.addfile(tarinfo=tar_info, fileobj=b_io)\n\n    yield tar_path\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 56,
+      "name": "get_test_galaxy_api",
+      "text": "def get_test_galaxy_api(url, version, token_ins=None, token_value=None):\n    token_value = token_value or \"my token\"\n    token_ins = token_ins or GalaxyToken(token_value)\n    api = GalaxyAPI(None, \"test\", url)\n    # Warning, this doesn't test g_connect() because _availabe_api_versions is set here.  That means\n    # that urls for v2 servers have to append '/api/' themselves in the input data.\n    api._available_api_versions = {version: '%s' % version}\n    api.token = token_ins\n\n    return api\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 68,
+      "name": "test_api_no_auth",
+      "text": "def test_api_no_auth():\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\")\n    actual = {}\n    api._add_auth_token(actual, \"\")\n    assert actual == {}\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 75,
+      "name": "test_api_no_auth_but_required",
+      "text": "def test_api_no_auth_but_required():\n    expected = \"No access token or username set. A token can be set with --api-key, with 'ansible-galaxy login', \" \\\n               \"or set in ansible.cfg.\"\n    with pytest.raises(AnsibleError, match=expected):\n        GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\")._add_auth_token({}, \"\", required=True)\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 82,
+      "name": "test_api_token_auth",
+      "text": "def test_api_token_auth():\n    token = GalaxyToken(token=u\"my_token\")\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\", token=token)\n    actual = {}\n    api._add_auth_token(actual, \"\", required=True)\n    assert actual == {'Authorization': 'Token my_token'}\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 90,
+      "name": "test_api_token_auth_with_token_type",
+      "text": "def test_api_token_auth_with_token_type(monkeypatch):\n    token = KeycloakToken(auth_url='https://api.test/')\n    mock_token_get = MagicMock()\n    mock_token_get.return_value = 'my_token'\n    monkeypatch.setattr(token, 'get', mock_token_get)\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\", token=token)\n    actual = {}\n    api._add_auth_token(actual, \"\", token_type=\"Bearer\", required=True)\n    assert actual == {'Authorization': 'Bearer my_token'}\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 101,
+      "name": "test_api_token_auth_with_v3_url",
+      "text": "def test_api_token_auth_with_v3_url(monkeypatch):\n    token = KeycloakToken(auth_url='https://api.test/')\n    mock_token_get = MagicMock()\n    mock_token_get.return_value = 'my_token'\n    monkeypatch.setattr(token, 'get', mock_token_get)\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\", token=token)\n    actual = {}\n    api._add_auth_token(actual, \"https://galaxy.ansible.com/api/v3/resource/name\", required=True)\n    assert actual == {'Authorization': 'Bearer my_token'}\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 112,
+      "name": "test_api_token_auth_with_v2_url",
+      "text": "def test_api_token_auth_with_v2_url():\n    token = GalaxyToken(token=u\"my_token\")\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\", token=token)\n    actual = {}\n    # Add v3 to random part of URL but response should only see the v2 as the full URI path segment.\n    api._add_auth_token(actual, \"https://galaxy.ansible.com/api/v2/resourcev3/name\", required=True)\n    assert actual == {'Authorization': 'Token my_token'}\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 121,
+      "name": "test_api_basic_auth_password",
+      "text": "def test_api_basic_auth_password():\n    token = BasicAuthToken(username=u\"user\", password=u\"pass\")\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\", token=token)\n    actual = {}\n    api._add_auth_token(actual, \"\", required=True)\n    assert actual == {'Authorization': 'Basic dXNlcjpwYXNz'}\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 129,
+      "name": "test_api_basic_auth_no_password",
+      "text": "def test_api_basic_auth_no_password():\n    token = BasicAuthToken(username=u\"user\")\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\", token=token)\n    actual = {}\n    api._add_auth_token(actual, \"\", required=True)\n    assert actual == {'Authorization': 'Basic dXNlcjo='}\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 137,
+      "name": "test_api_dont_override_auth_header",
+      "text": "def test_api_dont_override_auth_header():\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\")\n    actual = {'Authorization': 'Custom token'}\n    api._add_auth_token(actual, \"\", required=True)\n    assert actual == {'Authorization': 'Custom token'}\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 144,
+      "name": "test_initialise_galaxy",
+      "text": "def test_initialise_galaxy(monkeypatch):\n    mock_open = MagicMock()\n    mock_open.side_effect = [\n        StringIO(u'{\"available_versions\":{\"v1\":\"v1/\"}}'),\n        StringIO(u'{\"token\":\"my token\"}'),\n    ]\n    monkeypatch.setattr(galaxy_api, 'open_url', mock_open)\n\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\")\n    actual = api.authenticate(\"github_token\")\n\n    assert len(api.available_api_versions) == 2\n    assert api.available_api_versions['v1'] == u'v1/'\n    assert api.available_api_versions['v2'] == u'v2/'\n    assert actual == {u'token': u'my token'}\n    assert mock_open.call_count == 2\n    assert mock_open.mock_calls[0][1][0] == 'https://galaxy.ansible.com/api/'\n    assert 'ansible-galaxy' in mock_open.mock_calls[0][2]['http_agent']\n    assert mock_open.mock_calls[1][1][0] == 'https://galaxy.ansible.com/api/v1/tokens/'\n    assert 'ansible-galaxy' in mock_open.mock_calls[1][2]['http_agent']\n    assert mock_open.mock_calls[1][2]['data'] == 'github_token=github_token'\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 167,
+      "name": "test_initialise_galaxy_with_auth",
+      "text": "def test_initialise_galaxy_with_auth(monkeypatch):\n    mock_open = MagicMock()\n    mock_open.side_effect = [\n        StringIO(u'{\"available_versions\":{\"v1\":\"v1/\"}}'),\n        StringIO(u'{\"token\":\"my token\"}'),\n    ]\n    monkeypatch.setattr(galaxy_api, 'open_url', mock_open)\n\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\", token=GalaxyToken(token='my_token'))\n    actual = api.authenticate(\"github_token\")\n\n    assert len(api.available_api_versions) == 2\n    assert api.available_api_versions['v1'] == u'v1/'\n    assert api.available_api_versions['v2'] == u'v2/'\n    assert actual == {u'token': u'my token'}\n    assert mock_open.call_count == 2\n    assert mock_open.mock_calls[0][1][0] == 'https://galaxy.ansible.com/api/'\n    assert 'ansible-galaxy' in mock_open.mock_calls[0][2]['http_agent']\n    assert mock_open.mock_calls[1][1][0] == 'https://galaxy.ansible.com/api/v1/tokens/'\n    assert 'ansible-galaxy' in mock_open.mock_calls[1][2]['http_agent']\n    assert mock_open.mock_calls[1][2]['data'] == 'github_token=github_token'\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 190,
+      "name": "test_initialise_automation_hub",
+      "text": "def test_initialise_automation_hub(monkeypatch):\n    mock_open = MagicMock()\n    mock_open.side_effect = [\n        StringIO(u'{\"available_versions\":{\"v2\": \"v2/\", \"v3\":\"v3/\"}}'),\n    ]\n    monkeypatch.setattr(galaxy_api, 'open_url', mock_open)\n    token = KeycloakToken(auth_url='https://api.test/')\n    mock_token_get = MagicMock()\n    mock_token_get.return_value = 'my_token'\n    monkeypatch.setattr(token, 'get', mock_token_get)\n\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\", token=token)\n\n    assert len(api.available_api_versions) == 2\n    assert api.available_api_versions['v2'] == u'v2/'\n    assert api.available_api_versions['v3'] == u'v3/'\n\n    assert mock_open.mock_calls[0][1][0] == 'https://galaxy.ansible.com/api/'\n    assert 'ansible-galaxy' in mock_open.mock_calls[0][2]['http_agent']\n    assert mock_open.mock_calls[0][2]['headers'] == {'Authorization': 'Bearer my_token'}\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 212,
+      "name": "test_initialise_unknown",
+      "text": "def test_initialise_unknown(monkeypatch):\n    mock_open = MagicMock()\n    mock_open.side_effect = [\n        urllib_error.HTTPError('https://galaxy.ansible.com/api/', 500, 'msg', {}, StringIO(u'{\"msg\":\"raw error\"}')),\n        urllib_error.HTTPError('https://galaxy.ansible.com/api/api/', 500, 'msg', {}, StringIO(u'{\"msg\":\"raw error\"}')),\n    ]\n    monkeypatch.setattr(galaxy_api, 'open_url', mock_open)\n\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\", token=GalaxyToken(token='my_token'))\n\n    expected = \"Error when finding available api versions from test (%s) (HTTP Code: 500, Message: msg)\" \\\n        % api.api_server\n    with pytest.raises(AnsibleError, match=re.escape(expected)):\n        api.authenticate(\"github_token\")\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 228,
+      "name": "test_get_available_api_versions",
+      "text": "def test_get_available_api_versions(monkeypatch):\n    mock_open = MagicMock()\n    mock_open.side_effect = [\n        StringIO(u'{\"available_versions\":{\"v1\":\"v1/\",\"v2\":\"v2/\"}}'),\n    ]\n    monkeypatch.setattr(galaxy_api, 'open_url', mock_open)\n\n    api = GalaxyAPI(None, \"test\", \"https://galaxy.ansible.com/api/\")\n    actual = api.available_api_versions\n    assert len(actual) == 2\n    assert actual['v1'] == u'v1/'\n    assert actual['v2'] == u'v2/'\n\n    assert mock_open.call_count == 1\n    assert mock_open.mock_calls[0][1][0] == 'https://galaxy.ansible.com/api/'\n    assert 'ansible-galaxy' in mock_open.mock_calls[0][2]['http_agent']\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 246,
+      "name": "test_publish_collection_missing_file",
+      "text": "def test_publish_collection_missing_file():\n    fake_path = u'/fake/\u00c5\u00d1\u015a\u00cc\u03b2\u0141\u00c8/path'\n    expected = to_native(\"The collection path specified '%s' does not exist.\" % fake_path)\n\n    api = get_test_galaxy_api(\"https://galaxy.ansible.com/api/\", \"v2\")\n    with pytest.raises(AnsibleError, match=expected):\n        api.publish_collection(fake_path)\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 255,
+      "name": "test_publish_collection_not_a_tarball",
+      "text": "def test_publish_collection_not_a_tarball():\n    expected = \"The collection path specified '{0}' is not a tarball, use 'ansible-galaxy collection build' to \" \\\n               \"create a proper release artifact.\"\n\n    api = get_test_galaxy_api(\"https://galaxy.ansible.com/api/\", \"v2\")\n    with tempfile.NamedTemporaryFile(prefix=u'\u00c5\u00d1\u015a\u00cc\u03b2\u0141\u00c8') as temp_file:\n        temp_file.write(b\"\\x00\")\n        temp_file.flush()\n        with pytest.raises(AnsibleError, match=expected.format(to_native(temp_file.name))):\n            api.publish_collection(temp_file.name)\n"
+    },
+    {
+      "file": "test/units/galaxy/test_api.py",
+      "line": 267,
+      "name": "test_publish_collection_unsupported_version",
+      "text": "def test_publish_collection_unsupported_version():\n    expected = \"Galaxy action publish_collection requires API versions 'v2, v3' but only 'v1' are available on test \" \\\n               \"https://galaxy.ansible.com/api/\"\n\n    api = get_test_galaxy_api(\"https://galaxy.ansible.com/api/\", \"v1\")\n    with pytest.raises(AnsibleError, match=expected):\n        api.publish_collection(\"path\")\n"
+    }
+  ]
+}

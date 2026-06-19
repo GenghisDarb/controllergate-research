@@ -1,0 +1,31 @@
+$ bash -lc python -m pytest -q -s tests/test_chinese.py::test_chinese
+started_at_utc=2026-06-19T15:33:27.570021+00:00
+finished_at_utc=2026-06-19T15:33:27.910287+00:00
+returncode=4
+timed_out=False
+--- stdout ---
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_chinese.py ____________________
+ImportError while importing test module '/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_chinese.py:11: in <module>
+    from pysnooper.utils import truncate
+pysnooper/__init__.py:20: in <module>
+    from .tracer import Tracer as snoop
+pysnooper/tracer.py:15: in <module>
+    from .variables import CommonVariable, Exploding, BaseVariable
+pysnooper/variables.py:3: in <module>
+    from collections import Mapping, Sequence
+E   ImportError: cannot import name 'Mapping' from 'collections' (/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/collections/__init__.py)
+=========================== short test summary info ============================
+ERROR tests/test_chinese.py
+1 error in 0.04s
+
+--- stderr ---
+ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py::test_chinese
+
+

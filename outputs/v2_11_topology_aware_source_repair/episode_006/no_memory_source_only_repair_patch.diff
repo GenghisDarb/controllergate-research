@@ -1,0 +1,18 @@
+--- fastapi/encoders.py
++++ fastapi/encoders.py
+@@ -34,6 +34,7 @@
+     by_alias: bool = True,
+     skip_defaults: bool = None,
+     exclude_unset: bool = False,
++    exclude_defaults: bool = False,
+     include_none: bool = True,
+     custom_encoder: dict = {},
+     sqlalchemy_safe: bool = True,
+@@ -58,6 +59,7 @@
+                 exclude=exclude,
+                 by_alias=by_alias,
+                 exclude_unset=bool(exclude_unset or skip_defaults),
++                exclude_defaults=exclude_defaults,
+             )
+         else:  # pragma: nocover
+             obj_dict = obj.dict(

@@ -1,0 +1,893 @@
+$ bash -lc python -m pytest test/units/module_utils/test_distribution_version.py::test_distribution_version
+started_at_utc=2026-06-19T15:05:21.106282+00:00
+finished_at_utc=2026-06-19T15:05:21.901824+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible
+collected 54 items
+
+test/units/module_utils/test_distribution_version.py EEEEEEEEEEEEEEEEEEE [ 35%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE                                      [100%]
+
+==================================== ERRORS ====================================
+_____ ERROR at setup of test_distribution_version[stdin0-CentOS 7.2.1511] ______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin1-CentOS 6.7] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin2-RedHat 7.7] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin3-RedHat 7.2] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin4-RedHat 6.7] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+______ ERROR at setup of test_distribution_version[stdin5-Virtuozzo 7.3] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+____ ERROR at setup of test_distribution_version[stdin6-openSUSE Leap 42.1] ____
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+____ ERROR at setup of test_distribution_version[stdin7-openSUSE Leap 15.1] ____
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+______ ERROR at setup of test_distribution_version[stdin8-openSUSE 13.2] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_ ERROR at setup of test_distribution_version[stdin9-openSUSE Tumbleweed 20160917] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+___ ERROR at setup of test_distribution_version[stdin10-openSUSE Leap 15.0] ____
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin11-SLES 11.3] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin12-SLES 11.4] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_______ ERROR at setup of test_distribution_version[stdin13-SLES 12 SP0] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_______ ERROR at setup of test_distribution_version[stdin14-SLES 12 SP1] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_____ ERROR at setup of test_distribution_version[stdin15-SLES4SAP 12 SP2] _____
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_____ ERROR at setup of test_distribution_version[stdin16-SLES4SAP 12 SP3] _____
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin17-Debian 10] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+___ ERROR at setup of test_distribution_version[stdin18-Debian stretch/sid] ____
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_______ ERROR at setup of test_distribution_version[stdin19-Debian 7.9] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_______ ERROR at setup of test_distribution_version[stdin20-SteamOS 2.0] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_________ ERROR at setup of test_distribution_version[stdin21-Devuan] __________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_________ ERROR at setup of test_distribution_version[stdin22-Devuan] __________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+______ ERROR at setup of test_distribution_version[stdin23-Ubuntu 18.04] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+______ ERROR at setup of test_distribution_version[stdin24-Ubuntu 16.04] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+___ ERROR at setup of test_distribution_version[stdin25-Ubuntu 10.04 guess] ____
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+______ ERROR at setup of test_distribution_version[stdin26-Ubuntu 14.04] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+______ ERROR at setup of test_distribution_version[stdin27-Ubuntu 12.04] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_______ ERROR at setup of test_distribution_version[stdin28-Kali 2019.1] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_______ ERROR at setup of test_distribution_version[stdin29-Kali 2020.2] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_____ ERROR at setup of test_distribution_version[stdin30-KDE neon 16.04] ______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_________ ERROR at setup of test_distribution_version[stdin31-Core OS] _________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+___ ERROR at setup of test_distribution_version[stdin32-SmartOS Global Zone] ___
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+______ ERROR at setup of test_distribution_version[stdin33-SmartOS Zone] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_______ ERROR at setup of test_distribution_version[stdin34-OpenIndiana] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_________ ERROR at setup of test_distribution_version[stdin35-OmniOS] __________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin36-Nexenta 3] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin37-Nexenta 4] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_______ ERROR at setup of test_distribution_version[stdin38-Solaris 10] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_______ ERROR at setup of test_distribution_version[stdin39-Solaris 11] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+______ ERROR at setup of test_distribution_version[stdin40-Solaris 11.3] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+______ ERROR at setup of test_distribution_version[stdin41-Solaris 11.4] _______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_______ ERROR at setup of test_distribution_version[stdin42-Solaris 10] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin43-Fedora 31] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin44-Fedora 22] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+________ ERROR at setup of test_distribution_version[stdin45-Fedora 25] ________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_________ ERROR at setup of test_distribution_version[stdin46-SMGL NA] _________
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+____ ERROR at setup of test_distribution_version[stdin47-Archlinux rolling] ____
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+______ ERROR at setup of test_distribution_version[stdin48-Arch Linux NA] ______
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+____ ERROR at setup of test_distribution_version[stdin49-ClearLinux 26580] _____
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_ ERROR at setup of test_distribution_version[stdin50-Arch Linux no arch-release NA] _
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+___ ERROR at setup of test_distribution_version[stdin51-Cumulus Linux 3.7.3] ___
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+___ ERROR at setup of test_distribution_version[stdin52-Cumulus Linux 2.5.4] ___
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+_____ ERROR at setup of test_distribution_version[stdin53-Linux Mint 18.2] _____
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/test_distribution_version.py, line 1849
+  @pytest.mark.parametrize("stdin, testcase", product([{}], TESTSETS), ids=lambda x: x.get('name'), indirect=['stdin'])
+  def test_distribution_version(am, mocker, testcase):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 49
+  @pytest.fixture
+  def am(stdin, request):
+file /home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py, line 16
+  @pytest.fixture
+  def stdin(mocker, request):
+E       fixture 'mocker' not found
+>       available fixtures: am, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, stdin, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/006_ansible_3/ansible/test/units/module_utils/conftest.py:16
+=============================== warnings summary ===============================
+../../../../../../../../../opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_pytest/python.py:124
+  /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: test/units/module_utils/test_distribution_version.py::test_distribution_version, argvalues type: product
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin0-CentOS 7.2.1511]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin1-CentOS 6.7]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin2-RedHat 7.7]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin3-RedHat 7.2]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin4-RedHat 6.7]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin5-Virtuozzo 7.3]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin6-openSUSE Leap 42.1]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin7-openSUSE Leap 15.1]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin8-openSUSE 13.2]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin9-openSUSE Tumbleweed 20160917]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin10-openSUSE Leap 15.0]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin11-SLES 11.3]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin12-SLES 11.4]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin13-SLES 12 SP0]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin14-SLES 12 SP1]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin15-SLES4SAP 12 SP2]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin16-SLES4SAP 12 SP3]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin17-Debian 10]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin18-Debian stretch/sid]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin19-Debian 7.9]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin20-SteamOS 2.0]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin21-Devuan]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin22-Devuan]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin23-Ubuntu 18.04]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin24-Ubuntu 16.04]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin25-Ubuntu 10.04 guess]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin26-Ubuntu 14.04]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin27-Ubuntu 12.04]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin28-Kali 2019.1]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin29-Kali 2020.2]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin30-KDE neon 16.04]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin31-Core OS]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin32-SmartOS Global Zone]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin33-SmartOS Zone]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin34-OpenIndiana]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin35-OmniOS]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin36-Nexenta 3]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin37-Nexenta 4]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin38-Solaris 10]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin39-Solaris 11]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin40-Solaris 11.3]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin41-Solaris 11.4]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin42-Solaris 10]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin43-Fedora 31]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin44-Fedora 22]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin45-Fedora 25]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin46-SMGL NA]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin47-Archlinux rolling]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin48-Arch Linux NA]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin49-ClearLinux 26580]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin50-Arch Linux no arch-release NA]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin51-Cumulus Linux 3.7.3]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin52-Cumulus Linux 2.5.4]
+ERROR test/units/module_utils/test_distribution_version.py::test_distribution_version[stdin53-Linux Mint 18.2]
+======================== 1 warning, 54 errors in 0.41s =========================
+
+--- stderr ---
+

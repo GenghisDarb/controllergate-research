@@ -1,0 +1,124 @@
+{
+  "extracts": [
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 299,
+      "name": "download_asm_file",
+      "text": "def download_asm_file(client, url, dest):\n    \"\"\"Download an ASM file from the remote device\n\n    This method handles issues with ASM file endpoints that allow\n    downloads of ASM objects on the BIG-IP.\n\n    Arguments:\n        client (object): The F5RestClient connection object.\n        url (string): The URL to download.\n        dest (string): The location on (Ansible controller) disk to store the file.\n\n    Returns:\n        bool: True on success. False otherwise.\n    \"\"\"\n\n    with open(dest, 'wb') as fileobj:\n        headers = {\n            'Content-Type': 'application/json'\n        }\n        data = {'headers': headers,\n                'verify': False\n                }\n\n        response = client.api.get(url, headers=headers, json=data)\n        if response.status == 200:\n            if 'Content-Length' not in response.headers:\n                error_message = \"The Content-Length header is not present.\"\n                raise F5ModuleError(error_message)\n\n            length = response.headers['Content-Length']\n\n            if int(length) > 0:\n                fileobj.write(response.content)\n            else:\n                error = \"Invalid Content-Length value returned: %s ,\" \\\n                        \"the value should be greater than 0\" % length\n                raise F5ModuleError(error)\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 338,
+      "name": "download_file",
+      "text": "def download_file(client, url, dest):\n    \"\"\"Download a file from the remote device\n\n    This method handles the chunking needed to download a file from\n    a given URL on the BIG-IP.\n\n    Arguments:\n        client (object): The F5RestClient connection object.\n        url (string): The URL to download.\n        dest (string): The location on (Ansible controller) disk to store the file.\n\n    Returns:\n        bool: True on success. False otherwise.\n    \"\"\"\n    with open(dest, 'wb') as fileobj:\n        chunk_size = 512 * 1024\n        start = 0\n        end = chunk_size - 1\n        size = 0\n        current_bytes = 0\n\n        while True:\n            content_range = \"%s-%s/%s\" % (start, end, size)\n            headers = {\n                'Content-Range': content_range,\n                'Content-Type': 'application/octet-stream'\n            }\n            data = {\n                'headers': headers,\n                'verify': False,\n                'stream': False\n            }\n            response = client.api.get(url, headers=headers, json=data)\n            if response.status == 200:\n                # If the size is zero, then this is the first time through\n                # the loop and we don't want to write data because we\n                # haven't yet figured out the total size of the file.\n                if size > 0:\n                    current_bytes += chunk_size\n                    fileobj.write(response.raw_content)\n            # Once we've downloaded the entire file, we can break out of\n            # the loop\n            if end == size:\n                break\n            crange = response.headers['Content-Range']\n            # Determine the total number of bytes to read.\n            if size == 0:\n                size = int(crange.split('/')[-1]) - 1\n                # If the file is smaller than the chunk_size, the BigIP\n                # will return an HTTP 400. Adjust the chunk_size down to\n                # the total file size...\n                if chunk_size > size:\n                    end = size\n                # ...and pass on the rest of the code.\n                continue\n            start += chunk_size\n            if (current_bytes + chunk_size) > size:\n                end = size\n            else:\n                end = start + chunk_size - 1\n    return True\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 401,
+      "name": "upload_file",
+      "text": "def upload_file(client, url, src, dest=None):\n    \"\"\"Upload a file to an arbitrary URL.\n\n    This method is responsible for correctly chunking an upload request to an\n    arbitrary file worker URL.\n\n    Arguments:\n        client (object): The F5RestClient connection object.\n        url (string): The URL to upload a file to.\n        src (string): The file to be uploaded.\n        dest (string): The file name to create on the remote device.\n\n    Examples:\n        The ``dest`` may be either an absolute or relative path. The basename\n        of the path is used as the remote file name upon upload. For instance,\n        in the example below, ``BIGIP-13.1.0.8-0.0.3.iso`` would be the name\n        of the remote file.\n\n        The specified URL should be the full URL to where you want to upload a\n        file. BIG-IP has many different URLs that can be used to handle different\n        types of files. This is why a full URL is required.\n\n        >>> from ansible.module_utils.network.f5.icontrol import upload_client\n        >>> url = 'https://{0}:{1}/mgmt/cm/autodeploy/software-image-uploads'.format(\n        ...   self.client.provider['server'],\n        ...   self.client.provider['server_port']\n        ... )\n        >>> dest = '/path/to/BIGIP-13.1.0.8-0.0.3.iso'\n        >>> upload_file(self.client, url, dest)\n        True\n\n    Returns:\n        bool: True on success. False otherwise.\n\n    Raises:\n        F5ModuleError: Raised if ``retries`` limit is exceeded.\n    \"\"\"\n    if isinstance(src, StringIO) or isinstance(src, BytesIO):\n        fileobj = src\n    else:\n        fileobj = open(src, 'rb')\n\n    try:\n        size = os.stat(src).st_size\n        is_file = True\n    except TypeError:\n        src.seek(0, os.SEEK_END)\n        size = src.tell()\n        src.seek(0)\n        is_file = False\n\n    # This appears to be the largest chunk size that iControlREST can handle.\n    #\n    # The trade-off you are making by choosing a chunk size is speed, over size of\n    # transmission. A lower chunk size will be slower because a smaller amount of\n    # data is read from disk and sent via HTTP. Lots of disk reads are slower and\n    # There is overhead in sending the request to the BIG-IP.\n    #\n    # Larger chunk sizes are faster because more data is read from disk in one\n    # go, and therefore more data is transmitted to the BIG-IP in one HTTP request.\n    #\n    # If you are transmitting over a slow link though, it may be more reliable to\n    # transmit many small chunks that fewer large chunks. It will clearly take\n    # longer, but it may be more robust.\n    chunk_size = 1024 * 7168\n    start = 0\n    retries = 0\n    if dest is None and is_file:\n        basename = os.path.basename(src)\n    else:\n        basename = dest\n    url = '{0}/{1}'.format(url.rstrip('/'), basename)\n\n    while True:\n        if retries == 3:\n            # Retries are used here to allow the REST API to recover if you kill\n            # an upload mid-transfer.\n            #\n            # There exists a case where retrying a new upload will result in the\n            # API returning the POSTed payload (in bytes) with a non-200 response\n            # code.\n            #\n            # Retrying (after seeking back to 0) seems to resolve this problem.\n            raise F5ModuleError(\n                \"Failed to upload file too many times.\"\n            )\n        try:\n            file_slice = fileobj.read(chunk_size)\n            if not file_slice:\n                break\n\n            current_bytes = len(file_slice)\n            if current_bytes < chunk_size:\n                end = size\n            else:\n                end = start + current_bytes\n            headers = {\n                'Content-Range': '%s-%s/%s' % (start, end - 1, size),\n                'Content-Type': 'application/octet-stream'\n            }\n\n            # Data should always be sent using the ``data`` keyword and not the\n            # ``json`` keyword. This allows bytes to be sent (such as in the case\n            # of uploading I"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 524,
+      "name": "tmos_version",
+      "text": "def tmos_version(client):\n    uri = \"https://{0}:{1}/mgmt/tm/sys/\".format(\n        client.provider['server'],\n        client.provider['server_port'],\n    )\n    resp = client.api.get(uri)\n\n    try:\n        response = resp.json()\n    except ValueError as ex:\n        raise F5ModuleError(str(ex))\n\n    if 'code' in response and response['code'] in [400, 403]:\n        if 'message' in response:\n            raise F5ModuleError(response['message'])\n        else:\n            raise F5ModuleError(resp.content)\n\n    to_parse = urlparse(response['selfLink'])\n    query = to_parse.query\n    version = query.split('=')[1]\n    return version\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 548,
+      "name": "bigiq_version",
+      "text": "def bigiq_version(client):\n    uri = \"https://{0}:{1}/mgmt/shared/resolver/device-groups/cm-shared-all-big-iqs/devices\".format(\n        client.provider['server'],\n        client.provider['server_port'],\n    )\n    query = \"?$select=version\"\n\n    resp = client.api.get(uri + query)\n\n    try:\n        response = resp.json()\n    except ValueError as ex:\n        raise F5ModuleError(str(ex))\n\n    if 'code' in response and response['code'] in [400, 403]:\n        if 'message' in response:\n            raise F5ModuleError(response['message'])\n        else:\n            raise F5ModuleError(resp.content)\n\n    if 'items' in response:\n        version = response['items'][0]['version']\n        return version\n\n    raise F5ModuleError(\n        'Failed to retrieve BIGIQ version information.'\n    )\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 577,
+      "name": "module_provisioned",
+      "text": "def module_provisioned(client, module_name):\n    provisioned = modules_provisioned(client)\n    if module_name in provisioned:\n        return True\n    return False\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 584,
+      "name": "modules_provisioned",
+      "text": "def modules_provisioned(client):\n    \"\"\"Returns a list of all provisioned modules\n\n    Args:\n        client: Client connection to the BIG-IP\n\n    Returns:\n        A list of provisioned modules in their short name for.\n        For example, ['afm', 'asm', 'ltm']\n    \"\"\"\n    uri = \"https://{0}:{1}/mgmt/tm/sys/provision\".format(\n        client.provider['server'],\n        client.provider['server_port']\n    )\n    resp = client.api.get(uri)\n\n    try:\n        response = resp.json()\n    except ValueError as ex:\n        raise F5ModuleError(str(ex))\n\n    if 'code' in response and response['code'] in [400, 403]:\n        if 'message' in response:\n            raise F5ModuleError(response['message'])\n        else:\n            raise F5ModuleError(resp.content)\n    if 'items' not in response:\n        return []\n    return [x['name'] for x in response['items'] if x['level'] != 'none']\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 96,
+      "name": "__init__",
+      "text": "    def __init__(self):\n        self._content = None\n        self.status = None\n        self.headers = dict()\n        self.url = None\n        self.reason = None\n        self.request = None\n        self.msg = None\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 106,
+      "name": "content",
+      "text": "    def content(self):\n        return self._content\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 110,
+      "name": "raw_content",
+      "text": "    def raw_content(self):\n        return self._content\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 113,
+      "name": "json",
+      "text": "    def json(self):\n        return _json.loads(self._content or 'null')\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 117,
+      "name": "ok",
+      "text": "    def ok(self):\n        if self.status is not None and int(self.status) > 400:\n            return False\n        try:\n            response = self.json()\n            if 'code' in response and response['code'] > 400:\n                return False\n        except ValueError:\n            pass\n        return True\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 135,
+      "name": "__init__",
+      "text": "    def __init__(self, headers=None, use_proxy=True, force=False, timeout=120,\n                 validate_certs=True, url_username=None, url_password=None,\n                 http_agent=None, force_basic_auth=False, follow_redirects='urllib2',\n                 client_cert=None, client_key=None, cookies=None):\n        self.request = Request(\n            headers=headers,\n            use_proxy=use_proxy,\n            force=force,\n            timeout=timeout,\n            validate_certs=validate_certs,\n            url_username=url_username,\n            url_password=url_password,\n            http_agent=http_agent,\n            force_basic_auth=force_basic_auth,\n            follow_redirects=follow_redirects,\n            client_cert=client_cert,\n            client_key=client_key,\n            cookies=cookies\n        )\n        self.last_url = None\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 156,
+      "name": "get_headers",
+      "text": "    def get_headers(self, result):\n        try:\n            return dict(result.getheaders())\n        except AttributeError:\n            return result.headers\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 162,
+      "name": "update_response",
+      "text": "    def update_response(self, response, result):\n        response.headers = self.get_headers(result)\n        response._content = result.read()\n        response.status = result.getcode()\n        response.url = result.geturl()\n        response.msg = \"OK (%s bytes)\" % response.headers.get('Content-Length', 'unknown')\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 169,
+      "name": "send",
+      "text": "    def send(self, method, url, **kwargs):\n        response = Response()\n\n        # Set the last_url called\n        #\n        # This is used by the object destructor to erase the token when the\n        # ModuleManager exits and destroys the iControlRestSession object\n        self.last_url = url\n\n        body = None\n        data = kwargs.pop('data', None)\n        json = kwargs.pop('json', None)\n\n        if not data and json is not None:\n            self.request.headers['Content-Type'] = 'application/json'\n            body = _json.dumps(json)\n            if not isinstance(body, bytes):\n                body = body.encode('utf-8')\n        if data:\n            body = data\n        if body:\n            kwargs['data'] = body\n\n        try:\n            result = self.request.open(method, url, **kwargs)\n        except HTTPError as e:\n            # Catch HTTPError delivered from Ansible\n            #\n            # The structure of this object, in Ansible 2.8 is\n            #\n            # HttpError {\n            #   args\n            #   characters_written\n            #   close\n            #   code\n            #   delete\n            #   errno\n            #   file\n            #   filename\n            #   filename2\n            #   fp\n            #   getcode\n            #   geturl\n            #   hdrs\n            #   headers\n            #   info\n            #   msg\n            #   name\n            #   reason\n            #   strerror\n            #   url\n            #   with_traceback\n            # }\n            self.update_response(response, e)\n            return response\n\n        self.update_response(response, result)\n        return response\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 228,
+      "name": "delete",
+      "text": "    def delete(self, url, **kwargs):\n        return self.send('DELETE', url, **kwargs)\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 231,
+      "name": "get",
+      "text": "    def get(self, url, **kwargs):\n        return self.send('GET', url, **kwargs)\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 234,
+      "name": "patch",
+      "text": "    def patch(self, url, data=None, **kwargs):\n        return self.send('PATCH', url, data=data, **kwargs)\n"
+    },
+    {
+      "file": "lib/ansible/module_utils/network/f5/icontrol.py",
+      "line": 237,
+      "name": "post",
+      "text": "    def post(self, url, data=None, **kwargs):\n        return self.send('POST', url, data=data, **kwargs)\n"
+    }
+  ]
+}

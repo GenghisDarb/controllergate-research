@@ -1,0 +1,33 @@
+{
+  "candidate": "fastapi:4",
+  "decision_time_safe_evidence_used": [
+    "v2.9 causal context bundle hash",
+    "v2.10 materialization recovery status",
+    "v2.10 repair taxonomy",
+    "buggy checkout failure log"
+  ],
+  "decision_time_safe_status": "PASS",
+  "memory_enabled_allowed_context": [
+    "buggy checkout",
+    "target command",
+    "failing log",
+    "official v2.9 context summary",
+    "official v2.10 materialization summary",
+    "RepairMemory decision-time-safe fields"
+  ],
+  "no_memory_allowed_context": [
+    "buggy checkout",
+    "target command",
+    "failing log",
+    "non-memory topology fields"
+  ],
+  "project_family": "fastapi",
+  "reason_if_not_allowed": "",
+  "recovered_surface_type": "validation_surface",
+  "repair_attempt_allowed": true,
+  "v2_10_materialization_recovered": true,
+  "v2_10_materialization_status": "materialization_recovered",
+  "v2_10_repair_path": "validation_guard",
+  "v2_11_repair_path": "validation_guard",
+  "v2_9_context_bundle_hash": "024d063c3fd7e4d034136f24f596537da173844bfeda499a4f9d0d7fc7cfdbb9"
+}

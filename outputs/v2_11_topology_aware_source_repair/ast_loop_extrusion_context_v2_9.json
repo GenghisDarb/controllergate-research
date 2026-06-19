@@ -1,0 +1,716 @@
+{
+  "cohesin_loop_extrusion_enabled": true,
+  "fixed_gold_future_evidence_used": false,
+  "records": [
+    {
+      "ast_parent_child_nodes": [
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "fastapi.testclient.TestClient"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "TestClient"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "requests"
+        }
+      ],
+      "call_graph_edges": [
+        {
+          "from": "tests/test_ws_router.py",
+          "to": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py"
+        },
+        {
+          "from": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+          "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py"
+        },
+        {
+          "from": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "to": "fastapi/testclient.py"
+        },
+        {
+          "from": "fastapi/testclient.py",
+          "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+        }
+      ],
+      "candidate": "fastapi:2",
+      "decision_time_safe": true,
+      "extrusion_limits_respected": true,
+      "fixed_gold_future_evidence_used": false,
+      "import_dependency_edges": [
+        {
+          "source": "tests/test_ws_router.py",
+          "symbol": "fastapi.testclient.TestClient"
+        },
+        {
+          "source": "tests/test_ws_router.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "tests/test_ws_router.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "tests/test_ws_router.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+          "symbol": "fastapi.testclient.TestClient"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "fastapi.testclient.TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "fastapi/testclient.py",
+          "symbol": "fastapi.testclient.TestClient"
+        },
+        {
+          "source": "fastapi/testclient.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "fastapi/testclient.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "fastapi/testclient.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "fastapi.testclient.TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "requests"
+        }
+      ],
+      "loop_extrusion_status": "success",
+      "max_ast_hops": 2,
+      "max_import_hops": 1,
+      "project_family": "fastapi"
+    },
+    {
+      "ast_parent_child_nodes": [
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "TestClient"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "requests"
+        }
+      ],
+      "call_graph_edges": [
+        {
+          "from": "tests/test_serialize_response_model.py",
+          "to": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py"
+        },
+        {
+          "from": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+          "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py"
+        },
+        {
+          "from": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+        }
+      ],
+      "candidate": "fastapi:3",
+      "decision_time_safe": true,
+      "extrusion_limits_respected": true,
+      "fixed_gold_future_evidence_used": false,
+      "import_dependency_edges": [
+        {
+          "source": "tests/test_serialize_response_model.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "tests/test_serialize_response_model.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "tests/test_serialize_response_model.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "requests"
+        }
+      ],
+      "loop_extrusion_status": "success",
+      "max_ast_hops": 2,
+      "max_import_hops": 1,
+      "project_family": "fastapi"
+    },
+    {
+      "ast_parent_child_nodes": [
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "TestClient"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "requests"
+        }
+      ],
+      "call_graph_edges": [
+        {
+          "from": "tests/test_param_in_path_and_dependency.py",
+          "to": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_032/fastapi/tests/test_param_in_path_and_dependency.py"
+        },
+        {
+          "from": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_032/fastapi/tests/test_param_in_path_and_dependency.py",
+          "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py"
+        },
+        {
+          "from": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+        }
+      ],
+      "candidate": "fastapi:4",
+      "decision_time_safe": true,
+      "extrusion_limits_respected": true,
+      "fixed_gold_future_evidence_used": false,
+      "import_dependency_edges": [
+        {
+          "source": "tests/test_param_in_path_and_dependency.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "tests/test_param_in_path_and_dependency.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "tests/test_param_in_path_and_dependency.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_032/fastapi/tests/test_param_in_path_and_dependency.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_032/fastapi/tests/test_param_in_path_and_dependency.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_032/fastapi/tests/test_param_in_path_and_dependency.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "requests"
+        }
+      ],
+      "loop_extrusion_status": "success",
+      "max_ast_hops": 2,
+      "max_import_hops": 1,
+      "project_family": "fastapi"
+    },
+    {
+      "ast_parent_child_nodes": [
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "pysnooper.utils.truncate"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": ".tracer.Tracer as snoop"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "collections.Mapping, Sequence"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "truncate"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "Tracer"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "CommonVariable"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "Mapping"
+        }
+      ],
+      "call_graph_edges": [
+        {
+          "from": "tests/test_chinese.py",
+          "to": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py"
+        },
+        {
+          "from": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+          "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py"
+        },
+        {
+          "from": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "to": "pysnooper/__init__.py"
+        },
+        {
+          "from": "pysnooper/__init__.py",
+          "to": "pysnooper/tracer.py"
+        }
+      ],
+      "candidate": "PySnooper:1",
+      "decision_time_safe": true,
+      "extrusion_limits_respected": true,
+      "fixed_gold_future_evidence_used": false,
+      "import_dependency_edges": [
+        {
+          "source": "tests/test_chinese.py",
+          "symbol": "pysnooper.utils.truncate"
+        },
+        {
+          "source": "tests/test_chinese.py",
+          "symbol": ".tracer.Tracer as snoop"
+        },
+        {
+          "source": "tests/test_chinese.py",
+          "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+        },
+        {
+          "source": "tests/test_chinese.py",
+          "symbol": "collections.Mapping, Sequence"
+        },
+        {
+          "source": "tests/test_chinese.py",
+          "symbol": "truncate"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+          "symbol": "pysnooper.utils.truncate"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+          "symbol": ".tracer.Tracer as snoop"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+          "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+          "symbol": "collections.Mapping, Sequence"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+          "symbol": "truncate"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "pysnooper.utils.truncate"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": ".tracer.Tracer as snoop"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "collections.Mapping, Sequence"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "truncate"
+        },
+        {
+          "source": "pysnooper/__init__.py",
+          "symbol": "pysnooper.utils.truncate"
+        },
+        {
+          "source": "pysnooper/__init__.py",
+          "symbol": ".tracer.Tracer as snoop"
+        },
+        {
+          "source": "pysnooper/__init__.py",
+          "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+        },
+        {
+          "source": "pysnooper/__init__.py",
+          "symbol": "collections.Mapping, Sequence"
+        },
+        {
+          "source": "pysnooper/__init__.py",
+          "symbol": "truncate"
+        }
+      ],
+      "loop_extrusion_status": "success",
+      "max_ast_hops": 2,
+      "max_import_hops": 1,
+      "project_family": "PySnooper"
+    },
+    {
+      "ast_parent_child_nodes": [
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "pysnooper.utils.truncate"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": ".tracer.Tracer as snoop"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "collections.Mapping, Sequence"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "truncate"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "Tracer"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "CommonVariable"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "Mapping"
+        }
+      ],
+      "call_graph_edges": [
+        {
+          "from": "tests/test_pysnooper.py",
+          "to": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/tests/test_pysnooper.py"
+        },
+        {
+          "from": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/tests/test_pysnooper.py",
+          "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py"
+        },
+        {
+          "from": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "to": "pysnooper/__init__.py"
+        },
+        {
+          "from": "pysnooper/__init__.py",
+          "to": "pysnooper/tracer.py"
+        }
+      ],
+      "candidate": "PySnooper:2",
+      "decision_time_safe": true,
+      "extrusion_limits_respected": true,
+      "fixed_gold_future_evidence_used": false,
+      "import_dependency_edges": [
+        {
+          "source": "tests/test_pysnooper.py",
+          "symbol": "pysnooper.utils.truncate"
+        },
+        {
+          "source": "tests/test_pysnooper.py",
+          "symbol": ".tracer.Tracer as snoop"
+        },
+        {
+          "source": "tests/test_pysnooper.py",
+          "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+        },
+        {
+          "source": "tests/test_pysnooper.py",
+          "symbol": "collections.Mapping, Sequence"
+        },
+        {
+          "source": "tests/test_pysnooper.py",
+          "symbol": "truncate"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/tests/test_pysnooper.py",
+          "symbol": "pysnooper.utils.truncate"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/tests/test_pysnooper.py",
+          "symbol": ".tracer.Tracer as snoop"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/tests/test_pysnooper.py",
+          "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/tests/test_pysnooper.py",
+          "symbol": "collections.Mapping, Sequence"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/tests/test_pysnooper.py",
+          "symbol": "truncate"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "pysnooper.utils.truncate"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": ".tracer.Tracer as snoop"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "collections.Mapping, Sequence"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "truncate"
+        },
+        {
+          "source": "pysnooper/__init__.py",
+          "symbol": "pysnooper.utils.truncate"
+        },
+        {
+          "source": "pysnooper/__init__.py",
+          "symbol": ".tracer.Tracer as snoop"
+        },
+        {
+          "source": "pysnooper/__init__.py",
+          "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+        },
+        {
+          "source": "pysnooper/__init__.py",
+          "symbol": "collections.Mapping, Sequence"
+        },
+        {
+          "source": "pysnooper/__init__.py",
+          "symbol": "truncate"
+        }
+      ],
+      "loop_extrusion_status": "success",
+      "max_ast_hops": 2,
+      "max_import_hops": 1,
+      "project_family": "PySnooper"
+    },
+    {
+      "ast_parent_child_nodes": [
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "TestClient"
+        },
+        {
+          "kind": "ImportFrom",
+          "relevance": "traceback import edge",
+          "symbol": "requests"
+        }
+      ],
+      "call_graph_edges": [
+        {
+          "from": "tests/test_filter_pydantic_sub_model.py",
+          "to": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/026_fastapi_5/fastapi/tests/test_filter_pydantic_sub_model.py"
+        },
+        {
+          "from": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/026_fastapi_5/fastapi/tests/test_filter_pydantic_sub_model.py",
+          "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py"
+        },
+        {
+          "from": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+        }
+      ],
+      "candidate": "fastapi:5",
+      "decision_time_safe": true,
+      "extrusion_limits_respected": true,
+      "fixed_gold_future_evidence_used": false,
+      "import_dependency_edges": [
+        {
+          "source": "tests/test_filter_pydantic_sub_model.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "tests/test_filter_pydantic_sub_model.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "tests/test_filter_pydantic_sub_model.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/026_fastapi_5/fastapi/tests/test_filter_pydantic_sub_model.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/026_fastapi_5/fastapi/tests/test_filter_pydantic_sub_model.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/preflight_workspaces/026_fastapi_5/fastapi/tests/test_filter_pydantic_sub_model.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+          "symbol": "requests"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "starlette.testclient.TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "TestClient"
+        },
+        {
+          "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+          "symbol": "requests"
+        }
+      ],
+      "loop_extrusion_status": "success",
+      "max_ast_hops": 2,
+      "max_import_hops": 1,
+      "project_family": "fastapi"
+    }
+  ],
+  "status": "PASS"
+}

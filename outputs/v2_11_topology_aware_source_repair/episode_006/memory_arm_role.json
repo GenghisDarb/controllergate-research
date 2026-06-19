@@ -1,0 +1,40 @@
+{
+  "candidate": "fastapi:1",
+  "episode_id": "episode_006",
+  "fixed_or_gold_patch_allowed": false,
+  "future_outcome_evidence_allowed": false,
+  "lane_role": "preserved_v2_8v_baseline_gate",
+  "memory_enabled_arm": {
+    "allowed_inputs": [
+      "RepairMemory ledger",
+      "prior official artifacts",
+      "prior blocked-lane history",
+      "v2.8q candidate triage",
+      "v2.8r chromatin state",
+      "v2.8r minimal-probe selection",
+      "v2.8r closure scaling",
+      "v2.8s ansible:2 positive-memory baseline policy",
+      "v2.8t ansible:5 positive-memory baseline policy",
+      "v2.8u family-generalization null result and blocked-lane policy"
+    ],
+    "repair_memory_access_allowed": true,
+    "workspace": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/repair_paths/episode_006/memory_enabled"
+  },
+  "no_memory_arm": {
+    "allowed_inputs": [
+      "current candidate metadata",
+      "current buggy checkout",
+      "current failing log",
+      "current pre-repair target command",
+      "current source discovery from buggy source",
+      "generic non-memory heuristics",
+      "current run preflight evidence"
+    ],
+    "repair_memory_access_allowed": false,
+    "workspace": "/home/runner/work/controllergate-research/controllergate-research/_v2_11_bugsinpy_runtime/repair_paths/episode_006/no_memory"
+  },
+  "same_buggy_baseline": true,
+  "same_target_command": true,
+  "separate_logs": true,
+  "separate_workspace_paths": true
+}
