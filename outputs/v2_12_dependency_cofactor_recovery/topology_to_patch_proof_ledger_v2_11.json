@@ -1,0 +1,80 @@
+{
+  "complete_generated_patch_proof_count": 0,
+  "generated_patch_count": 1,
+  "records": [
+    {
+      "arm": "memory_enabled",
+      "candidate": "fastapi:2",
+      "causal_context_bundle_hash": "aa7b77c576c2134178548b67d3d18be5939c9066809ded2cdb25d5fc07faaac2",
+      "decision_time_input_manifest_hash": null,
+      "evidence_files": [],
+      "missing_links": [
+        "source-only patch",
+        "post-repair target pass",
+        "duplicate replay",
+        "phase inversion"
+      ],
+      "outcome_overlap_check": "PASS",
+      "patch_hash": null,
+      "proof_chain_complete": false,
+      "proof_obligations_status": "not_applicable_no_patch",
+      "validation_log_hash": null
+    },
+    {
+      "arm": "memory_enabled",
+      "candidate": "fastapi:3",
+      "causal_context_bundle_hash": "229fc3a0b46c5babc88abaa77eb298529cf14ae42253765d4758d56e53618994",
+      "decision_time_input_manifest_hash": null,
+      "evidence_files": [],
+      "missing_links": [
+        "source-only patch",
+        "post-repair target pass",
+        "duplicate replay",
+        "phase inversion"
+      ],
+      "outcome_overlap_check": "PASS",
+      "patch_hash": null,
+      "proof_chain_complete": false,
+      "proof_obligations_status": "not_applicable_no_patch",
+      "validation_log_hash": null
+    },
+    {
+      "arm": "memory_enabled",
+      "candidate": "fastapi:4",
+      "causal_context_bundle_hash": "024d063c3fd7e4d034136f24f596537da173844bfeda499a4f9d0d7fc7cfdbb9",
+      "decision_time_input_manifest_hash": null,
+      "evidence_files": [],
+      "missing_links": [
+        "source-only patch",
+        "post-repair target pass",
+        "duplicate replay",
+        "phase inversion"
+      ],
+      "outcome_overlap_check": "PASS",
+      "patch_hash": null,
+      "proof_chain_complete": false,
+      "proof_obligations_status": "not_applicable_no_patch",
+      "validation_log_hash": null
+    },
+    {
+      "arm": "memory_enabled",
+      "candidate": "PySnooper:1",
+      "causal_context_bundle_hash": "449ced43aa3124a94bb190a2a74c3ebc616c29a11bf0a7473c8563bcf91be31f",
+      "decision_time_input_manifest_hash": "233804b8a676c5c5b3009834c046edc8fea2b4651fe16b54f9df6e177cab3082",
+      "evidence_files": [
+        "memory_enabled_source_only_repair_patch.diff",
+        "memory_enabled_post_repair_log_raw.txt"
+      ],
+      "missing_links": [
+        "duplicate replay",
+        "phase inversion"
+      ],
+      "outcome_overlap_check": "PASS",
+      "patch_hash": "638b7f792087452d1dcd869a7ab29578e1818edcdc94b627d4484d8914b38c0e",
+      "proof_chain_complete": false,
+      "proof_obligations_status": "blocked_target_test_failed",
+      "validation_log_hash": "b18f0ae53318f511e20570f1751257d24f6f260c25e6be7bdfb7184c6b150924"
+    }
+  ],
+  "status": "PASS"
+}

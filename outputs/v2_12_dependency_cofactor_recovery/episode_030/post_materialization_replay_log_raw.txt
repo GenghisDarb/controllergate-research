@@ -1,0 +1,41 @@
+$ python -m pytest tests/test_ws_router.py::test_router_ws_depends_with_override
+cwd=/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_030/fastapi
+started_at_utc=2026-06-19T21:21:45.252016+00:00
+finished_at_utc=2026-06-19T21:21:45.635132+00:00
+returncode=4
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_030/fastapi
+configfile: pyproject.toml
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+___________________ ERROR collecting tests/test_ws_router.py ___________________
+ImportError while importing test module '/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_ws_router.py:1: in <module>
+    from fastapi import APIRouter, Depends, FastAPI, WebSocket
+fastapi/__init__.py:7: in <module>
+    from .applications import FastAPI
+fastapi/applications.py:3: in <module>
+    from fastapi import routing
+fastapi/routing.py:7: in <module>
+    from fastapi.dependencies.utils import (
+fastapi/dependencies/utils.py:20: in <module>
+    from fastapi.concurrency import (
+fastapi/concurrency.py:5: in <module>
+    from starlette.concurrency import run_until_first_complete  # noqa
+E   ImportError: cannot import name 'run_until_first_complete' from 'starlette.concurrency' (/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/concurrency.py)
+=========================== short test summary info ============================
+ERROR tests/test_ws_router.py
+=============================== 1 error in 0.18s ===============================
+
+--- stderr ---
+ERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_030/fastapi/tests/test_ws_router.py::test_router_ws_depends_with_override
+
+

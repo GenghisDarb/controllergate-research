@@ -1,0 +1,75 @@
+{
+  "candidate": "PySnooper:2",
+  "records": [
+    {
+      "arm": "no_memory",
+      "candidate": "PySnooper:2",
+      "decision_time_safe_status": "PASS",
+      "expected_failure_resolution": "none",
+      "forbidden_shapes_checked": [
+        "test modification",
+        "broad refactor",
+        "dependency replacement",
+        "future-derived patch"
+      ],
+      "patch_generated": false,
+      "proposed_patch_shape": "no_safe_patch",
+      "reason_if_no_patch": "no-memory arm cannot access RepairMemory-only topology-to-patch history",
+      "recovered_surface_used": "import_compatibility_surface",
+      "repair_path": "import_compatibility_defect",
+      "safety_constraints": [
+        "source-only",
+        "no test edits",
+        "no fixed/gold/future evidence",
+        "bounded topology-to-patch chain"
+      ],
+      "topological_context_files_used": [],
+      "touched_files": [],
+      "touched_symbols": []
+    },
+    {
+      "arm": "memory_enabled",
+      "candidate": "PySnooper:2",
+      "decision_time_safe_memory_fields_used": [
+        "v2.9 causal context bundle hash",
+        "v2.10 materialization status",
+        "v2.11 patch shape and source-only safety status"
+      ],
+      "decision_time_safe_status": "PASS",
+      "exact_v2_11_patch_reused": false,
+      "expected_failure_resolution": "restore Mapping/Sequence import under Python 3.10 without editing tests",
+      "forbidden_shapes_checked": [
+        "test modification",
+        "fixed/gold patch",
+        "future outcome evidence",
+        "dependency replacement"
+      ],
+      "generated_by": "v2.12 bounded topology-aware proposer",
+      "patch_generated": true,
+      "proposed_patch_shape": "localized import compatibility fallback",
+      "reason_if_no_patch": "",
+      "recovered_surface_used": "import_compatibility_surface",
+      "repair_path": "import_compatibility_defect",
+      "safety_constraints": [
+        "one-file patch",
+        "source-only",
+        "no test edits",
+        "no broad import shim"
+      ],
+      "same_patch_shape_as_v2_11": true,
+      "topological_context_files_used": [
+        "pysnooper/variables.py",
+        "tests/test_chinese.py"
+      ],
+      "touched_files": [
+        "pysnooper/variables.py"
+      ],
+      "touched_symbols": [
+        "Mapping",
+        "Sequence"
+      ],
+      "v2_11_patch_shape_reference_hash": "638b7f792087452d1dcd869a7ab29578e1818edcdc94b627d4484d8914b38c0e"
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,4 +1,20 @@
 {
-  "records": [],
-  "status": "PENDING_GITHUB_ACTIONS"
+  "records": [
+    {
+      "candidate": "PySnooper:1",
+      "decision": "forbidden_by_policy",
+      "reason": ""
+    },
+    {
+      "candidate": "PySnooper:2",
+      "decision": "allowed_declared_metadata",
+      "metadata_source_files": [
+        "_v2_12_bugsinpy_runtime/BugsInPy/projects/PySnooper/bugs/2/setup.sh",
+        "_v2_12_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/setup.py",
+        "_v2_12_bugsinpy_runtime/preflight_workspaces/002_PySnooper_2/PySnooper/tox.ini"
+      ],
+      "recovery_result": "cofactor_recovered"
+    }
+  ],
+  "status": "PASS"
 }

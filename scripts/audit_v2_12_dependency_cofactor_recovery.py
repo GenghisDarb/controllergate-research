@@ -189,6 +189,7 @@ def main() -> int:
         "source_patch_anti_leakage_check_v2_12.json", "heterochromatin_monitor_v2_12.json",
         "silent_scaffolding_risk_audit_v2_12.json", "isomorphism_requirements_matrix_v2_12.json",
         "positive_memory_family_generalization_v2_12.json", "classification_vocabulary_check.json", "audit.json",
+        "artifact_sha256_verification.json",
     ]
     loaded: dict[str, dict[str, Any]] = {}
     for name in names:
@@ -228,12 +229,27 @@ def main() -> int:
         errors.append("arbitrary undeclared package install count must be zero")
     py1 = record_by_candidate(plan, "PySnooper:1")
     py2 = record_by_candidate(plan, "PySnooper:2")
-    if py1.get("blocker_name") != "python_toolbox" or py1.get("declared_in_project_metadata") is not False:
-        errors.append("PySnooper:1 must record python_toolbox as undeclared")
-    if py1.get("recovery_allowed_by_policy") is not False or py1.get("recovery_performed") is not False:
-        errors.append("PySnooper:1 undeclared cofactor recovery must be forbidden and not performed")
-    if py1.get("recovery_action") != "forbidden_by_policy":
-        errors.append("PySnooper:1 recovery action must be forbidden_by_policy")
+    # The verified official artifact contains a policy-record inconsistency that
+    # must be preserved rather than normalized: PySnooper:1 is classified as
+    # forbidden, while its dependency record says the cofactor was declared and
+    # recovery-eligible but was not performed. Lock that exact tuple and require
+    # the ingest verification report to flag it explicitly.
+    if py1.get("blocker_name") != "python_toolbox":
+        errors.append("PySnooper:1 must identify python_toolbox as the dependency cofactor")
+    if py1.get("declared_in_project_metadata") is not True:
+        errors.append("official PySnooper:1 artifact must preserve declared_in_project_metadata=true")
+    if py1.get("recovery_allowed_by_policy") is not True or py1.get("recovery_performed") is not False:
+        errors.append("official PySnooper:1 artifact must preserve recovery_allowed=true and recovery_performed=false")
+    if py1.get("recovery_action") != "create isolated venv and expose declared python_toolbox cofactor":
+        errors.append("official PySnooper:1 artifact recovery action changed unexpectedly")
+    cofactor_log = loaded["cofactor_recovery_decision_log_v2_12.json"]
+    cofactor_py1 = record_by_candidate(cofactor_log, "PySnooper:1")
+    if cofactor_py1.get("decision") != "forbidden_by_policy" or cofactor_py1.get("reason") not in {"", None}:
+        errors.append("official PySnooper:1 decision log must preserve forbidden_by_policy with an empty reason")
+    verification = loaded["artifact_sha256_verification.json"]
+    discrepancy_records = verification.get("verified_artifact_discrepancies") or []
+    if not any("PySnooper:1" in str(record) and "declared_in_project_metadata=true" in str(record) for record in discrepancy_records):
+        errors.append("artifact verification must explicitly flag the PySnooper:1 policy-record inconsistency")
     if py2.get("declared_in_project_metadata") is not True:
         errors.append("PySnooper:2 must have declared python_toolbox evidence")
     if not py2.get("metadata_source_files"):

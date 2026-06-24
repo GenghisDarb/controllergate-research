@@ -1,0 +1,99 @@
+{
+  "candidate": "PySnooper:1",
+  "context_changed_after_recovery": false,
+  "materialization_recovered": true,
+  "new_fixture_links": [
+    {
+      "command_token": "tests/test_chinese.py",
+      "role": "failure-reproducing test context"
+    }
+  ],
+  "new_import_links": [
+    {
+      "source": "tests/test_chinese.py",
+      "symbol": "pysnooper.utils.truncate"
+    },
+    {
+      "source": "tests/test_chinese.py",
+      "symbol": ".tracer.Tracer as snoop"
+    },
+    {
+      "source": "tests/test_chinese.py",
+      "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+    },
+    {
+      "source": "tests/test_chinese.py",
+      "symbol": "collections.Mapping, Sequence"
+    },
+    {
+      "source": "tests/test_chinese.py",
+      "symbol": "truncate"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+      "symbol": "pysnooper.utils.truncate"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+      "symbol": ".tracer.Tracer as snoop"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+      "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+      "symbol": "collections.Mapping, Sequence"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_9_bugsinpy_runtime/workspaces/episode_033/PySnooper/tests/test_chinese.py",
+      "symbol": "truncate"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": "pysnooper.utils.truncate"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": ".tracer.Tracer as snoop"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": "collections.Mapping, Sequence"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": "truncate"
+    },
+    {
+      "source": "pysnooper/__init__.py",
+      "symbol": "pysnooper.utils.truncate"
+    },
+    {
+      "source": "pysnooper/__init__.py",
+      "symbol": ".tracer.Tracer as snoop"
+    },
+    {
+      "source": "pysnooper/__init__.py",
+      "symbol": ".variables.CommonVariable, Exploding, BaseVariable"
+    },
+    {
+      "source": "pysnooper/__init__.py",
+      "symbol": "collections.Mapping, Sequence"
+    },
+    {
+      "source": "pysnooper/__init__.py",
+      "symbol": "truncate"
+    }
+  ],
+  "new_policy_links": [],
+  "post_recovery_context_bundle_hash": "449ced43aa3124a94bb190a2a74c3ebc616c29a11bf0a7473c8563bcf91be31f",
+  "pre_recovery_context_bundle_hash": "449ced43aa3124a94bb190a2a74c3ebc616c29a11bf0a7473c8563bcf91be31f",
+  "reason": "v2.9 context remained valid after bounded materialization recovery",
+  "repair_allowed": true,
+  "repair_path_changed_after_recovery": true
+}

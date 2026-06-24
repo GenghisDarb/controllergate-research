@@ -1,5 +1,135 @@
 {
-  "classification_vocabulary": [],
-  "pending_until_linux_workflow_artifact": true,
-  "records": []
+  "classification_vocabulary": [
+    "blocked_no_safe_patch_candidate_generated",
+    "blocked_patch_did_not_apply",
+    "blocked_replay_or_materialization_failure",
+    "blocked_target_test_failed",
+    "candidate_retired_until_new_evidence",
+    "dependency_recovery_forbidden_by_policy",
+    "failed_both",
+    "inconclusive_equal_performance",
+    "invalid_for_scoring_checkpoint_order_failure",
+    "materialization_recovered_but_no_safe_repair_path",
+    "no_memory_only",
+    "positive_memory_only",
+    "runner_regression_v2_11_baseline_failure",
+    "scoreable_pending_duplicate_replay_failure",
+    "scoreable_pending_phase_inversion_failure",
+    "source_discovery_recovered_but_no_safe_patch",
+    "topology_context_recovered_but_no_safe_patch",
+    "topology_patch_generated_but_failed_safety_check"
+  ],
+  "records": [
+    {
+      "candidate": "youtube-dl:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_001",
+      "memory_enabled": "equal",
+      "memory_enabled_outperformed_no_memory": false,
+      "no_memory": "equal",
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "black:4",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_003",
+      "memory_enabled": "equal",
+      "memory_enabled_outperformed_no_memory": false,
+      "no_memory": "equal",
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "fastapi:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_006",
+      "memory_enabled": "equal",
+      "memory_enabled_outperformed_no_memory": false,
+      "no_memory": "equal",
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:2",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_010",
+      "memory_enabled": "repaired",
+      "memory_enabled_outperformed_no_memory": true,
+      "no_memory": "blocked_no_safe_patch_candidate_generated",
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:5",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_020",
+      "memory_enabled": "repaired",
+      "memory_enabled_outperformed_no_memory": true,
+      "no_memory": "blocked_no_safe_patch_candidate_generated",
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "fastapi:2",
+      "classification": "topology_context_recovered_but_no_safe_patch",
+      "episode_id": "episode_030",
+      "memory_enabled": "blocked_no_safe_patch_candidate_generated",
+      "memory_enabled_outperformed_no_memory": false,
+      "no_memory": "blocked_no_safe_patch_candidate_generated",
+      "pre_repair_replay_gate_passed": false,
+      "scoreable": false,
+      "v2_10_materialization_recovery_applied": true,
+      "v2_11_topology_aware_source_repair_applied": true
+    },
+    {
+      "candidate": "fastapi:3",
+      "classification": "topology_context_recovered_but_no_safe_patch",
+      "episode_id": "episode_031",
+      "memory_enabled": "blocked_no_safe_patch_candidate_generated",
+      "memory_enabled_outperformed_no_memory": false,
+      "no_memory": "blocked_no_safe_patch_candidate_generated",
+      "pre_repair_replay_gate_passed": false,
+      "scoreable": false,
+      "v2_10_materialization_recovery_applied": true,
+      "v2_11_topology_aware_source_repair_applied": true
+    },
+    {
+      "candidate": "fastapi:4",
+      "classification": "topology_context_recovered_but_no_safe_patch",
+      "episode_id": "episode_032",
+      "memory_enabled": "blocked_no_safe_patch_candidate_generated",
+      "memory_enabled_outperformed_no_memory": false,
+      "no_memory": "blocked_no_safe_patch_candidate_generated",
+      "pre_repair_replay_gate_passed": false,
+      "scoreable": false,
+      "v2_10_materialization_recovery_applied": true,
+      "v2_11_topology_aware_source_repair_applied": true
+    },
+    {
+      "candidate": "PySnooper:1",
+      "classification": "dependency_recovery_forbidden_by_policy",
+      "episode_id": "episode_033",
+      "memory_enabled": "blocked_undeclared_dependency_cofactor",
+      "memory_enabled_outperformed_no_memory": false,
+      "no_memory": "blocked_no_safe_patch_candidate_generated",
+      "pre_repair_replay_gate_passed": false,
+      "scoreable": false,
+      "v2_10_materialization_recovery_applied": true,
+      "v2_11_topology_aware_source_repair_applied": true,
+      "v2_12_dependency_cofactor_recovery_applied": false
+    },
+    {
+      "candidate": "PySnooper:2",
+      "classification": "blocked_target_test_failed",
+      "episode_id": "episode_034",
+      "memory_enabled": "blocked_target_test_failed",
+      "memory_enabled_outperformed_no_memory": false,
+      "no_memory": "blocked_no_safe_patch_candidate_generated",
+      "pre_repair_replay_gate_passed": true,
+      "scoreable": false,
+      "v2_12_dependency_cofactor_recovery_applied": true,
+      "v2_12_topology_aware_source_repair_applied": true
+    }
+  ]
 }

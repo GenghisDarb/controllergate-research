@@ -1,0 +1,26 @@
+{
+  "arm": "no_memory",
+  "candidate": "fastapi:2",
+  "decision_time_safe_status": "PASS",
+  "expected_failure_resolution": "none",
+  "forbidden_shapes_checked": [
+    "test modification",
+    "broad refactor",
+    "dependency replacement",
+    "future-derived patch"
+  ],
+  "patch_generated": false,
+  "proposed_patch_shape": "no_safe_patch",
+  "reason_if_no_patch": "no-memory arm cannot access RepairMemory-only repair-template or positive-memory transfer signals",
+  "recovered_surface_used": "validation_surface",
+  "repair_path": "validation_guard",
+  "safety_constraints": [
+    "source-only",
+    "no test edits",
+    "no fixed/gold/future evidence",
+    "bounded topology-to-patch chain"
+  ],
+  "topological_context_files_used": [],
+  "touched_files": [],
+  "touched_symbols": []
+}

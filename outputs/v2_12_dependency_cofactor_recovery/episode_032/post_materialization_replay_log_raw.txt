@@ -1,0 +1,239 @@
+$ python -m pytest tests/test_param_in_path_and_dependency.py::test_reused_param
+cwd=/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_032/fastapi
+started_at_utc=2026-06-19T21:21:46.899123+00:00
+finished_at_utc=2026-06-19T21:21:47.341219+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_032/fastapi
+configfile: pyproject.toml
+collected 1 item
+
+tests/test_param_in_path_and_dependency.py F                             [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_reused_param _______________________________
+
+    def test_reused_param():
+        response = client.get("/openapi.json")
+        data = response.json()
+>       assert data == openapi_schema
+E       AssertionError: assert {'openapi': '...'string'}}}}}} == {'openapi': '...'string'}}}}}}
+E         
+E         Omitting 3 identical items, use -vv to show
+E         Differing items:
+E         {'paths': {'/users/{user_id}': {'get': {'summary': 'Read Users', 'operationId': 'read_users_users__user_id__get', 'par...scription': 'Successful Response', 'content': {...}}, '422': {'description': 'Validation Error', 'content': {...}}}}}}} != {'paths': {'/users/{user_id}': {'get': {'summary': 'Read Users', 'operationId': 'read_users_users__user_id__get', 'par...scription': 'Successful Response', 'content': {...}}, '422': {'description': 'Validation Error', 'content': {...}}}}}}}
+E         
+E         Full diff:
+E           {
+E               'openapi': '3.0.2',
+E               'info': {
+E                   'title': 'FastAPI',
+E                   'version': '0.1.0',
+E               },
+E               'paths': {
+E                   '/users/{user_id}': {
+E                       'get': {
+E                           'summary': 'Read Users',
+E                           'operationId': 'read_users_users__user_id__get',
+E                           'parameters': [
+E         +                     {
+E         +                         'required': True,
+E         +                         'schema': {
+E         +                             'title': 'User Id',
+E         +                             'type': 'integer',
+E         +                         },
+E         +                         'name': 'user_id',
+E         +                         'in': 'path',
+E         +                     },
+E                               {
+E                                   'required': True,
+E                                   'schema': {
+E                                       'title': 'User Id',
+E                                       'type': 'integer',
+E                                   },
+E                                   'name': 'user_id',
+E                                   'in': 'path',
+E                               },
+E                           ],
+E                           'responses': {
+E                               '200': {
+E                                   'description': 'Successful Response',
+E                                   'content': {
+E                                       'application/json': {
+E                                           'schema': {},
+E                                       },
+E                                   },
+E                               },
+E                               '422': {
+E                                   'description': 'Validation Error',
+E                                   'content': {
+E                                       'application/json': {
+E                                           'schema': {
+E                                               '$ref': '#/components/schemas/HTTPValidationError',
+E                                           },
+E                                       },
+E                                   },
+E                               },
+E                           },
+E                       },
+E                   },
+E               },
+E               'components': {
+E                   'schemas': {
+E                       'HTTPValidationError': {
+E                           'title': 'HTTPValidationError',
+E                           'type': 'object',
+E                           'properties': {
+E                               'detail': {
+E                                   'title': 'Detail',
+E                                   'type': 'array',
+E                                   'items': {
+E                                       '$ref': '#/components/schemas/ValidationError',
+E                                   },
+E                               },
+E                           },
+E                       },
+E                       'ValidationError': {
+E                           'title': 'ValidationError',
+E                           'required': [
+E                               'loc',
+E                               'msg',
+E                               'type',
+E                           ],
+E                           'type': 'object',
+E                           'properties': {
+E                               'loc': {
+E                                   'title': 'Location',
+E                                   'type': 'array',
+E                                   'items': {
+E                                       'type': 'string',
+E                                   },
+E                               },
+E                               'msg': {
+E                                   'title': 'Message',
+E                                   'type': 'string',
+E                               },
+E                               'type': {
+E                                   'title': 'Error Type',
+E                                   'type': 'string',
+E                               },
+E                           },
+E                       },
+E                   },
+E               },
+E           }
+
+tests/test_param_in_path_and_dependency.py:88: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_param_in_path_and_dependency.py::test_reused_param - AssertionError: assert {'openapi': '...'string'}}}}}} == {'openapi': '...'string'}}}}}}
+  
+  Omitting 3 identical items, use -vv to show
+  Differing items:
+  {'paths': {'/users/{user_id}': {'get': {'summary': 'Read Users', 'operationId': 'read_users_users__user_id__get', 'par...scription': 'Successful Response', 'content': {...}}, '422': {'description': 'Validation Error', 'content': {...}}}}}}} != {'paths': {'/users/{user_id}': {'get': {'summary': 'Read Users', 'operationId': 'read_users_users__user_id__get', 'par...scription': 'Successful Response', 'content': {...}}, '422': {'description': 'Validation Error', 'content': {...}}}}}}}
+  
+  Full diff:
+    {
+        'openapi': '3.0.2',
+        'info': {
+            'title': 'FastAPI',
+            'version': '0.1.0',
+        },
+        'paths': {
+            '/users/{user_id}': {
+                'get': {
+                    'summary': 'Read Users',
+                    'operationId': 'read_users_users__user_id__get',
+                    'parameters': [
+  +                     {
+  +                         'required': True,
+  +                         'schema': {
+  +                             'title': 'User Id',
+  +                             'type': 'integer',
+  +                         },
+  +                         'name': 'user_id',
+  +                         'in': 'path',
+  +                     },
+                        {
+                            'required': True,
+                            'schema': {
+                                'title': 'User Id',
+                                'type': 'integer',
+                            },
+                            'name': 'user_id',
+                            'in': 'path',
+                        },
+                    ],
+                    'responses': {
+                        '200': {
+                            'description': 'Successful Response',
+                            'content': {
+                                'application/json': {
+                                    'schema': {},
+                                },
+                            },
+                        },
+                        '422': {
+                            'description': 'Validation Error',
+                            'content': {
+                                'application/json': {
+                                    'schema': {
+                                        '$ref': '#/components/schemas/HTTPValidationError',
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        },
+        'components': {
+            'schemas': {
+                'HTTPValidationError': {
+                    'title': 'HTTPValidationError',
+                    'type': 'object',
+                    'properties': {
+                        'detail': {
+                            'title': 'Detail',
+                            'type': 'array',
+                            'items': {
+                                '$ref': '#/components/schemas/ValidationError',
+                            },
+                        },
+                    },
+                },
+                'ValidationError': {
+                    'title': 'ValidationError',
+                    'required': [
+                        'loc',
+                        'msg',
+                        'type',
+                    ],
+                    'type': 'object',
+                    'properties': {
+                        'loc': {
+                            'title': 'Location',
+                            'type': 'array',
+                            'items': {
+                                'type': 'string',
+                            },
+                        },
+                        'msg': {
+                            'title': 'Message',
+                            'type': 'string',
+                        },
+                        'type': {
+                            'title': 'Error Type',
+                            'type': 'string',
+                        },
+                    },
+                },
+            },
+        },
+    }
+============================== 1 failed in 0.23s ===============================
+
+--- stderr ---
+

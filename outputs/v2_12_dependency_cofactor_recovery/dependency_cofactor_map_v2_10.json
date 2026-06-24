@@ -1,0 +1,72 @@
+{
+  "arbitrary_undeclared_dependency_installs": false,
+  "records": [
+    {
+      "blocker_type": "dependency_missing",
+      "candidate": "fastapi:2",
+      "declared_dependency_sources": [
+        "pyproject.toml"
+      ],
+      "missing_modules": [
+        "requests"
+      ],
+      "recovery_action": [
+        "install_requests_testclient_cofactor_from_buggy_checkout_metadata"
+      ]
+    },
+    {
+      "blocker_type": "dependency_missing",
+      "candidate": "fastapi:3",
+      "declared_dependency_sources": [
+        "pyproject.toml"
+      ],
+      "missing_modules": [
+        "requests"
+      ],
+      "recovery_action": [
+        "install_requests_testclient_cofactor_from_buggy_checkout_metadata"
+      ]
+    },
+    {
+      "blocker_type": "dependency_missing",
+      "candidate": "fastapi:4",
+      "declared_dependency_sources": [
+        "pyproject.toml"
+      ],
+      "missing_modules": [
+        "requests"
+      ],
+      "recovery_action": [
+        "install_requests_testclient_cofactor_from_buggy_checkout_metadata"
+      ]
+    },
+    {
+      "blocker_type": "dependency_version_conflict",
+      "candidate": "PySnooper:1",
+      "declared_dependency_sources": [],
+      "missing_modules": [],
+      "recovery_action": [
+        "classify_python_compatibility_source_surface_after_materialization"
+      ]
+    },
+    {
+      "blocker_type": "unknown",
+      "candidate": "PySnooper:2",
+      "declared_dependency_sources": [],
+      "missing_modules": [],
+      "recovery_action": [
+        "not_attempted_context_only"
+      ]
+    },
+    {
+      "blocker_type": "unknown",
+      "candidate": "fastapi:5",
+      "declared_dependency_sources": [],
+      "missing_modules": [],
+      "recovery_action": [
+        "not_attempted_context_only"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

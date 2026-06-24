@@ -1,0 +1,134 @@
+{
+  "ast_links": [
+    {
+      "kind": "ImportFrom",
+      "relevance": "traceback import edge",
+      "symbol": "starlette.testclient.TestClient"
+    },
+    {
+      "kind": "ImportFrom",
+      "relevance": "traceback import edge",
+      "symbol": "TestClient"
+    },
+    {
+      "kind": "ImportFrom",
+      "relevance": "traceback import edge",
+      "symbol": "requests"
+    }
+  ],
+  "call_links": [
+    {
+      "from": "tests/test_serialize_response_model.py",
+      "to": "/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py"
+    },
+    {
+      "from": "/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+      "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py"
+    },
+    {
+      "from": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "to": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+    }
+  ],
+  "candidate": "fastapi:3",
+  "causal_context_bundle_hash": "92814f9a08c6929b303d169013b2fe8798c03248f129af586e097c6dadc9661b",
+  "config_policy_links": [],
+  "context_budget_used": {
+    "files": 4,
+    "max_ast_hops": 2,
+    "max_files": 5,
+    "max_import_hops": 1,
+    "max_symbols": 25,
+    "max_test_context_lines_per_file": 80,
+    "symbols": 3
+  },
+  "decision_time_safety_status": "PASS",
+  "extruded_context_files": [
+    "tests/test_serialize_response_model.py",
+    "/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+    "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+    "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py"
+  ],
+  "extruded_symbols": [
+    "starlette.testclient.TestClient",
+    "TestClient",
+    "requests"
+  ],
+  "fixture_links": [
+    {
+      "command_token": "tests/test_serialize_response_model.py",
+      "role": "failure-reproducing test context"
+    },
+    {
+      "command_token": "tests/test_serialize_response_model.py",
+      "role": "failure-reproducing test context"
+    },
+    {
+      "command_token": "tests/test_serialize_response_model.py",
+      "role": "failure-reproducing test context"
+    },
+    {
+      "command_token": "tests/test_serialize_response_model.py",
+      "role": "failure-reproducing test context"
+    }
+  ],
+  "flat_slice_sufficiency": "insufficient",
+  "flat_source_discovery_status": "not_run_or_no_localized_source",
+  "import_links": [
+    {
+      "source": "tests/test_serialize_response_model.py",
+      "symbol": "starlette.testclient.TestClient"
+    },
+    {
+      "source": "tests/test_serialize_response_model.py",
+      "symbol": "TestClient"
+    },
+    {
+      "source": "tests/test_serialize_response_model.py",
+      "symbol": "requests"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+      "symbol": "starlette.testclient.TestClient"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+      "symbol": "TestClient"
+    },
+    {
+      "source": "/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py",
+      "symbol": "requests"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": "starlette.testclient.TestClient"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": "TestClient"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py",
+      "symbol": "requests"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+      "symbol": "starlette.testclient.TestClient"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+      "symbol": "TestClient"
+    },
+    {
+      "source": "/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py",
+      "symbol": "requests"
+    }
+  ],
+  "initial_traceback_slice": "$ bash -lc python -m pytest tests/test_serialize_response_model.py::test_valid && python -m pytest tests/test_serialize_response_model.py::test_coerce && python -m pytest tests/test_serialize_response_model.py::test_validlist && python -m pytest tests/test_serialize_response_model.py::test_validdict && python -m pytest tests/test_serialize_response_model.py::test_valid_exclude_unset && python -m pytest tests/test_serialize_response_model.py::test_coerce_exclude_unset && python -m pytest tests/test_serialize_response_model.py::test_validlist_exclude_unset && python -m pytest tests/test_serialize_response_model.py::test_validdict_exclude_unset\nstarted_at_utc=2026-06-19T21:20:11.760332+00:00\nfinished_at_utc=2026-06-19T21:20:12.284616+00:00\nreturncode=4\ntimed_out=False\n--- stdout ---\n============================= test session starts ==============================\nplatform linux -- Python 3.10.20, pytest-9.1.1, pluggy-1.6.0\nrootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_031/fastapi\nconfigfile: pyproject.toml\ncollected 0 items / 1 error\n\n==================================== ERRORS ====================================\n___________ ERROR collecting tests/test_serialize_response_model.py ____________\nImportError while importing test module '/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_serialize_response_model.py:5: in <module>\n    from starlette.testclient import TestClient\n/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/starlette/testclient.py:12: in <module>\n    import requests\nE   ModuleNotFoundError: No module named 'requests'\n=========================== short test summary info ============================\nERROR tests/test_serialize_response_model.py\n=============================== 1 error in 0.20s ===============================\n\n--- stderr ---\nERROR: found no collectors for /home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/workspaces/episode_031/fastapi/tests/test_serialize_response_model.py::test_valid\n\n",
+  "loop_extrusion_status": "success",
+  "missing_modules": [
+    "requests"
+  ],
+  "project_family": "fastapi",
+  "source_discovery_upgrade_status": "source_discovery_blocked_to_contextualized"
+}

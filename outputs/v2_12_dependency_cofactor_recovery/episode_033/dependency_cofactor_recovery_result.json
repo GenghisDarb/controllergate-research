@@ -1,0 +1,52 @@
+{
+  "blocker_name": "python_toolbox",
+  "blocker_type": "missing_test_dependency_cofactor",
+  "candidate": "PySnooper:1",
+  "decision_time_safe_status": "PASS",
+  "declared_in_project_metadata": true,
+  "declared_version_constraint": null,
+  "fixed_gold_future_evidence_used": false,
+  "hashes_of_metadata_used": {
+    "_v2_12_bugsinpy_runtime/BugsInPy/projects/PySnooper/bugs/1/bug.info": "199b770bd6551117a00f9c7ce2c674d7ddb818e3bb5dc344371340e75e52296e",
+    "_v2_12_bugsinpy_runtime/BugsInPy/projects/PySnooper/bugs/1/run_test.sh": "6d24d2d88478e17cefec81f33a1ef5c44cea64321ff46762384c68e219064d0b",
+    "_v2_12_bugsinpy_runtime/BugsInPy/projects/PySnooper/bugs/1/setup.sh": "653b7a51d65d7409e319e29d51d5ee2af65d621ad9ef62148e7eacf99e289879",
+    "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/requirements.txt": "44c91d4c293a45e5efd6e28c304835637cccbdb5de9b88136c03bcfb98376d8d",
+    "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/setup.py": "3709ade94c4102c08f64fa33e6a95e33b21c17d68af308cdb34f16a75f6d0f6b",
+    "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/tox.ini": "629866307933434d0f9f691c3007968f4bb35d7024007e89403c80c36bee0c06"
+  },
+  "inferable_from_failing_import_only": false,
+  "matching_metadata_lines": [
+    {
+      "line": "'python-toolbox',",
+      "source": "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/setup.py"
+    },
+    {
+      "line": "python_toolbox",
+      "source": "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/tox.ini"
+    },
+    {
+      "line": "# until python_toolbox is fixed",
+      "source": "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/tox.ini"
+    }
+  ],
+  "matching_metadata_source_files": [
+    "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/setup.py",
+    "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/tox.ini"
+  ],
+  "materialization_status_after_recovery": "pending",
+  "metadata_source_files": [
+    "_v2_12_bugsinpy_runtime/BugsInPy/projects/PySnooper/bugs/1/bug.info",
+    "_v2_12_bugsinpy_runtime/BugsInPy/projects/PySnooper/bugs/1/run_test.sh",
+    "_v2_12_bugsinpy_runtime/BugsInPy/projects/PySnooper/bugs/1/setup.sh",
+    "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/requirements.txt",
+    "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/setup.py",
+    "_v2_12_bugsinpy_runtime/workspaces/episode_033/PySnooper/tox.ini"
+  ],
+  "reason_if_forbidden_or_failed": "",
+  "recovery_action": "create isolated venv and expose declared python_toolbox cofactor",
+  "recovery_allowed_by_policy": true,
+  "recovery_performed": false,
+  "repair_validation_allowed_after_recovery": true,
+  "status": "PASS",
+  "test_import_used_as_declaration": false
+}

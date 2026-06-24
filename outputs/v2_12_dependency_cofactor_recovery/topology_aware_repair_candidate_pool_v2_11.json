@@ -1,0 +1,111 @@
+{
+  "decision_time_safety_check": "PASS",
+  "duplicate_replay_feasibility": {
+    "PySnooper:1": true,
+    "PySnooper:2": false,
+    "fastapi:2": false,
+    "fastapi:3": false,
+    "fastapi:4": false,
+    "fastapi:5": false
+  },
+  "full_candidate_pool": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1",
+    "PySnooper:2",
+    "fastapi:5"
+  ],
+  "heterochromatin_risk_status": {
+    "PySnooper:1": "medium",
+    "PySnooper:2": "medium",
+    "fastapi:2": "high",
+    "fastapi:3": "high",
+    "fastapi:4": "high",
+    "fastapi:5": "high"
+  },
+  "materialization_recovered_status": {
+    "PySnooper:1": true,
+    "PySnooper:2": false,
+    "fastapi:2": true,
+    "fastapi:3": true,
+    "fastapi:4": true,
+    "fastapi:5": false
+  },
+  "memory_enabled_ranking": [
+    "PySnooper:1",
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:2",
+    "fastapi:5"
+  ],
+  "no_memory_ranking": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1",
+    "PySnooper:2",
+    "fastapi:5"
+  ],
+  "phase_inversion_feasibility": {
+    "PySnooper:1": true,
+    "PySnooper:2": false,
+    "fastapi:2": false,
+    "fastapi:3": false,
+    "fastapi:4": false,
+    "fastapi:5": false
+  },
+  "ranking_differences": {
+    "PySnooper:1": "memory-enabled ranks import compatibility surface above FastAPI global validation surfaces"
+  },
+  "rejected_candidates": [
+    "PySnooper:2",
+    "fastapi:5"
+  ],
+  "rejection_reasons": {
+    "PySnooper:2": "v2.10 did not recover a repair-allowed source surface",
+    "fastapi:5": "v2.10 did not recover a repair-allowed source surface"
+  },
+  "repair_path_status": {
+    "PySnooper:1": "import_compatibility_defect",
+    "PySnooper:2": "localized_exception_edge_case",
+    "fastapi:2": "validation_guard",
+    "fastapi:3": "validation_guard",
+    "fastapi:4": "validation_guard",
+    "fastapi:5": "validation_guard"
+  },
+  "result_by_candidate": {
+    "PySnooper:1": {
+      "classification": "blocked_target_test_failed",
+      "scoreable": false
+    },
+    "fastapi:2": {
+      "classification": "topology_context_recovered_but_no_safe_patch",
+      "scoreable": false
+    },
+    "fastapi:3": {
+      "classification": "topology_context_recovered_but_no_safe_patch",
+      "scoreable": false
+    },
+    "fastapi:4": {
+      "classification": "topology_context_recovered_but_no_safe_patch",
+      "scoreable": false
+    }
+  },
+  "selected_candidates": [
+    "fastapi:2",
+    "fastapi:3",
+    "fastapi:4",
+    "PySnooper:1"
+  ],
+  "status": "PASS",
+  "topology_context_status": {
+    "PySnooper:1": "reused_v2_9_context",
+    "PySnooper:2": "reused_v2_9_context",
+    "fastapi:2": "reused_v2_9_context",
+    "fastapi:3": "reused_v2_9_context",
+    "fastapi:4": "reused_v2_9_context",
+    "fastapi:5": "reused_v2_9_context"
+  }
+}

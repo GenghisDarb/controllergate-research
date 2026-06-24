@@ -1,0 +1,45 @@
+$ bash -lc python -m pytest test/units/playbook/test_collectionsearch.py::test_collection_static_warning
+started_at_utc=2026-06-19T20:55:20.041051+00:00
+finished_at_utc=2026-06-19T20:55:20.625771+00:00
+returncode=1
+timed_out=False
+--- stdout ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/preflight_workspaces/007_ansible_4/ansible
+collected 1 item
+
+test/units/playbook/test_collectionsearch.py F                           [100%]
+
+=================================== FAILURES ===================================
+________________________ test_collection_static_warning ________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7f5e39a82f50>
+
+    def test_collection_static_warning(capsys):
+        """Test that collection name is not templated.
+    
+        Also, make sure that users see the warning message for the referenced name.
+        """
+    
+        collection_name = 'foo.{{bar}}'
+        cs = CollectionSearch()
+        assert collection_name in cs._load_collections(None, [collection_name])
+    
+        std_out, std_err = capsys.readouterr()
+>       assert '[WARNING]: "collections" is not templatable, but we found: %s' % collection_name in std_err
+E       assert ('[WARNING]: "collections" is not templatable, but we found: %s' % 'foo.{{bar}}') in ''
+
+test/units/playbook/test_collectionsearch.py:37: AssertionError
+=============================== warnings summary ===============================
+../../../../../../../../../opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18
+  /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/_yaml/__init__.py:18: DeprecationWarning: The _yaml extension module is now located at yaml._yaml and its location is subject to change.  To use the LibYAML-based parser and emitter, import from `yaml`: `from yaml import CLoader as Loader, CDumper as Dumper`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/units/playbook/test_collectionsearch.py::test_collection_static_warning - assert ('[WARNING]: "collections" is not templatable, but we found: %s' % 'foo.{{bar}}') in ''
+========================= 1 failed, 1 warning in 0.28s =========================
+
+--- stderr ---
+

@@ -1,0 +1,28 @@
+{
+  "forbidden_relief_obeyed": {
+    "fixed_revision_used": false,
+    "future_outcome_evidence_used_at_decision_time": false,
+    "gold_patch_used": false,
+    "scoreable_rules_changed": false,
+    "tests_modified_as_repair": false
+  },
+  "not_permission_to_weaken_repair_rules": true,
+  "relief_actions": [
+    {
+      "after": "each arm prepends its own repair workspace lib directory and root before inherited paths",
+      "before": "repair arms inherited the checked-out project PYTHONPATH",
+      "decision_time_safe": true,
+      "name": "repair_workspace_pythonpath_isolation",
+      "reversible": true
+    },
+    {
+      "after": "generated source-only diffs remain the patch safety evidence",
+      "before": "workspace materialization noise could be conflated with repair patch safety",
+      "decision_time_safe": true,
+      "name": "source_diff_patch_safety_isolation",
+      "reversible": true
+    }
+  ],
+  "status": "PASS",
+  "topoisomerase_tension_relief_added": true
+}

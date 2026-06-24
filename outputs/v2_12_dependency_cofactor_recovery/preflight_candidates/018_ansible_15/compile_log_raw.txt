@@ -1,0 +1,476 @@
+$ bash -lc bugsinpy-compile -w /home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/preflight_workspaces/018_ansible_15/ansible
+started_at_utc=2026-06-19T21:04:45.357454+00:00
+finished_at_utc=2026-06-19T21:05:11.271254+00:00
+returncode=0
+timed_out=False
+--- stdout ---
+python setup.py install
+pip3 install pytest==3.10.1
+Requirement already satisfied: ansible==2.10.0.dev0 in ./_v2_12_bugsinpy_runtime/preflight_workspaces/018_ansible_15/ansible/lib (2.10.0.dev0)
+Collecting jinja2
+  Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Collecting PyYAML
+  Using cached pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (770 kB)
+Collecting cryptography
+  Using cached cryptography-49.0.0-cp39-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+Collecting cffi>=2.0.0
+  Using cached cffi-2.0.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (216 kB)
+Collecting typing-extensions>=4.13.2
+  Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Collecting MarkupSafe>=2.0
+  Using cached markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Collecting pycparser
+  Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+Installing collected packages: typing-extensions, PyYAML, pycparser, MarkupSafe, jinja2, cffi, cryptography
+Successfully installed MarkupSafe-3.0.3 PyYAML-6.0.3 cffi-2.0.0 cryptography-49.0.0 jinja2-3.1.6 pycparser-3.0 typing-extensions-4.15.0
+Collecting argcomplete==1.11.1
+  Using cached argcomplete-1.11.1-py2.py3-none-any.whl (36 kB)
+Installing collected packages: argcomplete
+Successfully installed argcomplete-1.11.1
+Collecting cffi==1.14.0
+  Using cached cffi-1.14.0.tar.gz (463 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: pycparser in ./env/lib/python3.10/site-packages (from cffi==1.14.0) (3.0)
+Installing collected packages: cffi
+  Attempting uninstall: cffi
+    Found existing installation: cffi 2.0.0
+    Uninstalling cffi-2.0.0:
+      Successfully uninstalled cffi-2.0.0
+  Running setup.py install for cffi: started
+  Running setup.py install for cffi: finished with status 'error'
+  Rolling back uninstall of cffi
+  Moving to /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/_cffi_backend.cpython-310-x86_64-linux-gnu.so
+   from /tmp/pip-uninstall-vgjpq4px/_cffi_backend.cpython-310-x86_64-linux-gnu.so
+  Moving to /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/cffi-2.0.0.dist-info/
+   from /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/~ffi-2.0.0.dist-info
+  Moving to /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/cffi/
+   from /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/~ffi
+Collecting cryptography==2.9.2
+  Using cached cryptography-2.9.2-cp35-abi3-manylinux2010_x86_64.whl (2.7 MB)
+Requirement already satisfied: cffi!=1.11.3,>=1.8 in ./env/lib/python3.10/site-packages (from cryptography==2.9.2) (2.0.0)
+Collecting six>=1.4.1
+  Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Requirement already satisfied: pycparser in ./env/lib/python3.10/site-packages (from cffi!=1.11.3,>=1.8->cryptography==2.9.2) (3.0)
+Installing collected packages: six, cryptography
+  Attempting uninstall: cryptography
+    Found existing installation: cryptography 49.0.0
+    Uninstalling cryptography-49.0.0:
+      Successfully uninstalled cryptography-49.0.0
+Successfully installed cryptography-2.9.2 six-1.17.0
+Collecting importlib-metadata==1.6.0
+  Using cached importlib_metadata-1.6.0-py2.py3-none-any.whl (30 kB)
+Collecting zipp>=0.5
+  Using cached zipp-4.1.0-py3-none-any.whl (10 kB)
+Installing collected packages: zipp, importlib-metadata
+Successfully installed importlib-metadata-1.6.0 zipp-4.1.0
+Collecting Jinja2==3.0.0a1
+  Using cached Jinja2-3.0.0a1-py3-none-any.whl (121 kB)
+Requirement already satisfied: MarkupSafe>=1.1 in ./env/lib/python3.10/site-packages (from Jinja2==3.0.0a1) (3.0.3)
+Installing collected packages: Jinja2
+  Attempting uninstall: Jinja2
+    Found existing installation: Jinja2 3.1.6
+    Uninstalling Jinja2-3.1.6:
+      Successfully uninstalled Jinja2-3.1.6
+Successfully installed Jinja2-3.0.0a1
+Collecting MarkupSafe==2.0.0a1
+  Using cached MarkupSafe-2.0.0a1.tar.gz (16 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Installing collected packages: MarkupSafe
+  Attempting uninstall: MarkupSafe
+    Found existing installation: MarkupSafe 3.0.3
+    Uninstalling MarkupSafe-3.0.3:
+      Successfully uninstalled MarkupSafe-3.0.3
+  Running setup.py install for MarkupSafe: started
+  Running setup.py install for MarkupSafe: finished with status 'done'
+Successfully installed MarkupSafe-2.0.0a1
+Collecting mock==4.0.2
+  Using cached mock-4.0.2-py3-none-any.whl (28 kB)
+Installing collected packages: mock
+Successfully installed mock-4.0.2
+Collecting pycparser==2.20
+  Using cached pycparser-2.20-py2.py3-none-any.whl (112 kB)
+Installing collected packages: pycparser
+  Attempting uninstall: pycparser
+    Found existing installation: pycparser 3.0
+    Uninstalling pycparser-3.0:
+      Successfully uninstalled pycparser-3.0
+Successfully installed pycparser-2.20
+Collecting PyYAML==5.3.1
+  Using cached PyYAML-5.3.1.tar.gz (269 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Installing collected packages: PyYAML
+  Attempting uninstall: PyYAML
+    Found existing installation: PyYAML 6.0.3
+    Uninstalling PyYAML-6.0.3:
+      Successfully uninstalled PyYAML-6.0.3
+  Running setup.py install for PyYAML: started
+  Running setup.py install for PyYAML: finished with status 'done'
+Successfully installed PyYAML-5.3.1
+Collecting six==1.14.0
+  Using cached six-1.14.0-py2.py3-none-any.whl (10 kB)
+Installing collected packages: six
+  Attempting uninstall: six
+    Found existing installation: six 1.17.0
+    Uninstalling six-1.17.0:
+      Successfully uninstalled six-1.17.0
+Successfully installed six-1.14.0
+Collecting zipp==3.1.0
+  Using cached zipp-3.1.0-py3-none-any.whl (4.9 kB)
+Installing collected packages: zipp
+  Attempting uninstall: zipp
+    Found existing installation: zipp 4.1.0
+    Uninstalling zipp-4.1.0:
+      Successfully uninstalled zipp-4.1.0
+Successfully installed zipp-3.1.0
+Collecting pytest==3.10.1
+  Using cached pytest-3.10.1-py2.py3-none-any.whl (216 kB)
+Collecting more-itertools>=4.0.0
+  Using cached more_itertools-11.1.0-py3-none-any.whl (72 kB)
+Collecting atomicwrites>=1.0
+  Using cached atomicwrites-1.4.1.tar.gz (14 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting py>=1.5.0
+  Using cached py-1.11.0-py2.py3-none-any.whl (98 kB)
+Collecting pluggy>=0.7
+  Using cached pluggy-1.6.0-py3-none-any.whl (20 kB)
+Requirement already satisfied: six>=1.10.0 in ./env/lib/python3.10/site-packages (from pytest==3.10.1) (1.14.0)
+Requirement already satisfied: setuptools in ./env/lib/python3.10/site-packages (from pytest==3.10.1) (79.0.1)
+Collecting attrs>=17.4.0
+  Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+Installing collected packages: py, pluggy, more-itertools, attrs, atomicwrites, pytest
+  Running setup.py install for atomicwrites: started
+  Running setup.py install for atomicwrites: finished with status 'done'
+Successfully installed atomicwrites-1.4.1 attrs-26.1.0 more-itertools-11.1.0 pluggy-1.6.0 py-1.11.0 pytest-3.10.1
+Requirement already satisfied: ansible==2.10.0.dev0 in ./_v2_12_bugsinpy_runtime/preflight_workspaces/018_ansible_15/ansible/lib (2.10.0.dev0)
+Requirement already satisfied: jinja2 in ./env/lib/python3.10/site-packages (from ansible==2.10.0.dev0) (3.0.0a1)
+Requirement already satisfied: PyYAML in ./env/lib/python3.10/site-packages (from ansible==2.10.0.dev0) (5.3.1)
+Requirement already satisfied: cryptography in ./env/lib/python3.10/site-packages (from ansible==2.10.0.dev0) (2.9.2)
+Requirement already satisfied: cffi!=1.11.3,>=1.8 in ./env/lib/python3.10/site-packages (from cryptography->ansible==2.10.0.dev0) (2.0.0)
+Requirement already satisfied: six>=1.4.1 in ./env/lib/python3.10/site-packages (from cryptography->ansible==2.10.0.dev0) (1.14.0)
+Requirement already satisfied: MarkupSafe>=1.1 in ./env/lib/python3.10/site-packages (from jinja2->ansible==2.10.0.dev0) (2.0.0a1)
+Requirement already satisfied: pycparser in ./env/lib/python3.10/site-packages (from cffi!=1.11.3,>=1.8->cryptography->ansible==2.10.0.dev0) (2.20)
+Requirement already satisfied: argcomplete==1.11.1 in ./env/lib/python3.10/site-packages (1.11.1)
+Collecting cffi==1.14.0
+  Using cached cffi-1.14.0.tar.gz (463 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: pycparser in ./env/lib/python3.10/site-packages (from cffi==1.14.0) (2.20)
+Installing collected packages: cffi
+  Attempting uninstall: cffi
+    Found existing installation: cffi 2.0.0
+    Uninstalling cffi-2.0.0:
+      Successfully uninstalled cffi-2.0.0
+  Running setup.py install for cffi: started
+  Running setup.py install for cffi: finished with status 'error'
+  Rolling back uninstall of cffi
+  Moving to /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/_cffi_backend.cpython-310-x86_64-linux-gnu.so
+   from /tmp/pip-uninstall-7hl3wc5y/_cffi_backend.cpython-310-x86_64-linux-gnu.so
+  Moving to /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/cffi-2.0.0.dist-info/
+   from /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/~ffi-2.0.0.dist-info
+  Moving to /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/cffi/
+   from /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/~ffi
+Requirement already satisfied: cryptography==2.9.2 in ./env/lib/python3.10/site-packages (2.9.2)
+Requirement already satisfied: cffi!=1.11.3,>=1.8 in ./env/lib/python3.10/site-packages (from cryptography==2.9.2) (2.0.0)
+Requirement already satisfied: six>=1.4.1 in ./env/lib/python3.10/site-packages (from cryptography==2.9.2) (1.14.0)
+Requirement already satisfied: pycparser in ./env/lib/python3.10/site-packages (from cffi!=1.11.3,>=1.8->cryptography==2.9.2) (2.20)
+Requirement already satisfied: importlib-metadata==1.6.0 in ./env/lib/python3.10/site-packages (1.6.0)
+Requirement already satisfied: zipp>=0.5 in ./env/lib/python3.10/site-packages (from importlib-metadata==1.6.0) (3.1.0)
+Requirement already satisfied: Jinja2==3.0.0a1 in ./env/lib/python3.10/site-packages (3.0.0a1)
+Requirement already satisfied: MarkupSafe>=1.1 in ./env/lib/python3.10/site-packages (from Jinja2==3.0.0a1) (2.0.0a1)
+Requirement already satisfied: MarkupSafe==2.0.0a1 in ./env/lib/python3.10/site-packages (2.0.0a1)
+Requirement already satisfied: mock==4.0.2 in ./env/lib/python3.10/site-packages (4.0.2)
+Requirement already satisfied: pycparser==2.20 in ./env/lib/python3.10/site-packages (2.20)
+Requirement already satisfied: PyYAML==5.3.1 in ./env/lib/python3.10/site-packages (5.3.1)
+Requirement already satisfied: six==1.14.0 in ./env/lib/python3.10/site-packages (1.14.0)
+Requirement already satisfied: zipp==3.1.0 in ./env/lib/python3.10/site-packages (3.1.0)
+PYTHONPATH="$pythonpath_set:$PYTHONPATH"/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/preflight_workspaces/017_ansible_14/ansible/build/lib/:$pythonpath_set:/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/preflight_workspaces/018_ansible_15/ansible/build/lib/:$PYTHONPATH"
+SHOULD CHANGE
+/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/preflight_workspaces/018_ansible_15/ansible/build/lib/
+PYTHONPATH="$pythonpath_set:$PYTHONPATH"
+
+--- stderr ---
+/home/runner/work/controllergate-research/controllergate-research/_v2_12_bugsinpy_runtime/BugsInPy/framework/bin/bugsinpy-compile: line 69: dos2unix: command not found
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+ERROR: Could not find a version that satisfies the requirement ansible-base==2.10.0.dev0 (from versions: 0.0.1a1, 0.0.1a2, 2.10.0b1, 2.10.0rc1, 2.10.0rc2, 2.10.0rc3, 2.10.0rc4, 2.10.0, 2.10.1rc1, 2.10.1rc2, 2.10.1rc3, 2.10.1, 2.10.2rc1, 2.10.2, 2.10.3rc1, 2.10.3, 2.10.4rc1, 2.10.4, 2.10.5rc1, 2.10.5, 2.10.6rc1, 2.10.6, 2.10.7rc1, 2.10.7, 2.10.8rc1, 2.10.8, 2.10.9rc1, 2.10.9, 2.10.10rc1, 2.10.10, 2.10.11rc1, 2.10.11, 2.10.12rc1, 2.10.12, 2.10.13rc1, 2.10.13, 2.10.14rc1, 2.10.14, 2.10.15rc1, 2.10.15, 2.10.16rc1, 2.10.16, 2.10.17rc1, 2.10.17)
+ERROR: No matching distribution found for ansible-base==2.10.0.dev0
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+  DEPRECATION: cffi is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559
+  error: subprocess-exited-with-error
+  
+  × Running setup.py install for cffi did not run successfully.
+  │ exit code: 1
+  ╰─> [79 lines of output]
+      /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: MIT License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        self._finalize_license_expression()
+      running install
+      /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/setuptools/_distutils/cmd.py:90: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+      !!
+      
+              ********************************************************************************
+              Please avoid running ``setup.py`` directly.
+              Instead, use pypa/build, pypa/installer or other
+              standards-based tools.
+      
+              See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+              ********************************************************************************
+      
+      !!
+        self.initialize_options()
+      running build
+      running build_py
+      creating build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/model.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/error.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/vengine_cpy.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/__init__.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/cparser.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/recompiler.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/setuptools_ext.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/vengine_gen.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/api.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/commontypes.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/verifier.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/ffiplatform.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/backend_ctypes.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/lock.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/cffi_opcode.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/pkgconfig.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/_cffi_include.h -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/parse_c_type.h -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/_embedding.h -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/_cffi_errors.h -> build/lib.linux-x86_64-cpython-310/cffi
+      running build_ext
+      building '_cffi_backend' extension
+      creating build/temp.linux-x86_64-cpython-310/c
+      gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DUSE__THREAD -DHAVE_SYNC_SYNCHRONIZE -I/home/runner/work/controllergate-research/controllergate-research/env/include -I/opt/hostedtoolcache/Python/3.10.20/x64/include/python3.10 -c c/_cffi_backend.c -o build/temp.linux-x86_64-cpython-310/c/_cffi_backend.o
+      c/_cffi_backend.c: In function ‘ctypedescr_dealloc’:
+      c/_cffi_backend.c:407:23: error: lvalue required as left operand of assignment
+        407 |         Py_REFCNT(ct) = 43;
+            |                       ^
+      c/_cffi_backend.c:410:23: error: lvalue required as left operand of assignment
+        410 |         Py_REFCNT(ct) = 0;
+            |                       ^
+      c/_cffi_backend.c: In function ‘prepare_callback_info_tuple’:
+      c/_cffi_backend.c:6185:5: warning: ‘PyEval_InitThreads’ is deprecated [-Wdeprecated-declarations]
+       6185 |     PyEval_InitThreads();
+            |     ^~~~~~~~~~~~~~~~~~
+      In file included from /opt/hostedtoolcache/Python/3.10.20/x64/include/python3.10/Python.h:130,
+                       from c/_cffi_backend.c:2:
+      /opt/hostedtoolcache/Python/3.10.20/x64/include/python3.10/ceval.h:122:37: note: declared here
+        122 | Py_DEPRECATED(3.9) PyAPI_FUNC(void) PyEval_InitThreads(void);
+            |                                     ^~~~~~~~~~~~~~~~~~
+      c/_cffi_backend.c: In function ‘b_callback’:
+      c/_cffi_backend.c:6245:5: warning: ‘ffi_prep_closure’ is deprecated: use ffi_prep_closure_loc instead [-Wdeprecated-declarations]
+       6245 |     if (ffi_prep_closure(closure, &cif_descr->cif,
+            |     ^~
+      In file included from c/_cffi_backend.c:15:
+      /usr/include/x86_64-linux-gnu/ffi.h:356:1: note: declared here
+        356 | ffi_prep_closure (ffi_closure*,
+            | ^~~~~~~~~~~~~~~~
+      error: command '/usr/bin/gcc' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: legacy-install-failure
+
+× Encountered error while trying to install package.
+╰─> cffi
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for output from the failure.
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+  DEPRECATION: MarkupSafe is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+  DEPRECATION: PyYAML is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+python: can't open file '/home/runner/work/controllergate-research/controllergate-research/setup.py': [Errno 2] No such file or directory
+  DEPRECATION: atomicwrites is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+ERROR: Could not find a version that satisfies the requirement ansible-base==2.10.0.dev0 (from versions: 0.0.1a1, 0.0.1a2, 2.10.0b1, 2.10.0rc1, 2.10.0rc2, 2.10.0rc3, 2.10.0rc4, 2.10.0, 2.10.1rc1, 2.10.1rc2, 2.10.1rc3, 2.10.1, 2.10.2rc1, 2.10.2, 2.10.3rc1, 2.10.3, 2.10.4rc1, 2.10.4, 2.10.5rc1, 2.10.5, 2.10.6rc1, 2.10.6, 2.10.7rc1, 2.10.7, 2.10.8rc1, 2.10.8, 2.10.9rc1, 2.10.9, 2.10.10rc1, 2.10.10, 2.10.11rc1, 2.10.11, 2.10.12rc1, 2.10.12, 2.10.13rc1, 2.10.13, 2.10.14rc1, 2.10.14, 2.10.15rc1, 2.10.15, 2.10.16rc1, 2.10.16, 2.10.17rc1, 2.10.17)
+ERROR: No matching distribution found for ansible-base==2.10.0.dev0
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+  DEPRECATION: cffi is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559
+  error: subprocess-exited-with-error
+  
+  × Running setup.py install for cffi did not run successfully.
+  │ exit code: 1
+  ╰─> [79 lines of output]
+      /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: MIT License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        self._finalize_license_expression()
+      running install
+      /home/runner/work/controllergate-research/controllergate-research/env/lib/python3.10/site-packages/setuptools/_distutils/cmd.py:90: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+      !!
+      
+              ********************************************************************************
+              Please avoid running ``setup.py`` directly.
+              Instead, use pypa/build, pypa/installer or other
+              standards-based tools.
+      
+              See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+              ********************************************************************************
+      
+      !!
+        self.initialize_options()
+      running build
+      running build_py
+      creating build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/model.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/error.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/vengine_cpy.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/__init__.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/cparser.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/recompiler.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/setuptools_ext.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/vengine_gen.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/api.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/commontypes.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/verifier.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/ffiplatform.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/backend_ctypes.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/lock.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/cffi_opcode.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/pkgconfig.py -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/_cffi_include.h -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/parse_c_type.h -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/_embedding.h -> build/lib.linux-x86_64-cpython-310/cffi
+      copying cffi/_cffi_errors.h -> build/lib.linux-x86_64-cpython-310/cffi
+      running build_ext
+      building '_cffi_backend' extension
+      creating build/temp.linux-x86_64-cpython-310/c
+      gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DUSE__THREAD -DHAVE_SYNC_SYNCHRONIZE -I/home/runner/work/controllergate-research/controllergate-research/env/include -I/opt/hostedtoolcache/Python/3.10.20/x64/include/python3.10 -c c/_cffi_backend.c -o build/temp.linux-x86_64-cpython-310/c/_cffi_backend.o
+      c/_cffi_backend.c: In function ‘ctypedescr_dealloc’:
+      c/_cffi_backend.c:407:23: error: lvalue required as left operand of assignment
+        407 |         Py_REFCNT(ct) = 43;
+            |                       ^
+      c/_cffi_backend.c:410:23: error: lvalue required as left operand of assignment
+        410 |         Py_REFCNT(ct) = 0;
+            |                       ^
+      c/_cffi_backend.c: In function ‘prepare_callback_info_tuple’:
+      c/_cffi_backend.c:6185:5: warning: ‘PyEval_InitThreads’ is deprecated [-Wdeprecated-declarations]
+       6185 |     PyEval_InitThreads();
+            |     ^~~~~~~~~~~~~~~~~~
+      In file included from /opt/hostedtoolcache/Python/3.10.20/x64/include/python3.10/Python.h:130,
+                       from c/_cffi_backend.c:2:
+      /opt/hostedtoolcache/Python/3.10.20/x64/include/python3.10/ceval.h:122:37: note: declared here
+        122 | Py_DEPRECATED(3.9) PyAPI_FUNC(void) PyEval_InitThreads(void);
+            |                                     ^~~~~~~~~~~~~~~~~~
+      c/_cffi_backend.c: In function ‘b_callback’:
+      c/_cffi_backend.c:6245:5: warning: ‘ffi_prep_closure’ is deprecated: use ffi_prep_closure_loc instead [-Wdeprecated-declarations]
+       6245 |     if (ffi_prep_closure(closure, &cif_descr->cif,
+            |     ^~
+      In file included from c/_cffi_backend.c:15:
+      /usr/include/x86_64-linux-gnu/ffi.h:356:1: note: declared here
+        356 | ffi_prep_closure (ffi_closure*,
+            | ^~~~~~~~~~~~~~~~
+      error: command '/usr/bin/gcc' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: legacy-install-failure
+
+× Encountered error while trying to install package.
+╰─> cffi
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for output from the failure.
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+

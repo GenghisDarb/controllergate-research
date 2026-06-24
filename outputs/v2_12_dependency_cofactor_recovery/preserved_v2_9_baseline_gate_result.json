@@ -1,0 +1,154 @@
+{
+  "ansible2_positive_memory_only_status_preserved": true,
+  "ansible5_positive_memory_only_status_preserved": true,
+  "baseline_candidates": [
+    "youtube-dl:1",
+    "black:4",
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5"
+  ],
+  "baseline_episode_ids": [
+    "episode_001",
+    "episode_003",
+    "episode_006",
+    "episode_010",
+    "episode_020"
+  ],
+  "baseline_preservation_passed": true,
+  "controllergate_full_scoring": "NOT_RUN",
+  "full_scoring_allowed": false,
+  "gate_source": "v2.9 preserved baseline replay executed inside v2.10 runner",
+  "non_ansible_repairability_attempts_allowed": true,
+  "positive_memory_only_preservation_status": {
+    "ansible:2": true,
+    "ansible:5": true
+  },
+  "reason_for_stop_condition": null,
+  "required_baseline_candidates": [
+    {
+      "candidate": "youtube-dl:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_001",
+      "exact_command": "python -m unittest -q test.test_utils.TestUtil.test_match_str",
+      "normalized_command": "python -m unittest -q test.test_utils.TestUtil.test_match_str",
+      "positive_memory_only_status_preserved": null,
+      "post_repair_validation": {
+        "limited_scoring_result": "episode_001/limited_scoring_result.json",
+        "memory_enabled_log": "episode_001/memory_enabled_post_repair_log_raw.txt",
+        "no_memory_log": "episode_001/no_memory_post_repair_log_raw.txt"
+      },
+      "pre_repair_replay_gate_passed": true,
+      "provenance_chain": [
+        "v2.8r third-scoreable baseline",
+        "v2.8s official positive-memory artifact",
+        "v2.8t official positive-memory replication artifact",
+        "v2.8u official positive-memory signal preservation artifact",
+        "v2.8v official cross-family positive-memory artifact",
+        "v2.8w preserved baseline rerun"
+      ],
+      "scoreable": true
+    },
+    {
+      "candidate": "black:4",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_003",
+      "exact_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+      "normalized_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+      "positive_memory_only_status_preserved": null,
+      "post_repair_validation": {
+        "limited_scoring_result": "episode_003/limited_scoring_result.json",
+        "memory_enabled_log": "episode_003/memory_enabled_post_repair_log_raw.txt",
+        "no_memory_log": "episode_003/no_memory_post_repair_log_raw.txt"
+      },
+      "pre_repair_replay_gate_passed": true,
+      "provenance_chain": [
+        "v2.8r third-scoreable baseline",
+        "v2.8s official positive-memory artifact",
+        "v2.8t official positive-memory replication artifact",
+        "v2.8u official positive-memory signal preservation artifact",
+        "v2.8v official cross-family positive-memory artifact",
+        "v2.8w preserved baseline rerun"
+      ],
+      "scoreable": true
+    },
+    {
+      "candidate": "fastapi:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_006",
+      "exact_command": "pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+      "normalized_command": "python -m pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+      "positive_memory_only_status_preserved": null,
+      "post_repair_validation": {
+        "limited_scoring_result": "episode_006/limited_scoring_result.json",
+        "memory_enabled_log": "episode_006/memory_enabled_post_repair_log_raw.txt",
+        "no_memory_log": "episode_006/no_memory_post_repair_log_raw.txt"
+      },
+      "pre_repair_replay_gate_passed": true,
+      "provenance_chain": [
+        "v2.8r third-scoreable baseline",
+        "v2.8s official positive-memory artifact",
+        "v2.8t official positive-memory replication artifact",
+        "v2.8u official positive-memory signal preservation artifact",
+        "v2.8v official cross-family positive-memory artifact",
+        "v2.8w preserved baseline rerun"
+      ],
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:2",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_010",
+      "exact_command": "pytest test/units/utils/test_version.py::test_alpha && pytest test/units/utils/test_version.py::test_numeric",
+      "normalized_command": "python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric",
+      "positive_memory_only_status_preserved": true,
+      "post_repair_validation": {
+        "limited_scoring_result": "episode_010/limited_scoring_result.json",
+        "memory_enabled_log": "episode_010/memory_enabled_post_repair_log_raw.txt",
+        "no_memory_log": "episode_010/no_memory_post_repair_log_raw.txt"
+      },
+      "pre_repair_replay_gate_passed": true,
+      "provenance_chain": [
+        "v2.8r third-scoreable baseline",
+        "v2.8s official positive-memory artifact",
+        "v2.8t official positive-memory replication artifact",
+        "v2.8u official positive-memory signal preservation artifact",
+        "v2.8v official cross-family positive-memory artifact",
+        "v2.8w preserved baseline rerun"
+      ],
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:5",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_020",
+      "exact_command": "pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+      "normalized_command": "python -m pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+      "positive_memory_only_status_preserved": true,
+      "post_repair_validation": {
+        "limited_scoring_result": "episode_020/limited_scoring_result.json",
+        "memory_enabled_log": "episode_020/memory_enabled_post_repair_log_raw.txt",
+        "no_memory_log": "episode_020/no_memory_post_repair_log_raw.txt"
+      },
+      "pre_repair_replay_gate_passed": true,
+      "provenance_chain": [
+        "v2.8r third-scoreable baseline",
+        "v2.8s official positive-memory artifact",
+        "v2.8t official positive-memory replication artifact",
+        "v2.8u official positive-memory signal preservation artifact",
+        "v2.8v official cross-family positive-memory artifact",
+        "v2.8w preserved baseline rerun"
+      ],
+      "scoreable": true
+    }
+  ],
+  "scoreable_status_by_episode": {
+    "episode_001": true,
+    "episode_003": true,
+    "episode_006": true,
+    "episode_010": true,
+    "episode_020": true
+  },
+  "status": "PASS",
+  "stop_classification_on_failure": "runner_regression_v2_9_baseline_failure"
+}

@@ -1086,7 +1086,16 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.12 Dependency Cofactor Recovery and Locked Non-Ansible Repair Validation Lane
 
-- Status: `blocked_pending_v2_12_dependency_cofactor_recovery_artifact`.
-- v2.12 preserves the v2.11 baseline, audits the PySnooper `python_toolbox` cofactor against buggy-checkout metadata, and locks any new non-Ansible result only after target validation, duplicate replay, and phase inversion.
+- Status: `verified_official_artifact`.
+- Workflow run: `27847714846`; artifact ID: `7758557460`.
+- Artifact SHA256: `153bb7a7626268c82aab9ddd06f09a6f300688c5585209ca274f471c09ac5454`.
+- Internal SHA256SUMS: `3313` checked across `39` manifests, `0` missing, `0` malformed, `0` failures; root coverage complete.
+- Tar snapshots excluded from Git ingest: `5`; retained in the verified ZIP.
+- Preserved v2.11 baseline gate: `PASS`; `youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, and `ansible:5` remained scoreable.
+- `ansible:2` and `ansible:5` preserved `positive_memory_only` status.
+- Executed episodes: `10`; scoreable episodes: `5`; positive-memory-only episodes: `2`; non-Ansible positive-memory episodes: `0`.
+- PySnooper:1 classification: `dependency_recovery_forbidden_by_policy`. The verified artifact also marks `python_toolbox` declared and recovery-eligible but not recovered, with an empty forbidden reason; that internal policy inconsistency is preserved rather than normalized away.
+- PySnooper:2 recovered the declared `python_toolbox` cofactor and generated one source-only patch (`638b7f792087452d1dcd869a7ab29578e1818edcdc94b627d4484d8914b38c0e`), but exact target validation failed on missing `tests.mini_toolbox`; classification: `blocked_target_test_failed`.
+- Aggregate result: `replicated_positive_memory_signal_preserved`; family generalization remains `not_expanded`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.

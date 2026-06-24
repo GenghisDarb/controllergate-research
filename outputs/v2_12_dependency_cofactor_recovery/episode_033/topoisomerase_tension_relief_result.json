@@ -1,0 +1,15 @@
+{
+  "candidate": "PySnooper:1",
+  "command_changed_from": "pytest target command when present",
+  "command_changed_to": "python -m pytest target command when present",
+  "decision_time_safe": true,
+  "detected_tension_type": "test_collection_or_command_materialization",
+  "environment_vars_changed": [],
+  "files_modified_by_relief": [],
+  "initial_materialization_status": "source_discovery_blocked",
+  "materialization_after_relief": "materialization_blocked",
+  "reason_if_not_allowed": "target collection did not reach repairable source failure",
+  "relief_action_attempted": "python -m pytest normalization and target-test path check",
+  "repair_allowed_after_relief": false,
+  "reversible": true
+}

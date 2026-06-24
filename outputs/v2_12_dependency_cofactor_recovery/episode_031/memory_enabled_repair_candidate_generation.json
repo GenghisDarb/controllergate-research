@@ -1,0 +1,26 @@
+{
+  "arm": "memory_enabled",
+  "candidate": "fastapi:3",
+  "decision_time_safe_status": "PASS",
+  "expected_failure_resolution": "none",
+  "forbidden_shapes_checked": [
+    "test modification",
+    "broad refactor",
+    "dependency replacement",
+    "future-derived patch"
+  ],
+  "patch_generated": false,
+  "proposed_patch_shape": "no_safe_patch",
+  "reason_if_no_patch": "FastAPI materialization recovered the target surface, but the topology points at framework validation policy; no bounded one-file source patch was justified without touching global policy behavior.",
+  "recovered_surface_used": "validation_surface",
+  "repair_path": "validation_guard",
+  "safety_constraints": [
+    "source-only",
+    "no test edits",
+    "no fixed/gold/future evidence",
+    "bounded topology-to-patch chain"
+  ],
+  "topological_context_files_used": [],
+  "touched_files": [],
+  "touched_symbols": []
+}
