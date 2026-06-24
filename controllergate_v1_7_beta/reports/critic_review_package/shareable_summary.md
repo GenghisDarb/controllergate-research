@@ -1099,3 +1099,12 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Aggregate result: `replicated_positive_memory_signal_preserved`; family generalization remains `not_expanded`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
+
+## v2.13 Minimal Forensic Context Lane
+
+- Status: `blocked_pending_v2_13_minimal_forensic_context_artifact`.
+- The first proof-ledger event is restricted to a fresh rerun of exactly `youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, and `ansible:5` through the scoring harness used by v2.12.
+- PySnooper:1 receives a fresh buggy-checkout metadata policy recheck; no dependency installation is performed for that recheck.
+- PySnooper:2 is limited to deterministic v2.12 failed-patch classification, bounded context extraction, at most two predeclared non-mutating probes, and at most one authorized source-only patch.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.

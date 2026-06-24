@@ -1,0 +1,63 @@
+name: v2_13_minimal_forensic_context_lane
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  minimal-forensic-context:
+    name: Minimal forensic context lane
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.13 implementation surface
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s scripts/classify_patch_failure.py
+          test -s scripts/collect_candidate_context.py
+          test -s scripts/v2_13_minimal_forensic_context_lane_runner.py
+          test -s scripts/audit_v2_13_minimal_forensic_context_lane.py
+          grep -q "baseline-only" scripts/v2_13_minimal_forensic_context_lane_runner.py
+          grep -q "fixture_materialization_incomplete" scripts/classify_patch_failure.py
+          grep -q "max_probe_commands" scripts/collect_candidate_context.py
+          grep -q "proof_ledger_hash_chain_status" scripts/audit_v2_13_minimal_forensic_context_lane.py
+
+      - name: Run v2.13 minimal forensic context lane
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/v2_13_minimal_forensic_context_lane_runner.py
+
+      - name: Independently audit v2.13 artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_13_minimal_forensic_context_lane.py \
+            --artifact-root v2_13_minimal_forensic_context_lane_artifacts
+          test -s v2_13_minimal_forensic_context_lane_artifacts/candidate_state_v2_13.json
+          test -s v2_13_minimal_forensic_context_lane_artifacts/pysnooper2_patch_failure_classification.json
+          test -s v2_13_minimal_forensic_context_lane_artifacts/pysnooper2_candidate_context.json
+          test -s v2_13_minimal_forensic_context_lane_artifacts/audit_summary_v2_13.json
+          test -s v2_13_minimal_forensic_context_lane_artifacts/SHA256SUMS.txt
+
+      - name: Upload v2.13 artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_13_minimal_forensic_context_lane_artifacts
+          path: v2_13_minimal_forensic_context_lane_artifacts
+          if-no-files-found: error
