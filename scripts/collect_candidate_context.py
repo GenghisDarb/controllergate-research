@@ -121,6 +121,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--candidate", default="PySnooper:2")
     parser.add_argument("--buggy-checkout", type=Path, required=True)
+    parser.add_argument("--checkout-baseline-identity", type=Path, required=True)
     parser.add_argument("--target-command-file", type=Path, required=True)
     parser.add_argument("--failure-log", type=Path, required=True)
     parser.add_argument("--pre-failure-log", type=Path)
@@ -136,9 +137,16 @@ def main() -> int:
     root = args.buggy_checkout.resolve()
     if not root.is_dir():
         raise SystemExit(f"buggy checkout is not a directory: {root}")
-    required = [args.target_command_file, args.failure_log, args.patch]
+    required = [args.target_command_file, args.failure_log, args.patch, args.checkout_baseline_identity]
     if any(not path.exists() for path in required):
         raise SystemExit(f"missing context inputs: {[str(path) for path in required if not path.exists()]}")
+
+    try:
+        checkout_baseline_identity = json.loads(args.checkout_baseline_identity.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as exc:
+        raise SystemExit(f"invalid checkout baseline identity: {exc}") from exc
+    if not isinstance(checkout_baseline_identity, dict):
+        raise SystemExit("checkout baseline identity must be a JSON object")
 
     patch_text = args.patch.read_text(encoding="utf-8", errors="strict")
     failure_text = args.failure_log.read_text(encoding="utf-8", errors="replace")
@@ -245,11 +253,18 @@ def main() -> int:
         limitations.append("directly referenced target-test helpers are absent from the buggy checkout: " + ", ".join(sorted(missing_helpers)))
     if len(selected) >= args.max_files:
         limitations.append("context file budget reached")
+    current_checkout_identity = git_identity(root)
+    checkout_drift_detected = any(
+        current_checkout_identity.get(field) != checkout_baseline_identity.get(field)
+        for field in ["head_sha", "status_porcelain"]
+    )
     result = {
         "status": "PASS",
         "candidate": args.candidate,
         "target_command": args.target_command_file.read_text(encoding="utf-8", errors="strict").strip(),
-        "buggy_checkout_identity": git_identity(root),
+        "checkout_baseline_identity": checkout_baseline_identity,
+        "buggy_checkout_identity": current_checkout_identity,
+        "checkout_drift_detected": checkout_drift_detected,
         "source_root": args.source_root,
         "test_paths": [args.target_test],
         "traceback_symbols": traceback_symbols[: args.max_symbols],
@@ -287,7 +302,7 @@ def main() -> int:
         ],
         "sha256_inputs": {
             str(path): sha256_path(path)
-            for path in [args.target_command_file, args.failure_log, args.patch]
+            for path in [args.target_command_file, args.failure_log, args.patch, args.checkout_baseline_identity]
             + ([args.pre_failure_log] if args.pre_failure_log and args.pre_failure_log.exists() else [])
             + evidence_paths
         },

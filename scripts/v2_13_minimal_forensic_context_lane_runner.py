@@ -226,6 +226,24 @@ def copy_baseline_evidence(baseline_root: Path, artifact_root: Path, gate: dict[
     return sorted(copied)
 
 
+def git_checkout_identity(root: Path) -> dict[str, str]:
+    def run(*args: str) -> str:
+        result = subprocess.run(
+            ["git", "-C", str(root), *args],
+            check=False,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        return result.stdout.strip() if result.returncode == 0 else "unknown"
+
+    return {
+        "head_sha": run("rev-parse", "HEAD"),
+        "status_porcelain": run("status", "--porcelain"),
+        "top_level": run("rev-parse", "--show-toplevel"),
+    }
+
+
 def run_baseline_only(artifact_root: Path) -> tuple[dict[str, Any], Any, dict[str, str]]:
     v28w = import_v28w()
     baseline_root = (RUNTIME_ROOT / "baseline_harness_artifacts").resolve()
@@ -286,7 +304,16 @@ def checkout_pysnooper(v28w: Any, env: dict[str, str], bug_id: str, label: str, 
     write_text(log_path, v28w.base.combined_log(result))
     if result.get("returncode") != 0 or not project_root.exists():
         raise RuntimeError(f"PySnooper:{bug_id} buggy checkout failed")
-    return project_root, {"command": command, "returncode": result.get("returncode"), "log": log_path.relative_to(artifact_root).as_posix()}
+    identity_path = artifact_root / "raw_logs" / f"{label}_checkout_identity.json"
+    identity = git_checkout_identity(project_root)
+    write_json(identity_path, identity)
+    return project_root, {
+        "command": command,
+        "returncode": result.get("returncode"),
+        "log": log_path.relative_to(artifact_root).as_posix(),
+        "identity": identity,
+        "identity_log": identity_path.relative_to(artifact_root).as_posix(),
+    }
 
 
 def policy_recheck(workspace: Path, bugsinpy_repo: Path, bug_id: str) -> dict[str, Any]:
@@ -359,7 +386,9 @@ def pending_checkpoint(root: Path) -> None:
         "status": "PENDING_GITHUB_ACTIONS",
         "candidate": "PySnooper:2",
         "target_command": "python -m pytest -q -s tests/test_pysnooper.py::test_custom_repr_single",
+        "checkout_baseline_identity": "PENDING_GITHUB_ACTIONS",
         "buggy_checkout_identity": "PENDING_GITHUB_ACTIONS",
+        "checkout_drift_detected": None,
         "source_root": "pysnooper",
         "test_paths": ["tests/test_pysnooper.py"],
         "traceback_symbols": [],
@@ -518,6 +547,8 @@ def run_actual(artifact_root: Path) -> int:
             "PySnooper:2",
             "--buggy-checkout",
             str(py2_workspace),
+            "--checkout-baseline-identity",
+            str(artifact_root / py2_checkout["identity_log"]),
             "--target-command-file",
             str(command_file),
             "--failure-log",
@@ -545,8 +576,21 @@ def run_actual(artifact_root: Path) -> int:
         result="pass",
         next_allowed_action="revise_patch",
         decision_time_inputs=["buggy checkout", "target test", "traceback", "v2.12 patch", "repo-local dependency metadata"],
-        evidence_files=[relative_evidence(context_path, artifact_root), py2_checkout["log"]],
-        input_hashes={relative_evidence(path, artifact_root): sha256_path(path) for path in [patch, pre_log, post_log, command_file]},
+        evidence_files=[
+            relative_evidence(context_path, artifact_root),
+            py2_checkout["log"],
+            py2_checkout["identity_log"],
+        ],
+        input_hashes={
+            relative_evidence(path, artifact_root): sha256_path(path)
+            for path in [
+                patch,
+                pre_log,
+                post_log,
+                command_file,
+                artifact_root / py2_checkout["identity_log"],
+            ]
+        },
         output_hashes={relative_evidence(context_path, artifact_root): context_hash},
         direct_script_output=relative_evidence(context_path, artifact_root),
     )

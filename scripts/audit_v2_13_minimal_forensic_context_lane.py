@@ -224,7 +224,7 @@ def audit_actual(root: Path, state: dict[str, Any], classification: dict[str, An
         candidate_slug = str(record.get("candidate") or "unknown").replace(":", "_")
         evidence_dir = root / "raw_logs" / "baseline" / f"{episode_id}_{candidate_slug}"
         limited = load_json(evidence_dir / "limited_scoring_result.json", errors)
-        if limited.get("scoreable") is not True or limited.get("classification") != record.get("classification"):
+        if limited.get("scoreable") is not True or limited.get("result_classification") != record.get("classification"):
             errors.append(f"baseline limited-scoring evidence disagrees for {record.get('candidate')}")
         for name in ["no_memory_post_repair_log_raw.txt", "memory_enabled_post_repair_log_raw.txt"]:
             path = evidence_dir / name
@@ -287,10 +287,16 @@ def audit_actual(root: Path, state: dict[str, Any], classification: dict[str, An
     if "tests/mini_toolbox.py" not in missing_helpers:
         errors.append("context must directly establish missing tests/mini_toolbox.py")
     identity = context.get("buggy_checkout_identity") or {}
+    recorded_baseline_identity = context.get("checkout_baseline_identity") or {}
+    baseline_identity = load_json(root / "raw_logs" / "pysnooper2_checkout_identity.json", errors)
     if identity.get("head_sha") != "e21a31162f4c54be693d8ca8260e42393b39abd3":
         errors.append("PySnooper:2 buggy checkout identity does not match the v2.12 source provenance")
-    if identity.get("status_porcelain") not in {"", None}:
-        errors.append("context collector observed source/test drift in the buggy checkout")
+    if recorded_baseline_identity != baseline_identity:
+        errors.append("context collector checkout baseline identity disagrees with the immediate post-materialization record")
+    if any(identity.get(field) != baseline_identity.get(field) for field in ["head_sha", "status_porcelain"]):
+        errors.append("context collector observed drift after buggy-checkout materialization")
+    if context.get("checkout_drift_detected") is not False:
+        errors.append("context collector must report no drift after buggy-checkout materialization")
 
     direct_outputs = {
         "pysnooper2_patch_failure_classification.json": classification,
