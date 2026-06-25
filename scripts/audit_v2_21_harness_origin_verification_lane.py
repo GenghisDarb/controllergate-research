@@ -23,6 +23,7 @@ PIN_SOURCE_REPO = "https://github.com/soarsmu/BugsInPy.git"
 PYSNOOPER_SOURCE_REPO = "https://github.com/cool-RR/PySnooper"
 TARGET_TEST = "tests/test_chinese.py"
 EXPECTED_HARNESS_MANIFEST_SHA256 = "3706244b4618612fad4681578dd740d1e54dbe9069303072ab7802f656f0e608"
+OFFICIAL_VERIFICATION_FILE = "v2_21_official_artifact_verification.json"
 EXPECTED_TOPOLOGY_HASHES = {
     "projects/PySnooper/bugs/1/bug.info": "199b770bd6551117a00f9c7ce2c674d7ddb818e3bb5dc344371340e75e52296e",
     "projects/PySnooper/bugs/1/run_test.sh": "6d24d2d88478e17cefec81f33a1ef5c44cea64321ff46762384c68e219064d0b",
@@ -69,6 +70,7 @@ REQUIRED_FILES = [
     "claim_boundary_v2_21.json",
     "roadmap_carry_forward_check_v2_21.json",
     "resolution_depth_diagnostic_v2_21.json",
+    OFFICIAL_VERIFICATION_FILE,
     "SHA256SUMS.txt",
 ]
 
@@ -249,6 +251,7 @@ def audit_transport(root: Path, transport: dict[str, Any], errors: list[str]) ->
             "SHA256SUMS.txt",
             "nuclear_pore_transport_log.json",
             "proof_obligations_ledger.json",
+            OFFICIAL_VERIFICATION_FILE,
         }
     }
     missing = required - covered
@@ -309,6 +312,37 @@ def audit_prior_boundary(errors: list[str]) -> None:
         errors.append("v2.20 audit did not pass from v2.21 audit")
 
 
+def audit_official_verification(verification: dict[str, Any], errors: list[str]) -> None:
+    expect(verification.get("status") == "PASS", errors, "v2.21 official artifact verification is not PASS")
+    expect(
+        verification.get("artifact_name") == "v2_21_harness_origin_verification_lane_artifacts",
+        errors,
+        "v2.21 official artifact name mismatch",
+    )
+    expect(verification.get("workflow_run_id") == 28201995136, errors, "v2.21 workflow run ID mismatch")
+    expect(verification.get("artifact_id") == 7891479826, errors, "v2.21 artifact ID mismatch")
+    expect(verification.get("zip_size") == 72234, errors, "v2.21 artifact size mismatch")
+    expect(
+        verification.get("zip_sha256") == "35b22fd48d93ae5c5163ad9ab5d27ac99cfc351bfd2e08b869f38479aebade08",
+        errors,
+        "v2.21 artifact digest mismatch",
+    )
+    expect(verification.get("entry_count") == 47, errors, "v2.21 ZIP entry count mismatch")
+    expect(verification.get("safe_paths") is True, errors, "v2.21 ZIP safe-path check did not pass")
+    expect(verification.get("unsafe_path_count") == 0, errors, "v2.21 ZIP unsafe paths present")
+    expect(verification.get("duplicate_path_count") == 0, errors, "v2.21 ZIP duplicate paths present")
+    expect(verification.get("internal_manifest_checked_count") == 39, errors, "v2.21 internal manifest count mismatch")
+    expect(verification.get("internal_manifest_missing_count") == 0, errors, "v2.21 internal manifest missing entries")
+    expect(verification.get("internal_manifest_malformed_count") == 0, errors, "v2.21 internal manifest malformed entries")
+    expect(verification.get("internal_manifest_failure_count") == 0, errors, "v2.21 internal manifest failures")
+    coverage = verification.get("output_manifest_coverage") or {}
+    expect(coverage.get("status") == "PASS", errors, "v2.21 output manifest coverage did not PASS")
+    comparison = verification.get("repo_snapshot_update_file_comparison") or {}
+    expect(comparison.get("status") == "PASS", errors, "v2.21 repo snapshot comparison did not PASS")
+    expect(verification.get("local_artifact_path_outside_git") is True, errors, "v2.21 local artifact path is not outside git")
+    expect(verification.get("non_tar_non_zip_ingested_file_count") == 40, errors, "v2.21 ingested file count mismatch")
+
+
 def audit_outputs(root: Path, errors: list[str]) -> None:
     for rel in REQUIRED_FILES:
         expect((root / rel).is_file(), errors, f"missing required output: {rel}")
@@ -325,6 +359,7 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
     in_actions = os.environ.get("GITHUB_ACTIONS") == "true"
 
     results = load_json(root / "campaign_results.json", errors)
+    official = load_json(root / OFFICIAL_VERIFICATION_FILE, errors)
     pin = load_json(root / "harness_origin_pin.json", errors)
     pin_audit = load_json(root / "harness_origin_pin_audit.json", errors)
     inventory = load_json(root / "harness_origin_source_inventory.json", errors)
@@ -496,6 +531,7 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
 
     audit_transport(root, transport, errors)
     audit_ledger(root, ledger, errors)
+    audit_official_verification(official, errors)
     audit_prior_boundary(errors)
 
     print(f"v2.21 manifest entries checked: {checked}")

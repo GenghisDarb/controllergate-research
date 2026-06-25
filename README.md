@@ -46,7 +46,7 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - v2.18 PySnooper:1 origin licensing/source acquisition work is an officially ingested bounded source-acquisition checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.19 BugsInPy materialized-test provenance is officially ingested as a bounded provenance checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.20 coupled test-provenance repair work is officially ingested as a bounded harness-origin bootstrap checkpoint; it blocks before repair because no non-circular BugsInPy harness-origin authority is available.
-- v2.21 harness-origin verification work is a bounded implementation lane that promotes a committed non-circular BugsInPy harness-origin pin before any PySnooper:1 repair attempt; it is not a current-protocol promotion or a scoreable repair result unless a later official artifact proves all repair gates.
+- v2.21 harness-origin verification work is officially ingested as a bounded non-circular BugsInPy harness-origin pin checkpoint; it is not a current-protocol promotion or a scoreable repair result.
 - The non-Ansible capability roadmap is tracked in `docs/non_ansible_capability_roadmap.md` and `configs/non_ansible_capability_backlog.json`.
 
 ## v2.14 capability recovery lane
@@ -187,7 +187,10 @@ v2.20 couples the v2.18 source-acquisition result, v2.19 materialized-test block
 v2.21 promotes a committed, non-circular BugsInPy harness-origin pin for `PySnooper:1` from an immutable public BugsInPy commit already tied to ingested decision-time metadata. The lane may attempt repair only if the pin, target-test provenance, topology, replay, dependency recovery, and proof-ledger gates pass.
 
 - Campaign: `v2_21_harness_origin_verification_lane`
-- Status: `local_implementation_pending_official_artifact_ingestion`; v2.21 is not promoted to current.
+- Status: `verified_official_artifact`; v2.21 audit status: `PASS`.
+- Official artifact digest: `sha256:35b22fd48d93ae5c5163ad9ab5d27ac99cfc351bfd2e08b869f38479aebade08`; byte size: `72234`; ZIP entries: `47`.
+- Workflow run: `28201995136`; artifact ID: `7891479826`.
+- Internal SHA256SUMS: `39` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `40` entries after adding the local official artifact-verification record.
 - Scope: `PySnooper:1` only; PySnooper:2 is not pursued.
 - Harness-origin pin source: `https://github.com/soarsmu/BugsInPy.git` at `11c5f1eea954a42132cfd06bf257766a7963e0fd`.
 - Expected harness manifest SHA256: `3706244b4618612fad4681578dd740d1e54dbe9069303072ab7802f656f0e608`.

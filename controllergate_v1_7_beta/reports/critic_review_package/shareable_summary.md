@@ -1278,8 +1278,12 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.21 Harness-Origin Verification Lane
 
-- Status: `local_implementation_pending_official_artifact_ingestion`.
+- Status: `verified_official_artifact`.
 - Campaign: `v2_21_harness_origin_verification_lane`.
+- Artifact verification: `PASS`; ZIP SHA256: `35b22fd48d93ae5c5163ad9ab5d27ac99cfc351bfd2e08b869f38479aebade08`; byte size: `72234`; ZIP entries: `47`; safe paths: `PASS`; duplicate paths: `0`.
+- Workflow run: `28201995136`; artifact ID: `7891479826`; artifact name: `v2_21_harness_origin_verification_lane_artifacts`.
+- Internal SHA256SUMS: `39` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `40` entries after adding the local official artifact-verification record.
+- v2.21 audit: `PASS`; v2.20 through v2.12 regression audits: `PASS`; current-protocol audit/dry-run: `PASS`.
 - Candidate scope: `PySnooper:1` only; PySnooper:2 is not pursued.
 - Harness-origin pin source: `https://github.com/soarsmu/BugsInPy.git` at `11c5f1eea954a42132cfd06bf257766a7963e0fd`.
 - Expected harness manifest SHA256: `3706244b4618612fad4681578dd740d1e54dbe9069303072ab7802f656f0e608`.
