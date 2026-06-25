@@ -1,21 +1,21 @@
 campaign_id=v2_19_bugsinpy_materialized_test_provenance
-started_at_utc=2026-06-25T17:08:01.613834Z
-runtime_root=E:\ControllerGate-Artifacts\v2_19_materialized_test_provenance_workspace
-$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_19_materialized_test_provenance_workspace/PySnooper init
+started_at_utc=2026-06-25T17:14:33.649785Z
+runtime_root=/tmp/controllergate_v2_19_materialized_test_provenance_workspace
+$ git -c safe.directory=/tmp/controllergate_v2_19_materialized_test_provenance_workspace/PySnooper init
 returncode=0 timed_out=False
-$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_19_materialized_test_provenance_workspace/PySnooper remote add origin https://github.com/cool-RR/PySnooper
+$ git -c safe.directory=/tmp/controllergate_v2_19_materialized_test_provenance_workspace/PySnooper remote add origin https://github.com/cool-RR/PySnooper
 returncode=0 timed_out=False
-$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_19_materialized_test_provenance_workspace/PySnooper fetch --depth 1 origin e21a31162f4c54be693d8ca8260e42393b39abd3
+$ git -c safe.directory=/tmp/controllergate_v2_19_materialized_test_provenance_workspace/PySnooper fetch --depth 1 origin e21a31162f4c54be693d8ca8260e42393b39abd3
 returncode=0 timed_out=False
-$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_19_materialized_test_provenance_workspace/PySnooper checkout --detach e21a31162f4c54be693d8ca8260e42393b39abd3
+$ git -c safe.directory=/tmp/controllergate_v2_19_materialized_test_provenance_workspace/PySnooper checkout --detach e21a31162f4c54be693d8ca8260e42393b39abd3
 returncode=0 timed_out=False
-$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_19_materialized_test_provenance_workspace/PySnooper reset --hard e21a31162f4c54be693d8ca8260e42393b39abd3
+$ git -c safe.directory=/tmp/controllergate_v2_19_materialized_test_provenance_workspace/PySnooper reset --hard e21a31162f4c54be693d8ca8260e42393b39abd3
 returncode=0 timed_out=False
-$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_19_materialized_test_provenance_workspace/PySnooper clean -ffdx
+$ git -c safe.directory=/tmp/controllergate_v2_19_materialized_test_provenance_workspace/PySnooper clean -ffdx
 returncode=0 timed_out=False
-$ git clone --filter=blob:none --sparse --depth 1 https://github.com/soarsmu/BugsInPy.git E:\ControllerGate-Artifacts\v2_19_materialized_test_provenance_workspace\BugsInPy
+$ git clone --filter=blob:none --sparse --depth 1 https://github.com/soarsmu/BugsInPy.git /tmp/controllergate_v2_19_materialized_test_provenance_workspace/BugsInPy
 returncode=0 timed_out=False
 $ git sparse-checkout set --no-cone /projects/PySnooper/bugs/1/bug.info /projects/PySnooper/bugs/1/run_test.sh /projects/PySnooper/bugs/1/setup.sh /projects/PySnooper/bugs/1/tests/test_chinese.py
 returncode=0 timed_out=False
 workspace_cleanup_confirmed=True
-finished_at_utc=2026-06-25T17:09:25.996484Z
+finished_at_utc=2026-06-25T17:14:35.618447Z
