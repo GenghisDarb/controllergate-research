@@ -1,0 +1,162 @@
+# Non-Ansible Capability Roadmap
+
+This roadmap is a planning/control document. It is not evidence that any capability has been proven, and it does not weaken the versioned audits. Every future non-Ansible lane must continue to use decision-time-safe evidence, preserve the current claim boundaries, and stop with an exact blocker when a required capability is missing.
+
+## Current boundary
+
+- Current protocol remains `v2.13`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software remains `false` / not demonstrated.
+- Memory lift remains `undemonstrated` unless the aggregate criteria are met.
+- Non-Ansible generalization remains unproven.
+- PySnooper:2 remains blocked unless decision-time-safe provenance for `tests/mini_toolbox.py` is proven.
+
+## Required capability checklist
+
+### 1. Source acquisition / origin licensing
+
+- Status: implemented in v2.18, incomplete because the public PySnooper checkout lacks the BugsInPy materialized target test.
+- Target version: v2.19.
+- Required files: `source_acquisition_audit.json`, `workspace_provenance.json`, `materialized_test_provenance.json`.
+- Audit checks: public buggy source commit acquired; benchmark target test acquired/materialized only from decision-time-safe sources; no fixed revision, gold patch, future evidence, or hidden-label evidence.
+- Stop condition: `blocked_materialized_target_test_provenance_missing`.
+
+### 2. Environment lock
+
+- Status: required for all future non-Ansible lanes.
+- Target version: v2.18+ and v2.19.
+- Required files: `environment_lock_summary.json`, and `requirements-lock.txt` or equivalent if generated.
+- Audit checks: dependency metadata hashes, Python version, declared dependencies, `python-toolbox` declaration if used, no undeclared dependency install, and no global environment mutation.
+- Stop condition: `pre_repair_environment_lock_missing`.
+
+### 3. Command manifest / BugsInPy translation bridge
+
+- Status: required.
+- Target version: v2.18+ and v2.19.
+- Required file: `bugsinpy_command_map_v1.json`.
+- Audit checks: candidate ID, raw executable target command, working directory, `PYTHONPATH` additions, command manifest SHA256, and decision-time-safe basis.
+- Stop condition: `blocked_command_manifest_missing_or_unsafe`.
+
+### 4. Fresh workspace / stale artifact resistance
+
+- Status: required.
+- Target version: v2.18+ and v2.19.
+- Required files: `workspace_purity_report.json`, `workspace_equivalence_summary.json`.
+- Audit checks: fresh ephemeral workspace outside the live repo and outside OneDrive; stale cache count is zero; no `__pycache__`, `.pytest_cache`, old virtualenv, or previous runtime artifact contamination; workspace tree/file manifest hash recorded.
+- Stop condition: `blocked_workspace_purity_failure`.
+
+### 5. Baseline registry precheck
+
+- Status: required before every new non-Ansible acquisition or repair lane.
+- Target version: v2.18+ and v2.19.
+- Required file: `baseline_registry_snapshot_v2_19.json`.
+- Audit checks: five scoreable baseline candidates preserved; `ansible:2` and `ansible:5` previous positive-memory statuses preserved; scoreable count remains 5 unless later verified evidence changes it; positive-memory count remains 2 unless later verified evidence changes it.
+- Stop condition: `baseline_drift_blocking_acquisition`.
+
+### 6. Cryptographic rollback markers
+
+- Status: required for failed acquisition, failed workspace materialization, failed patch application, or failed validation.
+- Target version: v2.19 and all future lanes.
+- Required file: `proof_obligations_ledger.json`.
+- Audit checks: failed attempt entry, rollback target entry index, rollback cleanup entry, valid hash chain, and no ghost state after rollback.
+- Stop conditions: `blocked_ledger_rollback_missing`, `blocked_ghost_state_detected`.
+
+### 7. Repair state snapshot
+
+- Status: missing before v2.19; must be implemented in v2.19.
+- Target version: v2.19.
+- Required file: `s_engine_cognitive_state_snapshot.json`.
+- Audit checks: candidate, prompt hash if available, context sources, AST/context hashes, MinimalProbe outputs used, previous failure classifications, decision-time evidence hash, generated patch hash if any, final state hash, and no fixed/gold/future evidence.
+- Stop condition: `blocked_cognitive_state_snapshot_missing`.
+
+### 8. Bounded diagnostic reward signal
+
+- Status: missing before v2.19; must be implemented in v2.19 if validation or bounded target-test runs occur.
+- Target version: v2.19.
+- Required file: `retrocausal_reward_signal.json`.
+- Audit checks: target command only, pass/fail/skip counts if parseable, failure signature, graded diagnostic signal if parseable, comparison only to prior known attempt hashes/signatures, no full scoring, and no broad benchmark claim.
+- Stop condition: `blocked_reward_signal_missing_after_test_run`.
+
+### 9. Test-run structural signature
+
+- Status: missing before v2.19; must be implemented in v2.19 if any test run occurs.
+- Target version: v2.19.
+- Required file: `test_suite_structural_signature.json`.
+- Audit checks: import errors, assertion errors, fixture errors, timeout errors, syntax errors, collection errors, failure locations if parseable, and structural signature hash.
+- Stop condition: `blocked_structural_signature_missing_after_test_run`.
+
+### 10. Patch size cap / locality limit
+
+- Status: missing before v2.19; must be implemented in v2.19 if a patch exists.
+- Target version: v2.19.
+- Required file: `patch_size_cap.json`.
+- Audit checks: max files touched 3, max lines changed 50, max functions modified 2, actual files/lines/functions changed, status `PASS` or `BLOCK`.
+- Stop condition: `blocked_patch_size_cap_exceeded`.
+
+### 11. Real-time patch safety
+
+- Status: misapplied previously; corrected in v2.19 as construction-time safety checking.
+- Target version: v2.19.
+- Required file: `realtime_patch_safety_trace.json`.
+- Audit checks: each file modification checked before proceeding, source-only status per file, AST/function locality check if parseable, forbidden-path check per file, and generation stops immediately on a failed check.
+- Stop condition: `blocked_realtime_patch_safety_failed`.
+
+### 12. Patch application step
+
+- Status: misapplied previously; corrected in v2.19 as application after pre-application verification.
+- Target version: v2.19.
+- Required file: `patch_application_step.json`.
+- Audit checks: pre-application source hash, patch hash, apply status, post-application source hash, and verification happened before application.
+- Stop condition: `blocked_patch_application_failed`.
+
+### 13. Workspace protection
+
+- Status: misapplied previously; corrected in v2.19 as protected fresh workspace handling.
+- Target version: v2.19.
+- Required file: `telomere_workspace_protection_status.json`.
+- Audit checks: fresh workspace path, attempt number, previous workspace archived or deleted before new attempt, protected workspace true/false, stale cache count, and status `PASS` or `BLOCK`.
+- Stop condition: `blocked_workspace_protection_failed`.
+
+### 14. Post-validation workspace analysis
+
+- Status: missing before v2.19; must be implemented in v2.19 if validation runs.
+- Target version: v2.19.
+- Required file: `post_validation_workspace_analysis.json`.
+- Audit checks: patch hash if any, validation result, modified files after validation, new/deleted files, cache files present, pytest cache present, virtualenv state, and duplicate replay workspace equivalence if applicable.
+- Stop condition: `blocked_post_validation_analysis_missing`.
+
+### 15. Materialized target-test provenance bridge
+
+- Status: immediate v2.19 blocker.
+- Target version: v2.19.
+- Required files: `materialized_test_provenance.json`, `materialized_test_equivalence_summary.json`.
+- Audit checks: target test came from a decision-time-safe BugsInPy/public benchmark source; target test did not come from fixed revision, gold patch, hidden labels, future logs, or hallucinated content; materialization is benchmark harness setup, not repair mutation; patch never modifies materialized test/harness files.
+- Stop condition: `blocked_materialized_target_test_provenance_missing`.
+
+### 16. PySnooper:2 policy
+
+- Status: blocked.
+- Target version: future only if provenance appears.
+- Required files: future candidate-specific provenance record for `tests/mini_toolbox.py`.
+- Audit checks: no compute spent on PySnooper:2 unless decision-time-safe fixture provenance is proven.
+- Stop condition: keep PySnooper:2 blocked when provenance is absent.
+
+### 17. Claims boundary
+
+- Status: always active.
+- Target version: every future version.
+- Required files: `claim_boundary_v*_*.json` or version-equivalent claim record.
+- Audit checks: full scoring remains `NOT_RUN` / disallowed; self-maintaining software remains false / not demonstrated; memory lift remains undemonstrated unless aggregate criteria are met; non-Ansible generalization is not claimed from one candidate; family generalization requires multiple verified scoreable non-Ansible episodes.
+- Stop condition: any claim-boundary violation.
+
+### 18. Future version sequencing
+
+- v2.19: ingest v2.18; solve/block BugsInPy materialized target-test provenance; add repair state snapshot, diagnostic reward signal, structural signature, patch size cap, real-time patch safety, corrected patch application semantics, workspace protection, and post-validation analysis; attempt PySnooper:1 only if all gates pass.
+- v2.20: if v2.19 blocks on target-test provenance, implement a stricter BugsInPy benchmark-source acquisition bridge or manual verified source-bundle protocol; if v2.19 reaches validation but fails, use reward/signature/post-validation evidence to improve repair strategy without broad scoring.
+- v2.21: if PySnooper:1 succeeds once, build a second non-Ansible candidate lane; do not claim generalization yet.
+- v2.22: compare ControllerGate against vanilla LLM + tools + tests on the same scoreable episodes.
+- v2.23: only after multiple non-Ansible positives, consider current-protocol promotion beyond v2.13.
+
+## Origin notes
+
+Some output filenames preserve earlier project terminology for continuity with existing prompts and artifacts. The implementation meaning is ordinary engineering: source provenance, dependency locking, command translation, workspace hygiene, proof-ledger rollback, repair state capture, bounded diagnostics, patch locality, patch safety, patch application, and post-validation analysis.

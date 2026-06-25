@@ -1,0 +1,383 @@
+{
+  "document_type": "planning_control_backlog",
+  "evidence_claim": false,
+  "current_protocol_version": "v2.13",
+  "claim_boundaries": {
+    "full_scoring": "NOT_RUN/disallowed",
+    "memory_lift": "undemonstrated",
+    "self_maintaining_software": "false/not_demonstrated",
+    "non_ansible_generalization": "not_demonstrated_from_one_candidate"
+  },
+  "items": [
+    {
+      "id": "source_acquisition_origin_licensing",
+      "status": "implemented_in_v2_18_but_incomplete",
+      "target_version": "v2.19",
+      "required_files": [
+        "source_acquisition_audit.json",
+        "workspace_provenance.json",
+        "materialized_test_provenance.json"
+      ],
+      "audit_checks": [
+        "public_buggy_source_commit_acquired",
+        "benchmark_target_test_materialized_only_if_decision_time_safe",
+        "no_fixed_gold_future_or_hidden_label_evidence"
+      ],
+      "stop_conditions": [
+        "blocked_materialized_target_test_provenance_missing"
+      ]
+    },
+    {
+      "id": "environment_lock",
+      "status": "required_for_all_future_non_ansible_lanes",
+      "target_version": "v2.18_plus_and_v2.19",
+      "required_files": [
+        "environment_lock_summary.json",
+        "requirements-lock.txt_or_equivalent_if_generated"
+      ],
+      "audit_checks": [
+        "dependency_metadata_hashes_recorded",
+        "python_version_recorded",
+        "declared_dependencies_recorded",
+        "python_toolbox_declaration_recorded_if_used",
+        "no_undeclared_dependency_install",
+        "no_global_environment_mutation"
+      ],
+      "stop_conditions": [
+        "pre_repair_environment_lock_missing"
+      ]
+    },
+    {
+      "id": "command_manifest_bugsinpy_translation_bridge",
+      "status": "required",
+      "target_version": "v2.18_plus_and_v2.19",
+      "required_files": [
+        "bugsinpy_command_map_v1.json"
+      ],
+      "audit_checks": [
+        "candidate_id_recorded",
+        "raw_executable_target_command_recorded",
+        "cwd_recorded",
+        "pythonpath_additions_recorded",
+        "command_manifest_sha256_recorded",
+        "decision_time_safe_basis_recorded"
+      ],
+      "stop_conditions": [
+        "blocked_command_manifest_missing_or_unsafe"
+      ]
+    },
+    {
+      "id": "fresh_workspace_stale_artifact_resistance",
+      "status": "required",
+      "target_version": "v2.18_plus_and_v2.19",
+      "required_files": [
+        "workspace_purity_report.json",
+        "workspace_equivalence_summary.json"
+      ],
+      "audit_checks": [
+        "fresh_ephemeral_workspace_outside_repo",
+        "workspace_outside_onedrive",
+        "stale_cache_count_zero",
+        "no_pycache_pytest_cache_old_venv_or_previous_runtime_artifacts",
+        "workspace_tree_or_file_manifest_hash_recorded"
+      ],
+      "stop_conditions": [
+        "blocked_workspace_purity_failure"
+      ]
+    },
+    {
+      "id": "baseline_registry_precheck",
+      "status": "required_before_new_non_ansible_acquisition_or_repair",
+      "target_version": "v2.18_plus_and_v2.19",
+      "required_files": [
+        "baseline_registry_snapshot_v2_19.json"
+      ],
+      "audit_checks": [
+        "five_scoreable_baseline_candidates_preserved",
+        "ansible_2_positive_memory_preserved",
+        "ansible_5_positive_memory_preserved",
+        "scoreable_count_remains_5_unless_verified_evidence_changes_it",
+        "positive_memory_count_remains_2_unless_verified_evidence_changes_it"
+      ],
+      "stop_conditions": [
+        "baseline_drift_blocking_acquisition"
+      ]
+    },
+    {
+      "id": "cryptographic_rollback_markers",
+      "status": "required_for_failed_acquisition_materialization_patch_application_or_validation",
+      "target_version": "v2.19_and_future",
+      "required_files": [
+        "proof_obligations_ledger.json"
+      ],
+      "audit_checks": [
+        "failed_attempt_entry_present",
+        "rollback_target_entry_index_present",
+        "rollback_cleanup_entry_present",
+        "hash_chain_valid",
+        "no_ghost_state_after_rollback"
+      ],
+      "stop_conditions": [
+        "blocked_ledger_rollback_missing",
+        "blocked_ghost_state_detected"
+      ]
+    },
+    {
+      "id": "repair_state_snapshot",
+      "status": "missing_before_v2_19_implemented_now",
+      "target_version": "v2.19",
+      "required_files": [
+        "s_engine_cognitive_state_snapshot.json"
+      ],
+      "audit_checks": [
+        "candidate_recorded",
+        "prompt_hash_recorded_if_available",
+        "context_sources_recorded",
+        "ast_or_context_hashes_recorded",
+        "minimal_probe_outputs_recorded",
+        "previous_failure_classifications_recorded",
+        "decision_time_evidence_hash_recorded",
+        "generated_patch_hash_recorded_if_any",
+        "state_hash_recorded",
+        "no_fixed_gold_future_evidence"
+      ],
+      "stop_conditions": [
+        "blocked_cognitive_state_snapshot_missing"
+      ]
+    },
+    {
+      "id": "bounded_diagnostic_reward_signal",
+      "status": "missing_before_v2_19_implemented_now_if_test_runs",
+      "target_version": "v2.19",
+      "required_files": [
+        "retrocausal_reward_signal.json"
+      ],
+      "audit_checks": [
+        "bounded_target_command_only",
+        "pass_fail_skip_counts_recorded_if_parseable",
+        "failure_signature_recorded",
+        "graded_signal_recorded_if_parseable",
+        "comparison_only_to_prior_known_attempt_hashes_or_signatures",
+        "diagnostic_only",
+        "no_full_scoring",
+        "no_broad_benchmark_claim"
+      ],
+      "stop_conditions": [
+        "blocked_reward_signal_missing_after_test_run"
+      ]
+    },
+    {
+      "id": "test_run_structural_signature",
+      "status": "missing_before_v2_19_implemented_now_if_test_runs",
+      "target_version": "v2.19",
+      "required_files": [
+        "test_suite_structural_signature.json"
+      ],
+      "audit_checks": [
+        "import_errors_classified",
+        "assertion_errors_classified",
+        "fixture_errors_classified",
+        "timeout_errors_classified",
+        "syntax_errors_classified",
+        "collection_errors_classified",
+        "failure_locations_recorded_if_parseable",
+        "structural_signature_hash_recorded"
+      ],
+      "stop_conditions": [
+        "blocked_structural_signature_missing_after_test_run"
+      ]
+    },
+    {
+      "id": "patch_size_cap_locality_limit",
+      "status": "missing_before_v2_19_implemented_now_if_patch_exists",
+      "target_version": "v2.19",
+      "required_files": [
+        "patch_size_cap.json"
+      ],
+      "audit_checks": [
+        "max_files_touched_3",
+        "max_lines_changed_50",
+        "max_functions_modified_2",
+        "actual_files_lines_functions_recorded",
+        "status_pass_or_block_recorded"
+      ],
+      "stop_conditions": [
+        "blocked_patch_size_cap_exceeded"
+      ]
+    },
+    {
+      "id": "real_time_patch_safety",
+      "status": "misapplied_previously_corrected_in_v2_19",
+      "target_version": "v2.19",
+      "required_files": [
+        "realtime_patch_safety_trace.json"
+      ],
+      "audit_checks": [
+        "each_file_modification_checked_before_progress",
+        "source_only_status_per_file",
+        "ast_or_function_locality_check_if_parseable",
+        "forbidden_path_check_per_file",
+        "generation_stops_after_failed_check"
+      ],
+      "stop_conditions": [
+        "blocked_realtime_patch_safety_failed"
+      ]
+    },
+    {
+      "id": "patch_application_step",
+      "status": "misapplied_previously_corrected_in_v2_19",
+      "target_version": "v2.19",
+      "required_files": [
+        "patch_application_step.json"
+      ],
+      "audit_checks": [
+        "pre_application_source_hash_recorded",
+        "patch_hash_recorded",
+        "apply_status_recorded",
+        "post_application_source_hash_recorded",
+        "verification_happened_before_application"
+      ],
+      "stop_conditions": [
+        "blocked_patch_application_failed"
+      ]
+    },
+    {
+      "id": "workspace_protection",
+      "status": "misapplied_previously_corrected_in_v2_19",
+      "target_version": "v2.19",
+      "required_files": [
+        "telomere_workspace_protection_status.json"
+      ],
+      "audit_checks": [
+        "fresh_workspace_path_recorded",
+        "attempt_number_recorded",
+        "previous_workspace_archived_or_deleted_before_new_attempt",
+        "protected_workspace_boolean_recorded",
+        "stale_cache_count_recorded",
+        "status_pass_or_block_recorded"
+      ],
+      "stop_conditions": [
+        "blocked_workspace_protection_failed"
+      ]
+    },
+    {
+      "id": "post_validation_workspace_analysis",
+      "status": "missing_before_v2_19_implemented_now_if_validation_runs",
+      "target_version": "v2.19",
+      "required_files": [
+        "post_validation_workspace_analysis.json"
+      ],
+      "audit_checks": [
+        "patch_hash_recorded_if_any",
+        "validation_result_recorded",
+        "modified_files_after_validation_recorded",
+        "new_deleted_files_recorded",
+        "cache_files_present_recorded",
+        "pytest_cache_present_recorded",
+        "venv_state_recorded",
+        "duplicate_replay_workspace_equivalence_recorded_if_applicable"
+      ],
+      "stop_conditions": [
+        "blocked_post_validation_analysis_missing"
+      ]
+    },
+    {
+      "id": "materialized_target_test_provenance_bridge",
+      "status": "immediate_v2_19_blocker",
+      "target_version": "v2.19",
+      "required_files": [
+        "materialized_test_provenance.json",
+        "materialized_test_equivalence_summary.json"
+      ],
+      "audit_checks": [
+        "target_test_from_decision_time_safe_bugsinpy_or_public_benchmark_source",
+        "target_test_not_from_fixed_revision_gold_patch_hidden_labels_future_logs_or_hallucinated_content",
+        "materialization_classified_as_benchmark_harness_setup_not_repair_mutation",
+        "patch_never_modifies_materialized_test_or_harness_files"
+      ],
+      "stop_conditions": [
+        "blocked_materialized_target_test_provenance_missing"
+      ]
+    },
+    {
+      "id": "pysnooper2_policy",
+      "status": "blocked",
+      "target_version": "future_only_if_fixture_provenance_exists",
+      "required_files": [
+        "future_pysnooper2_fixture_provenance_record_for_tests_mini_toolbox_py"
+      ],
+      "audit_checks": [
+        "no_compute_spent_on_pysnooper2_without_decision_time_safe_fixture_provenance"
+      ],
+      "stop_conditions": [
+        "keep_pysnooper2_blocked_when_provenance_absent"
+      ]
+    },
+    {
+      "id": "claims_boundary",
+      "status": "always_active",
+      "target_version": "every_future_version",
+      "required_files": [
+        "versioned_claim_boundary_json"
+      ],
+      "audit_checks": [
+        "full_scoring_not_run_disallowed",
+        "self_maintaining_false_not_demonstrated",
+        "memory_lift_undemonstrated_unless_aggregate_criteria_met",
+        "non_ansible_generalization_not_claimed_from_one_candidate",
+        "family_generalization_requires_multiple_verified_scoreable_non_ansible_episodes"
+      ],
+      "stop_conditions": [
+        "claim_boundary_violation"
+      ]
+    },
+    {
+      "id": "future_version_sequencing",
+      "status": "recorded",
+      "target_version": "v2.19_to_v2.23",
+      "required_files": [
+        "docs/non_ansible_capability_roadmap.md",
+        "configs/non_ansible_capability_backlog.json"
+      ],
+      "audit_checks": [
+        "v2_19_scope_recorded",
+        "v2_20_options_recorded",
+        "v2_21_second_non_ansible_lane_condition_recorded",
+        "v2_22_baseline_comparison_recorded",
+        "v2_23_promotion_condition_recorded"
+      ],
+      "stop_conditions": [
+        "roadmap_missing_or_incomplete"
+      ],
+      "sequence": {
+        "v2.19": [
+          "ingest_v2_18",
+          "solve_or_block_materialized_target_test_provenance",
+          "add_repair_state_snapshot",
+          "add_diagnostic_reward_signal",
+          "add_structural_signature",
+          "add_patch_size_cap",
+          "add_real_time_patch_safety",
+          "correct_patch_application_semantics",
+          "add_workspace_protection",
+          "add_post_validation_analysis",
+          "attempt_pysnooper1_only_if_all_gates_pass"
+        ],
+        "v2.20": [
+          "stricter_bugsinpy_benchmark_source_acquisition_or_manual_verified_source_bundle_protocol_if_v2_19_blocks",
+          "use_reward_signature_post_validation_evidence_without_broad_scoring_if_validation_fails"
+        ],
+        "v2.21": [
+          "build_second_non_ansible_candidate_lane_if_pysnooper1_succeeds_once",
+          "do_not_claim_generalization"
+        ],
+        "v2.22": [
+          "compare_controllergate_against_vanilla_llm_tools_tests_on_same_scoreable_episodes"
+        ],
+        "v2.23": [
+          "consider_current_protocol_promotion_only_after_multiple_non_ansible_positives"
+        ]
+      }
+    }
+  ]
+}

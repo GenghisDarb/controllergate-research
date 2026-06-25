@@ -1,0 +1,27 @@
+# v2.19 BugsInPy Materialized-Test Provenance Lane
+
+- Campaign: `v2_19_bugsinpy_materialized_test_provenance`.
+- Scope: `PySnooper:1` only; PySnooper:2 was not pursued.
+- v2.18 official ingest verified: `true`.
+- Source acquisition: `source_checkout_acquired`.
+- Source commit acquired: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
+- Materialized target-test provenance: `BLOCK`.
+- Materialized target-test SHA256: `None`.
+- Workspace purity: `PASS`.
+- Workspace equivalence: `BLOCK`.
+- Environment lock: `PASS`.
+- Command manifest: `PASS`.
+- Dependency recovery: `not_executed_materialized_test_provenance_blocked`.
+- Pre-repair replay: `not_run_materialized_test_provenance_blocked`.
+- Repair state snapshot: `PASS`.
+- Diagnostic reward signal: `not_run_no_target_command_execution`.
+- Test structural signature: `not_run_no_target_command_execution`.
+- Patch size cap: `PASS`.
+- Patch generated / authorized / attempted: `false` / `false` / `false`.
+- Final blocker: Decision-time-safe BugsInPy target-test content for tests/test_chinese.py was not found. Prior logs identify the target path and show fixed-revision test-copy behavior, but no allowed public benchmark source supplied the file content.
+- PySnooper:1 scoreable: `false`; positive-memory-only: `false`.
+- Scoreable count remains `5`; positive-memory count remains `2`; non-Ansible positive-memory count remains `0`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Current protocol remains `v2.13`; v2.19 is not promoted to current.

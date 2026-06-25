@@ -1,0 +1,121 @@
+{
+  "allowed_materialization_sources_searched": [
+    "committed BugsInPy command metadata",
+    "prior official ControllerGate pre-repair logs for file identity only",
+    "public BugsInPy sparse checkout"
+  ],
+  "benchmark_harness_materialization": false,
+  "blocker": "blocked_materialized_target_test_provenance_missing",
+  "bugsinpy_checkout_head": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+  "bugsinpy_checkout_outside_repo": true,
+  "bugsinpy_checkout_workspace": "E:\\ControllerGate-Artifacts\\v2_19_materialized_test_provenance_workspace\\BugsInPy",
+  "bugsinpy_repository": "https://github.com/soarsmu/BugsInPy.git",
+  "campaign_id": "v2_19_bugsinpy_materialized_test_provenance",
+  "candidate": "PySnooper:1",
+  "candidate_metadata_path": "outputs/v2_12_dependency_cofactor_recovery/preflight_candidates/001_PySnooper_1/candidate_metadata.json",
+  "commands": [
+    {
+      "args": [
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--sparse",
+        "--depth",
+        "1",
+        "https://github.com/soarsmu/BugsInPy.git",
+        "E:\\ControllerGate-Artifacts\\v2_19_materialized_test_provenance_workspace\\BugsInPy"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "stderr_excerpt": "Cloning into 'E:\\ControllerGate-Artifacts\\v2_19_materialized_test_provenance_workspace\\BugsInPy'...\nUpdating files:  25% (1/4)\nUpdating files:  50% (2/4)\nUpdating files:  75% (3/4)\nUpdating files: 100% (4/4)\nUpdating files: 100% (4/4), done.\n",
+      "stderr_sha256": "278cea2c397199edd66defa45a7b17fd01a66861dc6e748b9c9b623e5f13f4fb",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:/ControllerGate-Artifacts/v2_19_materialized_test_provenance_workspace/BugsInPy",
+        "sparse-checkout",
+        "set",
+        "--no-cone",
+        "/projects/PySnooper/bugs/1/bug.info",
+        "/projects/PySnooper/bugs/1/run_test.sh",
+        "/projects/PySnooper/bugs/1/setup.sh",
+        "/projects/PySnooper/bugs/1/tests/test_chinese.py"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_19_materialized_test_provenance_workspace\\BugsInPy",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:/ControllerGate-Artifacts/v2_19_materialized_test_provenance_workspace/BugsInPy",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_19_materialized_test_provenance_workspace\\BugsInPy",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "11c5f1eea954a42132cfd06bf257766a7963e0fd\n",
+      "stdout_sha256": "af0d778d2dbedcd63992a4c7d7b5696ec70b9ad8038517ab40f6bb80ac7797c1",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:/ControllerGate-Artifacts/v2_19_materialized_test_provenance_workspace/BugsInPy",
+        "ls-tree",
+        "-r",
+        "HEAD",
+        "projects/PySnooper/bugs/1/tests/test_chinese.py"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_19_materialized_test_provenance_workspace\\BugsInPy",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    }
+  ],
+  "copied_known_fix_used": false,
+  "decision_time_safe": false,
+  "fixed_revision_contents_used": false,
+  "fixed_revision_copy_observation_disqualifies_content_source": true,
+  "future_outcome_evidence_used": false,
+  "gold_patch_used": false,
+  "hallucinated_content_used": false,
+  "hidden_label_evidence_used": false,
+  "label_blind": false,
+  "ls_tree_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "materialization_classification": "not_materialized",
+  "materialized_into_runtime_workspace": false,
+  "materialized_runtime_path": null,
+  "post_repair_generated_test_used": false,
+  "prior_checkout_log_observed_fixed_revision_copy": true,
+  "prior_checkout_log_path": "outputs/v2_12_dependency_cofactor_recovery/preflight_candidates/001_PySnooper_1/checkout_log_raw.txt",
+  "prior_checkout_log_sha256": "1da1055496ee3a197f4ccbc79835416804e72788232fb39553fcb7cb7a8358a7",
+  "prior_checkout_log_used_as_content_source": false,
+  "prior_fixture_preflight_path": "outputs/v2_12_dependency_cofactor_recovery/preflight_candidates/001_PySnooper_1/fixture_dependency_preflight_result.json",
+  "prior_fixture_preflight_sha256": "2e7bad59277dc1e373a0f665dedc04511e67695f859b740048c690fbfa53060d",
+  "provenance_status": "BLOCK",
+  "repair_mutation": false,
+  "sparse_checkout_status": 0,
+  "status": "BLOCK",
+  "target_test": "tests/test_chinese.py",
+  "target_test_benchmark_path": "projects/PySnooper/bugs/1/tests/test_chinese.py",
+  "target_test_materialized": false,
+  "target_test_present_in_bugsinpy_tree": false,
+  "target_test_sha256": null
+}

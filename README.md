@@ -43,7 +43,8 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - v2.15 chromosomal maintenance gate-order work is a corrective stack on top of v2.14, not a current-protocol promotion.
 - v2.16 PySnooper:1 isolated recovery executor work is an officially ingested bounded executor-contract checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.17 PySnooper:1 runtime-workspace materialization is an officially ingested bounded workspace-provenance checkpoint, not a current-protocol promotion or a scoreable repair result.
-- v2.18 PySnooper:1 origin licensing/source acquisition work is a bounded source-acquisition checkpoint pending official artifact ingestion; it is not a current-protocol promotion or a scoreable repair result.
+- v2.18 PySnooper:1 origin licensing/source acquisition work is an officially ingested bounded source-acquisition checkpoint, not a current-protocol promotion or a scoreable repair result.
+- The non-Ansible capability roadmap is tracked in `docs/non_ansible_capability_roadmap.md` and `configs/non_ansible_capability_backlog.json`.
 
 ## v2.14 capability recovery lane
 
@@ -104,7 +105,9 @@ v2.17 is a narrow PySnooper:1-only lane that attempts to turn the v2.16 isolated
 v2.18 corrects the missing source-acquisition prerequisite exposed by v2.17. It is a PySnooper:1-only lane that uses decision-time-safe BugsInPy metadata to attempt a stateless public Git checkout of the exact buggy PySnooper revision before any environment recovery, replay, patch generation, or validation can run.
 
 - Campaign: `v2_18_origin_licensing_source_acquisition`
-- Local audit status: `PASS`; official artifact ingestion is still pending.
+- Status: `verified_official_artifact`; v2.18 audit status: `PASS`.
+- Official artifact digest: `sha256:4c91b8e69dd75e1ed49432611f834b73ec700054d6395c99b42c729e9f84eac5`; byte size: `36500`; ZIP entries: `18`.
+- Internal SHA256SUMS: `15` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `16` entries after adding the local official artifact-verification record.
 - v2.17 source blocker corrected: `true`.
 - Source acquisition status: `source_checkout_acquired`.
 - Source commit acquired: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
@@ -120,6 +123,39 @@ v2.18 corrects the missing source-acquisition prerequisite exposed by v2.17. It 
 - Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
 - Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
 - Current protocol remains `v2.13`; v2.18 is not promoted to current.
+
+## v2.19 BugsInPy materialized-test provenance
+
+v2.19 directly addresses the v2.18 blocker by searching decision-time-safe BugsInPy/materialized-test provenance sources for `tests/test_chinese.py` before any dependency recovery, replay, patch generation, validation, or duplicate replay.
+
+- Campaign: `v2_19_bugsinpy_materialized_test_provenance`
+- Local audit status: `PASS`; official artifact ingestion is still pending.
+- v2.18 official ingest verified: `true`.
+- Source acquisition status: `source_checkout_acquired`.
+- Source commit acquired: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
+- Materialized target-test provenance status: `BLOCK`; target-test SHA256: `null`.
+- Workspace purity status: `PASS`; workspace equivalence status: `BLOCK`.
+- Environment lock status: `PASS`; command manifest status: `PASS`; baseline registry precheck: `PASS`.
+- Dependency recovery status: `not_executed_materialized_test_provenance_blocked`.
+- Pre-repair replay status: `not_run_materialized_test_provenance_blocked`.
+- Repair state snapshot: `PASS`; diagnostic reward signal: `not_run_no_target_command_execution`; test structural signature: `not_run_no_target_command_execution`; patch size cap: `PASS`.
+- Patch generated: `false`; authorized: `false`; attempted: `false`.
+- PySnooper:1 classification: `blocked_materialized_target_test_provenance_missing`.
+- Exact blocker: decision-time-safe BugsInPy target-test content for `tests/test_chinese.py` was not found. Prior logs identify the target path and show fixed-revision test-copy behavior, but no allowed public benchmark source supplied the file content.
+- PySnooper:1 scoreable: `false`; positive-memory-only: `false`.
+- PySnooper:2 was not pursued.
+- Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
+- Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+- Current protocol remains `v2.13`; v2.19 is not promoted to current.
+
+## Non-Ansible capability roadmap
+
+The project now tracks the missing non-Ansible execution and repair-instrumentation work in two planning/control files:
+
+- `docs/non_ansible_capability_roadmap.md`
+- `configs/non_ansible_capability_backlog.json`
+
+These files are not evidence of a proven capability. They record required future gates for source acquisition, environment locking, BugsInPy command translation, fresh workspaces, baseline preservation, rollback markers, repair-state capture, bounded diagnostic feedback, structural test signatures, patch locality, real-time patch safety, patch application semantics, workspace protection, post-validation analysis, materialized target-test provenance, PySnooper:2 policy, claims boundaries, and future version sequencing.
 
 ## Day-to-day checks
 
