@@ -1142,9 +1142,11 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.16 PySnooper:1 Isolated Recovery Executor
 
-- Status: `local_architecture_checkpoint`; not yet an official verified artifact.
+- Status: `verified_official_artifact`.
 - Campaign: `v2_16_pysnooper1_isolated_recovery_executor`.
-- v2.16 audit: `PASS` locally.
+- Artifact verification: `PASS`; ZIP SHA256: `92cc10c777e0fc56e665a963283bf94daca17a008252210ad6a05242b4f15070`; byte size: `30293`; ZIP entries: `13`; safe paths: `PASS`; duplicate paths: `0`.
+- Internal SHA256SUMS: `10` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest: `11` entries after adding the local official artifact-verification record.
+- v2.16 audit: `PASS`.
 - Candidate scope: `PySnooper:1` only; PySnooper:2 remains blocked unless decision-time-safe provenance for `tests/mini_toolbox.py` can be proven.
 - Decision-time-safe recovery evidence is limited to buggy-checkout dependency declarations and initial failing-test context; the recorded declaration is `python-toolbox` from the buggy PySnooper metadata.
 - Executor contract: create an isolated `venv`, install only declared dependencies, normalize `PYTHONPATH` to the checked-out project root, and run the target test strictly inside the sandbox.
