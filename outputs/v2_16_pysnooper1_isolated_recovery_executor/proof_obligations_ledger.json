@@ -1,0 +1,59 @@
+{
+  "campaign_id": "v2_16_pysnooper1_isolated_recovery_executor",
+  "isolated_execution_environment": {
+    "hash_material": "isolated_executor_contract",
+    "sha256": "9e4d7f90e01025559647ea13296f22176c32b398196f387e832a5687b2bc3e0e",
+    "status": "contract_only_not_materialized"
+  },
+  "ledger_entries": [
+    {
+      "entry_hash": "0fe815fa9af5f3966b29d28c419e721403a3af5f7d5d140c7fd70f5158aa9640",
+      "path": "dependency_recovery_audit.json",
+      "previous_entry_hash": null,
+      "sha256": "7d91ebd19ed5fcad4cbc026e2db961aa3d2e8b5e302adefdbf246bf10fd18515"
+    },
+    {
+      "entry_hash": "851335f4ae8d8d76f29aed9587b5e543aadf4f6e46585d2c6e47ccc0f5a922b0",
+      "path": "isolated_execution_log.txt",
+      "previous_entry_hash": "0fe815fa9af5f3966b29d28c419e721403a3af5f7d5d140c7fd70f5158aa9640",
+      "sha256": "148990489df25a61b220375fceb8fb5ce6b029f5539f369b921b7ffc65f2de6b"
+    },
+    {
+      "entry_hash": "bbb46e56e8f8c861241269a524e940ed024dfc578a2fe02659ec4b2ae103bb77",
+      "path": "pre_repair_replay_gate_summary.json",
+      "previous_entry_hash": "851335f4ae8d8d76f29aed9587b5e543aadf4f6e46585d2c6e47ccc0f5a922b0",
+      "sha256": "7730641b23d8ee7773edb0fba100cc9ef0da6b1baed5521e5eb4a9604138e826"
+    },
+    {
+      "entry_hash": "a1bf6978bd1fa590ec951797c16625281c696da612f2625692f69c184acfb294",
+      "path": "patch_candidate_safety_check.json",
+      "previous_entry_hash": "bbb46e56e8f8c861241269a524e940ed024dfc578a2fe02659ec4b2ae103bb77",
+      "sha256": "74a3a96a8568b13159b2e28a48ccdc450bde6376075477ffcdddc640ade5f3a3"
+    },
+    {
+      "entry_hash": "1f7ab5222c2cbaa237575ea60269ef299d81276cc415d67c0b442cc470468ca6",
+      "path": "pysnooper2_fixture_materialization_permanent_block.json",
+      "previous_entry_hash": "a1bf6978bd1fa590ec951797c16625281c696da612f2625692f69c184acfb294",
+      "sha256": "6ae4193d23abcc1be7cfa5c17e7c1e1f2fde9b369fb1f820c156f83c015a4c59"
+    },
+    {
+      "entry_hash": "837f44b9d4334c2dbd996607aa15285d0cc77341a959d5f3bb093b40d336f606",
+      "path": "claim_boundary_v2_16.json",
+      "previous_entry_hash": "1f7ab5222c2cbaa237575ea60269ef299d81276cc415d67c0b442cc470468ca6",
+      "sha256": "6c89949ed478a3aa30a2d7a6b3fa346676ade12fb5313752400fbc576003aa7c"
+    },
+    {
+      "entry_hash": "b15c61ac16d80410a4db9400443001664b43a2d214ea5380bad06e1d2c4060b8",
+      "path": "campaign_results.json",
+      "previous_entry_hash": "837f44b9d4334c2dbd996607aa15285d0cc77341a959d5f3bb093b40d336f606",
+      "sha256": "76cf23a6c60f8936a59883cc2a62c1069efbdab38778c76c4aa77793063b0673"
+    }
+  ],
+  "ledger_tip": "b15c61ac16d80410a4db9400443001664b43a2d214ea5380bad06e1d2c4060b8",
+  "proposed_diff_hashes": {
+    "memory_enabled_source_only_repair_patch.diff": null,
+    "no_memory_source_only_repair_patch.diff": null
+  },
+  "proposed_diff_status": "not_generated_preconditions_failed",
+  "status": "PASS"
+}

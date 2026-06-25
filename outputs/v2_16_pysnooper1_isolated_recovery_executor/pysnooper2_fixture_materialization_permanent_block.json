@@ -1,0 +1,21 @@
+{
+  "allowed_sources_checked": [
+    "BugsInPy metadata",
+    "buggy checkout",
+    "decision-time-safe test materialization records"
+  ],
+  "campaign_id": "v2_16_pysnooper1_isolated_recovery_executor",
+  "candidate": "PySnooper:2",
+  "classification": "fixture_materialization_permanently_blocked_without_decision_time_safe_provenance",
+  "forbidden_sources": [
+    "fixed revision contents",
+    "BugsInPy gold patches",
+    "future outcome evidence",
+    "hallucinated fixture reconstruction",
+    "test or fixture mutation to match broken code"
+  ],
+  "missing_fixture": "tests/mini_toolbox.py",
+  "next_allowed_action": "do_not_attempt_in_v2_16",
+  "permanent_until_decision_time_safe_fixture_provenance": true,
+  "status": "BLOCK"
+}

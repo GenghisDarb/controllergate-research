@@ -1,0 +1,7 @@
+v2.16 PySnooper:1 isolated recovery executor log
+execution_status: not_executed
+reason: live BugsInPy PySnooper buggy checkout/runtime workspace is absent from the repository
+required_action_when_runtime_available: create venv inside isolated workspace
+required_install_policy: install only python-toolbox declared by buggy checkout setup.py
+required_command_normalization: set PYTHONPATH to checked-out project root
+forbidden: fixed revision, BugsInPy gold patches, future outcomes, hidden labels, test mutation

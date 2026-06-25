@@ -1,0 +1,58 @@
+name: v2_16_pysnooper1_isolated_recovery_executor
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pysnooper1-isolated-executor:
+    name: PySnooper:1 isolated recovery executor audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Generate v2.16 executor evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/v2_16_pysnooper1_isolated_recovery_executor_runner.py
+
+      - name: Run v2.16 audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_16.py
+
+      - name: Run preserved-regression audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_15_chromosomal_maintenance_gate_order.py
+          python scripts/audit_v2_14_capability_recovery_lane.py
+          python scripts/audit_v2_13_minimal_forensic_context_lane.py
+          python scripts/audit_v2_12_dependency_cofactor_recovery.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+
+      - name: Upload v2.16 artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_16_pysnooper1_isolated_recovery_executor_artifacts
+          path: |
+            outputs/v2_16_pysnooper1_isolated_recovery_executor/**
+            controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md
+            README.md
+          if-no-files-found: error

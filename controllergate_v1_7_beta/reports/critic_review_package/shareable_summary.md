@@ -1139,3 +1139,21 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.15 is not promoted to current.
+
+## v2.16 PySnooper:1 Isolated Recovery Executor
+
+- Status: `local_architecture_checkpoint`; not yet an official verified artifact.
+- Campaign: `v2_16_pysnooper1_isolated_recovery_executor`.
+- v2.16 audit: `PASS` locally.
+- Candidate scope: `PySnooper:1` only; PySnooper:2 remains blocked unless decision-time-safe provenance for `tests/mini_toolbox.py` can be proven.
+- Decision-time-safe recovery evidence is limited to buggy-checkout dependency declarations and initial failing-test context; the recorded declaration is `python-toolbox` from the buggy PySnooper metadata.
+- Executor contract: create an isolated `venv`, install only declared dependencies, normalize `PYTHONPATH` to the checked-out project root, and run the target test strictly inside the sandbox.
+- Forbidden operations are explicit: no fixed revision, no BugsInPy gold patch, no future outcome evidence, no hidden labels, no test/benchmark/harness mutation, no undeclared dependency install, and no vendored global helpers.
+- Local execution status: executor contract recorded, but the live BugsInPy PySnooper runtime workspace is not committed in the repository, so pre-repair replay could not be reproduced locally.
+- Patch generated: `false`; no `.diff` payload is counted because patch preconditions did not pass.
+- PySnooper:1 classification: `blocked_no_safe_patch_candidate_generated`.
+- Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`; the aggregate positive-memory criteria across at least three BugsInPy real-bug episodes are not met.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.16 is not promoted to current.

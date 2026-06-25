@@ -1,0 +1,21 @@
+protocol_version: v2.16
+protocol_name: pysnooper1_isolated_recovery_executor
+campaign_id: v2_16_pysnooper1_isolated_recovery_executor
+based_on: v2.15
+current_protocol_promoted: false
+source_current_protocol: v2.13/minimal_forensic_context_lane
+output_dir: outputs/v2_16_pysnooper1_isolated_recovery_executor
+audit_script: scripts/audit_v2_16.py
+runner_script: scripts/v2_16_pysnooper1_isolated_recovery_executor_runner.py
+workflow_name: v2_16_pysnooper1_isolated_recovery_executor
+artifact_name: v2_16_pysnooper1_isolated_recovery_executor_artifacts
+candidate_scope:
+  - PySnooper:1
+blocked_candidates:
+  - PySnooper:2
+claim_boundaries:
+  current_protocol_remains: v2.13
+  full_scoring: NOT_RUN/disallowed
+  self_maintaining_software: false/not demonstrated
+  family_generalization: not_expanded
+  non_ansible_positive_memory_count: 0 unless later verified aggregate evidence changes it

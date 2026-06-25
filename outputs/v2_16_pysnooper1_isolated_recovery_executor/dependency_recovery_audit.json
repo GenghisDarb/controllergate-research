@@ -1,0 +1,95 @@
+{
+  "campaign_id": "v2_16_pysnooper1_isolated_recovery_executor",
+  "candidate": "PySnooper:1",
+  "decision_time_safe_evidence_scope": [
+    "buggy checkout setup.py",
+    "buggy checkout requirements.txt",
+    "buggy checkout Pipfile",
+    "native imports in buggy source files",
+    "initial failing test context"
+  ],
+  "declared_dependencies_to_install": [
+    "python-toolbox"
+  ],
+  "dependency_declaration_evidence": [
+    {
+      "decision_time_safe": true,
+      "matching_lines": [
+        {
+          "line": "'python-toolbox',",
+          "line_number": 28
+        }
+      ],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/setup.py",
+      "role": "dependency_declaration",
+      "sha256": "3709ade94c4102c08f64fa33e6a95e33b21c17d68af308cdb34f16a75f6d0f6b",
+      "source_boundary": "buggy_checkout_metadata"
+    },
+    {
+      "decision_time_safe": true,
+      "matching_lines": [],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/requirements.txt",
+      "role": "empty_dependency_context",
+      "sha256": "44c91d4c293a45e5efd6e28c304835637cccbdb5de9b88136c03bcfb98376d8d",
+      "source_boundary": "buggy_checkout_metadata"
+    }
+  ],
+  "evidence_files": [
+    "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_policy_recheck_v2_13.json",
+    "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_checkout_identity.json",
+    "outputs/v2_14_capability_recovery_lane/pysnooper1_recovery_gate_v2_14.json",
+    "outputs/v2_14_capability_recovery_lane/failure_memory_weights_v2_14.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/campaign_results.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/v2_15_official_artifact_verification.json"
+  ],
+  "executor_contract": {
+    "candidate": "PySnooper:1",
+    "command_normalization": {
+      "PYTHONPATH": "checked_out_project_root",
+      "working_directory": "checked_out_project_root"
+    },
+    "create_virtual_environment": true,
+    "declared_dependencies_to_install": [
+      "python-toolbox"
+    ],
+    "dependency_install_policy": "install only dependencies explicitly declared in buggy checkout metadata",
+    "forbidden_dependency_sources": [
+      "global site-packages",
+      "manually vendored helpers",
+      "fixed revision files",
+      "gold patches",
+      "future outcome logs"
+    ],
+    "requires_runtime_workspace": true,
+    "target_command": "BugsInPy PySnooper bug 1 target test from decision-time bug metadata",
+    "venv_scope": "strictly isolated inside candidate runtime workspace"
+  },
+  "executor_executed": false,
+  "executor_execution_blocker": "live BugsInPy PySnooper buggy checkout/runtime workspace is not present in the repository",
+  "forbidden_operations_checked": [
+    "inspect fixed revision contents",
+    "inspect BugsInPy gold patches",
+    "use future outcome evidence",
+    "copy known fixes manually",
+    "read hidden labels",
+    "mutate tests to match broken code",
+    "modify benchmark metadata or expectations",
+    "install undeclared dependencies",
+    "vendor global helpers into the project",
+    "claim full scoring",
+    "claim self-maintaining software",
+    "claim generalized non-Ansible capability"
+  ],
+  "recovery_policy_allowed": true,
+  "sha256_inputs": {
+    "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_checkout_identity.json": "156d507c63ec75ec1351195c5746b1b84769e62b4b72d87077623a39e1e882d8",
+    "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_policy_recheck_v2_13.json": "36898f83026af8ff62bf62eab07dbdb3e67caa7a39287261d502c2f18b3b7248",
+    "outputs/v2_14_capability_recovery_lane/failure_memory_weights_v2_14.json": "f1331449a077a9b923a9ca0aa4fdd17951c7a5d48b61eb24a59cd780d5e1b906",
+    "outputs/v2_14_capability_recovery_lane/pysnooper1_recovery_gate_v2_14.json": "45292243700d1f99f84684fc24ccbf82f2393dbae99b724b3dd7c22dd204d446",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/campaign_results.json": "395812940d1863b1b8fe006982abcf7908788c82e3c03ffd02f08a163ca6a208",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/v2_15_official_artifact_verification.json": "d15aa1c6b8835681558b6a9d047894c1acdde8dcbce5feb82f3d8f7556736925"
+  },
+  "source_or_tests_mutated": false,
+  "status": "PASS",
+  "undeclared_dependencies_installed": false
+}

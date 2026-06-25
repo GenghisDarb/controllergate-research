@@ -41,6 +41,7 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - Non-Ansible positive-memory count remains `0`.
 - v2.14 capability recovery is officially ingested as a preserved artifact result, but it is still separate from the current protocol.
 - v2.15 chromosomal maintenance gate-order work is a corrective stack on top of v2.14, not a current-protocol promotion.
+- v2.16 PySnooper:1 isolated recovery executor work is a bounded executor-contract checkpoint, not a current-protocol promotion or a scoreable repair result.
 
 ## v2.14 capability recovery lane
 
@@ -61,6 +62,19 @@ v2.15 implements the next corrective stack as machine-checkable maintenance gate
 - PySnooper:1 remains blocked at dependency/cofactor materialization and activation licensing.
 - PySnooper:2 remains blocked at fixture/helper materialization and activation licensing.
 - Current protocol remains `v2.13` until a later verified promotion is explicitly made.
+
+## v2.16 PySnooper:1 isolated recovery executor
+
+v2.16 narrows the next non-Ansible step to PySnooper:1 only. It defines and audits the isolated declared-dependency executor contract: create a sandboxed `venv`, install only the buggy-checkout-declared `python-toolbox` dependency, normalize `PYTHONPATH` to the checked-out project root, and forbid fixed revisions, BugsInPy gold patches, future outcomes, hidden labels, test edits, benchmark edits, undeclared installs, and vendored helpers.
+
+- Campaign: `v2_16_pysnooper1_isolated_recovery_executor`
+- Local status: `PASS_WITH_EXECUTOR_CONTRACT_BLOCKED`
+- PySnooper:1 classification: `blocked_no_safe_patch_candidate_generated`
+- PySnooper:2 remains blocked unless decision-time-safe provenance for `tests/mini_toolbox.py` can be proven.
+- No `.diff` payload is generated or counted because the live isolated BugsInPy PySnooper runtime workspace is not committed in the repo and pre-repair replay preconditions did not pass.
+- Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
+- Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+- Current protocol remains `v2.13`.
 
 ## Day-to-day checks
 
