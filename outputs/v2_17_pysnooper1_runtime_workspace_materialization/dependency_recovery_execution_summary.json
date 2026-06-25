@@ -1,0 +1,55 @@
+{
+  "blocker": "not_executed_workspace_blocked",
+  "campaign_id": "v2_17_pysnooper1_runtime_workspace_materialization",
+  "candidate": "PySnooper:1",
+  "declaration_evidence": [
+    {
+      "decision_time_safe": true,
+      "matching_lines": [
+        {
+          "line": "'python-toolbox',",
+          "line_number": 28
+        }
+      ],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/setup.py",
+      "sha256": "3709ade94c4102c08f64fa33e6a95e33b21c17d68af308cdb34f16a75f6d0f6b",
+      "source_boundary": "buggy_checkout_metadata"
+    },
+    {
+      "decision_time_safe": true,
+      "matching_lines": [],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/requirements.txt",
+      "sha256": "44c91d4c293a45e5efd6e28c304835637cccbdb5de9b88136c03bcfb98376d8d",
+      "source_boundary": "buggy_checkout_metadata"
+    },
+    {
+      "decision_time_safe": true,
+      "matching_lines": [
+        {
+          "line": "python_toolbox",
+          "line_number": 18
+        },
+        {
+          "line": "# until python_toolbox is fixed",
+          "line_number": 21
+        }
+      ],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/tox.ini",
+      "sha256": "629866307933434d0f9f691c3007968f4bb35d7024007e89403c80c36bee0c06",
+      "source_boundary": "buggy_checkout_metadata"
+    }
+  ],
+  "declared_dependencies_to_install": [
+    "python-toolbox"
+  ],
+  "dependency_recovery_execution_status": "not_executed_workspace_blocked",
+  "fixed_gold_future_evidence_accessed": false,
+  "global_environment_mutated": false,
+  "install_commands": [],
+  "isolated_venv_created": false,
+  "recovery_policy_allowed": true,
+  "source_tests_fixtures_expectations_mutated": false,
+  "status": "BLOCK",
+  "undeclared_dependencies_installed": false,
+  "v2_16_contract_sha256": "7d91ebd19ed5fcad4cbc026e2db961aa3d2e8b5e302adefdbf246bf10fd18515"
+}

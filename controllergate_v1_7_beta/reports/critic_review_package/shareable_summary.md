@@ -1159,3 +1159,21 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`; the aggregate positive-memory criteria across at least three BugsInPy real-bug episodes are not met.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.16 is not promoted to current.
+
+## v2.17 PySnooper:1 Runtime Workspace Materialization
+
+- Status: local implementation/audit `PASS`; official GitHub Actions artifact pending.
+- Campaign: `v2_17_pysnooper1_runtime_workspace_materialization`.
+- Candidate scope: `PySnooper:1` only; PySnooper:2 was not pursued.
+- Workspace materialization classification: `blocked_no_decision_time_safe_workspace_source`.
+- Workspace provenance status: `BLOCK`; no outside-repo PySnooper:1 buggy checkout or available BugsInPy checkout executable/source bundle could be tied to the v2.13/v2.16 decision-time-safe metadata.
+- Dependency recovery execution status: `not_executed_workspace_blocked`.
+- Pre-repair replay status: `not_run_workspace_blocked`.
+- Patch generated: `false`; authorized: `false`; attempted: `false`.
+- Target validation and duplicate replay are not applicable because no patch was authorized.
+- PySnooper:1 scoreable: `false`; positive-memory-only: `false`.
+- Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.17 is not promoted to current.

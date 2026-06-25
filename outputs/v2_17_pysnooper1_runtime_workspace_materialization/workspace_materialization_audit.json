@@ -1,0 +1,46 @@
+{
+  "campaign_id": "v2_17_pysnooper1_runtime_workspace_materialization",
+  "candidate": "PySnooper:1",
+  "candidate_workspace_checks": [
+    {
+      "exists": false,
+      "head_sha": null,
+      "outside_live_repo_worktree": true,
+      "path": "\\home\\runner\\work\\controllergate-research\\controllergate-research\\_v2_13_bugsinpy_runtime\\forensic_workspaces\\pysnooper1\\PySnooper",
+      "source": "v2.13 recorded prior checkout path"
+    },
+    {
+      "exists": false,
+      "head_sha": null,
+      "outside_live_repo_worktree": true,
+      "path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_17_pysnooper1_runtime_workspace\\pysnooper1\\PySnooper",
+      "source": "v2.17 deterministic runtime root"
+    }
+  ],
+  "checkout_materialization_command": null,
+  "exact_revision_commit_bug_identity": {
+    "bug_id": "1",
+    "bugsinpy_version": "0",
+    "expected_buggy_head_sha": "e21a31162f4c54be693d8ca8260e42393b39abd3",
+    "project": "PySnooper",
+    "v2_13_recorded_head_sha": "e21a31162f4c54be693d8ca8260e42393b39abd3"
+  },
+  "exact_source_used": "no existing outside-repo workspace and no available BugsInPy checkout executable/source bundle",
+  "final_workspace_classification": "blocked_no_decision_time_safe_workspace_source",
+  "fixed_gold_future_evidence_accessed": false,
+  "metadata_authorizing_workspace_creation": {
+    "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_checkout_identity.json": "156d507c63ec75ec1351195c5746b1b84769e62b4b72d87077623a39e1e882d8",
+    "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_policy_recheck_v2_13.json": "36898f83026af8ff62bf62eab07dbdb3e67caa7a39287261d502c2f18b3b7248",
+    "outputs/v2_14_capability_recovery_lane/pysnooper1_recovery_gate_v2_14.json": "45292243700d1f99f84684fc24ccbf82f2393dbae99b724b3dd7c22dd204d446",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/campaign_results.json": "395812940d1863b1b8fe006982abcf7908788c82e3c03ffd02f08a163ca6a208",
+    "outputs/v2_16_pysnooper1_isolated_recovery_executor/campaign_results.json": "76cf23a6c60f8936a59883cc2a62c1069efbdab38778c76c4aa77793063b0673",
+    "outputs/v2_16_pysnooper1_isolated_recovery_executor/dependency_recovery_audit.json": "7d91ebd19ed5fcad4cbc026e2db961aa3d2e8b5e302adefdbf246bf10fd18515",
+    "outputs/v2_16_pysnooper1_isolated_recovery_executor/proof_obligations_ledger.json": "884ee4a8313e41b27efbcae7fe1dca05c8296d7148e207f00f69b5d83663c9bd"
+  },
+  "prior_v2_13_checkout_command": "bugsinpy-checkout -p PySnooper -v 0 -i 1 -w /home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1",
+  "status": "PASS",
+  "tests_fixtures_expectations_mutated": false,
+  "workspace_found_or_materialized": false,
+  "workspace_path": null,
+  "workspace_path_outside_live_repo_worktree": null
+}

@@ -1,0 +1,29 @@
+{
+  "allowed_sources_used": [
+    "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_policy_recheck_v2_13.json",
+    "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_checkout_identity.json",
+    "outputs/v2_16_pysnooper1_isolated_recovery_executor/dependency_recovery_audit.json"
+  ],
+  "blocker": "No live outside-repo PySnooper:1 buggy checkout or available BugsInPy checkout executable/source bundle could be tied to the decision-time-safe metadata.",
+  "campaign_id": "v2_17_pysnooper1_runtime_workspace_materialization",
+  "candidate": "PySnooper:1",
+  "decision_time_safe": false,
+  "fixed_revision_accessed": false,
+  "forbidden_sources_accessed": [],
+  "future_outcome_evidence_accessed": false,
+  "gold_patch_accessed": false,
+  "provenance_complete": false,
+  "source_evidence_sha256": {
+    "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_checkout_identity.json": "156d507c63ec75ec1351195c5746b1b84769e62b4b72d87077623a39e1e882d8",
+    "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_policy_recheck_v2_13.json": "36898f83026af8ff62bf62eab07dbdb3e67caa7a39287261d502c2f18b3b7248",
+    "outputs/v2_14_capability_recovery_lane/pysnooper1_recovery_gate_v2_14.json": "45292243700d1f99f84684fc24ccbf82f2393dbae99b724b3dd7c22dd204d446",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/campaign_results.json": "395812940d1863b1b8fe006982abcf7908788c82e3c03ffd02f08a163ca6a208",
+    "outputs/v2_16_pysnooper1_isolated_recovery_executor/campaign_results.json": "76cf23a6c60f8936a59883cc2a62c1069efbdab38778c76c4aa77793063b0673",
+    "outputs/v2_16_pysnooper1_isolated_recovery_executor/dependency_recovery_audit.json": "7d91ebd19ed5fcad4cbc026e2db961aa3d2e8b5e302adefdbf246bf10fd18515",
+    "outputs/v2_16_pysnooper1_isolated_recovery_executor/proof_obligations_ledger.json": "884ee4a8313e41b27efbcae7fe1dca05c8296d7148e207f00f69b5d83663c9bd"
+  },
+  "status": "BLOCK",
+  "workspace_classification": "blocked_no_decision_time_safe_workspace_source",
+  "workspace_path": null,
+  "workspace_path_outside_live_repo_worktree": null
+}

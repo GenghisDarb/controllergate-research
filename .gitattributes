@@ -2,20 +2,24 @@
 #
 # These rules keep GitHub Actions checkout bytes identical to the bytes used
 # for SHA256SUMS and proof-ledger hashes.  Scope is limited to the evidence
-# directories and v2.15 workflow/scripts exercised by the v2.15 workflow.
+# directories and versioned workflow/scripts exercised by recent workflows.
 .gitattributes text eol=lf
 README.md text eol=lf
 controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md text eol=lf
 .github/workflows/v2_15_chromosomal_maintenance_gate_order.yml text eol=lf
 .github/workflows/v2_16_pysnooper1_isolated_recovery_executor.yml text eol=lf
+.github/workflows/v2_17_pysnooper1_runtime_workspace_materialization.yml text eol=lf
 configs/controllergate_v2_16.yaml text eol=lf
 scripts/audit_v2_13_minimal_forensic_context_lane.py text eol=lf
 scripts/audit_v2_14_capability_recovery_lane.py text eol=lf
 scripts/audit_v2_15_chromosomal_maintenance_gate_order.py text eol=lf
 scripts/audit_v2_16.py text eol=lf
+scripts/audit_v2_17_pysnooper1_runtime_workspace_materialization.py text eol=lf
 scripts/v2_15_chromosomal_maintenance_gate_order_runner.py text eol=lf
 scripts/v2_16_pysnooper1_isolated_recovery_executor_runner.py text eol=lf
+scripts/v2_17_pysnooper1_runtime_workspace_materialization.py text eol=lf
 outputs/v2_13_minimal_forensic_context_lane/** text eol=lf
 outputs/v2_14_capability_recovery_lane/** text eol=lf
 outputs/v2_15_chromosomal_maintenance_gate_order/** text eol=lf
 outputs/v2_16_pysnooper1_isolated_recovery_executor/** text eol=lf
+outputs/v2_17_pysnooper1_runtime_workspace_materialization/** text eol=lf
