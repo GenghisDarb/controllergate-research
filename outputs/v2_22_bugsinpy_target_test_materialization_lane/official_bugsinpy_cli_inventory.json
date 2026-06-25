@@ -1,0 +1,118 @@
+{
+  "campaign_id": "v2_22_bugsinpy_target_test_materialization_lane",
+  "candidate": "PySnooper:1",
+  "commands_available": [
+    "bugsinpy-checkout",
+    "bugsinpy-compile",
+    "bugsinpy-coverage",
+    "bugsinpy-fuzz",
+    "bugsinpy-info",
+    "bugsinpy-mutation",
+    "bugsinpy-test"
+  ],
+  "framework_bin_path": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework\\framework\\bin",
+  "help_commands": [
+    {
+      "args": [
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+        "/e/ControllerGate-Artifacts/v2_22_bugsinpy_target_test_materialization_workspace/BugsInPy_framework/framework/bin/bugsinpy-checkout",
+        "--help"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "        Usage: bugsinpy-checkout [ --help ]\n        -p project_name\n             The name of the project for which a particular version shall be checked out. Run bugsinpy-info to check available project\n        -i bug_id\n             The number of bug from project in bugsinpy. Run bugsinpy-info to check bug id number\n        -v version_id\n             The version id that shall be checked out (1 fixed, 0 buggy, default will be 1).\n        -w work_dir\n             The working directory to which the buggy or fixed project version shall be checked out. The working directory has to be either empty or a previously used working directory. Default will be (BugsInPy/framework/bin/temp)\n\n",
+      "stdout_sha256": "46ddce272cd025aca8168e08b81372d10d6e8e263b026165783a5b3140d29bfd",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+        "/e/ControllerGate-Artifacts/v2_22_bugsinpy_target_test_materialization_workspace/BugsInPy_framework/framework/bin/bugsinpy-compile",
+        "--help"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "        Usage: bugsinpy-compile [ --help ]\n        -w work_dir\n             The working directory to compile the project. Default will be the current directory.\n\n",
+      "stdout_sha256": "9244f9c5d3f39eff9de06f3588f8cf45c8638c9eae377de6ba6760182e7f24c0",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+        "/e/ControllerGate-Artifacts/v2_22_bugsinpy_target_test_materialization_workspace/BugsInPy_framework/framework/bin/bugsinpy-test",
+        "--help"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "        Usage: bugsinpy-test [ --help ]\n        -w work_dir\n             The working directory to run the test. Default will be the current directory.\n       -t single_test\n             Run single test from input. Default will run the test case that relevant from bugs. Format for pytest: <test_file_path>::<test_method>. Format for unittest: <test_file_path_without.py>.<test_class>.<test_method> . Use bugsinpy-info to get the information about the project.\n       -a\n             Run all test case in the project. Default will run the test case that relevant from bugs\n       -r\n             Run the test case that relevant from bugs (Default)\n\n",
+      "stdout_sha256": "e668b5429d7529f88a1fcd0bdebd55eeb2324c268f5c2bf8ed2030f956ef4159",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+        "/e/ControllerGate-Artifacts/v2_22_bugsinpy_target_test_materialization_workspace/BugsInPy_framework/framework/bin/bugsinpy-info",
+        "--help"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "        Usage: bugsinpy-info [ --help ]\n        -p project_name\n             The id of the project for which the information shall be printed.\n        -i bug_id\n             The bug number of the project_name for which the information shall be printed.\n\n",
+      "stdout_sha256": "0800d6ea8b199c64865a017109318bbd9303fa22867f6cb0d8cba719e9dacb0e",
+      "timed_out": false
+    }
+  ],
+  "path_added_for_isolated_process_only": true,
+  "script_inventory": [
+    {
+      "name": "bugsinpy-checkout",
+      "path": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework\\framework\\bin\\bugsinpy-checkout",
+      "sha256": "39388a16495d0a56da86895e45a49337bda3303b9bfde0c5e617fa13c2db4f0b",
+      "size": 6557
+    },
+    {
+      "name": "bugsinpy-compile",
+      "path": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework\\framework\\bin\\bugsinpy-compile",
+      "sha256": "fae880f1953436b321312b7545cae9d371fedeca2ea2b4a6c8e44723b5dc5834",
+      "size": 6503
+    },
+    {
+      "name": "bugsinpy-coverage",
+      "path": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework\\framework\\bin\\bugsinpy-coverage",
+      "sha256": "4698651310e6f7521683cb84c3ccc792633cfdd7317f0e4413a46a38f263aa8e",
+      "size": 8051
+    },
+    {
+      "name": "bugsinpy-fuzz",
+      "path": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework\\framework\\bin\\bugsinpy-fuzz",
+      "sha256": "1016673dfc41434c6ac4de6b890a0e3b6a2012c73bb788f2b7a484de019b0846",
+      "size": 2335
+    },
+    {
+      "name": "bugsinpy-info",
+      "path": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework\\framework\\bin\\bugsinpy-info",
+      "sha256": "2445ee5137a1a55c3a8f7f3fac1962262674671ab4796bf45587f6647573696b",
+      "size": 3910
+    },
+    {
+      "name": "bugsinpy-mutation",
+      "path": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework\\framework\\bin\\bugsinpy-mutation",
+      "sha256": "deaf9fd2550b09fabcaaf322f99600d53a733984e3f5cf11b906d7703106f604",
+      "size": 5895
+    },
+    {
+      "name": "bugsinpy-test",
+      "path": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework\\framework\\bin\\bugsinpy-test",
+      "sha256": "471d23ee3f5e466f8c4128fbf6ac37f7d8dbde55dc0174ff3fed77db1ba9733a",
+      "size": 5197
+    }
+  ],
+  "status": "PASS"
+}

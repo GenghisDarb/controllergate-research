@@ -155,7 +155,7 @@ This roadmap is a planning/control document. It is not evidence that any capabil
 - v2.20: if v2.19 blocks on target-test provenance, implement a stricter BugsInPy benchmark-source acquisition bridge or manual verified source-bundle protocol; if v2.19 reaches validation but fails, use reward/signature/post-validation evidence to improve repair strategy without broad scoring.
 - v2.20 updated scope: couple source acquisition, BugsInPy harness-origin authority, target-test provenance, harness topology, redundancy-cache verification, recursive provenance, transport integrity, prompt/context custody, and precision-resolution diagnostics into one PySnooper:1 lane. If no non-circular authoritative BugsInPy harness-origin pin exists, block with `bugsinpy_harness_origin_bootstrap_missing` and write a proposal-only harness-origin candidate for review.
 - v2.21: promote a non-circular BugsInPy harness-origin pin from an immutable public source already tied to ingested decision-time metadata, verify that pin before any repair work, then attempt PySnooper:1 only if target-test provenance, topology, replay, and proof-ledger gates pass. If the pinned harness source still lacks `tests/test_chinese.py`, block before dependency recovery and patch generation.
-- v2.22: compare ControllerGate against vanilla LLM + tools + tests on the same scoreable episodes.
+- v2.22: run the pinned official BugsInPy framework checkout/materialization path for PySnooper:1 before any terminal target-test decision. Absence from the framework repository metadata tree alone is not terminal; only absence after official materialization plus buggy-source search, or unsafe fixed/future/gold/synthetic provenance, can terminally block PySnooper:1 under current safety rules.
 - v2.23: only after multiple non-Ansible positives, consider current-protocol promotion beyond v2.13.
 
 ## Origin notes
@@ -191,3 +191,16 @@ v2.21 adds planning and audit controls for:
 - A zero-lift diagnostic reward when the blocker is a missing target-test precondition rather than a failed repair attempt.
 
 The v2.21 lane remains PySnooper:1-only. PySnooper:2 remains blocked unless decision-time-safe fixture provenance for `tests/mini_toolbox.py` is proven. Full scoring, self-maintaining software, memory lift, broad non-Ansible generalization, and TORUS/TLD proof claims remain forbidden.
+
+## v2.22 BugsInPy official target-test materialization controls
+
+v2.22 adds planning and audit controls for:
+
+- Treating the pinned BugsInPy repository as the official framework/metadata source, not as the expected materialized project filesystem.
+- Running official `bugsinpy-checkout` materialization into a fresh outside-repo workspace before any terminal PySnooper:1 target-test absence decision.
+- Searching the materialized workspace and buggy source tree for `tests/test_chinese.py`, `test_chinese.py`, and `*chinese*.py` only after official materialization is attempted.
+- Recording whether the official materialization path requires fixed/future source content for the target test.
+- Terminally blocking PySnooper:1 under current safety rules when the target test is absent after materialization/buggy-source search, or when the only available target-test content requires fixed/future/gold/hidden/synthetic provenance.
+- Recommending selection of a different non-Ansible candidate next if PySnooper:1 is terminally provenance-blocked, unless externally provided decision-time-safe target-test provenance is later supplied.
+
+The v2.22 lane remains PySnooper:1-only. PySnooper:2 remains blocked unless decision-time-safe fixture provenance for `tests/mini_toolbox.py` is proven. Full scoring, self-maintaining software, memory lift, broad non-Ansible generalization, and TORUS/TLD proof claims remain forbidden.

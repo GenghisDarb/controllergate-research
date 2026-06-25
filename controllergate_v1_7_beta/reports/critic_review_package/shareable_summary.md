@@ -1295,3 +1295,18 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.21 is not promoted to current.
+
+## v2.22 BugsInPy Target-Test Materialization Lane
+
+- Status: `local_implementation_pending_official_artifact_ingestion`.
+- Campaign: `v2_22_bugsinpy_target_test_materialization_lane`.
+- Candidate scope: `PySnooper:1` only; PySnooper:2 is not pursued.
+- Official framework source: `https://github.com/soarsmu/BugsInPy.git` at `11c5f1eea954a42132cfd06bf257766a7963e0fd`.
+- The pinned BugsInPy repository is framework/metadata, not the expected materialized project source tree.
+- Absence from `projects/PySnooper/bugs/1/tests/test_chinese.py` in the framework checkout alone is not terminal.
+- v2.22 must run official framework materialization and then search the materialized workspace and buggy source tree before terminally blocking PySnooper:1 for target-test absence.
+- If the only available target-test content requires fixed/future/gold/hidden/synthetic provenance, PySnooper:1 remains terminally blocked under current safety rules and the next lane should select a different non-Ansible candidate unless externally reviewed safe test provenance is supplied.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.22 is not promoted to current.

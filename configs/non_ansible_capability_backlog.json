@@ -93,6 +93,34 @@
       "v2_21_target_band": "harness_origin_pin_N7p13_then_test_provenance_N7_recheck"
     }
   },
+  "v2_22_carry_forward": {
+    "status": "planned_and_required",
+    "target_version": "v2.22",
+    "scope": "PySnooper:1_only",
+    "required_controls": [
+      "official_pinned_bugsinpy_framework_checkout",
+      "framework_repo_not_treated_as_materialized_workspace",
+      "official_bugsinpy_checkout_materialization_attempt",
+      "materialized_workspace_target_test_search",
+      "buggy_source_tree_target_test_search",
+      "fixed_future_gold_synthetic_source_guards",
+      "terminal_pysnooper1_provenance_decision",
+      "candidate_scope_transition_recommendation_if_terminal",
+      "claim_boundaries"
+    ],
+    "primary_stop_conditions": [
+      "blocked_target_test_not_materializable_from_decision_time_safe_sources",
+      "blocked_target_test_requires_fixed_or_future_source",
+      "blocked_synthetic_target_test_forbidden",
+      "blocked_pre_repair_replay_gate_failed"
+    ],
+    "resolution_framing": {
+      "architecture_heuristic_only": true,
+      "not_physics_validation": true,
+      "v2_21_band": "harness_origin_pin_N7p13_passed",
+      "v2_22_target_band": "official_materialization_source_guard_N7p5"
+    }
+  },
   "items": [
     {
       "id": "source_acquisition_origin_licensing",
@@ -460,7 +488,10 @@
           "do_not_claim_generalization"
         ],
         "v2.22": [
-          "compare_controllergate_against_vanilla_llm_tools_tests_on_same_scoreable_episodes"
+          "run_official_pinned_bugsinpy_checkout_before_terminal_target_test_decision",
+          "search_materialized_workspace_and_buggy_source_tree_for_tests_test_chinese_py",
+          "terminally_block_pysnooper1_if_target_test_absent_or_only_fixed_future_gold_synthetic_source_available",
+          "recommend_next_non_ansible_candidate_selection_if_pysnooper1_terminally_blocked"
         ],
         "v2.23": [
           "consider_current_protocol_promotion_only_after_multiple_non_ansible_positives"

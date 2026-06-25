@@ -12,6 +12,7 @@ ControllerGate treats chaotic-looking blockers as under-resolved metrology state
 - v2.19 corresponds to the approximate `N≈7` test-provenance threshold: the target test content remained unresolved.
 - v2.20 targets the `N≈7–N≈8` region: coupled target-test provenance plus harness topology.
 - v2.21 targets the `N≈7.13` harness-origin-pin threshold: non-circular BugsInPy harness authority can be verified independently of workflow-runtime discovery, while target-test content may still remain unresolved.
+- v2.22 targets the `N≈7.5` official materialization/source-guard threshold: the BugsInPy framework must materialize the project workspace before target-test absence is terminal, and fixed/future-derived materialization remains unsafe under current rules.
 - A future repair/scoreable state corresponds to the `N≈9–N≈10` repair/kernel-lock region.
 
 ## Precision instruments

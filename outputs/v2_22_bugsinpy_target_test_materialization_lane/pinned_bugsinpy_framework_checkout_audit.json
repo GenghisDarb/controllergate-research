@@ -1,0 +1,200 @@
+{
+  "campaign_id": "v2_22_bugsinpy_target_test_materialization_lane",
+  "candidate": "PySnooper:1",
+  "commands": [
+    {
+      "args": [
+        "git",
+        "init"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "Initialized empty Git repository in E:/ControllerGate-Artifacts/v2_22_bugsinpy_target_test_materialization_workspace/BugsInPy_framework/.git/\n",
+      "stdout_sha256": "bd2878e7541b03cf30eb2d528460274016f0743da5465d0536fca65d507c3c55",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/soarsmu/BugsInPy.git"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+        "config",
+        "core.sparseCheckout",
+        "true"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "11c5f1eea954a42132cfd06bf257766a7963e0fd"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "From https://github.com/soarsmu/BugsInPy\n * branch            11c5f1eea954a42132cfd06bf257766a7963e0fd -> FETCH_HEAD\n",
+      "stderr_sha256": "d597b51e5fc846d9c1f28c365cc9dbc92fecc79201992617cc78cad5a7bcb0af",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+        "checkout",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "HEAD is now at 11c5f1e Merge pull request #91 from ku-selene/master\n",
+      "stderr_sha256": "9cc3aa1b4532c326156b97e979aa96aaeb15c374302ec0e47e24b900dd60668b",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "11c5f1eea954a42132cfd06bf257766a7963e0fd\n",
+      "stdout_sha256": "af0d778d2dbedcd63992a4c7d7b5696ec70b9ad8038517ab40f6bb80ac7797c1",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "d00ce0495ba73abe50317599f48bced3c9afe4b3\n",
+      "stdout_sha256": "1b7c13b0fb8a185763ece0ce828a6288440bdd756917efc43a6bc644fb1a1f8c",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+        "status",
+        "--short"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    }
+  ],
+  "expected_commit": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+  "framework_checkout_outside_repo": true,
+  "framework_checkout_path": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\BugsInPy_framework",
+  "framework_tree_summary": {
+    "dir_count": 8,
+    "exists": true,
+    "file_count": 29,
+    "sample": [
+      ".gitignore",
+      "Dockerfile",
+      "framework/",
+      "framework/bin/",
+      "framework/bin/bugsinpy-checkout",
+      "framework/bin/bugsinpy-compile",
+      "framework/bin/bugsinpy-coverage",
+      "framework/bin/bugsinpy-fuzz",
+      "framework/bin/bugsinpy-info",
+      "framework/bin/bugsinpy-mutation",
+      "framework/bin/bugsinpy-test",
+      "projects/",
+      "projects/PySnooper/",
+      "projects/PySnooper/bugs/",
+      "projects/PySnooper/bugs/1/",
+      "projects/PySnooper/bugs/1/bug.info",
+      "projects/PySnooper/bugs/1/bug_patch.txt",
+      "projects/PySnooper/bugs/1/requirements.txt",
+      "projects/PySnooper/bugs/1/run_test.sh",
+      "projects/PySnooper/bugs/1/setup.sh",
+      "projects/PySnooper/bugs/2/",
+      "projects/PySnooper/bugs/2/bug.info",
+      "projects/PySnooper/bugs/2/bug_patch.txt",
+      "projects/PySnooper/bugs/2/requirements.txt",
+      "projects/PySnooper/bugs/2/run_test.sh",
+      "projects/PySnooper/bugs/2/setup.sh",
+      "projects/PySnooper/bugs/3/",
+      "projects/PySnooper/bugs/3/bug.info",
+      "projects/PySnooper/bugs/3/bug_patch.txt",
+      "projects/PySnooper/bugs/3/requirements.txt",
+      "projects/PySnooper/bugs/3/run_test.sh",
+      "projects/PySnooper/bugs/3/setup.sh",
+      "projects/PySnooper/project.info",
+      "projects/PySnooper/PySnooper-fail.txt",
+      "projects/PySnooper/PySnooper-pass.txt",
+      "projects/PySnooper/verify.sh",
+      "README.md"
+    ],
+    "tree_sha256": "1814112e0c803c6a5e2313cb0fc9fd317b55fe5c0514b61f8beceea241a9cdb0",
+    "truncated_at_file_count": null
+  },
+  "git_tree_id": "d00ce0495ba73abe50317599f48bced3c9afe4b3",
+  "observed_commit": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+  "source_repo": "https://github.com/soarsmu/BugsInPy.git",
+  "sparse_checkout_used": true,
+  "sparse_paths": [
+    "framework/",
+    "projects/PySnooper/",
+    "README.md",
+    ".gitignore",
+    "Dockerfile"
+  ],
+  "status": "PASS",
+  "working_tree_status_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

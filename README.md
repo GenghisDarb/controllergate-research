@@ -47,6 +47,7 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - v2.19 BugsInPy materialized-test provenance is officially ingested as a bounded provenance checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.20 coupled test-provenance repair work is officially ingested as a bounded harness-origin bootstrap checkpoint; it blocks before repair because no non-circular BugsInPy harness-origin authority is available.
 - v2.21 harness-origin verification work is officially ingested as a bounded non-circular BugsInPy harness-origin pin checkpoint; it is not a current-protocol promotion or a scoreable repair result.
+- v2.22 BugsInPy target-test materialization work is a bounded implementation lane that must run official pinned BugsInPy materialization before any terminal PySnooper:1 target-test provenance decision; it is not a current-protocol promotion.
 - The non-Ansible capability roadmap is tracked in `docs/non_ansible_capability_roadmap.md` and `configs/non_ansible_capability_backlog.json`.
 
 ## v2.14 capability recovery lane
@@ -198,6 +199,19 @@ v2.21 promotes a committed, non-circular BugsInPy harness-origin pin for `PySnoo
 - Target-test provenance remains the next hard gate: if the pinned harness source lacks `projects/PySnooper/bugs/1/tests/test_chinese.py`, the lane blocks before dependency recovery, replay, patch generation, validation, or scoring.
 - Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
 - Current protocol remains `v2.13`; v2.21 is not promoted to current.
+
+## v2.22 BugsInPy target-test materialization lane
+
+v2.22 corrects the framework-vs-materialized-workspace distinction: the pinned BugsInPy repository is treated as official framework/metadata, not as the expected location of materialized project files. The lane must run official `bugsinpy-checkout` into a fresh outside-repo workspace before deciding whether `tests/test_chinese.py` is safely available for PySnooper:1.
+
+- Campaign: `v2_22_bugsinpy_target_test_materialization_lane`
+- Status: `local_implementation_pending_official_artifact_ingestion`; v2.22 is not promoted to current.
+- Scope: `PySnooper:1` only; PySnooper:2 is not pursued.
+- Official framework source: `https://github.com/soarsmu/BugsInPy.git` at `11c5f1eea954a42132cfd06bf257766a7963e0fd`.
+- Absence from `projects/PySnooper/bugs/1/tests/test_chinese.py` in the framework checkout alone is not a terminal blocker.
+- Terminal PySnooper:1 provenance blocking is allowed only after official materialization is attempted and materialized-workspace plus buggy-source searches are recorded, or after fixed/future/gold/hidden/synthetic target-test provenance is detected.
+- Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+- Current protocol remains `v2.13`; v2.22 is not promoted to current.
 
 ## Non-Ansible capability roadmap
 
