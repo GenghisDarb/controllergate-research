@@ -1,0 +1,64 @@
+name: v2_15_chromosomal_maintenance_gate_order
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  chromosomal-maintenance-gates:
+    name: Chromosomal maintenance gate-order audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.15 implementation surface
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s configs/controllergate_current.yaml
+          test -s scripts/audit_v2_15_chromosomal_maintenance_gate_order.py
+          test -s scripts/v2_15_chromosomal_maintenance_gate_order_runner.py
+          test -d outputs/v2_15_chromosomal_maintenance_gate_order
+          test -s outputs/v2_15_chromosomal_maintenance_gate_order/campaign_results.json
+          test -s outputs/v2_15_chromosomal_maintenance_gate_order/campaign_summary.md
+          test -s outputs/v2_15_chromosomal_maintenance_gate_order/SHA256SUMS.txt
+          grep -q "protocol_version: v2.13" configs/controllergate_current.yaml
+          grep -q "proof_obligations_ledger_lock" outputs/v2_15_chromosomal_maintenance_gate_order/chromosomal_maintenance_order_v2_15.json
+
+      - name: Run v2.15 chromosomal maintenance audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_15_chromosomal_maintenance_gate_order.py
+
+      - name: Run preserved-regression audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_14_capability_recovery_lane.py
+          python scripts/audit_v2_13_minimal_forensic_context_lane.py
+          python scripts/audit_v2_12_dependency_cofactor_recovery.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+
+      - name: Upload v2.15 artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_15_chromosomal_maintenance_gate_order_artifacts
+          path: |
+            outputs/v2_15_chromosomal_maintenance_gate_order/**
+            controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md
+          if-no-files-found: error
