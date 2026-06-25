@@ -1,0 +1,17 @@
+campaign_id=v2_21_harness_origin_verification_lane
+started_at_utc=2026-06-25T21:33:12.255362Z
+runtime_root=E:\ControllerGate-Artifacts\v2_21_harness_origin_verification_workspace
+$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_21_harness_origin_verification_workspace/PySnooper init
+returncode=0 timed_out=False
+$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_21_harness_origin_verification_workspace/PySnooper remote add origin https://github.com/cool-RR/PySnooper
+returncode=0 timed_out=False
+$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_21_harness_origin_verification_workspace/PySnooper fetch --depth 1 origin e21a31162f4c54be693d8ca8260e42393b39abd3
+returncode=0 timed_out=False
+$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_21_harness_origin_verification_workspace/PySnooper checkout --detach e21a31162f4c54be693d8ca8260e42393b39abd3
+returncode=0 timed_out=False
+$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_21_harness_origin_verification_workspace/PySnooper reset --hard e21a31162f4c54be693d8ca8260e42393b39abd3
+returncode=0 timed_out=False
+$ git -c safe.directory=E:/ControllerGate-Artifacts/v2_21_harness_origin_verification_workspace/PySnooper clean -ffdx
+returncode=0 timed_out=False
+workspace_cleanup_confirmed=True
+finished_at_utc=2026-06-25T21:34:05.662384Z

@@ -1,0 +1,21 @@
+# v2.21 Harness Origin Verification Lane
+
+- Campaign: `v2_21_harness_origin_verification_lane`.
+- Scope: `PySnooper:1` only; PySnooper:2 was not pursued.
+- v2.20 official ingest verified: `true`.
+- Harness-origin pin: `PASS`.
+- Harness-origin source: `https://github.com/soarsmu/BugsInPy.git` at `11c5f1eea954a42132cfd06bf257766a7963e0fd`.
+- Observed harness SHA256: `3706244b4618612fad4681578dd740d1e54dbe9069303072ab7802f656f0e608`.
+- Pin promotion: `promoted_from_immutable_public_source`.
+- Target-test provenance: `BLOCK`.
+- Replisome coupling: `BLOCK`.
+- Chaperonin topology: `BLOCK`.
+- Dependency recovery: `not_executed_target_test_provenance_blocked`.
+- Pre-repair replay: `not_run_target_test_provenance_blocked`.
+- Patch generated / authorized / attempted: `false` / `false` / `false`.
+- PySnooper:1 scoreable: `false`; positive-memory-only: `false`.
+- Final blocker: The non-circular BugsInPy harness-origin pin verified, but the pinned harness source does not contain projects/PySnooper/bugs/1/tests/test_chinese.py, so target-test provenance remains blocked.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Current protocol remains `v2.13`; v2.21 is not promoted to current.

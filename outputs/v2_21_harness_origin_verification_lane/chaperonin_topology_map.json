@@ -1,0 +1,39 @@
+{
+  "blocker_if_fail": "harness_configuration_incomplete",
+  "campaign_id": "v2_21_harness_origin_verification_lane",
+  "candidate": "PySnooper:1",
+  "harness_files": [
+    {
+      "decision_time_safe_provenance": true,
+      "file_sha256": "199b770bd6551117a00f9c7ce2c674d7ddb818e3bb5dc344371340e75e52296e",
+      "materialized": false,
+      "path": "projects/PySnooper/bugs/1/bug.info",
+      "required": true,
+      "source_commit_or_bundle_hash": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+      "source_origin": "https://raw.githubusercontent.com/soarsmu/BugsInPy/11c5f1eea954a42132cfd06bf257766a7963e0fd/projects/PySnooper/bugs/1/bug.info"
+    },
+    {
+      "decision_time_safe_provenance": true,
+      "file_sha256": "6d24d2d88478e17cefec81f33a1ef5c44cea64321ff46762384c68e219064d0b",
+      "materialized": false,
+      "path": "projects/PySnooper/bugs/1/run_test.sh",
+      "required": true,
+      "source_commit_or_bundle_hash": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+      "source_origin": "https://raw.githubusercontent.com/soarsmu/BugsInPy/11c5f1eea954a42132cfd06bf257766a7963e0fd/projects/PySnooper/bugs/1/run_test.sh"
+    },
+    {
+      "decision_time_safe_provenance": true,
+      "file_sha256": "653b7a51d65d7409e319e29d51d5ee2af65d621ad9ef62148e7eacf99e289879",
+      "materialized": false,
+      "path": "projects/PySnooper/bugs/1/setup.sh",
+      "required": true,
+      "source_commit_or_bundle_hash": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+      "source_origin": "https://raw.githubusercontent.com/soarsmu/BugsInPy/11c5f1eea954a42132cfd06bf257766a7963e0fd/projects/PySnooper/bugs/1/setup.sh"
+    }
+  ],
+  "missing_required_harness_files": [
+    "tests/test_chinese.py"
+  ],
+  "status": "BLOCK",
+  "topology_status": "BLOCK"
+}

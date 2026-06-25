@@ -154,7 +154,7 @@ This roadmap is a planning/control document. It is not evidence that any capabil
 - v2.19: ingest v2.18; solve/block BugsInPy materialized target-test provenance; add repair state snapshot, diagnostic reward signal, structural signature, patch size cap, real-time patch safety, corrected patch application semantics, workspace protection, and post-validation analysis; attempt PySnooper:1 only if all gates pass.
 - v2.20: if v2.19 blocks on target-test provenance, implement a stricter BugsInPy benchmark-source acquisition bridge or manual verified source-bundle protocol; if v2.19 reaches validation but fails, use reward/signature/post-validation evidence to improve repair strategy without broad scoring.
 - v2.20 updated scope: couple source acquisition, BugsInPy harness-origin authority, target-test provenance, harness topology, redundancy-cache verification, recursive provenance, transport integrity, prompt/context custody, and precision-resolution diagnostics into one PySnooper:1 lane. If no non-circular authoritative BugsInPy harness-origin pin exists, block with `bugsinpy_harness_origin_bootstrap_missing` and write a proposal-only harness-origin candidate for review.
-- v2.21: if PySnooper:1 succeeds once, build a second non-Ansible candidate lane; do not claim generalization yet.
+- v2.21: promote a non-circular BugsInPy harness-origin pin from an immutable public source already tied to ingested decision-time metadata, verify that pin before any repair work, then attempt PySnooper:1 only if target-test provenance, topology, replay, and proof-ledger gates pass. If the pinned harness source still lacks `tests/test_chinese.py`, block before dependency recovery and patch generation.
 - v2.22: compare ControllerGate against vanilla LLM + tools + tests on the same scoreable episodes.
 - v2.23: only after multiple non-Ansible positives, consider current-protocol promotion beyond v2.13.
 
@@ -178,3 +178,16 @@ v2.20 adds planning and audit controls for:
 - Resolution-depth diagnostics using TLD framing as a planning heuristic only, not as a proof claim.
 
 The v2.20 lane remains PySnooper:1-only. PySnooper:2 remains blocked unless decision-time-safe fixture provenance for `tests/mini_toolbox.py` is proven. Full scoring, self-maintaining software, memory lift, broad non-Ansible generalization, and TORUS/TLD proof claims remain forbidden.
+
+## v2.21 harness-origin pin and first eligible repair-attempt controls
+
+v2.21 adds planning and audit controls for:
+
+- A committed non-circular BugsInPy harness-origin pin for `PySnooper:1`.
+- Pin authority derived from an immutable public BugsInPy commit already referenced by ingested decision-time evidence, not from workflow-runtime discovery.
+- Verification of the pinned BugsInPy topology files before target-test provenance, dependency recovery, replay, patch generation, or validation.
+- Explicit target-test provenance blocking when the pinned harness source does not contain `tests/test_chinese.py`.
+- Preservation of the v2.20 source-acquisition and provenance boundaries while allowing at most one PySnooper:1 patch attempt only after all provenance/replay gates pass.
+- A zero-lift diagnostic reward when the blocker is a missing target-test precondition rather than a failed repair attempt.
+
+The v2.21 lane remains PySnooper:1-only. PySnooper:2 remains blocked unless decision-time-safe fixture provenance for `tests/mini_toolbox.py` is proven. Full scoring, self-maintaining software, memory lift, broad non-Ansible generalization, and TORUS/TLD proof claims remain forbidden.

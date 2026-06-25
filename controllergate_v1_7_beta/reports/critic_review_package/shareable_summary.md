@@ -1275,3 +1275,19 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.20 is not promoted to current.
+
+## v2.21 Harness-Origin Verification Lane
+
+- Status: `local_implementation_pending_official_artifact_ingestion`.
+- Campaign: `v2_21_harness_origin_verification_lane`.
+- Candidate scope: `PySnooper:1` only; PySnooper:2 is not pursued.
+- Harness-origin pin source: `https://github.com/soarsmu/BugsInPy.git` at `11c5f1eea954a42132cfd06bf257766a7963e0fd`.
+- Expected harness manifest SHA256: `3706244b4618612fad4681578dd740d1e54dbe9069303072ab7802f656f0e608`.
+- The pin is committed configuration; workflow-runtime generation of harness authority is forbidden.
+- Target-test provenance remains the hard gate. If the pinned source does not contain `projects/PySnooper/bugs/1/tests/test_chinese.py`, dependency recovery, pre-repair replay, patch generation, validation, duplicate replay, and scoring remain blocked.
+- Patch generated: `false`; authorized: `false`; attempted: `false` unless every v2.21 gate passes in a later verified run.
+- Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.21 is not promoted to current.

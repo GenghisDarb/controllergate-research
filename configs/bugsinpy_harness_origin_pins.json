@@ -1,0 +1,51 @@
+{
+  "pins": [
+    {
+      "candidate_id": "PySnooper:1",
+      "created_timestamp": "2026-06-25T21:04:00Z",
+      "decision_time_safe_basis": [
+        "outputs/v2_19_bugsinpy_materialized_test_provenance/materialized_test_provenance.json recorded BugsInPy checkout head 11c5f1eea954a42132cfd06bf257766a7963e0fd before v2.21",
+        "outputs/v2_12_dependency_cofactor_recovery/preflight_candidates/001_PySnooper_1/candidate_metadata.json recorded target command and target test path without fixed/gold/future evidence"
+      ],
+      "expected_harness_manifest_sha256": "3706244b4618612fad4681578dd740d1e54dbe9069303072ab7802f656f0e608",
+      "expected_harness_topology_files": [
+        {
+          "path": "projects/PySnooper/bugs/1/bug.info",
+          "sha256": "199b770bd6551117a00f9c7ce2c674d7ddb818e3bb5dc344371340e75e52296e",
+          "size": 175
+        },
+        {
+          "path": "projects/PySnooper/bugs/1/run_test.sh",
+          "sha256": "6d24d2d88478e17cefec81f33a1ef5c44cea64321ff46762384c68e219064d0b",
+          "size": 48
+        },
+        {
+          "path": "projects/PySnooper/bugs/1/setup.sh",
+          "sha256": "653b7a51d65d7409e319e29d51d5ee2af65d621ad9ef62148e7eacf99e289879",
+          "size": 23
+        }
+      ],
+      "expected_target_test_path": "tests/test_chinese.py",
+      "expected_target_test_sha256": null,
+      "forbidden_inputs_checked": {
+        "copied_known_fixes": true,
+        "fixed_revision": true,
+        "future_outcomes": true,
+        "gold_patch": true,
+        "hidden_labels": true,
+        "synthetic_tests": true
+      },
+      "harness_manifest_path_or_metadata_path": "projects/PySnooper/bugs/1/{bug.info,run_test.sh,setup.sh}",
+      "harness_name": "BugsInPy",
+      "harness_source_type": "immutable_public_repo_commit",
+      "pin_authoritative_for_workflow": true,
+      "pin_authority_reason": "Promoted from immutable public BugsInPy commit recorded by the official v2.19 artifact; the GitHub workflow must verify these bytes from the committed config before use.",
+      "pin_created_by_version": "v2.21",
+      "review_status": "promoted_from_immutable_public_source",
+      "schema_version": "1.0",
+      "source_commit_sha_or_bundle_identity": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+      "source_url_or_repo": "https://github.com/soarsmu/BugsInPy.git"
+    }
+  ],
+  "schema_version": "1.0"
+}

@@ -61,6 +61,38 @@
       "v2_20_target_band": "test_provenance_N7_to_harness_topology_N8"
     }
   },
+  "v2_21_carry_forward": {
+    "status": "planned_and_required",
+    "target_version": "v2.21",
+    "scope": "PySnooper:1_only",
+    "required_controls": [
+      "committed_non_circular_bugsinpy_harness_origin_pin",
+      "immutable_public_source_commit_verification",
+      "workflow_runtime_authority_forbidden",
+      "target_test_provenance_recheck",
+      "harness_topology_recheck",
+      "pre_repair_replay_before_patch_authorization",
+      "at_most_one_patch_attempt_if_all_gates_pass",
+      "zero_lift_reward_for_missing_target_test_precondition",
+      "claim_boundaries"
+    ],
+    "primary_stop_conditions": [
+      "harness_origin_pin_not_committed_before_workflow_runtime",
+      "bugsinpy_harness_origin_bootstrap_mismatch",
+      "bugsinpy_harness_candidate_mapping_missing",
+      "blocked_test_provenance_missing",
+      "blocked_harness_topology_incomplete",
+      "blocked_pre_repair_replay_gate_failed"
+    ],
+    "resolution_framing": {
+      "architecture_heuristic_only": true,
+      "not_physics_validation": true,
+      "v2_18_band": "source_acquisition_N6_passed",
+      "v2_19_band": "test_provenance_N7_blocked",
+      "v2_20_band": "harness_origin_bootstrap_N7_to_N8_blocked",
+      "v2_21_target_band": "harness_origin_pin_N7p13_then_test_provenance_N7_recheck"
+    }
+  },
   "items": [
     {
       "id": "source_acquisition_origin_licensing",
@@ -421,7 +453,10 @@
           "use_reward_signature_post_validation_evidence_without_broad_scoring_if_validation_fails"
         ],
         "v2.21": [
-          "build_second_non_ansible_candidate_lane_if_pysnooper1_succeeds_once",
+          "promote_committed_non_circular_bugsinpy_harness_origin_pin",
+          "verify_immutable_public_source_commit_before_runtime_authority",
+          "attempt_pysnooper1_only_if_target_test_provenance_topology_replay_and_proof_ledger_gates_pass",
+          "block_before_dependency_recovery_and_patch_generation_if_tests_test_chinese_py_remains_absent",
           "do_not_claim_generalization"
         ],
         "v2.22": [

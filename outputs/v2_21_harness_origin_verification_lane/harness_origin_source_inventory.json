@@ -1,0 +1,61 @@
+{
+  "campaign_id": "v2_21_harness_origin_verification_lane",
+  "candidate": "PySnooper:1",
+  "forbidden_inputs_accessed": false,
+  "records": [
+    {
+      "expected_sha256": "199b770bd6551117a00f9c7ce2c674d7ddb818e3bb5dc344371340e75e52296e",
+      "http_status": 200,
+      "path": "projects/PySnooper/bugs/1/bug.info",
+      "present": true,
+      "sha256": "199b770bd6551117a00f9c7ce2c674d7ddb818e3bb5dc344371340e75e52296e",
+      "sha256_match": true,
+      "size": 175,
+      "text_excerpt": "python_version=\"3.8.1\"\nbuggy_commit_id=\"e21a31162f4c54be693d8ca8260e42393b39abd3\"\nfixed_commit_id=\"56f22f8ffe1c6b2be4d2cf3ad1987fdb66113da2\"\ntest_file=\"tests/test_chinese.py\"\n",
+      "url": "https://raw.githubusercontent.com/soarsmu/BugsInPy/11c5f1eea954a42132cfd06bf257766a7963e0fd/projects/PySnooper/bugs/1/bug.info"
+    },
+    {
+      "expected_sha256": "6d24d2d88478e17cefec81f33a1ef5c44cea64321ff46762384c68e219064d0b",
+      "http_status": 200,
+      "path": "projects/PySnooper/bugs/1/run_test.sh",
+      "present": true,
+      "sha256": "6d24d2d88478e17cefec81f33a1ef5c44cea64321ff46762384c68e219064d0b",
+      "sha256_match": true,
+      "size": 48,
+      "text_excerpt": "pytest -q -s tests/test_chinese.py::test_chinese",
+      "url": "https://raw.githubusercontent.com/soarsmu/BugsInPy/11c5f1eea954a42132cfd06bf257766a7963e0fd/projects/PySnooper/bugs/1/run_test.sh"
+    },
+    {
+      "expected_sha256": "653b7a51d65d7409e319e29d51d5ee2af65d621ad9ef62148e7eacf99e289879",
+      "http_status": 200,
+      "path": "projects/PySnooper/bugs/1/setup.sh",
+      "present": true,
+      "sha256": "653b7a51d65d7409e319e29d51d5ee2af65d621ad9ef62148e7eacf99e289879",
+      "sha256_match": true,
+      "size": 23,
+      "text_excerpt": "python setup.py install",
+      "url": "https://raw.githubusercontent.com/soarsmu/BugsInPy/11c5f1eea954a42132cfd06bf257766a7963e0fd/projects/PySnooper/bugs/1/setup.sh"
+    },
+    {
+      "http_status": 404,
+      "path": "projects/PySnooper/bugs/1/tests/test_chinese.py",
+      "present": false,
+      "sha256": null,
+      "size": null,
+      "text_excerpt": "",
+      "url": "https://raw.githubusercontent.com/soarsmu/BugsInPy/11c5f1eea954a42132cfd06bf257766a7963e0fd/projects/PySnooper/bugs/1/tests/test_chinese.py"
+    }
+  ],
+  "source_commit_sha_or_bundle_identity": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+  "source_url_or_repo": "https://github.com/soarsmu/BugsInPy.git",
+  "status": "PASS",
+  "target_test_record": {
+    "http_status": 404,
+    "path": "projects/PySnooper/bugs/1/tests/test_chinese.py",
+    "present": false,
+    "sha256": null,
+    "size": null,
+    "text_excerpt": "",
+    "url": "https://raw.githubusercontent.com/soarsmu/BugsInPy/11c5f1eea954a42132cfd06bf257766a7963e0fd/projects/PySnooper/bugs/1/tests/test_chinese.py"
+  }
+}

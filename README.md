@@ -46,6 +46,7 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - v2.18 PySnooper:1 origin licensing/source acquisition work is an officially ingested bounded source-acquisition checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.19 BugsInPy materialized-test provenance is officially ingested as a bounded provenance checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.20 coupled test-provenance repair work is officially ingested as a bounded harness-origin bootstrap checkpoint; it blocks before repair because no non-circular BugsInPy harness-origin authority is available.
+- v2.21 harness-origin verification work is a bounded implementation lane that promotes a committed non-circular BugsInPy harness-origin pin before any PySnooper:1 repair attempt; it is not a current-protocol promotion or a scoreable repair result unless a later official artifact proves all repair gates.
 - The non-Ansible capability roadmap is tracked in `docs/non_ansible_capability_roadmap.md` and `configs/non_ansible_capability_backlog.json`.
 
 ## v2.14 capability recovery lane
@@ -180,6 +181,20 @@ v2.20 couples the v2.18 source-acquisition result, v2.19 materialized-test block
 - Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
 - Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
 - Current protocol remains `v2.13`; v2.20 is not promoted to current.
+
+## v2.21 harness-origin verification lane
+
+v2.21 promotes a committed, non-circular BugsInPy harness-origin pin for `PySnooper:1` from an immutable public BugsInPy commit already tied to ingested decision-time metadata. The lane may attempt repair only if the pin, target-test provenance, topology, replay, dependency recovery, and proof-ledger gates pass.
+
+- Campaign: `v2_21_harness_origin_verification_lane`
+- Status: `local_implementation_pending_official_artifact_ingestion`; v2.21 is not promoted to current.
+- Scope: `PySnooper:1` only; PySnooper:2 is not pursued.
+- Harness-origin pin source: `https://github.com/soarsmu/BugsInPy.git` at `11c5f1eea954a42132cfd06bf257766a7963e0fd`.
+- Expected harness manifest SHA256: `3706244b4618612fad4681578dd740d1e54dbe9069303072ab7802f656f0e608`.
+- Workflow-runtime generation of authority is forbidden; the workflow must use committed pin config.
+- Target-test provenance remains the next hard gate: if the pinned harness source lacks `projects/PySnooper/bugs/1/tests/test_chinese.py`, the lane blocks before dependency recovery, replay, patch generation, validation, or scoring.
+- Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+- Current protocol remains `v2.13`; v2.21 is not promoted to current.
 
 ## Non-Ansible capability roadmap
 

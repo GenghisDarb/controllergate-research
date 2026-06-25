@@ -11,6 +11,7 @@ ControllerGate treats chaotic-looking blockers as under-resolved metrology state
 - v2.18 corresponds to the approximate `N≈6` emergence/source-acquisition threshold: the public PySnooper buggy source commit became resolvable.
 - v2.19 corresponds to the approximate `N≈7` test-provenance threshold: the target test content remained unresolved.
 - v2.20 targets the `N≈7–N≈8` region: coupled target-test provenance plus harness topology.
+- v2.21 targets the `N≈7.13` harness-origin-pin threshold: non-circular BugsInPy harness authority can be verified independently of workflow-runtime discovery, while target-test content may still remain unresolved.
 - A future repair/scoreable state corresponds to the `N≈9–N≈10` repair/kernel-lock region.
 
 ## Precision instruments
