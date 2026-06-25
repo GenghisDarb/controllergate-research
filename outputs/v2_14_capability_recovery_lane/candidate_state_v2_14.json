@@ -10,7 +10,7 @@
     "agent_state_id": "state_001_baseline_preservation",
     "ansible2_positive_memory_only_status_preserved": true,
     "ansible5_positive_memory_only_status_preserved": true,
-    "baseline_execution_mode": "verified_v2_13_official_ingest_reuse",
+    "baseline_execution_mode": "fresh_v2_14_rerun",
     "baseline_execution_scope": [
       "youtube-dl:1",
       "black:4",
@@ -19,7 +19,7 @@
       "ansible:5"
     ],
     "baseline_preservation_passed": true,
-    "baseline_source": "verified v2.13 official ingest baseline evidence",
+    "baseline_source": "v2_8w baseline harness via v2.13 baseline adapter",
     "broad_candidate_sweep_executed": false,
     "evidence_files": [
       "raw_logs/baseline/episode_001_youtube-dl_1/failing_command.txt",
@@ -69,7 +69,7 @@
       "ansible:2": true,
       "ansible:5": true
     },
-    "post_state_hash": "31277dc0b6343d7d811cd3dcd7d054a406a570007dd3ec9d87ba8cd58efd75b4",
+    "post_state_hash": "25879301cb080ab78b8065de1579de423e9337bf9fefa8172c3bff37715d3606",
     "pre_state_hash": "ef86f96bbfc172b7b2c18c8a2f28ff91484dacc403d9b01702605f52d0ca7620",
     "required_baseline_candidates": [
       {
@@ -1143,8 +1143,8 @@
         "observation_id": "observation_004_pysnooper1_recovery_gate",
         "parent_agent_state_id": "state_003_probe_dependency_declaration",
         "policy_reverified": true,
-        "post_state_hash": "ba315928ba62be39d941434edf42829ea0fb692fb4d1bff389052af29a015cad",
-        "pre_state_hash": "b12d3af4218bb52a7174fe2982ed05baaf5c634027707bb683c726972eef93b6",
+        "post_state_hash": "f908e39cbde7d9a7ba99d705b428b38bd3fee68ad808bf6e1e0011ab104ade28",
+        "pre_state_hash": "4fc7f8e43c5505f9b9699c065b1eb308a26a4e5db2961a0a302ec4892085fef6",
         "recovery_executed": false,
         "recovery_execution_attempted": false,
         "recovery_policy_allowed": true,
@@ -1164,8 +1164,8 @@
         "last_stable_state_id": "state_003_probe_dependency_declaration",
         "observation_id": "observation_003_probe_dependency_declaration",
         "parent_agent_state_id": "state_002_failure_memory_weighting",
-        "post_state_hash": "b12d3af4218bb52a7174fe2982ed05baaf5c634027707bb683c726972eef93b6",
-        "pre_state_hash": "c52ac2212cbc131e3916a53ae0e3e421945c9ed574779c396210ecdef1e59cf2",
+        "post_state_hash": "4fc7f8e43c5505f9b9699c065b1eb308a26a4e5db2961a0a302ec4892085fef6",
+        "pre_state_hash": "8722d4f6b0cfdb885efac29b26d8d47032b84fa8f0bf9f262b62bd3b97eb5a83",
         "rollback_to_state_id": null,
         "state_status": "stable"
       },
@@ -1189,8 +1189,8 @@
         ],
         "observation_id": "observation_006_pysnooper2_fixture_materialization_gate",
         "parent_agent_state_id": "state_005_probe_fixture_helper_availability",
-        "post_state_hash": "506235b51b9f0ee9ceae9b5f691573151912d9f565d77d70fe54b7a6fca2b826",
-        "pre_state_hash": "757b72cf7a4b8780a868e6e035ba82e3f31f2e18e9cc42d6f77ed40d1ad57f5a",
+        "post_state_hash": "4a2da914532ab404b09b2fed95b85cd93b97194aec3f312b900eb0f54f426233",
+        "pre_state_hash": "c1d7c50425528149f1df7d02d2bea30ea7dcd88082e768d68f6b8286ad9da157",
         "present_in_buggy_checkout": false,
         "present_in_decision_time_safe_test_harness_metadata": false,
         "recoverable_without_benchmark_expectation_edits": false,
@@ -1211,8 +1211,8 @@
         "last_stable_state_id": "state_005_probe_fixture_helper_availability",
         "observation_id": "observation_005_probe_fixture_helper_availability",
         "parent_agent_state_id": "state_004_pysnooper1_recovery_gate",
-        "post_state_hash": "757b72cf7a4b8780a868e6e035ba82e3f31f2e18e9cc42d6f77ed40d1ad57f5a",
-        "pre_state_hash": "ba315928ba62be39d941434edf42829ea0fb692fb4d1bff389052af29a015cad",
+        "post_state_hash": "c1d7c50425528149f1df7d02d2bea30ea7dcd88082e768d68f6b8286ad9da157",
+        "pre_state_hash": "f908e39cbde7d9a7ba99d705b428b38bd3fee68ad808bf6e1e0011ab104ade28",
         "rollback_to_state_id": null,
         "state_status": "stable"
       },
@@ -1237,13 +1237,13 @@
         ],
         "expected_uncertainty_reduced": "whether dependency/cofactor recovery is policy-allowed for PySnooper:1",
         "mutates_source_or_tests": false,
-        "post_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
-        "pre_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
+        "post_state_hash": "aac3e29a37a612a61b52adf1a23e2bf70d5b47bb3749d69eb14a311f2b673fe1",
+        "pre_state_hash": "aac3e29a37a612a61b52adf1a23e2bf70d5b47bb3749d69eb14a311f2b673fe1",
         "predeclared_before_execution": true,
         "probe_id": "probe_001_pysnooper1_dependency_declaration_check",
         "reason": "independently re-verify the v2.13 declaration evidence before any dependency recovery gate",
         "result_log_path": "raw_logs/probe_001_pysnooper1_dependency_declaration_check.json",
-        "result_log_sha256": "a438a51790b7efbd07e1e78fb28d7521ca9e2178a6b55b61a9d414d7d9ea5365",
+        "result_log_sha256": "e07d5df19dc902f92060adc259371c0bca010f305a8ae3835bf0ef9dece5cabe",
         "status": "PASS"
       },
       {
@@ -1255,13 +1255,13 @@
         ],
         "expected_uncertainty_reduced": "whether missing tests/mini_toolbox.py is safely recoverable",
         "mutates_source_or_tests": false,
-        "post_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
-        "pre_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
+        "post_state_hash": "aac3e29a37a612a61b52adf1a23e2bf70d5b47bb3749d69eb14a311f2b673fe1",
+        "pre_state_hash": "aac3e29a37a612a61b52adf1a23e2bf70d5b47bb3749d69eb14a311f2b673fe1",
         "predeclared_before_execution": true,
         "probe_id": "probe_002_pysnooper2_fixture_helper_availability_check",
         "reason": "determine whether fixture/helper materialization can be authorized without test/fixture edits",
         "result_log_path": "raw_logs/probe_002_pysnooper2_fixture_helper_availability_check.json",
-        "result_log_sha256": "66f4f54e2c6ed4c945ab46d74a204844304d5b4ab27188f4eeb5ccb12f387246",
+        "result_log_sha256": "0c0d6c6efb9666447ae8a647ac5581020aca5fb5187e82056d14c4433180358b",
         "status": "PASS"
       }
     ],
@@ -1271,8 +1271,8 @@
   },
   "current_protocol_promoted": false,
   "execution_context": {
-    "environment": "local_implementation_checkpoint",
-    "reran_baseline": false
+    "environment": "github_actions",
+    "reran_baseline": true
   },
   "failure_memory_weighting": {
     "agent_state_id": "state_002_failure_memory_weighting",
@@ -1281,8 +1281,8 @@
     "observation_id": "observation_002_failure_memory_weighting",
     "output": "failure_memory_weights_v2_14.json",
     "parent_agent_state_id": "state_001_baseline_preservation",
-    "post_state_hash": "c52ac2212cbc131e3916a53ae0e3e421945c9ed574779c396210ecdef1e59cf2",
-    "pre_state_hash": "31277dc0b6343d7d811cd3dcd7d054a406a570007dd3ec9d87ba8cd58efd75b4",
+    "post_state_hash": "8722d4f6b0cfdb885efac29b26d8d47032b84fa8f0bf9f262b62bd3b97eb5a83",
+    "pre_state_hash": "25879301cb080ab78b8065de1579de423e9337bf9fefa8172c3bff37715d3606",
     "ranking_only": true,
     "rollback_to_state_id": null,
     "state_status": "stable",
@@ -1310,7 +1310,7 @@
     "positive_memory_only": false,
     "positive_memory_only_status": false,
     "post_state_hash": "cfdb7391ebc9e9b2be6e02c67bb1edf4c4dbfcdcb0c21e2b6881f3958b3e5779",
-    "pre_state_hash": "77b3b6b0f2f9c1d2ab8701ddd814ca57b726447af4fbf711711df8092807f240",
+    "pre_state_hash": "754fafdc9124392bde871711e54cea53917cb818812bd5122a8651116593554b",
     "pysnooper1_final_classification": "pysnooper1_dependency_recovery_execution_blocked",
     "pysnooper2_final_classification": "pysnooper2_fixture_materialization_forbidden_or_unavailable",
     "rollback_to_state_id": null,
@@ -1333,8 +1333,8 @@
     "observation_id": "observation_007_local_global_validation",
     "output": "local_global_validation_v2_14.json",
     "parent_agent_state_id": "state_006_pysnooper2_fixture_materialization_gate",
-    "post_state_hash": "77b3b6b0f2f9c1d2ab8701ddd814ca57b726447af4fbf711711df8092807f240",
-    "pre_state_hash": "506235b51b9f0ee9ceae9b5f691573151912d9f565d77d70fe54b7a6fca2b826",
+    "post_state_hash": "754fafdc9124392bde871711e54cea53917cb818812bd5122a8651116593554b",
+    "pre_state_hash": "4a2da914532ab404b09b2fed95b85cd93b97194aec3f312b900eb0f54f426233",
     "rollback_to_state_id": null,
     "state_status": "stable",
     "status": "PASS"
@@ -1364,7 +1364,7 @@
         "v2.13/v2.12 baseline gate"
       ],
       "direct_script_output": null,
-      "entry_hash": "3de59db65c62e03b564366490164b758e6f3adb39d2a48c31ad6bfdfa6871bd8",
+      "entry_hash": "35518be8516e9817dd89a599f194afd4790315d1f1b61033f800e626ed2e68d3",
       "entry_index": 0,
       "evidence_files": [
         "baseline_preservation_v2_14.json",
@@ -1386,18 +1386,18 @@
       "next_allowed_action": "failure_memory_weighting",
       "observation_id": "observation_001_baseline_preservation",
       "parent_agent_state_id": null,
-      "post_state_hash": "31277dc0b6343d7d811cd3dcd7d054a406a570007dd3ec9d87ba8cd58efd75b4",
+      "post_state_hash": "25879301cb080ab78b8065de1579de423e9337bf9fefa8172c3bff37715d3606",
       "pre_state_hash": "ef86f96bbfc172b7b2c18c8a2f28ff91484dacc403d9b01702605f52d0ca7620",
       "result": "pass",
       "rollback_to_state_id": null,
       "sequence_index": 0,
       "sha256": {
-        "entry_hash": "3de59db65c62e03b564366490164b758e6f3adb39d2a48c31ad6bfdfa6871bd8",
+        "entry_hash": "35518be8516e9817dd89a599f194afd4790315d1f1b61033f800e626ed2e68d3",
         "input_hashes": {
           "outputs/v2_13_minimal_forensic_context_lane/baseline_preservation_v2_13.json": "3c4195b5ca192092a004d91c92149e8554079ba065a276ac2ca4bd5e40e19370"
         },
         "output_hashes": {
-          "baseline_preservation_v2_14.json": "cf63eb8dd8f668d5317ea0587de71176ffb0e0c34aa20148a9a8effb52e85b1a"
+          "baseline_preservation_v2_14.json": "493e083c29e16f90c9a3ba6370515327353cb20bc37997a759a101313fd058c4"
         },
         "previous_entry_hash": null
       },
@@ -1413,7 +1413,7 @@
         "v2.12 patch evidence for touched symbols"
       ],
       "direct_script_output": null,
-      "entry_hash": "2dc7f7512a7ef3d9e971abbc8b9ed22bf99a81831213f9a0a7c39549a251d47c",
+      "entry_hash": "ec3d8ccbf6a53294341218030d0caa4549ac218a174702c4fdc75f3041d24374",
       "entry_index": 1,
       "evidence_files": [
         "failure_memory_weights_v2_14.json"
@@ -1434,18 +1434,18 @@
       "next_allowed_action": "bounded_probe",
       "observation_id": "observation_002_failure_memory_weighting",
       "parent_agent_state_id": "state_001_baseline_preservation",
-      "post_state_hash": "c52ac2212cbc131e3916a53ae0e3e421945c9ed574779c396210ecdef1e59cf2",
-      "pre_state_hash": "31277dc0b6343d7d811cd3dcd7d054a406a570007dd3ec9d87ba8cd58efd75b4",
+      "post_state_hash": "8722d4f6b0cfdb885efac29b26d8d47032b84fa8f0bf9f262b62bd3b97eb5a83",
+      "pre_state_hash": "25879301cb080ab78b8065de1579de423e9337bf9fefa8172c3bff37715d3606",
       "result": "pass",
       "rollback_to_state_id": null,
       "sequence_index": 1,
       "sha256": {
-        "entry_hash": "2dc7f7512a7ef3d9e971abbc8b9ed22bf99a81831213f9a0a7c39549a251d47c",
+        "entry_hash": "ec3d8ccbf6a53294341218030d0caa4549ac218a174702c4fdc75f3041d24374",
         "input_hashes": {},
         "output_hashes": {
-          "failure_memory_weights_v2_14.json": "3ddf5e920c48d8397266287a30ee517c2dec9dfa3d77d1a616e0388017969837"
+          "failure_memory_weights_v2_14.json": "f1331449a077a9b923a9ca0aa4fdd17951c7a5d48b61eb24a59cd780d5e1b906"
         },
-        "previous_entry_hash": "3de59db65c62e03b564366490164b758e6f3adb39d2a48c31ad6bfdfa6871bd8"
+        "previous_entry_hash": "35518be8516e9817dd89a599f194afd4790315d1f1b61033f800e626ed2e68d3"
       },
       "state_status": "stable"
     },
@@ -1458,7 +1458,7 @@
         "predeclared dependency declaration check"
       ],
       "direct_script_output": null,
-      "entry_hash": "959ceb04d31d549a6bef182248fa498539b036012342b4e2f724e693c2dc894a",
+      "entry_hash": "38dc50359103757ca37efb19a7135dc59e413006661ec56272503e8ea5ff0415",
       "entry_index": 2,
       "evidence_files": [
         "capability_probe_log_v2_14.json",
@@ -1480,18 +1480,18 @@
       "next_allowed_action": "dependency_recovery_gate",
       "observation_id": "observation_003_probe_dependency_declaration",
       "parent_agent_state_id": "state_002_failure_memory_weighting",
-      "post_state_hash": "b12d3af4218bb52a7174fe2982ed05baaf5c634027707bb683c726972eef93b6",
-      "pre_state_hash": "c52ac2212cbc131e3916a53ae0e3e421945c9ed574779c396210ecdef1e59cf2",
+      "post_state_hash": "4fc7f8e43c5505f9b9699c065b1eb308a26a4e5db2961a0a302ec4892085fef6",
+      "pre_state_hash": "8722d4f6b0cfdb885efac29b26d8d47032b84fa8f0bf9f262b62bd3b97eb5a83",
       "result": "pass",
       "rollback_to_state_id": null,
       "sequence_index": 2,
       "sha256": {
-        "entry_hash": "959ceb04d31d549a6bef182248fa498539b036012342b4e2f724e693c2dc894a",
+        "entry_hash": "38dc50359103757ca37efb19a7135dc59e413006661ec56272503e8ea5ff0415",
         "input_hashes": {},
         "output_hashes": {
-          "capability_probe_log_v2_14.json": "efd3a62141ed700bc82cac5045e5e7148dc4cf3e7bfbbff157cfc7a43594450a"
+          "capability_probe_log_v2_14.json": "02f0c910c7e687cf8b7538f7696eb8880f81438bc7bec1fed9e30e7f7686448f"
         },
-        "previous_entry_hash": "2dc7f7512a7ef3d9e971abbc8b9ed22bf99a81831213f9a0a7c39549a251d47c"
+        "previous_entry_hash": "ec3d8ccbf6a53294341218030d0caa4549ac218a174702c4fdc75f3041d24374"
       },
       "state_status": "stable"
     },
@@ -1506,7 +1506,7 @@
         "hard safety gates"
       ],
       "direct_script_output": null,
-      "entry_hash": "ef22ff103a184b8afe7ea8f973559f9f15fa505b0b32d86281f642735878ced5",
+      "entry_hash": "fd1fbbf441a0a11570d6c5e115f4e090ccf7482547bfbb5e5c9b4b387709bed3",
       "entry_index": 3,
       "evidence_files": [
         "pysnooper1_recovery_gate_v2_14.json"
@@ -1527,18 +1527,18 @@
       "next_allowed_action": "try_next_allowed_candidate",
       "observation_id": "observation_004_pysnooper1_recovery_gate",
       "parent_agent_state_id": "state_003_probe_dependency_declaration",
-      "post_state_hash": "ba315928ba62be39d941434edf42829ea0fb692fb4d1bff389052af29a015cad",
-      "pre_state_hash": "b12d3af4218bb52a7174fe2982ed05baaf5c634027707bb683c726972eef93b6",
+      "post_state_hash": "f908e39cbde7d9a7ba99d705b428b38bd3fee68ad808bf6e1e0011ab104ade28",
+      "pre_state_hash": "4fc7f8e43c5505f9b9699c065b1eb308a26a4e5db2961a0a302ec4892085fef6",
       "result": "blocked",
       "rollback_to_state_id": null,
       "sequence_index": 3,
       "sha256": {
-        "entry_hash": "ef22ff103a184b8afe7ea8f973559f9f15fa505b0b32d86281f642735878ced5",
+        "entry_hash": "fd1fbbf441a0a11570d6c5e115f4e090ccf7482547bfbb5e5c9b4b387709bed3",
         "input_hashes": {},
         "output_hashes": {
-          "pysnooper1_recovery_gate_v2_14.json": "8f5450ba92941ab992a54d566d9a19f0c7e02289bebab956641a2d7ddcdd0f98"
+          "pysnooper1_recovery_gate_v2_14.json": "45292243700d1f99f84684fc24ccbf82f2393dbae99b724b3dd7c22dd204d446"
         },
-        "previous_entry_hash": "959ceb04d31d549a6bef182248fa498539b036012342b4e2f724e693c2dc894a"
+        "previous_entry_hash": "38dc50359103757ca37efb19a7135dc59e413006661ec56272503e8ea5ff0415"
       },
       "state_status": "stable"
     },
@@ -1551,7 +1551,7 @@
         "predeclared fixture/helper availability check"
       ],
       "direct_script_output": null,
-      "entry_hash": "f31c06857527b5ce57fc7d1254442d57aaa5334eca41bb923a300bed4458f880",
+      "entry_hash": "bd5f958468eb2d0d2a081f2fccfc15ab120176a9f277ee6b5f15a8bd7ad44d16",
       "entry_index": 4,
       "evidence_files": [
         "capability_probe_log_v2_14.json",
@@ -1573,18 +1573,18 @@
       "next_allowed_action": "fixture_materialization_gate",
       "observation_id": "observation_005_probe_fixture_helper_availability",
       "parent_agent_state_id": "state_004_pysnooper1_recovery_gate",
-      "post_state_hash": "757b72cf7a4b8780a868e6e035ba82e3f31f2e18e9cc42d6f77ed40d1ad57f5a",
-      "pre_state_hash": "ba315928ba62be39d941434edf42829ea0fb692fb4d1bff389052af29a015cad",
+      "post_state_hash": "c1d7c50425528149f1df7d02d2bea30ea7dcd88082e768d68f6b8286ad9da157",
+      "pre_state_hash": "f908e39cbde7d9a7ba99d705b428b38bd3fee68ad808bf6e1e0011ab104ade28",
       "result": "pass",
       "rollback_to_state_id": null,
       "sequence_index": 4,
       "sha256": {
-        "entry_hash": "f31c06857527b5ce57fc7d1254442d57aaa5334eca41bb923a300bed4458f880",
+        "entry_hash": "bd5f958468eb2d0d2a081f2fccfc15ab120176a9f277ee6b5f15a8bd7ad44d16",
         "input_hashes": {},
         "output_hashes": {
-          "capability_probe_log_v2_14.json": "efd3a62141ed700bc82cac5045e5e7148dc4cf3e7bfbbff157cfc7a43594450a"
+          "capability_probe_log_v2_14.json": "02f0c910c7e687cf8b7538f7696eb8880f81438bc7bec1fed9e30e7f7686448f"
         },
-        "previous_entry_hash": "ef22ff103a184b8afe7ea8f973559f9f15fa505b0b32d86281f642735878ced5"
+        "previous_entry_hash": "fd1fbbf441a0a11570d6c5e115f4e090ccf7482547bfbb5e5c9b4b387709bed3"
       },
       "state_status": "stable"
     },
@@ -1599,7 +1599,7 @@
         "hard safety gates"
       ],
       "direct_script_output": null,
-      "entry_hash": "affb109044c642d4ed35f3f6909542d1ad3701f2cf54ea43e06300da3448a498",
+      "entry_hash": "3f6122dc1c2e16a092b5f8a478a26719e5c8a9efe01ba8de316789bb746c2fa4",
       "entry_index": 5,
       "evidence_files": [
         "pysnooper2_fixture_gate_v2_14.json"
@@ -1620,18 +1620,18 @@
       "next_allowed_action": "final_classification",
       "observation_id": "observation_006_pysnooper2_fixture_materialization_gate",
       "parent_agent_state_id": "state_005_probe_fixture_helper_availability",
-      "post_state_hash": "506235b51b9f0ee9ceae9b5f691573151912d9f565d77d70fe54b7a6fca2b826",
-      "pre_state_hash": "757b72cf7a4b8780a868e6e035ba82e3f31f2e18e9cc42d6f77ed40d1ad57f5a",
+      "post_state_hash": "4a2da914532ab404b09b2fed95b85cd93b97194aec3f312b900eb0f54f426233",
+      "pre_state_hash": "c1d7c50425528149f1df7d02d2bea30ea7dcd88082e768d68f6b8286ad9da157",
       "result": "blocked",
       "rollback_to_state_id": null,
       "sequence_index": 5,
       "sha256": {
-        "entry_hash": "affb109044c642d4ed35f3f6909542d1ad3701f2cf54ea43e06300da3448a498",
+        "entry_hash": "3f6122dc1c2e16a092b5f8a478a26719e5c8a9efe01ba8de316789bb746c2fa4",
         "input_hashes": {},
         "output_hashes": {
-          "pysnooper2_fixture_gate_v2_14.json": "e0f2af6dc110d97bca19b1fe747fe9b1e4abc57dc59aa68bdfa718c9cce0f8f6"
+          "pysnooper2_fixture_gate_v2_14.json": "23c0dcfadde0d51d472fd693f0ff121db57cdd29b05717a8eeada32c48c6ab2b"
         },
-        "previous_entry_hash": "f31c06857527b5ce57fc7d1254442d57aaa5334eca41bb923a300bed4458f880"
+        "previous_entry_hash": "bd5f958468eb2d0d2a081f2fccfc15ab120176a9f277ee6b5f15a8bd7ad44d16"
       },
       "state_status": "stable"
     },
@@ -1645,7 +1645,7 @@
         "global claim constraints"
       ],
       "direct_script_output": null,
-      "entry_hash": "cdba12857403e5ae2e5fcaec925aa89b6143ceee14bd7f8a913d6a391b62e3b7",
+      "entry_hash": "2d4294fdaf721507d36d5936358eb7a04bf54ac2134e1a912aa9fdbe6dbe4cc8",
       "entry_index": 6,
       "evidence_files": [
         "local_global_validation_v2_14.json"
@@ -1666,18 +1666,18 @@
       "next_allowed_action": "final_classification",
       "observation_id": "observation_007_local_global_validation",
       "parent_agent_state_id": "state_006_pysnooper2_fixture_materialization_gate",
-      "post_state_hash": "77b3b6b0f2f9c1d2ab8701ddd814ca57b726447af4fbf711711df8092807f240",
-      "pre_state_hash": "506235b51b9f0ee9ceae9b5f691573151912d9f565d77d70fe54b7a6fca2b826",
+      "post_state_hash": "754fafdc9124392bde871711e54cea53917cb818812bd5122a8651116593554b",
+      "pre_state_hash": "4a2da914532ab404b09b2fed95b85cd93b97194aec3f312b900eb0f54f426233",
       "result": "pass_with_no_scoreable_candidate",
       "rollback_to_state_id": null,
       "sequence_index": 6,
       "sha256": {
-        "entry_hash": "cdba12857403e5ae2e5fcaec925aa89b6143ceee14bd7f8a913d6a391b62e3b7",
+        "entry_hash": "2d4294fdaf721507d36d5936358eb7a04bf54ac2134e1a912aa9fdbe6dbe4cc8",
         "input_hashes": {},
         "output_hashes": {
-          "local_global_validation_v2_14.json": "e5491a02f18336d09a423e17dcd8361a65b428053f4c82e4478bfdd3eaab4607"
+          "local_global_validation_v2_14.json": "a1c35d4ca03daf07e5dc6d5656188e4c18d01ffa38cc2ec8ea8e782f2f11a528"
         },
-        "previous_entry_hash": "affb109044c642d4ed35f3f6909542d1ad3701f2cf54ea43e06300da3448a498"
+        "previous_entry_hash": "3f6122dc1c2e16a092b5f8a478a26719e5c8a9efe01ba8de316789bb746c2fa4"
       },
       "state_status": "stable"
     },
@@ -1691,7 +1691,7 @@
         "v2.13 claim boundaries"
       ],
       "direct_script_output": null,
-      "entry_hash": "8ee890f3fc450a7bd84fda02dd60e51ea4cef9b4253c52cbc27ff92e60c596fb",
+      "entry_hash": "c5ad473204b256d9ad6b9217daefa884130516db7f72a98e02537c7e8339556f",
       "entry_index": 7,
       "evidence_files": [
         "candidate_state_v2_14.json",
@@ -1716,15 +1716,15 @@
       "observation_id": "observation_008_final_classification",
       "parent_agent_state_id": "state_007_local_global_validation",
       "post_state_hash": "cfdb7391ebc9e9b2be6e02c67bb1edf4c4dbfcdcb0c21e2b6881f3958b3e5779",
-      "pre_state_hash": "77b3b6b0f2f9c1d2ab8701ddd814ca57b726447af4fbf711711df8092807f240",
+      "pre_state_hash": "754fafdc9124392bde871711e54cea53917cb818812bd5122a8651116593554b",
       "result": "PASS_WITH_BOUNDED_BLOCKERS",
       "rollback_to_state_id": null,
       "sequence_index": 7,
       "sha256": {
-        "entry_hash": "8ee890f3fc450a7bd84fda02dd60e51ea4cef9b4253c52cbc27ff92e60c596fb",
+        "entry_hash": "c5ad473204b256d9ad6b9217daefa884130516db7f72a98e02537c7e8339556f",
         "input_hashes": {},
         "output_hashes": {},
-        "previous_entry_hash": "cdba12857403e5ae2e5fcaec925aa89b6143ceee14bd7f8a913d6a391b62e3b7"
+        "previous_entry_hash": "2d4294fdaf721507d36d5936358eb7a04bf54ac2134e1a912aa9fdbe6dbe4cc8"
       },
       "state_status": "stable"
     }
@@ -1775,5 +1775,5 @@
     "v2_13_self_maintaining_software_demonstrated": false
   },
   "version": "v2.14",
-  "workflow_executed": false
+  "workflow_executed": true
 }

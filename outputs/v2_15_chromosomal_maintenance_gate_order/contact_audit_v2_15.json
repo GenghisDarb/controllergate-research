@@ -1,0 +1,51 @@
+{
+  "audit_assertions": {
+    "anti_leakage_checks": true,
+    "observer_state_separation": true,
+    "source_contacts_not_mutated": true
+  },
+  "blocker_category": "not_applicable_no_patch",
+  "blocker_reason": "contact audit confirms no source mutation occurred after activation denial",
+  "candidate_id": [
+    "PySnooper:1",
+    "PySnooper:2"
+  ],
+  "candidate_results": [
+    {
+      "candidate_id": "PySnooper:1",
+      "contact_audit_result": "no_patch_no_contact_mutation",
+      "gate_status": "pass"
+    },
+    {
+      "candidate_id": "PySnooper:2",
+      "contact_audit_result": "no_patch_no_contact_mutation",
+      "gate_status": "pass"
+    }
+  ],
+  "decision_time_inputs_used": [
+    "topology gate",
+    "patch attempt gate"
+  ],
+  "evidence_files": [
+    "outputs/v2_15_chromosomal_maintenance_gate_order/native_contact_topology_gate_v2_15.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/bounded_patch_attempt_gate_v2_15.json"
+  ],
+  "forbidden_inputs_checked": [
+    "fixed revision contents",
+    "BugsInPy gold patches",
+    "future outcome evidence",
+    "hidden labels",
+    "benchmark expectation edits",
+    "test edits",
+    "undeclared dependency installation",
+    "broad candidate sweep",
+    "full ControllerGate scoring"
+  ],
+  "gate_name": "contact_audit",
+  "gate_status": "pass",
+  "next_allowed_action": "duplicate_clean_replay",
+  "sha256_inputs": {
+    "outputs/v2_15_chromosomal_maintenance_gate_order/bounded_patch_attempt_gate_v2_15.json": "938dcc7ba2f91b70184700cca0f68abd2c651ade78a25268272c01ee0a1da100",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/native_contact_topology_gate_v2_15.json": "82c19730aa2dfaf174aa4a2ee2ffa83407b42f0b9fb82b7981357ade0cf1245a"
+  }
+}

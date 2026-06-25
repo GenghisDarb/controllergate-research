@@ -1,0 +1,101 @@
+{
+  "audit_assertions": {
+    "hash_chain_valid": true,
+    "proof_obligations_locked": true
+  },
+  "blocker_category": "none",
+  "blocker_reason": "proof ledger is locked over ordered gate hashes",
+  "candidate_id": [
+    "PySnooper:1",
+    "PySnooper:2"
+  ],
+  "decision_time_inputs_used": [
+    "all previous v2.15 gate artifacts",
+    "v2.14 preserved artifact boundary"
+  ],
+  "evidence_files": [
+    "outputs/v2_15_chromosomal_maintenance_gate_order/reference_core_gate_v2_15.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/native_contact_topology_gate_v2_15.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/materialization_cofactor_gate_v2_15.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/activation_licensing_gate_v2_15.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/bounded_patch_attempt_gate_v2_15.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/contact_audit_v2_15.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/duplicate_clean_replay_verification_v2_15.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/phase_inversion_seed_constraint_check_v2_15.json"
+  ],
+  "forbidden_inputs_checked": [
+    "fixed revision contents",
+    "BugsInPy gold patches",
+    "future outcome evidence",
+    "hidden labels",
+    "benchmark expectation edits",
+    "test edits",
+    "undeclared dependency installation",
+    "broad candidate sweep",
+    "full ControllerGate scoring"
+  ],
+  "gate_name": "proof_obligations_ledger_lock",
+  "gate_status": "pass",
+  "ledger_entries": [
+    {
+      "entry_hash": "bd003cc08ce1c2a1af2cd7d8898b2d50a0aaa067c696aa89ceae879a869138ef",
+      "path": "reference_core_gate_v2_15.json",
+      "previous_entry_hash": null,
+      "sha256": "f9fc0a62f1271f6a4e74fc841ffa80330f86525b1cab375381c5f29ddbfe8c4c"
+    },
+    {
+      "entry_hash": "ba784d00d535b62d81ec8498774b91d8c5e9e8219f94207949c98fae38dff84d",
+      "path": "native_contact_topology_gate_v2_15.json",
+      "previous_entry_hash": "bd003cc08ce1c2a1af2cd7d8898b2d50a0aaa067c696aa89ceae879a869138ef",
+      "sha256": "82c19730aa2dfaf174aa4a2ee2ffa83407b42f0b9fb82b7981357ade0cf1245a"
+    },
+    {
+      "entry_hash": "d2ad83d16486cfb3790142df4303ce3813631e4c8653e835550993cc55f2ee0e",
+      "path": "materialization_cofactor_gate_v2_15.json",
+      "previous_entry_hash": "ba784d00d535b62d81ec8498774b91d8c5e9e8219f94207949c98fae38dff84d",
+      "sha256": "c294f5aa2f5aeb801519847716f951b136b9845cb5bfcc2fc13571eadba58f02"
+    },
+    {
+      "entry_hash": "ca01dcc0b9938777cb8f01051b69d5f3b118c25464cb94a2dbf32da75aa66ecd",
+      "path": "activation_licensing_gate_v2_15.json",
+      "previous_entry_hash": "d2ad83d16486cfb3790142df4303ce3813631e4c8653e835550993cc55f2ee0e",
+      "sha256": "1ab6288a7f9de63818b9147f5d194d498962ec0a5b1eb5d07ff6beb809c5de00"
+    },
+    {
+      "entry_hash": "066858cabb480d3472c7313f3150b7265054999b903de6ae505fb46fe5c5453a",
+      "path": "bounded_patch_attempt_gate_v2_15.json",
+      "previous_entry_hash": "ca01dcc0b9938777cb8f01051b69d5f3b118c25464cb94a2dbf32da75aa66ecd",
+      "sha256": "938dcc7ba2f91b70184700cca0f68abd2c651ade78a25268272c01ee0a1da100"
+    },
+    {
+      "entry_hash": "5202540efe5ada688816f3e75dd38734b1c471b111e5c4699f250ec031a5b81d",
+      "path": "contact_audit_v2_15.json",
+      "previous_entry_hash": "066858cabb480d3472c7313f3150b7265054999b903de6ae505fb46fe5c5453a",
+      "sha256": "ff223dcdcb30cbf09c21308a697fed8c36639abbaa067cd22af0cc36853296b1"
+    },
+    {
+      "entry_hash": "2bbc04d4b92b76c28e4c0bcfca52031549ee504eca2d8f43bf53ca3a6f8c89eb",
+      "path": "duplicate_clean_replay_verification_v2_15.json",
+      "previous_entry_hash": "5202540efe5ada688816f3e75dd38734b1c471b111e5c4699f250ec031a5b81d",
+      "sha256": "879a11e054a336451918ad64664693b43825e111cc89f13194b5581107b5bcce"
+    },
+    {
+      "entry_hash": "47c9946bc8c1fd2a2883c1234db0458471f20659e42b520996abd4c8388939fe",
+      "path": "phase_inversion_seed_constraint_check_v2_15.json",
+      "previous_entry_hash": "2bbc04d4b92b76c28e4c0bcfca52031549ee504eca2d8f43bf53ca3a6f8c89eb",
+      "sha256": "a62fb4a69091c794cfa10990b0f8b754fa0fc8540cc59d35b7d985604cce6d7c"
+    }
+  ],
+  "ledger_tip": "47c9946bc8c1fd2a2883c1234db0458471f20659e42b520996abd4c8388939fe",
+  "next_allowed_action": "stop_after_v2_15",
+  "sha256_inputs": {
+    "outputs/v2_15_chromosomal_maintenance_gate_order/activation_licensing_gate_v2_15.json": "1ab6288a7f9de63818b9147f5d194d498962ec0a5b1eb5d07ff6beb809c5de00",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/bounded_patch_attempt_gate_v2_15.json": "938dcc7ba2f91b70184700cca0f68abd2c651ade78a25268272c01ee0a1da100",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/contact_audit_v2_15.json": "ff223dcdcb30cbf09c21308a697fed8c36639abbaa067cd22af0cc36853296b1",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/duplicate_clean_replay_verification_v2_15.json": "879a11e054a336451918ad64664693b43825e111cc89f13194b5581107b5bcce",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/materialization_cofactor_gate_v2_15.json": "c294f5aa2f5aeb801519847716f951b136b9845cb5bfcc2fc13571eadba58f02",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/native_contact_topology_gate_v2_15.json": "82c19730aa2dfaf174aa4a2ee2ffa83407b42f0b9fb82b7981357ade0cf1245a",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/phase_inversion_seed_constraint_check_v2_15.json": "a62fb4a69091c794cfa10990b0f8b754fa0fc8540cc59d35b7d985604cce6d7c",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/reference_core_gate_v2_15.json": "f9fc0a62f1271f6a4e74fc841ffa80330f86525b1cab375381c5f29ddbfe8c4c"
+  }
+}

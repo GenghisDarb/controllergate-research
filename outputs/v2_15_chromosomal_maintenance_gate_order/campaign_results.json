@@ -1,0 +1,25 @@
+{
+  "baseline_previous_positives_preserved": true,
+  "campaign_id": "v2_15_chromosomal_maintenance_gate_order",
+  "candidate_classifications": {
+    "PySnooper:1": "activation_denied_after_dependency_or_cofactor_mismatch",
+    "PySnooper:2": "activation_denied_after_fixture_materialization_incomplete"
+  },
+  "corrected_chromosomal_maintenance_order_implemented": true,
+  "every_gate_machine_checkable": true,
+  "exact_remaining_blocker": {
+    "PySnooper:1": "cofactor declaration is policy-safe, but isolated recovery execution remained blocked in v2.14",
+    "PySnooper:2": "fixture/helper recovery lacks a decision-time-safe source that avoids forbidden test/fixture mutation"
+  },
+  "family_generalization_expanded": false,
+  "final_non_ansible_positive_memory_count": 0,
+  "final_positive_memory_count": 2,
+  "final_scoreable_count": 5,
+  "full_scoring": "NOT_RUN",
+  "full_scoring_allowed": false,
+  "memory_lift_demonstrated": false,
+  "patch_attempted": false,
+  "self_maintaining_software_demonstrated": false,
+  "status": "PASS_WITH_ACTIVATION_DENIED",
+  "v2_14_artifact_ingestion_verified": true
+}

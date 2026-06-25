@@ -1,0 +1,47 @@
+{
+  "rows": [
+    {
+      "candidate": "youtube-dl:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_001",
+      "normalized_command": "python -m unittest -q test.test_utils.TestUtil.test_match_str",
+      "positive_memory_only": false,
+      "scoreable": true
+    },
+    {
+      "candidate": "black:4",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_003",
+      "normalized_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+      "positive_memory_only": false,
+      "scoreable": true
+    },
+    {
+      "candidate": "fastapi:1",
+      "classification": "inconclusive_equal_performance",
+      "episode_id": "episode_006",
+      "normalized_command": "python -m pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+      "positive_memory_only": false,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:2",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_010",
+      "normalized_command": "python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric",
+      "positive_memory_only": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:5",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_020",
+      "normalized_command": "python -m pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+      "positive_memory_only": true,
+      "scoreable": true
+    }
+  ],
+  "scoreable_count": 5,
+  "source": "verified v2.14 baseline_preservation_v2_14.json",
+  "status": "PASS"
+}

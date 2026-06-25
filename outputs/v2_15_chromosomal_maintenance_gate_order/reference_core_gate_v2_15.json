@@ -1,0 +1,56 @@
+{
+  "audit_assertions": {
+    "baseline_preservation_status": "PASS",
+    "full_scoring_still_disallowed": true,
+    "v2_14_ingestion_verified": true
+  },
+  "blocker_category": "none",
+  "blocker_reason": "v2.14 baseline, counts, blockers, and claim boundaries are preserved",
+  "candidate_id": [
+    "PySnooper:1",
+    "PySnooper:2"
+  ],
+  "candidate_results": [
+    {
+      "candidate_id": "PySnooper:1",
+      "gate_status": "pass",
+      "next_allowed_action": "native_contact_topology_gate"
+    },
+    {
+      "candidate_id": "PySnooper:2",
+      "gate_status": "pass",
+      "next_allowed_action": "native_contact_topology_gate"
+    }
+  ],
+  "decision_time_inputs_used": [
+    "verified v2.14 artifact ingestion",
+    "preserved v2.14 baseline gate",
+    "allowed decision-time state"
+  ],
+  "evidence_files": [
+    "outputs/v2_14_capability_recovery_lane/v2_14_artifact_ingestion_summary.json",
+    "outputs/v2_14_capability_recovery_lane/v2_14_result_preservation.json",
+    "outputs/v2_14_capability_recovery_lane/v2_14_blocker_table.json",
+    "outputs/v2_14_capability_recovery_lane/candidate_state_v2_14.json"
+  ],
+  "forbidden_inputs_checked": [
+    "fixed revision contents",
+    "BugsInPy gold patches",
+    "future outcome evidence",
+    "hidden labels",
+    "benchmark expectation edits",
+    "test edits",
+    "undeclared dependency installation",
+    "broad candidate sweep",
+    "full ControllerGate scoring"
+  ],
+  "gate_name": "reference_core_gate",
+  "gate_status": "pass",
+  "next_allowed_action": "native_contact_topology_gate",
+  "sha256_inputs": {
+    "outputs/v2_14_capability_recovery_lane/candidate_state_v2_14.json": "f8c3113ef23985f00162c7d35251d585dc7cba442296ff43d81f253e84dda83a",
+    "outputs/v2_14_capability_recovery_lane/v2_14_artifact_ingestion_summary.json": "d4dc8c78b7bda106332e3e4ad5e967fa4ec4653fd34520fcdd35b06863d3f2ee",
+    "outputs/v2_14_capability_recovery_lane/v2_14_blocker_table.json": "440a7a9ef14889b3de551c824532630a0f6fcf5f1963213eab61d7c9d0128bae",
+    "outputs/v2_14_capability_recovery_lane/v2_14_result_preservation.json": "e73ec1787f94694384afc00eb8a8733d4cd19024a619c24708dd626121ab7891"
+  }
+}

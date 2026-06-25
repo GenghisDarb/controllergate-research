@@ -39,7 +39,8 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - Self-maintaining software is not demonstrated.
 - Family generalization remains `not_expanded`.
 - Non-Ansible positive-memory count remains `0`.
-- v2.14 capability recovery work is separate from the current protocol and must not be promoted to current until an official verified ingest commit exists.
+- v2.14 capability recovery is officially ingested as a preserved artifact result, but it is still separate from the current protocol.
+- v2.15 chromosomal maintenance gate-order work is a corrective stack on top of v2.14, not a current-protocol promotion.
 
 ## v2.14 capability recovery lane
 
@@ -48,7 +49,18 @@ v2.14 is a bounded non-Ansible capability recovery lane, not the current protoco
 - Campaign: `v2_14_capability_recovery_lane`
 - Scope: `PySnooper:1` first, then `PySnooper:2` only if PySnooper:1 blocks or fails cleanly.
 - No broad sweep, full scoring, self-maintaining-software claim, or family-generalization claim is allowed.
-- Current protocol remains `v2.13` until a later official v2.14 artifact ingest is verified and explicitly promoted.
+- Official artifact digest: `sha256:1a247992b8915f7b5b792df6663e283244d23e6c5ffe2423ca1fc0f83efb4f3f`
+- Result: `PASS_WITH_BOUNDED_BLOCKERS`; no new non-Ansible scoreable or positive-memory result.
+
+## v2.15 chromosomal maintenance gate order
+
+v2.15 implements the next corrective stack as machine-checkable maintenance gates: reference core, contact topology, materialization/cofactor recovery, activation/licensing, bounded patch attempt, contact audit, duplicate replay, phase/seed check, and proof-ledger lock.
+
+- Campaign: `v2_15_chromosomal_maintenance_gate_order`
+- Patch generation remains blocked unless prior gates explicitly authorize `next_allowed_action: patch`.
+- PySnooper:1 remains blocked at dependency/cofactor materialization and activation licensing.
+- PySnooper:2 remains blocked at fixture/helper materialization and activation licensing.
+- Current protocol remains `v2.13` until a later verified promotion is explicitly made.
 
 ## Day-to-day checks
 

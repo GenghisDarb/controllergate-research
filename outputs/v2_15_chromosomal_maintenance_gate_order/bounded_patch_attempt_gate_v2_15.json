@@ -1,0 +1,51 @@
+{
+  "audit_assertions": {
+    "patch_attempted": false,
+    "patch_files_created": [],
+    "source_only_patch_boundary": true,
+    "test_files_modified": false
+  },
+  "blocker_category": "activation_denied",
+  "blocker_reason": "no patch was generated because activation was denied for both non-Ansible candidates",
+  "candidate_id": [
+    "PySnooper:1",
+    "PySnooper:2"
+  ],
+  "candidate_results": [
+    {
+      "candidate_id": "PySnooper:1",
+      "gate_status": "block",
+      "next_allowed_action": "contact_audit",
+      "patch_attempted": false
+    },
+    {
+      "candidate_id": "PySnooper:2",
+      "gate_status": "block",
+      "next_allowed_action": "contact_audit",
+      "patch_attempted": false
+    }
+  ],
+  "decision_time_inputs_used": [
+    "activation/licensing gate"
+  ],
+  "evidence_files": [
+    "outputs/v2_15_chromosomal_maintenance_gate_order/activation_licensing_gate_v2_15.json"
+  ],
+  "forbidden_inputs_checked": [
+    "fixed revision contents",
+    "BugsInPy gold patches",
+    "future outcome evidence",
+    "hidden labels",
+    "benchmark expectation edits",
+    "test edits",
+    "undeclared dependency installation",
+    "broad candidate sweep",
+    "full ControllerGate scoring"
+  ],
+  "gate_name": "bounded_source_only_patch_attempt_gate",
+  "gate_status": "block",
+  "next_allowed_action": "contact_audit",
+  "sha256_inputs": {
+    "outputs/v2_15_chromosomal_maintenance_gate_order/activation_licensing_gate_v2_15.json": "1ab6288a7f9de63818b9147f5d194d498962ec0a5b1eb5d07ff6beb809c5de00"
+  }
+}

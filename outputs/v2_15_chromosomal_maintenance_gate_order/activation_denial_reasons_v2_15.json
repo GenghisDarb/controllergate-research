@@ -1,0 +1,21 @@
+{
+  "activation_denied": true,
+  "campaign_id": "v2_15_chromosomal_maintenance_gate_order",
+  "reasons": [
+    {
+      "blocker_reason": "cofactor declaration is policy-safe, but isolated recovery execution remained blocked in v2.14",
+      "candidate_id": "PySnooper:1",
+      "denied_by_gate": "dependency_or_cofactor_mismatch",
+      "gate_status": "block",
+      "next_allowed_action": "stop_no_patch"
+    },
+    {
+      "blocker_reason": "fixture/helper recovery lacks a decision-time-safe source that avoids forbidden test/fixture mutation",
+      "candidate_id": "PySnooper:2",
+      "denied_by_gate": "fixture_materialization_incomplete",
+      "gate_status": "block",
+      "next_allowed_action": "stop_no_patch"
+    }
+  ],
+  "status": "PASS"
+}

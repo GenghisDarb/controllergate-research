@@ -1,0 +1,71 @@
+{
+  "audit_assertions": {
+    "dependency_recovery_requires_declared_metadata": true,
+    "fixture_edits_forced": false,
+    "undeclared_dependency_install_attempted": false
+  },
+  "blocker_category": "materialization_or_cofactor_blocked",
+  "blocker_reason": "dependency/cofactor and fixture materialization gates did not authorize patch licensing",
+  "candidate_id": [
+    "PySnooper:1",
+    "PySnooper:2"
+  ],
+  "candidate_results": [
+    {
+      "blocker_category": "dependency_or_cofactor_mismatch",
+      "blocker_reason": "cofactor declaration is policy-safe, but isolated recovery execution remained blocked in v2.14",
+      "candidate_id": "PySnooper:1",
+      "declared_dependency_or_cofactor": "python-toolbox",
+      "declared_in_buggy_checkout_metadata": true,
+      "gate_status": "block",
+      "next_allowed_action": "activation_denied",
+      "undeclared_dependency_install_attempted": false
+    },
+    {
+      "blocker_category": "fixture_materialization_incomplete",
+      "blocker_reason": "fixture/helper recovery lacks a decision-time-safe source that avoids forbidden test/fixture mutation",
+      "candidate_id": "PySnooper:2",
+      "files_materialized": [],
+      "fixture_materialization_policy_allows": false,
+      "gate_status": "block",
+      "missing_fixture_or_helper": "tests/mini_toolbox.py",
+      "next_allowed_action": "activation_denied"
+    }
+  ],
+  "decision_time_inputs_used": [
+    "v2.14 failure-memory weights",
+    "v2.14 recovery and fixture gates"
+  ],
+  "evidence_files": [
+    "outputs/v2_14_capability_recovery_lane/v2_14_artifact_ingestion_summary.json",
+    "outputs/v2_14_capability_recovery_lane/v2_14_result_preservation.json",
+    "outputs/v2_14_capability_recovery_lane/v2_14_blocker_table.json",
+    "outputs/v2_14_capability_recovery_lane/candidate_state_v2_14.json",
+    "outputs/v2_14_capability_recovery_lane/failure_memory_weights_v2_14.json",
+    "outputs/v2_14_capability_recovery_lane/pysnooper1_recovery_gate_v2_14.json",
+    "outputs/v2_14_capability_recovery_lane/pysnooper2_fixture_gate_v2_14.json"
+  ],
+  "forbidden_inputs_checked": [
+    "fixed revision contents",
+    "BugsInPy gold patches",
+    "future outcome evidence",
+    "hidden labels",
+    "benchmark expectation edits",
+    "test edits",
+    "undeclared dependency installation",
+    "broad candidate sweep",
+    "full ControllerGate scoring"
+  ],
+  "gate_name": "materialization_cofactor_recovery_gate",
+  "gate_status": "block",
+  "next_allowed_action": "activation_denied",
+  "sha256_inputs": {
+    "outputs/v2_14_capability_recovery_lane/candidate_state_v2_14.json": "f8c3113ef23985f00162c7d35251d585dc7cba442296ff43d81f253e84dda83a",
+    "outputs/v2_14_capability_recovery_lane/failure_memory_weights_v2_14.json": "f1331449a077a9b923a9ca0aa4fdd17951c7a5d48b61eb24a59cd780d5e1b906",
+    "outputs/v2_14_capability_recovery_lane/pysnooper1_recovery_gate_v2_14.json": "45292243700d1f99f84684fc24ccbf82f2393dbae99b724b3dd7c22dd204d446",
+    "outputs/v2_14_capability_recovery_lane/pysnooper2_fixture_gate_v2_14.json": "23c0dcfadde0d51d472fd693f0ff121db57cdd29b05717a8eeada32c48c6ab2b",
+    "outputs/v2_14_capability_recovery_lane/v2_14_artifact_ingestion_summary.json": "d4dc8c78b7bda106332e3e4ad5e967fa4ec4653fd34520fcdd35b06863d3f2ee",
+    "outputs/v2_14_capability_recovery_lane/v2_14_blocker_table.json": "440a7a9ef14889b3de551c824532630a0f6fcf5f1963213eab61d7c9d0128bae",
+    "outputs/v2_14_capability_recovery_lane/v2_14_result_preservation.json": "e73ec1787f94694384afc00eb8a8733d4cd19024a619c24708dd626121ab7891"
+  }
+}

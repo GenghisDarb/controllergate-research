@@ -1,0 +1,36 @@
+{
+  "audit_assertions": {
+    "new_seed_sensitive_result": false,
+    "phase_seed_check_exists": true
+  },
+  "blocker_category": "not_applicable_no_new_scoreable",
+  "blocker_reason": "no nondeterministic replay-sensitive success was introduced",
+  "candidate_id": [
+    "PySnooper:1",
+    "PySnooper:2"
+  ],
+  "decision_time_inputs_used": [
+    "duplicate replay gate",
+    "proof ledger inputs"
+  ],
+  "evidence_files": [
+    "outputs/v2_15_chromosomal_maintenance_gate_order/duplicate_clean_replay_verification_v2_15.json"
+  ],
+  "forbidden_inputs_checked": [
+    "fixed revision contents",
+    "BugsInPy gold patches",
+    "future outcome evidence",
+    "hidden labels",
+    "benchmark expectation edits",
+    "test edits",
+    "undeclared dependency installation",
+    "broad candidate sweep",
+    "full ControllerGate scoring"
+  ],
+  "gate_name": "phase_inversion_seed_constraint_check",
+  "gate_status": "pass",
+  "next_allowed_action": "proof_obligations_ledger_lock",
+  "sha256_inputs": {
+    "outputs/v2_15_chromosomal_maintenance_gate_order/duplicate_clean_replay_verification_v2_15.json": "879a11e054a336451918ad64664693b43825e111cc89f13194b5581107b5bcce"
+  }
+}

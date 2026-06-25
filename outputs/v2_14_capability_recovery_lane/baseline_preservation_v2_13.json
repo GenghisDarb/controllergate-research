@@ -1,7 +1,6 @@
 {
   "ansible2_positive_memory_only_status_preserved": true,
   "ansible5_positive_memory_only_status_preserved": true,
-  "baseline_execution_mode": "fresh_v2_14_rerun",
   "baseline_execution_scope": [
     "youtube-dl:1",
     "black:4",
@@ -10,7 +9,6 @@
     "ansible:5"
   ],
   "baseline_preservation_passed": true,
-  "baseline_source": "v2_8w baseline harness via v2.13 baseline adapter",
   "broad_candidate_sweep_executed": false,
   "evidence_files": [
     "raw_logs/baseline/episode_001_youtube-dl_1/failing_command.txt",
@@ -181,11 +179,5 @@
     "episode_010": true,
     "episode_020": true
   },
-  "status": "PASS",
-  "v2_13_baseline_evidence": {
-    "decision_time_safe": true,
-    "path": "outputs/v2_13_minimal_forensic_context_lane/baseline_preservation_v2_13.json",
-    "role": "baseline preservation input from official v2.13 ingest",
-    "sha256": "3c4195b5ca192092a004d91c92149e8554079ba065a276ac2ca4bd5e40e19370"
-  }
+  "status": "PASS"
 }

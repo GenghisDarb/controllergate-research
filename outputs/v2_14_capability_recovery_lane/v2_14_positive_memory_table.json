@@ -1,0 +1,24 @@
+{
+  "non_ansible_positive_memory_count": 0,
+  "positive_memory_count": 2,
+  "rows": [
+    {
+      "candidate": "ansible:2",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_010",
+      "normalized_command": "python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric",
+      "positive_memory_only": true,
+      "scoreable": true
+    },
+    {
+      "candidate": "ansible:5",
+      "classification": "positive_memory_only",
+      "episode_id": "episode_020",
+      "normalized_command": "python -m pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+      "positive_memory_only": true,
+      "scoreable": true
+    }
+  ],
+  "source": "verified v2.14 baseline_preservation_v2_14.json",
+  "status": "PASS"
+}

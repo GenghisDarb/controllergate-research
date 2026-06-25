@@ -1,0 +1,60 @@
+{
+  "audit_assertions": {
+    "broad_context_ingest": false,
+    "topology_patch_contact_required_before_patch": true
+  },
+  "blocker_category": "topology_or_fixture_contact_missing",
+  "blocker_reason": "no candidate has a complete local repair neighborhood ready for licensing",
+  "candidate_id": [
+    "PySnooper:1",
+    "PySnooper:2"
+  ],
+  "candidate_results": [
+    {
+      "blocker_category": "topology_contact_missing",
+      "blocker_reason": "dependency edge is known, but target/source/import contact neighborhood was not fully materialized after cofactor recovery",
+      "candidate_id": "PySnooper:1",
+      "gate_status": "manual_review",
+      "next_allowed_action": "materialization_cofactor_gate"
+    },
+    {
+      "blocker_category": "fixture_materialization_incomplete",
+      "blocker_reason": "target test imports tests/mini_toolbox.py, which remains absent under decision-time-safe evidence",
+      "candidate_id": "PySnooper:2",
+      "gate_status": "block",
+      "next_allowed_action": "materialization_cofactor_gate"
+    }
+  ],
+  "decision_time_inputs_used": [
+    "v2.14 blocker table",
+    "v2.14 bounded context and capability probes"
+  ],
+  "evidence_files": [
+    "outputs/v2_14_capability_recovery_lane/v2_14_artifact_ingestion_summary.json",
+    "outputs/v2_14_capability_recovery_lane/v2_14_result_preservation.json",
+    "outputs/v2_14_capability_recovery_lane/v2_14_blocker_table.json",
+    "outputs/v2_14_capability_recovery_lane/candidate_state_v2_14.json",
+    "outputs/v2_14_capability_recovery_lane/capability_probe_log_v2_14.json"
+  ],
+  "forbidden_inputs_checked": [
+    "fixed revision contents",
+    "BugsInPy gold patches",
+    "future outcome evidence",
+    "hidden labels",
+    "benchmark expectation edits",
+    "test edits",
+    "undeclared dependency installation",
+    "broad candidate sweep",
+    "full ControllerGate scoring"
+  ],
+  "gate_name": "native_contact_topology_gate",
+  "gate_status": "block",
+  "next_allowed_action": "materialization_cofactor_gate",
+  "sha256_inputs": {
+    "outputs/v2_14_capability_recovery_lane/candidate_state_v2_14.json": "f8c3113ef23985f00162c7d35251d585dc7cba442296ff43d81f253e84dda83a",
+    "outputs/v2_14_capability_recovery_lane/capability_probe_log_v2_14.json": "02f0c910c7e687cf8b7538f7696eb8880f81438bc7bec1fed9e30e7f7686448f",
+    "outputs/v2_14_capability_recovery_lane/v2_14_artifact_ingestion_summary.json": "d4dc8c78b7bda106332e3e4ad5e967fa4ec4653fd34520fcdd35b06863d3f2ee",
+    "outputs/v2_14_capability_recovery_lane/v2_14_blocker_table.json": "440a7a9ef14889b3de551c824532630a0f6fcf5f1963213eab61d7c9d0128bae",
+    "outputs/v2_14_capability_recovery_lane/v2_14_result_preservation.json": "e73ec1787f94694384afc00eb8a8733d4cd19024a619c24708dd626121ab7891"
+  }
+}

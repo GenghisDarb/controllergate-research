@@ -1,0 +1,36 @@
+{
+  "broad_sweep_executed": false,
+  "campaign_id": "v2_15_chromosomal_maintenance_gate_order",
+  "candidate_focus": [
+    "PySnooper:1",
+    "PySnooper:2"
+  ],
+  "gate_order": [
+    "reference_core_gate",
+    "native_contact_topology_gate",
+    "materialization_cofactor_gate",
+    "activation_licensing_gate",
+    "bounded_source_only_patch_attempt",
+    "contact_audit",
+    "duplicate_clean_replay",
+    "phase_inversion_seed_constraint_check",
+    "proof_obligations_ledger_lock"
+  ],
+  "machine_checkable_gate_fields": [
+    "gate_name",
+    "candidate_id",
+    "gate_status",
+    "decision_time_inputs_used",
+    "forbidden_inputs_checked",
+    "evidence_files",
+    "blocker_category",
+    "blocker_reason",
+    "next_allowed_action",
+    "sha256_inputs",
+    "audit_assertions"
+  ],
+  "operational_principle": "maintenance gates execute before patch generation",
+  "patch_generation_centered": false,
+  "patch_rule": "patch generation is forbidden unless every earlier candidate gate sets next_allowed_action: patch",
+  "status": "PASS"
+}

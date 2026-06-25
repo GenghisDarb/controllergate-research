@@ -1,0 +1,20 @@
+{
+  "rows": [
+    {
+      "blocker_category": "dependency_or_cofactor_mismatch",
+      "blocker_reason": "declared cofactor recovery was policy-allowed but recovery execution remained blocked",
+      "candidate": "PySnooper:1",
+      "classification": "pysnooper1_dependency_recovery_execution_blocked",
+      "next_allowed_action": "chromosomal_materialization_gate_review"
+    },
+    {
+      "blocker_category": "fixture_materialization_incomplete",
+      "blocker_reason": "tests/mini_toolbox.py remained unavailable under decision-time-safe fixture materialization rules",
+      "candidate": "PySnooper:2",
+      "classification": "pysnooper2_fixture_materialization_forbidden_or_unavailable",
+      "next_allowed_action": "chromosomal_topology_and_fixture_gate_review"
+    }
+  ],
+  "source": "verified v2.14 candidate_state_v2_14.json",
+  "status": "PASS"
+}

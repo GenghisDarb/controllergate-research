@@ -1,0 +1,38 @@
+{
+  "audit_assertions": {
+    "duplicate_replay_required_for_new_scoreable": true,
+    "new_scoreable_candidate": false
+  },
+  "blocker_category": "not_applicable_no_new_scoreable",
+  "blocker_reason": "duplicate clean replay is required only for a newly scoreable candidate; none was produced",
+  "candidate_id": [
+    "PySnooper:1",
+    "PySnooper:2"
+  ],
+  "decision_time_inputs_used": [
+    "patch attempt gate",
+    "v2.14 preserved baseline"
+  ],
+  "evidence_files": [
+    "outputs/v2_15_chromosomal_maintenance_gate_order/bounded_patch_attempt_gate_v2_15.json",
+    "outputs/v2_14_capability_recovery_lane/v2_14_scoreable_episode_table.json"
+  ],
+  "forbidden_inputs_checked": [
+    "fixed revision contents",
+    "BugsInPy gold patches",
+    "future outcome evidence",
+    "hidden labels",
+    "benchmark expectation edits",
+    "test edits",
+    "undeclared dependency installation",
+    "broad candidate sweep",
+    "full ControllerGate scoring"
+  ],
+  "gate_name": "duplicate_clean_replay",
+  "gate_status": "pass",
+  "next_allowed_action": "phase_inversion_seed_constraint_check",
+  "sha256_inputs": {
+    "outputs/v2_14_capability_recovery_lane/v2_14_scoreable_episode_table.json": "0af9164caf65d2da47d2641b3878e85a86545a5efc8e5f274e81bae32046667a",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/bounded_patch_attempt_gate_v2_15.json": "938dcc7ba2f91b70184700cca0f68abd2c651ade78a25268272c01ee0a1da100"
+  }
+}

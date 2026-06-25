@@ -48,4 +48,4 @@ The current-protocol refactor does not alter v2.13 scientific claims:
 - Non-Ansible positive-memory count remains `0`.
 - PySnooper:2 remains blocked by deterministic fixture materialization evidence: `blocked_fixture_materialization_incomplete`.
 
-v2.14 capability work is separate from this current-protocol pointer. The current protocol remains v2.13 until an official v2.14 artifact is verified, ingested, and explicitly promoted in a later step.
+v2.14 capability recovery and v2.15 chromosomal maintenance gate-order work are separate from this current-protocol pointer. The current protocol remains v2.13 until a later verified promotion is explicitly made.

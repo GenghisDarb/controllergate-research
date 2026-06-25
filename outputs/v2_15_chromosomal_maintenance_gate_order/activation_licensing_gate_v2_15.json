@@ -1,0 +1,54 @@
+{
+  "audit_assertions": {
+    "licensing_ring_closed": false,
+    "patch_generation_forbidden": true
+  },
+  "blocker_category": "activation_denied",
+  "blocker_reason": "earlier gates did not set next_allowed_action: patch for any candidate",
+  "candidate_id": [
+    "PySnooper:1",
+    "PySnooper:2"
+  ],
+  "candidate_results": [
+    {
+      "blocker_reason": "cofactor declaration is policy-safe, but isolated recovery execution remained blocked in v2.14",
+      "candidate_id": "PySnooper:1",
+      "denied_by_gate": "dependency_or_cofactor_mismatch",
+      "gate_status": "block",
+      "next_allowed_action": "stop_no_patch"
+    },
+    {
+      "blocker_reason": "fixture/helper recovery lacks a decision-time-safe source that avoids forbidden test/fixture mutation",
+      "candidate_id": "PySnooper:2",
+      "denied_by_gate": "fixture_materialization_incomplete",
+      "gate_status": "block",
+      "next_allowed_action": "stop_no_patch"
+    }
+  ],
+  "decision_time_inputs_used": [
+    "native topology gate",
+    "materialization/cofactor gate"
+  ],
+  "evidence_files": [
+    "outputs/v2_15_chromosomal_maintenance_gate_order/native_contact_topology_gate_v2_15.json",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/materialization_cofactor_gate_v2_15.json"
+  ],
+  "forbidden_inputs_checked": [
+    "fixed revision contents",
+    "BugsInPy gold patches",
+    "future outcome evidence",
+    "hidden labels",
+    "benchmark expectation edits",
+    "test edits",
+    "undeclared dependency installation",
+    "broad candidate sweep",
+    "full ControllerGate scoring"
+  ],
+  "gate_name": "activation_licensing_gate",
+  "gate_status": "block",
+  "next_allowed_action": "stop_no_patch",
+  "sha256_inputs": {
+    "outputs/v2_15_chromosomal_maintenance_gate_order/materialization_cofactor_gate_v2_15.json": "c294f5aa2f5aeb801519847716f951b136b9845cb5bfcc2fc13571eadba58f02",
+    "outputs/v2_15_chromosomal_maintenance_gate_order/native_contact_topology_gate_v2_15.json": "82c19730aa2dfaf174aa4a2ee2ffa83407b42f0b9fb82b7981357ade0cf1245a"
+  }
+}
