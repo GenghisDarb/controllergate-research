@@ -65,7 +65,8 @@ def load_json(path: Path, errors: list[str]) -> dict[str, Any]:
 
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(value, indent=2, sort_keys=True) + "\n")
 
 
 def verify_manifest(root: Path) -> tuple[list[str], int]:
@@ -464,10 +465,8 @@ def main() -> int:
         (path for path in root.rglob("*") if path.is_file() and path.name != "SHA256SUMS.txt"),
         key=lambda path: path.relative_to(root).as_posix(),
     )
-    (root / "SHA256SUMS.txt").write_text(
-        "\n".join(f"{sha256_path(path)}  {path.relative_to(root).as_posix()}" for path in files) + "\n",
-        encoding="utf-8",
-    )
+    with (root / "SHA256SUMS.txt").open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write("\n".join(f"{sha256_path(path)}  {path.relative_to(root).as_posix()}" for path in files) + "\n")
     final_manifest_errors, final_checked = verify_manifest(root)
     if final_manifest_errors:
         print("v2.13 minimal forensic context lane audit FAIL after manifest regeneration")

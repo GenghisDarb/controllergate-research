@@ -78,7 +78,8 @@ def load_json(path: Path, errors: list[str]) -> dict[str, Any]:
 
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(value, indent=2, sort_keys=True) + "\n")
 
 
 def write_manifest(root: Path) -> None:
@@ -87,7 +88,8 @@ def write_manifest(root: Path) -> None:
         key=lambda path: path.relative_to(root).as_posix(),
     )
     lines = [f"{sha256_path(path)}  {path.relative_to(root).as_posix()}" for path in files]
-    (root / "SHA256SUMS.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    with (root / "SHA256SUMS.txt").open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write("\n".join(lines) + "\n")
 
 
 def verify_manifest(root: Path) -> tuple[list[str], int]:

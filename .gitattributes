@@ -1,0 +1,14 @@
+# ControllerGate workflow-audited evidence byte custody.
+#
+# These rules keep GitHub Actions checkout bytes identical to the bytes used
+# for SHA256SUMS and proof-ledger hashes.  Scope is limited to the evidence
+# directories and v2.15 workflow/scripts exercised by the v2.15 workflow.
+.gitattributes text eol=lf
+.github/workflows/v2_15_chromosomal_maintenance_gate_order.yml text eol=lf
+scripts/audit_v2_13_minimal_forensic_context_lane.py text eol=lf
+scripts/audit_v2_14_capability_recovery_lane.py text eol=lf
+scripts/audit_v2_15_chromosomal_maintenance_gate_order.py text eol=lf
+scripts/v2_15_chromosomal_maintenance_gate_order_runner.py text eol=lf
+outputs/v2_13_minimal_forensic_context_lane/** text eol=lf
+outputs/v2_14_capability_recovery_lane/** text eol=lf
+outputs/v2_15_chromosomal_maintenance_gate_order/** text eol=lf
