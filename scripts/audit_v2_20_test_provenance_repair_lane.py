@@ -16,6 +16,7 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ROOT = REPO_ROOT / "outputs" / "v2_20_test_provenance_repair_lane"
 EXPECTED_REVISION = "e21a31162f4c54be693d8ca8260e42393b39abd3"
+OFFICIAL_VERIFICATION_FILE = "v2_20_official_artifact_verification.json"
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
@@ -211,12 +212,55 @@ def audit_transport(root: Path, transport: dict[str, Any], errors: list[str]) ->
     required = {
         path.relative_to(REPO_ROOT).as_posix()
         for path in root.rglob("*")
-        if path.is_file() and path.name not in {"SHA256SUMS.txt", "nuclear_pore_transport_log.json", "proof_obligations_ledger.json"}
+        if path.is_file()
+        and path.name
+        not in {
+            "SHA256SUMS.txt",
+            "nuclear_pore_transport_log.json",
+            "proof_obligations_ledger.json",
+            OFFICIAL_VERIFICATION_FILE,
+        }
     }
     covered = {str(entry.get("repo_output_path")) for entry in entries if entry.get("repo_output_path")}
     missing = required - covered
     if missing:
         errors.append(f"transport log missing outputs: {sorted(missing)[:5]}")
+
+
+def audit_official_verification(root: Path, errors: list[str]) -> None:
+    record_path = root / OFFICIAL_VERIFICATION_FILE
+    if not record_path.exists():
+        return
+    record = load_json(record_path, errors)
+    expected = {
+        "status": "PASS",
+        "artifact_name": "v2_20_test_provenance_repair_lane_artifacts",
+        "workflow_run_id": 28199100858,
+        "artifact_id": 7890304839,
+        "zip_size": 64492,
+        "zip_sha256": "3b6090f33ab4e5bb04ca4f922e51d4688b8d1ef5bc343ab6b26efc40b9e7ca25",
+        "zip_entry_count": 43,
+        "unsafe_path_count": 0,
+        "duplicate_path_count": 0,
+        "internal_manifest_checked_count": 36,
+        "internal_manifest_missing_count": 0,
+        "internal_manifest_malformed_count": 0,
+        "internal_manifest_failure_count": 0,
+        "successful_workflow_head_sha": "f3ca3deff974833d8cc350fb36606a13c60cb920",
+        "v2_20_implementation_commit": "f3ca3deff974833d8cc350fb36606a13c60cb920",
+        "v2_19_official_ingest_commit": "2b9f4486645e4a6462c772f67e92e53819fd5792",
+        "current_protocol_version": "v2.13",
+        "v2_20_promoted_to_current": False,
+    }
+    for key, value in expected.items():
+        if record.get(key) != value:
+            errors.append(f"official v2.20 artifact verification mismatch for {key}")
+    if record.get("internal_sha256sums_present") is not True:
+        errors.append("official v2.20 artifact verification missing internal SHA256SUMS confirmation")
+    if record.get("safe_path_verification_status") != "PASS":
+        errors.append("official v2.20 artifact safe path verification did not pass")
+    if not str(record.get("local_artifact_path_outside_git", "")).startswith("C:\\Users\\thisb\\Downloads\\"):
+        errors.append("official v2.20 artifact local path is not the provided outside-git Downloads path")
 
 
 def main() -> int:
@@ -272,6 +316,7 @@ def main() -> int:
 
     audit_v219_boundary(errors)
     audit_transport(root, transport, errors)
+    audit_official_verification(root, errors)
 
     if not (REPO_ROOT / "docs" / "controllergate_tld_resolution_map.md").is_file():
         errors.append("missing TLD/resolution map doc")

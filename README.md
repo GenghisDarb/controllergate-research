@@ -45,7 +45,7 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - v2.17 PySnooper:1 runtime-workspace materialization is an officially ingested bounded workspace-provenance checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.18 PySnooper:1 origin licensing/source acquisition work is an officially ingested bounded source-acquisition checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.19 BugsInPy materialized-test provenance is officially ingested as a bounded provenance checkpoint, not a current-protocol promotion or a scoreable repair result.
-- v2.20 coupled test-provenance repair work remains a bounded implementation lane until an official artifact is verified and ingested; it currently blocks before repair because no non-circular BugsInPy harness-origin authority is available.
+- v2.20 coupled test-provenance repair work is officially ingested as a bounded harness-origin bootstrap checkpoint; it blocks before repair because no non-circular BugsInPy harness-origin authority is available.
 - The non-Ansible capability roadmap is tracked in `docs/non_ansible_capability_roadmap.md` and `configs/non_ansible_capability_backlog.json`.
 
 ## v2.14 capability recovery lane
@@ -158,7 +158,10 @@ v2.19 directly addresses the v2.18 blocker by searching decision-time-safe BugsI
 v2.20 couples the v2.18 source-acquisition result, v2.19 materialized-test blocker, BugsInPy harness-origin bootstrap, harness topology, redundancy-cache trust, workspace transport integrity, pre-generation context custody, and precision-resolution diagnostics into one PySnooper:1-only lane.
 
 - Campaign: `v2_20_test_provenance_repair_lane`
-- Local implementation/audit status: `PASS`; official GitHub artifact ingestion is pending.
+- Status: `verified_official_artifact`; v2.20 audit status: `PASS`.
+- Official artifact digest: `sha256:3b6090f33ab4e5bb04ca4f922e51d4688b8d1ef5bc343ab6b26efc40b9e7ca25`; byte size: `64492`; ZIP entries: `43`.
+- Workflow run: `28199100858`; artifact ID: `7890304839`.
+- Internal SHA256SUMS: `36` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `37` entries after adding the local official artifact-verification record.
 - v2.19 official ingest verified: `true`.
 - Source acquisition status: `source_checkout_acquired`; source commit: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
 - BugsInPy harness origin status: `BLOCK`; bootstrap status: `BLOCK`.

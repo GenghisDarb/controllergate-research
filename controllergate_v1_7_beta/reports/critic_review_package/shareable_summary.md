@@ -1243,8 +1243,12 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.20 Coupled Test-Provenance Repair Lane
 
-- Status: `local_implementation_audited`; official artifact ingestion is pending.
+- Status: `verified_official_artifact`.
 - Campaign: `v2_20_test_provenance_repair_lane`.
+- Artifact verification: `PASS`; ZIP SHA256: `3b6090f33ab4e5bb04ca4f922e51d4688b8d1ef5bc343ab6b26efc40b9e7ca25`; byte size: `64492`; ZIP entries: `43`; safe paths: `PASS`; duplicate paths: `0`.
+- Workflow run: `28199100858`; artifact ID: `7890304839`; artifact name: `v2_20_test_provenance_repair_lane_artifacts`.
+- Internal SHA256SUMS: `36` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `37` entries after adding the local official artifact-verification record.
+- v2.20 audit: `PASS`; v2.19 through v2.12 regression audits: `PASS`; current-protocol audit/dry-run: `PASS`.
 - Candidate scope: `PySnooper:1` only; PySnooper:2 was not pursued.
 - v2.19 official ingest verified: `true`.
 - Source acquisition status: `source_checkout_acquired`; source commit acquired: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
