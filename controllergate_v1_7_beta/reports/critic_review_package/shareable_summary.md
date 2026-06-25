@@ -1102,9 +1102,20 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.13 Minimal Forensic Context Lane
 
-- Status: `blocked_pending_v2_13_minimal_forensic_context_artifact`.
-- The first proof-ledger event is restricted to a fresh rerun of exactly `youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, and `ansible:5` through the scoring harness used by v2.12.
-- PySnooper:1 receives a fresh buggy-checkout metadata policy recheck; no dependency installation is performed for that recheck.
-- PySnooper:2 is limited to deterministic v2.12 failed-patch classification, bounded context extraction, at most two predeclared non-mutating probes, and at most one authorized source-only patch.
+- Status: `verified_official_artifact`.
+- Workflow run: `28130741168`; artifact name: `v2_13_minimal_forensic_context_lane_artifacts`.
+- Artifact SHA256: `57f87a8e0726f55acf0a01282acf7a649808fc71007cba732b9491cf66567ee1`; byte size: `40422`.
+- Internal SHA256SUMS verification: `51` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest: `52` entries after adding the local artifact-verification record.
+- v2.13 audit: `PASS`.
+- Baseline preservation: `PASS`; exactly `youtube-dl:1`, `black:4`, `fastapi:1`, `ansible:2`, and `ansible:5` were rerun through the v2.12 scoring harness.
+- `ansible:2` and `ansible:5` preserved `positive_memory_only` status.
+- PySnooper:1 policy result: `dependency_recovery_allowed_by_policy_not_executed_in_minimal_lane`; no dependency installation was performed in the minimal lane.
+- PySnooper:2 deterministic failed-patch classification: `fixture_materialization_incomplete`.
+- PySnooper:2 final blocker: `blocked_fixture_materialization_incomplete`; the target test imports missing `tests/mini_toolbox.py`, while test and fixture edits remain forbidden.
+- Diagnostic probes used: `0`.
+- Revised PySnooper:2 patch authorized: `false`; attempted: `false`.
+- PySnooper:2 remains non-scoreable and not `positive_memory_only`.
+- Scoreable episodes: `5`; positive-memory-only episodes: `2`; non-Ansible positive-memory episodes: `0`.
+- Aggregate result remains `replicated_positive_memory_signal_preserved`; family generalization remains `not_expanded`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.

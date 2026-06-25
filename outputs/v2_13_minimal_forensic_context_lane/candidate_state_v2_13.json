@@ -1,42 +1,721 @@
 {
   "audit_summary": {
-    "status": "PENDING_GITHUB_ACTIONS"
+    "completed_after_runner": true,
+    "report": "audit_summary_v2_13.json",
+    "status": "PASS"
   },
   "based_on_v2_12": true,
   "baseline_preservation": {
-    "required_candidates": [
+    "agent_state_id": "state_001_baseline_preservation",
+    "ansible2_positive_memory_only_status_preserved": true,
+    "ansible5_positive_memory_only_status_preserved": true,
+    "baseline_execution_scope": [
       "youtube-dl:1",
       "black:4",
       "fastapi:1",
       "ansible:2",
       "ansible:5"
     ],
-    "status": "PENDING_GITHUB_ACTIONS"
+    "baseline_preservation_passed": true,
+    "broad_candidate_sweep_executed": false,
+    "evidence_files": [
+      "raw_logs/baseline/episode_001_youtube-dl_1/failing_command.txt",
+      "raw_logs/baseline/episode_001_youtube-dl_1/failing_log_raw.txt",
+      "raw_logs/baseline/episode_001_youtube-dl_1/limited_scoring_result.json",
+      "raw_logs/baseline/episode_001_youtube-dl_1/memory_enabled_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_001_youtube-dl_1/no_memory_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_001_youtube-dl_1/normalized_failing_command.txt",
+      "raw_logs/baseline/episode_001_youtube-dl_1/post_repair_comparison.json",
+      "raw_logs/baseline/episode_003_black_4/failing_command.txt",
+      "raw_logs/baseline/episode_003_black_4/failing_log_raw.txt",
+      "raw_logs/baseline/episode_003_black_4/limited_scoring_result.json",
+      "raw_logs/baseline/episode_003_black_4/memory_enabled_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_003_black_4/no_memory_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_003_black_4/normalized_failing_command.txt",
+      "raw_logs/baseline/episode_003_black_4/post_repair_comparison.json",
+      "raw_logs/baseline/episode_006_fastapi_1/failing_command.txt",
+      "raw_logs/baseline/episode_006_fastapi_1/failing_log_raw.txt",
+      "raw_logs/baseline/episode_006_fastapi_1/limited_scoring_result.json",
+      "raw_logs/baseline/episode_006_fastapi_1/memory_enabled_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_006_fastapi_1/no_memory_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_006_fastapi_1/normalized_failing_command.txt",
+      "raw_logs/baseline/episode_006_fastapi_1/post_repair_comparison.json",
+      "raw_logs/baseline/episode_010_ansible_2/failing_command.txt",
+      "raw_logs/baseline/episode_010_ansible_2/failing_log_raw.txt",
+      "raw_logs/baseline/episode_010_ansible_2/limited_scoring_result.json",
+      "raw_logs/baseline/episode_010_ansible_2/memory_enabled_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_010_ansible_2/no_memory_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_010_ansible_2/normalized_failing_command.txt",
+      "raw_logs/baseline/episode_010_ansible_2/post_repair_comparison.json",
+      "raw_logs/baseline/episode_020_ansible_5/failing_command.txt",
+      "raw_logs/baseline/episode_020_ansible_5/failing_log_raw.txt",
+      "raw_logs/baseline/episode_020_ansible_5/limited_scoring_result.json",
+      "raw_logs/baseline/episode_020_ansible_5/memory_enabled_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_020_ansible_5/no_memory_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_020_ansible_5/normalized_failing_command.txt",
+      "raw_logs/baseline/episode_020_ansible_5/post_repair_comparison.json"
+    ],
+    "exact_v2_12_scoring_harness_reused": true,
+    "first_proof_ledger_event_required": true,
+    "harness_sanity_status": "PASS",
+    "harness_source": "v2_8w baseline harness transitively used by the v2.12 runner",
+    "last_stable_state_id": "state_001_baseline_preservation",
+    "observation_id": "observation_001_baseline_preservation",
+    "parent_agent_state_id": null,
+    "positive_memory_only_preservation_status": {
+      "ansible:2": true,
+      "ansible:5": true
+    },
+    "post_state_hash": "3a3d5dd01206cfc2e39682ef1c7bc952ddc32a7c5ebbbf60d82280bccabc559f",
+    "pre_state_hash": "11cfe194400f3859845a7e3bbd8c563ccb55344d796105e847b9c818a55a8a9b",
+    "required_baseline_candidates": [
+      {
+        "candidate": "youtube-dl:1",
+        "classification": "inconclusive_equal_performance",
+        "episode_id": "episode_001",
+        "exact_command": "python -m unittest -q test.test_utils.TestUtil.test_match_str",
+        "normalized_command": "python -m unittest -q test.test_utils.TestUtil.test_match_str",
+        "positive_memory_only_status_preserved": null,
+        "post_repair_validation": {
+          "limited_scoring_result": "episode_001/limited_scoring_result.json",
+          "memory_enabled_log": "episode_001/memory_enabled_post_repair_log_raw.txt",
+          "no_memory_log": "episode_001/no_memory_post_repair_log_raw.txt"
+        },
+        "pre_repair_replay_gate_passed": true,
+        "provenance_chain": [
+          "v2.8r third-scoreable baseline",
+          "v2.8s official positive-memory artifact",
+          "v2.8t official positive-memory replication artifact",
+          "v2.8u official positive-memory signal preservation artifact",
+          "v2.8v official cross-family positive-memory artifact",
+          "v2.8w preserved baseline rerun"
+        ],
+        "scoreable": true
+      },
+      {
+        "candidate": "black:4",
+        "classification": "inconclusive_equal_performance",
+        "episode_id": "episode_003",
+        "exact_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+        "normalized_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+        "positive_memory_only_status_preserved": null,
+        "post_repair_validation": {
+          "limited_scoring_result": "episode_003/limited_scoring_result.json",
+          "memory_enabled_log": "episode_003/memory_enabled_post_repair_log_raw.txt",
+          "no_memory_log": "episode_003/no_memory_post_repair_log_raw.txt"
+        },
+        "pre_repair_replay_gate_passed": true,
+        "provenance_chain": [
+          "v2.8r third-scoreable baseline",
+          "v2.8s official positive-memory artifact",
+          "v2.8t official positive-memory replication artifact",
+          "v2.8u official positive-memory signal preservation artifact",
+          "v2.8v official cross-family positive-memory artifact",
+          "v2.8w preserved baseline rerun"
+        ],
+        "scoreable": true
+      },
+      {
+        "candidate": "fastapi:1",
+        "classification": "inconclusive_equal_performance",
+        "episode_id": "episode_006",
+        "exact_command": "pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+        "normalized_command": "python -m pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+        "positive_memory_only_status_preserved": null,
+        "post_repair_validation": {
+          "limited_scoring_result": "episode_006/limited_scoring_result.json",
+          "memory_enabled_log": "episode_006/memory_enabled_post_repair_log_raw.txt",
+          "no_memory_log": "episode_006/no_memory_post_repair_log_raw.txt"
+        },
+        "pre_repair_replay_gate_passed": true,
+        "provenance_chain": [
+          "v2.8r third-scoreable baseline",
+          "v2.8s official positive-memory artifact",
+          "v2.8t official positive-memory replication artifact",
+          "v2.8u official positive-memory signal preservation artifact",
+          "v2.8v official cross-family positive-memory artifact",
+          "v2.8w preserved baseline rerun"
+        ],
+        "scoreable": true
+      },
+      {
+        "candidate": "ansible:2",
+        "classification": "positive_memory_only",
+        "episode_id": "episode_010",
+        "exact_command": "pytest test/units/utils/test_version.py::test_alpha && pytest test/units/utils/test_version.py::test_numeric",
+        "normalized_command": "python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric",
+        "positive_memory_only_status_preserved": true,
+        "post_repair_validation": {
+          "limited_scoring_result": "episode_010/limited_scoring_result.json",
+          "memory_enabled_log": "episode_010/memory_enabled_post_repair_log_raw.txt",
+          "no_memory_log": "episode_010/no_memory_post_repair_log_raw.txt"
+        },
+        "pre_repair_replay_gate_passed": true,
+        "provenance_chain": [
+          "v2.8r third-scoreable baseline",
+          "v2.8s official positive-memory artifact",
+          "v2.8t official positive-memory replication artifact",
+          "v2.8u official positive-memory signal preservation artifact",
+          "v2.8v official cross-family positive-memory artifact",
+          "v2.8w preserved baseline rerun"
+        ],
+        "scoreable": true
+      },
+      {
+        "candidate": "ansible:5",
+        "classification": "positive_memory_only",
+        "episode_id": "episode_020",
+        "exact_command": "pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+        "normalized_command": "python -m pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+        "positive_memory_only_status_preserved": true,
+        "post_repair_validation": {
+          "limited_scoring_result": "episode_020/limited_scoring_result.json",
+          "memory_enabled_log": "episode_020/memory_enabled_post_repair_log_raw.txt",
+          "no_memory_log": "episode_020/no_memory_post_repair_log_raw.txt"
+        },
+        "pre_repair_replay_gate_passed": true,
+        "provenance_chain": [
+          "v2.8r third-scoreable baseline",
+          "v2.8s official positive-memory artifact",
+          "v2.8t official positive-memory replication artifact",
+          "v2.8u official positive-memory signal preservation artifact",
+          "v2.8v official cross-family positive-memory artifact",
+          "v2.8w preserved baseline rerun"
+        ],
+        "scoreable": true
+      }
+    ],
+    "rollback_to_state_id": null,
+    "scoreable_status_by_episode": {
+      "episode_001": true,
+      "episode_003": true,
+      "episode_006": true,
+      "episode_010": true,
+      "episode_020": true
+    },
+    "state_status": "stable",
+    "status": "PASS"
   },
   "campaign_id": "v2_13_minimal_forensic_context_lane",
   "final_result": {
+    "agent_state_id": "state_006_final_classification",
     "controllergate_full_scoring": "NOT_RUN",
+    "corruption_count": 0,
+    "decision_time_outcome_overlap_count": 0,
+    "diagnostic_probe_count": 0,
+    "duplicate_replay_status": "not_applicable_no_authorized_patch",
+    "exact_remaining_blocker": "fixture_materialization_incomplete: tests/mini_toolbox.py is directly imported by the target test but absent from the buggy checkout; test/fixture edits are forbidden and no source-only revision is authorized",
+    "family_generalization": "not_expanded",
+    "final_agent_state_id": "state_006_final_classification",
+    "fixed_gold_future_evidence_used": false,
     "full_scoring_allowed": false,
+    "last_stable_state_id": "state_006_final_classification",
+    "non_ansible_positive_memory_count": 0,
+    "observation_id": "observation_006_final_classification",
+    "parent_agent_state_id": "state_005_patch_authorization",
+    "phase_seed_check_reason": "no authorized patch or nondeterministic target result required replay-sensitive validation",
+    "phase_seed_check_status": "not_applicable_with_reason",
+    "post_state_hash": "2ea9b102852f95458fe7b979cdb90f11bc8a3a6699c0d232958c5bfc296cbec8",
+    "pre_state_hash": "359643dcba01926f125f66db9f4db762d4f886ac709aa88c2de6943065a9cb41",
+    "pysnooper1_policy_classification": "dependency_recovery_allowed_by_policy_not_executed_in_minimal_lane",
+    "pysnooper2_classification": "blocked_fixture_materialization_incomplete",
+    "pysnooper2_positive_memory_only": false,
+    "pysnooper2_scoreable": false,
+    "repair_outcome_memory_lift": "replicated_positive_memory_signal_preserved",
+    "revised_patch_attempted": false,
+    "revised_patch_authorized": false,
+    "rollback_performed": false,
+    "rollback_to_state_id": null,
     "self_maintaining_software_demonstrated": false,
-    "status": "PENDING_GITHUB_ACTIONS"
+    "state_status": "stable",
+    "status": "PASS_WITH_DETERMINISTIC_BLOCKER",
+    "target_validation_passed": false,
+    "updated_positive_memory_count": 2,
+    "updated_scoreable_count": 5
   },
-  "proof_ledger": [],
+  "hash_custody": {
+    "canonical_json": "UTF-8 JSON with sort_keys=true and separators=(',', ':')",
+    "entry_hash_rule": "hash the complete ledger entry with top-level entry_hash omitted and sha256.entry_hash set to null",
+    "state_hash_fields": [
+      "agent_state_id",
+      "observation_id",
+      "parent_agent_state_id",
+      "last_stable_state_id",
+      "state_status",
+      "rollback_to_state_id",
+      "action",
+      "candidate",
+      "evidence_files",
+      "input_hashes",
+      "output_hashes",
+      "result",
+      "next_allowed_action"
+    ]
+  },
+  "proof_ledger": [
+    {
+      "action": "baseline_preservation",
+      "agent_state_id": "state_001_baseline_preservation",
+      "candidate": "baseline_five",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "exact v2.12 scoring harness",
+        "fresh buggy-checkout baseline executions"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "e1dc321d8d43ec8925d63ef839d74a11e085a9ed0be74cbfb62653b78fdb8b1d",
+      "entry_index": 0,
+      "evidence_files": [
+        "baseline_preservation_v2_13.json",
+        "raw_logs/baseline/episode_001_youtube-dl_1/failing_command.txt",
+        "raw_logs/baseline/episode_001_youtube-dl_1/failing_log_raw.txt",
+        "raw_logs/baseline/episode_001_youtube-dl_1/limited_scoring_result.json",
+        "raw_logs/baseline/episode_001_youtube-dl_1/memory_enabled_post_repair_log_raw.txt",
+        "raw_logs/baseline/episode_001_youtube-dl_1/no_memory_post_repair_log_raw.txt",
+        "raw_logs/baseline/episode_001_youtube-dl_1/normalized_failing_command.txt",
+        "raw_logs/baseline/episode_001_youtube-dl_1/post_repair_comparison.json",
+        "raw_logs/baseline/episode_003_black_4/failing_command.txt",
+        "raw_logs/baseline/episode_003_black_4/failing_log_raw.txt",
+        "raw_logs/baseline/episode_003_black_4/limited_scoring_result.json",
+        "raw_logs/baseline/episode_003_black_4/memory_enabled_post_repair_log_raw.txt",
+        "raw_logs/baseline/episode_003_black_4/no_memory_post_repair_log_raw.txt",
+        "raw_logs/baseline/episode_003_black_4/normalized_failing_command.txt",
+        "raw_logs/baseline/episode_003_black_4/post_repair_comparison.json",
+        "raw_logs/baseline/episode_006_fastapi_1/failing_command.txt",
+        "raw_logs/baseline/episode_006_fastapi_1/failing_log_raw.txt",
+        "raw_logs/baseline/episode_006_fastapi_1/limited_scoring_result.json",
+        "raw_logs/baseline/episode_006_fastapi_1/memory_enabled_post_repair_log_raw.txt",
+        "raw_logs/baseline/episode_006_fastapi_1/no_memory_post_repair_log_raw.txt",
+        "raw_logs/baseline/episode_006_fastapi_1/normalized_failing_command.txt",
+        "raw_logs/baseline/episode_006_fastapi_1/post_repair_comparison.json",
+        "raw_logs/baseline/episode_010_ansible_2/failing_command.txt",
+        "raw_logs/baseline/episode_010_ansible_2/failing_log_raw.txt",
+        "raw_logs/baseline/episode_010_ansible_2/limited_scoring_result.json",
+        "raw_logs/baseline/episode_010_ansible_2/memory_enabled_post_repair_log_raw.txt",
+        "raw_logs/baseline/episode_010_ansible_2/no_memory_post_repair_log_raw.txt",
+        "raw_logs/baseline/episode_010_ansible_2/normalized_failing_command.txt",
+        "raw_logs/baseline/episode_010_ansible_2/post_repair_comparison.json",
+        "raw_logs/baseline/episode_020_ansible_5/failing_command.txt",
+        "raw_logs/baseline/episode_020_ansible_5/failing_log_raw.txt",
+        "raw_logs/baseline/episode_020_ansible_5/limited_scoring_result.json",
+        "raw_logs/baseline/episode_020_ansible_5/memory_enabled_post_repair_log_raw.txt",
+        "raw_logs/baseline/episode_020_ansible_5/no_memory_post_repair_log_raw.txt",
+        "raw_logs/baseline/episode_020_ansible_5/normalized_failing_command.txt",
+        "raw_logs/baseline/episode_020_ansible_5/post_repair_comparison.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_001_baseline_preservation",
+      "next_allowed_action": "policy_recheck",
+      "observation_id": "observation_001_baseline_preservation",
+      "parent_agent_state_id": null,
+      "post_state_hash": "3a3d5dd01206cfc2e39682ef1c7bc952ddc32a7c5ebbbf60d82280bccabc559f",
+      "pre_state_hash": "11cfe194400f3859845a7e3bbd8c563ccb55344d796105e847b9c818a55a8a9b",
+      "result": "pass",
+      "rollback_to_state_id": null,
+      "sequence_index": 0,
+      "sha256": {
+        "entry_hash": "e1dc321d8d43ec8925d63ef839d74a11e085a9ed0be74cbfb62653b78fdb8b1d",
+        "input_hashes": {},
+        "output_hashes": {
+          "baseline_preservation_v2_13.json": "3c4195b5ca192092a004d91c92149e8554079ba065a276ac2ca4bd5e40e19370"
+        },
+        "previous_entry_hash": null
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "policy_recheck",
+      "agent_state_id": "state_002_policy_recheck",
+      "candidate": "PySnooper:1",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "buggy-checkout project metadata",
+        "BugsInPy bug-local setup metadata"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "05afffe6d07199b7de10ac75ab91a9129d75a13ab33aaf0d90751120b0fbc82b",
+      "entry_index": 1,
+      "evidence_files": [
+        "raw_logs/pysnooper1_policy_recheck_v2_13.json",
+        "raw_logs/pysnooper1_checkout_log_raw.txt"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_002_policy_recheck",
+      "next_allowed_action": "failed_patch_analysis",
+      "observation_id": "observation_002_policy_recheck",
+      "parent_agent_state_id": "state_001_baseline_preservation",
+      "post_state_hash": "2b9a5d06c35dd427b1d3b54abe86f7454d7eb99da9f02e0d46cd8dacd123e992",
+      "pre_state_hash": "3a3d5dd01206cfc2e39682ef1c7bc952ddc32a7c5ebbbf60d82280bccabc559f",
+      "result": "pass",
+      "rollback_to_state_id": null,
+      "sequence_index": 1,
+      "sha256": {
+        "entry_hash": "05afffe6d07199b7de10ac75ab91a9129d75a13ab33aaf0d90751120b0fbc82b",
+        "input_hashes": {},
+        "output_hashes": {
+          "raw_logs/pysnooper1_policy_recheck_v2_13.json": "36898f83026af8ff62bf62eab07dbdb3e67caa7a39287261d502c2f18b3b7248"
+        },
+        "previous_entry_hash": "e1dc321d8d43ec8925d63ef839d74a11e085a9ed0be74cbfb62653b78fdb8b1d"
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "failed_patch_analysis",
+      "agent_state_id": "state_003_failed_patch_analysis",
+      "candidate": "PySnooper:2",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "v2.12 failed patch diff",
+        "v2.12 pre-patch failure log",
+        "v2.12 post-patch failure log used only for failure classification",
+        "exact target command"
+      ],
+      "direct_script_output": "pysnooper2_patch_failure_classification.json",
+      "entry_hash": "6b7bbc324543dff6675ef91c76c6dc891771ffcafdd3bcc9141d636cae5a124d",
+      "entry_index": 2,
+      "evidence_files": [
+        "pysnooper2_patch_failure_classification.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_003_failed_patch_analysis",
+      "next_allowed_action": "context_extraction",
+      "observation_id": "observation_003_failed_patch_analysis",
+      "parent_agent_state_id": "state_002_policy_recheck",
+      "post_state_hash": "e9158a4e15749637e092a55c1ec02ccd6862564c0c8b3d918d9e832028333a40",
+      "pre_state_hash": "2b9a5d06c35dd427b1d3b54abe86f7454d7eb99da9f02e0d46cd8dacd123e992",
+      "result": "pass",
+      "rollback_to_state_id": null,
+      "sequence_index": 2,
+      "sha256": {
+        "entry_hash": "6b7bbc324543dff6675ef91c76c6dc891771ffcafdd3bcc9141d636cae5a124d",
+        "input_hashes": {
+          "outputs/v2_12_dependency_cofactor_recovery/episode_034/failing_log_raw.txt": "b46b24eda9a4e81dbeaf8ee054fe5935177301310490c65a0a9e843f79b63b14",
+          "outputs/v2_12_dependency_cofactor_recovery/episode_034/memory_enabled_patch_application_result.json": "f76911b066d49b3259e116ec30f7d543f8501c7fdfbb3d70af90179420957ed0",
+          "outputs/v2_12_dependency_cofactor_recovery/episode_034/memory_enabled_post_repair_command.txt": "d447dba323e85509453d741a31eedb02a7d60bbaa7afb0bee5f31b190d817710",
+          "outputs/v2_12_dependency_cofactor_recovery/episode_034/memory_enabled_post_repair_log_raw.txt": "7a822c8d08961ed35903201977b0b4f0a673277c92162c6640abeedcbce35869",
+          "outputs/v2_12_dependency_cofactor_recovery/episode_034/memory_enabled_source_only_repair_patch.diff": "638b7f792087452d1dcd869a7ab29578e1818edcdc94b627d4484d8914b38c0e"
+        },
+        "output_hashes": {
+          "pysnooper2_patch_failure_classification.json": "63e318606b4be5e9ce6c0bdcc55f1665a8b33795470e319fdbee5bb292baa307"
+        },
+        "previous_entry_hash": "05afffe6d07199b7de10ac75ab91a9129d75a13ab33aaf0d90751120b0fbc82b"
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "context_extraction",
+      "agent_state_id": "state_004_context_extraction",
+      "candidate": "PySnooper:2",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "buggy checkout",
+        "target test",
+        "traceback",
+        "v2.12 patch",
+        "repo-local dependency metadata"
+      ],
+      "direct_script_output": "pysnooper2_candidate_context.json",
+      "entry_hash": "c91aa6a28d2f07673916094fd2632551374b06720b40ee7327da52287bef7412",
+      "entry_index": 3,
+      "evidence_files": [
+        "pysnooper2_candidate_context.json",
+        "raw_logs/pysnooper2_checkout_log_raw.txt",
+        "raw_logs/pysnooper2_checkout_identity.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_004_context_extraction",
+      "next_allowed_action": "revise_patch",
+      "observation_id": "observation_004_context_extraction",
+      "parent_agent_state_id": "state_003_failed_patch_analysis",
+      "post_state_hash": "42e16f6945656c0c77103e58dd499ae889920ae520acdd3bdd411997024fa524",
+      "pre_state_hash": "e9158a4e15749637e092a55c1ec02ccd6862564c0c8b3d918d9e832028333a40",
+      "result": "pass",
+      "rollback_to_state_id": null,
+      "sequence_index": 3,
+      "sha256": {
+        "entry_hash": "c91aa6a28d2f07673916094fd2632551374b06720b40ee7327da52287bef7412",
+        "input_hashes": {
+          "outputs/v2_12_dependency_cofactor_recovery/episode_034/failing_log_raw.txt": "b46b24eda9a4e81dbeaf8ee054fe5935177301310490c65a0a9e843f79b63b14",
+          "outputs/v2_12_dependency_cofactor_recovery/episode_034/memory_enabled_post_repair_command.txt": "d447dba323e85509453d741a31eedb02a7d60bbaa7afb0bee5f31b190d817710",
+          "outputs/v2_12_dependency_cofactor_recovery/episode_034/memory_enabled_post_repair_log_raw.txt": "7a822c8d08961ed35903201977b0b4f0a673277c92162c6640abeedcbce35869",
+          "outputs/v2_12_dependency_cofactor_recovery/episode_034/memory_enabled_source_only_repair_patch.diff": "638b7f792087452d1dcd869a7ab29578e1818edcdc94b627d4484d8914b38c0e",
+          "raw_logs/pysnooper2_checkout_identity.json": "1b92ace4ac7a5b1eb0970488bd51eceab82c8336a906e6975d0c56efd452a73d"
+        },
+        "output_hashes": {
+          "pysnooper2_candidate_context.json": "d4d27e52066d0a9bb2c6cb365c48de762d1311e8fc25d6c75ad4a6fd67632b1f"
+        },
+        "previous_entry_hash": "6b7bbc324543dff6675ef91c76c6dc891771ffcafdd3bcc9141d636cae5a124d"
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "patch_authorization",
+      "agent_state_id": "state_005_patch_authorization",
+      "candidate": "PySnooper:2",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "pysnooper2_patch_failure_classification.json",
+        "pysnooper2_candidate_context.json",
+        "baseline_preservation_v2_13.json"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "6fa60af88a9fc824817e65f72a5e51757e0487d83b0c8bd0c64e103978810c9f",
+      "entry_index": 4,
+      "evidence_files": [
+        "pysnooper2_patch_failure_classification.json",
+        "pysnooper2_candidate_context.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_005_patch_authorization",
+      "next_allowed_action": "stop",
+      "observation_id": "observation_005_patch_authorization",
+      "parent_agent_state_id": "state_004_context_extraction",
+      "post_state_hash": "359643dcba01926f125f66db9f4db762d4f886ac709aa88c2de6943065a9cb41",
+      "pre_state_hash": "42e16f6945656c0c77103e58dd499ae889920ae520acdd3bdd411997024fa524",
+      "result": "block",
+      "rollback_to_state_id": null,
+      "sequence_index": 4,
+      "sha256": {
+        "entry_hash": "6fa60af88a9fc824817e65f72a5e51757e0487d83b0c8bd0c64e103978810c9f",
+        "input_hashes": {
+          "baseline_preservation_v2_13.json": "3c4195b5ca192092a004d91c92149e8554079ba065a276ac2ca4bd5e40e19370",
+          "pysnooper2_candidate_context.json": "d4d27e52066d0a9bb2c6cb365c48de762d1311e8fc25d6c75ad4a6fd67632b1f",
+          "pysnooper2_patch_failure_classification.json": "63e318606b4be5e9ce6c0bdcc55f1665a8b33795470e319fdbee5bb292baa307"
+        },
+        "output_hashes": {},
+        "previous_entry_hash": "c91aa6a28d2f07673916094fd2632551374b06720b40ee7327da52287bef7412"
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "final_classification",
+      "agent_state_id": "state_006_final_classification",
+      "candidate": "PySnooper:2",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "pysnooper2_patch_failure_classification.json",
+        "pysnooper2_candidate_context.json"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "35fd82da5afb1dc160798d60421ad4c5d45c2652303624a54b80623825e2f3bc",
+      "entry_index": 5,
+      "evidence_files": [
+        "pysnooper2_patch_failure_classification.json",
+        "pysnooper2_candidate_context.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_006_final_classification",
+      "next_allowed_action": "none",
+      "observation_id": "observation_006_final_classification",
+      "parent_agent_state_id": "state_005_patch_authorization",
+      "post_state_hash": "2ea9b102852f95458fe7b979cdb90f11bc8a3a6699c0d232958c5bfc296cbec8",
+      "pre_state_hash": "359643dcba01926f125f66db9f4db762d4f886ac709aa88c2de6943065a9cb41",
+      "result": "block",
+      "rollback_to_state_id": null,
+      "sequence_index": 5,
+      "sha256": {
+        "entry_hash": "35fd82da5afb1dc160798d60421ad4c5d45c2652303624a54b80623825e2f3bc",
+        "input_hashes": {
+          "pysnooper2_candidate_context.json": "d4d27e52066d0a9bb2c6cb365c48de762d1311e8fc25d6c75ad4a6fd67632b1f",
+          "pysnooper2_patch_failure_classification.json": "63e318606b4be5e9ce6c0bdcc55f1665a8b33795470e319fdbee5bb292baa307"
+        },
+        "output_hashes": {},
+        "previous_entry_hash": "6fa60af88a9fc824817e65f72a5e51757e0487d83b0c8bd0c64e103978810c9f"
+      },
+      "state_status": "stable"
+    }
+  ],
   "pysnooper1_policy_recheck": {
-    "status": "PENDING_GITHUB_ACTIONS"
+    "absence_result": false,
+    "agent_state_id": "state_002_policy_recheck",
+    "candidate": "PySnooper:1",
+    "checkout": {
+      "command": "bugsinpy-checkout -p PySnooper -v 0 -i 1 -w /home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1",
+      "identity": {
+        "head_sha": "e21a31162f4c54be693d8ca8260e42393b39abd3",
+        "status_porcelain": "?? bugsinpy_bug.info\n?? bugsinpy_patchfile.info\n?? bugsinpy_requirements.txt\n?? bugsinpy_run_test.sh\n?? bugsinpy_setup.sh\n?? tests/test_chinese.py",
+        "top_level": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper"
+      },
+      "identity_log": "raw_logs/pysnooper1_checkout_identity.json",
+      "log": "raw_logs/pysnooper1_checkout_log_raw.txt",
+      "returncode": 0
+    },
+    "classification": "dependency_recovery_allowed_by_policy_not_executed_in_minimal_lane",
+    "decision_time_safe_status": "PASS",
+    "installation_performed": false,
+    "last_stable_state_id": "state_002_policy_recheck",
+    "metadata_files_inspected": [
+      {
+        "matching_lines": [
+          {
+            "line": "'python-toolbox',",
+            "line_number": 28
+          }
+        ],
+        "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/setup.py",
+        "sha256": "3709ade94c4102c08f64fa33e6a95e33b21c17d68af308cdb34f16a75f6d0f6b"
+      },
+      {
+        "matching_lines": [],
+        "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/requirements.txt",
+        "sha256": "44c91d4c293a45e5efd6e28c304835637cccbdb5de9b88136c03bcfb98376d8d"
+      },
+      {
+        "matching_lines": [
+          {
+            "line": "python_toolbox",
+            "line_number": 18
+          },
+          {
+            "line": "# until python_toolbox is fixed",
+            "line_number": 21
+          }
+        ],
+        "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/tox.ini",
+        "sha256": "629866307933434d0f9f691c3007968f4bb35d7024007e89403c80c36bee0c06"
+      },
+      {
+        "matching_lines": [],
+        "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/bug.info",
+        "sha256": "199b770bd6551117a00f9c7ce2c674d7ddb818e3bb5dc344371340e75e52296e"
+      },
+      {
+        "matching_lines": [],
+        "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/run_test.sh",
+        "sha256": "6d24d2d88478e17cefec81f33a1ef5c44cea64321ff46762384c68e219064d0b"
+      },
+      {
+        "matching_lines": [],
+        "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/setup.sh",
+        "sha256": "653b7a51d65d7409e319e29d51d5ee2af65d621ad9ef62148e7eacf99e289879"
+      }
+    ],
+    "observation_id": "observation_002_policy_recheck",
+    "parent_agent_state_id": "state_001_baseline_preservation",
+    "post_state_hash": "2b9a5d06c35dd427b1d3b54abe86f7454d7eb99da9f02e0d46cd8dacd123e992",
+    "pre_state_hash": "3a3d5dd01206cfc2e39682ef1c7bc952ddc32a7c5ebbbf60d82280bccabc559f",
+    "python_toolbox_declared": true,
+    "rollback_to_state_id": null,
+    "state_status": "stable",
+    "status": "PASS"
   },
   "pysnooper2_context_extraction": {
-    "status": "PENDING_GITHUB_ACTIONS"
+    "agent_state_id": "state_004_context_extraction",
+    "direct_output": "pysnooper2_candidate_context.json",
+    "last_stable_state_id": "state_004_context_extraction",
+    "missing_fixture_or_test_helpers_referenced": [
+      "tests/mini_toolbox.py"
+    ],
+    "observation_id": "observation_004_context_extraction",
+    "parent_agent_state_id": "state_003_failed_patch_analysis",
+    "post_state_hash": "42e16f6945656c0c77103e58dd499ae889920ae520acdd3bdd411997024fa524",
+    "pre_state_hash": "e9158a4e15749637e092a55c1ec02ccd6862564c0c8b3d918d9e832028333a40",
+    "rollback_to_state_id": null,
+    "selected_file_count": 14,
+    "sha256": "d4d27e52066d0a9bb2c6cb365c48de762d1311e8fc25d6c75ad4a6fd67632b1f",
+    "state_status": "stable",
+    "status": "PASS"
   },
   "pysnooper2_failed_patch_analysis": {
-    "status": "PENDING_GITHUB_ACTIONS"
+    "agent_state_id": "state_003_failed_patch_analysis",
+    "degenerate_flatline_detected": false,
+    "deterministic_classification": "fixture_materialization_incomplete",
+    "direct_output": "pysnooper2_patch_failure_classification.json",
+    "last_stable_state_id": "state_003_failed_patch_analysis",
+    "observation_id": "observation_003_failed_patch_analysis",
+    "parent_agent_state_id": "state_002_policy_recheck",
+    "post_state_hash": "e9158a4e15749637e092a55c1ec02ccd6862564c0c8b3d918d9e832028333a40",
+    "pre_state_hash": "2b9a5d06c35dd427b1d3b54abe86f7454d7eb99da9f02e0d46cd8dacd123e992",
+    "rollback_to_state_id": null,
+    "sha256": "63e318606b4be5e9ce6c0bdcc55f1665a8b33795470e319fdbee5bb292baa307",
+    "state_status": "stable",
+    "status": "PASS"
   },
   "pysnooper2_minimal_probes": [],
   "pysnooper2_revised_patch_attempt": {
+    "agent_state_id": "state_005_patch_authorization",
+    "attempt_count": 0,
     "attempted": false,
-    "authorized": false
+    "authorized": false,
+    "blocker": "fixture_materialization_incomplete: tests/mini_toolbox.py is directly imported by the target test but absent from the buggy checkout; test/fixture edits are forbidden and no source-only revision is authorized",
+    "last_stable_state_id": "state_005_patch_authorization",
+    "observation_id": "observation_005_patch_authorization",
+    "parent_agent_state_id": "state_004_context_extraction",
+    "post_state_hash": "359643dcba01926f125f66db9f4db762d4f886ac709aa88c2de6943065a9cb41",
+    "pre_state_hash": "42e16f6945656c0c77103e58dd499ae889920ae520acdd3bdd411997024fa524",
+    "rollback_to_state_id": null,
+    "state_status": "stable"
   },
   "rollback": {
-    "performed": false
+    "performed": false,
+    "reason": "no revised patch was authorized or applied",
+    "rollback_to_state_id": null
   },
-  "workflow_executed": false
+  "workflow_executed": true
 }

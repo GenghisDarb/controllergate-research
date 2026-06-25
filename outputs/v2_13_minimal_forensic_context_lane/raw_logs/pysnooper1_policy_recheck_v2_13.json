@@ -1,0 +1,66 @@
+{
+  "absence_result": false,
+  "candidate": "PySnooper:1",
+  "checkout": {
+    "command": "bugsinpy-checkout -p PySnooper -v 0 -i 1 -w /home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1",
+    "identity": {
+      "head_sha": "e21a31162f4c54be693d8ca8260e42393b39abd3",
+      "status_porcelain": "?? bugsinpy_bug.info\n?? bugsinpy_patchfile.info\n?? bugsinpy_requirements.txt\n?? bugsinpy_run_test.sh\n?? bugsinpy_setup.sh\n?? tests/test_chinese.py",
+      "top_level": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper"
+    },
+    "identity_log": "raw_logs/pysnooper1_checkout_identity.json",
+    "log": "raw_logs/pysnooper1_checkout_log_raw.txt",
+    "returncode": 0
+  },
+  "classification": "dependency_recovery_allowed_by_policy_not_executed_in_minimal_lane",
+  "decision_time_safe_status": "PASS",
+  "installation_performed": false,
+  "metadata_files_inspected": [
+    {
+      "matching_lines": [
+        {
+          "line": "'python-toolbox',",
+          "line_number": 28
+        }
+      ],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/setup.py",
+      "sha256": "3709ade94c4102c08f64fa33e6a95e33b21c17d68af308cdb34f16a75f6d0f6b"
+    },
+    {
+      "matching_lines": [],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/requirements.txt",
+      "sha256": "44c91d4c293a45e5efd6e28c304835637cccbdb5de9b88136c03bcfb98376d8d"
+    },
+    {
+      "matching_lines": [
+        {
+          "line": "python_toolbox",
+          "line_number": 18
+        },
+        {
+          "line": "# until python_toolbox is fixed",
+          "line_number": 21
+        }
+      ],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/tox.ini",
+      "sha256": "629866307933434d0f9f691c3007968f4bb35d7024007e89403c80c36bee0c06"
+    },
+    {
+      "matching_lines": [],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/bug.info",
+      "sha256": "199b770bd6551117a00f9c7ce2c674d7ddb818e3bb5dc344371340e75e52296e"
+    },
+    {
+      "matching_lines": [],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/run_test.sh",
+      "sha256": "6d24d2d88478e17cefec81f33a1ef5c44cea64321ff46762384c68e219064d0b"
+    },
+    {
+      "matching_lines": [],
+      "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/setup.sh",
+      "sha256": "653b7a51d65d7409e319e29d51d5ee2af65d621ad9ef62148e7eacf99e289879"
+    }
+  ],
+  "python_toolbox_declared": true,
+  "status": "PASS"
+}
