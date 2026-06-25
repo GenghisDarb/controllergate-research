@@ -1119,3 +1119,23 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Aggregate result remains `replicated_positive_memory_signal_preserved`; family generalization remains `not_expanded`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Self-maintaining software is not demonstrated.
+
+## v2.15 Chromosomal Maintenance Gate-Order
+
+- Status: `verified_official_artifact`.
+- Workflow run: `28149638465`; artifact ID: `7869776529`; artifact name: `v2_15_chromosomal_maintenance_gate_order_artifacts`.
+- Artifact verification: `PASS`; ZIP SHA256: `6efe1eb24b006436ee410dce76c7bc60f5d8e283eb69bca1fadf388cdfa209c9`; byte size: `38753`; ZIP entries: `29`; safe paths: `PASS`; duplicate paths: `0`.
+- Internal SHA256SUMS: `27` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest: `28` entries after adding the local official artifact-verification record.
+- v2.15 audit: `PASS`; v2.14 audit: `PASS`; v2.13 audit: `PASS`; v2.12 audit: `PASS`; current-protocol audit: `PASS`.
+- Byte-custody correction status: `PASS`; committed LF bytes now match v2.15 manifest/proof-ledger evidence, with LF-safe writers for the workflow-audited v2.13/v2.14/v2.15 paths.
+- Corrected chromosomal maintenance order implemented: `true`; every gate exposes machine-checkable `pass`/`block`/`manual_review` fields.
+- Patch attempted: `false`; activation/license and materialization gates denied patch generation before source mutation.
+- PySnooper:1 blocker: `activation_denied_after_dependency_or_cofactor_mismatch`.
+- PySnooper:2 blocker: `activation_denied_after_fixture_materialization_incomplete`.
+- Baseline preservation: `PASS`; previous positive-memory episodes preserved: `true`.
+- Scoreable episodes: `5`; positive-memory-only episodes: `2`; non-Ansible positive-memory episodes: `0`.
+- Family generalization remains `not_expanded`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.15 is not promoted to current.
