@@ -1,0 +1,119 @@
+{
+  "campaign_id": "v2_14_capability_recovery_lane",
+  "candidates": [
+    {
+      "candidate": "PySnooper:1",
+      "decision_time_safe": true,
+      "evidence_lines_or_hashes": [
+        {
+          "line": "'python-toolbox',",
+          "line_number": 28
+        },
+        {
+          "line": "python_toolbox",
+          "line_number": 18
+        },
+        {
+          "line": "# until python_toolbox is fixed",
+          "line_number": 21
+        }
+      ],
+      "evidence_origin": "v2.13 classifier",
+      "prior_blocker": "dependency_recovery_allowed_by_policy_not_executed_in_minimal_lane",
+      "suspect_dependency_edges": [
+        {
+          "edge": "PySnooper:1 -> python-toolbox",
+          "reason": "dependency declaration lines were present in decision-time-safe metadata",
+          "weight": 0.72
+        }
+      ],
+      "suspect_files": [
+        {
+          "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/setup.py",
+          "reason": "v2.13 policy metadata contained python-toolbox declaration evidence",
+          "weight": 0.45
+        },
+        {
+          "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/tox.ini",
+          "reason": "v2.13 policy metadata contained python-toolbox declaration evidence",
+          "weight": 0.45
+        }
+      ],
+      "suspect_fixture_helper_references": [],
+      "suspect_symbols": [
+        {
+          "reason": "declared cofactor was allowed by policy but not executed in v2.13 minimal lane",
+          "symbol": "python-toolbox",
+          "weight": 0.31
+        }
+      ],
+      "weight_total": 0.91
+    },
+    {
+      "candidate": "PySnooper:2",
+      "decision_time_safe": true,
+      "evidence_lines_or_hashes": [
+        {
+          "blocker_reason": "target-test collection requires tests/mini_toolbox.py, which is absent from the materialized buggy checkout",
+          "source": "pysnooper2_patch_failure_classification.json"
+        }
+      ],
+      "evidence_origin": "v2.13 context extraction",
+      "prior_blocker": "blocked_fixture_materialization_incomplete",
+      "suspect_dependency_edges": [],
+      "suspect_files": [
+        {
+          "path": "tests/test_pysnooper.py",
+          "reason": "target test imports a helper that v2.13 context marked absent",
+          "weight": 0.34
+        }
+      ],
+      "suspect_fixture_helper_references": [
+        {
+          "path": "tests/mini_toolbox.py",
+          "reason": "helper is referenced by the target test but absent from the buggy checkout",
+          "weight": 0.78
+        }
+      ],
+      "suspect_symbols": [
+        {
+          "reason": "traceback/import context included missing helper symbol",
+          "symbol": "mini_toolbox",
+          "weight": 0.39
+        }
+      ],
+      "weight_total": 0.86
+    }
+  ],
+  "hard_safety_gates_override_allowed": false,
+  "max_files_per_candidate": 25,
+  "max_symbols_per_candidate": 100,
+  "ranking_only": true,
+  "source_evidence": [
+    {
+      "decision_time_safe": true,
+      "path": "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_policy_recheck_v2_13.json",
+      "role": "v2.13 classifier/dependency policy evidence",
+      "sha256": "36898f83026af8ff62bf62eab07dbdb3e67caa7a39287261d502c2f18b3b7248"
+    },
+    {
+      "decision_time_safe": true,
+      "path": "outputs/v2_13_minimal_forensic_context_lane/pysnooper2_candidate_context.json",
+      "role": "v2.13 bounded context extraction evidence",
+      "sha256": "d4d27e52066d0a9bb2c6cb365c48de762d1311e8fc25d6c75ad4a6fd67632b1f"
+    },
+    {
+      "decision_time_safe": true,
+      "path": "outputs/v2_13_minimal_forensic_context_lane/pysnooper2_patch_failure_classification.json",
+      "role": "v2.13 failure classification evidence",
+      "sha256": "63e318606b4be5e9ce6c0bdcc55f1665a8b33795470e319fdbee5bb292baa307"
+    },
+    {
+      "decision_time_safe": true,
+      "path": "outputs/v2_12_dependency_cofactor_recovery/episode_034/memory_enabled_source_only_repair_patch.diff",
+      "role": "v2.12 patch-touched symbol evidence",
+      "sha256": "24c4a0cd7eee521028912a00cfe6ec06077473f22d42220aa730ed3cd5ae978b"
+    }
+  ],
+  "version": "v2.14"
+}

@@ -1,0 +1,50 @@
+{
+  "broad_suite_runs": 0,
+  "campaign_id": "v2_14_capability_recovery_lane",
+  "candidate_probe_counts": {
+    "PySnooper:1": 1,
+    "PySnooper:2": 1
+  },
+  "max_total_probes": 4,
+  "probes": [
+    {
+      "candidate": "PySnooper:1",
+      "command": "inspect outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_policy_recheck_v2_13.json for python-toolbox declaration evidence",
+      "decision_time_inputs": [
+        "v2.13 PySnooper:1 policy recheck metadata",
+        "metadata matching lines and hashes"
+      ],
+      "expected_uncertainty_reduced": "whether dependency/cofactor recovery is policy-allowed for PySnooper:1",
+      "mutates_source_or_tests": false,
+      "post_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
+      "pre_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
+      "predeclared_before_execution": true,
+      "probe_id": "probe_001_pysnooper1_dependency_declaration_check",
+      "reason": "independently re-verify the v2.13 declaration evidence before any dependency recovery gate",
+      "result_log_path": "raw_logs/probe_001_pysnooper1_dependency_declaration_check.json",
+      "result_log_sha256": "a438a51790b7efbd07e1e78fb28d7521ca9e2178a6b55b61a9d414d7d9ea5365",
+      "status": "PASS"
+    },
+    {
+      "candidate": "PySnooper:2",
+      "command": "inspect outputs/v2_13_minimal_forensic_context_lane/pysnooper2_candidate_context.json and pysnooper2_patch_failure_classification.json for decision-time-safe fixture/helper availability",
+      "decision_time_inputs": [
+        "v2.13 bounded PySnooper:2 context",
+        "v2.13 deterministic patch-failure classification"
+      ],
+      "expected_uncertainty_reduced": "whether missing tests/mini_toolbox.py is safely recoverable",
+      "mutates_source_or_tests": false,
+      "post_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
+      "pre_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
+      "predeclared_before_execution": true,
+      "probe_id": "probe_002_pysnooper2_fixture_helper_availability_check",
+      "reason": "determine whether fixture/helper materialization can be authorized without test/fixture edits",
+      "result_log_path": "raw_logs/probe_002_pysnooper2_fixture_helper_availability_check.json",
+      "result_log_sha256": "66f4f54e2c6ed4c945ab46d74a204844304d5b4ab27188f4eeb5ccb12f387246",
+      "status": "PASS"
+    }
+  ],
+  "source_mutating_probes": 0,
+  "test_mutating_probes": 0,
+  "total_probe_count": 2
+}

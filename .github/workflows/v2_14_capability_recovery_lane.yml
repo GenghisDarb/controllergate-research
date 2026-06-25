@@ -1,0 +1,67 @@
+name: v2_14_capability_recovery_lane
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capability-recovery:
+    name: Bounded non-Ansible capability recovery lane
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify v2.14 implementation surface
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s configs/controllergate_current.yaml
+          test -s configs/controllergate_v2_14.yaml
+          test -s scripts/v2_14_capability_recovery_lane_runner.py
+          test -s scripts/audit_v2_14_capability_recovery_lane.py
+          grep -q "protocol_version: v2.13" configs/controllergate_current.yaml
+          grep -q "PySnooper:1" scripts/v2_14_capability_recovery_lane_runner.py
+          grep -q "PySnooper:2" scripts/v2_14_capability_recovery_lane_runner.py
+          grep -q "max_total_probes" configs/controllergate_v2_14.yaml
+
+      - name: Run v2.14 capability recovery lane
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/v2_14_capability_recovery_lane_runner.py \
+            --artifact-root v2_14_capability_recovery_lane_artifacts \
+            --rerun-baseline
+
+      - name: Independently audit v2.14 artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_14_capability_recovery_lane.py \
+            --artifact-root v2_14_capability_recovery_lane_artifacts
+          test -s v2_14_capability_recovery_lane_artifacts/campaign_summary.md
+          test -s v2_14_capability_recovery_lane_artifacts/candidate_state_v2_14.json
+          test -s v2_14_capability_recovery_lane_artifacts/failure_memory_weights_v2_14.json
+          test -s v2_14_capability_recovery_lane_artifacts/local_global_validation_v2_14.json
+          test -s v2_14_capability_recovery_lane_artifacts/capability_probe_log_v2_14.json
+          test -s v2_14_capability_recovery_lane_artifacts/audit_summary_v2_14.json
+          test -s v2_14_capability_recovery_lane_artifacts/SHA256SUMS.txt
+
+      - name: Upload v2.14 artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_14_capability_recovery_lane_artifacts
+          path: v2_14_capability_recovery_lane_artifacts
+          if-no-files-found: error

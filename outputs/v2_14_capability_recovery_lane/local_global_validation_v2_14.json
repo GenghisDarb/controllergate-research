@@ -1,0 +1,91 @@
+{
+  "aggregate": {
+    "any_scoreable_non_ansible_result": false,
+    "failed_patches_rolled_back": true,
+    "full_scoring": "NOT_RUN",
+    "full_scoring_allowed": false,
+    "global_constraints_pass_for_scoreable_candidate": false,
+    "local_mechanics_pass_for_scoreable_candidate": false,
+    "patch_attempts": 0,
+    "self_maintaining_software_demonstrated": false
+  },
+  "baseline_preservation": {
+    "ansible2_positive_memory_only_status_preserved": true,
+    "ansible5_positive_memory_only_status_preserved": true,
+    "broad_candidate_sweep_executed": false,
+    "required_candidates": [
+      "youtube-dl:1",
+      "black:4",
+      "fastapi:1",
+      "ansible:2",
+      "ansible:5"
+    ],
+    "status": "PASS"
+  },
+  "campaign_id": "v2_14_capability_recovery_lane",
+  "candidates": {
+    "PySnooper:1": {
+      "final_classification": "pysnooper1_dependency_recovery_execution_blocked",
+      "global_constraints_checks": {
+        "agent_state_lineage_valid": "pending_audit",
+        "decision_time_outcome_separation": true,
+        "duplicate_clean_replay_when_scoreable": "not_applicable_not_scoreable",
+        "memory_no_memory_separation": true,
+        "no_benchmark_expectation_edits": true,
+        "no_fixed_gold_future_evidence": true,
+        "no_full_scoring_claim": true,
+        "no_self_maintaining_claim": true,
+        "no_test_edits": true,
+        "no_unauthorized_fixture_edits": true,
+        "phase_seed_check_if_applicable": "not_applicable_not_scoreable",
+        "proof_ledger_hash_chain_valid": "pending_audit"
+      },
+      "local_mechanics_checks": {
+        "dependency_policy_satisfied": true,
+        "environment_cofactor_recovery_policy_satisfied": true,
+        "patch_non_empty_and_semantic": "not_applicable_no_patch_authorized",
+        "recovery_execution_safe": false,
+        "source_only_patch_boundary": true,
+        "syntax_import_sanity": "not_run_recovery_execution_blocked",
+        "target_command_reproducible": "not_run_recovery_execution_blocked",
+        "target_validation_result": "not_run_no_patch_authorized"
+      },
+      "positive_memory_only": false,
+      "scoreable": false
+    },
+    "PySnooper:2": {
+      "final_classification": "pysnooper2_fixture_materialization_forbidden_or_unavailable",
+      "global_constraints_checks": {
+        "agent_state_lineage_valid": "pending_audit",
+        "decision_time_outcome_separation": true,
+        "duplicate_clean_replay_when_scoreable": "not_applicable_not_scoreable",
+        "memory_no_memory_separation": true,
+        "no_benchmark_expectation_edits": true,
+        "no_fixed_gold_future_evidence": true,
+        "no_full_scoring_claim": true,
+        "no_self_maintaining_claim": true,
+        "no_test_edits": true,
+        "no_unauthorized_fixture_edits": true,
+        "phase_seed_check_if_applicable": "not_applicable_not_scoreable",
+        "proof_ledger_hash_chain_valid": "pending_audit"
+      },
+      "local_mechanics_checks": {
+        "dependency_policy_satisfied": true,
+        "environment_cofactor_recovery_policy_satisfied": "not_applicable",
+        "fixture_materialization_policy_satisfied": false,
+        "missing_fixture_helpers": [
+          "tests/mini_toolbox.py"
+        ],
+        "patch_non_empty_and_semantic": "not_applicable_no_patch_authorized",
+        "source_only_patch_boundary": true,
+        "syntax_import_sanity": "not_run_fixture_gate_blocked",
+        "target_command_reproducible": "not_run_fixture_gate_blocked",
+        "target_validation_result": "not_run_no_patch_authorized"
+      },
+      "positive_memory_only": false,
+      "scoreable": false
+    }
+  },
+  "scoreable_requires_local_and_global_pass": true,
+  "version": "v2.14"
+}

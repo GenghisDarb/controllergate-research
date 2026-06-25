@@ -1,0 +1,1779 @@
+{
+  "artifact_name": "v2_14_capability_recovery_lane_artifacts",
+  "audit_summary": {
+    "audit_script": "scripts/audit_v2_14_capability_recovery_lane.py",
+    "audit_summary_path": "audit_summary_v2_14.json",
+    "status": "PASS"
+  },
+  "based_on": "v2.13/minimal_forensic_context_lane",
+  "baseline_preservation": {
+    "agent_state_id": "state_001_baseline_preservation",
+    "ansible2_positive_memory_only_status_preserved": true,
+    "ansible5_positive_memory_only_status_preserved": true,
+    "baseline_execution_mode": "verified_v2_13_official_ingest_reuse",
+    "baseline_execution_scope": [
+      "youtube-dl:1",
+      "black:4",
+      "fastapi:1",
+      "ansible:2",
+      "ansible:5"
+    ],
+    "baseline_preservation_passed": true,
+    "baseline_source": "verified v2.13 official ingest baseline evidence",
+    "broad_candidate_sweep_executed": false,
+    "evidence_files": [
+      "raw_logs/baseline/episode_001_youtube-dl_1/failing_command.txt",
+      "raw_logs/baseline/episode_001_youtube-dl_1/failing_log_raw.txt",
+      "raw_logs/baseline/episode_001_youtube-dl_1/limited_scoring_result.json",
+      "raw_logs/baseline/episode_001_youtube-dl_1/memory_enabled_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_001_youtube-dl_1/no_memory_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_001_youtube-dl_1/normalized_failing_command.txt",
+      "raw_logs/baseline/episode_001_youtube-dl_1/post_repair_comparison.json",
+      "raw_logs/baseline/episode_003_black_4/failing_command.txt",
+      "raw_logs/baseline/episode_003_black_4/failing_log_raw.txt",
+      "raw_logs/baseline/episode_003_black_4/limited_scoring_result.json",
+      "raw_logs/baseline/episode_003_black_4/memory_enabled_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_003_black_4/no_memory_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_003_black_4/normalized_failing_command.txt",
+      "raw_logs/baseline/episode_003_black_4/post_repair_comparison.json",
+      "raw_logs/baseline/episode_006_fastapi_1/failing_command.txt",
+      "raw_logs/baseline/episode_006_fastapi_1/failing_log_raw.txt",
+      "raw_logs/baseline/episode_006_fastapi_1/limited_scoring_result.json",
+      "raw_logs/baseline/episode_006_fastapi_1/memory_enabled_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_006_fastapi_1/no_memory_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_006_fastapi_1/normalized_failing_command.txt",
+      "raw_logs/baseline/episode_006_fastapi_1/post_repair_comparison.json",
+      "raw_logs/baseline/episode_010_ansible_2/failing_command.txt",
+      "raw_logs/baseline/episode_010_ansible_2/failing_log_raw.txt",
+      "raw_logs/baseline/episode_010_ansible_2/limited_scoring_result.json",
+      "raw_logs/baseline/episode_010_ansible_2/memory_enabled_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_010_ansible_2/no_memory_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_010_ansible_2/normalized_failing_command.txt",
+      "raw_logs/baseline/episode_010_ansible_2/post_repair_comparison.json",
+      "raw_logs/baseline/episode_020_ansible_5/failing_command.txt",
+      "raw_logs/baseline/episode_020_ansible_5/failing_log_raw.txt",
+      "raw_logs/baseline/episode_020_ansible_5/limited_scoring_result.json",
+      "raw_logs/baseline/episode_020_ansible_5/memory_enabled_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_020_ansible_5/no_memory_post_repair_log_raw.txt",
+      "raw_logs/baseline/episode_020_ansible_5/normalized_failing_command.txt",
+      "raw_logs/baseline/episode_020_ansible_5/post_repair_comparison.json"
+    ],
+    "exact_v2_12_scoring_harness_reused": true,
+    "first_proof_ledger_event_required": true,
+    "harness_sanity_status": "PASS",
+    "harness_source": "v2_8w baseline harness transitively used by the v2.12 runner",
+    "last_stable_state_id": "state_001_baseline_preservation",
+    "observation_id": "observation_001_baseline_preservation",
+    "parent_agent_state_id": null,
+    "positive_memory_only_preservation_status": {
+      "ansible:2": true,
+      "ansible:5": true
+    },
+    "post_state_hash": "31277dc0b6343d7d811cd3dcd7d054a406a570007dd3ec9d87ba8cd58efd75b4",
+    "pre_state_hash": "ef86f96bbfc172b7b2c18c8a2f28ff91484dacc403d9b01702605f52d0ca7620",
+    "required_baseline_candidates": [
+      {
+        "candidate": "youtube-dl:1",
+        "classification": "inconclusive_equal_performance",
+        "episode_id": "episode_001",
+        "exact_command": "python -m unittest -q test.test_utils.TestUtil.test_match_str",
+        "normalized_command": "python -m unittest -q test.test_utils.TestUtil.test_match_str",
+        "positive_memory_only_status_preserved": null,
+        "post_repair_validation": {
+          "limited_scoring_result": "episode_001/limited_scoring_result.json",
+          "memory_enabled_log": "episode_001/memory_enabled_post_repair_log_raw.txt",
+          "no_memory_log": "episode_001/no_memory_post_repair_log_raw.txt"
+        },
+        "pre_repair_replay_gate_passed": true,
+        "provenance_chain": [
+          "v2.8r third-scoreable baseline",
+          "v2.8s official positive-memory artifact",
+          "v2.8t official positive-memory replication artifact",
+          "v2.8u official positive-memory signal preservation artifact",
+          "v2.8v official cross-family positive-memory artifact",
+          "v2.8w preserved baseline rerun"
+        ],
+        "scoreable": true
+      },
+      {
+        "candidate": "black:4",
+        "classification": "inconclusive_equal_performance",
+        "episode_id": "episode_003",
+        "exact_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+        "normalized_command": "python -m unittest -q tests.test_black.BlackTestCase.test_beginning_backslash",
+        "positive_memory_only_status_preserved": null,
+        "post_repair_validation": {
+          "limited_scoring_result": "episode_003/limited_scoring_result.json",
+          "memory_enabled_log": "episode_003/memory_enabled_post_repair_log_raw.txt",
+          "no_memory_log": "episode_003/no_memory_post_repair_log_raw.txt"
+        },
+        "pre_repair_replay_gate_passed": true,
+        "provenance_chain": [
+          "v2.8r third-scoreable baseline",
+          "v2.8s official positive-memory artifact",
+          "v2.8t official positive-memory replication artifact",
+          "v2.8u official positive-memory signal preservation artifact",
+          "v2.8v official cross-family positive-memory artifact",
+          "v2.8w preserved baseline rerun"
+        ],
+        "scoreable": true
+      },
+      {
+        "candidate": "fastapi:1",
+        "classification": "inconclusive_equal_performance",
+        "episode_id": "episode_006",
+        "exact_command": "pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+        "normalized_command": "python -m pytest tests/test_jsonable_encoder.py::test_encode_model_with_default",
+        "positive_memory_only_status_preserved": null,
+        "post_repair_validation": {
+          "limited_scoring_result": "episode_006/limited_scoring_result.json",
+          "memory_enabled_log": "episode_006/memory_enabled_post_repair_log_raw.txt",
+          "no_memory_log": "episode_006/no_memory_post_repair_log_raw.txt"
+        },
+        "pre_repair_replay_gate_passed": true,
+        "provenance_chain": [
+          "v2.8r third-scoreable baseline",
+          "v2.8s official positive-memory artifact",
+          "v2.8t official positive-memory replication artifact",
+          "v2.8u official positive-memory signal preservation artifact",
+          "v2.8v official cross-family positive-memory artifact",
+          "v2.8w preserved baseline rerun"
+        ],
+        "scoreable": true
+      },
+      {
+        "candidate": "ansible:2",
+        "classification": "positive_memory_only",
+        "episode_id": "episode_010",
+        "exact_command": "pytest test/units/utils/test_version.py::test_alpha && pytest test/units/utils/test_version.py::test_numeric",
+        "normalized_command": "python -m pytest test/units/utils/test_version.py::test_alpha && python -m pytest test/units/utils/test_version.py::test_numeric",
+        "positive_memory_only_status_preserved": true,
+        "post_repair_validation": {
+          "limited_scoring_result": "episode_010/limited_scoring_result.json",
+          "memory_enabled_log": "episode_010/memory_enabled_post_repair_log_raw.txt",
+          "no_memory_log": "episode_010/no_memory_post_repair_log_raw.txt"
+        },
+        "pre_repair_replay_gate_passed": true,
+        "provenance_chain": [
+          "v2.8r third-scoreable baseline",
+          "v2.8s official positive-memory artifact",
+          "v2.8t official positive-memory replication artifact",
+          "v2.8u official positive-memory signal preservation artifact",
+          "v2.8v official cross-family positive-memory artifact",
+          "v2.8w preserved baseline rerun"
+        ],
+        "scoreable": true
+      },
+      {
+        "candidate": "ansible:5",
+        "classification": "positive_memory_only",
+        "episode_id": "episode_020",
+        "exact_command": "pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+        "normalized_command": "python -m pytest test/units/module_utils/common/validation/test_check_required_arguments.py::test_check_required_arguments_missing_multiple",
+        "positive_memory_only_status_preserved": true,
+        "post_repair_validation": {
+          "limited_scoring_result": "episode_020/limited_scoring_result.json",
+          "memory_enabled_log": "episode_020/memory_enabled_post_repair_log_raw.txt",
+          "no_memory_log": "episode_020/no_memory_post_repair_log_raw.txt"
+        },
+        "pre_repair_replay_gate_passed": true,
+        "provenance_chain": [
+          "v2.8r third-scoreable baseline",
+          "v2.8s official positive-memory artifact",
+          "v2.8t official positive-memory replication artifact",
+          "v2.8u official positive-memory signal preservation artifact",
+          "v2.8v official cross-family positive-memory artifact",
+          "v2.8w preserved baseline rerun"
+        ],
+        "scoreable": true
+      }
+    ],
+    "rollback_to_state_id": null,
+    "scoreable_status_by_episode": {
+      "episode_001": true,
+      "episode_003": true,
+      "episode_006": true,
+      "episode_010": true,
+      "episode_020": true
+    },
+    "state_status": "stable",
+    "status": "PASS",
+    "v2_13_baseline_evidence": {
+      "decision_time_safe": true,
+      "path": "outputs/v2_13_minimal_forensic_context_lane/baseline_preservation_v2_13.json",
+      "role": "baseline preservation input from official v2.13 ingest",
+      "sha256": "3c4195b5ca192092a004d91c92149e8554079ba065a276ac2ca4bd5e40e19370"
+    }
+  },
+  "bounded_context": {
+    "PySnooper:1": {
+      "budget": {
+        "max_files": 25,
+        "max_symbols": 100,
+        "selected_file_count": 6,
+        "selected_symbol_count": 1
+      },
+      "context_selection_basis": [
+        "candidate priority selected PySnooper:1 first",
+        "v2.13 found dependency recovery allowed by policy but not executed"
+      ],
+      "evidence_hashes": {
+        "outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_policy_recheck_v2_13.json": "36898f83026af8ff62bf62eab07dbdb3e67caa7a39287261d502c2f18b3b7248"
+      },
+      "excluded_context_due_to_budget": [],
+      "fixture_helper_references": [],
+      "imported_modules_directly_linked": [],
+      "nearby_ast_definitions": [],
+      "patch_touched_symbols": [],
+      "repo_local_dependency_metadata": [
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/setup.py",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/requirements.txt",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/tox.ini",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/bug.info",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/run_test.sh",
+        "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/setup.sh"
+      ],
+      "target_command": "not_executed_v2_14_dependency_gate_blocked",
+      "target_test_paths": [
+        "tests/test_pysnooper.py"
+      ],
+      "traceback_symbols": []
+    },
+    "PySnooper:2": {
+      "budget": {
+        "max_files": 25,
+        "max_symbols": 100,
+        "selected_file_count": 14,
+        "selected_symbol_count": 84
+      },
+      "context_selection_basis": [
+        {
+          "basis": "repo-local or BugsInPy dependency metadata",
+          "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/2/bug.info"
+        },
+        {
+          "basis": "repo-local or BugsInPy dependency metadata",
+          "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/2/run_test.sh"
+        },
+        {
+          "basis": "repo-local or BugsInPy dependency metadata",
+          "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/2/setup.sh"
+        },
+        {
+          "basis": "file named by the target traceback",
+          "path": "pysnooper/__init__.py"
+        },
+        {
+          "basis": "repo-local import edge from pysnooper/variables.py",
+          "path": "pysnooper/pycompat.py"
+        },
+        {
+          "basis": "file named by the target traceback",
+          "path": "pysnooper/tracer.py"
+        },
+        {
+          "basis": "repo-local import edge from tests/test_pysnooper.py",
+          "path": "pysnooper/utils.py"
+        },
+        {
+          "basis": "file touched by the v2.12 patch",
+          "path": "pysnooper/variables.py"
+        },
+        {
+          "basis": "repo-local or BugsInPy dependency metadata",
+          "path": "requirements.txt"
+        },
+        {
+          "basis": "repo-local or BugsInPy dependency metadata",
+          "path": "setup.py"
+        },
+        {
+          "basis": "repo-local import edge from tests/test_pysnooper.py",
+          "path": "tests/samples/__init__.py"
+        },
+        {
+          "basis": "direct target test from the exact target command",
+          "path": "tests/test_pysnooper.py"
+        },
+        {
+          "basis": "repo-local import edge from tests/test_pysnooper.py",
+          "path": "tests/utils.py"
+        },
+        {
+          "basis": "repo-local or BugsInPy dependency metadata",
+          "path": "tox.ini"
+        }
+      ],
+      "evidence_hashes": {
+        "outputs/v2_13_minimal_forensic_context_lane/pysnooper2_candidate_context.json": "d4d27e52066d0a9bb2c6cb365c48de762d1311e8fc25d6c75ad4a6fd67632b1f"
+      },
+      "excluded_context_due_to_budget": [
+        "repository files without a target-command, target-test, traceback, patch, local-import, or dependency-metadata connection were excluded",
+        "fixed revisions, gold patches, and future outcome evidence were not inspected"
+      ],
+      "fixture_helper_references": [
+        "tests/mini_toolbox.py",
+        "tests/samples/__init__.py",
+        "tests/utils.py"
+      ],
+      "imported_modules_directly_linked": [
+        {
+          "edge": "tests/test_pysnooper.py -> io",
+          "resolved_repo_path": null,
+          "resolved_repo_path_exists": false
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> textwrap",
+          "resolved_repo_path": null,
+          "resolved_repo_path_exists": false
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> threading",
+          "resolved_repo_path": null,
+          "resolved_repo_path_exists": false
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> types",
+          "resolved_repo_path": null,
+          "resolved_repo_path_exists": false
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> os",
+          "resolved_repo_path": null,
+          "resolved_repo_path_exists": false
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> sys",
+          "resolved_repo_path": null,
+          "resolved_repo_path_exists": false
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> pysnooper.utils.truncate",
+          "resolved_repo_path": "pysnooper/utils.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> pytest",
+          "resolved_repo_path": null,
+          "resolved_repo_path_exists": false
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> pysnooper",
+          "resolved_repo_path": "pysnooper/__init__.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> pysnooper.variables.needs_parentheses",
+          "resolved_repo_path": "pysnooper/variables.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .utils.assert_output",
+          "resolved_repo_path": "tests/utils.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .utils.assert_sample_output",
+          "resolved_repo_path": "tests/utils.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .utils.VariableEntry",
+          "resolved_repo_path": "tests/utils.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .utils.CallEntry",
+          "resolved_repo_path": "tests/utils.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .utils.LineEntry",
+          "resolved_repo_path": "tests/utils.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .utils.ReturnEntry",
+          "resolved_repo_path": "tests/utils.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .utils.OpcodeEntry",
+          "resolved_repo_path": "tests/utils.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .utils.ReturnValueEntry",
+          "resolved_repo_path": "tests/utils.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .utils.ExceptionEntry",
+          "resolved_repo_path": "tests/utils.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .mini_toolbox",
+          "resolved_repo_path": null,
+          "resolved_repo_path_exists": false
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .samples.indentation",
+          "resolved_repo_path": "tests/samples/__init__.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .samples.recursion",
+          "resolved_repo_path": "tests/samples/__init__.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "tests/test_pysnooper.py -> .samples.exception",
+          "resolved_repo_path": "tests/samples/__init__.py",
+          "resolved_repo_path_exists": true
+        },
+        {
+          "edge": "pysnooper/variables.py -> itertools",
+          "resolved_repo_path": null,
+          "resolved_repo_path_exists": false
+        },
+        {
+          "edge": "pysnooper/variables.py -> abc",
+          "resolved_repo_path": null,
+          "resolved_repo_path_exists": false
+        }
+      ],
+      "missing_fixture_helper_references": [
+        "tests/mini_toolbox.py"
+      ],
+      "nearby_ast_definitions": [
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 22,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_string_io"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 50,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_thread_info"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 79,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_multi_thread_info"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 159,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_callable"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 191,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_watch"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 242,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_watch_explode"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 291,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_variables_classes"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 340,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_single_watch_no_comma"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 380,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_long_variable"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 405,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_repr_exception"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 432,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_depth"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 491,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_method_and_prefix"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 528,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_file_output"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 558,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_confusing_decorator_lines"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 600,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_lambda"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 618,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_unavailable_source"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 650,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_no_overwrite_by_default"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 682,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_overwrite"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 724,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_error_in_overwrite_argument"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 734,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_needs_parentheses"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 751,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_with_block"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 873,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_with_block_depth"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 927,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_cellvars"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 988,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_var_order"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1032,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_truncate"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1044,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_indentation"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1050,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_exception"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1055,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_generator"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1135,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_custom_repr"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1177,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_custom_repr_single"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1202,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "test_disable"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 26,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 53,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 82,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 162,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "write"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 166,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "ClassDef",
+          "line": 193,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "Foo"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 205,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "ClassDef",
+          "line": 243,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "Foo"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 250,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "ClassDef",
+          "line": 292,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "WithSlots"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 305,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "ClassDef",
+          "line": 342,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "Foo"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 350,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 382,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "ClassDef",
+          "line": 406,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "Bad"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 411,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 435,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f4"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 439,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f3"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 443,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f2"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 448,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f1"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "ClassDef",
+          "line": 492,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "Baz"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 561,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "empty_decorator"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 569,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 755,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "foo"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 773,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "bar1"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 777,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "bar2"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 781,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "bar3"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 784,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "qux"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 876,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f4"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 880,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f3"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 884,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f2"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 888,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f1"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 930,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f2"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 940,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f1"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 991,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1062,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "f"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1138,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "large"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1141,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "print_list_size"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1144,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "print_dict"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1147,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "evil_condition"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1154,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "sum_to_x"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1181,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "sum_to_x"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 1205,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "my_function"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 194,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "__init__"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 197,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "square"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 244,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "__init__"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 295,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "__init__"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 343,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "__init__"
+        },
+        {
+          "file": "tests/test_pysnooper.py",
+          "kind": "FunctionDef",
+          "line": 346,
+          "selection_basis": "definition in bounded target/traceback/patch/import context",
+          "symbol": "square"
+        }
+      ],
+      "patch_touched_symbols": [
+        "ImportError",
+        "Mapping",
+        "Sequence",
+        "abc",
+        "collections",
+        "except",
+        "from",
+        "import",
+        "try"
+      ],
+      "repo_local_dependency_metadata": [
+        {
+          "matching_lines": [
+            {
+              "line": "'python-toolbox',",
+              "line_number": 28
+            }
+          ],
+          "path": "setup.py",
+          "sha256": "3709ade94c4102c08f64fa33e6a95e33b21c17d68af308cdb34f16a75f6d0f6b"
+        },
+        {
+          "matching_lines": [],
+          "path": "requirements.txt",
+          "sha256": "44c91d4c293a45e5efd6e28c304835637cccbdb5de9b88136c03bcfb98376d8d"
+        },
+        {
+          "matching_lines": [
+            {
+              "line": "python_toolbox",
+              "line_number": 18
+            },
+            {
+              "line": "# until python_toolbox is fixed",
+              "line_number": 21
+            }
+          ],
+          "path": "tox.ini",
+          "sha256": "629866307933434d0f9f691c3007968f4bb35d7024007e89403c80c36bee0c06"
+        },
+        {
+          "matching_lines": [],
+          "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/2/bug.info",
+          "sha256": "732ba78c8ab772b50d5c121e972e0ff6b4892472dcde7b044609e4a0201614e4"
+        },
+        {
+          "matching_lines": [],
+          "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/2/run_test.sh",
+          "sha256": "44460547246a8683d22a2b15723c80ab2e23d07022493bd80c16e4c63b4f5fe4"
+        },
+        {
+          "matching_lines": [
+            {
+              "line": "pip install python_toolbox",
+              "line_number": 2
+            }
+          ],
+          "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/2/setup.sh",
+          "sha256": "733b0f0c15a4c23a734951b017b13572289856407ab0c7459e00e2149b1f2e2e"
+        }
+      ],
+      "target_command": "python -m pytest -q -s tests/test_pysnooper.py::test_custom_repr_single",
+      "target_test_paths": [
+        "tests/test_pysnooper.py"
+      ],
+      "traceback_symbols": [
+        "Mapping",
+        "in <module>",
+        "mini_toolbox",
+        "test_custom_repr_single"
+      ]
+    }
+  },
+  "campaign_id": "v2_14_capability_recovery_lane",
+  "candidates": {
+    "PySnooper:1": {
+      "dependency_recovery": {
+        "agent_state_id": "state_004_pysnooper1_recovery_gate",
+        "blocker": "dependency declaration was reverified as policy-allowed, but no reviewed v2.14 isolated cofactor-recovery executor was available that could install only declared dependencies and continue to source-only patch authorization without expanding the evidence boundary",
+        "candidate": "PySnooper:1",
+        "classification": "pysnooper1_dependency_recovery_execution_blocked",
+        "declaration_files_inspected": [
+          {
+            "matching_lines": [
+              {
+                "line": "'python-toolbox',",
+                "line_number": 28
+              }
+            ],
+            "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/setup.py",
+            "sha256": "3709ade94c4102c08f64fa33e6a95e33b21c17d68af308cdb34f16a75f6d0f6b"
+          },
+          {
+            "matching_lines": [],
+            "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/requirements.txt",
+            "sha256": "44c91d4c293a45e5efd6e28c304835637cccbdb5de9b88136c03bcfb98376d8d"
+          },
+          {
+            "matching_lines": [
+              {
+                "line": "python_toolbox",
+                "line_number": 18
+              },
+              {
+                "line": "# until python_toolbox is fixed",
+                "line_number": 21
+              }
+            ],
+            "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/forensic_workspaces/pysnooper1/PySnooper/tox.ini",
+            "sha256": "629866307933434d0f9f691c3007968f4bb35d7024007e89403c80c36bee0c06"
+          },
+          {
+            "matching_lines": [],
+            "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/bug.info",
+            "sha256": "199b770bd6551117a00f9c7ce2c674d7ddb818e3bb5dc344371340e75e52296e"
+          },
+          {
+            "matching_lines": [],
+            "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/run_test.sh",
+            "sha256": "6d24d2d88478e17cefec81f33a1ef5c44cea64321ff46762384c68e219064d0b"
+          },
+          {
+            "matching_lines": [],
+            "path": "/home/runner/work/controllergate-research/controllergate-research/_v2_13_bugsinpy_runtime/baseline_runtime/BugsInPy/projects/PySnooper/bugs/1/setup.sh",
+            "sha256": "653b7a51d65d7409e319e29d51d5ee2af65d621ad9ef62148e7eacf99e289879"
+          }
+        ],
+        "isolated_environment_available_for_recovery": false,
+        "isolated_environment_required": true,
+        "last_stable_state_id": "state_004_pysnooper1_recovery_gate",
+        "next_allowed_action": "stop_candidate",
+        "observation_id": "observation_004_pysnooper1_recovery_gate",
+        "parent_agent_state_id": "state_003_probe_dependency_declaration",
+        "policy_reverified": true,
+        "post_state_hash": "ba315928ba62be39d941434edf42829ea0fb692fb4d1bff389052af29a015cad",
+        "pre_state_hash": "b12d3af4218bb52a7174fe2982ed05baaf5c634027707bb683c726972eef93b6",
+        "recovery_executed": false,
+        "recovery_execution_attempted": false,
+        "recovery_policy_allowed": true,
+        "rollback_to_state_id": null,
+        "source_or_tests_mutated": false,
+        "state_status": "stable",
+        "undeclared_dependencies_installed": false
+      },
+      "final_classification": "pysnooper1_dependency_recovery_execution_blocked",
+      "patch_attempt_count": 0,
+      "patch_attempted": false,
+      "patch_authorized": false,
+      "positive_memory_only": false,
+      "priority": 1,
+      "probe": {
+        "agent_state_id": "state_003_probe_dependency_declaration",
+        "last_stable_state_id": "state_003_probe_dependency_declaration",
+        "observation_id": "observation_003_probe_dependency_declaration",
+        "parent_agent_state_id": "state_002_failure_memory_weighting",
+        "post_state_hash": "b12d3af4218bb52a7174fe2982ed05baaf5c634027707bb683c726972eef93b6",
+        "pre_state_hash": "c52ac2212cbc131e3916a53ae0e3e421945c9ed574779c396210ecdef1e59cf2",
+        "rollback_to_state_id": null,
+        "state_status": "stable"
+      },
+      "scoreable": false
+    },
+    "PySnooper:2": {
+      "attempted_after_pysnooper1_blocked_or_failed_cleanly": true,
+      "final_classification": "pysnooper2_fixture_materialization_forbidden_or_unavailable",
+      "fixture_materialization": {
+        "agent_state_id": "state_006_pysnooper2_fixture_materialization_gate",
+        "benchmark_expectations_mutated": false,
+        "blocker": "tests/mini_toolbox.py remains a missing test helper; the verified evidence does not provide a decision-time-safe materialization source that avoids fixed/gold/future evidence and avoids unauthorized test/fixture or benchmark-expectation mutation",
+        "candidate": "PySnooper:2",
+        "classification": "pysnooper2_fixture_materialization_forbidden_or_unavailable",
+        "explicitly_required_by_repo_local_test_metadata": true,
+        "files_materialized": [],
+        "fixture_materialization_policy_allows": false,
+        "last_stable_state_id": "state_006_pysnooper2_fixture_materialization_gate",
+        "missing_fixture_or_helper": [
+          "tests/mini_toolbox.py"
+        ],
+        "observation_id": "observation_006_pysnooper2_fixture_materialization_gate",
+        "parent_agent_state_id": "state_005_probe_fixture_helper_availability",
+        "post_state_hash": "506235b51b9f0ee9ceae9b5f691573151912d9f565d77d70fe54b7a6fca2b826",
+        "pre_state_hash": "757b72cf7a4b8780a868e6e035ba82e3f31f2e18e9cc42d6f77ed40d1ad57f5a",
+        "present_in_buggy_checkout": false,
+        "present_in_decision_time_safe_test_harness_metadata": false,
+        "recoverable_without_benchmark_expectation_edits": false,
+        "recoverable_without_fixed_revision_gold_patch_or_future_evidence": false,
+        "recoverable_without_unauthorized_test_or_fixture_edits": false,
+        "rollback_to_state_id": null,
+        "source_or_tests_mutated": false,
+        "state_status": "stable",
+        "v2_13_blocker": "blocked_fixture_materialization_incomplete"
+      },
+      "patch_attempt_count": 0,
+      "patch_attempted": false,
+      "patch_authorized": false,
+      "positive_memory_only": false,
+      "priority": 2,
+      "probe": {
+        "agent_state_id": "state_005_probe_fixture_helper_availability",
+        "last_stable_state_id": "state_005_probe_fixture_helper_availability",
+        "observation_id": "observation_005_probe_fixture_helper_availability",
+        "parent_agent_state_id": "state_004_pysnooper1_recovery_gate",
+        "post_state_hash": "757b72cf7a4b8780a868e6e035ba82e3f31f2e18e9cc42d6f77ed40d1ad57f5a",
+        "pre_state_hash": "ba315928ba62be39d941434edf42829ea0fb692fb4d1bff389052af29a015cad",
+        "rollback_to_state_id": null,
+        "state_status": "stable"
+      },
+      "scoreable": false
+    }
+  },
+  "capability_probes": {
+    "broad_suite_runs": 0,
+    "campaign_id": "v2_14_capability_recovery_lane",
+    "candidate_probe_counts": {
+      "PySnooper:1": 1,
+      "PySnooper:2": 1
+    },
+    "max_total_probes": 4,
+    "probes": [
+      {
+        "candidate": "PySnooper:1",
+        "command": "inspect outputs/v2_13_minimal_forensic_context_lane/raw_logs/pysnooper1_policy_recheck_v2_13.json for python-toolbox declaration evidence",
+        "decision_time_inputs": [
+          "v2.13 PySnooper:1 policy recheck metadata",
+          "metadata matching lines and hashes"
+        ],
+        "expected_uncertainty_reduced": "whether dependency/cofactor recovery is policy-allowed for PySnooper:1",
+        "mutates_source_or_tests": false,
+        "post_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
+        "pre_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
+        "predeclared_before_execution": true,
+        "probe_id": "probe_001_pysnooper1_dependency_declaration_check",
+        "reason": "independently re-verify the v2.13 declaration evidence before any dependency recovery gate",
+        "result_log_path": "raw_logs/probe_001_pysnooper1_dependency_declaration_check.json",
+        "result_log_sha256": "a438a51790b7efbd07e1e78fb28d7521ca9e2178a6b55b61a9d414d7d9ea5365",
+        "status": "PASS"
+      },
+      {
+        "candidate": "PySnooper:2",
+        "command": "inspect outputs/v2_13_minimal_forensic_context_lane/pysnooper2_candidate_context.json and pysnooper2_patch_failure_classification.json for decision-time-safe fixture/helper availability",
+        "decision_time_inputs": [
+          "v2.13 bounded PySnooper:2 context",
+          "v2.13 deterministic patch-failure classification"
+        ],
+        "expected_uncertainty_reduced": "whether missing tests/mini_toolbox.py is safely recoverable",
+        "mutates_source_or_tests": false,
+        "post_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
+        "pre_state_hash": "99bfaee86f1bcff8595ee43ca109dfcc79f25ee660d4cb88821809af77d4c035",
+        "predeclared_before_execution": true,
+        "probe_id": "probe_002_pysnooper2_fixture_helper_availability_check",
+        "reason": "determine whether fixture/helper materialization can be authorized without test/fixture edits",
+        "result_log_path": "raw_logs/probe_002_pysnooper2_fixture_helper_availability_check.json",
+        "result_log_sha256": "66f4f54e2c6ed4c945ab46d74a204844304d5b4ab27188f4eeb5ccb12f387246",
+        "status": "PASS"
+      }
+    ],
+    "source_mutating_probes": 0,
+    "test_mutating_probes": 0,
+    "total_probe_count": 2
+  },
+  "current_protocol_promoted": false,
+  "execution_context": {
+    "environment": "local_implementation_checkpoint",
+    "reran_baseline": false
+  },
+  "failure_memory_weighting": {
+    "agent_state_id": "state_002_failure_memory_weighting",
+    "hard_safety_gates_override_allowed": false,
+    "last_stable_state_id": "state_002_failure_memory_weighting",
+    "observation_id": "observation_002_failure_memory_weighting",
+    "output": "failure_memory_weights_v2_14.json",
+    "parent_agent_state_id": "state_001_baseline_preservation",
+    "post_state_hash": "c52ac2212cbc131e3916a53ae0e3e421945c9ed574779c396210ecdef1e59cf2",
+    "pre_state_hash": "31277dc0b6343d7d811cd3dcd7d054a406a570007dd3ec9d87ba8cd58efd75b4",
+    "ranking_only": true,
+    "rollback_to_state_id": null,
+    "state_status": "stable",
+    "status": "PASS"
+  },
+  "final_result": {
+    "agent_state_id": "state_008_final_classification",
+    "any_scoreable_non_ansible_result": false,
+    "controllergate_full_scoring": "NOT_RUN",
+    "corruption_count": 0,
+    "decision_time_outcome_overlap_count": 0,
+    "diagnostic_probe_count": 2,
+    "duplicate_replay_status": "not_applicable_no_scoreable_candidate",
+    "exact_blocker_if_no_new_positive_result": "PySnooper:1 stopped at dependency recovery execution because the policy declaration was safe but the isolated recovery executor was not authorized/available in this bounded lane; PySnooper:2 stopped because tests/mini_toolbox.py fixture/helper materialization remains forbidden or unavailable.",
+    "family_generalization": "not_expanded",
+    "final_agent_state_id": "state_008_final_classification",
+    "fixed_gold_future_evidence_used": false,
+    "full_scoring_allowed": false,
+    "last_stable_state_id": "state_008_final_classification",
+    "non_ansible_positive_memory_count": 0,
+    "observation_id": "observation_008_final_classification",
+    "parent_agent_state_id": "state_007_local_global_validation",
+    "patch_attempt_count": 0,
+    "phase_seed_check_status": "not_applicable_no_scoreable_candidate",
+    "positive_memory_only": false,
+    "positive_memory_only_status": false,
+    "post_state_hash": "cfdb7391ebc9e9b2be6e02c67bb1edf4c4dbfcdcb0c21e2b6881f3958b3e5779",
+    "pre_state_hash": "77b3b6b0f2f9c1d2ab8701ddd814ca57b726447af4fbf711711df8092807f240",
+    "pysnooper1_final_classification": "pysnooper1_dependency_recovery_execution_blocked",
+    "pysnooper2_final_classification": "pysnooper2_fixture_materialization_forbidden_or_unavailable",
+    "rollback_to_state_id": null,
+    "self_maintaining_software_demonstrated": false,
+    "state_status": "stable",
+    "status": "PASS_WITH_BOUNDED_BLOCKERS",
+    "updated_positive_memory_count": 2,
+    "updated_scoreable_count": 5,
+    "v2_13_claims_changed": false,
+    "v2_14_promoted_to_current": false
+  },
+  "hash_custody": {
+    "manifest_written": true,
+    "proof_ledger_hash_chain_expected_status": "PASS",
+    "sha256sums_path": "SHA256SUMS.txt"
+  },
+  "local_global_validation": {
+    "agent_state_id": "state_007_local_global_validation",
+    "last_stable_state_id": "state_007_local_global_validation",
+    "observation_id": "observation_007_local_global_validation",
+    "output": "local_global_validation_v2_14.json",
+    "parent_agent_state_id": "state_006_pysnooper2_fixture_materialization_gate",
+    "post_state_hash": "77b3b6b0f2f9c1d2ab8701ddd814ca57b726447af4fbf711711df8092807f240",
+    "pre_state_hash": "506235b51b9f0ee9ceae9b5f691573151912d9f565d77d70fe54b7a6fca2b826",
+    "rollback_to_state_id": null,
+    "state_status": "stable",
+    "status": "PASS"
+  },
+  "official_artifact_ingested": false,
+  "patch_attempts": {
+    "actual_diffs_parsed": true,
+    "attempts_by_candidate": {
+      "PySnooper:1": 0,
+      "PySnooper:2": 0
+    },
+    "failed_patches_rolled_back": true,
+    "max_patch_attempts_per_candidate": 1,
+    "max_total_patch_attempts": 2,
+    "revised_patch_files": [],
+    "source_only_rule_enforced": true,
+    "total_patch_attempts": 0
+  },
+  "proof_ledger": [
+    {
+      "action": "baseline_preservation",
+      "agent_state_id": "state_001_baseline_preservation",
+      "candidate": "baseline_five",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "five required baseline candidates",
+        "v2.13/v2.12 baseline gate"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "3de59db65c62e03b564366490164b758e6f3adb39d2a48c31ad6bfdfa6871bd8",
+      "entry_index": 0,
+      "evidence_files": [
+        "baseline_preservation_v2_14.json",
+        "outputs/v2_13_minimal_forensic_context_lane/baseline_preservation_v2_13.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_001_baseline_preservation",
+      "next_allowed_action": "failure_memory_weighting",
+      "observation_id": "observation_001_baseline_preservation",
+      "parent_agent_state_id": null,
+      "post_state_hash": "31277dc0b6343d7d811cd3dcd7d054a406a570007dd3ec9d87ba8cd58efd75b4",
+      "pre_state_hash": "ef86f96bbfc172b7b2c18c8a2f28ff91484dacc403d9b01702605f52d0ca7620",
+      "result": "pass",
+      "rollback_to_state_id": null,
+      "sequence_index": 0,
+      "sha256": {
+        "entry_hash": "3de59db65c62e03b564366490164b758e6f3adb39d2a48c31ad6bfdfa6871bd8",
+        "input_hashes": {
+          "outputs/v2_13_minimal_forensic_context_lane/baseline_preservation_v2_13.json": "3c4195b5ca192092a004d91c92149e8554079ba065a276ac2ca4bd5e40e19370"
+        },
+        "output_hashes": {
+          "baseline_preservation_v2_14.json": "cf63eb8dd8f668d5317ea0587de71176ffb0e0c34aa20148a9a8effb52e85b1a"
+        },
+        "previous_entry_hash": null
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "failure_memory_weighting",
+      "agent_state_id": "state_002_failure_memory_weighting",
+      "candidate": "PySnooper:1,PySnooper:2",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "verified v2.13 classifier/context/log evidence",
+        "v2.12 patch evidence for touched symbols"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "2dc7f7512a7ef3d9e971abbc8b9ed22bf99a81831213f9a0a7c39549a251d47c",
+      "entry_index": 1,
+      "evidence_files": [
+        "failure_memory_weights_v2_14.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_002_failure_memory_weighting",
+      "next_allowed_action": "bounded_probe",
+      "observation_id": "observation_002_failure_memory_weighting",
+      "parent_agent_state_id": "state_001_baseline_preservation",
+      "post_state_hash": "c52ac2212cbc131e3916a53ae0e3e421945c9ed574779c396210ecdef1e59cf2",
+      "pre_state_hash": "31277dc0b6343d7d811cd3dcd7d054a406a570007dd3ec9d87ba8cd58efd75b4",
+      "result": "pass",
+      "rollback_to_state_id": null,
+      "sequence_index": 1,
+      "sha256": {
+        "entry_hash": "2dc7f7512a7ef3d9e971abbc8b9ed22bf99a81831213f9a0a7c39549a251d47c",
+        "input_hashes": {},
+        "output_hashes": {
+          "failure_memory_weights_v2_14.json": "3ddf5e920c48d8397266287a30ee517c2dec9dfa3d77d1a616e0388017969837"
+        },
+        "previous_entry_hash": "3de59db65c62e03b564366490164b758e6f3adb39d2a48c31ad6bfdfa6871bd8"
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "probe_dependency_declaration",
+      "agent_state_id": "state_003_probe_dependency_declaration",
+      "candidate": "PySnooper:1",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "predeclared dependency declaration check"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "959ceb04d31d549a6bef182248fa498539b036012342b4e2f724e693c2dc894a",
+      "entry_index": 2,
+      "evidence_files": [
+        "capability_probe_log_v2_14.json",
+        "raw_logs/probe_001_pysnooper1_dependency_declaration_check.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_003_probe_dependency_declaration",
+      "next_allowed_action": "dependency_recovery_gate",
+      "observation_id": "observation_003_probe_dependency_declaration",
+      "parent_agent_state_id": "state_002_failure_memory_weighting",
+      "post_state_hash": "b12d3af4218bb52a7174fe2982ed05baaf5c634027707bb683c726972eef93b6",
+      "pre_state_hash": "c52ac2212cbc131e3916a53ae0e3e421945c9ed574779c396210ecdef1e59cf2",
+      "result": "pass",
+      "rollback_to_state_id": null,
+      "sequence_index": 2,
+      "sha256": {
+        "entry_hash": "959ceb04d31d549a6bef182248fa498539b036012342b4e2f724e693c2dc894a",
+        "input_hashes": {},
+        "output_hashes": {
+          "capability_probe_log_v2_14.json": "efd3a62141ed700bc82cac5045e5e7148dc4cf3e7bfbbff157cfc7a43594450a"
+        },
+        "previous_entry_hash": "2dc7f7512a7ef3d9e971abbc8b9ed22bf99a81831213f9a0a7c39549a251d47c"
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "pysnooper1_recovery_gate",
+      "agent_state_id": "state_004_pysnooper1_recovery_gate",
+      "candidate": "PySnooper:1",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "dependency declaration probe",
+        "failure-memory ranking",
+        "hard safety gates"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "ef22ff103a184b8afe7ea8f973559f9f15fa505b0b32d86281f642735878ced5",
+      "entry_index": 3,
+      "evidence_files": [
+        "pysnooper1_recovery_gate_v2_14.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_004_pysnooper1_recovery_gate",
+      "next_allowed_action": "try_next_allowed_candidate",
+      "observation_id": "observation_004_pysnooper1_recovery_gate",
+      "parent_agent_state_id": "state_003_probe_dependency_declaration",
+      "post_state_hash": "ba315928ba62be39d941434edf42829ea0fb692fb4d1bff389052af29a015cad",
+      "pre_state_hash": "b12d3af4218bb52a7174fe2982ed05baaf5c634027707bb683c726972eef93b6",
+      "result": "blocked",
+      "rollback_to_state_id": null,
+      "sequence_index": 3,
+      "sha256": {
+        "entry_hash": "ef22ff103a184b8afe7ea8f973559f9f15fa505b0b32d86281f642735878ced5",
+        "input_hashes": {},
+        "output_hashes": {
+          "pysnooper1_recovery_gate_v2_14.json": "8f5450ba92941ab992a54d566d9a19f0c7e02289bebab956641a2d7ddcdd0f98"
+        },
+        "previous_entry_hash": "959ceb04d31d549a6bef182248fa498539b036012342b4e2f724e693c2dc894a"
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "probe_fixture_helper_availability",
+      "agent_state_id": "state_005_probe_fixture_helper_availability",
+      "candidate": "PySnooper:2",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "predeclared fixture/helper availability check"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "f31c06857527b5ce57fc7d1254442d57aaa5334eca41bb923a300bed4458f880",
+      "entry_index": 4,
+      "evidence_files": [
+        "capability_probe_log_v2_14.json",
+        "raw_logs/probe_002_pysnooper2_fixture_helper_availability_check.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_005_probe_fixture_helper_availability",
+      "next_allowed_action": "fixture_materialization_gate",
+      "observation_id": "observation_005_probe_fixture_helper_availability",
+      "parent_agent_state_id": "state_004_pysnooper1_recovery_gate",
+      "post_state_hash": "757b72cf7a4b8780a868e6e035ba82e3f31f2e18e9cc42d6f77ed40d1ad57f5a",
+      "pre_state_hash": "ba315928ba62be39d941434edf42829ea0fb692fb4d1bff389052af29a015cad",
+      "result": "pass",
+      "rollback_to_state_id": null,
+      "sequence_index": 4,
+      "sha256": {
+        "entry_hash": "f31c06857527b5ce57fc7d1254442d57aaa5334eca41bb923a300bed4458f880",
+        "input_hashes": {},
+        "output_hashes": {
+          "capability_probe_log_v2_14.json": "efd3a62141ed700bc82cac5045e5e7148dc4cf3e7bfbbff157cfc7a43594450a"
+        },
+        "previous_entry_hash": "ef22ff103a184b8afe7ea8f973559f9f15fa505b0b32d86281f642735878ced5"
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "pysnooper2_fixture_materialization_gate",
+      "agent_state_id": "state_006_pysnooper2_fixture_materialization_gate",
+      "candidate": "PySnooper:2",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "fixture/helper availability probe",
+        "v2.13 context/classification evidence",
+        "hard safety gates"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "affb109044c642d4ed35f3f6909542d1ad3701f2cf54ea43e06300da3448a498",
+      "entry_index": 5,
+      "evidence_files": [
+        "pysnooper2_fixture_gate_v2_14.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_006_pysnooper2_fixture_materialization_gate",
+      "next_allowed_action": "final_classification",
+      "observation_id": "observation_006_pysnooper2_fixture_materialization_gate",
+      "parent_agent_state_id": "state_005_probe_fixture_helper_availability",
+      "post_state_hash": "506235b51b9f0ee9ceae9b5f691573151912d9f565d77d70fe54b7a6fca2b826",
+      "pre_state_hash": "757b72cf7a4b8780a868e6e035ba82e3f31f2e18e9cc42d6f77ed40d1ad57f5a",
+      "result": "blocked",
+      "rollback_to_state_id": null,
+      "sequence_index": 5,
+      "sha256": {
+        "entry_hash": "affb109044c642d4ed35f3f6909542d1ad3701f2cf54ea43e06300da3448a498",
+        "input_hashes": {},
+        "output_hashes": {
+          "pysnooper2_fixture_gate_v2_14.json": "e0f2af6dc110d97bca19b1fe747fe9b1e4abc57dc59aa68bdfa718c9cce0f8f6"
+        },
+        "previous_entry_hash": "f31c06857527b5ce57fc7d1254442d57aaa5334eca41bb923a300bed4458f880"
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "local_global_validation",
+      "agent_state_id": "state_007_local_global_validation",
+      "candidate": "PySnooper:1,PySnooper:2",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "candidate gates",
+        "global claim constraints"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "cdba12857403e5ae2e5fcaec925aa89b6143ceee14bd7f8a913d6a391b62e3b7",
+      "entry_index": 6,
+      "evidence_files": [
+        "local_global_validation_v2_14.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_007_local_global_validation",
+      "next_allowed_action": "final_classification",
+      "observation_id": "observation_007_local_global_validation",
+      "parent_agent_state_id": "state_006_pysnooper2_fixture_materialization_gate",
+      "post_state_hash": "77b3b6b0f2f9c1d2ab8701ddd814ca57b726447af4fbf711711df8092807f240",
+      "pre_state_hash": "506235b51b9f0ee9ceae9b5f691573151912d9f565d77d70fe54b7a6fca2b826",
+      "result": "pass_with_no_scoreable_candidate",
+      "rollback_to_state_id": null,
+      "sequence_index": 6,
+      "sha256": {
+        "entry_hash": "cdba12857403e5ae2e5fcaec925aa89b6143ceee14bd7f8a913d6a391b62e3b7",
+        "input_hashes": {},
+        "output_hashes": {
+          "local_global_validation_v2_14.json": "e5491a02f18336d09a423e17dcd8361a65b428053f4c82e4478bfdd3eaab4607"
+        },
+        "previous_entry_hash": "affb109044c642d4ed35f3f6909542d1ad3701f2cf54ea43e06300da3448a498"
+      },
+      "state_status": "stable"
+    },
+    {
+      "action": "final_classification",
+      "agent_state_id": "state_008_final_classification",
+      "candidate": "PySnooper:1,PySnooper:2",
+      "decision_time_boundary_enforced": true,
+      "decision_time_inputs": [
+        "all v2.14 bounded outputs",
+        "v2.13 claim boundaries"
+      ],
+      "direct_script_output": null,
+      "entry_hash": "8ee890f3fc450a7bd84fda02dd60e51ea4cef9b4253c52cbc27ff92e60c596fb",
+      "entry_index": 7,
+      "evidence_files": [
+        "candidate_state_v2_14.json",
+        "failure_memory_weights_v2_14.json",
+        "capability_probe_log_v2_14.json",
+        "local_global_validation_v2_14.json"
+      ],
+      "forbidden_inputs_checked": [
+        "fixed revision contents",
+        "BugsInPy gold patches",
+        "hidden labels",
+        "future outcome evidence used at decision time",
+        "test edits",
+        "benchmark expectation edits",
+        "generated fixture edits",
+        "undeclared dependency installation",
+        "broad candidate sweep",
+        "full ControllerGate scoring"
+      ],
+      "last_stable_state_id": "state_008_final_classification",
+      "next_allowed_action": "stop_no_ingest_no_promotion",
+      "observation_id": "observation_008_final_classification",
+      "parent_agent_state_id": "state_007_local_global_validation",
+      "post_state_hash": "cfdb7391ebc9e9b2be6e02c67bb1edf4c4dbfcdcb0c21e2b6881f3958b3e5779",
+      "pre_state_hash": "77b3b6b0f2f9c1d2ab8701ddd814ca57b726447af4fbf711711df8092807f240",
+      "result": "PASS_WITH_BOUNDED_BLOCKERS",
+      "rollback_to_state_id": null,
+      "sequence_index": 7,
+      "sha256": {
+        "entry_hash": "8ee890f3fc450a7bd84fda02dd60e51ea4cef9b4253c52cbc27ff92e60c596fb",
+        "input_hashes": {},
+        "output_hashes": {},
+        "previous_entry_hash": "cdba12857403e5ae2e5fcaec925aa89b6143ceee14bd7f8a913d6a391b62e3b7"
+      },
+      "state_status": "stable"
+    }
+  ],
+  "rollback": {
+    "failed_patches_rolled_back": true,
+    "performed": false
+  },
+  "scope": {
+    "allowed_candidates": [
+      "PySnooper:1",
+      "PySnooper:2"
+    ],
+    "attempted_candidates": [
+      "PySnooper:1",
+      "PySnooper:2"
+    ],
+    "broad_sweep_executed": false,
+    "candidate_order": [
+      "PySnooper:1",
+      "PySnooper:2"
+    ],
+    "candidate_priority": [
+      "PySnooper:1",
+      "PySnooper:2"
+    ],
+    "forbidden_candidates_not_attempted": [
+      "FastAPI",
+      "Black",
+      "youtube-dl",
+      "ansible"
+    ],
+    "full_scoring_executed": false,
+    "max_patch_attempts_per_candidate": 1,
+    "max_total_patch_attempts": 2,
+    "max_total_probes": 4
+  },
+  "source_v2_13_claim_boundaries": {
+    "v2_13_audit_status": "PASS",
+    "v2_13_claims_changed_by_v2_14": false,
+    "v2_13_full_scoring": "NOT_RUN",
+    "v2_13_full_scoring_allowed": false,
+    "v2_13_non_ansible_positive_memory_count": 0,
+    "v2_13_positive_memory_count": 2,
+    "v2_13_pysnooper1_policy_classification": "dependency_recovery_allowed_by_policy_not_executed_in_minimal_lane",
+    "v2_13_pysnooper2_final_blocker": "blocked_fixture_materialization_incomplete",
+    "v2_13_scoreable_count": 5,
+    "v2_13_self_maintaining_software_demonstrated": false
+  },
+  "version": "v2.14",
+  "workflow_executed": false
+}

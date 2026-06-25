@@ -1,0 +1,19 @@
+{
+  "benchmark_expectations_mutated": false,
+  "blocker": "tests/mini_toolbox.py remains a missing test helper; the verified evidence does not provide a decision-time-safe materialization source that avoids fixed/gold/future evidence and avoids unauthorized test/fixture or benchmark-expectation mutation",
+  "candidate": "PySnooper:2",
+  "classification": "pysnooper2_fixture_materialization_forbidden_or_unavailable",
+  "explicitly_required_by_repo_local_test_metadata": true,
+  "files_materialized": [],
+  "fixture_materialization_policy_allows": false,
+  "missing_fixture_or_helper": [
+    "tests/mini_toolbox.py"
+  ],
+  "present_in_buggy_checkout": false,
+  "present_in_decision_time_safe_test_harness_metadata": false,
+  "recoverable_without_benchmark_expectation_edits": false,
+  "recoverable_without_fixed_revision_gold_patch_or_future_evidence": false,
+  "recoverable_without_unauthorized_test_or_fixture_edits": false,
+  "source_or_tests_mutated": false,
+  "v2_13_blocker": "blocked_fixture_materialization_incomplete"
+}

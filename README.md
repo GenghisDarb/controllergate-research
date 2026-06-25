@@ -39,7 +39,16 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - Self-maintaining software is not demonstrated.
 - Family generalization remains `not_expanded`.
 - Non-Ansible positive-memory count remains `0`.
-- v2.14 capability work has not started in the current-protocol refactor.
+- v2.14 capability recovery work is separate from the current protocol and must not be promoted to current until an official verified ingest commit exists.
+
+## v2.14 capability recovery lane
+
+v2.14 is a bounded non-Ansible capability recovery lane, not the current protocol.
+
+- Campaign: `v2_14_capability_recovery_lane`
+- Scope: `PySnooper:1` first, then `PySnooper:2` only if PySnooper:1 blocks or fails cleanly.
+- No broad sweep, full scoring, self-maintaining-software claim, or family-generalization claim is allowed.
+- Current protocol remains `v2.13` until a later official v2.14 artifact ingest is verified and explicitly promoted.
 
 ## Day-to-day checks
 
