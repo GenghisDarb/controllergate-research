@@ -1,0 +1,17 @@
+protocol_version: v2.13
+protocol_name: minimal_forensic_context_lane
+campaign_id: v2_13_minimal_forensic_context_lane
+based_on: v2.12
+implementation_commit: f32c56b1226ec0d4b368c656daf552f74cf4f425
+official_ingest_commit: 8a66f1a3ca4153bcf7564a1a05a6b8e134b6dc17
+workflow_run_id: 28130741168
+artifact_name: v2_13_minimal_forensic_context_lane_artifacts
+output_dir: outputs/v2_13_minimal_forensic_context_lane
+current_output_dir: outputs/current
+audit_script: scripts/audit_v2_13_minimal_forensic_context_lane.py
+runner_script: scripts/v2_13_minimal_forensic_context_lane_runner.py
+claim_boundaries:
+  full_scoring: NOT_RUN/disallowed
+  self_maintaining_software: false/not demonstrated
+  family_generalization: not_expanded
+  non_ansible_positive_memory_count: 0 unless later verified evidence changes it

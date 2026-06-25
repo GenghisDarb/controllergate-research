@@ -1,41 +1,69 @@
 # ControllerGate
 
+ControllerGate is a research repository for replay-first evidence, memory-lift experiments, and bounded repair-protocol evaluation. The project keeps historical versioned evidence intact while exposing a stable current-protocol interface for day-to-day checks.
+
 Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 
-This repository currently contains:
+## Current protocol
 
-- `controllergate_v1_6_release/`: v1.6 freeze evidence at psi.
-- `controllergate_v1_7_alpha/`: v1.7-alpha real repository / real agent trace pilot scaffold.
+The current protocol is `v2.13` / `minimal_forensic_context_lane`.
 
-## Current Status
+- Current config: `configs/controllergate_current.yaml`
+- Current summary: `outputs/current/current_protocol_summary.json`
+- Verified v2.13 outputs: `outputs/v2_13_minimal_forensic_context_lane`
+- Current protocol docs: `docs/current_protocol.md`
 
-v1.6 is frozen at psi based on the supplied separate fixture artifact custody package. The verified claim is bounded to controlled diagnostic benchmark evidence.
+Historical versioned runners, workflows, audits, and output directories remain the reproducibility references. The current interface points to the latest verified protocol; it does not rewrite old results.
 
-v1.7-alpha is not scored yet. Ten completed evidence bundles have been normalized into the trace ledger, validation passes, and the audit currently reports `REVIEW_REQUIRED`. The review classification layer confirms there are 0 external real repo episodes, so real-pilot scoring remains blocked.
+## Current status
 
-## Quick Checks
+v2.13 is officially ingested and audited.
+
+- Workflow run: `28130741168`
+- Artifact: `v2_13_minimal_forensic_context_lane_artifacts`
+- Artifact SHA256: `57f87a8e0726f55acf0a01282acf7a649808fc71007cba732b9491cf66567ee1`
+- v2.13 audit: `PASS`
+- Baseline preservation: `PASS`
+- `ansible:2` and `ansible:5` preserved `positive_memory_only` status.
+- PySnooper:1 policy classification: `dependency_recovery_allowed_by_policy_not_executed_in_minimal_lane`
+- PySnooper:2 final blocker: `blocked_fixture_materialization_incomplete`
+- Scoreable episodes: `5`
+- Positive-memory-only episodes: `2`
+- Non-Ansible positive-memory episodes: `0`
+
+The v2.13 result is a successful deterministic forensic block, not a repair breakthrough.
+
+## Claim boundaries
+
+- Full scoring remains `NOT_RUN` / disallowed.
+- Self-maintaining software is not demonstrated.
+- Family generalization remains `not_expanded`.
+- Non-Ansible positive-memory count remains `0`.
+- v2.14 capability work has not started in the current-protocol refactor.
+
+## Day-to-day checks
+
+Use the generic current interface:
 
 ```powershell
-python controllergate_v1_7_alpha\scripts\validate_ledger.py
-python controllergate_v1_7_alpha\scripts\audit_trace_ledger.py
-python controllergate_v1_7_alpha\scripts\audit_episode_review_classification.py
+python scripts/controllergate_audit.py --protocol current
+python scripts/controllergate_run.py --protocol current --dry-run
 ```
 
-In this Codex app session, Python may need to be called with the bundled runtime:
+The same interface can explicitly select v2.13:
 
 ```powershell
-& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' controllergate_v1_7_alpha\scripts\validate_ledger.py
-& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' controllergate_v1_7_alpha\scripts\audit_trace_ledger.py
-& 'C:\Users\thisb\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' controllergate_v1_7_alpha\scripts\audit_episode_review_classification.py
+python scripts/controllergate_audit.py --protocol v2.13
+python scripts/controllergate_run.py --protocol v2.13 --dry-run
 ```
 
-Expected current result:
+The generic runner is dry-run only for now. Non-dry-run evidence generation must be explicitly authorized and should use the versioned runner or a reviewed future current-protocol mechanism.
 
-- Ledger validation passes with 10 normalized episodes.
-- Trace audit reports `REVIEW_REQUIRED`.
-- Episode review classification passes with 2 correction-review episodes, 8 controlled benchmark evidence episodes, and 0 external real repo episodes.
-- Scoring is not run.
+## Required regression checks for this boundary
 
-## Next Evidence Needed
+```powershell
+python scripts/audit_v2_13_minimal_forensic_context_lane.py
+python scripts/audit_v2_12_dependency_cofactor_recovery.py
+```
 
-Collect and normalize external real repository maintenance episodes before v1.7-alpha real repo scoring. A GitHub remote should be added after this clean classification milestone if the repo is ready to push.
+On Windows with `core.autocrlf=true`, sparse-checkout materialization may need byte-exact tracked evidence before running manifest-heavy historical audits. Do not weaken audits to accommodate sparse checkout or line-ending conversion.
