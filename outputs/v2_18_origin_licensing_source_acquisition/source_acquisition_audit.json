@@ -1,0 +1,143 @@
+{
+  "acquired_head_sha": "e21a31162f4c54be693d8ca8260e42393b39abd3",
+  "blocker": null,
+  "buggy_commit_id": "e21a31162f4c54be693d8ca8260e42393b39abd3",
+  "campaign_id": "v2_18_origin_licensing_source_acquisition",
+  "candidate": "PySnooper:1",
+  "checkout_commands": [
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:/ControllerGate-Artifacts/v2_18_origin_source_acquisition_workspace/PySnooper",
+        "init"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_18_origin_source_acquisition_workspace\\PySnooper",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "Initialized empty Git repository in E:/ControllerGate-Artifacts/v2_18_origin_source_acquisition_workspace/PySnooper/.git/\n",
+      "stdout_sha256": "15de4efa3d41a073a8ee58ea377b2a87e861f814560367e18175c9758ddb3604",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:/ControllerGate-Artifacts/v2_18_origin_source_acquisition_workspace/PySnooper",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/cool-RR/PySnooper"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_18_origin_source_acquisition_workspace\\PySnooper",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:/ControllerGate-Artifacts/v2_18_origin_source_acquisition_workspace/PySnooper",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "e21a31162f4c54be693d8ca8260e42393b39abd3"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_18_origin_source_acquisition_workspace\\PySnooper",
+      "returncode": 0,
+      "stderr_excerpt": "From https://github.com/cool-RR/PySnooper\n * branch            e21a31162f4c54be693d8ca8260e42393b39abd3 -> FETCH_HEAD\n",
+      "stderr_sha256": "e8a151a1ace3e1ed168efafb1cb230f5fd2271f684a843e1ca9e8b54cc18e30c",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:/ControllerGate-Artifacts/v2_18_origin_source_acquisition_workspace/PySnooper",
+        "checkout",
+        "--detach",
+        "e21a31162f4c54be693d8ca8260e42393b39abd3"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_18_origin_source_acquisition_workspace\\PySnooper",
+      "returncode": 0,
+      "stderr_excerpt": "HEAD is now at e21a311 Formatting\n",
+      "stderr_sha256": "c9e52604171550763888a2ca42dae4cd3ca37bf39d1916e8eb479b5b1e3b0084",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:/ControllerGate-Artifacts/v2_18_origin_source_acquisition_workspace/PySnooper",
+        "reset",
+        "--hard",
+        "e21a31162f4c54be693d8ca8260e42393b39abd3"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_18_origin_source_acquisition_workspace\\PySnooper",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "HEAD is now at e21a311 Formatting\n",
+      "stdout_sha256": "c9e52604171550763888a2ca42dae4cd3ca37bf39d1916e8eb479b5b1e3b0084",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:/ControllerGate-Artifacts/v2_18_origin_source_acquisition_workspace/PySnooper",
+        "clean",
+        "-ffdx"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_18_origin_source_acquisition_workspace\\PySnooper",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "args": [
+        "git",
+        "-c",
+        "safe.directory=E:/ControllerGate-Artifacts/v2_18_origin_source_acquisition_workspace/PySnooper",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "E:\\ControllerGate-Artifacts\\v2_18_origin_source_acquisition_workspace\\PySnooper",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "e21a31162f4c54be693d8ca8260e42393b39abd3\n",
+      "stdout_sha256": "5578c69b46c2fc780f0d3c77576a4332e331ed4f08cf515747625f76e474cdfb",
+      "timed_out": false
+    }
+  ],
+  "checkout_workspace": "E:\\ControllerGate-Artifacts\\v2_18_origin_source_acquisition_workspace\\PySnooper",
+  "checkout_workspace_outside_repo": true,
+  "decision_time_safe_metadata_hashes": {
+    "outputs/v2_12_dependency_cofactor_recovery/episode_033/dependency_cofactor_recovery_result.json": "dac26cf0dd356d9fd6cad7cc8a9cde8ff7eb72d2b68902fca216819aa0df341e",
+    "outputs/v2_12_dependency_cofactor_recovery/episode_033/source_repo_metadata.json": "a6523852673379735516e643b7d5b103f844796eec96339d385053448c76436f",
+    "outputs/v2_12_dependency_cofactor_recovery/preflight_candidates/001_PySnooper_1/candidate_metadata.json": "62609bec1333631d46148895568b56441614cc5491f10d5a7ec18ce914e66ecd"
+  },
+  "fixed_commit_id_outcome_only_present_but_not_used": true,
+  "fixed_or_gold_patch_used": false,
+  "future_outcome_evidence_used": false,
+  "hidden_label_evidence_used": false,
+  "repo_url": "https://github.com/cool-RR/PySnooper",
+  "source_acquisition_status": "source_checkout_acquired",
+  "source_family": "bugsinpy",
+  "source_metadata_path": "outputs/v2_12_dependency_cofactor_recovery/episode_033/source_repo_metadata.json",
+  "status": "PASS"
+}

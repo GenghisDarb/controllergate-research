@@ -1179,3 +1179,26 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.17 is not promoted to current.
+
+## v2.18 PySnooper:1 Origin Licensing / Source Acquisition
+
+- Status: `local_implementation_audited`; official artifact ingestion is pending.
+- Campaign: `v2_18_origin_licensing_source_acquisition`.
+- Candidate scope: `PySnooper:1` only; PySnooper:2 was not pursued.
+- v2.17 source-acquisition blocker corrected: `true`; the lane now identifies and checks out the decision-time-safe public PySnooper buggy revision from committed BugsInPy metadata.
+- Source acquisition status: `source_checkout_acquired`.
+- Source commit acquired: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
+- Workspace purity status: `PASS`; the outside-repo runtime checkout was cleaned before evidence capture and removed after the run.
+- Workspace equivalence status: `BLOCK`; the raw public checkout does not include the BugsInPy materialized target test `tests/test_chinese.py`.
+- Environment lock status: `PASS`; command manifest status: `PASS`.
+- Dependency recovery status: `not_executed_workspace_equivalence_blocked`.
+- Pre-repair replay status: `not_run_workspace_equivalence_blocked`.
+- Patch generated: `false`; authorized: `false`; attempted: `false`.
+- Target validation and duplicate replay are not applicable because no patch was authorized.
+- PySnooper:1 classification: `blocked_workspace_equivalence_missing_materialized_target_test`.
+- PySnooper:1 scoreable: `false`; positive-memory-only: `false`.
+- Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.18 is not promoted to current.

@@ -1,0 +1,60 @@
+name: v2_18_origin_licensing_source_acquisition
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  origin-licensing-source-acquisition:
+    name: PySnooper:1 origin licensing source acquisition audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Generate v2.18 origin licensing source acquisition evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/v2_18_origin_licensing_source_acquisition_runner.py
+
+      - name: Run v2.18 audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_18_origin_licensing_source_acquisition.py
+
+      - name: Run preserved-regression audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_17_pysnooper1_runtime_workspace_materialization.py
+          python scripts/audit_v2_16.py
+          python scripts/audit_v2_15_chromosomal_maintenance_gate_order.py
+          python scripts/audit_v2_14_capability_recovery_lane.py
+          python scripts/audit_v2_13_minimal_forensic_context_lane.py
+          python scripts/audit_v2_12_dependency_cofactor_recovery.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+
+      - name: Upload v2.18 artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_18_origin_licensing_source_acquisition_artifacts
+          path: |
+            outputs/v2_18_origin_licensing_source_acquisition/**
+            controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md
+            README.md
+          if-no-files-found: error

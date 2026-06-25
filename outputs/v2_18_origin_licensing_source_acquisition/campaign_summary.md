@@ -1,0 +1,21 @@
+# v2.18 Origin Licensing / Source Acquisition Lane
+
+- Campaign: `v2_18_origin_licensing_source_acquisition`.
+- Scope: `PySnooper:1` only; PySnooper:2 was not pursued.
+- v2.17 missing source-acquisition prerequisite addressed: `true`.
+- Source acquisition: `source_checkout_acquired`.
+- Source commit acquired: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
+- Workspace purity: `PASS`.
+- Workspace equivalence: `BLOCK`.
+- Environment lock: `PASS`.
+- Command manifest: `PASS`.
+- Dependency recovery: `not_executed_workspace_equivalence_blocked`.
+- Pre-repair replay: `not_run_workspace_equivalence_blocked`.
+- Patch generated / authorized / attempted: `false` / `false` / `false`.
+- PySnooper:1 scoreable: `false`; positive-memory-only: `false`.
+- Final blocker: Direct public Git checkout acquired the PySnooper:1 buggy source commit, but the BugsInPy materialized target test tests/test_chinese.py was not present in the raw public source checkout.
+- Scoreable count remains `5`; positive-memory count remains `2`; non-Ansible positive-memory count remains `0`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Current protocol remains `v2.13`; v2.18 is not promoted to current.

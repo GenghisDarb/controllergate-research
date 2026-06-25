@@ -43,6 +43,7 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - v2.15 chromosomal maintenance gate-order work is a corrective stack on top of v2.14, not a current-protocol promotion.
 - v2.16 PySnooper:1 isolated recovery executor work is an officially ingested bounded executor-contract checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.17 PySnooper:1 runtime-workspace materialization is an officially ingested bounded workspace-provenance checkpoint, not a current-protocol promotion or a scoreable repair result.
+- v2.18 PySnooper:1 origin licensing/source acquisition work is a bounded source-acquisition checkpoint pending official artifact ingestion; it is not a current-protocol promotion or a scoreable repair result.
 
 ## v2.14 capability recovery lane
 
@@ -97,6 +98,28 @@ v2.17 is a narrow PySnooper:1-only lane that attempts to turn the v2.16 isolated
 - Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
 - Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
 - Current protocol remains `v2.13`; v2.17 is not promoted to current.
+
+## v2.18 PySnooper:1 origin licensing/source acquisition
+
+v2.18 corrects the missing source-acquisition prerequisite exposed by v2.17. It is a PySnooper:1-only lane that uses decision-time-safe BugsInPy metadata to attempt a stateless public Git checkout of the exact buggy PySnooper revision before any environment recovery, replay, patch generation, or validation can run.
+
+- Campaign: `v2_18_origin_licensing_source_acquisition`
+- Local audit status: `PASS`; official artifact ingestion is still pending.
+- v2.17 source blocker corrected: `true`.
+- Source acquisition status: `source_checkout_acquired`.
+- Source commit acquired: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
+- Workspace purity status: `PASS`; the fresh outside-repo checkout was cleaned and then removed after evidence capture.
+- Workspace equivalence status: `BLOCK`; the raw public checkout does not contain the BugsInPy materialized target test `tests/test_chinese.py`.
+- Environment lock status: `PASS`; command manifest status: `PASS`.
+- Dependency recovery status: `not_executed_workspace_equivalence_blocked`.
+- Pre-repair replay status: `not_run_workspace_equivalence_blocked`.
+- Patch generated: `false`; authorized: `false`; attempted: `false`.
+- PySnooper:1 classification: `blocked_workspace_equivalence_missing_materialized_target_test`.
+- PySnooper:1 scoreable: `false`; positive-memory-only: `false`.
+- PySnooper:2 was not pursued.
+- Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
+- Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+- Current protocol remains `v2.13`; v2.18 is not promoted to current.
 
 ## Day-to-day checks
 

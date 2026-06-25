@@ -1,0 +1,163 @@
+{
+  "campaign_id": "v2_18_origin_licensing_source_acquisition",
+  "final_blocker": "blocked_workspace_equivalence_missing_materialized_target_test",
+  "ghost_state_count": 0,
+  "ledger_entries": [
+    {
+      "action": "baseline_registry_precheck",
+      "entry_hash": "ca699b528442d7c5a211c543dfba3c546041f553f4b9f1b16101e7892af833ad",
+      "index": 0,
+      "next_allowed_action": "source_acquisition",
+      "path": "baseline_registry_snapshot_v2_18.json",
+      "previous_entry_hash": null,
+      "result": "pass",
+      "sha256": "96b872174bff57963989ed2644a571b9f442785884a8d1822b57ff93de76919f"
+    },
+    {
+      "action": "source_acquisition_attempt",
+      "entry_hash": "89888108be790a7aef9468fd0b495978242723aaecd328d3683c9affdc24c7c3",
+      "index": 1,
+      "next_allowed_action": "workspace_purity_check",
+      "path": "source_acquisition_audit.json",
+      "previous_entry_hash": "ca699b528442d7c5a211c543dfba3c546041f553f4b9f1b16101e7892af833ad",
+      "result": "pass",
+      "sha256": "cde259fb93cc6cf25ca2db2f474a7753c2cf03255f1590d063719e25aa18b923"
+    },
+    {
+      "action": "workspace_purity_check",
+      "entry_hash": "e61789c55967d8da2664ba9295127335de1cc0629897aa384cda95e1b861809b",
+      "index": 2,
+      "next_allowed_action": "workspace_equivalence_check",
+      "path": "workspace_purity_report.json",
+      "previous_entry_hash": "89888108be790a7aef9468fd0b495978242723aaecd328d3683c9affdc24c7c3",
+      "result": "pass",
+      "sha256": "4f2e08fcca8b23977bd65050c3766895b063a55d6bfaad9b5658249b4ee84fbe"
+    },
+    {
+      "action": "workspace_equivalence_check",
+      "entry_hash": "bfa92440c21fa32c9812d8589d6f1e6997e37a044f334290666c2207955df083",
+      "index": 3,
+      "next_allowed_action": "rollback_workspace_and_stop",
+      "path": "workspace_equivalence_summary.json",
+      "previous_entry_hash": "e61789c55967d8da2664ba9295127335de1cc0629897aa384cda95e1b861809b",
+      "result": "block",
+      "sha256": "6b571eaaa888777cdf4fc2394c55dd758402b20d52abac04fb6eedef871509f7"
+    },
+    {
+      "action": "workspace_equivalence_failed",
+      "blocker": "blocked_workspace_equivalence_missing_materialized_target_test",
+      "entry_hash": "11b68474f3e05f2e1b5b5f545d0fd3bc9dabfede8bf2bad56121ea313ef49b1c",
+      "index": 4,
+      "next_allowed_action": "rollback_workspace_and_stop",
+      "path": null,
+      "previous_entry_hash": "bfa92440c21fa32c9812d8589d6f1e6997e37a044f334290666c2207955df083",
+      "result": "block",
+      "rollback_target_entry_index": 2,
+      "sha256": null
+    },
+    {
+      "action": "rollback_workspace_and_stop",
+      "entry_hash": "58cc01ce5a7d5d3bcaee3256d9117434be47c0269ef36246258bd3ec79f81477",
+      "index": 5,
+      "next_allowed_action": "stop",
+      "path": null,
+      "previous_entry_hash": "11b68474f3e05f2e1b5b5f545d0fd3bc9dabfede8bf2bad56121ea313ef49b1c",
+      "result": "pass",
+      "rollback_target_entry_index": 2,
+      "sha256": null,
+      "workspace_cleanup_confirmed": true
+    },
+    {
+      "action": "evidence_file_recorded",
+      "entry_hash": "cc7abb9e6ab9ebdd31fcfecc4500f46261014bd9b5995dc49bd1e0d807c95347",
+      "index": 6,
+      "next_allowed_action": "stop",
+      "path": "environment_lock_summary.json",
+      "previous_entry_hash": "58cc01ce5a7d5d3bcaee3256d9117434be47c0269ef36246258bd3ec79f81477",
+      "result": "pass",
+      "sha256": "30830acb536059be12be39887af780f54103fff8138ab6be2feb3d2d65d1e1ae"
+    },
+    {
+      "action": "evidence_file_recorded",
+      "entry_hash": "1c52530d7f6e5282c0497a7ed930dfe1113f2e975505b558cd5ae685f6d0bbca",
+      "index": 7,
+      "next_allowed_action": "stop",
+      "path": "bugsinpy_command_map_v1.json",
+      "previous_entry_hash": "cc7abb9e6ab9ebdd31fcfecc4500f46261014bd9b5995dc49bd1e0d807c95347",
+      "result": "pass",
+      "sha256": "60d7c86e4f9f620f9fb59a7b14c0f5d4d818314d7f4ee81da550d98950764f0b"
+    },
+    {
+      "action": "evidence_file_recorded",
+      "entry_hash": "682495963b0cf8754396eeb1741c1bd743e7243cebb1668b5bd4e2661d0b1274",
+      "index": 8,
+      "next_allowed_action": "stop",
+      "path": "workspace_provenance.json",
+      "previous_entry_hash": "1c52530d7f6e5282c0497a7ed930dfe1113f2e975505b558cd5ae685f6d0bbca",
+      "result": "pass",
+      "sha256": "9757442b2bf294fdf1d1337ffc77598a31e32812ee443028ab7dcfa73b30b239"
+    },
+    {
+      "action": "evidence_file_recorded",
+      "entry_hash": "3b73644693d520ea8c4d8176045e40c0437b9968586c22d71256cdb1324a2115",
+      "index": 9,
+      "next_allowed_action": "stop",
+      "path": "dependency_recovery_audit.json",
+      "previous_entry_hash": "682495963b0cf8754396eeb1741c1bd743e7243cebb1668b5bd4e2661d0b1274",
+      "result": "pass",
+      "sha256": "ef0192911a063cb57339fdde23c1868e3dcd28e97a759a015eed7a42c838b432"
+    },
+    {
+      "action": "evidence_file_recorded",
+      "entry_hash": "0cab81902c6fe939ce01d72026d2802a9f7509d2023bc737dad03cf2e45fb43d",
+      "index": 10,
+      "next_allowed_action": "stop",
+      "path": "pre_repair_replay_gate_summary.json",
+      "previous_entry_hash": "3b73644693d520ea8c4d8176045e40c0437b9968586c22d71256cdb1324a2115",
+      "result": "pass",
+      "sha256": "6510e47cfd285da11fe2d8f011650f2782215dec0c6f5205c2ce87f258afe0e9"
+    },
+    {
+      "action": "evidence_file_recorded",
+      "entry_hash": "7a127e017c40017bfc21ea0b70d65ab8dd11c95330e988acaed48766a0ac615b",
+      "index": 11,
+      "next_allowed_action": "stop",
+      "path": "patch_candidate_safety_check.json",
+      "previous_entry_hash": "0cab81902c6fe939ce01d72026d2802a9f7509d2023bc737dad03cf2e45fb43d",
+      "result": "pass",
+      "sha256": "de7c01fa0a8539ebfd22b2d32b39454d127a3a792bca8a7f52d1af6ab99d12d1"
+    },
+    {
+      "action": "evidence_file_recorded",
+      "entry_hash": "3b0b5cf1b493c92a97f82449ab34ca08e3d88935518134cbf6bf5c2d12f93659",
+      "index": 12,
+      "next_allowed_action": "stop",
+      "path": "claim_boundary_v2_18.json",
+      "previous_entry_hash": "7a127e017c40017bfc21ea0b70d65ab8dd11c95330e988acaed48766a0ac615b",
+      "result": "pass",
+      "sha256": "9f274b8a1e9c3a89cd8722fac46bd9cac1dc1646b7436d8a535bd3f1fc3bdb02"
+    },
+    {
+      "action": "evidence_file_recorded",
+      "entry_hash": "31908300d2a3868fa8e789b8886c009b10bedf6365f41bcb315e3aaed3d559c4",
+      "index": 13,
+      "next_allowed_action": "stop",
+      "path": "campaign_results.json",
+      "previous_entry_hash": "3b0b5cf1b493c92a97f82449ab34ca08e3d88935518134cbf6bf5c2d12f93659",
+      "result": "pass",
+      "sha256": "319f56883a2bd000a8cf8d5e356274dec96e42721d919402bba9122b9618ae13"
+    },
+    {
+      "action": "evidence_file_recorded",
+      "entry_hash": "574b5d9900f842e6cbf2815b08c2f717bcb25f4c1216ed869952f3c4e48ea5dd",
+      "index": 14,
+      "next_allowed_action": "stop",
+      "path": "isolated_execution_log.txt",
+      "previous_entry_hash": "31908300d2a3868fa8e789b8886c009b10bedf6365f41bcb315e3aaed3d559c4",
+      "result": "pass",
+      "sha256": "187b59f320251d566a63e689ad738081b12ba5f03a807e0fe9b0fd1b34eb709f"
+    }
+  ],
+  "ledger_tip": "574b5d9900f842e6cbf2815b08c2f717bcb25f4c1216ed869952f3c4e48ea5dd",
+  "status": "PASS"
+}
