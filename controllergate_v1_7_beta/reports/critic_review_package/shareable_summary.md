@@ -1162,8 +1162,10 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.17 PySnooper:1 Runtime Workspace Materialization
 
-- Status: local implementation/audit `PASS`; official GitHub Actions artifact pending.
+- Status: `verified_official_artifact`.
 - Campaign: `v2_17_pysnooper1_runtime_workspace_materialization`.
+- Artifact verification: `PASS`; ZIP SHA256: `a2606d558d9baf62e301cd74c4e5ef39f577e513f23c7464d3213819cdbd09ce`; byte size: `32097`; ZIP entries: `14`; safe paths: `PASS`; duplicate paths: `0`.
+- Internal SHA256SUMS: `11` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest: `12` entries after adding the local official artifact-verification record.
 - Candidate scope: `PySnooper:1` only; PySnooper:2 was not pursued.
 - Workspace materialization classification: `blocked_no_decision_time_safe_workspace_source`.
 - Workspace provenance status: `BLOCK`; no outside-repo PySnooper:1 buggy checkout or available BugsInPy checkout executable/source bundle could be tied to the v2.13/v2.16 decision-time-safe metadata.

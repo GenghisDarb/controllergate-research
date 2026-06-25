@@ -42,7 +42,7 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - v2.14 capability recovery is officially ingested as a preserved artifact result, but it is still separate from the current protocol.
 - v2.15 chromosomal maintenance gate-order work is a corrective stack on top of v2.14, not a current-protocol promotion.
 - v2.16 PySnooper:1 isolated recovery executor work is an officially ingested bounded executor-contract checkpoint, not a current-protocol promotion or a scoreable repair result.
-- v2.17 PySnooper:1 runtime-workspace materialization is an implementation lane for the next official workflow artifact; it is not a current-protocol promotion.
+- v2.17 PySnooper:1 runtime-workspace materialization is an officially ingested bounded workspace-provenance checkpoint, not a current-protocol promotion or a scoreable repair result.
 
 ## v2.14 capability recovery lane
 
@@ -84,7 +84,9 @@ v2.16 narrows the next non-Ansible step to PySnooper:1 only. It defines and audi
 v2.17 is a narrow PySnooper:1-only lane that attempts to turn the v2.16 isolated recovery contract into an executable path only if a decision-time-safe buggy runtime workspace can be found or materialized outside the live repository.
 
 - Campaign: `v2_17_pysnooper1_runtime_workspace_materialization`
-- Status: local implementation/audit `PASS`; official GitHub Actions artifact pending.
+- Status: `verified_official_artifact` / `PASS_WITH_WORKSPACE_MATERIALIZATION_BLOCKED`.
+- Official artifact digest: `sha256:a2606d558d9baf62e301cd74c4e5ef39f577e513f23c7464d3213819cdbd09ce`; byte size: `32097`; ZIP entries: `14`.
+- Internal SHA256SUMS: `11` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `12` entries after adding the local official artifact-verification record.
 - Workspace materialization classification: `blocked_no_decision_time_safe_workspace_source`.
 - Workspace provenance status: `BLOCK`; no outside-repo PySnooper:1 buggy checkout or available BugsInPy checkout executable/source bundle could be tied to the recorded safe metadata.
 - Dependency recovery execution status: `not_executed_workspace_blocked`.
