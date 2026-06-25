@@ -1,0 +1,27 @@
+# v2.20 Coupled Test Provenance Repair Lane
+
+- Campaign: `v2_20_test_provenance_repair_lane`.
+- Scope: `PySnooper:1` only; PySnooper:2 was not pursued.
+- v2.19 official ingest verified: `true`.
+- Source acquisition: `source_checkout_acquired`.
+- Source commit acquired: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
+- BugsInPy harness origin bootstrap: `BLOCK`.
+- Authoritative SHA256 source: `none_available_before_v2_20_execution`.
+- Proposed harness origin candidate written: `true`.
+- Target-test provenance: `BLOCK`.
+- Replisome coupling: `BLOCK`.
+- Chaperonin topology: `BLOCK`.
+- Redundancy cache lookup: `not_found`.
+- Nuclear pore transport: `PASS`.
+- Environment lock: `PASS`.
+- Command manifest: `PASS`.
+- Dependency recovery: `not_executed_harness_origin_blocked`.
+- Pre-repair replay: `not_run_harness_origin_blocked`.
+- Reward signal: `PASS` with graded signal `0.0`.
+- Patch generated / authorized / attempted: `false` / `false` / `false`.
+- PySnooper:1 scoreable: `false`; positive-memory-only: `false`.
+- Final blocker: No non-circular authoritative BugsInPy harness-origin SHA256 pin was available before v2.20 execution, so target-test provenance could not be trusted.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Current protocol remains `v2.13`; v2.20 is not promoted to current.

@@ -1,0 +1,30 @@
+{
+  "blocker_as_resolution_report": "bugsinpy_harness_origin_bootstrap_missing",
+  "campaign_id": "v2_20_test_provenance_repair_lane",
+  "candidate": "PySnooper:1",
+  "claim_boundary": {
+    "architecture_heuristic_only": true,
+    "not_full_scoring": true,
+    "not_generalization": true,
+    "not_physics_validation": true,
+    "not_self_maintaining_software": true
+  },
+  "current_resolution_band": {
+    "harness_topology_N8_blocked_or_passed": "blocked",
+    "repair_generation_N9_not_reached_or_reached": "not_reached",
+    "scoreable_kernel_N10_not_reached_or_reached": "not_reached",
+    "source_acquisition_N6_passed": true,
+    "test_provenance_N7_blocked_or_passed": "blocked"
+  },
+  "graded_reward_interpretation": "precondition_failure_not_repair_failure",
+  "metrological_precision_tools_used": [
+    "SHA256",
+    "artifact manifest",
+    "workspace equivalence",
+    "command manifest",
+    "environment lock",
+    "transport hash log",
+    "prompt/context pre-generation hash"
+  ],
+  "status": "PASS"
+}

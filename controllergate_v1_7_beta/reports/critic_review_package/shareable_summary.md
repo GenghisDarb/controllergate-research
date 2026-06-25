@@ -1214,8 +1214,12 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.19 BugsInPy Materialized-Test Provenance
 
-- Status: `local_implementation_audited`; official artifact ingestion is pending.
+- Status: `verified_official_artifact`.
 - Campaign: `v2_19_bugsinpy_materialized_test_provenance`.
+- Artifact verification: `PASS`; ZIP SHA256: `bd7ee23458a60051abe2137266b91d06c72b06449941f2720ddc09b0b6ead695`; byte size: `51116`; ZIP entries: `29`; safe paths: `PASS`; duplicate paths: `0`.
+- Workflow run: `28187693617`; artifact ID: `7885570481`; artifact name: `v2_19_bugsinpy_materialized_test_provenance_artifacts`.
+- Internal SHA256SUMS: `24` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `25` entries after adding the local official artifact-verification record.
+- v2.19 audit: `PASS`; v2.18 through v2.12 regression audits: `PASS`; current-protocol audit: `PASS`.
 - Candidate scope: `PySnooper:1` only; PySnooper:2 was not pursued.
 - v2.18 official ingest verified: `true`.
 - Source acquisition status: `source_checkout_acquired`.
@@ -1236,3 +1240,34 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.19 is not promoted to current.
+
+## v2.20 Coupled Test-Provenance Repair Lane
+
+- Status: `local_implementation_audited`; official artifact ingestion is pending.
+- Campaign: `v2_20_test_provenance_repair_lane`.
+- Candidate scope: `PySnooper:1` only; PySnooper:2 was not pursued.
+- v2.19 official ingest verified: `true`.
+- Source acquisition status: `source_checkout_acquired`; source commit acquired: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
+- BugsInPy harness origin status: `BLOCK`; harness-origin bootstrap status: `BLOCK`.
+- Authoritative SHA256 source: `none_available_before_v2_20_execution`; self-referential harness-origin hash detected: `false`.
+- Proposed harness-origin candidate written: `true`, marked proposal-only and not authoritative for the current run.
+- Target-test provenance status: `BLOCK`; target-test source/origin: `null`; target-test SHA256: `null`.
+- Recursive provenance chain status: `PASS`.
+- Replisome coupling status: `BLOCK`; chaperonin topology status: `BLOCK`.
+- Redundancy-cache lookup result: `not_found`; expected-vs-actual SHA256 status: `not_applicable_not_found`; trust result: `not_trusted`.
+- Nuclear-pore transport status: `PASS`; workspace purity status: `PASS`; workspace equivalence status: `BLOCK`.
+- Environment lock status: `PASS`; command manifest status: `PASS`; baseline registry precheck status: `PASS`.
+- Dependency recovery status: `not_executed_harness_origin_blocked`; pre-repair replay status: `not_run_harness_origin_blocked`.
+- S-Engine cognitive state snapshot status: `PASS`; pre-generation prompt/context hash status: `PASS`.
+- Reward signal status: `PASS`; graded signal: `0.0`; failure type: `bugsinpy_harness_origin_missing`.
+- Test structural signature status: `PASS`; patch size cap status: `PASS`; cap overshoot severity: `none`.
+- Patch generated: `false`; authorized: `false`; attempted: `false`.
+- Target validation: `not_applicable_no_patch`; post-validation analysis: `not_run_no_validation`; duplicate replay: `not_applicable_no_patch`.
+- PySnooper:1 scoreable: `false`; positive-memory-only: `false`.
+- Current resolution band: `source_acquisition_N6_passed__test_provenance_N7_blocked__harness_topology_N8_blocked`.
+- Exact blocker: no non-circular authoritative BugsInPy harness-origin SHA256 pin was available before v2.20 execution, so target-test provenance could not be trusted.
+- Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.20 is not promoted to current.

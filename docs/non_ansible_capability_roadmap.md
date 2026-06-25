@@ -153,6 +153,7 @@ This roadmap is a planning/control document. It is not evidence that any capabil
 
 - v2.19: ingest v2.18; solve/block BugsInPy materialized target-test provenance; add repair state snapshot, diagnostic reward signal, structural signature, patch size cap, real-time patch safety, corrected patch application semantics, workspace protection, and post-validation analysis; attempt PySnooper:1 only if all gates pass.
 - v2.20: if v2.19 blocks on target-test provenance, implement a stricter BugsInPy benchmark-source acquisition bridge or manual verified source-bundle protocol; if v2.19 reaches validation but fails, use reward/signature/post-validation evidence to improve repair strategy without broad scoring.
+- v2.20 updated scope: couple source acquisition, BugsInPy harness-origin authority, target-test provenance, harness topology, redundancy-cache verification, recursive provenance, transport integrity, prompt/context custody, and precision-resolution diagnostics into one PySnooper:1 lane. If no non-circular authoritative BugsInPy harness-origin pin exists, block with `bugsinpy_harness_origin_bootstrap_missing` and write a proposal-only harness-origin candidate for review.
 - v2.21: if PySnooper:1 succeeds once, build a second non-Ansible candidate lane; do not claim generalization yet.
 - v2.22: compare ControllerGate against vanilla LLM + tools + tests on the same scoreable episodes.
 - v2.23: only after multiple non-Ansible positives, consider current-protocol promotion beyond v2.13.
@@ -160,3 +161,20 @@ This roadmap is a planning/control document. It is not evidence that any capabil
 ## Origin notes
 
 Some output filenames preserve earlier project terminology for continuity with existing prompts and artifacts. The implementation meaning is ordinary engineering: source provenance, dependency locking, command translation, workspace hygiene, proof-ledger rollback, repair state capture, bounded diagnostics, patch locality, patch safety, patch application, and post-validation analysis.
+
+## v2.20 coupled provenance and precision-resolution controls
+
+v2.20 adds planning and audit controls for:
+
+- BugsInPy harness-origin acquisition with non-circular authority.
+- Source-test coupling so target tests cannot be paired with unrelated source revisions.
+- Harness topology/configuration mapping before dependency recovery or patch generation.
+- Recursive provenance-depth checks for any prior artifact content.
+- Redundancy-cache lookup with expected-vs-actual SHA256 verification before any local file is trusted.
+- Cross-boundary transport hash logging for files written from workspace/runtime context into committed evidence.
+- Pre-generation prompt/context hash locking before any repair patch bytes may be generated.
+- Zero-lift reward signals for true precondition failures and graded diagnostic reward for executed target commands or patch-size/locality cap failures.
+- Patch-size overshoot grading to distinguish near-cap patches from divergent patches.
+- Resolution-depth diagnostics using TLD framing as a planning heuristic only, not as a proof claim.
+
+The v2.20 lane remains PySnooper:1-only. PySnooper:2 remains blocked unless decision-time-safe fixture provenance for `tests/mini_toolbox.py` is proven. Full scoring, self-maintaining software, memory lift, broad non-Ansible generalization, and TORUS/TLD proof claims remain forbidden.

@@ -8,6 +8,59 @@
     "self_maintaining_software": "false/not_demonstrated",
     "non_ansible_generalization": "not_demonstrated_from_one_candidate"
   },
+  "v2_20_carry_forward": {
+    "status": "planned_and_required",
+    "target_version": "v2.20",
+    "scope": "PySnooper:1_only",
+    "required_controls": [
+      "bugsinpy_harness_origin_acquisition",
+      "non_circular_harness_origin_authority",
+      "materialized_target_test_provenance",
+      "recursive_provenance_depth_checks",
+      "source_test_coupling",
+      "harness_configuration_topology",
+      "environment_lock",
+      "command_manifest_bugsinpy_translation_bridge",
+      "fresh_workspace_stale_artifact_resistance",
+      "baseline_registry_precheck",
+      "cross_boundary_hash_transport_integrity",
+      "cryptographic_rollback_markers",
+      "repair_state_snapshot",
+      "pre_generation_prompt_context_hash_locking",
+      "zero_lift_reward_signal_for_precondition_failures",
+      "graded_diagnostic_reward_signal_for_executed_target_commands",
+      "patch_size_overshoot_grading",
+      "test_suite_structural_signature",
+      "patch_size_cap_locality_limit",
+      "real_time_patch_safety",
+      "patch_application_semantics",
+      "workspace_protection",
+      "post_validation_workspace_analysis",
+      "redundancy_cache_hash_verification",
+      "resolution_depth_diagnostic",
+      "claim_boundaries"
+    ],
+    "primary_stop_conditions": [
+      "bugsinpy_harness_origin_bootstrap_missing",
+      "bugsinpy_harness_origin_bootstrap_mismatch",
+      "bugsinpy_harness_origin_undefined",
+      "bugsinpy_harness_candidate_mapping_missing",
+      "blocked_test_provenance_missing",
+      "harness_configuration_incomplete",
+      "untrustworthy_provenance_chain",
+      "redundancy_cache_expected_hash_missing",
+      "redundancy_cache_hash_mismatch",
+      "transport_integrity_breach",
+      "blocked_pre_repair_replay_gate_failed"
+    ],
+    "resolution_framing": {
+      "architecture_heuristic_only": true,
+      "not_physics_validation": true,
+      "v2_18_band": "source_acquisition_N6_passed",
+      "v2_19_band": "test_provenance_N7_blocked",
+      "v2_20_target_band": "test_provenance_N7_to_harness_topology_N8"
+    }
+  },
   "items": [
     {
       "id": "source_acquisition_origin_licensing",

@@ -1,0 +1,61 @@
+{
+  "document_type": "architecture_planning_control",
+  "evidence_claim": false,
+  "physics_validation_claim": false,
+  "current_protocol_version": "v2.13",
+  "interpretation": {
+    "blockers_as_under_resolved_metrology_states": true,
+    "blockers_are_not_impossibility_proofs": true,
+    "precision_analogy_scope": "observer_instrument_precision_only"
+  },
+  "resolution_bands": {
+    "v2.18": {
+      "band": "N≈6",
+      "meaning": "source_acquisition_threshold",
+      "status": "public_buggy_source_commit_resolved"
+    },
+    "v2.19": {
+      "band": "N≈7",
+      "meaning": "test_provenance_threshold",
+      "status": "target_test_content_unresolved"
+    },
+    "v2.20": {
+      "band": "N≈7-N≈8",
+      "meaning": "coupled_target_test_provenance_plus_harness_topology",
+      "status": "targeted"
+    },
+    "future_scoreable": {
+      "band": "N≈9-N≈10",
+      "meaning": "repair_generation_and_scoreable_kernel_lock",
+      "status": "not_reached"
+    }
+  },
+  "metrological_precision_tools": [
+    "SHA256",
+    "artifact_manifest",
+    "workspace_equivalence",
+    "command_manifest",
+    "environment_lock",
+    "transport_hash_log",
+    "prompt_context_pre_generation_hash",
+    "proof_ledger"
+  ],
+  "graded_reward_signal": {
+    "purpose": "diagnostic_only",
+    "distinguishes": [
+      "precondition_failure",
+      "near_cap_patch",
+      "target_failure",
+      "successful_validation"
+    ],
+    "zero_reserved_for": "true_precondition_failures",
+    "patch_size_cap_failure_signal": "non_zero_if_real_patch_generated_and_only_blocked_by_cap"
+  },
+  "claim_boundary": {
+    "architecture_heuristic_only": true,
+    "not_physics_validation": true,
+    "not_full_scoring": true,
+    "not_self_maintaining_software": true,
+    "not_generalization": true
+  }
+}

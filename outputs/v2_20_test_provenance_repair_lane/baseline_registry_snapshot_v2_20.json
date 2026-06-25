@@ -1,0 +1,23 @@
+{
+  "ansible2_preserved": true,
+  "ansible5_preserved": true,
+  "baseline_candidates": [
+    "youtube-dl:1",
+    "black:4",
+    "fastapi:1",
+    "ansible:2",
+    "ansible:5"
+  ],
+  "campaign_id": "v2_20_test_provenance_repair_lane",
+  "current_protocol_audit_status": "PASS",
+  "expected_non_ansible_positive_memory_count": 0,
+  "expected_positive_memory_count": 2,
+  "expected_scoreable_count": 5,
+  "precheck_ran_before_source_acquisition": true,
+  "source_evidence_hashes": {
+    "outputs/v2_19_bugsinpy_materialized_test_provenance/campaign_results.json": "001268ea4f4210bd2058fbd8ffd3623ec53f34492ede74a7c3231b61576a6556",
+    "outputs/v2_19_bugsinpy_materialized_test_provenance/v2_19_official_artifact_verification.json": "0b607cc76bba2c72f972d457217e9389ac579e3607f378bda438df898cefc932"
+  },
+  "status": "PASS",
+  "stop_condition_if_failed": "baseline_drift_blocking_acquisition"
+}

@@ -44,6 +44,8 @@ The v2.13 result is a successful deterministic forensic block, not a repair brea
 - v2.16 PySnooper:1 isolated recovery executor work is an officially ingested bounded executor-contract checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.17 PySnooper:1 runtime-workspace materialization is an officially ingested bounded workspace-provenance checkpoint, not a current-protocol promotion or a scoreable repair result.
 - v2.18 PySnooper:1 origin licensing/source acquisition work is an officially ingested bounded source-acquisition checkpoint, not a current-protocol promotion or a scoreable repair result.
+- v2.19 BugsInPy materialized-test provenance is officially ingested as a bounded provenance checkpoint, not a current-protocol promotion or a scoreable repair result.
+- v2.20 coupled test-provenance repair work remains a bounded implementation lane until an official artifact is verified and ingested; it currently blocks before repair because no non-circular BugsInPy harness-origin authority is available.
 - The non-Ansible capability roadmap is tracked in `docs/non_ansible_capability_roadmap.md` and `configs/non_ansible_capability_backlog.json`.
 
 ## v2.14 capability recovery lane
@@ -129,7 +131,10 @@ v2.18 corrects the missing source-acquisition prerequisite exposed by v2.17. It 
 v2.19 directly addresses the v2.18 blocker by searching decision-time-safe BugsInPy/materialized-test provenance sources for `tests/test_chinese.py` before any dependency recovery, replay, patch generation, validation, or duplicate replay.
 
 - Campaign: `v2_19_bugsinpy_materialized_test_provenance`
-- Local audit status: `PASS`; official artifact ingestion is still pending.
+- Status: `verified_official_artifact`; v2.19 audit status: `PASS`.
+- Official artifact digest: `sha256:bd7ee23458a60051abe2137266b91d06c72b06449941f2720ddc09b0b6ead695`; byte size: `51116`; ZIP entries: `29`.
+- Workflow run: `28187693617`; artifact ID: `7885570481`.
+- Internal SHA256SUMS: `24` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `25` entries after adding the local official artifact-verification record.
 - v2.18 official ingest verified: `true`.
 - Source acquisition status: `source_checkout_acquired`.
 - Source commit acquired: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
@@ -147,6 +152,31 @@ v2.19 directly addresses the v2.18 blocker by searching decision-time-safe BugsI
 - Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
 - Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
 - Current protocol remains `v2.13`; v2.19 is not promoted to current.
+
+## v2.20 coupled test-provenance repair lane
+
+v2.20 couples the v2.18 source-acquisition result, v2.19 materialized-test blocker, BugsInPy harness-origin bootstrap, harness topology, redundancy-cache trust, workspace transport integrity, pre-generation context custody, and precision-resolution diagnostics into one PySnooper:1-only lane.
+
+- Campaign: `v2_20_test_provenance_repair_lane`
+- Local implementation/audit status: `PASS`; official GitHub artifact ingestion is pending.
+- v2.19 official ingest verified: `true`.
+- Source acquisition status: `source_checkout_acquired`; source commit: `e21a31162f4c54be693d8ca8260e42393b39abd3`.
+- BugsInPy harness origin status: `BLOCK`; bootstrap status: `BLOCK`.
+- Authoritative SHA256 source: `none_available_before_v2_20_execution`; self-referential hash detected: `false`.
+- Proposed harness-origin candidate is written for future review only and is not authoritative for the current run.
+- Target-test provenance status: `BLOCK`; target-test SHA256: `null`.
+- Replisome coupling status: `BLOCK`; chaperonin topology status: `BLOCK`.
+- Redundancy-cache lookup result: `not_found`; trust result: `not_trusted`.
+- Nuclear-pore transport status: `PASS`; workspace purity: `PASS`; workspace equivalence: `BLOCK`.
+- Environment lock, command manifest, baseline registry precheck, cognitive state snapshot, pre-generation prompt/context hash, reward signal, test structural signature, and patch size cap all record machine-checkable status.
+- Dependency recovery status: `not_executed_harness_origin_blocked`; pre-repair replay: `not_run_harness_origin_blocked`.
+- Patch generated: `false`; authorized: `false`; attempted: `false`.
+- PySnooper:1 scoreable: `false`; positive-memory-only: `false`; PySnooper:2 was not pursued.
+- Current resolution band: `source_acquisition_N6_passed__test_provenance_N7_blocked__harness_topology_N8_blocked`.
+- Exact blocker: no non-circular authoritative BugsInPy harness-origin SHA256 pin was available before v2.20 execution, so target-test provenance could not be trusted.
+- Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
+- Full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+- Current protocol remains `v2.13`; v2.20 is not promoted to current.
 
 ## Non-Ansible capability roadmap
 
