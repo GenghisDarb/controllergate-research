@@ -300,3 +300,16 @@ v2.25 creates the strict External Candidate Registry infrastructure needed befor
 - Candidate count: `0`; reviewed valid candidate count: `0`.
 - Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
 - Smallest next step: provide `inputs/external_candidate_seed_draft.json` with one manually reviewed seed draft for v2.26.
+## v2.26 external candidate seed capture
+
+v2.26 is the External Candidate Seed Capture Lane. It accepts only a manually provided seed draft and does not search, clone, repair, patch, validate a patch, or score anything unless the seed draft exists and passes the safety gates.
+
+- Campaign: `v2_26_external_candidate_seed_capture_lane`
+- Status: `implemented_pending_official_artifact_ingestion`; v2.26 is not promoted to current.
+- Required seed draft: `inputs/external_candidate_seed_draft.json`.
+- Seed draft present in this run: `false`.
+- Exact blocker: `blocked_no_external_candidate_seed_draft_provided`.
+- External clone attempted: `false`.
+- Registry candidate count remains `0`; reviewed valid candidate count remains `0`.
+- Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+- Smallest next step: provide inputs/external_candidate_seed_draft.json with exactly one manually reviewed seed draft.

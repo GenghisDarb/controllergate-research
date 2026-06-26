@@ -1,0 +1,16 @@
+{
+  "candidate_id": "example_owner_repo_issue_or_bug_id",
+  "source_type": "public_github_repo",
+  "repo_url": "https://github.com/example-owner/example-repo",
+  "buggy_commit_sha": "<40_hex_buggy_commit_sha>",
+  "test_command": "<exact command to reproduce the pre-repair failure>",
+  "target_test_file_paths": [
+    "<path/to/test_file_present_in_buggy_commit_tree.py>"
+  ],
+  "environment_lock_source": "<pyproject.toml_or_requirements_file_or_setup_file>",
+  "decision_time_safe_basis": "offline_manual_verification",
+  "registry_author": "manual_seed_draft",
+  "registry_review_status": "seed_draft",
+  "created_utc": "2026-06-26T00:00:00Z",
+  "notes": "Placeholder only. Replace every value after manual review before using this draft."
+}

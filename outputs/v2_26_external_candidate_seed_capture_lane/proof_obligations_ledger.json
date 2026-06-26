@@ -1,0 +1,50 @@
+{
+  "campaign_id": "v2_26_external_candidate_seed_capture_lane",
+  "created_utc": "2026-06-26T17:04:15.227166Z",
+  "entries": [
+    {
+      "entry_hash": "1373036755543f2afaad25eb1fd3a4f8ac8a62b54346171f1cd4cba012c99b43",
+      "evidence": "outputs/v2_25_external_candidate_registry_construction_lane/v2_25_official_artifact_verification.json",
+      "index": 0,
+      "previous_entry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "PASS",
+      "step": "v2_25_official_ingest_required"
+    },
+    {
+      "entry_hash": "e17ec20e3e72595d4f74e3bcbb8edfffc701d5417c6cd4ddc8d831aca3a68ceb",
+      "evidence": "outputs/v2_26_external_candidate_seed_capture_lane/seed_draft_presence_check.json",
+      "index": 1,
+      "previous_entry_hash": "1373036755543f2afaad25eb1fd3a4f8ac8a62b54346171f1cd4cba012c99b43",
+      "status": "BLOCK",
+      "step": "seed_draft_presence_gate"
+    },
+    {
+      "entry_hash": "01046214f848817454310170c597201fbf4799e30c7f288b6789a34fa0d6fb69",
+      "evidence": "outputs/v2_26_external_candidate_seed_capture_lane/seed_candidate_source_checkout_audit.json",
+      "index": 2,
+      "previous_entry_hash": "e17ec20e3e72595d4f74e3bcbb8edfffc701d5417c6cd4ddc8d831aca3a68ceb",
+      "status": "PASS",
+      "step": "no_external_clone_without_seed_draft"
+    },
+    {
+      "entry_hash": "b8a16bdb6ec863e618c50e74f092b6f37607839219589e589bd70db36cb04f2f",
+      "evidence": "outputs/v2_26_external_candidate_seed_capture_lane/external_candidate_registry_validation_report_after_merge.json",
+      "index": 3,
+      "previous_entry_hash": "01046214f848817454310170c597201fbf4799e30c7f288b6789a34fa0d6fb69",
+      "status": "PASS",
+      "step": "registry_validation_after_run"
+    },
+    {
+      "entry_hash": "307a5bd4a406ef9284858b3ac92dc13be87c48840f6a89f2f35d41a23f616d4b",
+      "evidence": "outputs/v2_26_external_candidate_seed_capture_lane/claim_boundary_v2_26.json",
+      "index": 4,
+      "previous_entry_hash": "b8a16bdb6ec863e618c50e74f092b6f37607839219589e589bd70db36cb04f2f",
+      "status": "PASS",
+      "step": "no_repair_or_patch_boundary"
+    }
+  ],
+  "entry_count": 5,
+  "hash_algorithm": "SHA256",
+  "head_hash": "307a5bd4a406ef9284858b3ac92dc13be87c48840f6a89f2f35d41a23f616d4b",
+  "status": "PASS"
+}

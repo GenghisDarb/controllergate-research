@@ -579,5 +579,14 @@
     "current_valid_reviewed_candidate_count": 0,
     "v2_25_blocker": "blocked_no_reviewed_external_candidate_seed_provided",
     "next_step": "provide inputs/external_candidate_registry_seed.json with one reviewed candidate, or manually edit configs/external_candidate_registry.json after offline verification"
+  },
+  "external_candidate_seed_capture": {
+    "status": "blocked_no_seed_draft",
+    "seed_draft_path": "inputs/external_candidate_seed_draft.json",
+    "seed_example_path": "inputs/external_candidate_seed_draft.example.json",
+    "current_candidate_count": 0,
+    "current_valid_reviewed_candidate_count": 0,
+    "v2_26_blocker": "blocked_no_external_candidate_seed_draft_provided",
+    "next_step": "provide inputs/external_candidate_seed_draft.json with exactly one manually reviewed seed draft"
   }
 }
