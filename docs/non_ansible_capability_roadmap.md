@@ -240,3 +240,5 @@ v2.25 turns the v2.24 registry precheck into committed registry infrastructure.
 - No seed is present in this run, so no external repository is cloned and no candidate is selected.
 - Current blocker: `blocked_no_reviewed_external_candidate_seed_provided`.
 - Next action: `provide inputs/external_candidate_registry_seed.json with one reviewed candidate, or manually edit configs/external_candidate_registry.json after offline verification`.
+- Official artifact status: `verified_official_artifact`; v2.25 audit `PASS`; current protocol remains `v2.13`.
+- v2.26 follow-up: External Candidate Seed Capture Lane using `inputs/external_candidate_seed_draft.json` as the manual seed draft handoff.

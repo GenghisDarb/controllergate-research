@@ -1354,8 +1354,11 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Current protocol remains `v2.13`; v2.24 is not promoted to current.
 ## v2.25 External Candidate Registry Construction
 
-- Status: `implemented_pending_official_artifact_ingestion`.
+- Status: `verified_official_artifact`.
 - Campaign: `v2_25_external_candidate_registry_construction_lane`.
+- Artifact verification: `PASS`; ZIP SHA256: `41ac43048ca834c203542b2e0b9c9045c2ceb1be43a963cf2d4c66ca250864b2`; byte size: `61756`; ZIP entries: `27`.
+- Workflow run: `28213908809`; artifact ID: `7895944211`; artifact name: `v2_25_external_candidate_registry_construction_lane_artifacts`.
+- Internal SHA256SUMS: `17` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `18` entries after adding the local official artifact-verification record.
 - v2.24 official ingest verified: `true`.
 - Registry schema and validator: `present`.
 - Seed file present: `false`.
@@ -1363,7 +1366,7 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Reviewed valid candidate count: `0`.
 - External clone, failure capture, repair, patch generation, validation, duplicate replay, and scoring were not run.
 - Exact blocker: `blocked_no_reviewed_external_candidate_seed_provided`.
-- Smallest next step: `provide inputs/external_candidate_registry_seed.json with one reviewed candidate, or manually edit configs/external_candidate_registry.json after offline verification`.
+- Smallest next step: provide `inputs/external_candidate_seed_draft.json` with one manually reviewed seed draft for v2.26.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.

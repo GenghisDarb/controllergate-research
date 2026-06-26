@@ -24,6 +24,7 @@ SEED_PATH = REPO_ROOT / "inputs" / "external_candidate_registry_seed.json"
 V224_ROOT = REPO_ROOT / "outputs" / "v2_24_external_safe_source_candidate_acquisition_lane"
 V223_ROOT = REPO_ROOT / "outputs" / "v2_23_non_ansible_candidate_transition_lane"
 BLOCKER_NO_SEED = "blocked_no_reviewed_external_candidate_seed_provided"
+OFFICIAL_VERIFICATION_FILE = "v2_25_official_artifact_verification.json"
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
@@ -42,6 +43,7 @@ REQUIRED_FILES = [
     "resolution_depth_diagnostic_v2_25.json",
     "claim_boundary_v2_25.json",
     "proof_obligations_ledger.json",
+    OFFICIAL_VERIFICATION_FILE,
     "SHA256SUMS.txt",
 ]
 FORBIDDEN_OUTPUTS = {
@@ -180,6 +182,43 @@ def audit_proof_ledger(ledger: dict[str, Any], errors: list[str]) -> None:
     expect(ledger.get("head_hash") == previous, errors, "proof ledger head hash mismatch")
 
 
+def audit_official_verification(verification: dict[str, Any], errors: list[str]) -> None:
+    expect(verification.get("status") == "PASS", errors, "v2.25 official artifact verification is not PASS")
+    expect(
+        verification.get("artifact_name") == "v2_25_external_candidate_registry_construction_lane_artifacts",
+        errors,
+        "v2.25 official artifact name mismatch",
+    )
+    expect(verification.get("workflow_run_id") == 28213908809, errors, "v2.25 workflow run ID mismatch")
+    expect(verification.get("artifact_id") == 7895944211, errors, "v2.25 artifact ID mismatch")
+    expect(verification.get("zip_size") == 61756, errors, "v2.25 artifact size mismatch")
+    expect(
+        verification.get("zip_sha256") == "41ac43048ca834c203542b2e0b9c9045c2ceb1be43a963cf2d4c66ca250864b2",
+        errors,
+        "v2.25 artifact digest mismatch",
+    )
+    expect(verification.get("entry_count") == 27, errors, "v2.25 ZIP entry count mismatch")
+    expect(verification.get("safe_paths") is True, errors, "v2.25 ZIP safe-path check did not pass")
+    expect(verification.get("unsafe_path_count") == 0, errors, "v2.25 ZIP unsafe paths present")
+    expect(verification.get("duplicate_path_count") == 0, errors, "v2.25 ZIP duplicate paths present")
+    expect(verification.get("internal_manifest_checked_count") == 17, errors, "v2.25 internal manifest count mismatch")
+    expect(verification.get("internal_manifest_missing_count") == 0, errors, "v2.25 internal manifest missing entries")
+    expect(verification.get("internal_manifest_malformed_count") == 0, errors, "v2.25 internal manifest malformed entries")
+    expect(verification.get("internal_manifest_failure_count") == 0, errors, "v2.25 internal manifest failures")
+    coverage = verification.get("output_manifest_coverage") or {}
+    expect(coverage.get("status") == "PASS", errors, "v2.25 output manifest coverage did not PASS")
+    expect(verification.get("local_artifact_path_outside_git") is True, errors, "v2.25 local artifact path is not outside git")
+    expect(verification.get("non_tar_non_zip_ingested_file_count") == 18, errors, "v2.25 ingested file count mismatch")
+    expect(verification.get("registry_schema_carry_forward_status") == "PASS", errors, "v2.25 registry schema carry-forward mismatch")
+    expect(verification.get("validator_carry_forward_status") == "PASS", errors, "v2.25 validator carry-forward mismatch")
+    expect(verification.get("seed_absent_blocker_carry_forward_status") == "PASS", errors, "v2.25 seed blocker carry-forward mismatch")
+    expect(
+        verification.get("v2_26_seed_capture_recommendation_carry_forward_status") == "PASS",
+        errors,
+        "v2.26 seed-capture recommendation carry-forward mismatch",
+    )
+
+
 def audit_outputs(errors: list[str]) -> None:
     for rel in REQUIRED_FILES:
         expect((OUTPUT_ROOT / rel).is_file(), errors, f"missing required output: {rel}")
@@ -202,6 +241,7 @@ def audit_outputs(errors: list[str]) -> None:
     roadmap = load_json(OUTPUT_ROOT / "roadmap_carry_forward_check_v2_25.json", errors)
     claim = load_json(OUTPUT_ROOT / "claim_boundary_v2_25.json", errors)
     ledger = load_json(OUTPUT_ROOT / "proof_obligations_ledger.json", errors)
+    official = load_json(OUTPUT_ROOT / OFFICIAL_VERIFICATION_FILE, errors)
     v223_block = load_json(V223_ROOT / "global_bugsinpy_provenance_block.json", errors)
     v224_official = load_json(V224_ROOT / "v2_24_official_artifact_verification.json", errors)
 
@@ -260,6 +300,7 @@ def audit_outputs(errors: list[str]) -> None:
     expect(roadmap.get("status") == "PASS", errors, "roadmap carry-forward check did not PASS")
     expect(next_step.get("do_not_begin_next_version_in_this_lane") is True, errors, "next-version stop boundary missing")
     audit_proof_ledger(ledger, errors)
+    audit_official_verification(official, errors)
 
     print(f"v2.25 manifest entries checked: {checked}")
     for key in [

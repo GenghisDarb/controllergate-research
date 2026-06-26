@@ -289,11 +289,14 @@ v2.24 starts the external safe-source pivot with an External Candidate Registry 
 v2.25 creates the strict External Candidate Registry infrastructure needed before any future external safe-source candidate run. No reviewed seed was provided in this run, so the lane writes an empty registry, schema, validator, audit outputs, and stops before any clone, candidate selection, repair, patch, validation, or scoring step.
 
 - Campaign: `v2_25_external_candidate_registry_construction_lane`
-- Status: `implemented_pending_official_artifact_ingestion`; v2.25 is not promoted to current.
+- Status: `verified_official_artifact`; v2.25 audit status: `PASS`; v2.25 is not promoted to current.
+- Official artifact digest: `sha256:41ac43048ca834c203542b2e0b9c9045c2ceb1be43a963cf2d4c66ca250864b2`; byte size: `61756`; ZIP entries: `27`.
+- Workflow run: `28213908809`; artifact ID: `7895944211`.
+- Internal SHA256SUMS: `17` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `18` entries after adding the local official artifact-verification record.
 - Registry schema: `configs/external_candidate_registry.schema.json`.
 - Registry config: `configs/external_candidate_registry.json`.
 - Seed file present: `false`.
 - Exact blocker: `blocked_no_reviewed_external_candidate_seed_provided`.
 - Candidate count: `0`; reviewed valid candidate count: `0`.
 - Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
-- Smallest next step: `provide inputs/external_candidate_registry_seed.json with one reviewed candidate, or manually edit configs/external_candidate_registry.json after offline verification`.
+- Smallest next step: provide `inputs/external_candidate_seed_draft.json` with one manually reviewed seed draft for v2.26.
