@@ -1,0 +1,21 @@
+# v2.27 External Candidate Seed Draft Verification Lane
+
+- Campaign: `v2_27_external_candidate_seed_draft_verification_lane`.
+- v2.26 official ingest verified: `true`.
+- Seed draft present: `false`.
+- Seed draft validation: `not_run_seed_draft_absent`.
+- Seed path policy: `PASS`.
+- External clone attempted: `false`.
+- Target test co-location status: `not_run_seed_draft_absent`.
+- Target test file hashes status: `not_run_seed_draft_absent`.
+- Environment lock source status: `not_run_seed_draft_absent`.
+- Failure capture status: `not_run_seed_draft_absent`.
+- Registry merge status: `not_run_seed_draft_absent`.
+- Registry validation after run: `PASS`.
+- Reviewed valid candidate count after run: `0`.
+- Exact blocker/result: `blocked_no_external_candidate_seed_draft_provided`.
+- Repair and patch generation were not run.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.27 is not promoted to current.

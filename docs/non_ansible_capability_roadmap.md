@@ -250,3 +250,13 @@ v2.26 records the manual seed-draft boundary for external candidate intake.
 - No seed draft is present in this run, so no external repository is cloned and no candidate is selected.
 - Current blocker: `blocked_no_external_candidate_seed_draft_provided`.
 - Next action: provide inputs/external_candidate_seed_draft.json with exactly one manually reviewed seed draft.
+## v2.27 External Candidate Seed Draft Verification
+
+v2.27 verifies a manually supplied External Candidate Seed Draft before any registry merge.
+
+- Canonical input: `inputs/external_candidate_seed_draft.json`.
+- Seed draft present: `false`.
+- Native buggy-test verification is mandatory; generated/manual reproducer files are not accepted as target tests.
+- External-network-dependent commands are blocked unless backed by a project-native local fixture in the buggy tree.
+- Timeout-based expected failures require an explicit timeout policy.
+- Current result: `blocked_no_external_candidate_seed_draft_provided`.

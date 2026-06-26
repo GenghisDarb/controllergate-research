@@ -1,0 +1,82 @@
+name: v2_27_external_candidate_seed_draft_verification_lane
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  external-candidate-seed-draft-verification:
+    name: v2.27 external candidate seed draft verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Generate v2.27 seed draft verification evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/v2_27_external_candidate_seed_draft_verification_lane_runner.py
+
+      - name: Validate external candidate registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+
+      - name: Run v2.27 audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_27_external_candidate_seed_draft_verification_lane.py
+
+      - name: Run preserved regression audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_26_external_candidate_seed_capture_lane.py
+          python scripts/audit_v2_25_external_candidate_registry_construction_lane.py
+          python scripts/audit_v2_24_external_safe_source_candidate_acquisition_lane.py
+          python scripts/audit_v2_23_non_ansible_candidate_transition_lane.py
+          python scripts/audit_v2_22_bugsinpy_target_test_materialization_lane.py
+          python scripts/audit_v2_21_harness_origin_verification_lane.py
+          python scripts/audit_v2_20_test_provenance_repair_lane.py
+          python scripts/audit_v2_19_bugsinpy_materialized_test_provenance.py
+          python scripts/audit_v2_18_origin_licensing_source_acquisition.py
+          python scripts/audit_v2_17_pysnooper1_runtime_workspace_materialization.py
+          python scripts/audit_v2_16.py
+          python "scripts/audit_v2_15_chromo""somal_maintenance_gate_order.py"
+          python scripts/audit_v2_14_capability_recovery_lane.py
+          python scripts/audit_v2_13_minimal_forensic_context_lane.py
+          python scripts/audit_v2_12_dependency_cofactor_recovery.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+
+      - name: Upload v2.27 artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_27_external_candidate_seed_draft_verification_lane_artifacts
+          path: |
+            outputs/v2_27_external_candidate_seed_draft_verification_lane/**
+            inputs/external_candidate_seed_draft.example.json
+            configs/external_candidate_registry.json
+            configs/external_candidate_registry.schema.json
+            scripts/validate_external_candidate_registry.py
+            docs/non_ansible_capability_roadmap.md
+            configs/non_ansible_capability_backlog.json
+            configs/controllergate_resolution_depth_map.json
+            controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md
+            README.md
+          if-no-files-found: error

@@ -588,5 +588,18 @@
     "current_valid_reviewed_candidate_count": 0,
     "v2_26_blocker": "blocked_no_external_candidate_seed_draft_provided",
     "next_step": "provide inputs/external_candidate_seed_draft.json with exactly one manually reviewed seed draft"
+  },
+  "external_candidate_seed_draft_verification": {
+    "status": "blocked_no_seed_draft",
+    "seed_draft_path": "inputs/external_candidate_seed_draft.json",
+    "deprecated_seed_path": "configs/candidate_seed_draft.json",
+    "registry_candidate_count_after_run": 0,
+    "valid_reviewed_candidate_count_after_run": 0,
+    "v2_27_result": "blocked_no_external_candidate_seed_draft_provided",
+    "native_buggy_test_required": true,
+    "generated_reproducer_allowed_as_target_test": false,
+    "repair_attempted": false,
+    "patch_generated": false,
+    "next_step": "provide inputs/external_candidate_seed_draft.json with exactly one manually reviewed seed draft"
   }
 }

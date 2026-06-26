@@ -1,0 +1,58 @@
+{
+  "campaign_id": "v2_27_external_candidate_seed_draft_verification_lane",
+  "created_utc": "2026-06-26T18:06:22Z",
+  "entries": [
+    {
+      "entry_hash": "4ab63b0e310fa45de3053e9c87b70ce1c0fe461ddaa3aa364eb0840e06284d94",
+      "evidence": "outputs/v2_26_external_candidate_seed_capture_lane/v2_26_official_artifact_verification.json",
+      "index": 0,
+      "previous_entry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "PASS",
+      "step": "v2_26_official_ingest_required"
+    },
+    {
+      "entry_hash": "b24f6d94ed1f97ab0447140cba1231859aa4ad7582dff25481da16378f05e777",
+      "evidence": "outputs/v2_27_external_candidate_seed_draft_verification_lane/seed_draft_path_policy_check.json",
+      "index": 1,
+      "previous_entry_hash": "4ab63b0e310fa45de3053e9c87b70ce1c0fe461ddaa3aa364eb0840e06284d94",
+      "status": "PASS",
+      "step": "canonical_seed_path_gate"
+    },
+    {
+      "entry_hash": "79e206ac8a037b03504d5ae75133f74fd156b6634f83f447e8d4577c19a88b49",
+      "evidence": "outputs/v2_27_external_candidate_seed_draft_verification_lane/seed_draft_presence_check.json",
+      "index": 2,
+      "previous_entry_hash": "b24f6d94ed1f97ab0447140cba1231859aa4ad7582dff25481da16378f05e777",
+      "status": "BLOCK",
+      "step": "seed_draft_presence_gate"
+    },
+    {
+      "entry_hash": "1af0565755b61bd9553b4ee195cf5d392481de7def4025fa9fbcdd907763ee48",
+      "evidence": "outputs/v2_27_external_candidate_seed_draft_verification_lane/seed_candidate_source_test_colocation_proof.json",
+      "index": 3,
+      "previous_entry_hash": "79e206ac8a037b03504d5ae75133f74fd156b6634f83f447e8d4577c19a88b49",
+      "status": "not_run_seed_draft_absent",
+      "step": "native_buggy_test_verification_gate"
+    },
+    {
+      "entry_hash": "2381c89853453fbb3e712d8aaf5ce8f1daf30d3059ab3463c748e6b8fc7bad6e",
+      "evidence": "outputs/v2_27_external_candidate_seed_draft_verification_lane/external_candidate_registry_validation_report_after_merge.json",
+      "index": 4,
+      "previous_entry_hash": "1af0565755b61bd9553b4ee195cf5d392481de7def4025fa9fbcdd907763ee48",
+      "status": "PASS",
+      "step": "registry_validation_after_run"
+    },
+    {
+      "entry_hash": "b6f0a65bc841009ae1e25962be0b89203fd3c8817d60eb2664d3be85cee30b8c",
+      "evidence": "outputs/v2_27_external_candidate_seed_draft_verification_lane/claim_boundary_v2_27.json",
+      "index": 5,
+      "previous_entry_hash": "2381c89853453fbb3e712d8aaf5ce8f1daf30d3059ab3463c748e6b8fc7bad6e",
+      "status": "PASS",
+      "step": "no_repair_or_patch_boundary"
+    }
+  ],
+  "entry_count": 6,
+  "hash_algorithm": "SHA256",
+  "head_hash": "b6f0a65bc841009ae1e25962be0b89203fd3c8817d60eb2664d3be85cee30b8c",
+  "status": "PASS"
+}

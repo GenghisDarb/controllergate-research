@@ -1384,3 +1384,15 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.26 is not promoted to current.
+## v2.27 External Candidate Seed Draft Verification
+
+- Campaign: `v2_27_external_candidate_seed_draft_verification_lane`.
+- v2.26 official ingest verified: `true`.
+- Seed draft present: `false`.
+- Reviewed valid candidate count after run: `0`.
+- Exact blocker/result: `blocked_no_external_candidate_seed_draft_provided`.
+- Repair, patch generation, post-patch validation, and scoring were not run.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.27 is not promoted to current.

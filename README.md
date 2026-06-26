@@ -313,3 +313,18 @@ v2.26 is the External Candidate Seed Capture Lane. It accepts only a manually pr
 - Registry candidate count remains `0`; reviewed valid candidate count remains `0`.
 - Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
 - Smallest next step: provide inputs/external_candidate_seed_draft.json with exactly one manually reviewed seed draft.
+## v2.27 external candidate seed draft verification
+
+v2.27 is the External Candidate Seed Draft Verification Lane. It verifies exactly one manually supplied seed draft and may merge one reviewed registry candidate only after native buggy-test, environment, failure-capture, registry, and audit gates pass.
+
+- Campaign: `v2_27_external_candidate_seed_draft_verification_lane`.
+- Status: `blocked_no_seed_draft`; v2.27 is not promoted to current.
+- Required seed draft path: `inputs/external_candidate_seed_draft.json`.
+- Deprecated seed draft path is not canonical: `configs/candidate_seed_draft.json`.
+- Seed draft present in this run: `false`.
+- Reviewed valid candidate count after run: `0`.
+- Registry candidate count after run: `0`.
+- Exact blocker: `blocked_no_external_candidate_seed_draft_provided`.
+- Repair and patch generation remain disabled.
+- Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+- Smallest next step: provide inputs/external_candidate_seed_draft.json with exactly one manually reviewed seed draft.

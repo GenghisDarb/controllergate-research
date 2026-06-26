@@ -69,3 +69,11 @@ v2.26 records the seed-capture boundary.
 - Candidate selected: `false`.
 - Registry merge: `not_run_seed_draft_absent`.
 - Result: `blocked_no_external_candidate_seed_draft_provided`.
+## v2.27 External Candidate Seed Draft Verification
+
+v2.27 records the seed-draft verification boundary.
+
+- Seed draft: `false`.
+- External clone attempted only when schema and source guards pass.
+- Registry merge is permitted only after source/test co-location, environment, and failure capture pass.
+- Result: `blocked_no_external_candidate_seed_draft_provided`.
