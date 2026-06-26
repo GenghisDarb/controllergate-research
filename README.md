@@ -274,11 +274,13 @@ v2.23 adds a method-level provenance preflight before any new non-Ansible candid
 v2.24 starts the external safe-source pivot with an External Candidate Registry precheck. Because `configs/external_candidate_registry.json` currently contains no reviewed entries, the lane blocks before cloning any repository or selecting any candidate.
 
 - Campaign: `v2_24_external_safe_source_candidate_acquisition_lane`
-- Status: `implemented_pending_official_artifact_ingestion`; v2.24 is not promoted to current.
+- Status: `verified_official_artifact`; v2.24 audit status: `PASS`; v2.24 is not promoted to current.
+- Official artifact digest: `sha256:1801c197bb032c415dea4a33a9208042b0377d069e95fc4cde1ab4e0f2e7db8d`; byte size: `51049`; ZIP entries: `20`.
+- Workflow run: `28212746325`; artifact ID: `7895535773`.
+- Internal SHA256SUMS: `12` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `13` entries after adding the local official artifact-verification record.
 - Blocker: `blocked_external_candidate_registry_missing_or_invalid`.
 - Candidate selection: `not_run_no_valid_registry_entries`.
 - External clone, failure capture, dependency setup, executed-scope tracing, patch generation, validation, duplicate replay, and scoring were not run.
 - Safest next step: `create_reviewed_external_candidate_registry_entry`.
 - Recommended next lane: `v2.25 External Candidate Registry Construction Lane`.
 - Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
-

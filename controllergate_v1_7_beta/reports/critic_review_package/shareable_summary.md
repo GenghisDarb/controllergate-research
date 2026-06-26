@@ -1336,8 +1336,11 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Current protocol remains `v2.13`; v2.23 is not promoted to current.
 ## v2.24 External Candidate Registry Precheck
 
-- Status: `implemented_pending_official_artifact_ingestion`.
+- Status: `verified_official_artifact`.
 - Campaign: `v2_24_external_safe_source_candidate_acquisition_lane`.
+- Artifact verification: `PASS`; ZIP SHA256: `1801c197bb032c415dea4a33a9208042b0377d069e95fc4cde1ab4e0f2e7db8d`; byte size: `51049`; ZIP entries: `20`.
+- Workflow run: `28212746325`; artifact ID: `7895535773`; artifact name: `v2_24_external_safe_source_candidate_acquisition_lane_artifacts`.
+- Internal SHA256SUMS: `12` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `13` entries after adding the local official artifact-verification record.
 - v2.23 official ingest verified: `true`.
 - External candidate registry precheck: `BLOCK`.
 - Blocker: `blocked_external_candidate_registry_missing_or_invalid`.
@@ -1349,4 +1352,3 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.24 is not promoted to current.
-

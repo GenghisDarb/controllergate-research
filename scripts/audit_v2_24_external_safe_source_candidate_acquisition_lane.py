@@ -21,6 +21,7 @@ BLOCKER = "blocked_external_candidate_registry_missing_or_invalid"
 NEXT_STEP = "create_reviewed_external_candidate_registry_entry"
 NEXT_LANE = "v2.25 External Candidate Registry Construction Lane"
 NORMALIZATION_POLICY = "strip_timestamps_absolute_paths_and_ansi"
+OFFICIAL_VERIFICATION_FILE = "v2_24_official_artifact_verification.json"
 
 REQUIRED_FILES = [
     "campaign_summary.md",
@@ -35,6 +36,7 @@ REQUIRED_FILES = [
     "v2_25_external_candidate_registry_construction_recommendation.json",
     "claim_boundary_v2_24.json",
     "public_language_audit.json",
+    OFFICIAL_VERIFICATION_FILE,
     "SHA256SUMS.txt",
 ]
 
@@ -135,6 +137,37 @@ def audit_v223_boundary(errors: list[str]) -> None:
         errors.append("v2.23 audit did not pass from v2.24 audit")
 
 
+def audit_official_verification(verification: dict[str, Any], errors: list[str]) -> None:
+    expect(verification.get("status") == "PASS", errors, "v2.24 official artifact verification is not PASS")
+    expect(
+        verification.get("artifact_name") == "v2_24_external_safe_source_candidate_acquisition_lane_artifacts",
+        errors,
+        "v2.24 official artifact name mismatch",
+    )
+    expect(verification.get("workflow_run_id") == 28212746325, errors, "v2.24 workflow run ID mismatch")
+    expect(verification.get("artifact_id") == 7895535773, errors, "v2.24 artifact ID mismatch")
+    expect(verification.get("zip_size") == 51049, errors, "v2.24 artifact size mismatch")
+    expect(
+        verification.get("zip_sha256") == "1801c197bb032c415dea4a33a9208042b0377d069e95fc4cde1ab4e0f2e7db8d",
+        errors,
+        "v2.24 artifact digest mismatch",
+    )
+    expect(verification.get("entry_count") == 20, errors, "v2.24 ZIP entry count mismatch")
+    expect(verification.get("safe_paths") is True, errors, "v2.24 ZIP safe-path check did not pass")
+    expect(verification.get("unsafe_path_count") == 0, errors, "v2.24 ZIP unsafe paths present")
+    expect(verification.get("duplicate_path_count") == 0, errors, "v2.24 ZIP duplicate paths present")
+    expect(verification.get("internal_manifest_checked_count") == 12, errors, "v2.24 internal manifest count mismatch")
+    expect(verification.get("internal_manifest_missing_count") == 0, errors, "v2.24 internal manifest missing entries")
+    expect(verification.get("internal_manifest_malformed_count") == 0, errors, "v2.24 internal manifest malformed entries")
+    expect(verification.get("internal_manifest_failure_count") == 0, errors, "v2.24 internal manifest failures")
+    coverage = verification.get("output_manifest_coverage") or {}
+    expect(coverage.get("status") == "PASS", errors, "v2.24 output manifest coverage did not PASS")
+    expect(verification.get("local_artifact_path_outside_git") is True, errors, "v2.24 local artifact path is not outside git")
+    expect(verification.get("non_tar_non_zip_ingested_file_count") == 13, errors, "v2.24 ingested file count mismatch")
+    expect(verification.get("registry_blocker_carry_forward_status") == "PASS", errors, "v2.24 registry blocker carry-forward mismatch")
+    expect(verification.get("v2_25_recommendation_carry_forward_status") == "PASS", errors, "v2.25 recommendation carry-forward mismatch")
+
+
 def audit_outputs(root: Path, errors: list[str]) -> None:
     for rel in REQUIRED_FILES:
         expect((root / rel).is_file(), errors, f"missing required output: {rel}")
@@ -155,6 +188,7 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
     recommendation = load_json(root / "v2_25_external_candidate_registry_construction_recommendation.json", errors)
     claim = load_json(root / "claim_boundary_v2_24.json", errors)
     public_language = load_json(root / "public_language_audit.json", errors)
+    official = load_json(root / OFFICIAL_VERIFICATION_FILE, errors)
 
     expect(REGISTRY_PATH.is_file(), errors, "external candidate registry config missing")
     expect(registry.get("document_type") == "external_candidate_registry", errors, "registry document type mismatch")
@@ -244,6 +278,7 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
     expect(results.get("current_protocol_version") == "v2.13", errors, "results current protocol changed")
 
     audit_v223_boundary(errors)
+    audit_official_verification(official, errors)
 
     print(f"v2.24 manifest entries checked: {checked}")
     for key in [
