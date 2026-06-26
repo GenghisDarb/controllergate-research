@@ -260,7 +260,10 @@ On Windows with `core.autocrlf=true`, sparse-checkout materialization may need b
 v2.23 adds a method-level provenance preflight before any new non-Ansible candidate selection. It records the BugsInPy checkout method as blocked under the current provenance rules because the pinned framework source and the verified v2.22 trace show fixed-commit target-test copying before reset to the buggy commit.
 
 - Campaign: `v2_23_non_ansible_candidate_transition_lane`
-- Status: `implemented_pending_official_artifact_ingestion`; v2.23 is not promoted to current.
+- Status: `verified_official_artifact`; v2.23 audit status: `PASS`; v2.23 is not promoted to current.
+- Official artifact digest: `sha256:fbbed9f699822b16733a77a8c4b32c960a5ef3fed527059737b645802b0116ca`; byte size: `64784`; ZIP entries: `28`.
+- Workflow run: `28211816313`; artifact ID: `7895186058`.
+- Internal SHA256SUMS: `21` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `22` entries after adding the local official artifact-verification record.
 - Method decision: `globally_blocked_under_current_provenance_rules`.
 - Candidate selection: `not_run_global_method_block`; no new BugsInPy candidate was selected.
 - Dependency recovery, pre-repair replay, patch generation, validation, duplicate replay, and scoring were not run.

@@ -26,6 +26,7 @@ NORMALIZED_BEHAVIOR_SEQUENCE = "git_checkout_fixed_commit -> copy_target_test_or
 BEHAVIORAL_SIGNATURE = hashlib.sha256(NORMALIZED_BEHAVIOR_SEQUENCE.encode("utf-8")).hexdigest()
 BLOCKER = "blocked_bugsinpy_acquisition_method_fixed_commit_test_copy_global_or_unproven_candidate_specific_safety"
 DECISION = "globally_blocked_under_current_provenance_rules"
+OFFICIAL_VERIFICATION_FILE = "v2_23_official_artifact_verification.json"
 
 REQUIRED_FILES = [
     "campaign_summary.md",
@@ -49,6 +50,7 @@ REQUIRED_FILES = [
     "roadmap_future_gate_sync_v2_23.json",
     "public_language_audit.json",
     "claim_boundary_v2_23.json",
+    OFFICIAL_VERIFICATION_FILE,
     "SHA256SUMS.txt",
 ]
 
@@ -167,6 +169,38 @@ def audit_v222_boundary(errors: list[str]) -> None:
         errors.append("v2.22 audit did not pass from v2.23 audit")
 
 
+def audit_official_verification(verification: dict[str, Any], errors: list[str]) -> None:
+    expect(verification.get("status") == "PASS", errors, "v2.23 official artifact verification is not PASS")
+    expect(
+        verification.get("artifact_name") == "v2_23_non_ansible_candidate_transition_lane_artifacts",
+        errors,
+        "v2.23 official artifact name mismatch",
+    )
+    expect(verification.get("workflow_run_id") == 28211816313, errors, "v2.23 workflow run ID mismatch")
+    expect(verification.get("artifact_id") == 7895186058, errors, "v2.23 artifact ID mismatch")
+    expect(verification.get("zip_size") == 64784, errors, "v2.23 artifact size mismatch")
+    expect(
+        verification.get("zip_sha256") == "fbbed9f699822b16733a77a8c4b32c960a5ef3fed527059737b645802b0116ca",
+        errors,
+        "v2.23 artifact digest mismatch",
+    )
+    expect(verification.get("entry_count") == 28, errors, "v2.23 ZIP entry count mismatch")
+    expect(verification.get("safe_paths") is True, errors, "v2.23 ZIP safe-path check did not pass")
+    expect(verification.get("unsafe_path_count") == 0, errors, "v2.23 ZIP unsafe paths present")
+    expect(verification.get("duplicate_path_count") == 0, errors, "v2.23 ZIP duplicate paths present")
+    expect(verification.get("internal_manifest_checked_count") == 21, errors, "v2.23 internal manifest count mismatch")
+    expect(verification.get("internal_manifest_missing_count") == 0, errors, "v2.23 internal manifest missing entries")
+    expect(verification.get("internal_manifest_malformed_count") == 0, errors, "v2.23 internal manifest malformed entries")
+    expect(verification.get("internal_manifest_failure_count") == 0, errors, "v2.23 internal manifest failures")
+    coverage = verification.get("output_manifest_coverage") or {}
+    expect(coverage.get("status") == "PASS", errors, "v2.23 output manifest coverage did not PASS")
+    expect(verification.get("local_artifact_path_outside_git") is True, errors, "v2.23 local artifact path is not outside git")
+    expect(verification.get("non_tar_non_zip_ingested_file_count") == 22, errors, "v2.23 ingested file count mismatch")
+    expect(verification.get("method_provenance_pattern_decision") == DECISION, errors, "v2.23 official method decision mismatch")
+    expect(verification.get("global_bugsinpy_block_status") == "BLOCK", errors, "v2.23 official global block mismatch")
+    expect(verification.get("candidate_selection_status") == "not_run_global_method_block", errors, "v2.23 official candidate selection mismatch")
+
+
 def audit_outputs(root: Path, errors: list[str]) -> None:
     for rel in REQUIRED_FILES:
         expect((root / rel).is_file(), errors, f"missing required output: {rel}")
@@ -196,6 +230,7 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
     roadmap = load_json(root / "roadmap_future_gate_sync_v2_23.json", errors)
     public_language = load_json(root / "public_language_audit.json", errors)
     claim = load_json(root / "claim_boundary_v2_23.json", errors)
+    official = load_json(root / OFFICIAL_VERIFICATION_FILE, errors)
 
     combo_hash = expected_combination_hash()
     expect(results.get("campaign_id") == CAMPAIGN_ID, errors, "campaign ID mismatch")
@@ -307,6 +342,7 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
     expect(results.get("exact_blocker") == BLOCKER, errors, "exact blocker mismatch")
 
     audit_v222_boundary(errors)
+    audit_official_verification(official, errors)
 
     print(f"v2.23 manifest entries checked: {checked}")
     for key in [

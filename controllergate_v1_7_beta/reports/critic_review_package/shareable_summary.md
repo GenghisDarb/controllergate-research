@@ -1318,8 +1318,11 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Current protocol remains `v2.13`; v2.22 is not promoted to current.
 ## v2.23 Source Acquisition Method Boundary
 
-- Status: `implemented_pending_official_artifact_ingestion`.
+- Status: `verified_official_artifact`.
 - Campaign: `v2_23_non_ansible_candidate_transition_lane`.
+- Artifact verification: `PASS`; ZIP SHA256: `fbbed9f699822b16733a77a8c4b32c960a5ef3fed527059737b645802b0116ca`; byte size: `64784`; ZIP entries: `28`.
+- Workflow run: `28211816313`; artifact ID: `7895186058`; artifact name: `v2_23_non_ansible_candidate_transition_lane_artifacts`.
+- Internal SHA256SUMS: `21` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `22` entries after adding the local official artifact-verification record.
 - v2.22 official ingest verified: `true`.
 - Method decision: `globally_blocked_under_current_provenance_rules`.
 - Source acquisition method registry: `PASS`.
