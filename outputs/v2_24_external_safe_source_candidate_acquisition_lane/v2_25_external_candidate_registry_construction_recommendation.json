@@ -1,0 +1,25 @@
+{
+  "based_on": "v2.23_official_ingest",
+  "campaign_id": "v2_24_external_safe_source_candidate_acquisition_lane",
+  "current_protocol_version": "v2.13",
+  "do_not_begin_v2_25_in_this_lane": true,
+  "recommended_next_lane": "v2.25 External Candidate Registry Construction Lane",
+  "required_registry_entry_fields": [
+    "candidate_id",
+    "source_type",
+    "repo_url",
+    "buggy_commit_sha",
+    "test_command",
+    "expected_failure_signature",
+    "target_test_files",
+    "environment_lock_source",
+    "decision_time_safe_basis",
+    "registry_author",
+    "registry_review_status",
+    "created_utc",
+    "notes"
+  ],
+  "review_timestamp": "2026-06-26T02:08:27.077101Z",
+  "smallest_next_step": "create_reviewed_external_candidate_registry_entry",
+  "status": "PASS"
+}

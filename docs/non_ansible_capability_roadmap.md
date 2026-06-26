@@ -219,3 +219,16 @@ v2.23 stops before new candidate selection because the pinned BugsInPy checkout 
 - Research-level items such as Conditional Path Fork Guard and advanced Dependency Impact Map are v2.26+ investigations and must not delay v2.24 external source acquisition.
 
 Claim boundaries remain unchanged: current protocol `v2.13`, full scoring `NOT_RUN` / disallowed, memory lift undemonstrated, and self-maintaining software false / not demonstrated.
+## v2.24 External Candidate Registry Precheck
+
+v2.24 requires a committed reviewed External Candidate Registry entry before any external repository can be cloned or selected for repair.
+
+- Required config: `configs/external_candidate_registry.json`.
+- Current registry status: empty, with no reviewed entries.
+- Blocker: `blocked_external_candidate_registry_missing_or_invalid`.
+- Smallest next step: `create_reviewed_external_candidate_registry_entry`.
+- Recommended follow-up: `v2.25 External Candidate Registry Construction Lane`.
+- Candidate recommendations from issues or maintainer discussion remain source material for registry construction only; they are not executable candidates until the registry pins repository URL, exact buggy commit, exact command, target-test file hashes, and expected normalized failure-log hash.
+
+No candidate selection, environment setup, failure capture, executed-scope tracing, patch generation, or scoring is authorized until the registry precheck passes.
+

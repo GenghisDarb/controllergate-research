@@ -569,5 +569,13 @@
       }
     ],
     "research_level_items_are_not_v2_24_blockers": true
+  },
+  "external_candidate_registry": {
+    "status": "required_before_external_candidate_selection",
+    "config_path": "configs/external_candidate_registry.json",
+    "current_valid_entry_count": 0,
+    "v2_24_blocker": "blocked_external_candidate_registry_missing_or_invalid",
+    "next_step": "create_reviewed_external_candidate_registry_entry",
+    "recommended_next_lane": "v2.25 External Candidate Registry Construction Lane"
   }
 }

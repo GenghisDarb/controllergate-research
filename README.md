@@ -269,3 +269,16 @@ v2.23 adds a method-level provenance preflight before any new non-Ansible candid
 - Dependency recovery, pre-repair replay, patch generation, validation, duplicate replay, and scoring were not run.
 - v2.24 recommendation: External Safe-Source Candidate Acquisition Lane.
 - Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+## v2.24 external candidate registry precheck
+
+v2.24 starts the external safe-source pivot with an External Candidate Registry precheck. Because `configs/external_candidate_registry.json` currently contains no reviewed entries, the lane blocks before cloning any repository or selecting any candidate.
+
+- Campaign: `v2_24_external_safe_source_candidate_acquisition_lane`
+- Status: `implemented_pending_official_artifact_ingestion`; v2.24 is not promoted to current.
+- Blocker: `blocked_external_candidate_registry_missing_or_invalid`.
+- Candidate selection: `not_run_no_valid_registry_entries`.
+- External clone, failure capture, dependency setup, executed-scope tracing, patch generation, validation, duplicate replay, and scoring were not run.
+- Safest next step: `create_reviewed_external_candidate_registry_entry`.
+- Recommended next lane: `v2.25 External Candidate Registry Construction Lane`.
+- Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+

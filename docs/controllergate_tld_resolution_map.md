@@ -41,3 +41,13 @@ v2.23 records a method-level provenance boundary rather than a repair attempt.
 - Blocker: `blocked_bugsinpy_acquisition_method_fixed_commit_test_copy_global_or_unproven_candidate_specific_safety`.
 - Next action: move candidate acquisition to external safe sources where the buggy project tree and test provenance can be verified without fixed/future/gold/synthetic test materialization.
 - This is a benchmark/source-provenance boundary finding, not a ControllerGate repair failure.
+## v2.24 External Candidate Registry Precheck
+
+v2.24 records an external-candidate intake boundary before any repair attempt.
+
+- Boundary: reviewed registry entries are required before external candidate selection.
+- Result: `blocked_external_candidate_registry_missing_or_invalid`.
+- No public issue was selected directly.
+- No external repository was cloned.
+- Next action: `create_reviewed_external_candidate_registry_entry`.
+

@@ -44,6 +44,12 @@
       "meaning": "source_acquisition_method_block_before_candidate_selection",
       "status": "global_method_block_recorded",
       "next": "external_safe_source_candidate_acquisition"
+    },
+    "v2.24": {
+      "band": "external_candidate_registry_precheck",
+      "meaning": "reviewed_registry_required_before_external_candidate_selection",
+      "status": "blocked_no_valid_registry_entries",
+      "next": "external_candidate_registry_construction"
     }
   },
   "metrological_precision_tools": [
