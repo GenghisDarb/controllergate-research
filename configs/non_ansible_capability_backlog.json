@@ -498,5 +498,76 @@
         ]
       }
     }
-  ]
+  ],
+  "v2_23_method_provenance_block": {
+    "status": "recorded_global_method_block",
+    "method_id": "bugsinpy_checkout_fixed_copy",
+    "method_signature": "git_checkout_fixed_commit_then_copy_test_then_git_checkout_buggy_commit",
+    "decision": "globally_blocked_under_current_provenance_rules",
+    "blocker": "blocked_bugsinpy_acquisition_method_fixed_commit_test_copy_global_or_unproven_candidate_specific_safety",
+    "candidate_selection_status": "not_run_global_method_block",
+    "recommended_next_lane": "v2.24_external_safe_source_candidate_acquisition"
+  },
+  "v2_23_future_gate_sync": {
+    "status": "recorded",
+    "items": [
+      {
+        "id": "external_safe_source_candidate_acquisition_lane",
+        "status": "v2.24_priority",
+        "description": "Direct immutable project checkout with exact buggy commit and native buggy-tree test availability.",
+        "not_blocked_by_research_level_items": true
+      },
+      {
+        "id": "executed_scope_manifest",
+        "status": "future_required_before_patch_generation",
+        "description": "Restrict patchable files to files exercised by the authorized command or an audited static fallback."
+      },
+      {
+        "id": "compound_provenance_combination_gate",
+        "status": "implemented_as_registry_seed_in_v2.23",
+        "description": "Persist blocked harness, test, and acquisition-method combinations."
+      },
+      {
+        "id": "candidate_environment_resolution_preflight",
+        "status": "v2.24_or_v2.25_if_needed",
+        "description": "Inspect declared dependency metadata before replay or patch generation."
+      },
+      {
+        "id": "pre_generation_structural_failure_signature",
+        "status": "future_required_after_pre_repair_replay",
+        "description": "Record a decision-time-safe failure signature before patch generation."
+      },
+      {
+        "id": "co_change_impact_map",
+        "status": "future_safety_enhancement",
+        "description": "Record lightweight file-pair change history where available."
+      },
+      {
+        "id": "stochastic_replay_reliability",
+        "status": "future_validation_trust_gate",
+        "description": "Require repeated clean replay when nondeterminism is plausible."
+      },
+      {
+        "id": "environmental_pass_guard",
+        "status": "implemented_as_no_repair_success_rule_in_v2.23",
+        "description": "Environment-only passes cannot count as repair success."
+      },
+      {
+        "id": "conditional_path_fork_guard",
+        "status": "v2.26_plus_research_level_investigation",
+        "description": "Future safety enhancement, not a prerequisite for v2.24 source-acquisition pivot."
+      },
+      {
+        "id": "bounded_patch_variant_queue",
+        "status": "future_only_requires_separate_authorization",
+        "description": "Not implemented or activated in v2.23."
+      },
+      {
+        "id": "dependency_impact_map",
+        "status": "v2.26_plus_research_level_investigation",
+        "description": "Future safety enhancement, not a prerequisite for v2.24 source-acquisition pivot."
+      }
+    ],
+    "research_level_items_are_not_v2_24_blockers": true
+  }
 }

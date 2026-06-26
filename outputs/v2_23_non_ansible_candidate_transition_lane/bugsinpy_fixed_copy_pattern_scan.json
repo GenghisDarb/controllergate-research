@@ -1,0 +1,933 @@
+{
+  "based_on": "v2.22_official_ingest",
+  "campaign_id": "v2_23_non_ansible_candidate_transition_lane",
+  "candidate_specific_exception_proven": false,
+  "current_protocol_version": "v2.13",
+  "fixed_copy_pattern_detected": true,
+  "offending_code_excerpt": "116: buggy_commit=\"\"\n117: fix_commit=\"\"\n118: \n119: ###Read bug.info file\n120: DONE=false\n121: until $DONE ;do\n122: read || DONE=true\n123: if [[ \"$REPLY\" == \"buggy_commit_id\"* ]]; then\n124:    buggy_commit=\"$(cut -d'\"' -f 2 <<< $REPLY)\"\n125: elif [[ \"$REPLY\" == \"fixed_commit_id\"* ]]; then\n126:    fix_commit=\"$(cut -d'\"' -f 2 <<< $REPLY)\"\n127: elif [[ \"$REPLY\" == \"test_file\"* ]]; then\n128:    test_file_all=\"$(cut -d'\"' -f 2 <<< $REPLY)\"\n129:    IFS=';' read -r -a test_file <<< \"$test_file_all\"\n130: elif [[ \"$REPLY\" == \"pythonpath\"* ]]; then\n131:    pythonpath_all=\"$(cut -d'\"' -f 2 <<< $REPLY)\"\n132:    if [ \"$pythonpath_all\" != \"\" ]; then\n133:        temp_folder=\":${folder_location}/\"\n134:        pythonpath_set=${pythonpath_all//;/$temp_folder}\n135:        pythonpath_set=\"${folder_location}/${pythonpath_set}\"\n136:    fi\n137: fi\n138: done < bug.info\n139: \n140: ###Reset head to version id\n141: cd \"$work_dir/$project_name\"\n142: git reset --hard \"$fix_commit\"\n143: \n144: ###Copy updated files in the fixed version to temp\n145: check_file=$(git show --name-only 2>&1)\n146: change_file_all=\"\"\n147: while IFS= read -r line; do\n148:    if [ \"$line\" != \"\" ]; then\n149:       if [[ -e \"$work_dir/$project_name/$line\" ]]; then\n150:             change_file_all+=\"$line;\"\n151:             if [ $version_id == \"1\" ]; then\n152:                 new_dir=$(dirname $project_location/bugs/$bug_id/$line)\n153:                 mkdir -p \"$new_dir\"\n154:                 cp -v \"$work_dir/$project_name/$line\" \"$project_location/bugs/$bug_id/$line\"\n155:             fi\n156:       fi\n157:    fi\n158: done <<< \"$check_file\"\n159: IFS=';' read -r -a change_file <<< \"$change_file_all\"\n160: \n161: \n162: ###copy test file from project to temp\n163: for index in \"${!test_file[@]}\"\n164: do\n165:    test_file_now=${test_file[index]}\n166:    new_dir=$(dirname $project_location/bugs/$bug_id/$test_file_now)\n167:    mkdir -p \"$new_dir\"\n168:    cp -v \"$work_dir/$project_name/$test_file_now\" \"$project_location/bugs/$bug_id/$test_file_now\"\n169: done\n170:    \n171: ###Set to buggy version\n172: cd \"$work_dir/$project_name\"\n173: git reset --hard \"$buggy_commit\"\n174: git clean -f -d\n175: \n176: ###Copy test file from fixed to buggy\n177: for index in \"${!test_file[@]}\"\n178: do\n179:    test_file_now=${test_file[index]}\n180:    mv -f  \"$project_location/bugs/$bug_id/$test_file_now\" \"$work_dir/$project_name/$test_file_now\"\n181: done\n",
+  "offending_file_path": "framework/bin/bugsinpy-checkout",
+  "offending_file_sha256": "39388a16495d0a56da86895e45a49337bda3303b9bfde0c5e617fa13c2db4f0b",
+  "offending_line_range": {
+    "end": 181,
+    "start": 116
+  },
+  "pattern_global_in_framework_command": true,
+  "records": [
+    {
+      "match_count": 27,
+      "matches": [
+        {
+          "line": 24,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "###Read the flag of checkout"
+        },
+        {
+          "line": 116,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "buggy_commit=\"\""
+        },
+        {
+          "line": 119,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "###Read bug.info file"
+        },
+        {
+          "line": 123,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "if [[ \"$REPLY\" == \"buggy_commit_id\"* ]]; then"
+        },
+        {
+          "line": 124,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "   buggy_commit=\"$(cut -d'\"' -f 2 <<< $REPLY)\""
+        },
+        {
+          "line": 125,
+          "matched_terms": [
+            "fixed_commit"
+          ],
+          "text": "elif [[ \"$REPLY\" == \"fixed_commit_id\"* ]]; then"
+        },
+        {
+          "line": 127,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "elif [[ \"$REPLY\" == \"test_file\"* ]]; then"
+        },
+        {
+          "line": 128,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   test_file_all=\"$(cut -d'\"' -f 2 <<< $REPLY)\""
+        },
+        {
+          "line": 129,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   IFS=';' read -r -a test_file <<< \"$test_file_all\""
+        },
+        {
+          "line": 138,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "done < bug.info"
+        },
+        {
+          "line": 142,
+          "matched_terms": [
+            "reset"
+          ],
+          "text": "git reset --hard \"$fix_commit\""
+        },
+        {
+          "line": 154,
+          "matched_terms": [
+            "cp"
+          ],
+          "text": "                cp -v \"$work_dir/$project_name/$line\" \"$project_location/bugs/$bug_id/$line\""
+        },
+        {
+          "line": 162,
+          "matched_terms": [
+            "copy"
+          ],
+          "text": "###copy test file from project to temp"
+        },
+        {
+          "line": 163,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "for index in \"${!test_file[@]}\""
+        },
+        {
+          "line": 165,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   test_file_now=${test_file[index]}"
+        },
+        {
+          "line": 166,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   new_dir=$(dirname $project_location/bugs/$bug_id/$test_file_now)"
+        },
+        {
+          "line": 168,
+          "matched_terms": [
+            "cp",
+            "test_file"
+          ],
+          "text": "   cp -v \"$work_dir/$project_name/$test_file_now\" \"$project_location/bugs/$bug_id/$test_file_now\""
+        },
+        {
+          "line": 173,
+          "matched_terms": [
+            "buggy_commit",
+            "reset"
+          ],
+          "text": "git reset --hard \"$buggy_commit\""
+        },
+        {
+          "line": 177,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "for index in \"${!test_file[@]}\""
+        },
+        {
+          "line": 179,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   test_file_now=${test_file[index]}"
+        },
+        {
+          "line": 180,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   mv -f  \"$project_location/bugs/$bug_id/$test_file_now\" \"$work_dir/$project_name/$test_file_now\""
+        },
+        {
+          "line": 202,
+          "matched_terms": [
+            "cp",
+            "bug.info"
+          ],
+          "text": "cp -f \"$project_location/bugs/$bug_id/bug.info\" \"$work_dir/$project_name/bugsinpy_bug.info\""
+        },
+        {
+          "line": 203,
+          "matched_terms": [
+            "cp"
+          ],
+          "text": "cp -f \"$project_location/bugs/$bug_id/requirements.txt\" \"$work_dir/$project_name/bugsinpy_requirements.txt\""
+        },
+        {
+          "line": 204,
+          "matched_terms": [
+            "cp",
+            "run_test.sh"
+          ],
+          "text": "cp -f \"$project_location/bugs/$bug_id/run_test.sh\" \"$work_dir/$project_name/bugsinpy_run_test.sh\""
+        },
+        {
+          "line": 205,
+          "matched_terms": [
+            "setup.sh"
+          ],
+          "text": "rm -f \"$work_dir/$project_name/bugsinpy_setup.sh\""
+        },
+        {
+          "line": 207,
+          "matched_terms": [
+            "setup.sh"
+          ],
+          "text": "if [[ -e \"$project_location/bugs/$bug_id/setup.sh\" ]]; then"
+        },
+        {
+          "line": 208,
+          "matched_terms": [
+            "cp",
+            "setup.sh"
+          ],
+          "text": "   cp -f \"$project_location/bugs/$bug_id/setup.sh\" \"$work_dir/$project_name/bugsinpy_setup.sh\""
+        }
+      ],
+      "path": "framework/bin/bugsinpy-checkout",
+      "sha256": "39388a16495d0a56da86895e45a49337bda3303b9bfde0c5e617fa13c2db4f0b"
+    },
+    {
+      "match_count": 19,
+      "matches": [
+        {
+          "line": 16,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "###Read the flag of checkout"
+        },
+        {
+          "line": 35,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "if [[ ! -e \"$work_dir/bugsinpy_bug.info\" ]]; then"
+        },
+        {
+          "line": 36,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "   echo \"This is not a checkout project folder\""
+        },
+        {
+          "line": 39,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "   echo \"This is not a checkout project folder\""
+        },
+        {
+          "line": 41,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "elif [[ ! -e \"$work_dir/bugsinpy_run_test.sh\" ]]; then"
+        },
+        {
+          "line": 42,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "   echo \"This is not a checkout project folder\""
+        },
+        {
+          "line": 74,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "buggy_commit=\"\""
+        },
+        {
+          "line": 77,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "###Read bug.info file"
+        },
+        {
+          "line": 81,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "if [[ \"$REPLY\" == \"buggy_commit_id\"* ]]; then"
+        },
+        {
+          "line": 82,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "   buggy_commit=\"$(cut -d'\"' -f 2 <<< $REPLY)\""
+        },
+        {
+          "line": 83,
+          "matched_terms": [
+            "fixed_commit"
+          ],
+          "text": "elif [[ \"$REPLY\" == \"fixed_commit_id\"* ]]; then"
+        },
+        {
+          "line": 85,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "elif [[ \"$REPLY\" == \"test_file\"* ]]; then"
+        },
+        {
+          "line": 86,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   test_file_all=\"$(cut -d'\"' -f 2 <<< $REPLY)\""
+        },
+        {
+          "line": 87,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   IFS=';' read -r -a test_file <<< \"$test_file_all\""
+        },
+        {
+          "line": 106,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "done < \"$work_dir/bugsinpy_bug.info\""
+        },
+        {
+          "line": 109,
+          "matched_terms": [
+            "setup.sh"
+          ],
+          "text": "###Read setup.sh"
+        },
+        {
+          "line": 111,
+          "matched_terms": [
+            "setup.sh"
+          ],
+          "text": "  if [[ -f \"$work_dir/bugsinpy_setup.sh\" ]]; then"
+        },
+        {
+          "line": 117,
+          "matched_terms": [
+            "setup.sh"
+          ],
+          "text": "    done < \"$work_dir/bugsinpy_setup.sh\""
+        },
+        {
+          "line": 122,
+          "matched_terms": [
+            "setup.sh"
+          ],
+          "text": "###Run setup.sh"
+        }
+      ],
+      "path": "framework/bin/bugsinpy-compile",
+      "sha256": "fae880f1953436b321312b7545cae9d371fedeca2ea2b4a6c8e44723b5dc5834"
+    },
+    {
+      "match_count": 21,
+      "matches": [
+        {
+          "line": 6,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "             Run coverage from single test case by input. Default will run coverage from test cases that relevant from bugs. Format for pytest: <test_file_path>::<test_method>. Format for unittest: <test_file_path_without.py>.<test_class>.<test_method> . Use bugsinpy-info to get the information about the project."
+        },
+        {
+          "line": 27,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "###Read the flag of checkout"
+        },
+        {
+          "line": 46,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "if [[ ! -e \"$work_dir/bugsinpy_run_test.sh\" ]]; then"
+        },
+        {
+          "line": 47,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "   echo \"This is not a checkout project folder\""
+        },
+        {
+          "line": 75,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "#read file run_test.sh"
+        },
+        {
+          "line": 86,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "done < \"$work_dir/bugsinpy_run_test.sh\""
+        },
+        {
+          "line": 99,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     echo \"$test_file_now\""
+        },
+        {
+          "line": 169,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "     ###Read bug.info file"
+        },
+        {
+          "line": 173,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     if [[ \"$REPLY\" == \"test_file\"* ]]; then"
+        },
+        {
+          "line": 174,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "        test_file_all=\"$(cut -d'\"' -f 2 <<< $REPLY)\""
+        },
+        {
+          "line": 175,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "        IFS=';' read -r -a test_file <<< \"$test_file_all\""
+        },
+        {
+          "line": 176,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "        test_file_now=${test_file[0]}"
+        },
+        {
+          "line": 178,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "     done < \"$work_dir/bugsinpy_bug.info\""
+        },
+        {
+          "line": 180,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     echo \"$test_file_now\""
+        },
+        {
+          "line": 183,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     if [[ \"$test_file_now\" != \"\" ]]; then"
+        },
+        {
+          "line": 184,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "        IFS='/' read -r -a test_file_ex <<< \"$test_file_now\""
+        },
+        {
+          "line": 189,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     for index in \"${!test_file_ex[@]}\""
+        },
+        {
+          "line": 191,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     test_file_temp=${test_file_ex[index]}"
+        },
+        {
+          "line": 193,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "        if [[ \"$test_file_temp\" == *\".py\"* ]]; then"
+        },
+        {
+          "line": 196,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "           if [[ \"$test_file_temp\" == \"test\" || \"$test_file_temp\" == \"tests\" ]]; then"
+        },
+        {
+          "line": 199,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "           access_test+=\"$test_file_temp/\""
+        }
+      ],
+      "path": "framework/bin/bugsinpy-coverage",
+      "sha256": "4698651310e6f7521683cb84c3ccc792633cfdd7317f0e4413a46a38f263aa8e"
+    },
+    {
+      "match_count": 2,
+      "matches": [
+        {
+          "line": 20,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "###Read the flag of checkout"
+        },
+        {
+          "line": 85,
+          "matched_terms": [
+            "cp"
+          ],
+          "text": "    cp $bug_location/fuzz_target.py $work_dir"
+        }
+      ],
+      "path": "framework/bin/bugsinpy-fuzz",
+      "sha256": "1016673dfc41434c6ac4de6b890a0e3b6a2012c73bb788f2b7a484de019b0846"
+    },
+    {
+      "match_count": 14,
+      "matches": [
+        {
+          "line": 20,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "###Read the flag of checkout"
+        },
+        {
+          "line": 95,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "buggy_commit=\"\""
+        },
+        {
+          "line": 98,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "###Read bug.info file"
+        },
+        {
+          "line": 102,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "if [[ \"$REPLY\" == \"buggy_commit_id\"* ]]; then"
+        },
+        {
+          "line": 103,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "   buggy_commit=\"$(cut -d'\"' -f 2 <<< $REPLY)\""
+        },
+        {
+          "line": 104,
+          "matched_terms": [
+            "fixed_commit"
+          ],
+          "text": "elif [[ \"$REPLY\" == \"fixed_commit_id\"* ]]; then"
+        },
+        {
+          "line": 106,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "elif [[ \"$REPLY\" == \"test_file\"* ]]; then"
+        },
+        {
+          "line": 107,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   test_file_all=\"$(cut -d'\"' -f 2 <<< $REPLY)\""
+        },
+        {
+          "line": 108,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   IFS=';' read -r -a test_file <<< \"$test_file_all\""
+        },
+        {
+          "line": 117,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "done < bug.info"
+        },
+        {
+          "line": 125,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "echo \"\t$buggy_commit\""
+        },
+        {
+          "line": 128,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "for index in \"${!test_file[@]}\""
+        },
+        {
+          "line": 130,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   test_file_now=${test_file[index]}"
+        },
+        {
+          "line": 131,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   echo \"\t$test_file_now\""
+        }
+      ],
+      "path": "framework/bin/bugsinpy-info",
+      "sha256": "2445ee5137a1a55c3a8f7f3fac1962262674671ab4796bf45587f6647573696b"
+    },
+    {
+      "match_count": 12,
+      "matches": [
+        {
+          "line": 25,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "###Read the flag of checkout"
+        },
+        {
+          "line": 45,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "if [[ ! -e \"$work_dir/bugsinpy_run_test.sh\" ]]; then"
+        },
+        {
+          "line": 46,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "   echo \"This is not a checkout project folder\""
+        },
+        {
+          "line": 84,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "#read file run_test.sh"
+        },
+        {
+          "line": 99,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "done < \"$work_dir/bugsinpy_run_test.sh\""
+        },
+        {
+          "line": 111,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "   ###Read bug.info file"
+        },
+        {
+          "line": 115,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "   if [[ \"$REPLY\" == \"test_file\"* ]]; then"
+        },
+        {
+          "line": 116,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "      test_file_all=\"$(cut -d'\"' -f 2 <<< $REPLY)\""
+        },
+        {
+          "line": 117,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "      IFS=';' read -r -a test_file <<< \"$test_file_all\""
+        },
+        {
+          "line": 119,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "   done < \"$work_dir/bugsinpy_bug.info\""
+        },
+        {
+          "line": 166,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "      for index_test in \"${!test_file[@]}\""
+        },
+        {
+          "line": 168,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "         test_trail=${test_file[index_test]} "
+        }
+      ],
+      "path": "framework/bin/bugsinpy-mutation",
+      "sha256": "deaf9fd2550b09fabcaaf322f99600d53a733984e3f5cf11b906d7703106f604"
+    },
+    {
+      "match_count": 22,
+      "matches": [
+        {
+          "line": 6,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "             Run single test from input. Default will run the test case that relevant from bugs. Format for pytest: <test_file_path>::<test_method>. Format for unittest: <test_file_path_without.py>.<test_class>.<test_method> . Use bugsinpy-info to get the information about the project."
+        },
+        {
+          "line": 28,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "###Read the flag of checkout"
+        },
+        {
+          "line": 47,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "if [[ ! -e \"$work_dir/bugsinpy_run_test.sh\" ]]; then"
+        },
+        {
+          "line": 48,
+          "matched_terms": [
+            "checkout"
+          ],
+          "text": "   echo \"This is not a checkout project folder\""
+        },
+        {
+          "line": 71,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "#read file run_test.sh"
+        },
+        {
+          "line": 83,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "done < \"$work_dir/bugsinpy_run_test.sh\""
+        },
+        {
+          "line": 91,
+          "matched_terms": [
+            "run_test.sh"
+          ],
+          "text": "   #run every command on the run_test.sh"
+        },
+        {
+          "line": 100,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     echo \"$test_file_now\""
+        },
+        {
+          "line": 121,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "     ###Read bug.info file"
+        },
+        {
+          "line": 125,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     if [[ \"$REPLY\" == \"test_file\"* ]]; then"
+        },
+        {
+          "line": 126,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "        test_file_all=\"$(cut -d'\"' -f 2 <<< $REPLY)\""
+        },
+        {
+          "line": 127,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "        IFS=';' read -r -a test_file <<< \"$test_file_all\""
+        },
+        {
+          "line": 128,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "        test_file_now=${test_file[0]}"
+        },
+        {
+          "line": 130,
+          "matched_terms": [
+            "bug.info"
+          ],
+          "text": "     done < \"$work_dir/bugsinpy_bug.info\""
+        },
+        {
+          "line": 132,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     echo \"$test_file_now\""
+        },
+        {
+          "line": 135,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     if [[ \"$test_file_now\" != \"\" ]]; then"
+        },
+        {
+          "line": 136,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "        IFS='/' read -r -a test_file_ex <<< \"$test_file_now\""
+        },
+        {
+          "line": 141,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     for index in \"${!test_file_ex[@]}\""
+        },
+        {
+          "line": 143,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "     test_file_temp=${test_file_ex[index]}"
+        },
+        {
+          "line": 145,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "        if [[ \"$test_file_temp\" == *\".py\"* ]]; then"
+        },
+        {
+          "line": 148,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "           if [[ \"$test_file_temp\" == \"test\" || \"$test_file_temp\" == \"tests\" ]]; then"
+        },
+        {
+          "line": 151,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "           access_test+=\"$test_file_temp/\""
+        }
+      ],
+      "path": "framework/bin/bugsinpy-test",
+      "sha256": "471d23ee3f5e466f8c4128fbf6ac37f7d8dbde55dc0174ff3fed77db1ba9733a"
+    },
+    {
+      "match_count": 3,
+      "matches": [
+        {
+          "line": 2,
+          "matched_terms": [
+            "buggy_commit"
+          ],
+          "text": "buggy_commit_id=\"e21a31162f4c54be693d8ca8260e42393b39abd3\""
+        },
+        {
+          "line": 3,
+          "matched_terms": [
+            "fixed_commit"
+          ],
+          "text": "fixed_commit_id=\"56f22f8ffe1c6b2be4d2cf3ad1987fdb66113da2\""
+        },
+        {
+          "line": 4,
+          "matched_terms": [
+            "test_file"
+          ],
+          "text": "test_file=\"tests/test_chinese.py\""
+        }
+      ],
+      "path": "projects/PySnooper/bugs/1/bug.info",
+      "sha256": "f526381ea5dc370109926d95dd757d2278b91fdecc5d6ff266ee2cdf2775bd22"
+    }
+  ],
+  "review_timestamp": "2026-06-26T01:40:55.267737Z",
+  "search_terms": [
+    "fixed_commit",
+    "buggy_commit",
+    "checkout",
+    "reset",
+    "copy",
+    "cp",
+    "shutil.copy",
+    "test_file",
+    "bug.info",
+    "run_test.sh",
+    "setup.sh"
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,40 @@
+{
+  "based_on": "v2.22_official_ingest",
+  "campaign_id": "v2_23_non_ansible_candidate_transition_lane",
+  "current_protocol_version": "v2.13",
+  "records": [
+    {
+      "acquisition_method_id": "bugsinpy_checkout_fixed_copy",
+      "acquisition_method_signature": "git_checkout_fixed_commit_then_copy_test_then_git_checkout_buggy_commit",
+      "applies_to_scope": "all_bugsinpy_candidates_using_this_behavior_without_candidate_specific_safe_exception",
+      "behavior_block_applies_across_repos": true,
+      "behavioral_signature": "de86da8f2bf77cba1b25047b6042ac19af52305d20f181f19d87cf3e63ae1797",
+      "blocker": "blocked_bugsinpy_acquisition_method_fixed_commit_test_copy_global_or_unproven_candidate_specific_safety",
+      "combination_hash": "cd50466a5122c29458c51c105707ebbaeb8765b532f75996f9a67922008e4f86",
+      "decision": "blocked_fixed_commit_derived_test_materialization",
+      "evidence_files": [
+        "outputs/v2_22_bugsinpy_target_test_materialization_lane/v2_22_official_artifact_verification.json",
+        "outputs/v2_22_bugsinpy_target_test_materialization_lane/official_bugsinpy_framework_materialization_trace.json",
+        "outputs/v2_23_non_ansible_candidate_transition_lane/bugsinpy_checkout_offending_code_extract.txt",
+        "outputs/v2_23_non_ansible_candidate_transition_lane/bugsinpy_checkout_trace_to_source_mapping.json"
+      ],
+      "evidence_sha256s": {
+        "outputs/v2_22_bugsinpy_target_test_materialization_lane/official_bugsinpy_framework_materialization_trace.json": "ac338b17b0ec60bf242fe794db36cb2897981296df9d391c778f863e0c9215e5",
+        "outputs/v2_22_bugsinpy_target_test_materialization_lane/v2_22_official_artifact_verification.json": "bc96c04dc90569d7afb5942690b674ea72c1c560b534c08e4338a8f9691d8cce",
+        "outputs/v2_23_non_ansible_candidate_transition_lane/bugsinpy_checkout_offending_code_extract.txt": "4c673d6a8992242131d3658c7a5c0411ba909ed5a510ff4e0f41fc93a1bc8176",
+        "outputs/v2_23_non_ansible_candidate_transition_lane/bugsinpy_checkout_trace_to_source_mapping.json": "75d018c63750acae8dfaaf6ad94225248598fd80bb9d2316e11d44bd5fbcb158"
+      },
+      "framework_commit": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+      "framework_repo": "https://github.com/soarsmu/BugsInPy.git",
+      "harness_origin_sha256": "3706244b4618612fad4681578dd740d1e54dbe9069303072ab7802f656f0e608",
+      "inherited_from_version": "v2.22",
+      "matching_prior_block_hashes": [],
+      "normalized_behavior_sequence": "git_checkout_fixed_commit -> copy_target_test_or_harness_file -> git_checkout_buggy_commit",
+      "review_timestamp": "2026-06-26T01:40:55.267737Z",
+      "source_classification": "fixed_commit_derived_by_pinned_framework_checkout",
+      "target_test_sha256": "7a3d64cd702fdfa1eba8c08ac3c8934948a3ef0178f141c1f5599307c1fe59f3"
+    }
+  ],
+  "review_timestamp": "2026-06-26T01:40:55.267737Z",
+  "status": "PASS"
+}

@@ -1,0 +1,43 @@
+{
+  "based_on": "v2.22_official_ingest",
+  "campaign_id": "v2_23_non_ansible_candidate_transition_lane",
+  "current_protocol_version": "v2.13",
+  "records": [
+    {
+      "allowed_for_future_candidates": false,
+      "decision": "candidate_scope_expansion_required",
+      "evidence_files": [
+        "outputs/v2_22_bugsinpy_target_test_materialization_lane/v2_22_official_artifact_verification.json",
+        "outputs/v2_22_bugsinpy_target_test_materialization_lane/official_bugsinpy_framework_materialization_trace.json",
+        "outputs/v2_23_non_ansible_candidate_transition_lane/bugsinpy_checkout_offending_code_extract.txt",
+        "outputs/v2_23_non_ansible_candidate_transition_lane/bugsinpy_checkout_trace_to_source_mapping.json"
+      ],
+      "evidence_sha256s": {
+        "outputs/v2_22_bugsinpy_target_test_materialization_lane/official_bugsinpy_framework_materialization_trace.json": "ac338b17b0ec60bf242fe794db36cb2897981296df9d391c778f863e0c9215e5",
+        "outputs/v2_22_bugsinpy_target_test_materialization_lane/v2_22_official_artifact_verification.json": "bc96c04dc90569d7afb5942690b674ea72c1c560b534c08e4338a8f9691d8cce",
+        "outputs/v2_23_non_ansible_candidate_transition_lane/bugsinpy_checkout_offending_code_extract.txt": "4c673d6a8992242131d3658c7a5c0411ba909ed5a510ff4e0f41fc93a1bc8176",
+        "outputs/v2_23_non_ansible_candidate_transition_lane/bugsinpy_checkout_trace_to_source_mapping.json": "75d018c63750acae8dfaaf6ad94225248598fd80bb9d2316e11d44bd5fbcb158"
+      },
+      "framework_commit": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+      "framework_repo": "https://github.com/soarsmu/BugsInPy.git",
+      "method_id": "bugsinpy_checkout_fixed_copy",
+      "method_signature": "git_checkout_fixed_commit_then_copy_test_then_git_checkout_buggy_commit",
+      "observed_trace_excerpt": "HEAD is now at 56f22f8 Fix unicode issues and add test, fix #124\n'/tmp/controllergate_v2_22_bugsinpy_target_test_materialization_workspace/materialized_workspace/PySnooper/tests/test_chinese.py' -> '/tmp/controllergate_v2_22_bugsinpy_target_test_materialization_workspace/BugsInPy_framework/projects/PySnooper/bugs/1/tests/test_chinese.py'\nHEAD is now at e21a311 Formatting",
+      "offending_code_excerpt": "116: buggy_commit=\"\"\n117: fix_commit=\"\"\n118: \n119: ###Read bug.info file\n120: DONE=false\n121: until $DONE ;do\n122: read || DONE=true\n123: if [[ \"$REPLY\" == \"buggy_commit_id\"* ]]; then\n124:    buggy_commit=\"$(cut -d'\"' -f 2 <<< $REPLY)\"\n125: elif [[ \"$REPLY\" == \"fixed_commit_id\"* ]]; then\n126:    fix_commit=\"$(cut -d'\"' -f 2 <<< $REPLY)\"\n127: elif [[ \"$REPLY\" == \"test_file\"* ]]; then\n128:    test_file_all=\"$(cut -d'\"' -f 2 <<< $REPLY)\"\n129:    IFS=';' read -r -a test_file <<< \"$test_file_all\"\n130: elif [[ \"$REPLY\" == \"pythonpath\"* ]]; then\n131:    pythonpath_all=\"$(cut -d'\"' -f 2 <<< $REPLY)\"\n132:    if [ \"$pythonpath_all\" != \"\" ]; then\n133:        temp_folder=\":${folder_location}/\"\n134:        pythonpath_set=${pythonpath_all//;/$temp_folder}\n135:        pythonpath_set=\"${folder_location}/${pythonpath_set}\"\n136:    fi\n137: fi\n138: done < bug.info\n139: \n140: ###Reset head to version id\n141: cd \"$work_dir/$project_name\"\n142: git reset --hard \"$fix_commit\"\n143: \n144: ###Copy updated files in the fixed version to temp\n145: check_file=$(git show --name-only 2>&1)\n146: change_file_all=\"\"\n147: while IFS= read -r line; do\n148:    if [ \"$line\" != \"\" ]; then\n149:       if [[ -e \"$work_dir/$project_name/$line\" ]]; then\n150:             change_file_all+=\"$line;\"\n151:             if [ $version_id == \"1\" ]; then\n152:                 new_dir=$(dirname $project_location/bugs/$bug_id/$line)\n153:                 mkdir -p \"$new_dir\"\n154:                 cp -v \"$work_dir/$project_name/$line\" \"$project_location/bugs/$bug_id/$line\"\n155:             fi\n156:       fi\n157:    fi\n158: done <<< \"$check_file\"\n159: IFS=';' read -r -a change_file <<< \"$change_file_all\"\n160: \n161: \n162: ###copy test file from project to temp\n163: for index in \"${!test_file[@]}\"\n164: do\n165:    test_file_now=${test_file[index]}\n166:    new_dir=$(dirname $project_location/bugs/$bug_id/$test_file_now)\n167:    mkdir -p \"$new_dir\"\n168:    cp -v \"$work_dir/$project_name/$test_file_now\" \"$project_location/bugs/$bug_id/$test_file_now\"\n169: done\n170:    \n171: ###Set to buggy version\n172: cd \"$work_dir/$project_name\"\n173: git reset --hard \"$buggy_commit\"\n174: git clean -f -d\n175: \n176: ###Copy test file from fixed to buggy\n177: for index in \"${!test_file[@]}\"\n178: do\n179:    test_file_now=${test_file[index]}\n180:    mv -f  \"$project_location/bugs/$bug_id/$test_file_now\" \"$work_dir/$project_name/$test_file_now\"\n181: done\n",
+      "offending_code_file_paths": [
+        "framework/bin/bugsinpy-checkout"
+      ],
+      "offending_code_line_ranges_if_available": [
+        {
+          "end": 181,
+          "start": 116
+        }
+      ],
+      "review_timestamp": "2026-06-26T01:40:55.267737Z",
+      "scope": "all_candidates_requiring_bugsinpy_fixed_commit_derived_test_copying",
+      "taint_status": "globally_blocked_under_current_provenance_rules"
+    }
+  ],
+  "review_timestamp": "2026-06-26T01:40:55.267737Z",
+  "status": "PASS"
+}

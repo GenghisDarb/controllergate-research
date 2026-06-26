@@ -1316,3 +1316,18 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.22 is not promoted to current.
+## v2.23 Source Acquisition Method Boundary
+
+- Status: `implemented_pending_official_artifact_ingestion`.
+- Campaign: `v2_23_non_ansible_candidate_transition_lane`.
+- v2.22 official ingest verified: `true`.
+- Method decision: `globally_blocked_under_current_provenance_rules`.
+- Source acquisition method registry: `PASS`.
+- Compound provenance combination registry: `PASS`.
+- Candidate selection: `not_run_global_method_block`; no new BugsInPy candidate was selected.
+- Patch generated / authorized / attempted: `false` / `false` / `false`.
+- v2.24 recommendation: External Safe-Source Candidate Acquisition Lane.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.23 is not promoted to current.

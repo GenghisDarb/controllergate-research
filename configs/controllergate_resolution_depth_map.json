@@ -10,34 +10,40 @@
   },
   "resolution_bands": {
     "v2.18": {
-      "band": "N≈6",
+      "band": "N\u22486",
       "meaning": "source_acquisition_threshold",
       "status": "public_buggy_source_commit_resolved"
     },
     "v2.19": {
-      "band": "N≈7",
+      "band": "N\u22487",
       "meaning": "test_provenance_threshold",
       "status": "target_test_content_unresolved"
     },
     "v2.20": {
-      "band": "N≈7-N≈8",
+      "band": "N\u22487-N\u22488",
       "meaning": "coupled_target_test_provenance_plus_harness_topology",
       "status": "targeted"
     },
     "v2.21": {
-      "band": "N≈7.13",
+      "band": "N\u22487.13",
       "meaning": "non_circular_harness_origin_pin_then_target_test_provenance_recheck",
       "status": "targeted"
     },
     "v2.22": {
-      "band": "N≈7.5",
+      "band": "N\u22487.5",
       "meaning": "official_bugsinpy_materialization_source_guard",
       "status": "targeted"
     },
     "future_scoreable": {
-      "band": "N≈9-N≈10",
+      "band": "N\u22489-N\u224810",
       "meaning": "repair_generation_and_scoreable_kernel_lock",
       "status": "not_reached"
+    },
+    "v2.23": {
+      "band": "method_provenance_boundary",
+      "meaning": "source_acquisition_method_block_before_candidate_selection",
+      "status": "global_method_block_recorded",
+      "next": "external_safe_source_candidate_acquisition"
     }
   },
   "metrological_precision_tools": [

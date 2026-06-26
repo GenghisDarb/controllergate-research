@@ -1,0 +1,66 @@
+116: buggy_commit=""
+117: fix_commit=""
+118: 
+119: ###Read bug.info file
+120: DONE=false
+121: until $DONE ;do
+122: read || DONE=true
+123: if [[ "$REPLY" == "buggy_commit_id"* ]]; then
+124:    buggy_commit="$(cut -d'"' -f 2 <<< $REPLY)"
+125: elif [[ "$REPLY" == "fixed_commit_id"* ]]; then
+126:    fix_commit="$(cut -d'"' -f 2 <<< $REPLY)"
+127: elif [[ "$REPLY" == "test_file"* ]]; then
+128:    test_file_all="$(cut -d'"' -f 2 <<< $REPLY)"
+129:    IFS=';' read -r -a test_file <<< "$test_file_all"
+130: elif [[ "$REPLY" == "pythonpath"* ]]; then
+131:    pythonpath_all="$(cut -d'"' -f 2 <<< $REPLY)"
+132:    if [ "$pythonpath_all" != "" ]; then
+133:        temp_folder=":${folder_location}/"
+134:        pythonpath_set=${pythonpath_all//;/$temp_folder}
+135:        pythonpath_set="${folder_location}/${pythonpath_set}"
+136:    fi
+137: fi
+138: done < bug.info
+139: 
+140: ###Reset head to version id
+141: cd "$work_dir/$project_name"
+142: git reset --hard "$fix_commit"
+143: 
+144: ###Copy updated files in the fixed version to temp
+145: check_file=$(git show --name-only 2>&1)
+146: change_file_all=""
+147: while IFS= read -r line; do
+148:    if [ "$line" != "" ]; then
+149:       if [[ -e "$work_dir/$project_name/$line" ]]; then
+150:             change_file_all+="$line;"
+151:             if [ $version_id == "1" ]; then
+152:                 new_dir=$(dirname $project_location/bugs/$bug_id/$line)
+153:                 mkdir -p "$new_dir"
+154:                 cp -v "$work_dir/$project_name/$line" "$project_location/bugs/$bug_id/$line"
+155:             fi
+156:       fi
+157:    fi
+158: done <<< "$check_file"
+159: IFS=';' read -r -a change_file <<< "$change_file_all"
+160: 
+161: 
+162: ###copy test file from project to temp
+163: for index in "${!test_file[@]}"
+164: do
+165:    test_file_now=${test_file[index]}
+166:    new_dir=$(dirname $project_location/bugs/$bug_id/$test_file_now)
+167:    mkdir -p "$new_dir"
+168:    cp -v "$work_dir/$project_name/$test_file_now" "$project_location/bugs/$bug_id/$test_file_now"
+169: done
+170:    
+171: ###Set to buggy version
+172: cd "$work_dir/$project_name"
+173: git reset --hard "$buggy_commit"
+174: git clean -f -d
+175: 
+176: ###Copy test file from fixed to buggy
+177: for index in "${!test_file[@]}"
+178: do
+179:    test_file_now=${test_file[index]}
+180:    mv -f  "$project_location/bugs/$bug_id/$test_file_now" "$work_dir/$project_name/$test_file_now"
+181: done

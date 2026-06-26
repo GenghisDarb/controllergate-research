@@ -1,0 +1,20 @@
+{
+  "based_on": "v2.22_official_ingest",
+  "blocker": "blocked_bugsinpy_acquisition_method_fixed_commit_test_copy_global_or_unproven_candidate_specific_safety",
+  "campaign_id": "v2_23_non_ansible_candidate_transition_lane",
+  "candidate_specific_exception_proven": false,
+  "current_protocol_version": "v2.13",
+  "decision": "globally_blocked_under_current_provenance_rules",
+  "framework_commit": "11c5f1eea954a42132cfd06bf257766a7963e0fd",
+  "framework_repo": "https://github.com/soarsmu/BugsInPy.git",
+  "observed_v2_22_runtime_pattern": [
+    "checkout_or_reset_to_fixed_commit",
+    "copy_or_materialize_target_test_from_fixed_commit_state",
+    "reset_to_buggy_commit"
+  ],
+  "review_timestamp": "2026-06-26T01:40:55.267737Z",
+  "source_text_pattern_detected": true,
+  "status": "PASS",
+  "target_test_sha256": "7a3d64cd702fdfa1eba8c08ac3c8934948a3ef0178f141c1f5599307c1fe59f3",
+  "target_test_source_classification": "fixed_commit_derived_by_pinned_framework_checkout"
+}

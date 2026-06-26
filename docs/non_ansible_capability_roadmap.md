@@ -204,3 +204,18 @@ v2.22 adds planning and audit controls for:
 - Recommending selection of a different non-Ansible candidate next if PySnooper:1 is terminally provenance-blocked, unless externally provided decision-time-safe target-test provenance is later supplied.
 
 The v2.22 lane remains PySnooper:1-only. PySnooper:2 remains blocked unless decision-time-safe fixture provenance for `tests/mini_toolbox.py` is proven. Full scoring, self-maintaining software, memory lift, broad non-Ansible generalization, and TORUS/TLD proof claims remain forbidden.
+## v2.23 Source Acquisition Method Boundary
+
+v2.23 stops before new candidate selection because the pinned BugsInPy checkout method is blocked under the current provenance rules.
+
+- Method ID: `bugsinpy_checkout_fixed_copy`.
+- Method signature: `git_checkout_fixed_commit_then_copy_test_then_git_checkout_buggy_commit`.
+- Decision: `globally_blocked_under_current_provenance_rules`.
+- Scope: all candidates that require fixed-commit-derived test copying through this BugsInPy method.
+- Candidate selection: `not_run_global_method_block`.
+- Patch generation, dependency recovery, pre-repair replay, validation, and scoring: not run.
+- v2.24 priority: External Safe-Source Candidate Acquisition Lane using direct immutable project history, exact buggy commits, and tests physically present in the buggy commit tree or otherwise proven decision-time-safe.
+- Future safety enhancements are recorded as planning items, not prerequisites for the v2.24 source-acquisition pivot: Executed Scope Manifest, Compound Provenance Combination Gate, Candidate Environment Resolution Preflight, Pre-Generation Structural Failure Signature, Co-Change Impact Map, Stochastic Replay Reliability, Environmental Pass Guard, Conditional Path Fork Guard, Bounded Patch Variant Queue, and Dependency Impact Map.
+- Research-level items such as Conditional Path Fork Guard and advanced Dependency Impact Map are v2.26+ investigations and must not delay v2.24 external source acquisition.
+
+Claim boundaries remain unchanged: current protocol `v2.13`, full scoring `NOT_RUN` / disallowed, memory lift undemonstrated, and self-maintaining software false / not demonstrated.

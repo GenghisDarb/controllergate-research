@@ -255,3 +255,14 @@ python scripts/audit_v2_12_dependency_cofactor_recovery.py
 ```
 
 On Windows with `core.autocrlf=true`, sparse-checkout materialization may need byte-exact tracked evidence before running manifest-heavy historical audits. Do not weaken audits to accommodate sparse checkout or line-ending conversion.
+## v2.23 source acquisition method boundary
+
+v2.23 adds a method-level provenance preflight before any new non-Ansible candidate selection. It records the BugsInPy checkout method as blocked under the current provenance rules because the pinned framework source and the verified v2.22 trace show fixed-commit target-test copying before reset to the buggy commit.
+
+- Campaign: `v2_23_non_ansible_candidate_transition_lane`
+- Status: `implemented_pending_official_artifact_ingestion`; v2.23 is not promoted to current.
+- Method decision: `globally_blocked_under_current_provenance_rules`.
+- Candidate selection: `not_run_global_method_block`; no new BugsInPy candidate was selected.
+- Dependency recovery, pre-repair replay, patch generation, validation, duplicate replay, and scoring were not run.
+- v2.24 recommendation: External Safe-Source Candidate Acquisition Lane.
+- Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.

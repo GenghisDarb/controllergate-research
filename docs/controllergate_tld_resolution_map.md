@@ -32,3 +32,12 @@ The patch size cap is a locality/noise-floor protection mechanism. Overshoot met
 ## Claim boundaries
 
 A scoreable PySnooper:1 result may be recorded only as one non-Ansible scoreable episode. It must not be reported as full generalization, full scoring, self-maintaining software, broad memory lift, or proof of TORUS/TLD.
+## v2.23 Source Acquisition Method Boundary
+
+v2.23 records a method-level provenance boundary rather than a repair attempt.
+
+- Method decision: `globally_blocked_under_current_provenance_rules`.
+- Evidence basis: verified v2.22 runtime trace plus pinned BugsInPy source-code lines from `framework/bin/bugsinpy-checkout`.
+- Blocker: `blocked_bugsinpy_acquisition_method_fixed_commit_test_copy_global_or_unproven_candidate_specific_safety`.
+- Next action: move candidate acquisition to external safe sources where the buggy project tree and test provenance can be verified without fixed/future/gold/synthetic test materialization.
+- This is a benchmark/source-provenance boundary finding, not a ControllerGate repair failure.
