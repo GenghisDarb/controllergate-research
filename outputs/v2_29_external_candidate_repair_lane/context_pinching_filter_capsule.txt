@@ -1,0 +1,281 @@
+# v2.29 repair context capsule
+candidate_id: py_bugger_issue_65
+repo_url: https://github.com/ehmatthes/py-bugger
+buggy_commit_sha: 67cf214f2d619848e90280fd4469377123e81b94
+target_command: python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q
+expected_normalized_failure_hash: a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea
+structural_failure: {"artifact_failure_category": "IndentationError", "environment_file_hash": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631", "failing_file_from_registry": "developer_resources/sample_attribute_node.py", "failure_excerpt_hash_expected": "cd64bae3e95407659c36a05e0f30d50a7a91bb620932fbffa3e3d97dda5660c6", "normalized_log_hash_current": null, "normalized_log_hash_expected": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea", "normalized_log_hash_match": false, "observed_pytest_failure_type": null, "status": "not_run_or_blocked", "support_file_hash": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11", "target_file_hash": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1", "target_test_node": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q"}
+reviewed_registry_entry:
+{
+  "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+  "candidate_id": "py_bugger_issue_65",
+  "created_utc": "2026-06-26T20:47:58Z",
+  "decision_time_safe_basis": "offline_manual_verification",
+  "environment_lock_source": "pyproject.toml",
+  "expected_failure_signature": {
+    "exception_type": "IndentationError",
+    "failing_file": "developer_resources/sample_attribute_node.py",
+    "failure_text_excerpt_hash": "cd64bae3e95407659c36a05e0f30d50a7a91bb620932fbffa3e3d97dda5660c6",
+    "log_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+    "normalization_policy": "strip_timestamps_absolute_paths_ansi_venv_prefixes"
+  },
+  "notes": "Reviewed v2.28 seed captured from direct buggy commit checkout. No repair evidence used.",
+  "registry_author": "manual_seed_draft",
+  "registry_review_status": "reviewed",
+  "repo_url": "https://github.com/ehmatthes/py-bugger",
+  "source_type": "public_github_repo",
+  "support_files": [
+    {
+      "path": "tests/sample_code/sample_scripts/two_trys.py",
+      "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11",
+      "source": "buggy_commit_tree"
+    }
+  ],
+  "target_test_files": [
+    {
+      "path": "tests/integration_tests/test_modifications.py",
+      "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1",
+      "source": "buggy_commit_tree"
+    }
+  ],
+  "test_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q"
+}
+
+## file: tests/integration_tests/test_modifications.py
+sha256: 3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1
+
+"""Test the modifications object."""
+
+from pathlib import Path
+import shutil
+import os
+
+import pytest
+
+from py_bugger import py_bugger
+from py_bugger.cli.config import pb_config
+from py_bugger.cli import cli_utils
+from py_bugger.utils.modification import modifications
+
+
+def test_modifications_modulenotfounderror(tmp_path_factory, test_config):
+    """Tests modifications after creating a ModuleNotFoundError."""
+    # Copy sample code to tmp dir.
+    tmp_path = tmp_path_factory.mktemp("sample_code")
+    print(f"\nCopying code to: {tmp_path.as_posix()}")
+
+    path_src = test_config.path_sample_scripts / "name_picker.py"
+    path_dst = tmp_path / path_src.name
+    shutil.copyfile(path_src, path_dst)
+
+    # Make modifications against this directory.
+    pb_config.exception_type = "ModuleNotFoundError"
+    pb_config.target_file = path_dst
+    cli_utils.validate_config()
+
+    py_bugger.main()
+
+    assert len(modifications) == 1
+    assert modifications[0].exception_induced == ModuleNotFoundError
+
+
+def test_7_random_bugs(tmp_path_factory, test_config):
+    """Test equivalent of `py-bugger -n 7`.
+
+    Look for modifications that match bugs_requested.
+    """
+    # Copy sample code to tmp dir.
+    tmp_path = tmp_path_factory.mktemp("sample_code")
+    print(f"\nCopying code to: {tmp_path.as_posix()}")
+
+    path_src = test_config.path_sample_scripts / "dog_bark.py"
+    path_dst = tmp_path / path_src.name
+    shutil.copyfile(path_src, path_dst)
+
+    # Make modifications against this directory.
+    # With the current random seed, 7 seems to be the max number of bugs before
+    # it can't add more.
+    pb_config.target_file = path_dst
+    pb_config.num_bugs = 7
+    cli_utils.validate_config()
+
+    requested_bugs = py_bugger.main()
+
+    # Make sure one modification was made for each requested bug.
+    assert len(modifications) == len(requested_bugs)
+
+    # Make sure the correct kinds of exceptions were induced.
+    exceptions_induced_str = [m.exception_induced.__name__ for m in modifications]
+    assert sorted(exceptions_induced_str) == sorted(requested_bugs)
+
+
+def test_8_random_bugs(tmp_path_factory, test_config):
+    """Test equivalent of `py-bugger -n 8`.
+
+    Look for modifications that match bugs_requested.
+    Look for message that it can't add more bugs.
+    """
+    # Copy sample code to tmp dir.
+    tmp_path = tmp_path_factory.mktemp("sample_code")
+    print(f"\nCopying code to: {tmp_path.as_posix()}")
+
+    path_src = test_config.path_sample_scripts / "dog_bark.py"
+    path_dst = tmp_path / path_src.name
+    shutil.copyfile(path_src, path_dst)
+
+    # Make modifications against this directory.
+    # With the current random seed, 8 seems to be the smallest number of bugs
+    # where it can't finish adding bugs.
+    pb_config.target_file = path_dst
+    pb_config.num_bugs = 8
+    cli_utils.validate_config()
+
+    requested_bugs = py_bugger.main()
+
+    # Make sure one requested bug was unable to be generated.
+    assert len(modifications) == len(requested_bugs) - 1
+
+    # Make sure all requested bugs except one are in modifications.
+    exceptions_induced_str = [m.exception_induced.__name__ for m in modifications]
+    while exceptions_induced_str:
+        exception_induced = exceptions_induced_str.pop()
+        requested_bugs.remove(exception_induced)
+
+    assert len(requested_bugs) == 1
+
+def test_indentationerror_multiple_trys(tmp_path_factory, test_config):
+    """Test requesting a single IndentationError against a file with two try blocks.
+
+    This is related to issue 65, where the bare try block that's being targeted matches
+    every try block in the file. We should see just one modification.
+    """
+    # Copy sample code to tmp dir.
+    tmp_path = tmp_path_factory.mktemp("sample_code")
+    print(f"\nCopying code to: {tmp_path.as_posix()}")
+
+    path_src = test_config.path_sample_scripts / "two_trys.py"
+    path_dst = tmp_path / path_src.name
+    shutil.copyfile(path_src, path_dst)
+
+    # Make modifications against this file.
+    pb_config.target_file = path_dst
+    pb_config.num_bugs = 1
+    pb_config.exception_type = "IndentationError"
+    cli_utils.validate_config()
+
+    requested_bugs = py_bugger.main()
+
+    # Check that only one modification was made.
+    assert len(modifications) == 1
+
+
+## file: tests/sample_code/sample_scripts/two_trys.py
+sha256: 66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11
+
+"""Simple file with two try-except blocks."""
+
+try:
+    5/0
+except ZeroDivisionError:
+    print("Can't divide by zero!")
+
+try:
+    10/0
+except ZeroDivisionError:
+    print("That doesn't work either!")
+
+
+## file: src/py_bugger/utils/bug_utils.py
+sha256: c577496381f9c0b4166b9b224fc00144736949991ff6a58f4bf2b28597989f35
+
+"""Resources for modifying code in ways that make it break."""
+
+import random
+import builtins
+
+from py_bugger.utils import file_utils
+from py_bugger.utils.modification import Modification, modifications
+
+
+def make_typo(name):
+    """Add a typo to the name of an identifier.
+
+    Randomly decides which kind of change to make.
+    """
+    typo_fns = [remove_char, insert_char, modify_char]
+
+    while True:
+        typo_fn = random.choice(typo_fns)
+        new_name = typo_fn(name)
+
+        # Reject names that match builtins.
+        if new_name in dir(builtins):
+            continue
+
+        return new_name
+
+
+def remove_char(name):
+    """Remove a character from the name."""
+    chars = list(name)
+    index_remove = random.randint(0, len(chars) - 1)
+    del chars[index_remove]
+
+    return "".join(chars)
+
+
+def insert_char(name):
+    """Insert a character into the name."""
+    chars = list(name)
+    new_char = random.choice("abcdefghijklmnopqrstuvwxyz")
+    index = random.randint(0, len(chars))
+    chars.insert(index, new_char)
+
+    return "".join(chars)
+
+
+def modify_char(name):
+    """Modify a character in a name."""
+    chars = list(name)
+    index = random.randint(0, len(chars) - 1)
+
+    # Make sure new_char does not match current char.
+    while True:
+        new_char = random.choice("abcdefghijklmnopqrstuvwxyz")
+        if new_char != chars[index]:
+            break
+    chars[index] = new_char
+
+    return "".join(chars)
+
+
+def add_indentation(path, target_line):
+    """Add one level of indentation (four spaces) to line."""
+    indentation_added = False
+
+    lines = path.read_text().splitlines(keepends=True)
+
+    modified_lines = []
+    for line in lines:
+        # `line` contains leading whitespace and trailing newline.
+        # `target_line` just contains code, so use `in` rather than `==`.
+        if target_line in line:
+            modified_line = f"    {line}"
+            modified_lines.append(modified_line)
+            indentation_added = True
+
+            # Record this modification.
+            modification = Modification(
+                path,
+                original_line=line,
+                modified_line=modified_line,
+                exception_induced=IndentationError,
+            )
+            modifications.append(modification)
+        else:
+            modified_lines.append(line)
+
+    modified_source = "".join(modified_lines)
+    path.write_text(modified_source)
+
+    return indentation_added

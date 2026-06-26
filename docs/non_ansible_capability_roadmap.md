@@ -268,3 +268,14 @@ v2.28 tests whether one manually supplied External Candidate Seed Draft can beco
 - Required proof: direct buggy commit checkout, native target test, project-native support file, declared environment source, and captured pre-repair failure.
 - Result: `verified_external_candidate_seed_added`.
 - No repair or patch generation is authorized in this lane.
+## v2.29 Structural Repair Capability Integration
+
+v2.29 integrates the missing repair-navigation controls for the reviewed external candidate path.
+
+- AST Dependency Closure and executed-scope evidence restrict patchable files.
+- Context Pinching Filter creates a hash-anchored repair capsule from allowed buggy-tree evidence.
+- Failure Memory Weight Ledger is diagnostic-only.
+- Fragmented Patch Assembly Gate still permits only one final patch attempt.
+- Pre/Post Handoff Consistency Gate ties patch and validation evidence to the same candidate, commit, command, and failure signature.
+
+The lane selects no additional candidates and does not promote the current protocol.

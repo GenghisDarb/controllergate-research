@@ -1,0 +1,28 @@
+{
+  "campaign_id": "v2_29_external_candidate_repair_lane",
+  "claim_boundary": {
+    "full_scoring": "NOT_RUN/disallowed",
+    "memory_lift": "undemonstrated",
+    "self_maintaining_software": "false/not_demonstrated"
+  },
+  "created_utc": "2026-06-26T22:31:05Z",
+  "current_protocol_version": "v2.13",
+  "entries": [
+    {
+      "blocker": "selected_candidate_dependency_resolution_failed",
+      "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+      "candidate_id": "py_bugger_issue_65",
+      "created_utc": "2026-06-26T22:33:50Z",
+      "diagnostic_loci": [
+        "src/py_bugger/utils/bug_utils.py"
+      ],
+      "diagnostic_only": true,
+      "failure_signature_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+      "memory_lift_claimed": false,
+      "patch_outcome": "blocked",
+      "patch_sha256": null
+    }
+  ],
+  "purpose": "diagnostic_only_failure_locus_weighting",
+  "schema_version": "v2.29"
+}

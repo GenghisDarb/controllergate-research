@@ -1,0 +1,72 @@
+{
+  "campaign_id": "v2_29_external_candidate_repair_lane",
+  "created_utc": "2026-06-26T22:31:05Z",
+  "current_protocol_version": "v2.13",
+  "entries": [
+    {
+      "action": "v2.28 official ingest verified",
+      "entry_hash": "979867ca07db0b500187671ff97d4fa612a53c9271e6d9b4b70572ff1ff8c98b",
+      "index": 0,
+      "previous_entry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "PASS"
+    },
+    {
+      "action": "candidate registry entry verified",
+      "entry_hash": "17abfa98d193539836a70f93438c00bb3537d9c73061de0ce6a8b485664be4c5",
+      "index": 1,
+      "previous_entry_hash": "979867ca07db0b500187671ff97d4fa612a53c9271e6d9b4b70572ff1ff8c98b",
+      "status": "PASS"
+    },
+    {
+      "action": "exact buggy checkout",
+      "entry_hash": "3f7baccf28451a7edb89a442915734d62bbbb698a5257ae9bfe9ca4b6c2b2454",
+      "index": 2,
+      "previous_entry_hash": "17abfa98d193539836a70f93438c00bb3537d9c73061de0ce6a8b485664be4c5",
+      "status": "PASS"
+    },
+    {
+      "action": "target support environment hashes checked",
+      "entry_hash": "42ca1ebc80edff834f7ed65bc097b3086e8a823880eb04be6cd20c53a98fb51b",
+      "index": 3,
+      "previous_entry_hash": "3f7baccf28451a7edb89a442915734d62bbbb698a5257ae9bfe9ca4b6c2b2454",
+      "status": "PASS"
+    },
+    {
+      "action": "pre repair replay gate",
+      "entry_hash": "61d19cc3b7cc3f63e78a055e24e3095199a2b87b0d4643357f6d0626a31c9b2b",
+      "index": 4,
+      "previous_entry_hash": "42ca1ebc80edff834f7ed65bc097b3086e8a823880eb04be6cd20c53a98fb51b",
+      "status": "BLOCK"
+    },
+    {
+      "action": "context closure and capsule",
+      "entry_hash": "d4f05c96ee2dd97039c6e3cb970bdbd2b2c100cbc965945d3574d5801a82c2a6",
+      "index": 5,
+      "previous_entry_hash": "61d19cc3b7cc3f63e78a055e24e3095199a2b87b0d4643357f6d0626a31c9b2b",
+      "status": "PASS"
+    },
+    {
+      "action": "patch authorization",
+      "entry_hash": "afaa55080cb1eec9cbade0941babbd6c1cb349ddca660fe81141a4d2ccf36390",
+      "index": 6,
+      "previous_entry_hash": "d4f05c96ee2dd97039c6e3cb970bdbd2b2c100cbc965945d3574d5801a82c2a6",
+      "status": "not_authorized"
+    },
+    {
+      "action": "target validation",
+      "entry_hash": "dacba58684c79410f54220598435b197b3e141b0dd25243d6d0829f754d64694",
+      "index": 7,
+      "previous_entry_hash": "afaa55080cb1eec9cbade0941babbd6c1cb349ddca660fe81141a4d2ccf36390",
+      "status": "not_run"
+    },
+    {
+      "action": "duplicate replay",
+      "entry_hash": "e32c3237f59324b7dabdf7460ef6c5d499221ecf75a7d22014f684989d481dd6",
+      "index": 8,
+      "previous_entry_hash": "dacba58684c79410f54220598435b197b3e141b0dd25243d6d0829f754d64694",
+      "status": "not_run"
+    }
+  ],
+  "head_hash": "e32c3237f59324b7dabdf7460ef6c5d499221ecf75a7d22014f684989d481dd6",
+  "status": "PASS"
+}

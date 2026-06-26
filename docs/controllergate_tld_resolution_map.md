@@ -84,3 +84,10 @@ v2.28 records the seed-draft verification boundary for a py-bugger candidate.
 - Candidate: `py_bugger_issue_65`.
 - Registry merge requires failure capture from the direct checked-out commit.
 - Result: `seed_capture_environment_resolution_failed`.
+## v2.29 Structural Repair Capability Integration
+
+v2.29 moves the external candidate path from verified seed capture to a bounded repair attempt with source-context narrowing and validation custody.
+
+- Candidate: `py_bugger_issue_65`.
+- Scope: one reviewed external candidate and one possible source-only patch.
+- Stop condition: any registry, replay, context, patch-safety, validation, or duplicate-replay mismatch blocks before broader claims.

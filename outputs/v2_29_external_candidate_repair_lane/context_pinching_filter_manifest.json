@@ -1,0 +1,35 @@
+{
+  "allowed_sources": [
+    "reviewed_registry_entry",
+    "v2_28_failure_signature",
+    "pre_repair_replay_hashes",
+    "structural_failure_signature",
+    "buggy_tree_target_test",
+    "buggy_tree_support_file",
+    "buggy_tree_candidate_source_subset",
+    "environment_and_command_manifests"
+  ],
+  "campaign_id": "v2_29_external_candidate_repair_lane",
+  "created_utc": "2026-06-26T22:31:05Z",
+  "current_protocol_version": "v2.13",
+  "forbidden_sources_excluded": true,
+  "included_files": [
+    {
+      "bytes_included": 4263,
+      "path": "tests/integration_tests/test_modifications.py",
+      "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+    },
+    {
+      "bytes_included": 201,
+      "path": "tests/sample_code/sample_scripts/two_trys.py",
+      "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+    },
+    {
+      "bytes_included": 2447,
+      "path": "src/py_bugger/utils/bug_utils.py",
+      "sha256": "c577496381f9c0b4166b9b224fc00144736949991ff6a58f4bf2b28597989f35"
+    }
+  ],
+  "patch_generation_must_use_capsule_only": true,
+  "status": "PASS"
+}

@@ -609,5 +609,17 @@
     "valid_reviewed_candidate_count_after_run": 1,
     "repair_attempted": false,
     "patch_generated": false
+  },
+  "external_candidate_repair_lane_v2_29": {
+    "status": "implemented_active",
+    "candidate_id": "py_bugger_issue_65",
+    "controls": [
+      "ast_dependency_closure",
+      "context_pinching_filter",
+      "failure_memory_weight_ledger",
+      "fragmented_patch_assembly_gate",
+      "pre_post_handoff_consistency_gate"
+    ],
+    "full_scoring": "not_run_disallowed"
   }
 }

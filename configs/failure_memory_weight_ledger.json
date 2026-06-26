@@ -1,0 +1,25 @@
+{
+  "schema_version": "v2.29",
+  "purpose": "diagnostic_only_failure_locus_weighting",
+  "claim_boundary": {
+    "memory_lift": "undemonstrated",
+    "full_scoring": "NOT_RUN/disallowed",
+    "self_maintaining_software": "false/not_demonstrated"
+  },
+  "entries": [
+    {
+      "candidate_id": "py_bugger_issue_65",
+      "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+      "failure_signature_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+      "diagnostic_loci": [
+        "src/py_bugger/utils/bug_utils.py"
+      ],
+      "patch_outcome": "blocked",
+      "blocker": "selected_candidate_dependency_resolution_failed",
+      "patch_sha256": null,
+      "diagnostic_only": true,
+      "memory_lift_claimed": false,
+      "created_utc": "2026-06-26T22:33:50Z"
+    }
+  ]
+}

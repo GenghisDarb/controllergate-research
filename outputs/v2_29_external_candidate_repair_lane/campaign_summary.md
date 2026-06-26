@@ -1,0 +1,22 @@
+# v2.29 External Candidate Repair Lane
+
+- Campaign: `v2_29_external_candidate_repair_lane`.
+- Candidate: `py_bugger_issue_65`.
+- Registry verification: `PASS`.
+- Pre-repair replay: `not_run`.
+- Pre-repair normalized hash match: `BLOCK`.
+- AST Dependency Closure: `PASS`.
+- Context Pinching Filter: `PASS`.
+- Failure Memory Weight Ledger: `PASS`.
+- Fragmented Patch Assembly Gate: `not_authorized`.
+- Pre/Post Handoff Consistency Gate: `not_authorized`.
+- Patch generated: `false`.
+- Patch attempted: `false`.
+- Target validation: `not_run`.
+- Duplicate clean replay: `not_run`.
+- Selected candidate scoreable: `false`.
+- Exact blocker: `selected_candidate_dependency_resolution_failed`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.29 is not promoted to current.

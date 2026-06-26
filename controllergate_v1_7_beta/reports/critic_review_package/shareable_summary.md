@@ -1408,3 +1408,6 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.28 is not promoted to current.
+## v2.29 Structural Repair Capability Integration
+
+v2.29 adds neutral repair-context controls and attempts exactly one bounded repair on the reviewed py-bugger candidate if the replay gates pass. Current protocol stays v2.13; full scoring and broad claims remain disabled.

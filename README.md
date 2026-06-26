@@ -339,3 +339,10 @@ v2.28 verifies the Brad-supplied py-bugger External Candidate Seed Draft and may
 - Reviewed valid candidate count after run: `1`.
 - Repair and patch generation remain disabled.
 - Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+## v2.29 external candidate repair lane
+
+v2.29 adds the Structural Repair Capability Integration Lane and runs at most one bounded source-only repair attempt for the reviewed `py_bugger_issue_65` candidate.
+
+- Candidate scope: exactly `py_bugger_issue_65`.
+- Capability controls: AST Dependency Closure, Context Pinching Filter, diagnostic Failure Memory Weight Ledger, Fragmented Patch Assembly Gate, and Pre/Post Handoff Consistency Gate.
+- Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
