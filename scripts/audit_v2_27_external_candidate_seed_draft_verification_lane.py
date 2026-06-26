@@ -23,11 +23,22 @@ NONCANONICAL_SEED_PATH = REPO_ROOT / "configs" / "candidate_seed_draft.json"
 V226_ROOT = REPO_ROOT / "outputs" / "v2_26_external_candidate_seed_capture_lane"
 V223_ROOT = REPO_ROOT / "outputs" / "v2_23_non_ansible_candidate_transition_lane"
 BLOCKER_NO_SEED_DRAFT = "blocked_no_external_candidate_seed_draft_provided"
+EXPECTED_V227_ARTIFACT = {
+    "artifact_name": "v2_27_external_candidate_seed_draft_verification_lane_artifacts",
+    "workflow_run_id": 28256911882,
+    "artifact_id": 7913130871,
+    "zip_size": 67983,
+    "zip_sha256": "3a25700c93647b531cbf1c561e6b84925517547b0f745a27f5a3a21f3c046ec3",
+    "entry_count": 38,
+    "internal_manifest_checked": 28,
+    "successful_v2_27_head_commit": "c40b49e3ff147c0e245a06d76bcd73cd0e7a39f2",
+}
 
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
     "v2_26_artifact_ingest_verification.json",
+    "v2_27_official_artifact_verification.json",
     "artifact_repo_snapshot_comparison.json",
     "seed_draft_presence_check.json",
     "seed_draft_schema_validation.json",
@@ -197,6 +208,7 @@ def audit_outputs(errors: list[str]) -> None:
 
     results = load_json(OUTPUT_ROOT / "campaign_results.json", errors)
     v226_ingest = load_json(OUTPUT_ROOT / "v2_26_artifact_ingest_verification.json", errors)
+    v227_official = load_json(OUTPUT_ROOT / "v2_27_official_artifact_verification.json", errors)
     v226_official = load_json(V226_ROOT / "v2_26_official_artifact_verification.json", errors)
     presence = load_json(OUTPUT_ROOT / "seed_draft_presence_check.json", errors)
     path_policy = load_json(OUTPUT_ROOT / "seed_draft_path_policy_check.json", errors)
@@ -226,6 +238,22 @@ def audit_outputs(errors: list[str]) -> None:
     expect(v226_ingest.get("status") == "PASS", errors, "v2.26 artifact ingest not carried forward")
     expect(v226_ingest.get("zip_sha256") == "4d24593b2c68877e79731975ce824121f17145dcd4318c154a3d6a602aa8d81d", errors, "v2.26 digest mismatch")
     expect(v226_ingest.get("manual_artifact_boundary") == "PASS", errors, "v2.26 manual artifact boundary not carried forward")
+    expect(v227_official.get("status") == "PASS", errors, "v2.27 official verification not PASS")
+    for key, value in EXPECTED_V227_ARTIFACT.items():
+        expect(v227_official.get(key) == value, errors, f"v2.27 official artifact {key} mismatch")
+    expect(v227_official.get("safe_path_status") == "PASS", errors, "v2.27 artifact path safety not PASS")
+    expect(v227_official.get("duplicate_path_count") == 0, errors, "v2.27 artifact duplicate paths found")
+    expect(v227_official.get("internal_manifest_missing_count") == 0, errors, "v2.27 internal manifest missing entries")
+    expect(v227_official.get("internal_manifest_malformed_count") == 0, errors, "v2.27 internal manifest malformed entries")
+    expect(v227_official.get("internal_manifest_failure_count") == 0, errors, "v2.27 internal manifest hash failures")
+    expect(v227_official.get("output_manifest_coverage") == "PASS", errors, "v2.27 output manifest coverage not PASS")
+    expect(v227_official.get("manual_artifact_boundary") == "PASS", errors, "v2.27 manual artifact boundary not recorded")
+    expect(v227_official.get("downloaded_by_codex") is False, errors, "v2.27 artifact custody claims Codex download")
+    expect(v227_official.get("local_artifact_path_outside_git") is True, errors, "v2.27 local artifact path not outside Git")
+    expect(v227_official.get("seed_absent_blocker_carry_forward_status") == "PASS", errors, "v2.27 seed blocker carry-forward not PASS")
+    expect(v227_official.get("registry_validation_carry_forward_status") == "PASS", errors, "v2.27 registry carry-forward not PASS")
+    expect(v227_official.get("byte_custody_fix_record_status") == "PASS", errors, "v2.27 byte-custody fix not recorded")
+    expect(v227_official.get("v2_28_seed_draft_verification_recommendation_carry_forward_status") == "PASS", errors, "v2.28 recommendation carry-forward not PASS")
     expect(v223_block.get("status") == "BLOCK", errors, "benchmark framework global block status mismatch")
     expect(v223_block.get("candidate_selection_allowed") is False, errors, "benchmark framework global block not carried forward")
 
