@@ -1,80 +1,21 @@
-$ git clone --no-tags -- https://github.com/ehmatthes/py-bugger '<workspace>\source'
-Cloning into '<workspace>\source'...
-Updating files:  16% (11/68)
-Updating files:  17% (12/68)
-Updating files:  19% (13/68)
-Updating files:  20% (14/68)
-Updating files:  22% (15/68)
-Updating files:  23% (16/68)
-Updating files:  25% (17/68)
-Updating files:  26% (18/68)
-Updating files:  27% (19/68)
-Updating files:  29% (20/68)
-Updating files:  30% (21/68)
-Updating files:  32% (22/68)
-Updating files:  33% (23/68)
-Updating files:  35% (24/68)
-Updating files:  36% (25/68)
-Updating files:  38% (26/68)
-Updating files:  39% (27/68)
-Updating files:  41% (28/68)
-Updating files:  42% (29/68)
-Updating files:  44% (30/68)
-Updating files:  45% (31/68)
-Updating files:  47% (32/68)
-Updating files:  48% (33/68)
-Updating files:  50% (34/68)
-Updating files:  51% (35/68)
-Updating files:  52% (36/68)
-Updating files:  54% (37/68)
-Updating files:  55% (38/68)
-Updating files:  57% (39/68)
-Updating files:  58% (40/68)
-Updating files:  60% (41/68)
-Updating files:  61% (42/68)
-Updating files:  63% (43/68)
-Updating files:  64% (44/68)
-Updating files:  66% (45/68)
-Updating files:  67% (46/68)
-Updating files:  69% (47/68)
-Updating files:  70% (48/68)
-Updating files:  72% (49/68)
-Updating files:  73% (50/68)
-Updating files:  75% (51/68)
-Updating files:  76% (52/68)
-Updating files:  77% (53/68)
-Updating files:  79% (54/68)
-Updating files:  80% (55/68)
-Updating files:  82% (56/68)
-Updating files:  83% (57/68)
-Updating files:  85% (58/68)
-Updating files:  86% (59/68)
-Updating files:  88% (60/68)
-Updating files:  89% (61/68)
-Updating files:  91% (62/68)
-Updating files:  92% (63/68)
-Updating files:  94% (64/68)
-Updating files:  95% (65/68)
-Updating files:  97% (66/68)
-Updating files:  98% (67/68)
-Updating files: 100% (68/68)
-Updating files: 100% (68/68), done.
+$ git clone --no-tags -- https://github.com/ehmatthes/py-bugger <workspace>/source
+Cloning into '<workspace>/source'...
 
 exit_code=0
-$ git -c 'safe.directory=<workspace>\source' -C '<workspace>\source' fetch origin 67cf214f2d619848e90280fd4469377123e81b94
+$ git -c safe.directory=<workspace>/source -C <workspace>/source fetch origin 67cf214f2d619848e90280fd4469377123e81b94
 From https://github.com/ehmatthes/py-bugger
  * branch            67cf214f2d619848e90280fd4469377123e81b94 -> FETCH_HEAD
 
 exit_code=0
-$ git -c 'safe.directory=<workspace>\source' -C '<workspace>\source' checkout --detach 67cf214f2d619848e90280fd4469377123e81b94
+$ git -c safe.directory=<workspace>/source -C <workspace>/source checkout --detach 67cf214f2d619848e90280fd4469377123e81b94
 HEAD is now at 67cf214 Failing test for Issue 65.
 
 exit_code=0
-$ git -c 'safe.directory=<workspace>\source' -C '<workspace>\source' rev-parse HEAD
+$ git -c safe.directory=<workspace>/source -C <workspace>/source rev-parse HEAD
 67cf214f2d619848e90280fd4469377123e81b94
 
 exit_code=0
-$ git -c 'safe.directory=<workspace>\source' -C '<workspace>\source' ls-tree -r --name-only HEAD
+$ git -c safe.directory=<workspace>/source -C <workspace>/source ls-tree -r --name-only HEAD
 .github/ISSUE_TEMPLATE/bug_report.yml
 .github/workflows/test.yaml
 .gitignore
@@ -142,5 +83,246 @@ tests/unit_tests/test_bug_utils.py
 tests/unit_tests/test_file_utils.py
 
 exit_code=0
-$ 'C:\Users\thisb\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe' -m venv '<workspace>\venv'
-timeout_seconds=120
+$ /opt/hostedtoolcache/Python/3.10.20/x64/bin/python -m venv <workspace>/venv
+exit_code=0
+$ <workspace>/venv/bin/python -m pip install -e '.[dev]'
+Obtaining file://<workspace>/source
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting click
+  Downloading click-8.4.2-py3-none-any.whl (119 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 119.2/119.2 kB 7.3 MB/s eta 0:00:00
+Collecting libcst
+  Downloading libcst-1.8.6-cp310-cp310-manylinux_2_28_x86_64.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 29.2 MB/s eta 0:00:00
+Collecting black>=24.1.0
+  Downloading black-26.5.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 50.1 MB/s eta 0:00:00
+Collecting pytest>=8.3.0
+  Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 386.5/386.5 kB 51.6 MB/s eta 0:00:00
+Collecting mkdocs>=1.6.0
+  Downloading mkdocs-1.6.1-py3-none-any.whl (3.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 73.6 MB/s eta 0:00:00
+Collecting mkdocs-material>=9.5.0
+  Downloading mkdocs_material-9.7.6-py3-none-any.whl (9.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 119.7 MB/s eta 0:00:00
+Collecting build>=1.2.1
+  Downloading build-1.5.0-py3-none-any.whl (26 kB)
+Collecting pytest-xdist>=3.7.0
+  Downloading pytest_xdist-3.8.0-py3-none-any.whl (46 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 21.0 MB/s eta 0:00:00
+Collecting twine>=5.1.1
+  Downloading twine-6.2.0-py3-none-any.whl (42 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.7/42.7 kB 20.0 MB/s eta 0:00:00
+Collecting packaging>=22.0
+  Downloading packaging-26.2-py3-none-any.whl (100 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.2/100.2 kB 34.6 MB/s eta 0:00:00
+Collecting pathspec>=1.0.0
+  Downloading pathspec-1.1.1-py3-none-any.whl (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.3/57.3 kB 26.5 MB/s eta 0:00:00
+Collecting typing-extensions>=4.0.1
+  Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.6/44.6 kB 18.4 MB/s eta 0:00:00
+Collecting platformdirs>=2
+  Downloading platformdirs-4.10.0-py3-none-any.whl (22 kB)
+Collecting pytokens~=0.4.0
+  Downloading pytokens-0.4.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (259 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 259.5/259.5 kB 88.5 MB/s eta 0:00:00
+Collecting tomli>=1.1.0
+  Downloading tomli-2.4.1-py3-none-any.whl (14 kB)
+Collecting mypy-extensions>=0.4.3
+  Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+Collecting pyproject_hooks
+  Downloading pyproject_hooks-1.2.0-py3-none-any.whl (10 kB)
+Collecting mkdocs-get-deps>=0.2.0
+  Downloading mkdocs_get_deps-0.2.2-py3-none-any.whl (9.6 kB)
+Collecting jinja2>=2.11.1
+  Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 56.3 MB/s eta 0:00:00
+Collecting pyyaml>=5.1
+  Downloading pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (770 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 770.3/770.3 kB 86.0 MB/s eta 0:00:00
+Collecting markdown>=3.3.6
+  Downloading markdown-3.10.2-py3-none-any.whl (108 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 108.2/108.2 kB 47.7 MB/s eta 0:00:00
+Collecting ghp-import>=1.0
+  Downloading ghp_import-2.1.0-py3-none-any.whl (11 kB)
+Collecting pyyaml-env-tag>=0.1
+  Downloading pyyaml_env_tag-1.1-py3-none-any.whl (4.7 kB)
+Collecting markupsafe>=2.0.1
+  Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Collecting mergedeep>=1.3.4
+  Downloading mergedeep-1.3.4-py3-none-any.whl (6.4 kB)
+Collecting watchdog>=2.0
+  Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl (79 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.1/79.1 kB 35.4 MB/s eta 0:00:00
+Collecting pymdown-extensions>=10.2
+  Downloading pymdown_extensions-11.0-py3-none-any.whl (269 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 269.4/269.4 kB 96.5 MB/s eta 0:00:00
+Collecting backrefs>=5.7.post1
+  Downloading backrefs-7.0-py310-none-any.whl (380 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 380.8/380.8 kB 70.3 MB/s eta 0:00:00
+Collecting colorama>=0.4
+  Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting mkdocs-material-extensions>=1.3
+  Downloading mkdocs_material_extensions-1.3.1-py3-none-any.whl (8.7 kB)
+Collecting pygments>=2.16
+  Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 137.6 MB/s eta 0:00:00
+Collecting requests>=2.30
+  Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 32.2 MB/s eta 0:00:00
+Collecting babel>=2.10
+  Downloading babel-2.18.0-py3-none-any.whl (10.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 166.5 MB/s eta 0:00:00
+Collecting paginate>=0.5
+  Downloading paginate-0.5.7-py2.py3-none-any.whl (13 kB)
+Collecting exceptiongroup>=1
+  Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+Collecting iniconfig>=1.0.1
+  Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Collecting pluggy<2,>=1.5
+  Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Collecting execnet>=2.1
+  Downloading execnet-2.1.2-py3-none-any.whl (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.7/40.7 kB 17.1 MB/s eta 0:00:00
+Collecting rfc3986>=1.4.0
+  Downloading rfc3986-2.0.0-py2.py3-none-any.whl (31 kB)
+Collecting requests-toolbelt!=0.9.0,>=0.8.0
+  Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.5/54.5 kB 23.2 MB/s eta 0:00:00
+Collecting rich>=12.0.0
+  Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 97.1 MB/s eta 0:00:00
+Collecting id
+  Downloading id-1.6.1-py3-none-any.whl (14 kB)
+Collecting readme-renderer>=35.0
+  Downloading readme_renderer-45.0-py3-none-any.whl (14 kB)
+Collecting keyring>=21.2.0
+  Downloading keyring-25.7.0-py3-none-any.whl (39 kB)
+Collecting urllib3>=1.26.0
+  Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 131.1/131.1 kB 20.5 MB/s eta 0:00:00
+Collecting python-dateutil>=2.8.1
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 87.0 MB/s eta 0:00:00
+Collecting jaraco.functools
+  Downloading jaraco_functools-4.5.0-py3-none-any.whl (10 kB)
+Collecting jaraco.context
+  Downloading jaraco_context-6.1.2-py3-none-any.whl (7.9 kB)
+Collecting importlib_metadata>=4.11.4
+  Downloading importlib_metadata-9.0.0-py3-none-any.whl (27 kB)
+Collecting jaraco.classes
+  Downloading jaraco.classes-3.4.0-py3-none-any.whl (6.8 kB)
+Collecting jeepney>=0.4.2
+  Downloading jeepney-0.9.0-py3-none-any.whl (49 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.0/49.0 kB 23.3 MB/s eta 0:00:00
+Collecting SecretStorage>=3.2
+  Downloading secretstorage-3.5.0-py3-none-any.whl (15 kB)
+Collecting nh3>=0.2.14
+  Downloading nh3-0.3.6-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (806 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.7/806.7 kB 51.9 MB/s eta 0:00:00
+Collecting docutils>=0.21.2
+  Downloading docutils-0.23-py3-none-any.whl (634 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 634.7/634.7 kB 138.0 MB/s eta 0:00:00
+Collecting charset_normalizer<4,>=2
+  Downloading charset_normalizer-3.4.7-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (216 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.9/216.9 kB 84.2 MB/s eta 0:00:00
+Collecting certifi>=2023.5.7
+  Downloading certifi-2026.6.17-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 kB 60.5 MB/s eta 0:00:00
+Collecting idna<4,>=2.5
+  Downloading idna-3.18-py3-none-any.whl (65 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.5/65.5 kB 30.8 MB/s eta 0:00:00
+Collecting markdown-it-py>=2.2.0
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.7/91.7 kB 39.4 MB/s eta 0:00:00
+Collecting zipp>=3.20
+  Downloading zipp-4.1.0-py3-none-any.whl (10 kB)
+Collecting mdurl~=0.1
+  Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Collecting six>=1.5
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Collecting cryptography>=2.0
+  Downloading cryptography-49.0.0-cp39-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 175.8 MB/s eta 0:00:00
+Collecting more-itertools
+  Downloading more_itertools-11.1.0-py3-none-any.whl (72 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.2/72.2 kB 33.1 MB/s eta 0:00:00
+Collecting backports.tarfile
+  Downloading backports.tarfile-1.2.0-py3-none-any.whl (30 kB)
+Collecting cffi>=2.0.0
+  Downloading cffi-2.0.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (216 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.5/216.5 kB 81.7 MB/s eta 0:00:00
+Collecting pycparser
+  Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.2/48.2 kB 22.6 MB/s eta 0:00:00
+Building wheels for collected packages: python-bugger
+  Building editable for python-bugger (pyproject.toml): started
+  Building editable for python-bugger (pyproject.toml): finished with status 'done'
+  Created wheel for python-bugger: filename=python_bugger-0.5.0-0.editable-py3-none-any.whl size=3793 sha256=b8f880dffe9ce6f978791e824b5a14c4a07d7c326e657d6faac57d98bee889a7
+  Stored in directory: /tmp/pip-ephem-wheel-cache-1l8ogugy/wheels/c3/ba/92/3f17f8cfba76318e7d4a8780c4c2ac9e0cec56aaf6af7ce270
+Successfully built python-bugger
+Installing collected packages: paginate, zipp, watchdog, urllib3, typing-extensions, tomli, six, rfc3986, pyyaml, pytokens, pyproject_hooks, pygments, pycparser, pluggy, platformdirs, pathspec, packaging, nh3, mypy-extensions, more-itertools, mkdocs-material-extensions, mergedeep, mdurl, markupsafe, markdown, jeepney, iniconfig, idna, execnet, docutils, colorama, click, charset_normalizer, certifi, backrefs, backports.tarfile, babel, requests, readme-renderer, pyyaml-env-tag, python-dateutil, pymdown-extensions, mkdocs-get-deps, markdown-it-py, libcst, jinja2, jaraco.functools, jaraco.context, jaraco.classes, importlib_metadata, id, exceptiongroup, cffi, build, black, rich, requests-toolbelt, python-bugger, pytest, ghp-import, cryptography, SecretStorage, pytest-xdist, mkdocs, mkdocs-material, keyring, twine
+Successfully installed SecretStorage-3.5.0 babel-2.18.0 backports.tarfile-1.2.0 backrefs-7.0 black-26.5.1 build-1.5.0 certifi-2026.6.17 cffi-2.0.0 charset_normalizer-3.4.7 click-8.4.2 colorama-0.4.6 cryptography-49.0.0 docutils-0.23 exceptiongroup-1.3.1 execnet-2.1.2 ghp-import-2.1.0 id-1.6.1 idna-3.18 importlib_metadata-9.0.0 iniconfig-2.3.0 jaraco.classes-3.4.0 jaraco.context-6.1.2 jaraco.functools-4.5.0 jeepney-0.9.0 jinja2-3.1.6 keyring-25.7.0 libcst-1.8.6 markdown-3.10.2 markdown-it-py-4.2.0 markupsafe-3.0.3 mdurl-0.1.2 mergedeep-1.3.4 mkdocs-1.6.1 mkdocs-get-deps-0.2.2 mkdocs-material-9.7.6 mkdocs-material-extensions-1.3.1 more-itertools-11.1.0 mypy-extensions-1.1.0 nh3-0.3.6 packaging-26.2 paginate-0.5.7 pathspec-1.1.1 platformdirs-4.10.0 pluggy-1.6.0 pycparser-3.0 pygments-2.20.0 pymdown-extensions-11.0 pyproject_hooks-1.2.0 pytest-9.1.1 pytest-xdist-3.8.0 python-bugger-0.5.0 python-dateutil-2.9.0.post0 pytokens-0.4.1 pyyaml-6.0.3 pyyaml-env-tag-1.1 readme-renderer-45.0 requests-2.34.2 requests-toolbelt-1.0.0 rfc3986-2.0.0 rich-15.0.0 six-1.17.0 tomli-2.4.1 twine-6.2.0 typing-extensions-4.15.0 urllib3-2.7.0 watchdog-6.0.0 zipp-4.1.0
+
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: python -m pip install --upgrade pip
+
+exit_code=0
+$ <workspace>/venv/bin/python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________ test_indentationerror_multiple_trys ______________________
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7f3c554151b0>, _basetemp=PosixPath('/tmp/pytest-of-runner/pytest-0'), _retention_count=3, _retention_policy='all')
+test_config = <conftest.test_config.<locals>.Config object at 0x7f3c5530c970>
+
+    def test_indentationerror_multiple_trys(tmp_path_factory, test_config):
+        """Test requesting a single IndentationError against a file with two try blocks.
+    
+        This is related to issue 65, where the bare try block that's being targeted matches
+        every try block in the file. We should see just one modification.
+        """
+        # Copy sample code to tmp dir.
+        tmp_path = tmp_path_factory.mktemp("sample_code")
+        print(f"\nCopying code to: {tmp_path.as_posix()}")
+    
+        path_src = test_config.path_sample_scripts / "two_trys.py"
+        path_dst = tmp_path / path_src.name
+        shutil.copyfile(path_src, path_dst)
+    
+        # Make modifications against this file.
+        pb_config.target_file = path_dst
+        pb_config.num_bugs = 1
+        pb_config.exception_type = "IndentationError"
+        cli_utils.validate_config()
+    
+        requested_bugs = py_bugger.main()
+    
+        # Check that only one modification was made.
+>       assert len(modifications) == 1
+E       AssertionError: assert 2 == 1
+E        +  where 2 = len([Modification(path=PosixPath('/tmp/pytest-of-runner/pytest-0/sample_code0/two_trys.py'), original_node=None, modified_... modified_node=None, original_line='try:\n', modified_line='    try:\n', exception_induced=<class 'IndentationError'>)])
+
+tests/integration_tests/test_modifications.py:123: AssertionError
+----------------------------- Captured stdout call -----------------------------
+
+Copying code to: /tmp/pytest-of-runner/pytest-0/sample_code0
+Added bug to: /tmp/pytest-of-runner/pytest-0/sample_code0/two_trys.py
+Inserted 2 bugs.
+Unable to introduce additional bugs of the requested type.
+=========================== short test summary info ============================
+FAILED tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys - AssertionError: assert 2 == 1
+ +  where 2 = len([Modification(path=PosixPath('/tmp/pytest-of-runner/pytest-0/sample_code0/two_trys.py'), original_node=None, modified_... modified_node=None, original_line='try:\n', modified_line='    try:\n', exception_induced=<class 'IndentationError'>)])
+1 failed in 0.06s
+
+exit_code=1

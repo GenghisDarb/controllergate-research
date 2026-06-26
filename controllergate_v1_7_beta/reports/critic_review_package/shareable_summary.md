@@ -1401,8 +1401,8 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Campaign: `v2_28_external_candidate_seed_draft_verification_lane`.
 - Candidate: `py_bugger_issue_65`.
 - v2.27 official ingest verified: `true`.
-- Result: `seed_capture_environment_resolution_failed`.
-- Reviewed valid candidate count after run: `0`.
+- Result: `verified_external_candidate_seed_added`.
+- Reviewed valid candidate count after run: `1`.
 - Repair, patch generation, post-patch validation, and scoring were not run.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift remains `undemonstrated`.

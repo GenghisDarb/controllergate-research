@@ -8,12 +8,12 @@
 - Exact commit checkout status: `exact_commit_checked_out`.
 - Target test co-location status: `PASS`.
 - Support-file co-location status: `PASS`.
-- Environment install status: `venv_creation_failed`.
-- Failure capture status: `not_run_environment_resolution_failed`.
-- Registry merge status: `not_run_blocked_before_registry_merge`.
+- Environment install status: `PASS`.
+- Failure capture status: `PASS`.
+- Registry merge status: `verified_external_candidate_seed_added`.
 - Registry validation after run: `PASS`.
-- Reviewed valid candidate count after run: `0`.
-- Exact blocker/result: `seed_capture_environment_resolution_failed`.
+- Reviewed valid candidate count after run: `1`.
+- Exact blocker/result: `verified_external_candidate_seed_added`.
 - Repair and patch generation were not run.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift remains `undemonstrated`.

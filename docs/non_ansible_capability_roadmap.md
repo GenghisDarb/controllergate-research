@@ -266,5 +266,5 @@ v2.28 tests whether one manually supplied External Candidate Seed Draft can beco
 
 - Candidate: `py_bugger_issue_65`.
 - Required proof: direct buggy commit checkout, native target test, project-native support file, declared environment source, and captured pre-repair failure.
-- Result: `seed_capture_environment_resolution_failed`.
+- Result: `verified_external_candidate_seed_added`.
 - No repair or patch generation is authorized in this lane.

@@ -31,6 +31,16 @@ EXPECTED_SEED = {
     "support_file_paths": ["tests/sample_code/sample_scripts/two_trys.py"],
     "environment_lock_source": "pyproject.toml",
 }
+EXPECTED_V228_ARTIFACT = {
+    "artifact_name": "v2_28_external_candidate_seed_draft_verification_lane_artifacts",
+    "workflow_run_id": 28264407539,
+    "artifact_id": 7916096076,
+    "zip_size": 86511,
+    "zip_sha256": "1b7b905b5708063c9cdeb43e5dd6eafdf868b62b05ab3daa67cb2928c85071e1",
+    "entry_count": 46,
+    "internal_manifest_checked": 35,
+    "successful_v2_28_head_commit": "7e5cc770089c653db1a941f2a02ee8a2063d8720",
+}
 ALLOWED_BLOCKERS = {
     None,
     "blocked_external_candidate_seed_draft_invalid",
@@ -51,6 +61,7 @@ ALLOWED_BLOCKERS = {
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
+    "v2_28_official_artifact_verification.json",
     "v2_27_artifact_ingest_verification.json",
     "artifact_repo_snapshot_comparison.json",
     "seed_draft_presence_check.json",
@@ -220,6 +231,7 @@ def audit_outputs(errors: list[str]) -> None:
     expect(checked == len(REQUIRED_FILES) - 1, errors, "manifest entry count mismatch")
 
     results = load_json(OUTPUT_ROOT / "campaign_results.json", errors)
+    v228_official = load_json(OUTPUT_ROOT / "v2_28_official_artifact_verification.json", errors)
     seed = load_json(SEED_PATH, errors)
     ingest = load_json(OUTPUT_ROOT / "v2_27_artifact_ingest_verification.json", errors)
     schema = load_json(OUTPUT_ROOT / "seed_draft_schema_validation.json", errors)
@@ -251,6 +263,30 @@ def audit_outputs(errors: list[str]) -> None:
     v223_block = load_json(V223_ROOT / "global_bugsinpy_provenance_block.json", errors)
 
     expect(v227_official.get("status") == "PASS", errors, "v2.27 official verification source not PASS")
+    expect(v228_official.get("status") == "PASS", errors, "v2.28 official artifact verification not PASS")
+    for key, value in EXPECTED_V228_ARTIFACT.items():
+        expect(v228_official.get(key) == value, errors, f"v2.28 official artifact {key} mismatch")
+    expect(v228_official.get("safe_path_status") == "PASS", errors, "v2.28 artifact path safety not PASS")
+    expect(v228_official.get("duplicate_path_count") == 0, errors, "v2.28 artifact duplicate paths found")
+    expect(v228_official.get("internal_manifest_missing_count") == 0, errors, "v2.28 internal manifest missing entries")
+    expect(v228_official.get("internal_manifest_malformed_count") == 0, errors, "v2.28 internal manifest malformed entries")
+    expect(v228_official.get("internal_manifest_failure_count") == 0, errors, "v2.28 internal manifest hash failures")
+    expect(v228_official.get("output_manifest_coverage") == "PASS", errors, "v2.28 output manifest coverage not PASS")
+    expect(v228_official.get("manual_artifact_boundary") == "PASS", errors, "v2.28 manual artifact boundary not recorded")
+    expect(v228_official.get("downloaded_by_codex") is False, errors, "v2.28 artifact custody claims Codex download")
+    expect(v228_official.get("local_artifact_path_outside_git") is True, errors, "v2.28 local artifact path not outside Git")
+    expect(v228_official.get("reviewed_registry_candidate_carry_forward_status") == "PASS", errors, "v2.28 registry candidate carry-forward not PASS")
+    expect(v228_official.get("failure_signature_carry_forward_status") == "PASS", errors, "v2.28 failure signature carry-forward not PASS")
+    expect(v228_official.get("registry_merge_record_status") == "PASS", errors, "v2.28 registry merge record not PASS")
+    expect(v228_official.get("registry_validation_record_status") == "PASS", errors, "v2.28 registry validation record not PASS")
+    expect(v228_official.get("v2_29_repair_lane_recommendation_carry_forward_status") == "PASS", errors, "v2.29 recommendation carry-forward not PASS")
+    correction = v228_official.get("artifact_sha_correction_record")
+    expect(isinstance(correction, dict), errors, "v2.28 artifact SHA correction record missing")
+    if isinstance(correction, dict):
+        expect(correction.get("status") == "PASS", errors, "v2.28 artifact SHA correction record not PASS")
+        expect(correction.get("pasted_report_conflict_resolved_in_favor_of_artifact_jsons") is True, errors, "v2.28 SHA discrepancy not resolved in favor of artifact")
+        expect(correction.get("correct_target_test_sha256") == "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1", errors, "v2.28 corrected target SHA mismatch")
+        expect(correction.get("correct_support_file_sha256") == "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11", errors, "v2.28 corrected support SHA mismatch")
     expect(ingest.get("status") == "PASS", errors, "v2.27 artifact ingest not carried forward")
     expect(ingest.get("zip_sha256") == "3a25700c93647b531cbf1c561e6b84925517547b0f745a27f5a3a21f3c046ec3", errors, "v2.27 digest mismatch")
     expect(v223_block.get("status") == "BLOCK", errors, "benchmark framework global block status mismatch")

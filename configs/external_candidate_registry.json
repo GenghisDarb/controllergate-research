@@ -6,5 +6,40 @@
     "requires_expected_failure_log_hash": true,
     "forbids_fixed_future_gold_synthetic_tests": true
   },
-  "candidates": []
+  "candidates": [
+    {
+      "candidate_id": "py_bugger_issue_65",
+      "source_type": "public_github_repo",
+      "repo_url": "https://github.com/ehmatthes/py-bugger",
+      "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+      "test_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q",
+      "expected_failure_signature": {
+        "log_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+        "exception_type": "IndentationError",
+        "failing_file": "developer_resources/sample_attribute_node.py",
+        "failure_text_excerpt_hash": "cd64bae3e95407659c36a05e0f30d50a7a91bb620932fbffa3e3d97dda5660c6",
+        "normalization_policy": "strip_timestamps_absolute_paths_ansi_venv_prefixes"
+      },
+      "target_test_files": [
+        {
+          "path": "tests/integration_tests/test_modifications.py",
+          "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1",
+          "source": "buggy_commit_tree"
+        }
+      ],
+      "support_files": [
+        {
+          "path": "tests/sample_code/sample_scripts/two_trys.py",
+          "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11",
+          "source": "buggy_commit_tree"
+        }
+      ],
+      "environment_lock_source": "pyproject.toml",
+      "decision_time_safe_basis": "offline_manual_verification",
+      "registry_author": "manual_seed_draft",
+      "registry_review_status": "reviewed",
+      "created_utc": "2026-06-26T20:47:58Z",
+      "notes": "Reviewed v2.28 seed captured from direct buggy commit checkout. No repair evidence used."
+    }
+  ]
 }
