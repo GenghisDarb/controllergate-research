@@ -3,7 +3,7 @@
 - Campaign: `v2_29_external_candidate_repair_lane`.
 - Candidate: `py_bugger_issue_65`.
 - Registry verification: `PASS`.
-- Pre-repair replay: `not_run`.
+- Pre-repair replay: `BLOCK`.
 - Pre-repair normalized hash match: `BLOCK`.
 - AST Dependency Closure: `PASS`.
 - Context Pinching Filter: `PASS`.
@@ -15,7 +15,7 @@
 - Target validation: `not_run`.
 - Duplicate clean replay: `not_run`.
 - Selected candidate scoreable: `false`.
-- Exact blocker: `selected_candidate_dependency_resolution_failed`.
+- Exact blocker: `external_bug_signature_mismatch`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.

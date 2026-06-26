@@ -1,10 +1,10 @@
 {
   "campaign_id": "v2_29_external_candidate_repair_lane",
-  "created_utc": "2026-06-26T22:31:05Z",
+  "created_utc": "2026-06-26T22:49:16Z",
   "current_protocol_version": "v2.13",
-  "failure_class": "IndentationError",
+  "failure_class": "AssertionError",
   "post_patch_exit_status": null,
-  "pre_patch_exit_status": null,
-  "status": "not_run",
+  "pre_patch_exit_status": 1,
+  "status": "PASS",
   "target_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q"
 }

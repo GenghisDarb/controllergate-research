@@ -1,7 +1,47 @@
 {
+  "authorized_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q",
   "campaign_id": "v2_29_external_candidate_repair_lane",
-  "created_utc": "2026-06-26T22:31:05Z",
+  "candidate_source_files": [
+    "src/py_bugger/__init__.py",
+    "src/py_bugger/buggers.py",
+    "src/py_bugger/cli/__init__.py",
+    "src/py_bugger/cli/cli_messages.py",
+    "src/py_bugger/cli/cli_utils.py",
+    "src/py_bugger/cli/config.py",
+    "src/py_bugger/py_bugger.py",
+    "src/py_bugger/utils/bug_utils.py",
+    "src/py_bugger/utils/cst_utils.py",
+    "src/py_bugger/utils/file_utils.py",
+    "src/py_bugger/utils/modification.py"
+  ],
+  "created_utc": "2026-06-26T22:49:16Z",
   "current_protocol_version": "v2.13",
-  "patchable_files": [],
-  "status": "not_run_pre_repair_blocked"
+  "dynamic_trace_returncode": 0,
+  "dynamic_tracing_attempted": true,
+  "framework_or_tooling_files": [
+    "<frozen importlib._bootstrap>",
+    "<frozen importlib._bootstrap_external>",
+    "<frozen zipimport>",
+    "<string>"
+  ],
+  "patchable_files": [
+    "src/py_bugger/__init__.py",
+    "src/py_bugger/buggers.py",
+    "src/py_bugger/cli/__init__.py",
+    "src/py_bugger/cli/cli_messages.py",
+    "src/py_bugger/cli/cli_utils.py",
+    "src/py_bugger/cli/config.py",
+    "src/py_bugger/py_bugger.py",
+    "src/py_bugger/utils/bug_utils.py",
+    "src/py_bugger/utils/cst_utils.py",
+    "src/py_bugger/utils/file_utils.py",
+    "src/py_bugger/utils/modification.py"
+  ],
+  "status": "PASS",
+  "support_files": [],
+  "test_files": [
+    "tests/conftest.py",
+    "tests/integration_tests/conftest.py",
+    "tests/integration_tests/test_modifications.py"
+  ]
 }

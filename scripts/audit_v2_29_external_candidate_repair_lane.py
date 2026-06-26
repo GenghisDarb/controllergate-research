@@ -41,6 +41,16 @@ EXPECTED = {
     "expected_failing_file": "developer_resources/sample_attribute_node.py",
     "expected_failure_excerpt_hash": "cd64bae3e95407659c36a05e0f30d50a7a91bb620932fbffa3e3d97dda5660c6",
 }
+EXPECTED_OFFICIAL_ARTIFACT = {
+    "artifact_name": "v2_29_external_candidate_repair_lane_artifacts",
+    "zip_size": 96368,
+    "zip_sha256": "6908479e18a3ace65ea82363a96f08b9a5630c4b96ced18df2173aa20730e591",
+    "entry_count": 68,
+    "internal_manifest_checked": 59,
+    "observed_normalized_failure_log_sha256": "96afb1e4c1f14a7453cbc859924486d11420ff1a3197775919f14d355e2a7cff",
+    "observed_raw_replay_log_sha256": "189e72a277dae46d4c125e705c0c9c99a15e4453562f2668aad82996714f87f2",
+    "exact_blocker": "external_bug_signature_mismatch",
+}
 ALLOWED_BLOCKERS = {
     None,
     "reviewed_candidate_registry_entry_missing_or_invalid",
@@ -72,6 +82,7 @@ ALLOWED_BLOCKERS = {
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
+    "v2_29_official_artifact_verification.json",
     "v2_28_artifact_ingest_verification.json",
     "artifact_repo_snapshot_comparison.json",
     "missing_capability_resolution_map_v2_29.json",
@@ -276,6 +287,7 @@ def audit_outputs(errors: list[str]) -> None:
     expect(checked == expected_manifest_count, errors, "manifest entry count mismatch")
 
     results = load_json(OUTPUT_ROOT / "campaign_results.json", errors)
+    official_artifact = load_json(OUTPUT_ROOT / "v2_29_official_artifact_verification.json", errors)
     v228_ingest = load_json(OUTPUT_ROOT / "v2_28_artifact_ingest_verification.json", errors)
     v228_official = load_json(V228_ROOT / "v2_28_official_artifact_verification.json", errors)
     selected = load_json(OUTPUT_ROOT / "selected_candidate_record.json", errors)
@@ -323,6 +335,37 @@ def audit_outputs(errors: list[str]) -> None:
     matrix = load_json(CAPABILITY_MATRIX_PATH, errors)
     candidate = registry_candidate(errors)
     v223_block = load_json(V223_ROOT / "global_bugsinpy_provenance_block.json", errors)
+
+    expect(official_artifact.get("status") == "PASS", errors, "v2.29 official artifact verification not PASS")
+    for key, expected in EXPECTED_OFFICIAL_ARTIFACT.items():
+        expect(official_artifact.get(key) == expected, errors, f"v2.29 official artifact {key} mismatch")
+    expect(official_artifact.get("safe_path_status") == "PASS", errors, "v2.29 artifact path safety not PASS")
+    expect(official_artifact.get("unsafe_path_count") == 0, errors, "v2.29 artifact unsafe path count mismatch")
+    expect(official_artifact.get("duplicate_path_count") == 0, errors, "v2.29 artifact duplicate path count mismatch")
+    expect(official_artifact.get("internal_manifest_missing_count") == 0, errors, "v2.29 artifact internal manifest missing entries")
+    expect(official_artifact.get("internal_manifest_malformed_count") == 0, errors, "v2.29 artifact internal manifest malformed entries")
+    expect(official_artifact.get("internal_manifest_failure_count") == 0, errors, "v2.29 artifact internal manifest hash failures")
+    expect(official_artifact.get("output_manifest_coverage") == "PASS", errors, "v2.29 output manifest coverage not PASS")
+    expect(official_artifact.get("output_manifest_coverage_missing_count") == 0, errors, "v2.29 output manifest coverage missing entries")
+    expect(official_artifact.get("output_manifest_coverage_extra_count") == 0, errors, "v2.29 output manifest coverage extra entries")
+    expect(official_artifact.get("manual_artifact_boundary") == "PASS", errors, "v2.29 manual artifact boundary not PASS")
+    expect(official_artifact.get("downloaded_by_codex") is False, errors, "v2.29 artifact marked as downloaded by Codex")
+    expect(official_artifact.get("local_artifact_path_outside_git") is True, errors, "v2.29 local artifact path not outside Git")
+    expect(official_artifact.get("selected_candidate_id") == EXPECTED["candidate_id"], errors, "v2.29 official artifact candidate mismatch")
+    expect(official_artifact.get("expected_v2_28_normalized_failure_log_sha256") == EXPECTED["expected_normalized_log_hash"], errors, "v2.29 official artifact expected v2.28 hash mismatch")
+    expect(official_artifact.get("v2_29_blocker_carry_forward_status") == "PASS", errors, "v2.29 blocker carry-forward not PASS")
+    expect(official_artifact.get("v2_29_capability_carry_forward_status") == "PASS", errors, "v2.29 capability carry-forward not PASS")
+    expect(official_artifact.get("failure_memory_weight_ledger_record_status") == "PASS", errors, "v2.29 failure-memory ledger record not PASS")
+    expect(official_artifact.get("public_language_audit_record_status") == "PASS", errors, "v2.29 public language audit record not PASS")
+    expect(official_artifact.get("v2_30_canonical_signature_recommendation_carry_forward_status") == "PASS", errors, "v2.30 recommendation carry-forward not PASS")
+    expect(official_artifact.get("current_protocol_version") == "v2.13", errors, "v2.29 artifact current protocol mismatch")
+    expect(official_artifact.get("full_scoring") == "NOT_RUN/disallowed", errors, "v2.29 artifact full scoring mismatch")
+    expect(official_artifact.get("memory_lift_status") == "undemonstrated", errors, "v2.29 artifact memory lift mismatch")
+    expect(official_artifact.get("self_maintaining_software_status") == "false/not_demonstrated", errors, "v2.29 artifact self-maintaining status mismatch")
+    snapshot_result = official_artifact.get("repo_snapshot_update_file_comparison_result")
+    expect(snapshot_result == "PASS", errors, "v2.29 artifact snapshot comparison result not PASS")
+    snapshot_rows = official_artifact.get("repo_snapshot_update_file_comparison")
+    expect(isinstance(snapshot_rows, list) and len(snapshot_rows) >= 10, errors, "v2.29 artifact snapshot comparison incomplete")
 
     expect(v228_official.get("status") == "PASS", errors, "v2.28 official verification source not PASS")
     expect(v228_ingest.get("status") == "PASS", errors, "v2.28 ingest carry-forward not PASS")
