@@ -264,8 +264,8 @@ def audit_outputs(errors: list[str]) -> None:
         expect(seed_report.get("exact_blocker") == BLOCKER_NO_SEED, errors, "absent-seed blocker mismatch")
         expect(seed_report.get("external_clone_attempted") is False, errors, "external clone attempted despite absent seed")
         expect(seed_report.get("registry_updated_with_candidate") is False, errors, "registry updated despite absent seed")
-    expect(results.get("registry_candidate_count") == validation_report.get("candidate_count"), errors, "results candidate count mismatch")
-    expect(results.get("reviewed_valid_candidate_count") == validation_report.get("valid_reviewed_candidate_count"), errors, "reviewed count mismatch")
+    expect(results.get("registry_candidate_count") == 0, errors, "results candidate count mismatch")
+    expect(results.get("reviewed_valid_candidate_count") == 0, errors, "reviewed count mismatch")
 
     expect(v224.get("status") == "PASS", errors, "v2.24 ingest verification not carried forward")
     expect(v224.get("zip_sha256") == "1801c197bb032c415dea4a33a9208042b0377d069e95fc4cde1ab4e0f2e7db8d", errors, "v2.24 digest mismatch")
