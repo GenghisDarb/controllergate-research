@@ -2,8 +2,8 @@
   "campaign_id": "v2_22_bugsinpy_target_test_materialization_lane",
   "candidate": "PySnooper:1",
   "official_checkout_command": [
-    "C:\\Program Files\\Git\\bin\\bash.exe",
-    "/e/ControllerGate-Artifacts/v2_22_bugsinpy_target_test_materialization_workspace/BugsInPy_framework/framework/bin/bugsinpy-checkout",
+    "/usr/bin/bash",
+    "/tmp/controllergate_v2_22_bugsinpy_target_test_materialization_workspace/BugsInPy_framework/framework/bin/bugsinpy-checkout",
     "-p",
     "PySnooper",
     "-v",
@@ -11,20 +11,20 @@
     "-i",
     "1",
     "-w",
-    "/e/ControllerGate-Artifacts/v2_22_bugsinpy_target_test_materialization_workspace/materialized_workspace"
+    "/tmp/controllergate_v2_22_bugsinpy_target_test_materialization_workspace/materialized_workspace"
   ],
   "official_compile_command": [
     "bugsinpy-compile",
     "-w",
-    "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\materialized_workspace\\PySnooper"
+    "/tmp/controllergate_v2_22_bugsinpy_target_test_materialization_workspace/materialized_workspace/PySnooper"
   ],
   "official_test_command": [
     "bugsinpy-test",
     "-w",
-    "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\materialized_workspace\\PySnooper"
+    "/tmp/controllergate_v2_22_bugsinpy_target_test_materialization_workspace/materialized_workspace/PySnooper"
   ],
   "raw_pytest_delegate_recorded": "pytest -q -s tests/test_chinese.py::test_chinese",
   "raw_pytest_substitution_used": false,
-  "same_workspace_for_checkout_compile_test": "E:\\ControllerGate-Artifacts\\v2_22_bugsinpy_target_test_materialization_workspace\\materialized_workspace\\PySnooper",
+  "same_workspace_for_checkout_compile_test": "/tmp/controllergate_v2_22_bugsinpy_target_test_materialization_workspace/materialized_workspace/PySnooper",
   "status": "PASS"
 }

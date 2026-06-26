@@ -21,6 +21,8 @@ BUGSINPY_COMMIT = "11c5f1eea954a42132cfd06bf257766a7963e0fd"
 BUGGY_REVISION = "e21a31162f4c54be693d8ca8260e42393b39abd3"
 FIXED_REVISION = "56f22f8ffe1c6b2be4d2cf3ad1987fdb66113da2"
 TARGET_TEST = "tests/test_chinese.py"
+EXPECTED_TARGET_TEST_SHA256 = "7a3d64cd702fdfa1eba8c08ac3c8934948a3ef0178f141c1f5599307c1fe59f3"
+OFFICIAL_VERIFICATION_FILE = "v2_22_official_artifact_verification.json"
 
 REQUIRED_FILES = [
     "campaign_summary.md",
@@ -65,6 +67,7 @@ REQUIRED_FILES = [
     "patch_application_step.json",
     "post_validation_workspace_analysis.json",
     "claim_boundary_v2_22.json",
+    OFFICIAL_VERIFICATION_FILE,
     "SHA256SUMS.txt",
 ]
 
@@ -192,6 +195,7 @@ def audit_transport(root: Path, transport: dict[str, Any], errors: list[str]) ->
             "SHA256SUMS.txt",
             "nuclear_pore_transport_log.json",
             "proof_obligations_ledger.json",
+            OFFICIAL_VERIFICATION_FILE,
         }
     }
     missing = required - covered
@@ -249,6 +253,41 @@ def audit_v221_boundary(errors: list[str]) -> None:
         errors.append("v2.21 audit did not pass from v2.22 audit")
 
 
+def audit_official_verification(verification: dict[str, Any], errors: list[str]) -> None:
+    expect(verification.get("status") == "PASS", errors, "v2.22 official artifact verification is not PASS")
+    expect(
+        verification.get("artifact_name") == "v2_22_bugsinpy_target_test_materialization_lane_artifacts",
+        errors,
+        "v2.22 official artifact name mismatch",
+    )
+    expect(verification.get("workflow_run_id") == 28204197043, errors, "v2.22 workflow run ID mismatch")
+    expect(verification.get("artifact_id") == 7892349852, errors, "v2.22 artifact ID mismatch")
+    expect(verification.get("zip_size") == 78669, errors, "v2.22 artifact size mismatch")
+    expect(
+        verification.get("zip_sha256") == "32aaad406f10acecb373d3313722c5c7130fd4c4c87ae879e5feb83706cb852a",
+        errors,
+        "v2.22 artifact digest mismatch",
+    )
+    expect(verification.get("entry_count") == 49, errors, "v2.22 ZIP entry count mismatch")
+    expect(verification.get("safe_paths") is True, errors, "v2.22 ZIP safe-path check did not pass")
+    expect(verification.get("unsafe_path_count") == 0, errors, "v2.22 ZIP unsafe paths present")
+    expect(verification.get("duplicate_path_count") == 0, errors, "v2.22 ZIP duplicate paths present")
+    expect(verification.get("internal_manifest_checked_count") == 42, errors, "v2.22 internal manifest count mismatch")
+    expect(verification.get("internal_manifest_missing_count") == 0, errors, "v2.22 internal manifest missing entries")
+    expect(verification.get("internal_manifest_malformed_count") == 0, errors, "v2.22 internal manifest malformed entries")
+    expect(verification.get("internal_manifest_failure_count") == 0, errors, "v2.22 internal manifest failures")
+    coverage = verification.get("output_manifest_coverage") or {}
+    expect(coverage.get("status") == "PASS", errors, "v2.22 output manifest coverage did not PASS")
+    expect(verification.get("local_artifact_path_outside_git") is True, errors, "v2.22 local artifact path is not outside git")
+    expect(verification.get("non_tar_non_zip_ingested_file_count") == 43, errors, "v2.22 ingested file count mismatch")
+    expect(verification.get("target_test_sha256_correction_applied") is True, errors, "v2.22 target-test SHA correction not recorded")
+    expect(
+        verification.get("artifact_target_test_sha256") == EXPECTED_TARGET_TEST_SHA256,
+        errors,
+        "v2.22 artifact target-test SHA mismatch",
+    )
+
+
 def audit_outputs(root: Path, errors: list[str]) -> None:
     for rel in REQUIRED_FILES:
         expect((root / rel).is_file(), errors, f"missing required output: {rel}")
@@ -259,6 +298,7 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
     expect(checked >= len(REQUIRED_FILES) - 1, errors, "manifest checked fewer files than required")
 
     results = load_json(root / "campaign_results.json", errors)
+    official = load_json(root / OFFICIAL_VERIFICATION_FILE, errors)
     v221 = load_json(root / "v2_21_artifact_ingest_verification.json", errors)
     framework = load_json(root / "pinned_bugsinpy_framework_checkout_audit.json", errors)
     cli = load_json(root / "official_bugsinpy_cli_inventory.json", errors)
@@ -293,6 +333,7 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
     expect(results.get("based_on") == "v2.21", errors, "v2.22 does not build on v2.21")
     expect(results.get("status") == "PASS_WITH_TERMINAL_PYSNOOPER1_PROVENANCE_BLOCK", errors, "v2.22 status mismatch")
     expect(results.get("v2_21_official_ingest_verified") is True, errors, "v2.21 ingest not verified")
+    expect(results.get("target_test_sha256") == EXPECTED_TARGET_TEST_SHA256, errors, "results target-test SHA mismatch")
     expect(v221.get("status") == "PASS", errors, "embedded v2.21 verification not PASS")
     expect(framework.get("status") == "PASS", errors, "pinned framework checkout did not PASS")
     expect(framework.get("source_repo") == BUGSINPY_REPO, errors, "framework repo mismatch")
@@ -320,16 +361,19 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
     expect(search.get("target_test_found") is True, errors, "target test was not found after materialization")
     target_record = search.get("target_test_record") or {}
     expect(target_record.get("relative_path") == "PySnooper/tests/test_chinese.py", errors, "materialized target path mismatch")
-    expect(re.fullmatch(r"[0-9a-f]{64}", str(target_record.get("sha256", ""))) is not None, errors, "target test SHA invalid")
+    expect(target_record.get("sha256") == EXPECTED_TARGET_TEST_SHA256, errors, "materialized target-test SHA mismatch")
     expect(source.get("status") == "BLOCK", errors, "source classification did not BLOCK")
     expect(source.get("source_classification") == "fixed_commit_derived_by_pinned_framework_checkout", errors, "source classification mismatch")
+    expect(source.get("target_test_sha256") == EXPECTED_TARGET_TEST_SHA256, errors, "source classification target-test SHA mismatch")
     expect(source.get("checkout_script_uses_fixed_commit_for_target_test_materialization") is True, errors, "fixed-copy script behavior not recorded")
     expect(provenance.get("status") == "BLOCK", errors, "target-test provenance did not BLOCK")
+    expect(provenance.get("target_test_sha256") == EXPECTED_TARGET_TEST_SHA256, errors, "target-test provenance SHA mismatch")
     expect(provenance.get("fixed_revision_contents_used_for_decision_time_test_content") is True, errors, "fixed-source provenance not recorded")
     expect(provenance.get("future_outcome_evidence_used") is False, errors, "future evidence used")
     expect(provenance.get("gold_patch_used") is False, errors, "gold patch used")
     expect(provenance.get("synthetic_or_generated_test_used") is False, errors, "synthetic test used")
     expect(materialized_file.get("status") == "PASS", errors, "materialized file audit did not PASS")
+    expect(materialized_file.get("sha256") == EXPECTED_TARGET_TEST_SHA256, errors, "materialized file SHA mismatch")
     expect(materialized_file.get("source_guard_status") == "BLOCK", errors, "materialized file source guard did not BLOCK")
     expect(absence.get("framework_repo_absence_alone_used_as_terminal_blocker") is False, errors, "false terminal framework-absence block detected")
     expect(absence.get("official_bugsinpy_checkout_attempted") is True, errors, "absence proof lacks official checkout attempt")
@@ -390,6 +434,7 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
 
     audit_transport(root, transport, errors)
     audit_ledger(root, ledger, errors)
+    audit_official_verification(official, errors)
     audit_v221_boundary(errors)
 
     print(f"v2.22 manifest entries checked: {checked}")

@@ -1298,14 +1298,20 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 
 ## v2.22 BugsInPy Target-Test Materialization Lane
 
-- Status: `local_implementation_pending_official_artifact_ingestion`.
+- Status: `verified_official_artifact`.
 - Campaign: `v2_22_bugsinpy_target_test_materialization_lane`.
+- Artifact verification: `PASS`; ZIP SHA256: `32aaad406f10acecb373d3313722c5c7130fd4c4c87ae879e5feb83706cb852a`; byte size: `78669`; ZIP entries: `49`.
+- Workflow run: `28204197043`; artifact ID: `7892349852`; artifact name: `v2_22_bugsinpy_target_test_materialization_lane_artifacts`.
+- Internal SHA256SUMS: `42` checked, `0` missing, `0` malformed, `0` failures; final ingested output manifest has `43` entries after adding the local official artifact-verification record.
 - Candidate scope: `PySnooper:1` only; PySnooper:2 is not pursued.
 - Official framework source: `https://github.com/soarsmu/BugsInPy.git` at `11c5f1eea954a42132cfd06bf257766a7963e0fd`.
 - The pinned BugsInPy repository is framework/metadata, not the expected materialized project source tree.
 - Absence from `projects/PySnooper/bugs/1/tests/test_chinese.py` in the framework checkout alone is not terminal.
-- v2.22 must run official framework materialization and then search the materialized workspace and buggy source tree before terminally blocking PySnooper:1 for target-test absence.
-- If the only available target-test content requires fixed/future/gold/hidden/synthetic provenance, PySnooper:1 remains terminally blocked under current safety rules and the next lane should select a different non-Ansible candidate unless externally reviewed safe test provenance is supplied.
+- Official framework materialization found `PySnooper/tests/test_chinese.py`; artifact-preserved target-test SHA256 is `7a3d64cd702fdfa1eba8c08ac3c8934948a3ef0178f141c1f5599307c1fe59f3`.
+- The target-test provenance status is `BLOCK` because the pinned framework materialized the test through fixed-commit-derived content before resetting to the buggy commit.
+- PySnooper:1 terminal blocker: `blocked_target_test_requires_fixed_or_future_source`.
+- Dependency recovery, pre-repair replay, patch generation, validation, duplicate replay, and scoring were not run after the provenance block.
+- Scoreable episodes remain `5`; positive-memory-only episodes remain `2`; non-Ansible positive-memory episodes remain `0`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
