@@ -1,0 +1,21 @@
+# v2.28 External Candidate Seed Draft Verification Lane
+
+- Campaign: `v2_28_external_candidate_seed_draft_verification_lane`.
+- Candidate: `py_bugger_issue_65`.
+- v2.27 official ingest verified: `true`.
+- Seed draft validation: `PASS`.
+- External clone attempted: `true`.
+- Exact commit checkout status: `exact_commit_checked_out`.
+- Target test co-location status: `PASS`.
+- Support-file co-location status: `PASS`.
+- Environment install status: `venv_creation_failed`.
+- Failure capture status: `not_run_environment_resolution_failed`.
+- Registry merge status: `not_run_blocked_before_registry_merge`.
+- Registry validation after run: `PASS`.
+- Reviewed valid candidate count after run: `0`.
+- Exact blocker/result: `seed_capture_environment_resolution_failed`.
+- Repair and patch generation were not run.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.28 is not promoted to current.

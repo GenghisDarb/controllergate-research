@@ -77,3 +77,10 @@ v2.27 records the seed-draft verification boundary.
 - External clone attempted only when schema and source guards pass.
 - Registry merge is permitted only after source/test co-location, environment, and failure capture pass.
 - Result: `blocked_no_external_candidate_seed_draft_provided`.
+## v2.28 External Candidate Seed Draft Verification
+
+v2.28 records the seed-draft verification boundary for a py-bugger candidate.
+
+- Candidate: `py_bugger_issue_65`.
+- Registry merge requires failure capture from the direct checked-out commit.
+- Result: `seed_capture_environment_resolution_failed`.

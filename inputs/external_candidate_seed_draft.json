@@ -1,0 +1,19 @@
+{
+  "candidate_id": "py_bugger_issue_65",
+  "source_type": "public_github_repo",
+  "repo_url": "https://github.com/ehmatthes/py-bugger",
+  "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+  "test_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q",
+  "target_test_file_paths": [
+    "tests/integration_tests/test_modifications.py"
+  ],
+  "support_file_paths": [
+    "tests/sample_code/sample_scripts/two_trys.py"
+  ],
+  "environment_lock_source": "pyproject.toml",
+  "decision_time_safe_basis": "public_issue_tracker_documentation_plus_local_reproduction",
+  "registry_author": "manual_seed_draft",
+  "registry_review_status": "seed_draft",
+  "created_utc": "2026-06-26T19:30:00Z",
+  "notes": "Seed draft for py-bugger issue 65. Commit 67cf214 is the failing-test commit from PR 66. v2.28 must verify source/test co-location and failure capture directly from the checked-out buggy commit. No repair is authorized in this lane."
+}

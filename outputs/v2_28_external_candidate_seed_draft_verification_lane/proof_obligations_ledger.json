@@ -1,0 +1,74 @@
+{
+  "campaign_id": "v2_28_external_candidate_seed_draft_verification_lane",
+  "created_utc": "2026-06-26T20:20:08Z",
+  "entries": [
+    {
+      "entry_hash": "1e5901497d1d51d31283f362509922a5c8ff8d83c82c7bb3be47c74e67cae5cf",
+      "evidence": "outputs/v2_27_external_candidate_seed_draft_verification_lane/v2_27_official_artifact_verification.json",
+      "index": 0,
+      "previous_entry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "PASS",
+      "step": "v2_27_official_ingest_required"
+    },
+    {
+      "entry_hash": "26a99a8e650dd55c87fd23b7fc892701e233a28b5f20ce4f5cda1bdae50f6274",
+      "evidence": "outputs/v2_28_external_candidate_seed_draft_verification_lane/seed_draft_schema_validation.json",
+      "index": 1,
+      "previous_entry_hash": "1e5901497d1d51d31283f362509922a5c8ff8d83c82c7bb3be47c74e67cae5cf",
+      "status": "PASS",
+      "step": "seed_draft_schema_gate"
+    },
+    {
+      "entry_hash": "8d29a6220a70662c83880074921ad27b8645aa7f637987c9ba0e204382c5f81a",
+      "evidence": "outputs/v2_28_external_candidate_seed_draft_verification_lane/seed_candidate_source_checkout_audit.json",
+      "index": 2,
+      "previous_entry_hash": "26a99a8e650dd55c87fd23b7fc892701e233a28b5f20ce4f5cda1bdae50f6274",
+      "status": "exact_commit_checked_out",
+      "step": "exact_buggy_commit_checkout_gate"
+    },
+    {
+      "entry_hash": "28942b85a77a0b093f628ac63d2a0333385231b891d3b7aa97f002e1e7a3b923",
+      "evidence": "outputs/v2_28_external_candidate_seed_draft_verification_lane/seed_candidate_source_test_colocation_proof.json",
+      "index": 3,
+      "previous_entry_hash": "8d29a6220a70662c83880074921ad27b8645aa7f637987c9ba0e204382c5f81a",
+      "status": "PASS",
+      "step": "target_test_colocation_gate"
+    },
+    {
+      "entry_hash": "a6ba8cfcdfe8c68f79bc0f091964cc3e857b81c7b949fa2d2080ad11dd78aab9",
+      "evidence": "outputs/v2_28_external_candidate_seed_draft_verification_lane/seed_candidate_support_file_colocation_proof.json",
+      "index": 4,
+      "previous_entry_hash": "28942b85a77a0b093f628ac63d2a0333385231b891d3b7aa97f002e1e7a3b923",
+      "status": "PASS",
+      "step": "support_file_colocation_gate"
+    },
+    {
+      "entry_hash": "1aab2ea2aee8af325d9370d6fdd9d01d23b9529b1606a5c3b07ffc95c75980be",
+      "evidence": "outputs/v2_28_external_candidate_seed_draft_verification_lane/seed_candidate_failure_capture_hash.json",
+      "index": 5,
+      "previous_entry_hash": "a6ba8cfcdfe8c68f79bc0f091964cc3e857b81c7b949fa2d2080ad11dd78aab9",
+      "status": "not_run_environment_resolution_failed",
+      "step": "failure_capture_gate"
+    },
+    {
+      "entry_hash": "e98d47072d74ace8e5f691c335cf31e42e24a0c37c09c201ab732dadb6a1a0b2",
+      "evidence": "outputs/v2_28_external_candidate_seed_draft_verification_lane/external_candidate_registry_validation_report_after_merge.json",
+      "index": 6,
+      "previous_entry_hash": "1aab2ea2aee8af325d9370d6fdd9d01d23b9529b1606a5c3b07ffc95c75980be",
+      "status": "PASS",
+      "step": "registry_validation_after_run"
+    },
+    {
+      "entry_hash": "413a6812b0954e115c498cac6b8f094036e05afd6cf24f8eb93d7fb24e378f92",
+      "evidence": "outputs/v2_28_external_candidate_seed_draft_verification_lane/claim_boundary_v2_28.json",
+      "index": 7,
+      "previous_entry_hash": "e98d47072d74ace8e5f691c335cf31e42e24a0c37c09c201ab732dadb6a1a0b2",
+      "status": "PASS",
+      "step": "no_repair_or_patch_boundary"
+    }
+  ],
+  "entry_count": 8,
+  "hash_algorithm": "SHA256",
+  "head_hash": "413a6812b0954e115c498cac6b8f094036e05afd6cf24f8eb93d7fb24e378f92",
+  "status": "PASS"
+}

@@ -260,3 +260,11 @@ v2.27 verifies a manually supplied External Candidate Seed Draft before any regi
 - External-network-dependent commands are blocked unless backed by a project-native local fixture in the buggy tree.
 - Timeout-based expected failures require an explicit timeout policy.
 - Current result: `blocked_no_external_candidate_seed_draft_provided`.
+## v2.28 External Candidate Seed Draft Verification
+
+v2.28 tests whether one manually supplied External Candidate Seed Draft can become a reviewed registry entry.
+
+- Candidate: `py_bugger_issue_65`.
+- Required proof: direct buggy commit checkout, native target test, project-native support file, declared environment source, and captured pre-repair failure.
+- Result: `seed_capture_environment_resolution_failed`.
+- No repair or patch generation is authorized in this lane.

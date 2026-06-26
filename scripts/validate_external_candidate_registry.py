@@ -21,6 +21,7 @@ NORMALIZATION_POLICY = "strip_timestamps_absolute_paths_ansi_venv_prefixes"
 ALLOWED_BASIS = {
     "offline_manual_verification",
     "public_ci_logs",
+    "public_ci_logs_plus_local_reproduction",
     "public_issue_tracker_documentation_plus_local_reproduction",
 }
 REQUIRED_REVIEW_POLICY = {
@@ -193,6 +194,32 @@ def validate_candidate(candidate: Any, index: int) -> dict[str, Any]:
             digest = test_file.get("sha256")
             if not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
                 errors.append(f"{test_prefix}.sha256 must be a lowercase SHA256")
+
+    support_files = candidate.get("support_files")
+    if support_files is not None:
+        if not isinstance(support_files, list):
+            errors.append(f"{prefix}.support_files must be a list when present")
+        else:
+            for support_index, support_file in enumerate(support_files):
+                support_prefix = f"{prefix}.support_files[{support_index}]"
+                if not isinstance(support_file, dict):
+                    errors.append(f"{support_prefix} must be an object")
+                    continue
+                path = support_file.get("path")
+                if not isinstance(path, str) or not is_safe_relative_path(path):
+                    errors.append(f"{support_prefix}.path must be a safe relative path")
+                digest = support_file.get("sha256")
+                if not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
+                    errors.append(f"{support_prefix}.sha256 must be a lowercase SHA256")
+
+    support_file_paths = candidate.get("support_file_paths")
+    if support_file_paths is not None:
+        if not isinstance(support_file_paths, list):
+            errors.append(f"{prefix}.support_file_paths must be a list when present")
+        else:
+            for support_index, support_path in enumerate(support_file_paths):
+                if not isinstance(support_path, str) or not is_safe_relative_path(support_path):
+                    errors.append(f"{prefix}.support_file_paths[{support_index}] must be a safe relative path")
 
     env_lock = candidate.get("environment_lock_source")
     if not isinstance(env_lock, str) or not is_safe_relative_path(env_lock):

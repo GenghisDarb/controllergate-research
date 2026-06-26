@@ -1396,3 +1396,15 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.27 is not promoted to current.
+## v2.28 External Candidate Seed Draft Verification
+
+- Campaign: `v2_28_external_candidate_seed_draft_verification_lane`.
+- Candidate: `py_bugger_issue_65`.
+- v2.27 official ingest verified: `true`.
+- Result: `seed_capture_environment_resolution_failed`.
+- Reviewed valid candidate count after run: `0`.
+- Repair, patch generation, post-patch validation, and scoring were not run.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.28 is not promoted to current.

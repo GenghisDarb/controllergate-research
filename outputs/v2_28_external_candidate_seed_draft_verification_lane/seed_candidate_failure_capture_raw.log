@@ -1,0 +1,146 @@
+$ git clone --no-tags -- https://github.com/ehmatthes/py-bugger 'E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\source'
+Cloning into 'E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\source'...
+Updating files:  16% (11/68)
+Updating files:  17% (12/68)
+Updating files:  19% (13/68)
+Updating files:  20% (14/68)
+Updating files:  22% (15/68)
+Updating files:  23% (16/68)
+Updating files:  25% (17/68)
+Updating files:  26% (18/68)
+Updating files:  27% (19/68)
+Updating files:  29% (20/68)
+Updating files:  30% (21/68)
+Updating files:  32% (22/68)
+Updating files:  33% (23/68)
+Updating files:  35% (24/68)
+Updating files:  36% (25/68)
+Updating files:  38% (26/68)
+Updating files:  39% (27/68)
+Updating files:  41% (28/68)
+Updating files:  42% (29/68)
+Updating files:  44% (30/68)
+Updating files:  45% (31/68)
+Updating files:  47% (32/68)
+Updating files:  48% (33/68)
+Updating files:  50% (34/68)
+Updating files:  51% (35/68)
+Updating files:  52% (36/68)
+Updating files:  54% (37/68)
+Updating files:  55% (38/68)
+Updating files:  57% (39/68)
+Updating files:  58% (40/68)
+Updating files:  60% (41/68)
+Updating files:  61% (42/68)
+Updating files:  63% (43/68)
+Updating files:  64% (44/68)
+Updating files:  66% (45/68)
+Updating files:  67% (46/68)
+Updating files:  69% (47/68)
+Updating files:  70% (48/68)
+Updating files:  72% (49/68)
+Updating files:  73% (50/68)
+Updating files:  75% (51/68)
+Updating files:  76% (52/68)
+Updating files:  77% (53/68)
+Updating files:  79% (54/68)
+Updating files:  80% (55/68)
+Updating files:  82% (56/68)
+Updating files:  83% (57/68)
+Updating files:  85% (58/68)
+Updating files:  86% (59/68)
+Updating files:  88% (60/68)
+Updating files:  89% (61/68)
+Updating files:  91% (62/68)
+Updating files:  92% (63/68)
+Updating files:  94% (64/68)
+Updating files:  95% (65/68)
+Updating files:  97% (66/68)
+Updating files:  98% (67/68)
+Updating files: 100% (68/68)
+Updating files: 100% (68/68), done.
+
+exit_code=0
+$ git -c 'safe.directory=E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\source' -C 'E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\source' fetch origin 67cf214f2d619848e90280fd4469377123e81b94
+From https://github.com/ehmatthes/py-bugger
+ * branch            67cf214f2d619848e90280fd4469377123e81b94 -> FETCH_HEAD
+
+exit_code=0
+$ git -c 'safe.directory=E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\source' -C 'E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\source' checkout --detach 67cf214f2d619848e90280fd4469377123e81b94
+HEAD is now at 67cf214 Failing test for Issue 65.
+
+exit_code=0
+$ git -c 'safe.directory=E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\source' -C 'E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\source' rev-parse HEAD
+67cf214f2d619848e90280fd4469377123e81b94
+
+exit_code=0
+$ git -c 'safe.directory=E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\source' -C 'E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\source' ls-tree -r --name-only HEAD
+.github/ISSUE_TEMPLATE/bug_report.yml
+.github/workflows/test.yaml
+.gitignore
+.readthedocs.yaml
+CHANGELOG.md
+LICENSE
+README.md
+assets/logo_raw_bordered.png
+assets/logo_raw_pip_bordered-60px.png
+developer_resources/make_release.sh
+developer_resources/sample_attribute_node.py
+developer_resources/sample_for_node.py
+developer_resources/sample_import_node.py
+developer_resources/simple_indent_nodes.py
+docs/contributing/index.md
+docs/contributing/roadmap.md
+docs/index.md
+docs/maintaining/index.md
+docs/quick_start/index.md
+docs/requirements.txt
+docs/usage/index.md
+mkdocs.yml
+pyproject.toml
+requirements.txt
+src/py_bugger/__init__.py
+src/py_bugger/buggers.py
+src/py_bugger/cli/__init__.py
+src/py_bugger/cli/cli.py
+src/py_bugger/cli/cli_messages.py
+src/py_bugger/cli/cli_utils.py
+src/py_bugger/cli/config.py
+src/py_bugger/py_bugger.py
+src/py_bugger/utils/bug_utils.py
+src/py_bugger/utils/cst_utils.py
+src/py_bugger/utils/file_utils.py
+src/py_bugger/utils/modification.py
+tests/conftest.py
+tests/e2e_tests/reference_files/help.txt
+tests/e2e_tests/test_basic_behavior.py
+tests/e2e_tests/test_cli_flags.py
+tests/e2e_tests/test_git_status_checks.py
+tests/e2e_tests/test_non_bugmaking_behavior.py
+tests/e2e_tests/test_project_setup.py
+tests/integration_tests/conftest.py
+tests/integration_tests/test_cli.py
+tests/integration_tests/test_modifications.py
+tests/sample_code/sample_scripts/all_indentation_blocks.py
+tests/sample_code/sample_scripts/blank_file.py
+tests/sample_code/sample_scripts/dog.py
+tests/sample_code/sample_scripts/dog_bark.py
+tests/sample_code/sample_scripts/dog_bark_no_trailing_newline.py
+tests/sample_code/sample_scripts/dog_bark_two_trailing_newlines.py
+tests/sample_code/sample_scripts/else_block.py
+tests/sample_code/sample_scripts/hello.txt
+tests/sample_code/sample_scripts/identical_attributes.py
+tests/sample_code/sample_scripts/many_dogs.py
+tests/sample_code/sample_scripts/name_picker.py
+tests/sample_code/sample_scripts/simple_indent.py
+tests/sample_code/sample_scripts/simple_indent_tab.py
+tests/sample_code/sample_scripts/system_info_script.py
+tests/sample_code/sample_scripts/ten_imports.py
+tests/sample_code/sample_scripts/two_trys.py
+tests/sample_code/sample_scripts/zero_imports.py
+tests/unit_tests/test_bug_utils.py
+tests/unit_tests/test_file_utils.py
+
+exit_code=0
+$ 'C:\Users\thisb\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe' -m venv 'E:\ControllerGate-Artifacts\v2_28_external_candidate_seed_draft_verification_lane_q_3ln2eo\venv'
+timeout_seconds=120

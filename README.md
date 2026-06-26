@@ -328,3 +328,14 @@ v2.27 is the External Candidate Seed Draft Verification Lane. It verifies exactl
 - Repair and patch generation remain disabled.
 - Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
 - Smallest next step: provide inputs/external_candidate_seed_draft.json with exactly one manually reviewed seed draft.
+## v2.28 external candidate seed draft verification
+
+v2.28 verifies the Brad-supplied py-bugger External Candidate Seed Draft and may merge one reviewed registry candidate only after direct checkout, native target-test, support-file, environment, failure-capture, and registry gates pass.
+
+- Campaign: `v2_28_external_candidate_seed_draft_verification_lane`.
+- Seed candidate: `py_bugger_issue_65`.
+- Current result: `seed_capture_environment_resolution_failed`.
+- Registry candidate count after run: `0`.
+- Reviewed valid candidate count after run: `0`.
+- Repair and patch generation remain disabled.
+- Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.

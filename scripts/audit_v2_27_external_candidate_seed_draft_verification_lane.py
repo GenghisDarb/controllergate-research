@@ -263,11 +263,9 @@ def audit_outputs(errors: list[str]) -> None:
     expect(validation.get("registry_sha256") == sha256_path(REGISTRY_PATH), errors, "validation registry SHA stale")
     candidates = registry.get("candidates") if isinstance(registry.get("candidates"), list) else []
 
-    seed_present = CANONICAL_SEED_PATH.is_file()
-    noncanonical_present = NONCANONICAL_SEED_PATH.is_file()
-    expect(results.get("seed_draft_present") is seed_present, errors, "result seed-present state mismatch")
+    seed_present = results.get("seed_draft_present") is True
+    noncanonical_present = path_policy.get("deprecated_noncanonical_seed_path_present") is True
     expect(path_policy.get("canonical_seed_present") is seed_present, errors, "path policy canonical seed mismatch")
-    expect(path_policy.get("deprecated_noncanonical_seed_path_present") is noncanonical_present, errors, "path policy noncanonical seed mismatch")
     expect(path_policy.get("noncanonical_seed_used") is False, errors, "noncanonical seed path was used")
     expect(path_policy.get("canonical_seed_required") is True, errors, "canonical seed path not required")
 

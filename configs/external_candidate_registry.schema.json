@@ -155,6 +155,33 @@
             }
           }
         },
+        "support_files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "$ref": "#/$defs/sha256"
+              }
+            }
+          }
+        },
+        "support_file_paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
         "environment_lock_source": {
           "type": "string",
           "minLength": 1
@@ -164,6 +191,7 @@
           "enum": [
             "offline_manual_verification",
             "public_ci_logs",
+            "public_ci_logs_plus_local_reproduction",
             "public_issue_tracker_documentation_plus_local_reproduction"
           ]
         },
