@@ -23,11 +23,21 @@ SEED_EXAMPLE_PATH = REPO_ROOT / "inputs" / "external_candidate_seed_draft.exampl
 V225_ROOT = REPO_ROOT / "outputs" / "v2_25_external_candidate_registry_construction_lane"
 V223_ROOT = REPO_ROOT / "outputs" / "v2_23_non_ansible_candidate_transition_lane"
 BLOCKER_NO_SEED_DRAFT = "blocked_no_external_candidate_seed_draft_provided"
+EXPECTED_V226_ARTIFACT = {
+    "artifact_name": "v2_26_external_candidate_seed_capture_lane_artifacts",
+    "workflow_run_id": 28253314598,
+    "artifact_id": 7911677755,
+    "zip_size": 67443,
+    "zip_sha256": "4d24593b2c68877e79731975ce824121f17145dcd4318c154a3d6a602aa8d81d",
+    "entry_count": 38,
+    "internal_manifest_checked": 27,
+}
 
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
     "v2_25_artifact_ingest_verification.json",
+    "v2_26_official_artifact_verification.json",
     "artifact_repo_snapshot_comparison.json",
     "seed_draft_presence_check.json",
     "seed_draft_schema_validation.json",
@@ -193,6 +203,7 @@ def audit_outputs(errors: list[str]) -> None:
 
     results = load_json(OUTPUT_ROOT / "campaign_results.json", errors)
     v225 = load_json(OUTPUT_ROOT / "v2_25_artifact_ingest_verification.json", errors)
+    v226_official = load_json(OUTPUT_ROOT / "v2_26_official_artifact_verification.json", errors)
     presence = load_json(OUTPUT_ROOT / "seed_draft_presence_check.json", errors)
     schema = load_json(OUTPUT_ROOT / "seed_draft_schema_validation.json", errors)
     guard = load_json(OUTPUT_ROOT / "seed_draft_forbidden_source_guard.json", errors)
@@ -217,6 +228,21 @@ def audit_outputs(errors: list[str]) -> None:
     expect(SEED_EXAMPLE_PATH.is_file(), errors, "seed draft example missing")
     expect(v225.get("status") == "PASS", errors, "v2.25 artifact ingest verification not carried forward")
     expect(v225.get("zip_sha256") == "41ac43048ca834c203542b2e0b9c9045c2ceb1be43a963cf2d4c66ca250864b2", errors, "v2.25 digest mismatch")
+    expect(v226_official.get("status") == "PASS", errors, "v2.26 official verification not PASS")
+    for key, value in EXPECTED_V226_ARTIFACT.items():
+        expect(v226_official.get(key) == value, errors, f"v2.26 official artifact {key} mismatch")
+    expect(v226_official.get("safe_path_status") == "PASS", errors, "v2.26 artifact path safety not PASS")
+    expect(v226_official.get("duplicate_path_count") == 0, errors, "v2.26 artifact duplicate paths found")
+    expect(v226_official.get("internal_manifest_missing_count") == 0, errors, "v2.26 internal manifest missing entries")
+    expect(v226_official.get("internal_manifest_malformed_count") == 0, errors, "v2.26 internal manifest malformed entries")
+    expect(v226_official.get("internal_manifest_failure_count") == 0, errors, "v2.26 internal manifest hash failures")
+    expect(v226_official.get("output_manifest_coverage") == "PASS", errors, "v2.26 output manifest coverage not PASS")
+    expect(v226_official.get("manual_artifact_boundary") == "PASS", errors, "v2.26 manual artifact boundary not recorded")
+    expect(v226_official.get("downloaded_by_codex") is False, errors, "v2.26 artifact custody claims Codex download")
+    expect(v226_official.get("local_artifact_path_outside_git") is True, errors, "v2.26 local artifact path not outside Git")
+    expect(v226_official.get("seed_absent_blocker_carry_forward_status") == "PASS", errors, "v2.26 seed blocker carry-forward not PASS")
+    expect(v226_official.get("registry_validation_carry_forward_status") == "PASS", errors, "v2.26 registry carry-forward not PASS")
+    expect(v226_official.get("v2_27_seed_draft_verification_recommendation_carry_forward_status") == "PASS", errors, "v2.27 recommendation carry-forward not PASS")
     expect(v225_official.get("status") == "PASS", errors, "v2.25 official verification source not PASS")
     expect(v223_block.get("status") == "BLOCK", errors, "benchmark framework global block status mismatch")
     expect(v223_block.get("candidate_selection_allowed") is False, errors, "benchmark framework global block not carried forward")
