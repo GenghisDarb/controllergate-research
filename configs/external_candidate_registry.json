@@ -1,24 +1,10 @@
 {
-  "document_type": "external_candidate_registry",
-  "schema_version": "v2.24",
-  "current_protocol_version": "v2.13",
-  "evidence_claim": false,
-  "selection_policy": "only_reviewed_entries_may_enter_v2_24_candidate_pool",
-  "required_entry_fields": [
-    "candidate_id",
-    "source_type",
-    "repo_url",
-    "buggy_commit_sha",
-    "test_command",
-    "expected_failure_signature.log_hash",
-    "target_test_files.path",
-    "target_test_files.sha256",
-    "environment_lock_source",
-    "decision_time_safe_basis",
-    "registry_author",
-    "registry_review_status",
-    "created_utc",
-    "notes"
-  ],
-  "entries": []
+  "schema_version": "v2.25",
+  "review_policy": {
+    "requires_manual_review": true,
+    "requires_buggy_commit_tree_test_presence": true,
+    "requires_expected_failure_log_hash": true,
+    "forbids_fixed_future_gold_synthetic_tests": true
+  },
+  "candidates": []
 }

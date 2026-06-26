@@ -1,0 +1,187 @@
+{
+  "$defs": {
+    "candidate": {
+      "additionalProperties": true,
+      "properties": {
+        "buggy_commit_sha": {
+          "$ref": "#/$defs/sha1"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_utc": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "decision_time_safe_basis": {
+          "enum": [
+            "offline_manual_verification",
+            "public_ci_logs",
+            "public_issue_tracker_documentation_plus_local_reproduction"
+          ],
+          "type": "string"
+        },
+        "environment_lock_source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "expected_failure_signature": {
+          "additionalProperties": false,
+          "properties": {
+            "exception_type": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "failing_file": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "failure_text_excerpt_hash": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "log_hash": {
+              "$ref": "#/$defs/sha256"
+            },
+            "normalization_policy": {
+              "const": "strip_timestamps_absolute_paths_ansi_venv_prefixes"
+            }
+          },
+          "required": [
+            "log_hash",
+            "exception_type",
+            "failing_file",
+            "failure_text_excerpt_hash",
+            "normalization_policy"
+          ],
+          "type": "object"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "registry_author": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "registry_review_status": {
+          "const": "reviewed"
+        },
+        "repo_url": {
+          "pattern": "^https://",
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "public_github_repo",
+            "public_git_repo"
+          ],
+          "type": "string"
+        },
+        "target_test_files": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "sha256": {
+                "$ref": "#/$defs/sha256"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "test_command": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "source_type",
+        "repo_url",
+        "buggy_commit_sha",
+        "test_command",
+        "expected_failure_signature",
+        "target_test_files",
+        "environment_lock_source",
+        "decision_time_safe_basis",
+        "registry_author",
+        "registry_review_status",
+        "created_utc",
+        "notes"
+      ],
+      "type": "object"
+    },
+    "sha1": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": "string"
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidates": {
+      "items": {
+        "$ref": "#/$defs/candidate"
+      },
+      "type": "array"
+    },
+    "review_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "forbids_fixed_future_gold_synthetic_tests": {
+          "const": true
+        },
+        "requires_buggy_commit_tree_test_presence": {
+          "const": true
+        },
+        "requires_expected_failure_log_hash": {
+          "const": true
+        },
+        "requires_manual_review": {
+          "const": true
+        }
+      },
+      "required": [
+        "requires_manual_review",
+        "requires_buggy_commit_tree_test_presence",
+        "requires_expected_failure_log_hash",
+        "forbids_fixed_future_gold_synthetic_tests"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "v2.25"
+    }
+  },
+  "required": [
+    "schema_version",
+    "review_policy",
+    "candidates"
+  ],
+  "title": "ControllerGate External Candidate Registry",
+  "type": "object"
+}

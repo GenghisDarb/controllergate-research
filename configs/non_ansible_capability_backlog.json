@@ -571,11 +571,13 @@
     "research_level_items_are_not_v2_24_blockers": true
   },
   "external_candidate_registry": {
-    "status": "required_before_external_candidate_selection",
+    "status": "schema_and_validator_present_no_reviewed_seed",
     "config_path": "configs/external_candidate_registry.json",
-    "current_valid_entry_count": 0,
-    "v2_24_blocker": "blocked_external_candidate_registry_missing_or_invalid",
-    "next_step": "create_reviewed_external_candidate_registry_entry",
-    "recommended_next_lane": "v2.25 External Candidate Registry Construction Lane"
+    "schema_path": "configs/external_candidate_registry.schema.json",
+    "validator_path": "scripts/validate_external_candidate_registry.py",
+    "current_candidate_count": 0,
+    "current_valid_reviewed_candidate_count": 0,
+    "v2_25_blocker": "blocked_no_reviewed_external_candidate_seed_provided",
+    "next_step": "provide inputs/external_candidate_registry_seed.json with one reviewed candidate, or manually edit configs/external_candidate_registry.json after offline verification"
   }
 }

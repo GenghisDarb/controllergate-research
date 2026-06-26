@@ -50,6 +50,12 @@
       "meaning": "reviewed_registry_required_before_external_candidate_selection",
       "status": "blocked_no_valid_registry_entries",
       "next": "external_candidate_registry_construction"
+    },
+    "v2.25": {
+      "band": "external_candidate_registry_construction",
+      "meaning": "strict_registry_schema_and_validator_ready",
+      "status": "blocked_no_reviewed_seed",
+      "next": "reviewed_seed_candidate_verification"
     }
   },
   "metrological_precision_tools": [

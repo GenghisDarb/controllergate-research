@@ -50,4 +50,13 @@ v2.24 records an external-candidate intake boundary before any repair attempt.
 - No public issue was selected directly.
 - No external repository was cloned.
 - Next action: `create_reviewed_external_candidate_registry_entry`.
+## v2.25 External Candidate Registry Construction
 
+v2.25 records the registry-construction boundary.
+
+- Registry schema: present.
+- Validator: present.
+- Reviewed seed: absent.
+- External clone attempted: `false`.
+- Candidate selected: `false`.
+- Result: `blocked_no_reviewed_external_candidate_seed_provided`.

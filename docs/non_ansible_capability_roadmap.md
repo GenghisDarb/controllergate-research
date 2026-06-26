@@ -231,4 +231,12 @@ v2.24 requires a committed reviewed External Candidate Registry entry before any
 - Candidate recommendations from issues or maintainer discussion remain source material for registry construction only; they are not executable candidates until the registry pins repository URL, exact buggy commit, exact command, target-test file hashes, and expected normalized failure-log hash.
 
 No candidate selection, environment setup, failure capture, executed-scope tracing, patch generation, or scoring is authorized until the registry precheck passes.
+## v2.25 External Candidate Registry Construction
 
+v2.25 turns the v2.24 registry precheck into committed registry infrastructure.
+
+- The registry schema and validator are now tracked.
+- A future candidate may enter only through a reviewed registry seed with exact repository URL, exact buggy commit, exact target command, target-test hashes from the buggy tree, and expected normalized failure-log hash.
+- No seed is present in this run, so no external repository is cloned and no candidate is selected.
+- Current blocker: `blocked_no_reviewed_external_candidate_seed_provided`.
+- Next action: `provide inputs/external_candidate_registry_seed.json with one reviewed candidate, or manually edit configs/external_candidate_registry.json after offline verification`.

@@ -284,3 +284,16 @@ v2.24 starts the external safe-source pivot with an External Candidate Registry 
 - Safest next step: `create_reviewed_external_candidate_registry_entry`.
 - Recommended next lane: `v2.25 External Candidate Registry Construction Lane`.
 - Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+## v2.25 external candidate registry construction
+
+v2.25 creates the strict External Candidate Registry infrastructure needed before any future external safe-source candidate run. No reviewed seed was provided in this run, so the lane writes an empty registry, schema, validator, audit outputs, and stops before any clone, candidate selection, repair, patch, validation, or scoring step.
+
+- Campaign: `v2_25_external_candidate_registry_construction_lane`
+- Status: `implemented_pending_official_artifact_ingestion`; v2.25 is not promoted to current.
+- Registry schema: `configs/external_candidate_registry.schema.json`.
+- Registry config: `configs/external_candidate_registry.json`.
+- Seed file present: `false`.
+- Exact blocker: `blocked_no_reviewed_external_candidate_seed_provided`.
+- Candidate count: `0`; reviewed valid candidate count: `0`.
+- Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+- Smallest next step: `provide inputs/external_candidate_registry_seed.json with one reviewed candidate, or manually edit configs/external_candidate_registry.json after offline verification`.

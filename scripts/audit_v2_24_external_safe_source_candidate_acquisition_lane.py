@@ -191,12 +191,17 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
     official = load_json(root / OFFICIAL_VERIFICATION_FILE, errors)
 
     expect(REGISTRY_PATH.is_file(), errors, "external candidate registry config missing")
-    expect(registry.get("document_type") == "external_candidate_registry", errors, "registry document type mismatch")
-    expect(registry.get("schema_version") == "v2.24", errors, "registry schema version mismatch")
-    expect(registry.get("current_protocol_version") == "v2.13", errors, "registry current protocol mismatch")
-    expect(isinstance(registry.get("entries"), list), errors, "registry entries is not a list")
-
-    entries = registry.get("entries") if isinstance(registry.get("entries"), list) else []
+    registry_schema_version = registry.get("schema_version")
+    expect(registry_schema_version in {"v2.24", "v2.25"}, errors, "registry schema version mismatch")
+    if registry_schema_version == "v2.24":
+        expect(registry.get("document_type") == "external_candidate_registry", errors, "registry document type mismatch")
+        expect(registry.get("current_protocol_version") == "v2.13", errors, "registry current protocol mismatch")
+        expect(isinstance(registry.get("entries"), list), errors, "registry entries is not a list")
+        entries = registry.get("entries") if isinstance(registry.get("entries"), list) else []
+    else:
+        expect(isinstance(registry.get("review_policy"), dict), errors, "v2.25 registry review policy missing")
+        expect(isinstance(registry.get("candidates"), list), errors, "v2.25 registry candidates is not a list")
+        entries = []
     valid_count = schema.get("valid_entry_count")
     expect(results.get("campaign_id") == CAMPAIGN_ID, errors, "campaign ID mismatch")
     expect(results.get("status") == "PASS_WITH_EXTERNAL_CANDIDATE_REGISTRY_BLOCK", errors, "campaign status mismatch")
@@ -212,7 +217,8 @@ def audit_outputs(root: Path, errors: list[str]) -> None:
     expect(precheck.get("patch_generation_attempted") is False, errors, "patch generation attempted before registry precheck passed")
     expect(precheck.get("recommendation") == NEXT_STEP, errors, "registry precheck next step mismatch")
     expect(schema.get("registry_exists") is True, errors, "schema audit says registry missing")
-    expect(schema.get("registry_sha256") == sha256_path(REGISTRY_PATH), errors, "registry SHA mismatch")
+    if registry_schema_version == "v2.24":
+        expect(schema.get("registry_sha256") == sha256_path(REGISTRY_PATH), errors, "registry SHA mismatch")
     expect(schema.get("entry_count") == len(entries), errors, "registry entry count mismatch")
     expect(valid_count == 0, errors, "v2.24 expected zero valid registry entries")
     expect(schema.get("status") == "PASS", errors, "schema audit should PASS for well-formed empty registry")

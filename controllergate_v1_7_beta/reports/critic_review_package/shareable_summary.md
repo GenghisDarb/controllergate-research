@@ -1352,3 +1352,19 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.
 - Current protocol remains `v2.13`; v2.24 is not promoted to current.
+## v2.25 External Candidate Registry Construction
+
+- Status: `implemented_pending_official_artifact_ingestion`.
+- Campaign: `v2_25_external_candidate_registry_construction_lane`.
+- v2.24 official ingest verified: `true`.
+- Registry schema and validator: `present`.
+- Seed file present: `false`.
+- Registry candidate count: `0`.
+- Reviewed valid candidate count: `0`.
+- External clone, failure capture, repair, patch generation, validation, duplicate replay, and scoring were not run.
+- Exact blocker: `blocked_no_reviewed_external_candidate_seed_provided`.
+- Smallest next step: `provide inputs/external_candidate_registry_seed.json with one reviewed candidate, or manually edit configs/external_candidate_registry.json after offline verification`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.25 is not promoted to current.
