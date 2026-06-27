@@ -121,3 +121,14 @@ v2.32 is a protocol-lock and seed-intake boundary.
 - One scoreable external repair episode is preserved.
 - Candidate #2 is not selected unless Brad supplies a seed draft.
 - Memory lift remains a future prospective comparison question, not a retrospective claim.
+
+
+
+## v2.33 candidate #2 status
+
+
+v2.33 stops before candidate #2 repair because the required seed draft is absent.
+
+- Active result: official v2.32 boundary preserved.
+- New output: candidate #2 discovery support packet.
+- Next boundary: manually supply a verified candidate #2 seed before any matched-null repair experiment.

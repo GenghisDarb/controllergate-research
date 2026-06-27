@@ -37,3 +37,10 @@ No v2.31 repair, target-test execution, patch generation, or new candidate selec
 v2.32 pre-registers the future matched-null comparison controls. The memory-enabled arm may use the diagnostic failure-memory ledger; the memory-disabled arm must not read that ledger or any successful patch bytes. Both arms must use the same future candidate, command, environment, replay rules, source-only constraints, and frozen pre-generation context hashes.
 
 No v2.32 target validation, repair, patch generation, or candidate fabrication is authorized.
+
+
+
+## v2.33 candidate #2 status
+
+
+v2.33 preserves the frozen v2.32 matched-null protocol and records the missing input needed to run it. The discovery packet is a seed-intake aid only; it is not candidate selection and does not alter the registry.

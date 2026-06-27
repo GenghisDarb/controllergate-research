@@ -1,0 +1,22 @@
+# Candidate #2 Seed Review Checklist
+
+- [ ] repo is public GitHub or public HTTPS Git
+- [ ] candidate is not BugsInPy
+- [ ] candidate is not Ansible
+- [ ] candidate is not py_bugger_issue_65
+- [ ] buggy_commit_sha is exactly 40 hex characters
+- [ ] commit exists in the stated repo
+- [ ] target test file exists in that exact buggy commit tree
+- [ ] target test node exists and collects
+- [ ] exact test command fails before patch
+- [ ] failure reaches the stated native target test
+- [ ] environment lock source exists in buggy commit tree
+- [ ] support files exist in buggy commit tree if declared
+- [ ] test command does not require internet
+- [ ] no manual/generated reproducer file
+- [ ] no fixed commit content inspected
+- [ ] no later commit content inspected
+- [ ] no PR patch content used
+- [ ] no gold patch used
+- [ ] no hidden labels used
+- [ ] failure description is based on local reproduction, not guesswork

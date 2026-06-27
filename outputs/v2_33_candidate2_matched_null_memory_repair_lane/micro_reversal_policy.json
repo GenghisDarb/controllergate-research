@@ -1,0 +1,21 @@
+{
+  "allowed_after": [
+    "patch_candidate_fails_local_patch_safety_with_directly_attributable_local_failure",
+    "patch_candidate_fails_target_validation_with_directly_attributable_local_failure"
+  ],
+  "forbidden_after": [
+    "forbidden_evidence",
+    "forbidden_file_modification",
+    "registry_mismatch",
+    "seed_mismatch",
+    "environment_failure",
+    "external_provenance_failure"
+  ],
+  "max_micro_reversals_per_arm": 1,
+  "must_regenerate_within_same_allowed_context_capsule": true,
+  "must_revert_only_local_patch_node": true,
+  "same_allowance_for_both_arms": true,
+  "spends_budget": true,
+  "status": "PASS",
+  "used_in_v2_33": false
+}

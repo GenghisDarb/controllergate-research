@@ -316,3 +316,15 @@ v2.32 locks the future matched-null memory experiment before any second repair i
 - If a seed is later provided, it must verify a native buggy-tree test, support/environment hashes, and pre-repair failure before any registry merge.
 - Future v2.33 repair work may compare memory-enabled and memory-disabled matched arms only after candidate #2 is verified.
 - v2.32 makes no repair, full-scoring, memory-lift, or self-maintaining claim.
+
+
+
+## v2.33 Candidate #2 Seed Intake and Matched-Null Experiment Status
+
+
+v2.33 could only run the matched-null memory repair experiment if candidate #2 seed verification passed. Because no seed file is present, the lane stops at the no-seed blocker and writes a discovery support packet instead of searching or fabricating a candidate.
+
+- Use the generated helper prompt/checklist/template to obtain a verified seed.
+- A valid seed must identify a native buggy-tree test and a full 40-character buggy commit SHA.
+- Issue or pull request links are lead evidence only; they are not sufficient registry evidence.
+- No repair, patch generation, target validation after patch, memory-lift claim, full-scoring claim, or protocol promotion occurs in v2.33.

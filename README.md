@@ -392,3 +392,20 @@ v2.32 preserves the first scoreable external repair episode and locks the future
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
+
+
+
+## v2.33 candidate #2 seed intake and matched-null experiment status
+
+
+v2.33 ingests the official v2.32 artifact and checks for a manually supplied candidate #2 seed at `inputs/external_candidate_seed_draft_v2_33.json`. No seed is present in this run, so candidate #2 is not selected and the matched-null repair experiment is not attempted.
+
+- Exact blocker: `blocked_no_second_external_candidate_seed_draft_provided`.
+- Candidate #2 discovery packet: created under `outputs/v2_33_candidate2_matched_null_memory_repair_lane/`.
+- First scoreable external repair episode remains `py_bugger_issue_65`.
+- Reviewed valid candidate count remains `1`.
+- Candidate #2 repair attempted: `false`.
+- Patch generated: `false`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
