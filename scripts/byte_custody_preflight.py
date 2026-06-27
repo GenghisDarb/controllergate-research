@@ -95,7 +95,9 @@ def discover_manifests(explicit: list[str]) -> list[Path]:
         for path in outputs_root.glob("*/SHA256SUMS.txt"):
             rel = path.relative_to(outputs_root).as_posix()
             match = re.match(r"v2_(\d+)(?:_|[a-zA-Z])", rel)
-            if match and int(match.group(1)) < MIN_DEFAULT_OUTPUT_VERSION:
+            if not match:
+                continue
+            if int(match.group(1)) < MIN_DEFAULT_OUTPUT_VERSION:
                 continue
             if not should_skip_path(path):
                 manifests.append(path.resolve())
