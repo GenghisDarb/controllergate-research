@@ -32,10 +32,19 @@ FIRST_CANDIDATE = "py_bugger_issue_65"
 EXPECTED_V232_SHA = "4fa00924210ffa95b6d3c3104457350502bbda2cf7bd348ea92cc2a3f736609e"
 EXPECTED_V232_RUN = 28284054288
 EXPECTED_V232_ARTIFACT_ID = 7922901616
+EXPECTED_V233_SHA = "7f8cb2fe180c974cf17880d2a010829e39445a6d1de05c272a0a0d7087115c6a"
+EXPECTED_V233_SIZE = 78316
+EXPECTED_V233_ENTRIES = 43
+EXPECTED_V233_MANIFEST_CHECKED = 31
+EXPECTED_V233_RUN = 28295104567
+EXPECTED_V233_ARTIFACT_ID = 7926245010
+EXPECTED_V233_ARTIFACT_NAME = "v2_33_candidate2_matched_null_memory_repair_lane_artifacts"
+EXPECTED_V233_HEAD = "aeb627422c12c0b8258b84b1329c20349311d870"
 
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
+    "v2_33_official_artifact_verification.json",
     "v2_32_artifact_ingest_verification.json",
     "artifact_repo_snapshot_comparison.json",
     "first_scoreable_episode_carry_forward.json",
@@ -327,6 +336,7 @@ def audit_outputs(errors: list[str], manifest_entries: set[str]) -> None:
         for rel in SEED_PRESENT_ONLY_FILES:
             expect(not (OUTPUT_ROOT / rel).exists(), errors, f"seed/arm output must not exist when seed absent: {rel}")
 
+    official = load_json(OUTPUT_ROOT / "v2_33_official_artifact_verification.json", errors)
     v232 = load_json(OUTPUT_ROOT / "v2_32_artifact_ingest_verification.json", errors)
     results = load_json(OUTPUT_ROOT / "campaign_results.json", errors)
     first = load_json(OUTPUT_ROOT / "first_scoreable_episode_carry_forward.json", errors)
@@ -348,6 +358,58 @@ def audit_outputs(errors: list[str], manifest_entries: set[str]) -> None:
     public_language = load_json(OUTPUT_ROOT / "public_language_audit.json", errors)
     ledger = load_json(OUTPUT_ROOT / "proof_obligations_ledger.json", errors)
     claim = load_json(OUTPUT_ROOT / "claim_boundary_v2_33.json", errors)
+
+    expect(official.get("status") == "PASS", errors, "v2.33 official artifact verification not PASS")
+    expect(official.get("manual_artifact_boundary") == "PASS", errors, "v2.33 manual artifact boundary not PASS")
+    expect(official.get("downloaded_by_codex") is False, errors, "v2.33 artifact must be manually provided")
+    expect(official.get("local_artifact_path_outside_git") is True, errors, "v2.33 artifact path must be outside Git worktree")
+    expect(official.get("artifact_name") == EXPECTED_V233_ARTIFACT_NAME, errors, "v2.33 artifact name mismatch")
+    expect(official.get("workflow_run_id") == EXPECTED_V233_RUN, errors, "v2.33 workflow run mismatch")
+    expect(official.get("artifact_id") == EXPECTED_V233_ARTIFACT_ID, errors, "v2.33 artifact ID mismatch")
+    expect(official.get("head_sha") == EXPECTED_V233_HEAD, errors, "v2.33 artifact head SHA mismatch")
+    expect(official.get("zip_size_bytes") == EXPECTED_V233_SIZE, errors, "v2.33 artifact size mismatch")
+    expect(official.get("zip_sha256") == EXPECTED_V233_SHA, errors, "v2.33 artifact SHA mismatch")
+    expect(official.get("entry_count") == EXPECTED_V233_ENTRIES, errors, "v2.33 artifact entry count mismatch")
+    expect(official.get("safe_path_status") == "PASS", errors, "v2.33 artifact safe path status mismatch")
+    expect(official.get("unsafe_path_count") == 0, errors, "v2.33 artifact unsafe path count mismatch")
+    expect(official.get("duplicate_path_count") == 0, errors, "v2.33 artifact duplicate path count mismatch")
+    expect(official.get("internal_manifest_checked") == EXPECTED_V233_MANIFEST_CHECKED, errors, "v2.33 internal manifest count mismatch")
+    expect(official.get("internal_manifest_missing") == 0, errors, "v2.33 internal manifest missing entries")
+    expect(official.get("internal_manifest_malformed") == 0, errors, "v2.33 internal manifest malformed entries")
+    expect(official.get("internal_manifest_failures") == 0, errors, "v2.33 internal manifest hash failures")
+    expect(official.get("internal_manifest_status") == "PASS", errors, "v2.33 internal manifest status mismatch")
+    expect(official.get("output_manifest_coverage") == "PASS", errors, "v2.33 output manifest coverage mismatch")
+    expect(official.get("non_archive_outputs_ingested_count") == EXPECTED_V233_MANIFEST_CHECKED, errors, "v2.33 ingested output count mismatch")
+    official_cf = official.get("carry_forward") if isinstance(official.get("carry_forward"), dict) else {}
+    expect(official_cf.get("v2_33_audit_status") == "PASS", errors, "v2.33 official audit carry-forward not PASS")
+    expect(official_cf.get("regression_audit_status") == "PASS", errors, "v2.33 official regression carry-forward not PASS")
+    expect(official_cf.get("public_language_audit_status") == "PASS", errors, "v2.33 official public language carry-forward not PASS")
+    expect(official_cf.get("first_scoreable_episode_carry_forward_status") == "PASS", errors, "v2.33 official first episode carry-forward not PASS")
+    expect(official_cf.get("scoreable_external_repair_episode_count") == 1, errors, "v2.33 official scoreable count mismatch")
+    expect(official_cf.get("selected_candidate_id") == FIRST_CANDIDATE, errors, "v2.33 official selected candidate mismatch")
+    expect(official_cf.get("reviewed_valid_candidate_count_after_run") == 1, errors, "v2.33 official reviewed count mismatch")
+    expect(official_cf.get("second_seed_present") is False, errors, "v2.33 official second seed presence mismatch")
+    expect(official_cf.get("second_seed_verification_status") == "not_run_seed_absent", errors, "v2.33 official seed verification mismatch")
+    expect(official_cf.get("second_seed_registry_merge_status") == "not_run_seed_absent", errors, "v2.33 official seed merge mismatch")
+    expect(official_cf.get("candidate2_discovery_packet_status") == "PASS", errors, "v2.33 official discovery packet not PASS")
+    expect(official_cf.get("candidate2_seed_template_status") == "PASS", errors, "v2.33 official seed template not PASS")
+    expect(official_cf.get("candidate2_external_helper_prompt_status") == "PASS", errors, "v2.33 official external helper prompt not PASS")
+    expect(official_cf.get("matched_null_experiment_attempted") is False, errors, "v2.33 official matched-null attempted mismatch")
+    expect(official_cf.get("arm_a_memory_enabled_status") == "planned_not_run_no_seed", errors, "v2.33 official Arm A status mismatch")
+    expect(official_cf.get("arm_b_memory_disabled_status") == "planned_not_run_no_seed", errors, "v2.33 official Arm B status mismatch")
+    expect(official_cf.get("arm_a_patch_generated") is False, errors, "v2.33 official Arm A patch flag mismatch")
+    expect(official_cf.get("arm_b_patch_generated") is False, errors, "v2.33 official Arm B patch flag mismatch")
+    expect(official_cf.get("arm_a_target_validation_status") == "not_run_no_seed", errors, "v2.33 official Arm A target status mismatch")
+    expect(official_cf.get("arm_b_target_validation_status") == "not_run_no_seed", errors, "v2.33 official Arm B target status mismatch")
+    expect(official_cf.get("arm_a_duplicate_replay_status") == "not_run_no_seed", errors, "v2.33 official Arm A replay status mismatch")
+    expect(official_cf.get("arm_b_duplicate_replay_status") == "not_run_no_seed", errors, "v2.33 official Arm B replay status mismatch")
+    expect(official_cf.get("matched_null_separation_score") is None, errors, "v2.33 official separation score should be absent")
+    expect(official_cf.get("preliminary_single_candidate_memory_lift_evidence") is False, errors, "v2.33 official preliminary memory evidence mismatch")
+    expect(official_cf.get("full_scoring") == "NOT_RUN/disallowed", errors, "v2.33 official full scoring mismatch")
+    expect(official_cf.get("memory_lift_status") == "undemonstrated", errors, "v2.33 official memory-lift mismatch")
+    expect(official_cf.get("self_maintaining_software_status") == "false/not_demonstrated", errors, "v2.33 official self-maintaining mismatch")
+    expect(official_cf.get("exact_blocker") == BLOCKER, errors, "v2.33 official blocker mismatch")
+    expect(official_cf.get("v2_34_seed_verification_workbench_recommendation_carry_forward_status") == "PASS", errors, "v2.34 recommendation carry-forward not PASS")
 
     expect(v232.get("status") == "PASS", errors, "v2.32 official ingest verification not PASS")
     expect(v232.get("zip_sha256") == EXPECTED_V232_SHA, errors, "v2.32 artifact SHA mismatch")
