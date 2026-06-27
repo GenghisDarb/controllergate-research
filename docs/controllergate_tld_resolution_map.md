@@ -101,6 +101,7 @@ v2.30 moves the reviewed external candidate from text-hash mismatch to semantic 
 - Scope: one reviewed external candidate and one final source-only patch maximum.
 - Stop condition: any semantic replay, registry refresh, context, patch-safety, validation, or duplicate-replay mismatch blocks broader claims.
 
+
 ## v2.31 consolidation status
 
 
@@ -109,4 +110,3 @@ v2.31 marks the first consolidated scoreable external repair episode, not a prot
 - One reviewed external candidate has a scoreable source-only repair episode.
 - The result is enough to update planning and readiness, but not enough for full scoring, memory-lift, broad-generalization, or self-maintaining claims.
 - The next precision target is multiple reviewed external candidates or a prospective second repair episode under frozen comparison rules.
-

@@ -46,11 +46,20 @@ EXPECTED = {
     "artifact_sha256": "6321a219fc57832d23bb6028beb61f2dbd873ac825b51ba3581e7a30eca1b883",
     "workflow_run_id": 28274637503,
     "artifact_id": 7919820263,
+    "v2_31_artifact_sha256": "dcc798015f920e737b893121175e97c1ba04d1c26ef78bf7b691794817277766",
+    "v2_31_artifact_size_bytes": 77539,
+    "v2_31_artifact_entry_count": 36,
+    "v2_31_internal_manifest_checked": 24,
+    "v2_31_workflow_run_id": 28277667635,
+    "v2_31_artifact_id": 7920785556,
+    "v2_31_artifact_name": "v2_31_scoreable_repair_episode_consolidation_lane_artifacts",
+    "v2_31_head_sha": "1dca24b157c5e2f97fec57fb3ff871e3cb87af4e",
 }
 
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
+    "v2_31_official_artifact_verification.json",
     "v2_30_artifact_ingest_verification.json",
     "artifact_repo_snapshot_comparison.json",
     "scoreable_repair_episode_record.json",
@@ -216,6 +225,7 @@ def audit_outputs(errors: list[str]) -> None:
     expect(checked == len(REQUIRED_FILES) - 1, errors, "manifest entry count mismatch")
 
     results = load_json(OUTPUT_ROOT / "campaign_results.json", errors)
+    v231_official = load_json(OUTPUT_ROOT / "v2_31_official_artifact_verification.json", errors)
     official = load_json(OUTPUT_ROOT / "v2_30_artifact_ingest_verification.json", errors)
     episode = load_json(OUTPUT_ROOT / "scoreable_repair_episode_record.json", errors)
     episode_registry = load_json(EPISODE_REGISTRY_PATH, errors)
@@ -239,6 +249,55 @@ def audit_outputs(errors: list[str]) -> None:
     matrix = load_json(CAPABILITY_MATRIX_PATH, errors)
     backlog = load_json(BACKLOG_PATH, errors)
     resolution_map = load_json(RESOLUTION_MAP_PATH, errors)
+
+    expect(v231_official.get("status") == "PASS", errors, "v2.31 official artifact verification not PASS")
+    expect(v231_official.get("manual_artifact_boundary") == "PASS", errors, "v2.31 manual artifact boundary not PASS")
+    expect(v231_official.get("downloaded_by_codex") is False, errors, "v2.31 artifact was downloaded by Codex")
+    expect(v231_official.get("local_artifact_path_outside_git") is True, errors, "v2.31 local artifact path not outside Git")
+    expect(v231_official.get("artifact_name") == EXPECTED["v2_31_artifact_name"], errors, "v2.31 artifact name mismatch")
+    expect(v231_official.get("workflow_run_id") == EXPECTED["v2_31_workflow_run_id"], errors, "v2.31 workflow run ID mismatch")
+    expect(v231_official.get("artifact_id") == EXPECTED["v2_31_artifact_id"], errors, "v2.31 artifact ID mismatch")
+    expect(v231_official.get("head_sha") == EXPECTED["v2_31_head_sha"], errors, "v2.31 artifact head SHA mismatch")
+    expect(v231_official.get("zip_size_bytes") == EXPECTED["v2_31_artifact_size_bytes"], errors, "v2.31 artifact ZIP size mismatch")
+    expect(v231_official.get("zip_sha256") == EXPECTED["v2_31_artifact_sha256"], errors, "v2.31 artifact ZIP SHA mismatch")
+    expect(v231_official.get("entry_count") == EXPECTED["v2_31_artifact_entry_count"], errors, "v2.31 artifact entry count mismatch")
+    expect(v231_official.get("unsafe_path_count") == 0, errors, "v2.31 artifact unsafe paths detected")
+    expect(v231_official.get("duplicate_path_count") == 0, errors, "v2.31 artifact duplicate paths detected")
+    expect(v231_official.get("safe_path_status") == "PASS", errors, "v2.31 artifact safe path status mismatch")
+    expect(v231_official.get("internal_manifest_checked") == EXPECTED["v2_31_internal_manifest_checked"], errors, "v2.31 internal manifest count mismatch")
+    expect(v231_official.get("internal_manifest_missing") == 0, errors, "v2.31 internal manifest missing entries")
+    expect(v231_official.get("internal_manifest_malformed") == 0, errors, "v2.31 internal manifest malformed entries")
+    expect(v231_official.get("internal_manifest_failures") == 0, errors, "v2.31 internal manifest hash failures")
+    expect(v231_official.get("internal_manifest_status") == "PASS", errors, "v2.31 internal manifest status mismatch")
+    expect(v231_official.get("output_manifest_coverage") == "PASS", errors, "v2.31 output manifest coverage mismatch")
+    expect(v231_official.get("non_archive_outputs_ingested_count") == 25, errors, "v2.31 ingested output count mismatch")
+    expect(v231_official.get("repo_snapshots_ingested_count", 0) >= 10, errors, "v2.31 repo snapshots not recorded")
+    v231_cf = v231_official.get("carry_forward") if isinstance(v231_official.get("carry_forward"), dict) else {}
+    expect(v231_cf.get("v2_31_audit_status") == "PASS", errors, "v2.31 official audit carry-forward not PASS")
+    expect(v231_cf.get("regression_audit_status") == "PASS", errors, "v2.31 official regression carry-forward not PASS")
+    expect(v231_cf.get("current_protocol_version") == "v2.13", errors, "v2.31 official current protocol changed")
+    expect(v231_cf.get("public_language_audit_status") == "PASS", errors, "v2.31 official public language not PASS")
+    expect(v231_cf.get("v2_30_scoreable_episode_ingest_status") == "PASS", errors, "v2.31 official v2.30 ingest carry-forward not PASS")
+    expect(v231_cf.get("scoreable_episode_carry_forward_status") == "PASS", errors, "v2.31 scoreable episode carry-forward not PASS")
+    expect(v231_cf.get("external_repair_episode_registry_status") == "PASS", errors, "v2.31 external repair episode registry not PASS")
+    expect(v231_cf.get("scoreable_external_repair_episode_count") == 1, errors, "v2.31 official scoreable episode count mismatch")
+    expect(v231_cf.get("selected_candidate_id") == EXPECTED["candidate_id"], errors, "v2.31 official candidate mismatch")
+    expect(v231_cf.get("selected_candidate_scoreable") is True, errors, "v2.31 official scoreable status mismatch")
+    expect(v231_cf.get("selected_candidate_positive_memory_only") is False, errors, "v2.31 official positive-memory-only status mismatch")
+    expect(v231_cf.get("patch_sha256") == EXPECTED["patch_sha256"], errors, "v2.31 official patch SHA mismatch")
+    expect(v231_cf.get("target_validation_carry_forward_status") == "PASS", errors, "v2.31 official target validation carry-forward not PASS")
+    expect(v231_cf.get("duplicate_replay_carry_forward_status") == "PASS", errors, "v2.31 official duplicate replay carry-forward not PASS")
+    expect(v231_cf.get("stochastic_replay_reliability_carry_forward_status") == "PASS", errors, "v2.31 official replay reliability carry-forward not PASS")
+    expect(v231_cf.get("observed_reliability") == 1.0, errors, "v2.31 official observed reliability mismatch")
+    expect(v231_cf.get("failure_memory_diagnostic_carry_forward_status") == "PASS", errors, "v2.31 official failure memory carry-forward not PASS")
+    expect(v231_cf.get("failure_memory_diagnostic_only") is True, errors, "v2.31 official failure memory not diagnostic-only")
+    expect(v231_cf.get("next_candidate_requirements_status") == "PASS", errors, "v2.31 official next-candidate requirements not PASS")
+    expect(v231_cf.get("prospective_memory_lift_requirements_carry_forward_status") == "PASS", errors, "v2.31 official prospective memory requirements not PASS")
+    expect(v231_cf.get("v2_32_second_candidate_seed_recommendation_carry_forward_status") == "PASS", errors, "v2.31 official v2.32 recommendation not PASS")
+    expect(v231_cf.get("full_scoring") == "NOT_RUN/disallowed", errors, "v2.31 official full scoring changed")
+    expect(v231_cf.get("memory_lift_status") == "undemonstrated", errors, "v2.31 official memory lift changed")
+    expect(v231_cf.get("self_maintaining_software_status") == "false/not_demonstrated", errors, "v2.31 official self-maintaining changed")
+    expect(v231_cf.get("exact_blocker") is None, errors, "v2.31 official exact blocker not None")
 
     expect(official.get("status") == "PASS", errors, "v2.30 official ingest not PASS")
     expect(official.get("manual_artifact_boundary") == "PASS", errors, "v2.30 manual artifact boundary not PASS")

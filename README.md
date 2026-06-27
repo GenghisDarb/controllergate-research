@@ -359,6 +359,7 @@ v2.30 keeps scope on the reviewed `py_bugger_issue_65` candidate and resolves th
 - The lane still allows at most one bounded source-only patch and three duplicate clean replays before any scoreable result.
 - Current protocol remains `v2.13`; full scoring remains disabled; memory lift and self-maintaining software remain undemonstrated.
 
+
 ## v2.31 scoreable external repair episode consolidation
 
 
@@ -373,4 +374,3 @@ ControllerGate has now crossed an important evidence boundary: v2.30 produced th
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
 - Next engineering target: add 2-3 more reviewed external candidates through the registry/seed pipeline, or run a prospective second external repair lane if a second reviewed candidate is already available.
-

@@ -3,6 +3,63 @@
     {
       "exists": true,
       "path": "README.md",
+      "sha256": "d5ba56e0299b5691c3e385170b6a2a16c6c9c1286331713048d21bd9f302ffae"
+    },
+    {
+      "exists": true,
+      "path": "docs/non_ansible_capability_roadmap.md",
+      "sha256": "0979b9f75783d955ce3d50f9360cae9c6c4007b616cd98807000b265cf59c0a9"
+    },
+    {
+      "exists": true,
+      "path": "docs/structural_repair_capability_plan.md",
+      "sha256": "28c9fc8d07f18f904f27df48a614b6de975ea10a145c4102af6a52101c6dcdd4"
+    },
+    {
+      "exists": true,
+      "path": "docs/controllergate_tld_resolution_map.md",
+      "sha256": "fb56c09909942454f3d561268c236d93983a61f020e604f4328b60c8bd22804e"
+    },
+    {
+      "exists": true,
+      "path": "controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md",
+      "sha256": "6d54555def83f756e89e3ad331e9020bdf4c9127564248b364894543b275dc88"
+    },
+    {
+      "exists": true,
+      "path": "configs/external_repair_episode_registry.json",
+      "sha256": "72ba4a6220c2cd6fcb4cbb0b544cc0b3e4eb99c595a03256c8de2e21b8270603"
+    },
+    {
+      "exists": true,
+      "path": "configs/external_candidate_registry.json",
+      "sha256": "e18439c175b6fd53784c0d9338cdd979f31d341c4bb82adf561b1067d5763e38"
+    },
+    {
+      "exists": true,
+      "path": "configs/failure_memory_weight_ledger.json",
+      "sha256": "86c3cd7afd5589cc80c10806a77554aeb5515973b44e01a8bca854fb4d75841a"
+    },
+    {
+      "exists": true,
+      "path": "configs/structural_repair_capability_matrix.json",
+      "sha256": "d23b432af80118da8b4acd794545a5734509ab3a789be74fd8cd14f605bb4243"
+    },
+    {
+      "exists": true,
+      "path": "configs/non_ansible_capability_backlog.json",
+      "sha256": "b13150675162b3a1a0b9e70a34b08740bedf75a027c433a70157c676dba86306"
+    },
+    {
+      "exists": true,
+      "path": "configs/controllergate_resolution_depth_map.json",
+      "sha256": "6449d84f50b48840e7d2c1bdd69e31503ee079e115c29b65fb3c2ec368ba2fba"
+    }
+  ],
+  "before": [
+    {
+      "exists": true,
+      "path": "README.md",
       "sha256": "119bd454a9faada1cd6e5c5ec3db87bf41c39ab7b4c2800d9e5d93b9f1e85317"
     },
     {
@@ -56,63 +113,6 @@
       "sha256": "c4d2e48c4b812cca159b1de44af44ebc71158b5321be39a838e1bb107711dc82"
     }
   ],
-  "before": [
-    {
-      "exists": true,
-      "path": "README.md",
-      "sha256": "e7e7b3cb44963f8e28df75959b98bbd844d40d58fdd751de99e5bf95d48abac1"
-    },
-    {
-      "exists": true,
-      "path": "docs/non_ansible_capability_roadmap.md",
-      "sha256": "4578512552e6fe1509996d9dddd95fb5ceb684f18a3e5a2416699dd6d4fb5647"
-    },
-    {
-      "exists": true,
-      "path": "docs/structural_repair_capability_plan.md",
-      "sha256": "2a3f97b8e46707caec30f0cec80c958bf3cdbd11e115ae6553c045bfd8f4af2a"
-    },
-    {
-      "exists": true,
-      "path": "docs/controllergate_tld_resolution_map.md",
-      "sha256": "6e3c4506c5a4d41dab5ef95b9af4927dda13138f4e32f80d2a6d0aca93a38a99"
-    },
-    {
-      "exists": true,
-      "path": "controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md",
-      "sha256": "070d449f5271fa3d9918845152ef69d0a7d3e781db3517ec2cb5bb34b0547425"
-    },
-    {
-      "exists": false,
-      "path": "configs/external_repair_episode_registry.json",
-      "sha256": null
-    },
-    {
-      "exists": true,
-      "path": "configs/external_candidate_registry.json",
-      "sha256": "e18439c175b6fd53784c0d9338cdd979f31d341c4bb82adf561b1067d5763e38"
-    },
-    {
-      "exists": true,
-      "path": "configs/failure_memory_weight_ledger.json",
-      "sha256": "046481c1fa90a2456516f0ee0f78d44739e837b4d58712177e01582fead09951"
-    },
-    {
-      "exists": true,
-      "path": "configs/structural_repair_capability_matrix.json",
-      "sha256": "293bdd9c3d823330c789021ff03033f92ebb812fdf66ce3d28adafc3084824b7"
-    },
-    {
-      "exists": true,
-      "path": "configs/non_ansible_capability_backlog.json",
-      "sha256": "476540ad31efdc91067c42f7d50b868dea020409eada73c73310eef496945bfc"
-    },
-    {
-      "exists": true,
-      "path": "configs/controllergate_resolution_depth_map.json",
-      "sha256": "79612aa52367b0fe9f07b8ec14d625c8ac7a79837cda4b8e8e7642a778132c3e"
-    }
-  ],
   "changed_paths": [
     "README.md",
     "docs/non_ansible_capability_roadmap.md",
@@ -122,7 +122,6 @@
     "configs/external_repair_episode_registry.json",
     "configs/failure_memory_weight_ledger.json",
     "configs/structural_repair_capability_matrix.json",
-    "configs/non_ansible_capability_backlog.json",
     "configs/controllergate_resolution_depth_map.json"
   ],
   "status": "PASS"

@@ -292,6 +292,7 @@ v2.30 adds a stronger failure-signature gate for the reviewed external candidate
 - The old full-log hash mismatch remains diagnostic only after registry refresh passes.
 - No candidate expansion, full scoring, or protocol promotion occurs.
 
+
 ## v2.31 Scoreable External Repair Episode Consolidation
 
 
@@ -303,4 +304,3 @@ v2.31 does not repair a new candidate. It registers the first scoreable external
 - Candidate expansion must continue through the external candidate registry and seed verification pipeline.
 - Next lane should either add 2-3 more reviewed external candidates or run a prospective second repair lane only if another reviewed candidate already exists.
 - Full scoring, memory lift, broad family generalization, and self-maintaining software remain unclaimed.
-

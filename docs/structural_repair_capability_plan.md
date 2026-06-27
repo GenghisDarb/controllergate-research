@@ -21,10 +21,10 @@ bounded repair lanes.
 
 Full scoring is not run. Current protocol remains v2.13.
 
+
 ## v2.31 consolidation status
 
 
 v2.31 records the first scoreable external repair episode as a consolidated engineering artifact. The active repair-control mechanisms remain bounded and diagnostic: semantic failure signature, source-only patch safety, target validation, duplicate clean replay, and proof-ledger custody.
 
 No v2.31 repair, target-test execution, patch generation, or new candidate selection is authorized. The next safe expansion is more reviewed registry candidates or a prospective second repair lane.
-
