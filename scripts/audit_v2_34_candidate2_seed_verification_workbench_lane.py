@@ -27,6 +27,14 @@ SHAREABLE_PATH = REPO_ROOT / "controllergate_v1_7_beta" / "reports" / "critic_re
 
 BLOCKER = "blocked_no_valid_second_external_candidate_seed_provided"
 FIRST_CANDIDATE = "py_bugger_issue_65"
+EXPECTED_V234_SHA = "bd8feb5daf31412e72caf09b3a51237dc9a2317a401a9c24ee48604930eac192"
+EXPECTED_V234_SIZE = 73749
+EXPECTED_V234_ENTRIES = 38
+EXPECTED_V234_MANIFEST_CHECKED = 24
+EXPECTED_V234_RUN = 28302637324
+EXPECTED_V234_ARTIFACT_ID = 7928414578
+EXPECTED_V234_ARTIFACT_NAME = "v2_34_candidate2_seed_verification_workbench_lane_artifacts"
+EXPECTED_V234_HEAD = "09b8f58f5c0a0c322cfc87616d483ac4dae16bff"
 REJECTED_LEADS = {
     "darker_issue_112",
     "commit_check_issue_15",
@@ -39,6 +47,7 @@ REJECTED_LEADS = {
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
+    "v2_34_official_artifact_verification.json",
     "v2_33_artifact_ingest_verification.json",
     "artifact_repo_snapshot_comparison.json",
     "byte_custody_tooling_status_v2_34.json",
@@ -223,6 +232,7 @@ def audit_outputs(errors: list[str], manifest_entries: set[str]) -> None:
             expect(not (OUTPUT_ROOT / rel).exists(), errors, f"seed-present-only output exists while seed absent: {rel}")
 
     results = load_json(OUTPUT_ROOT / "campaign_results.json", errors)
+    official = load_json(OUTPUT_ROOT / "v2_34_official_artifact_verification.json", errors)
     v233 = load_json(OUTPUT_ROOT / "v2_33_artifact_ingest_verification.json", errors)
     tooling = load_json(OUTPUT_ROOT / "byte_custody_tooling_status_v2_34.json", errors)
     preflight = load_json(OUTPUT_ROOT / "byte_custody_preflight_report_v2_34.json", errors)
@@ -241,6 +251,47 @@ def audit_outputs(errors: list[str], manifest_entries: set[str]) -> None:
     roadmap = load_json(OUTPUT_ROOT / "roadmap_carry_forward_check_v2_34.json", errors)
     resolution = load_json(OUTPUT_ROOT / "resolution_depth_diagnostic_v2_34.json", errors)
     claim = load_json(OUTPUT_ROOT / "claim_boundary_v2_34.json", errors)
+
+    expect(official.get("status") == "PASS", errors, "v2.34 official artifact verification not PASS")
+    expect(official.get("manual_artifact_boundary") == "PASS", errors, "v2.34 manual artifact boundary not PASS")
+    expect(official.get("downloaded_by_codex") is False, errors, "v2.34 artifact must be manually provided")
+    expect(official.get("local_artifact_path_outside_git") is True, errors, "v2.34 artifact path must be outside Git worktree")
+    expect(official.get("artifact_name") == EXPECTED_V234_ARTIFACT_NAME, errors, "v2.34 artifact name mismatch")
+    expect(official.get("workflow_run_id") == EXPECTED_V234_RUN, errors, "v2.34 workflow run mismatch")
+    expect(official.get("artifact_id") == EXPECTED_V234_ARTIFACT_ID, errors, "v2.34 artifact ID mismatch")
+    expect(official.get("head_sha") == EXPECTED_V234_HEAD, errors, "v2.34 artifact head SHA mismatch")
+    expect(official.get("zip_size_bytes") == EXPECTED_V234_SIZE, errors, "v2.34 artifact size mismatch")
+    expect(official.get("zip_sha256") == EXPECTED_V234_SHA, errors, "v2.34 artifact SHA mismatch")
+    expect(official.get("entry_count") == EXPECTED_V234_ENTRIES, errors, "v2.34 artifact entry count mismatch")
+    expect(official.get("safe_path_status") == "PASS", errors, "v2.34 artifact safe path status mismatch")
+    expect(official.get("unsafe_path_count") == 0, errors, "v2.34 artifact unsafe path count mismatch")
+    expect(official.get("duplicate_path_count") == 0, errors, "v2.34 artifact duplicate path count mismatch")
+    expect(official.get("internal_manifest_checked") == EXPECTED_V234_MANIFEST_CHECKED, errors, "v2.34 internal manifest count mismatch")
+    expect(official.get("internal_manifest_missing") == 0, errors, "v2.34 internal manifest missing entries")
+    expect(official.get("internal_manifest_malformed") == 0, errors, "v2.34 internal manifest malformed entries")
+    expect(official.get("internal_manifest_failures") == 0, errors, "v2.34 internal manifest hash failures")
+    expect(official.get("internal_manifest_status") == "PASS", errors, "v2.34 internal manifest status mismatch")
+    expect(official.get("output_manifest_coverage") == "PASS", errors, "v2.34 output manifest coverage mismatch")
+    expect(official.get("non_archive_outputs_ingested_count") == EXPECTED_V234_MANIFEST_CHECKED, errors, "v2.34 ingested output count mismatch")
+    official_cf = official.get("carry_forward") if isinstance(official.get("carry_forward"), dict) else {}
+    expect(official_cf.get("v2_34_audit_status") == "PASS", errors, "v2.34 official audit carry-forward not PASS")
+    expect(official_cf.get("regression_audit_status") == "PASS", errors, "v2.34 official regression carry-forward not PASS")
+    expect(official_cf.get("public_language_audit_status") == "PASS", errors, "v2.34 official public language carry-forward not PASS")
+    expect(official_cf.get("byte_custody_tooling_status") == "PASS", errors, "v2.34 official byte-custody tooling not PASS")
+    expect(official_cf.get("byte_custody_preflight_status") == "PASS", errors, "v2.34 official byte-custody preflight not PASS")
+    expect(official_cf.get("seed_workbench_status") == "PASS", errors, "v2.34 official seed workbench not PASS")
+    expect(official_cf.get("invalid_lead_rejection_carry_forward_status") == "PASS", errors, "v2.34 official lead rejection not PASS")
+    expect(official_cf.get("rejected_prior_lead_count") == 6, errors, "v2.34 official rejected lead count mismatch")
+    expect(official_cf.get("valid_seed_present") is False, errors, "v2.34 official valid seed presence mismatch")
+    expect(official_cf.get("valid_seed_verification_status") == BLOCKER, errors, "v2.34 official seed verification blocker mismatch")
+    expect(official_cf.get("seed_registry_merge_status") == "not_run_no_valid_seed", errors, "v2.34 official seed merge mismatch")
+    expect(official_cf.get("reviewed_valid_candidate_count_after_run") == 1, errors, "v2.34 official reviewed count mismatch")
+    expect(official_cf.get("matched_null_experiment_attempted") is False, errors, "v2.34 official matched-null attempted mismatch")
+    expect(official_cf.get("patch_generated") is False, errors, "v2.34 official patch flag mismatch")
+    expect(official_cf.get("full_scoring") == "NOT_RUN/disallowed", errors, "v2.34 official full scoring mismatch")
+    expect(official_cf.get("memory_lift_status") == "undemonstrated", errors, "v2.34 official memory-lift mismatch")
+    expect(official_cf.get("self_maintaining_software_status") == "false/not_demonstrated", errors, "v2.34 official self-maintaining mismatch")
+    expect(official_cf.get("v2_35_automated_acquisition_recommendation_carry_forward_status") == "PASS", errors, "v2.35 recommendation carry-forward not PASS")
 
     expect(v233.get("status") == "PASS", errors, "v2.33 official ingest carry-forward not PASS")
     expect(v233.get("manual_artifact_boundary") == "PASS", errors, "v2.33 manual artifact boundary not PASS")
