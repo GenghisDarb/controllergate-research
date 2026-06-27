@@ -30,6 +30,7 @@ v2.31 records the first scoreable external repair episode as a consolidated engi
 No v2.31 repair, target-test execution, patch generation, or new candidate selection is authorized. The next safe expansion is more reviewed registry candidates or a prospective second repair lane.
 
 
+
 ## v2.32 protocol lock status
 
 

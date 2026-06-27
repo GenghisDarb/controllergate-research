@@ -376,6 +376,7 @@ ControllerGate has now crossed an important evidence boundary: v2.30 produced th
 - Next engineering target: add 2-3 more reviewed external candidates through the registry/seed pipeline, or run a prospective second external repair lane if a second reviewed candidate is already available.
 
 
+
 ## v2.32 second external candidate seed and matched-null protocol lock
 
 

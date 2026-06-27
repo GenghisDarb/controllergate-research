@@ -112,6 +112,7 @@ v2.31 marks the first consolidated scoreable external repair episode, not a prot
 - The next precision target is multiple reviewed external candidates or a prospective second repair episode under frozen comparison rules.
 
 
+
 ## v2.32 protocol lock status
 
 

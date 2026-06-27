@@ -306,6 +306,7 @@ v2.31 does not repair a new candidate. It registers the first scoreable external
 - Full scoring, memory lift, broad family generalization, and self-maintaining software remain unclaimed.
 
 
+
 ## v2.32 Second External Candidate Seed and Matched-Null Protocol Lock
 
 
