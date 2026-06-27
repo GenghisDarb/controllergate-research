@@ -22,6 +22,8 @@ SEED_PATH = REPO_ROOT / "inputs" / "external_candidate_seed_draft.json"
 NONCANONICAL_SEED_PATH = REPO_ROOT / "configs" / "candidate_seed_draft.json"
 V227_ROOT = REPO_ROOT / "outputs" / "v2_27_external_candidate_seed_draft_verification_lane"
 V223_ROOT = REPO_ROOT / "outputs" / "v2_23_non_ansible_candidate_transition_lane"
+V230_ROOT = REPO_ROOT / "outputs" / "v2_30_failure_signature_canonicalization_repair_lane"
+REGISTRY_LINEAGE_POLICY_PATH = REPO_ROOT / "configs" / "registry_lineage_policy.json"
 EXPECTED_SEED = {
     "candidate_id": "py_bugger_issue_65",
     "repo_url": "https://github.com/ehmatthes/py-bugger",
@@ -131,6 +133,99 @@ def load_json(path: Path, errors: list[str]) -> dict[str, Any]:
 def expect(condition: bool, errors: list[str], message: str) -> None:
     if not condition:
         errors.append(message)
+
+
+def registry_candidate_identity_matches(candidate: dict[str, Any], target_hashes: dict[str, Any], support_hashes: dict[str, Any], env_hashes: dict[str, Any]) -> bool:
+    target = (target_hashes.get("target_test_files") or [{}])[0]
+    support = (support_hashes.get("support_files") or [{}])[0]
+    env_file = env_hashes.get("environment_lock_source") or {}
+    candidate_targets = candidate.get("target_test_files") if isinstance(candidate.get("target_test_files"), list) else []
+    candidate_support = candidate.get("support_files") if isinstance(candidate.get("support_files"), list) else []
+    candidate_target = candidate_targets[0] if candidate_targets and isinstance(candidate_targets[0], dict) else {}
+    candidate_support_file = candidate_support[0] if candidate_support and isinstance(candidate_support[0], dict) else {}
+    return (
+        candidate.get("candidate_id") == EXPECTED_SEED["candidate_id"]
+        and candidate.get("repo_url") == EXPECTED_SEED["repo_url"]
+        and candidate.get("buggy_commit_sha") == EXPECTED_SEED["buggy_commit_sha"]
+        and candidate.get("test_command") == EXPECTED_SEED["test_command"]
+        and candidate.get("registry_review_status") == "reviewed"
+        and candidate_target.get("path") == target.get("path")
+        and candidate_target.get("sha256") == target.get("sha256")
+        and candidate_support_file.get("path") == support.get("path")
+        and candidate_support_file.get("sha256") == support.get("sha256")
+        and candidate.get("environment_lock_source") == env_file.get("path")
+        and env_file.get("sha256") == "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631"
+    )
+
+
+def registry_sha_compatible_with_later_lineage(expected_registry_sha: str | None, current_registry_sha: str, target_hashes: dict[str, Any], support_hashes: dict[str, Any], env_hashes: dict[str, Any], errors: list[str]) -> bool:
+    if expected_registry_sha == current_registry_sha:
+        return True
+    policy = load_json(REGISTRY_LINEAGE_POLICY_PATH, errors)
+    transition = load_json(V230_ROOT / "registry_lineage_transition_v2_30.json", errors)
+    if not policy:
+        errors.append("registry_lineage_policy_missing_or_invalid")
+        return False
+    if policy.get("policy_version") != "v2.30.registry_lineage_policy.v1":
+        errors.append("registry_lineage_policy_missing_or_invalid")
+        return False
+    if "semantic_signature_refresh" not in (policy.get("allowed_transition_types") or []):
+        errors.append("registry_lineage_policy_missing_or_invalid")
+        return False
+    if "v2_30_failure_signature_canonicalization_repair_lane" not in (policy.get("allowed_lanes") or []):
+        errors.append("registry_lineage_policy_missing_or_invalid")
+        return False
+    if not transition or transition.get("status") != "PASS":
+        errors.append("registry_lineage_transition_missing")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    recorded_hash = transition.get("transition_payload_hash")
+    payload = {key: value for key, value in transition.items() if key != "transition_payload_hash"}
+    if recorded_hash != hashlib.sha256(json.dumps(payload, sort_keys=True).encode("utf-8")).hexdigest():
+        errors.append("registry_lineage_transition_invalid")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    if transition.get("previous_registry_sha256") != expected_registry_sha:
+        errors.append("registry_lineage_previous_sha_missing")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    if transition.get("refreshed_registry_sha256") != current_registry_sha:
+        errors.append("registry_lineage_current_sha_mismatch")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    if transition.get("transition_type") != "semantic_signature_refresh" or transition.get("lane") != "v2_30_failure_signature_canonicalization_repair_lane":
+        errors.append("registry_lineage_transition_invalid")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    if transition.get("transition_reason") != "semantic_failure_stable_text_hash_drift":
+        errors.append("registry_lineage_transition_invalid")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    if transition.get("identity_fields_unchanged") is not True or transition.get("immutable_identity_check") != "PASS":
+        errors.append("registry_lineage_identity_field_changed")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    if transition.get("signature_history_entry_count", 0) < 3:
+        errors.append("registry_lineage_signature_history_missing")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    registry = load_json(REGISTRY_PATH, errors)
+    candidates = registry.get("candidates") if isinstance(registry.get("candidates"), list) else []
+    matches = [candidate for candidate in candidates if isinstance(candidate, dict) and candidate.get("candidate_id") == EXPECTED_SEED["candidate_id"]]
+    if len(matches) != 1 or not registry_candidate_identity_matches(matches[0], target_hashes, support_hashes, env_hashes):
+        errors.append("registry_lineage_identity_field_changed")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    signature = matches[0].get("expected_failure_signature") if isinstance(matches[0].get("expected_failure_signature"), dict) else {}
+    if signature.get("semantic_log_hash") != transition.get("semantic_failure_signature_hash"):
+        errors.append("registry_lineage_transition_invalid")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    if not isinstance(signature.get("signature_history"), list) or not signature["signature_history"]:
+        errors.append("registry_lineage_signature_history_missing")
+        errors.append("registry_sha_unapproved_drift")
+        return False
+    return True
 
 
 def verify_manifest(root: Path) -> tuple[list[str], int]:
@@ -344,7 +439,15 @@ def audit_outputs(errors: list[str]) -> None:
     fresh_validation = registry_validator.validate_registry()
     expect(fresh_validation.get("registry_validation_status") == "PASS", errors, "fresh registry validation did not PASS")
     expect(validation.get("registry_validation_status") == fresh_validation.get("registry_validation_status"), errors, "validation status stale")
-    expect(validation.get("registry_sha256") == sha256_path(REGISTRY_PATH), errors, "validation registry SHA stale")
+    registry_sha_compatible = registry_sha_compatible_with_later_lineage(
+        validation.get("registry_sha256"),
+        sha256_path(REGISTRY_PATH),
+        target_hashes,
+        support_hashes,
+        env_hashes,
+        errors,
+    )
+    expect(registry_sha_compatible, errors, "validation registry SHA stale")
     expect(status_after.get("registry_validation_status") == "PASS", errors, "registry validation after merge did not PASS")
     expect(status_after.get("reviewed_valid_candidate_count") == validation.get("valid_reviewed_candidate_count"), errors, "reviewed count mismatch")
     expect(public_language.get("status") == "PASS", errors, "public language audit did not PASS")

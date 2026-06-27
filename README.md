@@ -348,6 +348,7 @@ v2.29 adds the Structural Repair Capability Integration Lane and runs at most on
 - Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
 
 
+
 ## v2.30 failure signature canonicalization and repair continuation
 
 v2.30 keeps scope on the reviewed `py_bugger_issue_65` candidate and resolves the v2.29 text-hash mismatch only through a versioned semantic failure signature.

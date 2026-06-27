@@ -1,0 +1,35 @@
+{
+  "allowed_lanes": [
+    "v2_30_failure_signature_canonicalization_repair_lane"
+  ],
+  "allowed_transition_types": [
+    "semantic_signature_refresh"
+  ],
+  "approved_transition_reasons": [
+    "semantic_failure_stable_text_hash_drift"
+  ],
+  "drift_blocker": "registry_sha_unapproved_drift",
+  "immutable_identity_fields": [
+    "candidate_id",
+    "repo_url",
+    "buggy_commit_sha",
+    "test_command",
+    "target_test_files.path",
+    "target_test_files.sha256",
+    "support_files.path",
+    "support_files.sha256",
+    "environment_lock_source",
+    "environment_lock_source_sha256",
+    "registry_review_status"
+  ],
+  "mutable_under_approved_refresh_only": [
+    "expected_failure_signature.normalized_log_hash",
+    "expected_failure_signature.normalized_log_hash_v2_30",
+    "expected_failure_signature.semantic_log_hash",
+    "expected_failure_signature.signature_history",
+    "expected_failure_signature.normalization_policy_version",
+    "expected_failure_signature.semantic_fields"
+  ],
+  "policy_version": "v2.30.registry_lineage_policy.v1",
+  "schema_version": "v2.30"
+}

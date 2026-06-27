@@ -36,41 +36,55 @@
       "status": "not_run"
     },
     {
-      "action": "semantic pre repair gate",
-      "entry_hash": "df9dc3ec300763d28a3dedca7425d74b7abf59b7662d3e9cc9df005cdbb5ce35",
+      "action": "registry lineage transition",
+      "entry_hash": "06e492138840289b2c5d66ed3ac0605c66f586230b7263ad2e2536bb929e8895",
       "index": 5,
       "previous_entry_hash": "d0d9d0ba988309a480c70360f37e5f8da4b49e958b3332a6a5d71be04898c556",
+      "status": "not_run"
+    },
+    {
+      "action": "regression registry compatibility",
+      "entry_hash": "c60be3b6692efe6df257d96b4ffcf0da49568412cd4c3f8410628a9a629a57fa",
+      "index": 6,
+      "previous_entry_hash": "06e492138840289b2c5d66ed3ac0605c66f586230b7263ad2e2536bb929e8895",
+      "status": "PASS"
+    },
+    {
+      "action": "semantic pre repair gate",
+      "entry_hash": "45bf443d382125b2127823d9f1011bd0bc6ebb3dd8da65271f6fce3e3f6b46a4",
+      "index": 7,
+      "previous_entry_hash": "c60be3b6692efe6df257d96b4ffcf0da49568412cd4c3f8410628a9a629a57fa",
       "status": "BLOCK"
     },
     {
       "action": "context closure and capsule",
-      "entry_hash": "08f10388857137d6717280d19773d5b2c7e81a2efc9f017bc8511b9e936471f7",
-      "index": 6,
-      "previous_entry_hash": "df9dc3ec300763d28a3dedca7425d74b7abf59b7662d3e9cc9df005cdbb5ce35",
+      "entry_hash": "f1d97d308b0bf85f41399e16f0c37bdd3b5284dc37c34fda952b4865dd52392e",
+      "index": 8,
+      "previous_entry_hash": "45bf443d382125b2127823d9f1011bd0bc6ebb3dd8da65271f6fce3e3f6b46a4",
       "status": null
     },
     {
       "action": "patch authorization",
-      "entry_hash": "2c2f6b481d811c4571a5ecb298a8668d5cc7ce47cc42d0f7bff8dc0b1bdddb81",
-      "index": 7,
-      "previous_entry_hash": "08f10388857137d6717280d19773d5b2c7e81a2efc9f017bc8511b9e936471f7",
+      "entry_hash": "dafb1898c17ea1ca1abe8c25e3f16c5bf747189f17de6761168f96c0bc457ae1",
+      "index": 9,
+      "previous_entry_hash": "f1d97d308b0bf85f41399e16f0c37bdd3b5284dc37c34fda952b4865dd52392e",
       "status": "not_authorized"
     },
     {
       "action": "target validation",
-      "entry_hash": "ff93e12de548b9a4f300c6a5bc6e2347e958241544584fb019d615c76d6094db",
-      "index": 8,
-      "previous_entry_hash": "2c2f6b481d811c4571a5ecb298a8668d5cc7ce47cc42d0f7bff8dc0b1bdddb81",
+      "entry_hash": "5bf1a4ab3f096bbed87e9678a98ada4711d01e6dd8d89a2c22c8db4bcc8682bb",
+      "index": 10,
+      "previous_entry_hash": "dafb1898c17ea1ca1abe8c25e3f16c5bf747189f17de6761168f96c0bc457ae1",
       "status": "not_run"
     },
     {
       "action": "duplicate replay",
-      "entry_hash": "95e3208a3b0c46fdb3748b286c6a3defb8ec182a678e000d7dd4a03b2fd26de2",
-      "index": 9,
-      "previous_entry_hash": "ff93e12de548b9a4f300c6a5bc6e2347e958241544584fb019d615c76d6094db",
+      "entry_hash": "ab51a7c9d842242c2c04a030df8956e63c1289bc6847299757c67086ee3e13eb",
+      "index": 11,
+      "previous_entry_hash": "5bf1a4ab3f096bbed87e9678a98ada4711d01e6dd8d89a2c22c8db4bcc8682bb",
       "status": "not_run"
     }
   ],
-  "head_hash": "95e3208a3b0c46fdb3748b286c6a3defb8ec182a678e000d7dd4a03b2fd26de2",
+  "head_hash": "ab51a7c9d842242c2c04a030df8956e63c1289bc6847299757c67086ee3e13eb",
   "status": "PASS"
 }

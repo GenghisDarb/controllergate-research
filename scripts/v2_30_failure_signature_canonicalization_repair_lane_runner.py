@@ -28,6 +28,7 @@ V228_ROOT = REPO_ROOT / "outputs" / "v2_28_external_candidate_seed_draft_verific
 REGISTRY_PATH = REPO_ROOT / "configs" / "external_candidate_registry.json"
 REGISTRY_SCHEMA_PATH = REPO_ROOT / "configs" / "external_candidate_registry.schema.json"
 NORMALIZATION_POLICY_PATH = REPO_ROOT / "configs" / "failure_signature_normalization_policy.json"
+REGISTRY_LINEAGE_POLICY_PATH = REPO_ROOT / "configs" / "registry_lineage_policy.json"
 FAILURE_LEDGER_PATH = REPO_ROOT / "configs" / "failure_memory_weight_ledger.json"
 README_PATH = REPO_ROOT / "README.md"
 ROADMAP_PATH = REPO_ROOT / "docs" / "non_ansible_capability_roadmap.md"
@@ -105,6 +106,11 @@ REQUIRED_OUTPUTS = [
     "canonical_failure_capture_3_semantic.json",
     "registry_signature_refresh_report.json",
     "external_candidate_registry_validation_report_after_signature_refresh.json",
+    "registry_lineage_transition_v2_30.json",
+    "registry_sha_supersession_audit.json",
+    "regression_registry_compatibility_report.json",
+    "v2_28_registry_sha_compatibility.json",
+    "v2_29_registry_sha_compatibility.json",
     "selected_candidate_source_checkout_audit.json",
     "selected_candidate_buggy_tree_manifest.json",
     "selected_candidate_target_test_file_hashes.json",
@@ -335,6 +341,109 @@ def normalization_policy() -> dict[str, Any]:
     }
 
 
+def registry_lineage_policy() -> dict[str, Any]:
+    return {
+        "schema_version": "v2.30",
+        "policy_version": "v2.30.registry_lineage_policy.v1",
+        "allowed_transition_types": ["semantic_signature_refresh"],
+        "allowed_lanes": [CAMPAIGN_ID],
+        "approved_transition_reasons": ["semantic_failure_stable_text_hash_drift"],
+        "immutable_identity_fields": [
+            "candidate_id",
+            "repo_url",
+            "buggy_commit_sha",
+            "test_command",
+            "target_test_files.path",
+            "target_test_files.sha256",
+            "support_files.path",
+            "support_files.sha256",
+            "environment_lock_source",
+            "environment_lock_source_sha256",
+            "registry_review_status",
+        ],
+        "mutable_under_approved_refresh_only": [
+            "expected_failure_signature.normalized_log_hash",
+            "expected_failure_signature.normalized_log_hash_v2_30",
+            "expected_failure_signature.semantic_log_hash",
+            "expected_failure_signature.signature_history",
+            "expected_failure_signature.normalization_policy_version",
+            "expected_failure_signature.semantic_fields",
+        ],
+        "drift_blocker": "registry_sha_unapproved_drift",
+    }
+
+
+def candidate_identity(candidate: dict[str, Any]) -> dict[str, Any]:
+    target_files = candidate.get("target_test_files") if isinstance(candidate.get("target_test_files"), list) else []
+    support_files = candidate.get("support_files") if isinstance(candidate.get("support_files"), list) else []
+    return {
+        "candidate_id": candidate.get("candidate_id"),
+        "repo_url": candidate.get("repo_url"),
+        "buggy_commit_sha": candidate.get("buggy_commit_sha"),
+        "test_command": candidate.get("test_command"),
+        "target_test_files": [
+            {"path": item.get("path"), "sha256": item.get("sha256")}
+            for item in target_files
+            if isinstance(item, dict)
+        ],
+        "support_files": [
+            {"path": item.get("path"), "sha256": item.get("sha256")}
+            for item in support_files
+            if isinstance(item, dict)
+        ],
+        "environment_lock_source": candidate.get("environment_lock_source"),
+        "environment_lock_source_sha256": EXPECTED["environment_lock_source_sha256"],
+        "registry_review_status": candidate.get("registry_review_status"),
+    }
+
+
+def build_registry_lineage_transition(
+    candidate_before: dict[str, Any],
+    candidate_after: dict[str, Any],
+    previous_registry_sha: str,
+    refreshed_registry_sha: str,
+    semantic_digest: str,
+    normalized_digest: str,
+    comparison: dict[str, Any],
+    now: str,
+) -> dict[str, Any]:
+    old_signature = candidate_before.get("expected_failure_signature") if isinstance(candidate_before.get("expected_failure_signature"), dict) else {}
+    new_signature = candidate_after.get("expected_failure_signature") if isinstance(candidate_after.get("expected_failure_signature"), dict) else {}
+    before_identity = candidate_identity(candidate_before)
+    after_identity = candidate_identity(candidate_after)
+    identity_unchanged = before_identity == after_identity
+    history = new_signature.get("signature_history")
+    payload = {
+        "status": "PASS" if identity_unchanged and isinstance(history, list) and history else "BLOCK",
+        "transition_type": "semantic_signature_refresh",
+        "lane": CAMPAIGN_ID,
+        "candidate_id": EXPECTED["candidate_id"],
+        "previous_registry_sha256": previous_registry_sha,
+        "refreshed_registry_sha256": refreshed_registry_sha,
+        "old_normalized_failure_hash": old_signature.get("log_hash"),
+        "new_normalized_failure_hash": normalized_digest,
+        "semantic_failure_signature_hash": semantic_digest,
+        "signature_history": history or [],
+        "signature_history_entry_count": len(history) if isinstance(history, list) else 0,
+        "transition_reason": comparison.get("classification"),
+        "runner_identity": {
+            "path": "scripts/v2_30_failure_signature_canonicalization_repair_lane_runner.py",
+            "sha256": sha256_path(REPO_ROOT / "scripts" / "v2_30_failure_signature_canonicalization_repair_lane_runner.py"),
+        },
+        "timestamp_utc": now,
+        "previous_candidate_identity": before_identity,
+        "refreshed_candidate_identity": after_identity,
+        "identity_fields_unchanged": identity_unchanged,
+        "immutable_identity_check": "PASS" if identity_unchanged else "BLOCK",
+        "lineage_policy_path": REGISTRY_LINEAGE_POLICY_PATH.relative_to(REPO_ROOT).as_posix(),
+        "lineage_policy_sha256": sha256_path(REGISTRY_LINEAGE_POLICY_PATH) if REGISTRY_LINEAGE_POLICY_PATH.is_file() else None,
+        "approved_transition": comparison.get("classification") == "semantic_failure_stable_text_hash_drift",
+        "fixed_future_gold_pr_evidence_used": False,
+    }
+    payload["transition_payload_hash"] = sha256_text(json.dumps(payload, sort_keys=True))
+    return payload
+
+
 def normalize_log_v230(text: str, workspace: Path | None = None, venv: Path | None = None) -> str:
     normalized = re.sub(r"\x1b\[[0-9;]*m", "", text)
     if workspace is not None:
@@ -524,6 +633,7 @@ def compare_snapshot_files() -> dict[str, Any]:
         REGISTRY_PATH,
         REGISTRY_SCHEMA_PATH,
         NORMALIZATION_POLICY_PATH,
+        REGISTRY_LINEAGE_POLICY_PATH,
         SHAREABLE_PATH,
     ]
     rows = []
@@ -542,6 +652,7 @@ def update_policy_and_docs(now: str) -> None:
     policy = normalization_policy()
     write_json(NORMALIZATION_POLICY_PATH, policy)
     write_json(OUTPUT_ROOT / "failure_signature_normalization_policy.json", policy)
+    write_json(REGISTRY_LINEAGE_POLICY_PATH, registry_lineage_policy())
     plan_body = """# Structural Repair Capability Plan
 
 This plan records neutral engineering controls used by the v2.29 and v2.30
@@ -663,11 +774,21 @@ def update_registry_signature(
     replay_matrix: dict[str, Any],
     comparison: dict[str, Any],
     now: str,
-) -> tuple[dict[str, Any], dict[str, Any]]:
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
     registry = load_json(REGISTRY_PATH)
+    previous_registry_sha = sha256_path(REGISTRY_PATH)
     candidates = registry.get("candidates")
     if not isinstance(candidates, list):
-        return candidate_before, {"status": "BLOCK", "exact_blocker": BLOCKERS["registry_refresh"], "errors": ["registry candidates missing"]}
+        transition = {
+            "status": "BLOCK",
+            "exact_blocker": "registry_lineage_transition_invalid",
+            "previous_registry_sha256": previous_registry_sha,
+            "refreshed_registry_sha256": None,
+            "candidate_id": EXPECTED["candidate_id"],
+            "transition_reason": comparison.get("classification"),
+        }
+        transition["transition_payload_hash"] = sha256_text(json.dumps(transition, sort_keys=True))
+        return candidate_before, {"status": "BLOCK", "exact_blocker": BLOCKERS["registry_refresh"], "errors": ["registry candidates missing"]}, transition
     updated_candidate: dict[str, Any] | None = None
     for index, candidate in enumerate(candidates):
         if isinstance(candidate, dict) and candidate.get("candidate_id") == EXPECTED["candidate_id"]:
@@ -698,9 +819,29 @@ def update_registry_signature(
             candidates[index] = updated_candidate
             break
     if updated_candidate is None:
-        return candidate_before, {"status": "BLOCK", "exact_blocker": BLOCKERS["registry_refresh"], "errors": ["candidate missing"]}
+        transition = {
+            "status": "BLOCK",
+            "exact_blocker": "registry_lineage_transition_invalid",
+            "previous_registry_sha256": previous_registry_sha,
+            "refreshed_registry_sha256": None,
+            "candidate_id": EXPECTED["candidate_id"],
+            "transition_reason": comparison.get("classification"),
+        }
+        transition["transition_payload_hash"] = sha256_text(json.dumps(transition, sort_keys=True))
+        return candidate_before, {"status": "BLOCK", "exact_blocker": BLOCKERS["registry_refresh"], "errors": ["candidate missing"]}, transition
     write_json(REGISTRY_PATH, registry, sort_keys=False)
+    refreshed_registry_sha = sha256_path(REGISTRY_PATH)
     validation = registry_validator.validate_registry()
+    transition = build_registry_lineage_transition(
+        candidate_before,
+        updated_candidate,
+        previous_registry_sha,
+        refreshed_registry_sha,
+        semantic_digest,
+        normalized_digest,
+        comparison,
+        now,
+    )
     report = {
         "status": "PASS" if validation.get("registry_validation_status") == "PASS" else "BLOCK",
         "exact_blocker": None if validation.get("registry_validation_status") == "PASS" else BLOCKERS["registry_refresh"],
@@ -708,12 +849,15 @@ def update_registry_signature(
         "semantic_log_hash": semantic_digest,
         "normalized_log_hash_v2_30": normalized_digest,
         "policy_version": POLICY_VERSION,
+        "previous_registry_sha256": previous_registry_sha,
         "registry_validation_status": validation.get("registry_validation_status"),
         "validation_errors": validation.get("errors", []),
-        "registry_sha256_after": sha256_path(REGISTRY_PATH),
+        "registry_sha256_after": refreshed_registry_sha,
         "schema_sha256_after": sha256_path(REGISTRY_SCHEMA_PATH),
+        "registry_lineage_transition_status": transition.get("status"),
+        "registry_lineage_transition_hash": transition.get("transition_payload_hash"),
     }
-    return updated_candidate, report
+    return updated_candidate, report, transition
 
 
 def validate_candidate(candidate: dict[str, Any] | None, errors: list[str]) -> bool:
@@ -854,6 +998,89 @@ def build_replay_matrix(captures: list[dict[str, Any]]) -> dict[str, Any]:
             for capture in captures
         ],
     }
+
+
+def v2_29_expected_registry_sha() -> str | None:
+    official_path = V229_ROOT / "v2_29_official_artifact_verification.json"
+    if not official_path.is_file():
+        return None
+    official = load_json(official_path)
+    rows = official.get("repo_snapshot_update_file_comparison")
+    if not isinstance(rows, list):
+        return None
+    for row in rows:
+        if isinstance(row, dict) and row.get("record_label") == "configs__external_candidate_registry.json":
+            value = row.get("current_sha256_before_ingest")
+            return value if isinstance(value, str) else None
+    return None
+
+
+def validate_transition_for_expected_sha(transition: dict[str, Any], expected_sha: str | None, current_sha: str) -> tuple[str, str | None]:
+    if expected_sha is None:
+        return "BLOCK", "registry_lineage_previous_sha_missing"
+    if current_sha == expected_sha:
+        return "PASS", None
+    if not transition or transition.get("status") != "PASS":
+        return "BLOCK", "registry_lineage_transition_missing"
+    if transition.get("previous_registry_sha256") != expected_sha:
+        return "BLOCK", "registry_lineage_previous_sha_missing"
+    if transition.get("refreshed_registry_sha256") != current_sha:
+        return "BLOCK", "registry_lineage_current_sha_mismatch"
+    if transition.get("transition_type") != "semantic_signature_refresh" or transition.get("lane") != CAMPAIGN_ID:
+        return "BLOCK", "registry_lineage_transition_invalid"
+    if transition.get("transition_reason") != "semantic_failure_stable_text_hash_drift":
+        return "BLOCK", "registry_lineage_transition_invalid"
+    if transition.get("identity_fields_unchanged") is not True or transition.get("immutable_identity_check") != "PASS":
+        return "BLOCK", "registry_lineage_identity_field_changed"
+    if transition.get("signature_history_entry_count", 0) < 3:
+        return "BLOCK", "registry_lineage_signature_history_missing"
+    return "PASS", None
+
+
+def build_registry_compatibility_outputs(transition: dict[str, Any]) -> dict[str, Any]:
+    current_sha = sha256_path(REGISTRY_PATH)
+    v28_validation = load_json(V228_ROOT / "external_candidate_registry_validation_report_after_merge.json")
+    v28_expected = v28_validation.get("registry_sha256")
+    v29_expected = v2_29_expected_registry_sha()
+    outputs: dict[str, Any] = {}
+    for label, expected_sha in [("v2_28", v28_expected), ("v2_29", v29_expected)]:
+        status, blocker = validate_transition_for_expected_sha(transition, expected_sha, current_sha)
+        outputs[f"{label}_registry_sha_compatibility.json"] = {
+            "status": status,
+            "exact_blocker": blocker,
+            "era": label,
+            "expected_registry_sha256": expected_sha,
+            "current_registry_sha256": current_sha,
+            "mode": "direct_match" if expected_sha == current_sha else "approved_v2_30_lineage_transition" if status == "PASS" else "blocked",
+            "transition_status": transition.get("status"),
+            "transition_reason": transition.get("transition_reason"),
+            "transition_hash": transition.get("transition_payload_hash"),
+            "candidate_id": EXPECTED["candidate_id"],
+        }
+    v28_status = outputs["v2_28_registry_sha_compatibility.json"]["status"]
+    v29_status = outputs["v2_29_registry_sha_compatibility.json"]["status"]
+    supersession = {
+        "status": "PASS" if v28_status == "PASS" and v29_status == "PASS" else "BLOCK",
+        "policy_path": REGISTRY_LINEAGE_POLICY_PATH.relative_to(REPO_ROOT).as_posix(),
+        "policy_sha256": sha256_path(REGISTRY_LINEAGE_POLICY_PATH) if REGISTRY_LINEAGE_POLICY_PATH.is_file() else None,
+        "current_registry_sha256": current_sha,
+        "transition_status": transition.get("status"),
+        "transition_hash": transition.get("transition_payload_hash"),
+        "v2_28_status": v28_status,
+        "v2_29_status": v29_status,
+    }
+    compatibility = {
+        "status": supersession["status"],
+        "v2_28_registry_sha_compatibility_status": v28_status,
+        "v2_29_registry_sha_compatibility_status": v29_status,
+        "registry_sha_unapproved_drift": supersession["status"] != "PASS",
+        "approved_later_transition_required_when_sha_differs": True,
+        "transition_status": transition.get("status"),
+        "transition_hash": transition.get("transition_payload_hash"),
+    }
+    outputs["registry_sha_supersession_audit.json"] = supersession
+    outputs["regression_registry_compatibility_report.json"] = compatibility
+    return outputs
 
 
 def write_default_repair_outputs(values: dict[str, Any], exact_blocker: str | None, now: str) -> None:
@@ -1036,10 +1263,30 @@ def main() -> int:
         "semantic_log_hash": None,
         "registry_validation_status": "not_run",
     }
+    lineage_transition = {
+        "status": "not_run",
+        "exact_blocker": None,
+        "transition_type": "semantic_signature_refresh",
+        "lane": CAMPAIGN_ID,
+        "candidate_id": EXPECTED["candidate_id"],
+        "previous_registry_sha256": sha256_path(REGISTRY_PATH),
+        "refreshed_registry_sha256": sha256_path(REGISTRY_PATH),
+        "old_normalized_failure_hash": candidate_before.get("expected_failure_signature", {}).get("log_hash") if isinstance(candidate_before.get("expected_failure_signature"), dict) else None,
+        "new_normalized_failure_hash": None,
+        "semantic_failure_signature_hash": None,
+        "signature_history": [],
+        "signature_history_entry_count": 0,
+        "transition_reason": "not_run_before_signature_refresh",
+        "identity_fields_unchanged": True,
+        "immutable_identity_check": "not_run",
+        "lineage_policy_path": REGISTRY_LINEAGE_POLICY_PATH.relative_to(REPO_ROOT).as_posix(),
+        "lineage_policy_sha256": sha256_path(REGISTRY_LINEAGE_POLICY_PATH) if REGISTRY_LINEAGE_POLICY_PATH.is_file() else None,
+    }
+    lineage_transition["transition_payload_hash"] = sha256_text(json.dumps(lineage_transition, sort_keys=True))
     validation_after = registry_validator.validate_registry()
     if exact_blocker is None and replay_matrix.get("status") == "PASS":
         normalized_v230_hash = captures[0].get("normalized_log_sha256")
-        registry_after, refresh_report = update_registry_signature(
+        registry_after, refresh_report, lineage_transition = update_registry_signature(
             candidate_before,
             canonical_semantic,
             canonical_hash or "",
@@ -1055,6 +1302,8 @@ def main() -> int:
     values["external_candidate_registry_validation_report_after_signature_refresh.json"] = validation_after
     values["selected_candidate_registry_entry_after.json"] = registry_after
     values["failure_signature_history_after.json"] = (registry_after.get("expected_failure_signature", {}) if isinstance(registry_after, dict) else {})
+    values["registry_lineage_transition_v2_30.json"] = lineage_transition
+    values.update(build_registry_compatibility_outputs(lineage_transition))
 
     first = repair_capture or (captures[0] if captures else {})
     file_records = first.get("file_verification") or {"target": {}, "support": {}, "environment": {}}
@@ -1294,6 +1543,8 @@ def main() -> int:
         {"action": "historical signatures compared", "status": comparison.get("status")},
         {"action": "three clean semantic captures", "status": replay_matrix.get("status")},
         {"action": "registry signature refresh", "status": refresh_report.get("status")},
+        {"action": "registry lineage transition", "status": lineage_transition.get("status")},
+        {"action": "regression registry compatibility", "status": values.get("regression_registry_compatibility_report.json", {}).get("status")},
         {"action": "semantic pre repair gate", "status": values["pre_repair_replay_gate_summary.json"]["status"]},
         {"action": "context closure and capsule", "status": values.get("context_pinching_filter_hash.json", {}).get("status")},
         {"action": "patch authorization", "status": "PASS" if patch_authorized else "not_authorized"},
@@ -1324,6 +1575,9 @@ def main() -> int:
         "three_capture_semantic_replay_status": replay_matrix.get("status"),
         "registry_signature_refresh_status": refresh_report.get("status"),
         "registry_validation_status_after_refresh": validation_after.get("registry_validation_status"),
+        "registry_lineage_transition_status": lineage_transition.get("status"),
+        "v2_28_registry_sha_compatibility_status": values.get("v2_28_registry_sha_compatibility.json", {}).get("status"),
+        "v2_29_registry_sha_compatibility_status": values.get("v2_29_registry_sha_compatibility.json", {}).get("status"),
         "pre_repair_replay_status_after_refresh": values["pre_repair_replay_gate_summary.json"]["status"],
         "ast_dependency_closure_status": values.get("ast_dependency_closure_manifest.json", {}).get("status"),
         "context_pinching_filter_status": values.get("context_pinching_filter_manifest.json", {}).get("status"),

@@ -92,6 +92,7 @@ v2.29 moves the external candidate path from verified seed capture to a bounded 
 - Scope: one reviewed external candidate and one possible source-only patch.
 - Stop condition: any registry, replay, context, patch-safety, validation, or duplicate-replay mismatch blocks before broader claims.
 
+
 ## v2.30 Failure Signature Canonicalization
 
 v2.30 moves the reviewed external candidate from text-hash mismatch to semantic replay agreement before any repair attempt.

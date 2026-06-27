@@ -20,6 +20,7 @@ OUTPUT_ROOT = REPO_ROOT / "outputs" / CAMPAIGN_ID
 REGISTRY_PATH = REPO_ROOT / "configs" / "external_candidate_registry.json"
 REGISTRY_SCHEMA_PATH = REPO_ROOT / "configs" / "external_candidate_registry.schema.json"
 NORMALIZATION_POLICY_PATH = REPO_ROOT / "configs" / "failure_signature_normalization_policy.json"
+REGISTRY_LINEAGE_POLICY_PATH = REPO_ROOT / "configs" / "registry_lineage_policy.json"
 V229_ROOT = REPO_ROOT / "outputs" / "v2_29_external_candidate_repair_lane"
 
 EXPECTED = {
@@ -98,6 +99,11 @@ REQUIRED_FILES = [
     "canonical_failure_capture_3_semantic.json",
     "registry_signature_refresh_report.json",
     "external_candidate_registry_validation_report_after_signature_refresh.json",
+    "registry_lineage_transition_v2_30.json",
+    "registry_sha_supersession_audit.json",
+    "regression_registry_compatibility_report.json",
+    "v2_28_registry_sha_compatibility.json",
+    "v2_29_registry_sha_compatibility.json",
     "selected_candidate_source_checkout_audit.json",
     "selected_candidate_buggy_tree_manifest.json",
     "selected_candidate_target_test_file_hashes.json",
@@ -327,6 +333,12 @@ def audit_outputs(errors: list[str]) -> None:
     replay_matrix = load_json(OUTPUT_ROOT / "semantic_failure_signature_replay_matrix.json", errors)
     refresh = load_json(OUTPUT_ROOT / "registry_signature_refresh_report.json", errors)
     validation_after = load_json(OUTPUT_ROOT / "external_candidate_registry_validation_report_after_signature_refresh.json", errors)
+    lineage = load_json(OUTPUT_ROOT / "registry_lineage_transition_v2_30.json", errors)
+    supersession = load_json(OUTPUT_ROOT / "registry_sha_supersession_audit.json", errors)
+    compatibility = load_json(OUTPUT_ROOT / "regression_registry_compatibility_report.json", errors)
+    v28_compat = load_json(OUTPUT_ROOT / "v2_28_registry_sha_compatibility.json", errors)
+    v29_compat = load_json(OUTPUT_ROOT / "v2_29_registry_sha_compatibility.json", errors)
+    lineage_policy = load_json(REGISTRY_LINEAGE_POLICY_PATH, errors)
     checkout = load_json(OUTPUT_ROOT / "selected_candidate_source_checkout_audit.json", errors)
     target_hashes = load_json(OUTPUT_ROOT / "selected_candidate_target_test_file_hashes.json", errors)
     support_hashes = load_json(OUTPUT_ROOT / "selected_candidate_support_file_hashes.json", errors)
@@ -385,7 +397,25 @@ def audit_outputs(errors: list[str]) -> None:
     expect(new_sig.get("log_hash") == EXPECTED["v2_28_normalized_hash"], errors, "historical v2.28 log hash not preserved after")
     expect(policy.get("policy_version") == "v2.30.failure_signature_normalization.v1", errors, "normalization policy version mismatch")
     expect((NORMALIZATION_POLICY_PATH).is_file(), errors, "normalization policy config missing")
+    expect((REGISTRY_LINEAGE_POLICY_PATH).is_file(), errors, "registry lineage policy config missing")
     expect((REGISTRY_SCHEMA_PATH).is_file(), errors, "registry schema missing")
+    expect(lineage_policy.get("policy_version") == "v2.30.registry_lineage_policy.v1", errors, "registry lineage policy version mismatch")
+    expect("semantic_signature_refresh" in (lineage_policy.get("allowed_transition_types") or []), errors, "registry lineage policy missing transition type")
+    expect(CAMPAIGN_ID in (lineage_policy.get("allowed_lanes") or []), errors, "registry lineage policy missing v2.30 lane")
+    for required_field in [
+        "candidate_id",
+        "repo_url",
+        "buggy_commit_sha",
+        "test_command",
+        "target_test_files.path",
+        "target_test_files.sha256",
+        "support_files.path",
+        "support_files.sha256",
+        "environment_lock_source",
+        "environment_lock_source_sha256",
+        "registry_review_status",
+    ]:
+        expect(required_field in (lineage_policy.get("immutable_identity_fields") or []), errors, f"registry lineage policy missing immutable field {required_field}")
 
     expect(comparison.get("classification") == "semantic_failure_stable_text_hash_drift", errors, "historical comparison did not classify text-hash drift")
     expect(comparison.get("v2_28_normalized_failure_log_sha256") == EXPECTED["v2_28_normalized_hash"], errors, "comparison v2.28 hash mismatch")
@@ -412,6 +442,31 @@ def audit_outputs(errors: list[str]) -> None:
         expect(pre_gate.get("status") == "PASS", errors, "semantic pre-repair replay gate not PASS")
         expect(pre_gate.get("normalized_full_log_hash_mismatch_is_diagnostic_only") is True, errors, "full text hash mismatch not diagnostic-only after semantic refresh")
         expect(pre_sig.get("status") == "PASS", errors, "semantic failure verification not PASS")
+        current_registry_sha = sha256_path(REGISTRY_PATH)
+        expect(lineage.get("status") == "PASS", errors, "registry lineage transition not PASS")
+        expect(lineage.get("transition_type") == "semantic_signature_refresh", errors, "registry lineage transition type mismatch")
+        expect(lineage.get("lane") == CAMPAIGN_ID, errors, "registry lineage lane mismatch")
+        expect(lineage.get("candidate_id") == EXPECTED["candidate_id"], errors, "registry lineage candidate mismatch")
+        previous_registry_sha = lineage.get("previous_registry_sha256")
+        expect(isinstance(previous_registry_sha, str) and re.fullmatch(r"[0-9a-f]{64}", previous_registry_sha) is not None, errors, "registry lineage previous SHA missing")
+        expect(v28_compat.get("expected_registry_sha256") == previous_registry_sha, errors, "v2.28 compatibility previous SHA mismatch")
+        expect(v29_compat.get("expected_registry_sha256") == previous_registry_sha, errors, "v2.29 compatibility previous SHA mismatch")
+        expect(lineage.get("refreshed_registry_sha256") == current_registry_sha, errors, "registry lineage current SHA mismatch")
+        expect(lineage.get("old_normalized_failure_hash") == EXPECTED["v2_28_normalized_hash"], errors, "registry lineage old normalized hash mismatch")
+        expect(lineage.get("semantic_failure_signature_hash") == hashes[0], errors, "registry lineage semantic hash mismatch")
+        expect(lineage.get("transition_reason") == "semantic_failure_stable_text_hash_drift", errors, "registry lineage transition reason mismatch")
+        expect(lineage.get("identity_fields_unchanged") is True, errors, "registry lineage identity fields changed")
+        expect(lineage.get("immutable_identity_check") == "PASS", errors, "registry lineage immutable identity check failed")
+        expect(lineage.get("signature_history_entry_count", 0) >= 5, errors, "registry lineage signature history missing")
+        recorded_hash = lineage.get("transition_payload_hash")
+        payload = {key: value for key, value in lineage.items() if key != "transition_payload_hash"}
+        expect(recorded_hash == sha256_text(json.dumps(payload, sort_keys=True)), errors, "registry lineage transition hash mismatch")
+        expect(supersession.get("status") == "PASS", errors, "registry SHA supersession audit not PASS")
+        expect(compatibility.get("status") == "PASS", errors, "regression registry compatibility not PASS")
+        expect(v28_compat.get("status") == "PASS", errors, "v2.28 registry SHA compatibility not PASS")
+        expect(v29_compat.get("status") == "PASS", errors, "v2.29 registry SHA compatibility not PASS")
+        expect(v28_compat.get("mode") in {"direct_match", "approved_v2_30_lineage_transition"}, errors, "v2.28 compatibility mode invalid")
+        expect(v29_compat.get("mode") in {"direct_match", "approved_v2_30_lineage_transition"}, errors, "v2.29 compatibility mode invalid")
     else:
         expect(exact_blocker in {
             "selected_candidate_checkout_failed",
@@ -425,6 +480,9 @@ def audit_outputs(errors: list[str]) -> None:
         }, errors, "blocked run used unexpected pre-refresh blocker")
         expect(refresh.get("status") in {"not_run", "BLOCK"}, errors, "registry refreshed despite missing semantic agreement")
         expect(results.get("patch_generated") is False, errors, "patch generated before semantic agreement")
+        expect(lineage.get("status") in {"not_run", "BLOCK"}, errors, "registry lineage passed despite missing semantic agreement")
+        expect(v28_compat.get("status") == "PASS", errors, "v2.28 registry compatibility not PASS in blocked local run")
+        expect(v29_compat.get("status") == "PASS", errors, "v2.29 registry compatibility not PASS in blocked local run")
 
     expect(checkout.get("repo_url") == EXPECTED["repo_url"], errors, "checkout repo mismatch")
     expect(checkout.get("buggy_commit_sha") == EXPECTED["buggy_commit_sha"], errors, "checkout commit mismatch")
