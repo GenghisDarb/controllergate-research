@@ -1,20 +1,107 @@
 {
+  "approved_transition": true,
   "candidate_id": "py_bugger_issue_65",
-  "exact_blocker": null,
+  "fixed_future_gold_pr_evidence_used": false,
   "identity_fields_unchanged": true,
-  "immutable_identity_check": "not_run",
+  "immutable_identity_check": "PASS",
   "lane": "v2_30_failure_signature_canonicalization_repair_lane",
   "lineage_policy_path": "configs/registry_lineage_policy.json",
   "lineage_policy_sha256": "2fe77443fe9c57e6499fc51a51ca71893f3477f5bb57fb2336b54354c8958d89",
-  "new_normalized_failure_hash": null,
+  "new_normalized_failure_hash": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
   "old_normalized_failure_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+  "previous_candidate_identity": {
+    "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+    "candidate_id": "py_bugger_issue_65",
+    "environment_lock_source": "pyproject.toml",
+    "environment_lock_source_sha256": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631",
+    "registry_review_status": "reviewed",
+    "repo_url": "https://github.com/ehmatthes/py-bugger",
+    "support_files": [
+      {
+        "path": "tests/sample_code/sample_scripts/two_trys.py",
+        "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+      }
+    ],
+    "target_test_files": [
+      {
+        "path": "tests/integration_tests/test_modifications.py",
+        "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+      }
+    ],
+    "test_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q"
+  },
   "previous_registry_sha256": "3c5f6e71ac4b6f864ad1bdf8dfdc4d9786388ea8a236055578b450012f995e5c",
-  "refreshed_registry_sha256": "3c5f6e71ac4b6f864ad1bdf8dfdc4d9786388ea8a236055578b450012f995e5c",
-  "semantic_failure_signature_hash": null,
-  "signature_history": [],
-  "signature_history_entry_count": 0,
-  "status": "not_run",
-  "transition_payload_hash": "6576e5c70ad40e19ee579e73803d61e1f417b92c5357de3b2cbb68603e620b07",
-  "transition_reason": "not_run_before_signature_refresh",
+  "refreshed_candidate_identity": {
+    "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+    "candidate_id": "py_bugger_issue_65",
+    "environment_lock_source": "pyproject.toml",
+    "environment_lock_source_sha256": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631",
+    "registry_review_status": "reviewed",
+    "repo_url": "https://github.com/ehmatthes/py-bugger",
+    "support_files": [
+      {
+        "path": "tests/sample_code/sample_scripts/two_trys.py",
+        "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+      }
+    ],
+    "target_test_files": [
+      {
+        "path": "tests/integration_tests/test_modifications.py",
+        "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+      }
+    ],
+    "test_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q"
+  },
+  "refreshed_registry_sha256": "e18439c175b6fd53784c0d9338cdd979f31d341c4bb82adf561b1067d5763e38",
+  "runner_identity": {
+    "path": "scripts/v2_30_failure_signature_canonicalization_repair_lane_runner.py",
+    "sha256": "0d2784ae4cd31bef55631b217cc8e6862ad88adfb15fbd4c2cc0783cf51fa239"
+  },
+  "semantic_failure_signature_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+  "signature_history": [
+    {
+      "normalized_log_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+      "preserved_as_history": true,
+      "raw_log_sha256": "f2a152ff6a8f3d6e4b70d817123917b992bd1b4d381e2d492f48838250fd6cdb",
+      "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+      "source": "v2.28_seed_capture"
+    },
+    {
+      "normalized_log_hash": "96afb1e4c1f14a7453cbc859924486d11420ff1a3197775919f14d355e2a7cff",
+      "preserved_as_history": true,
+      "raw_log_sha256": "189e72a277dae46d4c125e705c0c9c99a15e4453562f2668aad82996714f87f2",
+      "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+      "source": "v2.29_repair_lane_replay"
+    },
+    {
+      "command_exit_status": 1,
+      "normalized_log_hash": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+      "raw_log_sha256": "a8a2d3ba7412df629c5dfeda55992e060aab9353d14cddcb3edb778df6b991d8",
+      "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+      "source": "v2.30_clean_capture_1",
+      "status": "PASS"
+    },
+    {
+      "command_exit_status": 1,
+      "normalized_log_hash": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+      "raw_log_sha256": "df3a4c6dcc2b5db46aa6770eaed6f877d9535670d972ec3454bc755d045f38c7",
+      "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+      "source": "v2.30_clean_capture_2",
+      "status": "PASS"
+    },
+    {
+      "command_exit_status": 1,
+      "normalized_log_hash": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+      "raw_log_sha256": "27e8d020c2b638bbc2b0b0e1bc6b630cb0d23da62ee57503110e937cef209e52",
+      "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+      "source": "v2.30_clean_capture_3",
+      "status": "PASS"
+    }
+  ],
+  "signature_history_entry_count": 5,
+  "status": "PASS",
+  "timestamp_utc": "2026-06-27T01:36:20Z",
+  "transition_payload_hash": "107cac33be27ac4e92cf57135b715a3971a36e869b74ea2bbf1dda5874caed4a",
+  "transition_reason": "semantic_failure_stable_text_hash_drift",
   "transition_type": "semantic_signature_refresh"
 }

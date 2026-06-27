@@ -1,0 +1,48 @@
+$ /tmp/v2_30_failure_signature_canonicalization_repair_lane_capture_2_18_a7c9b/venv/bin/python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________ test_indentationerror_multiple_trys ______________________
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdbef7ef640>, _basetemp=PosixPath('/tmp/pytest-of-runner/pytest-1'), _retention_count=3, _retention_policy='all')
+test_config = <conftest.test_config.<locals>.Config object at 0x7fdbef8223b0>
+
+    def test_indentationerror_multiple_trys(tmp_path_factory, test_config):
+        """Test requesting a single IndentationError against a file with two try blocks.
+    
+        This is related to issue 65, where the bare try block that's being targeted matches
+        every try block in the file. We should see just one modification.
+        """
+        # Copy sample code to tmp dir.
+        tmp_path = tmp_path_factory.mktemp("sample_code")
+        print(f"\nCopying code to: {tmp_path.as_posix()}")
+    
+        path_src = test_config.path_sample_scripts / "two_trys.py"
+        path_dst = tmp_path / path_src.name
+        shutil.copyfile(path_src, path_dst)
+    
+        # Make modifications against this file.
+        pb_config.target_file = path_dst
+        pb_config.num_bugs = 1
+        pb_config.exception_type = "IndentationError"
+        cli_utils.validate_config()
+    
+        requested_bugs = py_bugger.main()
+    
+        # Check that only one modification was made.
+>       assert len(modifications) == 1
+E       AssertionError: assert 2 == 1
+E        +  where 2 = len([Modification(path=PosixPath('/tmp/pytest-of-runner/pytest-1/sample_code0/two_trys.py'), original_node=None, modified_... modified_node=None, original_line='try:\n', modified_line='    try:\n', exception_induced=<class 'IndentationError'>)])
+
+tests/integration_tests/test_modifications.py:123: AssertionError
+----------------------------- Captured stdout call -----------------------------
+
+Copying code to: /tmp/pytest-of-runner/pytest-1/sample_code0
+Added bug to: /tmp/pytest-of-runner/pytest-1/sample_code0/two_trys.py
+Inserted 2 bugs.
+Unable to introduce additional bugs of the requested type.
+=========================== short test summary info ============================
+FAILED tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys - AssertionError: assert 2 == 1
+ +  where 2 = len([Modification(path=PosixPath('/tmp/pytest-of-runner/pytest-1/sample_code0/two_trys.py'), original_node=None, modified_... modified_node=None, original_line='try:\n', modified_line='    try:\n', exception_induced=<class 'IndentationError'>)])
+1 failed in 0.05s
+
+exit_code=1

@@ -36,6 +36,16 @@ EXPECTED = {
     "v2_28_normalized_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
     "v2_29_normalized_hash": "96afb1e4c1f14a7453cbc859924486d11420ff1a3197775919f14d355e2a7cff",
     "v2_29_zip_sha256": "6908479e18a3ace65ea82363a96f08b9a5630c4b96ced18df2173aa20730e591",
+    "v2_30_workflow_run_id": 28274637503,
+    "v2_30_artifact_id": 7919820263,
+    "v2_30_artifact_name": "v2_30_failure_signature_canonicalization_repair_lane_artifacts",
+    "v2_30_head_sha": "487b857e4b4fc619aa6bce511d9c65d5f99bfa13",
+    "v2_30_zip_size_bytes": 131252,
+    "v2_30_zip_sha256": "6321a219fc57832d23bb6028beb61f2dbd873ac825b51ba3581e7a30eca1b883",
+    "v2_30_zip_entry_count": 98,
+    "v2_30_internal_manifest_checked": 85,
+    "v2_30_semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+    "v2_30_patch_sha256": "02ada076e824bb703bc02d1c33f75f51eb4db4539a5aac8e4f5fa3fedd4972ee",
 }
 REPAIR_SOURCE_PATH = "src/py_bugger/utils/bug_utils.py"
 
@@ -75,6 +85,7 @@ ALLOWED_BLOCKERS = {
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
+    "v2_30_official_artifact_verification.json",
     "v2_29_artifact_ingest_verification.json",
     "artifact_repo_snapshot_comparison.json",
     "selected_candidate_record.json",
@@ -321,6 +332,7 @@ def audit_outputs(errors: list[str]) -> None:
     expect(checked == expected_manifest_count, errors, "manifest entry count mismatch")
 
     results = load_json(OUTPUT_ROOT / "campaign_results.json", errors)
+    official = load_json(OUTPUT_ROOT / "v2_30_official_artifact_verification.json", errors)
     v229 = load_json(OUTPUT_ROOT / "v2_29_artifact_ingest_verification.json", errors)
     v229_official = load_json(V229_ROOT / "v2_29_official_artifact_verification.json", errors)
     selected = load_json(OUTPUT_ROOT / "selected_candidate_record.json", errors)
@@ -376,6 +388,57 @@ def audit_outputs(errors: list[str]) -> None:
     roadmap = load_json(OUTPUT_ROOT / "roadmap_carry_forward_check_v2_30.json", errors)
     ledger = load_json(OUTPUT_ROOT / "proof_obligations_ledger.json", errors)
     candidate = registry_candidate(errors)
+
+    expect(official.get("status") == "PASS", errors, "v2.30 official artifact verification not PASS")
+    expect(official.get("manual_artifact_boundary") == "PASS", errors, "v2.30 manual artifact boundary not PASS")
+    expect(official.get("downloaded_by_codex") is False, errors, "v2.30 artifact was downloaded by Codex")
+    expect(official.get("local_artifact_path_outside_git") is True, errors, "v2.30 local artifact path not outside git")
+    expect(official.get("artifact_name") == EXPECTED["v2_30_artifact_name"], errors, "v2.30 artifact name mismatch")
+    expect(official.get("workflow_run_id") == EXPECTED["v2_30_workflow_run_id"], errors, "v2.30 workflow run ID mismatch")
+    expect(official.get("artifact_id") == EXPECTED["v2_30_artifact_id"], errors, "v2.30 artifact ID mismatch")
+    expect(official.get("head_sha") == EXPECTED["v2_30_head_sha"], errors, "v2.30 artifact head SHA mismatch")
+    expect(official.get("zip_size_bytes") == EXPECTED["v2_30_zip_size_bytes"], errors, "v2.30 artifact ZIP size mismatch")
+    expect(official.get("zip_sha256") == EXPECTED["v2_30_zip_sha256"], errors, "v2.30 artifact ZIP SHA256 mismatch")
+    expect(official.get("entry_count") == EXPECTED["v2_30_zip_entry_count"], errors, "v2.30 artifact entry count mismatch")
+    expect(official.get("unsafe_path_count") == 0, errors, "v2.30 artifact has unsafe paths")
+    expect(official.get("duplicate_path_count") == 0, errors, "v2.30 artifact has duplicate paths")
+    expect(official.get("safe_path_status") == "PASS", errors, "v2.30 artifact safe path status mismatch")
+    expect(official.get("internal_manifest_checked") == EXPECTED["v2_30_internal_manifest_checked"], errors, "v2.30 internal manifest count mismatch")
+    expect(official.get("internal_manifest_missing") == 0, errors, "v2.30 internal manifest missing entries")
+    expect(official.get("internal_manifest_malformed") == 0, errors, "v2.30 internal manifest malformed entries")
+    expect(official.get("internal_manifest_failures") == 0, errors, "v2.30 internal manifest hash failures")
+    expect(official.get("internal_manifest_status") == "PASS", errors, "v2.30 internal manifest status mismatch")
+    expect(official.get("output_manifest_coverage") == "PASS", errors, "v2.30 output manifest coverage mismatch")
+    expect(official.get("non_archive_outputs_ingested_count", 0) >= EXPECTED["v2_30_internal_manifest_checked"], errors, "v2.30 ingested output count too low")
+    expect(official.get("repo_snapshots_ingested_count", 0) >= 10, errors, "v2.30 repo snapshots not recorded")
+    carry_forward = official.get("carry_forward") if isinstance(official.get("carry_forward"), dict) else {}
+    expect(carry_forward.get("v2_30_audit_status") == "PASS", errors, "v2.30 official carry-forward audit not PASS")
+    expect(carry_forward.get("registry_lineage_transition_status") == "PASS", errors, "v2.30 official lineage carry-forward not PASS")
+    expect(carry_forward.get("v2_28_registry_sha_compatibility_status") == "PASS", errors, "v2.30 official v2.28 compatibility not PASS")
+    expect(carry_forward.get("v2_29_registry_sha_compatibility_status") == "PASS", errors, "v2.30 official v2.29 compatibility not PASS")
+    expect(carry_forward.get("semantic_failure_signature_status") == "PASS", errors, "v2.30 official semantic signature not PASS")
+    expect(carry_forward.get("three_capture_semantic_replay_status") == "PASS", errors, "v2.30 official three-capture replay not PASS")
+    expect(carry_forward.get("registry_signature_refresh_status") == "PASS", errors, "v2.30 official registry refresh not PASS")
+    expect(carry_forward.get("pre_repair_replay_status_after_refresh") == "PASS", errors, "v2.30 official pre-repair replay not PASS")
+    expect(carry_forward.get("semantic_failure_signature_hash") == EXPECTED["v2_30_semantic_hash"], errors, "v2.30 official semantic hash mismatch")
+    expect(carry_forward.get("patch_generated") is True, errors, "v2.30 official patch_generated not true")
+    expect(carry_forward.get("patch_authorized") is True, errors, "v2.30 official patch_authorized not true")
+    expect(carry_forward.get("patch_attempted") is True, errors, "v2.30 official patch_attempted not true")
+    expect(carry_forward.get("patch_sha256") == EXPECTED["v2_30_patch_sha256"], errors, "v2.30 official patch SHA mismatch")
+    expect(carry_forward.get("patch_source_path") == [REPAIR_SOURCE_PATH], errors, "v2.30 official patch source path mismatch")
+    expect(carry_forward.get("target_validation_status") == "PASS", errors, "v2.30 official target validation not PASS")
+    expect(carry_forward.get("target_validation_exit_status") == 0, errors, "v2.30 official target validation exit mismatch")
+    expect(carry_forward.get("duplicate_clean_replay_status") == "PASS", errors, "v2.30 official duplicate replay not PASS")
+    expect(carry_forward.get("duplicate_clean_replay_passed_replays") == 3, errors, "v2.30 official duplicate replay count mismatch")
+    expect(carry_forward.get("selected_candidate_scoreable") is True, errors, "v2.30 official scoreable result not true")
+    expect(carry_forward.get("positive_memory_only") is False, errors, "v2.30 official positive-memory-only boundary changed")
+    expect(carry_forward.get("final_non_ansible_positive_memory_count") == 0, errors, "v2.30 official non-Ansible positive-memory count changed")
+    expect(carry_forward.get("full_scoring") == "NOT_RUN", errors, "v2.30 official full scoring changed")
+    expect(carry_forward.get("full_scoring_allowed") is False, errors, "v2.30 official full scoring allowed")
+    expect(carry_forward.get("memory_lift_status") == "undemonstrated", errors, "v2.30 official memory lift changed")
+    expect(carry_forward.get("self_maintaining_software_status") == "false/not_demonstrated", errors, "v2.30 official self-maintaining status changed")
+    expect(carry_forward.get("current_protocol_version") == "v2.13", errors, "v2.30 official current protocol changed")
+    expect(carry_forward.get("exact_blocker") is None, errors, "v2.30 official exact blocker not None")
 
     expect(v229_official.get("status") == "PASS", errors, "v2.29 official source not PASS")
     expect(v229_official.get("zip_sha256") == EXPECTED["v2_29_zip_sha256"], errors, "v2.29 official source digest mismatch")

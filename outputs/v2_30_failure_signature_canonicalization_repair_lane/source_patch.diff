@@ -1,0 +1,38 @@
+--- a/src/py_bugger/utils/bug_utils.py
++++ b/src/py_bugger/utils/bug_utils.py
+@@ -60,19 +60,21 @@
+ 
+ 
+ def add_indentation(path, target_line):
+-    """Add one level of indentation (four spaces) to line."""
+-    indentation_added = False
++    """Add one level of indentation (four spaces) to one matching line."""
++    lines = path.read_text().splitlines(keepends=True)
++    matching_indexes = [
++        index for index, line in enumerate(lines) if target_line in line
++    ]
+ 
+-    lines = path.read_text().splitlines(keepends=True)
++    if not matching_indexes:
++        return False
+ 
++    target_index = random.choice(matching_indexes)
+     modified_lines = []
+-    for line in lines:
+-        # `line` contains leading whitespace and trailing newline.
+-        # `target_line` just contains code, so use `in` rather than `==`.
+-        if target_line in line:
++    for index, line in enumerate(lines):
++        if index == target_index:
+             modified_line = f"    {line}"
+             modified_lines.append(modified_line)
+-            indentation_added = True
+ 
+             # Record this modification.
+             modification = Modification(
+@@ -88,4 +90,4 @@
+     modified_source = "".join(modified_lines)
+     path.write_text(modified_source)
+ 
+-    return indentation_added
++    return True

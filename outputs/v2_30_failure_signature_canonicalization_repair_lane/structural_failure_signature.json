@@ -1,4 +1,19 @@
 {
-  "exact_blocker": "selected_candidate_dependency_resolution_failed",
-  "status": "not_run"
+  "assertion_expression": "len(modifications) == 1",
+  "campaign_id": "v2_30_failure_signature_canonicalization_repair_lane",
+  "created_utc": "2026-06-27T01:36:20Z",
+  "current_protocol_version": "v2.13",
+  "environment_file_hash": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631",
+  "expected_value": 1,
+  "normalized_log_hash_current": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+  "normalized_log_hash_expected_v2_28": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+  "normalized_log_hash_expected_v2_29": "96afb1e4c1f14a7453cbc859924486d11420ff1a3197775919f14d355e2a7cff",
+  "normalized_log_hash_match_required": false,
+  "observed_pytest_failure_type": "AssertionError",
+  "observed_value": 2,
+  "semantic_failure_signature_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+  "status": "PASS",
+  "support_file_hash": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11",
+  "target_file_hash": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1",
+  "target_test_node": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q"
 }

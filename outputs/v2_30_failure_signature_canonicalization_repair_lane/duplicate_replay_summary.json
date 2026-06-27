@@ -1,6 +1,241 @@
 {
-  "passed_replays": 0,
+  "passed_replays": 3,
   "required_replays": 3,
-  "results": [],
-  "status": "not_run"
+  "results": [
+    {
+      "checkout_records": [
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf clone --no-tags -- https://github.com/ehmatthes/py-bugger /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_1_r2szotwd/source",
+          "label": "clone",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_1_r2szotwd/source -C /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_1_r2szotwd/source fetch origin 67cf214f2d619848e90280fd4469377123e81b94",
+          "label": "fetch_exact_commit",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_1_r2szotwd/source -C /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_1_r2szotwd/source checkout --detach 67cf214f2d619848e90280fd4469377123e81b94",
+          "label": "checkout_exact_commit",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_1_r2szotwd/source -C /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_1_r2szotwd/source rev-parse HEAD",
+          "label": "rev_parse_head",
+          "returncode": 0,
+          "timeout": false
+        }
+      ],
+      "environment_records": [
+        {
+          "command": "/opt/hostedtoolcache/Python/3.10.20/x64/bin/python -m venv /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_1_r2szotwd/venv",
+          "label": "create_venv",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_1_r2szotwd/venv/bin/python -m pip install -e .[dev]",
+          "label": "install_declared_dev",
+          "returncode": 0,
+          "timeout": false
+        }
+      ],
+      "exact_blocker": null,
+      "exit_status": 0,
+      "file_verification": {
+        "environment": {
+          "exists": true,
+          "path": "pyproject.toml",
+          "sha256": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631"
+        },
+        "support": {
+          "exists": true,
+          "path": "tests/sample_code/sample_scripts/two_trys.py",
+          "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+        },
+        "target": {
+          "exists": true,
+          "path": "tests/integration_tests/test_modifications.py",
+          "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+        }
+      },
+      "index": 1,
+      "normalized_log_sha256": "ccf7a37ef1ac7d40d1a95140a52b101a2275aa2e2e7928b4d6e41d3374f924e9",
+      "patch_application": {
+        "changed_files": [
+          "src/py_bugger/utils/bug_utils.py"
+        ],
+        "exact_blocker": null,
+        "forbidden_files_modified": [],
+        "patch_sha256": "02ada076e824bb703bc02d1c33f75f51eb4db4539a5aac8e4f5fa3fedd4972ee",
+        "post_application_source_sha256": "d6d0ee8c05b42c1667436c9b69ac9f0c300561a908573a769a938d9a9674e1a3",
+        "pre_application_source_sha256": "c577496381f9c0b4166b9b224fc00144736949991ff6a58f4bf2b28597989f35",
+        "status": "PASS"
+      },
+      "raw_log_sha256": "a51c22950f1b323ac96ee6462c0becf9dce50be42873ff9819276ae934180607",
+      "status": "PASS",
+      "workspace_path": "/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_1_r2szotwd",
+      "workspace_removed_after_run": true
+    },
+    {
+      "checkout_records": [
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf clone --no-tags -- https://github.com/ehmatthes/py-bugger /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_2_w629ug8p/source",
+          "label": "clone",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_2_w629ug8p/source -C /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_2_w629ug8p/source fetch origin 67cf214f2d619848e90280fd4469377123e81b94",
+          "label": "fetch_exact_commit",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_2_w629ug8p/source -C /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_2_w629ug8p/source checkout --detach 67cf214f2d619848e90280fd4469377123e81b94",
+          "label": "checkout_exact_commit",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_2_w629ug8p/source -C /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_2_w629ug8p/source rev-parse HEAD",
+          "label": "rev_parse_head",
+          "returncode": 0,
+          "timeout": false
+        }
+      ],
+      "environment_records": [
+        {
+          "command": "/opt/hostedtoolcache/Python/3.10.20/x64/bin/python -m venv /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_2_w629ug8p/venv",
+          "label": "create_venv",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_2_w629ug8p/venv/bin/python -m pip install -e .[dev]",
+          "label": "install_declared_dev",
+          "returncode": 0,
+          "timeout": false
+        }
+      ],
+      "exact_blocker": null,
+      "exit_status": 0,
+      "file_verification": {
+        "environment": {
+          "exists": true,
+          "path": "pyproject.toml",
+          "sha256": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631"
+        },
+        "support": {
+          "exists": true,
+          "path": "tests/sample_code/sample_scripts/two_trys.py",
+          "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+        },
+        "target": {
+          "exists": true,
+          "path": "tests/integration_tests/test_modifications.py",
+          "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+        }
+      },
+      "index": 2,
+      "normalized_log_sha256": "594fb04bcf1a652970b79d83b872fb1a0acf03d34e6890ad183e09d375e3cc5c",
+      "patch_application": {
+        "changed_files": [
+          "src/py_bugger/utils/bug_utils.py"
+        ],
+        "exact_blocker": null,
+        "forbidden_files_modified": [],
+        "patch_sha256": "02ada076e824bb703bc02d1c33f75f51eb4db4539a5aac8e4f5fa3fedd4972ee",
+        "post_application_source_sha256": "d6d0ee8c05b42c1667436c9b69ac9f0c300561a908573a769a938d9a9674e1a3",
+        "pre_application_source_sha256": "c577496381f9c0b4166b9b224fc00144736949991ff6a58f4bf2b28597989f35",
+        "status": "PASS"
+      },
+      "raw_log_sha256": "60411a2f3434a5b6fb64d2c0e2b9be69fc913a6a07e55e540bb3e395b36a1d15",
+      "status": "PASS",
+      "workspace_path": "/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_2_w629ug8p",
+      "workspace_removed_after_run": true
+    },
+    {
+      "checkout_records": [
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf clone --no-tags -- https://github.com/ehmatthes/py-bugger /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_3_ywefxbca/source",
+          "label": "clone",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_3_ywefxbca/source -C /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_3_ywefxbca/source fetch origin 67cf214f2d619848e90280fd4469377123e81b94",
+          "label": "fetch_exact_commit",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_3_ywefxbca/source -C /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_3_ywefxbca/source checkout --detach 67cf214f2d619848e90280fd4469377123e81b94",
+          "label": "checkout_exact_commit",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_3_ywefxbca/source -C /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_3_ywefxbca/source rev-parse HEAD",
+          "label": "rev_parse_head",
+          "returncode": 0,
+          "timeout": false
+        }
+      ],
+      "environment_records": [
+        {
+          "command": "/opt/hostedtoolcache/Python/3.10.20/x64/bin/python -m venv /tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_3_ywefxbca/venv",
+          "label": "create_venv",
+          "returncode": 0,
+          "timeout": false
+        },
+        {
+          "command": "/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_3_ywefxbca/venv/bin/python -m pip install -e .[dev]",
+          "label": "install_declared_dev",
+          "returncode": 0,
+          "timeout": false
+        }
+      ],
+      "exact_blocker": null,
+      "exit_status": 0,
+      "file_verification": {
+        "environment": {
+          "exists": true,
+          "path": "pyproject.toml",
+          "sha256": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631"
+        },
+        "support": {
+          "exists": true,
+          "path": "tests/sample_code/sample_scripts/two_trys.py",
+          "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+        },
+        "target": {
+          "exists": true,
+          "path": "tests/integration_tests/test_modifications.py",
+          "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+        }
+      },
+      "index": 3,
+      "normalized_log_sha256": "ccf7a37ef1ac7d40d1a95140a52b101a2275aa2e2e7928b4d6e41d3374f924e9",
+      "patch_application": {
+        "changed_files": [
+          "src/py_bugger/utils/bug_utils.py"
+        ],
+        "exact_blocker": null,
+        "forbidden_files_modified": [],
+        "patch_sha256": "02ada076e824bb703bc02d1c33f75f51eb4db4539a5aac8e4f5fa3fedd4972ee",
+        "post_application_source_sha256": "d6d0ee8c05b42c1667436c9b69ac9f0c300561a908573a769a938d9a9674e1a3",
+        "pre_application_source_sha256": "c577496381f9c0b4166b9b224fc00144736949991ff6a58f4bf2b28597989f35",
+        "status": "PASS"
+      },
+      "raw_log_sha256": "a5abd22ad4c8da842590cfb5429711692974e8289249a4278c22c444b3371965",
+      "status": "PASS",
+      "workspace_path": "/tmp/v2_30_failure_signature_canonicalization_repair_lane_replay_3_ywefxbca",
+      "workspace_removed_after_run": true
+    }
+  ],
+  "status": "PASS"
 }

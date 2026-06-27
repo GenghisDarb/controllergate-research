@@ -4,12 +4,17 @@
   "preferred_install_command": "python -m pip install -e .[dev]",
   "records": [
     {
-      "command": "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe -m venv E:\\ControllerGate-Artifacts\\v2_30_failure_signature_canonicalization_repair_lane_capture_1_vf4uiqyf\\venv",
+      "command": "/opt/hostedtoolcache/Python/3.10.20/x64/bin/python -m venv /tmp/v2_30_failure_signature_canonicalization_repair_lane_capture_1_fmbt9_nf/venv",
       "label": "create_venv",
-      "returncode": null,
-      "timeout": true,
-      "timeout_seconds": 120
+      "returncode": 0,
+      "timeout": false
+    },
+    {
+      "command": "/tmp/v2_30_failure_signature_canonicalization_repair_lane_capture_1_fmbt9_nf/venv/bin/python -m pip install -e .[dev]",
+      "label": "install_declared_dev",
+      "returncode": 0,
+      "timeout": false
     }
   ],
-  "status": "BLOCK"
+  "status": "PASS"
 }

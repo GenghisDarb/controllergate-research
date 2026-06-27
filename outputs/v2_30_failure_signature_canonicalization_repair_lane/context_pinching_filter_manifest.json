@@ -1,4 +1,83 @@
 {
+  "allowed_sources": [
+    "reviewed_registry_entry_after_signature_refresh",
+    "v2_28_failure_signature_history",
+    "v2_29_failure_signature_history",
+    "three_clean_v2_30_semantic_captures",
+    "structural_failure_signature",
+    "buggy_tree_target_test",
+    "buggy_tree_support_file",
+    "buggy_tree_candidate_source_subset",
+    "environment_and_command_manifests"
+  ],
   "forbidden_sources_excluded": true,
-  "status": "not_run"
+  "included_files": [
+    {
+      "bytes_included": 4263,
+      "path": "tests/integration_tests/test_modifications.py",
+      "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+    },
+    {
+      "bytes_included": 201,
+      "path": "tests/sample_code/sample_scripts/two_trys.py",
+      "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+    },
+    {
+      "bytes_included": 0,
+      "path": "src/py_bugger/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes_included": 4430,
+      "path": "src/py_bugger/buggers.py",
+      "sha256": "daa95551f3fa21778a5dc278c24c490679e4ae2c6e88372d33be18cc1c49ac58"
+    },
+    {
+      "bytes_included": 0,
+      "path": "src/py_bugger/cli/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes_included": 3763,
+      "path": "src/py_bugger/cli/cli_messages.py",
+      "sha256": "05be4e2913dbd72b837b6d214d350571e9279cf8984e9cfe9ca3fc92b8f3a940"
+    },
+    {
+      "bytes_included": 4498,
+      "path": "src/py_bugger/cli/cli_utils.py",
+      "sha256": "9970cecac5354a2bfd5295fe500bdfa71729cc97f34148e65e425da8d41be27f"
+    },
+    {
+      "bytes_included": 430,
+      "path": "src/py_bugger/cli/config.py",
+      "sha256": "42c15ceadbde73d0d323796e1530be95835bdfcec9567bbad2b0e88fc49447c3"
+    },
+    {
+      "bytes_included": 1758,
+      "path": "src/py_bugger/py_bugger.py",
+      "sha256": "81999622c9d84ad4190c4998249a1f96097dd7a2e15d5626339a122ca05d267d"
+    },
+    {
+      "bytes_included": 2447,
+      "path": "src/py_bugger/utils/bug_utils.py",
+      "sha256": "c577496381f9c0b4166b9b224fc00144736949991ff6a58f4bf2b28597989f35"
+    },
+    {
+      "bytes_included": 5519,
+      "path": "src/py_bugger/utils/cst_utils.py",
+      "sha256": "26a283cc5b92e2e5624b92e64e2c2f42cf25fd6abdce21ed22bcfbf862ff7d28"
+    },
+    {
+      "bytes_included": 4224,
+      "path": "src/py_bugger/utils/file_utils.py",
+      "sha256": "d38707b86cede86b9f7bbbf7b8294302fb344f3efdfc3213fe2180ce0faece02"
+    },
+    {
+      "bytes_included": 926,
+      "path": "src/py_bugger/utils/modification.py",
+      "sha256": "8524521bb4725b3c0d0c9fc54408190d007d011bc51c8cdb265953bba3925544"
+    }
+  ],
+  "patch_generation_must_use_capsule_only": true,
+  "status": "PASS"
 }

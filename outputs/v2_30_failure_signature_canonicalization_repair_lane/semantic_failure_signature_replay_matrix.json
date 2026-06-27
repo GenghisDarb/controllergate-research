@@ -1,18 +1,38 @@
 {
-  "all_three_clean_captures_agree": false,
-  "canonical_semantic_failure_signature_hash": null,
+  "all_three_clean_captures_agree": true,
+  "canonical_semantic_failure_signature_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
   "capture_history": [
     {
-      "command_exit_status": null,
-      "normalized_log_hash": null,
-      "raw_log_sha256": null,
-      "semantic_hash": null,
+      "command_exit_status": 1,
+      "normalized_log_hash": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+      "raw_log_sha256": "a8a2d3ba7412df629c5dfeda55992e060aab9353d14cddcb3edb778df6b991d8",
+      "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
       "source": "v2.30_clean_capture_1",
-      "status": "BLOCK"
+      "status": "PASS"
+    },
+    {
+      "command_exit_status": 1,
+      "normalized_log_hash": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+      "raw_log_sha256": "df3a4c6dcc2b5db46aa6770eaed6f877d9535670d972ec3454bc755d045f38c7",
+      "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+      "source": "v2.30_clean_capture_2",
+      "status": "PASS"
+    },
+    {
+      "command_exit_status": 1,
+      "normalized_log_hash": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+      "raw_log_sha256": "27e8d020c2b638bbc2b0b0e1bc6b630cb0d23da62ee57503110e937cef209e52",
+      "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+      "source": "v2.30_clean_capture_3",
+      "status": "PASS"
     }
   ],
-  "completed_capture_count": 0,
+  "completed_capture_count": 3,
   "required_capture_count": 3,
-  "semantic_failure_signature_hashes": [],
-  "status": "BLOCK"
+  "semantic_failure_signature_hashes": [
+    "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+    "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+    "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f"
+  ],
+  "status": "PASS"
 }

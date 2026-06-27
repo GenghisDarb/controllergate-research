@@ -1414,6 +1414,7 @@ v2.29 adds neutral repair-context controls and attempts exactly one bounded repa
 
 
 
+
 ## v2.30 Failure Signature Canonicalization
 
 v2.30 preserves prior text-hash evidence, adds a three-capture semantic failure signature gate, and continues the bounded one-patch repair path only if replay and registry-refresh checks pass. Current protocol stays v2.13; full scoring and broad claims remain disabled.

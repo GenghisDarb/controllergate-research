@@ -282,6 +282,7 @@ The lane selects no additional candidates and does not promote the current proto
 
 
 
+
 ## v2.30 Failure Signature Canonicalization
 
 v2.30 adds a stronger failure-signature gate for the reviewed external candidate path.

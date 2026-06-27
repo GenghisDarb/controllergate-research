@@ -4,21 +4,21 @@
 - Candidate: `py_bugger_issue_65`.
 - v2.29 blocker carried forward: `PASS`.
 - Historical comparison: `semantic_failure_stable_text_hash_drift`.
-- Semantic signature status: `BLOCK`.
-- Three-capture replay status: `BLOCK`.
-- Registry signature refresh: `not_run`.
-- Pre-repair replay after refresh: `BLOCK`.
-- AST Dependency Closure: `not_run`.
-- Context Pinching Filter: `not_run`.
+- Semantic signature status: `PASS`.
+- Three-capture replay status: `PASS`.
+- Registry signature refresh: `PASS`.
+- Pre-repair replay after refresh: `PASS`.
+- AST Dependency Closure: `PASS`.
+- Context Pinching Filter: `PASS`.
 - Failure Memory Weight Ledger: `PASS`.
-- Fragmented Patch Assembly Gate: `not_authorized`.
-- Pre/Post Handoff Consistency Gate: `not_authorized`.
-- Patch generated: `false`.
-- Patch attempted: `false`.
-- Target validation: `not_run`.
-- Duplicate clean replay: `not_run`.
-- Selected candidate scoreable: `false`.
-- Exact blocker: `selected_candidate_dependency_resolution_failed`.
+- Fragmented Patch Assembly Gate: `PASS`.
+- Pre/Post Handoff Consistency Gate: `PASS`.
+- Patch generated: `true`.
+- Patch attempted: `true`.
+- Target validation: `PASS`.
+- Duplicate clean replay: `PASS`.
+- Selected candidate scoreable: `true`.
+- Exact blocker: `None`.
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software is not demonstrated.

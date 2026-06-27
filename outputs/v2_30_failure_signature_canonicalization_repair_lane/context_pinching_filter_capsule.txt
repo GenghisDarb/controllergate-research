@@ -1,0 +1,1248 @@
+# v2.30 repair context capsule
+candidate_id: py_bugger_issue_65
+repo_url: https://github.com/ehmatthes/py-bugger
+buggy_commit_sha: 67cf214f2d619848e90280fd4469377123e81b94
+target_command: python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q
+semantic_failure_signature_hash: 3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f
+structural_failure: {"assertion_expression": "len(modifications) == 1", "campaign_id": "v2_30_failure_signature_canonicalization_repair_lane", "created_utc": "2026-06-27T01:36:20Z", "current_protocol_version": "v2.13", "environment_file_hash": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631", "expected_value": 1, "normalized_log_hash_current": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954", "normalized_log_hash_expected_v2_28": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea", "normalized_log_hash_expected_v2_29": "96afb1e4c1f14a7453cbc859924486d11420ff1a3197775919f14d355e2a7cff", "normalized_log_hash_match_required": false, "observed_pytest_failure_type": "AssertionError", "observed_value": 2, "semantic_failure_signature_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f", "status": "PASS", "support_file_hash": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11", "target_file_hash": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1", "target_test_node": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q"}
+reviewed_registry_entry_after_signature_refresh:
+{
+  "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+  "candidate_id": "py_bugger_issue_65",
+  "created_utc": "2026-06-26T20:47:58Z",
+  "decision_time_safe_basis": "offline_manual_verification",
+  "environment_lock_source": "pyproject.toml",
+  "expected_failure_signature": {
+    "exception_type": "IndentationError",
+    "failing_file": "developer_resources/sample_attribute_node.py",
+    "failure_text_excerpt_hash": "cd64bae3e95407659c36a05e0f30d50a7a91bb620932fbffa3e3d97dda5660c6",
+    "log_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+    "normalization_policy": "strip_timestamps_absolute_paths_ansi_venv_prefixes",
+    "normalization_policy_version": "v2.30.failure_signature_normalization.v1",
+    "normalized_log_hash_v2_30": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+    "semantic_fields": {
+      "assertion_expression": "len(modifications) == 1",
+      "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+      "candidate_id": "py_bugger_issue_65",
+      "environment_lock_source": "pyproject.toml",
+      "environment_lock_source_sha256": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631",
+      "expected_value": 1,
+      "failure_excerpt_hash": "5a6c2f3b61fc5c1b960d199697837d0b54bab9c628f156f0a05fde04a970908c",
+      "normalization_policy_version": "v2.30.failure_signature_normalization.v1",
+      "observed_pytest_failure_type": "AssertionError",
+      "observed_value": 2,
+      "pre_repair_expected_exit_status": 1,
+      "relevant_source_loci": [
+        "src/py_bugger/utils/bug_utils.py"
+      ],
+      "repo_url": "https://github.com/ehmatthes/py-bugger",
+      "schema_version": "v2.30.semantic_failure_signature.v1",
+      "semantic_failure_category": "single_requested_indentation_error_modified_two_matching_lines",
+      "semantic_stdout_markers": [
+        "Inserted 2 bugs."
+      ],
+      "support_file_paths": [
+        "tests/sample_code/sample_scripts/two_trys.py"
+      ],
+      "support_file_sha256s": {
+        "tests/sample_code/sample_scripts/two_trys.py": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+      },
+      "target_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q",
+      "target_test_executed": true,
+      "target_test_node": "tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys",
+      "target_test_path": "tests/integration_tests/test_modifications.py",
+      "target_test_sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+    },
+    "semantic_log_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+    "signature_history": [
+      {
+        "normalized_log_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+        "preserved_as_history": true,
+        "raw_log_sha256": "f2a152ff6a8f3d6e4b70d817123917b992bd1b4d381e2d492f48838250fd6cdb",
+        "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+        "source": "v2.28_seed_capture"
+      },
+      {
+        "normalized_log_hash": "96afb1e4c1f14a7453cbc859924486d11420ff1a3197775919f14d355e2a7cff",
+        "preserved_as_history": true,
+        "raw_log_sha256": "189e72a277dae46d4c125e705c0c9c99a15e4453562f2668aad82996714f87f2",
+        "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+        "source": "v2.29_repair_lane_replay"
+      },
+      {
+        "command_exit_status": 1,
+        "normalized_log_hash": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+        "raw_log_sha256": "a8a2d3ba7412df629c5dfeda55992e060aab9353d14cddcb3edb778df6b991d8",
+        "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+        "source": "v2.30_clean_capture_1",
+        "status": "PASS"
+      },
+      {
+        "command_exit_status": 1,
+        "normalized_log_hash": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+        "raw_log_sha256": "df3a4c6dcc2b5db46aa6770eaed6f877d9535670d972ec3454bc755d045f38c7",
+        "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+        "source": "v2.30_clean_capture_2",
+        "status": "PASS"
+      },
+      {
+        "command_exit_status": 1,
+        "normalized_log_hash": "3fadf10004a02853ca943d6c7dba55288a5bd5eff2fcf5d084a6a9e782e2e954",
+        "raw_log_sha256": "27e8d020c2b638bbc2b0b0e1bc6b630cb0d23da62ee57503110e937cef209e52",
+        "semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+        "source": "v2.30_clean_capture_3",
+        "status": "PASS"
+      }
+    ]
+  },
+  "notes": "Reviewed v2.28 seed captured from direct buggy commit checkout. No repair evidence used.",
+  "registry_author": "manual_seed_draft",
+  "registry_review_status": "reviewed",
+  "repo_url": "https://github.com/ehmatthes/py-bugger",
+  "source_type": "public_github_repo",
+  "support_files": [
+    {
+      "path": "tests/sample_code/sample_scripts/two_trys.py",
+      "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11",
+      "source": "buggy_commit_tree"
+    }
+  ],
+  "target_test_files": [
+    {
+      "path": "tests/integration_tests/test_modifications.py",
+      "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1",
+      "source": "buggy_commit_tree"
+    }
+  ],
+  "test_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q",
+  "updated_utc_v2_30": "2026-06-27T01:36:20Z"
+}
+
+## file: tests/integration_tests/test_modifications.py
+sha256: 3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1
+
+"""Test the modifications object."""
+
+from pathlib import Path
+import shutil
+import os
+
+import pytest
+
+from py_bugger import py_bugger
+from py_bugger.cli.config import pb_config
+from py_bugger.cli import cli_utils
+from py_bugger.utils.modification import modifications
+
+
+def test_modifications_modulenotfounderror(tmp_path_factory, test_config):
+    """Tests modifications after creating a ModuleNotFoundError."""
+    # Copy sample code to tmp dir.
+    tmp_path = tmp_path_factory.mktemp("sample_code")
+    print(f"\nCopying code to: {tmp_path.as_posix()}")
+
+    path_src = test_config.path_sample_scripts / "name_picker.py"
+    path_dst = tmp_path / path_src.name
+    shutil.copyfile(path_src, path_dst)
+
+    # Make modifications against this directory.
+    pb_config.exception_type = "ModuleNotFoundError"
+    pb_config.target_file = path_dst
+    cli_utils.validate_config()
+
+    py_bugger.main()
+
+    assert len(modifications) == 1
+    assert modifications[0].exception_induced == ModuleNotFoundError
+
+
+def test_7_random_bugs(tmp_path_factory, test_config):
+    """Test equivalent of `py-bugger -n 7`.
+
+    Look for modifications that match bugs_requested.
+    """
+    # Copy sample code to tmp dir.
+    tmp_path = tmp_path_factory.mktemp("sample_code")
+    print(f"\nCopying code to: {tmp_path.as_posix()}")
+
+    path_src = test_config.path_sample_scripts / "dog_bark.py"
+    path_dst = tmp_path / path_src.name
+    shutil.copyfile(path_src, path_dst)
+
+    # Make modifications against this directory.
+    # With the current random seed, 7 seems to be the max number of bugs before
+    # it can't add more.
+    pb_config.target_file = path_dst
+    pb_config.num_bugs = 7
+    cli_utils.validate_config()
+
+    requested_bugs = py_bugger.main()
+
+    # Make sure one modification was made for each requested bug.
+    assert len(modifications) == len(requested_bugs)
+
+    # Make sure the correct kinds of exceptions were induced.
+    exceptions_induced_str = [m.exception_induced.__name__ for m in modifications]
+    assert sorted(exceptions_induced_str) == sorted(requested_bugs)
+
+
+def test_8_random_bugs(tmp_path_factory, test_config):
+    """Test equivalent of `py-bugger -n 8`.
+
+    Look for modifications that match bugs_requested.
+    Look for message that it can't add more bugs.
+    """
+    # Copy sample code to tmp dir.
+    tmp_path = tmp_path_factory.mktemp("sample_code")
+    print(f"\nCopying code to: {tmp_path.as_posix()}")
+
+    path_src = test_config.path_sample_scripts / "dog_bark.py"
+    path_dst = tmp_path / path_src.name
+    shutil.copyfile(path_src, path_dst)
+
+    # Make modifications against this directory.
+    # With the current random seed, 8 seems to be the smallest number of bugs
+    # where it can't finish adding bugs.
+    pb_config.target_file = path_dst
+    pb_config.num_bugs = 8
+    cli_utils.validate_config()
+
+    requested_bugs = py_bugger.main()
+
+    # Make sure one requested bug was unable to be generated.
+    assert len(modifications) == len(requested_bugs) - 1
+
+    # Make sure all requested bugs except one are in modifications.
+    exceptions_induced_str = [m.exception_induced.__name__ for m in modifications]
+    while exceptions_induced_str:
+        exception_induced = exceptions_induced_str.pop()
+        requested_bugs.remove(exception_induced)
+
+    assert len(requested_bugs) == 1
+
+def test_indentationerror_multiple_trys(tmp_path_factory, test_config):
+    """Test requesting a single IndentationError against a file with two try blocks.
+
+    This is related to issue 65, where the bare try block that's being targeted matches
+    every try block in the file. We should see just one modification.
+    """
+    # Copy sample code to tmp dir.
+    tmp_path = tmp_path_factory.mktemp("sample_code")
+    print(f"\nCopying code to: {tmp_path.as_posix()}")
+
+    path_src = test_config.path_sample_scripts / "two_trys.py"
+    path_dst = tmp_path / path_src.name
+    shutil.copyfile(path_src, path_dst)
+
+    # Make modifications against this file.
+    pb_config.target_file = path_dst
+    pb_config.num_bugs = 1
+    pb_config.exception_type = "IndentationError"
+    cli_utils.validate_config()
+
+    requested_bugs = py_bugger.main()
+
+    # Check that only one modification was made.
+    assert len(modifications) == 1
+
+
+## file: tests/sample_code/sample_scripts/two_trys.py
+sha256: 66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11
+
+"""Simple file with two try-except blocks."""
+
+try:
+    5/0
+except ZeroDivisionError:
+    print("Can't divide by zero!")
+
+try:
+    10/0
+except ZeroDivisionError:
+    print("That doesn't work either!")
+
+
+## file: src/py_bugger/__init__.py
+sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+
+
+## file: src/py_bugger/buggers.py
+sha256: daa95551f3fa21778a5dc278c24c490679e4ae2c6e88372d33be18cc1c49ac58
+
+"""Utilities for introducing specific kinds of bugs.
+
+DEV: Don't rush to refactor bugger functions. for example, it's not yet clear whether this should
+be a class. Also, not sure we need separate bugger functions, or one bugger function with some
+conditional logic. Implement support for another exception type, and logical errors, and see what
+things are looking like.
+"""
+
+import libcst as cst
+import random
+
+from py_bugger.utils import cst_utils
+from py_bugger.utils import file_utils
+from py_bugger.utils import bug_utils
+
+from py_bugger.cli.config import pb_config
+
+
+### --- *_bugger functions ---
+
+
+def module_not_found_bugger(py_files):
+    """Induce a ModuleNotFoundError.
+
+    Returns:
+        Bool: Whether a bug was introduced or not.
+    """
+    # Get a random node that hasn't already been modified.
+    path, node = _get_random_node(py_files, node_type=cst.Import)
+    if not path:
+        return False
+
+    # Parse user's code.
+    source = path.read_text()
+    tree = cst.parse_module(source)
+
+    # Modify user's code
+    try:
+        modified_tree = tree.visit(cst_utils.ImportModifier(node, path))
+    except TypeError:
+        # DEV: Figure out which nodes are ending up here, and update
+        # modifier code to handle these nodes.
+        # For diagnostics, can run against Pillow with -n set to a
+        # really high number.
+        raise
+    else:
+        path.write_text(modified_tree.code)
+        _report_bug_added(path)
+        return True
+
+
+def attribute_error_bugger(py_files):
+    """Induce an AttributeError.
+
+    Returns:
+        Bool: Whether a bug was introduced or not.
+    """
+    # Get a random node that hasn't already been modified.
+    path, node = _get_random_node(py_files, node_type=cst.Attribute)
+    if not path:
+        return False
+
+    # Parse user's code.
+    source = path.read_text()
+    tree = cst.parse_module(source)
+
+    # Pick node to modify if more than one match in the file.
+    # Note that not all bugger functions need this step.
+    node_count = cst_utils.count_nodes(tree, node)
+    if node_count > 1:
+        node_index = random.randrange(0, node_count - 1)
+    else:
+        node_index = 0
+
+    # Modify user's code.
+    try:
+        modified_tree = tree.visit(cst_utils.AttributeModifier(node, node_index, path))
+    except TypeError:
+        # DEV: Figure out which nodes are ending up here, and update
+        # modifier code to handle these nodes.
+        # For diagnostics, can run against Pillow with -n set to a
+        # really high number.
+        raise
+    else:
+        path.write_text(modified_tree.code)
+        _report_bug_added(path)
+        return True
+
+
+def indentation_error_bugger(py_files):
+    """Induce an IndentationError.
+
+    This simply parses raw source files. Conditions are pretty concrete, and LibCST
+    doesn't make it easy to create invalid syntax.
+
+    Returns:
+        Bool: Whether a bug was introduced or not.
+    """
+    # Find relevant files and lines.
+    targets = [
+        "for",
+        "while",
+        "def",
+        "class",
+        "if",
+        "with",
+        "match",
+        "try",
+    ]
+    paths_lines = file_utils.get_paths_lines(py_files, targets=targets)
+
+    # Bail if there are no relevant lines.
+    if not paths_lines:
+        return False
+
+    path, target_line = random.choice(paths_lines)
+
+    if bug_utils.add_indentation(path, target_line):
+        _report_bug_added(path)
+        return True
+
+
+# --- Helper functions ---
+# DEV: This is a good place for helper functions, before they are refined enough
+# to move to utils/.
+
+
+def _report_bug_added(path_modified):
+    """Report that a bug was added."""
+    if pb_config.verbose:
+        print(f"Added bug to: {path_modified.as_posix()}")
+    else:
+        print(f"Added bug.")
+
+
+def _get_random_node(py_files, node_type):
+    """Randomly select a node to modify.
+
+    Make sure it's a node that hasn't already been modified.
+
+    Returns:
+        Tuple: (path, node) or (False, False)
+    """
+    # Find all relevant nodes. Bail if there are no relevant nodes.
+    if not (paths_nodes := cst_utils.get_paths_nodes(py_files, node_type)):
+        return False, False
+
+    random.shuffle(paths_nodes)
+    for path, node in paths_nodes:
+        if file_utils.check_unmodified(path, candidate_node=node):
+            return path, node
+    else:
+        # All nodes have already been modified to introduce a previous bug.
+        return False, False
+
+
+## file: src/py_bugger/cli/__init__.py
+sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+
+
+## file: src/py_bugger/cli/cli_messages.py
+sha256: 05be4e2913dbd72b837b6d214d350571e9279cf8984e9cfe9ca3fc92b8f3a940
+
+"""Messages for use in CLI output."""
+
+# --- Static messages ---
+
+msg_target_file_dir = (
+    "Target file overrides target dir. Please only pass one of these args."
+)
+
+msg_git_not_available = "Git does not seem to be available. It's highly recommended that you run py-bugger against a file or project with a clean Git status. You can ignore this check with the --ignore-git-status argument."
+
+msg_unclean_git_status = "You have uncommitted changes in your project. It's highly recommended that you run py-bugger against a file or project with a clean Git status. You can ignore this check with the --ignore-git-status argument."
+
+
+# def success_msg(num_added, num_requested):
+def success_msg():
+    """Generate a success message at end of run."""
+    # Importing these here makes for a faster test suite.
+    from py_bugger.cli.config import pb_config
+    from py_bugger.utils.modification import modifications
+
+    # Show a final success/fail message.
+    num_added = len(modifications)
+    if num_added == pb_config.num_bugs:
+        return "All requested bugs inserted."
+    elif num_added == 0:
+        return "Unable to introduce any of the requested bugs."
+    else:
+        msg = f"Inserted {num_added} bugs."
+        msg += "\nUnable to introduce additional bugs of the requested type."
+        return msg
+
+
+# Validation for exception type.
+def msg_apparent_typo(actual, expected):
+    """Suggest a typo fix for an exception type."""
+    msg = f"You specified {actual} for --exception-type. Did you mean {expected}?"
+    return msg
+
+
+def msg_unsupported_exception_type(exception_type):
+    """Specified an unsupported exception type."""
+    msg = f"The exception type {exception_type} is not currently supported."
+    return msg
+
+
+# Messagess for invalid --target-dir calls.
+
+
+def msg_file_not_dir(target_file):
+    """Specified --target-dir, but passed a file."""
+    msg = f"You specified --target-dir, but {target_file.name} is a file. Did you mean to use --target-file?"
+    return msg
+
+
+def msg_nonexistent_dir(target_dir):
+    """Passed a nonexistent dir to --target-dir."""
+    msg = f"The directory {target_dir.name} does not exist. Did you make a typo?"
+    return msg
+
+
+def msg_not_dir(target_dir):
+    """Passed something that exists to --target-dir, but it's not a dir."""
+    msg = f"{target_dir.name} does not seem to be a directory."
+    return msg
+
+
+# Messages for invalid --target-file calls.
+
+
+def msg_dir_not_file(target_dir):
+    """Specified --target-file, but passed a dir."""
+    msg = f"You specified --target-file, but {target_dir.name} is a directory. Did you mean to use --target-dir, or did you intend to pass a specific file from that directory?"
+    return msg
+
+
+def msg_nonexistent_file(target_file):
+    """Passed a nonexistent file to --target-file."""
+    msg = f"The file {target_file.name} does not exist. Did you make a typo?"
+    return msg
+
+
+def msg_not_file(target_file):
+    """Passed something that exists to --target-file, but it's not a file."""
+    msg = f"{target_file.name} does not seem to be a file."
+    return msg
+
+
+def msg_file_not_py(target_file):
+    """Passed a non-.py file to --target-file."""
+    msg = f"{target_file.name} does not appear to be a Python file."
+    return msg
+
+
+# Messages for Git status-related issues.
+def msg_git_not_used(pb_config):
+    """Git is not being used to manage target file or directory."""
+    if pb_config.target_file:
+        target = "file"
+    else:
+        target = "directory"
+
+    msg = f"The {target} you're running py-bugger against does not seem to be under version control. It's highly recommended that you run py-bugger against a file or project with a clean Git status. You can ignore this check with the --ignore-git-status argument."
+    return msg
+
+
+## file: src/py_bugger/cli/cli_utils.py
+sha256: 9970cecac5354a2bfd5295fe500bdfa71729cc97f34148e65e425da8d41be27f
+
+"""Utility functions for the CLI.
+
+If this grows into groups of utilities, move to a cli/utils/ dir, with more specific
+filenames.
+"""
+
+import os
+import sys
+from pathlib import Path
+import subprocess
+import shlex
+import shutil
+import difflib
+
+import click
+
+from py_bugger.cli import cli_messages
+from py_bugger.cli.config import pb_config
+from py_bugger.cli.config import SUPPORTED_EXCEPTION_TYPES
+
+
+def validate_config():
+    """Make sure the CLI options are valid."""
+
+    if pb_config.target_dir and pb_config.target_file:
+        click.echo(cli_messages.msg_target_file_dir)
+        sys.exit()
+
+    _validate_exception_type()
+
+    if pb_config.target_dir:
+        _validate_target_dir()
+
+    if pb_config.target_file:
+        _validate_target_file()
+
+    # Update all options before running Git status checks. Info like target_dir
+    # is used for those checks.
+    _update_options()
+
+    _validate_git_status()
+
+
+# --- Helper functions ___
+
+
+def _update_options():
+    """Make sure options are ready to use."""
+    # Set an appropriate target directory.
+    if pb_config.target_dir:
+        pb_config.target_dir = Path(pb_config.target_dir)
+    else:
+        pb_config.target_dir = Path(os.getcwd())
+
+    # Make sure target_file is a Path.
+    if pb_config.target_file:
+        pb_config.target_file = Path(pb_config.target_file)
+
+
+def _validate_exception_type():
+    """Make sure the -e arg provided is supported."""
+    if not pb_config.exception_type:
+        return
+
+    if pb_config.exception_type in SUPPORTED_EXCEPTION_TYPES:
+        return
+
+    # Check for typos.
+    matches = difflib.get_close_matches(
+        pb_config.exception_type, SUPPORTED_EXCEPTION_TYPES, n=1
+    )
+    if matches:
+        msg = cli_messages.msg_apparent_typo(pb_config.exception_type, matches[0])
+        click.echo(msg)
+        sys.exit()
+
+    # Invalid or unsupported exception type.
+    msg = cli_messages.msg_unsupported_exception_type(pb_config.exception_type)
+    click.echo(msg)
+    sys.exit()
+
+
+def _validate_target_dir():
+    """Make sure a valid directory was passed.
+
+    Check for common mistakes, then verify it is a dir.
+    """
+    path_target_dir = Path(pb_config.target_dir)
+    if path_target_dir.is_file():
+        msg = cli_messages.msg_file_not_dir(path_target_dir)
+        click.echo(msg)
+        sys.exit()
+    elif not path_target_dir.exists():
+        msg = cli_messages.msg_nonexistent_dir(path_target_dir)
+        click.echo(msg)
+        sys.exit()
+    elif not path_target_dir.is_dir():
+        msg = cli_messages.msg_not_dir(path_target_dir)
+        click.echo(msg)
+        sys.exit()
+
+
+def _validate_target_file():
+    """Make sure an appropriate file was passed.
+
+    Check for common mistakes, then verify it is a file.
+    """
+    path_target_file = Path(pb_config.target_file)
+    if path_target_file.is_dir():
+        msg = cli_messages.msg_dir_not_file(path_target_file)
+        click.echo(msg)
+        sys.exit()
+    elif not path_target_file.exists():
+        msg = cli_messages.msg_nonexistent_file(path_target_file)
+        click.echo(msg)
+        sys.exit()
+    elif not path_target_file.is_file():
+        msg = cli_messages.msg_not_file(path_target_file)
+        click.echo(msg)
+        sys.exit()
+    elif path_target_file.suffix != ".py":
+        msg = cli_messages.msg_file_not_py(path_target_file)
+        click.echo(msg)
+        sys.exit()
+
+
+def _validate_git_status():
+    """Look for a clean Git status before introducing bugs."""
+    if pb_config.ignore_git_status:
+        return
+
+    _check_git_available()
+    _check_git_status()
+
+
+def _check_git_available():
+    """Quit with appropriate message if Git not available."""
+    if not shutil.which("git"):
+        click.echo(cli_messages.msg_git_not_available)
+        sys.exit()
+
+
+def _check_git_status():
+    """Make sure we're starting with a clean git status."""
+    if pb_config.target_file:
+        git_dir = pb_config.target_file.parent
+    else:
+        git_dir = pb_config.target_dir
+
+    cmd = "git status --porcelain"
+    cmd_parts = shlex.split(cmd)
+    output = subprocess.run(cmd_parts, cwd=git_dir, capture_output=True, text=True)
+
+    if "fatal: not a git repository" in output.stderr:
+        msg = cli_messages.msg_git_not_used(pb_config)
+        click.echo(msg)
+        sys.exit()
+
+    # `git status --porcelain` has no output when the status is clean.
+    if output.stdout or output.stderr:
+        msg = cli_messages.msg_unclean_git_status
+        click.echo(msg)
+        sys.exit()
+
+
+## file: src/py_bugger/cli/config.py
+sha256: 42c15ceadbde73d0d323796e1530be95835bdfcec9567bbad2b0e88fc49447c3
+
+"""Config object to collect CLI options."""
+
+from dataclasses import dataclass
+from pathlib import Path
+
+
+SUPPORTED_EXCEPTION_TYPES = [
+    "ModuleNotFoundError",
+    "AttributeError",
+    "IndentationError",
+]
+
+
+@dataclass
+class PBConfig:
+    exception_type: str = ""
+    target_dir: Path = ""
+    target_file: Path = ""
+    num_bugs: int = 1
+    ignore_git_status: bool = False
+    verbose: bool = True
+
+
+pb_config = PBConfig()
+
+
+## file: src/py_bugger/py_bugger.py
+sha256: 81999622c9d84ad4190c4998249a1f96097dd7a2e15d5626339a122ca05d267d
+
+import os
+import random
+
+from py_bugger import buggers
+from py_bugger.utils import file_utils
+
+from py_bugger.cli.config import pb_config
+from py_bugger.cli.config import SUPPORTED_EXCEPTION_TYPES
+from py_bugger.cli import cli_messages
+
+
+def main():
+    set_random_seed()
+
+    # Get a list of .py files we can consider modifying.
+    py_files = file_utils.get_py_files(pb_config.target_dir, pb_config.target_file)
+
+    # Make a list of bugs to introduce.
+    if pb_config.exception_type:
+        # User has requested a specific kind of bug.
+        requested_bugs = [pb_config.exception_type for _ in range(pb_config.num_bugs)]
+    else:
+        # No -e arg passed; get a random sequence of bugs to introduce.
+        # Reorder sequence so all regex parsing happens after CST parsing. CST parsing
+        # will fail if it's attempted after introducing a bug that affects parsing.
+        requested_bugs = random.choices(SUPPORTED_EXCEPTION_TYPES, k=pb_config.num_bugs)
+        requested_bugs = sorted(requested_bugs, key=lambda b: b == "IndentationError")
+
+    # Introduce bugs, one at a time.
+    for bug in requested_bugs:
+        if bug == "ModuleNotFoundError":
+            buggers.module_not_found_bugger(py_files)
+        elif bug == "AttributeError":
+            buggers.attribute_error_bugger(py_files)
+        elif bug == "IndentationError":
+            buggers.indentation_error_bugger(py_files)
+
+    # Show a final success/fail message.
+    msg = cli_messages.success_msg()
+    print(msg)
+
+    # Returning requested_bugs helps with testing.
+    return requested_bugs
+
+
+# --- Helper functions ---
+
+
+def set_random_seed():
+    # Set a random seed when testing.
+    if seed := os.environ.get("PY_BUGGER_RANDOM_SEED"):
+        random.seed(int(seed))
+
+
+## file: src/py_bugger/utils/bug_utils.py
+sha256: c577496381f9c0b4166b9b224fc00144736949991ff6a58f4bf2b28597989f35
+
+"""Resources for modifying code in ways that make it break."""
+
+import random
+import builtins
+
+from py_bugger.utils import file_utils
+from py_bugger.utils.modification import Modification, modifications
+
+
+def make_typo(name):
+    """Add a typo to the name of an identifier.
+
+    Randomly decides which kind of change to make.
+    """
+    typo_fns = [remove_char, insert_char, modify_char]
+
+    while True:
+        typo_fn = random.choice(typo_fns)
+        new_name = typo_fn(name)
+
+        # Reject names that match builtins.
+        if new_name in dir(builtins):
+            continue
+
+        return new_name
+
+
+def remove_char(name):
+    """Remove a character from the name."""
+    chars = list(name)
+    index_remove = random.randint(0, len(chars) - 1)
+    del chars[index_remove]
+
+    return "".join(chars)
+
+
+def insert_char(name):
+    """Insert a character into the name."""
+    chars = list(name)
+    new_char = random.choice("abcdefghijklmnopqrstuvwxyz")
+    index = random.randint(0, len(chars))
+    chars.insert(index, new_char)
+
+    return "".join(chars)
+
+
+def modify_char(name):
+    """Modify a character in a name."""
+    chars = list(name)
+    index = random.randint(0, len(chars) - 1)
+
+    # Make sure new_char does not match current char.
+    while True:
+        new_char = random.choice("abcdefghijklmnopqrstuvwxyz")
+        if new_char != chars[index]:
+            break
+    chars[index] = new_char
+
+    return "".join(chars)
+
+
+def add_indentation(path, target_line):
+    """Add one level of indentation (four spaces) to line."""
+    indentation_added = False
+
+    lines = path.read_text().splitlines(keepends=True)
+
+    modified_lines = []
+    for line in lines:
+        # `line` contains leading whitespace and trailing newline.
+        # `target_line` just contains code, so use `in` rather than `==`.
+        if target_line in line:
+            modified_line = f"    {line}"
+            modified_lines.append(modified_line)
+            indentation_added = True
+
+            # Record this modification.
+            modification = Modification(
+                path,
+                original_line=line,
+                modified_line=modified_line,
+                exception_induced=IndentationError,
+            )
+            modifications.append(modification)
+        else:
+            modified_lines.append(line)
+
+    modified_source = "".join(modified_lines)
+    path.write_text(modified_source)
+
+    return indentation_added
+
+
+## file: src/py_bugger/utils/cst_utils.py
+sha256: 26a283cc5b92e2e5624b92e64e2c2f42cf25fd6abdce21ed22bcfbf862ff7d28
+
+"""Utilities for working with the CST."""
+
+import libcst as cst
+
+from py_bugger.utils import bug_utils
+from py_bugger.utils.modification import Modification, modifications
+
+
+class NodeCollector(cst.CSTVisitor):
+    """Collect all nodes of a specific kind."""
+
+    def __init__(self, node_type):
+        self.node_type = node_type
+        self.collected_nodes = []
+
+    def on_visit(self, node):
+        """Visit each node, collecting nodes that match the node type."""
+        if isinstance(node, self.node_type):
+            self.collected_nodes.append(node)
+        return True
+
+
+class NodeCounter(cst.CSTVisitor):
+    """Count all nodes matching the target node."""
+
+    def __init__(self, target_node):
+        self.target_node = target_node
+        self.node_count = 0
+
+    def on_visit(self, node):
+        """Increment node_count if node matches.."""
+        if node.deep_equals(self.target_node):
+            self.node_count += 1
+        return True
+
+
+class ImportModifier(cst.CSTTransformer):
+    """Modify imports in the user's project.
+
+    Note: Each import should be unique, so there shouldn't be any need to track
+    whether a bug was introduced. node_to_break should only match one node in the
+    tree.
+    """
+
+    def __init__(self, node_to_break, path):
+        self.node_to_break = node_to_break
+
+        # Need this to record the modification we're making.
+        self.path = path
+
+    def leave_Import(self, original_node, updated_node):
+        """Modify a direct `import <package>` statement."""
+        names = updated_node.names
+
+        if original_node.deep_equals(self.node_to_break):
+            original_name = names[0].name.value
+
+            # Add a typo to the name of the module being imported.
+            new_name = bug_utils.make_typo(original_name)
+
+            # Modify the node name.
+            new_names = [cst.ImportAlias(name=cst.Name(new_name))]
+
+            # Record this modification.
+            modified_node = updated_node.with_changes(names=new_names)
+            modification = Modification(
+                path=self.path,
+                original_node=original_node,
+                modified_node=modified_node,
+                exception_induced=ModuleNotFoundError,
+            )
+            modifications.append(modification)
+
+            return updated_node.with_changes(names=new_names)
+
+        return updated_node
+
+
+class AttributeModifier(cst.CSTTransformer):
+    """Modify attributes in the user's project."""
+
+    def __init__(self, node_to_break, node_index, path):
+        self.node_to_break = node_to_break
+
+        # There may be identical nodes in the tree. node_index determines which to modify.
+        self.node_index = node_index
+        self.identical_nodes_visited = 0
+
+        # Each use of this class should only generate one bug. But multiple nodes
+        # can match node_to_break, so make sure we only modify one node.
+        self.bug_generated = False
+
+        # Need this to record the modification we're making.
+        self.path = path
+
+    def leave_Attribute(self, original_node, updated_node):
+        """Modify an attribute name, to generate AttributeError."""
+        attr = updated_node.attr
+
+        if original_node.deep_equals(self.node_to_break) and not self.bug_generated:
+            # If there are identical nodes and this isn't the right one, bump count
+            # and return unmodified node.
+            if self.identical_nodes_visited != self.node_index:
+                self.identical_nodes_visited += 1
+                return updated_node
+
+            original_identifier = attr.value
+
+            # Add a typo to the attribute name.
+            new_identifier = bug_utils.make_typo(original_identifier)
+
+            # Modify the node name.
+            new_attr = cst.Name(new_identifier)
+
+            # Record this modification.
+            modified_node = updated_node.with_changes(attr=new_attr)
+            modification = Modification(
+                path=self.path,
+                original_node=original_node,
+                modified_node=modified_node,
+                exception_induced=AttributeError,
+            )
+            modifications.append(modification)
+
+            self.bug_generated = True
+
+            return updated_node.with_changes(attr=new_attr)
+
+        return updated_node
+
+
+def get_paths_nodes(py_files, node_type):
+    """Get all nodes of given type."""
+    paths_nodes = []
+    for path in py_files:
+        source = path.read_text()
+        tree = cst.parse_module(source)
+
+        node_collector = NodeCollector(node_type=node_type)
+        tree.visit(node_collector)
+
+        for node in node_collector.collected_nodes:
+            paths_nodes.append((path, node))
+
+    return paths_nodes
+
+
+def get_all_nodes(path):
+    """Get all nodes in a file.
+
+    This is primarily for development work, where we want to see all the nodes
+    in a short representative file.
+
+    Example usage, from a #_bugger() function:
+        nodes = _get_all_nodes(py_files[0])
+    """
+    source = path.read_text()
+    tree = cst.parse_module(source)
+
+    node_collector = NodeCollector(node_type=cst.CSTNode)
+    tree.visit(node_collector)
+
+    return node_collector.collected_nodes
+
+
+def count_nodes(tree, node):
+    """Count the number of nodes in path that match node.
+
+    Useful when a file has multiple identical nodes, and we want to choose one.
+    """
+    # Count all relevant nodes.
+    node_counter = NodeCounter(node)
+    tree.visit(node_counter)
+
+    return node_counter.node_count
+
+
+## file: src/py_bugger/utils/file_utils.py
+sha256: d38707b86cede86b9f7bbbf7b8294302fb344f3efdfc3213fe2180ce0faece02
+
+"""Utilities for working with the target project's files and directories."""
+
+import subprocess
+import shlex
+from pathlib import Path
+import sys
+
+from py_bugger.utils.modification import modifications
+
+
+# --- Public functions ---
+
+
+def get_py_files(target_dir, target_file):
+    """Get all the .py files we can consider modifying when introducing bugs."""
+    # Check if user requested a single target file.
+    if target_file:
+        return [target_file]
+
+    # Use .gitignore if possible.
+    path_git = target_dir / ".git"
+    if path_git.exists():
+        return _get_py_files_git(target_dir)
+    else:
+        return _get_py_files_non_git(target_dir)
+
+
+def get_paths_lines(py_files, targets):
+    """Get all lines from all files matching targets, if they haven't already
+    been modified.
+    """
+    paths_lines = []
+    for path in py_files:
+        lines = path.read_text().splitlines()
+        _remove_modified_lines(path, lines)
+
+        for line in lines:
+            stripped_line = line.strip()
+            if any([stripped_line.startswith(target) for target in targets]):
+                paths_lines.append((path, line))
+
+    return paths_lines
+
+
+def check_unmodified(candidate_path, candidate_node=None, candidate_line=None):
+    """Check if it's safe to modify a node or line.
+
+    If the node or line has not already been modified, return True. Otherwise,
+    return False.
+    """
+    # Only look at modifications in the candidate path.
+    relevant_modifications = [m for m in modifications if m.path == candidate_path]
+
+    if not relevant_modifications:
+        return True
+
+    modified_nodes = [m.modified_node for m in relevant_modifications]
+    modified_lines = [m.modified_line for m in relevant_modifications]
+
+    # Need to use deep_equals for node comparisons.
+    for modified_node in modified_nodes:
+        if modified_node.deep_equals(candidate_node):
+            return False
+
+    if candidate_line in modified_lines:
+        return False
+
+    # The candidate node or line has not been modified during this run of py-bugger.
+    return True
+
+
+# --- Helper functions ---
+
+
+def _get_py_files_git(target_dir):
+    """Get all relevant .py files from a directory managed by Git."""
+    cmd = f'git -C {target_dir.as_posix()} ls-files "*.py"'
+    cmd_parts = shlex.split(cmd)
+    output = subprocess.run(cmd_parts, capture_output=True)
+    py_files = output.stdout.decode().strip().splitlines()
+
+    # Convert to path objects. Filter out any test-related files.
+    py_files = [Path(f) for f in py_files]
+    py_files = [pf for pf in py_files if "tests/" not in pf.as_posix()]
+    py_files = [pf for pf in py_files if "Tests/" not in pf.as_posix()]
+    py_files = [pf for pf in py_files if "test_code/" not in pf.as_posix()]
+    py_files = [pf for pf in py_files if pf.name != "conftest.py"]
+    py_files = [pf for pf in py_files if not pf.name.startswith("test_")]
+
+    # Build full paths.
+    py_files = [target_dir / pf for pf in py_files]
+
+    return py_files
+
+
+def _get_py_files_non_git(target_dir):
+    """Get all relevant .py files from a directory not managed by Git."""
+    py_files = target_dir.rglob("*.py")
+
+    exclude_dirs = [
+        ".venv/",
+        "venv/",
+        "tests/",
+        "Tests/",
+        "test_code/",
+        "build/",
+        "dist/",
+    ]
+    py_files = [
+        pf
+        for pf in py_files
+        if not any(ex_dir in pf.as_posix() for ex_dir in exclude_dirs)
+    ]
+    py_files = [pf for pf in py_files if pf.name != "conftest.py"]
+    py_files = [pf for pf in py_files if not pf.name.startswith("test_")]
+
+    return py_files
+
+
+def _remove_modified_lines(path, lines):
+    """Remove lines from the list that have already been modified."""
+    for modification in modifications:
+        if modification.path != path:
+            continue
+        if not modification.modified_line:
+            continue
+
+        # This path has been modified. Check line.
+        modified_line = modification.modified_line.rstrip()
+        if modified_line in lines:
+            # DEV: We may want to look at line numbers. For now, remove all occurrences
+            # of this line.
+            while modified_line in lines:
+                lines.remove(modified_line)
+
+
+## file: src/py_bugger/utils/modification.py
+sha256: 8524521bb4725b3c0d0c9fc54408190d007d011bc51c8cdb265953bba3925544
+
+"""Model for modifications made to files to introduce bugs.
+
+This is used to track which modifications have been made, so we don't make multiple
+modifications to the same node or line.
+
+Not currently using original_node or original_line, but including these means
+the list of modifications can be used to stage all changes, and write them all at
+once if that becomes a better approach.
+"""
+
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Type
+
+import libcst as cst
+
+
+@dataclass
+class Modification:
+    path: Path = ""
+
+    # Only data for a line or node will be set, not both.
+    # DEV: For line, may want to store line number?
+    original_node: cst.CSTNode = None
+    modified_node: cst.CSTNode = None
+
+    original_line: str = ""
+    modified_line: str = ""
+
+    exception_induced: type[BaseException] = field(default=None)
+
+
+# Only make one instance of this list.
+modifications = []
+

@@ -1,4 +1,34 @@
 {
-  "exact_blocker": "selected_candidate_dependency_resolution_failed",
-  "status": "not_run"
+  "closure_files": [
+    "src/py_bugger/__init__.py",
+    "src/py_bugger/buggers.py",
+    "src/py_bugger/cli/__init__.py",
+    "src/py_bugger/cli/cli_messages.py",
+    "src/py_bugger/cli/cli_utils.py",
+    "src/py_bugger/cli/config.py",
+    "src/py_bugger/py_bugger.py",
+    "src/py_bugger/utils/bug_utils.py",
+    "src/py_bugger/utils/cst_utils.py",
+    "src/py_bugger/utils/file_utils.py",
+    "src/py_bugger/utils/modification.py"
+  ],
+  "definition_count": 59,
+  "dynamic_and_ast_policy": "restrict_to_executed_or_failure_locus_source_files",
+  "edge_count": 56,
+  "patchable_subset": [
+    "src/py_bugger/__init__.py",
+    "src/py_bugger/buggers.py",
+    "src/py_bugger/cli/__init__.py",
+    "src/py_bugger/cli/cli_messages.py",
+    "src/py_bugger/cli/cli_utils.py",
+    "src/py_bugger/cli/config.py",
+    "src/py_bugger/py_bugger.py",
+    "src/py_bugger/utils/bug_utils.py",
+    "src/py_bugger/utils/cst_utils.py",
+    "src/py_bugger/utils/file_utils.py",
+    "src/py_bugger/utils/modification.py"
+  ],
+  "size_tightening_triggered": false,
+  "source": "buggy_commit_ast_only",
+  "status": "PASS"
 }
