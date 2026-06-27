@@ -1411,3 +1411,8 @@ Candidate preflight is not repair success. A replacement episode becomes scoreab
 ## v2.29 Structural Repair Capability Integration
 
 v2.29 adds neutral repair-context controls and attempts exactly one bounded repair on the reviewed py-bugger candidate if the replay gates pass. Current protocol stays v2.13; full scoring and broad claims remain disabled.
+
+
+## v2.30 Failure Signature Canonicalization
+
+v2.30 preserves prior text-hash evidence, adds a three-capture semantic failure signature gate, and continues the bounded one-patch repair path only if replay and registry-refresh checks pass. Current protocol stays v2.13; full scoring and broad claims remain disabled.

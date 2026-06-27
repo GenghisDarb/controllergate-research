@@ -1,0 +1,25 @@
+# v2.30 Failure Signature Canonicalization + Repair Continuation Lane
+
+- Campaign: `v2_30_failure_signature_canonicalization_repair_lane`.
+- Candidate: `py_bugger_issue_65`.
+- v2.29 blocker carried forward: `PASS`.
+- Historical comparison: `semantic_failure_stable_text_hash_drift`.
+- Semantic signature status: `BLOCK`.
+- Three-capture replay status: `BLOCK`.
+- Registry signature refresh: `not_run`.
+- Pre-repair replay after refresh: `BLOCK`.
+- AST Dependency Closure: `not_run`.
+- Context Pinching Filter: `not_run`.
+- Failure Memory Weight Ledger: `PASS`.
+- Fragmented Patch Assembly Gate: `not_authorized`.
+- Pre/Post Handoff Consistency Gate: `not_authorized`.
+- Patch generated: `false`.
+- Patch attempted: `false`.
+- Target validation: `not_run`.
+- Duplicate clean replay: `not_run`.
+- Selected candidate scoreable: `false`.
+- Exact blocker: `selected_candidate_dependency_resolution_failed`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software is not demonstrated.
+- Current protocol remains `v2.13`; v2.30 is not promoted to current.

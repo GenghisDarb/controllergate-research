@@ -1,0 +1,41 @@
+{
+  "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+  "checkout_records": [
+    {
+      "command": "git -c core.autocrlf=false -c core.eol=lf clone --no-tags -- https://github.com/ehmatthes/py-bugger E:\\ControllerGate-Artifacts\\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\\source",
+      "label": "clone",
+      "returncode": 0,
+      "timeout": false
+    },
+    {
+      "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=E:\\ControllerGate-Artifacts\\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\\source -C E:\\ControllerGate-Artifacts\\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\\source fetch origin 67cf214f2d619848e90280fd4469377123e81b94",
+      "label": "fetch_exact_commit",
+      "returncode": 0,
+      "timeout": false
+    },
+    {
+      "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=E:\\ControllerGate-Artifacts\\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\\source -C E:\\ControllerGate-Artifacts\\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\\source checkout --detach 67cf214f2d619848e90280fd4469377123e81b94",
+      "label": "checkout_exact_commit",
+      "returncode": 0,
+      "timeout": false
+    },
+    {
+      "command": "git -c core.autocrlf=false -c core.eol=lf -c safe.directory=E:\\ControllerGate-Artifacts\\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\\source -C E:\\ControllerGate-Artifacts\\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\\source rev-parse HEAD",
+      "label": "rev_parse_head",
+      "returncode": 0,
+      "timeout": false
+    }
+  ],
+  "exact_buggy_commit_only": true,
+  "fixed_diff_computed": false,
+  "fixed_later_commit_contents_read": false,
+  "gold_patch_used": false,
+  "hidden_label_used": false,
+  "pr_patch_content_used": false,
+  "repo_url": "https://github.com/ehmatthes/py-bugger",
+  "status": "PASS",
+  "synthetic_or_backported_tests_used": false,
+  "workspace_outside_onedrive": true,
+  "workspace_outside_repo": true,
+  "workspace_path": "E:\\ControllerGate-Artifacts\\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm"
+}

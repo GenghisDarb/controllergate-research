@@ -1,0 +1,60 @@
+{
+  "candidate_scope": "py_bugger_issue_65",
+  "forbidden_transformations": [
+    "strip_assertion_values",
+    "strip_failure_class",
+    "strip_test_node",
+    "replace_expected_values_with_wildcards",
+    "accept_changed_project_file_hashes"
+  ],
+  "layer_1_normalized_log_hash": {
+    "preserve": [
+      "test_node",
+      "failure_class",
+      "assertion_expression",
+      "expected_and_observed_values",
+      "project_source_file_names",
+      "failure_line_content",
+      "stdout_stderr_semantic_messages",
+      "failure_count",
+      "collection_or_import_error_identity"
+    ],
+    "purpose": "diagnostic text hash with runtime-only noise removed",
+    "strip": [
+      "absolute_temp_paths",
+      "runner_temp_paths",
+      "windows_temp_paths",
+      "virtualenv_paths",
+      "memory_addresses",
+      "pytest_duration_lines",
+      "machine_specific_path_prefixes",
+      "ansi_color_codes",
+      "pluggy_object_repr_addresses",
+      "venv_interpreter_path_in_command_header"
+    ]
+  },
+  "layer_2_semantic_failure_signature_hash": {
+    "fields": [
+      "candidate_id",
+      "repo_url",
+      "buggy_commit_sha",
+      "target_command",
+      "target_test_node",
+      "target_test_path",
+      "support_file_paths",
+      "target_support_environment_sha256s",
+      "observed_pytest_failure_type",
+      "assertion_expression",
+      "expected_value",
+      "observed_value",
+      "semantic_stdout_markers",
+      "semantic_failure_category",
+      "relevant_source_loci",
+      "failure_excerpt_hash",
+      "normalization_policy_version"
+    ],
+    "purpose": "authoritative v2.30 gate for the reviewed candidate"
+  },
+  "policy_version": "v2.30.failure_signature_normalization.v1",
+  "schema_version": "v2.30"
+}

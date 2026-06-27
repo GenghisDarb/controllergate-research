@@ -346,3 +346,13 @@ v2.29 adds the Structural Repair Capability Integration Lane and runs at most on
 - Candidate scope: exactly `py_bugger_issue_65`.
 - Capability controls: AST Dependency Closure, Context Pinching Filter, diagnostic Failure Memory Weight Ledger, Fragmented Patch Assembly Gate, and Pre/Post Handoff Consistency Gate.
 - Current protocol remains `v2.13`; full scoring remains `NOT_RUN` / disallowed; memory lift and self-maintaining software remain undemonstrated.
+
+
+## v2.30 failure signature canonicalization and repair continuation
+
+v2.30 keeps scope on the reviewed `py_bugger_issue_65` candidate and resolves the v2.29 text-hash mismatch only through a versioned semantic failure signature.
+
+- Historical v2.28 and v2.29 normalized text hashes remain preserved.
+- Repair can proceed only after three clean pre-repair captures agree on the semantic signature.
+- The lane still allows at most one bounded source-only patch and three duplicate clean replays before any scoreable result.
+- Current protocol remains `v2.13`; full scoring remains disabled; memory lift and self-maintaining software remain undemonstrated.

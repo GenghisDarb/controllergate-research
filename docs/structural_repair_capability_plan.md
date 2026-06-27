@@ -1,13 +1,12 @@
 # Structural Repair Capability Plan
 
-This plan records the neutral engineering controls used by v2.29 before a
-bounded source-only repair attempt.
+This plan records neutral engineering controls used by the v2.29 and v2.30
+bounded repair lanes.
 
 ## Active mechanisms
 
-- AST Dependency Closure: parse the buggy tree and identify source files,
-  imports, definitions, and call-path evidence connected to the reviewed target
-  command.
+- AST Dependency Closure: restrict patchable source files using executed-scope
+  and buggy-tree AST evidence.
 - Context Pinching Filter: build a compact hash-anchored repair capsule from
   approved decision-time evidence only.
 - Failure Memory Weight Ledger: record diagnostic loci and outcomes for the
@@ -15,7 +14,9 @@ bounded source-only repair attempt.
 - Fragmented Patch Assembly Gate: permit at most three audited source-only
   fragments assembled into one final patch.
 - Pre/Post Handoff Consistency Gate: keep the candidate, commit, target
-  command, failure signature, context hash, patch bytes, and validation result
-  aligned.
+  command, semantic failure signature, context hash, patch bytes, and
+  validation result aligned.
+- Failure Signature Canonicalization: preserve historical text hashes while
+  gating repair on three clean matching semantic captures.
 
 Full scoring is not run. Current protocol remains v2.13.

@@ -34,6 +34,21 @@
       "diagnostic_only": true,
       "memory_lift_claimed": false,
       "created_utc": "2026-06-26T22:50:38Z"
+    },
+    {
+      "lane": "v2_30_failure_signature_canonicalization_repair_lane",
+      "candidate_id": "py_bugger_issue_65",
+      "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+      "semantic_failure_signature_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+      "diagnostic_loci": [
+        "src/py_bugger/utils/bug_utils.py"
+      ],
+      "patch_outcome": "blocked",
+      "blocker": "selected_candidate_dependency_resolution_failed",
+      "patch_sha256": null,
+      "diagnostic_only": true,
+      "memory_lift_claimed": false,
+      "created_utc": "2026-06-27T00:30:41Z"
     }
   ]
 }

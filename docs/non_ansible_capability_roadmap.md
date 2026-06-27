@@ -279,3 +279,13 @@ v2.29 integrates the missing repair-navigation controls for the reviewed externa
 - Pre/Post Handoff Consistency Gate ties patch and validation evidence to the same candidate, commit, command, and failure signature.
 
 The lane selects no additional candidates and does not promote the current protocol.
+
+
+## v2.30 Failure Signature Canonicalization
+
+v2.30 adds a stronger failure-signature gate for the reviewed external candidate path.
+
+- Existing text-log hashes stay as historical evidence.
+- A structured semantic signature becomes the repair gate after three matching clean captures.
+- The old full-log hash mismatch remains diagnostic only after registry refresh passes.
+- No candidate expansion, full scoring, or protocol promotion occurs.

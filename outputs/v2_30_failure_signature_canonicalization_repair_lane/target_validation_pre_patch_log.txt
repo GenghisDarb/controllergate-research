@@ -1,0 +1,78 @@
+$ git -c core.autocrlf=false -c core.eol=lf clone --no-tags -- https://github.com/ehmatthes/py-bugger E:\ControllerGate-Artifacts\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\source
+Cloning into 'E:\ControllerGate-Artifacts\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\source'...
+Updating files:  16% (11/68)
+Updating files:  17% (12/68)
+Updating files:  19% (13/68)
+Updating files:  20% (14/68)
+Updating files:  22% (15/68)
+Updating files:  23% (16/68)
+Updating files:  25% (17/68)
+Updating files:  26% (18/68)
+Updating files:  27% (19/68)
+Updating files:  29% (20/68)
+Updating files:  30% (21/68)
+Updating files:  32% (22/68)
+Updating files:  33% (23/68)
+Updating files:  35% (24/68)
+Updating files:  36% (25/68)
+Updating files:  38% (26/68)
+Updating files:  39% (27/68)
+Updating files:  41% (28/68)
+Updating files:  42% (29/68)
+Updating files:  44% (30/68)
+Updating files:  45% (31/68)
+Updating files:  47% (32/68)
+Updating files:  48% (33/68)
+Updating files:  50% (34/68)
+Updating files:  51% (35/68)
+Updating files:  52% (36/68)
+Updating files:  54% (37/68)
+Updating files:  55% (38/68)
+Updating files:  57% (39/68)
+Updating files:  58% (40/68)
+Updating files:  60% (41/68)
+Updating files:  61% (42/68)
+Updating files:  63% (43/68)
+Updating files:  64% (44/68)
+Updating files:  66% (45/68)
+Updating files:  67% (46/68)
+Updating files:  69% (47/68)
+Updating files:  70% (48/68)
+Updating files:  72% (49/68)
+Updating files:  73% (50/68)
+Updating files:  75% (51/68)
+Updating files:  76% (52/68)
+Updating files:  77% (53/68)
+Updating files:  79% (54/68)
+Updating files:  80% (55/68)
+Updating files:  82% (56/68)
+Updating files:  83% (57/68)
+Updating files:  85% (58/68)
+Updating files:  86% (59/68)
+Updating files:  88% (60/68)
+Updating files:  89% (61/68)
+Updating files:  91% (62/68)
+Updating files:  92% (63/68)
+Updating files:  94% (64/68)
+Updating files:  95% (65/68)
+Updating files:  97% (66/68)
+Updating files:  98% (67/68)
+Updating files: 100% (68/68)
+Updating files: 100% (68/68), done.
+
+exit_code=0
+$ git -c core.autocrlf=false -c core.eol=lf -c safe.directory=E:\ControllerGate-Artifacts\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\source -C E:\ControllerGate-Artifacts\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\source fetch origin 67cf214f2d619848e90280fd4469377123e81b94
+From https://github.com/ehmatthes/py-bugger
+ * branch            67cf214f2d619848e90280fd4469377123e81b94 -> FETCH_HEAD
+
+exit_code=0
+$ git -c core.autocrlf=false -c core.eol=lf -c safe.directory=E:\ControllerGate-Artifacts\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\source -C E:\ControllerGate-Artifacts\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\source checkout --detach 67cf214f2d619848e90280fd4469377123e81b94
+HEAD is now at 67cf214 Failing test for Issue 65.
+
+exit_code=0
+$ git -c core.autocrlf=false -c core.eol=lf -c safe.directory=E:\ControllerGate-Artifacts\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\source -C E:\ControllerGate-Artifacts\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\source rev-parse HEAD
+67cf214f2d619848e90280fd4469377123e81b94
+
+exit_code=0
+$ C:\Users\thisb\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe -m venv E:\ControllerGate-Artifacts\v2_30_failure_signature_canonicalization_repair_lane_capture_1_uovf60xm\venv
+timeout_seconds=120

@@ -1,0 +1,81 @@
+{
+  "classification": "semantic_failure_stable_text_hash_drift",
+  "semantic_fields_match": true,
+  "semantic_mismatches": [],
+  "status": "PASS",
+  "text_hashes_match": false,
+  "v2_28_normalized_failure_log_sha256": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+  "v2_28_raw_failure_log_sha256": "f2a152ff6a8f3d6e4b70d817123917b992bd1b4d381e2d492f48838250fd6cdb",
+  "v2_28_recorded_failure_type": "IndentationError",
+  "v2_28_semantic_fields": {
+    "assertion_expression": "len(modifications) == 1",
+    "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+    "candidate_id": "py_bugger_issue_65",
+    "environment_lock_source": "pyproject.toml",
+    "environment_lock_source_sha256": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631",
+    "expected_value": 1,
+    "failure_excerpt_hash": "5a6c2f3b61fc5c1b960d199697837d0b54bab9c628f156f0a05fde04a970908c",
+    "normalization_policy_version": "v2.30.failure_signature_normalization.v1",
+    "observed_pytest_failure_type": "AssertionError",
+    "observed_value": 2,
+    "pre_repair_expected_exit_status": 1,
+    "relevant_source_loci": [
+      "src/py_bugger/utils/bug_utils.py"
+    ],
+    "repo_url": "https://github.com/ehmatthes/py-bugger",
+    "schema_version": "v2.30.semantic_failure_signature.v1",
+    "semantic_failure_category": "single_requested_indentation_error_modified_two_matching_lines",
+    "semantic_stdout_markers": [
+      "Inserted 2 bugs."
+    ],
+    "support_file_paths": [
+      "tests/sample_code/sample_scripts/two_trys.py"
+    ],
+    "support_file_sha256s": {
+      "tests/sample_code/sample_scripts/two_trys.py": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+    },
+    "target_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q",
+    "target_test_executed": true,
+    "target_test_node": "tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys",
+    "target_test_path": "tests/integration_tests/test_modifications.py",
+    "target_test_sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+  },
+  "v2_28_semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+  "v2_29_normalized_failure_log_sha256": "96afb1e4c1f14a7453cbc859924486d11420ff1a3197775919f14d355e2a7cff",
+  "v2_29_raw_replay_log_sha256": "189e72a277dae46d4c125e705c0c9c99a15e4453562f2668aad82996714f87f2",
+  "v2_29_recorded_failure_type": "AssertionError",
+  "v2_29_semantic_fields": {
+    "assertion_expression": "len(modifications) == 1",
+    "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+    "candidate_id": "py_bugger_issue_65",
+    "environment_lock_source": "pyproject.toml",
+    "environment_lock_source_sha256": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631",
+    "expected_value": 1,
+    "failure_excerpt_hash": "5a6c2f3b61fc5c1b960d199697837d0b54bab9c628f156f0a05fde04a970908c",
+    "normalization_policy_version": "v2.30.failure_signature_normalization.v1",
+    "observed_pytest_failure_type": "AssertionError",
+    "observed_value": 2,
+    "pre_repair_expected_exit_status": 1,
+    "relevant_source_loci": [
+      "src/py_bugger/utils/bug_utils.py"
+    ],
+    "repo_url": "https://github.com/ehmatthes/py-bugger",
+    "schema_version": "v2.30.semantic_failure_signature.v1",
+    "semantic_failure_category": "single_requested_indentation_error_modified_two_matching_lines",
+    "semantic_stdout_markers": [
+      "Inserted 2 bugs."
+    ],
+    "support_file_paths": [
+      "tests/sample_code/sample_scripts/two_trys.py"
+    ],
+    "support_file_sha256s": {
+      "tests/sample_code/sample_scripts/two_trys.py": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+    },
+    "target_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q",
+    "target_test_executed": true,
+    "target_test_node": "tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys",
+    "target_test_path": "tests/integration_tests/test_modifications.py",
+    "target_test_sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+  },
+  "v2_29_semantic_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f"
+}
