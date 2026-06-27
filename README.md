@@ -411,10 +411,6 @@ v2.33 ingests the official v2.32 artifact and checks for a manually supplied can
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
 
-
-
-
-
 ## v2.34 candidate #2 seed workbench and byte-custody status
 
 

@@ -134,10 +134,6 @@ v2.33 stops before candidate #2 repair because the required seed draft is absent
 - New output: candidate #2 discovery support packet.
 - Next boundary: manually supply a verified candidate #2 seed before any matched-null repair experiment.
 
-
-
-
-
 ## v2.34 candidate #2 workbench status
 
 

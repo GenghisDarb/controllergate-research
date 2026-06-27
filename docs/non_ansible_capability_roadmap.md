@@ -330,10 +330,6 @@ v2.33 could only run the matched-null memory repair experiment if candidate #2 s
 - Issue or pull request links are lead evidence only; they are not sufficient registry evidence.
 - No repair, patch generation, target validation after patch, memory-lift claim, full-scoring claim, or protocol promotion occurs in v2.33.
 
-
-
-
-
 ## v2.34 Candidate #2 Seed Verification Workbench
 
 

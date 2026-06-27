@@ -114,7 +114,7 @@ def write_manifest() -> None:
 def replace_section(path: Path, heading: str, body: str) -> None:
     original = path.read_text(encoding="utf-8") if path.is_file() else ""
     section = f"\n\n## {heading}\n\n{body.rstrip()}\n"
-    pattern = re.compile(rf"\n## {re.escape(heading)}\n.*?(?=\n## |\Z)", re.S)
+    pattern = re.compile(rf"\n+## {re.escape(heading)}\n.*?(?=\n## |\Z)", re.S)
     updated = pattern.sub(section, original) if pattern.search(original) else original.rstrip() + section + "\n"
     path.write_text(updated, encoding="utf-8", newline="\n")
 
