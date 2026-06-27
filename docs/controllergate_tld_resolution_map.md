@@ -133,3 +133,17 @@ v2.33 stops before candidate #2 repair because the required seed draft is absent
 - Active result: official v2.32 boundary preserved.
 - New output: candidate #2 discovery support packet.
 - Next boundary: manually supply a verified candidate #2 seed before any matched-null repair experiment.
+
+
+
+
+
+## v2.34 candidate #2 workbench status
+
+
+v2.34 preserves the first scoreable external repair episode and records the missing input for a second candidate.
+
+- Candidate #2 seed verification workbench: implemented.
+- Candidate #2 selected: `false`.
+- Repair and patch generation: not run.
+- Next boundary: manually provide one verified seed draft.

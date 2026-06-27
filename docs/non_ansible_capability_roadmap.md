@@ -329,3 +329,17 @@ v2.33 could only run the matched-null memory repair experiment if candidate #2 s
 - A valid seed must identify a native buggy-tree test and a full 40-character buggy commit SHA.
 - Issue or pull request links are lead evidence only; they are not sufficient registry evidence.
 - No repair, patch generation, target validation after patch, memory-lift claim, full-scoring claim, or protocol promotion occurs in v2.33.
+
+
+
+
+
+## v2.34 Candidate #2 Seed Verification Workbench
+
+
+v2.34 closes the recurring byte-custody gap and converts candidate #2 discovery into a reusable verification workbench. The lane does not search live issues, select a candidate, repair code, generate patches, or run the matched-null experiment.
+
+- Rejected prior leads are recorded as leads only, not candidates.
+- A future seed must provide a full 40-character buggy commit SHA, a native target test path that exists in that commit, an environment source file, and an exact failing command.
+- The workbench can verify a seed from the buggy commit only and can merge it into the registry only after the registry validator passes.
+- The next repair experiment remains blocked until a valid second reviewed candidate exists.

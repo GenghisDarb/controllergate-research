@@ -410,3 +410,24 @@ v2.33 ingests the official v2.32 artifact and checks for a manually supplied can
 - Full scoring remains `NOT_RUN` / disallowed.
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
+
+
+
+
+
+## v2.34 candidate #2 seed workbench and byte-custody status
+
+
+v2.34 ingests the official v2.33 boundary, adds reusable byte-custody preflight tooling, rejects the six currently unverified candidate #2 leads, and installs a seed-verification workbench for a future manually supplied seed.
+
+- Current protocol remains `v2.13`; v2.34 is not promoted.
+- Valid candidate #2 seed present: `false`.
+- Exact blocker: `blocked_no_valid_second_external_candidate_seed_provided`.
+- Prior invalid lead count recorded as rejected: `6`.
+- Candidate #2 selected: `false`.
+- Repair attempted: `false`; patch generated: `false`.
+- Matched-null experiment attempted: `false`.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Next step: place one valid seed at `inputs/external_candidate_seed_draft_v2_34.json` or a future-lane seed path.

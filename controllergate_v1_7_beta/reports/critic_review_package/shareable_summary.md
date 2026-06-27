@@ -1463,3 +1463,19 @@ v2.33 officially ingests v2.32 and prepares the candidate #2 seed-intake packet.
 - Patch generated: `false`.
 - Current protocol remains `v2.13`.
 - No full-scoring, memory-lift, or self-maintaining claim is made.
+
+
+
+
+
+## v2.34 Candidate #2 Workbench and Byte-Custody Status
+
+
+v2.34 officially carries forward v2.33 and adds the tooling needed to avoid repeated manifest byte-custody failures before workflow dispatch.
+
+- Byte-custody preflight: implemented and passing.
+- Valid second seed present: `false`.
+- Prior unverified leads rejected: `6`.
+- Exact blocker: `blocked_no_valid_second_external_candidate_seed_provided`.
+- Current protocol remains `v2.13`.
+- No repair, full-scoring, memory-lift, or self-maintaining claim is made.

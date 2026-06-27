@@ -1,0 +1,63 @@
+{
+  "entries": [
+    {
+      "action": "verify_v2_33_official_ingest",
+      "entry_hash": "ae6f0bad102651de46be3bdad2d72d452ca985403fc722b2aadc6e2f6d2348aa",
+      "index": 0,
+      "previous_entry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "PASS"
+    },
+    {
+      "action": "run_byte_custody_fix",
+      "entry_hash": "a203ba40178b7a86d9031ef5c9e03f64a9797995cd93a43357b9e6a9cef57b00",
+      "index": 1,
+      "previous_entry_hash": "ae6f0bad102651de46be3bdad2d72d452ca985403fc722b2aadc6e2f6d2348aa",
+      "status": "PASS"
+    },
+    {
+      "action": "run_byte_custody_preflight",
+      "entry_hash": "436471f1bedeb69112fd14bd9fef29ffce601d816b169b624bcf9515a93eb9a7",
+      "index": 2,
+      "previous_entry_hash": "a203ba40178b7a86d9031ef5c9e03f64a9797995cd93a43357b9e6a9cef57b00",
+      "status": "PASS"
+    },
+    {
+      "action": "reject_prior_unverified_leads",
+      "entry_hash": "f85faae3f1c58475ca26e0c131d8bb885684b2162a6cd7cfbb7f3c2e1d8fb631",
+      "index": 3,
+      "previous_entry_hash": "436471f1bedeb69112fd14bd9fef29ffce601d816b169b624bcf9515a93eb9a7",
+      "status": "PASS"
+    },
+    {
+      "action": "check_seed_presence",
+      "entry_hash": "cd0ec72178749fb50391fc4df15ae41d0318104619c117da286a660cde604901",
+      "index": 4,
+      "previous_entry_hash": "f85faae3f1c58475ca26e0c131d8bb885684b2162a6cd7cfbb7f3c2e1d8fb631",
+      "status": "ABSENT"
+    },
+    {
+      "action": "merge_second_seed_if_verified",
+      "entry_hash": "dc7d3dae6ffec7b028082f5b416ab70493fc51d8f23844490e16f54857bc5ba9",
+      "index": 5,
+      "previous_entry_hash": "cd0ec72178749fb50391fc4df15ae41d0318104619c117da286a660cde604901",
+      "status": "not_run_no_valid_seed"
+    },
+    {
+      "action": "validate_registry",
+      "entry_hash": "cfe0cdf1afbcedf8dc6b9c35132b732675dd3ca7a4213253261f7c487a7ad650",
+      "index": 6,
+      "previous_entry_hash": "dc7d3dae6ffec7b028082f5b416ab70493fc51d8f23844490e16f54857bc5ba9",
+      "status": "PASS"
+    },
+    {
+      "action": "preserve_claim_boundaries",
+      "entry_hash": "13b9d03662fc94d9ab518d410ce2d5851cf09afba0ed0daebcd4ad7ead5145ea",
+      "index": 7,
+      "previous_entry_hash": "cfe0cdf1afbcedf8dc6b9c35132b732675dd3ca7a4213253261f7c487a7ad650",
+      "status": "PASS"
+    }
+  ],
+  "entry_count": 8,
+  "head_hash": "13b9d03662fc94d9ab518d410ce2d5851cf09afba0ed0daebcd4ad7ead5145ea",
+  "status": "PASS"
+}

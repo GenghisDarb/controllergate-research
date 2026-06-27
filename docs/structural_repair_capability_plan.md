@@ -45,3 +45,12 @@ No v2.32 target validation, repair, patch generation, or candidate fabrication i
 
 
 v2.33 preserves the frozen v2.32 matched-null protocol and records the missing input needed to run it. The discovery packet is a seed-intake aid only; it is not candidate selection and does not alter the registry.
+
+
+
+
+
+## v2.34 candidate #2 workbench status
+
+
+v2.34 adds the reusable seed verifier and byte-custody preflight. It keeps repair architecture dormant until a second reviewed candidate is available.

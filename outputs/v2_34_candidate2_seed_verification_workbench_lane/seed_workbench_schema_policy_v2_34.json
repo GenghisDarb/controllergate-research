@@ -1,0 +1,38 @@
+{
+  "commit_sha_rule": "exactly_40_lowercase_hex_characters",
+  "forbidden_candidate_ids": [
+    "py_bugger_issue_65"
+  ],
+  "forbidden_seed_sources": [
+    "fixed_commit_contents",
+    "later_commit_contents",
+    "gold_patch",
+    "pull_request_patch_content",
+    "generated_reproducer",
+    "external_network_dependent_test"
+  ],
+  "optional_fields": [
+    "support_file_paths",
+    "setup_commands",
+    "dependency_install_commands",
+    "command_timeout_seconds",
+    "expected_failure_type",
+    "notes"
+  ],
+  "required_fields": [
+    "candidate_id",
+    "source_type",
+    "repo_url",
+    "buggy_commit_sha",
+    "test_command",
+    "target_test_file_paths",
+    "environment_lock_source"
+  ],
+  "setup_command_policy": {
+    "allowed_only_if_declared": true,
+    "must_not_copy_from_future_sources": true,
+    "must_not_create_tests": true,
+    "must_not_use_internet": true
+  },
+  "status": "PASS"
+}
