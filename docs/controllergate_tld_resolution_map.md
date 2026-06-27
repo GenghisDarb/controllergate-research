@@ -110,3 +110,13 @@ v2.31 marks the first consolidated scoreable external repair episode, not a prot
 - One reviewed external candidate has a scoreable source-only repair episode.
 - The result is enough to update planning and readiness, but not enough for full scoring, memory-lift, broad-generalization, or self-maintaining claims.
 - The next precision target is multiple reviewed external candidates or a prospective second repair episode under frozen comparison rules.
+
+
+## v2.32 protocol lock status
+
+
+v2.32 is a protocol-lock and seed-intake boundary.
+
+- One scoreable external repair episode is preserved.
+- Candidate #2 is not selected unless Brad supplies a seed draft.
+- Memory lift remains a future prospective comparison question, not a retrospective claim.

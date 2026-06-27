@@ -1432,3 +1432,17 @@ v2.31 consolidates the first official scoreable external non-Ansible repair epis
 - Replay reliability: `1.0`.
 - Current protocol remains `v2.13`.
 - No full-scoring, memory-lift, broad-generalization, or self-maintaining claim is made.
+
+
+## v2.32 Second External Candidate Seed and Matched-Null Protocol Lock
+
+
+v2.32 officially ingests v2.31 and locks the future matched-null memory protocol.
+
+- First scoreable external repair episode: preserved.
+- Second seed present: `false`.
+- Exact blocker: `blocked_no_second_external_candidate_seed_draft_provided`.
+- Repair attempted: `false`.
+- Patch generated: `false`.
+- Current protocol remains `v2.13`.
+- No full-scoring, memory-lift, or self-maintaining claim is made.

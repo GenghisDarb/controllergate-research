@@ -374,3 +374,20 @@ ControllerGate has now crossed an important evidence boundary: v2.30 produced th
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
 - Next engineering target: add 2-3 more reviewed external candidates through the registry/seed pipeline, or run a prospective second external repair lane if a second reviewed candidate is already available.
+
+
+## v2.32 second external candidate seed and matched-null protocol lock
+
+
+v2.32 preserves the first scoreable external repair episode and locks the future matched-null memory experiment protocol. No second seed draft is present in this run, so no external repository is cloned and no candidate #2 is selected.
+
+- First scoreable episode remains `py_bugger_issue_65` from v2.30/v2.31.
+- Scoreable external repair episode count remains `1`.
+- Second seed draft path: `inputs/external_candidate_seed_draft_v2_32.json`.
+- Second seed present: `false`.
+- Exact blocker: `blocked_no_second_external_candidate_seed_draft_provided`.
+- Candidate #2 repair attempted: `false`.
+- Patch generated: `false`.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.

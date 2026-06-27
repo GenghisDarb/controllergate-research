@@ -1,0 +1,25 @@
+{
+  "definition": "bounded deterministic aggregate over future v2.33 paired metrics; 1 means memory-enabled clearly outperformed matched null, 0 means no separation or matched null outperformed",
+  "future_only": true,
+  "inputs": [
+    "gate_progression_depth",
+    "patch_generation_authorization",
+    "patch_safety_pass_fail",
+    "target_validation_pass_fail",
+    "duplicate_clean_replay_pass_fail",
+    "blocker_class_if_blocked",
+    "context_capsule_size",
+    "ast_closure_size",
+    "touched_file_locality",
+    "repair_locus_overlap_with_allowed_closure",
+    "matched_null_separation_score"
+  ],
+  "range": [
+    0.0,
+    1.0
+  ],
+  "score_name": "matched_null_separation_score",
+  "status": "PASS",
+  "threshold_for_future_claim": 0.95,
+  "threshold_met_in_v2_32": false
+}

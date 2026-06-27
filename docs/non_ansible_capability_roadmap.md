@@ -304,3 +304,14 @@ v2.31 does not repair a new candidate. It registers the first scoreable external
 - Candidate expansion must continue through the external candidate registry and seed verification pipeline.
 - Next lane should either add 2-3 more reviewed external candidates or run a prospective second repair lane only if another reviewed candidate already exists.
 - Full scoring, memory lift, broad family generalization, and self-maintaining software remain unclaimed.
+
+
+## v2.32 Second External Candidate Seed and Matched-Null Protocol Lock
+
+
+v2.32 locks the future matched-null memory experiment before any second repair is attempted.
+
+- If a manually reviewed second seed is absent, the lane stops with `blocked_no_second_external_candidate_seed_draft_provided`.
+- If a seed is later provided, it must verify a native buggy-tree test, support/environment hashes, and pre-repair failure before any registry merge.
+- Future v2.33 repair work may compare memory-enabled and memory-disabled matched arms only after candidate #2 is verified.
+- v2.32 makes no repair, full-scoring, memory-lift, or self-maintaining claim.
