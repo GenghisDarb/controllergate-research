@@ -291,3 +291,16 @@ v2.30 adds a stronger failure-signature gate for the reviewed external candidate
 - A structured semantic signature becomes the repair gate after three matching clean captures.
 - The old full-log hash mismatch remains diagnostic only after registry refresh passes.
 - No candidate expansion, full scoring, or protocol promotion occurs.
+
+## v2.31 Scoreable External Repair Episode Consolidation
+
+
+v2.31 does not repair a new candidate. It registers the first scoreable external non-Ansible repair episode from v2.30 and prepares the next-candidate path.
+
+- Achieved evidence boundary: one scoreable external source-only repair episode.
+- Candidate: `py_bugger_issue_65`.
+- Carry-forward validation: target validation `PASS`, duplicate clean replay `3 / 3`, replay reliability `1.0`.
+- Candidate expansion must continue through the external candidate registry and seed verification pipeline.
+- Next lane should either add 2-3 more reviewed external candidates or run a prospective second repair lane only if another reviewed candidate already exists.
+- Full scoring, memory lift, broad family generalization, and self-maintaining software remain unclaimed.
+

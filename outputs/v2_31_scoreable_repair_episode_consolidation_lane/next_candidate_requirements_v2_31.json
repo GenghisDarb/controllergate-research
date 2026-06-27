@@ -1,0 +1,18 @@
+{
+  "requirements": [
+    "public GitHub or public HTTPS Git repository",
+    "exact 40-character buggy commit SHA",
+    "native target test file physically present in buggy commit tree",
+    "support files physically present in buggy commit tree if needed",
+    "deterministic command that fails before patch",
+    "no generated/manual reproducer",
+    "no external network dependency during test command",
+    "no BugsInPy checkout/materialization",
+    "no fixed/later/gold/synthetic evidence",
+    "environment lock source physically present in buggy commit tree",
+    "preferred pure-Python target",
+    "small dependency surface",
+    "no compiled extension requirement if avoidable"
+  ],
+  "status": "PASS"
+}

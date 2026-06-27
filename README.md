@@ -358,3 +358,19 @@ v2.30 keeps scope on the reviewed `py_bugger_issue_65` candidate and resolves th
 - Repair can proceed only after three clean pre-repair captures agree on the semantic signature.
 - The lane still allows at most one bounded source-only patch and three duplicate clean replays before any scoreable result.
 - Current protocol remains `v2.13`; full scoring remains disabled; memory lift and self-maintaining software remain undemonstrated.
+
+## v2.31 scoreable external repair episode consolidation
+
+
+ControllerGate has now crossed an important evidence boundary: v2.30 produced the first official scoreable external non-Ansible source-only repair episode, and v2.31 consolidates that result without attempting another repair.
+
+- Consolidated episode: `py_bugger_issue_65` from v2.30.
+- Patch boundary: source-only, one file, patch SHA256 `02ada076e824bb703bc02d1c33f75f51eb4db4539a5aac8e4f5fa3fedd4972ee`.
+- Validation carry-forward: target validation `PASS`, duplicate clean replay `3 / 3`, observed replay reliability `1.0`.
+- External repair episode registry: `configs/external_repair_episode_registry.json`.
+- Current protocol remains `v2.13`; v2.30 and v2.31 are not promoted to current.
+- Full scoring remains `NOT_RUN` / disallowed.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Next engineering target: add 2-3 more reviewed external candidates through the registry/seed pipeline, or run a prospective second external repair lane if a second reviewed candidate is already available.
+

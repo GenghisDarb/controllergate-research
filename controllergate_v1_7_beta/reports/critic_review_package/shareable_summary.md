@@ -1418,3 +1418,17 @@ v2.29 adds neutral repair-context controls and attempts exactly one bounded repa
 ## v2.30 Failure Signature Canonicalization
 
 v2.30 preserves prior text-hash evidence, adds a three-capture semantic failure signature gate, and continues the bounded one-patch repair path only if replay and registry-refresh checks pass. Current protocol stays v2.13; full scoring and broad claims remain disabled.
+
+## v2.31 Scoreable External Repair Episode Consolidation
+
+
+v2.31 consolidates the first official scoreable external non-Ansible repair episode from v2.30.
+
+- Candidate: `py_bugger_issue_65`.
+- Source-only patch SHA256: `02ada076e824bb703bc02d1c33f75f51eb4db4539a5aac8e4f5fa3fedd4972ee`.
+- Target validation: `PASS`.
+- Duplicate clean replay: `3 / 3`.
+- Replay reliability: `1.0`.
+- Current protocol remains `v2.13`.
+- No full-scoring, memory-lift, broad-generalization, or self-maintaining claim is made.
+

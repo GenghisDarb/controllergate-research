@@ -1,0 +1,79 @@
+{
+  "artifact_id": 7919820263,
+  "artifact_name": "v2_30_failure_signature_canonicalization_repair_lane_artifacts",
+  "artifact_sha256": "6321a219fc57832d23bb6028beb61f2dbd873ac825b51ba3581e7a30eca1b883",
+  "bounded_target_repair_signal": true,
+  "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+  "candidate_id": "py_bugger_issue_65",
+  "claim_boundaries": {
+    "current_protocol_version": "v2.13",
+    "final_non_ansible_positive_memory_count": 0,
+    "full_scoring": "NOT_RUN",
+    "full_scoring_allowed": false,
+    "memory_lift_status": "undemonstrated",
+    "self_maintaining_software_status": "false/not_demonstrated",
+    "v2_30_promoted_to_current": false
+  },
+  "created_utc": "2026-06-27T02:46:26Z",
+  "diagnostic_reward_signal_status": "PASS",
+  "duplicate_replay_count": "3 / 3",
+  "duplicate_replay_status": "PASS",
+  "environment_lock_source": {
+    "path": "pyproject.toml",
+    "sha256": "2f1fe04032ca64b556e4db66a1aa5af3c81ccc958735a390226ea1b987484631"
+  },
+  "episode_id": "py_bugger_issue_65:v2.30",
+  "episode_type": "external_non_ansible_source_only_target_repair",
+  "episode_version": "v2.30",
+  "evidence_paths": {
+    "claim": "outputs/v2_30_failure_signature_canonicalization_repair_lane/claim_boundary_v2_30.json",
+    "duplicate": "outputs/v2_30_failure_signature_canonicalization_repair_lane/duplicate_replay_summary.json",
+    "lineage": "outputs/v2_30_failure_signature_canonicalization_repair_lane/registry_lineage_transition_v2_30.json",
+    "official": "outputs/v2_30_failure_signature_canonicalization_repair_lane/v2_30_official_artifact_verification.json",
+    "patch": "outputs/v2_30_failure_signature_canonicalization_repair_lane/source_patch.diff",
+    "patch_safety": "outputs/v2_30_failure_signature_canonicalization_repair_lane/patch_candidate_safety_check.json",
+    "proof": "outputs/v2_30_failure_signature_canonicalization_repair_lane/proof_obligations_ledger.json",
+    "reliability": "outputs/v2_30_failure_signature_canonicalization_repair_lane/stochastic_replay_reliability.json",
+    "results": "outputs/v2_30_failure_signature_canonicalization_repair_lane/campaign_results.json",
+    "reward": "outputs/v2_30_failure_signature_canonicalization_repair_lane/diagnostic_reward_signal.json",
+    "signature_history": "outputs/v2_30_failure_signature_canonicalization_repair_lane/failure_signature_history_after.json",
+    "target_validation": "outputs/v2_30_failure_signature_canonicalization_repair_lane/target_validation_result.json"
+  },
+  "full_scoring": "NOT_RUN/disallowed",
+  "memory_lift": "undemonstrated",
+  "patch_modified_files": [
+    "src/py_bugger/utils/bug_utils.py"
+  ],
+  "patch_safety_status": "PASS",
+  "patch_sha256": "02ada076e824bb703bc02d1c33f75f51eb4db4539a5aac8e4f5fa3fedd4972ee",
+  "patch_size_stats": {
+    "files_touched": 1,
+    "functions_modified": 1,
+    "lines_added": 11,
+    "lines_changed": 20,
+    "lines_removed": 9
+  },
+  "positive_memory_only": false,
+  "proof_ledger_hash": "34851d3c837ec0a5e994d77bb3f88ebe869a977a6be0398981808fefc885e586",
+  "registry_signature_refresh_status": "PASS",
+  "repo_url": "https://github.com/ehmatthes/py-bugger",
+  "scoreable": true,
+  "self_maintaining_software": "false/not_demonstrated",
+  "semantic_failure_signature_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f",
+  "stochastic_replay_reliability": {
+    "observed_reliability": 1.0,
+    "status": "PASS"
+  },
+  "support_file": {
+    "path": "tests/sample_code/sample_scripts/two_trys.py",
+    "sha256": "66a72a7abc6f2bffec7881d0a5b0a006deb408a8c496148210e14caafd1a2d11"
+  },
+  "target_test_file": {
+    "path": "tests/integration_tests/test_modifications.py",
+    "sha256": "3e3c9521a4c1084df9269fb6bd38cb47808061559d7eb3eafa3fd78f4f3965b1"
+  },
+  "target_validation_exit_status": 0,
+  "target_validation_status": "PASS",
+  "test_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q",
+  "workflow_run_id": 28274637503
+}

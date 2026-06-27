@@ -1,0 +1,69 @@
+{
+  "claim_boundary": {
+    "full_scoring": "NOT_RUN/disallowed",
+    "memory_lift": "undemonstrated",
+    "self_maintaining_software": "false/not_demonstrated"
+  },
+  "entries": [
+    {
+      "blocker": "selected_candidate_dependency_resolution_failed",
+      "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+      "candidate_id": "py_bugger_issue_65",
+      "created_utc": "2026-06-26T22:33:50Z",
+      "diagnostic_loci": [
+        "src/py_bugger/utils/bug_utils.py"
+      ],
+      "diagnostic_only": true,
+      "failure_signature_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+      "memory_lift_claimed": false,
+      "patch_outcome": "blocked",
+      "patch_sha256": null
+    },
+    {
+      "blocker": "external_bug_signature_mismatch",
+      "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+      "candidate_id": "py_bugger_issue_65",
+      "created_utc": "2026-06-26T22:50:38Z",
+      "diagnostic_loci": [
+        "src/py_bugger/utils/bug_utils.py"
+      ],
+      "diagnostic_only": true,
+      "failure_signature_hash": "a97ccd92654e725d3c54d88ece253973a8d98e7f4d1b5a42c4ca921a433dd2ea",
+      "memory_lift_claimed": false,
+      "patch_outcome": "blocked",
+      "patch_sha256": null
+    },
+    {
+      "blocker": "selected_candidate_dependency_resolution_failed",
+      "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+      "candidate_id": "py_bugger_issue_65",
+      "created_utc": "2026-06-27T01:04:27Z",
+      "diagnostic_loci": [
+        "src/py_bugger/utils/bug_utils.py"
+      ],
+      "diagnostic_only": true,
+      "lane": "v2_30_failure_signature_canonicalization_repair_lane",
+      "memory_lift_claimed": false,
+      "patch_outcome": "blocked",
+      "patch_sha256": null,
+      "semantic_failure_signature_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f"
+    },
+    {
+      "blocker": null,
+      "buggy_commit_sha": "67cf214f2d619848e90280fd4469377123e81b94",
+      "candidate_id": "py_bugger_issue_65",
+      "created_utc": "2026-06-27T01:36:20Z",
+      "diagnostic_loci": [
+        "src/py_bugger/utils/bug_utils.py"
+      ],
+      "diagnostic_only": true,
+      "lane": "v2_30_failure_signature_canonicalization_repair_lane",
+      "memory_lift_claimed": false,
+      "patch_outcome": "PASS",
+      "patch_sha256": "02ada076e824bb703bc02d1c33f75f51eb4db4539a5aac8e4f5fa3fedd4972ee",
+      "semantic_failure_signature_hash": "3e54d6c5566c0c373b8b409134879cb58026d970111365d0c348cd2398ec334f"
+    }
+  ],
+  "purpose": "diagnostic_only_failure_locus_weighting",
+  "schema_version": "v2.29"
+}
