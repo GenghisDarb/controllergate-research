@@ -20,6 +20,7 @@ REQUIRED_LANE_FILES = [
     "consolidated_state_v2_37.json",
     "campaign_summary.md",
     "v2_36_official_artifact_verification.json",
+    "v2_37_official_artifact_verification.json",
     "core_gate_library_status.json",
     "unit_test_results.json",
     "reusable_workflow_status.json",
@@ -122,6 +123,25 @@ def main() -> int:
     v2_36 = read_json(LANE_DIR / "v2_36_official_artifact_verification.json")
     if v2_36.get("status") != "PASS" or v2_36.get("zip_sha256") != "b15ed6f7646824dfcb6973711c4906f23d91d41d773efa759f7f02ae72609972":
         return fail("v2.36 official ingest record invalid")
+    v2_37 = read_json(LANE_DIR / "v2_37_official_artifact_verification.json")
+    if v2_37.get("status") != "PASS":
+        return fail("v2.37 official ingest record not PASS")
+    if v2_37.get("zip_size") != 66949:
+        return fail("v2.37 official artifact size mismatch")
+    if v2_37.get("zip_sha256") != "d44529e43edba223420a9b9b1686e0c847a403540294747227d39c948268991c":
+        return fail("v2.37 official artifact SHA mismatch")
+    if v2_37.get("unsafe_path_count") != 0 or v2_37.get("duplicate_path_count") != 0:
+        return fail("v2.37 artifact path safety mismatch")
+    if v2_37.get("downloaded_by_codex") is not False or v2_37.get("manual_artifact_boundary") != "PASS":
+        return fail("v2.37 manual artifact boundary mismatch")
+    manifest_results = v2_37.get("internal_manifest_results")
+    if not isinstance(manifest_results, list) or len(manifest_results) < 2:
+        return fail("v2.37 internal manifest results missing")
+    for result in manifest_results:
+        if not isinstance(result, dict):
+            return fail("v2.37 internal manifest result malformed")
+        if result.get("missing") != 0 or result.get("malformed") != 0 or result.get("failures") != 0:
+            return fail("v2.37 internal manifest verification failed")
 
     core_status = read_json(LANE_DIR / "core_gate_library_status.json")
     tests = read_json(LANE_DIR / "unit_test_results.json")
