@@ -8,20 +8,20 @@ from pathlib import Path
 from .commands import run_command_with_timeout
 
 
-def generate_pytest_commands(test_path: str, source_root: str | Path | None = None, max_nodes: int = 8) -> list[list[str]]:
-    commands = [["python", "-m", "pytest", test_path, "-q", "--tb=no"]]
+def generate_pytest_commands(test_path: str, source_root: str | Path | None = None, max_nodes: int = 8, python: str = "python") -> list[list[str]]:
+    commands = [[python, "-m", "pytest", test_path, "-q", "--tb=no"]]
     if source_root:
         path = Path(source_root) / test_path
         if path.is_file():
             tree = ast.parse(path.read_text(encoding="utf-8", errors="replace"))
             for node in tree.body:
                 if isinstance(node, ast.FunctionDef) and node.name.startswith("test"):
-                    commands.append(["python", "-m", "pytest", f"{test_path}::{node.name}", "-q", "--tb=no"])
+                    commands.append([python, "-m", "pytest", f"{test_path}::{node.name}", "-q", "--tb=no"])
     return commands[: max_nodes + 1]
 
 
-def collect_only_probe(test_path: str, cwd: str | Path) -> dict[str, object]:
-    return run_command_with_timeout(["python", "-m", "pytest", test_path, "--collect-only", "-q", "--tb=no"], cwd)
+def collect_only_probe(test_path: str, cwd: str | Path, python: str = "python") -> dict[str, object]:
+    return run_command_with_timeout([python, "-m", "pytest", test_path, "--collect-only", "-q", "--tb=no"], cwd)
 
 
 def capture_raw_log(result: dict[str, object]) -> str:

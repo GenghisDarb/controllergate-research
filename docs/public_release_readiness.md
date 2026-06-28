@@ -1,13 +1,23 @@
 # Public release readiness
 
-v2.37 can support `pre_alpha_research_archive_ready` only if:
+ControllerGate is currently suitable as a pre-alpha research archive. It is not a technical validation release.
 
-- README and documentation are honest,
-- claim boundaries are explicit,
-- the shared core package exists,
-- unit tests pass,
-- the reusable workflow exists,
-- the consolidated state format exists,
-- public language audit passes.
+## Current readiness
 
-`technical_validation_release_ready` requires successful additional external repair replication and protocol audits. v2.37 does not claim that status.
+- Public docs are updated to state current capabilities and limits.
+- Claim boundaries are explicit.
+- Core unit tests pass locally and in the workflow.
+- Current protocol remains v2.13.
+- Clean replication batch002 attempts real leads and structured environment resolution.
+
+## Blocking gaps
+
+- Fewer than 3 confirmed external non-Ansible repair episodes.
+- Fewer than 2 distinct repaired external repositories.
+- No accepted prospective matched-null comparison.
+- No full scoring authorization or result.
+- No self-maintaining software evidence.
+
+## Release rule
+
+Do not describe ControllerGate as technically validated until the blocking gaps are closed by audited artifacts.

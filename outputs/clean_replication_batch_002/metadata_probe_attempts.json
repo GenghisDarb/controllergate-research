@@ -1,6 +1,6 @@
 [
   {
-    "blocker": "metadata_probe_collection_failed",
+    "blocker": "environment_collection_failed_after_resolution",
     "checkout_attempted": true,
     "checkout_command_record": {
       "command": [
@@ -18,17 +18,17 @@
     "collection_attempted": true,
     "collection_command_record": {
       "command": [
-        "<python_executable>",
+        "<lead_workspace>_venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "src/darker/tests/test_main_isort.py",
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "85e814748483a129149aa1d5a2399350175a3d07f7ea02da898a4f68287f1cd1",
-      "output_sha256": "8477792b515219554852cb9d2e37d7ed693adf309c941e4217cc3eab6b350493",
-      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting src/darker/tests/test_main_isort.py _____________\nImportError while importing test module '<lead_workspace>/src/darker/tests/test_main_isort.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc/darker/tests/test_main_isort.py:11: in <module>\n    import darker.__main__\nsrc/darker/__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc/darker/chooser.py:35: in <module>\n    from darkgraylib.utils import DiffChunk\nE   ModuleNotFoundError: No module named 'darkgraylib'\n_____________ E",
-      "returncode": 2
+      "normalized_output_sha256": "25939c6dd448bdfd232b641368ccf7ccab633041a8c21b9c02ee5c20cf626ab1",
+      "output_sha256": "f9457568756168614ec9d3e0ee785883163f2d8ac880812ab33a6ccb44c2f2c5",
+      "output_summary": "STDOUT:\n\nSTDERR:\n<lead_workspace>_venv\\Scripts\\python.exe: No module named pytest",
+      "returncode": 1
     },
     "collection_status": "FAIL",
     "commit_hint": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
@@ -45,26 +45,52 @@
       "returncode": 0
     },
     "commit_resolved": true,
-    "decision": "rejected_no_verified_native_candidate",
+    "decision": "rejected_environment_unresolved",
     "environment_file_present": true,
     "environment_files": [
       "pyproject.toml",
       "setup.py",
       "setup.cfg"
     ],
+    "environment_metadata": {
+      "declared_dependency_strings": [
+        "darkgraylib>=2.4.0,<3.0.dev0",
+        "toml>=0.10.0",
+        "typing_extensions>=4.0.1"
+      ],
+      "environment_files": [
+        "pyproject.toml",
+        "setup.cfg",
+        "setup.py",
+        "pytest.ini"
+      ],
+      "optional_dependency_groups": [
+        "black",
+        "color",
+        "flynt",
+        "isort",
+        "pyupgrade",
+        "release",
+        "ruff"
+      ],
+      "requirements_files": []
+    },
+    "environment_resolution_attempted": true,
+    "environment_resolution_blocker": null,
+    "environment_resolution_status": "PASS",
     "failure_replay_attempted": true,
     "failure_replay_command_record": {
       "command": [
-        "<python_executable>",
+        "<lead_workspace>_venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "src/darker/tests/test_main_isort.py",
         "-q"
       ],
-      "normalized_output_sha256": "f303304e8fd7e4a90aa0855d3df84ffe2daaa175b2b8f0bff7e01d41d8979c53",
-      "output_sha256": "045c27e8f66edb2be5a169ed552f4c083849161e8ec00c3afbc4409a8d866c69",
-      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting src/darker/tests/test_main_isort.py _____________\nImportError while importing test module '<lead_workspace>/src/darker/tests/test_main_isort.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc/darker/tests/test_main_isort.py:11: in <module>\n    import darker.__main__\nsrc/darker/__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc/darker/chooser.py:35: in <module>\n    from darkgraylib.utils import DiffChunk\nE   ModuleNotFoundError: No module named 'darkgraylib'\n_____________ E",
-      "returncode": 2
+      "normalized_output_sha256": "25939c6dd448bdfd232b641368ccf7ccab633041a8c21b9c02ee5c20cf626ab1",
+      "output_sha256": "f9457568756168614ec9d3e0ee785883163f2d8ac880812ab33a6ccb44c2f2c5",
+      "output_summary": "STDOUT:\n\nSTDERR:\n<lead_workspace>_venv\\Scripts\\python.exe: No module named pytest",
+      "returncode": 1
     },
     "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
     "git_cat_file_command_record": {
@@ -90,7 +116,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "06fadf23ae5d90315125a58666e10a34dd02365f1ccbd2a119ad1efc14a464cd",
+      "output_sha256": "ffb3a61495c5c99caee8c9a6a87b07046b167fea5b2bb5f231f570808b24a5ac",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -109,21 +135,89 @@
       "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/akaihola/darker\n * branch            bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75 -> FETCH_HEAD",
       "returncode": 0
     },
+    "import_probe_attempted": true,
+    "import_probe_results": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-c",
+          "import darker"
+        ],
+        "module": "darker",
+        "normalized_output_sha256": "13c0b773ac924b2d8eec5c1d6c7dd134bf2339b7c3201b31f49cef38e7d6cb3b",
+        "output_sha256": "92a7d63aa02284782b9ac99f672a8cbd9dcfe3ff8014df42bc57a7aa2f127768",
+        "output_summary": "STDOUT:\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS"
+      }
+    ],
+    "import_probe_status": "PASS",
+    "install_log_hashes": [
+      {
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "strategy": "upgrade_build_tools"
+      },
+      {
+        "normalized_output_sha256": "288db7828a6ca78cd841279dd0bac8dd11d6f77ad72675ee2f80b4817978cb4f",
+        "strategy": "editable_test_extra"
+      }
+    ],
+    "install_strategy_attempts": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-U",
+          "pip",
+          "setuptools",
+          "wheel"
+        ],
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "output_sha256": "ed9c25d4ca629b79318f3f4a8914fd75b8bb82e968c71c0ec3024ebb65dea027",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "upgrade_build_tools",
+        "supported": true
+      },
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-e",
+          ".[test]"
+        ],
+        "normalized_output_sha256": "288db7828a6ca78cd841279dd0bac8dd11d6f77ad72675ee2f80b4817978cb4f",
+        "output_sha256": "95d484ce9ef88cb5be952a3ab39712dba83e5400ec6e76ffb4eb3eb817a6dea8",
+        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting darkgraylib<3.0.dev0,>=2.4.0 (from darker==2.1.1)\n  Using cached darkgraylib-2.4.1-py3-none-any.whl.metadata (3.9 kB)\nCollecting toml>=0.10.0 (from darker==2.1.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting typing_extensions>=4.0.1 (from darker==2.1.1)\n  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\nUsing cached darkgraylib-2.4.1-py3-none-any.whl (57 kB)\nUsing cached toml-0.10.2-py2.py3-none-any.whl (16 kB)\nUsing cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)\nBuilding wheels for collected packages: darker\n  Building editable for darker (pyproject.toml): started\n  Building e",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "editable_test_extra",
+        "supported": true
+      }
+    ],
     "lead_id": "darker_skip_glob_failing_test",
     "lead_type": "commit_hint",
+    "missing_modules_after_environment_resolution": [],
     "mode": "metadata_probe",
     "repo": "akaihola/darker",
     "repo_url": "https://github.com/akaihola/darker",
     "resolved_commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
     "runtime_workspace_outside_live_repo": true,
-    "semantic_failure_signature_hash": "f303304e8fd7e4a90aa0855d3df84ffe2daaa175b2b8f0bff7e01d41d8979c53",
+    "selected_install_strategy": "editable_test_extra",
+    "semantic_failure_signature_hash": "25939c6dd448bdfd232b641368ccf7ccab633041a8c21b9c02ee5c20cf626ab1",
     "target_test_present": true,
     "test_path_hint": "src/darker/tests/test_main_isort.py",
+    "undeclared_missing_modules_after_environment_resolution": [],
     "workspace_path": "<runtime_workspace>/darker_skip_glob_failing_test",
     "workspace_path_redacted": true
   },
   {
-    "blocker": "metadata_probe_collection_failed",
+    "blocker": null,
     "checkout_attempted": true,
     "checkout_command_record": {
       "command": [
@@ -141,19 +235,19 @@
     "collection_attempted": true,
     "collection_command_record": {
       "command": [
-        "<python_executable>",
+        "<lead_workspace>_venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "e576e5c288fc74a5796743f9cbf5b728aae8a25f738a51a2ea2a3995b82cec3b",
-      "output_sha256": "749af65719d99549c10974578d9baec9b7653d8c2be2b0b08da5b2a05d87790c",
-      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_ ERROR collecting src/darker/tests/test_main_drop_changes_on_unedited_lines.py _\nImportError while importing test module '<lead_workspace>/src/darker/tests/test_main_drop_changes_on_unedited_lines.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py:10: in <module>\n    from darker.__main__ import _drop_changes_on_unedited_lines\nsrc/darker/__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc/darker/chooser.py:35: in <module>\n    from darkgraylib.utils",
-      "returncode": 2
+      "normalized_output_sha256": "b66f6e48bf9a9e63f1b2651749296f10fd285b562f4a32af82e7b6ee59bd9263",
+      "output_sha256": "7127d15e3c9916f00759ca07613c78ecb2de75c6fda07c33e82f51917b2330c4",
+      "output_summary": "STDOUT:\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content0-new_chunks0]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content1-new_chunks1]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content2-new_chunks2]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content3-new_chunks3]\n\n4 tests collected in 0.81s\n\nSTDERR:",
+      "returncode": 0
     },
-    "collection_status": "FAIL",
+    "collection_status": "PASS",
     "commit_hint": "6f9ae29512433d960be38f3bfffc23c848691d6f",
     "commit_resolve_command_record": {
       "command": [
@@ -168,28 +262,53 @@
       "returncode": 0
     },
     "commit_resolved": true,
-    "decision": "rejected_no_verified_native_candidate",
+    "decision": "verified_native_candidate_pending_repair",
     "environment_file_present": true,
     "environment_files": [
       "pyproject.toml",
       "setup.py",
       "setup.cfg"
     ],
+    "environment_metadata": {
+      "declared_dependency_strings": [
+        "darkgraylib~=2.1.0",
+        "toml>=0.10.0",
+        "typing_extensions>=4.0.1"
+      ],
+      "environment_files": [
+        "pyproject.toml",
+        "setup.cfg",
+        "setup.py",
+        "pytest.ini"
+      ],
+      "optional_dependency_groups": [
+        "black",
+        "color",
+        "flynt",
+        "isort",
+        "release",
+        "test"
+      ],
+      "requirements_files": []
+    },
+    "environment_resolution_attempted": true,
+    "environment_resolution_blocker": null,
+    "environment_resolution_status": "PASS",
     "failure_replay_attempted": true,
     "failure_replay_command_record": {
       "command": [
-        "<python_executable>",
+        "<lead_workspace>_venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
         "-q"
       ],
-      "normalized_output_sha256": "0c0f3c22c7ed20d7a24f8a13b61d1c58dc0d7c68f21b7f4fb41e3099734a5460",
-      "output_sha256": "eab29a3f59ed022642116493f1b400186004d890b1e4dc47aae872586a165ada",
-      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_ ERROR collecting src/darker/tests/test_main_drop_changes_on_unedited_lines.py _\nImportError while importing test module '<lead_workspace>/src/darker/tests/test_main_drop_changes_on_unedited_lines.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py:10: in <module>\n    from darker.__main__ import _drop_changes_on_unedited_lines\nsrc/darker/__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc/darker/chooser.py:35: in <module>\n    from darkgraylib.utils",
-      "returncode": 2
+      "normalized_output_sha256": "2df45b73c19945873b49a69429e4bbc05daf76dcd7b8ed9173d0858198740698",
+      "output_sha256": "c16aaf59a516eb0e20b363c0a1c64ffe408d9a43f8323fdcf6af18e45f170453",
+      "output_summary": "STDOUT:\n...F                                                                     [100%]\n================================== FAILURES ===================================\n________________ test_unchanged_content[content3-new_chunks3] _________________\n\ntmp_path = WindowsPath('<system_temp>/pytest-of-thisb/pytest-185/test_unchanged_content_content3')\ncontent = TextDocument([3 lines], encoding='iso-8859-5')\nnew_chunks = [(1, ('# coding: iso-8859-5', '# \\u0431\\\\x85\\u0431\\\\x86'), ('# coding: iso-8859-5', '# \\u0431\\\\x85\\u0431\\\\x86'))]\n\n    @pytest.mark.kwparametrize(\n        dict(\n            content=TextDocument(\"s =  'reformat'\\n\"),\n            new_chunks=[(1, (\"s =  'reformat'\",), ('s = \"reformat\"',))],\n        ),\n        dict(\n            content=TextDocument('s = \"keep\"\\n'),\n            new_ch",
+      "returncode": 1
     },
-    "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+    "failure_replay_status": "PRE_PATCH_FAILURE_OBSERVED",
     "git_cat_file_command_record": {
       "command": [
         "git",
@@ -213,7 +332,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "03d32664a60cb040fd6dc718c40f3bd558648c46b9740f2f1bc565fa766a247f",
+      "output_sha256": "f9d8691b1078f71660fb9355b97300b443c22b6534688020f75b3c33a0b6685e",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -232,6 +351,71 @@
       "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/akaihola/darker\n * branch            6f9ae29512433d960be38f3bfffc23c848691d6f -> FETCH_HEAD",
       "returncode": 0
     },
+    "import_probe_attempted": true,
+    "import_probe_results": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-c",
+          "import darker"
+        ],
+        "module": "darker",
+        "normalized_output_sha256": "13c0b773ac924b2d8eec5c1d6c7dd134bf2339b7c3201b31f49cef38e7d6cb3b",
+        "output_sha256": "92a7d63aa02284782b9ac99f672a8cbd9dcfe3ff8014df42bc57a7aa2f127768",
+        "output_summary": "STDOUT:\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS"
+      }
+    ],
+    "import_probe_status": "PASS",
+    "install_log_hashes": [
+      {
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "strategy": "upgrade_build_tools"
+      },
+      {
+        "normalized_output_sha256": "b1b914919ded0b7bb84a880e2ed6cfdaf070b56f1ca9383c87f25b8074e6eca2",
+        "strategy": "editable_test_extra"
+      }
+    ],
+    "install_strategy_attempts": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-U",
+          "pip",
+          "setuptools",
+          "wheel"
+        ],
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "output_sha256": "667aaf06a283b752bc122ae828b5162d8a56b1d34d660d56fd48ead8a4877112",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "upgrade_build_tools",
+        "supported": true
+      },
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-e",
+          ".[test]"
+        ],
+        "normalized_output_sha256": "b1b914919ded0b7bb84a880e2ed6cfdaf070b56f1ca9383c87f25b8074e6eca2",
+        "output_sha256": "5c6300ec5880a1985807ad2491cac08ed8dc9fee1d1e3bfaf13109b463c94a60",
+        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting darkgraylib~=2.1.0 (from darker==2.1.1)\n  Using cached darkgraylib-2.1.0-py3-none-any.whl.metadata (4.7 kB)\nCollecting toml>=0.10.0 (from darker==2.1.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting typing_extensions>=4.0.1 (from darker==2.1.1)\n  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\nCollecting black>=22.3.0 (from darker==2.1.1)\n  Using cached black-26.5.1-cp313-cp313-win_amd64.whl.metadata (95 kB)\nCollecting cryptography>=3.3.2 (from darker==2.1.1)\n  Using cached cryptography-49.0.0-cp311-abi3-win_amd64.whl.metadata (4.3 kB)\nCollecting defusedxml>=0.7.1 (from darker==2.1.1)\n  ",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "editable_test_extra",
+        "supported": true
+      }
+    ],
     "lead_id": "darker_non_ascii_drop_changes",
     "lead_type": "commit_hint",
     "mode": "metadata_probe",
@@ -239,14 +423,15 @@
     "repo_url": "https://github.com/akaihola/darker",
     "resolved_commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
     "runtime_workspace_outside_live_repo": true,
-    "semantic_failure_signature_hash": "0c0f3c22c7ed20d7a24f8a13b61d1c58dc0d7c68f21b7f4fb41e3099734a5460",
+    "selected_install_strategy": "editable_test_extra",
+    "semantic_failure_signature_hash": "2df45b73c19945873b49a69429e4bbc05daf76dcd7b8ed9173d0858198740698",
     "target_test_present": true,
     "test_path_hint": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
     "workspace_path": "<runtime_workspace>/darker_non_ascii_drop_changes",
     "workspace_path_redacted": true
   },
   {
-    "blocker": "metadata_probe_collection_failed",
+    "blocker": null,
     "checkout_attempted": true,
     "checkout_command_record": {
       "command": [
@@ -264,19 +449,19 @@
     "collection_attempted": true,
     "collection_command_record": {
       "command": [
-        "<python_executable>",
+        "<lead_workspace>_venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "src/darker/tests/test_main_stdin_filename.py",
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "810154e3a5fb211fb8b6bee5e4963546e124ed0b44234259ba8c4400dcc2efe5",
-      "output_sha256": "26e6f68030dd0bfbc4cd396c49543ccd84deedc781fd2d09c593eacccf14d21c",
-      "output_summary": "STDOUT:\n\nSTDERR:\nImportError while loading conftest '<lead_workspace>/src/darker/tests/conftest.py'.\nsrc/darker/tests/conftest.py:10: in <module>\n    from black import find_project_root as black_find_project_root\nE   ModuleNotFoundError: No module named 'black'",
-      "returncode": 4
+      "normalized_output_sha256": "590193e35f53a80de516cebda1680f1488f43cc7d01c3a172c2198e2bc432802",
+      "output_sha256": "bc006d260cf42e6d2580525adb4cc5f0079af571d50d79c85b640ed1130ebc8d",
+      "output_summary": "STDOUT:\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[None-src0-None-None-expect0-original\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src2-src2-None-None-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src3-src3-stdin_filename3-None-expect3-original\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src4-src4-None-..:STDIN:-0-modified = \"stdin\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_",
+      "returncode": 0
     },
-    "collection_status": "FAIL",
+    "collection_status": "PASS",
     "commit_hint": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
     "commit_resolve_command_record": {
       "command": [
@@ -291,28 +476,52 @@
       "returncode": 0
     },
     "commit_resolved": true,
-    "decision": "rejected_no_verified_native_candidate",
+    "decision": "verified_native_candidate_pending_repair",
     "environment_file_present": true,
     "environment_files": [
       "pyproject.toml",
       "setup.py",
       "setup.cfg"
     ],
+    "environment_metadata": {
+      "declared_dependency_strings": [
+        "black>=21.5b1",
+        "toml>=0.10.0",
+        "typing-extensions ; python_version < \"3.8\""
+      ],
+      "environment_files": [
+        "pyproject.toml",
+        "setup.cfg",
+        "setup.py",
+        "pytest.ini"
+      ],
+      "optional_dependency_groups": [
+        "color",
+        "flynt",
+        "isort",
+        "release",
+        "test"
+      ],
+      "requirements_files": []
+    },
+    "environment_resolution_attempted": true,
+    "environment_resolution_blocker": null,
+    "environment_resolution_status": "PASS",
     "failure_replay_attempted": true,
     "failure_replay_command_record": {
       "command": [
-        "<python_executable>",
+        "<lead_workspace>_venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "src/darker/tests/test_main_stdin_filename.py",
         "-q"
       ],
-      "normalized_output_sha256": "810154e3a5fb211fb8b6bee5e4963546e124ed0b44234259ba8c4400dcc2efe5",
-      "output_sha256": "26e6f68030dd0bfbc4cd396c49543ccd84deedc781fd2d09c593eacccf14d21c",
-      "output_summary": "STDOUT:\n\nSTDERR:\nImportError while loading conftest '<lead_workspace>/src/darker/tests/conftest.py'.\nsrc/darker/tests/conftest.py:10: in <module>\n    from black import find_project_root as black_find_project_root\nE   ModuleNotFoundError: No module named 'black'",
-      "returncode": 4
+      "normalized_output_sha256": "23b43535bf90da7aefdf73d0d5e191e21bdb7fddbb7e9c2a836a3394206d71dd",
+      "output_sha256": "af246e66512afe1a11c92096809027b513244939b6a1fda9c0d12a866ff3ac8f",
+      "output_summary": "STDOUT:\n...................FF...                                                 [100%]\n================================== FAILURES ===================================\n____ test_main_stdin_filename[None-src19-a.py-None-0-modified = \"stdin\"\\n] ____\n\ngit_repo = <darker.tests.conftest.GitRepoFixture object at 0x000001DCB30B2710>\nconfig_src = None, src = ['-'], stdin_filename = 'a.py', revision = None\nexpect = 0, expect_a_py = 'modified = \"stdin\"\\n'\n\n    @pytest.mark.kwparametrize(\n        dict(expect=SystemExit(2)),\n        dict(config_src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(config_src=[\"b.py\"], src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(\n            config_src=[\"b.py\"],\n            stdin_filename=[\"a.py\"],\n            expect=Config",
+      "returncode": 1
     },
-    "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+    "failure_replay_status": "PRE_PATCH_FAILURE_OBSERVED",
     "git_cat_file_command_record": {
       "command": [
         "git",
@@ -336,7 +545,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "f4c33185344e9642d88288bff0215aca398248ffa5e16eef30f7e8fbdda6fc2b",
+      "output_sha256": "afcd9eda9b2b90ee994297b75a32a2d7df1c22e0414c313053c254e16debaa5a",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -355,6 +564,84 @@
       "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/akaihola/darker\n * branch            6ecafca023a354fe7d9539d1d20bf10391bdb24a -> FETCH_HEAD",
       "returncode": 0
     },
+    "import_probe_attempted": true,
+    "import_probe_results": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-c",
+          "import darker"
+        ],
+        "module": "darker",
+        "normalized_output_sha256": "13c0b773ac924b2d8eec5c1d6c7dd134bf2339b7c3201b31f49cef38e7d6cb3b",
+        "output_sha256": "92a7d63aa02284782b9ac99f672a8cbd9dcfe3ff8014df42bc57a7aa2f127768",
+        "output_summary": "STDOUT:\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS"
+      },
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-c",
+          "import release_tools"
+        ],
+        "module": "release_tools",
+        "normalized_output_sha256": "13c0b773ac924b2d8eec5c1d6c7dd134bf2339b7c3201b31f49cef38e7d6cb3b",
+        "output_sha256": "92a7d63aa02284782b9ac99f672a8cbd9dcfe3ff8014df42bc57a7aa2f127768",
+        "output_summary": "STDOUT:\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS"
+      }
+    ],
+    "import_probe_status": "PASS",
+    "install_log_hashes": [
+      {
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "strategy": "upgrade_build_tools"
+      },
+      {
+        "normalized_output_sha256": "a74c11260ceac1cff19c7f0a98209a44026d852a9aa84d175fe090534ff2c943",
+        "strategy": "editable_test_extra"
+      }
+    ],
+    "install_strategy_attempts": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-U",
+          "pip",
+          "setuptools",
+          "wheel"
+        ],
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "output_sha256": "46289d5f5503e2db9abe1cd3beb163b513e60b2bbbcefcbba03d7a374e3d10db",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "upgrade_build_tools",
+        "supported": true
+      },
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-e",
+          ".[test]"
+        ],
+        "normalized_output_sha256": "a74c11260ceac1cff19c7f0a98209a44026d852a9aa84d175fe090534ff2c943",
+        "output_sha256": "702378b79dc2dcd552c99f08d19bd4f23bb365bb581577e90d84bd3c9fd0f4e5",
+        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting black>=21.5b1 (from darker==1.7.1)\n  Using cached black-26.5.1-cp313-cp313-win_amd64.whl.metadata (95 kB)\nCollecting toml>=0.10.0 (from darker==1.7.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting airium>=0.2.3 (from darker==1.7.1)\n  Using cached airium-0.2.7-py3-none-any.whl.metadata (16 kB)\nCollecting cryptography>=3.3.2 (from darker==1.7.1)\n  Using cached cryptography-49.0.0-cp311-abi3-win_amd64.whl.metadata (4.3 kB)\nCollecting defusedxml>=0.7.1 (from darker==1.7.1)\n  Using cached defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)\nCollecting flynt<0.78,>=0.76 (from darker==1.7.1)\n  Using cached flynt-0.77",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "editable_test_extra",
+        "supported": true
+      }
+    ],
     "lead_id": "darker_stdin_filename",
     "lead_type": "commit_hint",
     "mode": "metadata_probe",
@@ -362,14 +649,15 @@
     "repo_url": "https://github.com/akaihola/darker",
     "resolved_commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
     "runtime_workspace_outside_live_repo": true,
-    "semantic_failure_signature_hash": "810154e3a5fb211fb8b6bee5e4963546e124ed0b44234259ba8c4400dcc2efe5",
+    "selected_install_strategy": "editable_test_extra",
+    "semantic_failure_signature_hash": "23b43535bf90da7aefdf73d0d5e191e21bdb7fddbb7e9c2a836a3394206d71dd",
     "target_test_present": true,
     "test_path_hint": "src/darker/tests/test_main_stdin_filename.py",
     "workspace_path": "<runtime_workspace>/darker_stdin_filename",
     "workspace_path_redacted": true
   },
   {
-    "blocker": "metadata_probe_collection_failed",
+    "blocker": "metadata_probe_pre_patch_failure_not_reproduced",
     "checkout_attempted": true,
     "checkout_command_record": {
       "command": [
@@ -387,19 +675,19 @@
     "collection_attempted": true,
     "collection_command_record": {
       "command": [
-        "<python_executable>",
+        "<lead_workspace>_venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "tests/test_pytest_rerunfailures.py",
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "2c6eaa5b9e9ac241464bcc94b62814d133db0a190b48dd4b05af8b63c338ef3f",
-      "output_sha256": "738a1c77b4d0a8d9995865c96d49996652ad020a689ed982874edb426100ce0d",
-      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py ______________\nImportError while importing test module '<lead_workspace>/tests/test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_pytest_rerunfailures.py:8: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM, SubtestReport\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ============================\nERROR tests/test_pytest_rerunfailures.py\n",
-      "returncode": 2
+      "normalized_output_sha256": "12d9a8228ce3f8a21fc4ec01868723bd6c908cba6b253920477351d21c76fbaa",
+      "output_sha256": "9d8452cef2ad6909df36553cd59c97385a75eb366c8275db5dc8328fc57730ad",
+      "output_summary": "STDOUT:\ntests/test_pytest_rerunfailures.py::test_error_when_run_with_pdb\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_pass\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_skipif_mark\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_skip_call\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_mark\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_call\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xpass\ntests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_setup_failure\ntests/test_pytest_rerunfailures.py::test_rerun_passes_after_temporary_setup_failure\ntests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_test_failure\ntests/test_pytest_rerunfailures.py::test_rerun_passes_after_temporary_test_failure\ntests/test_pytest_re",
+      "returncode": 0
     },
-    "collection_status": "FAIL",
+    "collection_status": "PASS",
     "commit_hint": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
     "commit_resolve_command_record": {
       "command": [
@@ -420,21 +708,36 @@
       "pyproject.toml",
       "tox.ini"
     ],
+    "environment_metadata": {
+      "declared_dependency_strings": [
+        "packaging>=17.1",
+        "pytest!=8.2.2,>=8.1"
+      ],
+      "environment_files": [
+        "pyproject.toml",
+        "tox.ini"
+      ],
+      "optional_dependency_groups": [],
+      "requirements_files": []
+    },
+    "environment_resolution_attempted": true,
+    "environment_resolution_blocker": null,
+    "environment_resolution_status": "PASS",
     "failure_replay_attempted": true,
     "failure_replay_command_record": {
       "command": [
-        "<python_executable>",
+        "<lead_workspace>_venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "tests/test_pytest_rerunfailures.py",
         "-q"
       ],
-      "normalized_output_sha256": "75c9abb8ae518c9b548d35d40ec26af89d25c41dd4b6d8183d962c06e63b9a9f",
-      "output_sha256": "6dc61711539b0cc3934cf9c170dc5f09366e9647a3b8b7022e96399d6ee1527b",
-      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py ______________\nImportError while importing test module '<lead_workspace>/tests/test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_pytest_rerunfailures.py:8: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM, SubtestReport\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ============================\nERROR tests/test_pytest_rerunfailures.py\n",
-      "returncode": 2
+      "normalized_output_sha256": "d2654b4cbc4d720de32dd295b26680449091e18d116c38a42f4be926f90b648d",
+      "output_sha256": "553c5974355abcc0b8b99e8c16364ee1ab0bcb6a1c30b2035f322fe4fd8ca060",
+      "output_summary": "STDOUT:\n.................s...................................................... [ 54%]\n...........................................................              [100%]\n130 passed, 1 skipped in 23.27s\n\nSTDERR:",
+      "returncode": 0
     },
-    "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+    "failure_replay_status": "PASSING_PRE_PATCH_NOT_A_FAILURE",
     "git_cat_file_command_record": {
       "command": [
         "git",
@@ -458,7 +761,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "5bc4959040d7f4a1db2dc4060be359123f9b9db3f4f7ab40901ca0b8d3a4c19e",
+      "output_sha256": "cc6144f55750a7d807a17b61c33e9b788b22e6bd1f6d93384aa279256d5369a2",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -477,6 +780,71 @@
       "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/pytest-dev/pytest-rerunfailures\n * branch            f095a517c8d0550df0cb42b7ef3f96452ce68f05 -> FETCH_HEAD",
       "returncode": 0
     },
+    "import_probe_attempted": true,
+    "import_probe_results": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-c",
+          "import pytest_rerunfailures"
+        ],
+        "module": "pytest_rerunfailures",
+        "normalized_output_sha256": "13c0b773ac924b2d8eec5c1d6c7dd134bf2339b7c3201b31f49cef38e7d6cb3b",
+        "output_sha256": "92a7d63aa02284782b9ac99f672a8cbd9dcfe3ff8014df42bc57a7aa2f127768",
+        "output_summary": "STDOUT:\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS"
+      }
+    ],
+    "import_probe_status": "PASS",
+    "install_log_hashes": [
+      {
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "strategy": "upgrade_build_tools"
+      },
+      {
+        "normalized_output_sha256": "eace371e3f790f973462354709c6c9e63c4791ff98cae89d498a58f2bd7956ec",
+        "strategy": "editable_test_extra"
+      }
+    ],
+    "install_strategy_attempts": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-U",
+          "pip",
+          "setuptools",
+          "wheel"
+        ],
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "output_sha256": "228e1eef8d267abd36f248c8ec6840870eeea5c167605a3f84477153c2901459",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "upgrade_build_tools",
+        "supported": true
+      },
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-e",
+          ".[test]"
+        ],
+        "normalized_output_sha256": "eace371e3f790f973462354709c6c9e63c4791ff98cae89d498a58f2bd7956ec",
+        "output_sha256": "7aeb7a54e18ad48967224ca5ae1df79148e3747d66e8b640d9be757d0a702529",
+        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: packaging>=17.1 in <lead_venv>\\Lib\\site-packages (from pytest-rerunfailures==16.4.dev0) (26.2)\nCollecting pytest!=8.2.2,>=8.1 (from pytest-rerunfailures==16.4.dev0)\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting colorama>=0.4 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.4.dev0)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=1.0.1 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.4.dev0)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting pluggy<2,>=1.5 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.4.dev0)\n  Using c",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "editable_test_extra",
+        "supported": true
+      }
+    ],
     "lead_id": "pytest_rerunfailures_subtest_errors",
     "lead_type": "commit_hint",
     "mode": "metadata_probe",
@@ -484,14 +852,15 @@
     "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
     "resolved_commit_sha": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
     "runtime_workspace_outside_live_repo": true,
-    "semantic_failure_signature_hash": "75c9abb8ae518c9b548d35d40ec26af89d25c41dd4b6d8183d962c06e63b9a9f",
+    "selected_install_strategy": "editable_test_extra",
+    "semantic_failure_signature_hash": "d2654b4cbc4d720de32dd295b26680449091e18d116c38a42f4be926f90b648d",
     "target_test_present": true,
     "test_path_hint": "tests/test_pytest_rerunfailures.py",
     "workspace_path": "<runtime_workspace>/pytest_rerunfailures_subtest_errors",
     "workspace_path_redacted": true
   },
   {
-    "blocker": "metadata_probe_collection_failed",
+    "blocker": "metadata_probe_pre_patch_failure_not_reproduced",
     "checkout_attempted": true,
     "checkout_command_record": {
       "command": [
@@ -509,19 +878,19 @@
     "collection_attempted": true,
     "collection_command_record": {
       "command": [
-        "<python_executable>",
+        "<lead_workspace>_venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "tests/test_pytest_rerunfailures.py",
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "c655fffc072b2023417684e33af74636605dfb81d22ae2fed399a44edd54aae0",
-      "output_sha256": "8dc0827d6d9a8ae89d62a6d74c1f204b48fbe9909d803085041abb2a722929e5",
-      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py ______________\nImportError while importing test module '<lead_workspace>/tests/test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_pytest_rerunfailures.py:7: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ============================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!",
-      "returncode": 2
+      "normalized_output_sha256": "094a051877767199c3b51dea72840be33650d0238aecf6d18d4eeb1d7697d7cf",
+      "output_sha256": "d8e769e5a617a2e465e3d2814983449ac60829ecf1d8e9d957476a86e2eecd94",
+      "output_summary": "STDOUT:\ntests/test_pytest_rerunfailures.py::test_error_when_run_with_pdb\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_pass\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_skipif_mark\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_skip_call\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_mark\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_call\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xpass\ntests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_setup_failure\ntests/test_pytest_rerunfailures.py::test_rerun_passes_after_temporary_setup_failure\ntests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_test_failure\ntests/test_pytest_rerunfailures.py::test_rerun_passes_after_temporary_test_failure\ntests/test_pytest_re",
+      "returncode": 0
     },
-    "collection_status": "FAIL",
+    "collection_status": "PASS",
     "commit_hint": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
     "commit_resolve_command_record": {
       "command": [
@@ -543,21 +912,37 @@
       "setup.py",
       "tox.ini"
     ],
+    "environment_metadata": {
+      "declared_dependency_strings": [
+        "packaging>=17.1",
+        "pytest!=8.2.2,>=8.1"
+      ],
+      "environment_files": [
+        "pyproject.toml",
+        "setup.py",
+        "tox.ini"
+      ],
+      "optional_dependency_groups": [],
+      "requirements_files": []
+    },
+    "environment_resolution_attempted": true,
+    "environment_resolution_blocker": null,
+    "environment_resolution_status": "PASS",
     "failure_replay_attempted": true,
     "failure_replay_command_record": {
       "command": [
-        "<python_executable>",
+        "<lead_workspace>_venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "tests/test_pytest_rerunfailures.py",
         "-q"
       ],
-      "normalized_output_sha256": "5a5a0ee0495702bf1bfee40270686f0da8fd6a83b899af2d5ae9892f153fa92c",
-      "output_sha256": "c42ffb8887e47a3443a0aaa626ac666ee3cd8b40ed169f0746048602a3b78885",
-      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py ______________\nImportError while importing test module '<lead_workspace>/tests/test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_pytest_rerunfailures.py:7: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ============================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!",
-      "returncode": 2
+      "normalized_output_sha256": "e8d6bfe935944dc836e35615bc7b70ba4385f57ef7d5d9b0ba572fc65975b678",
+      "output_sha256": "90f00279887425c595705a21d2c6a80186379427f7cd4d31e0701d05e19a9bbb",
+      "output_summary": "STDOUT:\n.................s...................................................... [ 55%]\n.........................................................                [100%]\n128 passed, 1 skipped in 21.01s\n\nSTDERR:",
+      "returncode": 0
     },
-    "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+    "failure_replay_status": "PASSING_PRE_PATCH_NOT_A_FAILURE",
     "git_cat_file_command_record": {
       "command": [
         "git",
@@ -581,7 +966,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "a32f2d9e4729daa9cbdde1cba9c9085b777ee3d780a573e41efe9fc2557a719c",
+      "output_sha256": "face04c3057ae0ebdd9e7e684523f9c84679b0e3b87ea759d3cc039e59e55d8f",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -600,6 +985,71 @@
       "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/pytest-dev/pytest-rerunfailures\n * branch            d17f3be1c8cc257c29cd7d7e815d3c52867b1276 -> FETCH_HEAD",
       "returncode": 0
     },
+    "import_probe_attempted": true,
+    "import_probe_results": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-c",
+          "import pytest_rerunfailures"
+        ],
+        "module": "pytest_rerunfailures",
+        "normalized_output_sha256": "13c0b773ac924b2d8eec5c1d6c7dd134bf2339b7c3201b31f49cef38e7d6cb3b",
+        "output_sha256": "92a7d63aa02284782b9ac99f672a8cbd9dcfe3ff8014df42bc57a7aa2f127768",
+        "output_summary": "STDOUT:\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS"
+      }
+    ],
+    "import_probe_status": "PASS",
+    "install_log_hashes": [
+      {
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "strategy": "upgrade_build_tools"
+      },
+      {
+        "normalized_output_sha256": "2854c463181d536e21f6c236c4b0a838436fd3da476a35cfce581ca8db6bda1a",
+        "strategy": "editable_test_extra"
+      }
+    ],
+    "install_strategy_attempts": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-U",
+          "pip",
+          "setuptools",
+          "wheel"
+        ],
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "output_sha256": "23b8199ca13f9b844f02fd04c622e2885174180ece196d07efe5bf22c6c0c1b3",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "upgrade_build_tools",
+        "supported": true
+      },
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-e",
+          ".[test]"
+        ],
+        "normalized_output_sha256": "2854c463181d536e21f6c236c4b0a838436fd3da476a35cfce581ca8db6bda1a",
+        "output_sha256": "e543e6c4517d53ced8b98304c0fb46236a40ef8125c53c8ccff5f0c00bb5e0f4",
+        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: packaging>=17.1 in <lead_venv>\\Lib\\site-packages (from pytest-rerunfailures==16.3.dev0) (26.2)\nCollecting pytest!=8.2.2,>=8.1 (from pytest-rerunfailures==16.3.dev0)\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting colorama>=0.4 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.3.dev0)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=1.0.1 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.3.dev0)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting pluggy<2,>=1.5 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.3.dev0)\n  Using c",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "editable_test_extra",
+        "supported": true
+      }
+    ],
     "lead_id": "pytest_rerunfailures_reruns_mode",
     "lead_type": "commit_hint",
     "mode": "metadata_probe",
@@ -607,7 +1057,8 @@
     "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
     "resolved_commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
     "runtime_workspace_outside_live_repo": true,
-    "semantic_failure_signature_hash": "5a5a0ee0495702bf1bfee40270686f0da8fd6a83b899af2d5ae9892f153fa92c",
+    "selected_install_strategy": "editable_test_extra",
+    "semantic_failure_signature_hash": "e8d6bfe935944dc836e35615bc7b70ba4385f57ef7d5d9b0ba572fc65975b678",
     "target_test_present": true,
     "test_path_hint": "tests/test_pytest_rerunfailures.py",
     "workspace_path": "<runtime_workspace>/pytest_rerunfailures_reruns_mode",

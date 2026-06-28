@@ -57,10 +57,12 @@ v2.37 transitions ControllerGate from a sequence of one-purpose lanes toward a m
 
 ## Post-v2.37 Hardening
 
-Post-v2.37 hardening adds transport integrity, bounded exploration budget, context-boundary, environment-normalization, evidence-class separation, and risk-regulation gates.
+Post-v2.37 hardening adds transport integrity, bounded exploration budget, context-boundary, environment-normalization, evidence-class separation, risk regulation, clean artifact packaging, real-lead acquisition, and structured environment resolution gates.
 
 - Clean replication batch 002 keeps native and issue-derived counts separate.
-- Batch 002 blocks if no manually reviewed seed is present.
+- Batch 002 uses an explicit lead pool with 5 native-capable leads.
+- Batch 002 performs clone, commit resolution, checkout, environment resolution, collection, and replay probes.
+- Batch 002 has not produced an additional successful external repair.
 - BugsInPy remains globally blocked for active use.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `undemonstrated`.
@@ -68,4 +70,4 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 
 ## Safest next step
 
-Use the clean replication protocol with one manually reviewed external seed draft. Do not create another one-purpose candidate hunt lane unless a future prompt explicitly justifies it.
+Improve bounded source-only repair generation for replayed native candidates while preserving the clean replication protocol and current claim boundaries.

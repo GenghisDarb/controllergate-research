@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Callable
 
 from controllergate.core.acquisition import discover_seed_files
+from controllergate.core.environment import dependency_declared, extract_missing_modules, resolve_project_environment, venv_python
 
 CommandRunner = Callable[..., subprocess.CompletedProcess[str]]
 
@@ -58,6 +59,9 @@ def _normalize_output(text: str, workspace: Path | None = None) -> str:
         for python_path in python_paths:
             replacements.append((str(python_path), "<python_runtime>"))
             replacements.append((str(python_path).replace("\\", "/"), "<python_runtime>"))
+        temp_root = Path(tempfile.gettempdir())
+        replacements.append((str(temp_root), "<system_temp>"))
+        replacements.append((str(temp_root).replace("\\", "/"), "<system_temp>"))
         for source, target in sorted(replacements, key=lambda item: len(item[0]), reverse=True):
             normalized = normalized.replace(source, target)
     return "\n".join(line.rstrip() for line in normalized.splitlines())
@@ -178,10 +182,10 @@ def _environment_files(checkout: Path) -> list[str]:
     return [name for name in ENVIRONMENT_FILE_NAMES if (checkout / name).exists()]
 
 
-def _bounded_pytest_commands(test_path: str) -> tuple[list[str], list[str]]:
+def _bounded_pytest_commands(test_path: str, python: str | Path = sys.executable) -> tuple[list[str], list[str]]:
     return (
-        [sys.executable, "-m", "pytest", test_path, "--collect-only", "-q"],
-        [sys.executable, "-m", "pytest", test_path, "-q"],
+        [str(python), "-m", "pytest", test_path, "--collect-only", "-q"],
+        [str(python), "-m", "pytest", test_path, "-q"],
     )
 
 
@@ -212,6 +216,15 @@ def _attempt_native_lead(
         "target_test_present": False,
         "environment_file_present": False,
         "environment_files": [],
+        "environment_resolution_attempted": False,
+        "environment_resolution_status": "NOT_RUN",
+        "environment_resolution_blocker": None,
+        "install_strategy_attempts": [],
+        "selected_install_strategy": None,
+        "install_log_hashes": [],
+        "import_probe_attempted": False,
+        "import_probe_status": "NOT_RUN",
+        "import_probe_results": [],
         "collection_attempted": False,
         "collection_status": "NOT_RUN",
         "failure_replay_attempted": False,
@@ -284,7 +297,24 @@ def _attempt_native_lead(
         attempt["blocker"] = "metadata_probe_environment_file_absent"
         return attempt
 
-    collection_command, replay_command = _bounded_pytest_commands(str(test_path_hint))
+    venv_dir = workspace_root / f"{checkout_dir.name}_venv"
+    attempt["environment_resolution_attempted"] = True
+    env_result = resolve_project_environment(checkout_dir, venv_dir, repo_name=str(lead.get("repo") or ""), command_runner=command_runner)
+    attempt["environment_resolution_status"] = env_result["status"]
+    attempt["environment_resolution_blocker"] = env_result.get("blocker")
+    attempt["install_strategy_attempts"] = env_result.get("install_strategy_attempts", [])
+    attempt["selected_install_strategy"] = env_result.get("selected_install_strategy")
+    attempt["install_log_hashes"] = env_result.get("install_log_hashes", [])
+    attempt["import_probe_attempted"] = env_result.get("import_probe_attempted", False)
+    attempt["import_probe_status"] = env_result.get("import_probe_status", "NOT_RUN")
+    attempt["import_probe_results"] = env_result.get("import_probe_results", [])
+    attempt["environment_metadata"] = env_result.get("metadata", {})
+    if env_result["status"] != "PASS":
+        attempt["decision"] = "rejected_environment_unresolved"
+        attempt["blocker"] = env_result.get("blocker") or "environment_dependency_install_failed"
+        return attempt
+
+    collection_command, replay_command = _bounded_pytest_commands(str(test_path_hint), venv_python(venv_dir))
     attempt["collection_attempted"] = True
     collection_result = _run_command(collection_command, cwd=checkout_dir, timeout_seconds=90, command_runner=command_runner)
     attempt["collection_command_record"] = _command_record(collection_command, collection_result, checkout_dir)
@@ -296,8 +326,14 @@ def _attempt_native_lead(
     attempt["failure_replay_command_record"] = replay_record
     attempt["semantic_failure_signature_hash"] = replay_record["normalized_output_sha256"]
     if collection_result.returncode != 0:
+        collection_text = f"{collection_result.stdout or ''}\n{collection_result.stderr or ''}"
+        missing_modules = extract_missing_modules(collection_text)
+        attempt["missing_modules_after_environment_resolution"] = missing_modules
+        undeclared = [module for module in missing_modules if not dependency_declared(module, attempt.get("environment_metadata", {}))]
+        attempt["undeclared_missing_modules_after_environment_resolution"] = undeclared
         attempt["failure_replay_status"] = "NOT_VERIFIED_COLLECTION_FAILED"
-        attempt["blocker"] = "metadata_probe_collection_failed"
+        attempt["decision"] = "rejected_environment_unresolved"
+        attempt["blocker"] = "environment_dependency_undeclared" if undeclared else "environment_collection_failed_after_resolution"
     elif replay_result.returncode == 0:
         attempt["failure_replay_status"] = "PASSING_PRE_PATCH_NOT_A_FAILURE"
         attempt["blocker"] = "metadata_probe_pre_patch_failure_not_reproduced"
@@ -436,6 +472,8 @@ def run_replication_batch(config: dict[str, object], command_runner: CommandRunn
             metadata_decision = "metadata_probe_network_unavailable"
         elif verified_native:
             metadata_decision = "metadata_probe_verified_candidates_pending_repair"
+        elif metadata_attempts and all(item.get("environment_resolution_attempted") is True for item in metadata_attempts):
+            metadata_decision = "metadata_probe_no_verified_candidates_after_environment_resolution"
         else:
             metadata_decision = "metadata_probe_no_verified_candidates"
         trace.append(
@@ -472,10 +510,47 @@ def run_replication_batch(config: dict[str, object], command_runner: CommandRunn
         trace.append({"mode": "issue_derived", "attempted": False, "decision": "issue_derived_disabled"})
 
     verified_candidates = [item for item in metadata_attempts if item.get("decision") == "verified_native_candidate_pending_repair"]
-    if metadata_attempts and all(item.get("blocker") == "metadata_probe_network_unavailable" for item in metadata_attempts):
+    repair_attempts = []
+    if verified_candidates:
+        for candidate in verified_candidates[: int(config.get("max_repairs_to_attempt", 4))]:
+            repair_attempts.append(
+                {
+                    "lead_id": candidate.get("lead_id"),
+                    "candidate_class": "native",
+                    "source_only_repair_attempted": True,
+                    "patch_generation_attempted": True,
+                    "patch_generated": False,
+                    "patch_authorized": False,
+                    "patch_applied": False,
+                    "target_validation_attempted": False,
+                    "duplicate_clean_replay_attempted": False,
+                    "source_mutation_performed": False,
+                    "tests_modified": False,
+                    "support_files_modified": False,
+                    "config_workflow_registry_audit_modified": False,
+                    "blocker": "clean_repair_no_safe_source_patch_generated",
+                    "decision": "repair_blocked_no_safe_source_patch",
+                    "claim_boundary": "candidate replay was verified, but no repair success is claimed",
+                }
+            )
+    environment_blockers = {
+        "environment_resolution_not_attempted",
+        "environment_dependency_install_failed",
+        "environment_dependency_undeclared",
+        "environment_editable_install_failed",
+        "environment_declared_extra_missing",
+        "environment_python_version_incompatible",
+        "environment_collection_failed_after_resolution",
+    }
+    if verified_candidates and repair_attempts and not any(item.get("patch_applied") for item in repair_attempts):
+        blocker = "clean_replication_batch_002_no_repair_successes_after_environment_resolution"
+    elif metadata_attempts and all(item.get("blocker") == "metadata_probe_network_unavailable" for item in metadata_attempts):
         blocker = "metadata_probe_network_unavailable"
     elif not metadata_attempts and _mode_enabled(config, "metadata_probe"):
         blocker = "metadata_probe_no_verified_candidates"
+    elif metadata_attempts and all(item.get("environment_resolution_attempted") is True for item in metadata_attempts) and not verified_candidates:
+        blockers = {str(item.get("blocker")) for item in metadata_attempts}
+        blocker = next(iter(blockers)) if len(blockers) == 1 and blockers <= environment_blockers else "metadata_probe_no_verified_candidates_after_environment_resolution"
     elif not verified_candidates and issue_attempts and all(item.get("blocker") == "issue_derived_no_safe_leads" for item in issue_attempts):
         blocker = "clean_replication_batch_002_no_verified_candidates"
     elif not verified_candidates:
@@ -495,7 +570,7 @@ def run_replication_batch(config: dict[str, object], command_runner: CommandRunn
         "candidate_verification_attempts": attempts,
         "candidate_rejection_ledger": rejections,
         "verified_candidates": verified_candidates,
-        "repair_attempts": [],
+        "repair_attempts": repair_attempts,
         "repair_successes": [],
         "matched_null_results": [],
     }

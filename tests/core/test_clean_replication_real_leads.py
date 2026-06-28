@@ -5,7 +5,7 @@ import subprocess
 from pathlib import Path
 
 from controllergate.experiments.replication_batch import run_replication_batch
-from scripts.audit_post_v2_37_hardening_and_batch002 import audit_real_acquisition_records
+from scripts.audit_post_v2_37_hardening_and_batch002 import audit_environment_resolution_records, audit_real_acquisition_records
 
 
 def _run(command: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
@@ -14,9 +14,16 @@ def _run(command: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
 
 def _local_git_repo(tmp_path: Path) -> tuple[Path, str]:
     repo = tmp_path / "source_repo"
+    package_dir = repo / "src" / "local_lead"
     test_dir = repo / "tests"
     test_dir.mkdir(parents=True)
-    (repo / "pyproject.toml").write_text("[project]\nname = \"local-lead\"\nversion = \"0.0.0\"\n", encoding="utf-8", newline="\n")
+    package_dir.mkdir(parents=True)
+    (package_dir / "__init__.py").write_text("VALUE = 1\n", encoding="utf-8", newline="\n")
+    (repo / "pyproject.toml").write_text(
+        "[build-system]\nrequires = [\"setuptools\"]\nbuild-backend = \"setuptools.build_meta\"\n\n[project]\nname = \"local-lead\"\nversion = \"0.0.0\"\n\n[tool.setuptools.packages.find]\nwhere = [\"src\"]\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     (test_dir / "test_sample.py").write_text("def test_sample():\n    assert True\n", encoding="utf-8", newline="\n")
     _run(["git", "init"], repo)
     _run(["git", "add", "."], repo)
@@ -45,7 +52,7 @@ def test_non_empty_native_lead_pool_triggers_clone_checkout_and_replay(tmp_path)
                 "lead_id": "local_native_lead",
                 "lead_type": "commit_hint",
                 "notes": "lead only, not proof",
-                "repo": "local/repo",
+                "repo": "local/local_lead",
                 "repo_url": repo.resolve().as_uri(),
                 "test_path_hint": "tests/test_sample.py",
             }
@@ -70,6 +77,10 @@ def test_non_empty_native_lead_pool_triggers_clone_checkout_and_replay(tmp_path)
     assert attempt["checkout_attempted"] is True
     assert attempt["target_test_present"] is True
     assert attempt["environment_file_present"] is True
+    assert attempt["environment_resolution_attempted"] is True
+    assert attempt["environment_resolution_status"] == "PASS"
+    assert attempt["selected_install_strategy"] in {"editable_test_extra", "editable_tests_extra", "editable_dev_extra", "editable_project"}
+    assert attempt["import_probe_attempted"] is True
     assert attempt["collection_attempted"] is True
     assert attempt["failure_replay_attempted"] is True
     assert result["candidate_verification_attempts"][0]["lead_id"] == "local_native_lead"
@@ -100,6 +111,24 @@ def test_audit_fails_checkout_false_for_all_leads_without_specific_blocker():
 
     assert "metadata_probe clone passed but no checkout was attempted" in errors
     assert "metadata_probe checkout false for every lead without specific blockers" in errors
+
+
+def test_module_not_found_without_environment_resolution_fails_audit():
+    errors = audit_environment_resolution_records(
+        [
+            {
+                "lead_id": "real",
+                "environment_resolution_attempted": False,
+                "collection_attempted": True,
+                "collection_command_record": {"output_summary": "ModuleNotFoundError: No module named 'x'"},
+                "blocker": "metadata_probe_collection_failed",
+            }
+        ],
+        {"exact_blocker": "clean_replication_batch_002_no_verified_candidates"},
+    )
+
+    assert any("environment_resolution_not_attempted" in error for error in errors)
+    assert any("ModuleNotFoundError" in error for error in errors)
 
 
 def test_forbidden_py_bugger_lead_is_rejected(tmp_path):

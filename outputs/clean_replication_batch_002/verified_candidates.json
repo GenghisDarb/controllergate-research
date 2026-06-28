@@ -1,1 +1,442 @@
-[]
+[
+  {
+    "blocker": null,
+    "checkout_attempted": true,
+    "checkout_command_record": {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "6f9ae29512433d960be38f3bfffc23c848691d6f"
+      ],
+      "normalized_output_sha256": "5913bb560160dd91668634baaf5cde4c98e9d1078c3eb12f86eef975171962ac",
+      "output_sha256": "7f42d93645558fcc6d413cd60606cd53057e5414d8ce2347ed233c6441a13f01",
+      "output_summary": "STDOUT:\n\nSTDERR:\nHEAD is now at 6f9ae29 test: failing test for dropping changes for a non-ascii file",
+      "returncode": 0
+    },
+    "checkout_status": "PASS",
+    "collection_attempted": true,
+    "collection_command_record": {
+      "command": [
+        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+        "--collect-only",
+        "-q"
+      ],
+      "normalized_output_sha256": "b66f6e48bf9a9e63f1b2651749296f10fd285b562f4a32af82e7b6ee59bd9263",
+      "output_sha256": "7127d15e3c9916f00759ca07613c78ecb2de75c6fda07c33e82f51917b2330c4",
+      "output_summary": "STDOUT:\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content0-new_chunks0]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content1-new_chunks1]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content2-new_chunks2]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content3-new_chunks3]\n\n4 tests collected in 0.81s\n\nSTDERR:",
+      "returncode": 0
+    },
+    "collection_status": "PASS",
+    "commit_hint": "6f9ae29512433d960be38f3bfffc23c848691d6f",
+    "commit_resolve_command_record": {
+      "command": [
+        "git",
+        "rev-parse",
+        "--verify",
+        "6f9ae29512433d960be38f3bfffc23c848691d6f^{commit}"
+      ],
+      "normalized_output_sha256": "3cb7570ebec0a18a1629f6307826b1e571dfe9664ba02faf2276b9064ee73121",
+      "output_sha256": "0f1161e40a87cdb2b3a9605c42b7c24626ad7a9712ed3c6440831bd0922a2393",
+      "output_summary": "STDOUT:\n6f9ae29512433d960be38f3bfffc23c848691d6f\n\nSTDERR:",
+      "returncode": 0
+    },
+    "commit_resolved": true,
+    "decision": "verified_native_candidate_pending_repair",
+    "environment_file_present": true,
+    "environment_files": [
+      "pyproject.toml",
+      "setup.py",
+      "setup.cfg"
+    ],
+    "environment_metadata": {
+      "declared_dependency_strings": [
+        "darkgraylib~=2.1.0",
+        "toml>=0.10.0",
+        "typing_extensions>=4.0.1"
+      ],
+      "environment_files": [
+        "pyproject.toml",
+        "setup.cfg",
+        "setup.py",
+        "pytest.ini"
+      ],
+      "optional_dependency_groups": [
+        "black",
+        "color",
+        "flynt",
+        "isort",
+        "release",
+        "test"
+      ],
+      "requirements_files": []
+    },
+    "environment_resolution_attempted": true,
+    "environment_resolution_blocker": null,
+    "environment_resolution_status": "PASS",
+    "failure_replay_attempted": true,
+    "failure_replay_command_record": {
+      "command": [
+        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+        "-q"
+      ],
+      "normalized_output_sha256": "2df45b73c19945873b49a69429e4bbc05daf76dcd7b8ed9173d0858198740698",
+      "output_sha256": "c16aaf59a516eb0e20b363c0a1c64ffe408d9a43f8323fdcf6af18e45f170453",
+      "output_summary": "STDOUT:\n...F                                                                     [100%]\n================================== FAILURES ===================================\n________________ test_unchanged_content[content3-new_chunks3] _________________\n\ntmp_path = WindowsPath('<system_temp>/pytest-of-thisb/pytest-185/test_unchanged_content_content3')\ncontent = TextDocument([3 lines], encoding='iso-8859-5')\nnew_chunks = [(1, ('# coding: iso-8859-5', '# \\u0431\\\\x85\\u0431\\\\x86'), ('# coding: iso-8859-5', '# \\u0431\\\\x85\\u0431\\\\x86'))]\n\n    @pytest.mark.kwparametrize(\n        dict(\n            content=TextDocument(\"s =  'reformat'\\n\"),\n            new_chunks=[(1, (\"s =  'reformat'\",), ('s = \"reformat\"',))],\n        ),\n        dict(\n            content=TextDocument('s = \"keep\"\\n'),\n            new_ch",
+      "returncode": 1
+    },
+    "failure_replay_status": "PRE_PATCH_FAILURE_OBSERVED",
+    "git_cat_file_command_record": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "6f9ae29512433d960be38f3bfffc23c848691d6f"
+      ],
+      "normalized_output_sha256": "f2edc008cdb732c99eaeefd951eee661793a7c41d03d16c82b15f3b4877fbcaf",
+      "output_sha256": "cde684c872688d84803d7b0e99dcdf9ec1ff9e04bde765e995f48802861901f7",
+      "output_summary": "STDOUT:\ncommit\n\nSTDERR:",
+      "returncode": 0
+    },
+    "git_clone_attempted": true,
+    "git_clone_command_record": {
+      "command": [
+        "git",
+        "clone",
+        "--no-checkout",
+        "--filter=blob:none",
+        "https://github.com/akaihola/darker",
+        "<lead_workspace>"
+      ],
+      "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
+      "output_sha256": "f9d8691b1078f71660fb9355b97300b443c22b6534688020f75b3c33a0b6685e",
+      "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
+      "returncode": 0
+    },
+    "git_clone_status": "PASS",
+    "git_fetch_command_record": {
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "6f9ae29512433d960be38f3bfffc23c848691d6f"
+      ],
+      "normalized_output_sha256": "ffe488c7d624195a770159915b7b93ac35eaf20258dbb285c7609b97d9c359cd",
+      "output_sha256": "2349fd0fb5197bb19c0a4a0651aa3996c3b039759eaa04ed347e39d82ce337b6",
+      "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/akaihola/darker\n * branch            6f9ae29512433d960be38f3bfffc23c848691d6f -> FETCH_HEAD",
+      "returncode": 0
+    },
+    "import_probe_attempted": true,
+    "import_probe_results": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-c",
+          "import darker"
+        ],
+        "module": "darker",
+        "normalized_output_sha256": "13c0b773ac924b2d8eec5c1d6c7dd134bf2339b7c3201b31f49cef38e7d6cb3b",
+        "output_sha256": "92a7d63aa02284782b9ac99f672a8cbd9dcfe3ff8014df42bc57a7aa2f127768",
+        "output_summary": "STDOUT:\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS"
+      }
+    ],
+    "import_probe_status": "PASS",
+    "install_log_hashes": [
+      {
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "strategy": "upgrade_build_tools"
+      },
+      {
+        "normalized_output_sha256": "b1b914919ded0b7bb84a880e2ed6cfdaf070b56f1ca9383c87f25b8074e6eca2",
+        "strategy": "editable_test_extra"
+      }
+    ],
+    "install_strategy_attempts": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-U",
+          "pip",
+          "setuptools",
+          "wheel"
+        ],
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "output_sha256": "667aaf06a283b752bc122ae828b5162d8a56b1d34d660d56fd48ead8a4877112",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "upgrade_build_tools",
+        "supported": true
+      },
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-e",
+          ".[test]"
+        ],
+        "normalized_output_sha256": "b1b914919ded0b7bb84a880e2ed6cfdaf070b56f1ca9383c87f25b8074e6eca2",
+        "output_sha256": "5c6300ec5880a1985807ad2491cac08ed8dc9fee1d1e3bfaf13109b463c94a60",
+        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting darkgraylib~=2.1.0 (from darker==2.1.1)\n  Using cached darkgraylib-2.1.0-py3-none-any.whl.metadata (4.7 kB)\nCollecting toml>=0.10.0 (from darker==2.1.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting typing_extensions>=4.0.1 (from darker==2.1.1)\n  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\nCollecting black>=22.3.0 (from darker==2.1.1)\n  Using cached black-26.5.1-cp313-cp313-win_amd64.whl.metadata (95 kB)\nCollecting cryptography>=3.3.2 (from darker==2.1.1)\n  Using cached cryptography-49.0.0-cp311-abi3-win_amd64.whl.metadata (4.3 kB)\nCollecting defusedxml>=0.7.1 (from darker==2.1.1)\n  ",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "editable_test_extra",
+        "supported": true
+      }
+    ],
+    "lead_id": "darker_non_ascii_drop_changes",
+    "lead_type": "commit_hint",
+    "mode": "metadata_probe",
+    "repo": "akaihola/darker",
+    "repo_url": "https://github.com/akaihola/darker",
+    "resolved_commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
+    "runtime_workspace_outside_live_repo": true,
+    "selected_install_strategy": "editable_test_extra",
+    "semantic_failure_signature_hash": "2df45b73c19945873b49a69429e4bbc05daf76dcd7b8ed9173d0858198740698",
+    "target_test_present": true,
+    "test_path_hint": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+    "workspace_path": "<runtime_workspace>/darker_non_ascii_drop_changes",
+    "workspace_path_redacted": true
+  },
+  {
+    "blocker": null,
+    "checkout_attempted": true,
+    "checkout_command_record": {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "6ecafca023a354fe7d9539d1d20bf10391bdb24a"
+      ],
+      "normalized_output_sha256": "abc433d3ebf7cc55edf3bcf7d07bcebbf4a228bcdd7d074766867d21b8cbc1d3",
+      "output_sha256": "ec590fe501626baf841ddb880795a15e0be1fad94e5a589984d0802d92e89b0e",
+      "output_summary": "STDOUT:\n\nSTDERR:\nHEAD is now at 6ecafca Failing test for `--stdin-filename=<path> -`",
+      "returncode": 0
+    },
+    "checkout_status": "PASS",
+    "collection_attempted": true,
+    "collection_command_record": {
+      "command": [
+        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_stdin_filename.py",
+        "--collect-only",
+        "-q"
+      ],
+      "normalized_output_sha256": "590193e35f53a80de516cebda1680f1488f43cc7d01c3a172c2198e2bc432802",
+      "output_sha256": "bc006d260cf42e6d2580525adb4cc5f0079af571d50d79c85b640ed1130ebc8d",
+      "output_summary": "STDOUT:\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[None-src0-None-None-expect0-original\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src2-src2-None-None-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src3-src3-stdin_filename3-None-expect3-original\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src4-src4-None-..:STDIN:-0-modified = \"stdin\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_",
+      "returncode": 0
+    },
+    "collection_status": "PASS",
+    "commit_hint": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
+    "commit_resolve_command_record": {
+      "command": [
+        "git",
+        "rev-parse",
+        "--verify",
+        "6ecafca023a354fe7d9539d1d20bf10391bdb24a^{commit}"
+      ],
+      "normalized_output_sha256": "13b2ec6eb46e1d8e8988fc224a7f1b6f847963ae5e98ca11e95d8c09cd4c9a1e",
+      "output_sha256": "60ae3cdecf94685dbbede46ea3bffac582cb00c127d9055e46c26ce53d6602da",
+      "output_summary": "STDOUT:\n6ecafca023a354fe7d9539d1d20bf10391bdb24a\n\nSTDERR:",
+      "returncode": 0
+    },
+    "commit_resolved": true,
+    "decision": "verified_native_candidate_pending_repair",
+    "environment_file_present": true,
+    "environment_files": [
+      "pyproject.toml",
+      "setup.py",
+      "setup.cfg"
+    ],
+    "environment_metadata": {
+      "declared_dependency_strings": [
+        "black>=21.5b1",
+        "toml>=0.10.0",
+        "typing-extensions ; python_version < \"3.8\""
+      ],
+      "environment_files": [
+        "pyproject.toml",
+        "setup.cfg",
+        "setup.py",
+        "pytest.ini"
+      ],
+      "optional_dependency_groups": [
+        "color",
+        "flynt",
+        "isort",
+        "release",
+        "test"
+      ],
+      "requirements_files": []
+    },
+    "environment_resolution_attempted": true,
+    "environment_resolution_blocker": null,
+    "environment_resolution_status": "PASS",
+    "failure_replay_attempted": true,
+    "failure_replay_command_record": {
+      "command": [
+        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_stdin_filename.py",
+        "-q"
+      ],
+      "normalized_output_sha256": "23b43535bf90da7aefdf73d0d5e191e21bdb7fddbb7e9c2a836a3394206d71dd",
+      "output_sha256": "af246e66512afe1a11c92096809027b513244939b6a1fda9c0d12a866ff3ac8f",
+      "output_summary": "STDOUT:\n...................FF...                                                 [100%]\n================================== FAILURES ===================================\n____ test_main_stdin_filename[None-src19-a.py-None-0-modified = \"stdin\"\\n] ____\n\ngit_repo = <darker.tests.conftest.GitRepoFixture object at 0x000001DCB30B2710>\nconfig_src = None, src = ['-'], stdin_filename = 'a.py', revision = None\nexpect = 0, expect_a_py = 'modified = \"stdin\"\\n'\n\n    @pytest.mark.kwparametrize(\n        dict(expect=SystemExit(2)),\n        dict(config_src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(config_src=[\"b.py\"], src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(\n            config_src=[\"b.py\"],\n            stdin_filename=[\"a.py\"],\n            expect=Config",
+      "returncode": 1
+    },
+    "failure_replay_status": "PRE_PATCH_FAILURE_OBSERVED",
+    "git_cat_file_command_record": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "6ecafca023a354fe7d9539d1d20bf10391bdb24a"
+      ],
+      "normalized_output_sha256": "f2edc008cdb732c99eaeefd951eee661793a7c41d03d16c82b15f3b4877fbcaf",
+      "output_sha256": "cde684c872688d84803d7b0e99dcdf9ec1ff9e04bde765e995f48802861901f7",
+      "output_summary": "STDOUT:\ncommit\n\nSTDERR:",
+      "returncode": 0
+    },
+    "git_clone_attempted": true,
+    "git_clone_command_record": {
+      "command": [
+        "git",
+        "clone",
+        "--no-checkout",
+        "--filter=blob:none",
+        "https://github.com/akaihola/darker",
+        "<lead_workspace>"
+      ],
+      "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
+      "output_sha256": "afcd9eda9b2b90ee994297b75a32a2d7df1c22e0414c313053c254e16debaa5a",
+      "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
+      "returncode": 0
+    },
+    "git_clone_status": "PASS",
+    "git_fetch_command_record": {
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "6ecafca023a354fe7d9539d1d20bf10391bdb24a"
+      ],
+      "normalized_output_sha256": "5d6206085a101169b615131f03d2ce4a7c643a96486becc97fa0793b5e03cdba",
+      "output_sha256": "00e4f0ff51598354f73b2ccc9cbc92bff3701f8d0785ce8b186e3b73b949354a",
+      "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/akaihola/darker\n * branch            6ecafca023a354fe7d9539d1d20bf10391bdb24a -> FETCH_HEAD",
+      "returncode": 0
+    },
+    "import_probe_attempted": true,
+    "import_probe_results": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-c",
+          "import darker"
+        ],
+        "module": "darker",
+        "normalized_output_sha256": "13c0b773ac924b2d8eec5c1d6c7dd134bf2339b7c3201b31f49cef38e7d6cb3b",
+        "output_sha256": "92a7d63aa02284782b9ac99f672a8cbd9dcfe3ff8014df42bc57a7aa2f127768",
+        "output_summary": "STDOUT:\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS"
+      },
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-c",
+          "import release_tools"
+        ],
+        "module": "release_tools",
+        "normalized_output_sha256": "13c0b773ac924b2d8eec5c1d6c7dd134bf2339b7c3201b31f49cef38e7d6cb3b",
+        "output_sha256": "92a7d63aa02284782b9ac99f672a8cbd9dcfe3ff8014df42bc57a7aa2f127768",
+        "output_summary": "STDOUT:\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS"
+      }
+    ],
+    "import_probe_status": "PASS",
+    "install_log_hashes": [
+      {
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "strategy": "upgrade_build_tools"
+      },
+      {
+        "normalized_output_sha256": "a74c11260ceac1cff19c7f0a98209a44026d852a9aa84d175fe090534ff2c943",
+        "strategy": "editable_test_extra"
+      }
+    ],
+    "install_strategy_attempts": [
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-U",
+          "pip",
+          "setuptools",
+          "wheel"
+        ],
+        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "output_sha256": "46289d5f5503e2db9abe1cd3beb163b513e60b2bbbcefcbba03d7a374e3d10db",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "upgrade_build_tools",
+        "supported": true
+      },
+      {
+        "command": [
+          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-e",
+          ".[test]"
+        ],
+        "normalized_output_sha256": "a74c11260ceac1cff19c7f0a98209a44026d852a9aa84d175fe090534ff2c943",
+        "output_sha256": "702378b79dc2dcd552c99f08d19bd4f23bb365bb581577e90d84bd3c9fd0f4e5",
+        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting black>=21.5b1 (from darker==1.7.1)\n  Using cached black-26.5.1-cp313-cp313-win_amd64.whl.metadata (95 kB)\nCollecting toml>=0.10.0 (from darker==1.7.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting airium>=0.2.3 (from darker==1.7.1)\n  Using cached airium-0.2.7-py3-none-any.whl.metadata (16 kB)\nCollecting cryptography>=3.3.2 (from darker==1.7.1)\n  Using cached cryptography-49.0.0-cp311-abi3-win_amd64.whl.metadata (4.3 kB)\nCollecting defusedxml>=0.7.1 (from darker==1.7.1)\n  Using cached defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)\nCollecting flynt<0.78,>=0.76 (from darker==1.7.1)\n  Using cached flynt-0.77",
+        "returncode": 0,
+        "status": "PASS",
+        "strategy": "editable_test_extra",
+        "supported": true
+      }
+    ],
+    "lead_id": "darker_stdin_filename",
+    "lead_type": "commit_hint",
+    "mode": "metadata_probe",
+    "repo": "akaihola/darker",
+    "repo_url": "https://github.com/akaihola/darker",
+    "resolved_commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
+    "runtime_workspace_outside_live_repo": true,
+    "selected_install_strategy": "editable_test_extra",
+    "semantic_failure_signature_hash": "23b43535bf90da7aefdf73d0d5e191e21bdb7fddbb7e9c2a836a3394206d71dd",
+    "target_test_present": true,
+    "test_path_hint": "src/darker/tests/test_main_stdin_filename.py",
+    "workspace_path": "<runtime_workspace>/darker_stdin_filename",
+    "workspace_path_redacted": true
+  }
+]

@@ -17,6 +17,8 @@ class CleanReplicationConfig:
     provenance_level: str = "strict"
     evidence_class: str = "native"
     matched_null_required: bool = False
+    environment_resolution_required: bool = True
+    max_environment_resolution_seconds_per_lead: int = 900
     full_scoring: bool = False
 
 
@@ -28,6 +30,8 @@ def validate_clean_replication_config(config: dict[str, object]) -> dict[str, ob
     lead_pool_path = config.get("lead_pool_path")
     ok = (
         config.get("full_scoring") is False
+        and config.get("environment_resolution_required", True) is True
+        and int(config.get("max_environment_resolution_seconds_per_lead", 0)) <= 900
         and (lead_pool_path is None or isinstance(lead_pool_path, str))
         and int(config.get("max_candidates_to_verify", 0)) <= 4
         and int(config.get("max_candidate_verification_attempts", 0)) <= 20

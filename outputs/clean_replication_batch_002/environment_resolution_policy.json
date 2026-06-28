@@ -1,0 +1,25 @@
+{
+  "blockers": [
+    "environment_resolution_not_attempted",
+    "environment_dependency_install_failed",
+    "environment_dependency_undeclared",
+    "environment_editable_install_failed",
+    "environment_declared_extra_missing",
+    "environment_python_version_incompatible",
+    "environment_collection_failed_after_resolution"
+  ],
+  "build_tool_upgrade_command": "python -m pip install -U pip setuptools wheel",
+  "install_strategy_order": [
+    "python -m pip install -e .[test]",
+    "python -m pip install -e .[tests]",
+    "python -m pip install -e .[dev]",
+    "python -m pip install -e .",
+    "project-declared requirements files",
+    "baseline pytest tooling only when no declared test path exists"
+  ],
+  "runtime_workspace_outside_onedrive_required": true,
+  "runtime_workspace_outside_repo_required": true,
+  "status": "PASS",
+  "undeclared_arbitrary_dependency_install_allowed": false,
+  "venv_required": true
+}

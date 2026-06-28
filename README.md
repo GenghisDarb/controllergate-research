@@ -1,53 +1,35 @@
 # ControllerGate
 
-ControllerGate is a provenance-first software repair research harness. It focuses on byte custody, artifact verification, candidate provenance, replay discipline, source-only patch safety, and explicit claim boundaries.
+ControllerGate is a provenance-first software repair research harness. It is built around artifact byte custody, candidate provenance, replay discipline, source-only repair safety, registry validation, and explicit claim boundaries.
 
 Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 
-## Current protocol
+## Current status
 
-The current protocol remains `v2.13` / `minimal_forensic_context_lane`.
-
-- Current config: `configs/controllergate_current.yaml`
-- Current summary: `outputs/current/current_protocol_summary.json`
-- Current protocol docs: `docs/current_protocol.md`
-
-Historical versioned lanes are preserved as evidence history. They are not the current interface for new work.
-
-## Current evidence boundary
-
-- One confirmed external non-Ansible repair episode is recorded so far.
-- Full scoring remains `NOT_RUN` / disallowed.
-- Memory lift is not demonstrated on external real bugs.
+- Current protocol remains `v2.13` / `minimal_forensic_context_lane`.
+- One confirmed external non-Ansible repair episode is recorded so far: `py_bugger_issue_65`.
+- ControllerGate has strong artifact custody, registry validation, claim-boundary enforcement, transport integrity checks, clean-replication scaffolding, artifact hygiene, and real-lead acquisition attempts.
+- v2.37 and post-v2.37 work introduced shared core gates, reusable workflow scaffolding, transport integrity, risk regulation, a clean protocol adapter, and native/issue-derived evidence class separation.
+- Clean replication batch002 now attempts real external leads. The current blocker is environment resolution and no successful additional repair.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift on external real bugs is not demonstrated.
 - Self-maintaining software is not demonstrated.
-- Public technical-validation readiness is not claimed.
+- BugsInPy remains globally blocked except for future byte-identical exception research.
+- This repository is currently suitable as a pre-alpha research archive, not a technical validation release.
 
-## v2.37 transition
+## What ControllerGate can do now
 
-v2.37 introduces a maintained framework layer:
+- Verify manually supplied workflow artifacts before ingesting output evidence.
+- Preserve byte-level manifests and detect manifest drift.
+- Validate the external candidate registry and repair episode registry.
+- Separate native repair evidence, issue-derived evidence, diagnostic evidence, documentation evidence, and infrastructure evidence.
+- Run the current protocol audit and dry-run without promoting later lanes to current.
+- Run clean replication acquisition over explicit external leads.
+- Create isolated candidate workspaces and attempt structured environment resolution before collection and replay.
 
-- shared core gate helpers under `controllergate/core/`,
-- unit tests under `tests/core/`,
-- a reusable workflow at `.github/workflows/controllergate_reusable_lane.yml`,
-- a clean replication protocol adapter,
-- a consolidated state-file format,
-- public documentation for architecture, claims, replication, and readiness.
+## Current limits
 
-The clean replication batch target is to support future attempts at 2–4 additional external repair episodes without creating a new one-purpose lane for every blocker. If no manually reviewed seed drafts are present, the batch blocks honestly instead of fabricating candidates.
-
-## Post-v2.37 hardening
-
-Post-v2.37 hardening adds transport integrity, bounded exploration budget, context-boundary, environment-normalization, evidence-class separation, and risk-regulation gates for future clean replication work. Clean replication batch 002 keeps native and issue-derived counts separate and blocks honestly if no manually reviewed seed is present.
-
-This hardening does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
-
-## v2.36 resolved-commit replay and candidate admission status
-
-v2.36 is officially ingested as a blocked candidate-admission lane. It verified the prior artifact boundary, preserved the current protocol at v2.13, attempted the allowed candidate-admission path, and blocked with `blocked_no_native_or_issue_derived_candidate2_seed_acquired`.
-
-## v2.35 automated candidate #2 acquisition status
-
-v2.35 is preserved as historical acquisition evidence. It did not acquire a verified second candidate, did not run full scoring, did not demonstrate memory lift, and did not change the current protocol.
+ControllerGate does not currently claim autonomous repair, full benchmark scoring, memory-lift evidence, self-maintaining software, or technical validation readiness. Issue-derived harnesses do not count as native external repairs. Historical lanes remain auditable evidence, but new replication work should use the clean replication protocol and reusable workflow where possible.
 
 ## Basic local checks
 
@@ -61,13 +43,15 @@ python scripts/controllergate_run.py --protocol current --dry-run
 
 ## Manual artifact boundary
 
-Workflow artifacts are ingested only after manual download and local ZIP verification. The repository records local artifact identity and ingests non-archive outputs only. Codex must not bless an artifact it fetched for itself.
+Workflow artifacts are ingested only after manual download and local ZIP verification. The repository records local artifact identity and ingests non-archive output files only. Codex must not bless an artifact it fetched for itself.
 
 ## Documentation
 
-- Architecture: `docs/architecture.md`
-- Getting started: `docs/getting_started.md`
+- Current status: `docs/current_status.md`
+- Capability inventory: `docs/capability_inventory.md`
+- Evidence model: `docs/evidence_model.md`
 - Claim boundaries: `docs/claim_boundaries.md`
-- Clean replication protocol: `docs/replication_protocol.md`
-- Consolidated state format: `docs/consolidated_state_format.md`
+- Replication protocol: `docs/replication_protocol.md`
 - Public readiness: `docs/public_release_readiness.md`
+- Technical validation gap report: `docs/technical_validation_gap_report.md`
+- Operational gate matrix: `docs/operational_gate_matrix.md`

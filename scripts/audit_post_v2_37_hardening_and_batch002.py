@@ -12,7 +12,7 @@ from controllergate.core.artifact_hygiene import audit_artifact_payload
 
 POST_DIR = Path("outputs/post_v2_37_hardening_001")
 BATCH_DIR = Path("outputs/clean_replication_batch_002")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_real_leads")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_environment_resolution")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -21,8 +21,14 @@ POST_REQUIRED = [
     "batch002_mixed_mode_failure_diagnosis.json",
     "corrected_batch002_artifact_verification.json",
     "batch002_real_acquisition_gap_diagnosis.json",
+    "real_leads_artifact_verification.json",
+    "batch002_environment_resolution_gap_diagnosis.json",
     "artifact_packaging_correction_report.json",
     "artifact_payload_manifest_report.json",
+    "readme_status_update_report.json",
+    "public_docs_accuracy_audit.json",
+    "operational_gate_matrix_status.json",
+    "public_language_audit_expanded.json",
     "workspace_transport_integrity_log.json",
     "transport_boundary_audit.json",
     "homeostasis_risk_policy.json",
@@ -57,6 +63,10 @@ BATCH_REQUIRED = [
     "curated_seed_intake_report.json",
     "metadata_probe_attempts.json",
     "issue_derived_attempts.json",
+    "environment_resolution_attempts.json",
+    "environment_resolution_policy.json",
+    "environment_failure_classification.json",
+    "dependency_install_logs_manifest.json",
     "candidate_verification_attempts.json",
     "candidate_rejection_ledger.json",
     "verified_candidates.json",
@@ -156,20 +166,72 @@ def audit_real_acquisition_records(
         "clean_replication_batch_002_lead_pool_empty",
         "metadata_probe_network_unavailable",
         "metadata_probe_no_verified_candidates",
+        "metadata_probe_no_verified_candidates_after_environment_resolution",
+        "clean_replication_batch_002_no_repair_successes_after_environment_resolution",
         "issue_derived_no_safe_leads",
         "clean_replication_batch_002_no_verified_candidates",
+        "environment_dependency_install_failed",
+        "environment_dependency_undeclared",
+        "environment_editable_install_failed",
+        "environment_declared_extra_missing",
+        "environment_python_version_incompatible",
+        "environment_collection_failed_after_resolution",
+        "clean_replication_batch_002_no_repair_successes_after_environment_resolution",
     }
     if batch.get("exact_blocker") not in allowed_blockers:
         errors.append(f"unexpected batch002 blocker: {batch.get('exact_blocker')}")
     return errors
 
 
+def audit_environment_resolution_records(metadata_attempts: list[dict[str, object]], batch: dict[str, object]) -> list[str]:
+    errors: list[str] = []
+    real_metadata = [item for item in metadata_attempts if item.get("lead_id")]
+    for item in real_metadata:
+        if item.get("environment_resolution_attempted") is not True:
+            errors.append(f"{item.get('lead_id')}: environment_resolution_not_attempted")
+        if item.get("environment_resolution_attempted") is True and not item.get("install_strategy_attempts"):
+            errors.append(f"{item.get('lead_id')}: install strategy attempts missing")
+        if item.get("environment_resolution_attempted") is True and item.get("import_probe_attempted") is not True:
+            errors.append(f"{item.get('lead_id')}: import probe not recorded")
+        if item.get("collection_attempted") is True and item.get("environment_resolution_attempted") is not True:
+            errors.append(f"{item.get('lead_id')}: collection occurred before environment resolution")
+        text = json.dumps(item, sort_keys=True)
+        if ("ModuleNotFoundError" in text or "No module named" in text) and item.get("environment_resolution_attempted") is not True:
+            errors.append(f"{item.get('lead_id')}: ModuleNotFoundError accepted without environment resolution")
+        if str(item.get("blocker", "")).startswith("metadata_probe_collection_failed"):
+            errors.append(f"{item.get('lead_id')}: old collection blocker used after environment resolution")
+        if item.get("environment_resolution_attempted") is True and item.get("blocker") == "metadata_probe_collection_failed":
+            errors.append(f"{item.get('lead_id')}: candidate/environment failure not separated")
+    allowed_after_environment = {
+        "metadata_probe_no_verified_candidates_after_environment_resolution",
+        "environment_dependency_install_failed",
+        "environment_dependency_undeclared",
+        "environment_editable_install_failed",
+        "environment_declared_extra_missing",
+        "environment_python_version_incompatible",
+        "environment_collection_failed_after_resolution",
+        "metadata_probe_network_unavailable",
+        "clean_replication_batch_002_no_verified_candidates",
+        "clean_replication_batch_002_no_repair_successes_after_environment_resolution",
+    }
+    if real_metadata and all(item.get("environment_resolution_attempted") is True for item in real_metadata):
+        if batch.get("exact_blocker") not in allowed_after_environment:
+            errors.append(f"batch blocker does not reflect environment-aware acquisition: {batch.get('exact_blocker')}")
+    return errors
+
+
 def public_language_hits() -> list[str]:
     paths = [
         Path("README.md"),
-        Path("docs/bugsinpy_byte_identical_exception_research_note.md"),
-        Path("docs/operational_gate_completion_roadmap.md"),
-        Path("docs/roadmap_to_v3.md"),
+        Path("docs/current_status.md"),
+        Path("docs/capability_inventory.md"),
+        Path("docs/claim_boundaries.md"),
+        Path("docs/public_release_readiness.md"),
+        Path("docs/technical_validation_gap_report.md"),
+        Path("docs/replication_protocol.md"),
+        Path("docs/evidence_model.md"),
+        Path("docs/operational_gate_matrix.md"),
+        Path("configs/operational_gate_matrix.json"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
@@ -237,6 +299,18 @@ def main() -> int:
     manifest_report = read_json(POST_DIR / "artifact_payload_manifest_report.json")
     if manifest_report.get("status") != "PASS" or manifest_report.get("cache_payload_count") != 0:
         return fail("artifact payload manifest report invalid")
+    readme_report = read_json(POST_DIR / "readme_status_update_report.json")
+    docs_report = read_json(POST_DIR / "public_docs_accuracy_audit.json")
+    matrix_status = read_json(POST_DIR / "operational_gate_matrix_status.json")
+    language_expanded = read_json(POST_DIR / "public_language_audit_expanded.json")
+    if readme_report.get("status") != "PASS":
+        return fail("README status update report failed")
+    if docs_report.get("status") != "PASS":
+        return fail("public docs accuracy audit failed")
+    if matrix_status.get("status") != "PASS" or int(matrix_status.get("gate_count", 0)) < 26:
+        return fail("operational gate matrix status failed")
+    if language_expanded.get("status") != "PASS":
+        return fail("expanded public language audit failed")
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     if payload_audit["status"] != "PASS":
         return fail(f"artifact payload hygiene failed: {payload_audit}")
@@ -264,11 +338,35 @@ def main() -> int:
     real_acquisition_errors = audit_real_acquisition_records(load_lead_pool(), metadata_attempts, issue_attempts, attempts, batch)
     if real_acquisition_errors:
         return fail(f"real acquisition audit failed: {real_acquisition_errors}")
+    env_attempts = read_json(BATCH_DIR / "environment_resolution_attempts.json")
+    env_policy = read_json(BATCH_DIR / "environment_resolution_policy.json")
+    env_classification = read_json(BATCH_DIR / "environment_failure_classification.json")
+    install_manifest = read_json(BATCH_DIR / "dependency_install_logs_manifest.json")
+    if env_policy.get("status") != "PASS" or env_policy.get("undeclared_arbitrary_dependency_install_allowed") is not False:
+        return fail("environment resolution policy invalid")
+    if not isinstance(env_attempts, list) or len(env_attempts) != len(metadata_attempts):
+        return fail("environment resolution attempts do not align with metadata attempts")
+    if not isinstance(env_classification, list) or not isinstance(install_manifest, list):
+        return fail("environment classification or install log manifest invalid")
+    environment_errors = audit_environment_resolution_records(metadata_attempts, batch)
+    if environment_errors:
+        return fail(f"environment resolution audit failed: {environment_errors}")
+    repair_attempts = read_json(BATCH_DIR / "repair_attempts.json")
+    verified_native_count = int(batch.get("native_candidates_verified_count", 0))
+    if verified_native_count and (not isinstance(repair_attempts, list) or not repair_attempts):
+        return fail("verified native candidates require recorded clean repair attempts")
+    if isinstance(repair_attempts, list):
+        for item in repair_attempts:
+            if item.get("source_only_repair_attempted") is not True:
+                return fail("repair attempt missing source-only marker")
+            if item.get("source_mutation_performed") is not False or item.get("tests_modified") is not False:
+                return fail("repair attempt mutated forbidden files")
     zero_count_fields = [
-        "native_candidates_verified_count",
         "issue_derived_candidates_verified_count",
         "additional_native_external_repairs_acquired_count",
         "additional_issue_derived_repairs_acquired_count",
+        "native_repair_successes_count",
+        "issue_derived_repair_successes_count",
     ]
     for field in zero_count_fields:
         if batch.get(field) != 0:
