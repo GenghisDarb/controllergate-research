@@ -70,6 +70,16 @@ REQUIRED_FILES = [
     "interlock_invariant_map_v2_36.json",
     "context_boundary_map_v2_36.json",
     "proof_coordinate_ledger_v2_36.json",
+    "architecture_debt_register_v2_36.json",
+    "gate_duplication_inventory_v2_36.json",
+    "audit_script_sprawl_inventory_v2_36.json",
+    "workflow_sprawl_inventory_v2_36.json",
+    "artifact_output_minimization_plan_v2_36.json",
+    "shared_core_gate_library_plan_v2_36.md",
+    "reusable_workflow_plan_v2_36.md",
+    "current_protocol_interface_plan_v2_36.md",
+    "memory_lift_operational_definition_plan_v2_36.md",
+    "v3_0_external_replication_milestone_plan_v2_36.md",
     "SHA256SUMS.txt",
 ]
 
@@ -256,6 +266,11 @@ def audit_outputs(errors: list[str], manifest_entries: set[str]) -> None:
     interlock = load_json(OUTPUT_ROOT / "interlock_invariant_map_v2_36.json", errors)
     context = load_json(OUTPUT_ROOT / "context_boundary_map_v2_36.json", errors)
     coordinates = load_json(OUTPUT_ROOT / "proof_coordinate_ledger_v2_36.json", errors)
+    architecture = load_json(OUTPUT_ROOT / "architecture_debt_register_v2_36.json", errors)
+    gate_inventory = load_json(OUTPUT_ROOT / "gate_duplication_inventory_v2_36.json", errors)
+    audit_inventory = load_json(OUTPUT_ROOT / "audit_script_sprawl_inventory_v2_36.json", errors)
+    workflow_inventory = load_json(OUTPUT_ROOT / "workflow_sprawl_inventory_v2_36.json", errors)
+    minimization = load_json(OUTPUT_ROOT / "artifact_output_minimization_plan_v2_36.json", errors)
 
     expect(v35.get("status") == "PASS", errors, "v2.35 official ingest not PASS")
     expect(v35.get("zip_sha256") == V35_ARTIFACT_SHA256, errors, "v2.35 official artifact SHA mismatch")
@@ -265,6 +280,11 @@ def audit_outputs(errors: list[str], manifest_entries: set[str]) -> None:
     expect(results.get("memory_lift_status") == "undemonstrated", errors, "memory lift overclaimed")
     expect(results.get("self_maintaining_software_status") == "false/not_demonstrated", errors, "self-maintaining overclaimed")
     expect(results.get("patch_generated") is False, errors, "patch must not be generated without candidate #2 verification")
+    expect(results.get("architecture_debt_register_status") == "PASS", errors, "architecture debt register status mismatch")
+    expect(results.get("shared_core_gate_library_plan_status") == "PASS", errors, "shared core gate plan status mismatch")
+    expect(results.get("reusable_workflow_plan_status") == "PASS", errors, "reusable workflow plan status mismatch")
+    expect(results.get("artifact_output_minimization_plan_status") == "PASS", errors, "artifact minimization plan status mismatch")
+    expect(results.get("recommended_next_lane") == "v2.37 core gate consolidation and reusable workflow refactor", errors, "recommended next lane mismatch")
 
     queue_items = queue.get("queue")
     expect(isinstance(queue_items, list) and len(queue_items) == 5, errors, "replay queue count mismatch")
@@ -341,6 +361,50 @@ def audit_outputs(errors: list[str], manifest_entries: set[str]) -> None:
     expect(interlock.get("status") == "PASS", errors, "interlock map not PASS")
     expect(context.get("status") == "PASS", errors, "context boundary map not PASS")
     expect(coordinates.get("status") == "PASS", errors, "proof coordinate ledger not PASS")
+    expect(architecture.get("status") == "PASS", errors, "architecture debt register not PASS")
+    expect(architecture.get("core_refactor_performed") is False, errors, "architecture refactor must not be performed in v2.36")
+    expect(architecture.get("scientific_results_changed") is False, errors, "architecture planning changed scientific results")
+    categories = architecture.get("categories")
+    required_categories = {
+        "version_proliferation",
+        "duplicated_gate_logic",
+        "duplicated_audit_logic",
+        "workflow_yaml_sprawl",
+        "output_artifact_bloat",
+        "unclear_current_protocol_interface",
+        "candidate_acquisition_bottleneck",
+        "memory_lift_not_yet_operationalized",
+        "public_docs_onboarding_gap",
+        "root_directory_hygiene_gap",
+    }
+    expect(isinstance(categories, dict), errors, "architecture debt categories missing")
+    if isinstance(categories, dict):
+        expect(required_categories.issubset(set(categories)), errors, "architecture debt category set incomplete")
+        for key in required_categories:
+            item = categories.get(key, {})
+            if isinstance(item, dict):
+                expect(item.get("must_not_change_claim_boundaries") is True, errors, f"architecture category claim boundary flag missing: {key}")
+                expect(item.get("suggested_version") == "v2.37", errors, f"architecture category suggested version mismatch: {key}")
+    expect(gate_inventory.get("status") == "PASS", errors, "gate duplication inventory not PASS")
+    expect(len(gate_inventory.get("gate_families", [])) >= 10, errors, "gate duplication inventory incomplete")
+    expect(audit_inventory.get("status") == "PASS", errors, "audit script sprawl inventory not PASS")
+    expect(audit_inventory.get("audit_script_count", 0) >= 20, errors, "audit script inventory count too small")
+    expect(workflow_inventory.get("status") == "PASS", errors, "workflow sprawl inventory not PASS")
+    expect(workflow_inventory.get("refactor_performed_in_v2_36") is False, errors, "workflow refactor must not occur in v2.36")
+    future_standard = minimization.get("future_standard") or {}
+    expect(minimization.get("status") == "PASS", errors, "artifact minimization plan not PASS")
+    expect(future_standard.get("one_consolidated_state_file_per_version") is True, errors, "artifact minimization state-file standard missing")
+    expect(future_standard.get("pass_not_run_blocked_remain_distinct") is True, errors, "PASS/NOT_RUN/BLOCKED distinction missing")
+    for rel in [
+        "shared_core_gate_library_plan_v2_36.md",
+        "reusable_workflow_plan_v2_36.md",
+        "current_protocol_interface_plan_v2_36.md",
+        "memory_lift_operational_definition_plan_v2_36.md",
+        "v3_0_external_replication_milestone_plan_v2_36.md",
+    ]:
+        text = (OUTPUT_ROOT / rel).read_text(encoding="utf-8") if (OUTPUT_ROOT / rel).is_file() else ""
+        expect("v2.36" in text, errors, f"planning file missing v2.36 boundary: {rel}")
+        expect("does not perform" in text or "future" in text.lower(), errors, f"planning file missing future/planning boundary: {rel}")
     for item in admitted:
         cid = item.get("candidate_id")
         has_interlock = any((entry.get("candidate_id") == cid and entry.get("status") == "PASS") for entry in interlock.get("maps", []))
@@ -367,6 +431,9 @@ def audit_outputs(errors: list[str], manifest_entries: set[str]) -> None:
     expect(claim.get("matched_null_experiment_attempted") is False, errors, "claim matched-null mismatch")
     expect(claim.get("patch_generated") is False, errors, "claim patch mismatch")
     expect(claim.get("full_scoring") == "NOT_RUN/disallowed", errors, "claim full scoring mismatch")
+    expect(claim.get("consolidation_refactor_required_before_v3_0") is True, errors, "claim missing consolidation carry-forward")
+    expect(claim.get("v2_36_performed_architecture_refactor") is False, errors, "claim says v2.36 refactored architecture")
+    expect(claim.get("v2_36_architecture_carry_forward_only") is True, errors, "claim missing carry-forward-only boundary")
 
 
 def audit_public_updates(errors: list[str]) -> None:

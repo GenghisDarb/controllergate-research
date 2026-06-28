@@ -1,0 +1,120 @@
+{
+  "categories": {
+    "candidate_acquisition_bottleneck": {
+      "evidence_from_repo": [
+        "outputs/v2_35_automated_candidate2_acquisition_lane/campaign_results.json",
+        "outputs/v2_36_resolved_commit_replay_seed_promotion/campaign_results.json"
+      ],
+      "must_not_change_claim_boundaries": true,
+      "proposed_fix": "separate lead intake, replay verification, and admission maps into reusable acquisition tooling",
+      "risk": "candidate #2 remains the limiting step for broader replication",
+      "status": "recorded",
+      "suggested_version": "v2.37"
+    },
+    "duplicated_audit_logic": {
+      "evidence_from_repo": [
+        "scripts/audit_v2_30_failure_signature_canonicalization_repair_lane.py",
+        "scripts/audit_v2_35_automated_candidate2_acquisition_lane.py"
+      ],
+      "must_not_change_claim_boundaries": true,
+      "proposed_fix": "standardize audit adapters around reusable gate families",
+      "risk": "recursive historical audits are correct but slow and hard to review",
+      "status": "recorded",
+      "suggested_version": "v2.37"
+    },
+    "duplicated_gate_logic": {
+      "evidence_from_repo": [
+        "byte custody checks",
+        "registry validation checks",
+        "claim boundary checks"
+      ],
+      "must_not_change_claim_boundaries": true,
+      "proposed_fix": "move repeated gate checks into a shared core gate library",
+      "risk": "the same gate can drift across lanes",
+      "status": "recorded",
+      "suggested_version": "v2.37"
+    },
+    "memory_lift_not_yet_operationalized": {
+      "evidence_from_repo": [
+        "outputs/v2_32_second_external_candidate_seed_and_memory_protocol_lane",
+        "outputs/v2_36_resolved_commit_replay_seed_promotion/matched_null_experiment_status_v2_36.json"
+      ],
+      "must_not_change_claim_boundaries": true,
+      "proposed_fix": "define the measurable comparison and aggregate requirement before any broad claim",
+      "risk": "memory-lift language can be misunderstood before matched-null evidence exists across candidates",
+      "status": "recorded",
+      "suggested_version": "v2.37"
+    },
+    "output_artifact_bloat": {
+      "evidence_from_repo": [
+        "outputs/v2_35_automated_candidate2_acquisition_lane",
+        "outputs/v2_36_resolved_commit_replay_seed_promotion"
+      ],
+      "must_not_change_claim_boundaries": true,
+      "proposed_fix": "standardize one consolidated state file plus raw evidence and labeled diagnostics",
+      "risk": "many small diagnostic files are useful but hard for reviewers to navigate",
+      "status": "recorded",
+      "suggested_version": "v2.37"
+    },
+    "public_docs_onboarding_gap": {
+      "evidence_from_repo": [
+        "README.md",
+        "docs/non_ansible_capability_roadmap.md"
+      ],
+      "must_not_change_claim_boundaries": true,
+      "proposed_fix": "create a concise orientation page after core gate consolidation",
+      "risk": "new reviewers need a shorter path through the evidence stack",
+      "status": "recorded",
+      "suggested_version": "v2.37"
+    },
+    "root_directory_hygiene_gap": {
+      "evidence_from_repo": [
+        "repository root plus scripts/configs/outputs split"
+      ],
+      "must_not_change_claim_boundaries": true,
+      "proposed_fix": "define a stable package layout and generated-output boundary",
+      "risk": "long-running evidence lanes can accumulate helper files unless boundaries stay explicit",
+      "status": "recorded",
+      "suggested_version": "v2.37"
+    },
+    "unclear_current_protocol_interface": {
+      "evidence_from_repo": [
+        "configs/controllergate_current.yaml",
+        "scripts/controllergate_audit.py",
+        "scripts/controllergate_run.py"
+      ],
+      "must_not_change_claim_boundaries": true,
+      "proposed_fix": "define a maintained current interface that delegates to versioned evidence without changing claims",
+      "risk": "current protocol remains correct but mostly points to a historical artifact",
+      "status": "recorded",
+      "suggested_version": "v2.37"
+    },
+    "version_proliferation": {
+      "evidence_from_repo": [
+        "scripts/audit_v2_12_dependency_cofactor_recovery.py",
+        "scripts/audit_v2_36_resolved_commit_replay_seed_promotion.py"
+      ],
+      "must_not_change_claim_boundaries": true,
+      "proposed_fix": "introduce shared gate helpers while retaining immutable versioned evidence",
+      "risk": "version-specific files are preserving evidence well but increasing maintenance cost",
+      "status": "recorded",
+      "suggested_version": "v2.37"
+    },
+    "workflow_yaml_sprawl": {
+      "evidence_from_repo": [
+        ".github/workflows/v2_35_automated_candidate2_acquisition_lane.yml",
+        ".github/workflows/v2_36_resolved_commit_replay_seed_promotion.yml"
+      ],
+      "must_not_change_claim_boundaries": true,
+      "proposed_fix": "add a reusable workflow with version, runner, audit, and artifact-name inputs",
+      "risk": "workflow copy-forward can miss shared improvements",
+      "status": "recorded",
+      "suggested_version": "v2.37"
+    }
+  },
+  "core_refactor_performed": false,
+  "generated_at_utc": "2026-06-28T06:13:28Z",
+  "scientific_results_changed": false,
+  "scope": "planning_and_evidence_structure_only",
+  "status": "PASS"
+}

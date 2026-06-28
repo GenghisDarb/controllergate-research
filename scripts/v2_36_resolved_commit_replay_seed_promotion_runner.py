@@ -917,6 +917,207 @@ def update_public_files(results: dict[str, Any]) -> None:
     write_json(CAPABILITY_MATRIX_PATH, matrix, sort_keys=False)
 
 
+def write_architecture_debt_outputs(now: str) -> dict[str, str]:
+    categories = {
+        "version_proliferation": {
+            "evidence_from_repo": ["scripts/audit_v2_12_dependency_cofactor_recovery.py", "scripts/audit_v2_36_resolved_commit_replay_seed_promotion.py"],
+            "risk": "version-specific files are preserving evidence well but increasing maintenance cost",
+            "proposed_fix": "introduce shared gate helpers while retaining immutable versioned evidence",
+        },
+        "duplicated_gate_logic": {
+            "evidence_from_repo": ["byte custody checks", "registry validation checks", "claim boundary checks"],
+            "risk": "the same gate can drift across lanes",
+            "proposed_fix": "move repeated gate checks into a shared core gate library",
+        },
+        "duplicated_audit_logic": {
+            "evidence_from_repo": ["scripts/audit_v2_30_failure_signature_canonicalization_repair_lane.py", "scripts/audit_v2_35_automated_candidate2_acquisition_lane.py"],
+            "risk": "recursive historical audits are correct but slow and hard to review",
+            "proposed_fix": "standardize audit adapters around reusable gate families",
+        },
+        "workflow_yaml_sprawl": {
+            "evidence_from_repo": [".github/workflows/v2_35_automated_candidate2_acquisition_lane.yml", ".github/workflows/v2_36_resolved_commit_replay_seed_promotion.yml"],
+            "risk": "workflow copy-forward can miss shared improvements",
+            "proposed_fix": "add a reusable workflow with version, runner, audit, and artifact-name inputs",
+        },
+        "output_artifact_bloat": {
+            "evidence_from_repo": ["outputs/v2_35_automated_candidate2_acquisition_lane", "outputs/v2_36_resolved_commit_replay_seed_promotion"],
+            "risk": "many small diagnostic files are useful but hard for reviewers to navigate",
+            "proposed_fix": "standardize one consolidated state file plus raw evidence and labeled diagnostics",
+        },
+        "unclear_current_protocol_interface": {
+            "evidence_from_repo": ["configs/controllergate_current.yaml", "scripts/controllergate_audit.py", "scripts/controllergate_run.py"],
+            "risk": "current protocol remains correct but mostly points to a historical artifact",
+            "proposed_fix": "define a maintained current interface that delegates to versioned evidence without changing claims",
+        },
+        "candidate_acquisition_bottleneck": {
+            "evidence_from_repo": ["outputs/v2_35_automated_candidate2_acquisition_lane/campaign_results.json", "outputs/v2_36_resolved_commit_replay_seed_promotion/campaign_results.json"],
+            "risk": "candidate #2 remains the limiting step for broader replication",
+            "proposed_fix": "separate lead intake, replay verification, and admission maps into reusable acquisition tooling",
+        },
+        "memory_lift_not_yet_operationalized": {
+            "evidence_from_repo": ["outputs/v2_32_second_external_candidate_seed_and_memory_protocol_lane", "outputs/v2_36_resolved_commit_replay_seed_promotion/matched_null_experiment_status_v2_36.json"],
+            "risk": "memory-lift language can be misunderstood before matched-null evidence exists across candidates",
+            "proposed_fix": "define the measurable comparison and aggregate requirement before any broad claim",
+        },
+        "public_docs_onboarding_gap": {
+            "evidence_from_repo": ["README.md", "docs/non_ansible_capability_roadmap.md"],
+            "risk": "new reviewers need a shorter path through the evidence stack",
+            "proposed_fix": "create a concise orientation page after core gate consolidation",
+        },
+        "root_directory_hygiene_gap": {
+            "evidence_from_repo": ["repository root plus scripts/configs/outputs split"],
+            "risk": "long-running evidence lanes can accumulate helper files unless boundaries stay explicit",
+            "proposed_fix": "define a stable package layout and generated-output boundary",
+        },
+    }
+    register = {
+        "status": "PASS",
+        "generated_at_utc": now,
+        "scope": "planning_and_evidence_structure_only",
+        "core_refactor_performed": False,
+        "scientific_results_changed": False,
+        "categories": {
+            key: {
+                "status": "recorded",
+                "evidence_from_repo": value["evidence_from_repo"],
+                "risk": value["risk"],
+                "proposed_fix": value["proposed_fix"],
+                "suggested_version": "v2.37",
+                "must_not_change_claim_boundaries": True,
+            }
+            for key, value in categories.items()
+        },
+    }
+    write_json(OUTPUT_ROOT / "architecture_debt_register_v2_36.json", register)
+
+    gate_families = [
+        "artifact byte custody",
+        "ZIP path safety",
+        "SHA256SUMS verification",
+        "registry validation",
+        "current protocol audit",
+        "public language audit",
+        "forbidden evidence audit",
+        "patch safety audit",
+        "replay reliability audit",
+        "claim boundary audit",
+    ]
+    write_json(OUTPUT_ROOT / "gate_duplication_inventory_v2_36.json", {
+        "status": "PASS",
+        "future_refactor_only": True,
+        "gate_families": [
+            {
+                "gate_family": family,
+                "appears_in_recent_lanes": True,
+                "recommended_future_home": "controllergate/core",
+                "must_preserve_versioned_evidence": True,
+            }
+            for family in gate_families
+        ],
+    })
+
+    audit_scripts = sorted(path.relative_to(REPO_ROOT).as_posix() for path in (REPO_ROOT / "scripts").glob("audit_v2_*.py"))
+    workflow_files = sorted(path.relative_to(REPO_ROOT).as_posix() for path in (REPO_ROOT / ".github" / "workflows").glob("v2_*.yml"))
+    grouped = {
+        "artifact_and_manifest": [path for path in audit_scripts if any(token in path for token in ["v2_12", "v2_35", "v2_36"])],
+        "candidate_registry": [path for path in audit_scripts if "external_candidate" in path or "candidate2" in path],
+        "repair_and_replay": [path for path in audit_scripts if "repair" in path or "replay" in path],
+        "claim_boundary": audit_scripts,
+    }
+    write_json(OUTPUT_ROOT / "audit_script_sprawl_inventory_v2_36.json", {
+        "status": "PASS",
+        "audit_script_count": len(audit_scripts),
+        "audit_scripts": audit_scripts,
+        "reusable_gate_families": grouped,
+        "recommendation": "future shared audit library with version adapters; no refactor performed in v2.36",
+    })
+    write_json(OUTPUT_ROOT / "workflow_sprawl_inventory_v2_36.json", {
+        "status": "PASS",
+        "workflow_count": len(workflow_files),
+        "workflow_files": workflow_files,
+        "recommendation": "future reusable workflow with workflow_dispatch inputs for version, runner, audit, artifact name, and regression set",
+        "refactor_performed_in_v2_36": False,
+    })
+    write_json(OUTPUT_ROOT / "artifact_output_minimization_plan_v2_36.json", {
+        "status": "PASS",
+        "future_standard": {
+            "one_consolidated_state_file_per_version": True,
+            "raw_evidence_files_preserved": True,
+            "secondary_diagnostic_files_clearly_labeled": True,
+            "blocked_lanes_stop_without_fake_success_artifacts": True,
+            "pass_not_run_blocked_remain_distinct": True,
+        },
+        "scientific_results_changed": False,
+    })
+
+    write_text(OUTPUT_ROOT / "shared_core_gate_library_plan_v2_36.md", """# Shared core gate library plan
+
+v2.36 records this as carry-forward planning only. It does not perform the refactor.
+
+Future modules:
+
+- `controllergate/core/evidence.py`
+- `controllergate/core/manifests.py`
+- `controllergate/core/registry.py`
+- `controllergate/core/git_verify.py`
+- `controllergate/core/environment.py`
+- `controllergate/core/patch_safety.py`
+- `controllergate/core/replay.py`
+- `controllergate/core/audit.py`
+- `controllergate/core/claim_boundary.py`
+
+The future library must preserve versioned evidence bytes and claim boundaries.
+""")
+    write_text(OUTPUT_ROOT / "reusable_workflow_plan_v2_36.md", """# Reusable workflow plan
+
+v2.36 records a future workflow-consolidation plan only.
+
+A future reusable workflow should accept `workflow_dispatch` inputs for version, runner script, audit script, artifact name, required outputs, and regression set. The reusable workflow must keep byte-custody preflight, registry validation, current-protocol audit, and artifact upload gates explicit.
+""")
+    write_text(OUTPUT_ROOT / "current_protocol_interface_plan_v2_36.md", """# Current protocol interface plan
+
+The current protocol remains v2.13 today. v2.36 does not promote itself or any later lane.
+
+Future work should turn the current protocol into a maintained interface that delegates to versioned evidence, exposes stable audit and dry-run commands, and keeps historical claim boundaries immutable.
+""")
+    write_text(OUTPUT_ROOT / "memory_lift_operational_definition_plan_v2_36.md", """# Memory-lift operational definition plan
+
+v2.36 records this as carry-forward planning only. It does not perform the matched-null evaluation.
+
+Memory lift should be treated as a future measurable comparison, not a broad claim.
+
+Required future comparison:
+
+- memory-enabled arm versus memory-disabled matched-null arm
+- same candidate, commit, command, environment, and replay rules
+- frozen context hashes
+- no successful patch access in the null arm
+- matched-null separation score threshold
+- aggregate requirement across more than one candidate before broad claims
+""")
+    write_text(OUTPUT_ROOT / "v3_0_external_replication_milestone_plan_v2_36.md", """# v3.0 external replication milestone plan
+
+v2.36 records this as carry-forward planning only. It does not perform the replication milestone.
+
+v3.0 should be treated as a future replication milestone.
+
+Target evidence:
+
+- at least 3 scoreable external non-Ansible repair episodes
+- at least 2 distinct repositories
+- at least 1 prospective matched-null memory comparison
+- full scoring remains disallowed unless separately authorized
+- self-maintaining software is not claimed without autonomous repeatable acquisition, repair, and replay evidence
+""")
+    return {
+        "architecture_debt_register_status": "PASS",
+        "shared_core_gate_library_plan_status": "PASS",
+        "reusable_workflow_plan_status": "PASS",
+        "artifact_output_minimization_plan_status": "PASS",
+        "recommended_next_lane": "v2.37 core gate consolidation and reusable workflow refactor",
+    }
+
+
 def write_manifest() -> None:
     rows = []
     for path in sorted(OUTPUT_ROOT.rglob("*")):
@@ -1121,6 +1322,8 @@ def main() -> int:
     }
 
     update_public_files(results)
+    architecture_status = write_architecture_debt_outputs(now)
+    results.update(architecture_status)
 
     write_json(OUTPUT_ROOT / "campaign_results.json", results)
     write_text(
@@ -1137,6 +1340,8 @@ def main() -> int:
                 f"Exact blocker: `{results['exact_blocker']}`.",
                 "",
                 "Structural navigation, active probe routing, coupled dependency projection, interlock invariants, and proof coordinates were recorded as acquisition/admission evidence only.",
+                "",
+                "Architecture carry-forward: consolidation/refactor is required before v3.0. v2.36 does not perform the refactor; it preserves evidence and creates carry-forward plans only.",
             ]
         ),
     )
@@ -1303,6 +1508,7 @@ def main() -> int:
         {"action": "issue_derived_fallback_after_native_failure", "status": "PASS" if issue_status.get("fallback_attempted") else "not_run"},
         {"action": "registry_validation_after_candidate2", "status": registry_report.get("registry_validation_status")},
         {"action": "matched_null_experiment_boundary", "status": "not_run_no_verified_seed" if not admitted_native else "not_run_registry_merge_absent"},
+        {"action": "architecture_debt_register_written", "status": "PASS"},
     ]))
     write_json(OUTPUT_ROOT / "roadmap_carry_forward_check_v2_36.json", {
         "status": "PASS",
@@ -1312,6 +1518,8 @@ def main() -> int:
         "interlock_invariant_map": "implemented_active_v2_36",
         "issue_derived_ephemeral_reproduction_harness": "conditional_fallback_v2_36",
         "matched_null_repair_experiment": "conditional_on_candidate2_verification",
+        "architecture_debt_register": "implemented_planning_only_v2_36",
+        "recommended_next_lane": "v2.37 core gate consolidation and reusable workflow refactor",
     })
     write_json(OUTPUT_ROOT / "resolution_depth_diagnostic_v2_36.json", {
         "status": "PASS",
@@ -1319,6 +1527,8 @@ def main() -> int:
         "native_replay_attempted": True,
         "issue_derived_fallback_attempted": bool(issue_status.get("fallback_attempted")),
         "candidate2_verified": admitted_native is not None,
+        "architecture_consolidation_required_before_v3_0": True,
+        "architecture_refactor_performed_in_v2_36": False,
     })
     write_json(OUTPUT_ROOT / "claim_boundary_v2_36.json", {
         "status": "PASS",
@@ -1333,6 +1543,9 @@ def main() -> int:
         "memory_lift_status": "undemonstrated",
         "self_maintaining_software_status": "false/not_demonstrated",
         "exact_blocker": exact_blocker,
+        "consolidation_refactor_required_before_v3_0": True,
+        "v2_36_performed_architecture_refactor": False,
+        "v2_36_architecture_carry_forward_only": True,
     })
     write_manifest()
     return 0
