@@ -1,0 +1,1031 @@
+{
+  "attempts": [
+    {
+      "accepted_as_seed": false,
+      "blocker": "no_candidate_source_interlock_invariant",
+      "candidate_class": "native_replay_candidate",
+      "candidate_id": "native_akaihola_darker_bd28cdc3",
+      "collection": {
+        "combined_sha256": "e29c8757e89290c55b3dc83e7631cf310e2f3deda3d73a8407fb76edb6b6aaf3",
+        "command_collects_target": true,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "commit_resolution": {
+        "cat_file_type": "commit",
+        "checkout_returncode": 0,
+        "fetch_returncode": 0,
+        "rev_parse_status": "PASS"
+      },
+      "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+      "context_boundary": {
+        "candidate_id": "native_akaihola_darker_bd28cdc3",
+        "candidate_source_file_count": 0,
+        "context_boundary_hash": "7258cdb74ef41ee526ecc272db1f5c014efbd7578846741652e3e11d43f491fd",
+        "environment_file_count": 4,
+        "forbidden_context_used": false,
+        "status": "PASS",
+        "target_test_path": "src/darker/tests/test_main_isort.py"
+      },
+      "coupled_dependency_projection": {
+        "candidate_id": "native_akaihola_darker_bd28cdc3",
+        "candidate_source_files_from_ast_closure": [],
+        "candidate_source_files_from_import_graph": [
+          "darker",
+          "darkgraylib",
+          "pytest",
+          "textwrap",
+          "types",
+          "unittest"
+        ],
+        "candidate_source_files_from_traceback": [],
+        "dependency_files": [
+          "pyproject.toml",
+          "setup.cfg",
+          "setup.py",
+          "pytest.ini"
+        ],
+        "environment_files": [
+          "pyproject.toml",
+          "setup.cfg",
+          "setup.py",
+          "pytest.ini"
+        ],
+        "silent_boundary_files": [],
+        "status": "PASS",
+        "support_files": [],
+        "target_test_files": [
+          {
+            "path": "src/darker/tests/test_main_isort.py",
+            "sha256": "474d2500661275265efddc78c938f72aee1e36a8c56e2fe6b6b3e87c448ea838"
+          }
+        ]
+      },
+      "environment_file_present": true,
+      "environment_files": [
+        {
+          "path": "pyproject.toml",
+          "sha256": "1e28afb102918493fb8b16f825bea84c57ccb8c3449ba925a224650a0dc6abb2"
+        },
+        {
+          "path": "setup.cfg",
+          "sha256": "37369e69510436aa13dfe0f6104388f554e7bf4dffe2192d409fd3cc27b07ffa"
+        },
+        {
+          "path": "setup.py",
+          "sha256": "74e633e180e3e7d53539a0970d1d74f3d87249199b93c2fe99804f423c7b380a"
+        },
+        {
+          "path": "pytest.ini",
+          "sha256": "610146b56ed6a83eea756bacc14940eb4eebc5fa24a8e0a252310e55cb80ccaf"
+        }
+      ],
+      "environment_strategy": {
+        "baseline_pytest_tooling_installed": true,
+        "baseline_pytest_tooling_reason": "project metadata mentions pytest",
+        "install_ok": true,
+        "install_records": [
+          {
+            "combined_sha256": "d199826e5f22ba34aa4940cb3c592bd47626e9def194140133dcc2069c25298b",
+            "command": [
+              "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+              "-m",
+              "pip",
+              "install",
+              "-e",
+              "."
+            ],
+            "returncode": 0,
+            "timed_out": false
+          }
+        ],
+        "pytest_available": true
+      },
+      "external_network_required": false,
+      "failure_environment_only": false,
+      "fixed_diff_computed": false,
+      "fixed_later_gold_pr_patch_accessed": false,
+      "generated_test_commands": [
+        [
+          "-m",
+          "pytest",
+          "src/darker/tests/test_main_isort.py::test_isort_option_without_isort",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "src/darker/tests/test_main_isort.py::test_isort_option_with_isort",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "src/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+          "-q",
+          "--tb=no"
+        ]
+      ],
+      "interlock_invariant": {
+        "blocker": "no_candidate_source_interlock_invariant",
+        "candidate_id": "native_akaihola_darker_bd28cdc3",
+        "invariants": [],
+        "status": "BLOCK"
+      },
+      "lead_id": "akaihola_darker",
+      "message": "test: failing test for isort's skip_glob setting",
+      "native_command_results": [
+        {
+          "combined_sha256": "bd00d41e3dfd628c506cc013038dba0e39d8b802a82394f70502648c8aa89cea",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "src/darker/tests/test_main_isort.py",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 1,
+          "timed_out": false
+        }
+      ],
+      "patch_generated": false,
+      "pr_patch_content_used": false,
+      "probe_budget_exhausted": false,
+      "repair_attempted": false,
+      "repo_url": "https://github.com/akaihola/darker",
+      "semantic_failure_signature": {
+        "candidate_id": "native_akaihola_darker_bd28cdc3",
+        "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+        "exception_classes": [],
+        "normalized_log_hash": "de26689e5cde99bf119ab06d021ff4abb5f684ada9aaa5314c45c29f44691123",
+        "repo_url": "https://github.com/akaihola/darker",
+        "semantic_log_hash": "c99dac20cc6f0a0c9dfb24d2f0b50f3f0ab159bf62ab1edef1bf228e0880dc3c",
+        "target_command": [
+          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "src/darker/tests/test_main_isort.py",
+          "-q",
+          "--tb=no"
+        ],
+        "target_test_path": "src/darker/tests/test_main_isort.py"
+      },
+      "status": "rejected",
+      "structural_navigation": {
+        "admission_decision": "rejected_no_candidate_source_interlock",
+        "candidate_class": "native_replay_candidate",
+        "candidate_commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+        "candidate_id": "native_akaihola_darker_bd28cdc3",
+        "command_collects_target": true,
+        "command_fails_pre_patch": true,
+        "decision_reason": "no_candidate_source_interlock_invariant",
+        "dependency_surface_size": 61,
+        "environment_file_present": true,
+        "escape_boundary_risk": "bounded_or_admissible",
+        "external_network_required": false,
+        "failure_environment_only": false,
+        "issue_contains_solution_hint": false,
+        "issue_reproduction_steps_available": false,
+        "pure_python_path": true,
+        "repairability_score": -9,
+        "repo_url": "https://github.com/akaihola/darker",
+        "score_reasons": [
+          "large_dependency_surface",
+          "target_file_present",
+          "semantic_failure_signature_captured",
+          "pure_python_path",
+          "project_environment_metadata_present",
+          "single_test_file_command"
+        ],
+        "semantic_failure_capture_available": true,
+        "setup_complexity_score": 1,
+        "single_native_target_node_fails": false,
+        "source_context_file_count": 0,
+        "target_command_width": "single_file",
+        "target_test_present": true,
+        "traceback_candidate_source_file_count": 0,
+        "traceback_framework_file_count": 0
+      },
+      "target_command": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_isort.py",
+        "-q",
+        "--tb=no"
+      ],
+      "target_test_path": "src/darker/tests/test_main_isort.py",
+      "target_test_present": true,
+      "target_test_sha256": "474d2500661275265efddc78c938f72aee1e36a8c56e2fe6b6b3e87c448ea838",
+      "v2_35_reason": "metadata_only_no_native_failure_replay_verified",
+      "workspace_committed": false,
+      "workspace_outside_onedrive": true,
+      "workspace_outside_repo": true,
+      "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_bd28cdc3\\checkout"
+    },
+    {
+      "accepted_as_seed": false,
+      "blocker": "no_candidate_source_interlock_invariant",
+      "candidate_class": "native_replay_candidate",
+      "candidate_id": "native_akaihola_darker_6f9ae295",
+      "collection": {
+        "combined_sha256": "3158d8d598fc4e6d21a925d3d8d9880996339357ccf389b787c98083d26d4883",
+        "command_collects_target": true,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "commit_resolution": {
+        "cat_file_type": "commit",
+        "checkout_returncode": 0,
+        "fetch_returncode": 0,
+        "rev_parse_status": "PASS"
+      },
+      "commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
+      "context_boundary": {
+        "candidate_id": "native_akaihola_darker_6f9ae295",
+        "candidate_source_file_count": 0,
+        "context_boundary_hash": "408258ded428a2505f12cf8cd6c2fd0661ee1a0944a0f4abcb392815786d9d0d",
+        "environment_file_count": 4,
+        "forbidden_context_used": false,
+        "status": "PASS",
+        "target_test_path": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py"
+      },
+      "coupled_dependency_projection": {
+        "candidate_id": "native_akaihola_darker_6f9ae295",
+        "candidate_source_files_from_ast_closure": [],
+        "candidate_source_files_from_import_graph": [
+          "darker",
+          "darkgraylib",
+          "pathlib",
+          "pytest",
+          "unittest"
+        ],
+        "candidate_source_files_from_traceback": [],
+        "dependency_files": [
+          "pyproject.toml",
+          "setup.cfg",
+          "setup.py",
+          "pytest.ini"
+        ],
+        "environment_files": [
+          "pyproject.toml",
+          "setup.cfg",
+          "setup.py",
+          "pytest.ini"
+        ],
+        "silent_boundary_files": [],
+        "status": "PASS",
+        "support_files": [],
+        "target_test_files": [
+          {
+            "path": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+            "sha256": "3d91bcb8fdc7429cacf94cab0b3856af54dd8a393b9b7a301253276adb6a70a4"
+          }
+        ]
+      },
+      "environment_file_present": true,
+      "environment_files": [
+        {
+          "path": "pyproject.toml",
+          "sha256": "280b0596549af6feb2650e5047df84c8e9e963b4c9b0f2f57e33db04d1dfade7"
+        },
+        {
+          "path": "setup.cfg",
+          "sha256": "de5ccd57ec5949fd7b91d2b94b6a9d67d47d2cb84d38690d268f1c774fd31de2"
+        },
+        {
+          "path": "setup.py",
+          "sha256": "743c3e9fb9bfe9bbc5635ec9409d5881288c68c121e4f1cc0d5fbffa76f0b5c0"
+        },
+        {
+          "path": "pytest.ini",
+          "sha256": "610146b56ed6a83eea756bacc14940eb4eebc5fa24a8e0a252310e55cb80ccaf"
+        }
+      ],
+      "environment_strategy": {
+        "baseline_pytest_tooling_installed": true,
+        "baseline_pytest_tooling_reason": "project metadata mentions pytest",
+        "install_ok": true,
+        "install_records": [
+          {
+            "combined_sha256": "1cdcc0509648343545b664891cb1d54c9316fb82f3fe19233e1e48a83aa93dae",
+            "command": [
+              "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+              "-m",
+              "pip",
+              "install",
+              "-e",
+              "."
+            ],
+            "returncode": 0,
+            "timed_out": false
+          }
+        ],
+        "pytest_available": true
+      },
+      "external_network_required": false,
+      "failure_environment_only": false,
+      "fixed_diff_computed": false,
+      "fixed_later_gold_pr_patch_accessed": false,
+      "generated_test_commands": [
+        [
+          "-m",
+          "pytest",
+          "src/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content",
+          "-q",
+          "--tb=no"
+        ]
+      ],
+      "interlock_invariant": {
+        "blocker": "no_candidate_source_interlock_invariant",
+        "candidate_id": "native_akaihola_darker_6f9ae295",
+        "invariants": [],
+        "status": "BLOCK"
+      },
+      "lead_id": "akaihola_darker",
+      "message": "test: failing test for dropping changes for a non-ascii file",
+      "native_command_results": [
+        {
+          "combined_sha256": "38a9be856ecdcc43b7f8f0f67d38692b216fa202dc000074d732a7c92a450ef3",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 1,
+          "timed_out": false
+        }
+      ],
+      "patch_generated": false,
+      "pr_patch_content_used": false,
+      "probe_budget_exhausted": false,
+      "repair_attempted": false,
+      "repo_url": "https://github.com/akaihola/darker",
+      "semantic_failure_signature": {
+        "candidate_id": "native_akaihola_darker_6f9ae295",
+        "commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
+        "exception_classes": [],
+        "normalized_log_hash": "b62eafe37c68db42f7ad81df71ac52fcb84f528f11b23ac905cd9c21fe98ec8e",
+        "repo_url": "https://github.com/akaihola/darker",
+        "semantic_log_hash": "b670bb280c4d0109b9f392736334ca6d2b7fe174d35de97cb08dca0f972d697e",
+        "target_command": [
+          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+          "-q",
+          "--tb=no"
+        ],
+        "target_test_path": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py"
+      },
+      "status": "rejected",
+      "structural_navigation": {
+        "admission_decision": "rejected_no_candidate_source_interlock",
+        "candidate_class": "native_replay_candidate",
+        "candidate_commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
+        "candidate_id": "native_akaihola_darker_6f9ae295",
+        "command_collects_target": true,
+        "command_fails_pre_patch": true,
+        "decision_reason": "no_candidate_source_interlock_invariant",
+        "dependency_surface_size": 62,
+        "environment_file_present": true,
+        "escape_boundary_risk": "bounded_or_admissible",
+        "external_network_required": false,
+        "failure_environment_only": false,
+        "issue_contains_solution_hint": false,
+        "issue_reproduction_steps_available": false,
+        "pure_python_path": true,
+        "repairability_score": -9,
+        "repo_url": "https://github.com/akaihola/darker",
+        "score_reasons": [
+          "large_dependency_surface",
+          "target_file_present",
+          "semantic_failure_signature_captured",
+          "pure_python_path",
+          "project_environment_metadata_present",
+          "single_test_file_command"
+        ],
+        "semantic_failure_capture_available": true,
+        "setup_complexity_score": 1,
+        "single_native_target_node_fails": false,
+        "source_context_file_count": 0,
+        "target_command_width": "single_file",
+        "target_test_present": true,
+        "traceback_candidate_source_file_count": 0,
+        "traceback_framework_file_count": 0
+      },
+      "target_command": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+        "-q",
+        "--tb=no"
+      ],
+      "target_test_path": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+      "target_test_present": true,
+      "target_test_sha256": "3d91bcb8fdc7429cacf94cab0b3856af54dd8a393b9b7a301253276adb6a70a4",
+      "v2_35_reason": "metadata_only_no_native_failure_replay_verified",
+      "workspace_committed": false,
+      "workspace_outside_onedrive": true,
+      "workspace_outside_repo": true,
+      "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6f9ae295\\checkout"
+    },
+    {
+      "accepted_as_seed": false,
+      "blocker": "resolved_commit_target_test_not_executed",
+      "candidate_class": "native_replay_candidate",
+      "candidate_id": "native_akaihola_darker_6ecafca0",
+      "collection": {
+        "combined_sha256": "69ffa44ddd75f3ab8677716715bf7525c150eef7984e59308d036ed9c133bd33",
+        "command_collects_target": false,
+        "returncode": 2,
+        "timed_out": false
+      },
+      "commit_resolution": {
+        "cat_file_type": "commit",
+        "checkout_returncode": 0,
+        "fetch_returncode": 0,
+        "rev_parse_status": "PASS"
+      },
+      "commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
+      "environment_file_present": true,
+      "environment_files": [
+        {
+          "path": "pyproject.toml",
+          "sha256": "7ddccfd282863c103c67c8c97b9371318e56c8cc813603339be1f3c0ee48a6fd"
+        },
+        {
+          "path": "setup.cfg",
+          "sha256": "44266b30161b50ed2802f7d5c11fd703330e06704544240cdd20a764928027d9"
+        },
+        {
+          "path": "setup.py",
+          "sha256": "743c3e9fb9bfe9bbc5635ec9409d5881288c68c121e4f1cc0d5fbffa76f0b5c0"
+        },
+        {
+          "path": "pytest.ini",
+          "sha256": "642d6e9b1d65a16f6e8c054f66b6c9638710d64d6ad6d7b0cd1081b41bf66065"
+        }
+      ],
+      "environment_strategy": {
+        "baseline_pytest_tooling_installed": true,
+        "baseline_pytest_tooling_reason": "project metadata mentions pytest",
+        "install_ok": true,
+        "install_records": [
+          {
+            "combined_sha256": "162f9f1de0fd4f6c4100931d355da5047a6bccf3f2ebb708225b4e2867bf8f7c",
+            "command": [
+              "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6ecafca0\\venv\\Scripts\\python.exe",
+              "-m",
+              "pip",
+              "install",
+              "-e",
+              "."
+            ],
+            "returncode": 0,
+            "timed_out": false
+          }
+        ],
+        "pytest_available": true
+      },
+      "fixed_diff_computed": false,
+      "fixed_later_gold_pr_patch_accessed": false,
+      "generated_test_commands": [
+        [
+          "-m",
+          "pytest",
+          "src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename",
+          "-q",
+          "--tb=no"
+        ]
+      ],
+      "lead_id": "akaihola_darker",
+      "message": "Failing test for --stdin-filename=<path> -",
+      "patch_generated": false,
+      "pr_patch_content_used": false,
+      "probe_budget_exhausted": false,
+      "repair_attempted": false,
+      "repo_url": "https://github.com/akaihola/darker",
+      "status": "rejected",
+      "target_test_path": "src/darker/tests/test_main_stdin_filename.py",
+      "target_test_present": true,
+      "target_test_sha256": "091cb6ca489413387f97f7021acf56dea7edd6bfc6db74eaff68a4aa4b3cacab",
+      "v2_35_reason": "metadata_only_no_native_failure_replay_verified",
+      "workspace_committed": false,
+      "workspace_outside_onedrive": true,
+      "workspace_outside_repo": true,
+      "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6ecafca0\\checkout"
+    },
+    {
+      "accepted_as_seed": false,
+      "blocker": "resolved_commit_pre_repair_passed",
+      "candidate_class": "native_replay_candidate",
+      "candidate_id": "native_pytest_rerunfailures_f095a517",
+      "collection": {
+        "combined_sha256": "088301e5fe014533fe4d148505ae607866f1f51b0286761251ce4824aed2fad7",
+        "command_collects_target": true,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "commit_resolution": {
+        "cat_file_type": "commit",
+        "checkout_returncode": 0,
+        "fetch_returncode": 0,
+        "rev_parse_status": "PASS"
+      },
+      "commit_sha": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
+      "environment_file_present": true,
+      "environment_files": [
+        {
+          "path": "pyproject.toml",
+          "sha256": "00d53e9a1cc2e593e0cfdbefc8938e918c11dd8f866f3e7c75bab40a2e6e7fca"
+        },
+        {
+          "path": "tox.ini",
+          "sha256": "71db4b28cebde993b237eca5619b0dc15437ee45dce1c4ed75c9bcaac7f69847"
+        }
+      ],
+      "environment_strategy": {
+        "baseline_pytest_tooling_installed": false,
+        "baseline_pytest_tooling_reason": null,
+        "install_ok": true,
+        "install_records": [
+          {
+            "combined_sha256": "54fc8cb8cb054d00af294d48d952e11f2704d591c2d3e7b7426000493e02a215",
+            "command": [
+              "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+              "-m",
+              "pip",
+              "install",
+              "-e",
+              "."
+            ],
+            "returncode": 0,
+            "timed_out": false
+          }
+        ],
+        "pytest_available": true
+      },
+      "fixed_diff_computed": false,
+      "fixed_later_gold_pr_patch_accessed": false,
+      "generated_test_commands": [
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_error_when_run_with_pdb",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_pass",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skipif_mark",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skip_call",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_mark",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_call",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xpass",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_setup_failure",
+          "-q",
+          "--tb=no"
+        ]
+      ],
+      "lead_id": "pytest_rerunfailures",
+      "message": "Support rerunning on subtest errors in pytest 9.0 and newer (#330)",
+      "native_command_results": [
+        {
+          "combined_sha256": "1298755efcaa9caadefa6e1d8bbdf1eca77695f7a8e1fa7b108f7d63855fa60a",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "c969f9ebae9cb560745692444b31776b9600614bae13fae77b1ae4f460b0fae0",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_error_when_run_with_pdb",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "dc61670ddc0e20f91403e120cc25aa30fe1c76d37607f1101e09fe07beed5088",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_pass",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "3e0c2856e1da374217053827cfbb5869f85df3f89ca3eec53f06824361859b76",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skipif_mark",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "5a5d6bfa27065d75de6aa274ac56a22520b2ed093c0b1aae3929e7bfc0c15966",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skip_call",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "118b9e1eccd465a6835a2b5f162b436e19463f4ef3fc3c061182b6683c26b170",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_mark",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "e2b8a421edf32fc5a38a4cee988106859e001287cd77653e8ea86b27f4257d74",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_call",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "840190b9c276740effc1e0d349f87b6760ccb19091c5838f8d488c9d1070a9ad",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xpass",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "94aee29dbfb4ccd113bd666cce4264050ec71bb7ab63126d96bbb1429d1a688f",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_setup_failure",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        }
+      ],
+      "patch_generated": false,
+      "pr_patch_content_used": false,
+      "probe_budget_exhausted": false,
+      "repair_attempted": false,
+      "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+      "status": "rejected",
+      "target_test_path": "tests/test_pytest_rerunfailures.py",
+      "target_test_present": true,
+      "target_test_sha256": "c4d64868f98d3040d01a3de06648082b41b45bd2782d226c95b1ba02bf486268",
+      "v2_35_reason": "metadata_only_no_native_failure_replay_verified",
+      "workspace_committed": false,
+      "workspace_outside_onedrive": true,
+      "workspace_outside_repo": true,
+      "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\checkout"
+    },
+    {
+      "accepted_as_seed": false,
+      "blocker": "resolved_commit_pre_repair_passed",
+      "candidate_class": "native_replay_candidate",
+      "candidate_id": "native_pytest_rerunfailures_d17f3be1",
+      "collection": {
+        "combined_sha256": "4884e29b5006e53275d27c5802218f439cf789836b1e48e1dd4d7b78f6c836c7",
+        "command_collects_target": true,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "commit_resolution": {
+        "cat_file_type": "commit",
+        "checkout_returncode": 0,
+        "fetch_returncode": 0,
+        "rev_parse_status": "PASS"
+      },
+      "commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
+      "environment_file_present": true,
+      "environment_files": [
+        {
+          "path": "pyproject.toml",
+          "sha256": "2e65aa733e0631cef20f05be9013aaa28710234484b5f9c399293ed8bb6f6f3b"
+        },
+        {
+          "path": "setup.py",
+          "sha256": "cf91eebb256d8255ace2d2bfa42927959f3960a60604c4a09e8bf79f14b3fd8c"
+        },
+        {
+          "path": "tox.ini",
+          "sha256": "71db4b28cebde993b237eca5619b0dc15437ee45dce1c4ed75c9bcaac7f69847"
+        }
+      ],
+      "environment_strategy": {
+        "baseline_pytest_tooling_installed": false,
+        "baseline_pytest_tooling_reason": null,
+        "install_ok": true,
+        "install_records": [
+          {
+            "combined_sha256": "8ca9bc6e95abfd87e25b4f932d453d9edaa8b8707307b183b4f759f33ede67e7",
+            "command": [
+              "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+              "-m",
+              "pip",
+              "install",
+              "-e",
+              "."
+            ],
+            "returncode": 0,
+            "timed_out": false
+          }
+        ],
+        "pytest_available": true
+      },
+      "fixed_diff_computed": false,
+      "fixed_later_gold_pr_patch_accessed": false,
+      "generated_test_commands": [
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_error_when_run_with_pdb",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_pass",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skipif_mark",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skip_call",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_mark",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_call",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xpass",
+          "-q",
+          "--tb=no"
+        ],
+        [
+          "-m",
+          "pytest",
+          "tests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_setup_failure",
+          "-q",
+          "--tb=no"
+        ]
+      ],
+      "lead_id": "pytest_rerunfailures",
+      "message": "feat: add --reruns-mode option to sum marker and global reruns (#321) (#328)",
+      "native_command_results": [
+        {
+          "combined_sha256": "c92b3f55d10cb489e3b6c4b92590efea7c8bdfc6e613400a8e2d6b5c55cf254b",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "a5f86eb5b0edc6f2741d5007d53862701a432581c21be01b934c67af0e22e450",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_error_when_run_with_pdb",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "3e06e8ab07f40de585553e57ffe664925888ca4905559012840febbedda65a29",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_pass",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "80485e77596af3e295dbb5b7bf3454fc2af2c3880c07ffdec1b99e5632500c63",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skipif_mark",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "3e06e8ab07f40de585553e57ffe664925888ca4905559012840febbedda65a29",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skip_call",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "e9fb1b1331a6c37b5857a6c1dcaea1f257224c0a2da70cf0a1dd913b769139aa",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_mark",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "f0102d8d6e055a96bcd6750e8fd7f3612c040e30be13f0bb796c81f85971ab1b",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_call",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "fc0bfb217d71456fa8372d082a788ef3d61e56e8b0f36185a08e1eca9fb4abbc",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xpass",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "combined_sha256": "32077549f5ce75fdbd61752b317d26b194c9c740858e8d3b2238710cff119c83",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_setup_failure",
+            "-q",
+            "--tb=no"
+          ],
+          "returncode": 0,
+          "timed_out": false
+        }
+      ],
+      "patch_generated": false,
+      "pr_patch_content_used": false,
+      "probe_budget_exhausted": false,
+      "repair_attempted": false,
+      "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+      "status": "rejected",
+      "target_test_path": "tests/test_pytest_rerunfailures.py",
+      "target_test_present": true,
+      "target_test_sha256": "a7ad539271697d883ecbffc461479bb460fce62111dc1725e4a059553017ab40",
+      "v2_35_reason": "metadata_only_no_native_failure_replay_verified",
+      "workspace_committed": false,
+      "workspace_outside_onedrive": true,
+      "workspace_outside_repo": true,
+      "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\checkout"
+    }
+  ],
+  "status": "PASS"
+}

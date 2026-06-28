@@ -1,0 +1,16 @@
+{
+  "max_probes_per_candidate": 8,
+  "max_total_probes": 80,
+  "probe_order": [
+    "commit_resolution_probe",
+    "tree_presence_probe",
+    "collection_probe",
+    "environment_probe",
+    "minimal_verification_probe",
+    "native_failure_probe",
+    "semantic_failure_probe",
+    "structural_footprint_probe"
+  ],
+  "status": "PASS",
+  "stop_after_one_candidate_verifies_and_registry_merge_passes": true
+}

@@ -444,3 +444,19 @@ v2.35 adds an automated candidate #2 acquisition sprint. The lane uses public me
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
+
+## v2.36 resolved-commit replay and candidate admission status
+
+v2.36 adds resolved-commit replay, active probe routing, structural navigation, coupled dependency projection, and a separately classified issue-derived fallback. The lane keeps candidate #2 admission gated on direct replay or verified issue-derived harness evidence.
+
+- Native replay candidate acquired: `false`.
+- Issue-derived fallback attempted: `true`.
+- Issue-derived candidate acquired: `false`.
+- Exact blocker: `blocked_no_native_or_issue_derived_candidate2_seed_acquired`.
+- Structural Navigation Map: `implemented_active_v2_36`.
+- Active Probe Router: `implemented_active_v2_36`.
+- Coupled Dependency Projection Map: `implemented_active_v2_36`.
+- Interlock Invariant Map: `implemented_active_v2_36`.
+- Issue-Derived Ephemeral Reproduction Harness: `conditional_fallback_v2_36`.
+- Matched-Null Repair Experiment: `conditional_on_candidate2_verification`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `undemonstrated`; self-maintaining software remains `false/not_demonstrated`.

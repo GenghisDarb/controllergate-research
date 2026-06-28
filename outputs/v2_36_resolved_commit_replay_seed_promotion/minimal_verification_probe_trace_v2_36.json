@@ -1,0 +1,752 @@
+{
+  "probe_count": 33,
+  "probes": [
+    {
+      "budget_spent": {
+        "candidate_probe_count": 1,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 1
+      },
+      "candidate_id": "native_akaihola_darker_bd28cdc3",
+      "command_executed": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75"
+      ],
+      "exit_status": 0,
+      "information_gained": "commit fetch plus checkout identity",
+      "input_evidence_hash": "97a75fe2cfd522f0eabc21f1c46efea5f8fac25f051775bdac16a651668363ef",
+      "next_decision": "tree_presence_probe",
+      "output_hash": "633697e99bac9b70d7864837c2dde90988eb38edf70f5696d939454420af9b40",
+      "probe_id": "probe_001",
+      "probe_type": "commit_resolution_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 2,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 2
+      },
+      "candidate_id": "native_akaihola_darker_bd28cdc3",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "target test and environment file presence",
+      "input_evidence_hash": "c492a8da991905160c1a8125e18db372342d2e67a224cf8429b559d3820be6e7",
+      "next_decision": "ast_collection_probe",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_002",
+      "probe_type": "tree_presence_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 3,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 3
+      },
+      "candidate_id": "native_akaihola_darker_bd28cdc3",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "ast discovered 4 bounded test node commands",
+      "input_evidence_hash": "bed32e55a5a5a5a6c5d4beb0c51d970c9bd7e3d63bcdd6e4da110b5ceb5d4c9e",
+      "next_decision": "environment_probe",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_003",
+      "probe_type": "collection_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 4,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 4
+      },
+      "candidate_id": "native_akaihola_darker_bd28cdc3",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        "."
+      ],
+      "exit_status": 0,
+      "information_gained": "dependency setup from checked-out project metadata",
+      "input_evidence_hash": "b02a45e5f69e5a9d86bab63b84edbe0f9a3d30a978cba187aeb246b9d412d08e",
+      "next_decision": "native_failure_probe",
+      "output_hash": "a6a841623dbae77d5aa69602fbf796f560e4de1351ea38e390d17c0a123dff95",
+      "probe_id": "probe_004",
+      "probe_type": "environment_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 5,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 5
+      },
+      "candidate_id": "native_akaihola_darker_bd28cdc3",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_isort.py",
+        "--collect-only",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 0,
+      "information_gained": "native target collection status",
+      "input_evidence_hash": "bed32e55a5a5a5a6c5d4beb0c51d970c9bd7e3d63bcdd6e4da110b5ceb5d4c9e",
+      "next_decision": "native_failure_probe",
+      "output_hash": "d67772287c0bc5fffe092957f2799bcafb590b11183e518e095550648a05cc80",
+      "probe_id": "probe_005",
+      "probe_type": "minimal_verification_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 6,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 6
+      },
+      "candidate_id": "native_akaihola_darker_bd28cdc3",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_isort.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 1,
+      "information_gained": "pre-repair native command result",
+      "input_evidence_hash": "36c057fecfa5d43a3fe5ea076c785e17254f0904939486884fea4c66c6d28a1f",
+      "next_decision": "semantic_failure_probe",
+      "output_hash": "d77a627f8bc9a7b8a85528adc2ed7c73e17fc791674245740daacbfec083a65a",
+      "probe_id": "probe_006",
+      "probe_type": "native_failure_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 7,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 7
+      },
+      "candidate_id": "native_akaihola_darker_bd28cdc3",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_isort.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 1,
+      "information_gained": "semantic failure signature captured",
+      "input_evidence_hash": "2b5fbde35c3afa0924453be7e45cba547d0adc86732fef57e4c08d2ec42eba0e",
+      "next_decision": "structural_footprint_probe",
+      "output_hash": "d77a627f8bc9a7b8a85528adc2ed7c73e17fc791674245740daacbfec083a65a",
+      "probe_id": "probe_007",
+      "probe_type": "semantic_failure_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 8,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 8
+      },
+      "candidate_id": "native_akaihola_darker_bd28cdc3",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "candidate source interlock and context boundary evaluated",
+      "input_evidence_hash": "2d3a6641764d451073df4990acb70d0dc6a67aa0ff8b3225c74dd3f4cc754142",
+      "next_decision": "candidate_admission_decision",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_008",
+      "probe_type": "structural_footprint_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 1,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 9
+      },
+      "candidate_id": "native_akaihola_darker_6f9ae295",
+      "command_executed": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "6f9ae29512433d960be38f3bfffc23c848691d6f"
+      ],
+      "exit_status": 0,
+      "information_gained": "commit fetch plus checkout identity",
+      "input_evidence_hash": "461d93fdaa13ca8f2b66f3473a56d297f9486afeeacc6e04672083581b626d92",
+      "next_decision": "tree_presence_probe",
+      "output_hash": "340da7707f185a2f4e6713bf36caf370a82d1dc4c3428a34c500d454a25d267c",
+      "probe_id": "probe_009",
+      "probe_type": "commit_resolution_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 2,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 10
+      },
+      "candidate_id": "native_akaihola_darker_6f9ae295",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "target test and environment file presence",
+      "input_evidence_hash": "19a0132d650f914a9edb1bc6fef89add27014f37c979af087c5ec2a0ce345586",
+      "next_decision": "ast_collection_probe",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_010",
+      "probe_type": "tree_presence_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 3,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 11
+      },
+      "candidate_id": "native_akaihola_darker_6f9ae295",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "ast discovered 1 bounded test node commands",
+      "input_evidence_hash": "4e5c253557202a69825fca6873747243cc7809b0df0c98916bcc838d369ee219",
+      "next_decision": "environment_probe",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_011",
+      "probe_type": "collection_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 4,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 12
+      },
+      "candidate_id": "native_akaihola_darker_6f9ae295",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        "."
+      ],
+      "exit_status": 0,
+      "information_gained": "dependency setup from checked-out project metadata",
+      "input_evidence_hash": "7434929ecce2ebf1584f7d0910e82ddce50857c725823cf0d15bd719b057ad37",
+      "next_decision": "native_failure_probe",
+      "output_hash": "a6a841623dbae77d5aa69602fbf796f560e4de1351ea38e390d17c0a123dff95",
+      "probe_id": "probe_012",
+      "probe_type": "environment_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 5,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 13
+      },
+      "candidate_id": "native_akaihola_darker_6f9ae295",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+        "--collect-only",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 0,
+      "information_gained": "native target collection status",
+      "input_evidence_hash": "4e5c253557202a69825fca6873747243cc7809b0df0c98916bcc838d369ee219",
+      "next_decision": "native_failure_probe",
+      "output_hash": "760e9e18e2a910d6e0d3ad6eed511f936286b382bf84cdc4c629f879d2209b62",
+      "probe_id": "probe_013",
+      "probe_type": "minimal_verification_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 6,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 14
+      },
+      "candidate_id": "native_akaihola_darker_6f9ae295",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 1,
+      "information_gained": "pre-repair native command result",
+      "input_evidence_hash": "21f232ec78ffefd45939dadb2bb127673db8889cddeed571128a22c344654038",
+      "next_decision": "semantic_failure_probe",
+      "output_hash": "b2cf4b4bec5bcbf98c9b4796586aca873d4184893a248f00aad177f93b81e46a",
+      "probe_id": "probe_014",
+      "probe_type": "native_failure_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 7,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 15
+      },
+      "candidate_id": "native_akaihola_darker_6f9ae295",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 1,
+      "information_gained": "semantic failure signature captured",
+      "input_evidence_hash": "662a52f304b4c7f57f2fd8e16524fdb8ce0593d682bb845cd2805b9e32853abe",
+      "next_decision": "structural_footprint_probe",
+      "output_hash": "b2cf4b4bec5bcbf98c9b4796586aca873d4184893a248f00aad177f93b81e46a",
+      "probe_id": "probe_015",
+      "probe_type": "semantic_failure_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 8,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 16
+      },
+      "candidate_id": "native_akaihola_darker_6f9ae295",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "candidate source interlock and context boundary evaluated",
+      "input_evidence_hash": "7a829caf2124d611f465e7902801ec4f81b73b8cfd29bf883094e9472e848d23",
+      "next_decision": "candidate_admission_decision",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_016",
+      "probe_type": "structural_footprint_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 1,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 17
+      },
+      "candidate_id": "native_akaihola_darker_6ecafca0",
+      "command_executed": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "6ecafca023a354fe7d9539d1d20bf10391bdb24a"
+      ],
+      "exit_status": 0,
+      "information_gained": "commit fetch plus checkout identity",
+      "input_evidence_hash": "36e421377504596c3dfd938b51865de0a034aa3eb658ed6209ad287afb4096b6",
+      "next_decision": "tree_presence_probe",
+      "output_hash": "5c0a9d01b238e1beec6d6dc6a84c5581578aa1f88d4e4f0ef516ae79ec8b0079",
+      "probe_id": "probe_017",
+      "probe_type": "commit_resolution_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 2,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 18
+      },
+      "candidate_id": "native_akaihola_darker_6ecafca0",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "target test and environment file presence",
+      "input_evidence_hash": "9aab324b56fdd426ab874e8367046280eef782a79a4c9fef8be58d3322473999",
+      "next_decision": "ast_collection_probe",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_018",
+      "probe_type": "tree_presence_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 3,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 19
+      },
+      "candidate_id": "native_akaihola_darker_6ecafca0",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "ast discovered 1 bounded test node commands",
+      "input_evidence_hash": "a223ae0b0e324414164a22b2ec9666b5d4ae4da3fc8c08d59e871af980084143",
+      "next_decision": "environment_probe",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_019",
+      "probe_type": "collection_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 4,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 20
+      },
+      "candidate_id": "native_akaihola_darker_6ecafca0",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6ecafca0\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        "."
+      ],
+      "exit_status": 0,
+      "information_gained": "dependency setup from checked-out project metadata",
+      "input_evidence_hash": "74b5011bfca6400c7a1e8332e34ad963c18303b840a4f18183f0a28a979636f9",
+      "next_decision": "native_failure_probe",
+      "output_hash": "a6a841623dbae77d5aa69602fbf796f560e4de1351ea38e390d17c0a123dff95",
+      "probe_id": "probe_020",
+      "probe_type": "environment_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 5,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 21
+      },
+      "candidate_id": "native_akaihola_darker_6ecafca0",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_akaihola_darker_6ecafca0\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_stdin_filename.py",
+        "--collect-only",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 2,
+      "information_gained": "native target collection status",
+      "input_evidence_hash": "a223ae0b0e324414164a22b2ec9666b5d4ae4da3fc8c08d59e871af980084143",
+      "next_decision": "reject_target_not_executed",
+      "output_hash": "bbacaad1e0b99de66e0ec726663e30f029815fe501d79f463dddc863cd532420",
+      "probe_id": "probe_021",
+      "probe_type": "minimal_verification_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 1,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 22
+      },
+      "candidate_id": "native_pytest_rerunfailures_f095a517",
+      "command_executed": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "f095a517c8d0550df0cb42b7ef3f96452ce68f05"
+      ],
+      "exit_status": 0,
+      "information_gained": "commit fetch plus checkout identity",
+      "input_evidence_hash": "33c1b0c57bd9a081f190ee8fd4d8c5961de9174b78502c26f842d47916dcf764",
+      "next_decision": "tree_presence_probe",
+      "output_hash": "6b417652ce2bcc2804bd1e5ab07cc50de250a682637e03e9de2843e0adf56c00",
+      "probe_id": "probe_022",
+      "probe_type": "commit_resolution_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 2,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 23
+      },
+      "candidate_id": "native_pytest_rerunfailures_f095a517",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "target test and environment file presence",
+      "input_evidence_hash": "be42fc754b65d7cc2ae2fca2d463a8278340e1ea3630ad8b0005efc54f93cff2",
+      "next_decision": "ast_collection_probe",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_023",
+      "probe_type": "tree_presence_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 3,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 24
+      },
+      "candidate_id": "native_pytest_rerunfailures_f095a517",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "ast discovered 8 bounded test node commands",
+      "input_evidence_hash": "8728240989ba72738745eb7a52852c3d2387279b1932f775574b75a0ae063603",
+      "next_decision": "environment_probe",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_024",
+      "probe_type": "collection_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 4,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 25
+      },
+      "candidate_id": "native_pytest_rerunfailures_f095a517",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        "."
+      ],
+      "exit_status": 0,
+      "information_gained": "dependency setup from checked-out project metadata",
+      "input_evidence_hash": "9780a2a66a97c330789e72fa28b6a50c550b650e0975679659add7f1fcec4552",
+      "next_decision": "native_failure_probe",
+      "output_hash": "a6a841623dbae77d5aa69602fbf796f560e4de1351ea38e390d17c0a123dff95",
+      "probe_id": "probe_025",
+      "probe_type": "environment_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 5,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 26
+      },
+      "candidate_id": "native_pytest_rerunfailures_f095a517",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_pytest_rerunfailures.py",
+        "--collect-only",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 0,
+      "information_gained": "native target collection status",
+      "input_evidence_hash": "8728240989ba72738745eb7a52852c3d2387279b1932f775574b75a0ae063603",
+      "next_decision": "native_failure_probe",
+      "output_hash": "515a2bf1a3308218b23249b709f8aa8fa6b513e2ec2d7804b43f0f088e145276",
+      "probe_id": "probe_026",
+      "probe_type": "minimal_verification_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 6,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 27
+      },
+      "candidate_id": "native_pytest_rerunfailures_f095a517",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_pytest_rerunfailures.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 0,
+      "information_gained": "pre-repair native command result",
+      "input_evidence_hash": "5937171365769427d02f05589faee0d424d9fa9f028a473325293c18affcae50",
+      "next_decision": "reject_pre_repair_passed",
+      "output_hash": "a6a841623dbae77d5aa69602fbf796f560e4de1351ea38e390d17c0a123dff95",
+      "probe_id": "probe_027",
+      "probe_type": "native_failure_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 1,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 28
+      },
+      "candidate_id": "native_pytest_rerunfailures_d17f3be1",
+      "command_executed": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "d17f3be1c8cc257c29cd7d7e815d3c52867b1276"
+      ],
+      "exit_status": 0,
+      "information_gained": "commit fetch plus checkout identity",
+      "input_evidence_hash": "9d0257b456e09ce645d79e9659710ee8467f62b0e2f1e29bad4df8a973cf3789",
+      "next_decision": "tree_presence_probe",
+      "output_hash": "7076a59a3bd3206d0d56a6aa81b8420d61229ab78e554a045697dc11e73353c9",
+      "probe_id": "probe_028",
+      "probe_type": "commit_resolution_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 2,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 29
+      },
+      "candidate_id": "native_pytest_rerunfailures_d17f3be1",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "target test and environment file presence",
+      "input_evidence_hash": "cbd2cc5bc4167f717a234e4414303d247a891645452a261563d3344dfa3b211f",
+      "next_decision": "ast_collection_probe",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_029",
+      "probe_type": "tree_presence_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 3,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 30
+      },
+      "candidate_id": "native_pytest_rerunfailures_d17f3be1",
+      "command_executed": [],
+      "exit_status": null,
+      "information_gained": "ast discovered 8 bounded test node commands",
+      "input_evidence_hash": "8728240989ba72738745eb7a52852c3d2387279b1932f775574b75a0ae063603",
+      "next_decision": "environment_probe",
+      "output_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "probe_id": "probe_030",
+      "probe_type": "collection_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 4,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 31
+      },
+      "candidate_id": "native_pytest_rerunfailures_d17f3be1",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        "."
+      ],
+      "exit_status": 0,
+      "information_gained": "dependency setup from checked-out project metadata",
+      "input_evidence_hash": "c68aa1561a4f0de9059d3f7ca8a3e6f3d33006d7395dcd70d7cd956a0d157289",
+      "next_decision": "native_failure_probe",
+      "output_hash": "a6a841623dbae77d5aa69602fbf796f560e4de1351ea38e390d17c0a123dff95",
+      "probe_id": "probe_031",
+      "probe_type": "environment_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 5,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 32
+      },
+      "candidate_id": "native_pytest_rerunfailures_d17f3be1",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_pytest_rerunfailures.py",
+        "--collect-only",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 0,
+      "information_gained": "native target collection status",
+      "input_evidence_hash": "8728240989ba72738745eb7a52852c3d2387279b1932f775574b75a0ae063603",
+      "next_decision": "native_failure_probe",
+      "output_hash": "02e3a0a08c36a61d0f2aca8020fa8664c49bcc990aeb581757eab87d75d651d5",
+      "probe_id": "probe_032",
+      "probe_type": "minimal_verification_probe",
+      "timed_out": false
+    },
+    {
+      "budget_spent": {
+        "candidate_probe_count": 6,
+        "max_probes_per_candidate": 8,
+        "max_total_probes": 80,
+        "total_probe_count": 33
+      },
+      "candidate_id": "native_pytest_rerunfailures_d17f3be1",
+      "command_executed": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_lkwtq0es\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_pytest_rerunfailures.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_status": 0,
+      "information_gained": "pre-repair native command result",
+      "input_evidence_hash": "176b6fa9dee5ba4ada3487ccc1f767a2e5840cf593d6faf7a95b0a676ccee6ac",
+      "next_decision": "reject_pre_repair_passed",
+      "output_hash": "a6a841623dbae77d5aa69602fbf796f560e4de1351ea38e390d17c0a123dff95",
+      "probe_id": "probe_033",
+      "probe_type": "native_failure_probe",
+      "timed_out": false
+    }
+  ],
+  "status": "PASS"
+}

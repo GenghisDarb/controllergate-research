@@ -1,0 +1,84 @@
+{
+  "candidates": [
+    {
+      "candidate_commit_sha": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
+      "fallback_decision": "rejected_issue_text_unsafe",
+      "harness_generated": false,
+      "issue_fetch": {
+        "body_hash": "65ea84959dd3db19b2d0c9b36067060866a07bd6a4ee502d72086c22653cb39a",
+        "contains_solution_hint": false,
+        "created_at": "2026-06-01T21:43:57Z",
+        "has_code_block": false,
+        "has_reproduction_terms": false,
+        "is_pull_request": true,
+        "issue_text_hash": "5b2806a1f508eedb9caacb734284da36c449ec95df7fc47f79a0a58306ea636a",
+        "issue_url": "https://github.com/pytest-dev/pytest-rerunfailures/pull/330",
+        "status": "PASS",
+        "text_excerpt": "Support rerunning on subtest errors in pytest 9.0 and newer\n\nThis adds subtest support from pytest 9.0 to pytest-rerunfailures. Tests with failing subtests are handled as failed tests and are rerun completely (not the single subtest is run, but the full test). Resolves #315.\r\n\r\nFor transparency: Note that the _remove_failed_subtest_reports_from_stats() function is AI generated. The rest is human generated ;-)",
+        "title_hash": "e32a7cbb9ae9ad54e4f43d37f200a9795fa6ca0709e0a51552fe7c08256c4bac",
+        "updated_at": "2026-06-26T06:52:50Z"
+      },
+      "issue_number": "330",
+      "native_candidate_id": "native_pytest_rerunfailures_f095a517",
+      "rejection_reason": "issue_number_resolves_to_pull_request",
+      "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+      "verified": false
+    },
+    {
+      "candidate_commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
+      "fallback_decision": "rejected_issue_text_unsafe",
+      "harness_generated": false,
+      "issue_fetch": {
+        "body_hash": "288f966822ff986b3c07288835691a333a32c4bba8d5caa0baf1e14dfecf93c0",
+        "contains_solution_hint": false,
+        "created_at": "2026-02-16T10:47:35Z",
+        "has_code_block": false,
+        "has_reproduction_terms": true,
+        "is_pull_request": false,
+        "issue_text_hash": "2e69e11f8f17284a486a7c2850bef633ba5b45c9014d18f870facb3f2eeb9392",
+        "issue_url": "https://github.com/pytest-dev/pytest-rerunfailures/issues/321",
+        "status": "PASS",
+        "text_excerpt": "Feature request: Option to append decorator and CLI rerun counts for additive retries\n\n## Motivation\n\nThe plugin currently gives strict priority to the `@pytest.mark.flaky` decorator over the command-line `--reruns` option.\n\nHowever, in environments with non-deterministic failures\u2014such as certain machines or flaky CI runners\u2014it would be useful to allow *additive* retry logic: rerun count from the decorator plus count from CLI or config.\n\nThis would allow workflow-level overrides. For example:\n- ",
+        "title_hash": "516da27ec828dda0a9de0f936eaa0afd0d547dc49c9626d523337c54c321e720",
+        "updated_at": "2026-05-23T08:11:36Z"
+      },
+      "issue_number": "321",
+      "native_candidate_id": "native_pytest_rerunfailures_d17f3be1",
+      "rejection_reason": "issue_text_edit_history_uncertain",
+      "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+      "verified": false
+    },
+    {
+      "candidate_commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
+      "fallback_decision": "rejected_issue_text_unsafe",
+      "harness_generated": false,
+      "issue_fetch": {
+        "body_hash": "f1f55e2c4d121ade6fe8cfb40a16d1a577d165c52e37fb3b1647f213c1fee9c7",
+        "contains_solution_hint": false,
+        "created_at": "2026-05-13T21:08:01Z",
+        "has_code_block": false,
+        "has_reproduction_terms": false,
+        "is_pull_request": true,
+        "issue_text_hash": "0ee522c42467dfdbf8cee7c78583b56760f3d2051b9483a7e7d1cbafb9953703",
+        "issue_url": "https://github.com/pytest-dev/pytest-rerunfailures/pull/328",
+        "status": "PASS",
+        "text_excerpt": "feat: add --reruns-mode option to sum marker and global reruns (#321)\n\nCloses #321.\n\nAdds `--reruns-mode=strict|append`. `strict` keeps the existing priority (marker overrides global). `append` sums the marker count and the global `--reruns` / `reruns` ini setting, so `@pytest.mark.flaky(reruns=2)` run with `--reruns 4` re-runs up to 6 times. Per @icemac in #321 (\"I like the idea and I'd prefer the `--reruns-mode=append` vs. `strict` implementation of the option\").",
+        "title_hash": "59ce5e7103dfc389d95d94414badf52b1a91196ca776abd8850940576522c04c",
+        "updated_at": "2026-05-22T06:50:32Z"
+      },
+      "issue_number": "328",
+      "native_candidate_id": "native_pytest_rerunfailures_d17f3be1",
+      "rejection_reason": "issue_number_resolves_to_pull_request",
+      "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+      "verified": false
+    }
+  ],
+  "ephemeral_harness_verification_status": "not_run_no_safe_issue_derived_harness",
+  "exact_blocker": "blocked_no_native_or_issue_derived_candidate2_seed_acquired",
+  "fallback_attempted": true,
+  "issue_derived_candidate_acquired": false,
+  "issue_derived_registry_merge_status": "not_run_no_verified_issue_derived_candidate",
+  "issue_text_timestamp_guard_status": "issue_text_edit_history_uncertain",
+  "native_replay_failed_first": true,
+  "status": "blocked"
+}
