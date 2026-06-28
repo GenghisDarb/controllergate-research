@@ -1,14 +1,616 @@
 [
   {
-    "blocker": "metadata_probe_no_verified_candidates",
-    "checkout_attempted": false,
-    "commit_or_issue_candidate": null,
+    "blocker": "metadata_probe_collection_failed",
+    "checkout_attempted": true,
+    "checkout_command_record": {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75"
+      ],
+      "normalized_output_sha256": "44102d76723fd1e81724fad6b3b992feae742a71080f951c592413f614ab54d8",
+      "output_sha256": "466b03bde634b213f9b49e900c359bd1c87c1dde28f3fe5dc8b3f82764e3cbc4",
+      "output_summary": "STDOUT:\n\nSTDERR:\nHEAD is now at bd28cdc test: failing test for isort's skip_glob setting",
+      "returncode": 0
+    },
+    "checkout_status": "PASS",
+    "collection_attempted": true,
+    "collection_command_record": {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_isort.py",
+        "--collect-only",
+        "-q"
+      ],
+      "normalized_output_sha256": "62bd7a173a0180a5240af85ddbcc5cbbd6a76369e0dd63b253b418717e413bf4",
+      "output_sha256": "61d973af5cc6b375b9b0904ca662e358b35c639205dbf33570e0786f9127fdeb",
+      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n____________ ERROR collecting src/darker/tests/test_main_isort.py _____________\nImportError while importing test module '<lead_workspace>\\src\\darker\\tests\\test_main_isort.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc\\darker\\tests\\test_main_isort.py:11: in <module>\n    import darker.__main__\nsrc\\darker\\__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc\\darker\\chooser.py:35: in <module>\n    from darkgraylib.utils import DiffChunk\nE   ModuleNotFoundError: No module named 'darkgraylib'\n____________ ERROR collecting",
+      "returncode": 2
+    },
+    "collection_status": "FAIL",
+    "commit_hint": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+    "commit_resolve_command_record": {
+      "command": [
+        "git",
+        "rev-parse",
+        "--verify",
+        "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75^{commit}"
+      ],
+      "normalized_output_sha256": "b481d3f85cd87b859c1c1baa566f74da163513a887b3cbc0827a2fc49ab7fef9",
+      "output_sha256": "846633c05c3d733cb499f642f024ff3c671b23f455b751f8883a21d42244c3de",
+      "output_summary": "STDOUT:\nbd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75\n\nSTDERR:",
+      "returncode": 0
+    },
+    "commit_resolved": true,
     "decision": "rejected_no_verified_native_candidate",
-    "failure_replay_attempted": false,
+    "environment_file_present": true,
+    "environment_files": [
+      "pyproject.toml",
+      "setup.py",
+      "setup.cfg"
+    ],
+    "failure_replay_attempted": true,
+    "failure_replay_command_record": {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_isort.py",
+        "-q"
+      ],
+      "normalized_output_sha256": "493d36c741827d7b2c732dd2b92900ebad6555ac281d8d9ac42ab864aa1968fe",
+      "output_sha256": "49d27ddb9197e446de4a6f50c402a9b1c8339d92e8071037fac43b904ff3c927",
+      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n____________ ERROR collecting src/darker/tests/test_main_isort.py _____________\nImportError while importing test module '<lead_workspace>\\src\\darker\\tests\\test_main_isort.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc\\darker\\tests\\test_main_isort.py:11: in <module>\n    import darker.__main__\nsrc\\darker\\__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc\\darker\\chooser.py:35: in <module>\n    from darkgraylib.utils import DiffChunk\nE   ModuleNotFoundError: No module named 'darkgraylib'\n____________ ERROR collecting",
+      "returncode": 2
+    },
+    "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+    "git_cat_file_command_record": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75"
+      ],
+      "normalized_output_sha256": "f2edc008cdb732c99eaeefd951eee661793a7c41d03d16c82b15f3b4877fbcaf",
+      "output_sha256": "cde684c872688d84803d7b0e99dcdf9ec1ff9e04bde765e995f48802861901f7",
+      "output_summary": "STDOUT:\ncommit\n\nSTDERR:",
+      "returncode": 0
+    },
+    "git_clone_attempted": true,
+    "git_clone_command_record": {
+      "command": [
+        "git",
+        "clone",
+        "--no-checkout",
+        "--filter=blob:none",
+        "https://github.com/akaihola/darker",
+        "<lead_workspace>"
+      ],
+      "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
+      "output_sha256": "ffb3a61495c5c99caee8c9a6a87b07046b167fea5b2bb5f231f570808b24a5ac",
+      "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
+      "returncode": 0
+    },
+    "git_clone_status": "PASS",
+    "git_fetch_command_record": {
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75"
+      ],
+      "normalized_output_sha256": "6854ce55b61d15880feb37750d80e6bb04c7b4e714d548435c5be12a2afceeb2",
+      "output_sha256": "632f00aa3699f586eac196052899ebc0c942411438eb75b394497a134e23ed8c",
+      "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/akaihola/darker\n * branch            bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75 -> FETCH_HEAD",
+      "returncode": 0
+    },
+    "lead_id": "darker_skip_glob_failing_test",
+    "lead_type": "commit_hint",
     "mode": "metadata_probe",
-    "network_status": "not_required_for_repository_local_check",
-    "query_or_lead_source": "repository_local_lead_pool",
-    "repo": "offline_local_metadata_lead_pool",
-    "target_environment_checks_attempted": false
+    "repo": "akaihola/darker",
+    "repo_url": "https://github.com/akaihola/darker",
+    "resolved_commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+    "runtime_workspace_outside_live_repo": true,
+    "semantic_failure_signature_hash": "493d36c741827d7b2c732dd2b92900ebad6555ac281d8d9ac42ab864aa1968fe",
+    "target_test_present": true,
+    "test_path_hint": "src/darker/tests/test_main_isort.py",
+    "workspace_path": "<runtime_workspace>/darker_skip_glob_failing_test",
+    "workspace_path_redacted": true
+  },
+  {
+    "blocker": "metadata_probe_collection_failed",
+    "checkout_attempted": true,
+    "checkout_command_record": {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "6f9ae29512433d960be38f3bfffc23c848691d6f"
+      ],
+      "normalized_output_sha256": "5913bb560160dd91668634baaf5cde4c98e9d1078c3eb12f86eef975171962ac",
+      "output_sha256": "7f42d93645558fcc6d413cd60606cd53057e5414d8ce2347ed233c6441a13f01",
+      "output_summary": "STDOUT:\n\nSTDERR:\nHEAD is now at 6f9ae29 test: failing test for dropping changes for a non-ascii file",
+      "returncode": 0
+    },
+    "checkout_status": "PASS",
+    "collection_attempted": true,
+    "collection_command_record": {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+        "--collect-only",
+        "-q"
+      ],
+      "normalized_output_sha256": "e98aa0d201a480a00257d5c3f4281ab78ec14aeb54938bc7ab1f7692c2a632c5",
+      "output_sha256": "89cd1b1ed7bbb1f55a865faba7b6ccf73e630de0f1d32a0ddc45015e2b046135",
+      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_ ERROR collecting src/darker/tests/test_main_drop_changes_on_unedited_lines.py _\nImportError while importing test module '<lead_workspace>\\src\\darker\\tests\\test_main_drop_changes_on_unedited_lines.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc\\darker\\tests\\test_main_drop_changes_on_unedited_lines.py:10: in <module>\n    from darker.__main__ import _drop_changes_on_unedited_lines\nsrc\\darker\\__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc\\darker\\chooser.py:35: in <module>\n    from darkgraylib.utils import DiffC",
+      "returncode": 2
+    },
+    "collection_status": "FAIL",
+    "commit_hint": "6f9ae29512433d960be38f3bfffc23c848691d6f",
+    "commit_resolve_command_record": {
+      "command": [
+        "git",
+        "rev-parse",
+        "--verify",
+        "6f9ae29512433d960be38f3bfffc23c848691d6f^{commit}"
+      ],
+      "normalized_output_sha256": "3cb7570ebec0a18a1629f6307826b1e571dfe9664ba02faf2276b9064ee73121",
+      "output_sha256": "0f1161e40a87cdb2b3a9605c42b7c24626ad7a9712ed3c6440831bd0922a2393",
+      "output_summary": "STDOUT:\n6f9ae29512433d960be38f3bfffc23c848691d6f\n\nSTDERR:",
+      "returncode": 0
+    },
+    "commit_resolved": true,
+    "decision": "rejected_no_verified_native_candidate",
+    "environment_file_present": true,
+    "environment_files": [
+      "pyproject.toml",
+      "setup.py",
+      "setup.cfg"
+    ],
+    "failure_replay_attempted": true,
+    "failure_replay_command_record": {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+        "-q"
+      ],
+      "normalized_output_sha256": "5afc090d750e8f7378034c1dfe330526525df804abbe7bc89a502a420d772170",
+      "output_sha256": "1f81037dca8b8db454db1f88a128242d5024a3f495f348419f38bf08eea40550",
+      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_ ERROR collecting src/darker/tests/test_main_drop_changes_on_unedited_lines.py _\nImportError while importing test module '<lead_workspace>\\src\\darker\\tests\\test_main_drop_changes_on_unedited_lines.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc\\darker\\tests\\test_main_drop_changes_on_unedited_lines.py:10: in <module>\n    from darker.__main__ import _drop_changes_on_unedited_lines\nsrc\\darker\\__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc\\darker\\chooser.py:35: in <module>\n    from darkgraylib.utils import DiffC",
+      "returncode": 2
+    },
+    "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+    "git_cat_file_command_record": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "6f9ae29512433d960be38f3bfffc23c848691d6f"
+      ],
+      "normalized_output_sha256": "f2edc008cdb732c99eaeefd951eee661793a7c41d03d16c82b15f3b4877fbcaf",
+      "output_sha256": "cde684c872688d84803d7b0e99dcdf9ec1ff9e04bde765e995f48802861901f7",
+      "output_summary": "STDOUT:\ncommit\n\nSTDERR:",
+      "returncode": 0
+    },
+    "git_clone_attempted": true,
+    "git_clone_command_record": {
+      "command": [
+        "git",
+        "clone",
+        "--no-checkout",
+        "--filter=blob:none",
+        "https://github.com/akaihola/darker",
+        "<lead_workspace>"
+      ],
+      "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
+      "output_sha256": "f9d8691b1078f71660fb9355b97300b443c22b6534688020f75b3c33a0b6685e",
+      "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
+      "returncode": 0
+    },
+    "git_clone_status": "PASS",
+    "git_fetch_command_record": {
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "6f9ae29512433d960be38f3bfffc23c848691d6f"
+      ],
+      "normalized_output_sha256": "ffe488c7d624195a770159915b7b93ac35eaf20258dbb285c7609b97d9c359cd",
+      "output_sha256": "2349fd0fb5197bb19c0a4a0651aa3996c3b039759eaa04ed347e39d82ce337b6",
+      "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/akaihola/darker\n * branch            6f9ae29512433d960be38f3bfffc23c848691d6f -> FETCH_HEAD",
+      "returncode": 0
+    },
+    "lead_id": "darker_non_ascii_drop_changes",
+    "lead_type": "commit_hint",
+    "mode": "metadata_probe",
+    "repo": "akaihola/darker",
+    "repo_url": "https://github.com/akaihola/darker",
+    "resolved_commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
+    "runtime_workspace_outside_live_repo": true,
+    "semantic_failure_signature_hash": "5afc090d750e8f7378034c1dfe330526525df804abbe7bc89a502a420d772170",
+    "target_test_present": true,
+    "test_path_hint": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+    "workspace_path": "<runtime_workspace>/darker_non_ascii_drop_changes",
+    "workspace_path_redacted": true
+  },
+  {
+    "blocker": "metadata_probe_collection_failed",
+    "checkout_attempted": true,
+    "checkout_command_record": {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "6ecafca023a354fe7d9539d1d20bf10391bdb24a"
+      ],
+      "normalized_output_sha256": "abc433d3ebf7cc55edf3bcf7d07bcebbf4a228bcdd7d074766867d21b8cbc1d3",
+      "output_sha256": "ec590fe501626baf841ddb880795a15e0be1fad94e5a589984d0802d92e89b0e",
+      "output_summary": "STDOUT:\n\nSTDERR:\nHEAD is now at 6ecafca Failing test for `--stdin-filename=<path> -`",
+      "returncode": 0
+    },
+    "checkout_status": "PASS",
+    "collection_attempted": true,
+    "collection_command_record": {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_stdin_filename.py",
+        "--collect-only",
+        "-q"
+      ],
+      "normalized_output_sha256": "4b1828c25a37cd527e0c78077f90349a26cb2251365e977114d766a2bf52717c",
+      "output_sha256": "f062d5c2019207d7901cebe6ca920cfe720cb40ecdfecdcb88a18eafba44a11f",
+      "output_summary": "STDOUT:\n\nSTDERR:\nImportError while loading conftest '<lead_workspace>\\src\\darker\\tests\\conftest.py'.\nsrc\\darker\\tests\\conftest.py:10: in <module>\n    from black import find_project_root as black_find_project_root\nE   ModuleNotFoundError: No module named 'black'",
+      "returncode": 4
+    },
+    "collection_status": "FAIL",
+    "commit_hint": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
+    "commit_resolve_command_record": {
+      "command": [
+        "git",
+        "rev-parse",
+        "--verify",
+        "6ecafca023a354fe7d9539d1d20bf10391bdb24a^{commit}"
+      ],
+      "normalized_output_sha256": "13b2ec6eb46e1d8e8988fc224a7f1b6f847963ae5e98ca11e95d8c09cd4c9a1e",
+      "output_sha256": "60ae3cdecf94685dbbede46ea3bffac582cb00c127d9055e46c26ce53d6602da",
+      "output_summary": "STDOUT:\n6ecafca023a354fe7d9539d1d20bf10391bdb24a\n\nSTDERR:",
+      "returncode": 0
+    },
+    "commit_resolved": true,
+    "decision": "rejected_no_verified_native_candidate",
+    "environment_file_present": true,
+    "environment_files": [
+      "pyproject.toml",
+      "setup.py",
+      "setup.cfg"
+    ],
+    "failure_replay_attempted": true,
+    "failure_replay_command_record": {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_stdin_filename.py",
+        "-q"
+      ],
+      "normalized_output_sha256": "4b1828c25a37cd527e0c78077f90349a26cb2251365e977114d766a2bf52717c",
+      "output_sha256": "f062d5c2019207d7901cebe6ca920cfe720cb40ecdfecdcb88a18eafba44a11f",
+      "output_summary": "STDOUT:\n\nSTDERR:\nImportError while loading conftest '<lead_workspace>\\src\\darker\\tests\\conftest.py'.\nsrc\\darker\\tests\\conftest.py:10: in <module>\n    from black import find_project_root as black_find_project_root\nE   ModuleNotFoundError: No module named 'black'",
+      "returncode": 4
+    },
+    "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+    "git_cat_file_command_record": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "6ecafca023a354fe7d9539d1d20bf10391bdb24a"
+      ],
+      "normalized_output_sha256": "f2edc008cdb732c99eaeefd951eee661793a7c41d03d16c82b15f3b4877fbcaf",
+      "output_sha256": "cde684c872688d84803d7b0e99dcdf9ec1ff9e04bde765e995f48802861901f7",
+      "output_summary": "STDOUT:\ncommit\n\nSTDERR:",
+      "returncode": 0
+    },
+    "git_clone_attempted": true,
+    "git_clone_command_record": {
+      "command": [
+        "git",
+        "clone",
+        "--no-checkout",
+        "--filter=blob:none",
+        "https://github.com/akaihola/darker",
+        "<lead_workspace>"
+      ],
+      "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
+      "output_sha256": "afcd9eda9b2b90ee994297b75a32a2d7df1c22e0414c313053c254e16debaa5a",
+      "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
+      "returncode": 0
+    },
+    "git_clone_status": "PASS",
+    "git_fetch_command_record": {
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "6ecafca023a354fe7d9539d1d20bf10391bdb24a"
+      ],
+      "normalized_output_sha256": "5d6206085a101169b615131f03d2ce4a7c643a96486becc97fa0793b5e03cdba",
+      "output_sha256": "00e4f0ff51598354f73b2ccc9cbc92bff3701f8d0785ce8b186e3b73b949354a",
+      "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/akaihola/darker\n * branch            6ecafca023a354fe7d9539d1d20bf10391bdb24a -> FETCH_HEAD",
+      "returncode": 0
+    },
+    "lead_id": "darker_stdin_filename",
+    "lead_type": "commit_hint",
+    "mode": "metadata_probe",
+    "repo": "akaihola/darker",
+    "repo_url": "https://github.com/akaihola/darker",
+    "resolved_commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
+    "runtime_workspace_outside_live_repo": true,
+    "semantic_failure_signature_hash": "4b1828c25a37cd527e0c78077f90349a26cb2251365e977114d766a2bf52717c",
+    "target_test_present": true,
+    "test_path_hint": "src/darker/tests/test_main_stdin_filename.py",
+    "workspace_path": "<runtime_workspace>/darker_stdin_filename",
+    "workspace_path_redacted": true
+  },
+  {
+    "blocker": "metadata_probe_collection_failed",
+    "checkout_attempted": true,
+    "checkout_command_record": {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "f095a517c8d0550df0cb42b7ef3f96452ce68f05"
+      ],
+      "normalized_output_sha256": "0c3289337c18cd9c0dde206d38f4b5ad2eff8466dc05b10a3b85321ad5b74561",
+      "output_sha256": "a01a778a206af1a5e04b4f6e54b3c36a98d6128553c87a9c6fcd23153d401362",
+      "output_summary": "STDOUT:\n\nSTDERR:\nHEAD is now at f095a51 Support rerunning on subtest errors in pytest 9.0 and newer (#330)",
+      "returncode": 0
+    },
+    "checkout_status": "PASS",
+    "collection_attempted": true,
+    "collection_command_record": {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "pytest",
+        "tests/test_pytest_rerunfailures.py",
+        "--collect-only",
+        "-q"
+      ],
+      "normalized_output_sha256": "e5620af3648a6ff00825e399f3bbdf53c5fab741cd13606a5881e4f685076e6d",
+      "output_sha256": "b85a920adaed1b28e03e5c364eebb1bfbee0613099254fcf86ab2a0f2c57c5eb",
+      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py _____________\nImportError while importing test module '<lead_workspace>\\tests\\test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests\\test_pytest_rerunfailures.py:8: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM, SubtestReport\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ===========================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!",
+      "returncode": 2
+    },
+    "collection_status": "FAIL",
+    "commit_hint": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
+    "commit_resolve_command_record": {
+      "command": [
+        "git",
+        "rev-parse",
+        "--verify",
+        "f095a517c8d0550df0cb42b7ef3f96452ce68f05^{commit}"
+      ],
+      "normalized_output_sha256": "0816d7d3e932c8068c15eb6b44f631e9ad1027868dbf08bd712028ea4debfcb2",
+      "output_sha256": "a652b4906d80246d89a074bd372fb8e6c21a16daad1d96ea5934b88ba3246c34",
+      "output_summary": "STDOUT:\nf095a517c8d0550df0cb42b7ef3f96452ce68f05\n\nSTDERR:",
+      "returncode": 0
+    },
+    "commit_resolved": true,
+    "decision": "rejected_no_verified_native_candidate",
+    "environment_file_present": true,
+    "environment_files": [
+      "pyproject.toml",
+      "tox.ini"
+    ],
+    "failure_replay_attempted": true,
+    "failure_replay_command_record": {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "pytest",
+        "tests/test_pytest_rerunfailures.py",
+        "-q"
+      ],
+      "normalized_output_sha256": "f9cae91c1475f90ae4c08a7ddbb6560c00023a1edc1743f9281554a8679c2edd",
+      "output_sha256": "04376eacc12b24593f337351ff589b2b4599b16b0885c12d004aeca56d1a4a03",
+      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py _____________\nImportError while importing test module '<lead_workspace>\\tests\\test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests\\test_pytest_rerunfailures.py:8: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM, SubtestReport\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ===========================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!",
+      "returncode": 2
+    },
+    "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+    "git_cat_file_command_record": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "f095a517c8d0550df0cb42b7ef3f96452ce68f05"
+      ],
+      "normalized_output_sha256": "f2edc008cdb732c99eaeefd951eee661793a7c41d03d16c82b15f3b4877fbcaf",
+      "output_sha256": "cde684c872688d84803d7b0e99dcdf9ec1ff9e04bde765e995f48802861901f7",
+      "output_summary": "STDOUT:\ncommit\n\nSTDERR:",
+      "returncode": 0
+    },
+    "git_clone_attempted": true,
+    "git_clone_command_record": {
+      "command": [
+        "git",
+        "clone",
+        "--no-checkout",
+        "--filter=blob:none",
+        "https://github.com/pytest-dev/pytest-rerunfailures",
+        "<lead_workspace>"
+      ],
+      "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
+      "output_sha256": "cc6144f55750a7d807a17b61c33e9b788b22e6bd1f6d93384aa279256d5369a2",
+      "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
+      "returncode": 0
+    },
+    "git_clone_status": "PASS",
+    "git_fetch_command_record": {
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "f095a517c8d0550df0cb42b7ef3f96452ce68f05"
+      ],
+      "normalized_output_sha256": "67fabb7250f08ee512783f8122bbb40a4be97b1f6a068b6adbf9d63108caf195",
+      "output_sha256": "027c50242c480c654cf99f41f06638b49647c33cbc8acae1e4997b5d58c2ec49",
+      "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/pytest-dev/pytest-rerunfailures\n * branch            f095a517c8d0550df0cb42b7ef3f96452ce68f05 -> FETCH_HEAD",
+      "returncode": 0
+    },
+    "lead_id": "pytest_rerunfailures_subtest_errors",
+    "lead_type": "commit_hint",
+    "mode": "metadata_probe",
+    "repo": "pytest-dev/pytest-rerunfailures",
+    "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+    "resolved_commit_sha": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
+    "runtime_workspace_outside_live_repo": true,
+    "semantic_failure_signature_hash": "f9cae91c1475f90ae4c08a7ddbb6560c00023a1edc1743f9281554a8679c2edd",
+    "target_test_present": true,
+    "test_path_hint": "tests/test_pytest_rerunfailures.py",
+    "workspace_path": "<runtime_workspace>/pytest_rerunfailures_subtest_errors",
+    "workspace_path_redacted": true
+  },
+  {
+    "blocker": "metadata_probe_collection_failed",
+    "checkout_attempted": true,
+    "checkout_command_record": {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "d17f3be1c8cc257c29cd7d7e815d3c52867b1276"
+      ],
+      "normalized_output_sha256": "616bcd88736c54afd418f8d1988134aa2328c476680e3405f88e0b72744e884c",
+      "output_sha256": "8a60d9632db1e9e2d6b424b9cc63eaafa45e19e203bf7d4af3f2b18ef4783550",
+      "output_summary": "STDOUT:\n\nSTDERR:\nHEAD is now at d17f3be feat: add --reruns-mode option to sum marker and global reruns (#321) (#328)",
+      "returncode": 0
+    },
+    "checkout_status": "PASS",
+    "collection_attempted": true,
+    "collection_command_record": {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "pytest",
+        "tests/test_pytest_rerunfailures.py",
+        "--collect-only",
+        "-q"
+      ],
+      "normalized_output_sha256": "5886cf821a6b6d45be58464f76b34a67b85c0e0eb1bd39f3a44a6f98c2304c64",
+      "output_sha256": "18f5654c976405e32e9846f23c13a83919d199461e07599c3ccd47f2dc8d098c",
+      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py _____________\nImportError while importing test module '<lead_workspace>\\tests\\test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests\\test_pytest_rerunfailures.py:7: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ===========================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!!!!! Interrupte",
+      "returncode": 2
+    },
+    "collection_status": "FAIL",
+    "commit_hint": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
+    "commit_resolve_command_record": {
+      "command": [
+        "git",
+        "rev-parse",
+        "--verify",
+        "d17f3be1c8cc257c29cd7d7e815d3c52867b1276^{commit}"
+      ],
+      "normalized_output_sha256": "d339a9bd998bfacf332ff1791f854ec9be0a583939c24bfd3563b58365ece2a7",
+      "output_sha256": "279d474fd3749e2fea28ccee5e0e5c1e6b56e217e6667d70401e1e67c2e86244",
+      "output_summary": "STDOUT:\nd17f3be1c8cc257c29cd7d7e815d3c52867b1276\n\nSTDERR:",
+      "returncode": 0
+    },
+    "commit_resolved": true,
+    "decision": "rejected_no_verified_native_candidate",
+    "environment_file_present": true,
+    "environment_files": [
+      "pyproject.toml",
+      "setup.py",
+      "tox.ini"
+    ],
+    "failure_replay_attempted": true,
+    "failure_replay_command_record": {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "pytest",
+        "tests/test_pytest_rerunfailures.py",
+        "-q"
+      ],
+      "normalized_output_sha256": "d862155536936ee97a55b63708d1b0a7e5fd3a1d3514503f18347cf550271998",
+      "output_sha256": "21e53cc9109deb7ae654bddd5c74bfabe444158619e0920cbb93f16818856b92",
+      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py _____________\nImportError while importing test module '<lead_workspace>\\tests\\test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests\\test_pytest_rerunfailures.py:7: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ===========================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!!!!! Interrupte",
+      "returncode": 2
+    },
+    "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+    "git_cat_file_command_record": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "d17f3be1c8cc257c29cd7d7e815d3c52867b1276"
+      ],
+      "normalized_output_sha256": "f2edc008cdb732c99eaeefd951eee661793a7c41d03d16c82b15f3b4877fbcaf",
+      "output_sha256": "cde684c872688d84803d7b0e99dcdf9ec1ff9e04bde765e995f48802861901f7",
+      "output_summary": "STDOUT:\ncommit\n\nSTDERR:",
+      "returncode": 0
+    },
+    "git_clone_attempted": true,
+    "git_clone_command_record": {
+      "command": [
+        "git",
+        "clone",
+        "--no-checkout",
+        "--filter=blob:none",
+        "https://github.com/pytest-dev/pytest-rerunfailures",
+        "<lead_workspace>"
+      ],
+      "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
+      "output_sha256": "face04c3057ae0ebdd9e7e684523f9c84679b0e3b87ea759d3cc039e59e55d8f",
+      "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
+      "returncode": 0
+    },
+    "git_clone_status": "PASS",
+    "git_fetch_command_record": {
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "d17f3be1c8cc257c29cd7d7e815d3c52867b1276"
+      ],
+      "normalized_output_sha256": "cc58e290ba9b4dffd504e5a7407fded5c0eee90c44032bf3ac021125ff5031c9",
+      "output_sha256": "b3bc3c03119449f64f0048de9a3a2203d8a67c7655520a19ffbe6c628d6b66f0",
+      "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/pytest-dev/pytest-rerunfailures\n * branch            d17f3be1c8cc257c29cd7d7e815d3c52867b1276 -> FETCH_HEAD",
+      "returncode": 0
+    },
+    "lead_id": "pytest_rerunfailures_reruns_mode",
+    "lead_type": "commit_hint",
+    "mode": "metadata_probe",
+    "repo": "pytest-dev/pytest-rerunfailures",
+    "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+    "resolved_commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
+    "runtime_workspace_outside_live_repo": true,
+    "semantic_failure_signature_hash": "d862155536936ee97a55b63708d1b0a7e5fd3a1d3514503f18347cf550271998",
+    "target_test_present": true,
+    "test_path_hint": "tests/test_pytest_rerunfailures.py",
+    "workspace_path": "<runtime_workspace>/pytest_rerunfailures_reruns_mode",
+    "workspace_path_redacted": true
   }
 ]

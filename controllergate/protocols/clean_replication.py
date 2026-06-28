@@ -7,6 +7,7 @@ from dataclasses import dataclass, asdict
 class CleanReplicationConfig:
     batch_id: str
     candidate_source_mode: str = "mixed"
+    lead_pool_path: str = "inputs/clean_replication_batch_001_lead_pool.json"
     max_candidates_to_verify: int = 4
     max_candidate_verification_attempts: int = 20
     max_repos_attempted: int = 10
@@ -24,8 +25,10 @@ def default_clean_replication_config(batch_id: str = "clean_replication_batch_00
 
 
 def validate_clean_replication_config(config: dict[str, object]) -> dict[str, object]:
+    lead_pool_path = config.get("lead_pool_path")
     ok = (
         config.get("full_scoring") is False
+        and (lead_pool_path is None or isinstance(lead_pool_path, str))
         and int(config.get("max_candidates_to_verify", 0)) <= 4
         and int(config.get("max_candidate_verification_attempts", 0)) <= 20
         and int(config.get("max_repos_attempted", 0)) <= 10

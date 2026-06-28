@@ -12,13 +12,15 @@ from controllergate.core.artifact_hygiene import audit_artifact_payload
 
 POST_DIR = Path("outputs/post_v2_37_hardening_001")
 BATCH_DIR = Path("outputs/clean_replication_batch_002")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_corrected")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_real_leads")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
     "post_v2_37_hardening_artifact_verification.json",
     "artifact_pycache_payload_audit.json",
     "batch002_mixed_mode_failure_diagnosis.json",
+    "corrected_batch002_artifact_verification.json",
+    "batch002_real_acquisition_gap_diagnosis.json",
     "artifact_packaging_correction_report.json",
     "artifact_payload_manifest_report.json",
     "workspace_transport_integrity_log.json",
@@ -51,6 +53,7 @@ BATCH_REQUIRED = [
     "consolidated_state_clean_replication_batch_002.json",
     "campaign_summary.md",
     "candidate_source_mode_trace.json",
+    "lead_pool_intake_report.json",
     "curated_seed_intake_report.json",
     "metadata_probe_attempts.json",
     "issue_derived_attempts.json",
@@ -100,6 +103,65 @@ def command_passes(command: list[str]) -> bool:
         print(completed.stdout)
         print(completed.stderr)
     return completed.returncode == 0
+
+
+def load_lead_pool(path: Path = Path("inputs/clean_replication_batch_002_lead_pool.json")) -> dict[str, object]:
+    if not path.is_file():
+        return {"status": "MISSING", "leads": [], "lead_count": 0}
+    data = read_json(path)
+    leads = data.get("leads", [])
+    return {"status": "PASS", "leads": leads if isinstance(leads, list) else [], "lead_count": len(leads) if isinstance(leads, list) else 0}
+
+
+def audit_real_acquisition_records(
+    lead_pool: dict[str, object],
+    metadata_attempts: list[dict[str, object]],
+    issue_attempts: list[dict[str, object]],
+    candidate_attempts: list[dict[str, object]],
+    batch: dict[str, object],
+) -> list[str]:
+    errors: list[str] = []
+    leads = lead_pool.get("leads", [])
+    if not isinstance(leads, list):
+        leads = []
+    native_leads = [
+        lead
+        for lead in leads
+        if isinstance(lead, dict)
+        and lead.get("allowed_candidate_class") in {"native", "either"}
+        and lead.get("lead_type") in {"repo_metadata", "commit_hint"}
+    ]
+    if any("py_bugger_issue_65" in json.dumps(item, sort_keys=True) for item in [*leads, *candidate_attempts]):
+        errors.append("py_bugger_issue_65 reused as a new lead")
+    if not leads and batch.get("exact_blocker") != "clean_replication_batch_002_lead_pool_empty":
+        errors.append("lead pool empty without clean_replication_batch_002_lead_pool_empty blocker")
+    if metadata_attempts and all(item.get("repo") == "offline_local_metadata_lead_pool" for item in metadata_attempts):
+        errors.append("metadata_probe placeholder pool counted as acquisition")
+    if issue_attempts and all(item.get("issue_lead") == "offline_local_issue_lead_pool" for item in issue_attempts):
+        errors.append("issue_derived placeholder pool counted as acquisition")
+    if native_leads and not any(item.get("lead_id") for item in candidate_attempts):
+        errors.append("no real lead_id appears in candidate verification attempts")
+    if native_leads and not metadata_attempts:
+        errors.append("native lead pool present but metadata_probe_attempts empty")
+    if metadata_attempts:
+        if any(item.get("git_clone_status") == "PASS" for item in metadata_attempts) and not any(item.get("checkout_attempted") is True for item in metadata_attempts):
+            errors.append("metadata_probe clone passed but no checkout was attempted")
+        if all(item.get("checkout_attempted") is False for item in metadata_attempts) and any(not item.get("blocker") for item in metadata_attempts):
+            errors.append("metadata_probe checkout false for every lead without specific blockers")
+        if any(item.get("lead_id") and item.get("git_clone_attempted") is not True for item in metadata_attempts):
+            errors.append("real metadata lead missing git clone attempt")
+    if any(item.get("mode") == "issue_derived" and not item.get("lead_id") for item in candidate_attempts):
+        errors.append("issue_derived no-lead placeholder counted as real candidate verification attempt")
+    allowed_blockers = {
+        "clean_replication_batch_002_lead_pool_empty",
+        "metadata_probe_network_unavailable",
+        "metadata_probe_no_verified_candidates",
+        "issue_derived_no_safe_leads",
+        "clean_replication_batch_002_no_verified_candidates",
+    }
+    if batch.get("exact_blocker") not in allowed_blockers:
+        errors.append(f"unexpected batch002 blocker: {batch.get('exact_blocker')}")
+    return errors
 
 
 def public_language_hits() -> list[str]:
@@ -195,12 +257,13 @@ def main() -> int:
         return fail("py_bugger_issue_65 reused as a new candidate")
     metadata_attempts = read_json(BATCH_DIR / "metadata_probe_attempts.json")
     issue_attempts = read_json(BATCH_DIR / "issue_derived_attempts.json")
-    if not metadata_attempts or metadata_attempts[0].get("blocker") not in {"metadata_probe_no_verified_candidates", "metadata_probe_unavailable"}:
+    if not metadata_attempts and batch.get("exact_blocker") != "clean_replication_batch_002_lead_pool_empty":
         return fail("metadata probe attempt record invalid")
-    if not issue_attempts or issue_attempts[0].get("blocker") not in {"issue_derived_no_verified_candidates", "issue_derived_disabled", "issue_derived_unsafe"}:
+    if not issue_attempts and batch.get("exact_blocker") != "clean_replication_batch_002_lead_pool_empty":
         return fail("issue-derived attempt record invalid")
-    if batch.get("exact_blocker") != "clean_replication_batch_002_no_verified_candidates":
-        return fail("batch002 terminal blocker must reflect mode exhaustion")
+    real_acquisition_errors = audit_real_acquisition_records(load_lead_pool(), metadata_attempts, issue_attempts, attempts, batch)
+    if real_acquisition_errors:
+        return fail(f"real acquisition audit failed: {real_acquisition_errors}")
     zero_count_fields = [
         "native_candidates_verified_count",
         "issue_derived_candidates_verified_count",

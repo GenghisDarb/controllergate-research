@@ -21,7 +21,7 @@ POST_ID = "post_v2_37_hardening_001"
 POST_DIR = Path("outputs") / POST_ID
 BATCH_ID = "clean_replication_batch_002"
 BATCH_DIR = Path("outputs") / BATCH_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_corrected")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_real_leads")
 
 
 def load_json(path: str | Path) -> dict[str, object]:
@@ -34,10 +34,17 @@ def write_batch002_outputs() -> dict[str, object]:
     result = run_replication_batch(config)
     blocker = result.get("exact_blocker", "clean_replication_batch_002_no_verified_candidates")
     attempts = result.get("candidate_verification_attempts", [])
+    metadata_attempts = result.get("metadata_probe_attempts", [])
+    issue_attempts = result.get("issue_derived_attempts", [])
+    lead_pool = result.get("lead_pool_status", {})
     verified = result.get("verified_candidates", [])
     repair_attempts = result.get("repair_attempts", [])
     repair_successes = result.get("repair_successes", [])
     matched_null = result.get("matched_null_results", [])
+    native_verified_count = len(verified)
+    issue_verified_count = 0
+    native_repair_attempts_count = len(repair_attempts)
+    native_repair_successes_count = len(repair_successes)
     state = {
         "lane_id": BATCH_ID,
         "lane_type": "clean_replication_batch",
@@ -45,19 +52,27 @@ def write_batch002_outputs() -> dict[str, object]:
         "exact_blocker": blocker,
         "summary_status": result.get("summary_status", "no_additional_external_repairs_acquired"),
         "current_protocol_version": "v2.13",
-        "native_candidates_verified_count": 0,
-        "issue_derived_candidates_verified_count": 0,
-        "native_repair_attempts_count": 0,
+        "lead_pool_loaded": lead_pool.get("status") == "PASS",
+        "lead_count": lead_pool.get("lead_count", 0),
+        "real_metadata_leads_attempted_count": len([item for item in metadata_attempts if item.get("lead_id")]),
+        "git_clone_attempts_count": len([item for item in metadata_attempts if item.get("git_clone_attempted") is True]),
+        "checkout_attempts_count": len([item for item in metadata_attempts if item.get("checkout_attempted") is True]),
+        "failure_replay_attempts_count": len([item for item in metadata_attempts if item.get("failure_replay_attempted") is True]),
+        "real_issue_derived_leads_attempted_count": len([item for item in issue_attempts if item.get("lead_id")]),
+        "native_candidates_verified_count": native_verified_count,
+        "issue_derived_candidates_verified_count": issue_verified_count,
+        "native_repair_attempts_count": native_repair_attempts_count,
         "issue_derived_repair_attempts_count": 0,
-        "native_repair_successes_count": 0,
+        "native_repair_successes_count": native_repair_successes_count,
         "issue_derived_repair_successes_count": 0,
-        "additional_native_external_repairs_acquired_count": 0,
+        "additional_native_external_repairs_acquired_count": native_repair_successes_count,
         "additional_issue_derived_repairs_acquired_count": 0,
         "full_scoring": "NOT_RUN/disallowed",
         "memory_lift": "undemonstrated",
         "self_maintaining_software": "false/not_demonstrated",
     }
     write_json_deterministic(BATCH_DIR / f"consolidated_state_{BATCH_ID}.json", state)
+    write_json_deterministic(BATCH_DIR / "lead_pool_intake_report.json", lead_pool)
     write_json_deterministic(BATCH_DIR / "candidate_source_mode_trace.json", result.get("candidate_source_mode_trace", []))
     write_json_deterministic(BATCH_DIR / "curated_seed_intake_report.json", result.get("curated_seed_intake_report", {}))
     write_json_deterministic(BATCH_DIR / "metadata_probe_attempts.json", result.get("metadata_probe_attempts", []))
@@ -88,7 +103,7 @@ def write_batch002_outputs() -> dict[str, object]:
                 "",
                 "Status: BLOCKED.",
                 "",
-                "Mixed-mode progression attempted curated seed intake, metadata probe, and issue-derived fallback. No candidate verified, no repair attempt was run, and no broad claim is made.",
+                "Mixed-mode progression attempted curated seed intake, real metadata-probe leads, and issue-derived fallback. No broad claim is made.",
                 "",
                 f"Exact blocker: `{blocker}`.",
             ]
@@ -107,6 +122,7 @@ def main() -> int:
 
     policy_files = [
         "configs/clean_replication_batch_002.json",
+        "inputs/clean_replication_batch_002_lead_pool.json",
         "docs/bugsinpy_byte_identical_exception_research_note.md",
         "docs/operational_gate_completion_roadmap.md",
         "docs/roadmap_to_v3.md",
@@ -213,7 +229,7 @@ def main() -> int:
         POST_DIR / "artifact_packaging_correction_report.json",
         {
             "status": "PASS",
-            "corrected_artifact_name": "post_v2_37_hardening_and_batch002_corrected_artifacts",
+            "corrected_artifact_name": "post_v2_37_hardening_and_batch002_real_leads_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
@@ -277,10 +293,17 @@ def main() -> int:
         "curated_seed_attempted": True,
         "metadata_probe_attempted": True,
         "issue_derived_attempted": True,
+        "lead_pool_loaded": batch_state["lead_pool_loaded"],
+        "lead_count": batch_state["lead_count"],
+        "real_metadata_leads_attempted_count": batch_state["real_metadata_leads_attempted_count"],
+        "git_clone_attempts_count": batch_state["git_clone_attempts_count"],
+        "checkout_attempts_count": batch_state["checkout_attempts_count"],
+        "failure_replay_attempts_count": batch_state["failure_replay_attempts_count"],
+        "real_issue_derived_leads_attempted_count": batch_state["real_issue_derived_leads_attempted_count"],
         "candidate_verification_attempts_count": len(load_json(BATCH_DIR / "candidate_verification_attempts.json")),
-        "candidates_verified_count": 0,
-        "repair_attempts_count": 0,
-        "repair_successes_count": 0,
+        "candidates_verified_count": batch_state["native_candidates_verified_count"] + batch_state["issue_derived_candidates_verified_count"],
+        "repair_attempts_count": batch_state["native_repair_attempts_count"] + batch_state["issue_derived_repair_attempts_count"],
+        "repair_successes_count": batch_state["native_repair_successes_count"] + batch_state["issue_derived_repair_successes_count"],
         "full_scoring": "NOT_RUN/disallowed",
         "memory_lift": "undemonstrated",
         "self_maintaining_software": "false/not_demonstrated",
@@ -310,9 +333,9 @@ def main() -> int:
             [
                 "# Post-v2.37 hardening and clean replication batch 002",
                 "",
-                "Status: PASS with batch002 blocked after mixed-mode acquisition exhaustion.",
+                "Status: PASS with batch002 blocked after real-lead acquisition exhaustion.",
                 "",
-                "This run adds neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, mixed-mode acquisition progression, and clean artifact packaging gates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.",
+                "This run adds neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.",
             ]
         ),
     )

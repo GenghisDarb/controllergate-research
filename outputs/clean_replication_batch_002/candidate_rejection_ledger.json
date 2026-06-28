@@ -1,12 +1,38 @@
 [
   {
-    "blocker": "metadata_probe_no_verified_candidates",
+    "blocker": "metadata_probe_collection_failed",
+    "lead_id": "darker_skip_glob_failing_test",
     "mode": "metadata_probe",
-    "reason": "No safe repository-local metadata leads were available."
+    "reason": "rejected_no_verified_native_candidate"
   },
   {
-    "blocker": "issue_derived_no_verified_candidates",
+    "blocker": "metadata_probe_collection_failed",
+    "lead_id": "darker_non_ascii_drop_changes",
+    "mode": "metadata_probe",
+    "reason": "rejected_no_verified_native_candidate"
+  },
+  {
+    "blocker": "metadata_probe_collection_failed",
+    "lead_id": "darker_stdin_filename",
+    "mode": "metadata_probe",
+    "reason": "rejected_no_verified_native_candidate"
+  },
+  {
+    "blocker": "metadata_probe_collection_failed",
+    "lead_id": "pytest_rerunfailures_subtest_errors",
+    "mode": "metadata_probe",
+    "reason": "rejected_no_verified_native_candidate"
+  },
+  {
+    "blocker": "metadata_probe_collection_failed",
+    "lead_id": "pytest_rerunfailures_reruns_mode",
+    "mode": "metadata_probe",
+    "reason": "rejected_no_verified_native_candidate"
+  },
+  {
+    "blocker": "issue_derived_no_safe_leads",
+    "lead_id": null,
     "mode": "issue_derived",
-    "reason": "No safe repository-local issue-derived leads were available."
+    "reason": "rejected_no_safe_issue_derived_leads"
   }
 ]
