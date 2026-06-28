@@ -1,0 +1,41 @@
+{
+  "all_failed_before_candidate_verification": true,
+  "checkout_attempts_count": 5,
+  "collection_failure_examples": [
+    {
+      "blocker": "metadata_probe_collection_failed",
+      "collection_status": "FAIL",
+      "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+      "lead_id": "darker_skip_glob_failing_test",
+      "semantic_failure_signature_hash": "f303304e8fd7e4a90aa0855d3df84ffe2daaa175b2b8f0bff7e01d41d8979c53"
+    },
+    {
+      "blocker": "metadata_probe_collection_failed",
+      "collection_status": "FAIL",
+      "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+      "lead_id": "darker_stdin_filename",
+      "semantic_failure_signature_hash": "810154e3a5fb211fb8b6bee5e4963546e124ed0b44234259ba8c4400dcc2efe5"
+    },
+    {
+      "blocker": "metadata_probe_collection_failed",
+      "collection_status": "FAIL",
+      "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+      "lead_id": "pytest_rerunfailures_subtest_errors",
+      "semantic_failure_signature_hash": "75c9abb8ae518c9b548d35d40ec26af89d25c41dd4b6d8183d962c06e63b9a9f"
+    },
+    {
+      "blocker": "metadata_probe_collection_failed",
+      "collection_status": "FAIL",
+      "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
+      "lead_id": "pytest_rerunfailures_reruns_mode",
+      "semantic_failure_signature_hash": "5a5a0ee0495702bf1bfee40270686f0da8fd6a83b899af2d5ae9892f153fa92c"
+    }
+  ],
+  "collection_replay_paths_attempted_count": 5,
+  "correction_required": "perform structured environment resolution before collection and failure replay",
+  "git_clone_attempts_count": 5,
+  "primary_failure_class": "environment_dependency_import_resolution",
+  "real_lead_pool_loaded": true,
+  "real_metadata_leads_attempted_count": 5,
+  "status": "PASS"
+}

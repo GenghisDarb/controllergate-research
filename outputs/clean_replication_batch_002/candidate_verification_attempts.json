@@ -25,9 +25,9 @@
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "62bd7a173a0180a5240af85ddbcc5cbbd6a76369e0dd63b253b418717e413bf4",
-      "output_sha256": "61d973af5cc6b375b9b0904ca662e358b35c639205dbf33570e0786f9127fdeb",
-      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n____________ ERROR collecting src/darker/tests/test_main_isort.py _____________\nImportError while importing test module '<lead_workspace>\\src\\darker\\tests\\test_main_isort.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc\\darker\\tests\\test_main_isort.py:11: in <module>\n    import darker.__main__\nsrc\\darker\\__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc\\darker\\chooser.py:35: in <module>\n    from darkgraylib.utils import DiffChunk\nE   ModuleNotFoundError: No module named 'darkgraylib'\n____________ ERROR collecting",
+      "normalized_output_sha256": "85e814748483a129149aa1d5a2399350175a3d07f7ea02da898a4f68287f1cd1",
+      "output_sha256": "8477792b515219554852cb9d2e37d7ed693adf309c941e4217cc3eab6b350493",
+      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting src/darker/tests/test_main_isort.py _____________\nImportError while importing test module '<lead_workspace>/src/darker/tests/test_main_isort.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc/darker/tests/test_main_isort.py:11: in <module>\n    import darker.__main__\nsrc/darker/__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc/darker/chooser.py:35: in <module>\n    from darkgraylib.utils import DiffChunk\nE   ModuleNotFoundError: No module named 'darkgraylib'\n_____________ E",
       "returncode": 2
     },
     "collection_status": "FAIL",
@@ -61,9 +61,9 @@
         "src/darker/tests/test_main_isort.py",
         "-q"
       ],
-      "normalized_output_sha256": "493d36c741827d7b2c732dd2b92900ebad6555ac281d8d9ac42ab864aa1968fe",
-      "output_sha256": "49d27ddb9197e446de4a6f50c402a9b1c8339d92e8071037fac43b904ff3c927",
-      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n____________ ERROR collecting src/darker/tests/test_main_isort.py _____________\nImportError while importing test module '<lead_workspace>\\src\\darker\\tests\\test_main_isort.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc\\darker\\tests\\test_main_isort.py:11: in <module>\n    import darker.__main__\nsrc\\darker\\__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc\\darker\\chooser.py:35: in <module>\n    from darkgraylib.utils import DiffChunk\nE   ModuleNotFoundError: No module named 'darkgraylib'\n____________ ERROR collecting",
+      "normalized_output_sha256": "f303304e8fd7e4a90aa0855d3df84ffe2daaa175b2b8f0bff7e01d41d8979c53",
+      "output_sha256": "045c27e8f66edb2be5a169ed552f4c083849161e8ec00c3afbc4409a8d866c69",
+      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting src/darker/tests/test_main_isort.py _____________\nImportError while importing test module '<lead_workspace>/src/darker/tests/test_main_isort.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc/darker/tests/test_main_isort.py:11: in <module>\n    import darker.__main__\nsrc/darker/__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc/darker/chooser.py:35: in <module>\n    from darkgraylib.utils import DiffChunk\nE   ModuleNotFoundError: No module named 'darkgraylib'\n_____________ E",
       "returncode": 2
     },
     "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
@@ -90,7 +90,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "ffb3a61495c5c99caee8c9a6a87b07046b167fea5b2bb5f231f570808b24a5ac",
+      "output_sha256": "06fadf23ae5d90315125a58666e10a34dd02365f1ccbd2a119ad1efc14a464cd",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -116,7 +116,7 @@
     "repo_url": "https://github.com/akaihola/darker",
     "resolved_commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
     "runtime_workspace_outside_live_repo": true,
-    "semantic_failure_signature_hash": "493d36c741827d7b2c732dd2b92900ebad6555ac281d8d9ac42ab864aa1968fe",
+    "semantic_failure_signature_hash": "f303304e8fd7e4a90aa0855d3df84ffe2daaa175b2b8f0bff7e01d41d8979c53",
     "target_test_present": true,
     "test_path_hint": "src/darker/tests/test_main_isort.py",
     "workspace_path": "<runtime_workspace>/darker_skip_glob_failing_test",
@@ -148,9 +148,9 @@
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "e98aa0d201a480a00257d5c3f4281ab78ec14aeb54938bc7ab1f7692c2a632c5",
-      "output_sha256": "89cd1b1ed7bbb1f55a865faba7b6ccf73e630de0f1d32a0ddc45015e2b046135",
-      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_ ERROR collecting src/darker/tests/test_main_drop_changes_on_unedited_lines.py _\nImportError while importing test module '<lead_workspace>\\src\\darker\\tests\\test_main_drop_changes_on_unedited_lines.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc\\darker\\tests\\test_main_drop_changes_on_unedited_lines.py:10: in <module>\n    from darker.__main__ import _drop_changes_on_unedited_lines\nsrc\\darker\\__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc\\darker\\chooser.py:35: in <module>\n    from darkgraylib.utils import DiffC",
+      "normalized_output_sha256": "e576e5c288fc74a5796743f9cbf5b728aae8a25f738a51a2ea2a3995b82cec3b",
+      "output_sha256": "749af65719d99549c10974578d9baec9b7653d8c2be2b0b08da5b2a05d87790c",
+      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_ ERROR collecting src/darker/tests/test_main_drop_changes_on_unedited_lines.py _\nImportError while importing test module '<lead_workspace>/src/darker/tests/test_main_drop_changes_on_unedited_lines.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py:10: in <module>\n    from darker.__main__ import _drop_changes_on_unedited_lines\nsrc/darker/__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc/darker/chooser.py:35: in <module>\n    from darkgraylib.utils",
       "returncode": 2
     },
     "collection_status": "FAIL",
@@ -184,9 +184,9 @@
         "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
         "-q"
       ],
-      "normalized_output_sha256": "5afc090d750e8f7378034c1dfe330526525df804abbe7bc89a502a420d772170",
-      "output_sha256": "1f81037dca8b8db454db1f88a128242d5024a3f495f348419f38bf08eea40550",
-      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_ ERROR collecting src/darker/tests/test_main_drop_changes_on_unedited_lines.py _\nImportError while importing test module '<lead_workspace>\\src\\darker\\tests\\test_main_drop_changes_on_unedited_lines.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc\\darker\\tests\\test_main_drop_changes_on_unedited_lines.py:10: in <module>\n    from darker.__main__ import _drop_changes_on_unedited_lines\nsrc\\darker\\__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc\\darker\\chooser.py:35: in <module>\n    from darkgraylib.utils import DiffC",
+      "normalized_output_sha256": "0c0f3c22c7ed20d7a24f8a13b61d1c58dc0d7c68f21b7f4fb41e3099734a5460",
+      "output_sha256": "eab29a3f59ed022642116493f1b400186004d890b1e4dc47aae872586a165ada",
+      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_ ERROR collecting src/darker/tests/test_main_drop_changes_on_unedited_lines.py _\nImportError while importing test module '<lead_workspace>/src/darker/tests/test_main_drop_changes_on_unedited_lines.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py:10: in <module>\n    from darker.__main__ import _drop_changes_on_unedited_lines\nsrc/darker/__main__.py:13: in <module>\n    from darker.chooser import choose_lines\nsrc/darker/chooser.py:35: in <module>\n    from darkgraylib.utils",
       "returncode": 2
     },
     "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
@@ -213,7 +213,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "f9d8691b1078f71660fb9355b97300b443c22b6534688020f75b3c33a0b6685e",
+      "output_sha256": "03d32664a60cb040fd6dc718c40f3bd558648c46b9740f2f1bc565fa766a247f",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -239,7 +239,7 @@
     "repo_url": "https://github.com/akaihola/darker",
     "resolved_commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
     "runtime_workspace_outside_live_repo": true,
-    "semantic_failure_signature_hash": "5afc090d750e8f7378034c1dfe330526525df804abbe7bc89a502a420d772170",
+    "semantic_failure_signature_hash": "0c0f3c22c7ed20d7a24f8a13b61d1c58dc0d7c68f21b7f4fb41e3099734a5460",
     "target_test_present": true,
     "test_path_hint": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
     "workspace_path": "<runtime_workspace>/darker_non_ascii_drop_changes",
@@ -271,9 +271,9 @@
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "4b1828c25a37cd527e0c78077f90349a26cb2251365e977114d766a2bf52717c",
-      "output_sha256": "f062d5c2019207d7901cebe6ca920cfe720cb40ecdfecdcb88a18eafba44a11f",
-      "output_summary": "STDOUT:\n\nSTDERR:\nImportError while loading conftest '<lead_workspace>\\src\\darker\\tests\\conftest.py'.\nsrc\\darker\\tests\\conftest.py:10: in <module>\n    from black import find_project_root as black_find_project_root\nE   ModuleNotFoundError: No module named 'black'",
+      "normalized_output_sha256": "810154e3a5fb211fb8b6bee5e4963546e124ed0b44234259ba8c4400dcc2efe5",
+      "output_sha256": "26e6f68030dd0bfbc4cd396c49543ccd84deedc781fd2d09c593eacccf14d21c",
+      "output_summary": "STDOUT:\n\nSTDERR:\nImportError while loading conftest '<lead_workspace>/src/darker/tests/conftest.py'.\nsrc/darker/tests/conftest.py:10: in <module>\n    from black import find_project_root as black_find_project_root\nE   ModuleNotFoundError: No module named 'black'",
       "returncode": 4
     },
     "collection_status": "FAIL",
@@ -307,9 +307,9 @@
         "src/darker/tests/test_main_stdin_filename.py",
         "-q"
       ],
-      "normalized_output_sha256": "4b1828c25a37cd527e0c78077f90349a26cb2251365e977114d766a2bf52717c",
-      "output_sha256": "f062d5c2019207d7901cebe6ca920cfe720cb40ecdfecdcb88a18eafba44a11f",
-      "output_summary": "STDOUT:\n\nSTDERR:\nImportError while loading conftest '<lead_workspace>\\src\\darker\\tests\\conftest.py'.\nsrc\\darker\\tests\\conftest.py:10: in <module>\n    from black import find_project_root as black_find_project_root\nE   ModuleNotFoundError: No module named 'black'",
+      "normalized_output_sha256": "810154e3a5fb211fb8b6bee5e4963546e124ed0b44234259ba8c4400dcc2efe5",
+      "output_sha256": "26e6f68030dd0bfbc4cd396c49543ccd84deedc781fd2d09c593eacccf14d21c",
+      "output_summary": "STDOUT:\n\nSTDERR:\nImportError while loading conftest '<lead_workspace>/src/darker/tests/conftest.py'.\nsrc/darker/tests/conftest.py:10: in <module>\n    from black import find_project_root as black_find_project_root\nE   ModuleNotFoundError: No module named 'black'",
       "returncode": 4
     },
     "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
@@ -336,7 +336,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "afcd9eda9b2b90ee994297b75a32a2d7df1c22e0414c313053c254e16debaa5a",
+      "output_sha256": "f4c33185344e9642d88288bff0215aca398248ffa5e16eef30f7e8fbdda6fc2b",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -362,7 +362,7 @@
     "repo_url": "https://github.com/akaihola/darker",
     "resolved_commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
     "runtime_workspace_outside_live_repo": true,
-    "semantic_failure_signature_hash": "4b1828c25a37cd527e0c78077f90349a26cb2251365e977114d766a2bf52717c",
+    "semantic_failure_signature_hash": "810154e3a5fb211fb8b6bee5e4963546e124ed0b44234259ba8c4400dcc2efe5",
     "target_test_present": true,
     "test_path_hint": "src/darker/tests/test_main_stdin_filename.py",
     "workspace_path": "<runtime_workspace>/darker_stdin_filename",
@@ -394,9 +394,9 @@
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "e5620af3648a6ff00825e399f3bbdf53c5fab741cd13606a5881e4f685076e6d",
-      "output_sha256": "b85a920adaed1b28e03e5c364eebb1bfbee0613099254fcf86ab2a0f2c57c5eb",
-      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py _____________\nImportError while importing test module '<lead_workspace>\\tests\\test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests\\test_pytest_rerunfailures.py:8: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM, SubtestReport\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ===========================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!",
+      "normalized_output_sha256": "2c6eaa5b9e9ac241464bcc94b62814d133db0a190b48dd4b05af8b63c338ef3f",
+      "output_sha256": "738a1c77b4d0a8d9995865c96d49996652ad020a689ed982874edb426100ce0d",
+      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py ______________\nImportError while importing test module '<lead_workspace>/tests/test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_pytest_rerunfailures.py:8: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM, SubtestReport\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ============================\nERROR tests/test_pytest_rerunfailures.py\n",
       "returncode": 2
     },
     "collection_status": "FAIL",
@@ -429,9 +429,9 @@
         "tests/test_pytest_rerunfailures.py",
         "-q"
       ],
-      "normalized_output_sha256": "f9cae91c1475f90ae4c08a7ddbb6560c00023a1edc1743f9281554a8679c2edd",
-      "output_sha256": "04376eacc12b24593f337351ff589b2b4599b16b0885c12d004aeca56d1a4a03",
-      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py _____________\nImportError while importing test module '<lead_workspace>\\tests\\test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests\\test_pytest_rerunfailures.py:8: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM, SubtestReport\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ===========================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!",
+      "normalized_output_sha256": "75c9abb8ae518c9b548d35d40ec26af89d25c41dd4b6d8183d962c06e63b9a9f",
+      "output_sha256": "6dc61711539b0cc3934cf9c170dc5f09366e9647a3b8b7022e96399d6ee1527b",
+      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py ______________\nImportError while importing test module '<lead_workspace>/tests/test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_pytest_rerunfailures.py:8: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM, SubtestReport\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ============================\nERROR tests/test_pytest_rerunfailures.py\n",
       "returncode": 2
     },
     "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
@@ -458,7 +458,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "cc6144f55750a7d807a17b61c33e9b788b22e6bd1f6d93384aa279256d5369a2",
+      "output_sha256": "5bc4959040d7f4a1db2dc4060be359123f9b9db3f4f7ab40901ca0b8d3a4c19e",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -484,7 +484,7 @@
     "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
     "resolved_commit_sha": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
     "runtime_workspace_outside_live_repo": true,
-    "semantic_failure_signature_hash": "f9cae91c1475f90ae4c08a7ddbb6560c00023a1edc1743f9281554a8679c2edd",
+    "semantic_failure_signature_hash": "75c9abb8ae518c9b548d35d40ec26af89d25c41dd4b6d8183d962c06e63b9a9f",
     "target_test_present": true,
     "test_path_hint": "tests/test_pytest_rerunfailures.py",
     "workspace_path": "<runtime_workspace>/pytest_rerunfailures_subtest_errors",
@@ -516,9 +516,9 @@
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "5886cf821a6b6d45be58464f76b34a67b85c0e0eb1bd39f3a44a6f98c2304c64",
-      "output_sha256": "18f5654c976405e32e9846f23c13a83919d199461e07599c3ccd47f2dc8d098c",
-      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py _____________\nImportError while importing test module '<lead_workspace>\\tests\\test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests\\test_pytest_rerunfailures.py:7: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ===========================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!!!!! Interrupte",
+      "normalized_output_sha256": "c655fffc072b2023417684e33af74636605dfb81d22ae2fed399a44edd54aae0",
+      "output_sha256": "8dc0827d6d9a8ae89d62a6d74c1f204b48fbe9909d803085041abb2a722929e5",
+      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py ______________\nImportError while importing test module '<lead_workspace>/tests/test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_pytest_rerunfailures.py:7: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ============================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!",
       "returncode": 2
     },
     "collection_status": "FAIL",
@@ -552,9 +552,9 @@
         "tests/test_pytest_rerunfailures.py",
         "-q"
       ],
-      "normalized_output_sha256": "d862155536936ee97a55b63708d1b0a7e5fd3a1d3514503f18347cf550271998",
-      "output_sha256": "21e53cc9109deb7ae654bddd5c74bfabe444158619e0920cbb93f16818856b92",
-      "output_summary": "STDOUT:\n\n=================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py _____________\nImportError while importing test module '<lead_workspace>\\tests\\test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests\\test_pytest_rerunfailures.py:7: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ===========================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!!!!! Interrupte",
+      "normalized_output_sha256": "5a5a0ee0495702bf1bfee40270686f0da8fd6a83b899af2d5ae9892f153fa92c",
+      "output_sha256": "c42ffb8887e47a3443a0aaa626ac666ee3cd8b40ed169f0746048602a3b78885",
+      "output_summary": "STDOUT:\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting tests/test_pytest_rerunfailures.py ______________\nImportError while importing test module '<lead_workspace>/tests/test_pytest_rerunfailures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n<python_runtime>/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_pytest_rerunfailures.py:7: in <module>\n    from pytest_rerunfailures import HAS_PYTEST_HANDLECRASHITEM\nE   ModuleNotFoundError: No module named 'pytest_rerunfailures'\n=========================== short test summary info ============================\nERROR tests/test_pytest_rerunfailures.py\n!!!!!!!!!!!!!!!",
       "returncode": 2
     },
     "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
@@ -581,7 +581,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "face04c3057ae0ebdd9e7e684523f9c84679b0e3b87ea759d3cc039e59e55d8f",
+      "output_sha256": "a32f2d9e4729daa9cbdde1cba9c9085b777ee3d780a573e41efe9fc2557a719c",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -607,7 +607,7 @@
     "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
     "resolved_commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
     "runtime_workspace_outside_live_repo": true,
-    "semantic_failure_signature_hash": "d862155536936ee97a55b63708d1b0a7e5fd3a1d3514503f18347cf550271998",
+    "semantic_failure_signature_hash": "5a5a0ee0495702bf1bfee40270686f0da8fd6a83b899af2d5ae9892f153fa92c",
     "target_test_present": true,
     "test_path_hint": "tests/test_pytest_rerunfailures.py",
     "workspace_path": "<runtime_workspace>/pytest_rerunfailures_reruns_mode",
