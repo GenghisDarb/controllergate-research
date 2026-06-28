@@ -28,10 +28,16 @@ ACQUISITION_DOC_PATH = REPO_ROOT / "docs" / "candidate2_acquisition_workbench.md
 
 BLOCKER = "blocked_no_verified_candidate2_seed_acquired"
 FIRST_CANDIDATE = "py_bugger_issue_65"
+OFFICIAL_ARTIFACT_SHA256 = "f0fc373f727f2e142255a1392d107a00e997961889dc4d113141bceb298f6f7b"
+OFFICIAL_ARTIFACT_SIZE = 88330
+OFFICIAL_ARTIFACT_ENTRY_COUNT = 41
+OFFICIAL_ARTIFACT_ID = 7930137915
+OFFICIAL_WORKFLOW_RUN_ID = 28308169464
 
 REQUIRED_FILES = [
     "campaign_summary.md",
     "campaign_results.json",
+    "v2_35_official_artifact_verification.json",
     "v2_34_artifact_ingest_verification.json",
     "artifact_repo_snapshot_comparison.json",
     "byte_custody_preflight_report_v2_35.json",
@@ -219,6 +225,7 @@ def audit_outputs(errors: list[str], manifest_entries: set[str]) -> None:
         expect(not (OUTPUT_ROOT / rel).exists(), errors, f"conditional output must not exist without verified seed: {rel}")
 
     results = load_json(OUTPUT_ROOT / "campaign_results.json", errors)
+    official = load_json(OUTPUT_ROOT / "v2_35_official_artifact_verification.json", errors)
     v234 = load_json(OUTPUT_ROOT / "v2_34_artifact_ingest_verification.json", errors)
     preflight = load_json(OUTPUT_ROOT / "byte_custody_preflight_report_v2_35.json", errors)
     risk = load_json(OUTPUT_ROOT / "acquisition_risk_temperature_policy_v2_35.json", errors)
@@ -241,6 +248,36 @@ def audit_outputs(errors: list[str], manifest_entries: set[str]) -> None:
     roadmap = load_json(OUTPUT_ROOT / "roadmap_carry_forward_check_v2_35.json", errors)
     resolution = load_json(OUTPUT_ROOT / "resolution_depth_diagnostic_v2_35.json", errors)
     claim = load_json(OUTPUT_ROOT / "claim_boundary_v2_35.json", errors)
+
+    expect(official.get("status") == "PASS", errors, "v2.35 official artifact verification not PASS")
+    expect(official.get("artifact_name") == "v2_35_automated_candidate2_acquisition_lane_artifacts", errors, "v2.35 official artifact name mismatch")
+    expect(official.get("workflow_run_id") == OFFICIAL_WORKFLOW_RUN_ID, errors, "v2.35 official workflow run mismatch")
+    expect(official.get("artifact_id") == OFFICIAL_ARTIFACT_ID, errors, "v2.35 official artifact id mismatch")
+    expect(official.get("zip_size") == OFFICIAL_ARTIFACT_SIZE, errors, "v2.35 official artifact size mismatch")
+    expect(official.get("zip_sha256") == OFFICIAL_ARTIFACT_SHA256, errors, "v2.35 official artifact SHA mismatch")
+    expect(official.get("entry_count") == OFFICIAL_ARTIFACT_ENTRY_COUNT, errors, "v2.35 official artifact entry count mismatch")
+    expect(official.get("safe_path_status") == "PASS", errors, "v2.35 official safe-path status mismatch")
+    expect(official.get("duplicate_path_count") == 0, errors, "v2.35 official duplicate path count mismatch")
+    expect(official.get("internal_manifest_entries_checked") == 25, errors, "v2.35 official internal manifest checked count mismatch")
+    expect(official.get("internal_manifest_missing_count") == 0, errors, "v2.35 official internal manifest missing count mismatch")
+    expect(official.get("internal_manifest_malformed_count") == 0, errors, "v2.35 official internal manifest malformed count mismatch")
+    expect(official.get("internal_manifest_failure_count") == 0, errors, "v2.35 official internal manifest failure count mismatch")
+    expect(official.get("output_manifest_coverage") == "PASS", errors, "v2.35 official output manifest coverage mismatch")
+    expect(official.get("manual_artifact_boundary") == "PASS", errors, "v2.35 manual artifact boundary mismatch")
+    expect(official.get("downloaded_by_codex") is False, errors, "v2.35 artifact must be manually supplied")
+    local_artifact_path = str(official.get("local_artifact_path_outside_git", ""))
+    expect(local_artifact_path and not local_artifact_path.startswith(str(REPO_ROOT)), errors, "v2.35 local artifact path must be outside repo")
+    expect(official.get("resolved_commit_carry_forward_status") == "PASS", errors, "v2.35 resolved commit carry-forward missing")
+    expect(official.get("metadata_only_replay_gap_carry_forward_status") == "PASS", errors, "v2.35 metadata-only replay gap carry-forward missing")
+    expect(official.get("v2_36_replay_queue_carry_forward_status") == "PASS", errors, "v2.36 replay queue carry-forward missing")
+    expect(official.get("expected_v2_36_replay_queue_count") == 5, errors, "v2.36 replay queue count carry-forward mismatch")
+    comparisons = official.get("repo_snapshot_update_file_comparison")
+    expect(isinstance(comparisons, list) and len(comparisons) >= 10, errors, "v2.35 repo snapshot comparison missing")
+    if isinstance(comparisons, list):
+        allowed_status = {"match", "differs_ingested_from_artifact", "artifact_missing_not_updated"}
+        for item in comparisons:
+            if isinstance(item, dict):
+                expect(item.get("status") in allowed_status, errors, "v2.35 repo snapshot comparison status invalid")
 
     expect(v234.get("status") == "PASS", errors, "v2.34 official ingest not PASS")
     expect(v234.get("zip_sha256") == "bd8feb5daf31412e72caf09b3a51237dc9a2317a401a9c24ee48604930eac192", errors, "v2.34 artifact SHA mismatch")
