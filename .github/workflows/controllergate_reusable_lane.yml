@@ -65,6 +65,13 @@ jobs:
           set -euo pipefail
           python scripts/byte_custody_preflight.py
 
+      - name: Install workflow test dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
       - name: Run shared core tests
         if: ${{ inputs.run_core_tests }}
         shell: bash
