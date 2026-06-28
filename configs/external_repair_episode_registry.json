@@ -83,9 +83,73 @@
       "target_validation_status": "PASS",
       "test_command": "python -m pytest tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys -q",
       "workflow_run_id": 28274637503
+    },
+    {
+      "artifact_id": "pending_successful_workflow_artifact",
+      "artifact_name": "post_v2_37_hardening_batch002_repair_generation_artifacts",
+      "artifact_sha256": "pending_manual_artifact_ingest",
+      "bounded_target_repair_signal": true,
+      "buggy_commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
+      "candidate_id": "darker_non_ascii_drop_changes",
+      "claim_boundaries": {
+        "current_protocol_version": "v2.13",
+        "full_scoring": "NOT_RUN",
+        "full_scoring_allowed": false,
+        "memory_lift_status": "undemonstrated",
+        "self_maintaining_software_status": "false/not_demonstrated",
+        "promoted_to_current": false
+      },
+      "created_utc": "2026-06-28T21:55:00Z",
+      "duplicate_replay_count": "3 / 3",
+      "duplicate_replay_status": "PASS",
+      "environment_lock_source": {
+        "path": "pyproject.toml",
+        "sha256": "280b0596549af6feb2650e5047df84c8e9e963b4c9b0f2f57e33db04d1dfade7"
+      },
+      "episode_id": "darker_non_ascii_drop_changes:post_v2_37_batch002",
+      "episode_type": "external_non_ansible_source_only_target_repair",
+      "episode_version": "post_v2_37_batch002_repair_generation",
+      "evidence_paths": {
+        "claim": "outputs/clean_replication_batch_002/claim_boundary.json",
+        "context": "outputs/clean_replication_batch_002/repair_context_capsules.json",
+        "duplicate": "outputs/clean_replication_batch_002/duplicate_replay_results.json",
+        "handoff": "outputs/clean_replication_batch_002/source_context_handoff_audit.json",
+        "lock": "outputs/clean_replication_batch_002/pre_generation_context_state_lock.json",
+        "official_pending": "pending_manual_artifact_ingest",
+        "patch": "outputs/clean_replication_batch_002/source_patch_generation_attempts.json",
+        "patch_safety": "outputs/clean_replication_batch_002/patch_safety_results.json",
+        "revalidation": "outputs/clean_replication_batch_002/post_patch_constraint_revalidation.json",
+        "routing": "outputs/clean_replication_batch_002/structural_repair_routing_map.json",
+        "target_validation": "outputs/clean_replication_batch_002/target_validation_results.json"
+      },
+      "full_scoring": "NOT_RUN/disallowed",
+      "memory_lift": "undemonstrated",
+      "patch_modified_files": [
+        "src/darker/__main__.py"
+      ],
+      "patch_safety_status": "PASS",
+      "patch_sha256": "7a15e017c77d93ceba594c518ebdfc3c5ce4d11b24d327eef43b0b3af1547b90",
+      "patch_size_stats": {
+        "files_touched": 1,
+        "functions_modified": 1,
+        "lines_changed": 17
+      },
+      "positive_memory_only": false,
+      "repo_url": "https://github.com/akaihola/darker",
+      "scoreable": true,
+      "self_maintaining_software": "false/not_demonstrated",
+      "semantic_failure_signature_hash": "01c18bceb29d7fd4fbe855b58bfc8b9e75b51ddb0a98e34c509ce2f44b5f4fe2",
+      "target_test_file": {
+        "path": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+        "sha256": "3d91bcb8fdc7429cacf94cab0b3856af54dd8a393b9b7a301253276adb6a70a4"
+      },
+      "target_validation_exit_status": 0,
+      "target_validation_status": "PASS",
+      "test_command": "python -m pytest src/darker/tests/test_main_drop_changes_on_unedited_lines.py -q",
+      "workflow_run_id": "pending_dispatch"
     }
   ],
   "registry_type": "external_repair_episode_registry",
   "schema_version": "v2.31",
-  "updated_utc": "2026-06-27T03:46:49Z"
+  "updated_utc": "2026-06-28T21:55:00Z"
 }

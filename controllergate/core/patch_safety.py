@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 def allowed_source_patch_paths(paths: list[str]) -> bool:
-    forbidden = ("tests/", "test/", "configs/", ".github/", "outputs/", "scripts/audit_")
+    forbidden = ("tests/", "test/", "src/darker/tests/", "configs/", ".github/", "outputs/", "scripts/audit_", "docs/")
     return all(not path.startswith(forbidden) for path in paths)
 
 
@@ -26,3 +26,17 @@ def target_validation(log_path: str | Path, exit_code: int) -> dict[str, object]
 
 def duplicate_clean_replay(results: list[int]) -> dict[str, object]:
     return {"status": "PASS" if results and all(code == 0 for code in results) else "FAIL", "passes": sum(code == 0 for code in results), "total": len(results)}
+
+
+def target_validation_requires_exit_zero(exit_code: int) -> bool:
+    return exit_code == 0
+
+
+def duplicate_replay_requires_three_of_three(results: list[int]) -> bool:
+    return len(results) == 3 and all(code == 0 for code in results)
+
+
+def forbidden_patch_target_reason(path: str) -> str | None:
+    if allowed_source_patch_paths([path]):
+        return None
+    return "forbidden_patch_target"

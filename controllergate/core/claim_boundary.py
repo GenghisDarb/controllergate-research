@@ -21,3 +21,11 @@ def enforce_no_memory_lift_without_matched_null(boundary: dict[str, object]) -> 
 
 def classify_evidence_level(boundary: dict[str, object]) -> str:
     return str(boundary.get("evidence_level", "bounded_research_evidence"))
+
+
+def enforce_clean_repair_claim_boundary(boundary: dict[str, object]) -> bool:
+    return (
+        enforce_no_full_scoring(boundary)
+        and enforce_no_memory_lift_without_matched_null(boundary)
+        and enforce_no_self_maintaining_claim(boundary)
+    )

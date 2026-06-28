@@ -1,0 +1,22 @@
+[
+  {
+    "candidate_id": "darker_non_ascii_drop_changes",
+    "command_record": {
+      "command": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\repair_generation\\darker_non_ascii_drop_changes_venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+        "-q"
+      ],
+      "normalized_output_sha256": "20d3b7a1d7fc00ac3d4eac18290e55f4267152f6bc1aa2adf49a5d5ee2d5801a",
+      "output_sha256": "76ac52891dbb0f4b70aa5106602b0e046236ebedf5c2e3a32285dc0df6d91521",
+      "output_summary": "STDOUT:\n....                                                                     [100%]\n============================ slowest 10 durations =============================\n0.02s setup    src/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content0-new_chunks0]\n0.01s setup    src/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content2-new_chunks2]\n\n(8 durations < 0.005s hidden.  Use -vv to show these durations.)\n4 passed in 1.64s\n\nSTDERR:",
+      "returncode": 0
+    },
+    "exit_code": 0,
+    "log_path": "<target_validation_log_recorded_inline>",
+    "patch_sha256": "7a15e017c77d93ceba594c518ebdfc3c5ce4d11b24d327eef43b0b3af1547b90",
+    "status": "PASS"
+  }
+]

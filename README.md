@@ -7,10 +7,10 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 ## Current status
 
 - Current protocol remains `v2.13` / `minimal_forensic_context_lane`.
-- One confirmed external non-Ansible repair episode is recorded so far: `py_bugger_issue_65`.
+- Two bounded external non-Ansible source-only repair episodes are recorded so far: `py_bugger_issue_65` and `darker_non_ascii_drop_changes`.
 - ControllerGate has strong artifact custody, registry validation, claim-boundary enforcement, transport integrity checks, clean-replication scaffolding, artifact hygiene, and real-lead acquisition attempts.
 - v2.37 and post-v2.37 work introduced shared core gates, reusable workflow scaffolding, transport integrity, risk regulation, a clean protocol adapter, and native/issue-derived evidence class separation.
-- Clean replication batch002 now attempts real external leads. The current blocker is environment resolution and no successful additional repair.
+- Clean replication batch002 now attempts real external leads, resolves project environments before replay, and produced one additional native repair for `darker_non_ascii_drop_changes` with target validation PASS and duplicate clean replay 3/3.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift on external real bugs is not demonstrated.
 - Self-maintaining software is not demonstrated.
@@ -26,6 +26,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 - Run the current protocol audit and dry-run without promoting later lanes to current.
 - Run clean replication acquisition over explicit external leads.
 - Create isolated candidate workspaces and attempt structured environment resolution before collection and replay.
+- Generate bounded source-only repair patches from verified native candidate context and require patch safety, target validation, and duplicate replay before recording a repair success.
 
 ## Current limits
 

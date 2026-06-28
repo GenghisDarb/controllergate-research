@@ -41,3 +41,18 @@ def validate_patch_context(paths: list[str]) -> dict[str, object]:
         "forbidden_paths": forbidden,
         "blocker": "no_candidate_source_interlock_invariant" if forbidden else None,
     }
+
+
+def validate_context_state_lock_reads(read_paths: list[str], allowed_source_files: list[str], target_test_path: str) -> dict[str, object]:
+    allowed = set(allowed_source_files) | {target_test_path}
+    outside = [path for path in read_paths if path not in allowed]
+    return {
+        "status": "PASS" if not outside else "BLOCK",
+        "outside_lock_paths": outside,
+        "blocker": None if not outside else "pre_generation_context_state_lock_violation",
+    }
+
+
+def patch_context_aligned_with_subset(patch_paths: list[str], allowed_source_files: list[str]) -> bool:
+    allowed = set(allowed_source_files)
+    return bool(patch_paths) and all(path in allowed for path in patch_paths)

@@ -46,3 +46,7 @@ def classify_replay_result(result: dict[str, object]) -> str:
     if result.get("returncode") == 0:
         return "pass"
     return "fail"
+
+
+def pre_repair_replay_allows_patch_generation(replay_record: dict[str, object]) -> bool:
+    return replay_record.get("status") == "PRE_PATCH_FAILURE_OBSERVED" and bool(replay_record.get("semantic_failure_signature_hash"))

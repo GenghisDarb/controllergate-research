@@ -12,7 +12,7 @@ from controllergate.core.artifact_hygiene import audit_artifact_payload
 
 POST_DIR = Path("outputs/post_v2_37_hardening_001")
 BATCH_DIR = Path("outputs/clean_replication_batch_002")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_environment_resolution")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_repair_generation")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -23,6 +23,8 @@ POST_REQUIRED = [
     "batch002_real_acquisition_gap_diagnosis.json",
     "real_leads_artifact_verification.json",
     "batch002_environment_resolution_gap_diagnosis.json",
+    "batch002_environment_resolution_artifact_verification.json",
+    "batch002_repair_generation_gap_diagnosis.json",
     "artifact_packaging_correction_report.json",
     "artifact_payload_manifest_report.json",
     "readme_status_update_report.json",
@@ -72,6 +74,26 @@ BATCH_REQUIRED = [
     "verified_candidates.json",
     "repair_attempts.json",
     "repair_successes.json",
+    "clean_repair_generation_policy.json",
+    "verified_candidate_repair_queue.json",
+    "repair_context_capsules.json",
+    "patchable_source_subsets.json",
+    "source_patch_generation_attempts.json",
+    "patch_safety_results.json",
+    "target_validation_results.json",
+    "duplicate_replay_results.json",
+    "no_overreach_regression_results.json",
+    "source_context_handoff_audit.json",
+    "generation_validation_reconciliation_trace.json",
+    "structural_repair_routing_map.json",
+    "stage_interface_contract.json",
+    "repairability_basin_selection.json",
+    "patchable_source_ranking.csv",
+    "pre_generation_context_state_lock.json",
+    "patch_context_alignment_audit.json",
+    "post_patch_constraint_revalidation.json",
+    "no_overreach_validation.json",
+    "repair_generator_capability_status.json",
     "matched_null_results.json",
     "memory_lift_evaluation.json",
     "native_issue_derived_count_separation.json",
@@ -90,6 +112,8 @@ def blocked_terms() -> list[str]:
         "RNA " + "primase",
         "Meta" + "-cell",
         "Klein " + "bottle",
+        "Klein " + "twist",
+        "Betti" + "-number",
         "res" + "onance",
     ]
 
@@ -177,7 +201,21 @@ def audit_real_acquisition_records(
         "environment_python_version_incompatible",
         "environment_collection_failed_after_resolution",
         "clean_replication_batch_002_no_repair_successes_after_environment_resolution",
+        "clean_repair_no_safe_source_patch_generated",
+        "clean_repair_patch_safety_failed",
+        "target_validation_failed",
+        "duplicate_clean_replay_failed",
+        "stage_interface_contract_failed",
+        "source_context_handoff_failed",
+        "no_patchable_source_subset",
+        "repair_generation_ignored_structural_routing",
+        "patch_context_alignment_failed",
+        "post_patch_constraint_revalidation_failed",
+        "no_overreach_new_failure_detected",
+        "no_overreach_regression_environment_limited",
     }
+    if batch.get("exact_blocker") is None and batch.get("status") == "PASS":
+        return errors
     if batch.get("exact_blocker") not in allowed_blockers:
         errors.append(f"unexpected batch002 blocker: {batch.get('exact_blocker')}")
     return errors
@@ -215,8 +253,133 @@ def audit_environment_resolution_records(metadata_attempts: list[dict[str, objec
         "clean_replication_batch_002_no_repair_successes_after_environment_resolution",
     }
     if real_metadata and all(item.get("environment_resolution_attempted") is True for item in real_metadata):
+        if batch.get("exact_blocker") is None and batch.get("status") == "PASS":
+            return errors
         if batch.get("exact_blocker") not in allowed_after_environment:
             errors.append(f"batch blocker does not reflect environment-aware acquisition: {batch.get('exact_blocker')}")
+    return errors
+
+
+def audit_repair_generation_records(batch: dict[str, object]) -> list[str]:
+    errors: list[str] = []
+    verified = read_json(BATCH_DIR / "verified_candidates.json")
+    queue = read_json(BATCH_DIR / "verified_candidate_repair_queue.json")
+    routing = read_json(BATCH_DIR / "structural_repair_routing_map.json")
+    capsules = read_json(BATCH_DIR / "repair_context_capsules.json")
+    subsets = read_json(BATCH_DIR / "patchable_source_subsets.json")
+    generation = read_json(BATCH_DIR / "source_patch_generation_attempts.json")
+    safety = read_json(BATCH_DIR / "patch_safety_results.json")
+    validation = read_json(BATCH_DIR / "target_validation_results.json")
+    duplicate = read_json(BATCH_DIR / "duplicate_replay_results.json")
+    handoff = read_json(BATCH_DIR / "source_context_handoff_audit.json")
+    trace = read_json(BATCH_DIR / "generation_validation_reconciliation_trace.json")
+    stage_contract = read_json(BATCH_DIR / "stage_interface_contract.json")
+    basin = read_json(BATCH_DIR / "repairability_basin_selection.json")
+    locks = read_json(BATCH_DIR / "pre_generation_context_state_lock.json")
+    alignment = read_json(BATCH_DIR / "patch_context_alignment_audit.json")
+    revalidation = read_json(BATCH_DIR / "post_patch_constraint_revalidation.json")
+    overreach = read_json(BATCH_DIR / "no_overreach_validation.json")
+    capability = read_json(BATCH_DIR / "repair_generator_capability_status.json")
+    policy = read_json(BATCH_DIR / "clean_repair_generation_policy.json")
+    ranking_csv = BATCH_DIR / "patchable_source_ranking.csv"
+    if policy.get("status") != "PASS" or policy.get("fixed_later_gold_pr_patch_content_forbidden") is not True:
+        errors.append("clean repair generation policy invalid")
+    verified_native = [item for item in verified if item.get("decision") == "verified_native_candidate_pending_repair"]
+    if len(verified_native) != 2:
+        errors.append("two verified native candidates not preserved")
+    if len(queue) != len(verified_native):
+        errors.append("repair queue does not contain the verified native candidates")
+    queued_ids = {item.get("candidate_id") for item in queue}
+    if queued_ids != {"darker_non_ascii_drop_changes", "darker_stdin_filename"}:
+        errors.append(f"unexpected repair queue candidate ids: {sorted(queued_ids)}")
+    if not ranking_csv.is_file() or "candidate_id,file_path" not in ranking_csv.read_text(encoding="utf-8").splitlines()[0]:
+        errors.append("patchable source ranking CSV missing or malformed")
+    attempted_count = max(1, len(generation), len(capability))
+    for collection, name in [
+        (routing, "structural repair routing map"),
+        (capsules, "repair context capsules"),
+        (subsets, "patchable source subsets"),
+        (stage_contract, "stage interface contract"),
+        (basin, "repairability basin selection"),
+        (locks, "pre-generation context-state lock"),
+        (capability, "repair generator capability status"),
+    ]:
+        if not isinstance(collection, list) or len(collection) < attempted_count:
+            errors.append(f"{name} missing for attempted candidates")
+    for contract in stage_contract:
+        if contract.get("status") != "PASS":
+            errors.append(f"{contract.get('candidate_id')}: stage_interface_contract_failed")
+    for lock in locks:
+        if not lock.get("pre_generation_context_state_lock_hash"):
+            errors.append(f"{lock.get('candidate_id')}: context-state lock hash missing")
+        if not lock.get("allowed_source_files"):
+            errors.append(f"{lock.get('candidate_id')}: context-state lock allowed source files missing")
+        attestation = lock.get("forbidden_evidence_attestation", {})
+        if any(attestation.get(key) is not False for key in ["fixed_commits_used", "later_commits_used", "pr_patch_contents_used", "gold_patches_used", "issue_solution_comments_used"]):
+            errors.append(f"{lock.get('candidate_id')}: forbidden evidence attestation failed")
+    for item in routing:
+        if item.get("repair_routing_decision") != "admit_patchable_subset":
+            errors.append(f"{item.get('candidate_id')}: no_patchable_source_subset")
+        if not item.get("patchable_source_subset"):
+            errors.append(f"{item.get('candidate_id')}: patchable source subset missing in routing")
+    for item in subsets:
+        paths = item.get("patchable_source_files", [])
+        if item.get("status") != "PASS" or not paths:
+            errors.append(f"{item.get('candidate_id')}: patchable source subset failed")
+        for path in paths:
+            if str(path).startswith(("tests/", "test/", "src/darker/tests/", "configs/", ".github/", "outputs/", "scripts/", "docs/")):
+                errors.append(f"{item.get('candidate_id')}: forbidden patchable path {path}")
+    generated_ids = {item.get("candidate_id") for item in generation}
+    if not generated_ids.issubset(queued_ids):
+        errors.append("patch generation occurred for an unverified candidate")
+    for item in capability:
+        if item.get("generator_invoked") is not True:
+            errors.append(f"{item.get('candidate_id')}: clean_repair_generator_not_implemented")
+        if item.get("blocker") == "clean_repair_generator_not_implemented":
+            errors.append(f"{item.get('candidate_id')}: generator still reported no-op implementation")
+    generated = [item for item in generation if item.get("patch_candidate_generated") is True]
+    for item in generated:
+        if item.get("candidate_id") not in queued_ids:
+            errors.append("generated patch for candidate outside repair queue")
+        if item.get("patch_sha256") is None:
+            errors.append(f"{item.get('candidate_id')}: generated patch missing SHA256")
+        for path in item.get("patch_file_paths", []):
+            if str(path) not in next((lock.get("allowed_source_files", []) for lock in locks if lock.get("candidate_id") == item.get("candidate_id")), []):
+                errors.append(f"{item.get('candidate_id')}: repair_generation_ignored_structural_routing")
+    if generated and not safety:
+        errors.append("patch generated without patch safety result")
+    for item in safety:
+        if item.get("status") != "PASS":
+            errors.append(f"{item.get('candidate_id')}: clean_repair_patch_safety_failed")
+        if item.get("tests_modified") is not False or item.get("support_files_modified") is not False or item.get("config_workflow_registry_audit_modified") is not False:
+            errors.append(f"{item.get('candidate_id')}: forbidden file mutation in patch safety")
+    if generated and not alignment:
+        errors.append("patch generated without patch context alignment audit")
+    for item in alignment:
+        if item.get("status") != "PASS":
+            errors.append(f"{item.get('candidate_id')}: patch_context_alignment_failed")
+    for item in validation:
+        if item.get("status") == "PASS" and item.get("exit_code") != 0:
+            errors.append(f"{item.get('candidate_id')}: target validation PASS without exit status 0")
+    for item in duplicate:
+        if item.get("status") == "PASS" and (item.get("passes") != 3 or item.get("total") != 3):
+            errors.append(f"{item.get('candidate_id')}: duplicate replay PASS without 3/3")
+    for item in revalidation:
+        if item.get("status") == "PASS" and item.get("same_patch_bytes_across_replays") is not True:
+            errors.append(f"{item.get('candidate_id')}: post-patch revalidation missing same patch bytes")
+    for item in overreach:
+        if item.get("stronger_robustness_claim_allowed") is not False:
+            errors.append(f"{item.get('candidate_id')}: no-overreach allowed stronger claim")
+        if item.get("new_failures_detected") is not False:
+            errors.append(f"{item.get('candidate_id')}: no_overreach_new_failure_detected")
+    if generated and not handoff:
+        errors.append("source context handoff audit missing for generated patch")
+    for item in handoff:
+        if not item.get("context_capsule_hash") or not item.get("patchable_subset_hash"):
+            errors.append(f"{item.get('verified_candidate_id')}: source_context_handoff_failed")
+    for item in trace:
+        if item.get("verification_stage_status") != "PASS":
+            errors.append(f"{item.get('candidate_id')}: reconciliation trace missing verification PASS")
     return errors
 
 
@@ -303,6 +466,12 @@ def main() -> int:
     docs_report = read_json(POST_DIR / "public_docs_accuracy_audit.json")
     matrix_status = read_json(POST_DIR / "operational_gate_matrix_status.json")
     language_expanded = read_json(POST_DIR / "public_language_audit_expanded.json")
+    env_artifact = read_json(POST_DIR / "batch002_environment_resolution_artifact_verification.json")
+    repair_gap = read_json(POST_DIR / "batch002_repair_generation_gap_diagnosis.json")
+    if env_artifact.get("status") != "PASS" or env_artifact.get("sha256_match") is not True:
+        return fail("environment-resolution artifact verification not PASS")
+    if repair_gap.get("two_native_candidates_verified") is not True or repair_gap.get("immediate_blocker") != "clean_protocol_source_patch_generation_source_context_handoff":
+        return fail("repair generation gap diagnosis invalid")
     if readme_report.get("status") != "PASS":
         return fail("README status update report failed")
     if docs_report.get("status") != "PASS":
@@ -351,6 +520,9 @@ def main() -> int:
     environment_errors = audit_environment_resolution_records(metadata_attempts, batch)
     if environment_errors:
         return fail(f"environment resolution audit failed: {environment_errors}")
+    repair_errors = audit_repair_generation_records(batch)
+    if repair_errors:
+        return fail(f"repair generation audit failed: {repair_errors}")
     repair_attempts = read_json(BATCH_DIR / "repair_attempts.json")
     verified_native_count = int(batch.get("native_candidates_verified_count", 0))
     if verified_native_count and (not isinstance(repair_attempts, list) or not repair_attempts):
@@ -359,13 +531,28 @@ def main() -> int:
         for item in repair_attempts:
             if item.get("source_only_repair_attempted") is not True:
                 return fail("repair attempt missing source-only marker")
-            if item.get("source_mutation_performed") is not False or item.get("tests_modified") is not False:
+            if item.get("tests_modified") is not False or item.get("support_files_modified") is not False or item.get("config_workflow_registry_audit_modified") is not False:
                 return fail("repair attempt mutated forbidden files")
+            if item.get("source_mutation_performed") is True and item.get("patch_authorized") is not True:
+                return fail("source mutation occurred without patch authorization")
+    success_count = int(batch.get("native_repair_successes_count", 0))
+    if success_count:
+        duplicate_pass = read_json(BATCH_DIR / "duplicate_replay_results.json")
+        validation_pass = read_json(BATCH_DIR / "target_validation_results.json")
+        if not any(item.get("status") == "PASS" for item in duplicate_pass):
+            return fail("native repair success without duplicate replay PASS")
+        if not any(item.get("status") == "PASS" and item.get("exit_code") == 0 for item in validation_pass):
+            return fail("native repair success without target validation exit 0")
+    if batch.get("additional_native_external_repairs_acquired_count") != success_count:
+        return fail("additional native repair count does not match repair successes")
+    if success_count:
+        episode_registry = read_json(Path("configs/external_repair_episode_registry.json"))
+        episodes = episode_registry.get("episodes", [])
+        if not any(isinstance(item, dict) and item.get("candidate_id") == "darker_non_ascii_drop_changes" and item.get("scoreable") is True for item in episodes):
+            return fail("successful batch002 repair missing from external repair episode registry")
     zero_count_fields = [
         "issue_derived_candidates_verified_count",
-        "additional_native_external_repairs_acquired_count",
         "additional_issue_derived_repairs_acquired_count",
-        "native_repair_successes_count",
         "issue_derived_repair_successes_count",
     ]
     for field in zero_count_fields:

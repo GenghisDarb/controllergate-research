@@ -21,11 +21,26 @@ POST_ID = "post_v2_37_hardening_001"
 POST_DIR = Path("outputs") / POST_ID
 BATCH_ID = "clean_replication_batch_002"
 BATCH_DIR = Path("outputs") / BATCH_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_environment_resolution")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_repair_generation")
 
 
 def load_json(path: str | Path) -> dict[str, object]:
     return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def write_patchable_source_ranking_csv(path: Path, rows: list[dict[str, object]]) -> None:
+    header = ["candidate_id", "file_path", "function_or_class", "score", "reason_codes", "admitted", "patchable", "rejection_reason"]
+    lines = [",".join(header)]
+    for row in rows:
+        values = []
+        for key in header:
+            value = row.get(key)
+            if isinstance(value, (list, dict)):
+                value = json.dumps(value, sort_keys=True, separators=(",", ":"))
+            text = str(value if value is not None else "")
+            values.append('"' + text.replace('"', '""') + '"')
+        lines.append(",".join(values))
+    write_text_lf(path, "\n".join(lines) + "\n")
 
 
 ACTIVE_PUBLIC_LANGUAGE_PATHS = [
@@ -56,6 +71,8 @@ def public_language_audit(paths: list[str]) -> dict[str, object]:
         "A" + "GI",
         "observer" + "-state",
         "recursion" + "-constant",
+        "Klein " + "twist",
+        "Betti" + "-number",
         "meta" + "phorical",
         "bio" + "logical",
     ]
@@ -162,6 +179,7 @@ def write_batch002_outputs() -> dict[str, object]:
     verified = result.get("verified_candidates", [])
     repair_attempts = result.get("repair_attempts", [])
     repair_successes = result.get("repair_successes", [])
+    repair_generation = result.get("repair_generation", {})
     matched_null = result.get("matched_null_results", [])
     native_verified_count = len(verified)
     issue_verified_count = 0
@@ -186,7 +204,7 @@ def write_batch002_outputs() -> dict[str, object]:
     state = {
         "lane_id": BATCH_ID,
         "lane_type": "clean_replication_batch",
-        "status": "BLOCKED",
+        "status": result.get("status", "BLOCKED"),
         "exact_blocker": blocker,
         "summary_status": result.get("summary_status", "no_additional_external_repairs_acquired"),
         "current_protocol_version": "v2.13",
@@ -280,6 +298,44 @@ def write_batch002_outputs() -> dict[str, object]:
     write_json_deterministic(BATCH_DIR / "verified_candidates.json", verified)
     write_json_deterministic(BATCH_DIR / "repair_attempts.json", repair_attempts)
     write_json_deterministic(BATCH_DIR / "repair_successes.json", repair_successes)
+    write_json_deterministic(
+        BATCH_DIR / "clean_repair_generation_policy.json",
+        {
+            "status": "PASS",
+            "verified_native_candidates_only": True,
+            "candidate_order": ["darker_non_ascii_drop_changes", "darker_stdin_filename"],
+            "max_one_patch_per_candidate": True,
+            "max_files_touched": 3,
+            "max_lines_changed": 50,
+            "max_functions_modified": 2,
+            "fixed_later_gold_pr_patch_content_forbidden": True,
+            "tests_support_config_workflow_registry_audit_patch_targets_forbidden": True,
+            "target_validation_requires_exit_status_zero": True,
+            "duplicate_clean_replay_required": "3/3",
+            "full_scoring": "NOT_RUN/disallowed",
+            "memory_lift": "undemonstrated",
+            "self_maintaining_software": "false/not_demonstrated",
+        },
+    )
+    write_json_deterministic(BATCH_DIR / "verified_candidate_repair_queue.json", repair_generation.get("repair_queue", []))
+    write_json_deterministic(BATCH_DIR / "repair_context_capsules.json", repair_generation.get("repair_context_capsules", []))
+    write_json_deterministic(BATCH_DIR / "patchable_source_subsets.json", repair_generation.get("patchable_source_subsets", []))
+    write_json_deterministic(BATCH_DIR / "source_patch_generation_attempts.json", repair_generation.get("source_patch_generation_attempts", []))
+    write_json_deterministic(BATCH_DIR / "patch_safety_results.json", repair_generation.get("patch_safety_results", []))
+    write_json_deterministic(BATCH_DIR / "target_validation_results.json", repair_generation.get("target_validation_results", []))
+    write_json_deterministic(BATCH_DIR / "duplicate_replay_results.json", repair_generation.get("duplicate_replay_results", []))
+    write_json_deterministic(BATCH_DIR / "no_overreach_regression_results.json", repair_generation.get("no_overreach_regression_results", []))
+    write_json_deterministic(BATCH_DIR / "source_context_handoff_audit.json", repair_generation.get("source_context_handoff_audit", []))
+    write_json_deterministic(BATCH_DIR / "generation_validation_reconciliation_trace.json", repair_generation.get("generation_validation_reconciliation_trace", []))
+    write_json_deterministic(BATCH_DIR / "structural_repair_routing_map.json", repair_generation.get("structural_repair_routing_map", []))
+    write_json_deterministic(BATCH_DIR / "stage_interface_contract.json", repair_generation.get("stage_interface_contract", []))
+    write_json_deterministic(BATCH_DIR / "repairability_basin_selection.json", repair_generation.get("repairability_basin_selection", []))
+    write_patchable_source_ranking_csv(BATCH_DIR / "patchable_source_ranking.csv", list(repair_generation.get("patchable_source_ranking_rows", [])))
+    write_json_deterministic(BATCH_DIR / "pre_generation_context_state_lock.json", repair_generation.get("pre_generation_context_state_lock", []))
+    write_json_deterministic(BATCH_DIR / "patch_context_alignment_audit.json", repair_generation.get("patch_context_alignment_audit", []))
+    write_json_deterministic(BATCH_DIR / "post_patch_constraint_revalidation.json", repair_generation.get("post_patch_constraint_revalidation", []))
+    write_json_deterministic(BATCH_DIR / "no_overreach_validation.json", repair_generation.get("no_overreach_validation", []))
+    write_json_deterministic(BATCH_DIR / "repair_generator_capability_status.json", repair_generation.get("repair_generator_capability_status", []))
     write_json_deterministic(BATCH_DIR / "matched_null_results.json", matched_null)
     write_json_deterministic(BATCH_DIR / "memory_lift_evaluation.json", {"status": "NOT_RUN", "memory_lift": "undemonstrated"})
     write_json_deterministic(BATCH_DIR / "native_issue_derived_count_separation.json", state)
@@ -427,7 +483,7 @@ def main() -> int:
         POST_DIR / "artifact_packaging_correction_report.json",
         {
             "status": "PASS",
-            "corrected_artifact_name": "post_v2_37_hardening_batch002_environment_resolution_artifacts",
+            "corrected_artifact_name": "post_v2_37_hardening_batch002_repair_generation_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
@@ -471,10 +527,11 @@ def main() -> int:
         },
     )
 
+    final_status = "PASS_WITH_ADDITIONAL_REPAIR" if batch_state["native_repair_successes_count"] else "PASS_WITH_BATCH002_BLOCKED"
     final_report = {
-        "status": "PASS_WITH_BATCH002_BLOCKED",
+        "status": final_status,
         "exact_blocker": batch_state["exact_blocker"],
-        "summary_status": "no_additional_external_repairs_acquired",
+        "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
         "homeostasis_risk_regulator_status": risk_state["status"],
         "bounded_exploration_budget_status": budget["status"],
@@ -504,6 +561,22 @@ def main() -> int:
         "candidates_verified_count": batch_state["native_candidates_verified_count"] + batch_state["issue_derived_candidates_verified_count"],
         "repair_attempts_count": batch_state["native_repair_attempts_count"] + batch_state["issue_derived_repair_attempts_count"],
         "repair_successes_count": batch_state["native_repair_successes_count"] + batch_state["issue_derived_repair_successes_count"],
+        "verified_native_candidates_carried_forward_count": batch_state["native_candidates_verified_count"],
+        "repair_queue_count": len(load_json(BATCH_DIR / "verified_candidate_repair_queue.json")),
+        "repair_generation_attempts_count": len(load_json(BATCH_DIR / "source_patch_generation_attempts.json")),
+        "patches_generated_count": len([item for item in load_json(BATCH_DIR / "source_patch_generation_attempts.json") if item.get("patch_candidate_generated") is True]),
+        "patch_safety_pass_count": len([item for item in load_json(BATCH_DIR / "patch_safety_results.json") if item.get("status") == "PASS"]),
+        "target_validation_pass_count": len([item for item in load_json(BATCH_DIR / "target_validation_results.json") if item.get("status") == "PASS"]),
+        "duplicate_replay_pass_count": len([item for item in load_json(BATCH_DIR / "duplicate_replay_results.json") if item.get("status") == "PASS"]),
+        "stage_interface_contract_status": "PASS" if all(item.get("status") == "PASS" for item in load_json(BATCH_DIR / "stage_interface_contract.json")) else "FAIL",
+        "repairability_basin_selection_status": "PASS" if all(item.get("status") == "PASS" for item in load_json(BATCH_DIR / "repairability_basin_selection.json")) else "FAIL",
+        "pre_generation_context_state_lock_status": "PASS" if load_json(BATCH_DIR / "pre_generation_context_state_lock.json") else "FAIL",
+        "patch_context_alignment_status": "PASS" if not load_json(BATCH_DIR / "patch_context_alignment_audit.json") or all(item.get("status") == "PASS" for item in load_json(BATCH_DIR / "patch_context_alignment_audit.json")) else "FAIL",
+        "post_patch_constraint_revalidation_status": "PASS" if not load_json(BATCH_DIR / "post_patch_constraint_revalidation.json") or all(item.get("status") == "PASS" for item in load_json(BATCH_DIR / "post_patch_constraint_revalidation.json")) else "NOT_RUN_OR_BLOCKED",
+        "no_overreach_validation_status": "PASS" if not load_json(BATCH_DIR / "no_overreach_validation.json") or all(item.get("status") == "PASS" for item in load_json(BATCH_DIR / "no_overreach_validation.json")) else "NOT_RUN_OR_BLOCKED",
+        "repair_generator_capability_status": "PASS" if all(item.get("generator_invoked") is True for item in load_json(BATCH_DIR / "repair_generator_capability_status.json")) else "FAIL",
+        "clean_repair_generator_not_implemented": any(item.get("blocker") == "clean_repair_generator_not_implemented" for item in load_json(BATCH_DIR / "repair_generator_capability_status.json")),
+        "clean_repair_no_safe_source_patch_generated": any(item.get("blocker") == "clean_repair_no_safe_source_patch_generated" for item in load_json(BATCH_DIR / "repair_generator_capability_status.json")),
         "readme_status_update_status": "PASS",
         "operational_gate_matrix_status": "PASS",
         "public_language_audit_status": "PASS",
@@ -536,9 +609,9 @@ def main() -> int:
             [
                 "# Post-v2.37 hardening and clean replication batch 002",
                 "",
-                "Status: PASS with batch002 blocked after real-lead acquisition exhaustion.",
+                f"Status: {final_report['status']}.",
                 "",
-                "This run adds neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.",
+                "This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.",
             ]
         ),
     )

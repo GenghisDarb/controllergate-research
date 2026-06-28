@@ -11,8 +11,8 @@ It supports:
 - isolated runtime workspaces,
 - structured environment resolution,
 - collection and replay probes,
-- source-only repair attempt records,
-- duplicate clean replay requirements for any future scoreable repair,
+- bounded source-only repair generation for verified native candidates,
+- patch safety, target validation, and duplicate clean replay requirements for any new repair success,
 - full scoring disabled by default.
 
 ## Batch002 sequence
@@ -30,6 +30,12 @@ For every real metadata lead, batch002 must attempt:
 9. collection,
 10. failure replay,
 11. semantic failure signature when a command runs,
-12. admission or rejection decision.
+12. admission or rejection decision,
+13. repair queue construction for verified native candidates,
+14. structural repair routing and context-state locking,
+15. source-only patch generation if a safe patch is available,
+16. patch safety,
+17. target validation with exit status 0,
+18. duplicate clean replay 3/3 before a repair success is recorded.
 
 Issue-derived evidence remains separate and never increments native repair counts.

@@ -19,6 +19,9 @@ class CleanReplicationConfig:
     matched_null_required: bool = False
     environment_resolution_required: bool = True
     max_environment_resolution_seconds_per_lead: int = 900
+    clean_repair_generation_required_for_verified_native_candidates: bool = True
+    source_only_repair_required: bool = True
+    duplicate_replay_required_for_success: int = 3
     full_scoring: bool = False
 
 
@@ -38,5 +41,8 @@ def validate_clean_replication_config(config: dict[str, object]) -> dict[str, ob
         and int(config.get("max_repos_attempted", 0)) <= 10
         and int(config.get("max_candidate_or_issue_leads_attempted", 0)) <= 20
         and int(config.get("max_repairs_to_attempt", 0)) <= 4
+        and config.get("clean_repair_generation_required_for_verified_native_candidates", True) is True
+        and config.get("source_only_repair_required", True) is True
+        and int(config.get("duplicate_replay_required_for_success", 3)) == 3
     )
     return {"status": "PASS" if ok else "FAIL", "batch_id": config.get("batch_id")}

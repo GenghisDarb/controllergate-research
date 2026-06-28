@@ -1,0 +1,63 @@
+[
+  {
+    "candidate_id": "darker_non_ascii_drop_changes",
+    "passes": 3,
+    "patch_sha256": "7a15e017c77d93ceba594c518ebdfc3c5ce4d11b24d327eef43b0b3af1547b90",
+    "records": [
+      {
+        "command_record": {
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\repair_duplicate_darker_non_ascii_drop_changes\\replay_1_venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+            "-q"
+          ],
+          "normalized_output_sha256": "25199493659dc5dbc6eb732f4cf6f60e0bda061d5ac375f5f5132841882abfca",
+          "output_sha256": "26853adbb871e06bc8add59ff58dc41fe3ea8b6cd8e2460ff92fb569c13e14f9",
+          "output_summary": "STDOUT:\n....                                                                     [100%]\n============================ slowest 10 durations =============================\n0.02s setup    src/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content0-new_chunks0]\n\n(9 durations < 0.005s hidden.  Use -vv to show these durations.)\n4 passed in 2.06s\n\nSTDERR:",
+          "returncode": 0
+        },
+        "duplicate_replay_index": 1,
+        "status": "PASS"
+      },
+      {
+        "command_record": {
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\repair_duplicate_darker_non_ascii_drop_changes\\replay_2_venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+            "-q"
+          ],
+          "normalized_output_sha256": "548016d282311816757cb3eca9695d490c17ebed0851dafb2601fa51e85e010d",
+          "output_sha256": "9ebae1ea42f9e8607e3f554154d87b785d289f4fdadb7ff0144b7e78775fcbbb",
+          "output_summary": "STDOUT:\n....                                                                     [100%]\n============================ slowest 10 durations =============================\n0.01s setup    src/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content0-new_chunks0]\n\n(9 durations < 0.005s hidden.  Use -vv to show these durations.)\n4 passed in 0.83s\n\nSTDERR:",
+          "returncode": 0
+        },
+        "duplicate_replay_index": 2,
+        "status": "PASS"
+      },
+      {
+        "command_record": {
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\repair_duplicate_darker_non_ascii_drop_changes\\replay_3_venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+            "-q"
+          ],
+          "normalized_output_sha256": "10076daf20f82af2f715d4448c2bfa40fdd83bab56a98fe3211091fee27b2165",
+          "output_sha256": "44186ff8d8f8458fc67d2d0c9b0457c9a38a0049d7468eb1bb36aa6af7023159",
+          "output_summary": "STDOUT:\n....                                                                     [100%]\n============================ slowest 10 durations =============================\n0.01s setup    src/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content0-new_chunks0]\n0.01s setup    src/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content2-new_chunks2]\n\n(8 durations < 0.005s hidden.  Use -vv to show these durations.)\n4 passed in 0.82s\n\nSTDERR:",
+          "returncode": 0
+        },
+        "duplicate_replay_index": 3,
+        "status": "PASS"
+      }
+    ],
+    "same_patch_bytes_across_replays": true,
+    "status": "PASS",
+    "total": 3
+  }
+]

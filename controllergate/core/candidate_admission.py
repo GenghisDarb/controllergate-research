@@ -46,3 +46,23 @@ def candidate_admission_decision(fields: dict[str, object]) -> str:
     if score >= 5:
         return "rejected_escape_boundary_risk"
     return "admitted_native_replay_candidate"
+
+
+def verified_native_candidate_for_repair(candidate: dict[str, object]) -> bool:
+    return (
+        candidate.get("decision") == "verified_native_candidate_pending_repair"
+        and candidate.get("failure_replay_status") == "PRE_PATCH_FAILURE_OBSERVED"
+        and bool(candidate.get("repo_url"))
+        and bool(candidate.get("resolved_commit_sha") or candidate.get("commit_hint"))
+        and bool(candidate.get("test_path_hint"))
+    )
+
+
+def repair_queue_admission_decision(candidate: dict[str, object]) -> dict[str, object]:
+    admitted = verified_native_candidate_for_repair(candidate)
+    return {
+        "candidate_id": candidate.get("lead_id"),
+        "status": "PASS" if admitted else "BLOCK",
+        "admitted_to_repair_queue": admitted,
+        "blocker": None if admitted else "candidate_not_verified_for_repair_generation",
+    }

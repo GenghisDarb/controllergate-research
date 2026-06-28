@@ -67,8 +67,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch002_environment_resolution/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch002_environment_resolution \( \
+          test -f artifact_payload/post_v2_37_hardening_batch002_repair_generation/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch002_repair_generation \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -93,7 +93,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch002_environment_resolution_artifacts
+          name: post_v2_37_hardening_batch002_repair_generation_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch002_environment_resolution/**
+            artifact_payload/post_v2_37_hardening_batch002_repair_generation/**
           if-no-files-found: error

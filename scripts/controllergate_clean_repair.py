@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from controllergate.core.evidence import write_json_deterministic
+from controllergate.core.clean_repair import build_verified_candidate_repair_queue
 from controllergate.experiments.replication_batch import run_replication_batch
 from controllergate.protocols.clean_replication import validate_clean_replication_config
 
@@ -25,6 +26,7 @@ def main() -> int:
         return 1
 
     result = run_replication_batch(config)
+    result["repair_queue_preview"] = build_verified_candidate_repair_queue(result.get("verified_candidates", []), int(config.get("max_repairs_to_attempt", 2)))
     result["batch_id"] = config.get("batch_id")
     result["candidate_source_mode"] = config.get("candidate_source_mode", "mixed")
     result["full_scoring"] = "NOT_RUN/disallowed"

@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Callable
 
 from controllergate.core.acquisition import discover_seed_files
+from controllergate.core.clean_repair import execute_verified_candidate_repair_generation
 from controllergate.core.environment import dependency_declared, extract_missing_modules, resolve_project_environment, venv_python
 
 CommandRunner = Callable[..., subprocess.CompletedProcess[str]]
@@ -510,29 +511,13 @@ def run_replication_batch(config: dict[str, object], command_runner: CommandRunn
         trace.append({"mode": "issue_derived", "attempted": False, "decision": "issue_derived_disabled"})
 
     verified_candidates = [item for item in metadata_attempts if item.get("decision") == "verified_native_candidate_pending_repair"]
+    repair_generation: dict[str, object] = {}
     repair_attempts = []
+    repair_successes = []
     if verified_candidates:
-        for candidate in verified_candidates[: int(config.get("max_repairs_to_attempt", 4))]:
-            repair_attempts.append(
-                {
-                    "lead_id": candidate.get("lead_id"),
-                    "candidate_class": "native",
-                    "source_only_repair_attempted": True,
-                    "patch_generation_attempted": True,
-                    "patch_generated": False,
-                    "patch_authorized": False,
-                    "patch_applied": False,
-                    "target_validation_attempted": False,
-                    "duplicate_clean_replay_attempted": False,
-                    "source_mutation_performed": False,
-                    "tests_modified": False,
-                    "support_files_modified": False,
-                    "config_workflow_registry_audit_modified": False,
-                    "blocker": "clean_repair_no_safe_source_patch_generated",
-                    "decision": "repair_blocked_no_safe_source_patch",
-                    "claim_boundary": "candidate replay was verified, but no repair success is claimed",
-                }
-            )
+        repair_generation = execute_verified_candidate_repair_generation(verified_candidates, config, command_runner)
+        repair_attempts = list(repair_generation.get("repair_attempts", []))
+        repair_successes = list(repair_generation.get("repair_successes", []))
     environment_blockers = {
         "environment_resolution_not_attempted",
         "environment_dependency_install_failed",
@@ -542,26 +527,47 @@ def run_replication_batch(config: dict[str, object], command_runner: CommandRunn
         "environment_python_version_incompatible",
         "environment_collection_failed_after_resolution",
     }
-    if verified_candidates and repair_attempts and not any(item.get("patch_applied") for item in repair_attempts):
-        blocker = "clean_replication_batch_002_no_repair_successes_after_environment_resolution"
+    if repair_successes:
+        blocker = None
+        status = "PASS"
+        summary_status = "additional_external_repair_acquired"
+    elif verified_candidates and repair_attempts and not repair_successes:
+        blocker = (
+            next((str(item.get("blocker")) for item in repair_attempts if item.get("blocker")), None)
+            or "clean_replication_batch_002_no_repair_successes_after_environment_resolution"
+        )
+        status = "BLOCKED"
+        summary_status = "no_additional_external_repairs_acquired"
     elif metadata_attempts and all(item.get("blocker") == "metadata_probe_network_unavailable" for item in metadata_attempts):
         blocker = "metadata_probe_network_unavailable"
+        status = "BLOCKED"
+        summary_status = "no_additional_external_repairs_acquired"
     elif not metadata_attempts and _mode_enabled(config, "metadata_probe"):
         blocker = "metadata_probe_no_verified_candidates"
+        status = "BLOCKED"
+        summary_status = "no_additional_external_repairs_acquired"
     elif metadata_attempts and all(item.get("environment_resolution_attempted") is True for item in metadata_attempts) and not verified_candidates:
         blockers = {str(item.get("blocker")) for item in metadata_attempts}
         blocker = next(iter(blockers)) if len(blockers) == 1 and blockers <= environment_blockers else "metadata_probe_no_verified_candidates_after_environment_resolution"
+        status = "BLOCKED"
+        summary_status = "no_additional_external_repairs_acquired"
     elif not verified_candidates and issue_attempts and all(item.get("blocker") == "issue_derived_no_safe_leads" for item in issue_attempts):
         blocker = "clean_replication_batch_002_no_verified_candidates"
+        status = "BLOCKED"
+        summary_status = "no_additional_external_repairs_acquired"
     elif not verified_candidates:
         blocker = "clean_replication_batch_002_no_verified_candidates"
+        status = "BLOCKED"
+        summary_status = "no_additional_external_repairs_acquired"
     else:
         blocker = "clean_replication_batch_002_no_verified_candidates"
+        status = "BLOCKED"
+        summary_status = "no_additional_external_repairs_acquired"
 
     return {
-        "status": "BLOCKED",
+        "status": status,
         "exact_blocker": blocker,
-        "summary_status": "no_additional_external_repairs_acquired",
+        "summary_status": summary_status,
         "lead_pool_status": lead_pool,
         "candidate_source_mode_trace": trace,
         "curated_seed_intake_report": {"status": "BLOCKED", "seed_files": [], "blocker": "curated_seed_no_valid_seed"},
@@ -571,6 +577,7 @@ def run_replication_batch(config: dict[str, object], command_runner: CommandRunn
         "candidate_rejection_ledger": rejections,
         "verified_candidates": verified_candidates,
         "repair_attempts": repair_attempts,
-        "repair_successes": [],
+        "repair_successes": repair_successes,
         "matched_null_results": [],
+        "repair_generation": repair_generation,
     }

@@ -1,0 +1,28 @@
+[
+  {
+    "AST_closure_candidate_source_files": [
+      "src/darker/__main__.py"
+    ],
+    "candidate_id": "darker_non_ascii_drop_changes",
+    "failing_test_node": "test_unchanged_content[content3-new_chunks3]",
+    "failure_type": "assertion_or_pytest_failure",
+    "imported_candidate_source_files": [
+      "src/darker/__main__.py"
+    ],
+    "interlock_invariant_files": [
+      "src/darker/__main__.py"
+    ],
+    "patchable_source_subset": [
+      "src/darker/__main__.py"
+    ],
+    "repair_routing_decision": "admit_patchable_subset",
+    "routing_basis": [
+      "target_test_imports",
+      "failure_summary",
+      "candidate_source_ast_symbols"
+    ],
+    "semantic_failure_signature": "01c18bceb29d7fd4fbe855b58bfc8b9e75b51ddb0a98e34c509ce2f44b5f4fe2",
+    "target_test_path": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
+    "traceback_candidate_source_files": []
+  }
+]

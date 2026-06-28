@@ -13,11 +13,13 @@
 - Explicit native versus issue-derived evidence separation.
 - Real-lead acquisition for clean replication batch002.
 - Structured environment resolution before collection and replay.
+- Bounded source-only repair generation for verified native clean-replication candidates.
+- Patch safety, target validation, and duplicate clean replay gates for new native repair successes.
 
 ## Partial
 
-- Candidate acquisition beyond the first confirmed external repair episode.
-- Source-only repair attempt generation for newly replayed external failures.
+- Candidate acquisition beyond the first two confirmed external repair episodes.
+- Broader source-only repair generation across diverse repositories and failure types.
 - Matched-null comparison evidence.
 - Public release readiness evidence.
 

@@ -1,0 +1,33 @@
+[
+  {
+    "blocker": null,
+    "candidate_id": "darker_non_ascii_drop_changes",
+    "ranked_patchable_sources": [
+      {
+        "admitted": true,
+        "candidate_id": "darker_non_ascii_drop_changes",
+        "file_path": "src/darker/__main__.py",
+        "function_or_class": [
+          "format_edited_parts",
+          "_modify_and_reformat_single_file",
+          "_reformat_and_flynt_single_file",
+          "_maybe_flynt_single_file",
+          "_maybe_reformat_single_file",
+          "_drop_changes_on_unedited_lines",
+          "modify_file",
+          "print_diff",
+          "print_source",
+          "_import_pygments"
+        ],
+        "patchable": true,
+        "reason_codes": [
+          "imported_by_target_test",
+          "source_file_patchable"
+        ],
+        "rejection_reason": null,
+        "score": 6
+      }
+    ],
+    "status": "PASS"
+  }
+]
