@@ -18,16 +18,16 @@
     "collection_attempted": true,
     "collection_command_record": {
       "command": [
-        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "<lead_workspace>_venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_isort.py",
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "25939c6dd448bdfd232b641368ccf7ccab633041a8c21b9c02ee5c20cf626ab1",
-      "output_sha256": "f9457568756168614ec9d3e0ee785883163f2d8ac880812ab33a6ccb44c2f2c5",
-      "output_summary": "STDOUT:\n\nSTDERR:\n<lead_workspace>_venv\\Scripts\\python.exe: No module named pytest",
+      "normalized_output_sha256": "7afc6d65d7fbf2a8142d4a0d8899821cb2747df73fc56838c421c891ebcbbea4",
+      "output_sha256": "59539373a35e0e3712f6f8de98cc70aefb5394cc69771b4a3055483436100d59",
+      "output_summary": "STDOUT:\n\nSTDERR:\n<lead_workspace>_venv/bin/python: No module named pytest",
       "returncode": 1
     },
     "collection_status": "FAIL",
@@ -81,15 +81,15 @@
     "failure_replay_attempted": true,
     "failure_replay_command_record": {
       "command": [
-        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "<lead_workspace>_venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_isort.py",
         "-q"
       ],
-      "normalized_output_sha256": "25939c6dd448bdfd232b641368ccf7ccab633041a8c21b9c02ee5c20cf626ab1",
-      "output_sha256": "f9457568756168614ec9d3e0ee785883163f2d8ac880812ab33a6ccb44c2f2c5",
-      "output_summary": "STDOUT:\n\nSTDERR:\n<lead_workspace>_venv\\Scripts\\python.exe: No module named pytest",
+      "normalized_output_sha256": "7afc6d65d7fbf2a8142d4a0d8899821cb2747df73fc56838c421c891ebcbbea4",
+      "output_sha256": "59539373a35e0e3712f6f8de98cc70aefb5394cc69771b4a3055483436100d59",
+      "output_summary": "STDOUT:\n\nSTDERR:\n<lead_workspace>_venv/bin/python: No module named pytest",
       "returncode": 1
     },
     "failure_replay_status": "NOT_VERIFIED_COLLECTION_FAILED",
@@ -116,7 +116,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "ffb3a61495c5c99caee8c9a6a87b07046b167fea5b2bb5f231f570808b24a5ac",
+      "output_sha256": "06fadf23ae5d90315125a58666e10a34dd02365f1ccbd2a119ad1efc14a464cd",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -139,7 +139,7 @@
     "import_probe_results": [
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-c",
           "import darker"
         ],
@@ -154,18 +154,18 @@
     "import_probe_status": "PASS",
     "install_log_hashes": [
       {
-        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "normalized_output_sha256": "f10176b6f1b965f0867e2d7422b9e3d0ee70e791f6819c8db707b49d56e16947",
         "strategy": "upgrade_build_tools"
       },
       {
-        "normalized_output_sha256": "288db7828a6ca78cd841279dd0bac8dd11d6f77ad72675ee2f80b4817978cb4f",
+        "normalized_output_sha256": "e27da3f4faabd5fba8f84847b7f1de7a1e01a7d9e74bce3ae0483e0b1d4b2c53",
         "strategy": "editable_test_extra"
       }
     ],
     "install_strategy_attempts": [
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-m",
           "pip",
           "install",
@@ -174,9 +174,9 @@
           "setuptools",
           "wheel"
         ],
-        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
-        "output_sha256": "ed9c25d4ca629b79318f3f4a8914fd75b8bb82e968c71c0ec3024ebb65dea027",
-        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "normalized_output_sha256": "f10176b6f1b965f0867e2d7422b9e3d0ee70e791f6819c8db707b49d56e16947",
+        "output_sha256": "612dfabf7daff33a226ddfc4aa6da3bb2795e0cc458809c21dad77f380f06882",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>/lib/python3.10/site-packages (23.0.1)\nCollecting pip\n  Using cached pip-26.1.2-py3-none-any.whl (1.8 MB)\nRequirement already satisfied: setuptools in <lead_venv>/lib/python3.10/site-packages (79.0.1)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl (32 kB)\nCollecting packaging>=24.0\n  Using cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, pip, packaging, wheel\n  Attempting uninstall: setuptools\n    Found existing installation: setuptools 79.0.1\n    Uninstalling setuptools-79.0.1:\n      Successfully uninstalled setuptools-79.0.1\n  Attempting uninstall: pip\n    Found existing installation: pip 23.0.1\n    Uninstalling pip-23.0.1:\n      Successfully uninstalled pip-23.0.1\nSuccessfully installed packaging-26.2 pip-26.1.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
         "returncode": 0,
         "status": "PASS",
         "strategy": "upgrade_build_tools",
@@ -184,16 +184,16 @@
       },
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-m",
           "pip",
           "install",
           "-e",
           ".[test]"
         ],
-        "normalized_output_sha256": "288db7828a6ca78cd841279dd0bac8dd11d6f77ad72675ee2f80b4817978cb4f",
-        "output_sha256": "95d484ce9ef88cb5be952a3ab39712dba83e5400ec6e76ffb4eb3eb817a6dea8",
-        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting darkgraylib<3.0.dev0,>=2.4.0 (from darker==2.1.1)\n  Using cached darkgraylib-2.4.1-py3-none-any.whl.metadata (3.9 kB)\nCollecting toml>=0.10.0 (from darker==2.1.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting typing_extensions>=4.0.1 (from darker==2.1.1)\n  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\nUsing cached darkgraylib-2.4.1-py3-none-any.whl (57 kB)\nUsing cached toml-0.10.2-py2.py3-none-any.whl (16 kB)\nUsing cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)\nBuilding wheels for collected packages: darker\n  Building editable for darker (pyproject.toml): started\n  Building e",
+        "normalized_output_sha256": "e27da3f4faabd5fba8f84847b7f1de7a1e01a7d9e74bce3ae0483e0b1d4b2c53",
+        "output_sha256": "3e73c8aae5a2a575cf84d70b5a42723c5bd6d800f1843640483221603245c001",
+        "output_summary": "STDOUT:\nObtaining file://<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting darkgraylib<3.0.dev0,>=2.4.0 (from darker==2.1.1)\n  Downloading darkgraylib-2.4.1-py3-none-any.whl.metadata (3.9 kB)\nCollecting toml>=0.10.0 (from darker==2.1.1)\n  Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting typing_extensions>=4.0.1 (from darker==2.1.1)\n  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\nDownloading darkgraylib-2.4.1-py3-none-any.whl (57 kB)\nDownloading toml-0.10.2-py2.py3-none-any.whl (16 kB)\nUsing cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)\nBuilding wheels for collected packages: darker\n  Building editable for darker (pyproject.toml): started\n  Building editab",
         "returncode": 0,
         "status": "PASS",
         "strategy": "editable_test_extra",
@@ -209,7 +209,7 @@
     "resolved_commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
     "runtime_workspace_outside_live_repo": true,
     "selected_install_strategy": "editable_test_extra",
-    "semantic_failure_signature_hash": "25939c6dd448bdfd232b641368ccf7ccab633041a8c21b9c02ee5c20cf626ab1",
+    "semantic_failure_signature_hash": "7afc6d65d7fbf2a8142d4a0d8899821cb2747df73fc56838c421c891ebcbbea4",
     "target_test_present": true,
     "test_path_hint": "src/darker/tests/test_main_isort.py",
     "undeclared_missing_modules_after_environment_resolution": [],
@@ -235,16 +235,16 @@
     "collection_attempted": true,
     "collection_command_record": {
       "command": [
-        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "<lead_workspace>_venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "b66f6e48bf9a9e63f1b2651749296f10fd285b562f4a32af82e7b6ee59bd9263",
-      "output_sha256": "7127d15e3c9916f00759ca07613c78ecb2de75c6fda07c33e82f51917b2330c4",
-      "output_summary": "STDOUT:\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content0-new_chunks0]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content1-new_chunks1]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content2-new_chunks2]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content3-new_chunks3]\n\n4 tests collected in 0.81s\n\nSTDERR:",
+      "normalized_output_sha256": "7525430534f0df9199bef5c42a466722ad6f59b3920e8e05707ea22881d7b6a4",
+      "output_sha256": "0613b9685f834fd8fc6cac736f566ec4c2b83fd9769b295b454407671e506ff2",
+      "output_summary": "STDOUT:\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content0-new_chunks0]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content1-new_chunks1]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content2-new_chunks2]\nsrc/darker/tests/test_main_drop_changes_on_unedited_lines.py::test_unchanged_content[content3-new_chunks3]\n\n4 tests collected in 0.35s\n\nSTDERR:",
       "returncode": 0
     },
     "collection_status": "PASS",
@@ -297,15 +297,15 @@
     "failure_replay_attempted": true,
     "failure_replay_command_record": {
       "command": [
-        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "<lead_workspace>_venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
         "-q"
       ],
-      "normalized_output_sha256": "2df45b73c19945873b49a69429e4bbc05daf76dcd7b8ed9173d0858198740698",
-      "output_sha256": "c16aaf59a516eb0e20b363c0a1c64ffe408d9a43f8323fdcf6af18e45f170453",
-      "output_summary": "STDOUT:\n...F                                                                     [100%]\n================================== FAILURES ===================================\n________________ test_unchanged_content[content3-new_chunks3] _________________\n\ntmp_path = WindowsPath('<system_temp>/pytest-of-thisb/pytest-185/test_unchanged_content_content3')\ncontent = TextDocument([3 lines], encoding='iso-8859-5')\nnew_chunks = [(1, ('# coding: iso-8859-5', '# \\u0431\\\\x85\\u0431\\\\x86'), ('# coding: iso-8859-5', '# \\u0431\\\\x85\\u0431\\\\x86'))]\n\n    @pytest.mark.kwparametrize(\n        dict(\n            content=TextDocument(\"s =  'reformat'\\n\"),\n            new_chunks=[(1, (\"s =  'reformat'\",), ('s = \"reformat\"',))],\n        ),\n        dict(\n            content=TextDocument('s = \"keep\"\\n'),\n            new_ch",
+      "normalized_output_sha256": "3e9616f4f301492718d499f31decf99120ac5ab9e185f1f01e73feb3f296efcc",
+      "output_sha256": "a24edeac45e61966f4331ed2384996f7db939db185bf2457227117b58bc48e83",
+      "output_summary": "STDOUT:\n...F                                                                     [100%]\n=================================== FAILURES ===================================\n_________________ test_unchanged_content[content3-new_chunks3] _________________\n\ntmp_path = PosixPath('<system_temp>/pytest-of-runner/pytest-1/test_unchanged_content_content3')\ncontent = TextDocument([3 lines], encoding='iso-8859-5')\nnew_chunks = [(1, ('# coding: iso-8859-5', '# \u0431\\x85\u0431\\x86'), ('# coding: iso-8859-5', '# \u0431\\x85\u0431\\x86'))]\n\n    @pytest.mark.kwparametrize(\n        dict(\n            content=TextDocument(\"s =  'reformat'\\n\"),\n            new_chunks=[(1, (\"s =  'reformat'\",), ('s = \"reformat\"',))],\n        ),\n        dict(\n            content=TextDocument('s = \"keep\"\\n'),\n            new_chunks=[(1, ('s = \"keep\"',)",
       "returncode": 1
     },
     "failure_replay_status": "PRE_PATCH_FAILURE_OBSERVED",
@@ -332,7 +332,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "f9d8691b1078f71660fb9355b97300b443c22b6534688020f75b3c33a0b6685e",
+      "output_sha256": "03d32664a60cb040fd6dc718c40f3bd558648c46b9740f2f1bc565fa766a247f",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -355,7 +355,7 @@
     "import_probe_results": [
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-c",
           "import darker"
         ],
@@ -370,18 +370,18 @@
     "import_probe_status": "PASS",
     "install_log_hashes": [
       {
-        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "normalized_output_sha256": "f10176b6f1b965f0867e2d7422b9e3d0ee70e791f6819c8db707b49d56e16947",
         "strategy": "upgrade_build_tools"
       },
       {
-        "normalized_output_sha256": "b1b914919ded0b7bb84a880e2ed6cfdaf070b56f1ca9383c87f25b8074e6eca2",
+        "normalized_output_sha256": "4ff0c5da2f204084e553ad804bc972af55726b7fb2d4f7219417ecffbba3644e",
         "strategy": "editable_test_extra"
       }
     ],
     "install_strategy_attempts": [
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-m",
           "pip",
           "install",
@@ -390,9 +390,9 @@
           "setuptools",
           "wheel"
         ],
-        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
-        "output_sha256": "667aaf06a283b752bc122ae828b5162d8a56b1d34d660d56fd48ead8a4877112",
-        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "normalized_output_sha256": "f10176b6f1b965f0867e2d7422b9e3d0ee70e791f6819c8db707b49d56e16947",
+        "output_sha256": "98a876cf83d67c2842555d73835172144766b1049ae43f564cacaef508ed6c51",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>/lib/python3.10/site-packages (23.0.1)\nCollecting pip\n  Using cached pip-26.1.2-py3-none-any.whl (1.8 MB)\nRequirement already satisfied: setuptools in <lead_venv>/lib/python3.10/site-packages (79.0.1)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl (32 kB)\nCollecting packaging>=24.0\n  Using cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, pip, packaging, wheel\n  Attempting uninstall: setuptools\n    Found existing installation: setuptools 79.0.1\n    Uninstalling setuptools-79.0.1:\n      Successfully uninstalled setuptools-79.0.1\n  Attempting uninstall: pip\n    Found existing installation: pip 23.0.1\n    Uninstalling pip-23.0.1:\n      Successfully uninstalled pip-23.0.1\nSuccessfully installed packaging-26.2 pip-26.1.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
         "returncode": 0,
         "status": "PASS",
         "strategy": "upgrade_build_tools",
@@ -400,16 +400,16 @@
       },
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-m",
           "pip",
           "install",
           "-e",
           ".[test]"
         ],
-        "normalized_output_sha256": "b1b914919ded0b7bb84a880e2ed6cfdaf070b56f1ca9383c87f25b8074e6eca2",
-        "output_sha256": "5c6300ec5880a1985807ad2491cac08ed8dc9fee1d1e3bfaf13109b463c94a60",
-        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting darkgraylib~=2.1.0 (from darker==2.1.1)\n  Using cached darkgraylib-2.1.0-py3-none-any.whl.metadata (4.7 kB)\nCollecting toml>=0.10.0 (from darker==2.1.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting typing_extensions>=4.0.1 (from darker==2.1.1)\n  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\nCollecting black>=22.3.0 (from darker==2.1.1)\n  Using cached black-26.5.1-cp313-cp313-win_amd64.whl.metadata (95 kB)\nCollecting cryptography>=3.3.2 (from darker==2.1.1)\n  Using cached cryptography-49.0.0-cp311-abi3-win_amd64.whl.metadata (4.3 kB)\nCollecting defusedxml>=0.7.1 (from darker==2.1.1)\n  ",
+        "normalized_output_sha256": "4ff0c5da2f204084e553ad804bc972af55726b7fb2d4f7219417ecffbba3644e",
+        "output_sha256": "1e5244a39bf510ea32b55f983434ab343afaebb7753fb3635cb1106ae4312e33",
+        "output_summary": "STDOUT:\nObtaining file://<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting darkgraylib~=2.1.0 (from darker==2.1.1)\n  Downloading darkgraylib-2.1.0-py3-none-any.whl.metadata (4.7 kB)\nCollecting toml>=0.10.0 (from darker==2.1.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting typing_extensions>=4.0.1 (from darker==2.1.1)\n  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\nCollecting black>=22.3.0 (from darker==2.1.1)\n  Downloading black-26.5.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (95 kB)\nCollecting cryptography>=3.3.2 (from darker==2.1.1)\n  Downloading cryptography-49.0.0-cp39-abi3-manylinux_2_34_x86_64.whl.metadata",
         "returncode": 0,
         "status": "PASS",
         "strategy": "editable_test_extra",
@@ -424,7 +424,7 @@
     "resolved_commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
     "runtime_workspace_outside_live_repo": true,
     "selected_install_strategy": "editable_test_extra",
-    "semantic_failure_signature_hash": "2df45b73c19945873b49a69429e4bbc05daf76dcd7b8ed9173d0858198740698",
+    "semantic_failure_signature_hash": "3e9616f4f301492718d499f31decf99120ac5ab9e185f1f01e73feb3f296efcc",
     "target_test_present": true,
     "test_path_hint": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
     "workspace_path": "<runtime_workspace>/darker_non_ascii_drop_changes",
@@ -449,15 +449,15 @@
     "collection_attempted": true,
     "collection_command_record": {
       "command": [
-        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "<lead_workspace>_venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_stdin_filename.py",
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "590193e35f53a80de516cebda1680f1488f43cc7d01c3a172c2198e2bc432802",
-      "output_sha256": "bc006d260cf42e6d2580525adb4cc5f0079af571d50d79c85b640ed1130ebc8d",
+      "normalized_output_sha256": "194e2b97240f49ac09e30172a3d76779684d1dc675f811d14089cf581a484f94",
+      "output_sha256": "eb1cef0179020db4bc596d6e014224e5d1b68b04278b433f36f63734d24e3b9a",
       "output_summary": "STDOUT:\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[None-src0-None-None-expect0-original\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src2-src2-None-None-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src3-src3-stdin_filename3-None-expect3-original\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src4-src4-None-..:STDIN:-0-modified = \"stdin\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_",
       "returncode": 0
     },
@@ -510,15 +510,15 @@
     "failure_replay_attempted": true,
     "failure_replay_command_record": {
       "command": [
-        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "<lead_workspace>_venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_stdin_filename.py",
         "-q"
       ],
-      "normalized_output_sha256": "23b43535bf90da7aefdf73d0d5e191e21bdb7fddbb7e9c2a836a3394206d71dd",
-      "output_sha256": "af246e66512afe1a11c92096809027b513244939b6a1fda9c0d12a866ff3ac8f",
-      "output_summary": "STDOUT:\n...................FF...                                                 [100%]\n================================== FAILURES ===================================\n____ test_main_stdin_filename[None-src19-a.py-None-0-modified = \"stdin\"\\n] ____\n\ngit_repo = <darker.tests.conftest.GitRepoFixture object at 0x000001DCB30B2710>\nconfig_src = None, src = ['-'], stdin_filename = 'a.py', revision = None\nexpect = 0, expect_a_py = 'modified = \"stdin\"\\n'\n\n    @pytest.mark.kwparametrize(\n        dict(expect=SystemExit(2)),\n        dict(config_src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(config_src=[\"b.py\"], src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(\n            config_src=[\"b.py\"],\n            stdin_filename=[\"a.py\"],\n            expect=Config",
+      "normalized_output_sha256": "70eb154dd82eef556767978814f07cebf9a09f8b433535999c06f250b7d1feef",
+      "output_sha256": "943d69779298327f9880e8ce83442631e540028b4dcc9bd4d398ba5e6cc0fa20",
+      "output_summary": "STDOUT:\n...................FF...                                                 [100%]\n=================================== FAILURES ===================================\n____ test_main_stdin_filename[None-src19-a.py-None-0-modified = \"stdin\"\\n] _____\n\ngit_repo = <darker.tests.conftest.GitRepoFixture object at 0x7f5356957c70>\nconfig_src = None, src = ['-'], stdin_filename = 'a.py', revision = None\nexpect = 0, expect_a_py = 'modified = \"stdin\"\\n'\n\n    @pytest.mark.kwparametrize(\n        dict(expect=SystemExit(2)),\n        dict(config_src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(config_src=[\"b.py\"], src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(\n            config_src=[\"b.py\"],\n            stdin_filename=[\"a.py\"],\n            expect=Configur",
       "returncode": 1
     },
     "failure_replay_status": "PRE_PATCH_FAILURE_OBSERVED",
@@ -545,7 +545,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "afcd9eda9b2b90ee994297b75a32a2d7df1c22e0414c313053c254e16debaa5a",
+      "output_sha256": "f4c33185344e9642d88288bff0215aca398248ffa5e16eef30f7e8fbdda6fc2b",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -568,7 +568,7 @@
     "import_probe_results": [
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-c",
           "import darker"
         ],
@@ -581,7 +581,7 @@
       },
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-c",
           "import release_tools"
         ],
@@ -596,18 +596,18 @@
     "import_probe_status": "PASS",
     "install_log_hashes": [
       {
-        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "normalized_output_sha256": "f10176b6f1b965f0867e2d7422b9e3d0ee70e791f6819c8db707b49d56e16947",
         "strategy": "upgrade_build_tools"
       },
       {
-        "normalized_output_sha256": "a74c11260ceac1cff19c7f0a98209a44026d852a9aa84d175fe090534ff2c943",
+        "normalized_output_sha256": "dfb6e5988848355d9446e60960a80366d641891bbf7da1b9575ce0da46c876c8",
         "strategy": "editable_test_extra"
       }
     ],
     "install_strategy_attempts": [
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-m",
           "pip",
           "install",
@@ -616,9 +616,9 @@
           "setuptools",
           "wheel"
         ],
-        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
-        "output_sha256": "46289d5f5503e2db9abe1cd3beb163b513e60b2bbbcefcbba03d7a374e3d10db",
-        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "normalized_output_sha256": "f10176b6f1b965f0867e2d7422b9e3d0ee70e791f6819c8db707b49d56e16947",
+        "output_sha256": "97702208171f286eed82d6a5450de342bdcffa9763f95254719331cbc24f94db",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>/lib/python3.10/site-packages (23.0.1)\nCollecting pip\n  Using cached pip-26.1.2-py3-none-any.whl (1.8 MB)\nRequirement already satisfied: setuptools in <lead_venv>/lib/python3.10/site-packages (79.0.1)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl (32 kB)\nCollecting packaging>=24.0\n  Using cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, pip, packaging, wheel\n  Attempting uninstall: setuptools\n    Found existing installation: setuptools 79.0.1\n    Uninstalling setuptools-79.0.1:\n      Successfully uninstalled setuptools-79.0.1\n  Attempting uninstall: pip\n    Found existing installation: pip 23.0.1\n    Uninstalling pip-23.0.1:\n      Successfully uninstalled pip-23.0.1\nSuccessfully installed packaging-26.2 pip-26.1.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
         "returncode": 0,
         "status": "PASS",
         "strategy": "upgrade_build_tools",
@@ -626,16 +626,16 @@
       },
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-m",
           "pip",
           "install",
           "-e",
           ".[test]"
         ],
-        "normalized_output_sha256": "a74c11260ceac1cff19c7f0a98209a44026d852a9aa84d175fe090534ff2c943",
-        "output_sha256": "702378b79dc2dcd552c99f08d19bd4f23bb365bb581577e90d84bd3c9fd0f4e5",
-        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting black>=21.5b1 (from darker==1.7.1)\n  Using cached black-26.5.1-cp313-cp313-win_amd64.whl.metadata (95 kB)\nCollecting toml>=0.10.0 (from darker==1.7.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting airium>=0.2.3 (from darker==1.7.1)\n  Using cached airium-0.2.7-py3-none-any.whl.metadata (16 kB)\nCollecting cryptography>=3.3.2 (from darker==1.7.1)\n  Using cached cryptography-49.0.0-cp311-abi3-win_amd64.whl.metadata (4.3 kB)\nCollecting defusedxml>=0.7.1 (from darker==1.7.1)\n  Using cached defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)\nCollecting flynt<0.78,>=0.76 (from darker==1.7.1)\n  Using cached flynt-0.77",
+        "normalized_output_sha256": "dfb6e5988848355d9446e60960a80366d641891bbf7da1b9575ce0da46c876c8",
+        "output_sha256": "3ac4b8436b37598e9d260a247cdc0e504d983efc6336fd0ab706a6a26717de5e",
+        "output_summary": "STDOUT:\nObtaining file://<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting black>=21.5b1 (from darker==1.7.1)\n  Using cached black-26.5.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (95 kB)\nCollecting toml>=0.10.0 (from darker==1.7.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting airium>=0.2.3 (from darker==1.7.1)\n  Downloading airium-0.2.7-py3-none-any.whl.metadata (16 kB)\nCollecting cryptography>=3.3.2 (from darker==1.7.1)\n  Using cached cryptography-49.0.0-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)\nCollecting defusedxml>=0.7.1 (from darker==1.7.1)\n  Using cached defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)\nCollecting ",
         "returncode": 0,
         "status": "PASS",
         "strategy": "editable_test_extra",
@@ -650,7 +650,7 @@
     "resolved_commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
     "runtime_workspace_outside_live_repo": true,
     "selected_install_strategy": "editable_test_extra",
-    "semantic_failure_signature_hash": "23b43535bf90da7aefdf73d0d5e191e21bdb7fddbb7e9c2a836a3394206d71dd",
+    "semantic_failure_signature_hash": "70eb154dd82eef556767978814f07cebf9a09f8b433535999c06f250b7d1feef",
     "target_test_present": true,
     "test_path_hint": "src/darker/tests/test_main_stdin_filename.py",
     "workspace_path": "<runtime_workspace>/darker_stdin_filename",
@@ -675,15 +675,15 @@
     "collection_attempted": true,
     "collection_command_record": {
       "command": [
-        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "<lead_workspace>_venv/bin/python",
         "-m",
         "pytest",
         "tests/test_pytest_rerunfailures.py",
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "12d9a8228ce3f8a21fc4ec01868723bd6c908cba6b253920477351d21c76fbaa",
-      "output_sha256": "9d8452cef2ad6909df36553cd59c97385a75eb366c8275db5dc8328fc57730ad",
+      "normalized_output_sha256": "9b243a0268dac145ad5bc23ae8d5ea5d29aac3e0498b857346890b10379ceafb",
+      "output_sha256": "9e27c298eca8a8b9576f34e38e6bc43dd02d22cfdad58e38999f487c58f14d2a",
       "output_summary": "STDOUT:\ntests/test_pytest_rerunfailures.py::test_error_when_run_with_pdb\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_pass\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_skipif_mark\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_skip_call\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_mark\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_call\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xpass\ntests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_setup_failure\ntests/test_pytest_rerunfailures.py::test_rerun_passes_after_temporary_setup_failure\ntests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_test_failure\ntests/test_pytest_rerunfailures.py::test_rerun_passes_after_temporary_test_failure\ntests/test_pytest_re",
       "returncode": 0
     },
@@ -726,15 +726,15 @@
     "failure_replay_attempted": true,
     "failure_replay_command_record": {
       "command": [
-        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "<lead_workspace>_venv/bin/python",
         "-m",
         "pytest",
         "tests/test_pytest_rerunfailures.py",
         "-q"
       ],
-      "normalized_output_sha256": "d2654b4cbc4d720de32dd295b26680449091e18d116c38a42f4be926f90b648d",
-      "output_sha256": "553c5974355abcc0b8b99e8c16364ee1ab0bcb6a1c30b2035f322fe4fd8ca060",
-      "output_summary": "STDOUT:\n.................s...................................................... [ 54%]\n...........................................................              [100%]\n130 passed, 1 skipped in 23.27s\n\nSTDERR:",
+      "normalized_output_sha256": "eb678df32082c3f8b8ff5fa9635cc9b5b8409d3128532ec259f44f512eefb0ab",
+      "output_sha256": "7d80419beea2bdb00c632eeee4a362bf088fa91fdc9f00cb95cb029d76cbd8c4",
+      "output_summary": "STDOUT:\n.................s...................................................... [ 54%]\n...........................................................              [100%]\n130 passed, 1 skipped in 4.64s\n\nSTDERR:",
       "returncode": 0
     },
     "failure_replay_status": "PASSING_PRE_PATCH_NOT_A_FAILURE",
@@ -761,7 +761,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "cc6144f55750a7d807a17b61c33e9b788b22e6bd1f6d93384aa279256d5369a2",
+      "output_sha256": "5bc4959040d7f4a1db2dc4060be359123f9b9db3f4f7ab40901ca0b8d3a4c19e",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -784,7 +784,7 @@
     "import_probe_results": [
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-c",
           "import pytest_rerunfailures"
         ],
@@ -799,18 +799,18 @@
     "import_probe_status": "PASS",
     "install_log_hashes": [
       {
-        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "normalized_output_sha256": "f10176b6f1b965f0867e2d7422b9e3d0ee70e791f6819c8db707b49d56e16947",
         "strategy": "upgrade_build_tools"
       },
       {
-        "normalized_output_sha256": "eace371e3f790f973462354709c6c9e63c4791ff98cae89d498a58f2bd7956ec",
+        "normalized_output_sha256": "456be8010ca781ae21e2db1e03e04f885710991df37838d9a80b8e7844d5e015",
         "strategy": "editable_test_extra"
       }
     ],
     "install_strategy_attempts": [
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-m",
           "pip",
           "install",
@@ -819,9 +819,9 @@
           "setuptools",
           "wheel"
         ],
-        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
-        "output_sha256": "228e1eef8d267abd36f248c8ec6840870eeea5c167605a3f84477153c2901459",
-        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "normalized_output_sha256": "f10176b6f1b965f0867e2d7422b9e3d0ee70e791f6819c8db707b49d56e16947",
+        "output_sha256": "6344d30440c193377bd4d098a52e900eb82326db7f1ca9954158ad0025374d33",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>/lib/python3.10/site-packages (23.0.1)\nCollecting pip\n  Using cached pip-26.1.2-py3-none-any.whl (1.8 MB)\nRequirement already satisfied: setuptools in <lead_venv>/lib/python3.10/site-packages (79.0.1)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl (32 kB)\nCollecting packaging>=24.0\n  Using cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, pip, packaging, wheel\n  Attempting uninstall: setuptools\n    Found existing installation: setuptools 79.0.1\n    Uninstalling setuptools-79.0.1:\n      Successfully uninstalled setuptools-79.0.1\n  Attempting uninstall: pip\n    Found existing installation: pip 23.0.1\n    Uninstalling pip-23.0.1:\n      Successfully uninstalled pip-23.0.1\nSuccessfully installed packaging-26.2 pip-26.1.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
         "returncode": 0,
         "status": "PASS",
         "strategy": "upgrade_build_tools",
@@ -829,16 +829,16 @@
       },
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-m",
           "pip",
           "install",
           "-e",
           ".[test]"
         ],
-        "normalized_output_sha256": "eace371e3f790f973462354709c6c9e63c4791ff98cae89d498a58f2bd7956ec",
-        "output_sha256": "7aeb7a54e18ad48967224ca5ae1df79148e3747d66e8b640d9be757d0a702529",
-        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: packaging>=17.1 in <lead_venv>\\Lib\\site-packages (from pytest-rerunfailures==16.4.dev0) (26.2)\nCollecting pytest!=8.2.2,>=8.1 (from pytest-rerunfailures==16.4.dev0)\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting colorama>=0.4 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.4.dev0)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=1.0.1 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.4.dev0)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting pluggy<2,>=1.5 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.4.dev0)\n  Using c",
+        "normalized_output_sha256": "456be8010ca781ae21e2db1e03e04f885710991df37838d9a80b8e7844d5e015",
+        "output_sha256": "b178c681feb7ed1f08786b6bdb5a7cbbd267e73c3ba847568c8e1dc376379199",
+        "output_summary": "STDOUT:\nObtaining file://<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: packaging>=17.1 in <lead_venv>/lib/python3.10/site-packages (from pytest-rerunfailures==16.4.dev0) (26.2)\nCollecting pytest!=8.2.2,>=8.1 (from pytest-rerunfailures==16.4.dev0)\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting exceptiongroup>=1 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.4.dev0)\n  Using cached exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)\nCollecting iniconfig>=1.0.1 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.4.dev0)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting pluggy<2,>=1.5 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.",
         "returncode": 0,
         "status": "PASS",
         "strategy": "editable_test_extra",
@@ -853,7 +853,7 @@
     "resolved_commit_sha": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
     "runtime_workspace_outside_live_repo": true,
     "selected_install_strategy": "editable_test_extra",
-    "semantic_failure_signature_hash": "d2654b4cbc4d720de32dd295b26680449091e18d116c38a42f4be926f90b648d",
+    "semantic_failure_signature_hash": "eb678df32082c3f8b8ff5fa9635cc9b5b8409d3128532ec259f44f512eefb0ab",
     "target_test_present": true,
     "test_path_hint": "tests/test_pytest_rerunfailures.py",
     "workspace_path": "<runtime_workspace>/pytest_rerunfailures_subtest_errors",
@@ -878,15 +878,15 @@
     "collection_attempted": true,
     "collection_command_record": {
       "command": [
-        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "<lead_workspace>_venv/bin/python",
         "-m",
         "pytest",
         "tests/test_pytest_rerunfailures.py",
         "--collect-only",
         "-q"
       ],
-      "normalized_output_sha256": "094a051877767199c3b51dea72840be33650d0238aecf6d18d4eeb1d7697d7cf",
-      "output_sha256": "d8e769e5a617a2e465e3d2814983449ac60829ecf1d8e9d957476a86e2eecd94",
+      "normalized_output_sha256": "ef947e42ce98af5d0499ebc1f23a0408e719bf3534fb823e982c9574915914da",
+      "output_sha256": "dfb1195f12a81ccb3318340fd644b239b258f5a79d6e29efc5cc8710678b91fe",
       "output_summary": "STDOUT:\ntests/test_pytest_rerunfailures.py::test_error_when_run_with_pdb\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_pass\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_skipif_mark\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_skip_call\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_mark\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_call\ntests/test_pytest_rerunfailures.py::test_no_rerun_on_xpass\ntests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_setup_failure\ntests/test_pytest_rerunfailures.py::test_rerun_passes_after_temporary_setup_failure\ntests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_test_failure\ntests/test_pytest_rerunfailures.py::test_rerun_passes_after_temporary_test_failure\ntests/test_pytest_re",
       "returncode": 0
     },
@@ -931,15 +931,15 @@
     "failure_replay_attempted": true,
     "failure_replay_command_record": {
       "command": [
-        "<lead_workspace>_venv\\Scripts\\python.exe",
+        "<lead_workspace>_venv/bin/python",
         "-m",
         "pytest",
         "tests/test_pytest_rerunfailures.py",
         "-q"
       ],
-      "normalized_output_sha256": "e8d6bfe935944dc836e35615bc7b70ba4385f57ef7d5d9b0ba572fc65975b678",
-      "output_sha256": "90f00279887425c595705a21d2c6a80186379427f7cd4d31e0701d05e19a9bbb",
-      "output_summary": "STDOUT:\n.................s...................................................... [ 55%]\n.........................................................                [100%]\n128 passed, 1 skipped in 21.01s\n\nSTDERR:",
+      "normalized_output_sha256": "bcb83a2eb10df6cbeb8105687f2dd7c8890683ce601669d7c2b761610fa42222",
+      "output_sha256": "0ad7c5c6b6ff537dde542f378b314a4d819a39d6cfde034e17140a0065d5349d",
+      "output_summary": "STDOUT:\n.................s...................................................... [ 55%]\n.........................................................                [100%]\n128 passed, 1 skipped in 4.41s\n\nSTDERR:",
       "returncode": 0
     },
     "failure_replay_status": "PASSING_PRE_PATCH_NOT_A_FAILURE",
@@ -966,7 +966,7 @@
         "<lead_workspace>"
       ],
       "normalized_output_sha256": "60122d38e90e2bbe306d1db8b499648ee1019f659478936324f816e79cd8ebd0",
-      "output_sha256": "face04c3057ae0ebdd9e7e684523f9c84679b0e3b87ea759d3cc039e59e55d8f",
+      "output_sha256": "a32f2d9e4729daa9cbdde1cba9c9085b777ee3d780a573e41efe9fc2557a719c",
       "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<lead_workspace>'...",
       "returncode": 0
     },
@@ -989,7 +989,7 @@
     "import_probe_results": [
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-c",
           "import pytest_rerunfailures"
         ],
@@ -1004,18 +1004,18 @@
     "import_probe_status": "PASS",
     "install_log_hashes": [
       {
-        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
+        "normalized_output_sha256": "f10176b6f1b965f0867e2d7422b9e3d0ee70e791f6819c8db707b49d56e16947",
         "strategy": "upgrade_build_tools"
       },
       {
-        "normalized_output_sha256": "2854c463181d536e21f6c236c4b0a838436fd3da476a35cfce581ca8db6bda1a",
+        "normalized_output_sha256": "f3375cf0b72353b4332f8a8e16d7c8e270dfbe57f1f42dc30ca845b847cb3e63",
         "strategy": "editable_test_extra"
       }
     ],
     "install_strategy_attempts": [
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-m",
           "pip",
           "install",
@@ -1024,9 +1024,9 @@
           "setuptools",
           "wheel"
         ],
-        "normalized_output_sha256": "3030e30e5aebdd10003bfb2574ca82fcd0668a829a81e089817e986536244864",
-        "output_sha256": "23b8199ca13f9b844f02fd04c622e2885174180ece196d07efe5bf22c6c0c1b3",
-        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging-26.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
+        "normalized_output_sha256": "f10176b6f1b965f0867e2d7422b9e3d0ee70e791f6819c8db707b49d56e16947",
+        "output_sha256": "6a2fbe83aed5f2b1b393dbea4067c41d792fe7e979b8b177cdf1499cdf3c01e0",
+        "output_summary": "STDOUT:\nRequirement already satisfied: pip in <lead_venv>/lib/python3.10/site-packages (23.0.1)\nCollecting pip\n  Using cached pip-26.1.2-py3-none-any.whl (1.8 MB)\nRequirement already satisfied: setuptools in <lead_venv>/lib/python3.10/site-packages (79.0.1)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl (32 kB)\nCollecting packaging>=24.0\n  Using cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, pip, packaging, wheel\n  Attempting uninstall: setuptools\n    Found existing installation: setuptools 79.0.1\n    Uninstalling setuptools-79.0.1:\n      Successfully uninstalled setuptools-79.0.1\n  Attempting uninstall: pip\n    Found existing installation: pip 23.0.1\n    Uninstalling pip-23.0.1:\n      Successfully uninstalled pip-23.0.1\nSuccessfully installed packaging-26.2 pip-26.1.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
         "returncode": 0,
         "status": "PASS",
         "strategy": "upgrade_build_tools",
@@ -1034,16 +1034,16 @@
       },
       {
         "command": [
-          "<lead_workspace>_venv\\Scripts\\python.exe",
+          "<lead_workspace>_venv/bin/python",
           "-m",
           "pip",
           "install",
           "-e",
           ".[test]"
         ],
-        "normalized_output_sha256": "2854c463181d536e21f6c236c4b0a838436fd3da476a35cfce581ca8db6bda1a",
-        "output_sha256": "e543e6c4517d53ced8b98304c0fb46236a40ef8125c53c8ccff5f0c00bb5e0f4",
-        "output_summary": "STDOUT:\nObtaining file:///<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: packaging>=17.1 in <lead_venv>\\Lib\\site-packages (from pytest-rerunfailures==16.3.dev0) (26.2)\nCollecting pytest!=8.2.2,>=8.1 (from pytest-rerunfailures==16.3.dev0)\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting colorama>=0.4 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.3.dev0)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=1.0.1 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.3.dev0)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting pluggy<2,>=1.5 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.3.dev0)\n  Using c",
+        "normalized_output_sha256": "f3375cf0b72353b4332f8a8e16d7c8e270dfbe57f1f42dc30ca845b847cb3e63",
+        "output_sha256": "4e0bb555bb38744e7d72cba374e68e201ac215715de57f4279653a7ae246f743",
+        "output_summary": "STDOUT:\nObtaining file://<lead_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: packaging>=17.1 in <lead_venv>/lib/python3.10/site-packages (from pytest-rerunfailures==16.3.dev0) (26.2)\nCollecting pytest!=8.2.2,>=8.1 (from pytest-rerunfailures==16.3.dev0)\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting exceptiongroup>=1 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.3.dev0)\n  Using cached exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)\nCollecting iniconfig>=1.0.1 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.3.dev0)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting pluggy<2,>=1.5 (from pytest!=8.2.2,>=8.1->pytest-rerunfailures==16.",
         "returncode": 0,
         "status": "PASS",
         "strategy": "editable_test_extra",
@@ -1058,7 +1058,7 @@
     "resolved_commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
     "runtime_workspace_outside_live_repo": true,
     "selected_install_strategy": "editable_test_extra",
-    "semantic_failure_signature_hash": "e8d6bfe935944dc836e35615bc7b70ba4385f57ef7d5d9b0ba572fc65975b678",
+    "semantic_failure_signature_hash": "bcb83a2eb10df6cbeb8105687f2dd7c8890683ce601669d7c2b761610fa42222",
     "target_test_present": true,
     "test_path_hint": "tests/test_pytest_rerunfailures.py",
     "workspace_path": "<runtime_workspace>/pytest_rerunfailures_reruns_mode",
