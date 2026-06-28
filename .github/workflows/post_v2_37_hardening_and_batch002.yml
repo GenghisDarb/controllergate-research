@@ -1,0 +1,81 @@
+name: post_v2_37_hardening_and_batch002
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hardening-and-batch002:
+    name: post-v2.37 hardening and batch002
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run byte-custody preflight before hardening
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Install workflow test dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run shared core tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/core -q
+
+      - name: Generate post-v2.37 hardening evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/post_v2_37_hardening_and_batch002_runner.py
+
+      - name: Run byte-custody preflight before audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Validate registry and audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/audit_post_v2_37_hardening_and_batch002.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+
+      - name: Upload post-v2.37 hardening artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_and_batch002_artifacts
+          path: |
+            outputs/post_v2_37_hardening_001/**
+            outputs/clean_replication_batch_002/**
+            outputs/byte_custody_preflight_report.json
+            configs/clean_replication_batch_002.json
+            controllergate/core/**
+            tests/core/**
+            docs/bugsinpy_byte_identical_exception_research_note.md
+            docs/operational_gate_completion_roadmap.md
+            docs/roadmap_to_v3.md
+          if-no-files-found: error

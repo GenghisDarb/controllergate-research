@@ -35,6 +35,12 @@ v2.37 introduces a maintained framework layer:
 
 The clean replication batch target is to support future attempts at 2–4 additional external repair episodes without creating a new one-purpose lane for every blocker. If no manually reviewed seed drafts are present, the batch blocks honestly instead of fabricating candidates.
 
+## Post-v2.37 hardening
+
+Post-v2.37 hardening adds transport integrity, bounded exploration budget, context-boundary, environment-normalization, evidence-class separation, and risk-regulation gates for future clean replication work. Clean replication batch 002 keeps native and issue-derived counts separate and blocks honestly if no manually reviewed seed is present.
+
+This hardening does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
+
 ## v2.36 resolved-commit replay and candidate admission status
 
 v2.36 is officially ingested as a blocked candidate-admission lane. It verified the prior artifact boundary, preserved the current protocol at v2.13, attempted the allowed candidate-admission path, and blocked with `blocked_no_native_or_issue_derived_candidate2_seed_acquired`.

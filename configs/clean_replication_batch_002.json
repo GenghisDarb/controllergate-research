@@ -1,0 +1,24 @@
+{
+  "batch_id": "clean_replication_batch_002",
+  "candidate_source_mode": "mixed",
+  "evidence_classes": [
+    "native",
+    "issue_derived",
+    "diagnostic"
+  ],
+  "full_scoring": false,
+  "matched_null_required": false,
+  "max_candidates_to_verify": 4,
+  "max_repairs_to_attempt": 4,
+  "max_successful_repairs_target": 2,
+  "provenance_level": "strict",
+  "scope": {
+    "allow_bugsinpy": false,
+    "allow_issue_derived_only_as_separate_class": true,
+    "allow_public_github_repos": true,
+    "forbid_fixed_later_gold_pr_patch_content": true,
+    "forbid_new_version_lane": true,
+    "non_ansible_only": true,
+    "prefer_native_tests_first": true
+  }
+}

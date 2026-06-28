@@ -55,6 +55,17 @@ v2.37 transitions ControllerGate from a sequence of one-purpose lanes toward a m
 - Public readiness status: `pre_alpha_research_archive_ready`, not technical-validation ready.
 - Current protocol remains `v2.13`.
 
+## Post-v2.37 Hardening
+
+Post-v2.37 hardening adds transport integrity, bounded exploration budget, context-boundary, environment-normalization, evidence-class separation, and risk-regulation gates.
+
+- Clean replication batch 002 keeps native and issue-derived counts separate.
+- Batch 002 blocks if no manually reviewed seed is present.
+- BugsInPy remains globally blocked for active use.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+
 ## Safest next step
 
 Use the clean replication protocol with one manually reviewed external seed draft. Do not create another one-purpose candidate hunt lane unless a future prompt explicitly justifies it.
