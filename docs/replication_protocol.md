@@ -39,3 +39,7 @@ For every real metadata lead, batch002 must attempt:
 18. duplicate clean replay 3/3 before a repair success is recorded.
 
 Issue-derived evidence remains separate and never increments native repair counts.
+
+## Current official repair episodes
+
+As of the post-v2.37 batch002 repair-generation ingest, the official external non-Ansible native repair episodes are `py_bugger_issue_65` and `darker_non_ascii_drop_changes`. Full scoring remains `NOT_RUN/disallowed`, memory lift remains `undemonstrated`, and self-maintaining software remains `false/not_demonstrated`.

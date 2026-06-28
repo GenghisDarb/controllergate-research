@@ -4,10 +4,11 @@ ControllerGate is a provenance-first software repair research harness. The curre
 
 ## Evidence boundary
 
-- Confirmed external non-Ansible repair episodes: 2 (`py_bugger_issue_65`, `darker_non_ascii_drop_changes`).
+- Confirmed external non-Ansible native repair episodes after official ingest: 2 (`py_bugger_issue_65`, `darker_non_ascii_drop_changes`).
 - Clean replication batch002 lead pool: loaded with 5 native-capable leads.
 - Clean replication batch002 acquisition: real clone, checkout, environment resolution, collection, and replay paths are attempted.
-- Clean replication batch002 repair generation: one additional native source-only repair validated for `darker_non_ascii_drop_changes` with duplicate clean replay 3/3.
+- Clean replication batch002 repair generation: one additional native source-only repair officially ingested for `darker_non_ascii_drop_changes` with target validation PASS and duplicate clean replay 3/3.
+- `darker_non_ascii_drop_changes` no-overreach evidence is target-file bounded only; broader robustness is not claimed.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `undemonstrated`.
 - Self-maintaining software: `false/not_demonstrated`.

@@ -5,7 +5,7 @@ ControllerGate is a provenance-first software repair research harness. It emphas
 ## Current evidence boundary
 
 - Current protocol: `v2.13` / `minimal_forensic_context_lane`.
-- Confirmed external non-Ansible repair episodes: `2`.
+- Confirmed external non-Ansible native repair episodes: `2` (`py_bugger_issue_65`, `darker_non_ascii_drop_changes`).
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift on external real bugs: `undemonstrated`.
 - Self-maintaining software: `false/not_demonstrated`.
@@ -64,6 +64,7 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 - Batch 002 performs clone, commit resolution, checkout, environment resolution, collection, and replay probes.
 - Batch 002 produced one additional successful native external repair: `darker_non_ascii_drop_changes`.
 - The repair passed source-only patch safety, target validation, and duplicate clean replay 3/3.
+- The no-overreach evidence for `darker_non_ascii_drop_changes` is target-file bounded only; stronger robustness is not claimed.
 - BugsInPy remains globally blocked for active use.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `undemonstrated`.
@@ -71,4 +72,4 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 
 ## Safest next step
 
-Ingest the successful post-v2.37 batch002 repair-generation artifact after manual download, then continue broader clean-replication repair coverage while preserving the current claim boundaries.
+Continue with the remaining verified native batch002 candidate under matched-null comparison while preserving the current claim boundaries.

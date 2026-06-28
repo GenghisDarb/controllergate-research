@@ -85,9 +85,9 @@
       "workflow_run_id": 28274637503
     },
     {
-      "artifact_id": "pending_successful_workflow_artifact",
+      "artifact_id": 7939423745,
       "artifact_name": "post_v2_37_hardening_batch002_repair_generation_artifacts",
-      "artifact_sha256": "pending_manual_artifact_ingest",
+      "artifact_sha256": "64e6e0ec76bf05857aa03f1b5cd0608060e9bb114f1f74981608a3a45710d9b5",
       "bounded_target_repair_signal": true,
       "buggy_commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
       "candidate_id": "darker_non_ascii_drop_changes",
@@ -96,10 +96,10 @@
         "full_scoring": "NOT_RUN",
         "full_scoring_allowed": false,
         "memory_lift_status": "undemonstrated",
-        "self_maintaining_software_status": "false/not_demonstrated",
-        "promoted_to_current": false
+        "promoted_to_current": false,
+        "self_maintaining_software_status": "false/not_demonstrated"
       },
-      "created_utc": "2026-06-28T21:55:00Z",
+      "created_utc": "2026-06-28T22:53:47Z",
       "duplicate_replay_count": "3 / 3",
       "duplicate_replay_status": "PASS",
       "environment_lock_source": {
@@ -115,7 +115,8 @@
         "duplicate": "outputs/clean_replication_batch_002/duplicate_replay_results.json",
         "handoff": "outputs/clean_replication_batch_002/source_context_handoff_audit.json",
         "lock": "outputs/clean_replication_batch_002/pre_generation_context_state_lock.json",
-        "official_pending": "pending_manual_artifact_ingest",
+        "official": "outputs/post_v2_37_hardening_001/batch002_repair_generation_artifact_verification.json",
+        "official_ingest_summary": "outputs/post_v2_37_hardening_001/second_external_repair_ingest_summary.json",
         "patch": "outputs/clean_replication_batch_002/source_patch_generation_attempts.json",
         "patch_safety": "outputs/clean_replication_batch_002/patch_safety_results.json",
         "revalidation": "outputs/clean_replication_batch_002/post_patch_constraint_revalidation.json",
@@ -146,10 +147,10 @@
       "target_validation_exit_status": 0,
       "target_validation_status": "PASS",
       "test_command": "python -m pytest src/darker/tests/test_main_drop_changes_on_unedited_lines.py -q",
-      "workflow_run_id": "pending_dispatch"
+      "workflow_run_id": 28338680799
     }
   ],
   "registry_type": "external_repair_episode_registry",
   "schema_version": "v2.31",
-  "updated_utc": "2026-06-28T21:55:00Z"
+  "updated_utc": "2026-06-28T23:41:43Z"
 }
