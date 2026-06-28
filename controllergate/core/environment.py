@@ -155,10 +155,15 @@ def command_record(
 
 def _parse_pyproject(root: Path) -> dict[str, object]:
     path = root / "pyproject.toml"
-    if not path.is_file() or tomllib is None:
+    if not path.is_file():
         return {"dependencies": [], "optional_groups": []}
+    text = path.read_text(encoding="utf-8")
+    if tomllib is None:
+        dependencies = _fallback_pyproject_dependencies(text)
+        optional_groups = _fallback_pyproject_optional_groups(text)
+        return {"dependencies": dependencies, "optional_groups": optional_groups}
     try:
-        data = tomllib.loads(path.read_text(encoding="utf-8"))
+        data = tomllib.loads(text)
     except Exception:
         return {"dependencies": [], "optional_groups": []}
     project = data.get("project", {}) if isinstance(data, dict) else {}
@@ -169,6 +174,21 @@ def _parse_pyproject(root: Path) -> dict[str, object]:
         "dependencies": dependencies if isinstance(dependencies, list) else [],
         "optional_groups": optional_groups,
     }
+
+
+def _fallback_pyproject_dependencies(text: str) -> list[str]:
+    """Extract simple PEP 621 dependency arrays when tomllib is unavailable."""
+    match = re.search(r"(?ms)^\s*dependencies\s*=\s*\[(.*?)\]", text)
+    if not match:
+        return []
+    return [item for item in re.findall(r"""["']([^"']+)["']""", match.group(1)) if item.strip()]
+
+
+def _fallback_pyproject_optional_groups(text: str) -> list[str]:
+    groups = re.findall(r"(?m)^\s*\[project\.optional-dependencies\]\s*$([\s\S]*?)(?=^\s*\[|\Z)", text)
+    if not groups:
+        return []
+    return sorted(set(re.findall(r"(?m)^\s*([A-Za-z0-9_.-]+)\s*=", groups[0])))
 
 
 def _parse_setup_cfg(root: Path) -> dict[str, object]:

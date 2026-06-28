@@ -4,6 +4,7 @@ import json
 import subprocess
 from pathlib import Path
 
+import controllergate.core.environment as environment
 from controllergate.core.environment import build_install_strategies, dependency_declared, extract_missing_modules, project_metadata_summary, resolve_project_environment
 
 
@@ -33,6 +34,20 @@ def test_dependency_declaration_and_missing_module_parsing(tmp_path):
 
     assert dependency_declared("darkgraylib", metadata)
     assert extract_missing_modules("ModuleNotFoundError: No module named 'darkgraylib.utils'") == ["darkgraylib"]
+
+
+def test_pyproject_dependency_fallback_when_tomllib_unavailable(tmp_path, monkeypatch):
+    (tmp_path / "pyproject.toml").write_text(
+        "[project]\nname = \"demo\"\nversion = \"0.0.0\"\ndependencies = [\"darkgraylib>=1\"]\n\n[project.optional-dependencies]\ntest = [\"pytest\"]\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    monkeypatch.setattr(environment, "tomllib", None)
+
+    metadata = environment.project_metadata_summary(tmp_path)
+
+    assert environment.dependency_declared("darkgraylib", metadata)
+    assert metadata["optional_dependency_groups"] == ["test"]
 
 
 def test_resolver_records_editable_install_attempt(tmp_path):
