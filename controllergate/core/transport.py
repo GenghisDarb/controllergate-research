@@ -51,7 +51,10 @@ def record_workspace_to_repo_transfer(
     destination = Path(destination_path)
     source_hash = hash_before_transfer(source)
     destination_hash = hash_after_transfer(destination)
-    rel_destination = destination.as_posix()
+    if destination.is_absolute():
+        rel_destination = PurePosixPath(*destination.parts[1:]).as_posix()
+    else:
+        rel_destination = destination.as_posix()
     unsafe = reject_unsafe_transport_paths([rel_destination])
     decision = "PASS" if not unsafe and compare_transfer_hashes(source_hash, destination_hash) else "BLOCK"
     return {
