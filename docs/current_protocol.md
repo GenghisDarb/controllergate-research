@@ -1,51 +1,11 @@
-# ControllerGate current protocol
+# Current protocol
 
-The stable day-to-day ControllerGate protocol now points to `v2.13`, named `minimal_forensic_context_lane`.
+The current ControllerGate protocol remains:
 
-The current-protocol interface is an infrastructure layer only. It does not replace, rewrite, or delete historical versioned workflows, scripts, audits, or output bundles. Those versioned files remain the reproducibility references for each scientific result.
+- version: `v2.13`
+- lane: `minimal_forensic_context_lane`
+- config: `configs/controllergate_current.yaml`
 
-## Current commands
+v2.37 adds a maintained clean replication adapter, but it does not promote v2.37 to current protocol.
 
-Use the generic entry points for day-to-day checks:
-
-```powershell
-python scripts/controllergate_audit.py --protocol current
-python scripts/controllergate_run.py --protocol current --dry-run
-```
-
-The same interface can explicitly select the current versioned protocol:
-
-```powershell
-python scripts/controllergate_audit.py --protocol v2.13
-python scripts/controllergate_run.py --protocol v2.13 --dry-run
-```
-
-`controllergate_audit.py` dispatches to the configured v2.13 audit and must not weaken the underlying audit. `controllergate_run.py --dry-run` reports the configured runner and metadata without executing a repair workflow.
-
-Non-dry-run dispatch through the generic current runner is intentionally disabled for now because the v2.13 runner can create or mutate campaign evidence. New evidence-producing work should be authorized explicitly and performed through the versioned runner or a future reviewed current-protocol mechanism.
-
-## Current pointer and outputs
-
-The current protocol is declared in:
-
-```text
-configs/controllergate_current.yaml
-```
-
-`outputs/current` is an active pointer and summary layer. It is not a replacement for verified historical outputs and must not duplicate the full v2.13 artifact payload. The verified v2.13 evidence remains in:
-
-```text
-outputs/v2_13_minimal_forensic_context_lane
-```
-
-## Claim boundaries
-
-The current-protocol refactor does not alter v2.13 scientific claims:
-
-- Full scoring remains `NOT_RUN` / disallowed.
-- Self-maintaining software remains false / not demonstrated.
-- Family generalization remains `not_expanded`.
-- Non-Ansible positive-memory count remains `0`.
-- PySnooper:2 remains blocked by deterministic fixture materialization evidence: `blocked_fixture_materialization_incomplete`.
-
-v2.14 capability recovery and v2.15 chromosomal maintenance gate-order work are separate from this current-protocol pointer. The current protocol remains v2.13 until a later verified promotion is explicitly made.
+Historical lanes from v2.12 through v2.36 remain preserved evidence. They can be audited by their versioned scripts, but new replication work should use the shared core package and clean replication protocol unless a new versioned lane is explicitly justified.

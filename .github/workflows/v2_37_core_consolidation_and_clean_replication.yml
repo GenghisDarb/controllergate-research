@@ -1,0 +1,93 @@
+name: v2_37_core_consolidation_and_clean_replication
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core-consolidation-clean-replication:
+    name: v2.37 core consolidation and clean replication
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run byte-custody preflight before lane execution
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Run shared core tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/core -q
+
+      - name: Generate v2.37 consolidation evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/v2_37_core_consolidation_and_clean_replication_runner.py
+
+      - name: Run byte-custody preflight before lane audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Validate external candidate registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+
+      - name: Run v2.37 audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_37_core_consolidation_and_clean_replication.py
+
+      - name: Run selected historical regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_36_resolved_commit_replay_seed_promotion.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+
+      - name: Upload v2.37 artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2_37_core_consolidation_and_clean_replication_artifacts
+          path: |
+            outputs/v2_37_core_consolidation/**
+            outputs/clean_replication_batch_001/**
+            outputs/byte_custody_preflight_report.json
+            controllergate/**
+            tests/core/**
+            docs/consolidated_state_format.md
+            docs/architecture.md
+            docs/getting_started.md
+            docs/current_protocol.md
+            docs/claim_boundaries.md
+            docs/memory_lift_definition.md
+            docs/public_release_readiness.md
+            docs/replication_protocol.md
+            docs/glossary.md
+            controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md
+            configs/clean_replication_batch_001.json
+            README.md
+          if-no-files-found: error

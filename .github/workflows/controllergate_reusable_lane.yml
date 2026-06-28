@@ -1,0 +1,134 @@
+name: controllergate_reusable_lane
+
+on:
+  workflow_dispatch:
+    inputs:
+      lane_id:
+        description: Lane identifier.
+        required: true
+        type: string
+      runner_script:
+        description: Python runner script path.
+        required: true
+        type: string
+      audit_script:
+        description: Python audit script path.
+        required: true
+        type: string
+      artifact_name:
+        description: Uploaded artifact name.
+        required: true
+        type: string
+      run_regressions:
+        description: Run selected regression audits.
+        required: true
+        type: boolean
+        default: true
+      regression_level:
+        description: Regression level.
+        required: true
+        type: choice
+        options:
+          - minimal
+          - standard
+          - full
+        default: standard
+      run_core_tests:
+        description: Run shared core unit tests.
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  controllergate-lane:
+    name: controllergate reusable lane
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run byte-custody preflight before lane execution
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Run shared core tests
+        if: ${{ inputs.run_core_tests }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/core -q
+
+      - name: Run lane runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          python "${{ inputs.runner_script }}"
+
+      - name: Run byte-custody preflight before lane audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Validate external candidate registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+
+      - name: Run lane audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python "${{ inputs.audit_script }}"
+
+      - name: Run selected regressions
+        if: ${{ inputs.run_regressions }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_36_resolved_commit_replay_seed_promotion.py
+          if [[ "${{ inputs.regression_level }}" != "minimal" ]]; then
+            python scripts/audit_v2_35_automated_candidate2_acquisition_lane.py
+          fi
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+
+      - name: Upload lane artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: |
+            outputs/${{ inputs.lane_id }}/**
+            outputs/clean_replication_batch_001/**
+            outputs/byte_custody_preflight_report.json
+            controllergate/**
+            tests/core/**
+            docs/consolidated_state_format.md
+            docs/architecture.md
+            docs/getting_started.md
+            docs/current_protocol.md
+            docs/claim_boundaries.md
+            docs/memory_lift_definition.md
+            docs/public_release_readiness.md
+            docs/replication_protocol.md
+            docs/glossary.md
+            controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md
+            configs/clean_replication_batch_001.json
+            README.md
+          if-no-files-found: error
