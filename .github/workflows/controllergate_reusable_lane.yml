@@ -138,4 +138,13 @@ jobs:
             controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md
             configs/clean_replication_batch_001.json
             README.md
+            !**/__pycache__/**
+            !**/*.pyc
+            !**/.pytest_cache/**
+            !**/.mypy_cache/**
+            !**/.ruff_cache/**
+            !**/.venv/**
+            !**/venv/**
+            !**/env/**
+            !**/ENV/**
           if-no-files-found: error

@@ -63,19 +63,37 @@ jobs:
           python scripts/controllergate_audit.py --protocol current
           python scripts/controllergate_run.py --protocol current --dry-run
 
-      - name: Upload post-v2.37 hardening artifact
+      - name: Verify clean staged artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f artifact_payload/post_v2_37_hardening_batch002_corrected/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch002_corrected \( \
+            -path '*/__pycache__/*' -o \
+            -path '*/.pytest_cache/*' -o \
+            -path '*/.mypy_cache/*' -o \
+            -path '*/.ruff_cache/*' -o \
+            -path '*/.venv/*' -o \
+            -path '*/venv/*' -o \
+            -path '*/env/*' -o \
+            -path '*/ENV/*' -o \
+            -name '*.pyc' -o \
+            -name '*.pyo' -o \
+            -name '*.zip' -o \
+            -name '*.tar' -o \
+            -name '*.tar.gz' -o \
+            -name '*.tgz' -o \
+            -name '*.7z' \
+          \) -print -quit | grep -q .; then
+            echo "artifact_packaging_cache_payload_detected"
+            exit 1
+          fi
+
+      - name: Upload corrected post-v2.37 hardening artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_and_batch002_artifacts
+          name: post_v2_37_hardening_and_batch002_corrected_artifacts
           path: |
-            outputs/post_v2_37_hardening_001/**
-            outputs/clean_replication_batch_002/**
-            outputs/byte_custody_preflight_report.json
-            configs/clean_replication_batch_002.json
-            controllergate/core/**
-            tests/core/**
-            docs/bugsinpy_byte_identical_exception_research_note.md
-            docs/operational_gate_completion_roadmap.md
-            docs/roadmap_to_v3.md
+            artifact_payload/post_v2_37_hardening_batch002_corrected/**
           if-no-files-found: error

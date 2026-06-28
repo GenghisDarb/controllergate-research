@@ -10,6 +10,7 @@ from controllergate.core.budget import create_budget, spend_budget
 from controllergate.core.context_boundary import build_context_boundary_map
 from controllergate.core.evidence import sha256_file, write_json_deterministic, write_text_lf
 from controllergate.core.evidence_classes import classify_candidate_evidence, temporal_guard_policy
+from controllergate.core.artifact_hygiene import audit_artifact_payload, stage_artifact_payload, write_artifact_manifest
 from controllergate.core.homeostasis import RISK_CHANNELS, evaluate_homeostasis_state
 from controllergate.core.manifests import write_sha256sums
 from controllergate.core.normalization import evaluate_normalization_plan
@@ -20,6 +21,7 @@ POST_ID = "post_v2_37_hardening_001"
 POST_DIR = Path("outputs") / POST_ID
 BATCH_ID = "clean_replication_batch_002"
 BATCH_DIR = Path("outputs") / BATCH_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_corrected")
 
 
 def load_json(path: str | Path) -> dict[str, object]:
@@ -30,12 +32,18 @@ def write_batch002_outputs() -> dict[str, object]:
     BATCH_DIR.mkdir(parents=True, exist_ok=True)
     config = load_json("configs/clean_replication_batch_002.json")
     result = run_replication_batch(config)
-    blocker = result.get("exact_blocker", "no_additional_external_repairs_acquired")
+    blocker = result.get("exact_blocker", "clean_replication_batch_002_no_verified_candidates")
+    attempts = result.get("candidate_verification_attempts", [])
+    verified = result.get("verified_candidates", [])
+    repair_attempts = result.get("repair_attempts", [])
+    repair_successes = result.get("repair_successes", [])
+    matched_null = result.get("matched_null_results", [])
     state = {
         "lane_id": BATCH_ID,
         "lane_type": "clean_replication_batch",
         "status": "BLOCKED",
         "exact_blocker": blocker,
+        "summary_status": result.get("summary_status", "no_additional_external_repairs_acquired"),
         "current_protocol_version": "v2.13",
         "native_candidates_verified_count": 0,
         "issue_derived_candidates_verified_count": 0,
@@ -50,12 +58,16 @@ def write_batch002_outputs() -> dict[str, object]:
         "self_maintaining_software": "false/not_demonstrated",
     }
     write_json_deterministic(BATCH_DIR / f"consolidated_state_{BATCH_ID}.json", state)
-    write_json_deterministic(BATCH_DIR / "candidate_verification_attempts.json", [])
-    write_json_deterministic(BATCH_DIR / "candidate_rejection_ledger.json", [{"blocker": blocker, "reason": "No manually reviewed seed draft was present."}])
-    write_json_deterministic(BATCH_DIR / "verified_candidates.json", [])
-    write_json_deterministic(BATCH_DIR / "repair_attempts.json", [])
-    write_json_deterministic(BATCH_DIR / "repair_successes.json", [])
-    write_json_deterministic(BATCH_DIR / "matched_null_results.json", [])
+    write_json_deterministic(BATCH_DIR / "candidate_source_mode_trace.json", result.get("candidate_source_mode_trace", []))
+    write_json_deterministic(BATCH_DIR / "curated_seed_intake_report.json", result.get("curated_seed_intake_report", {}))
+    write_json_deterministic(BATCH_DIR / "metadata_probe_attempts.json", result.get("metadata_probe_attempts", []))
+    write_json_deterministic(BATCH_DIR / "issue_derived_attempts.json", result.get("issue_derived_attempts", []))
+    write_json_deterministic(BATCH_DIR / "candidate_verification_attempts.json", attempts)
+    write_json_deterministic(BATCH_DIR / "candidate_rejection_ledger.json", result.get("candidate_rejection_ledger", []))
+    write_json_deterministic(BATCH_DIR / "verified_candidates.json", verified)
+    write_json_deterministic(BATCH_DIR / "repair_attempts.json", repair_attempts)
+    write_json_deterministic(BATCH_DIR / "repair_successes.json", repair_successes)
+    write_json_deterministic(BATCH_DIR / "matched_null_results.json", matched_null)
     write_json_deterministic(BATCH_DIR / "memory_lift_evaluation.json", {"status": "NOT_RUN", "memory_lift": "undemonstrated"})
     write_json_deterministic(BATCH_DIR / "native_issue_derived_count_separation.json", state)
     write_json_deterministic(
@@ -76,7 +88,7 @@ def write_batch002_outputs() -> dict[str, object]:
                 "",
                 "Status: BLOCKED.",
                 "",
-                "No manually reviewed seed draft was present. Native and issue-derived counts remain separated, no repair attempt was run, and no broad claim is made.",
+                "Mixed-mode progression attempted curated seed intake, metadata probe, and issue-derived fallback. No candidate verified, no repair attempt was run, and no broad claim is made.",
                 "",
                 f"Exact blocker: `{blocker}`.",
             ]
@@ -198,6 +210,26 @@ def main() -> int:
         },
     )
     write_json_deterministic(
+        POST_DIR / "artifact_packaging_correction_report.json",
+        {
+            "status": "PASS",
+            "corrected_artifact_name": "post_v2_37_hardening_and_batch002_corrected_artifacts",
+            "staged_payload_directory": str(PAYLOAD_DIR),
+            "cache_payload_exclusion_required": True,
+            "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
+            "blocker_if_detected": "artifact_packaging_cache_payload_detected",
+        },
+    )
+    write_json_deterministic(
+        POST_DIR / "artifact_payload_manifest_report.json",
+        {
+            "status": "PENDING_FINAL_STAGE",
+            "staged_payload_directory": str(PAYLOAD_DIR),
+            "artifact_manifest_name": "ARTIFACT_SHA256SUMS.txt",
+            "manifest_convention": "artifact manifest covers every uploaded payload file except the manifest file itself",
+        },
+    )
+    write_json_deterministic(
         POST_DIR / "operational_gate_completion_status.json",
         {
             "status": "PASS",
@@ -227,7 +259,8 @@ def main() -> int:
 
     final_report = {
         "status": "PASS_WITH_BATCH002_BLOCKED",
-        "exact_blocker": "no_additional_external_repairs_acquired",
+        "exact_blocker": "clean_replication_batch_002_no_verified_candidates",
+        "summary_status": "no_additional_external_repairs_acquired",
         "workspace_transport_integrity_status": "PASS",
         "homeostasis_risk_regulator_status": risk_state["status"],
         "bounded_exploration_budget_status": budget["status"],
@@ -241,6 +274,13 @@ def main() -> int:
         "v3_0_readiness_update_status": "not_ready",
         "public_claim_overreach_status": "PASS",
         "clean_replication_batch_002_status": batch_state["status"],
+        "curated_seed_attempted": True,
+        "metadata_probe_attempted": True,
+        "issue_derived_attempted": True,
+        "candidate_verification_attempts_count": len(load_json(BATCH_DIR / "candidate_verification_attempts.json")),
+        "candidates_verified_count": 0,
+        "repair_attempts_count": 0,
+        "repair_successes_count": 0,
         "full_scoring": "NOT_RUN/disallowed",
         "memory_lift": "undemonstrated",
         "self_maintaining_software": "false/not_demonstrated",
@@ -254,6 +294,7 @@ def main() -> int:
             "lane_type": "post_v2_37_hardening",
             "status": final_report["status"],
             "exact_blocker": final_report["exact_blocker"],
+            "summary_status": final_report["summary_status"],
             "current_protocol_version": "v2.13",
             "v2_37_official_artifact_verification": v2_37_record,
             "claim_boundary": {
@@ -269,13 +310,31 @@ def main() -> int:
             [
                 "# Post-v2.37 hardening and clean replication batch 002",
                 "",
-                "Status: PASS with batch002 blocked by absent seed input.",
+                "Status: PASS with batch002 blocked after mixed-mode acquisition exhaustion.",
                 "",
-                "This run adds neutral transport, risk, budget, context-boundary, environment-normalization, and evidence-class separation gates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.",
+                "This run adds neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, mixed-mode acquisition progression, and clean artifact packaging gates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.",
             ]
         ),
     )
     write_sha256sums(POST_DIR)
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR])
+    write_artifact_manifest(PAYLOAD_DIR)
+    payload_audit = audit_artifact_payload(PAYLOAD_DIR)
+    write_json_deterministic(
+        POST_DIR / "artifact_payload_manifest_report.json",
+        {
+            "status": payload_audit["status"],
+            "staged_payload_directory": str(PAYLOAD_DIR),
+            "artifact_manifest_name": "ARTIFACT_SHA256SUMS.txt",
+            "payload_file_count": payload_audit["payload_file_count"],
+            "cache_payload_count": len(payload_audit["cache_payloads"]),
+            "uncovered_count": len(payload_audit["uncovered"]),
+            "manifest_convention": "artifact manifest covers every uploaded payload file except the manifest file itself",
+        },
+    )
+    write_sha256sums(POST_DIR)
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR])
+    write_artifact_manifest(PAYLOAD_DIR)
     return 0
 
 

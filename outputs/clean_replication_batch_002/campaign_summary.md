@@ -2,6 +2,6 @@
 
 Status: BLOCKED.
 
-No manually reviewed seed draft was present. Native and issue-derived counts remain separated, no repair attempt was run, and no broad claim is made.
+Mixed-mode progression attempted curated seed intake, metadata probe, and issue-derived fallback. No candidate verified, no repair attempt was run, and no broad claim is made.
 
-Exact blocker: `no_additional_external_repairs_acquired`.
+Exact blocker: `clean_replication_batch_002_no_verified_candidates`.

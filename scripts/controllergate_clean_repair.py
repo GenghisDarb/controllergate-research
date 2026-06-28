@@ -26,6 +26,7 @@ def main() -> int:
 
     result = run_replication_batch(config)
     result["batch_id"] = config.get("batch_id")
+    result["candidate_source_mode"] = config.get("candidate_source_mode", "mixed")
     result["full_scoring"] = "NOT_RUN/disallowed"
     result["memory_lift"] = "undemonstrated"
     result["self_maintaining_software"] = "false/not_demonstrated"

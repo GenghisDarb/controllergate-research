@@ -8,12 +8,19 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from controllergate.core.manifests import verify_manifest
+from controllergate.core.artifact_hygiene import audit_artifact_payload
 
 POST_DIR = Path("outputs/post_v2_37_hardening_001")
 BATCH_DIR = Path("outputs/clean_replication_batch_002")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_corrected")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
+    "post_v2_37_hardening_artifact_verification.json",
+    "artifact_pycache_payload_audit.json",
+    "batch002_mixed_mode_failure_diagnosis.json",
+    "artifact_packaging_correction_report.json",
+    "artifact_payload_manifest_report.json",
     "workspace_transport_integrity_log.json",
     "transport_boundary_audit.json",
     "homeostasis_risk_policy.json",
@@ -43,6 +50,10 @@ POST_REQUIRED = [
 BATCH_REQUIRED = [
     "consolidated_state_clean_replication_batch_002.json",
     "campaign_summary.md",
+    "candidate_source_mode_trace.json",
+    "curated_seed_intake_report.json",
+    "metadata_probe_attempts.json",
+    "issue_derived_attempts.json",
     "candidate_verification_attempts.json",
     "candidate_rejection_ledger.json",
     "verified_candidates.json",
@@ -147,8 +158,49 @@ def main() -> int:
         return fail("issue-derived evidence class increments native count")
     if read_json(POST_DIR / "bugsinpy_relaxation_research_status.json").get("global_block_active") is not True:
         return fail("BugsInPy global block relaxed")
+    official = read_json(POST_DIR / "post_v2_37_hardening_artifact_verification.json")
+    if official.get("status") != "PASS":
+        return fail("post-v2.37 artifact verification not PASS")
+    if official.get("zip_sha256") != "6e0dcb44607dd8a23661b7bff30448e36db561477e99d2bee0689494cb505f1b":
+        return fail("post-v2.37 artifact SHA mismatch")
+    pycache_audit = read_json(POST_DIR / "artifact_pycache_payload_audit.json")
+    if pycache_audit.get("pycache_pyc_payload_count") != 26:
+        return fail("expected prior artifact cache payload audit mismatch")
+    diagnosis = read_json(POST_DIR / "batch002_mixed_mode_failure_diagnosis.json")
+    if diagnosis.get("metadata_probe_attempted") is not False or diagnosis.get("issue_derived_fallback_attempted") is not False:
+        return fail("batch002 prior failure diagnosis invalid")
+    packaging = read_json(POST_DIR / "artifact_packaging_correction_report.json")
+    if packaging.get("status") != "PASS":
+        return fail("artifact packaging correction report not PASS")
+    manifest_report = read_json(POST_DIR / "artifact_payload_manifest_report.json")
+    if manifest_report.get("status") != "PASS" or manifest_report.get("cache_payload_count") != 0:
+        return fail("artifact payload manifest report invalid")
+    payload_audit = audit_artifact_payload(PAYLOAD_DIR)
+    if payload_audit["status"] != "PASS":
+        return fail(f"artifact payload hygiene failed: {payload_audit}")
 
     batch = read_json(BATCH_DIR / "consolidated_state_clean_replication_batch_002.json")
+    trace = read_json(BATCH_DIR / "candidate_source_mode_trace.json")
+    trace_by_mode = {item.get("mode"): item for item in trace if isinstance(item, dict)}
+    if trace_by_mode.get("curated_seed", {}).get("attempted") is not True:
+        return fail("curated_seed not attempted")
+    if trace_by_mode.get("metadata_probe", {}).get("attempted") is not True:
+        return fail("metadata_probe not attempted")
+    if trace_by_mode.get("issue_derived", {}).get("attempted") is not True:
+        return fail("issue_derived fallback not attempted")
+    attempts = read_json(BATCH_DIR / "candidate_verification_attempts.json")
+    if not isinstance(attempts, list) or not attempts:
+        return fail("candidate_verification_attempts must not be empty when modes are enabled")
+    if any("py_bugger_issue_65" in json.dumps(item, sort_keys=True) for item in attempts):
+        return fail("py_bugger_issue_65 reused as a new candidate")
+    metadata_attempts = read_json(BATCH_DIR / "metadata_probe_attempts.json")
+    issue_attempts = read_json(BATCH_DIR / "issue_derived_attempts.json")
+    if not metadata_attempts or metadata_attempts[0].get("blocker") not in {"metadata_probe_no_verified_candidates", "metadata_probe_unavailable"}:
+        return fail("metadata probe attempt record invalid")
+    if not issue_attempts or issue_attempts[0].get("blocker") not in {"issue_derived_no_verified_candidates", "issue_derived_disabled", "issue_derived_unsafe"}:
+        return fail("issue-derived attempt record invalid")
+    if batch.get("exact_blocker") != "clean_replication_batch_002_no_verified_candidates":
+        return fail("batch002 terminal blocker must reflect mode exhaustion")
     zero_count_fields = [
         "native_candidates_verified_count",
         "issue_derived_candidates_verified_count",

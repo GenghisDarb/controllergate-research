@@ -8,6 +8,9 @@ class CleanReplicationConfig:
     batch_id: str
     candidate_source_mode: str = "mixed"
     max_candidates_to_verify: int = 4
+    max_candidate_verification_attempts: int = 20
+    max_repos_attempted: int = 10
+    max_candidate_or_issue_leads_attempted: int = 20
     max_repairs_to_attempt: int = 4
     max_successful_repairs_target: int = 2
     provenance_level: str = "strict"
@@ -21,5 +24,12 @@ def default_clean_replication_config(batch_id: str = "clean_replication_batch_00
 
 
 def validate_clean_replication_config(config: dict[str, object]) -> dict[str, object]:
-    ok = config.get("full_scoring") is False and config.get("max_candidates_to_verify", 0) <= 4 and config.get("max_repairs_to_attempt", 0) <= 4
+    ok = (
+        config.get("full_scoring") is False
+        and int(config.get("max_candidates_to_verify", 0)) <= 4
+        and int(config.get("max_candidate_verification_attempts", 0)) <= 20
+        and int(config.get("max_repos_attempted", 0)) <= 10
+        and int(config.get("max_candidate_or_issue_leads_attempted", 0)) <= 20
+        and int(config.get("max_repairs_to_attempt", 0)) <= 4
+    )
     return {"status": "PASS" if ok else "FAIL", "batch_id": config.get("batch_id")}
