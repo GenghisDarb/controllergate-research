@@ -50,3 +50,7 @@ v2.33 preserves the frozen v2.32 matched-null protocol and records the missing i
 
 
 v2.34 adds the reusable seed verifier and byte-custody preflight. It keeps repair architecture dormant until a second reviewed candidate is available.
+
+## v2.35 automated acquisition status
+
+v2.35 adds bounded automated lead probing and direct-verification readiness, but no verified second seed was acquired and repair remains dormant.

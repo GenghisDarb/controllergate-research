@@ -1475,3 +1475,14 @@ v2.34 officially carries forward v2.33 and adds the tooling needed to avoid repe
 - Exact blocker: `blocked_no_valid_second_external_candidate_seed_provided`.
 - Current protocol remains `v2.13`.
 - No repair, full-scoring, memory-lift, or self-maintaining claim is made.
+
+## v2.35 Automated Candidate #2 Acquisition Status
+
+v2.35 ran a bounded automated acquisition sprint for candidate #2.
+
+- Verified seed acquired: `false`.
+- Repositories attempted: `5`.
+- Candidate commits attempted: `17`.
+- Exact blocker: `blocked_no_verified_candidate2_seed_acquired`.
+- Matched-null experiment attempted: `false`.
+- No full-scoring, memory-lift, or self-maintaining claim is made.

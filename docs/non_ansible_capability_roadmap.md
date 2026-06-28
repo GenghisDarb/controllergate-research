@@ -339,3 +339,11 @@ v2.34 closes the recurring byte-custody gap and converts candidate #2 discovery 
 - A future seed must provide a full 40-character buggy commit SHA, a native target test path that exists in that commit, an environment source file, and an exact failing command.
 - The workbench can verify a seed from the buggy commit only and can merge it into the registry only after the registry validator passes.
 - The next repair experiment remains blocked until a valid second reviewed candidate exists.
+
+## v2.35 Automated Candidate #2 Acquisition
+
+v2.35 replaces passive seed waiting with a bounded metadata-probe acquisition sprint. The sprint did not acquire a valid second seed under the direct-verification gates, so no repair or matched-null comparison ran.
+
+- Metadata probes are lead evidence only.
+- Any future candidate #2 still needs exact commit identity, native target test presence, environment-file proof, pre-repair failure capture, and registry validation.
+- The next safe step is a more focused lead pool or a manually supplied seed that already satisfies the v2.34 workbench requirements.

@@ -1,0 +1,695 @@
+{
+  "attempts": [
+    {
+      "candidate_selected": false,
+      "clone": {
+        "command": [
+          "git",
+          "clone",
+          "--filter=blob:none",
+          "--no-checkout",
+          "--depth",
+          "200",
+          "https://github.com/more-itertools/more-itertools",
+          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_35_omhf3bqs\\more_itertools"
+        ],
+        "cwd": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_35_omhf3bqs",
+        "returncode": 0,
+        "stderr_sha256": "059aef7aa6d6f23fc8eab56793cf6d9ecfb555f8148d50f80d2ed1670439fc26",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      },
+      "fixed_later_gold_pr_patch_accessed": false,
+      "lead_id": "more_itertools",
+      "live_issue_search_used_as_proof": false,
+      "ls_remote": {
+        "command": [
+          "git",
+          "ls-remote",
+          "--heads",
+          "https://github.com/more-itertools/more-itertools"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate",
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "bc39727e4f1a54e8a6fd4d199981045196cb3d513d0db84640d037209a103ba2",
+        "timed_out": false
+      },
+      "metadata_queries": [
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "failing test",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "test for issue",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "regression",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "516ea414b5a419cb435e33319ec515c351a2303334c4b95aa08079df0d5ddf02",
+          "term": "pytest",
+          "timed_out": false
+        }
+      ],
+      "rejection_reasons": [
+        "blocked_no_verified_candidate2_seed_acquired"
+      ],
+      "repo_url": "https://github.com/more-itertools/more-itertools",
+      "resolved_commits": [
+        {
+          "accepted_as_seed": false,
+          "candidate_test_path_tail_count": 0,
+          "candidate_test_path_tail_sample": [],
+          "cat_file_type": "commit",
+          "changed_python_path_count_tail": 0,
+          "commit_sha": "6ff164aa81b0666386b049c2edabbb917ad17aea",
+          "eligible_for_checkout": true,
+          "lead_id": "more_itertools",
+          "message_excerpt": "ignore .pytest_cache dir",
+          "message_sha256": "d1cd8c7eb99a1e019953908cacc197a016679d73aed80e4cea88a494ec1e4e2e",
+          "rejection_reason": "candidate2_target_test_not_in_buggy_tree",
+          "repo_url": "https://github.com/more-itertools/more-itertools",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_pytest"
+          ],
+          "risk_score": -1
+        }
+      ],
+      "status": "rejected",
+      "workspace_committed": false,
+      "workspace_path_outside_onedrive": true,
+      "workspace_path_outside_repo": true
+    },
+    {
+      "candidate_selected": false,
+      "clone": {
+        "command": [
+          "git",
+          "clone",
+          "--filter=blob:none",
+          "--no-checkout",
+          "--depth",
+          "200",
+          "https://github.com/jaraco/path",
+          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_35_omhf3bqs\\jaraco_path"
+        ],
+        "cwd": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_35_omhf3bqs",
+        "returncode": 0,
+        "stderr_sha256": "081e3409445e8baa35c103685fe063f7cf530b8aae6bcc0e05c473e8e353372f",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      },
+      "fixed_later_gold_pr_patch_accessed": false,
+      "lead_id": "jaraco_path",
+      "live_issue_search_used_as_proof": false,
+      "ls_remote": {
+        "command": [
+          "git",
+          "ls-remote",
+          "--heads",
+          "https://github.com/jaraco/path"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate",
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6379534bb653e7fdff09dd7355be2f649aa988c57ded5854cc9a528885b1f030",
+        "timed_out": false
+      },
+      "metadata_queries": [
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "26b6b5cb66f3ea5e252176c01a00abaf334ca3810187c40a757c58ecf72e3293",
+          "term": "failing test",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "test for issue",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "regression",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "0c87f7e7280eefae36fd4481801033ea6f4ac3abedf55ceb4b020c7c103ab450",
+          "term": "pytest",
+          "timed_out": false
+        }
+      ],
+      "rejection_reasons": [
+        "blocked_no_verified_candidate2_seed_acquired"
+      ],
+      "repo_url": "https://github.com/jaraco/path",
+      "resolved_commits": [
+        {
+          "accepted_as_seed": false,
+          "cat_file_type": "commit",
+          "commit_sha": "d09b7d664783e66d6181b427e5d6eb131527c258",
+          "eligible_for_checkout": false,
+          "lead_id": "jaraco_path",
+          "message_excerpt": "Fix failing test after changelog rename.",
+          "message_sha256": "4080e026cd3a8a0f37c3c4070d86f81fdcd26f772127b1e41c3c7035b104d897",
+          "rejection_reason": "forbidden_evidence_risk_fix_like_commit",
+          "repo_url": "https://github.com/jaraco/path",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_test_or_regression",
+            "fix_like_commit_message_rejected_to_avoid_fixed_content"
+          ],
+          "risk_score": 3
+        },
+        {
+          "accepted_as_seed": false,
+          "cat_file_type": "commit",
+          "commit_sha": "5ca6f6da77b6ba5daca8d0ef23afd1ddfaf28bc6",
+          "eligible_for_checkout": false,
+          "lead_id": "jaraco_path",
+          "message_excerpt": "Skip intermittently failing test on Python 2. Fixes #153.",
+          "message_sha256": "f720da8843d816ba18d2bf7af6837bb0237dba90b17aa8d168ad84b04282254f",
+          "rejection_reason": "forbidden_evidence_risk_fix_like_commit",
+          "repo_url": "https://github.com/jaraco/path",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_test_or_regression",
+            "fix_like_commit_message_rejected_to_avoid_fixed_content"
+          ],
+          "risk_score": 3
+        },
+        {
+          "accepted_as_seed": false,
+          "cat_file_type": "commit",
+          "commit_sha": "16fb289d38af0d510e39afcbbd43bace2d6d8dd9",
+          "eligible_for_checkout": false,
+          "lead_id": "jaraco_path",
+          "message_excerpt": "Bump `pytest-checkdocs` to `>= 2.14` to resolve deprecation warnings (jaraco/skeleton#189)",
+          "message_sha256": "d3eb5423b31e838319972a3dcb0adefa4f098cc2d5e4627854bf78dc907892a5",
+          "rejection_reason": "forbidden_evidence_risk_fix_like_commit",
+          "repo_url": "https://github.com/jaraco/path",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "fix_like_commit_message_rejected_to_avoid_fixed_content"
+          ],
+          "risk_score": 5
+        },
+        {
+          "accepted_as_seed": false,
+          "candidate_test_path_tail_count": 0,
+          "candidate_test_path_tail_sample": [],
+          "cat_file_type": "commit",
+          "changed_python_path_count_tail": 0,
+          "commit_sha": "8c5810ed39f431598f8498499e7e8fa38a8ed455",
+          "eligible_for_checkout": true,
+          "lead_id": "jaraco_path",
+          "message_excerpt": "Log filenames when running pytest-mypy (jaraco/skeleton#177)",
+          "message_sha256": "aca13fa96c41d4e6a56e9c34e748bc29f65b6edbdd52e66b559ec785d347e747",
+          "rejection_reason": "candidate2_target_test_not_in_buggy_tree",
+          "repo_url": "https://github.com/jaraco/path",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_pytest"
+          ],
+          "risk_score": -1
+        }
+      ],
+      "status": "rejected",
+      "workspace_committed": false,
+      "workspace_path_outside_onedrive": true,
+      "workspace_path_outside_repo": true
+    },
+    {
+      "candidate_selected": false,
+      "clone": {
+        "command": [
+          "git",
+          "clone",
+          "--filter=blob:none",
+          "--no-checkout",
+          "--depth",
+          "200",
+          "https://github.com/pallets/click",
+          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_35_omhf3bqs\\pallets_click"
+        ],
+        "cwd": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_35_omhf3bqs",
+        "returncode": 0,
+        "stderr_sha256": "f5aa07a25eb880197f75a7d6c36409a9034dd897b1dbd51e63ce354fe7444401",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      },
+      "fixed_later_gold_pr_patch_accessed": false,
+      "lead_id": "pallets_click",
+      "live_issue_search_used_as_proof": false,
+      "ls_remote": {
+        "command": [
+          "git",
+          "ls-remote",
+          "--heads",
+          "https://github.com/pallets/click"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate",
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "907a8e5502de5d6c8686e0b7b86eb2bc93e375dbf40b20149430ca0c85ef6071",
+        "timed_out": false
+      },
+      "metadata_queries": [
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "failing test",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "test for issue",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "782ba1bc1367996f4afc308834e7367ae3dcfcff6567a6e9c1827a050f46f1dc",
+          "term": "regression",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e0a7ba4592a180d53c348e5ea2e2ce7c9fae06cfd67264291dd0242054e9e169",
+          "term": "pytest",
+          "timed_out": false
+        }
+      ],
+      "rejection_reasons": [
+        "blocked_no_verified_candidate2_seed_acquired"
+      ],
+      "repo_url": "https://github.com/pallets/click",
+      "resolved_commits": [
+        {
+          "accepted_as_seed": false,
+          "cat_file_type": "commit",
+          "commit_sha": "b7e5fd4cc7de70280eccd39f2bb956df617e5519",
+          "eligible_for_checkout": false,
+          "lead_id": "pallets_click",
+          "message_excerpt": "Fix broken fish completion and multiline help string",
+          "message_sha256": "c31ef91672272fcd6d5c04b942fda62fbe40d2f3db01b3bc564dc6032c97e229",
+          "rejection_reason": "forbidden_evidence_risk_fix_like_commit",
+          "repo_url": "https://github.com/pallets/click",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "fix_like_commit_message_rejected_to_avoid_fixed_content"
+          ],
+          "risk_score": 5
+        },
+        {
+          "accepted_as_seed": false,
+          "cat_file_type": "commit",
+          "commit_sha": "c3535905c77a29afc84861b29d3ad366ce5451bd",
+          "eligible_for_checkout": false,
+          "lead_id": "pallets_click",
+          "message_excerpt": "Fix broken fish completion and multiline help string",
+          "message_sha256": "c31ef91672272fcd6d5c04b942fda62fbe40d2f3db01b3bc564dc6032c97e229",
+          "rejection_reason": "forbidden_evidence_risk_fix_like_commit",
+          "repo_url": "https://github.com/pallets/click",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "fix_like_commit_message_rejected_to_avoid_fixed_content"
+          ],
+          "risk_score": 5
+        },
+        {
+          "accepted_as_seed": false,
+          "cat_file_type": "commit",
+          "commit_sha": "2a0e3ba907927ade6951d5732b775f11b54cb766",
+          "eligible_for_checkout": false,
+          "lead_id": "pallets_click",
+          "message_excerpt": "testing/CliRunner: Fix regression related to EOF introduced in 262bdf0 (#2940)",
+          "message_sha256": "d6c717b6b15d7663922d9e51a654b771a38458aeb0fe783b188e2d687bc696ea",
+          "rejection_reason": "forbidden_evidence_risk_fix_like_commit",
+          "repo_url": "https://github.com/pallets/click",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_test_or_regression",
+            "fix_like_commit_message_rejected_to_avoid_fixed_content"
+          ],
+          "risk_score": 3
+        },
+        {
+          "accepted_as_seed": false,
+          "cat_file_type": "commit",
+          "commit_sha": "93c6966eb3a575c2b600434d1cc9f4b3aee505ac",
+          "eligible_for_checkout": false,
+          "lead_id": "pallets_click",
+          "message_excerpt": "testing/CliRunner: Fix regression related to EOF introduced in 262bdf0",
+          "message_sha256": "b90894d262f8ddbd87ba5a1f6864683cb8c441dac1336e2fd40bdd123e33c0db",
+          "rejection_reason": "forbidden_evidence_risk_fix_like_commit",
+          "repo_url": "https://github.com/pallets/click",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_test_or_regression",
+            "fix_like_commit_message_rejected_to_avoid_fixed_content"
+          ],
+          "risk_score": 3
+        }
+      ],
+      "status": "rejected",
+      "workspace_committed": false,
+      "workspace_path_outside_onedrive": true,
+      "workspace_path_outside_repo": true
+    },
+    {
+      "candidate_selected": false,
+      "clone": {
+        "command": [
+          "git",
+          "clone",
+          "--filter=blob:none",
+          "--no-checkout",
+          "--depth",
+          "200",
+          "https://github.com/pytest-dev/pytest-rerunfailures",
+          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_35_omhf3bqs\\pytest_rerunfailures"
+        ],
+        "cwd": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_35_omhf3bqs",
+        "returncode": 0,
+        "stderr_sha256": "a183dfc96419045f40537bfe293a84ca5161d4fec1498c91c93215a3ec1d17a2",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      },
+      "fixed_later_gold_pr_patch_accessed": false,
+      "lead_id": "pytest_rerunfailures",
+      "live_issue_search_used_as_proof": false,
+      "ls_remote": {
+        "command": [
+          "git",
+          "ls-remote",
+          "--heads",
+          "https://github.com/pytest-dev/pytest-rerunfailures"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate",
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "ba813331569805f5da970d0a183417960cfdc94161ff7955af1980a8a8ca3242",
+        "timed_out": false
+      },
+      "metadata_queries": [
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "failing test",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "test for issue",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "10e98e3bd9c7e132a4b6767b5f4d42963223a6589789b7d25b4b0836b1b653f1",
+          "term": "regression",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "c14c0dbe86950c2ee818bed1cdd043a398e97df094fb8dae551885a7ac7d6116",
+          "term": "pytest",
+          "timed_out": false
+        }
+      ],
+      "rejection_reasons": [
+        "blocked_no_verified_candidate2_seed_acquired"
+      ],
+      "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+      "resolved_commits": [
+        {
+          "accepted_as_seed": false,
+          "cat_file_type": "commit",
+          "commit_sha": "fb9dc72ea3a0577b015af28592689532e71fab6b",
+          "eligible_for_checkout": false,
+          "lead_id": "pytest_rerunfailures",
+          "message_excerpt": "Fixes issue related to rerun attribute on report (Issue #77) (#78)",
+          "message_sha256": "c31f78693892e39a5d5ac2b357d6e88c78a52c7ed77b22921387ec5cf9f20693",
+          "rejection_reason": "forbidden_evidence_risk_fix_like_commit",
+          "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "fix_like_commit_message_rejected_to_avoid_fixed_content"
+          ],
+          "risk_score": 5
+        },
+        {
+          "accepted_as_seed": false,
+          "candidate_test_path_tail_count": 0,
+          "candidate_test_path_tail_sample": [],
+          "cat_file_type": "commit",
+          "changed_python_path_count_tail": 0,
+          "commit_sha": "9d7756ff3f0bd0045fc29af7a32c7f4316c20a3a",
+          "eligible_for_checkout": true,
+          "lead_id": "pytest_rerunfailures",
+          "message_excerpt": "Drop support for pytest 8.1. Add support for pytest 9.1. (#335)",
+          "message_sha256": "a54b3ae17e3f0e968143ea9df71d09eb8a9dead9eebdf3cd4f1eba490f0bdb60",
+          "rejection_reason": "candidate2_target_test_not_in_buggy_tree",
+          "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_pytest"
+          ],
+          "risk_score": -1
+        },
+        {
+          "accepted_as_seed": false,
+          "candidate_test_path_tail_count": 1,
+          "candidate_test_path_tail_sample": [
+            "tests/test_pytest_rerunfailures.py"
+          ],
+          "cat_file_type": "commit",
+          "changed_python_path_count_tail": 2,
+          "commit_sha": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
+          "eligible_for_checkout": true,
+          "lead_id": "pytest_rerunfailures",
+          "message_excerpt": "Support rerunning on subtest errors in pytest 9.0 and newer (#330)",
+          "message_sha256": "6dafed3d7d053b9466fb148878ec6ff6fa46265e821b26193d38d38c0d500156",
+          "rejection_reason": "metadata_only_no_native_failure_replay_verified",
+          "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_pytest"
+          ],
+          "risk_score": -1
+        },
+        {
+          "accepted_as_seed": false,
+          "candidate_test_path_tail_count": 1,
+          "candidate_test_path_tail_sample": [
+            "tests/test_pytest_rerunfailures.py"
+          ],
+          "cat_file_type": "commit",
+          "changed_python_path_count_tail": 2,
+          "commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
+          "eligible_for_checkout": true,
+          "lead_id": "pytest_rerunfailures",
+          "message_excerpt": "feat: add --reruns-mode option to sum marker and global reruns (#321) (#328)",
+          "message_sha256": "94bc96716f9dd715280fcd17349c917958550d82bec52a6363e506ed3138e306",
+          "rejection_reason": "metadata_only_no_native_failure_replay_verified",
+          "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [],
+          "risk_score": 0
+        }
+      ],
+      "status": "rejected",
+      "workspace_committed": false,
+      "workspace_path_outside_onedrive": true,
+      "workspace_path_outside_repo": true
+    },
+    {
+      "candidate_selected": false,
+      "clone": {
+        "command": [
+          "git",
+          "clone",
+          "--filter=blob:none",
+          "--no-checkout",
+          "--depth",
+          "200",
+          "https://github.com/akaihola/darker",
+          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_35_omhf3bqs\\akaihola_darker"
+        ],
+        "cwd": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_35_omhf3bqs",
+        "returncode": 0,
+        "stderr_sha256": "f20799cfa33addf7cf1ac35272551df044bf01c00d744e45de2acce834a8b38a",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      },
+      "fixed_later_gold_pr_patch_accessed": false,
+      "lead_id": "akaihola_darker",
+      "live_issue_search_used_as_proof": false,
+      "ls_remote": {
+        "command": [
+          "git",
+          "ls-remote",
+          "--heads",
+          "https://github.com/akaihola/darker"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate",
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "85b0e296ccbcc8748862608b314aadfa55f1a72a430cc349f6df66bfb3cc7851",
+        "timed_out": false
+      },
+      "metadata_queries": [
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "38dae3dd7e8474b4102b1b702527362f94955ea52189f940ae7c62663d87aac0",
+          "term": "failing test",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "test for issue",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "term": "regression",
+          "timed_out": false
+        },
+        {
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "f7602ce3c1b4deb5bb15efffc1743e61e1202661511cdc087e0757b30f407ba8",
+          "term": "pytest",
+          "timed_out": false
+        }
+      ],
+      "rejection_reasons": [
+        "blocked_no_verified_candidate2_seed_acquired"
+      ],
+      "repo_url": "https://github.com/akaihola/darker",
+      "resolved_commits": [
+        {
+          "accepted_as_seed": false,
+          "candidate_test_path_tail_count": 1,
+          "candidate_test_path_tail_sample": [
+            "src/darker/tests/test_main_isort.py"
+          ],
+          "cat_file_type": "commit",
+          "changed_python_path_count_tail": 1,
+          "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+          "eligible_for_checkout": true,
+          "lead_id": "akaihola_darker",
+          "message_excerpt": "test: failing test for isort's skip_glob setting",
+          "message_sha256": "3a6d9a4e25d30a27f9577433e90e6894fcdc11adb41ffbb49154a19a58af348e",
+          "rejection_reason": "metadata_only_no_native_failure_replay_verified",
+          "repo_url": "https://github.com/akaihola/darker",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_test_or_regression"
+          ],
+          "risk_score": -2
+        },
+        {
+          "accepted_as_seed": false,
+          "candidate_test_path_tail_count": 1,
+          "candidate_test_path_tail_sample": [
+            "src/darker/tests/test_main_drop_changes_on_unedited_lines.py"
+          ],
+          "cat_file_type": "commit",
+          "changed_python_path_count_tail": 1,
+          "commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
+          "eligible_for_checkout": true,
+          "lead_id": "akaihola_darker",
+          "message_excerpt": "test: failing test for dropping changes for a non-ascii file",
+          "message_sha256": "0a9e4f71f023411f0edef007531ee70c7d138716448a09dfbd0fd03a6f5337cd",
+          "rejection_reason": "metadata_only_no_native_failure_replay_verified",
+          "repo_url": "https://github.com/akaihola/darker",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_test_or_regression"
+          ],
+          "risk_score": -2
+        },
+        {
+          "accepted_as_seed": false,
+          "cat_file_type": "commit",
+          "commit_sha": "c55fb885d855050668a9627c63f78222a13718cd",
+          "eligible_for_checkout": false,
+          "lead_id": "akaihola_darker",
+          "message_excerpt": "test: fix failing tests",
+          "message_sha256": "7a05f14d5b51562df4c5f22d45a674640fe60e7e9f55587343a4a54c856ae606",
+          "rejection_reason": "forbidden_evidence_risk_fix_like_commit",
+          "repo_url": "https://github.com/akaihola/darker",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_test_or_regression",
+            "fix_like_commit_message_rejected_to_avoid_fixed_content"
+          ],
+          "risk_score": 3
+        },
+        {
+          "accepted_as_seed": false,
+          "candidate_test_path_tail_count": 1,
+          "candidate_test_path_tail_sample": [
+            "src/darker/tests/test_main_stdin_filename.py"
+          ],
+          "cat_file_type": "commit",
+          "changed_python_path_count_tail": 1,
+          "commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
+          "eligible_for_checkout": true,
+          "lead_id": "akaihola_darker",
+          "message_excerpt": "Failing test for `--stdin-filename=<path> -`",
+          "message_sha256": "07352e28f81bb5b8361d26e5d811334b205fd6dfa1a46292f84923b7b8766d4c",
+          "rejection_reason": "metadata_only_no_native_failure_replay_verified",
+          "repo_url": "https://github.com/akaihola/darker",
+          "rev_parse_status": "PASS",
+          "risk_reasons": [
+            "metadata_mentions_test_or_regression"
+          ],
+          "risk_score": -2
+        }
+      ],
+      "status": "rejected",
+      "workspace_committed": false,
+      "workspace_path_outside_onedrive": true,
+      "workspace_path_outside_repo": true
+    }
+  ],
+  "exact_blocker": "blocked_no_verified_candidate2_seed_acquired",
+  "status": "blocked"
+}

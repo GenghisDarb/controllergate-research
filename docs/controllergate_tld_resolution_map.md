@@ -143,3 +143,7 @@ v2.34 preserves the first scoreable external repair episode and records the miss
 - Candidate #2 selected: `false`.
 - Repair and patch generation: not run.
 - Next boundary: manually provide one verified seed draft.
+
+## v2.35 automated acquisition status
+
+v2.35 reaches a clean acquisition block: metadata probes ran, no candidate #2 seed verified, and the next boundary remains verified seed acquisition.

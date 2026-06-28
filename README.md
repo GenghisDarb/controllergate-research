@@ -427,3 +427,20 @@ v2.34 ingests the official v2.33 boundary, adds reusable byte-custody preflight 
 - Memory lift remains `undemonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
 - Next step: place one valid seed at `inputs/external_candidate_seed_draft_v2_34.json` or a future-lane seed path.
+
+## v2.35 automated candidate #2 acquisition status
+
+
+v2.35 adds an automated candidate #2 acquisition sprint. The lane uses public metadata only as lead evidence and requires direct ControllerGate verification before any candidate can enter the registry.
+
+- Repositories attempted: `5`.
+- Candidate commits attempted: `17`.
+- Verified second seed acquired: `false`.
+- Exact blocker: `blocked_no_verified_candidate2_seed_acquired`.
+- Registry reviewed valid candidate count remains `1`.
+- Matched-null repair experiment attempted: `false`.
+- Patch generated: `false`.
+- Current protocol remains `v2.13`; v2.35 is not promoted.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift remains `undemonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.

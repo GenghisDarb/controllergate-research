@@ -1,0 +1,63 @@
+{
+  "entries": [
+    {
+      "action": "verify_v2_34_official_ingest",
+      "entry_hash": "efb255450cf979a5b3b6b8349fd4fee23a6a85d0c57cd2230ec45fc6aa37205f",
+      "index": 0,
+      "previous_entry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "PASS"
+    },
+    {
+      "action": "run_byte_custody_preflight",
+      "entry_hash": "9e8926108f11d4febc72f5bfcab8a3c0867664beafeeef08492c811ae1d40297",
+      "index": 1,
+      "previous_entry_hash": "efb255450cf979a5b3b6b8349fd4fee23a6a85d0c57cd2230ec45fc6aa37205f",
+      "status": "PASS"
+    },
+    {
+      "action": "create_or_read_lead_pool",
+      "entry_hash": "f12db68fb167ad6c84c236ef219c133c453e8eaddcce5a0ff0555ee19ae4cb0e",
+      "index": 2,
+      "previous_entry_hash": "9e8926108f11d4febc72f5bfcab8a3c0867664beafeeef08492c811ae1d40297",
+      "status": "PASS"
+    },
+    {
+      "action": "run_bounded_metadata_probes",
+      "entry_hash": "bf507ada42fe134941ff5101effba9659a9c446ae633537de743d76430857e57",
+      "index": 3,
+      "previous_entry_hash": "f12db68fb167ad6c84c236ef219c133c453e8eaddcce5a0ff0555ee19ae4cb0e",
+      "status": "PASS"
+    },
+    {
+      "action": "verify_resolved_commit_identities",
+      "entry_hash": "6d107fb5f7c236a0d0f0c24b4830e4c8e2b4b0bc685cf156859275cd347c5cac",
+      "index": 4,
+      "previous_entry_hash": "bf507ada42fe134941ff5101effba9659a9c446ae633537de743d76430857e57",
+      "status": "PASS"
+    },
+    {
+      "action": "block_without_verified_seed",
+      "entry_hash": "dc5226c649a61df17cba8a929831206523383c7b1227eee8288d6ffd8ad3913e",
+      "index": 5,
+      "previous_entry_hash": "6d107fb5f7c236a0d0f0c24b4830e4c8e2b4b0bc685cf156859275cd347c5cac",
+      "status": "blocked_no_verified_candidate2_seed_acquired"
+    },
+    {
+      "action": "validate_registry_without_candidate2_merge",
+      "entry_hash": "3d9f7ebd05675ed19793834603ebe4eee2555275a93f2db65df97f77556c5231",
+      "index": 6,
+      "previous_entry_hash": "dc5226c649a61df17cba8a929831206523383c7b1227eee8288d6ffd8ad3913e",
+      "status": "PASS"
+    },
+    {
+      "action": "preserve_claim_boundaries",
+      "entry_hash": "49bbe70b69c9e3900b2562f2a10c20a0c744700eb72fb4c0d969985e9e4adb5c",
+      "index": 7,
+      "previous_entry_hash": "3d9f7ebd05675ed19793834603ebe4eee2555275a93f2db65df97f77556c5231",
+      "status": "PASS"
+    }
+  ],
+  "entry_count": 8,
+  "head_hash": "49bbe70b69c9e3900b2562f2a10c20a0c744700eb72fb4c0d969985e9e4adb5c",
+  "status": "PASS"
+}
