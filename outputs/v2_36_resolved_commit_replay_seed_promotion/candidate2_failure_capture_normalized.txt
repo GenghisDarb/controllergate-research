@@ -1,18 +1,17 @@
 .EEF                                                                     [100%]
-============================== warnings summary ===============================
-src\darker\tests\test_main_isort.py:85
-  C:\Users\thisb\AppData\Local\Temp\controllergate_v2_36_mtrpm8lm\native_akaihola_darker_bd28cdc3\checkout\src\darker\tests\test_main_isort.py:85: PytestUnknownMarkWarning: Unknown pytest.mark.kwparametrize - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable<PATH>st.mark.kwparametrize(
+=============================== warnings summary ===============================
+src<PATH>sts/test_main_isort.py:85
+  <PATH>src<PATH>sts/test_main_isort.py:85: PytestUnknownMarkWarning: Unknown pytest.mark.kwparametrize - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable<PATH>st.mark.kwparametrize(
 -- Docs: https://docs.pytest.org/en/stable<PATH>s.html
-============================ slowest 10 durations =============================
+============================= slowest 10 durations =============================
 N.Ns setup    src<PATH>sts/test_main_isort.py::test_isort_option_without_isort
-N.Ns setup    src<PATH>sts/test_main_isort.py::test_isort_option_with_isort_calls_sortimports
 N.Ns setup    src<PATH>sts/test_main_isort.py::test_isort_option_with_isort
-N.Ns call     src<PATH>sts/test_main_isort.py::test_isort_respects_skip_glob
-N.Ns teardown src<PATH>sts/test_main_isort.py::test_isort_respects_skip_glob
+N.Ns setup    src<PATH>sts/test_main_isort.py::test_isort_option_with_isort_calls_sortimports
 N.Ns call     src<PATH>sts/test_main_isort.py::test_isort_option_without_isort
-(4 durations < N.Ns hidden.  Use -vv to show these durations.)
-=========================== short test summary info ===========================
-FAILED src<PATH>sts/test_main_isort.py::test_isort_respects_skip_glob - d...
-ERROR src<PATH>sts/test_main_isort.py::test_isort_option_with_isort - dar...
-ERROR src<PATH>sts/test_main_isort.py::test_isort_option_with_isort_calls_sortimports
+N.Ns call     src<PATH>sts/test_main_isort.py::test_isort_respects_skip_glob
+(5 durations < N.Ns hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+FAILED src<PATH>sts/test_main_isort.py::test_isort_respects_skip_glob - darker.exceptions.MissingPackageError: Please run `pip install darker[isort]` to use the `--isort` option.
+ERROR src<PATH>sts/test_main_isort.py::test_isort_option_with_isort - darker.exceptions.MissingPackageError: Please run `pip install darker[isort]` to use the `--isort` option.
+ERROR src<PATH>sts/test_main_isort.py::test_isort_option_with_isort_calls_sortimports - darker.exceptions.MissingPackageError: Please run `pip install darker[isort]` to use the `--isort` option.
 1 failed, 1 passed, 1 warning, 2 errors in N.Ns

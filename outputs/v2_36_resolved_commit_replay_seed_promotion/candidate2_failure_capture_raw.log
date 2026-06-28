@@ -1,21 +1,20 @@
 .EEF                                                                     [100%]
-============================== warnings summary ===============================
-src\darker\tests\test_main_isort.py:85
-  C:\Users\thisb\AppData\Local\Temp\controllergate_v2_36_mtrpm8lm\native_akaihola_darker_bd28cdc3\checkout\src\darker\tests\test_main_isort.py:85: PytestUnknownMarkWarning: Unknown pytest.mark.kwparametrize - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+=============================== warnings summary ===============================
+src/darker/tests/test_main_isort.py:85
+  /tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_bd28cdc3/checkout/src/darker/tests/test_main_isort.py:85: PytestUnknownMarkWarning: Unknown pytest.mark.kwparametrize - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
     @pytest.mark.kwparametrize(
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-============================ slowest 10 durations =============================
-0.52s setup    src/darker/tests/test_main_isort.py::test_isort_option_without_isort
-0.13s setup    src/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports
-0.12s setup    src/darker/tests/test_main_isort.py::test_isort_option_with_isort
-0.03s call     src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob
-0.02s teardown src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob
-0.02s call     src/darker/tests/test_main_isort.py::test_isort_option_without_isort
+============================= slowest 10 durations =============================
+0.01s setup    src/darker/tests/test_main_isort.py::test_isort_option_without_isort
+0.01s setup    src/darker/tests/test_main_isort.py::test_isort_option_with_isort
+0.01s setup    src/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports
+0.01s call     src/darker/tests/test_main_isort.py::test_isort_option_without_isort
+0.01s call     src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob
 
-(4 durations < 0.005s hidden.  Use -vv to show these durations.)
-=========================== short test summary info ===========================
-FAILED src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob - d...
-ERROR src/darker/tests/test_main_isort.py::test_isort_option_with_isort - dar...
-ERROR src/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports
-1 failed, 1 passed, 1 warning, 2 errors in 1.24s
+(5 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+FAILED src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob - darker.exceptions.MissingPackageError: Please run `pip install darker[isort]` to use the `--isort` option.
+ERROR src/darker/tests/test_main_isort.py::test_isort_option_with_isort - darker.exceptions.MissingPackageError: Please run `pip install darker[isort]` to use the `--isort` option.
+ERROR src/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports - darker.exceptions.MissingPackageError: Please run `pip install darker[isort]` to use the `--isort` option.
+1 failed, 1 passed, 1 warning, 2 errors in 0.10s

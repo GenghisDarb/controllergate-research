@@ -6,7 +6,7 @@
       "candidate_class": "native_replay_candidate",
       "candidate_id": "native_akaihola_darker_bd28cdc3",
       "collection": {
-        "combined_sha256": "ad1aa642e65b6aba3eb0cb2b8b59705b54f92bd848cf88de1b2bce0267d55707",
+        "combined_sha256": "f4cf3cccad8a57efa3cc70121a21eaecffa13ea5099c1c5b1416e26cc345e705",
         "command_collects_target": true,
         "returncode": 0,
         "timed_out": false
@@ -21,7 +21,7 @@
       "context_boundary": {
         "candidate_id": "native_akaihola_darker_bd28cdc3",
         "candidate_source_file_count": 0,
-        "context_boundary_hash": "7258cdb74ef41ee526ecc272db1f5c014efbd7578846741652e3e11d43f491fd",
+        "context_boundary_hash": "accc612601ede4d173e45439571bc207e123b8bef373bce8f62bbbe79c6abc41",
         "environment_file_count": 4,
         "forbidden_context_used": false,
         "status": "PASS",
@@ -57,7 +57,7 @@
         "target_test_files": [
           {
             "path": "src/darker/tests/test_main_isort.py",
-            "sha256": "474d2500661275265efddc78c938f72aee1e36a8c56e2fe6b6b3e87c448ea838"
+            "sha256": "a3e5e34c6ad9715f755aa0cd33e2f5d5290fbf39cc439580c6d6026ecbe86092"
           }
         ]
       },
@@ -65,19 +65,19 @@
       "environment_files": [
         {
           "path": "pyproject.toml",
-          "sha256": "1e28afb102918493fb8b16f825bea84c57ccb8c3449ba925a224650a0dc6abb2"
+          "sha256": "18fa04be44a11acaf55db8968a05719bd7021b9d6e886767ee23a67715c3a296"
         },
         {
           "path": "setup.cfg",
-          "sha256": "37369e69510436aa13dfe0f6104388f554e7bf4dffe2192d409fd3cc27b07ffa"
+          "sha256": "080d3a1a6902f2b9f5d3b3a4ee1809b82ec824f76c02387928bae8217228fa99"
         },
         {
           "path": "setup.py",
-          "sha256": "74e633e180e3e7d53539a0970d1d74f3d87249199b93c2fe99804f423c7b380a"
+          "sha256": "9cf15a74271eb56d31b525a9ef4fe05ec2193de12482eeb0e541e9c3577aee08"
         },
         {
           "path": "pytest.ini",
-          "sha256": "610146b56ed6a83eea756bacc14940eb4eebc5fa24a8e0a252310e55cb80ccaf"
+          "sha256": "711538cf8989040fa5a04e523200ecd6375523307d9943b08c81556afabd8e80"
         }
       ],
       "environment_strategy": {
@@ -86,9 +86,9 @@
         "install_ok": true,
         "install_records": [
           {
-            "combined_sha256": "bdf28bdc4e583b8071039d838dc1e33bb28c6672de85d3b621483d529396ee5e",
+            "combined_sha256": "c954ab46bdd528992b8d096c42b79ca420db24b9b446290bd128c7331e4f8c08",
             "command": [
-              "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+              "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_bd28cdc3/venv/bin/python",
               "-m",
               "pip",
               "install",
@@ -145,9 +145,9 @@
       "message": "test: failing test for isort's skip_glob setting",
       "native_command_results": [
         {
-          "combined_sha256": "bef9d49ab209b015ae6d804da4593a282371941976fec09ce8f3345c15f2c4bd",
+          "combined_sha256": "739e1b035deecbd422535c4ed5b9a30217a935de9fdd9e45dfa85d3bc82d17cc",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_bd28cdc3/venv/bin/python",
             "-m",
             "pytest",
             "src/darker/tests/test_main_isort.py",
@@ -166,12 +166,14 @@
       "semantic_failure_signature": {
         "candidate_id": "native_akaihola_darker_bd28cdc3",
         "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
-        "exception_classes": [],
-        "normalized_log_hash": "dd1fde6f2943e2856f3f9c85ee6642cffe12efc022e94c517305ae4e4886cc5e",
+        "exception_classes": [
+          "MissingPackageError"
+        ],
+        "normalized_log_hash": "970b6bf004a4a09d571ca38329bec34c707e80345d875f2166729b899c13e165",
         "repo_url": "https://github.com/akaihola/darker",
-        "semantic_log_hash": "c99dac20cc6f0a0c9dfb24d2f0b50f3f0ab159bf62ab1edef1bf228e0880dc3c",
+        "semantic_log_hash": "758170f58cfdd44dbd7a907ce06dda5e893b3c3739006ed3fab8fac1fb7df78e",
         "target_command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+          "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_bd28cdc3/venv/bin/python",
           "-m",
           "pytest",
           "src/darker/tests/test_main_isort.py",
@@ -217,7 +219,7 @@
         "traceback_framework_file_count": 0
       },
       "target_command": [
-        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_bd28cdc3\\venv\\Scripts\\python.exe",
+        "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_bd28cdc3/venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_isort.py",
@@ -226,12 +228,12 @@
       ],
       "target_test_path": "src/darker/tests/test_main_isort.py",
       "target_test_present": true,
-      "target_test_sha256": "474d2500661275265efddc78c938f72aee1e36a8c56e2fe6b6b3e87c448ea838",
+      "target_test_sha256": "a3e5e34c6ad9715f755aa0cd33e2f5d5290fbf39cc439580c6d6026ecbe86092",
       "v2_35_reason": "metadata_only_no_native_failure_replay_verified",
       "workspace_committed": false,
       "workspace_outside_onedrive": true,
       "workspace_outside_repo": true,
-      "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_bd28cdc3\\checkout"
+      "workspace_path": "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_bd28cdc3/checkout"
     },
     {
       "accepted_as_seed": false,
@@ -239,7 +241,7 @@
       "candidate_class": "native_replay_candidate",
       "candidate_id": "native_akaihola_darker_6f9ae295",
       "collection": {
-        "combined_sha256": "7a27b3b50230e0cae0bcfdcc8461cbd4d06e0b857ad3e42180a00c74dfb91cf3",
+        "combined_sha256": "9ba932909cef5753ee02b82b6edc98b8d40b6cc85e4240945d5a5712672be14d",
         "command_collects_target": true,
         "returncode": 0,
         "timed_out": false
@@ -254,7 +256,7 @@
       "context_boundary": {
         "candidate_id": "native_akaihola_darker_6f9ae295",
         "candidate_source_file_count": 0,
-        "context_boundary_hash": "408258ded428a2505f12cf8cd6c2fd0661ee1a0944a0f4abcb392815786d9d0d",
+        "context_boundary_hash": "58820ebd0c09c7d020bf5a4580b426311d3d8e55809d44e5c7244c634cc0d75c",
         "environment_file_count": 4,
         "forbidden_context_used": false,
         "status": "PASS",
@@ -289,7 +291,7 @@
         "target_test_files": [
           {
             "path": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
-            "sha256": "3d91bcb8fdc7429cacf94cab0b3856af54dd8a393b9b7a301253276adb6a70a4"
+            "sha256": "e16224926358a637b41c70e524d9730719f9cde9c976a6614fab1603960a3492"
           }
         ]
       },
@@ -297,19 +299,19 @@
       "environment_files": [
         {
           "path": "pyproject.toml",
-          "sha256": "280b0596549af6feb2650e5047df84c8e9e963b4c9b0f2f57e33db04d1dfade7"
+          "sha256": "ef6b6ec0ae7fe4b92e69fc0bad1811e20c0667c26e6072442e37e7132cb6f738"
         },
         {
           "path": "setup.cfg",
-          "sha256": "de5ccd57ec5949fd7b91d2b94b6a9d67d47d2cb84d38690d268f1c774fd31de2"
+          "sha256": "844d7ae2cb93da7e1a98db49b5181c87a88058954708f619758c95b1ab273096"
         },
         {
           "path": "setup.py",
-          "sha256": "743c3e9fb9bfe9bbc5635ec9409d5881288c68c121e4f1cc0d5fbffa76f0b5c0"
+          "sha256": "fd6a2e196c8cdfa20ff97c6e449554cfc0785b109b4301edbddc5b53a59dcfc0"
         },
         {
           "path": "pytest.ini",
-          "sha256": "610146b56ed6a83eea756bacc14940eb4eebc5fa24a8e0a252310e55cb80ccaf"
+          "sha256": "711538cf8989040fa5a04e523200ecd6375523307d9943b08c81556afabd8e80"
         }
       ],
       "environment_strategy": {
@@ -318,9 +320,9 @@
         "install_ok": true,
         "install_records": [
           {
-            "combined_sha256": "b48d981399e8f09ae59c03239c2bf2727c88b1c964426b226a4700d86d1190c2",
+            "combined_sha256": "a13049239671d9c38ca0bf3ded0d10b09474547728afe5eabb9d0913f7bbcebb",
             "command": [
-              "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+              "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_6f9ae295/venv/bin/python",
               "-m",
               "pip",
               "install",
@@ -356,9 +358,9 @@
       "message": "test: failing test for dropping changes for a non-ascii file",
       "native_command_results": [
         {
-          "combined_sha256": "fa8dc0788db6157f3fcefe3c4a8a9605007080018051878926e7de9c13bacebd",
+          "combined_sha256": "3800b21e72d31980a4d6bde59d4fafb85fec21fe46219274d6491e707059b50c",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_6f9ae295/venv/bin/python",
             "-m",
             "pytest",
             "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
@@ -378,11 +380,11 @@
         "candidate_id": "native_akaihola_darker_6f9ae295",
         "commit_sha": "6f9ae29512433d960be38f3bfffc23c848691d6f",
         "exception_classes": [],
-        "normalized_log_hash": "a921f80e4f00778238cb164f16f42f79c856b17b6131d530e2f7431420ab7f90",
+        "normalized_log_hash": "9fd0dd614ed00af0b22f974f2e84c00919da14821f80bf46a7882f56f4a7c86a",
         "repo_url": "https://github.com/akaihola/darker",
         "semantic_log_hash": "b670bb280c4d0109b9f392736334ca6d2b7fe174d35de97cb08dca0f972d697e",
         "target_command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+          "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_6f9ae295/venv/bin/python",
           "-m",
           "pytest",
           "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
@@ -428,7 +430,7 @@
         "traceback_framework_file_count": 0
       },
       "target_command": [
-        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_6f9ae295\\venv\\Scripts\\python.exe",
+        "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_6f9ae295/venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
@@ -437,12 +439,12 @@
       ],
       "target_test_path": "src/darker/tests/test_main_drop_changes_on_unedited_lines.py",
       "target_test_present": true,
-      "target_test_sha256": "3d91bcb8fdc7429cacf94cab0b3856af54dd8a393b9b7a301253276adb6a70a4",
+      "target_test_sha256": "e16224926358a637b41c70e524d9730719f9cde9c976a6614fab1603960a3492",
       "v2_35_reason": "metadata_only_no_native_failure_replay_verified",
       "workspace_committed": false,
       "workspace_outside_onedrive": true,
       "workspace_outside_repo": true,
-      "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_6f9ae295\\checkout"
+      "workspace_path": "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_6f9ae295/checkout"
     },
     {
       "accepted_as_seed": false,
@@ -450,7 +452,7 @@
       "candidate_class": "native_replay_candidate",
       "candidate_id": "native_akaihola_darker_6ecafca0",
       "collection": {
-        "combined_sha256": "ab76d3de0255cc6e44d545d7ddfb75410bf41c9d2d7beea9b6ea7c85b5f319d5",
+        "combined_sha256": "10839c411481a37b580cc747ef13ae9911b74901a71e497132235e331685db95",
         "command_collects_target": false,
         "returncode": 2,
         "timed_out": false
@@ -466,19 +468,19 @@
       "environment_files": [
         {
           "path": "pyproject.toml",
-          "sha256": "7ddccfd282863c103c67c8c97b9371318e56c8cc813603339be1f3c0ee48a6fd"
+          "sha256": "4e587b34cb739f4991cad5a0787027348e25df0a15225e1598c7aaa74ada390b"
         },
         {
           "path": "setup.cfg",
-          "sha256": "44266b30161b50ed2802f7d5c11fd703330e06704544240cdd20a764928027d9"
+          "sha256": "bcaaa37e9bc6fac24804e4e754b83bfd89b597d8563698eb6fbe84b51e55afd5"
         },
         {
           "path": "setup.py",
-          "sha256": "743c3e9fb9bfe9bbc5635ec9409d5881288c68c121e4f1cc0d5fbffa76f0b5c0"
+          "sha256": "fd6a2e196c8cdfa20ff97c6e449554cfc0785b109b4301edbddc5b53a59dcfc0"
         },
         {
           "path": "pytest.ini",
-          "sha256": "642d6e9b1d65a16f6e8c054f66b6c9638710d64d6ad6d7b0cd1081b41bf66065"
+          "sha256": "28377f28d149aaa6a41b576cde4f06bad472a6879c457da95b59c3015bd37578"
         }
       ],
       "environment_strategy": {
@@ -487,9 +489,9 @@
         "install_ok": true,
         "install_records": [
           {
-            "combined_sha256": "4a17969e3f923346f91d37019c2817641b51b4fc46f2e3f67d036c157a9c760e",
+            "combined_sha256": "44fb5da290b80a7e62d0bc6c9f23c71de79535df82b3d965ec1ebf7834bc92ea",
             "command": [
-              "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_6ecafca0\\venv\\Scripts\\python.exe",
+              "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_6ecafca0/venv/bin/python",
               "-m",
               "pip",
               "install",
@@ -523,12 +525,12 @@
       "status": "rejected",
       "target_test_path": "src/darker/tests/test_main_stdin_filename.py",
       "target_test_present": true,
-      "target_test_sha256": "091cb6ca489413387f97f7021acf56dea7edd6bfc6db74eaff68a4aa4b3cacab",
+      "target_test_sha256": "78024c0f75c5bcbbf3da39b9c96cc1a4ce4cca6926a9f20c4edf4156ba3decd9",
       "v2_35_reason": "metadata_only_no_native_failure_replay_verified",
       "workspace_committed": false,
       "workspace_outside_onedrive": true,
       "workspace_outside_repo": true,
-      "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_akaihola_darker_6ecafca0\\checkout"
+      "workspace_path": "/tmp/controllergate_v2_36_dnz57cin/native_akaihola_darker_6ecafca0/checkout"
     },
     {
       "accepted_as_seed": false,
@@ -536,7 +538,7 @@
       "candidate_class": "native_replay_candidate",
       "candidate_id": "native_pytest_rerunfailures_f095a517",
       "collection": {
-        "combined_sha256": "c5e11ae69c71b97eec523985f80c44e5c8b94f19f27076871c01a3085fdc7386",
+        "combined_sha256": "de247063d4c0b845837a1e25f3e268db8192fabce8c48b9af7b38f1b5eec8e8d",
         "command_collects_target": true,
         "returncode": 0,
         "timed_out": false
@@ -552,11 +554,11 @@
       "environment_files": [
         {
           "path": "pyproject.toml",
-          "sha256": "00d53e9a1cc2e593e0cfdbefc8938e918c11dd8f866f3e7c75bab40a2e6e7fca"
+          "sha256": "8c0f528a01ce6a1ed349560941f4b4c24f0bbce143a452858a05d7661682e599"
         },
         {
           "path": "tox.ini",
-          "sha256": "71db4b28cebde993b237eca5619b0dc15437ee45dce1c4ed75c9bcaac7f69847"
+          "sha256": "ac357a39b48db71d934b353597a927dceb79725d621c77e27b980dd12a85fb67"
         }
       ],
       "environment_strategy": {
@@ -565,9 +567,9 @@
         "install_ok": true,
         "install_records": [
           {
-            "combined_sha256": "bc65673b94f2c8932f422262f90eec350912caab265590e50dc1bfb6b9b212ac",
+            "combined_sha256": "1fcc89c531ca25d1468ac897dc2fa1979893b81a8283f9d2259135b8430aef84",
             "command": [
-              "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+              "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/venv/bin/python",
               "-m",
               "pip",
               "install",
@@ -644,9 +646,9 @@
       "message": "Support rerunning on subtest errors in pytest 9.0 and newer (#330)",
       "native_command_results": [
         {
-          "combined_sha256": "649f8d918e2e403d7e1e2f319bd2b02d93ec612d8881ce348e95f54351d14074",
+          "combined_sha256": "698d8e02ccf6d7dd818360a144d84455b255912bdd4e28ddbbe4e95b69082b9b",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py",
@@ -657,9 +659,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "f77ef9f5d85c8ca41ef48ebebc5cb5cbf1b9e509a71fd10bb925f2732f4359ff",
+          "combined_sha256": "e35538c1593e5091a9775bdb122d2a18264855e5c47356f472d1b7d60a7c0098",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_error_when_run_with_pdb",
@@ -670,9 +672,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "840190b9c276740effc1e0d349f87b6760ccb19091c5838f8d488c9d1070a9ad",
+          "combined_sha256": "e35538c1593e5091a9775bdb122d2a18264855e5c47356f472d1b7d60a7c0098",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_pass",
@@ -683,9 +685,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "4a12bfd5bfd95f8b955f02ec68899935e9e86d202b38226625d19d08d0fe2cff",
+          "combined_sha256": "6124efbab623547fb551b170f2f7ed697772b525a6efa0c44362545289141195",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skipif_mark",
@@ -696,9 +698,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "840190b9c276740effc1e0d349f87b6760ccb19091c5838f8d488c9d1070a9ad",
+          "combined_sha256": "e35538c1593e5091a9775bdb122d2a18264855e5c47356f472d1b7d60a7c0098",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skip_call",
@@ -709,9 +711,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "118b9e1eccd465a6835a2b5f162b436e19463f4ef3fc3c061182b6683c26b170",
+          "combined_sha256": "1cb026ab950b314897cdefea7937b65ced8a54634934e7190706ec04e670c108",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_mark",
@@ -722,9 +724,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "f0102d8d6e055a96bcd6750e8fd7f3612c040e30be13f0bb796c81f85971ab1b",
+          "combined_sha256": "1cb026ab950b314897cdefea7937b65ced8a54634934e7190706ec04e670c108",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_call",
@@ -735,9 +737,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "97efaaca16608aef01bd617abe2fe8bec57359a837d2a322738421c128edd845",
+          "combined_sha256": "e35538c1593e5091a9775bdb122d2a18264855e5c47356f472d1b7d60a7c0098",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xpass",
@@ -748,9 +750,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "e2b8a421edf32fc5a38a4cee988106859e001287cd77653e8ea86b27f4257d74",
+          "combined_sha256": "995ff136a6032bd87f660081c6abf0e13eeeb87aee0c9f06b34eea65684a4e55",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_setup_failure",
@@ -769,12 +771,12 @@
       "status": "rejected",
       "target_test_path": "tests/test_pytest_rerunfailures.py",
       "target_test_present": true,
-      "target_test_sha256": "c4d64868f98d3040d01a3de06648082b41b45bd2782d226c95b1ba02bf486268",
+      "target_test_sha256": "f5a0ef734ec7a07e8d71625e4afc910ce47759827f6a52fb4af673f01a38948c",
       "v2_35_reason": "metadata_only_no_native_failure_replay_verified",
       "workspace_committed": false,
       "workspace_outside_onedrive": true,
       "workspace_outside_repo": true,
-      "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_f095a517\\checkout"
+      "workspace_path": "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_f095a517/checkout"
     },
     {
       "accepted_as_seed": false,
@@ -782,7 +784,7 @@
       "candidate_class": "native_replay_candidate",
       "candidate_id": "native_pytest_rerunfailures_d17f3be1",
       "collection": {
-        "combined_sha256": "8dcfbd9f7f0de1af7dc314691081d3fcbd2e36c0731af62adacd2b18b67dc306",
+        "combined_sha256": "7e40e8ba1da5cef726198651d6f39c1860f0db1fe66fa9d82ccd25150b9832ae",
         "command_collects_target": true,
         "returncode": 0,
         "timed_out": false
@@ -798,15 +800,15 @@
       "environment_files": [
         {
           "path": "pyproject.toml",
-          "sha256": "2e65aa733e0631cef20f05be9013aaa28710234484b5f9c399293ed8bb6f6f3b"
+          "sha256": "4a731c91b01e2097912a1714750ec599a8e8501f1d8d454c5e6027da15de4ccd"
         },
         {
           "path": "setup.py",
-          "sha256": "cf91eebb256d8255ace2d2bfa42927959f3960a60604c4a09e8bf79f14b3fd8c"
+          "sha256": "d7807f1fb801ed8e040b5241d1807b757b50a41754e89703deae226e1e827df2"
         },
         {
           "path": "tox.ini",
-          "sha256": "71db4b28cebde993b237eca5619b0dc15437ee45dce1c4ed75c9bcaac7f69847"
+          "sha256": "ac357a39b48db71d934b353597a927dceb79725d621c77e27b980dd12a85fb67"
         }
       ],
       "environment_strategy": {
@@ -815,9 +817,9 @@
         "install_ok": true,
         "install_records": [
           {
-            "combined_sha256": "ebcd8ca659fb5ef58853001512edba3e8794343450de90a7d13d3e9aa12578ae",
+            "combined_sha256": "a3d9821f2b6c7f256104c010b55461a5704def0eb9ab9426f3bb97bd79fa8f5c",
             "command": [
-              "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+              "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/venv/bin/python",
               "-m",
               "pip",
               "install",
@@ -894,9 +896,9 @@
       "message": "feat: add --reruns-mode option to sum marker and global reruns (#321) (#328)",
       "native_command_results": [
         {
-          "combined_sha256": "2383b2f991aa2fe6a96cd9d6eea22f997b2157964dfb1b33cdf8391b8d7cbedd",
+          "combined_sha256": "ba50f8afd46e72b2e4246a426d6c7c4e9b3e8e48c75a50872b81bd24f9395d3a",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py",
@@ -907,9 +909,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "3e06e8ab07f40de585553e57ffe664925888ca4905559012840febbedda65a29",
+          "combined_sha256": "e35538c1593e5091a9775bdb122d2a18264855e5c47356f472d1b7d60a7c0098",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_error_when_run_with_pdb",
@@ -920,9 +922,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "5a5d6bfa27065d75de6aa274ac56a22520b2ed093c0b1aae3929e7bfc0c15966",
+          "combined_sha256": "e35538c1593e5091a9775bdb122d2a18264855e5c47356f472d1b7d60a7c0098",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_pass",
@@ -933,9 +935,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "c215b693383ed6b2f7ac728924e2c16258a7c6a0e561af75f2cb4ad6855292b1",
+          "combined_sha256": "6124efbab623547fb551b170f2f7ed697772b525a6efa0c44362545289141195",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skipif_mark",
@@ -946,9 +948,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "fc0bfb217d71456fa8372d082a788ef3d61e56e8b0f36185a08e1eca9fb4abbc",
+          "combined_sha256": "e35538c1593e5091a9775bdb122d2a18264855e5c47356f472d1b7d60a7c0098",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_skip_call",
@@ -959,9 +961,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "e2b8a421edf32fc5a38a4cee988106859e001287cd77653e8ea86b27f4257d74",
+          "combined_sha256": "1cb026ab950b314897cdefea7937b65ced8a54634934e7190706ec04e670c108",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_mark",
@@ -972,9 +974,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "e2b8a421edf32fc5a38a4cee988106859e001287cd77653e8ea86b27f4257d74",
+          "combined_sha256": "995ff136a6032bd87f660081c6abf0e13eeeb87aee0c9f06b34eea65684a4e55",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xfail_call",
@@ -985,9 +987,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "fc0bfb217d71456fa8372d082a788ef3d61e56e8b0f36185a08e1eca9fb4abbc",
+          "combined_sha256": "1cb026ab950b314897cdefea7937b65ced8a54634934e7190706ec04e670c108",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_no_rerun_on_xpass",
@@ -998,9 +1000,9 @@
           "timed_out": false
         },
         {
-          "combined_sha256": "671d4814bf910ca475f97ebb779b0469b5650f658b38ed68bbe55a78fac70e04",
+          "combined_sha256": "995ff136a6032bd87f660081c6abf0e13eeeb87aee0c9f06b34eea65684a4e55",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\venv\\Scripts\\python.exe",
+            "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/venv/bin/python",
             "-m",
             "pytest",
             "tests/test_pytest_rerunfailures.py::test_rerun_fails_after_consistent_setup_failure",
@@ -1019,12 +1021,12 @@
       "status": "rejected",
       "target_test_path": "tests/test_pytest_rerunfailures.py",
       "target_test_present": true,
-      "target_test_sha256": "a7ad539271697d883ecbffc461479bb460fce62111dc1725e4a059553017ab40",
+      "target_test_sha256": "5fdfb09d7d632ca2bb98dff71e9771ebe588e3bd46927a82a3dc59d9c816432f",
       "v2_35_reason": "metadata_only_no_native_failure_replay_verified",
       "workspace_committed": false,
       "workspace_outside_onedrive": true,
       "workspace_outside_repo": true,
-      "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_v2_36_mtrpm8lm\\native_pytest_rerunfailures_d17f3be1\\checkout"
+      "workspace_path": "/tmp/controllergate_v2_36_dnz57cin/native_pytest_rerunfailures_d17f3be1/checkout"
     }
   ],
   "status": "PASS"
