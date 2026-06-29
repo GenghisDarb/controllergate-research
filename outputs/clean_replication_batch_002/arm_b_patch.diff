@@ -1,0 +1,11 @@
+--- a/src/darker/config.py
++++ b/src/darker/config.py
+@@ -110,6 +110,8 @@
+     if stdin_filename is None:
+         return
+     if len(src) == 0:
++        return
++    if len(src) == 1 and src[0] == "-":
+         return
+     raise ConfigurationError(
+         "No Python source files are allowed when using the `stdin-filename` option"

@@ -1,0 +1,20 @@
+{
+  "arm_a_allowed_inputs": [
+    "configs/failure_memory_weight_ledger.json",
+    "prior blocker classes",
+    "prior structural gate statuses",
+    "prior diagnostic success/failure markers",
+    "prior source-region risk markers"
+  ],
+  "arm_a_policy": "memory_enabled_clean_repair",
+  "arm_b_forbidden_inputs": [
+    "failure_memory_weight_ledger.json",
+    "successful patch bytes",
+    "successful patch rationales",
+    "prior repair source edits",
+    "memory-weighted routing records"
+  ],
+  "arm_b_policy": "memory_disabled_matched_null",
+  "failure_memory_markers_passive_blocks_preliminary_memory_separation": true,
+  "status": "PASS"
+}

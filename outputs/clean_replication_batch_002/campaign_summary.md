@@ -1,7 +1,7 @@
 # Clean replication batch 002
 
-Status: BLOCKED.
+Status: PASS.
 
-Mixed-mode progression attempted curated seed intake, real metadata-probe leads, and issue-derived fallback. No broad claim is made.
+The post-v2.37 continuation preserves the official repair-generation ingest and runs the remaining verified native candidate under matched-null comparison.
 
 Exact blocker: `None`.

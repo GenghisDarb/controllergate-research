@@ -1,0 +1,39 @@
+{
+  "allowed_source_files": [
+    "src/darker/config.py",
+    "src/darker/__main__.py"
+  ],
+  "arm_id": "arm_b",
+  "blocker": null,
+  "candidate_id": "darker_stdin_filename",
+  "commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
+  "context_capsule_hash": "c2d40e11d506aa198dabe904e18f44a8a175ceff4d185bf52c9b3203d0f8cd3f",
+  "environment_file_hash": "7ddccfd282863c103c67c8c97b9371318e56c8cc813603339be1f3c0ee48a6fd",
+  "forbidden_evidence_attestation": {
+    "fixed_commits_used": false,
+    "gold_patches_used": false,
+    "issue_solution_comments_used": false,
+    "later_commits_used": false,
+    "pr_patch_contents_used": false
+  },
+  "generated_prompt_context_string_hash": "562780238f6ac947a59eb24d53bc2b513ef34a8cfe37b76ce3cba5db9a6114a5",
+  "memory_policy": "memory_disabled_matched_null",
+  "patch_generation_reads_outside_snapshot": false,
+  "patchable_source_subset_hash": "9e97cb87eab37461598f5e53aa40c8f00557847bfe0e6750b22cc0c243db0caf",
+  "pre_repair_replay_log_hash": "a059facc09c3989dace9ae2d0298313b71eee84aefb87bb01474092cdf85f171",
+  "repo_url": "https://github.com/akaihola/darker",
+  "semantic_failure_signature_hash": "a059facc09c3989dace9ae2d0298313b71eee84aefb87bb01474092cdf85f171",
+  "snapshot_hash": "7136a925237a4db6d5aab1f5b1a3eef54484cf5f237081a1bdab362716ed5b36",
+  "status": "PASS",
+  "structural_repair_routing_map_hash": "b87675f2a2b4c21c31ed2622d6361acfb41351774ba2b227ce80eb274fe79ac8",
+  "target_command": [
+    "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_arm_b_darker_stdin_filename\\arm_b_venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "src/darker/tests/test_main_stdin_filename.py",
+    "-q"
+  ],
+  "target_test_file_hash": "091cb6ca489413387f97f7021acf56dea7edd6bfc6db74eaff68a4aa4b3cacab",
+  "timestamp_utc": "2026-06-29T00:41:52Z",
+  "tool_identifier": "deterministic_structural_source_patch_proposer"
+}

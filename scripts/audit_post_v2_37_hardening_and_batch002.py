@@ -12,7 +12,7 @@ from controllergate.core.artifact_hygiene import audit_artifact_payload
 
 POST_DIR = Path("outputs/post_v2_37_hardening_001")
 BATCH_DIR = Path("outputs/clean_replication_batch_002")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_repair_generation")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_matched_null")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -25,6 +25,9 @@ POST_REQUIRED = [
     "batch002_environment_resolution_gap_diagnosis.json",
     "batch002_environment_resolution_artifact_verification.json",
     "batch002_repair_generation_gap_diagnosis.json",
+    "batch002_repair_generation_artifact_verification.json",
+    "second_external_repair_ingest_summary.json",
+    "repair_episode_registry_update_report.json",
     "artifact_packaging_correction_report.json",
     "artifact_payload_manifest_report.json",
     "readme_status_update_report.json",
@@ -96,6 +99,54 @@ BATCH_REQUIRED = [
     "repair_generator_capability_status.json",
     "matched_null_results.json",
     "memory_lift_evaluation.json",
+    "baseline_registry_snapshot_before_matched_null.json",
+    "proof_chain_lock_for_second_repair.json",
+    "second_repair_claim_boundary.json",
+    "darker_stdin_filename_pre_repair_replay.json",
+    "darker_stdin_filename_semantic_failure_signature.json",
+    "darker_stdin_filename_structural_repair_routing_map.json",
+    "darker_stdin_filename_patchable_source_subset.json",
+    "darker_stdin_filename_pre_generation_context_state_lock.json",
+    "darker_stdin_filename_stage_interface_contract.json",
+    "failure_memory_weighting_policy.json",
+    "failure_memory_status_code_taxonomy.json",
+    "arm_a_active_failure_memory_weighting.json",
+    "arm_a_failure_memory_weight_trace.json",
+    "arm_b_memory_disabled_exclusion_audit.json",
+    "arm_b_memory_exclusion_audit.json",
+    "failure_memory_weight_delta_report.json",
+    "arm_a_pre_generation_context_state_snapshot.json",
+    "arm_b_pre_generation_context_state_snapshot.json",
+    "arm_a_repair_intent_lock.json",
+    "arm_b_repair_intent_lock.json",
+    "matched_null_arm_a_memory_enabled_plan.json",
+    "matched_null_arm_b_memory_disabled_plan.json",
+    "matched_null_arm_a_results.json",
+    "matched_null_arm_b_results.json",
+    "arm_a_patch.diff",
+    "arm_b_patch.diff",
+    "arm_a_patch_sha256.txt",
+    "arm_b_patch_sha256.txt",
+    "arm_a_target_validation.json",
+    "arm_b_target_validation.json",
+    "arm_a_duplicate_replay.json",
+    "arm_b_duplicate_replay.json",
+    "arm_a_post_patch_constraint_revalidation.json",
+    "arm_b_post_patch_constraint_revalidation.json",
+    "arm_a_no_overreach_validation.json",
+    "arm_b_no_overreach_validation.json",
+    "post_patch_constraint_revalidation_darker_stdin_filename.json",
+    "no_overreach_validation_darker_stdin_filename.json",
+    "interlock_invariant_revalidation.json",
+    "homeostasis_risk_state_matched_null.json",
+    "bounded_exploration_budget_matched_null.json",
+    "active_probe_escalation_trace.json",
+    "matched_null_score_inputs.json",
+    "matched_null_score_formula.json",
+    "matched_null_score_audit.json",
+    "matched_null_separation_score_result.json",
+    "memory_lift_claim_evaluation.json",
+    "null_generation_audit.json",
     "native_issue_derived_count_separation.json",
     "claim_boundary.json",
     "SHA256SUMS.txt",
@@ -383,6 +434,145 @@ def audit_repair_generation_records(batch: dict[str, object]) -> list[str]:
     return errors
 
 
+def audit_matched_null_records(batch: dict[str, object]) -> list[str]:
+    errors: list[str] = []
+    official_repair_artifact = read_json(POST_DIR / "batch002_repair_generation_artifact_verification.json")
+    if official_repair_artifact.get("status") != "PASS":
+        errors.append("repair-generation artifact verification not PASS")
+    if official_repair_artifact.get("actual_sha256") != "64e6e0ec76bf05857aa03f1b5cd0608060e9bb114f1f74981608a3a45710d9b5":
+        errors.append("repair-generation artifact SHA mismatch")
+    second_summary = read_json(POST_DIR / "second_external_repair_ingest_summary.json")
+    if second_summary.get("confirmed_external_native_repair_episode") != "darker_non_ascii_drop_changes":
+        errors.append("second external repair ingest summary does not lock darker_non_ascii_drop_changes")
+    registry_report = read_json(POST_DIR / "repair_episode_registry_update_report.json")
+    if registry_report.get("status") != "PASS" or registry_report.get("candidate_id") != "darker_non_ascii_drop_changes":
+        errors.append("second repair registry update report invalid")
+
+    baseline = read_json(BATCH_DIR / "baseline_registry_snapshot_before_matched_null.json")
+    proof = read_json(BATCH_DIR / "proof_chain_lock_for_second_repair.json")
+    second_claim = read_json(BATCH_DIR / "second_repair_claim_boundary.json")
+    if baseline.get("status") != "PASS":
+        errors.append("baseline registry snapshot before matched-null missing PASS")
+    if proof.get("status") != "PASS" or not proof.get("proof_chain_hash"):
+        errors.append("proof-chain lock for second repair invalid")
+    if second_claim.get("status") != "PASS" or second_claim.get("stronger_robustness_claim_allowed") is not False:
+        errors.append("second repair claim boundary invalid")
+
+    pre_replay = read_json(BATCH_DIR / "darker_stdin_filename_pre_repair_replay.json")
+    semantic = read_json(BATCH_DIR / "darker_stdin_filename_semantic_failure_signature.json")
+    routing = read_json(BATCH_DIR / "darker_stdin_filename_structural_repair_routing_map.json")
+    subset = read_json(BATCH_DIR / "darker_stdin_filename_patchable_source_subset.json")
+    lock = read_json(BATCH_DIR / "darker_stdin_filename_pre_generation_context_state_lock.json")
+    stage = read_json(BATCH_DIR / "darker_stdin_filename_stage_interface_contract.json")
+    if pre_replay.get("status") != "PRE_PATCH_FAILURE_OBSERVED":
+        errors.append("darker_stdin_filename pre-repair replay was not reproduced")
+    if semantic.get("status") != "PASS" or not semantic.get("semantic_failure_signature_hash"):
+        errors.append("darker_stdin_filename semantic failure signature missing")
+    if routing.get("repair_routing_decision") != "admit_patchable_subset":
+        errors.append("darker_stdin_filename structural routing did not admit source subset")
+    if subset.get("status") != "PASS" or "src/darker/config.py" not in subset.get("patchable_source_files", []):
+        errors.append("darker_stdin_filename patchable source subset invalid")
+    if not lock.get("pre_generation_context_state_lock_hash"):
+        errors.append("darker_stdin_filename context-state lock missing")
+    if stage.get("status") != "PASS":
+        errors.append("darker_stdin_filename stage interface contract failed")
+
+    taxonomy = read_json(BATCH_DIR / "failure_memory_status_code_taxonomy.json")
+    arm_a_weight = read_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json")
+    arm_b_exclusion = read_json(BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json")
+    delta = read_json(BATCH_DIR / "failure_memory_weight_delta_report.json")
+    if taxonomy.get("status") != "PASS" or not taxonomy.get("codes"):
+        errors.append("failure-memory status-code taxonomy invalid")
+    if arm_a_weight.get("status") != "PASS":
+        errors.append("Arm A active failure-memory weighting missing PASS")
+    if arm_a_weight.get("failure_memory_markers_passive") is True and batch.get("preliminary_single_candidate_memory_separation_evidence") is True:
+        errors.append("passive memory markers produced preliminary memory separation claim")
+    if arm_a_weight.get("failure_memory_markers_passive") is False and not arm_a_weight.get("routing_decisions_affected"):
+        errors.append("Arm A weighting marked active without routing effect")
+    if arm_b_exclusion.get("status") != "PASS":
+        errors.append("Arm B memory exclusion audit failed")
+    for forbidden in ["memory_ledger_opened", "successful_patch_bytes_opened", "successful_patch_rationales_opened", "memory_weighted_routing_applied"]:
+        if arm_b_exclusion.get(forbidden) is not False:
+            errors.append(f"Arm B contamination detected: {forbidden}")
+    if delta.get("status") != "PASS":
+        errors.append("failure-memory weight delta report invalid")
+
+    arm_a = read_json(BATCH_DIR / "matched_null_arm_a_results.json")
+    arm_b = read_json(BATCH_DIR / "matched_null_arm_b_results.json")
+    for arm, name in [(arm_a, "Arm A"), (arm_b, "Arm B")]:
+        if arm.get("candidate_id") != "darker_stdin_filename":
+            errors.append(f"{name} candidate mismatch")
+        if arm.get("repo_url") != "https://github.com/akaihola/darker":
+            errors.append(f"{name} repo mismatch")
+        if arm.get("commit_sha") != "6ecafca023a354fe7d9539d1d20bf10391bdb24a":
+            errors.append(f"{name} commit mismatch")
+        if arm.get("target_test_path") != "src/darker/tests/test_main_stdin_filename.py":
+            errors.append(f"{name} target test mismatch")
+        if arm.get("patch_generated") is not True or arm.get("patch_authorized") is not True:
+            errors.append(f"{name} patch was not generated and authorized")
+        if arm.get("patch_safety", {}).get("status") != "PASS":
+            errors.append(f"{name} patch safety failed")
+        if arm.get("target_validation_status") != "PASS":
+            errors.append(f"{name} target validation failed")
+        if arm.get("duplicate_replay_status") != "PASS":
+            errors.append(f"{name} duplicate replay failed")
+        if arm.get("no_overreach_status") != "PASS":
+            errors.append(f"{name} no-overreach failed")
+    for path_name in [
+        "arm_a_pre_generation_context_state_snapshot.json",
+        "arm_b_pre_generation_context_state_snapshot.json",
+        "arm_a_repair_intent_lock.json",
+        "arm_b_repair_intent_lock.json",
+    ]:
+        data = read_json(BATCH_DIR / path_name)
+        if data.get("status") != "PASS":
+            errors.append(f"{path_name} did not PASS")
+    for path_name in [
+        "arm_a_post_patch_constraint_revalidation.json",
+        "arm_b_post_patch_constraint_revalidation.json",
+        "arm_a_no_overreach_validation.json",
+        "arm_b_no_overreach_validation.json",
+    ]:
+        data = read_json(BATCH_DIR / path_name)
+        if data.get("status") != "PASS":
+            errors.append(f"{path_name} did not PASS")
+    interlock = read_json(BATCH_DIR / "interlock_invariant_revalidation.json")
+    if not isinstance(interlock, list) or not interlock or any(item.get("status") != "PASS" for item in interlock if item):
+        errors.append("interlock invariant revalidation failed")
+    homeostasis = read_json(BATCH_DIR / "homeostasis_risk_state_matched_null.json")
+    budget = read_json(BATCH_DIR / "bounded_exploration_budget_matched_null.json")
+    if homeostasis.get("status") != "PASS":
+        errors.append("matched-null homeostasis risk state failed")
+    if budget.get("status") != "PASS":
+        errors.append("matched-null bounded exploration budget failed")
+    score_inputs = read_json(BATCH_DIR / "matched_null_score_inputs.json")
+    score_formula = read_json(BATCH_DIR / "matched_null_score_formula.json")
+    score_audit = read_json(BATCH_DIR / "matched_null_score_audit.json")
+    score = read_json(BATCH_DIR / "matched_null_separation_score_result.json")
+    if score_inputs.get("status") != "PASS" or score_formula.get("status") != "PASS" or score_audit.get("status") != "PASS":
+        errors.append("matched-null score evidence invalid")
+    if score.get("matched_null_separation_score") != 0.0:
+        errors.append("expected equal-performance matched-null score of 0.0")
+    if score.get("preliminary_single_candidate_memory_separation_evidence") is not False:
+        errors.append("preliminary memory separation overclaimed")
+    memory_claim = read_json(BATCH_DIR / "memory_lift_claim_evaluation.json")
+    if memory_claim.get("full_memory_lift_status") != "undemonstrated":
+        errors.append("full memory lift overclaimed")
+    if memory_claim.get("preliminary_single_candidate_memory_separation_evidence") is not False:
+        errors.append("memory lift claim evaluation overclaimed preliminary evidence")
+    registry = read_json(Path("configs/external_repair_episode_registry.json"))
+    episodes = registry.get("episodes", [])
+    if not any(isinstance(item, dict) and item.get("candidate_id") == "darker_stdin_filename" and item.get("scoreable") is True for item in episodes):
+        errors.append("darker_stdin_filename missing from repair episode registry")
+    if batch.get("full_scoring") != "NOT_RUN/disallowed":
+        errors.append("full scoring boundary changed")
+    if batch.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("self-maintaining software overclaim")
+    if batch.get("issue_derived_repair_successes_count") != 0:
+        errors.append("issue-derived repairs incremented unexpectedly")
+    return errors
+
+
 def public_language_hits() -> list[str]:
     paths = [
         Path("README.md"),
@@ -523,6 +713,9 @@ def main() -> int:
     repair_errors = audit_repair_generation_records(batch)
     if repair_errors:
         return fail(f"repair generation audit failed: {repair_errors}")
+    matched_null_errors = audit_matched_null_records(batch)
+    if matched_null_errors:
+        return fail(f"matched-null audit failed: {matched_null_errors}")
     repair_attempts = read_json(BATCH_DIR / "repair_attempts.json")
     verified_native_count = int(batch.get("native_candidates_verified_count", 0))
     if verified_native_count and (not isinstance(repair_attempts, list) or not repair_attempts):
@@ -560,7 +753,7 @@ def main() -> int:
             return fail(f"batch002 {field} changed unexpectedly")
     if batch.get("full_scoring") != "NOT_RUN/disallowed":
         return fail("full scoring boundary changed")
-    if batch.get("memory_lift") != "undemonstrated":
+    if batch.get("memory_lift") not in {"undemonstrated", "undemonstrated_equal_performance"}:
         return fail("memory lift overclaim")
     if batch.get("self_maintaining_software") != "false/not_demonstrated":
         return fail("self-maintaining software overclaim")

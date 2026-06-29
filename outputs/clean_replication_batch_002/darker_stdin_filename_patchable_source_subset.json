@@ -1,0 +1,53 @@
+{
+  "blocker": null,
+  "candidate_id": "darker_stdin_filename",
+  "patchable_source_files": [
+    "src/darker/config.py",
+    "src/darker/__main__.py"
+  ],
+  "records": [
+    {
+      "file_path": "src/darker/config.py",
+      "function_or_class": [
+        "TomlArrayLinesEncoder",
+        "DarkerConfig",
+        "OutputMode",
+        "ConfigurationError",
+        "replace_log_level_name",
+        "validate_config_output_mode",
+        "validate_stdin_src",
+        "override_color_with_environment",
+        "load_config",
+        "get_effective_config"
+      ],
+      "reason_codes": [
+        "imported_by_target_test",
+        "source_file_patchable",
+        "symbol_overlap:stdin"
+      ],
+      "score": 9
+    },
+    {
+      "file_path": "src/darker/__main__.py",
+      "function_or_class": [
+        "format_edited_parts",
+        "_modify_and_reformat_single_file",
+        "_blacken_and_flynt_single_file",
+        "_maybe_flynt_single_file",
+        "_maybe_blacken_single_file",
+        "_drop_changes_on_unedited_lines",
+        "modify_file",
+        "print_diff",
+        "print_source",
+        "_import_pygments"
+      ],
+      "reason_codes": [
+        "imported_by_target_test",
+        "source_file_patchable"
+      ],
+      "score": 6
+    }
+  ],
+  "status": "PASS",
+  "tests_support_config_workflow_registry_audit_patchable": false
+}

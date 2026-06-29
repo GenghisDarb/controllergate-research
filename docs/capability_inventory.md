@@ -15,12 +15,13 @@
 - Structured environment resolution before collection and replay.
 - Bounded source-only repair generation for verified native clean-replication candidates.
 - Patch safety, target validation, duplicate clean replay, and target-file-bounded no-overreach gates for new native repair successes.
+- Matched-null repair comparison for `darker_stdin_filename` with memory-enabled and memory-disabled arms.
 
 ## Partial
 
-- Candidate acquisition beyond the first two confirmed external native repair episodes.
+- Candidate acquisition beyond the first three confirmed external native repair episodes.
 - Broader source-only repair generation across diverse repositories and failure types.
-- Matched-null comparison evidence.
+- Matched-null memory separation evidence beyond equal-performance outcomes.
 - Public release readiness evidence.
 
 ## Not demonstrated

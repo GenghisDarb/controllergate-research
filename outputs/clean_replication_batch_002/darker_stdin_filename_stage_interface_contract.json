@@ -1,0 +1,51 @@
+{
+  "blocker": null,
+  "candidate_id": "darker_stdin_filename",
+  "generation_stage": {
+    "inputs": [
+      "verified_candidate_record",
+      "structural_repair_routing_map",
+      "patchable_source_subset",
+      "pre_generation_context_state_lock"
+    ],
+    "outputs_expected": [
+      "patch_candidate_or_blocker",
+      "patch_rationale",
+      "patch_safety_record"
+    ],
+    "ready": true
+  },
+  "reconciliation_stage": {
+    "inputs": [
+      "verification_evidence",
+      "generation_evidence",
+      "validation_evidence",
+      "duplicate_replay_evidence"
+    ],
+    "success_claim_requires_all_prior_stages": true
+  },
+  "status": "PASS",
+  "validation_stage": {
+    "duplicate_replay_required": "3/3",
+    "exit_status_zero_required": true,
+    "inputs": [
+      "patch_bytes_if_generated",
+      "target_command",
+      "same_environment_plan",
+      "same_commit_baseline"
+    ]
+  },
+  "verification_stage": {
+    "failure_classification": "PRE_PATCH_FAILURE_OBSERVED",
+    "inputs": [
+      "repo_url",
+      "commit_sha",
+      "target_test_path",
+      "environment_file",
+      "pre_repair_replay_log",
+      "semantic_failure_signature"
+    ],
+    "outputs_complete": true,
+    "semantic_failure_hash": "459ba45c1c09aa48c012d7e2007606b911e4c9949ee7cddad39b40bb520f6539"
+  }
+}
