@@ -1,0 +1,18 @@
+{
+  "artifact_precedence": "verified_artifact_over_handoff_expected_state",
+  "candidate_id": "darker_skip_glob_failing_test",
+  "expected_by_handoff_intended_node": "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+  "issue_derived_path_skipped_because_native_verified": false,
+  "issue_derived_path_status_in_verified_artifact": "attempted_after_native_retry_blocked",
+  "native_candidate_verified": false,
+  "native_source_materialized": true,
+  "next_action": "add intended target-node selection and source-stack extraction, but authorize repair generation only after intended-node pre-repair failure is verified",
+  "patchable_source_subset_empty": true,
+  "patchable_source_subset_status": "NOT_RUN",
+  "repair_failed_because_patchable_source_subset_empty": false,
+  "repair_subset_gap_applicable_under_verified_artifact": false,
+  "status": "PASS",
+  "target_node_failure_observed": false,
+  "verified_artifact_blocker": "issue_derived_harness_generation_failed",
+  "verified_artifact_reason": "environment resolution timed out before collection and replay, so native target-node verification and repair subset derivation were not reached"
+}
