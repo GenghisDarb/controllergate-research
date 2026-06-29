@@ -17,13 +17,14 @@
 - Patch safety, target validation, duplicate clean replay, and target-file-bounded no-overreach gates for new native repair successes.
 - Matched-null repair comparison for `darker_stdin_filename` with memory-enabled and memory-disabled arms.
 - Officially ingested batch003 matched-null ensemble policy, null seed policy, challenge-candidate difficulty-band admission, and failure-memory routing delta records. Batch003 found no verified challenge candidate.
+- Batch004 native-first dual-track challenge acquisition with issue-derived ephemeral reproduction harness fallback kept as a separate evidence class.
 
 ## Partial
 
 - Candidate acquisition beyond the first three confirmed external native repair episodes.
 - Broader source-only repair generation across diverse repositories and failure types.
 - Matched-null ensemble execution on a verified moderate-complexity challenge candidate.
-- Dual-track challenge acquisition with native evidence preferred and issue-derived harnesses separated.
+- Acquisition of a verified native challenge candidate, or a separately classified issue-derived feasibility candidate.
 - Matched-null memory separation evidence beyond equal-performance outcomes.
 - Public release readiness evidence.
 

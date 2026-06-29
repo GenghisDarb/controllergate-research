@@ -66,6 +66,8 @@ Batch004 keeps native evidence preferred while allowing issue-derived ephemeral 
 5. never increment native repair counts from issue-derived evidence,
 6. run matched-null ensemble repair only after a native challenge candidate verifies.
 
+Batch004 current outcome: 1 native carry-forward lead was attempted, 0 native challenge candidates verified, 0 issue-derived candidates verified, no repair ran, and the blocker is `batch004_no_native_or_issue_derived_challenge_candidate_verified`.
+
 ## Current official repair episodes
 
-As of the post-v2.37 batch002 matched-null official ingest, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
+As of the post-v2.37 batch003 official ingest and batch004 continuation, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.

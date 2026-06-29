@@ -1,0 +1,35 @@
+{
+  "channels": {
+    "candidate_starvation_pressure": {
+      "action": "switch_to_next_safe_candidate_source_mode_or_stop",
+      "blocker": "candidate_starvation_threshold_reached",
+      "threshold": 10
+    },
+    "dependency_complexity_pressure": {
+      "action": "reject_or_demote_to_diagnostic",
+      "blocker": "dependency_complexity_overflow",
+      "threshold": 3
+    },
+    "evidence_contamination_pressure": {
+      "action": "hard_block_and_purge_temp_references",
+      "blocker": "evidence_contamination_pressure_exceeded",
+      "threshold": 0
+    },
+    "exploration_budget_pressure": {
+      "action": "graceful_bounded_exit",
+      "blocker": "exploration_budget_exhausted",
+      "threshold": 0
+    },
+    "public_claim_pressure": {
+      "action": "rewrite_or_block_public_claim",
+      "blocker": "public_claim_overreach_detected",
+      "threshold": 0
+    },
+    "version_sprawl_pressure": {
+      "action": "route_through_clean_protocol_or_reusable_workflow",
+      "blocker": "version_sprawl_consolidation_required",
+      "threshold": 0
+    }
+  },
+  "status": "PASS"
+}

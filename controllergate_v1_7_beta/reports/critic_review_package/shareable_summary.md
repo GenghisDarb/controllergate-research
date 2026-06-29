@@ -67,7 +67,8 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 - The no-overreach evidence for `darker_non_ascii_drop_changes` is target-file bounded only; stronger robustness is not claimed.
 - The matched-null official ingest records a successful `darker_stdin_filename` native repair in both arms. Because both arms succeeded equivalently, preliminary memory separation evidence remains false.
 - Batch003 deterministic matched-null ensemble calibration is officially ingested. It attempted 3 challenge candidates, verified 0, did not run the ensemble, and records `clean_replication_batch_003_no_verified_challenge_candidate`.
-- The next objective is dual-track challenge acquisition: native candidates first, issue-derived ephemeral reproduction harnesses only as separate lower-confidence evidence.
+- Batch004 native-first dual-track challenge acquisition keeps issue-derived ephemeral reproduction harnesses as a separate lower-confidence evidence class. It verifies 0 native challenge candidates and 0 issue-derived candidates, so no repair or matched-null ensemble is authorized.
+- The next objective is a verified native challenge candidate, or an explicitly separated issue-derived feasibility candidate if native acquisition remains blocked.
 - BugsInPy remains globally blocked for active use.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `undemonstrated_equal_performance`.
@@ -75,4 +76,4 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 
 ## Safest next step
 
-After the batch003 workflow completes, manually download the memory-challenge artifact and ingest it through the same byte-custody boundary.
+After the batch004 workflow completes, manually download the dual-track challenge artifact and ingest it through the same byte-custody boundary.

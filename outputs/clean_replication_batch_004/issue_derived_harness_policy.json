@@ -1,0 +1,23 @@
+{
+  "allowed_sources": [
+    "original_issue_title_body_or_decision_time_safe_reproduction_text",
+    "selected_source_commit_tree",
+    "project_metadata_from_selected_source_commit",
+    "temporary_files_derived_from_allowed_issue_text_or_source_tree"
+  ],
+  "candidate_class": "issue_derived_reproduction_candidate",
+  "forbidden_sources": [
+    "PR_patch_contents",
+    "later_commit_contents",
+    "fixed_commit_contents",
+    "fixed_diffs",
+    "gold_patches",
+    "future_tests",
+    "maintainer_solution_guidance",
+    "copied_or_backported_tests"
+  ],
+  "generated_harness_hash_required_if_used": true,
+  "increments_native_count": false,
+  "issue_text_hash_required_if_used": true,
+  "status": "PASS"
+}

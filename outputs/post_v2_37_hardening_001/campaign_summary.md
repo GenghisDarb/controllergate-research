@@ -7,3 +7,5 @@ This run preserves neutral transport, risk, budget, context-boundary, environmen
 The matched-null continuation runs the remaining verified native candidate under memory-enabled and memory-disabled arms with bounded claim language.
 
 Batch003 adds a deterministic matched-null ensemble challenge protocol and blocks cleanly because no unrepaired challenge candidate verified under the safe admission gates.
+
+Batch004 adds native-first dual-track challenge acquisition and issue-derived fallback as a separate evidence class; it blocks cleanly because neither track verified a challenge candidate.
