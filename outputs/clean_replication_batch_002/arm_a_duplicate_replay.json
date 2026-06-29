@@ -6,15 +6,15 @@
     {
       "command_record": {
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\repair_duplicate_darker_stdin_filename\\replay_1_venv\\Scripts\\python.exe",
+          "/tmp/controllergate_clean_replication/clean_replication_batch_002/repair_duplicate_darker_stdin_filename/replay_1_venv/bin/python",
           "-m",
           "pytest",
           "src/darker/tests/test_main_stdin_filename.py",
           "-q"
         ],
-        "normalized_output_sha256": "cb7d2311952e17570d8179ab7c17d5d60142836885a535ae80f331db061b3114",
-        "output_sha256": "15bcfb13ab87333cd601e07df73095a66374f3d15c898cb2d6ec5dd30026398e",
-        "output_summary": "STDOUT:\n........................                                                 [100%]\n============================== warnings summary ===============================\n..\\..\\replay_1_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n..\\..\\replay_1_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    and isinstance(item.value, ast.Str)\n\n..\\..\\replay_1_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n..\\..\\replay_1_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead\n    doc = item.value.s\n\n..\\..\\replay_1_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n..\\..\\replay_1_venv\\Lib\\site-packag",
+        "normalized_output_sha256": "3f756b813e06a5d1a405850f2ab6f5adcd62ce8aafe875f8084fc9fbfe50fcf2",
+        "output_sha256": "a1ebff3cb4ea78a47ef00d174e59cad02048ca1cde7102f47243252eea8eedbe",
+        "output_summary": "STDOUT:\n........................                                                 [100%]\n=============================== warnings summary ===============================\n../../replay_1_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233\n  <repair_workspace_root>_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/warnings.html\n============================= slowest 10 durations =============================\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src2-src2-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src8-src8-None-..:WORKTREE:-0-modified = \"a.py worktree\"",
         "returncode": 0
       },
       "duplicate_replay_index": 1,
@@ -23,15 +23,15 @@
     {
       "command_record": {
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\repair_duplicate_darker_stdin_filename\\replay_2_venv\\Scripts\\python.exe",
+          "/tmp/controllergate_clean_replication/clean_replication_batch_002/repair_duplicate_darker_stdin_filename/replay_2_venv/bin/python",
           "-m",
           "pytest",
           "src/darker/tests/test_main_stdin_filename.py",
           "-q"
         ],
-        "normalized_output_sha256": "9cd1a3fd4ad6d6fc9b202849e072f5a53ffd2cbd1ff5c7f232ccab79239320f5",
-        "output_sha256": "42a1135545ca35d8667ecedbc0564a798d0aa8b0c4a9851ac7cd9f90ff3ee3ef",
-        "output_summary": "STDOUT:\n........................                                                 [100%]\n============================== warnings summary ===============================\n..\\..\\replay_2_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n..\\..\\replay_2_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    and isinstance(item.value, ast.Str)\n\n..\\..\\replay_2_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n..\\..\\replay_2_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead\n    doc = item.value.s\n\n..\\..\\replay_2_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n..\\..\\replay_2_venv\\Lib\\site-packag",
+        "normalized_output_sha256": "f45635569ccb8a9527ce13f4872ee59103289d553750439191b4fdf70afe9b17",
+        "output_sha256": "f9c3a7fee07312487f392e9967b0f9126cd4e4dd6f6f2abec291cb209a0135af",
+        "output_summary": "STDOUT:\n........................                                                 [100%]\n=============================== warnings summary ===============================\n../../replay_2_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233\n  <repair_workspace_root>_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/warnings.html\n============================= slowest 10 durations =============================\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src8-src8-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src2-src2-None-None-0-modified = \"a.py worktree\"",
         "returncode": 0
       },
       "duplicate_replay_index": 2,
@@ -40,15 +40,15 @@
     {
       "command_record": {
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\repair_duplicate_darker_stdin_filename\\replay_3_venv\\Scripts\\python.exe",
+          "/tmp/controllergate_clean_replication/clean_replication_batch_002/repair_duplicate_darker_stdin_filename/replay_3_venv/bin/python",
           "-m",
           "pytest",
           "src/darker/tests/test_main_stdin_filename.py",
           "-q"
         ],
-        "normalized_output_sha256": "4d62a52b60cfee944750b1a9928f271e894d58a34772f8660c0c7729dd26ed0a",
-        "output_sha256": "88052469f37c9bbe68acb84fd39bca8192d7ac6e8e796573d986011fe411ab98",
-        "output_summary": "STDOUT:\n........................                                                 [100%]\n============================== warnings summary ===============================\n..\\..\\replay_3_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n..\\..\\replay_3_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    and isinstance(item.value, ast.Str)\n\n..\\..\\replay_3_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n..\\..\\replay_3_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead\n    doc = item.value.s\n\n..\\..\\replay_3_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n..\\..\\replay_3_venv\\Lib\\site-packag",
+        "normalized_output_sha256": "5a27732170269bb8fd24b51523cad2d8e7a762d6a180c6ccffae690b4dbca7a0",
+        "output_sha256": "11eca0483f070c0455ca354cf88e4bcbd21bf3f945e8cdcedad68669788fe5a7",
+        "output_summary": "STDOUT:\n........................                                                 [100%]\n=============================== warnings summary ===============================\n../../replay_3_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233\n  <repair_workspace_root>_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/warnings.html\n============================= slowest 10 durations =============================\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[None-src11-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src8-src8-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.",
         "returncode": 0
       },
       "duplicate_replay_index": 3,

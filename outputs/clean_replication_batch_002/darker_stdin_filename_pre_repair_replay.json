@@ -2,23 +2,23 @@
   "candidate_id": "darker_stdin_filename",
   "command_record": {
     "command": [
-      "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_shared_darker_stdin_filename\\shared_venv\\Scripts\\python.exe",
+      "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_shared_darker_stdin_filename/shared_venv/bin/python",
       "-m",
       "pytest",
       "src/darker/tests/test_main_stdin_filename.py",
       "-q"
     ],
-    "normalized_output_sha256": "459ba45c1c09aa48c012d7e2007606b911e4c9949ee7cddad39b40bb520f6539",
-    "output_sha256": "233754d0d02e848447b87fb38d71a6d0aa0463c64cd09ca281b6e8ebc18bba86",
-    "output_summary": "STDOUT:\n...................FF...                                                 [100%]\n================================== FAILURES ===================================\n____ test_main_stdin_filename[None-src19-a.py-None-0-modified = \"stdin\"\\n] ____\n\ngit_repo = <darker.tests.conftest.GitRepoFixture object at 0x000001A1B65EE530>\nconfig_src = None, src = ['-'], stdin_filename = 'a.py', revision = None\nexpect = 0, expect_a_py = 'modified = \"stdin\"\\n'\n\n    @pytest.mark.kwparametrize(\n        dict(expect=SystemExit(2)),\n        dict(config_src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(config_src=[\"b.py\"], src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(\n            config_src=[\"b.py\"],\n            stdin_filename=[\"a.py\"],\n            expect=ConfigurationError(\n                \"No Python source files are allowed when using the `stdin-filename` option\"\n            ),\n        ),\n        dict(config_src=[\"a.py\"], revision=\"..:STDIN:\", expect_a_py='modified = \"stdin\"\\n'),\n        dict(\n            config_src=[\"a.py\"],\n            revision=\"..:WORKTREE:\",\n            expect_a_py='modified = \"a.py worktree\"\\n',\n        ),\n        dict(\n          ",
+    "normalized_output_sha256": "a6e1c7c34879009213039efde1b00b3fa8d0fff9ff44b857427e3246423ec50d",
+    "output_sha256": "a2bbc643edaafeb79b88372a7aa419bd39c5319448d30bc86541522838056d04",
+    "output_summary": "STDOUT:\n...................FF...                                                 [100%]\n=================================== FAILURES ===================================\n____ test_main_stdin_filename[None-src19-a.py-None-0-modified = \"stdin\"\\n] _____\n\ngit_repo = <darker.tests.conftest.GitRepoFixture object at 0x7fc7dc4a9180>\nconfig_src = None, src = ['-'], stdin_filename = 'a.py', revision = None\nexpect = 0, expect_a_py = 'modified = \"stdin\"\\n'\n\n    @pytest.mark.kwparametrize(\n        dict(expect=SystemExit(2)),\n        dict(config_src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(config_src=[\"b.py\"], src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(\n            config_src=[\"b.py\"],\n            stdin_filename=[\"a.py\"],\n            expect=ConfigurationError(\n                \"No Python source files are allowed when using the `stdin-filename` option\"\n            ),\n        ),\n        dict(config_src=[\"a.py\"], revision=\"..:STDIN:\", expect_a_py='modified = \"stdin\"\\n'),\n        dict(\n            config_src=[\"a.py\"],\n            revision=\"..:WORKTREE:\",\n            expect_a_py='modified = \"a.py worktree\"\\n',\n        ),\n        dict(\n            ",
     "returncode": 1
   },
   "matches_prior_semantic_failure_signature": false,
   "returncode": 1,
-  "semantic_failure_signature_hash": "459ba45c1c09aa48c012d7e2007606b911e4c9949ee7cddad39b40bb520f6539",
+  "semantic_failure_signature_hash": "a6e1c7c34879009213039efde1b00b3fa8d0fff9ff44b857427e3246423ec50d",
   "status": "PRE_PATCH_FAILURE_OBSERVED",
   "target_command": [
-    "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_shared_darker_stdin_filename\\shared_venv\\Scripts\\python.exe",
+    "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_shared_darker_stdin_filename/shared_venv/bin/python",
     "-m",
     "pytest",
     "src/darker/tests/test_main_stdin_filename.py",

@@ -42,4 +42,4 @@ Issue-derived evidence remains separate and never increments native repair count
 
 ## Current official repair episodes
 
-As of the post-v2.37 batch002 matched-null continuation, the recorded external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, full memory lift remains `undemonstrated`, and self-maintaining software remains `false/not_demonstrated`.
+As of the post-v2.37 batch002 matched-null official ingest, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.

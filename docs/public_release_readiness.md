@@ -16,7 +16,7 @@ ControllerGate is currently suitable as a pre-alpha research archive. It is not 
 ## Blocking gaps
 
 - No accepted prospective matched-null memory separation evidence.
-- Full memory lift remains undemonstrated.
+- Memory lift remains `undemonstrated_equal_performance`; full memory lift is not claimed.
 - No full scoring authorization or result.
 - No self-maintaining software evidence.
 

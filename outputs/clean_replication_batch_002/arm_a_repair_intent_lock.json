@@ -4,13 +4,13 @@
   "candidate_id": "darker_stdin_filename",
   "expected_validation_rule": "target command exits 0 and duplicate clean replay passes 3/3",
   "intended_failure_to_repair": "stdin filename with '-' source rejected before stdin processing",
-  "intended_semantic_failure_signature": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
+  "intended_semantic_failure_signature": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
   "intended_source_scope": [
     "src/darker/config.py",
     "src/darker/__main__.py"
   ],
   "intended_target_command": [
-    "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_arm_a_darker_stdin_filename\\arm_a_venv\\Scripts\\python.exe",
+    "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_arm_a_darker_stdin_filename/arm_a_venv/bin/python",
     "-m",
     "pytest",
     "src/darker/tests/test_main_stdin_filename.py",
@@ -19,6 +19,6 @@
   "no_future_evidence_attestation": true,
   "no_test_modification_attestation": true,
   "patch_rationale_must_align": true,
-  "repair_intent_lock_hash": "a1d8e27fe429a081a38f188595222b6c922562747c569d95501cd22567d05499",
+  "repair_intent_lock_hash": "7b510c6da5cbc52c2a5beae42f4920897e76ca2b88eb47f3a0c2dbedd4fa4e4a",
   "status": "PASS"
 }

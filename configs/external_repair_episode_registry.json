@@ -150,9 +150,9 @@
       "workflow_run_id": 28338680799
     },
     {
-      "artifact_id": "pending_successful_workflow_artifact",
+      "artifact_id": 7940486640,
       "artifact_name": "post_v2_37_hardening_batch002_matched_null_artifacts",
-      "artifact_sha256": "pending_manual_artifact_ingest",
+      "artifact_sha256": "8124be2c04533b0b22e5136c683bfdf2f457c961baefff8f19c55860df61532d",
       "bounded_target_repair_signal": true,
       "buggy_commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
       "candidate_id": "darker_stdin_filename",
@@ -179,6 +179,8 @@
         "claim": "outputs/clean_replication_batch_002/claim_boundary.json",
         "duplicate": "outputs/clean_replication_batch_002/arm_a_duplicate_replay.json",
         "matched_null": "outputs/clean_replication_batch_002/matched_null_separation_score_result.json",
+        "official": "outputs/post_v2_37_hardening_001/matched_null_artifact_verification.json",
+        "official_ingest_summary": "outputs/post_v2_37_hardening_001/third_external_repair_ingest_summary.json",
         "patch_safety": "outputs/clean_replication_batch_002/arm_a_target_validation.json"
       },
       "full_scoring": "NOT_RUN/disallowed",
@@ -205,10 +207,10 @@
       "target_validation_exit_status": 0,
       "target_validation_status": "PASS",
       "test_command": "python -m pytest src/darker/tests/test_main_stdin_filename.py -q",
-      "workflow_run_id": "pending_dispatch"
+      "workflow_run_id": 28342086539
     }
   ],
   "registry_type": "external_repair_episode_registry",
   "schema_version": "v2.31",
-  "updated_utc": "post_v2_37_batch002_matched_null"
+  "updated_utc": "2026-06-29T01:55:34Z"
 }

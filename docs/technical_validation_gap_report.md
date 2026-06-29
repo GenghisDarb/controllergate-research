@@ -4,7 +4,7 @@ ControllerGate has made meaningful progress as a research harness, but the evide
 
 ## Confirmed progress
 
-- Three external non-Ansible native repair episodes are recorded after the post-v2.37 matched-null continuation: `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`.
+- Three external non-Ansible native repair episodes are confirmed after official ingest: `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`.
 - Artifact custody, registry validation, and claim-boundary checks are active.
 - Clean replication batch002 uses explicit real leads instead of placeholders.
 - Environment resolution is attempted before collection and failure replay.

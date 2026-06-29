@@ -37,28 +37,28 @@
     ],
     "candidate_id": "darker_stdin_filename",
     "commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
-    "context_capsule_hash": "c5ef5e3a7e7b63c497f7e5849677446c42ee006e11cbe9323d5e9132bd7a05b1",
+    "context_capsule_hash": "e5a99b1a9401d71124d780ec60c814987a9c667a976c9f2d13c75c715dfc9dd4",
     "environment_files": [
       {
         "path": "pyproject.toml",
-        "sha256": "7ddccfd282863c103c67c8c97b9371318e56c8cc813603339be1f3c0ee48a6fd"
+        "sha256": "4e587b34cb739f4991cad5a0787027348e25df0a15225e1598c7aaa74ada390b"
       },
       {
         "path": "setup.py",
-        "sha256": "743c3e9fb9bfe9bbc5635ec9409d5881288c68c121e4f1cc0d5fbffa76f0b5c0"
+        "sha256": "fd6a2e196c8cdfa20ff97c6e449554cfc0785b109b4301edbddc5b53a59dcfc0"
       },
       {
         "path": "setup.cfg",
-        "sha256": "44266b30161b50ed2802f7d5c11fd703330e06704544240cdd20a764928027d9"
+        "sha256": "bcaaa37e9bc6fac24804e4e754b83bfd89b597d8563698eb6fbe84b51e55afd5"
       }
     ],
-    "failure_log_excerpt": "STDOUT:\n...................FF...                                                 [100%]\n================================== FAILURES ===================================\n____ test_main_stdin_filename[None-src19-a.py-None-0-modified = \"stdin\"\\n] ____\n\ngit_repo = <darker.tests.conftest.GitRepoFixture object at 0x000001390A1DA530>\nconfig_src = None, src = ['-'], stdin_filename = 'a.py', revision = None\nexpect = 0, expect_a_py = 'modified = \"stdin\"\\n'\n\n    @pytest.mark.kwparametrize(\n        dict(expect=SystemExit(2)),\n        dict(config_src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(config_src=[\"b.py\"], src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(\n            config_src=[\"b.py\"],\n            stdin_filename=[\"a.py\"],\n            expect=ConfigurationError(\n                \"No Python source files are allowed when using the `stdin-filename` option\"\n            ),\n        ),\n        dict(config_src=[\"a.py\"], revision=\"..:STDIN:\", expect_a_py='modified = \"stdin\"\\n'),\n        dict(\n            config_src=[\"a.py\"],\n            revision=\"..:WORKTREE:\",\n            expect_a_py='modified = \"a.py worktree\"\\n',\n        ),\n        dict(\n          ",
-    "failure_log_hash": "f71ede02635878f97dcad557a070106d63120facca34b46232c82b0ea33340a9",
+    "failure_log_excerpt": "STDOUT:\n...................FF...                                                 [100%]\n=================================== FAILURES ===================================\n____ test_main_stdin_filename[None-src19-a.py-None-0-modified = \"stdin\"\\n] _____\n\ngit_repo = <darker.tests.conftest.GitRepoFixture object at 0x7f9e62eeafe0>\nconfig_src = None, src = ['-'], stdin_filename = 'a.py', revision = None\nexpect = 0, expect_a_py = 'modified = \"stdin\"\\n'\n\n    @pytest.mark.kwparametrize(\n        dict(expect=SystemExit(2)),\n        dict(config_src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(config_src=[\"b.py\"], src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(\n            config_src=[\"b.py\"],\n            stdin_filename=[\"a.py\"],\n            expect=ConfigurationError(\n                \"No Python source files are allowed when using the `stdin-filename` option\"\n            ),\n        ),\n        dict(config_src=[\"a.py\"], revision=\"..:STDIN:\", expect_a_py='modified = \"stdin\"\\n'),\n        dict(\n            config_src=[\"a.py\"],\n            revision=\"..:WORKTREE:\",\n            expect_a_py='modified = \"a.py worktree\"\\n',\n        ),\n        dict(\n            ",
+    "failure_log_hash": "19d7420277a6991ac3cd15f38a58e6ef110ae6c8a9b57465d691fc2d5dc2673c",
     "forbidden_evidence_used": false,
     "patchable_source_subset_hash": "9e97cb87eab37461598f5e53aa40c8f00557847bfe0e6750b22cc0c243db0caf",
-    "pre_repair_replay_hash": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
+    "pre_repair_replay_hash": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
     "repo_url": "https://github.com/akaihola/darker",
-    "semantic_failure_signature_hash": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
+    "semantic_failure_signature_hash": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
     "source_records": [
       {
         "ast_symbols": [
@@ -664,9 +664,9 @@
         ]
       }
     ],
-    "structural_repair_routing_hash": "b87675f2a2b4c21c31ed2622d6361acfb41351774ba2b227ce80eb274fe79ac8",
+    "structural_repair_routing_hash": "434e2f7487500bf2f93c62effb3cdb76e5e121b2c2d4d36437e53fa4a5e05145",
     "target_command": [
-      "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_arm_a_darker_stdin_filename\\arm_a_venv\\Scripts\\python.exe",
+      "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_arm_a_darker_stdin_filename/arm_a_venv/bin/python",
       "-m",
       "pytest",
       "src/darker/tests/test_main_stdin_filename.py",
@@ -846,7 +846,7 @@
       171
     ],
     "target_test_path": "src/darker/tests/test_main_stdin_filename.py",
-    "target_test_sha256": "091cb6ca489413387f97f7021acf56dea7edd6bfc6db74eaff68a4aa4b3cacab"
+    "target_test_sha256": "78024c0f75c5bcbbf3da39b9c96cc1a4ce4cca6926a9f20c4edf4156ba3decd9"
   },
   "duplicate_replay": {
     "candidate_id": "darker_stdin_filename",
@@ -856,15 +856,15 @@
       {
         "command_record": {
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\repair_duplicate_darker_stdin_filename\\replay_1_venv\\Scripts\\python.exe",
+            "/tmp/controllergate_clean_replication/clean_replication_batch_002/repair_duplicate_darker_stdin_filename/replay_1_venv/bin/python",
             "-m",
             "pytest",
             "src/darker/tests/test_main_stdin_filename.py",
             "-q"
           ],
-          "normalized_output_sha256": "cb7d2311952e17570d8179ab7c17d5d60142836885a535ae80f331db061b3114",
-          "output_sha256": "15bcfb13ab87333cd601e07df73095a66374f3d15c898cb2d6ec5dd30026398e",
-          "output_summary": "STDOUT:\n........................                                                 [100%]\n============================== warnings summary ===============================\n..\\..\\replay_1_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n..\\..\\replay_1_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    and isinstance(item.value, ast.Str)\n\n..\\..\\replay_1_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n..\\..\\replay_1_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead\n    doc = item.value.s\n\n..\\..\\replay_1_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n..\\..\\replay_1_venv\\Lib\\site-packag",
+          "normalized_output_sha256": "3f756b813e06a5d1a405850f2ab6f5adcd62ce8aafe875f8084fc9fbfe50fcf2",
+          "output_sha256": "a1ebff3cb4ea78a47ef00d174e59cad02048ca1cde7102f47243252eea8eedbe",
+          "output_summary": "STDOUT:\n........................                                                 [100%]\n=============================== warnings summary ===============================\n../../replay_1_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233\n  <repair_workspace_root>_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/warnings.html\n============================= slowest 10 durations =============================\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src2-src2-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src8-src8-None-..:WORKTREE:-0-modified = \"a.py worktree\"",
           "returncode": 0
         },
         "duplicate_replay_index": 1,
@@ -873,15 +873,15 @@
       {
         "command_record": {
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\repair_duplicate_darker_stdin_filename\\replay_2_venv\\Scripts\\python.exe",
+            "/tmp/controllergate_clean_replication/clean_replication_batch_002/repair_duplicate_darker_stdin_filename/replay_2_venv/bin/python",
             "-m",
             "pytest",
             "src/darker/tests/test_main_stdin_filename.py",
             "-q"
           ],
-          "normalized_output_sha256": "9cd1a3fd4ad6d6fc9b202849e072f5a53ffd2cbd1ff5c7f232ccab79239320f5",
-          "output_sha256": "42a1135545ca35d8667ecedbc0564a798d0aa8b0c4a9851ac7cd9f90ff3ee3ef",
-          "output_summary": "STDOUT:\n........................                                                 [100%]\n============================== warnings summary ===============================\n..\\..\\replay_2_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n..\\..\\replay_2_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    and isinstance(item.value, ast.Str)\n\n..\\..\\replay_2_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n..\\..\\replay_2_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead\n    doc = item.value.s\n\n..\\..\\replay_2_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n..\\..\\replay_2_venv\\Lib\\site-packag",
+          "normalized_output_sha256": "f45635569ccb8a9527ce13f4872ee59103289d553750439191b4fdf70afe9b17",
+          "output_sha256": "f9c3a7fee07312487f392e9967b0f9126cd4e4dd6f6f2abec291cb209a0135af",
+          "output_summary": "STDOUT:\n........................                                                 [100%]\n=============================== warnings summary ===============================\n../../replay_2_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233\n  <repair_workspace_root>_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/warnings.html\n============================= slowest 10 durations =============================\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src8-src8-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src2-src2-None-None-0-modified = \"a.py worktree\"",
           "returncode": 0
         },
         "duplicate_replay_index": 2,
@@ -890,15 +890,15 @@
       {
         "command_record": {
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\repair_duplicate_darker_stdin_filename\\replay_3_venv\\Scripts\\python.exe",
+            "/tmp/controllergate_clean_replication/clean_replication_batch_002/repair_duplicate_darker_stdin_filename/replay_3_venv/bin/python",
             "-m",
             "pytest",
             "src/darker/tests/test_main_stdin_filename.py",
             "-q"
           ],
-          "normalized_output_sha256": "4d62a52b60cfee944750b1a9928f271e894d58a34772f8660c0c7729dd26ed0a",
-          "output_sha256": "88052469f37c9bbe68acb84fd39bca8192d7ac6e8e796573d986011fe411ab98",
-          "output_summary": "STDOUT:\n........................                                                 [100%]\n============================== warnings summary ===============================\n..\\..\\replay_3_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n..\\..\\replay_3_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:689: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    and isinstance(item.value, ast.Str)\n\n..\\..\\replay_3_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n..\\..\\replay_3_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:691: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead\n    doc = item.value.s\n\n..\\..\\replay_3_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233\n  <repair_workspace_root>_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n..\\..\\replay_3_venv\\Lib\\site-packag",
+          "normalized_output_sha256": "5a27732170269bb8fd24b51523cad2d8e7a762d6a180c6ccffae690b4dbca7a0",
+          "output_sha256": "11eca0483f070c0455ca354cf88e4bcbd21bf3f945e8cdcedad68669788fe5a7",
+          "output_summary": "STDOUT:\n........................                                                 [100%]\n=============================== warnings summary ===============================\n../../replay_3_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233\n  <repair_workspace_root>_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/warnings.html\n============================= slowest 10 durations =============================\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[None-src11-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src8-src8-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.",
           "returncode": 0
         },
         "duplicate_replay_index": 3,
@@ -919,7 +919,7 @@
       "src/darker/config.py"
     ],
     "invariant_hash_after_patch": "bc38284b62435259957510757d9704d7ba41d45fc9aa16a6f53be31dd1baabd3",
-    "invariant_hash_before_patch": "72cb9f07f685f8d651ecb52396d9e638668b1d0f0f419087d408c92e6ca89593",
+    "invariant_hash_before_patch": "33e8c9c0e1c4735f0b585104499e416b443db00e3f96514a95f1eb71b6a5186a",
     "modified_source_files": [
       "src/darker/config.py"
     ],
@@ -942,8 +942,8 @@
     ],
     "candidate_id": "darker_stdin_filename",
     "commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
-    "context_capsule_hash": "c5ef5e3a7e7b63c497f7e5849677446c42ee006e11cbe9323d5e9132bd7a05b1",
-    "environment_file_sha256": "7ddccfd282863c103c67c8c97b9371318e56c8cc813603339be1f3c0ee48a6fd",
+    "context_capsule_hash": "e5a99b1a9401d71124d780ec60c814987a9c667a976c9f2d13c75c715dfc9dd4",
+    "environment_file_sha256": "4e587b34cb739f4991cad5a0787027348e25df0a15225e1598c7aaa74ada390b",
     "forbidden_evidence_attestation": {
       "fixed_commits_used": false,
       "gold_patches_used": false,
@@ -951,22 +951,22 @@
       "later_commits_used": false,
       "pr_patch_contents_used": false
     },
-    "generated_at_utc": "2026-06-29T00:34:15Z",
+    "generated_at_utc": "2026-06-29T00:58:54Z",
     "patchable_source_subset_hash": "9e97cb87eab37461598f5e53aa40c8f00557847bfe0e6750b22cc0c243db0caf",
-    "pre_generation_context_state_lock_hash": "fa082cfcdb3cfbc07345dfeab0458d6a3ff3bbf3b52ee78d5d59052dac69abcf",
-    "pre_repair_replay_hash": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
+    "pre_generation_context_state_lock_hash": "3d51ffe70a483ed265593af7982c2eea4eb6dde1ed8492d496847570fbba5345",
+    "pre_repair_replay_hash": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
     "repo_url": "https://github.com/akaihola/darker",
-    "semantic_failure_signature_hash": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
-    "structural_repair_routing_map_hash": "b87675f2a2b4c21c31ed2622d6361acfb41351774ba2b227ce80eb274fe79ac8",
+    "semantic_failure_signature_hash": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
+    "structural_repair_routing_map_hash": "434e2f7487500bf2f93c62effb3cdb76e5e121b2c2d4d36437e53fa4a5e05145",
     "target_command": [
-      "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_arm_a_darker_stdin_filename\\arm_a_venv\\Scripts\\python.exe",
+      "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_arm_a_darker_stdin_filename/arm_a_venv/bin/python",
       "-m",
       "pytest",
       "src/darker/tests/test_main_stdin_filename.py",
       "-q"
     ],
     "target_test_path": "src/darker/tests/test_main_stdin_filename.py",
-    "target_test_sha256": "091cb6ca489413387f97f7021acf56dea7edd6bfc6db74eaff68a4aa4b3cacab"
+    "target_test_sha256": "78024c0f75c5bcbbf3da39b9c96cc1a4ce4cca6926a9f20c4edf4156ba3decd9"
   },
   "no_overreach_status": "PASS",
   "no_overreach_validation": {
@@ -1329,10 +1329,10 @@
     "forbidden_evidence_used": false,
     "forbidden_paths": [],
     "patch_modifies_only_allowed_source_files": true,
-    "semantic_failure_signature_hash": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
+    "semantic_failure_signature_hash": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
     "status": "PASS",
     "target_command": [
-      "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_arm_a_darker_stdin_filename\\arm_a_venv\\Scripts\\python.exe",
+      "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_arm_a_darker_stdin_filename/arm_a_venv/bin/python",
       "-m",
       "pytest",
       "src/darker/tests/test_main_stdin_filename.py",
@@ -1379,23 +1379,23 @@
     "candidate_id": "darker_stdin_filename",
     "command_record": {
       "command": [
-        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_arm_a_darker_stdin_filename\\arm_a_venv\\Scripts\\python.exe",
+        "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_arm_a_darker_stdin_filename/arm_a_venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_stdin_filename.py",
         "-q"
       ],
-      "normalized_output_sha256": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
-      "output_sha256": "f71ede02635878f97dcad557a070106d63120facca34b46232c82b0ea33340a9",
-      "output_summary": "STDOUT:\n...................FF...                                                 [100%]\n================================== FAILURES ===================================\n____ test_main_stdin_filename[None-src19-a.py-None-0-modified = \"stdin\"\\n] ____\n\ngit_repo = <darker.tests.conftest.GitRepoFixture object at 0x000001390A1DA530>\nconfig_src = None, src = ['-'], stdin_filename = 'a.py', revision = None\nexpect = 0, expect_a_py = 'modified = \"stdin\"\\n'\n\n    @pytest.mark.kwparametrize(\n        dict(expect=SystemExit(2)),\n        dict(config_src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(config_src=[\"b.py\"], src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(\n            config_src=[\"b.py\"],\n            stdin_filename=[\"a.py\"],\n            expect=ConfigurationError(\n                \"No Python source files are allowed when using the `stdin-filename` option\"\n            ),\n        ),\n        dict(config_src=[\"a.py\"], revision=\"..:STDIN:\", expect_a_py='modified = \"stdin\"\\n'),\n        dict(\n            config_src=[\"a.py\"],\n            revision=\"..:WORKTREE:\",\n            expect_a_py='modified = \"a.py worktree\"\\n',\n        ),\n        dict(\n          ",
+      "normalized_output_sha256": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
+      "output_sha256": "19d7420277a6991ac3cd15f38a58e6ef110ae6c8a9b57465d691fc2d5dc2673c",
+      "output_summary": "STDOUT:\n...................FF...                                                 [100%]\n=================================== FAILURES ===================================\n____ test_main_stdin_filename[None-src19-a.py-None-0-modified = \"stdin\"\\n] _____\n\ngit_repo = <darker.tests.conftest.GitRepoFixture object at 0x7f9e62eeafe0>\nconfig_src = None, src = ['-'], stdin_filename = 'a.py', revision = None\nexpect = 0, expect_a_py = 'modified = \"stdin\"\\n'\n\n    @pytest.mark.kwparametrize(\n        dict(expect=SystemExit(2)),\n        dict(config_src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(config_src=[\"b.py\"], src=[\"a.py\"], expect_a_py='modified = \"a.py worktree\"\\n'),\n        dict(\n            config_src=[\"b.py\"],\n            stdin_filename=[\"a.py\"],\n            expect=ConfigurationError(\n                \"No Python source files are allowed when using the `stdin-filename` option\"\n            ),\n        ),\n        dict(config_src=[\"a.py\"], revision=\"..:STDIN:\", expect_a_py='modified = \"stdin\"\\n'),\n        dict(\n            config_src=[\"a.py\"],\n            revision=\"..:WORKTREE:\",\n            expect_a_py='modified = \"a.py worktree\"\\n',\n        ),\n        dict(\n            ",
       "returncode": 1
     },
     "matches_prior_semantic_failure_signature": false,
     "returncode": 1,
-    "semantic_failure_signature_hash": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
+    "semantic_failure_signature_hash": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
     "status": "PRE_PATCH_FAILURE_OBSERVED",
     "target_command": [
-      "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_arm_a_darker_stdin_filename\\arm_a_venv\\Scripts\\python.exe",
+      "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_arm_a_darker_stdin_filename/arm_a_venv/bin/python",
       "-m",
       "pytest",
       "src/darker/tests/test_main_stdin_filename.py",
@@ -1408,13 +1408,13 @@
     "candidate_id": "darker_stdin_filename",
     "expected_validation_rule": "target command exits 0 and duplicate clean replay passes 3/3",
     "intended_failure_to_repair": "stdin filename with '-' source rejected before stdin processing",
-    "intended_semantic_failure_signature": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
+    "intended_semantic_failure_signature": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
     "intended_source_scope": [
       "src/darker/config.py",
       "src/darker/__main__.py"
     ],
     "intended_target_command": [
-      "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_arm_a_darker_stdin_filename\\arm_a_venv\\Scripts\\python.exe",
+      "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_arm_a_darker_stdin_filename/arm_a_venv/bin/python",
       "-m",
       "pytest",
       "src/darker/tests/test_main_stdin_filename.py",
@@ -1423,7 +1423,7 @@
     "no_future_evidence_attestation": true,
     "no_test_modification_attestation": true,
     "patch_rationale_must_align": true,
-    "repair_intent_lock_hash": "a1d8e27fe429a081a38f188595222b6c922562747c569d95501cd22567d05499",
+    "repair_intent_lock_hash": "7b510c6da5cbc52c2a5beae42f4920897e76ca2b88eb47f3a0c2dbedd4fa4e4a",
     "status": "PASS"
   },
   "repo_url": "https://github.com/akaihola/darker",
@@ -1436,8 +1436,8 @@
     "blocker": null,
     "candidate_id": "darker_stdin_filename",
     "commit_sha": "6ecafca023a354fe7d9539d1d20bf10391bdb24a",
-    "context_capsule_hash": "c5ef5e3a7e7b63c497f7e5849677446c42ee006e11cbe9323d5e9132bd7a05b1",
-    "environment_file_hash": "7ddccfd282863c103c67c8c97b9371318e56c8cc813603339be1f3c0ee48a6fd",
+    "context_capsule_hash": "e5a99b1a9401d71124d780ec60c814987a9c667a976c9f2d13c75c715dfc9dd4",
+    "environment_file_hash": "4e587b34cb739f4991cad5a0787027348e25df0a15225e1598c7aaa74ada390b",
     "forbidden_evidence_attestation": {
       "fixed_commits_used": false,
       "gold_patches_used": false,
@@ -1445,25 +1445,25 @@
       "later_commits_used": false,
       "pr_patch_contents_used": false
     },
-    "generated_prompt_context_string_hash": "c1b4111d4bfcc1f266f70f3b88d0efd87237e4b8641ed82164c5b4ec10f2eded",
+    "generated_prompt_context_string_hash": "83194ca43254a4f811b1be82660023a5ab265ea2b4a2e83479b4365b340e2104",
     "memory_policy": "memory_enabled_clean_repair",
     "patch_generation_reads_outside_snapshot": false,
     "patchable_source_subset_hash": "9e97cb87eab37461598f5e53aa40c8f00557847bfe0e6750b22cc0c243db0caf",
-    "pre_repair_replay_log_hash": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
+    "pre_repair_replay_log_hash": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
     "repo_url": "https://github.com/akaihola/darker",
-    "semantic_failure_signature_hash": "32e0e7d45a8ca72d0916a40de3ee4228bd264391ed5870591b07c5970387e30f",
-    "snapshot_hash": "b17a10eb83fb81d68670fb4984bbb9989b0aa906cb1a978329024c1980e71e7f",
+    "semantic_failure_signature_hash": "29e6b189d11e25ae6505cc9605e7b3c4813d802090a61eb680e9950dec1277eb",
+    "snapshot_hash": "f67f60dbec03ac99926107ad9bc120ca14e51f5c9e3d2091bf0da79d37492953",
     "status": "PASS",
-    "structural_repair_routing_map_hash": "b87675f2a2b4c21c31ed2622d6361acfb41351774ba2b227ce80eb274fe79ac8",
+    "structural_repair_routing_map_hash": "434e2f7487500bf2f93c62effb3cdb76e5e121b2c2d4d36437e53fa4a5e05145",
     "target_command": [
-      "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_arm_a_darker_stdin_filename\\arm_a_venv\\Scripts\\python.exe",
+      "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_arm_a_darker_stdin_filename/arm_a_venv/bin/python",
       "-m",
       "pytest",
       "src/darker/tests/test_main_stdin_filename.py",
       "-q"
     ],
-    "target_test_file_hash": "091cb6ca489413387f97f7021acf56dea7edd6bfc6db74eaff68a4aa4b3cacab",
-    "timestamp_utc": "2026-06-29T00:34:15Z",
+    "target_test_file_hash": "78024c0f75c5bcbbf3da39b9c96cc1a4ce4cca6926a9f20c4edf4156ba3decd9",
+    "timestamp_utc": "2026-06-29T00:58:54Z",
     "tool_identifier": "deterministic_structural_source_patch_proposer"
   },
   "status": "PASS",
@@ -1472,15 +1472,15 @@
     "candidate_id": "darker_stdin_filename",
     "command_record": {
       "command": [
-        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate_clean_replication\\clean_replication_batch_002\\matched_null_arm_a_darker_stdin_filename\\arm_a_venv\\Scripts\\python.exe",
+        "/tmp/controllergate_clean_replication/clean_replication_batch_002/matched_null_arm_a_darker_stdin_filename/arm_a_venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_stdin_filename.py",
         "-q"
       ],
-      "normalized_output_sha256": "613410ecaeb5fbe97c73b98d0caa7b475e380dde24ec5f4b5f90ad77fa254d7c",
-      "output_sha256": "c5879ab19f3b29c707be8f0e1f46b6038221c7495cc8b9336d995f4d5b7a8b8b",
-      "output_summary": "STDOUT:\n........................                                                 [100%]\n============================== warnings summary ===============================\n..\\arm_a_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233\n  <repair_workspace_root>\\arm_a_venv\\Lib\\site-packages\\_pytest\\config\\__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src2-src2-None-None-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src8-src8-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[None-src11-None-None-0-modified = \"a.py worktree\"\\n]\nsrc/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[None-src14-None-..:WOR",
+      "normalized_output_sha256": "5b36791be80e6cd2bb797d39681274adfaf85d5743c52930a140fa7bda441b23",
+      "output_sha256": "89783aa60be1602bf7d45e81ade8c2a085cbee8ab94c516e4b04c8ffe328a4c5",
+      "output_summary": "STDOUT:\n........................                                                 [100%]\n=============================== warnings summary ===============================\n../arm_a_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233\n  <repair_workspace_root>/arm_a_venv/lib/python3.10/site-packages/_pytest/config/__init__.py:1233: PytestConfigWarning: Unknown config option: show_capture\n\n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/warnings.html\n============================= slowest 10 durations =============================\n0.03s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src1-src1-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[None-src11-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src5-src5-None-..:WORKTREE:-0-modified = \"a.py worktree\"\\n]\n0.02s call     src/darker/tests/test_main_stdin_filename.py::test_main_stdin_filename[config_src2-src2-None-None-0-modified = \"a.py worktree\"\\n]\n0.02s call",
       "returncode": 0
     },
     "exit_code": 0,

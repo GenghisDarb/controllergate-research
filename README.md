@@ -7,14 +7,14 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 ## Current status
 
 - Current protocol remains `v2.13` / `minimal_forensic_context_lane`.
-- Three external non-Ansible native source-only repair episodes are now recorded after the matched-null continuation: `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`.
+- Three external non-Ansible native source-only repair episodes are confirmed after official ingest: `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`.
 - ControllerGate has strong artifact custody, registry validation, claim-boundary enforcement, transport integrity checks, clean-replication scaffolding, artifact hygiene, and real-lead acquisition attempts.
 - v2.37 and post-v2.37 work introduced shared core gates, reusable workflow scaffolding, transport integrity, risk regulation, a clean protocol adapter, and native/issue-derived evidence class separation.
 - Clean replication batch002 now attempts real external leads, resolves project environments before replay, and produced one additional native repair for `darker_non_ascii_drop_changes` with target validation PASS and duplicate clean replay 3/3.
 - The `darker_non_ascii_drop_changes` no-overreach result is target-file bounded only; stronger robustness is not claimed.
 - The `darker_stdin_filename` matched-null comparison had equal Arm A and Arm B repair success, so it adds a native repair episode but does not provide memory separation evidence.
 - Full scoring remains `NOT_RUN/disallowed`.
-- Memory lift on external real bugs is not demonstrated; full memory lift remains undemonstrated.
+- Memory lift on external real bugs is not demonstrated; the matched-null status is `undemonstrated_equal_performance`.
 - Self-maintaining software is not demonstrated.
 - BugsInPy remains globally blocked except for future byte-identical exception research.
 - This repository is currently suitable as a pre-alpha research archive, not a technical validation release.
