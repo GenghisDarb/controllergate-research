@@ -1,0 +1,25 @@
+{
+  "allowed_perturbations": [
+    "source_ranking_order_shuffle_within_same_patchable_subset",
+    "context_capsule_ordering_shuffle",
+    "neutral_prompt_order_permutation",
+    "deterministic_seed_specific_tie_breaker",
+    "no_memory_default_ordering"
+  ],
+  "each_null_run_memory_disabled": true,
+  "forbidden_perturbations": [
+    "removing_evidence_from_null_arm",
+    "degrading_null_model_artificially",
+    "changing_patch_caps",
+    "changing_target_command",
+    "changing_environment",
+    "adding_noise_that_prevents_fair_comparison",
+    "giving_memory_arm_future_evidence"
+  ],
+  "null_ensemble_size": 5,
+  "same_candidate_commit_command_environment_patch_caps": true,
+  "same_evidence_restrictions": true,
+  "score_requires_memory_enabled_and_all_comparable_null_runs": true,
+  "status": "PASS",
+  "threshold": 0.95
+}

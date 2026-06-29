@@ -1226,6 +1226,272 @@ def matched_null_score(arm_a: dict[str, object], arm_b: dict[str, object], memor
     }
 
 
+def matched_null_ensemble_policy(default_size: int = 5) -> dict[str, object]:
+    allowed_perturbations = [
+        "source_ranking_order_shuffle_within_same_patchable_subset",
+        "context_capsule_ordering_shuffle",
+        "neutral_prompt_order_permutation",
+        "deterministic_seed_specific_tie_breaker",
+        "no_memory_default_ordering",
+    ]
+    forbidden_perturbations = [
+        "removing_evidence_from_null_arm",
+        "degrading_null_model_artificially",
+        "changing_patch_caps",
+        "changing_target_command",
+        "changing_environment",
+        "adding_noise_that_prevents_fair_comparison",
+        "giving_memory_arm_future_evidence",
+    ]
+    return {
+        "status": "PASS",
+        "null_ensemble_size": default_size,
+        "each_null_run_memory_disabled": True,
+        "same_candidate_commit_command_environment_patch_caps": True,
+        "same_evidence_restrictions": True,
+        "allowed_perturbations": allowed_perturbations,
+        "forbidden_perturbations": forbidden_perturbations,
+        "score_requires_memory_enabled_and_all_comparable_null_runs": True,
+        "threshold": 0.95,
+    }
+
+
+def null_ensemble_seed_policy(size: int = 5) -> dict[str, object]:
+    perturbations = matched_null_ensemble_policy(size)["allowed_perturbations"]
+    return {
+        "status": "PASS",
+        "seed_count": size,
+        "seeds": [
+            {
+                "seed_id": f"null_seed_{index:02d}",
+                "seed_index": index,
+                "memory_enabled": False,
+                "perturbation": perturbations[index % len(perturbations)],
+                "candidate_commit_command_environment_patch_caps_changed": False,
+                "evidence_removed_or_degraded": False,
+            }
+            for index in range(size)
+        ],
+    }
+
+
+def null_ensemble_fairness_audit(policy: dict[str, object], seeds: list[dict[str, object]]) -> dict[str, object]:
+    errors: list[str] = []
+    if int(policy.get("null_ensemble_size", 0)) < 5:
+        errors.append("null_ensemble_size_below_default")
+    if policy.get("each_null_run_memory_disabled") is not True:
+        errors.append("null_runs_not_memory_disabled")
+    if policy.get("same_candidate_commit_command_environment_patch_caps") is not True:
+        errors.append("candidate_or_runtime_invariants_changed")
+    for seed in seeds:
+        if seed.get("memory_enabled") is not False:
+            errors.append(f"{seed.get('seed_id')}:memory_enabled")
+        if seed.get("candidate_commit_command_environment_patch_caps_changed") is not False:
+            errors.append(f"{seed.get('seed_id')}:runtime_invariant_changed")
+        if seed.get("evidence_removed_or_degraded") is not False:
+            errors.append(f"{seed.get('seed_id')}:evidence_removed_or_degraded")
+    return {
+        "status": "PASS" if not errors else "FAIL",
+        "blocker": None if not errors else "null_ensemble_fairness_failed",
+        "errors": errors,
+        "seed_count": len(seeds),
+    }
+
+
+def matched_null_ensemble_score(
+    memory_enabled: dict[str, object],
+    null_runs: list[dict[str, object]],
+    memory_routing_delta_record: dict[str, object],
+) -> dict[str, object]:
+    if not null_runs:
+        return {
+            "status": "NOT_COMPUTED",
+            "blocker": "no_completed_null_ensemble_runs",
+            "matched_null_ensemble_separation_score": None,
+            "preliminary_single_candidate_memory_separation_evidence": False,
+        }
+    candidate_key = (
+        memory_enabled.get("candidate_id"),
+        memory_enabled.get("repo_url"),
+        memory_enabled.get("commit_sha"),
+        memory_enabled.get("target_test_path"),
+    )
+    comparable = all(
+        (
+            run.get("candidate_id"),
+            run.get("repo_url"),
+            run.get("commit_sha"),
+            run.get("target_test_path"),
+        )
+        == candidate_key
+        for run in null_runs
+    )
+    if not comparable:
+        return {
+            "status": "NOT_COMPUTED",
+            "blocker": "matched_null_ensemble_runs_not_comparable",
+            "matched_null_ensemble_separation_score": None,
+            "preliminary_single_candidate_memory_separation_evidence": False,
+        }
+    memory_success = memory_enabled.get("target_validation_status") == "PASS" and memory_enabled.get("duplicate_replay_status") == "PASS"
+    null_successes = [
+        run
+        for run in null_runs
+        if run.get("target_validation_status") == "PASS" and run.get("duplicate_replay_status") == "PASS"
+    ]
+    null_success_rate = len(null_successes) / len(null_runs)
+    routing_active = memory_routing_delta_record.get("routing_delta_active") is True
+    if not memory_success or null_success_rate == 1.0 or not routing_active:
+        score = 0.0
+    else:
+        score = round(1.0 - null_success_rate, 6)
+    return {
+        "status": "PASS",
+        "blocker": None,
+        "memory_enabled_success": memory_success,
+        "null_ensemble_run_count": len(null_runs),
+        "null_ensemble_success_count": len(null_successes),
+        "null_ensemble_success_rate": null_success_rate,
+        "memory_routing_delta_active": routing_active,
+        "matched_null_ensemble_separation_score": score,
+        "preliminary_single_candidate_memory_separation_evidence": bool(score >= 0.95 and routing_active),
+        "score_rule": "score is zero when memory run fails, null ensemble success rate is 1.0, or memory routing delta is passive",
+    }
+
+
+def memory_routing_delta(marker_usage: dict[str, object]) -> dict[str, object]:
+    relevant_markers = marker_usage.get("relevant_markers", [])
+    source_ranking_changed = marker_usage.get("source_ranking_changed") is True
+    context_selection_changed = marker_usage.get("context_selection_changed") is True
+    generation_strategy_changed = marker_usage.get("generation_strategy_changed") is True
+    active = bool(relevant_markers) and (source_ranking_changed or context_selection_changed or generation_strategy_changed)
+    blocker = None
+    if not relevant_markers:
+        blocker = "no_relevant_failure_memory_available"
+    elif not active:
+        blocker = "failure_memory_markers_passive"
+    return {
+        "status": "PASS",
+        "routing_delta_active": active,
+        "blocker": blocker,
+        "relevant_marker_count": len(relevant_markers) if isinstance(relevant_markers, list) else 0,
+        "source_ranking_changed": source_ranking_changed,
+        "context_selection_changed": context_selection_changed,
+        "generation_strategy_changed": generation_strategy_changed,
+        "preliminary_single_candidate_memory_separation_evidence_allowed": active,
+    }
+
+
+def challenge_candidate_difficulty_band(attempt: dict[str, object]) -> dict[str, object]:
+    target_present = attempt.get("target_test_present") is True
+    environment_present = attempt.get("environment_file_present") is True or bool(attempt.get("environment_files"))
+    command_collects_target = attempt.get("collection_status") == "PASS"
+    command_fails_pre_patch = attempt.get("failure_replay_status") == "PRE_PATCH_FAILURE_OBSERVED"
+    semantic_available = bool(attempt.get("semantic_failure_signature_hash")) and command_fails_pre_patch
+    environment_files = attempt.get("environment_files", [])
+    dependency_strings = attempt.get("environment_metadata", {}).get("declared_dependency_strings", [])
+    dependency_surface_size = len(dependency_strings) if isinstance(dependency_strings, list) else 0
+    target_path = str(attempt.get("test_path_hint") or "")
+    command_width = "single_node" if "::" in target_path else "single_file" if target_path.endswith(".py") else "unknown"
+    traceback_source_count = int(attempt.get("traceback_candidate_source_file_count", 0) or 0)
+    patchable_function_count = int(attempt.get("patchable_source_function_count", 0) or 0)
+    issue_contains_solution_hint = attempt.get("issue_contains_solution_hint") is True
+    external_network_required = attempt.get("external_network_required") is True
+    score = 0
+    reasons: list[str] = []
+    if external_network_required:
+        score += 5
+        reasons.append("external_network_required")
+    if not target_present:
+        score += 5
+        reasons.append("target_test_absent")
+    else:
+        score -= 3
+        reasons.append("target_file_present")
+    if not environment_present:
+        score += 5
+        reasons.append("environment_file_absent")
+    else:
+        score -= 2
+        reasons.append("environment_file_present")
+    if not command_collects_target:
+        score += 5
+        reasons.append("command_cannot_collect_target")
+    if attempt.get("blocker") == "environment_dependency_install_failed":
+        score += 5
+        reasons.append("failure_is_dependency_environment_only")
+    if command_width == "single_file":
+        score -= 1
+        reasons.append("single_test_file_command")
+    if semantic_available:
+        score -= 3
+        reasons.append("semantic_failure_signature_captured")
+    if dependency_surface_size > 8:
+        score += 2
+        reasons.append("large_dependency_surface")
+    if traceback_source_count > 4:
+        score += 4
+        reasons.append("traceback_spans_too_many_source_files")
+    elif 2 <= traceback_source_count <= 4:
+        score -= 2
+        reasons.append("moderate_source_closure")
+    if issue_contains_solution_hint:
+        score += 3
+        reasons.append("issue_contains_solution_hint")
+    too_trivial = traceback_source_count == 1 and patchable_function_count == 1 and attempt.get("failure_text_direct_edit_hint") is True
+    if too_trivial:
+        reasons.append("too_trivial_for_memory_challenge")
+    if external_network_required:
+        decision = "rejected_external_network_dependency"
+        blocker = "rejected_external_network_dependency"
+    elif not target_present:
+        decision = "rejected_missing_target_test"
+        blocker = "rejected_missing_target_test"
+    elif not environment_present:
+        decision = "rejected_environment_only_failure"
+        blocker = "rejected_environment_only_failure"
+    elif not command_collects_target:
+        decision = "rejected_other"
+        blocker = "command_cannot_collect_target"
+    elif not command_fails_pre_patch:
+        decision = "rejected_other"
+        blocker = "pre_patch_failure_not_reproduced"
+    elif traceback_source_count > 4 or score >= 5:
+        decision = "rejected_escape_boundary_risk"
+        blocker = "rejected_escape_boundary_risk"
+    elif too_trivial:
+        decision = "rejected_other"
+        blocker = "challenge_candidate_too_trivial_for_memory_challenge"
+    else:
+        decision = "admitted_native_replay_candidate"
+        blocker = None
+    return {
+        "candidate_id": attempt.get("lead_id") or attempt.get("candidate_id"),
+        "repo_url": attempt.get("repo_url"),
+        "candidate_commit_sha": attempt.get("resolved_commit_sha") or attempt.get("commit_hint"),
+        "candidate_class": "native_replay_candidate",
+        "target_test_present": target_present,
+        "environment_file_present": environment_present,
+        "command_collects_target": command_collects_target,
+        "command_fails_pre_patch": command_fails_pre_patch,
+        "external_network_required": external_network_required,
+        "traceback_candidate_source_file_count": traceback_source_count,
+        "traceback_framework_file_count": int(attempt.get("traceback_framework_file_count", 0) or 0),
+        "target_command_width": command_width,
+        "dependency_surface_size": dependency_surface_size,
+        "source_context_file_count": int(attempt.get("source_context_file_count", traceback_source_count) or 0),
+        "setup_complexity_score": 1 if environment_present and len(environment_files) <= 3 else 3,
+        "semantic_failure_capture_available": semantic_available,
+        "issue_reproduction_steps_available": attempt.get("issue_reproduction_steps_available") is True,
+        "issue_contains_solution_hint": issue_contains_solution_hint,
+        "repairability_score": score,
+        "escape_boundary_risk": "high" if score >= 5 or traceback_source_count > 4 else "low" if score <= 0 else "moderate",
+        "admission_decision": decision,
+        "blocker": blocker,
+        "decision_reason": reasons,
+    }
+
+
 def interlock_invariant_revalidation(
     arm_id: str,
     patch: dict[str, object],

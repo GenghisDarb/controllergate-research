@@ -1,0 +1,105 @@
+{
+  "preferred_band": {
+    "broad_full_suite_only_failure": false,
+    "external_network_required": false,
+    "patchable_source_functions": "2-6",
+    "target_command_width": [
+      "single_node",
+      "single_file"
+    ],
+    "traceback_or_import_closure_candidate_source_files": "2-4"
+  },
+  "records": [
+    {
+      "admission_decision": "rejected_other",
+      "blocker": "command_cannot_collect_target",
+      "candidate_class": "native_replay_candidate",
+      "candidate_commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+      "candidate_id": "darker_skip_glob_failing_test",
+      "command_collects_target": false,
+      "command_fails_pre_patch": false,
+      "decision_reason": [
+        "target_file_present",
+        "environment_file_present",
+        "command_cannot_collect_target",
+        "single_test_file_command"
+      ],
+      "dependency_surface_size": 3,
+      "environment_file_present": true,
+      "escape_boundary_risk": "low",
+      "external_network_required": false,
+      "issue_contains_solution_hint": false,
+      "issue_reproduction_steps_available": false,
+      "repairability_score": -1,
+      "repo_url": "https://github.com/akaihola/darker",
+      "semantic_failure_capture_available": false,
+      "setup_complexity_score": 1,
+      "source_context_file_count": 0,
+      "target_command_width": "single_file",
+      "target_test_present": true,
+      "traceback_candidate_source_file_count": 0,
+      "traceback_framework_file_count": 0
+    },
+    {
+      "admission_decision": "rejected_other",
+      "blocker": "pre_patch_failure_not_reproduced",
+      "candidate_class": "native_replay_candidate",
+      "candidate_commit_sha": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
+      "candidate_id": "pytest_rerunfailures_subtest_errors",
+      "command_collects_target": true,
+      "command_fails_pre_patch": false,
+      "decision_reason": [
+        "target_file_present",
+        "environment_file_present",
+        "single_test_file_command"
+      ],
+      "dependency_surface_size": 2,
+      "environment_file_present": true,
+      "escape_boundary_risk": "low",
+      "external_network_required": false,
+      "issue_contains_solution_hint": false,
+      "issue_reproduction_steps_available": false,
+      "repairability_score": -6,
+      "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+      "semantic_failure_capture_available": false,
+      "setup_complexity_score": 1,
+      "source_context_file_count": 0,
+      "target_command_width": "single_file",
+      "target_test_present": true,
+      "traceback_candidate_source_file_count": 0,
+      "traceback_framework_file_count": 0
+    },
+    {
+      "admission_decision": "rejected_other",
+      "blocker": "pre_patch_failure_not_reproduced",
+      "candidate_class": "native_replay_candidate",
+      "candidate_commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
+      "candidate_id": "pytest_rerunfailures_reruns_mode",
+      "command_collects_target": true,
+      "command_fails_pre_patch": false,
+      "decision_reason": [
+        "target_file_present",
+        "environment_file_present",
+        "single_test_file_command"
+      ],
+      "dependency_surface_size": 2,
+      "environment_file_present": true,
+      "escape_boundary_risk": "low",
+      "external_network_required": false,
+      "issue_contains_solution_hint": false,
+      "issue_reproduction_steps_available": false,
+      "repairability_score": -6,
+      "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+      "semantic_failure_capture_available": false,
+      "setup_complexity_score": 1,
+      "source_context_file_count": 0,
+      "target_command_width": "single_file",
+      "target_test_present": true,
+      "traceback_candidate_source_file_count": 0,
+      "traceback_framework_file_count": 0
+    }
+  ],
+  "reject_too_easy_for_memory_separation": true,
+  "reject_too_hard_or_unsafe": true,
+  "status": "PASS"
+}

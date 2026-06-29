@@ -40,6 +40,19 @@ For every real metadata lead, batch002 must attempt:
 
 Issue-derived evidence remains separate and never increments native repair counts.
 
+## Batch003 memory-challenge sequence
+
+Batch003 extends the clean replication protocol with deterministic matched-null ensemble calibration:
+
+1. exclude already confirmed repair episodes from new candidate selection,
+2. score unrepaired leads with a challenge-candidate difficulty band,
+3. admit only native candidates with a verified commit, target test, environment file, collection, and pre-repair failure replay,
+4. reject candidates that are too trivial, too broad, environment-only, network-dependent, or not localized to candidate source,
+5. run one memory-enabled repair and five memory-disabled null runs only after admission,
+6. compute a separation score only when all arms are comparable,
+7. keep issue-derived candidates separate from native repair counts,
+8. keep full scoring disabled by default.
+
 ## Current official repair episodes
 
 As of the post-v2.37 batch002 matched-null official ingest, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.

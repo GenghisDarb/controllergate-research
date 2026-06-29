@@ -1,0 +1,89 @@
+[
+  {
+    "admission_decision": "rejected_other",
+    "blocker": "command_cannot_collect_target",
+    "candidate_class": "native_replay_candidate",
+    "candidate_id": "darker_skip_glob_failing_test",
+    "command_collects_target": false,
+    "command_fails_pre_patch": false,
+    "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+    "decision_reason": [
+      "target_file_present",
+      "environment_file_present",
+      "command_cannot_collect_target",
+      "single_test_file_command"
+    ],
+    "environment_file_present": true,
+    "environment_files": [
+      "pyproject.toml",
+      "setup.py",
+      "setup.cfg"
+    ],
+    "escape_boundary_risk": "low",
+    "fixed_later_gold_pr_patch_content_used": false,
+    "prior_attempt_record_hash": "95bb85be4ccceb19d8b46762a0d24fb4311b79f26220ebefb8ae544fdd1a1b1f",
+    "repairability_score": -1,
+    "repo_url": "https://github.com/akaihola/darker",
+    "semantic_failure_signature_hash": "7afc6d65d7fbf2a8142d4a0d8899821cb2747df73fc56838c421c891ebcbbea4",
+    "target_test_path": "src/darker/tests/test_main_isort.py",
+    "target_test_present": true,
+    "used_as_new_candidate": false
+  },
+  {
+    "admission_decision": "rejected_other",
+    "blocker": "pre_patch_failure_not_reproduced",
+    "candidate_class": "native_replay_candidate",
+    "candidate_id": "pytest_rerunfailures_subtest_errors",
+    "command_collects_target": true,
+    "command_fails_pre_patch": false,
+    "commit_sha": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
+    "decision_reason": [
+      "target_file_present",
+      "environment_file_present",
+      "single_test_file_command"
+    ],
+    "environment_file_present": true,
+    "environment_files": [
+      "pyproject.toml",
+      "tox.ini"
+    ],
+    "escape_boundary_risk": "low",
+    "fixed_later_gold_pr_patch_content_used": false,
+    "prior_attempt_record_hash": "79dd373ca8d4b499555354a71f1fbd9b6c4b048e578ac1bfa4e7362410b2aab6",
+    "repairability_score": -6,
+    "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+    "semantic_failure_signature_hash": "9e97368606e93541918248e8c9aacc43a1b3af1f2bf61e405f4b54d9d9334849",
+    "target_test_path": "tests/test_pytest_rerunfailures.py",
+    "target_test_present": true,
+    "used_as_new_candidate": false
+  },
+  {
+    "admission_decision": "rejected_other",
+    "blocker": "pre_patch_failure_not_reproduced",
+    "candidate_class": "native_replay_candidate",
+    "candidate_id": "pytest_rerunfailures_reruns_mode",
+    "command_collects_target": true,
+    "command_fails_pre_patch": false,
+    "commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
+    "decision_reason": [
+      "target_file_present",
+      "environment_file_present",
+      "single_test_file_command"
+    ],
+    "environment_file_present": true,
+    "environment_files": [
+      "pyproject.toml",
+      "setup.py",
+      "tox.ini"
+    ],
+    "escape_boundary_risk": "low",
+    "fixed_later_gold_pr_patch_content_used": false,
+    "prior_attempt_record_hash": "419f9b3af0c2112da2c7d9b744c6573d02c667572ccd6558086ba3918076d01b",
+    "repairability_score": -6,
+    "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+    "semantic_failure_signature_hash": "d2685957562a6d76f1fe9c1e375fb44dfe864dffe81d499a7e540341a20b7d23",
+    "target_test_path": "tests/test_pytest_rerunfailures.py",
+    "target_test_present": true,
+    "used_as_new_candidate": false
+  }
+]

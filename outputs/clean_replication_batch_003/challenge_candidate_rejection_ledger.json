@@ -1,0 +1,42 @@
+[
+  {
+    "admission_decision": "rejected_other",
+    "blocker": "command_cannot_collect_target",
+    "candidate_id": "darker_skip_glob_failing_test",
+    "decision_reason": [
+      "target_file_present",
+      "environment_file_present",
+      "command_cannot_collect_target",
+      "single_test_file_command"
+    ],
+    "escape_boundary_risk": "low",
+    "repairability_score": -1,
+    "status": "REJECTED"
+  },
+  {
+    "admission_decision": "rejected_other",
+    "blocker": "pre_patch_failure_not_reproduced",
+    "candidate_id": "pytest_rerunfailures_subtest_errors",
+    "decision_reason": [
+      "target_file_present",
+      "environment_file_present",
+      "single_test_file_command"
+    ],
+    "escape_boundary_risk": "low",
+    "repairability_score": -6,
+    "status": "REJECTED"
+  },
+  {
+    "admission_decision": "rejected_other",
+    "blocker": "pre_patch_failure_not_reproduced",
+    "candidate_id": "pytest_rerunfailures_reruns_mode",
+    "decision_reason": [
+      "target_file_present",
+      "environment_file_present",
+      "single_test_file_command"
+    ],
+    "escape_boundary_risk": "low",
+    "repairability_score": -6,
+    "status": "REJECTED"
+  }
+]

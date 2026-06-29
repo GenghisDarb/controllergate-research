@@ -12,7 +12,8 @@ from controllergate.core.artifact_hygiene import audit_artifact_payload
 
 POST_DIR = Path("outputs/post_v2_37_hardening_001")
 BATCH_DIR = Path("outputs/clean_replication_batch_002")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_matched_null")
+BATCH003_DIR = Path("outputs/clean_replication_batch_003")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch003_memory_challenge")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -54,8 +55,44 @@ POST_REQUIRED = [
     "bugsinpy_relaxation_research_status.json",
     "operational_gate_completion_status.json",
     "v3_0_readiness_scorecard_update.json",
+    "matched_null_artifact_verification.json",
+    "third_external_repair_ingest_summary.json",
+    "equal_performance_memory_claim_boundary.json",
+    "matched_null_lessons_learned.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
+    "campaign_summary.md",
+    "SHA256SUMS.txt",
+]
+
+BATCH003_REQUIRED = [
+    "consolidated_state_clean_replication_batch_003.json",
+    "matched_null_ensemble_policy.json",
+    "matched_null_ensemble_seed_policy.json",
+    "matched_null_ensemble_score_definition.json",
+    "null_generation_audit.json",
+    "memory_enabled_policy.json",
+    "memory_disabled_policy.json",
+    "challenge_candidate_acquisition_policy.json",
+    "challenge_candidate_difficulty_band.json",
+    "challenge_candidate_lead_pool.json",
+    "challenge_candidate_attempts.json",
+    "challenge_candidate_rejection_ledger.json",
+    "candidate_verification_attempts.json",
+    "verified_challenge_candidates.json",
+    "challenge_candidate_admission_decisions.json",
+    "repairability_basin_scores_batch003.csv",
+    "memory_enabled_run_results.json",
+    "null_ensemble_run_results.json",
+    "null_ensemble_summary.json",
+    "matched_null_ensemble_separation_score_result.json",
+    "memory_separation_claim_evaluation.json",
+    "repair_successes.json",
+    "native_issue_derived_count_separation.json",
+    "claim_boundary.json",
+    "failure_memory_active_routing_audit.json",
+    "failure_memory_marker_usage.json",
+    "failure_memory_routing_delta.json",
     "campaign_summary.md",
     "SHA256SUMS.txt",
 ]
@@ -573,6 +610,123 @@ def audit_matched_null_records(batch: dict[str, object]) -> list[str]:
     return errors
 
 
+def audit_phase_a_ingest_records() -> list[str]:
+    errors: list[str] = []
+    verification = read_json(POST_DIR / "matched_null_artifact_verification.json")
+    ingest = read_json(POST_DIR / "third_external_repair_ingest_summary.json")
+    equal = read_json(POST_DIR / "equal_performance_memory_claim_boundary.json")
+    lessons = read_json(POST_DIR / "matched_null_lessons_learned.json")
+    if verification.get("status") != "PASS":
+        errors.append("matched-null artifact verification not PASS")
+    if verification.get("actual_sha256") != "8124be2c04533b0b22e5136c683bfdf2f457c961baefff8f19c55860df61532d":
+        errors.append("matched-null artifact SHA mismatch")
+    if verification.get("actual_size_bytes") not in {145764, "145764"}:
+        errors.append("matched-null artifact size mismatch")
+    if verification.get("unsafe_path_count") != 0 or verification.get("duplicate_path_count") != 0:
+        errors.append("matched-null artifact path safety failed")
+    if ingest.get("confirmed_external_native_repair_episode") != "darker_stdin_filename":
+        errors.append("third external repair ingest summary invalid")
+    if equal.get("matched_null_separation_score") != 0.0:
+        errors.append("equal-performance boundary score changed")
+    if equal.get("preliminary_single_candidate_memory_separation_evidence") is not False:
+        errors.append("equal-performance boundary overclaimed memory separation")
+    if equal.get("memory_lift") != "undemonstrated_equal_performance":
+        errors.append("equal-performance memory status mismatch")
+    if lessons.get("status") != "PASS":
+        errors.append("matched-null lessons record not PASS")
+    return errors
+
+
+def audit_batch003_records() -> list[str]:
+    errors: list[str] = []
+    state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
+    policy = read_json(BATCH003_DIR / "matched_null_ensemble_policy.json")
+    seed_policy = read_json(BATCH003_DIR / "matched_null_ensemble_seed_policy.json")
+    score_definition = read_json(BATCH003_DIR / "matched_null_ensemble_score_definition.json")
+    null_audit = read_json(BATCH003_DIR / "null_generation_audit.json")
+    mem_enabled = read_json(BATCH003_DIR / "memory_enabled_policy.json")
+    mem_disabled = read_json(BATCH003_DIR / "memory_disabled_policy.json")
+    acquisition = read_json(BATCH003_DIR / "challenge_candidate_acquisition_policy.json")
+    difficulty = read_json(BATCH003_DIR / "challenge_candidate_difficulty_band.json")
+    lead_pool = read_json(BATCH003_DIR / "challenge_candidate_lead_pool.json")
+    attempts = read_json(BATCH003_DIR / "challenge_candidate_attempts.json")
+    verified = read_json(BATCH003_DIR / "verified_challenge_candidates.json")
+    admissions = read_json(BATCH003_DIR / "challenge_candidate_admission_decisions.json")
+    memory_run = read_json(BATCH003_DIR / "memory_enabled_run_results.json")
+    null_runs = read_json(BATCH003_DIR / "null_ensemble_run_results.json")
+    null_summary = read_json(BATCH003_DIR / "null_ensemble_summary.json")
+    score = read_json(BATCH003_DIR / "matched_null_ensemble_separation_score_result.json")
+    claim = read_json(BATCH003_DIR / "memory_separation_claim_evaluation.json")
+    repair_successes = read_json(BATCH003_DIR / "repair_successes.json")
+    separation = read_json(BATCH003_DIR / "native_issue_derived_count_separation.json")
+    boundary = read_json(BATCH003_DIR / "claim_boundary.json")
+    routing_audit = read_json(BATCH003_DIR / "failure_memory_active_routing_audit.json")
+    marker_usage = read_json(BATCH003_DIR / "failure_memory_marker_usage.json")
+    routing_delta = read_json(BATCH003_DIR / "failure_memory_routing_delta.json")
+    if policy.get("status") != "PASS" or int(policy.get("null_ensemble_size", 0)) < 5:
+        errors.append("matched-null ensemble policy invalid")
+    if seed_policy.get("status") != "PASS" or len(seed_policy.get("seeds", [])) < 5:
+        errors.append("matched-null seed policy invalid")
+    for seed in seed_policy.get("seeds", []):
+        if seed.get("memory_enabled") is not False:
+            errors.append("null ensemble seed is not memory-disabled")
+        if seed.get("candidate_commit_command_environment_patch_caps_changed") is not False:
+            errors.append("null ensemble seed changed runtime invariants")
+    if null_audit.get("status") != "PASS":
+        errors.append("null generation audit failed")
+    if mem_enabled.get("successful_patch_bytes_read") is not False or mem_enabled.get("prior_patches_copied") is not False:
+        errors.append("memory-enabled policy allows prior patch leakage")
+    if mem_disabled.get("may_read_failure_memory_weight_ledger") is not False:
+        errors.append("memory-disabled policy can read memory ledger")
+    if score_definition.get("full_memory_lift_claim_allowed") is not False:
+        errors.append("score definition allows full memory-lift claim")
+    forbidden_reuse = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
+    if set(acquisition.get("candidate_ids_forbidden_as_new", [])) != forbidden_reuse:
+        errors.append("batch003 forbidden candidate reuse set invalid")
+    if any(item.get("candidate_id") in forbidden_reuse for item in attempts):
+        errors.append("repaired candidate reused in batch003 attempts")
+    if any(item.get("candidate_id") in forbidden_reuse for item in admissions):
+        errors.append("repaired candidate reused in batch003 admissions")
+    if lead_pool.get("lead_count") != len(attempts):
+        errors.append("challenge lead pool count does not align with attempts")
+    if difficulty.get("status") != "PASS" or not difficulty.get("records"):
+        errors.append("challenge difficulty-band records missing")
+    if len(admissions) != len(attempts):
+        errors.append("admission decisions do not align with attempts")
+    if verified:
+        errors.append("batch003 verified a challenge candidate but repair experiment records are still NOT_RUN")
+    if state.get("exact_blocker") != "clean_replication_batch_003_no_verified_challenge_candidate":
+        errors.append("batch003 blocker mismatch")
+    if memory_run.get("status") != "NOT_RUN" or null_summary.get("status") != "NOT_RUN":
+        errors.append("batch003 experiment ran without a verified challenge candidate")
+    if null_runs != []:
+        errors.append("null ensemble run results should be empty when blocked before repair experiment")
+    if score.get("status") != "NOT_COMPUTED" or score.get("preliminary_single_candidate_memory_separation_evidence") is not False:
+        errors.append("batch003 score overclaimed or computed without comparable runs")
+    if claim.get("preliminary_single_candidate_memory_separation_evidence") is not False:
+        errors.append("batch003 claim evaluation overclaimed preliminary evidence")
+    if claim.get("memory_lift") != "undemonstrated_equal_performance":
+        errors.append("batch003 memory status mismatch")
+    if repair_successes != []:
+        errors.append("batch003 repair successes must be empty when no challenge candidate verifies")
+    if separation.get("issue_derived_repairs_count_as_native") is not False:
+        errors.append("issue-derived count separation invalid")
+    if boundary.get("full_scoring") != "NOT_RUN/disallowed":
+        errors.append("batch003 full scoring boundary changed")
+    if boundary.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch003 self-maintaining software overclaim")
+    if boundary.get("technical_validation_release_readiness") != "not_ready":
+        errors.append("batch003 release readiness overclaim")
+    if routing_audit.get("status") != "PASS" or marker_usage.get("memory_ledger_loaded") is not True:
+        errors.append("failure-memory active routing audit invalid")
+    if routing_delta.get("routing_delta_active") is not False or routing_delta.get("blocker") != "no_relevant_failure_memory_available":
+        errors.append("batch003 routing delta should be passive without a verified challenge candidate")
+    csv_header = (BATCH003_DIR / "repairability_basin_scores_batch003.csv").read_text(encoding="utf-8").splitlines()[0]
+    if "repairability_score" not in csv_header or "admission_decision" not in csv_header:
+        errors.append("batch003 repairability CSV malformed")
+    return errors
+
+
 def public_language_hits() -> list[str]:
     paths = [
         Path("README.md"),
@@ -585,6 +739,7 @@ def public_language_hits() -> list[str]:
         Path("docs/evidence_model.md"),
         Path("docs/operational_gate_matrix.md"),
         Path("configs/operational_gate_matrix.json"),
+        Path("configs/clean_replication_batch_003.json"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
@@ -601,13 +756,15 @@ def public_language_hits() -> list[str]:
 
 
 def main() -> int:
-    missing = require_files(POST_DIR, POST_REQUIRED) + require_files(BATCH_DIR, BATCH_REQUIRED)
+    missing = require_files(POST_DIR, POST_REQUIRED) + require_files(BATCH_DIR, BATCH_REQUIRED) + require_files(BATCH003_DIR, BATCH003_REQUIRED)
     if missing:
         return fail(f"missing required files: {missing}")
     if verify_manifest(POST_DIR)["status"] != "PASS":
         return fail("post hardening manifest mismatch")
     if verify_manifest(BATCH_DIR)["status"] != "PASS":
         return fail("batch002 manifest mismatch")
+    if verify_manifest(BATCH003_DIR)["status"] != "PASS":
+        return fail("batch003 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
         return fail("core tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -670,6 +827,9 @@ def main() -> int:
         return fail("operational gate matrix status failed")
     if language_expanded.get("status") != "PASS":
         return fail("expanded public language audit failed")
+    phase_a_errors = audit_phase_a_ingest_records()
+    if phase_a_errors:
+        return fail(f"phase A ingest audit failed: {phase_a_errors}")
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     if payload_audit["status"] != "PASS":
         return fail(f"artifact payload hygiene failed: {payload_audit}")
@@ -716,6 +876,9 @@ def main() -> int:
     matched_null_errors = audit_matched_null_records(batch)
     if matched_null_errors:
         return fail(f"matched-null audit failed: {matched_null_errors}")
+    batch003_errors = audit_batch003_records()
+    if batch003_errors:
+        return fail(f"batch003 audit failed: {batch003_errors}")
     repair_attempts = read_json(BATCH_DIR / "repair_attempts.json")
     verified_native_count = int(batch.get("native_candidates_verified_count", 0))
     if verified_native_count and (not isinstance(repair_attempts, list) or not repair_attempts):

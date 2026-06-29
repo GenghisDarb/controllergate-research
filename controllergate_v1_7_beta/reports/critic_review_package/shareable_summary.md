@@ -7,7 +7,7 @@ ControllerGate is a provenance-first software repair research harness. It emphas
 - Current protocol: `v2.13` / `minimal_forensic_context_lane`.
 - Confirmed external non-Ansible native repair episodes after official ingest: `3` (`py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`).
 - Full scoring: `NOT_RUN/disallowed`.
-- Memory lift on external real bugs: `undemonstrated`.
+- Memory lift on external real bugs: `undemonstrated_equal_performance`.
 - Self-maintaining software: `false/not_demonstrated`.
 - Public technical-validation readiness: not claimed.
 
@@ -66,11 +66,12 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 - The repair passed source-only patch safety, target validation, and duplicate clean replay 3/3.
 - The no-overreach evidence for `darker_non_ascii_drop_changes` is target-file bounded only; stronger robustness is not claimed.
 - The matched-null official ingest records a successful `darker_stdin_filename` native repair in both arms. Because both arms succeeded equivalently, preliminary memory separation evidence remains false.
+- Batch003 adds deterministic matched-null ensemble calibration and moderate-complexity challenge-candidate admission. It blocks rather than overclaims if no safe challenge candidate verifies.
 - BugsInPy remains globally blocked for active use.
 - Full scoring remains `NOT_RUN/disallowed`.
-- Memory lift remains `undemonstrated`.
+- Memory lift remains `undemonstrated_equal_performance`.
 - Self-maintaining software remains `false/not_demonstrated`.
 
 ## Safest next step
 
-Manually download the successful matched-null artifact after workflow completion and ingest it through the same byte-custody boundary.
+After the batch003 workflow completes, manually download the memory-challenge artifact and ingest it through the same byte-custody boundary.

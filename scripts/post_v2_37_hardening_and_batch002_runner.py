@@ -15,14 +15,26 @@ from controllergate.core.homeostasis import RISK_CHANNELS, evaluate_homeostasis_
 from controllergate.core.manifests import write_sha256sums
 from controllergate.core.normalization import evaluate_normalization_plan
 from controllergate.core.transport import reject_unsafe_transport_paths
-from controllergate.core.clean_repair import execute_matched_null_repair_comparison, stable_json_hash
+from controllergate.core.clean_repair import (
+    challenge_candidate_difficulty_band,
+    execute_matched_null_repair_comparison,
+    matched_null_ensemble_policy,
+    matched_null_ensemble_score,
+    memory_routing_delta,
+    null_ensemble_fairness_audit,
+    null_ensemble_seed_policy,
+    stable_json_hash,
+)
 from controllergate.experiments.replication_batch import run_replication_batch
 
 POST_ID = "post_v2_37_hardening_001"
 POST_DIR = Path("outputs") / POST_ID
 BATCH_ID = "clean_replication_batch_002"
 BATCH_DIR = Path("outputs") / BATCH_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch002_matched_null")
+BATCH003_ID = "clean_replication_batch_003"
+BATCH003_DIR = Path("outputs") / BATCH003_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch003_memory_challenge")
+REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 
 
 def load_json(path: str | Path) -> dict[str, object]:
@@ -391,6 +403,7 @@ def write_public_docs_reports() -> None:
         "pre-alpha research archive",
         "Current protocol remains `v2.13`",
         "Clean replication batch002 now attempts real external leads",
+        "Clean replication batch003 implements a matched-null ensemble challenge protocol",
     ]
     missing = [phrase for phrase in required_phrases if phrase not in readme]
     forbidden_claims = [
@@ -426,7 +439,7 @@ def write_public_docs_reports() -> None:
             "status": "PASS" if not missing and not forbidden_hits and all(Path(path).is_file() for path in docs) else "FAIL",
             "docs_checked": docs,
             "full_scoring": "NOT_RUN/disallowed",
-            "memory_lift": "undemonstrated",
+            "memory_lift": "undemonstrated_equal_performance",
             "self_maintaining_software": "false/not_demonstrated",
             "technical_validation_readiness_claimed": False,
             "issue_derived_counts_as_native": False,
@@ -443,7 +456,7 @@ def write_public_docs_reports() -> None:
             "evidence_classes": matrix.get("evidence_classes", []),
         },
     )
-    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))]
+    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))]
     write_json_deterministic(
         POST_DIR / "public_language_audit_expanded.json",
         public_language_audit(ACTIVE_PUBLIC_LANGUAGE_PATHS + artifact_paths),
@@ -453,6 +466,13 @@ def write_public_docs_reports() -> None:
 def write_batch002_outputs() -> dict[str, object]:
     BATCH_DIR.mkdir(parents=True, exist_ok=True)
     config = load_json("configs/clean_replication_batch_002.json")
+    official_matched_null_present = (
+        (POST_DIR / "matched_null_artifact_verification.json").is_file()
+        and (BATCH_DIR / "matched_null_separation_score_result.json").is_file()
+        and (BATCH_DIR / f"consolidated_state_{BATCH_ID}.json").is_file()
+    )
+    if config.get("matched_null_required") is True and official_matched_null_present:
+        return load_json(BATCH_DIR / f"consolidated_state_{BATCH_ID}.json")
     if config.get("matched_null_required") is True:
         return write_matched_null_continuation_outputs(config)
     result = run_replication_batch(config)
@@ -652,15 +672,337 @@ def write_batch002_outputs() -> dict[str, object]:
     return state
 
 
+def _safe_attempt_summary(attempt: dict[str, object], band: dict[str, object]) -> dict[str, object]:
+    return {
+        "candidate_id": band.get("candidate_id"),
+        "repo_url": band.get("repo_url"),
+        "commit_sha": band.get("candidate_commit_sha"),
+        "candidate_class": band.get("candidate_class"),
+        "target_test_path": attempt.get("test_path_hint"),
+        "target_test_present": band.get("target_test_present"),
+        "environment_file_present": band.get("environment_file_present"),
+        "environment_files": attempt.get("environment_files", []),
+        "command_collects_target": band.get("command_collects_target"),
+        "command_fails_pre_patch": band.get("command_fails_pre_patch"),
+        "semantic_failure_signature_hash": attempt.get("semantic_failure_signature_hash"),
+        "repairability_score": band.get("repairability_score"),
+        "escape_boundary_risk": band.get("escape_boundary_risk"),
+        "admission_decision": band.get("admission_decision"),
+        "blocker": band.get("blocker") or attempt.get("blocker"),
+        "decision_reason": band.get("decision_reason", []),
+        "prior_attempt_record_hash": stable_json_hash(attempt),
+        "used_as_new_candidate": False if band.get("admission_decision") != "admitted_native_replay_candidate" else True,
+        "fixed_later_gold_pr_patch_content_used": False,
+    }
+
+
+def _write_repairability_scores_csv(path: Path, rows: list[dict[str, object]]) -> None:
+    header = [
+        "candidate_id",
+        "repo_url",
+        "candidate_commit_sha",
+        "candidate_class",
+        "target_test_present",
+        "environment_file_present",
+        "command_collects_target",
+        "command_fails_pre_patch",
+        "external_network_required",
+        "traceback_candidate_source_file_count",
+        "target_command_width",
+        "dependency_surface_size",
+        "repairability_score",
+        "escape_boundary_risk",
+        "admission_decision",
+        "decision_reason",
+    ]
+    lines = [",".join(header)]
+    for row in rows:
+        values = []
+        for key in header:
+            value = row.get(key)
+            if isinstance(value, (list, dict)):
+                value = json.dumps(value, sort_keys=True, separators=(",", ":"))
+            text = str(value if value is not None else "")
+            values.append('"' + text.replace('"', '""') + '"')
+        lines.append(",".join(values))
+    write_text_lf(path, "\n".join(lines) + "\n")
+
+
+def write_batch003_outputs() -> dict[str, object]:
+    BATCH003_DIR.mkdir(parents=True, exist_ok=True)
+    config = load_json("configs/clean_replication_batch_003.json")
+    lead_pool = load_json("inputs/clean_replication_batch_002_lead_pool.json")
+    attempts = load_json(BATCH_DIR / "candidate_verification_attempts.json")
+    if not isinstance(attempts, list):
+        attempts = []
+    leads = lead_pool.get("leads", []) if isinstance(lead_pool, dict) else []
+    if not isinstance(leads, list):
+        leads = []
+    challenge_leads = [
+        lead
+        for lead in leads
+        if isinstance(lead, dict)
+        and lead.get("lead_id") not in REPAIRED_CANDIDATE_IDS
+        and lead.get("allowed_candidate_class") in {"native", "either"}
+    ]
+    attempts_by_id = {item.get("lead_id"): item for item in attempts if isinstance(item, dict)}
+    bands: list[dict[str, object]] = []
+    challenge_attempts: list[dict[str, object]] = []
+    for lead in challenge_leads:
+        prior = attempts_by_id.get(lead.get("lead_id"), dict(lead))
+        band = challenge_candidate_difficulty_band(prior)
+        bands.append(band)
+        challenge_attempts.append(_safe_attempt_summary(prior, band))
+    verified = [
+        item
+        for item in challenge_attempts
+        if item.get("admission_decision") == "admitted_native_replay_candidate"
+    ]
+    rejection_ledger = [
+        {
+            "candidate_id": item.get("candidate_id"),
+            "status": "REJECTED",
+            "blocker": item.get("blocker"),
+            "admission_decision": item.get("admission_decision"),
+            "repairability_score": item.get("repairability_score"),
+            "escape_boundary_risk": item.get("escape_boundary_risk"),
+            "decision_reason": item.get("decision_reason"),
+        }
+        for item in challenge_attempts
+        if item.get("admission_decision") != "admitted_native_replay_candidate"
+    ]
+    exact_blocker = None if verified else "clean_replication_batch_003_no_verified_challenge_candidate"
+    policy = matched_null_ensemble_policy(int(config.get("null_ensemble_size", 5)))
+    seed_policy = null_ensemble_seed_policy(int(config.get("null_ensemble_size", 5)))
+    fairness = null_ensemble_fairness_audit(policy, list(seed_policy["seeds"]))
+    marker_usage = {
+        "status": "PASS",
+        "memory_ledger_path": "configs/failure_memory_weight_ledger.json",
+        "memory_ledger_loaded": True,
+        "relevant_markers": [],
+        "source_ranking_changed": False,
+        "context_selection_changed": False,
+        "generation_strategy_changed": False,
+        "blocker": "no_relevant_failure_memory_available" if not verified else None,
+        "reason": "No admitted batch003 challenge candidate reached repair routing.",
+    }
+    routing_delta = memory_routing_delta(marker_usage)
+    score_result = matched_null_ensemble_score(
+        {"candidate_id": None, "repo_url": None, "commit_sha": None, "target_test_path": None},
+        [],
+        routing_delta,
+    )
+    state = {
+        "lane_id": BATCH003_ID,
+        "lane_type": "post_v2_37_memory_challenge_batch",
+        "status": "BLOCKED" if exact_blocker else "PASS",
+        "exact_blocker": exact_blocker,
+        "current_protocol_version": "v2.13",
+        "challenge_candidates_attempted_count": len(challenge_attempts),
+        "challenge_candidates_verified_count": len(verified),
+        "native_candidates_verified_count": len(verified),
+        "issue_derived_candidates_verified_count": 0,
+        "memory_enabled_run_status": "NOT_RUN" if not verified else "PENDING",
+        "null_ensemble_run_count": 0,
+        "null_ensemble_success_rate": None,
+        "matched_null_ensemble_separation_score": None,
+        "preliminary_single_candidate_memory_separation_evidence": False,
+        "additional_native_external_repairs_acquired_count": 0,
+        "additional_issue_derived_repairs_acquired_count": 0,
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "undemonstrated_equal_performance",
+        "self_maintaining_software": "false/not_demonstrated",
+        "technical_validation_release_readiness": "not_ready",
+    }
+    write_json_deterministic(BATCH003_DIR / f"consolidated_state_{BATCH003_ID}.json", state)
+    write_json_deterministic(BATCH003_DIR / "matched_null_ensemble_policy.json", policy)
+    write_json_deterministic(BATCH003_DIR / "matched_null_ensemble_seed_policy.json", seed_policy)
+    write_json_deterministic(
+        BATCH003_DIR / "matched_null_ensemble_score_definition.json",
+        {
+            "status": "PASS",
+            "threshold": 0.95,
+            "compute_only_if_memory_enabled_and_all_null_runs_complete": True,
+            "score_zero_when_memory_enabled_fails": True,
+            "score_zero_when_null_success_rate_is_one": True,
+            "score_zero_when_memory_routing_delta_is_passive": True,
+            "full_memory_lift_claim_allowed": False,
+            "full_scoring": "NOT_RUN/disallowed",
+        },
+    )
+    write_json_deterministic(BATCH003_DIR / "null_generation_audit.json", fairness)
+    write_json_deterministic(
+        BATCH003_DIR / "memory_enabled_policy.json",
+        {
+            "status": "PASS",
+            "may_read_failure_memory_weight_ledger": True,
+            "may_use_prior_status_code_markers": True,
+            "must_record_exact_routing_delta": True,
+            "successful_patch_bytes_read": False,
+            "prior_patches_copied": False,
+            "fixed_later_gold_pr_patch_content_used": False,
+        },
+    )
+    write_json_deterministic(
+        BATCH003_DIR / "memory_disabled_policy.json",
+        {
+            "status": "PASS",
+            "may_read_failure_memory_weight_ledger": False,
+            "successful_patch_bytes_read": False,
+            "prior_repair_rationales_used": False,
+            "same_structural_inputs_minus_memory_weighting": True,
+        },
+    )
+    write_json_deterministic(
+        BATCH003_DIR / "challenge_candidate_acquisition_policy.json",
+        {
+            "status": "PASS",
+            "candidate_ids_forbidden_as_new": sorted(REPAIRED_CANDIDATE_IDS),
+            "preferred_sources": [
+                "unrepaired_prior_native_leads",
+                "native_target_test_commits_with_moderate_source_closure",
+            ],
+            "fixed_later_gold_pr_patch_content_forbidden": True,
+            "issue_derived_candidates_count_separately": True,
+            "max_challenge_candidates_attempted": config.get("max_challenge_candidates_attempted"),
+        },
+    )
+    write_json_deterministic(
+        BATCH003_DIR / "challenge_candidate_difficulty_band.json",
+        {
+            "status": "PASS",
+            "preferred_band": {
+                "traceback_or_import_closure_candidate_source_files": "2-4",
+                "patchable_source_functions": "2-6",
+                "target_command_width": ["single_node", "single_file"],
+                "external_network_required": False,
+                "broad_full_suite_only_failure": False,
+            },
+            "reject_too_easy_for_memory_separation": True,
+            "reject_too_hard_or_unsafe": True,
+            "records": bands,
+        },
+    )
+    write_json_deterministic(
+        BATCH003_DIR / "challenge_candidate_lead_pool.json",
+        {
+            "status": "PASS",
+            "source_lead_pool": "inputs/clean_replication_batch_002_lead_pool.json",
+            "source_lead_pool_sha256": sha256_file("inputs/clean_replication_batch_002_lead_pool.json"),
+            "repaired_candidate_ids_excluded": sorted(REPAIRED_CANDIDATE_IDS),
+            "lead_count": len(challenge_leads),
+            "leads": challenge_leads,
+        },
+    )
+    write_json_deterministic(BATCH003_DIR / "challenge_candidate_attempts.json", challenge_attempts)
+    write_json_deterministic(BATCH003_DIR / "challenge_candidate_rejection_ledger.json", rejection_ledger)
+    write_json_deterministic(BATCH003_DIR / "candidate_verification_attempts.json", challenge_attempts)
+    write_json_deterministic(BATCH003_DIR / "verified_challenge_candidates.json", verified)
+    write_json_deterministic(BATCH003_DIR / "challenge_candidate_admission_decisions.json", bands)
+    _write_repairability_scores_csv(BATCH003_DIR / "repairability_basin_scores_batch003.csv", bands)
+    write_json_deterministic(
+        BATCH003_DIR / "memory_enabled_run_results.json",
+        {
+            "status": "NOT_RUN" if not verified else "PENDING",
+            "blocker": exact_blocker,
+            "patch_generated": False,
+            "patch_authorized": False,
+            "patch_attempted": False,
+        },
+    )
+    write_json_deterministic(BATCH003_DIR / "null_ensemble_run_results.json", [])
+    write_json_deterministic(
+        BATCH003_DIR / "null_ensemble_summary.json",
+        {
+            "status": "NOT_RUN" if not verified else "PENDING",
+            "blocker": exact_blocker,
+            "null_ensemble_run_count": 0,
+            "null_ensemble_success_rate": None,
+        },
+    )
+    write_json_deterministic(BATCH003_DIR / "matched_null_ensemble_separation_score_result.json", score_result)
+    write_json_deterministic(
+        BATCH003_DIR / "memory_separation_claim_evaluation.json",
+        {
+            "status": "PASS",
+            "preliminary_single_candidate_memory_separation_evidence": False,
+            "memory_lift": "undemonstrated_equal_performance",
+            "full_memory_lift_status": "undemonstrated",
+            "full_scoring": "NOT_RUN/disallowed",
+            "self_maintaining_software": "false/not_demonstrated",
+            "reason": exact_blocker or "matched-null ensemble did not establish separation",
+        },
+    )
+    write_json_deterministic(BATCH003_DIR / "repair_successes.json", [])
+    write_json_deterministic(
+        BATCH003_DIR / "native_issue_derived_count_separation.json",
+        {
+            "status": "PASS",
+            "native_challenge_candidates_verified": len(verified),
+            "issue_derived_challenge_candidates_verified": 0,
+            "issue_derived_repairs_count_as_native": False,
+        },
+    )
+    write_json_deterministic(
+        BATCH003_DIR / "claim_boundary.json",
+        {
+            "status": "PASS",
+            "current_protocol_version": "v2.13",
+            "full_scoring": "NOT_RUN/disallowed",
+            "memory_lift": "undemonstrated_equal_performance",
+            "full_memory_lift_status": "undemonstrated",
+            "preliminary_single_candidate_memory_separation_evidence": False,
+            "self_maintaining_software": "false/not_demonstrated",
+            "technical_validation_release_readiness": "not_ready",
+            "issue_derived_evidence_remains_separate": True,
+        },
+    )
+    write_json_deterministic(
+        BATCH003_DIR / "failure_memory_active_routing_audit.json",
+        {
+            "status": "PASS",
+            "memory_ledger_loaded": True,
+            "memory_ledger_sha256": sha256_file("configs/failure_memory_weight_ledger.json"),
+            "routing_delta": routing_delta,
+            "preliminary_memory_separation_allowed": False,
+        },
+    )
+    write_json_deterministic(BATCH003_DIR / "failure_memory_marker_usage.json", marker_usage)
+    write_json_deterministic(BATCH003_DIR / "failure_memory_routing_delta.json", routing_delta)
+    write_text_lf(
+        BATCH003_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication batch 003 memory challenge",
+                "",
+                f"Status: {state['status']}.",
+                "",
+                "Batch003 adds deterministic matched-null ensemble policy, challenge-candidate difficulty-band selection, active failure-memory routing audit, and native versus issue-derived count separation.",
+                "",
+                f"Challenge candidates attempted: {len(challenge_attempts)}.",
+                f"Challenge candidates verified: {len(verified)}.",
+                f"Exact blocker: `{exact_blocker}`.",
+                "",
+                "No full scoring, full memory-lift, self-maintaining software, or public release readiness claim is made.",
+            ]
+        ),
+    )
+    write_sha256sums(BATCH003_DIR)
+    return state
+
+
 def main() -> int:
     POST_DIR.mkdir(parents=True, exist_ok=True)
     BATCH_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH003_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
+    batch003_state = write_batch003_outputs()
 
     policy_files = [
         "configs/clean_replication_batch_002.json",
+        "configs/clean_replication_batch_003.json",
         "inputs/clean_replication_batch_002_lead_pool.json",
         "docs/bugsinpy_byte_identical_exception_research_note.md",
         "docs/operational_gate_completion_roadmap.md",
@@ -770,6 +1112,7 @@ def main() -> int:
             "status": "PASS",
             "corrected_artifact_name": "post_v2_37_hardening_batch002_repair_generation_artifacts",
             "continuation_artifact_name": "post_v2_37_hardening_batch002_matched_null_artifacts",
+            "batch003_artifact_name": "post_v2_37_hardening_batch003_memory_challenge_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
@@ -864,6 +1207,18 @@ def main() -> int:
         "matched_null_score_status": load_json(BATCH_DIR / "matched_null_separation_score_result.json").get("status") if (BATCH_DIR / "matched_null_separation_score_result.json").is_file() else "NOT_RUN",
         "matched_null_score_value": load_json(BATCH_DIR / "matched_null_separation_score_result.json").get("matched_null_separation_score") if (BATCH_DIR / "matched_null_separation_score_result.json").is_file() else None,
         "preliminary_single_candidate_memory_separation_evidence": batch_state.get("preliminary_single_candidate_memory_separation_evidence", False),
+        "clean_replication_batch_003_status": batch003_state["status"],
+        "clean_replication_batch_003_exact_blocker": batch003_state["exact_blocker"],
+        "batch003_challenge_candidates_attempted_count": batch003_state["challenge_candidates_attempted_count"],
+        "batch003_challenge_candidates_verified_count": batch003_state["challenge_candidates_verified_count"],
+        "batch003_memory_enabled_run_status": batch003_state["memory_enabled_run_status"],
+        "batch003_null_ensemble_run_count": batch003_state["null_ensemble_run_count"],
+        "batch003_null_ensemble_success_rate": batch003_state["null_ensemble_success_rate"],
+        "batch003_matched_null_ensemble_separation_score": batch003_state["matched_null_ensemble_separation_score"],
+        "batch003_additional_external_repairs_acquired_count": batch003_state["additional_native_external_repairs_acquired_count"],
+        "batch003_matched_null_ensemble_policy_status": load_json(BATCH003_DIR / "matched_null_ensemble_policy.json").get("status"),
+        "batch003_challenge_difficulty_band_status": load_json(BATCH003_DIR / "challenge_candidate_difficulty_band.json").get("status"),
+        "batch003_failure_memory_routing_delta_status": load_json(BATCH003_DIR / "failure_memory_routing_delta.json").get("status"),
         "active_failure_memory_weighting_status": load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("status") if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() else "NOT_RUN",
         "arm_a_memory_routing_delta_status": "PASS" if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() and load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("failure_memory_markers_passive") is False else "PASSIVE_OR_NOT_RUN",
         "arm_b_memory_exclusion_status": load_json(BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").get("status") if (BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").is_file() else "NOT_RUN",
@@ -904,7 +1259,7 @@ def main() -> int:
             "v2_37_official_artifact_verification": v2_37_record,
             "claim_boundary": {
                 "full_scoring": "NOT_RUN/disallowed",
-                "memory_lift": "undemonstrated",
+                "memory_lift": batch_state.get("memory_lift", "undemonstrated_equal_performance"),
                 "self_maintaining_software": "false/not_demonstrated",
             },
         },
@@ -920,12 +1275,14 @@ def main() -> int:
                 "This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.",
                 "",
                 "The matched-null continuation runs the remaining verified native candidate under memory-enabled and memory-disabled arms with bounded claim language.",
+                "",
+                "Batch003 adds a deterministic matched-null ensemble challenge protocol and blocks cleanly because no unrepaired challenge candidate verified under the safe admission gates.",
             ]
         ),
     )
     write_public_docs_reports()
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     write_json_deterministic(
@@ -941,7 +1298,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 
