@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002 ingest, batch003 ingest, and batch004 challenge
+    name: post-v2.37 hardening, batch002 ingest, batch003/batch004 ingest, and batch005 challenge
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -67,8 +67,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch004_dual_track_challenge/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch004_dual_track_challenge \( \
+          test -f artifact_payload/post_v2_37_hardening_batch005_source_materialized_challenge/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch005_source_materialized_challenge \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -89,11 +89,11 @@ jobs:
             exit 1
           fi
 
-      - name: Upload dual-track challenge post-v2.37 hardening artifact
+      - name: Upload source-materialized challenge post-v2.37 hardening artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch004_dual_track_challenge_artifacts
+          name: post_v2_37_hardening_batch005_source_materialized_challenge_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch004_dual_track_challenge/**
+            artifact_payload/post_v2_37_hardening_batch005_source_materialized_challenge/**
           if-no-files-found: error

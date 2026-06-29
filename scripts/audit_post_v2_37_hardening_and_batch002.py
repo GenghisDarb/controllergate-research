@@ -14,7 +14,8 @@ POST_DIR = Path("outputs/post_v2_37_hardening_001")
 BATCH_DIR = Path("outputs/clean_replication_batch_002")
 BATCH003_DIR = Path("outputs/clean_replication_batch_003")
 BATCH004_DIR = Path("outputs/clean_replication_batch_004")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch004_dual_track_challenge")
+BATCH005_DIR = Path("outputs/clean_replication_batch_005")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch005_source_materialized_challenge")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -63,6 +64,9 @@ POST_REQUIRED = [
     "batch003_memory_challenge_artifact_verification.json",
     "batch003_challenge_candidate_failure_diagnosis.json",
     "native_vs_issue_derived_status_after_batch003.json",
+    "batch004_artifact_verification.json",
+    "batch004_source_materialization_gap_diagnosis.json",
+    "batch004_issue_lead_gap_diagnosis.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
     "campaign_summary.md",
@@ -100,6 +104,52 @@ BATCH004_REQUIRED = [
     "candidate_starvation_pressure_log.json",
     "context_boundary_map.json",
     "campaign_summary.md",
+    "SHA256SUMS.txt",
+]
+
+BATCH005_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_005.json",
+    "source_materialization_policy.json",
+    "source_materialization_log.json",
+    "native_challenge_retry_attempts.json",
+    "native_challenge_node_discovery.json",
+    "native_challenge_collection_attempts.json",
+    "native_challenge_failure_replay_attempts.json",
+    "native_challenge_verified_candidates.json",
+    "native_challenge_rejection_ledger.json",
+    "dependency_resolution_summary.json",
+    "targeted_issue_seed_intake_report.json",
+    "targeted_issue_text_hash.json",
+    "targeted_issue_text_temporal_guard.json",
+    "targeted_issue_latent_knowledge_risk_disclosure.json",
+    "targeted_issue_harness_generation_policy.json",
+    "targeted_issue_harness_context_manifest.json",
+    "targeted_issue_harness_firewall_audit.json",
+    "targeted_issue_harness_verification_result.json",
+    "targeted_issue_source_context_filter_map.json",
+    "targeted_issue_context_boundary_map.json",
+    "targeted_issue_interlock_invariant_map.json",
+    "issue_derived_lead_discovery_policy.json",
+    "issue_derived_lead_pool.json",
+    "issue_derived_attempts.json",
+    "issue_derived_rejection_ledger.json",
+    "issue_derived_verified_candidates.json",
+    "memory_enabled_run_results.json",
+    "null_ensemble_run_results.json",
+    "null_ensemble_summary.json",
+    "matched_null_ensemble_separation_score_result.json",
+    "memory_separation_claim_evaluation.json",
+    "repair_successes.json",
+    "no_overreach_validation.json",
+    "stage_interface_contract.json",
+    "repairability_basin_source_ranking.json",
+    "patchable_source_subset.json",
+    "pre_generation_context_state_snapshot.json",
+    "repair_intent_lock.json",
+    "patch_context_alignment_audit.json",
+    "post_patch_constraint_revalidation.json",
+    "claim_boundary.json",
     "SHA256SUMS.txt",
 ]
 
@@ -693,6 +743,27 @@ def audit_phase_a_ingest_records() -> list[str]:
         errors.append("batch003 diagnosis overclaimed memory separation")
     if native_issue.get("confirmed_external_native_repair_episodes") != 3 or native_issue.get("confirmed_issue_derived_repair_episodes") != 0:
         errors.append("batch003 native/issue-derived carry-forward counts invalid")
+    batch004_artifact = read_json(POST_DIR / "batch004_artifact_verification.json")
+    batch004_gap = read_json(POST_DIR / "batch004_source_materialization_gap_diagnosis.json")
+    issue_gap = read_json(POST_DIR / "batch004_issue_lead_gap_diagnosis.json")
+    if batch004_artifact.get("status") != "PASS":
+        errors.append("batch004 artifact verification not PASS")
+    if batch004_artifact.get("actual_sha256") != "9dcc1fd59c566acf1891ddd62ba667756ed9f5589342d99bbb24a33c1951c64b":
+        errors.append("batch004 artifact SHA mismatch")
+    if batch004_artifact.get("actual_size_bytes") not in {186032, "186032"}:
+        errors.append("batch004 artifact size mismatch")
+    if batch004_artifact.get("zip_entry_count") != 200 or batch004_artifact.get("artifact_sha256sums_checked") != 199:
+        errors.append("batch004 artifact entry or manifest count mismatch")
+    if batch004_artifact.get("native_challenge_leads_attempted_count") != 1 or batch004_artifact.get("native_challenge_candidates_verified_count") != 0:
+        errors.append("batch004 native challenge counts mismatch")
+    if batch004_artifact.get("issue_derived_leads_attempted_count") != 0 or batch004_artifact.get("issue_derived_candidates_verified_count") != 0:
+        errors.append("batch004 issue-derived counts mismatch")
+    if batch004_artifact.get("exact_blocker") != "batch004_no_native_or_issue_derived_challenge_candidate_verified":
+        errors.append("batch004 blocker mismatch")
+    if batch004_gap.get("source_tree_materialized_in_batch004") is not False or batch004_gap.get("corrected_action") != "perform_ephemeral_source_checkout_before_ast_and_node_discovery":
+        errors.append("batch004 source materialization gap diagnosis invalid")
+    if issue_gap.get("fallback_activated_after_native_failure") is not True or issue_gap.get("issue_derived_lead_count") != 0:
+        errors.append("batch004 issue lead gap diagnosis invalid")
     return errors
 
 
@@ -806,6 +877,107 @@ def audit_batch004_records() -> list[str]:
     return errors
 
 
+def audit_batch005_records() -> list[str]:
+    errors: list[str] = []
+    state = read_json(BATCH005_DIR / "consolidated_state_clean_replication_batch_005.json")
+    materialization = read_json(BATCH005_DIR / "source_materialization_log.json")
+    policy = read_json(BATCH005_DIR / "source_materialization_policy.json")
+    attempts = read_json(BATCH005_DIR / "native_challenge_retry_attempts.json")
+    nodes = read_json(BATCH005_DIR / "native_challenge_node_discovery.json")
+    collection = read_json(BATCH005_DIR / "native_challenge_collection_attempts.json")
+    replay = read_json(BATCH005_DIR / "native_challenge_failure_replay_attempts.json")
+    verified = read_json(BATCH005_DIR / "native_challenge_verified_candidates.json")
+    targeted = read_json(BATCH005_DIR / "targeted_issue_seed_intake_report.json")
+    text_hash = read_json(BATCH005_DIR / "targeted_issue_text_hash.json")
+    firewall = read_json(BATCH005_DIR / "targeted_issue_harness_firewall_audit.json")
+    context_filter = read_json(BATCH005_DIR / "targeted_issue_source_context_filter_map.json")
+    issue_policy = read_json(BATCH005_DIR / "issue_derived_lead_discovery_policy.json")
+    issue_pool = read_json(BATCH005_DIR / "issue_derived_lead_pool.json")
+    issue_attempts = read_json(BATCH005_DIR / "issue_derived_attempts.json")
+    issue_verified = read_json(BATCH005_DIR / "issue_derived_verified_candidates.json")
+    memory = read_json(BATCH005_DIR / "memory_enabled_run_results.json")
+    null_runs = read_json(BATCH005_DIR / "null_ensemble_run_results.json")
+    null_summary = read_json(BATCH005_DIR / "null_ensemble_summary.json")
+    score = read_json(BATCH005_DIR / "matched_null_ensemble_separation_score_result.json")
+    claim = read_json(BATCH005_DIR / "claim_boundary.json")
+    if policy.get("ephemeral_checkout_required") is not True or policy.get("commit_checkout_exact_only") is not True:
+        errors.append("batch005 source materialization policy invalid")
+    if materialization.get("workspace_path") != "<ephemeral_root>":
+        errors.append("batch005 materialization path not redacted")
+    if materialization.get("runtime_workspace_outside_repo") is not True or materialization.get("runtime_workspace_outside_onedrive") is not True:
+        errors.append("batch005 materialization workspace boundary invalid")
+    if materialization.get("fixed_later_gold_pr_patch_content_used") is not False:
+        errors.append("batch005 materialization used forbidden evidence")
+    if materialization.get("source_materialized") is not True:
+        errors.append("batch005 did not materialize source")
+    if materialization.get("commit_sha") != "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75":
+        errors.append("batch005 materialized wrong commit")
+    if materialization.get("target_test_path_exists") is not True:
+        errors.append("batch005 target test missing after materialization")
+    if not materialization.get("environment_files"):
+        errors.append("batch005 environment files missing")
+    if nodes.get("status") != "PASS" or not nodes.get("nodes"):
+        errors.append("batch005 AST/node discovery missing")
+    if not isinstance(attempts, list) or len(attempts) != 1:
+        errors.append("batch005 native retry attempt missing")
+    else:
+        attempt = attempts[0]
+        if attempt.get("source_materialized") is not True:
+            errors.append("batch005 native attempt did not record source materialization")
+        if attempt.get("ast_node_discovery_attempted_from_materialized_source") is not True:
+            errors.append("batch005 native attempt did not use materialized AST discovery")
+        if attempt.get("collection_attempted_from_materialized_source") is not True and materialization.get("source_materialized") is True:
+            if attempt.get("blocker") not in {"native_challenge_command_cannot_collect_target_after_materialization", "environment_dependency_install_failed"}:
+                errors.append("batch005 collection not attempted without precise blocker")
+        if attempt.get("fixed_later_gold_pr_patch_content_used") is not False:
+            errors.append("batch005 native attempt used forbidden evidence")
+    if not isinstance(collection, list) or not collection:
+        errors.append("batch005 collection record missing")
+    if verified and len(null_runs) != 5:
+        errors.append("batch005 verified native candidate without null ensemble of 5")
+    if verified and any(item.get("commit_sha") != materialization.get("commit_sha") for item in verified):
+        errors.append("batch005 verified native candidate identity mismatch")
+    if not verified and state.get("native_challenge_candidate_verified") is not False:
+        errors.append("batch005 native verification state mismatch")
+    if state.get("targeted_issue_seed_present") != targeted.get("targeted_issue_derived_seed_present"):
+        errors.append("batch005 targeted issue seed state mismatch")
+    if targeted.get("targeted_issue_derived_seed_present") is False and text_hash.get("issue_text_sha256") is not None:
+        errors.append("batch005 issue text hash present without seed")
+    if firewall.get("forbidden_evidence_used") is not False or firewall.get("generated_harness_classified_as_native_test") is not False:
+        errors.append("batch005 targeted harness firewall invalid")
+    if targeted.get("targeted_issue_derived_seed_present") and context_filter.get("forbidden_context_used") is not False:
+        errors.append("batch005 targeted source context used forbidden context")
+    if issue_policy.get("runs_only_after_native_failure") is not True or issue_policy.get("runs_after_targeted_seed_intake") is not True:
+        errors.append("batch005 issue discovery policy invalid")
+    if state.get("native_challenge_candidate_verified") is False and targeted.get("status") == "NOT_RUN_NO_TARGETED_SEED":
+        if state.get("issue_derived_discovery_attempted") is not True:
+            errors.append("batch005 did not attempt issue discovery after native failure and no targeted seed")
+    if issue_verified != []:
+        errors.append("batch005 should not verify issue-derived candidate in current evidence")
+    if issue_pool.get("lead_count", 0) == 0 and state.get("issue_derived_discovery_attempted") is True:
+        rejections = read_json(BATCH005_DIR / "issue_derived_rejection_ledger.json")
+        blockers = {item.get("blocker") for item in rejections if isinstance(item, dict)}
+        if not blockers & {"issue_derived_no_safe_leads", "issue_derived_discovery_network_unavailable"}:
+            errors.append("batch005 zero issue leads without allowed discovery blocker")
+    if state.get("confirmed_external_native_repair_episodes") != 3 + int(state.get("repair_successes_count", 0)):
+        errors.append("batch005 native repair episode count invalid")
+    if state.get("confirmed_issue_derived_repair_episodes") != state.get("additional_issue_derived_repair_feasibility_count"):
+        errors.append("batch005 issue-derived count invalid")
+    if memory.get("patch_generated") is True and not verified:
+        errors.append("batch005 generated patch without verified native candidate")
+    if null_summary.get("null_ensemble_success_rate") == 1.0 and score.get("matched_null_ensemble_separation_score") != 0.0:
+        errors.append("batch005 null success rate 1.0 did not force score 0")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed":
+        errors.append("batch005 full scoring changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch005 self-maintaining overclaim")
+    if claim.get("technical_validation_release_readiness") != "not_ready":
+        errors.append("batch005 release readiness overclaim")
+    if claim.get("issue_derived_evidence_remains_separate") is not True:
+        errors.append("batch005 issue-derived evidence boundary invalid")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -910,6 +1082,7 @@ def public_language_hits() -> list[str]:
         Path("configs/operational_gate_matrix.json"),
         Path("configs/clean_replication_batch_003.json"),
         Path("configs/clean_replication_batch_004.json"),
+        Path("configs/clean_replication_batch_005.json"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
@@ -931,6 +1104,7 @@ def main() -> int:
         + require_files(BATCH_DIR, BATCH_REQUIRED)
         + require_files(BATCH003_DIR, BATCH003_REQUIRED)
         + require_files(BATCH004_DIR, BATCH004_REQUIRED)
+        + require_files(BATCH005_DIR, BATCH005_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -942,6 +1116,8 @@ def main() -> int:
         return fail("batch003 manifest mismatch")
     if verify_manifest(BATCH004_DIR)["status"] != "PASS":
         return fail("batch004 manifest mismatch")
+    if verify_manifest(BATCH005_DIR)["status"] != "PASS":
+        return fail("batch005 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
         return fail("core tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -1059,6 +1235,9 @@ def main() -> int:
     batch004_errors = audit_batch004_records()
     if batch004_errors:
         return fail(f"batch004 audit failed: {batch004_errors}")
+    batch005_errors = audit_batch005_records()
+    if batch005_errors:
+        return fail(f"batch005 audit failed: {batch005_errors}")
     repair_attempts = read_json(BATCH_DIR / "repair_attempts.json")
     verified_native_count = int(batch.get("native_candidates_verified_count", 0))
     if verified_native_count and (not isinstance(repair_attempts, list) or not repair_attempts):

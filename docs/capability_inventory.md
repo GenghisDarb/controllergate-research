@@ -18,6 +18,7 @@
 - Matched-null repair comparison for `darker_stdin_filename` with memory-enabled and memory-disabled arms.
 - Officially ingested batch003 matched-null ensemble policy, null seed policy, challenge-candidate difficulty-band admission, and failure-memory routing delta records. Batch003 found no verified challenge candidate.
 - Batch004 native-first dual-track challenge acquisition with issue-derived ephemeral reproduction harness fallback kept as a separate evidence class.
+- Batch005 source-materialized native retry support with targeted issue-derived seed intake before bounded issue discovery fallback.
 
 ## Partial
 
@@ -25,6 +26,7 @@
 - Broader source-only repair generation across diverse repositories and failure types.
 - Matched-null ensemble execution on a verified moderate-complexity challenge candidate.
 - Acquisition of a verified native challenge candidate, or a separately classified issue-derived feasibility candidate.
+- Batch005 source-materialized replay outcome pending official workflow artifact and ingest.
 - Matched-null memory separation evidence beyond equal-performance outcomes.
 - Public release readiness evidence.
 

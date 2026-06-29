@@ -15,6 +15,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 - The `darker_stdin_filename` matched-null comparison had equal Arm A and Arm B repair success, so it adds a native repair episode but does not provide memory separation evidence.
 - Clean replication batch003 implements a matched-null ensemble challenge protocol and is officially ingested. It found no verified challenge candidate, so the matched-null ensemble did not run; the correct blocker is `clean_replication_batch_003_no_verified_challenge_candidate`.
 - Clean replication batch004 implements native-first dual-track challenge acquisition with issue-derived ephemeral reproduction harness fallback as a separate evidence class. It currently blocks because neither track verified a challenge candidate.
+- Batch005 corrects Batch004 by requiring an ephemeral source checkout before native AST/node discovery and by checking targeted issue-derived seed intake before bounded issue discovery fallback.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift on external real bugs is not demonstrated; the matched-null status is `undemonstrated_equal_performance`.
 - Self-maintaining software is not demonstrated.
@@ -37,7 +38,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 
 ControllerGate does not currently claim autonomous repair, full benchmark scoring, memory-lift evidence, self-maintaining software, or technical validation readiness. Issue-derived harnesses do not count as native external repairs. Historical lanes remain auditable evidence, but new replication work should use the clean replication protocol and reusable workflow where possible.
 
-The next technical objective is acquiring a verified native challenge candidate, or an explicitly separated issue-derived feasibility candidate if native acquisition remains blocked. If no candidate passes the gates, the correct state is a blocked record, not a success claim.
+The next technical objective is completing the Batch005 source-materialized native retry, or an explicitly separated issue-derived feasibility candidate if native acquisition remains blocked. If no candidate passes the gates, the correct state is a blocked record, not a success claim.
 
 ## Basic local checks
 

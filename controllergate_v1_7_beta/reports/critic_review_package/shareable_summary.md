@@ -68,6 +68,7 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 - The matched-null official ingest records a successful `darker_stdin_filename` native repair in both arms. Because both arms succeeded equivalently, preliminary memory separation evidence remains false.
 - Batch003 deterministic matched-null ensemble calibration is officially ingested. It attempted 3 challenge candidates, verified 0, did not run the ensemble, and records `clean_replication_batch_003_no_verified_challenge_candidate`.
 - Batch004 native-first dual-track challenge acquisition keeps issue-derived ephemeral reproduction harnesses as a separate lower-confidence evidence class. It verifies 0 native challenge candidates and 0 issue-derived candidates, so no repair or matched-null ensemble is authorized.
+- Batch005 corrects Batch004 by materializing the source tree for the native retry and by checking targeted issue-derived seed intake before bounded issue discovery fallback.
 - The next objective is a verified native challenge candidate, or an explicitly separated issue-derived feasibility candidate if native acquisition remains blocked.
 - BugsInPy remains globally blocked for active use.
 - Full scoring remains `NOT_RUN/disallowed`.
@@ -76,4 +77,4 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 
 ## Safest next step
 
-After the batch004 workflow completes, manually download the dual-track challenge artifact and ingest it through the same byte-custody boundary.
+After the batch005 workflow completes, manually download the source-materialized challenge artifact and ingest it through the same byte-custody boundary.

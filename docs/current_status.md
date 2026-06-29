@@ -12,6 +12,7 @@ ControllerGate is a provenance-first software repair research harness. The curre
 - Matched-null status for `darker_stdin_filename`: both arms succeeded equivalently; preliminary single-candidate memory separation evidence is `false`.
 - Clean replication batch003 status: officially ingested; 3 challenge candidates attempted, 0 verified, matched-null ensemble did not run, exact blocker `clean_replication_batch_003_no_verified_challenge_candidate`.
 - Clean replication batch004 status: native-first dual-track challenge acquisition is implemented with issue-derived ephemeral reproduction harness fallback as a separate evidence class; 1 native lead is carried forward, 0 native candidates verified, 0 issue-derived candidates verified, exact blocker `batch004_no_native_or_issue_derived_challenge_candidate_verified`.
+- Batch005 corrects Batch004 by materializing the source tree in an ephemeral workspace before native AST/node discovery and by checking targeted issue-derived seed intake before bounded issue discovery fallback.
 - Full scoring: `NOT_RUN/disallowed`.
 - Matched-null memory status: `undemonstrated_equal_performance`.
 - Self-maintaining software: `false/not_demonstrated`.
@@ -19,4 +20,4 @@ ControllerGate is a provenance-first software repair research harness. The curre
 
 ## Operational status
 
-The repository has byte-custody checks, artifact hygiene, registry validation, current-protocol audits, a clean replication adapter, bounded repair generation, deterministic matched-null ensemble scaffolding, native-first dual-track challenge acquisition, issue-derived evidence-class separation, and reusable workflow support. The next step is a verified native challenge candidate, or an explicitly separated issue-derived feasibility candidate if native acquisition remains blocked. It remains a pre-alpha research archive until broader external replication and audited comparison evidence exist.
+The repository has byte-custody checks, artifact hygiene, registry validation, current-protocol audits, a clean replication adapter, bounded repair generation, deterministic matched-null ensemble scaffolding, native-first dual-track challenge acquisition, issue-derived evidence-class separation, source-materialized native retry support, and reusable workflow support. The next step is a verified native challenge candidate, or an explicitly separated issue-derived feasibility candidate if native acquisition remains blocked. It remains a pre-alpha research archive until broader external replication and audited comparison evidence exist.

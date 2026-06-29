@@ -9,3 +9,5 @@ The matched-null continuation runs the remaining verified native candidate under
 Batch003 adds a deterministic matched-null ensemble challenge protocol and blocks cleanly because no unrepaired challenge candidate verified under the safe admission gates.
 
 Batch004 adds native-first dual-track challenge acquisition and issue-derived fallback as a separate evidence class; it blocks cleanly because neither track verified a challenge candidate.
+
+Batch005 corrects Batch004 by materializing the source tree for native retry and running targeted issue-derived seed intake before bounded issue discovery fallback.

@@ -13,6 +13,7 @@ ControllerGate has made meaningful progress as a research harness, but the evide
 - The `darker_stdin_filename` matched-null comparison produced equal success across the memory-enabled and memory-disabled arms, so preliminary memory separation evidence remains false.
 - Batch003 officially records matched-null ensemble calibration and challenge-candidate difficulty-band admission, but found 0 verified challenge candidates; the matched-null ensemble did not run.
 - Batch004 records native-first dual-track challenge acquisition with issue-derived ephemeral reproduction harness fallback as a separate evidence class. It verified 0 native challenge candidates and 0 issue-derived candidates.
+- Batch005 corrects the Batch004 source-materialization gap by requiring an ephemeral checkout before AST/node discovery and by checking targeted issue-derived seed intake before bounded issue discovery fallback.
 
 ## Remaining gaps
 
@@ -25,4 +26,4 @@ ControllerGate has made meaningful progress as a research harness, but the evide
 
 ## Current blocker
 
-Batch002 has demonstrated two additional source-only repairs after environment resolution. Batch003 and batch004 show the remaining blocker is challenge-candidate acquisition. The next objective is a verified native challenge candidate, or an explicitly separated issue-derived feasibility candidate if native acquisition remains blocked; issue-derived candidates stay separate from native replication counts.
+Batch002 has demonstrated two additional source-only repairs after environment resolution. Batch003 and batch004 show the remaining blocker is challenge-candidate acquisition, and Batch005 addresses the Batch004 source-materialization gap. The next objective is a verified native challenge candidate, or an explicitly separated issue-derived feasibility candidate if native acquisition remains blocked; issue-derived candidates stay separate from native replication counts.

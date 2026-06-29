@@ -1,0 +1,122 @@
+{
+  "blocker": null,
+  "candidate_id": "darker_skip_glob_failing_test",
+  "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+  "environment_file_present": true,
+  "environment_files": [
+    "pyproject.toml",
+    "setup.cfg",
+    "setup.py"
+  ],
+  "fixed_later_gold_pr_patch_content_used": false,
+  "git_object_type_commit": true,
+  "records": [
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-checkout",
+        "https://github.com/akaihola/darker",
+        "<ephemeral_workspace>\\darker_skip_glob_failing_test"
+      ],
+      "cwd": null,
+      "normalized_output_sha256": "94483d3582908c9bea67b3f3212bf0773da458b6e443752e1292680b694bac9d",
+      "output_sha256": "9b658b68bbc097cd186cffbc9fee2180efc382b0e059bae481e3f0a2630492ee",
+      "output_summary": "STDOUT:\n\nSTDERR:\nCloning into '<ephemeral_workspace>\\darker_skip_glob_failing_test'...",
+      "returncode": 0,
+      "stage": "clone",
+      "timed_out": false,
+      "timeout_seconds": 180
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "safe.directory=<ephemeral_workspace>",
+        "-C",
+        "<ephemeral_workspace>",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75"
+      ],
+      "cwd": null,
+      "normalized_output_sha256": "6854ce55b61d15880feb37750d80e6bb04c7b4e714d548435c5be12a2afceeb2",
+      "output_sha256": "632f00aa3699f586eac196052899ebc0c942411438eb75b394497a134e23ed8c",
+      "output_summary": "STDOUT:\n\nSTDERR:\nFrom https://github.com/akaihola/darker\n * branch            bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75 -> FETCH_HEAD",
+      "returncode": 0,
+      "stage": "fetch",
+      "timed_out": false,
+      "timeout_seconds": 120
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "safe.directory=<ephemeral_workspace>",
+        "-C",
+        "<ephemeral_workspace>",
+        "cat-file",
+        "-t",
+        "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75"
+      ],
+      "cwd": null,
+      "normalized_output_sha256": "f2edc008cdb732c99eaeefd951eee661793a7c41d03d16c82b15f3b4877fbcaf",
+      "output_sha256": "cde684c872688d84803d7b0e99dcdf9ec1ff9e04bde765e995f48802861901f7",
+      "output_summary": "STDOUT:\ncommit\n\nSTDERR:",
+      "returncode": 0,
+      "stage": "cat_file_before_checkout",
+      "timed_out": false,
+      "timeout_seconds": 30
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "safe.directory=<ephemeral_workspace>",
+        "-C",
+        "<ephemeral_workspace>",
+        "checkout",
+        "--detach",
+        "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75"
+      ],
+      "cwd": null,
+      "normalized_output_sha256": "44102d76723fd1e81724fad6b3b992feae742a71080f951c592413f614ab54d8",
+      "output_sha256": "466b03bde634b213f9b49e900c359bd1c87c1dde28f3fe5dc8b3f82764e3cbc4",
+      "output_summary": "STDOUT:\n\nSTDERR:\nHEAD is now at bd28cdc test: failing test for isort's skip_glob setting",
+      "returncode": 0,
+      "stage": "checkout",
+      "timed_out": false,
+      "timeout_seconds": 120
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "safe.directory=<ephemeral_workspace>",
+        "-C",
+        "<ephemeral_workspace>",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": null,
+      "normalized_output_sha256": "b481d3f85cd87b859c1c1baa566f74da163513a887b3cbc0827a2fc49ab7fef9",
+      "output_sha256": "846633c05c3d733cb499f642f024ff3c671b23f455b751f8883a21d42244c3de",
+      "output_summary": "STDOUT:\nbd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75\n\nSTDERR:",
+      "returncode": 0,
+      "stage": "rev_parse_head",
+      "timed_out": false,
+      "timeout_seconds": 30
+    }
+  ],
+  "repo_url": "https://github.com/akaihola/darker",
+  "runtime_workspace_outside_onedrive": true,
+  "runtime_workspace_outside_repo": true,
+  "source_materialized": true,
+  "status": "PASS",
+  "target_test_path": "src/darker/tests/test_main_isort.py",
+  "target_test_path_exists": true,
+  "target_test_sha256": "474d2500661275265efddc78c938f72aee1e36a8c56e2fe6b6b3e87c448ea838",
+  "workspace_path": "<ephemeral_root>"
+}

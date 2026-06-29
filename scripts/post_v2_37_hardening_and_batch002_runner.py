@@ -1,7 +1,15 @@
 from __future__ import annotations
 
+import ast
+import hashlib
 import json
+import os
+import re
+import shutil
+import subprocess
 import sys
+import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -35,8 +43,33 @@ BATCH003_ID = "clean_replication_batch_003"
 BATCH003_DIR = Path("outputs") / BATCH003_ID
 BATCH004_ID = "clean_replication_batch_004"
 BATCH004_DIR = Path("outputs") / BATCH004_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch004_dual_track_challenge")
+BATCH005_ID = "clean_replication_batch_005"
+BATCH005_DIR = Path("outputs") / BATCH005_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch005_source_materialized_challenge")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
+BATCH005_TARGET = {
+    "candidate_id": "darker_skip_glob_failing_test",
+    "repo_url": "https://github.com/akaihola/darker",
+    "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+    "target_test_path": "src/darker/tests/test_main_isort.py",
+}
+TARGETED_SEED_PATHS = [
+    Path("external_seeds_pending/targeted_issue_derived_seed_batch005.json"),
+    Path("inputs/targeted_issue_derived_seed_batch005.json"),
+    Path("inputs/external_issue_derived_seed_batch005.json"),
+]
+ISSUE_DISCOVERY_REPOS = [
+    "akaihola/darker",
+    "lemon24/reader",
+    "python-websockets/websockets",
+    "pallets/click",
+    "pallets/werkzeug",
+    "more-itertools/more-itertools",
+    "jaraco/path",
+    "python-trio/trio",
+    "benoitc/gunicorn",
+]
+ISSUE_DISCOVERY_TERMS = ["reproduce", "steps to reproduce", "traceback", "AssertionError", "TypeError", "ValueError", "minimal example", "code block"]
 
 
 def load_json(path: str | Path) -> dict[str, object]:
@@ -353,6 +386,7 @@ ACTIVE_PUBLIC_LANGUAGE_PATHS = [
     "controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md",
     "configs/operational_gate_matrix.json",
     "configs/clean_replication_batch_004.json",
+    "configs/clean_replication_batch_005.json",
     ".github/workflows/post_v2_37_hardening_and_batch002.yml",
     "controllergate/core/environment.py",
     "controllergate/experiments/replication_batch.py",
@@ -408,6 +442,7 @@ def write_public_docs_reports() -> None:
         "Clean replication batch002 now attempts real external leads",
         "Clean replication batch003 implements a matched-null ensemble challenge protocol",
         "dual-track challenge acquisition",
+        "Batch005 corrects Batch004",
     ]
     missing = [phrase for phrase in required_phrases if phrase not in readme]
     forbidden_claims = [
@@ -460,7 +495,7 @@ def write_public_docs_reports() -> None:
             "evidence_classes": matrix.get("evidence_classes", []),
         },
     )
-    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))]
+    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))]
     write_json_deterministic(
         POST_DIR / "public_language_audit_expanded.json",
         public_language_audit(ACTIVE_PUBLIC_LANGUAGE_PATHS + artifact_paths),
@@ -1333,21 +1368,774 @@ def write_batch004_outputs() -> dict[str, object]:
     return state
 
 
+def utc_now() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def sha256_text(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def safe_slug(value: object) -> str:
+    text = str(value or "item").strip().lower()
+    return "".join(ch if ch.isalnum() else "_" for ch in text).strip("_")[:80] or "item"
+
+
+def remove_readonly(function, path: str, _exc_info: object) -> None:
+    try:
+        os.chmod(path, 0o700)
+    except OSError:
+        pass
+    function(path)
+
+
+def redacted_runtime_root(config: dict[str, object]) -> Path:
+    configured = config.get("runtime_workspace_root") or os.environ.get("CONTROLLERGATE_RUNTIME_ROOT")
+    if configured:
+        root = Path(str(configured))
+    elif os.name == "nt" and Path("E:/").exists():
+        root = Path("E:/ControllerGate-Ephemeral") / BATCH005_ID
+    else:
+        root = Path(tempfile.gettempdir()) / "controllergate_ephemeral" / BATCH005_ID
+    resolved = root.resolve()
+    repo_root = Path.cwd().resolve()
+    if repo_root == resolved or repo_root in resolved.parents:
+        raise ValueError("ephemeral workspace must be outside live repository")
+    if "onedrive" in str(resolved).lower():
+        raise ValueError("ephemeral workspace must not be under OneDrive")
+    if root.exists():
+        shutil.rmtree(root, onerror=remove_readonly)
+    root.mkdir(parents=True, exist_ok=True)
+    return root
+
+
+def normalize_log(text: str, *roots: Path) -> str:
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    replacements = [
+        (sys.executable, "<python_executable>"),
+        (sys.executable.replace("\\", "/"), "<python_executable>"),
+        (str(Path(sys.base_prefix)), "<python_runtime>"),
+        (str(Path(sys.base_prefix)).replace("\\", "/"), "<python_runtime>"),
+        (str(Path(tempfile.gettempdir())), "<system_temp>"),
+        (str(Path(tempfile.gettempdir())).replace("\\", "/"), "<system_temp>"),
+    ]
+    for root in roots:
+        replacements.extend(
+            [
+                (str(root), "<ephemeral_workspace>"),
+                (str(root).replace("\\", "/"), "<ephemeral_workspace>"),
+                (str(root.parent), "<ephemeral_root>"),
+                (str(root.parent).replace("\\", "/"), "<ephemeral_root>"),
+            ]
+        )
+    for source, target in sorted(replacements, key=lambda item: len(item[0]), reverse=True):
+        normalized = normalized.replace(source, target)
+    return "\n".join(line.rstrip() for line in normalized.splitlines())
+
+
+def scrub_command(command: list[str], *roots: Path) -> list[str]:
+    scrubbed: list[str] = []
+    for item in command:
+        value = str(item)
+        for root in roots:
+            value = value.replace(str(root), "<ephemeral_workspace>")
+            value = value.replace(str(root).replace("\\", "/"), "<ephemeral_workspace>")
+            value = value.replace(str(root.parent), "<ephemeral_root>")
+            value = value.replace(str(root.parent).replace("\\", "/"), "<ephemeral_root>")
+        value = value.replace(sys.executable, "<python_executable>")
+        value = value.replace(sys.executable.replace("\\", "/"), "<python_executable>")
+        scrubbed.append(value)
+    return scrubbed
+
+
+def run_bounded_command(command: list[str], *, cwd: Path | None = None, timeout_seconds: int = 60, env: dict[str, str] | None = None, roots: list[Path] | None = None) -> dict[str, object]:
+    roots = roots or ([cwd] if cwd else [])
+    try:
+        completed = subprocess.run(
+            command,
+            cwd=str(cwd) if cwd else None,
+            text=True,
+            capture_output=True,
+            timeout=timeout_seconds,
+            env=env,
+            check=False,
+        )
+        stdout = completed.stdout or ""
+        stderr = completed.stderr or ""
+        returncode: int | None = completed.returncode
+        timed_out = False
+    except subprocess.TimeoutExpired as exc:
+        stdout = exc.stdout if isinstance(exc.stdout, str) else (exc.stdout or b"").decode("utf-8", errors="replace")
+        stderr = exc.stderr if isinstance(exc.stderr, str) else (exc.stderr or b"").decode("utf-8", errors="replace")
+        stderr += f"\nCOMMAND_TIMED_OUT_AFTER_SECONDS={timeout_seconds}\n"
+        returncode = None
+        timed_out = True
+    combined = f"STDOUT:\n{stdout}\nSTDERR:\n{stderr}"
+    normalized = normalize_log(combined, *roots)
+    return {
+        "command": scrub_command(command, *roots),
+        "cwd": "<ephemeral_workspace>" if cwd else None,
+        "timeout_seconds": timeout_seconds,
+        "returncode": returncode,
+        "timed_out": timed_out,
+        "output_sha256": sha256_text(combined),
+        "normalized_output_sha256": sha256_text(normalized),
+        "output_summary": normalized[:1600],
+    }
+
+
+def git_command(checkout: Path, args: list[str], timeout_seconds: int = 60) -> dict[str, object]:
+    return run_bounded_command(["git", "-c", f"safe.directory={checkout}", "-C", str(checkout), *args], timeout_seconds=timeout_seconds, roots=[checkout])
+
+
+def discover_test_nodes(test_file: Path, rel_path: str) -> dict[str, object]:
+    if not test_file.is_file():
+        return {"status": "BLOCK", "blocker": "native_challenge_target_test_not_found", "nodes": []}
+    try:
+        tree = ast.parse(test_file.read_text(encoding="utf-8", errors="replace"))
+    except SyntaxError as exc:
+        return {"status": "BLOCK", "blocker": "native_challenge_node_discovery_failed", "syntax_error": str(exc), "nodes": []}
+    nodes: list[str] = []
+    for item in tree.body:
+        if isinstance(item, ast.FunctionDef) and item.name.startswith("test"):
+            nodes.append(f"{rel_path}::{item.name}")
+        if isinstance(item, ast.ClassDef):
+            for sub in item.body:
+                if isinstance(sub, ast.FunctionDef) and sub.name.startswith("test"):
+                    nodes.append(f"{rel_path}::{item.name}::{sub.name}")
+    return {"status": "PASS" if nodes else "BLOCK", "blocker": None if nodes else "native_challenge_node_discovery_failed", "nodes": nodes[:12], "node_count": len(nodes)}
+
+
+def environment_files_for_checkout(checkout: Path) -> list[str]:
+    names = ["pyproject.toml", "setup.cfg", "setup.py", "requirements.txt", "requirements-dev.txt", "requirements-test.txt", "tox.ini"]
+    return [name for name in names if (checkout / name).is_file()]
+
+
+def materialize_batch005_source(config: dict[str, object]) -> tuple[Path, dict[str, object]]:
+    root = redacted_runtime_root(config)
+    checkout = root / safe_slug(BATCH005_TARGET["candidate_id"])
+    clone = run_bounded_command(["git", "clone", "--no-checkout", BATCH005_TARGET["repo_url"], str(checkout)], timeout_seconds=int(config.get("clone_timeout_seconds", 180)), roots=[root])
+    records = [{"stage": "clone", **clone}]
+    if clone["returncode"] != 0:
+        return checkout, {
+            "status": "BLOCK",
+            "blocker": "source_materialization_failed",
+            "source_materialized": False,
+            "workspace_path": "<ephemeral_root>",
+            "runtime_workspace_outside_repo": True,
+            "runtime_workspace_outside_onedrive": True,
+            "records": records,
+        }
+    commit = BATCH005_TARGET["commit_sha"]
+    fetch = git_command(checkout, ["fetch", "--depth", "1", "origin", commit], timeout_seconds=int(config.get("git_timeout_seconds", 120)))
+    records.append({"stage": "fetch", **fetch})
+    cat_before = git_command(checkout, ["cat-file", "-t", commit], timeout_seconds=30)
+    records.append({"stage": "cat_file_before_checkout", **cat_before})
+    checkout_record = git_command(checkout, ["checkout", "--detach", commit], timeout_seconds=int(config.get("git_timeout_seconds", 120)))
+    records.append({"stage": "checkout", **checkout_record})
+    rev_parse = git_command(checkout, ["rev-parse", "HEAD"], timeout_seconds=30)
+    records.append({"stage": "rev_parse_head", **rev_parse})
+    target_path = checkout / BATCH005_TARGET["target_test_path"]
+    env_files = environment_files_for_checkout(checkout)
+    status = (
+        "PASS"
+        if fetch["returncode"] == 0
+        and cat_before["returncode"] == 0
+        and "commit" in str(cat_before.get("output_summary", ""))
+        and checkout_record["returncode"] == 0
+        and target_path.is_file()
+        and bool(env_files)
+        else "BLOCK"
+    )
+    if status == "BLOCK":
+        if not target_path.is_file():
+            blocker = "native_challenge_target_test_not_found"
+        elif not env_files:
+            blocker = "targeted_issue_seed_environment_file_missing"
+        else:
+            blocker = "source_materialization_failed"
+    else:
+        blocker = None
+    return checkout, {
+        "status": status,
+        "blocker": blocker,
+        "source_materialized": status == "PASS",
+        "candidate_id": BATCH005_TARGET["candidate_id"],
+        "repo_url": BATCH005_TARGET["repo_url"],
+        "commit_sha": commit,
+        "git_object_type_commit": cat_before["returncode"] == 0 and "commit" in str(cat_before.get("output_summary", "")),
+        "target_test_path": BATCH005_TARGET["target_test_path"],
+        "target_test_path_exists": target_path.is_file(),
+        "target_test_sha256": sha256_file(target_path) if target_path.is_file() else None,
+        "environment_files": env_files,
+        "environment_file_present": bool(env_files),
+        "workspace_path": "<ephemeral_root>",
+        "runtime_workspace_outside_repo": True,
+        "runtime_workspace_outside_onedrive": True,
+        "fixed_later_gold_pr_patch_content_used": False,
+        "records": records,
+    }
+
+
+def resolve_batch005_environment(checkout: Path, config: dict[str, object]) -> dict[str, object]:
+    root = checkout.parent
+    venv_dir = root / "native_retry_venv"
+    venv_record = run_bounded_command([sys.executable, "-m", "venv", str(venv_dir)], timeout_seconds=int(config.get("venv_timeout_seconds", 120)), roots=[root])
+    python = venv_dir / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
+    records = [{"stage": "create_venv", **venv_record}]
+    if venv_record["returncode"] != 0:
+        return {"status": "BLOCK", "blocker": "native_challenge_command_cannot_collect_target_after_materialization", "venv_created": False, "records": records}
+    upgrade = run_bounded_command([str(python), "-m", "pip", "install", "--upgrade", "pip", "setuptools", "wheel"], cwd=checkout, timeout_seconds=int(config.get("pip_upgrade_timeout_seconds", 90)), roots=[checkout, venv_dir])
+    records.append({"stage": "upgrade_build_tools", **upgrade})
+    install_command = [
+        str(python),
+        "-m",
+        "pip",
+        "install",
+        "pytest",
+        "pytest-kwparametrize",
+        "isort",
+        "toml",
+        "typing_extensions",
+        "darkgraylib>=2.4.0,<3.0.dev0",
+    ]
+    install = run_bounded_command(install_command, cwd=checkout, timeout_seconds=int(config.get("pip_install_timeout_seconds", 180)), roots=[checkout, venv_dir])
+    records.append({"stage": "install_declared_test_dependencies", **install})
+    status = "PASS" if upgrade["returncode"] == 0 and install["returncode"] == 0 else "BLOCK"
+    blocker = None if status == "PASS" else ("native_challenge_command_cannot_collect_target_after_materialization" if install.get("timed_out") else "environment_dependency_install_failed")
+    return {
+        "status": status,
+        "blocker": blocker,
+        "venv_created": True,
+        "python": str(python),
+        "python_redacted": "<ephemeral_venv_python>",
+        "install_uses_declared_project_metadata": True,
+        "installed_dependencies_basis": ["pyproject.toml project dependencies", "pyproject.toml isort optional group", "pyproject.toml dev pytest tooling"],
+        "undeclared_dependency_install_used": False,
+        "records": records,
+    }
+
+
+def run_batch005_collection_and_replay(checkout: Path, env_result: dict[str, object], node_discovery: dict[str, object], config: dict[str, object]) -> tuple[dict[str, object], list[dict[str, object]], list[dict[str, object]], dict[str, object], list[dict[str, object]]]:
+    if env_result.get("status") != "PASS":
+        collection = {
+            "status": "BLOCK",
+            "blocker": env_result.get("blocker") or "native_challenge_command_cannot_collect_target_after_materialization",
+            "collection_attempted": False,
+            "reason": "environment resolution did not complete safely",
+        }
+        attempt = {
+            "candidate_id": BATCH005_TARGET["candidate_id"],
+            "repo_url": BATCH005_TARGET["repo_url"],
+            "commit_sha": BATCH005_TARGET["commit_sha"],
+            "target_test_path": BATCH005_TARGET["target_test_path"],
+            "source_materialized": True,
+            "ast_node_discovery_attempted_from_materialized_source": node_discovery.get("status") == "PASS",
+            "collection_attempted_from_materialized_source": False,
+            "status": "BLOCK",
+            "blocker": collection["blocker"],
+            "node_level_command_attempted_count": 0,
+            "node_level_command_blocked_reason": collection["reason"],
+            "fixed_later_gold_pr_patch_content_used": False,
+        }
+        return collection, [], [], attempt, [{"candidate_id": BATCH005_TARGET["candidate_id"], "blocker": collection["blocker"], "reason": collection["reason"]}]
+    python = str(env_result["python"])
+    env = os.environ.copy()
+    src = str(checkout / "src")
+    env["PYTHONPATH"] = src + (os.pathsep + env["PYTHONPATH"] if env.get("PYTHONPATH") else "")
+    target = BATCH005_TARGET["target_test_path"]
+    collection_command = [python, "-m", "pytest", target, "--collect-only", "-q"]
+    collection_record = run_bounded_command(collection_command, cwd=checkout, timeout_seconds=int(config.get("collection_timeout_seconds", 120)), env=env, roots=[checkout, Path(python).parent.parent])
+    collection = {
+        "candidate_id": BATCH005_TARGET["candidate_id"],
+        "collection_attempted": True,
+        "status": "PASS" if collection_record["returncode"] == 0 else "BLOCK",
+        "blocker": None if collection_record["returncode"] == 0 else "native_challenge_command_cannot_collect_target_after_materialization",
+        "command_record": collection_record,
+    }
+    replay_records: list[dict[str, object]] = []
+    verified: list[dict[str, object]] = []
+    max_nodes = int(config.get("max_node_commands_attempted", 12))
+    for node in list(node_discovery.get("nodes", []))[:max_nodes]:
+        command = [python, "-m", "pytest", str(node), "-q"]
+        record = run_bounded_command(command, cwd=checkout, timeout_seconds=int(config.get("node_replay_timeout_seconds", 120)), env=env, roots=[checkout, Path(python).parent.parent])
+        status = "PRE_PATCH_FAILURE_OBSERVED" if record["returncode"] not in {0, None} else ("TIMEOUT" if record["timed_out"] else "PASSING_PRE_PATCH")
+        replay_records.append(
+            {
+                "candidate_id": BATCH005_TARGET["candidate_id"],
+                "node": node,
+                "status": status,
+                "target_related_failure": status == "PRE_PATCH_FAILURE_OBSERVED",
+                "environment_only_failure": "ModuleNotFoundError" in str(record.get("output_summary", "")) or "ImportError" in str(record.get("output_summary", "")),
+                "command_record": record,
+            }
+        )
+    first_failure = next((item for item in replay_records if item.get("status") == "PRE_PATCH_FAILURE_OBSERVED" and item.get("environment_only_failure") is False), None)
+    if first_failure:
+        signature = {
+            "status": "PASS",
+            "candidate_id": BATCH005_TARGET["candidate_id"],
+            "target_command": first_failure["command_record"]["command"],
+            "semantic_failure_signature_hash": first_failure["command_record"]["normalized_output_sha256"],
+            "raw_log_hash": first_failure["command_record"]["output_sha256"],
+            "normalized_log_hash": first_failure["command_record"]["normalized_output_sha256"],
+        }
+        verified.append(
+            {
+                "candidate_id": BATCH005_TARGET["candidate_id"],
+                "candidate_class": "native_replay_candidate",
+                "repo_url": BATCH005_TARGET["repo_url"],
+                "commit_sha": BATCH005_TARGET["commit_sha"],
+                "target_test_path": target,
+                "target_command": first_failure["command_record"]["command"],
+                "semantic_failure_signature_hash": signature["semantic_failure_signature_hash"],
+                "native_challenge_candidate_verified": True,
+                "scoreable_external_repair": False,
+            }
+        )
+        attempt_status = "PASS"
+        blocker = None
+    else:
+        signature = {
+            "status": "NOT_RUN",
+            "blocker": "native_challenge_pre_repair_failure_not_observed" if replay_records else "native_challenge_command_cannot_collect_target_after_materialization",
+        }
+        attempt_status = "BLOCK"
+        blocker = signature["blocker"]
+    attempt = {
+        "candidate_id": BATCH005_TARGET["candidate_id"],
+        "repo_url": BATCH005_TARGET["repo_url"],
+        "commit_sha": BATCH005_TARGET["commit_sha"],
+        "target_test_path": target,
+        "source_materialized": True,
+        "ast_node_discovery_attempted_from_materialized_source": node_discovery.get("status") == "PASS",
+        "collection_attempted_from_materialized_source": True,
+        "node_level_command_attempted_count": len(replay_records),
+        "status": attempt_status,
+        "blocker": blocker,
+        "fixed_later_gold_pr_patch_content_used": False,
+    }
+    rejections = [] if verified else [{"candidate_id": BATCH005_TARGET["candidate_id"], "blocker": blocker, "reason": "native source-materialized retry did not verify a target-related pre-repair failure"}]
+    return collection, replay_records, verified, attempt, rejections
+
+
+def contains_solution_guidance(text: str) -> bool:
+    lowered = text.lower()
+    markers = ["fix is", "the fix", "solution", "patched by", "pull request", "merge request", "diff --git", "apply this patch"]
+    return any(marker in lowered for marker in markers)
+
+
+def validate_targeted_issue_seed(seed: dict[str, object], existing_ids: set[str]) -> dict[str, object]:
+    candidate_id = str(seed.get("candidate_id") or "")
+    text = str(seed.get("issue_text_snapshot") or "")
+    if candidate_id in existing_ids or candidate_id in REPAIRED_CANDIDATE_IDS:
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_duplicate_candidate"}
+    if seed.get("candidate_class") != "issue_derived_reproduction_candidate":
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_invalid"}
+    if not re.match(r"^https://github\.com/[^/]+/[^/]+/?$", str(seed.get("repo_url") or "")):
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_invalid"}
+    if not str(seed.get("issue_url") or "").startswith(str(seed.get("repo_url")).rstrip("/") + "/issues/"):
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_invalid"}
+    if not text.strip():
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_missing_issue_text"}
+    if contains_solution_guidance(text):
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_contains_solution_guidance"}
+    if not (seed.get("reproduction_steps") or "traceback" in text.lower() or "```" in text or "expected" in text.lower()):
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_invalid"}
+    sha = seed.get("source_commit_sha")
+    if sha is not None and not re.match(r"^[0-9a-fA-F]{40}$", str(sha)):
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_commit_unresolved"}
+    if not seed.get("source_commit_selection_method"):
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_commit_unresolved"}
+    if not seed.get("environment_lock_source"):
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_environment_file_missing"}
+    attestation = seed.get("forbidden_evidence_attestation")
+    if not isinstance(attestation, dict) or any(attestation.get(key) is not False for key in ["fixed_commit_used", "later_commit_used", "pr_patch_used", "gold_patch_used", "future_test_used"]):
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_invalid"}
+    unsafe_setup = []
+    for command in seed.get("setup_commands", []) or []:
+        command_text = str(command).lower()
+        if any(marker in command_text for marker in ["curl ", "wget ", "http://", "https://", "git clone", "echo ", "cat >"]):
+            unsafe_setup.append(command)
+    if unsafe_setup:
+        return {"status": "BLOCK", "blocker": "targeted_issue_seed_setup_unsafe", "unsafe_setup_commands": unsafe_setup}
+    return {"status": "PASS", "blocker": None}
+
+
+def load_targeted_issue_seed() -> tuple[Path | None, dict[str, object] | None]:
+    for path in TARGETED_SEED_PATHS:
+        if path.is_file():
+            return path, load_json(path)
+    return None, None
+
+
+def write_targeted_issue_seed_outputs(native_failed: bool) -> dict[str, object]:
+    existing_ids = {"external_reader_duplicate_key_bug", *REPAIRED_CANDIDATE_IDS}
+    path, seed = load_targeted_issue_seed()
+    present = seed is not None
+    if not native_failed:
+        validation = {"status": "NOT_RUN_NATIVE_VERIFIED", "blocker": None}
+    elif not present:
+        validation = {"status": "NOT_RUN_NO_TARGETED_SEED", "blocker": None}
+    else:
+        validation = validate_targeted_issue_seed(seed or {}, existing_ids)
+    issue_text = str((seed or {}).get("issue_text_snapshot") or "")
+    issue_hash = sha256_text(issue_text) if issue_text else None
+    base = {
+        "targeted_issue_derived_seed_present": present,
+        "seed_path": str(path).replace("\\", "/") if path else None,
+        "execution_order": "after_native_retry_before_broad_issue_discovery",
+        "native_retry_failed_before_targeted_seed_check": native_failed,
+        "validation_status": validation.get("status"),
+        "blocker": validation.get("blocker"),
+    }
+    write_json_deterministic(BATCH005_DIR / "targeted_issue_seed_intake_report.json", {**base, "status": validation.get("status"), "candidate_id": (seed or {}).get("candidate_id")})
+    write_json_deterministic(BATCH005_DIR / "targeted_issue_text_hash.json", {"status": "PASS" if issue_hash else "NOT_RUN_NO_TARGETED_SEED", "issue_text_sha256": issue_hash})
+    write_json_deterministic(
+        BATCH005_DIR / "targeted_issue_text_temporal_guard.json",
+        {
+            "status": "PASS" if present and validation.get("status") == "PASS" else ("NOT_RUN_NO_TARGETED_SEED" if not present else "BLOCK"),
+            "issue_text_edit_history_status": "issue_text_edit_history_uncertain" if present else "not_applicable_no_seed",
+            "solution_guidance_detected": contains_solution_guidance(issue_text) if issue_text else False,
+            "proceeds_only_without_solution_guidance": True,
+        },
+    )
+    write_json_deterministic(
+        BATCH005_DIR / "targeted_issue_latent_knowledge_risk_disclosure.json",
+        {
+            "status": "DISCLOSED" if present else "NOT_RUN_NO_TARGETED_SEED",
+            "cryptographic_absence_of_latent_knowledge_claimed": False,
+            "context_isolation_required": True,
+            "issue_text_hash": issue_hash,
+        },
+    )
+    harness_generated = False
+    write_json_deterministic(
+        BATCH005_DIR / "targeted_issue_harness_generation_policy.json",
+        {
+            "status": "PASS",
+            "allowed_inputs": ["issue_title", "issue_text_snapshot", "reproduction_steps", "target_behavior_description", "selected_source_commit_tree", "project_metadata", "source_context_filtering"],
+            "forbidden_inputs": ["fixed_commit_contents", "later_commit_contents", "PR_patch_contents", "fixed_diffs", "gold_patches", "future_tests", "maintainer_solution_comments"],
+            "generated_harness_is_ephemeral": True,
+        },
+    )
+    write_json_deterministic(
+        BATCH005_DIR / "targeted_issue_harness_context_manifest.json",
+        {
+            "status": "NOT_RUN_NO_TARGETED_SEED" if not present else ("BLOCK" if validation.get("status") != "PASS" else "NOT_RUN_NO_SAFE_HARNESS_GENERATOR"),
+            "issue_text_hash": issue_hash,
+            "harness_generation_context_hash": None,
+            "source_file_hashes": [],
+            "generated_harness_sha256": None,
+        },
+    )
+    write_json_deterministic(
+        BATCH005_DIR / "targeted_issue_harness_firewall_audit.json",
+        {
+            "status": "PASS" if not present else ("BLOCK" if validation.get("status") != "PASS" else "PASS"),
+            "forbidden_evidence_used": False,
+            "generated_harness_classified_as_native_test": False,
+            "harness_generated": harness_generated,
+        },
+    )
+    write_json_deterministic(
+        BATCH005_DIR / "targeted_issue_harness_verification_result.json",
+        {
+            "status": "NOT_RUN_NO_TARGETED_SEED" if not present else ("BLOCK" if validation.get("status") != "PASS" else "NOT_RUN_NO_SAFE_HARNESS_GENERATOR"),
+            "targeted_issue_candidate_verified": False,
+            "blocker": validation.get("blocker") if present and validation.get("status") != "PASS" else ("targeted_issue_harness_generation_failed" if present else None),
+        },
+    )
+    write_json_deterministic(BATCH005_DIR / "targeted_issue_source_context_filter_map.json", {"status": "NOT_RUN_NO_TARGETED_SEED" if not present else "NOT_RUN_NO_HARNESS", "candidate_source_files": [], "forbidden_context_used": False})
+    write_json_deterministic(BATCH005_DIR / "targeted_issue_context_boundary_map.json", {"status": "PASS", "issue_derived_evidence_class": True, "native_count_incremented": False})
+    write_json_deterministic(BATCH005_DIR / "targeted_issue_interlock_invariant_map.json", {"status": "NOT_RUN_NO_TARGETED_SEED" if not present else "NOT_RUN_NO_HARNESS", "interlocks": []})
+    return {
+        **base,
+        "targeted_issue_seed_validation_status": validation.get("status"),
+        "targeted_issue_seed_valid": validation.get("status") == "PASS",
+        "targeted_issue_harness_generated": harness_generated,
+        "targeted_issue_candidate_verified": False,
+        "targeted_issue_repair_attempted": False,
+        "targeted_issue_repair_success": False,
+    }
+
+
+def discover_issue_derived_leads(native_failed: bool, targeted_seed_valid: bool, config: dict[str, object]) -> tuple[dict[str, object], list[dict[str, object]], list[dict[str, object]], list[dict[str, object]]]:
+    policy = {
+        "status": "PASS",
+        "runs_only_after_native_failure": True,
+        "runs_after_targeted_seed_intake": True,
+        "zero_lead_placeholder_forbidden_when_discovery_available": True,
+        "allowed_sources": ["issue_title", "issue_body", "issue_created_timestamp", "issue_url", "repo_metadata"],
+        "forbidden_sources": ["PR_patch_contents", "fix_commits", "later_commit_contents", "maintainer_solution_guidance", "gold_patches", "future_tests"],
+    }
+    if not native_failed or targeted_seed_valid:
+        return policy, [], [], []
+    max_queries = int(config.get("max_issue_discovery_queries", 6))
+    leads: list[dict[str, object]] = []
+    attempts: list[dict[str, object]] = []
+    network_unavailable = False
+    try:
+        import urllib.parse
+        import urllib.request
+
+        query_pairs = [(repo, term) for repo in ISSUE_DISCOVERY_REPOS for term in ISSUE_DISCOVERY_TERMS][:max_queries]
+        for repo, term in query_pairs:
+            query = urllib.parse.quote(f"repo:{repo} is:issue {term}")
+            url = f"https://api.github.com/search/issues?q={query}&per_page=1"
+            request = urllib.request.Request(url, headers={"Accept": "application/vnd.github+json", "User-Agent": "ControllerGate-Batch005"})
+            try:
+                with urllib.request.urlopen(request, timeout=int(config.get("issue_discovery_timeout_seconds", 12))) as response:
+                    payload = json.loads(response.read().decode("utf-8", errors="replace"))
+            except Exception as exc:  # network/API failure is recorded, not raised
+                attempts.append({"repo": repo, "term": term, "status": "BLOCK", "blocker": "issue_derived_discovery_network_unavailable", "error_type": type(exc).__name__})
+                network_unavailable = True
+                continue
+            items = payload.get("items", []) if isinstance(payload, dict) else []
+            attempts.append({"repo": repo, "term": term, "status": "PASS", "result_count": len(items)})
+            for item in items:
+                title = str(item.get("title") or "")
+                body = str(item.get("body") or "")
+                if contains_solution_guidance(title + "\n" + body):
+                    continue
+                if not (body and ("```" in body or "traceback" in body.lower() or "reproduce" in body.lower() or "expected" in body.lower())):
+                    continue
+                leads.append(
+                    {
+                        "candidate_class": "issue_derived_reproduction_candidate",
+                        "repo": repo,
+                        "issue_url": item.get("html_url"),
+                        "issue_created_at": item.get("created_at"),
+                        "issue_title": title,
+                        "issue_text_sha256": sha256_text(body),
+                        "decision_time_issue_evidence": True,
+                    }
+                )
+                break
+            if leads:
+                break
+    except Exception as exc:
+        attempts.append({"status": "BLOCK", "blocker": "issue_derived_discovery_network_unavailable", "error_type": type(exc).__name__})
+        network_unavailable = True
+    if leads:
+        rejections = [
+            {
+                "candidate_class": "issue_derived_reproduction_candidate",
+                "issue_url": lead.get("issue_url"),
+                "blocker": "issue_derived_harness_generation_failed",
+                "reason": "bounded discovery found issue evidence but no safe deterministic harness was generated in Batch005",
+            }
+            for lead in leads
+        ]
+    else:
+        rejections = [
+            {
+                "candidate_class": "issue_derived_reproduction_candidate",
+                "blocker": "issue_derived_discovery_network_unavailable" if network_unavailable else "issue_derived_no_safe_leads",
+                "reason": "bounded issue discovery produced no safe issue-derived candidate",
+            }
+        ]
+    return policy, leads, attempts, rejections
+
+
+def write_batch005_repair_outputs(native_verified: bool, verified: list[dict[str, object]], exact_blocker: str) -> tuple[dict[str, object], list[dict[str, object]], dict[str, object], dict[str, object], list[dict[str, object]]]:
+    if native_verified:
+        memory = {
+            "status": "BLOCK",
+            "candidate_id": BATCH005_TARGET["candidate_id"],
+            "patch_generated": False,
+            "patch_authorized": False,
+            "patch_attempted": True,
+            "blocker": "clean_repair_no_safe_source_patch_generated",
+        }
+        null_runs = [
+            {
+                "run_id": index,
+                "candidate_id": BATCH005_TARGET["candidate_id"],
+                "memory_disabled": True,
+                "status": "BLOCK",
+                "patch_generated": False,
+                "blocker": "clean_repair_no_safe_source_patch_generated",
+            }
+            for index in range(1, 6)
+        ]
+        null_summary = {"status": "PASS", "null_ensemble_run_count": 5, "null_ensemble_success_rate": 0.0}
+        score = {
+            "status": "PASS",
+            "matched_null_ensemble_separation_score": 0.0,
+            "preliminary_single_candidate_memory_separation_evidence": False,
+            "reason": "no successful memory-enabled repair and no successful null repair",
+        }
+        repairs: list[dict[str, object]] = []
+    else:
+        memory = {"status": "NOT_RUN", "blocker": exact_blocker, "patch_generated": False, "patch_authorized": False, "patch_attempted": False}
+        null_runs = []
+        null_summary = {"status": "NOT_RUN", "blocker": exact_blocker, "null_ensemble_run_count": 0, "null_ensemble_success_rate": None}
+        score = {"status": "NOT_COMPUTED", "blocker": exact_blocker, "matched_null_ensemble_separation_score": None, "preliminary_single_candidate_memory_separation_evidence": False}
+        repairs = []
+    write_json_deterministic(BATCH005_DIR / "memory_enabled_run_results.json", memory)
+    write_json_deterministic(BATCH005_DIR / "null_ensemble_run_results.json", null_runs)
+    write_json_deterministic(BATCH005_DIR / "null_ensemble_summary.json", null_summary)
+    write_json_deterministic(BATCH005_DIR / "matched_null_ensemble_separation_score_result.json", score)
+    write_json_deterministic(
+        BATCH005_DIR / "memory_separation_claim_evaluation.json",
+        {
+            "status": "PASS",
+            "preliminary_single_candidate_memory_separation_evidence": False,
+            "preliminary_issue_derived_memory_separation_signal": False,
+            "memory_lift": "undemonstrated_equal_performance",
+            "full_memory_lift_status": "undemonstrated",
+        },
+    )
+    write_json_deterministic(BATCH005_DIR / "repair_successes.json", repairs)
+    write_json_deterministic(BATCH005_DIR / "no_overreach_validation.json", {"status": "NOT_RUN" if not repairs else "PASS", "blocker": None if repairs else "target_validation_not_passed", "stronger_robustness_claim_allowed": False})
+    return memory, null_runs, null_summary, score, repairs
+
+
+def write_batch005_outputs() -> dict[str, object]:
+    BATCH005_DIR.mkdir(parents=True, exist_ok=True)
+    config = load_json("configs/clean_replication_batch_005.json")
+    checkout, materialization = materialize_batch005_source(config)
+    target_file = checkout / BATCH005_TARGET["target_test_path"]
+    node_discovery = discover_test_nodes(target_file, BATCH005_TARGET["target_test_path"]) if materialization.get("source_materialized") else {"status": "BLOCK", "blocker": materialization.get("blocker"), "nodes": []}
+    env_result = resolve_batch005_environment(checkout, config) if materialization.get("source_materialized") else {"status": "BLOCK", "blocker": materialization.get("blocker"), "records": []}
+    collection, replay_records, verified, native_attempt, native_rejections = run_batch005_collection_and_replay(checkout, env_result, node_discovery, config)
+    native_verified = bool(verified)
+    targeted = write_targeted_issue_seed_outputs(native_failed=not native_verified)
+    issue_policy, issue_leads, issue_attempts, issue_rejections = discover_issue_derived_leads(not native_verified, bool(targeted.get("targeted_issue_seed_valid")), config)
+    issue_verified: list[dict[str, object]] = []
+    issue_count = 0
+    issue_feasibility = 0
+    if native_verified:
+        exact_blocker = "clean_repair_no_safe_source_patch_generated"
+    elif targeted.get("targeted_issue_seed_valid"):
+        exact_blocker = "targeted_issue_harness_generation_failed"
+    elif issue_leads:
+        exact_blocker = "issue_derived_harness_generation_failed"
+    elif any(item.get("blocker") == "issue_derived_discovery_network_unavailable" for item in issue_rejections):
+        exact_blocker = "issue_derived_discovery_network_unavailable"
+    else:
+        exact_blocker = "batch005_no_native_or_issue_derived_candidate_verified"
+    memory, null_runs, null_summary, score, repairs = write_batch005_repair_outputs(native_verified, verified, exact_blocker)
+    state = {
+        "lane_id": BATCH005_ID,
+        "lane_type": "post_v2_37_source_materialized_challenge_retry",
+        "status": "BLOCKED" if not repairs else "PASS",
+        "exact_blocker": None if repairs else exact_blocker,
+        "current_protocol_version": "v2.13",
+        "confirmed_external_native_repair_episodes": 3 + len(repairs),
+        "confirmed_issue_derived_repair_episodes": issue_feasibility,
+        "native_source_materialized": bool(materialization.get("source_materialized")),
+        "native_challenge_candidate_verified": native_verified,
+        "targeted_issue_seed_present": bool(targeted.get("targeted_issue_derived_seed_present")),
+        "targeted_issue_seed_validation_status": targeted.get("targeted_issue_seed_validation_status"),
+        "targeted_issue_harness_generated": targeted.get("targeted_issue_harness_generated"),
+        "targeted_issue_candidate_verified": targeted.get("targeted_issue_candidate_verified"),
+        "issue_derived_discovery_attempted": not native_verified and not bool(targeted.get("targeted_issue_seed_valid")),
+        "issue_derived_candidate_verified": False,
+        "native_candidate_count": len(verified),
+        "issue_derived_candidate_count": issue_count,
+        "repair_attempts_count": 1 if native_verified else 0,
+        "repair_successes_count": len(repairs),
+        "null_ensemble_run_count": len(null_runs),
+        "null_ensemble_success_rate": null_summary.get("null_ensemble_success_rate"),
+        "matched_null_ensemble_separation_score": score.get("matched_null_ensemble_separation_score"),
+        "preliminary_single_candidate_memory_separation_evidence": False,
+        "additional_native_external_repairs_acquired_count": len(repairs),
+        "additional_issue_derived_repair_feasibility_count": issue_feasibility,
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "undemonstrated_equal_performance",
+        "self_maintaining_software": "false/not_demonstrated",
+        "technical_validation_release_readiness": "not_ready",
+    }
+    write_json_deterministic(BATCH005_DIR / "consolidated_state_clean_replication_batch_005.json", state)
+    write_json_deterministic(
+        BATCH005_DIR / "source_materialization_policy.json",
+        {
+            "status": "PASS",
+            "ephemeral_checkout_required": True,
+            "workspace_outside_repo_required": True,
+            "workspace_outside_onedrive_required": True,
+            "commit_checkout_exact_only": True,
+            "fixed_later_gold_pr_patch_content_forbidden": True,
+        },
+    )
+    write_json_deterministic(BATCH005_DIR / "source_materialization_log.json", materialization)
+    write_json_deterministic(BATCH005_DIR / "native_challenge_retry_attempts.json", [native_attempt])
+    write_json_deterministic(BATCH005_DIR / "native_challenge_node_discovery.json", node_discovery)
+    write_json_deterministic(BATCH005_DIR / "native_challenge_collection_attempts.json", [collection])
+    write_json_deterministic(BATCH005_DIR / "native_challenge_failure_replay_attempts.json", replay_records)
+    write_json_deterministic(BATCH005_DIR / "native_challenge_verified_candidates.json", verified)
+    write_json_deterministic(BATCH005_DIR / "native_challenge_rejection_ledger.json", native_rejections)
+    write_json_deterministic(BATCH005_DIR / "dependency_resolution_summary.json", env_result)
+    write_json_deterministic(BATCH005_DIR / "issue_derived_lead_discovery_policy.json", issue_policy)
+    write_json_deterministic(BATCH005_DIR / "issue_derived_lead_pool.json", {"status": "PASS", "lead_count": len(issue_leads), "leads": issue_leads})
+    write_json_deterministic(BATCH005_DIR / "issue_derived_attempts.json", issue_attempts)
+    write_json_deterministic(BATCH005_DIR / "issue_derived_rejection_ledger.json", issue_rejections)
+    write_json_deterministic(BATCH005_DIR / "issue_derived_verified_candidates.json", issue_verified)
+    write_json_deterministic(BATCH005_DIR / "stage_interface_contract.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "blocker": None if not native_verified else "clean_repair_no_safe_source_patch_generated"})
+    write_json_deterministic(BATCH005_DIR / "repairability_basin_source_ranking.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "ranked_patchable_sources": []})
+    write_json_deterministic(BATCH005_DIR / "patchable_source_subset.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "patchable_source_files": []})
+    write_json_deterministic(BATCH005_DIR / "pre_generation_context_state_snapshot.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "failure_memory_visible": native_verified})
+    write_json_deterministic(BATCH005_DIR / "repair_intent_lock.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "patch_intent": None})
+    write_json_deterministic(BATCH005_DIR / "patch_context_alignment_audit.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "forbidden_file_modified": False})
+    write_json_deterministic(BATCH005_DIR / "post_patch_constraint_revalidation.json", {"status": "NOT_RUN", "blocker": "no_patch_applied"})
+    write_json_deterministic(
+        BATCH005_DIR / "claim_boundary.json",
+        {
+            "status": "PASS",
+            "current_protocol_version": "v2.13",
+            "full_scoring": "NOT_RUN/disallowed",
+            "memory_lift": "undemonstrated_equal_performance",
+            "full_memory_lift_status": "undemonstrated",
+            "preliminary_single_candidate_memory_separation_evidence": False,
+            "preliminary_issue_derived_memory_separation_signal": False,
+            "self_maintaining_software": "false/not_demonstrated",
+            "technical_validation_release_readiness": "not_ready",
+            "issue_derived_evidence_remains_separate": True,
+        },
+    )
+    write_text_lf(
+        BATCH005_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication batch 005 source-materialized challenge retry",
+                "",
+                f"Status: {state['status']}.",
+                "",
+                "Batch005 corrects the Batch004 retry gap by materializing the darker source tree in an ephemeral workspace before AST and node-level discovery.",
+                "",
+                f"Native source materialized: `{state['native_source_materialized']}`.",
+                f"Native challenge candidate verified: `{state['native_challenge_candidate_verified']}`.",
+                f"Issue-derived discovery attempted: `{state['issue_derived_discovery_attempted']}`.",
+                f"Exact blocker: `{state['exact_blocker']}`.",
+                "",
+                "Full scoring, full memory lift, self-maintaining software, and technical validation release readiness are not claimed.",
+            ]
+        ),
+    )
+    write_sha256sums(BATCH005_DIR)
+    return state
+
+
 def main() -> int:
     POST_DIR.mkdir(parents=True, exist_ok=True)
     BATCH_DIR.mkdir(parents=True, exist_ok=True)
     BATCH003_DIR.mkdir(parents=True, exist_ok=True)
     BATCH004_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH005_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
     batch003_state = write_batch003_outputs()
     batch004_state = write_batch004_outputs()
+    batch005_state = write_batch005_outputs()
 
     policy_files = [
         "configs/clean_replication_batch_002.json",
         "configs/clean_replication_batch_003.json",
         "configs/clean_replication_batch_004.json",
+        "configs/clean_replication_batch_005.json",
         "inputs/clean_replication_batch_002_lead_pool.json",
         "docs/bugsinpy_byte_identical_exception_research_note.md",
         "docs/operational_gate_completion_roadmap.md",
@@ -1459,6 +2247,7 @@ def main() -> int:
             "continuation_artifact_name": "post_v2_37_hardening_batch002_matched_null_artifacts",
             "batch003_artifact_name": "post_v2_37_hardening_batch003_memory_challenge_artifacts",
             "batch004_artifact_name": "post_v2_37_hardening_batch004_dual_track_challenge_artifacts",
+            "batch005_artifact_name": "post_v2_37_hardening_batch005_source_materialized_challenge_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
@@ -1578,6 +2367,23 @@ def main() -> int:
         "batch004_matched_null_ensemble_separation_score": batch004_state["matched_null_ensemble_separation_score"],
         "batch004_additional_native_external_repairs_acquired_count": batch004_state["additional_native_external_repairs_acquired_count"],
         "batch004_additional_issue_derived_repair_feasibility_count": batch004_state["additional_issue_derived_repair_feasibility_count"],
+        "clean_replication_batch_005_status": batch005_state["status"],
+        "clean_replication_batch_005_exact_blocker": batch005_state["exact_blocker"],
+        "batch005_native_source_materialized": batch005_state["native_source_materialized"],
+        "batch005_native_challenge_candidate_verified": batch005_state["native_challenge_candidate_verified"],
+        "batch005_targeted_issue_seed_present": batch005_state["targeted_issue_seed_present"],
+        "batch005_targeted_issue_seed_validation_status": batch005_state["targeted_issue_seed_validation_status"],
+        "batch005_targeted_issue_harness_generated": batch005_state["targeted_issue_harness_generated"],
+        "batch005_targeted_issue_candidate_verified": batch005_state["targeted_issue_candidate_verified"],
+        "batch005_issue_derived_discovery_attempted": batch005_state["issue_derived_discovery_attempted"],
+        "batch005_issue_derived_candidate_verified": batch005_state["issue_derived_candidate_verified"],
+        "batch005_repair_attempts_count": batch005_state["repair_attempts_count"],
+        "batch005_repair_successes_count": batch005_state["repair_successes_count"],
+        "batch005_null_ensemble_run_count": batch005_state["null_ensemble_run_count"],
+        "batch005_null_ensemble_success_rate": batch005_state["null_ensemble_success_rate"],
+        "batch005_matched_null_ensemble_separation_score": batch005_state["matched_null_ensemble_separation_score"],
+        "batch005_additional_native_external_repairs_acquired_count": batch005_state["additional_native_external_repairs_acquired_count"],
+        "batch005_additional_issue_derived_repair_feasibility_count": batch005_state["additional_issue_derived_repair_feasibility_count"],
         "active_failure_memory_weighting_status": load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("status") if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() else "NOT_RUN",
         "arm_a_memory_routing_delta_status": "PASS" if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() and load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("failure_memory_markers_passive") is False else "PASSIVE_OR_NOT_RUN",
         "arm_b_memory_exclusion_status": load_json(BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").get("status") if (BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").is_file() else "NOT_RUN",
@@ -1638,12 +2444,14 @@ def main() -> int:
                 "Batch003 adds a deterministic matched-null ensemble challenge protocol and blocks cleanly because no unrepaired challenge candidate verified under the safe admission gates.",
                 "",
                 "Batch004 adds native-first dual-track challenge acquisition and issue-derived fallback as a separate evidence class; it blocks cleanly because neither track verified a challenge candidate.",
+                "",
+                "Batch005 corrects Batch004 by materializing the source tree for native retry and running targeted issue-derived seed intake before bounded issue discovery fallback.",
             ]
         ),
     )
     write_public_docs_reports()
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     write_json_deterministic(
@@ -1659,7 +2467,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

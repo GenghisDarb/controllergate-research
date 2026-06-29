@@ -68,6 +68,10 @@ Batch004 keeps native evidence preferred while allowing issue-derived ephemeral 
 
 Batch004 current outcome: 1 native carry-forward lead was attempted, 0 native challenge candidates verified, 0 issue-derived candidates verified, no repair ran, and the blocker is `batch004_no_native_or_issue_derived_challenge_candidate_verified`.
 
+## Batch005 source-materialized challenge retry
+
+Batch005 corrects Batch004 by requiring the native retry to clone and checkout the exact source commit in an ephemeral workspace before AST node discovery, collection, and node-level replay. If the native retry fails, Batch005 checks targeted issue-derived seed intake before bounded issue discovery fallback. Issue-derived candidates remain a separate evidence class and never increment native repair counts.
+
 ## Current official repair episodes
 
 As of the post-v2.37 batch003 official ingest and batch004 continuation, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.

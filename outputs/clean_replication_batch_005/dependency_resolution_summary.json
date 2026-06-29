@@ -1,0 +1,23 @@
+{
+  "blocker": "native_challenge_command_cannot_collect_target_after_materialization",
+  "records": [
+    {
+      "command": [
+        "<python_executable>",
+        "-m",
+        "venv",
+        "<ephemeral_workspace>\\native_retry_venv"
+      ],
+      "cwd": null,
+      "normalized_output_sha256": "4fedccfa953c799a300cadaa454a64f0dec1d94460e27f21d7451a2f94cb16db",
+      "output_sha256": "aea24373baad222001ae9fb7001919b166b5e4e8f8de4c6a0d96d8831fbb4142",
+      "output_summary": "STDOUT:\n\nSTDERR:\n\nCOMMAND_TIMED_OUT_AFTER_SECONDS=120",
+      "returncode": null,
+      "stage": "create_venv",
+      "timed_out": true,
+      "timeout_seconds": 120
+    }
+  ],
+  "status": "BLOCK",
+  "venv_created": false
+}

@@ -1,0 +1,42 @@
+{
+  "batch_id": "clean_replication_batch_005",
+  "candidate_source_mode": "source_materialized_native_first_targeted_issue_then_discovery",
+  "clone_timeout_seconds": 180,
+  "collection_timeout_seconds": 120,
+  "current_protocol_version": "v2.13",
+  "duplicate_replay_required_for_success": 3,
+  "evidence_classes": [
+    "native",
+    "issue_derived",
+    "diagnostic"
+  ],
+  "full_scoring": false,
+  "git_timeout_seconds": 120,
+  "issue_discovery_timeout_seconds": 12,
+  "max_issue_discovery_queries": 6,
+  "max_node_commands_attempted": 12,
+  "max_null_ensemble_size": 5,
+  "max_repair_attempts": 4,
+  "native_retry_target": {
+    "candidate_id": "darker_skip_glob_failing_test",
+    "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+    "repo_url": "https://github.com/akaihola/darker",
+    "target_test_path": "src/darker/tests/test_main_isort.py"
+  },
+  "node_replay_timeout_seconds": 120,
+  "pip_install_timeout_seconds": 180,
+  "pip_upgrade_timeout_seconds": 90,
+  "repaired_candidate_ids_forbidden_as_new": [
+    "py_bugger_issue_65",
+    "darker_non_ascii_drop_changes",
+    "darker_stdin_filename"
+  ],
+  "source_materialization_required": true,
+  "source_only_repair_required": true,
+  "targeted_issue_seed_paths": [
+    "external_seeds_pending/targeted_issue_derived_seed_batch005.json",
+    "inputs/targeted_issue_derived_seed_batch005.json",
+    "inputs/external_issue_derived_seed_batch005.json"
+  ],
+  "venv_timeout_seconds": 120
+}

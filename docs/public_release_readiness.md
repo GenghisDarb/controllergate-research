@@ -14,6 +14,7 @@ ControllerGate is currently suitable as a pre-alpha research archive. It is not 
 - The `darker_stdin_filename` matched-null comparison produced equal repair success across arms and does not establish memory separation.
 - Batch003 adds an officially ingested matched-null ensemble challenge protocol, but found no verified challenge candidate and is not a release-readiness result by itself.
 - Batch004 adds native-first dual-track challenge acquisition and issue-derived fallback as a separate evidence class, but it verified no challenge candidate and is not a release-readiness result.
+- Batch005 source-materialized retry is an acquisition and verification continuation; it does not make the repository release-ready without additional audited repair evidence.
 
 ## Blocking gaps
 
