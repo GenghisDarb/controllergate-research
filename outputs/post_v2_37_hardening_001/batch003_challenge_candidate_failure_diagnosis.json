@@ -1,0 +1,48 @@
+{
+  "candidate_blockers": [
+    {
+      "admission_decision": "rejected_other",
+      "blocker": "command_cannot_collect_target",
+      "candidate_id": "darker_skip_glob_failing_test",
+      "command_collects_target": false,
+      "command_fails_pre_patch": false,
+      "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+      "repo_url": "https://github.com/akaihola/darker",
+      "target_test_path": "src/darker/tests/test_main_isort.py"
+    },
+    {
+      "admission_decision": "rejected_other",
+      "blocker": "pre_patch_failure_not_reproduced",
+      "candidate_id": "pytest_rerunfailures_subtest_errors",
+      "command_collects_target": true,
+      "command_fails_pre_patch": false,
+      "commit_sha": "f095a517c8d0550df0cb42b7ef3f96452ce68f05",
+      "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+      "target_test_path": "tests/test_pytest_rerunfailures.py"
+    },
+    {
+      "admission_decision": "rejected_other",
+      "blocker": "pre_patch_failure_not_reproduced",
+      "candidate_id": "pytest_rerunfailures_reruns_mode",
+      "command_collects_target": true,
+      "command_fails_pre_patch": false,
+      "commit_sha": "d17f3be1c8cc257c29cd7d7e815d3c52867b1276",
+      "repo_url": "https://github.com/pytest-dev/pytest-rerunfailures",
+      "target_test_path": "tests/test_pytest_rerunfailures.py"
+    }
+  ],
+  "challenge_candidates_attempted_count": 3,
+  "challenge_candidates_verified_count": 0,
+  "exact_blocker": "clean_replication_batch_003_no_verified_challenge_candidate",
+  "failure_stage": "challenge_candidate_verification",
+  "interpretation": "batch003 failed at challenge-candidate verification, not repair generation",
+  "likely_next_action": "dual-track challenge acquisition with native-first and issue-derived fallback",
+  "matched_null_ensemble_run_status": "NOT_RUN",
+  "matched_null_ensemble_separation_score_status": "NOT_COMPUTED",
+  "memory_lift": "undemonstrated_equal_performance",
+  "memory_separation_claimed": false,
+  "null_ensemble_run_count": 0,
+  "preliminary_single_candidate_memory_separation_evidence": false,
+  "rejection_ledger_count": 3,
+  "status": "PASS"
+}

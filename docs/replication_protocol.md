@@ -53,6 +53,19 @@ Batch003 extends the clean replication protocol with deterministic matched-null 
 7. keep issue-derived candidates separate from native repair counts,
 8. keep full scoring disabled by default.
 
+Batch003 official ingest outcome: 3 challenge candidates were attempted, 0 verified, the matched-null ensemble did not run, and the blocker is `clean_replication_batch_003_no_verified_challenge_candidate`.
+
+## Batch004 dual-track challenge acquisition
+
+Batch004 keeps native evidence preferred while allowing issue-derived ephemeral reproduction harnesses only as a separate evidence class:
+
+1. attempt native challenge acquisition first,
+2. retry `darker_skip_glob_failing_test` with improved collection and test-node discovery before classifying `command_cannot_collect_target`,
+3. use issue-derived fallback only after native acquisition fails,
+4. hash issue text, source context, generated harness, and prompt/context records if issue-derived fallback is used,
+5. never increment native repair counts from issue-derived evidence,
+6. run matched-null ensemble repair only after a native challenge candidate verifies.
+
 ## Current official repair episodes
 
 As of the post-v2.37 batch002 matched-null official ingest, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.

@@ -11,17 +11,17 @@ ControllerGate has made meaningful progress as a research harness, but the evide
 - Clean replication batch002 generated and validated one additional native source-only repair with target validation PASS and duplicate clean replay 3/3.
 - The `darker_non_ascii_drop_changes` no-overreach result is target-file bounded only; stronger robustness is not claimed.
 - The `darker_stdin_filename` matched-null comparison produced equal success across the memory-enabled and memory-disabled arms, so preliminary memory separation evidence remains false.
-- Batch003 adds matched-null ensemble calibration and challenge-candidate difficulty-band admission, but it still requires a verified moderate-complexity candidate before a memory-challenge repair experiment can run.
+- Batch003 officially records matched-null ensemble calibration and challenge-candidate difficulty-band admission, but found 0 verified challenge candidates; the matched-null ensemble did not run.
 
 ## Remaining gaps
 
 - Additional external repair successes across more repositories are still useful for broader replication.
 - Clean repair generation needs broader coverage beyond the currently validated darker repair case.
 - Matched-null memory separation evidence is not accepted yet.
-- A matched-null ensemble on a verified challenge candidate has not produced accepted separation evidence.
+- A matched-null ensemble on a verified challenge candidate has not run or produced accepted separation evidence.
 - Full scoring remains disallowed.
 - Public claims must remain conservative.
 
 ## Current blocker
 
-Batch002 has demonstrated two additional source-only repairs after environment resolution. The remaining blocker is accepted matched-null ensemble separation evidence on a safe challenge candidate and broader robustness evidence, not artifact custody or environment setup for this batch.
+Batch002 has demonstrated two additional source-only repairs after environment resolution. Batch003 shows the remaining blocker is challenge-candidate acquisition. The next objective is native-first dual-track acquisition, with issue-derived candidates kept separate from native replication counts.

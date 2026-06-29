@@ -13,7 +13,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 - Clean replication batch002 now attempts real external leads, resolves project environments before replay, and produced one additional native repair for `darker_non_ascii_drop_changes` with target validation PASS and duplicate clean replay 3/3.
 - The `darker_non_ascii_drop_changes` no-overreach result is target-file bounded only; stronger robustness is not claimed.
 - The `darker_stdin_filename` matched-null comparison had equal Arm A and Arm B repair success, so it adds a native repair episode but does not provide memory separation evidence.
-- Clean replication batch003 implements a matched-null ensemble challenge protocol with difficulty-band admission for moderate-complexity candidates. It must not reuse the three confirmed repair episodes as new candidates, and it blocks cleanly if no safe challenge candidate verifies.
+- Clean replication batch003 is officially ingested. It found no verified challenge candidate, so the matched-null ensemble did not run; the correct blocker is `clean_replication_batch_003_no_verified_challenge_candidate`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift on external real bugs is not demonstrated; the matched-null status is `undemonstrated_equal_performance`.
 - Self-maintaining software is not demonstrated.
@@ -36,7 +36,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 
 ControllerGate does not currently claim autonomous repair, full benchmark scoring, memory-lift evidence, self-maintaining software, or technical validation readiness. Issue-derived harnesses do not count as native external repairs. Historical lanes remain auditable evidence, but new replication work should use the clean replication protocol and reusable workflow where possible.
 
-The next technical objective is a matched-null ensemble on a moderate-complexity verified native challenge candidate. If no candidate passes the admission gates, the correct state is a blocked batch003 record, not a success claim.
+The next technical objective is dual-track challenge acquisition: native challenge candidates first, with issue-derived ephemeral reproduction harnesses allowed only as a separate lower-confidence evidence class. If no candidate passes the gates, the correct state is a blocked record, not a success claim.
 
 ## Basic local checks
 

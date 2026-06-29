@@ -66,7 +66,8 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 - The repair passed source-only patch safety, target validation, and duplicate clean replay 3/3.
 - The no-overreach evidence for `darker_non_ascii_drop_changes` is target-file bounded only; stronger robustness is not claimed.
 - The matched-null official ingest records a successful `darker_stdin_filename` native repair in both arms. Because both arms succeeded equivalently, preliminary memory separation evidence remains false.
-- Batch003 adds deterministic matched-null ensemble calibration and moderate-complexity challenge-candidate admission. It blocks rather than overclaims if no safe challenge candidate verifies.
+- Batch003 deterministic matched-null ensemble calibration is officially ingested. It attempted 3 challenge candidates, verified 0, did not run the ensemble, and records `clean_replication_batch_003_no_verified_challenge_candidate`.
+- The next objective is dual-track challenge acquisition: native candidates first, issue-derived ephemeral reproduction harnesses only as separate lower-confidence evidence.
 - BugsInPy remains globally blocked for active use.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `undemonstrated_equal_performance`.
