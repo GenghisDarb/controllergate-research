@@ -1,0 +1,19 @@
+{
+  "blockers": [
+    "target_node_semantic_intent_mismatch",
+    "intended_target_node_passed_pre_patch",
+    "intended_target_node_environment_only_failure"
+  ],
+  "candidate_id": "darker_skip_glob_failing_test",
+  "intended_node": "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+  "non_intent_fixture_or_setup_failures_do_not_become_primary": true,
+  "selected_command_required": [
+    "python",
+    "-m",
+    "pytest",
+    "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+    "-q"
+  ],
+  "selects_by_semantic_intent": true,
+  "status": "PASS"
+}

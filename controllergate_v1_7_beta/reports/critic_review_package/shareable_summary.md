@@ -68,8 +68,9 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 - The matched-null official ingest records a successful `darker_stdin_filename` native repair in both arms. Because both arms succeeded equivalently, preliminary memory separation evidence remains false.
 - Batch003 deterministic matched-null ensemble calibration is officially ingested. It attempted 3 challenge candidates, verified 0, did not run the ensemble, and records `clean_replication_batch_003_no_verified_challenge_candidate`.
 - Batch004 native-first dual-track challenge acquisition keeps issue-derived ephemeral reproduction harnesses as a separate lower-confidence evidence class. It verifies 0 native challenge candidates and 0 issue-derived candidates, so no repair or matched-null ensemble is authorized.
-- Batch005 corrects Batch004 by materializing the source tree for the native retry and by checking targeted issue-derived seed intake before bounded issue discovery fallback.
-- The next objective is a verified native challenge candidate, or an explicitly separated issue-derived feasibility candidate if native acquisition remains blocked.
+- The official Batch005 source-materialized artifact verified byte custody and source materialization, but did not verify a native target-node repair candidate.
+- The corrected Batch005 workflow adds intended target-node selection, source-stack extraction, patchable source subset derivation, no-patch taxonomy, and NotebookLM advice traceability locks.
+- The next objective is a verified native target-node replay and bounded source-only repair attempt, or a precise blocked record if those gates cannot pass.
 - BugsInPy remains globally blocked for active use.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `undemonstrated_equal_performance`.
@@ -77,4 +78,11 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 
 ## Safest next step
 
-After the batch005 workflow completes, manually download the source-materialized challenge artifact and ingest it through the same byte-custody boundary.
+After the corrected Batch005 workflow completes, manually download the native repair-subset artifact and ingest it through the same byte-custody boundary.
+
+## Current operational gate status
+
+- Implemented active gates include artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, and release-readiness blocking.
+- Partial gates include structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, matched-null ensemble execution, failure-memory weighting, and no-overreach validation for blocked candidates.
+- Deferred gates include bounded micro-reversal and v3.0 readiness.
+- Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

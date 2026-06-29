@@ -24,8 +24,8 @@
     "target_test_path": "src/darker/tests/test_main_isort.py"
   },
   "node_replay_timeout_seconds": 120,
-  "pip_install_timeout_seconds": 180,
-  "pip_upgrade_timeout_seconds": 90,
+  "pip_install_timeout_seconds": 600,
+  "pip_upgrade_timeout_seconds": 300,
   "repaired_candidate_ids_forbidden_as_new": [
     "py_bugger_issue_65",
     "darker_non_ascii_drop_changes",
@@ -38,5 +38,5 @@
     "inputs/targeted_issue_derived_seed_batch005.json",
     "inputs/external_issue_derived_seed_batch005.json"
   ],
-  "venv_timeout_seconds": 120
+  "venv_timeout_seconds": 300
 }

@@ -70,8 +70,15 @@ Batch004 current outcome: 1 native carry-forward lead was attempted, 0 native ch
 
 ## Batch005 source-materialized challenge retry
 
-Batch005 corrects Batch004 by requiring the native retry to clone and checkout the exact source commit in an ephemeral workspace before AST node discovery, collection, and node-level replay. If the native retry fails, Batch005 checks targeted issue-derived seed intake before bounded issue discovery fallback. Issue-derived candidates remain a separate evidence class and never increment native repair counts.
+Batch005 corrects Batch004 by requiring the native retry to clone and checkout the exact source commit in an ephemeral workspace before AST node discovery, collection, and node-level replay. The corrected Batch005 workflow selects the intended `test_isort_respects_skip_glob` node by semantic intent, classifies non-intent setup failures separately, extracts source-stack/import/AST context, derives a source-only patchable subset, and distinguishes empty-subset, generator-not-implemented, no-safe-patch, safety-failure, validation-failure, and success outcomes. If the native retry fails before target verification, Batch005 checks targeted issue-derived seed intake before bounded issue discovery fallback. Issue-derived candidates remain a separate evidence class and never increment native repair counts.
 
 ## Current official repair episodes
 
-As of the post-v2.37 batch003 official ingest and batch004 continuation, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
+As of the post-v2.37 Batch005 correction boundary, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
+
+## Current operational gate status
+
+- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, and public claim boundary audit.
+- Partial gates: structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, matched-null ensemble execution, failure-memory weighting, and no-overreach validation for blocked candidates.
+- Deferred gates: bounded micro-reversal and v3.0 readiness.
+- Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

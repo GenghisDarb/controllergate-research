@@ -1,8 +1,25 @@
 [
   {
-    "blocker": "native_challenge_command_cannot_collect_target_after_materialization",
-    "collection_attempted": false,
-    "reason": "environment resolution did not complete safely",
-    "status": "BLOCK"
+    "blocker": null,
+    "candidate_id": "darker_skip_glob_failing_test",
+    "collection_attempted": true,
+    "command_record": {
+      "command": [
+        "<ephemeral_root>\\native_retry_venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_isort.py",
+        "--collect-only",
+        "-q"
+      ],
+      "cwd": "<ephemeral_workspace>",
+      "normalized_output_sha256": "0f137237bee84d9728ba202bd88157c5c6f8a876673b24a0e986685a6efbcb91",
+      "output_sha256": "9b2f7d6b31155d33b9e00c3c284eefccd2518aace14ba7e85e2748533f3bc400",
+      "output_summary": "STDOUT:\nsrc/darker/tests/test_main_isort.py::test_isort_option_without_isort\nsrc/darker/tests/test_main_isort.py::test_isort_option_with_isort\nsrc/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports[run_isort0-isort_args0]\nsrc/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports[run_isort1-isort_args1]\nsrc/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n\n5 tests collected in 24.44s\n\nSTDERR:",
+      "returncode": 0,
+      "timed_out": false,
+      "timeout_seconds": 120
+    },
+    "status": "PASS"
   }
 ]

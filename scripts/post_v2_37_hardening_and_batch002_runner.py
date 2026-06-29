@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from controllergate.core.budget import create_budget, spend_budget
 from controllergate.core.context_boundary import build_context_boundary_map
+from controllergate.core.candidate_admission import target_node_admission_decision
 from controllergate.core.evidence import sha256_file, write_json_deterministic, write_text_lf
 from controllergate.core.evidence_classes import classify_candidate_evidence, temporal_guard_policy
 from controllergate.core.artifact_hygiene import audit_artifact_payload, stage_artifact_payload, write_artifact_manifest
@@ -24,13 +25,28 @@ from controllergate.core.manifests import write_sha256sums
 from controllergate.core.normalization import evaluate_normalization_plan
 from controllergate.core.transport import reject_unsafe_transport_paths
 from controllergate.core.clean_repair import (
+    SKIP_GLOB_SEMANTIC_MARKERS,
+    SKIP_GLOB_TARGET_NODE,
+    build_pre_generation_context_state_lock,
+    build_patchable_source_subset,
+    build_repair_context_capsule,
+    build_structural_repair_routing_map,
     challenge_candidate_difficulty_band,
+    classify_non_intent_failure,
+    classify_repair_generator_capability,
     execute_matched_null_repair_comparison,
+    generate_patch_candidate,
+    imported_candidate_sources,
     matched_null_ensemble_policy,
     matched_null_ensemble_score,
     memory_routing_delta,
     null_ensemble_fairness_audit,
     null_ensemble_seed_policy,
+    patch_context_alignment_audit,
+    patch_safety_result,
+    repairability_basin_selection,
+    select_semantic_target_node,
+    source_files_from_failure_text,
     stable_json_hash,
 )
 from controllergate.experiments.replication_batch import run_replication_batch
@@ -45,13 +61,22 @@ BATCH004_ID = "clean_replication_batch_004"
 BATCH004_DIR = Path("outputs") / BATCH004_ID
 BATCH005_ID = "clean_replication_batch_005"
 BATCH005_DIR = Path("outputs") / BATCH005_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch005_source_materialized_challenge")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch005_native_repair_subset")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
     "repo_url": "https://github.com/akaihola/darker",
     "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
     "target_test_path": "src/darker/tests/test_main_isort.py",
+    "intended_node": SKIP_GLOB_TARGET_NODE,
+    "intended_target_command": [
+        "python",
+        "-m",
+        "pytest",
+        SKIP_GLOB_TARGET_NODE,
+        "-q",
+    ],
+    "semantic_markers": list(SKIP_GLOB_SEMANTIC_MARKERS),
 }
 TARGETED_SEED_PATHS = [
     Path("external_seeds_pending/targeted_issue_derived_seed_batch005.json"),
@@ -383,8 +408,10 @@ ACTIVE_PUBLIC_LANGUAGE_PATHS = [
     "docs/replication_protocol.md",
     "docs/evidence_model.md",
     "docs/operational_gate_matrix.md",
+    "docs/notebooklm_advice_traceability.md",
     "controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md",
     "configs/operational_gate_matrix.json",
+    "configs/notebooklm_advice_traceability_matrix.json",
     "configs/clean_replication_batch_004.json",
     "configs/clean_replication_batch_005.json",
     ".github/workflows/post_v2_37_hardening_and_batch002.yml",
@@ -407,6 +434,8 @@ def public_language_audit(paths: list[str]) -> dict[str, object]:
         "Betti" + "-number",
         "meta" + "phorical",
         "bio" + "logical",
+        "OS" + "QN",
+        "N" + "\u2248",
     ]
     hits: list[dict[str, object]] = []
     for rel in paths:
@@ -442,7 +471,8 @@ def write_public_docs_reports() -> None:
         "Clean replication batch002 now attempts real external leads",
         "Clean replication batch003 implements a matched-null ensemble challenge protocol",
         "dual-track challenge acquisition",
-        "Batch005 corrects Batch004",
+        "official Batch005 source-materialized artifact",
+        "Current operational gate status",
     ]
     missing = [phrase for phrase in required_phrases if phrase not in readme]
     forbidden_claims = [
@@ -471,6 +501,7 @@ def write_public_docs_reports() -> None:
         "docs/technical_validation_gap_report.md",
         "docs/replication_protocol.md",
         "docs/evidence_model.md",
+        "docs/notebooklm_advice_traceability.md",
     ]
     write_json_deterministic(
         POST_DIR / "public_docs_accuracy_audit.json",
@@ -500,6 +531,195 @@ def write_public_docs_reports() -> None:
         POST_DIR / "public_language_audit_expanded.json",
         public_language_audit(ACTIVE_PUBLIC_LANGUAGE_PATHS + artifact_paths),
     )
+
+
+def notebooklm_advice_entries(batch005_state: dict[str, object]) -> list[dict[str, object]]:
+    def entry(
+        advice_id: str,
+        name: str,
+        status: str,
+        mechanism: str,
+        outputs: list[str],
+        scripts: list[str],
+        assertions: list[str],
+        blockers: list[str],
+        evidence_class: str,
+        boundary: str,
+        next_lane: str,
+        reason: str = "",
+        gate_name: str | None = None,
+        evidence_paths: list[str] | None = None,
+    ) -> dict[str, object]:
+        return {
+            "advice_id": advice_id,
+            "internal_design_term": "not_applicable",
+            "public_engineering_name": name,
+            "operational_gate_name": gate_name or name,
+            "status": status,
+            "current_repo_mechanism": mechanism,
+            "required_outputs": outputs,
+            "required_modules_or_scripts": scripts,
+            "required_audit_assertions": assertions,
+            "blocker_if_missing": blockers[0] if blockers else "missing_traceability_blocker",
+            "blockers": blockers,
+            "evidence_class": evidence_class,
+            "claim_boundary": boundary,
+            "next_allowed_lane": next_lane,
+            "reason_if_deferred_or_rejected": reason,
+            "evidence_paths": evidence_paths or outputs,
+        }
+
+    issue_path_used = bool(batch005_state.get("targeted_issue_candidate_verified") or batch005_state.get("issue_derived_candidate_verified"))
+    routing_delta_active = False
+    if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file():
+        routing_delta_active = load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("failure_memory_markers_passive") is False
+    return [
+        entry("artifact_byte_custody", "Artifact Byte Custody", "implemented_active", "manual ZIP verification, manifests, byte-custody preflight, safe path and duplicate path checks", ["outputs/post_v2_37_hardening_001/batch005_artifact_verification.json", "outputs/clean_replication_batch_005/SHA256SUMS.txt"], ["scripts/byte_custody_preflight.py", "controllergate/core/manifests.py"], ["artifact manifests verify before ingest"], ["byte_custody_preflight_failed", "artifact_manifest_verification_failed"], "infrastructure", "artifact identity is custody evidence only", "continuous"),
+        entry("workspace_transport_integrity", "Workspace Transport Integrity Gate", "implemented_active", "transport records with source/destination hashes and unsafe path rejection", ["outputs/post_v2_37_hardening_001/workspace_transport_integrity_log.json", "outputs/post_v2_37_hardening_001/transport_boundary_audit.json"], ["controllergate/core/transport.py"], ["transport records include hashes and PASS decisions"], ["transport_integrity_breach"], "infrastructure", "workspace movement is not repair success", "continuous", gate_name="Workspace Transport Integrity"),
+        entry("external_candidate_registry", "External Candidate Registry", "implemented_active", "schema validation, duplicate checks, native and issue-derived separation", ["configs/external_candidate_registry.json"], ["scripts/validate_external_candidate_registry.py"], ["registry validation returns PASS"], ["external_candidate_registry_validation_failed"], "native", "registry entries remain leads until replay verifies them", "continuous"),
+        entry("baseline_registry_snapshot", "Baseline Registry Snapshot", "implemented_partial", "registry snapshots and lineage reports exist for repair/refresh lanes", ["outputs/clean_replication_batch_002/baseline_registry_snapshot_before_matched_null.json", "outputs/v2_30_failure_signature_canonicalization_repair_lane/registry_lineage_transition_v2_30.json"], ["scripts/audit_v2_30_failure_signature_canonicalization_repair_lane.py"], ["later registry refreshes require lineage"], ["baseline_registry_snapshot_missing"], "infrastructure", "snapshots preserve custody; they do not prove repair", "post_v2_37_followup", "baseline snapshots are present in selected lanes but not yet standardized for every repair lane"),
+        entry("semantic_failure_signature", "Semantic Failure Signature", "implemented_active", "raw, normalized, and semantic hashes recorded for replayed commands", ["outputs/clean_replication_batch_002/darker_stdin_filename_semantic_failure_signature.json", "outputs/clean_replication_batch_005/target_node_replay_selection.json"], ["controllergate/core/clean_repair.py"], ["semantic failure hash present when replay runs"], ["semantic_failure_signature_missing"], "diagnostic", "signature stability is not repair success", "continuous"),
+        entry("structural_navigation_map", "Structural Navigation Map", "implemented_partial", "repair routing and source ranking records constrain repair context", ["outputs/clean_replication_batch_005/repairability_basin_source_ranking.json", "outputs/clean_replication_batch_005/patchable_source_ranking_corrected.csv"], ["controllergate/core/clean_repair.py"], ["source ranking is produced before generation"], ["structural_navigation_map_missing"], "diagnostic", "routing is triage evidence only", "post_v2_37_followup", "Batch005 records corrected ranking, but shared active routing remains partial"),
+        entry("active_probe_router", "Active Probe Router", "implemented_partial", "bounded probe records exist in prior routing lanes and clean replication attempts", ["outputs/v2_36_resolved_commit_replay_seed_promotion/active_probe_routing_log_v2_36.json", "outputs/clean_replication_batch_005/native_challenge_retry_attempts.json"], ["controllergate/core/budget.py"], ["probe budget traces are bounded"], ["active_probe_router_missing"], "diagnostic", "probe routing is not repair success", "post_v2_37_followup", "clean replication still records attempts rather than a single reusable router"),
+        entry("candidate_admission_decision_map", "Candidate Admission Decision Map", "implemented_active", "candidate and target-node admission decisions produce blockers", ["outputs/clean_replication_batch_005/target_node_replay_selection.json", "outputs/clean_replication_batch_005/native_challenge_rejection_ledger.json"], ["controllergate/core/candidate_admission.py"], ["admission is explicit before generation"], ["candidate_admission_decision_failed"], "diagnostic", "admission does not imply repair success", "continuous"),
+        entry("coupled_dependency_projection_map", "Coupled Dependency Projection Map", "implemented_partial", "import, traceback, AST, and context-boundary files are recorded for candidates reaching replay", ["outputs/clean_replication_batch_005/import_graph_extraction_result.json", "outputs/clean_replication_batch_005/ast_closure_extraction_result.json"], ["controllergate/core/clean_repair.py"], ["projection files exist when source extraction runs"], ["coupled_dependency_projection_missing"], "diagnostic", "projection does not authorize broad edits", "post_v2_37_followup", "Batch005 captures the projection subset, but a named shared projection artifact remains future work"),
+        entry("interlock_invariant_map", "Interlock Invariant Map", "implemented_partial", "patchable source subset derivation records source interlock evidence", ["outputs/clean_replication_batch_005/patchable_source_subset_derivation.json"], ["controllergate/core/clean_repair.py"], ["source interlock exists before patchability is PASS"], ["no_candidate_source_interlock_invariant"], "diagnostic", "no source interlock means no patchable-source claim", "post_v2_37_followup", "Batch005 stores subset derivation; shared invariant map remains partial"),
+        entry("issue_derived_harness", "Issue-Derived Ephemeral Reproduction Harness", "implemented_partial", "issue-derived seed intake, firewall, and evidence-class policies are present", ["outputs/clean_replication_batch_005/targeted_issue_harness_generation_policy.json", "outputs/clean_replication_batch_005/targeted_issue_harness_firewall_audit.json", "outputs/post_v2_37_hardening_001/issue_derived_evidence_class_policy.json"], ["controllergate/core/evidence_classes.py"], ["issue-derived evidence cannot increment native counts"], ["issue_derived_harness_generation_failed", "issue_derived_harness_firewall_failed", "issue_derived_path_not_exercised"], "issue_derived", "issue-derived evidence remains separate from native evidence", "future_issue_derived_lane", "current run did not exercise a valid issue-derived harness" if not issue_path_used else ""),
+        entry("issue_text_temporal_guard", "Issue Text Temporal Guard", "implemented_partial", "issue text timestamp/hash policy is present; target issue path is not exercised in Batch005", ["outputs/clean_replication_batch_005/targeted_issue_text_temporal_guard.json"], ["controllergate/core/evidence_classes.py"], ["issue text has hash/timestamp when used"], ["issue_text_temporal_guard_failed", "issue_text_edit_history_uncertain", "issue_derived_path_not_exercised"], "issue_derived", "issue text is lead evidence only", "future_issue_derived_lane", "current run has no validated targeted issue seed"),
+        entry("issue_derived_latent_risk", "Issue-Derived Latent Knowledge Risk Disclosure", "implemented_active", "risk disclosure records context isolation without claiming absence proof", ["outputs/post_v2_37_hardening_001/issue_derived_latent_knowledge_risk_disclosure.json", "outputs/clean_replication_batch_005/targeted_issue_latent_knowledge_risk_disclosure.json"], ["controllergate/core/evidence_classes.py"], ["cryptographic absence is not claimed"], ["issue_derived_latent_knowledge_risk_unbounded"], "issue_derived", "risk disclosure is not a harness validity claim", "continuous"),
+        entry("matched_null_comparison_arms", "Matched-Null Comparison Arms", "implemented_active", "memory-enabled and memory-disabled arms are separated for matched-null repair comparison", ["outputs/clean_replication_batch_002/arm_a_active_failure_memory_weighting.json", "outputs/clean_replication_batch_002/arm_b_memory_exclusion_audit.json"], ["controllergate/core/clean_repair.py"], ["Arm B cannot read memory weighting or successful patch data"], ["matched_null_protocol_precondition_failed"], "memory_experiment", "comparison arms do not prove broad memory lift", "continuous"),
+        entry("matched_null_ensemble", "Matched-Null Baseline Ensemble", "implemented_partial", "ensemble policy and summaries exist; Batch005 corrected null ensemble does not run without memory-enabled repair success", ["outputs/clean_replication_batch_003/matched_null_ensemble_policy.json", "outputs/clean_replication_batch_005/corrected_null_ensemble_summary.json"], ["controllergate/core/clean_repair.py"], ["null ensemble runs only after valid preconditions"], ["matched_null_ensemble_missing"], "memory_experiment", "ensemble status is separate from repair success", "future_verified_challenge_lane", "Batch005 did not produce a memory-enabled patch, so the null ensemble remains not run", gate_name="Matched-Null Comparison Arms"),
+        entry("failure_memory_weighting", "Failure Memory Weighting", "implemented_partial", "failure-memory status and weight deltas are recorded; active routing delta is required for stronger claims", ["outputs/clean_replication_batch_002/arm_a_active_failure_memory_weighting.json", "outputs/clean_replication_batch_002/failure_memory_weight_delta_report.json"], ["controllergate/core/clean_repair.py"], ["routing delta must be present before active status"], ["failure_memory_weighting_not_applied", "failure_memory_markers_passive"], "memory_experiment", "weights rank context only and cannot override hard gates", "future_matched_null_lane", "" if routing_delta_active else "failure-memory markers remain passive for claim purposes"),
+        entry("duplicate_clean_replay", "Duplicate Clean Replay", "implemented_active", "successful repairs require duplicate replay evidence", ["outputs/clean_replication_batch_002/duplicate_replay_results.json", "outputs/clean_replication_batch_002/arm_a_duplicate_replay.json"], ["controllergate/core/patch_safety.py"], ["scoreable repairs require duplicate replay PASS"], ["duplicate_replay_failed"], "native", "single target validation is not enough for scoreable status", "continuous"),
+        entry("no_overreach_validation", "No-Overreach Validation", "implemented_partial", "target-bounded no-overreach records exist and stronger robustness remains unclaimed", ["outputs/clean_replication_batch_005/corrected_no_overreach_validation.json", "outputs/clean_replication_batch_002/no_overreach_validation.json"], ["controllergate/core/clean_repair.py"], ["no stronger robustness claim after target-only replay"], ["no_overreach_new_failure_detected", "post_patch_constraint_revalidation_failed"], "native", "no-overreach is bounded to executed validation", "post_v2_37_followup", "Batch005 has no patch, so corrected no-overreach remains not run", gate_name="No-Overreach Regression"),
+        entry("bounded_micro_reversal", "Bounded Micro-Reversal", "deferred_with_blocker", "future rollback/correction trace policy only", ["outputs/clean_replication_batch_005/micro_reversal_policy.json", "outputs/clean_replication_batch_005/micro_reversal_trace.json"], ["planned shared repair utility"], ["future bounded correction attempts must log rollback state"], ["micro_reversal_policy_deferred", "micro_reversal_policy_missing"], "diagnostic", "correction traces are safety evidence only", "post_v2_37_followup", "not needed for the current no-patch Batch005 correction"),
+        entry("bounded_exploration_budget", "Bounded Exploration Budget", "implemented_active", "budget traces constrain candidate/probe attempts", ["outputs/post_v2_37_hardening_001/bounded_exploration_budget_trace.json"], ["controllergate/core/budget.py"], ["budget trace status is PASS"], ["bounded_exploration_budget_exhausted"], "diagnostic", "budget use is not repair success", "continuous"),
+        entry("execution_environment_normalization", "Execution Environment Normalization", "implemented_active", "environment normalization and dependency logs are recorded before collection/replay", ["outputs/post_v2_37_hardening_001/environment_normalization_log.json", "outputs/clean_replication_batch_005/dependency_resolution_summary.json"], ["controllergate/core/environment.py"], ["environment resolution precedes replay"], ["environment_normalization_unsafe"], "diagnostic", "environment success is not repair success", "continuous"),
+        entry("context_boundary_pinning", "Context Boundary Pinching", "implemented_active", "context boundary maps and corrected subset derivation constrain patchable files", ["outputs/post_v2_37_hardening_001/context_boundary_map.json", "outputs/clean_replication_batch_005/patchable_source_subset_derivation.json"], ["controllergate/core/context_boundary.py"], ["tests/support/config/workflow/registry/audit files are not patchable"], ["context_boundary_missing"], "diagnostic", "bounded context does not authorize broad edits", "continuous"),
+        entry("public_claim_boundary_audit", "Public Claim Boundary Audit", "implemented_active", "claim boundary and public language audits keep public docs aligned with evidence", ["outputs/clean_replication_batch_005/claim_boundary.json", "outputs/post_v2_37_hardening_001/public_language_audit_expanded.json", "outputs/clean_replication_batch_005/memory_separation_claim_evaluation.json"], ["scripts/audit_post_v2_37_hardening_and_batch002.py"], ["no full scoring, memory-lift, or self-maintaining claims"], ["public_claim_overreach_detected", "claim_boundary_violation"], "public_docs", "public status must match audited evidence", "continuous"),
+        entry("bugsinpy_global_block", "BugsInPy Global Block and Future Byte-Identical Exception Research", "implemented_partial", "global block is active; future exception research remains separate", ["outputs/post_v2_37_hardening_001/bugsinpy_relaxation_research_status.json", "docs/bugsinpy_byte_identical_exception_research_note.md"], ["scripts/audit_post_v2_37_hardening_and_batch002.py"], ["global block remains active"], ["bugsinpy_relaxation_not_authorized"], "diagnostic", "BugsInPy evidence is not reopened", "future_authorized_research_lane", "global block is active; exception research is deferred", gate_name="BugsInPy Global Block / Future Byte-Identical Exception Research"),
+        entry("cryptographic_evidence_ledger_sealing", "Cryptographic Evidence Ledger Sealing", "implemented_partial", "proof-chain and obligation ledgers exist in selected lanes", ["outputs/clean_replication_batch_002/proof_chain_lock_for_second_repair.json", "outputs/v2_37_core_consolidation/proof_obligations_ledger.json"], ["controllergate/core/manifests.py"], ["ledger hashes are present where required"], ["proof_chain_lock_missing"], "infrastructure", "ledger integrity is custody evidence only", "post_v2_37_followup", "not yet standardized for every clean replication output"),
+        entry("public_release_readiness_gate", "Public Release Readiness Gate", "implemented_active", "public readiness report explicitly remains not ready", ["docs/public_release_readiness.md", "outputs/post_v2_37_hardening_001/public_docs_accuracy_audit.json"], ["scripts/audit_post_v2_37_hardening_and_batch002.py"], ["release readiness is not claimed"], ["public_release_readiness_not_met"], "public_docs", "pre-alpha archive only", "continuous"),
+        entry("v3_readiness_gate", "v3.0 Readiness Gate", "deferred_with_blocker", "future milestone scorecard remains blocked until external repair and comparison thresholds are met", ["outputs/post_v2_37_hardening_001/v3_0_readiness_scorecard_update.json", "docs/roadmap_to_v3.md"], ["scripts/audit_post_v2_37_hardening_and_batch002.py"], ["future milestone blockers remain explicit"], ["blocked_v3_readiness_insufficient_external_repairs", "blocked_v3_readiness_insufficient_distinct_repos", "blocked_v3_readiness_no_matched_null_separation", "blocked_v3_readiness_evidence_classes_conflated", "blocked_v3_readiness_public_claim_overreach"], "public_docs", "future milestone, not current status", "future_replication_milestone", "external repair and matched-null thresholds are not met"),
+    ]
+
+
+def write_notebooklm_traceability_outputs(batch005_state: dict[str, object]) -> dict[str, object]:
+    entries = notebooklm_advice_entries(batch005_state)
+    matrix = {
+        "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch005",
+        "status": "PASS",
+        "terminology_policy": "neutral_engineering_terms_only",
+        "entry_count": len(entries),
+        "entries": entries,
+    }
+    write_json_deterministic(Path("configs/notebooklm_advice_traceability_matrix.json"), matrix)
+    operational = load_json("configs/operational_gate_matrix.json")
+    operational["notebooklm_advice_traceability_matrix_path"] = "configs/notebooklm_advice_traceability_matrix.json"
+    operational["notebooklm_advice_cross_reference_count"] = len(entries)
+    gate_names = {str(gate.get("neutral_gate_name")) for gate in operational.get("gates", []) if isinstance(gate, dict)}
+    for gate in operational.get("gates", []):
+        if not isinstance(gate, dict):
+            continue
+        name = str(gate.get("neutral_gate_name"))
+        ids = [entry["advice_id"] for entry in entries if entry.get("operational_gate_name") == name or entry.get("public_engineering_name") == name]
+        if ids:
+            gate["notebooklm_advice_ids"] = sorted(ids)
+    write_json_deterministic(Path("configs/operational_gate_matrix.json"), operational)
+    active = [entry for entry in entries if entry["status"] == "implemented_active"]
+    partial = [entry for entry in entries if entry["status"] == "implemented_partial"]
+    deferred = [entry for entry in entries if entry["status"] == "deferred_with_blocker"]
+    rejected = [entry for entry in entries if entry["status"] == "rejected_with_reason"]
+    missing_crossrefs = [
+        entry["advice_id"]
+        for entry in entries
+        if entry.get("operational_gate_name") not in gate_names
+        and entry.get("status") not in {"deferred_with_blocker", "rejected_with_reason"}
+    ]
+    carry_forward = [
+        {
+            "advice_id": entry["advice_id"],
+            "blocker": entry["blocker_if_missing"],
+            "next_allowed_lane": entry["next_allowed_lane"],
+            "minimum_condition_to_unblock": entry["reason_if_deferred_or_rejected"] or "implement reusable gate evidence and audit assertion",
+            "reason_not_implemented_now": entry["reason_if_deferred_or_rejected"] or "implemented partially under current lane scope",
+            "risk_if_forgotten": "gate status may be overclaimed or drift from evidence",
+        }
+        for entry in entries
+        if entry["status"] != "implemented_active"
+    ]
+    silent_failures = [
+        entry["advice_id"]
+        for entry in active
+        if not entry.get("current_repo_mechanism")
+        or not entry.get("required_outputs")
+        or not entry.get("required_modules_or_scripts")
+        or not entry.get("required_audit_assertions")
+        or not entry.get("blocker_if_missing")
+        or not entry.get("evidence_paths")
+    ]
+    status = {
+        "status": "PASS" if not missing_crossrefs and not silent_failures else "FAIL",
+        "implemented_active_gate_count": len(active),
+        "implemented_partial_gate_count": len(partial),
+        "deferred_gate_count": len(deferred),
+        "rejected_gate_count": len(rejected),
+        "carry_forward_blocker_count": len(carry_forward),
+        "missing_cross_reference_advice_ids": missing_crossrefs,
+        "silent_completion_failures": silent_failures,
+        "issue_derived_gate_completion_status": "implemented_partial",
+        "failure_memory_weighting_completion_status": "implemented_partial",
+    }
+    write_json_deterministic(BATCH005_DIR / "notebooklm_advice_traceability_status.json", status)
+    write_json_deterministic(BATCH005_DIR / "notebooklm_advice_carry_forward_blockers.json", carry_forward)
+    write_json_deterministic(
+        BATCH005_DIR / "operational_gate_matrix_crosscheck.json",
+        {
+            "status": "PASS" if not missing_crossrefs else "FAIL",
+            "matrix_path": "configs/notebooklm_advice_traceability_matrix.json",
+            "operational_gate_matrix_path": "configs/operational_gate_matrix.json",
+            "entry_count": len(entries),
+            "missing_cross_reference_advice_ids": missing_crossrefs,
+        },
+    )
+    write_json_deterministic(
+        BATCH005_DIR / "carry_forward_blocker_policy.json",
+        {
+            "status": "PASS",
+            "non_active_entries_require_blocker": True,
+            "next_allowed_lane_required": True,
+            "blocker_if_missing": "deferred_gate_missing_carry_forward_blocker",
+        },
+    )
+    write_json_deterministic(BATCH005_DIR / "carry_forward_blocker_register.json", carry_forward)
+    write_json_deterministic(
+        BATCH005_DIR / "no_silent_completion_audit.json",
+        {
+            "status": "PASS" if not silent_failures else "FAIL",
+            "implemented_active_gate_count": len(active),
+            "failures": silent_failures,
+            "blocker_if_failed": "gate_marked_active_without_evidence",
+        },
+    )
+    write_text_lf(
+        Path("docs/notebooklm_advice_traceability.md"),
+        "\n".join(
+            [
+                "# NotebookLM advice traceability",
+                "",
+                "This document maps recurring NotebookLM recommendations to neutral ControllerGate engineering gates. Each item is either active, partial, deferred with a blocker, or rejected with an engineering reason.",
+                "",
+                f"- Implemented active gates: {len(active)}",
+                f"- Implemented partial gates: {len(partial)}",
+                f"- Deferred gates: {len(deferred)}",
+                f"- Rejected gates: {len(rejected)}",
+                f"- Carry-forward blockers: {len(carry_forward)}",
+                "",
+                "The machine-readable matrix is `configs/notebooklm_advice_traceability_matrix.json`.",
+            ]
+        ),
+    )
+    return status
 
 
 def write_batch002_outputs() -> dict[str, object]:
@@ -1616,7 +1836,32 @@ def resolve_batch005_environment(checkout: Path, config: dict[str, object]) -> d
     }
 
 
-def run_batch005_collection_and_replay(checkout: Path, env_result: dict[str, object], node_discovery: dict[str, object], config: dict[str, object]) -> tuple[dict[str, object], list[dict[str, object]], list[dict[str, object]], dict[str, object], list[dict[str, object]]]:
+def run_batch005_collection_and_replay(
+    checkout: Path,
+    env_result: dict[str, object],
+    node_discovery: dict[str, object],
+    config: dict[str, object],
+) -> tuple[
+    dict[str, object],
+    list[dict[str, object]],
+    list[dict[str, object]],
+    dict[str, object],
+    list[dict[str, object]],
+    dict[str, object],
+    dict[str, object],
+    list[dict[str, object]],
+]:
+    discovered_nodes = [str(node) for node in node_discovery.get("nodes", []) if isinstance(node, str)]
+    target_selection = select_semantic_target_node(
+        discovered_nodes,
+        intended_node=str(BATCH005_TARGET["intended_node"]),
+        semantic_markers=list(BATCH005_TARGET["semantic_markers"]),
+    )
+    non_intent_classifications = [
+        classify_non_intent_failure(node, str(target_selection.get("selected_node") or ""), "")
+        for node in discovered_nodes
+        if node != target_selection.get("selected_node")
+    ]
     if env_result.get("status") != "PASS":
         collection = {
             "status": "BLOCK",
@@ -1624,11 +1869,19 @@ def run_batch005_collection_and_replay(checkout: Path, env_result: dict[str, obj
             "collection_attempted": False,
             "reason": "environment resolution did not complete safely",
         }
+        replay_selection = {
+            "status": "NOT_RUN",
+            "blocker": collection["blocker"],
+            "selected_node": target_selection.get("selected_node"),
+            "selected_command": BATCH005_TARGET["intended_target_command"],
+            "reason": "environment resolution blocked collection and intended-node replay",
+        }
         attempt = {
             "candidate_id": BATCH005_TARGET["candidate_id"],
             "repo_url": BATCH005_TARGET["repo_url"],
             "commit_sha": BATCH005_TARGET["commit_sha"],
             "target_test_path": BATCH005_TARGET["target_test_path"],
+            "intended_node": BATCH005_TARGET["intended_node"],
             "source_materialized": True,
             "ast_node_discovery_attempted_from_materialized_source": node_discovery.get("status") == "PASS",
             "collection_attempted_from_materialized_source": False,
@@ -1638,7 +1891,7 @@ def run_batch005_collection_and_replay(checkout: Path, env_result: dict[str, obj
             "node_level_command_blocked_reason": collection["reason"],
             "fixed_later_gold_pr_patch_content_used": False,
         }
-        return collection, [], [], attempt, [{"candidate_id": BATCH005_TARGET["candidate_id"], "blocker": collection["blocker"], "reason": collection["reason"]}]
+        return collection, [], [], attempt, [{"candidate_id": BATCH005_TARGET["candidate_id"], "blocker": collection["blocker"], "reason": collection["reason"]}], target_selection, replay_selection, non_intent_classifications
     python = str(env_result["python"])
     env = os.environ.copy()
     src = str(checkout / "src")
@@ -1655,22 +1908,50 @@ def run_batch005_collection_and_replay(checkout: Path, env_result: dict[str, obj
     }
     replay_records: list[dict[str, object]] = []
     verified: list[dict[str, object]] = []
-    max_nodes = int(config.get("max_node_commands_attempted", 12))
-    for node in list(node_discovery.get("nodes", []))[:max_nodes]:
-        command = [python, "-m", "pytest", str(node), "-q"]
+    if target_selection.get("status") != "PASS":
+        replay_selection = {
+            "status": "BLOCK",
+            "blocker": target_selection.get("blocker") or "target_node_semantic_intent_mismatch",
+            "selected_node": None,
+            "selected_command": BATCH005_TARGET["intended_target_command"],
+        }
+    else:
+        node = str(target_selection["selected_node"])
+        command = [python, "-m", "pytest", node, "-q"]
         record = run_bounded_command(command, cwd=checkout, timeout_seconds=int(config.get("node_replay_timeout_seconds", 120)), env=env, roots=[checkout, Path(python).parent.parent])
         status = "PRE_PATCH_FAILURE_OBSERVED" if record["returncode"] not in {0, None} else ("TIMEOUT" if record["timed_out"] else "PASSING_PRE_PATCH")
-        replay_records.append(
-            {
-                "candidate_id": BATCH005_TARGET["candidate_id"],
-                "node": node,
-                "status": status,
-                "target_related_failure": status == "PRE_PATCH_FAILURE_OBSERVED",
-                "environment_only_failure": "ModuleNotFoundError" in str(record.get("output_summary", "")) or "ImportError" in str(record.get("output_summary", "")),
-                "command_record": record,
+        environment_only = "ModuleNotFoundError" in str(record.get("output_summary", "")) or "ImportError" in str(record.get("output_summary", ""))
+        selected_replay = {
+            "candidate_id": BATCH005_TARGET["candidate_id"],
+            "node": node,
+            "status": status,
+            "returncode": record.get("returncode"),
+            "target_command": record.get("command"),
+            "semantic_intent_match": True,
+            "target_related_failure": status == "PRE_PATCH_FAILURE_OBSERVED" and not environment_only,
+            "environment_only_failure": environment_only,
+            "command_record": record,
+            "semantic_failure_signature_hash": record.get("normalized_output_sha256"),
+        }
+        replay_records.append(selected_replay)
+        admission = target_node_admission_decision(target_selection, selected_replay)
+        if admission["status"] == "PASS":
+            replay_selection = {
+                "status": "PASS",
+                "blocker": None,
+                "selected_node": node,
+                "selected_command": record.get("command"),
+                "target_node_admission_decision": admission,
             }
-        )
-    first_failure = next((item for item in replay_records if item.get("status") == "PRE_PATCH_FAILURE_OBSERVED" and item.get("environment_only_failure") is False), None)
+        else:
+            replay_selection = {
+                "status": "BLOCK",
+                "blocker": admission["blocker"],
+                "selected_node": node,
+                "selected_command": record.get("command"),
+                "target_node_admission_decision": admission,
+            }
+    first_failure = next((item for item in replay_records if item.get("status") == "PRE_PATCH_FAILURE_OBSERVED" and item.get("environment_only_failure") is False and item.get("node") == BATCH005_TARGET["intended_node"]), None)
     if first_failure:
         signature = {
             "status": "PASS",
@@ -1687,6 +1968,7 @@ def run_batch005_collection_and_replay(checkout: Path, env_result: dict[str, obj
                 "repo_url": BATCH005_TARGET["repo_url"],
                 "commit_sha": BATCH005_TARGET["commit_sha"],
                 "target_test_path": target,
+                "intended_node": BATCH005_TARGET["intended_node"],
                 "target_command": first_failure["command_record"]["command"],
                 "semantic_failure_signature_hash": signature["semantic_failure_signature_hash"],
                 "native_challenge_candidate_verified": True,
@@ -1698,7 +1980,7 @@ def run_batch005_collection_and_replay(checkout: Path, env_result: dict[str, obj
     else:
         signature = {
             "status": "NOT_RUN",
-            "blocker": "native_challenge_pre_repair_failure_not_observed" if replay_records else "native_challenge_command_cannot_collect_target_after_materialization",
+            "blocker": replay_selection.get("blocker") or ("native_challenge_pre_repair_failure_not_observed" if replay_records else "native_challenge_command_cannot_collect_target_after_materialization"),
         }
         attempt_status = "BLOCK"
         blocker = signature["blocker"]
@@ -1707,16 +1989,19 @@ def run_batch005_collection_and_replay(checkout: Path, env_result: dict[str, obj
         "repo_url": BATCH005_TARGET["repo_url"],
         "commit_sha": BATCH005_TARGET["commit_sha"],
         "target_test_path": target,
+        "intended_node": BATCH005_TARGET["intended_node"],
         "source_materialized": True,
         "ast_node_discovery_attempted_from_materialized_source": node_discovery.get("status") == "PASS",
         "collection_attempted_from_materialized_source": True,
         "node_level_command_attempted_count": len(replay_records),
+        "target_node_semantic_selection_status": target_selection.get("status"),
+        "target_node_replay_selection_status": replay_selection.get("status"),
         "status": attempt_status,
         "blocker": blocker,
         "fixed_later_gold_pr_patch_content_used": False,
     }
     rejections = [] if verified else [{"candidate_id": BATCH005_TARGET["candidate_id"], "blocker": blocker, "reason": "native source-materialized retry did not verify a target-related pre-repair failure"}]
-    return collection, replay_records, verified, attempt, rejections
+    return collection, replay_records, verified, attempt, rejections, target_selection, replay_selection, non_intent_classifications
 
 
 def contains_solution_guidance(text: str) -> bool:
@@ -1938,33 +2223,32 @@ def discover_issue_derived_leads(native_failed: bool, targeted_seed_valid: bool,
     return policy, leads, attempts, rejections
 
 
-def write_batch005_repair_outputs(native_verified: bool, verified: list[dict[str, object]], exact_blocker: str) -> tuple[dict[str, object], list[dict[str, object]], dict[str, object], dict[str, object], list[dict[str, object]]]:
+def write_batch005_repair_outputs(
+    native_verified: bool,
+    verified: list[dict[str, object]],
+    exact_blocker: str,
+    *,
+    corrected_blocker: str | None = None,
+    corrected_patch_generated: bool = False,
+) -> tuple[dict[str, object], list[dict[str, object]], dict[str, object], dict[str, object], list[dict[str, object]]]:
     if native_verified:
+        blocker = corrected_blocker or "clean_repair_no_safe_source_patch_generated"
         memory = {
             "status": "BLOCK",
             "candidate_id": BATCH005_TARGET["candidate_id"],
             "patch_generated": False,
             "patch_authorized": False,
-            "patch_attempted": True,
-            "blocker": "clean_repair_no_safe_source_patch_generated",
+            "patch_attempted": blocker == "clean_repair_no_safe_source_patch_generated",
+            "blocker": blocker,
         }
-        null_runs = [
-            {
-                "run_id": index,
-                "candidate_id": BATCH005_TARGET["candidate_id"],
-                "memory_disabled": True,
-                "status": "BLOCK",
-                "patch_generated": False,
-                "blocker": "clean_repair_no_safe_source_patch_generated",
-            }
-            for index in range(1, 6)
-        ]
-        null_summary = {"status": "PASS", "null_ensemble_run_count": 5, "null_ensemble_success_rate": 0.0}
+        null_runs = []
+        null_summary = {"status": "NOT_RUN", "blocker": blocker, "null_ensemble_run_count": 0, "null_ensemble_success_rate": None}
         score = {
-            "status": "PASS",
-            "matched_null_ensemble_separation_score": 0.0,
+            "status": "NOT_COMPUTED",
+            "blocker": blocker,
+            "matched_null_ensemble_separation_score": None,
             "preliminary_single_candidate_memory_separation_evidence": False,
-            "reason": "no successful memory-enabled repair and no successful null repair",
+            "reason": "null ensemble runs only after a successful memory-enabled repair",
         }
         repairs: list[dict[str, object]] = []
     else:
@@ -1992,6 +2276,202 @@ def write_batch005_repair_outputs(native_verified: bool, verified: list[dict[str
     return memory, null_runs, null_summary, score, repairs
 
 
+def write_batch005_corrected_repair_outputs(
+    checkout: Path,
+    native_verified: bool,
+    verified: list[dict[str, object]],
+    replay_records: list[dict[str, object]],
+    exact_blocker: str,
+) -> dict[str, object]:
+    candidate = {
+        "candidate_id": BATCH005_TARGET["candidate_id"],
+        "repo_url": BATCH005_TARGET["repo_url"],
+        "commit_sha": BATCH005_TARGET["commit_sha"],
+        "target_test_path": BATCH005_TARGET["target_test_path"],
+        "target_command": BATCH005_TARGET["intended_target_command"],
+    }
+    selected_replay = next((item for item in replay_records if item.get("node") == BATCH005_TARGET["intended_node"]), None)
+    write_json_deterministic(
+        BATCH005_DIR / "source_stack_extraction_policy.json",
+        {
+            "status": "PASS",
+            "selected_target_node_required": True,
+            "project_source_root": "src/darker",
+            "tests_support_config_workflow_registry_audit_files_patchable": False,
+            "blocker_if_project_source_frames_do_not_create_subset": "patchable_source_subset_derivation_failed",
+        },
+    )
+    write_json_deterministic(
+        BATCH005_DIR / "no_patch_reason_taxonomy.json",
+        {
+            "status": "PASS",
+            "reason_codes": [
+                "repair_generator_not_implemented",
+                "patchable_source_subset_empty",
+                "pre_generation_context_missing",
+                "safe_patch_generation_attempted_no_patch_found",
+                "patch_generated_failed_safety",
+                "patch_generated_failed_target_validation",
+                "patch_generated_succeeded",
+            ],
+            "empty_subset_blocker": "patchable_source_subset_derivation_failed",
+            "generator_no_op_blocker": "clean_repair_generator_not_implemented",
+            "no_safe_patch_blocker": "clean_repair_no_safe_source_patch_generated",
+        },
+    )
+    if not native_verified or not selected_replay:
+        blocker = exact_blocker
+        source_result = {
+            "status": "NOT_RUN",
+            "blocker": blocker,
+            "candidate_id": BATCH005_TARGET["candidate_id"],
+            "selected_node": BATCH005_TARGET["intended_node"],
+            "project_source_frames": [],
+            "reason": "intended target-node pre-repair failure was not verified",
+        }
+        import_result = {"status": "NOT_RUN", "blocker": blocker, "imported_candidate_source_files": []}
+        ast_result = {"status": "NOT_RUN", "blocker": blocker, "AST_closure_candidate_source_files": []}
+        subset = {"candidate_id": BATCH005_TARGET["candidate_id"], "status": "NOT_RUN", "blocker": blocker, "patchable_source_files": [], "records": []}
+        routing = {"candidate_id": BATCH005_TARGET["candidate_id"], "status": "NOT_RUN", "blocker": blocker, "ranked_patchable_sources": []}
+        capability = {
+            "candidate_id": BATCH005_TARGET["candidate_id"],
+            "status": "NOT_RUN",
+            "blocker": blocker,
+            "capability_classification": "pre_generation_context_missing",
+            "generator_invoked": False,
+            "patchable_subset_received": False,
+            "patch_candidate_generated": False,
+        }
+        corrected_attempt = {
+            "status": "NOT_RUN",
+            "blocker": blocker,
+            "candidate_id": BATCH005_TARGET["candidate_id"],
+            "patch_generated": False,
+            "patch_authorized": False,
+            "patch_attempted": False,
+        }
+        snapshot = {"status": "NOT_RUN", "blocker": blocker, "failure_memory_visible": False}
+        alignment = {"status": "NOT_RUN", "blocker": blocker, "forbidden_file_modified": False}
+        safety = {"status": "NOT_RUN", "blocker": blocker, "patch_non_empty": False, "source_only": False}
+    else:
+        summary = str(selected_replay.get("command_record", {}).get("output_summary", ""))
+        source_files = source_files_from_failure_text(checkout, summary)
+        imported = imported_candidate_sources(checkout, str(BATCH005_TARGET["target_test_path"]))
+        routing_map = build_structural_repair_routing_map(candidate, checkout, selected_replay)
+        routing = repairability_basin_selection(candidate, routing_map, checkout, selected_replay)
+        subset = build_patchable_source_subset(routing)
+        source_result = {
+            "status": "PASS" if source_files or imported else "BLOCK",
+            "blocker": None if source_files or imported else "patchable_source_subset_derivation_failed",
+            "candidate_id": BATCH005_TARGET["candidate_id"],
+            "selected_node": BATCH005_TARGET["intended_node"],
+            "project_source_frames": source_files,
+            "target_imported_source_files": imported,
+            "failure_log_hash": selected_replay.get("command_record", {}).get("normalized_output_sha256"),
+        }
+        import_result = {
+            "status": "PASS" if imported else "BLOCK",
+            "blocker": None if imported else "patchable_source_subset_derivation_failed",
+            "imported_candidate_source_files": imported,
+        }
+        ast_result = {
+            "status": "PASS" if routing_map.get("AST_closure_candidate_source_files") else "BLOCK",
+            "blocker": None if routing_map.get("AST_closure_candidate_source_files") else "patchable_source_subset_derivation_failed",
+            "AST_closure_candidate_source_files": routing_map.get("AST_closure_candidate_source_files", []),
+            "interlock_invariant_files": routing_map.get("interlock_invariant_files", []),
+        }
+        if subset.get("status") == "PASS":
+            capsule = build_repair_context_capsule(candidate, checkout, selected_replay, routing_map, subset)
+            snapshot = build_pre_generation_context_state_lock(candidate, capsule, subset, routing_map)
+            snapshot["status"] = "PASS"
+            patch = generate_patch_candidate(candidate, checkout, capsule, subset, snapshot)
+            capability = {
+                "candidate_id": BATCH005_TARGET["candidate_id"],
+                **classify_repair_generator_capability(subset=subset, patch=patch, generator_invoked=True),
+                "no_patch_reason": patch.get("no_patch_reason"),
+                "patch_rule": patch.get("patch_rule"),
+            }
+            corrected_attempt = {
+                "status": "PASS" if patch.get("patch_candidate_generated") is True else "BLOCK",
+                "blocker": patch.get("blocker"),
+                "candidate_id": BATCH005_TARGET["candidate_id"],
+                "patch_generated": patch.get("patch_candidate_generated") is True,
+                "patch_authorized": patch.get("patch_authorized") is True,
+                "patch_attempted": True,
+                "generator_mode": patch.get("generator_mode"),
+                "patch_sha256": patch.get("patch_sha256"),
+                "no_patch_reason": patch.get("no_patch_reason"),
+            }
+            if patch.get("patch_candidate_generated") is True:
+                alignment = patch_context_alignment_audit(patch, snapshot)
+                safety = patch_safety_result(patch, snapshot)
+            else:
+                alignment = {"status": "NOT_RUN", "blocker": patch.get("blocker"), "forbidden_file_modified": False}
+                safety = {"status": "NOT_RUN", "blocker": patch.get("blocker"), "patch_non_empty": False, "source_only": False}
+        else:
+            capability = {
+                "candidate_id": BATCH005_TARGET["candidate_id"],
+                **classify_repair_generator_capability(subset=subset, patch=None, generator_invoked=True),
+            }
+            corrected_attempt = {
+                "status": "BLOCK",
+                "blocker": subset.get("blocker"),
+                "candidate_id": BATCH005_TARGET["candidate_id"],
+                "patch_generated": False,
+                "patch_authorized": False,
+                "patch_attempted": False,
+            }
+            snapshot = {"status": "BLOCK", "blocker": subset.get("blocker"), "failure_memory_visible": True}
+            alignment = {"status": "NOT_RUN", "blocker": subset.get("blocker"), "forbidden_file_modified": False}
+            safety = {"status": "NOT_RUN", "blocker": subset.get("blocker"), "patch_non_empty": False, "source_only": False}
+    write_json_deterministic(BATCH005_DIR / "source_stack_extraction_result.json", source_result)
+    write_json_deterministic(BATCH005_DIR / "import_graph_extraction_result.json", import_result)
+    write_json_deterministic(BATCH005_DIR / "ast_closure_extraction_result.json", ast_result)
+    write_json_deterministic(BATCH005_DIR / "patchable_source_subset_derivation.json", subset)
+    write_patchable_source_ranking_csv(BATCH005_DIR / "patchable_source_ranking_corrected.csv", list(routing.get("ranked_patchable_sources", [])))
+    write_json_deterministic(BATCH005_DIR / "repair_generator_capability_status_corrected.json", capability)
+    write_json_deterministic(BATCH005_DIR / "corrected_native_repair_attempt.json", corrected_attempt)
+    write_json_deterministic(BATCH005_DIR / "corrected_pre_generation_context_state_snapshot.json", snapshot)
+    write_json_deterministic(BATCH005_DIR / "corrected_patch_context_alignment_audit.json", alignment)
+    write_json_deterministic(BATCH005_DIR / "corrected_patch_safety_result.json", safety)
+    write_json_deterministic(BATCH005_DIR / "corrected_target_validation_result.json", {"status": "NOT_RUN", "blocker": "no_patch_applied", "exit_code": None})
+    write_json_deterministic(BATCH005_DIR / "corrected_duplicate_replay_result.json", {"status": "NOT_RUN", "blocker": "target_validation_not_passed", "passes": 0, "total": 0})
+    write_json_deterministic(BATCH005_DIR / "corrected_no_overreach_validation.json", {"status": "NOT_RUN", "blocker": "target_validation_not_passed", "stronger_robustness_claim_allowed": False})
+    write_json_deterministic(BATCH005_DIR / "corrected_null_ensemble_run_results.json", [])
+    write_json_deterministic(BATCH005_DIR / "corrected_null_ensemble_summary.json", {"status": "NOT_RUN", "blocker": corrected_attempt.get("blocker"), "null_ensemble_run_count": 0, "null_ensemble_success_rate": None})
+    write_json_deterministic(
+        BATCH005_DIR / "corrected_matched_null_ensemble_separation_score.json",
+        {
+            "status": "NOT_COMPUTED",
+            "blocker": corrected_attempt.get("blocker"),
+            "matched_null_ensemble_separation_score": None,
+            "preliminary_single_candidate_memory_separation_evidence": False,
+        },
+    )
+    write_json_deterministic(
+        BATCH005_DIR / "corrected_memory_separation_claim_evaluation.json",
+        {
+            "status": "PASS",
+            "preliminary_single_candidate_memory_separation_evidence": False,
+            "memory_lift": "undemonstrated_equal_performance",
+            "full_memory_lift_status": "undemonstrated",
+        },
+    )
+    return {
+        "source_stack_status": source_result.get("status"),
+        "patchable_source_subset_status": subset.get("status"),
+        "repair_generator_capability_status": capability.get("status"),
+        "corrected_repair_attempt_status": corrected_attempt.get("status"),
+        "corrected_repair_blocker": corrected_attempt.get("blocker"),
+        "patch_generated": corrected_attempt.get("patch_generated") is True,
+        "routing": routing,
+        "subset": subset,
+        "snapshot": snapshot,
+        "alignment": alignment,
+        "capability": capability,
+    }
+
+
 def write_batch005_outputs() -> dict[str, object]:
     BATCH005_DIR.mkdir(parents=True, exist_ok=True)
     config = load_json("configs/clean_replication_batch_005.json")
@@ -1999,10 +2479,32 @@ def write_batch005_outputs() -> dict[str, object]:
     target_file = checkout / BATCH005_TARGET["target_test_path"]
     node_discovery = discover_test_nodes(target_file, BATCH005_TARGET["target_test_path"]) if materialization.get("source_materialized") else {"status": "BLOCK", "blocker": materialization.get("blocker"), "nodes": []}
     env_result = resolve_batch005_environment(checkout, config) if materialization.get("source_materialized") else {"status": "BLOCK", "blocker": materialization.get("blocker"), "records": []}
-    collection, replay_records, verified, native_attempt, native_rejections = run_batch005_collection_and_replay(checkout, env_result, node_discovery, config)
+    (
+        collection,
+        replay_records,
+        verified,
+        native_attempt,
+        native_rejections,
+        target_selection,
+        replay_selection,
+        non_intent_classifications,
+    ) = run_batch005_collection_and_replay(checkout, env_result, node_discovery, config)
     native_verified = bool(verified)
     targeted = write_targeted_issue_seed_outputs(native_failed=not native_verified)
-    issue_policy, issue_leads, issue_attempts, issue_rejections = discover_issue_derived_leads(not native_verified, bool(targeted.get("targeted_issue_seed_valid")), config)
+    targeted_seed_present = bool(targeted.get("targeted_issue_derived_seed_present"))
+    if targeted_seed_present:
+        issue_policy, issue_leads, issue_attempts, issue_rejections = discover_issue_derived_leads(not native_verified, bool(targeted.get("targeted_issue_seed_valid")), config)
+    else:
+        issue_policy = {
+            "status": "NOT_RUN_NO_TARGETED_SEED",
+            "runs_only_after_native_failure": True,
+            "runs_after_targeted_seed_intake": True,
+            "bounded_discovery_disabled_for_correction_run": True,
+            "reason": "no targeted issue-derived seed was supplied",
+        }
+        issue_leads = []
+        issue_attempts = []
+        issue_rejections = []
     issue_verified: list[dict[str, object]] = []
     issue_count = 0
     issue_feasibility = 0
@@ -2014,9 +2516,20 @@ def write_batch005_outputs() -> dict[str, object]:
         exact_blocker = "issue_derived_harness_generation_failed"
     elif any(item.get("blocker") == "issue_derived_discovery_network_unavailable" for item in issue_rejections):
         exact_blocker = "issue_derived_discovery_network_unavailable"
+    elif native_attempt.get("blocker"):
+        exact_blocker = str(native_attempt["blocker"])
     else:
         exact_blocker = "batch005_no_native_or_issue_derived_candidate_verified"
-    memory, null_runs, null_summary, score, repairs = write_batch005_repair_outputs(native_verified, verified, exact_blocker)
+    corrected = write_batch005_corrected_repair_outputs(checkout, native_verified, verified, replay_records, exact_blocker)
+    if native_verified and corrected.get("corrected_repair_blocker"):
+        exact_blocker = str(corrected["corrected_repair_blocker"])
+    memory, null_runs, null_summary, score, repairs = write_batch005_repair_outputs(
+        native_verified,
+        verified,
+        exact_blocker,
+        corrected_blocker=str(corrected.get("corrected_repair_blocker") or exact_blocker),
+        corrected_patch_generated=bool(corrected.get("patch_generated")),
+    )
     state = {
         "lane_id": BATCH005_ID,
         "lane_type": "post_v2_37_source_materialized_challenge_retry",
@@ -2031,7 +2544,7 @@ def write_batch005_outputs() -> dict[str, object]:
         "targeted_issue_seed_validation_status": targeted.get("targeted_issue_seed_validation_status"),
         "targeted_issue_harness_generated": targeted.get("targeted_issue_harness_generated"),
         "targeted_issue_candidate_verified": targeted.get("targeted_issue_candidate_verified"),
-        "issue_derived_discovery_attempted": not native_verified and not bool(targeted.get("targeted_issue_seed_valid")),
+        "issue_derived_discovery_attempted": bool(issue_attempts),
         "issue_derived_candidate_verified": False,
         "native_candidate_count": len(verified),
         "issue_derived_candidate_count": issue_count,
@@ -2047,6 +2560,14 @@ def write_batch005_outputs() -> dict[str, object]:
         "memory_lift": "undemonstrated_equal_performance",
         "self_maintaining_software": "false/not_demonstrated",
         "technical_validation_release_readiness": "not_ready",
+        "intended_target_node_selection_status": target_selection.get("status"),
+        "target_node_replay_selection_status": replay_selection.get("status"),
+        "source_stack_extraction_status": corrected.get("source_stack_status"),
+        "patchable_source_subset_status": corrected.get("patchable_source_subset_status"),
+        "repair_generator_capability_status": corrected.get("repair_generator_capability_status"),
+        "corrected_repair_attempt_status": corrected.get("corrected_repair_attempt_status"),
+        "corrected_repair_blocker": corrected.get("corrected_repair_blocker"),
+        "corrected_patch_generated": corrected.get("patch_generated"),
     }
     write_json_deterministic(BATCH005_DIR / "consolidated_state_clean_replication_batch_005.json", state)
     write_json_deterministic(
@@ -2068,17 +2589,49 @@ def write_batch005_outputs() -> dict[str, object]:
     write_json_deterministic(BATCH005_DIR / "native_challenge_verified_candidates.json", verified)
     write_json_deterministic(BATCH005_DIR / "native_challenge_rejection_ledger.json", native_rejections)
     write_json_deterministic(BATCH005_DIR / "dependency_resolution_summary.json", env_result)
+    write_json_deterministic(
+        BATCH005_DIR / "target_node_selection_policy.json",
+        {
+            "status": "PASS",
+            "selects_by_semantic_intent": True,
+            "candidate_id": BATCH005_TARGET["candidate_id"],
+            "intended_node": BATCH005_TARGET["intended_node"],
+            "selected_command_required": BATCH005_TARGET["intended_target_command"],
+            "non_intent_fixture_or_setup_failures_do_not_become_primary": True,
+            "blockers": [
+                "target_node_semantic_intent_mismatch",
+                "intended_target_node_passed_pre_patch",
+                "intended_target_node_environment_only_failure",
+            ],
+        },
+    )
+    write_json_deterministic(BATCH005_DIR / "target_node_semantic_intent_filter.json", target_selection)
+    write_json_deterministic(BATCH005_DIR / "target_node_replay_selection.json", replay_selection)
+    write_json_deterministic(
+        BATCH005_DIR / "non_intent_failure_classification.json",
+        {
+            "status": "PASS",
+            "non_intent_failures": non_intent_classifications,
+            "primary_failure_source": "selected_intended_node_only",
+        },
+    )
     write_json_deterministic(BATCH005_DIR / "issue_derived_lead_discovery_policy.json", issue_policy)
     write_json_deterministic(BATCH005_DIR / "issue_derived_lead_pool.json", {"status": "PASS", "lead_count": len(issue_leads), "leads": issue_leads})
     write_json_deterministic(BATCH005_DIR / "issue_derived_attempts.json", issue_attempts)
     write_json_deterministic(BATCH005_DIR / "issue_derived_rejection_ledger.json", issue_rejections)
     write_json_deterministic(BATCH005_DIR / "issue_derived_verified_candidates.json", issue_verified)
-    write_json_deterministic(BATCH005_DIR / "stage_interface_contract.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "blocker": None if not native_verified else "clean_repair_no_safe_source_patch_generated"})
-    write_json_deterministic(BATCH005_DIR / "repairability_basin_source_ranking.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "ranked_patchable_sources": []})
-    write_json_deterministic(BATCH005_DIR / "patchable_source_subset.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "patchable_source_files": []})
-    write_json_deterministic(BATCH005_DIR / "pre_generation_context_state_snapshot.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "failure_memory_visible": native_verified})
-    write_json_deterministic(BATCH005_DIR / "repair_intent_lock.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "patch_intent": None})
-    write_json_deterministic(BATCH005_DIR / "patch_context_alignment_audit.json", {"status": "NOT_RUN" if not native_verified else "BLOCK", "forbidden_file_modified": False})
+    corrected_subset = corrected.get("subset", {})
+    corrected_routing = corrected.get("routing", {})
+    corrected_snapshot = corrected.get("snapshot", {})
+    corrected_alignment = corrected.get("alignment", {})
+    stage_status = "PASS" if isinstance(corrected_subset, dict) and corrected_subset.get("status") == "PASS" else ("NOT_RUN" if not native_verified else "BLOCK")
+    stage_blocker = None if stage_status == "PASS" else (corrected.get("corrected_repair_blocker") or exact_blocker)
+    write_json_deterministic(BATCH005_DIR / "stage_interface_contract.json", {"status": stage_status, "blocker": stage_blocker, "selected_node": BATCH005_TARGET["intended_node"]})
+    write_json_deterministic(BATCH005_DIR / "repairability_basin_source_ranking.json", corrected_routing if isinstance(corrected_routing, dict) else {"status": "NOT_RUN", "ranked_patchable_sources": []})
+    write_json_deterministic(BATCH005_DIR / "patchable_source_subset.json", corrected_subset if isinstance(corrected_subset, dict) else {"status": "NOT_RUN", "patchable_source_files": []})
+    write_json_deterministic(BATCH005_DIR / "pre_generation_context_state_snapshot.json", corrected_snapshot if isinstance(corrected_snapshot, dict) else {"status": "NOT_RUN", "failure_memory_visible": native_verified})
+    write_json_deterministic(BATCH005_DIR / "repair_intent_lock.json", {"status": stage_status, "blocker": stage_blocker, "patch_intent": "source_only_repair_on_selected_intended_node" if stage_status == "PASS" else None})
+    write_json_deterministic(BATCH005_DIR / "patch_context_alignment_audit.json", corrected_alignment if isinstance(corrected_alignment, dict) else {"status": "NOT_RUN", "forbidden_file_modified": False})
     write_json_deterministic(BATCH005_DIR / "post_patch_constraint_revalidation.json", {"status": "NOT_RUN", "blocker": "no_patch_applied"})
     write_json_deterministic(
         BATCH005_DIR / "claim_boundary.json",
@@ -2104,9 +2657,13 @@ def write_batch005_outputs() -> dict[str, object]:
                 f"Status: {state['status']}.",
                 "",
                 "Batch005 corrects the Batch004 retry gap by materializing the darker source tree in an ephemeral workspace before AST and node-level discovery.",
+                "The corrected Batch005 run selects the intended `test_isort_respects_skip_glob` target node by semantic intent, derives source-stack/import/AST context, and records a distinct patchable-subset or no-safe-patch blocker.",
                 "",
                 f"Native source materialized: `{state['native_source_materialized']}`.",
                 f"Native challenge candidate verified: `{state['native_challenge_candidate_verified']}`.",
+                f"Intended target-node selection: `{state['intended_target_node_selection_status']}`.",
+                f"Patchable source subset status: `{state['patchable_source_subset_status']}`.",
+                f"Corrected repair attempt status: `{state['corrected_repair_attempt_status']}`.",
                 f"Issue-derived discovery attempted: `{state['issue_derived_discovery_attempted']}`.",
                 f"Exact blocker: `{state['exact_blocker']}`.",
                 "",
@@ -2130,16 +2687,20 @@ def main() -> int:
     batch003_state = write_batch003_outputs()
     batch004_state = write_batch004_outputs()
     batch005_state = write_batch005_outputs()
+    traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
         "configs/clean_replication_batch_002.json",
         "configs/clean_replication_batch_003.json",
         "configs/clean_replication_batch_004.json",
         "configs/clean_replication_batch_005.json",
+        "configs/notebooklm_advice_traceability_matrix.json",
+        "configs/operational_gate_matrix.json",
         "inputs/clean_replication_batch_002_lead_pool.json",
         "docs/bugsinpy_byte_identical_exception_research_note.md",
         "docs/operational_gate_completion_roadmap.md",
         "docs/roadmap_to_v3.md",
+        "docs/notebooklm_advice_traceability.md",
     ]
     transfer_records = []
     for rel in policy_files:
@@ -2247,7 +2808,7 @@ def main() -> int:
             "continuation_artifact_name": "post_v2_37_hardening_batch002_matched_null_artifacts",
             "batch003_artifact_name": "post_v2_37_hardening_batch003_memory_challenge_artifacts",
             "batch004_artifact_name": "post_v2_37_hardening_batch004_dual_track_challenge_artifacts",
-            "batch005_artifact_name": "post_v2_37_hardening_batch005_source_materialized_challenge_artifacts",
+            "batch005_artifact_name": "post_v2_37_hardening_batch005_native_repair_subset_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
@@ -2394,6 +2955,16 @@ def main() -> int:
         "bounded_exploration_budget_status": load_json(BATCH_DIR / "bounded_exploration_budget_matched_null.json").get("status") if (BATCH_DIR / "bounded_exploration_budget_matched_null.json").is_file() else budget["status"],
         "full_memory_lift_status": "undemonstrated",
         "public_claim_boundary_status": "PASS",
+        "notebooklm_advice_traceability_status": traceability_status.get("status"),
+        "operational_gate_matrix_crosscheck_status": "PASS" if (BATCH005_DIR / "operational_gate_matrix_crosscheck.json").is_file() and load_json(BATCH005_DIR / "operational_gate_matrix_crosscheck.json").get("status") == "PASS" else "FAIL",
+        "implemented_active_gate_count": traceability_status.get("implemented_active_gate_count"),
+        "implemented_partial_gate_count": traceability_status.get("implemented_partial_gate_count"),
+        "deferred_gate_count": traceability_status.get("deferred_gate_count"),
+        "rejected_gate_count": traceability_status.get("rejected_gate_count"),
+        "carry_forward_blocker_count": traceability_status.get("carry_forward_blocker_count"),
+        "silent_completion_audit_status": load_json(BATCH005_DIR / "no_silent_completion_audit.json").get("status") if (BATCH005_DIR / "no_silent_completion_audit.json").is_file() else "MISSING",
+        "issue_derived_gate_completion_status": traceability_status.get("issue_derived_gate_completion_status"),
+        "failure_memory_weighting_completion_status": traceability_status.get("failure_memory_weighting_completion_status"),
         "stage_interface_contract_status": "PASS" if all(item.get("status") == "PASS" for item in load_json(BATCH_DIR / "stage_interface_contract.json")) else "FAIL",
         "repairability_basin_selection_status": "PASS" if all(item.get("status") == "PASS" for item in load_json(BATCH_DIR / "repairability_basin_selection.json")) else "FAIL",
         "pre_generation_context_state_lock_status": "PASS" if load_json(BATCH_DIR / "pre_generation_context_state_lock.json") else "FAIL",
@@ -2446,6 +3017,8 @@ def main() -> int:
                 "Batch004 adds native-first dual-track challenge acquisition and issue-derived fallback as a separate evidence class; it blocks cleanly because neither track verified a challenge candidate.",
                 "",
                 "Batch005 corrects Batch004 by materializing the source tree for native retry and running targeted issue-derived seed intake before bounded issue discovery fallback.",
+                "",
+                f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
     )

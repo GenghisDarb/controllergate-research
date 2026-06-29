@@ -66,3 +66,25 @@ def repair_queue_admission_decision(candidate: dict[str, object]) -> dict[str, o
         "admitted_to_repair_queue": admitted,
         "blocker": None if admitted else "candidate_not_verified_for_repair_generation",
     }
+
+
+def target_node_admission_decision(selection: dict[str, object], replay: dict[str, object] | None = None) -> dict[str, object]:
+    replay = replay or {}
+    if selection.get("status") != "PASS":
+        decision = "rejected_target_node_semantic_intent_mismatch"
+        blocker = selection.get("blocker") or "target_node_semantic_intent_mismatch"
+    elif replay.get("status") == "PASSING_PRE_PATCH":
+        decision = "rejected_intended_target_node_passed_pre_patch"
+        blocker = "intended_target_node_passed_pre_patch"
+    elif replay.get("environment_only_failure") is True:
+        decision = "rejected_intended_target_node_environment_only_failure"
+        blocker = "intended_target_node_environment_only_failure"
+    else:
+        decision = "admitted_intended_target_node"
+        blocker = None
+    return {
+        "status": "PASS" if blocker is None else "BLOCK",
+        "admission_decision": decision,
+        "blocker": blocker,
+        "selected_node": selection.get("selected_node"),
+    }

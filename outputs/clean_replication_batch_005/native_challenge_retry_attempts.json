@@ -1,16 +1,18 @@
 [
   {
     "ast_node_discovery_attempted_from_materialized_source": true,
-    "blocker": "native_challenge_command_cannot_collect_target_after_materialization",
+    "blocker": null,
     "candidate_id": "darker_skip_glob_failing_test",
-    "collection_attempted_from_materialized_source": false,
+    "collection_attempted_from_materialized_source": true,
     "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
     "fixed_later_gold_pr_patch_content_used": false,
-    "node_level_command_attempted_count": 0,
-    "node_level_command_blocked_reason": "environment resolution did not complete safely",
+    "intended_node": "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+    "node_level_command_attempted_count": 1,
     "repo_url": "https://github.com/akaihola/darker",
     "source_materialized": true,
-    "status": "BLOCK",
+    "status": "PASS",
+    "target_node_replay_selection_status": "PASS",
+    "target_node_semantic_selection_status": "PASS",
     "target_test_path": "src/darker/tests/test_main_isort.py"
   }
 ]

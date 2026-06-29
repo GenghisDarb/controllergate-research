@@ -1,0 +1,828 @@
+{
+  "entries": [
+    {
+      "advice_id": "artifact_byte_custody",
+      "blocker_if_missing": "byte_custody_preflight_failed",
+      "blockers": [
+        "byte_custody_preflight_failed",
+        "artifact_manifest_verification_failed"
+      ],
+      "claim_boundary": "artifact identity is custody evidence only",
+      "current_repo_mechanism": "manual ZIP verification, manifests, byte-custody preflight, safe path and duplicate path checks",
+      "evidence_class": "infrastructure",
+      "evidence_paths": [
+        "outputs/post_v2_37_hardening_001/batch005_artifact_verification.json",
+        "outputs/clean_replication_batch_005/SHA256SUMS.txt"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Artifact Byte Custody",
+      "public_engineering_name": "Artifact Byte Custody",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "artifact manifests verify before ingest"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/byte_custody_preflight.py",
+        "controllergate/core/manifests.py"
+      ],
+      "required_outputs": [
+        "outputs/post_v2_37_hardening_001/batch005_artifact_verification.json",
+        "outputs/clean_replication_batch_005/SHA256SUMS.txt"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "workspace_transport_integrity",
+      "blocker_if_missing": "transport_integrity_breach",
+      "blockers": [
+        "transport_integrity_breach"
+      ],
+      "claim_boundary": "workspace movement is not repair success",
+      "current_repo_mechanism": "transport records with source/destination hashes and unsafe path rejection",
+      "evidence_class": "infrastructure",
+      "evidence_paths": [
+        "outputs/post_v2_37_hardening_001/workspace_transport_integrity_log.json",
+        "outputs/post_v2_37_hardening_001/transport_boundary_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Workspace Transport Integrity",
+      "public_engineering_name": "Workspace Transport Integrity Gate",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "transport records include hashes and PASS decisions"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/transport.py"
+      ],
+      "required_outputs": [
+        "outputs/post_v2_37_hardening_001/workspace_transport_integrity_log.json",
+        "outputs/post_v2_37_hardening_001/transport_boundary_audit.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "external_candidate_registry",
+      "blocker_if_missing": "external_candidate_registry_validation_failed",
+      "blockers": [
+        "external_candidate_registry_validation_failed"
+      ],
+      "claim_boundary": "registry entries remain leads until replay verifies them",
+      "current_repo_mechanism": "schema validation, duplicate checks, native and issue-derived separation",
+      "evidence_class": "native",
+      "evidence_paths": [
+        "configs/external_candidate_registry.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "External Candidate Registry",
+      "public_engineering_name": "External Candidate Registry",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "registry validation returns PASS"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/validate_external_candidate_registry.py"
+      ],
+      "required_outputs": [
+        "configs/external_candidate_registry.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "baseline_registry_snapshot",
+      "blocker_if_missing": "baseline_registry_snapshot_missing",
+      "blockers": [
+        "baseline_registry_snapshot_missing"
+      ],
+      "claim_boundary": "snapshots preserve custody; they do not prove repair",
+      "current_repo_mechanism": "registry snapshots and lineage reports exist for repair/refresh lanes",
+      "evidence_class": "infrastructure",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_002/baseline_registry_snapshot_before_matched_null.json",
+        "outputs/v2_30_failure_signature_canonicalization_repair_lane/registry_lineage_transition_v2_30.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "post_v2_37_followup",
+      "operational_gate_name": "Baseline Registry Snapshot",
+      "public_engineering_name": "Baseline Registry Snapshot",
+      "reason_if_deferred_or_rejected": "baseline snapshots are present in selected lanes but not yet standardized for every repair lane",
+      "required_audit_assertions": [
+        "later registry refreshes require lineage"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/audit_v2_30_failure_signature_canonicalization_repair_lane.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_002/baseline_registry_snapshot_before_matched_null.json",
+        "outputs/v2_30_failure_signature_canonicalization_repair_lane/registry_lineage_transition_v2_30.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "semantic_failure_signature",
+      "blocker_if_missing": "semantic_failure_signature_missing",
+      "blockers": [
+        "semantic_failure_signature_missing"
+      ],
+      "claim_boundary": "signature stability is not repair success",
+      "current_repo_mechanism": "raw, normalized, and semantic hashes recorded for replayed commands",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_002/darker_stdin_filename_semantic_failure_signature.json",
+        "outputs/clean_replication_batch_005/target_node_replay_selection.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Semantic Failure Signature",
+      "public_engineering_name": "Semantic Failure Signature",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "semantic failure hash present when replay runs"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/clean_repair.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_002/darker_stdin_filename_semantic_failure_signature.json",
+        "outputs/clean_replication_batch_005/target_node_replay_selection.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "structural_navigation_map",
+      "blocker_if_missing": "structural_navigation_map_missing",
+      "blockers": [
+        "structural_navigation_map_missing"
+      ],
+      "claim_boundary": "routing is triage evidence only",
+      "current_repo_mechanism": "repair routing and source ranking records constrain repair context",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_005/repairability_basin_source_ranking.json",
+        "outputs/clean_replication_batch_005/patchable_source_ranking_corrected.csv"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "post_v2_37_followup",
+      "operational_gate_name": "Structural Navigation Map",
+      "public_engineering_name": "Structural Navigation Map",
+      "reason_if_deferred_or_rejected": "Batch005 records corrected ranking, but shared active routing remains partial",
+      "required_audit_assertions": [
+        "source ranking is produced before generation"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/clean_repair.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_005/repairability_basin_source_ranking.json",
+        "outputs/clean_replication_batch_005/patchable_source_ranking_corrected.csv"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "active_probe_router",
+      "blocker_if_missing": "active_probe_router_missing",
+      "blockers": [
+        "active_probe_router_missing"
+      ],
+      "claim_boundary": "probe routing is not repair success",
+      "current_repo_mechanism": "bounded probe records exist in prior routing lanes and clean replication attempts",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/v2_36_resolved_commit_replay_seed_promotion/active_probe_routing_log_v2_36.json",
+        "outputs/clean_replication_batch_005/native_challenge_retry_attempts.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "post_v2_37_followup",
+      "operational_gate_name": "Active Probe Router",
+      "public_engineering_name": "Active Probe Router",
+      "reason_if_deferred_or_rejected": "clean replication still records attempts rather than a single reusable router",
+      "required_audit_assertions": [
+        "probe budget traces are bounded"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/budget.py"
+      ],
+      "required_outputs": [
+        "outputs/v2_36_resolved_commit_replay_seed_promotion/active_probe_routing_log_v2_36.json",
+        "outputs/clean_replication_batch_005/native_challenge_retry_attempts.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "candidate_admission_decision_map",
+      "blocker_if_missing": "candidate_admission_decision_failed",
+      "blockers": [
+        "candidate_admission_decision_failed"
+      ],
+      "claim_boundary": "admission does not imply repair success",
+      "current_repo_mechanism": "candidate and target-node admission decisions produce blockers",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_005/target_node_replay_selection.json",
+        "outputs/clean_replication_batch_005/native_challenge_rejection_ledger.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Candidate Admission Decision Map",
+      "public_engineering_name": "Candidate Admission Decision Map",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "admission is explicit before generation"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/candidate_admission.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_005/target_node_replay_selection.json",
+        "outputs/clean_replication_batch_005/native_challenge_rejection_ledger.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "coupled_dependency_projection_map",
+      "blocker_if_missing": "coupled_dependency_projection_missing",
+      "blockers": [
+        "coupled_dependency_projection_missing"
+      ],
+      "claim_boundary": "projection does not authorize broad edits",
+      "current_repo_mechanism": "import, traceback, AST, and context-boundary files are recorded for candidates reaching replay",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_005/import_graph_extraction_result.json",
+        "outputs/clean_replication_batch_005/ast_closure_extraction_result.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "post_v2_37_followup",
+      "operational_gate_name": "Coupled Dependency Projection Map",
+      "public_engineering_name": "Coupled Dependency Projection Map",
+      "reason_if_deferred_or_rejected": "Batch005 captures the projection subset, but a named shared projection artifact remains future work",
+      "required_audit_assertions": [
+        "projection files exist when source extraction runs"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/clean_repair.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_005/import_graph_extraction_result.json",
+        "outputs/clean_replication_batch_005/ast_closure_extraction_result.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "interlock_invariant_map",
+      "blocker_if_missing": "no_candidate_source_interlock_invariant",
+      "blockers": [
+        "no_candidate_source_interlock_invariant"
+      ],
+      "claim_boundary": "no source interlock means no patchable-source claim",
+      "current_repo_mechanism": "patchable source subset derivation records source interlock evidence",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_005/patchable_source_subset_derivation.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "post_v2_37_followup",
+      "operational_gate_name": "Interlock Invariant Map",
+      "public_engineering_name": "Interlock Invariant Map",
+      "reason_if_deferred_or_rejected": "Batch005 stores subset derivation; shared invariant map remains partial",
+      "required_audit_assertions": [
+        "source interlock exists before patchability is PASS"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/clean_repair.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_005/patchable_source_subset_derivation.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "issue_derived_harness",
+      "blocker_if_missing": "issue_derived_harness_generation_failed",
+      "blockers": [
+        "issue_derived_harness_generation_failed",
+        "issue_derived_harness_firewall_failed",
+        "issue_derived_path_not_exercised"
+      ],
+      "claim_boundary": "issue-derived evidence remains separate from native evidence",
+      "current_repo_mechanism": "issue-derived seed intake, firewall, and evidence-class policies are present",
+      "evidence_class": "issue_derived",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_005/targeted_issue_harness_generation_policy.json",
+        "outputs/clean_replication_batch_005/targeted_issue_harness_firewall_audit.json",
+        "outputs/post_v2_37_hardening_001/issue_derived_evidence_class_policy.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_issue_derived_lane",
+      "operational_gate_name": "Issue-Derived Ephemeral Reproduction Harness",
+      "public_engineering_name": "Issue-Derived Ephemeral Reproduction Harness",
+      "reason_if_deferred_or_rejected": "current run did not exercise a valid issue-derived harness",
+      "required_audit_assertions": [
+        "issue-derived evidence cannot increment native counts"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/evidence_classes.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_005/targeted_issue_harness_generation_policy.json",
+        "outputs/clean_replication_batch_005/targeted_issue_harness_firewall_audit.json",
+        "outputs/post_v2_37_hardening_001/issue_derived_evidence_class_policy.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "issue_text_temporal_guard",
+      "blocker_if_missing": "issue_text_temporal_guard_failed",
+      "blockers": [
+        "issue_text_temporal_guard_failed",
+        "issue_text_edit_history_uncertain",
+        "issue_derived_path_not_exercised"
+      ],
+      "claim_boundary": "issue text is lead evidence only",
+      "current_repo_mechanism": "issue text timestamp/hash policy is present; target issue path is not exercised in Batch005",
+      "evidence_class": "issue_derived",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_005/targeted_issue_text_temporal_guard.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_issue_derived_lane",
+      "operational_gate_name": "Issue Text Temporal Guard",
+      "public_engineering_name": "Issue Text Temporal Guard",
+      "reason_if_deferred_or_rejected": "current run has no validated targeted issue seed",
+      "required_audit_assertions": [
+        "issue text has hash/timestamp when used"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/evidence_classes.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_005/targeted_issue_text_temporal_guard.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "issue_derived_latent_risk",
+      "blocker_if_missing": "issue_derived_latent_knowledge_risk_unbounded",
+      "blockers": [
+        "issue_derived_latent_knowledge_risk_unbounded"
+      ],
+      "claim_boundary": "risk disclosure is not a harness validity claim",
+      "current_repo_mechanism": "risk disclosure records context isolation without claiming absence proof",
+      "evidence_class": "issue_derived",
+      "evidence_paths": [
+        "outputs/post_v2_37_hardening_001/issue_derived_latent_knowledge_risk_disclosure.json",
+        "outputs/clean_replication_batch_005/targeted_issue_latent_knowledge_risk_disclosure.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Issue-Derived Latent Knowledge Risk Disclosure",
+      "public_engineering_name": "Issue-Derived Latent Knowledge Risk Disclosure",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "cryptographic absence is not claimed"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/evidence_classes.py"
+      ],
+      "required_outputs": [
+        "outputs/post_v2_37_hardening_001/issue_derived_latent_knowledge_risk_disclosure.json",
+        "outputs/clean_replication_batch_005/targeted_issue_latent_knowledge_risk_disclosure.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "matched_null_comparison_arms",
+      "blocker_if_missing": "matched_null_protocol_precondition_failed",
+      "blockers": [
+        "matched_null_protocol_precondition_failed"
+      ],
+      "claim_boundary": "comparison arms do not prove broad memory lift",
+      "current_repo_mechanism": "memory-enabled and memory-disabled arms are separated for matched-null repair comparison",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_002/arm_a_active_failure_memory_weighting.json",
+        "outputs/clean_replication_batch_002/arm_b_memory_exclusion_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Matched-Null Comparison Arms",
+      "public_engineering_name": "Matched-Null Comparison Arms",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "Arm B cannot read memory weighting or successful patch data"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/clean_repair.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_002/arm_a_active_failure_memory_weighting.json",
+        "outputs/clean_replication_batch_002/arm_b_memory_exclusion_audit.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "matched_null_ensemble",
+      "blocker_if_missing": "matched_null_ensemble_missing",
+      "blockers": [
+        "matched_null_ensemble_missing"
+      ],
+      "claim_boundary": "ensemble status is separate from repair success",
+      "current_repo_mechanism": "ensemble policy and summaries exist; Batch005 corrected null ensemble does not run without memory-enabled repair success",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_003/matched_null_ensemble_policy.json",
+        "outputs/clean_replication_batch_005/corrected_null_ensemble_summary.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_verified_challenge_lane",
+      "operational_gate_name": "Matched-Null Comparison Arms",
+      "public_engineering_name": "Matched-Null Baseline Ensemble",
+      "reason_if_deferred_or_rejected": "Batch005 did not produce a memory-enabled patch, so the null ensemble remains not run",
+      "required_audit_assertions": [
+        "null ensemble runs only after valid preconditions"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/clean_repair.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_003/matched_null_ensemble_policy.json",
+        "outputs/clean_replication_batch_005/corrected_null_ensemble_summary.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "failure_memory_weighting",
+      "blocker_if_missing": "failure_memory_weighting_not_applied",
+      "blockers": [
+        "failure_memory_weighting_not_applied",
+        "failure_memory_markers_passive"
+      ],
+      "claim_boundary": "weights rank context only and cannot override hard gates",
+      "current_repo_mechanism": "failure-memory status and weight deltas are recorded; active routing delta is required for stronger claims",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_002/arm_a_active_failure_memory_weighting.json",
+        "outputs/clean_replication_batch_002/failure_memory_weight_delta_report.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_matched_null_lane",
+      "operational_gate_name": "Failure Memory Weighting",
+      "public_engineering_name": "Failure Memory Weighting",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "routing delta must be present before active status"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/clean_repair.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_002/arm_a_active_failure_memory_weighting.json",
+        "outputs/clean_replication_batch_002/failure_memory_weight_delta_report.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "duplicate_clean_replay",
+      "blocker_if_missing": "duplicate_replay_failed",
+      "blockers": [
+        "duplicate_replay_failed"
+      ],
+      "claim_boundary": "single target validation is not enough for scoreable status",
+      "current_repo_mechanism": "successful repairs require duplicate replay evidence",
+      "evidence_class": "native",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_002/duplicate_replay_results.json",
+        "outputs/clean_replication_batch_002/arm_a_duplicate_replay.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Duplicate Clean Replay",
+      "public_engineering_name": "Duplicate Clean Replay",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "scoreable repairs require duplicate replay PASS"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/patch_safety.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_002/duplicate_replay_results.json",
+        "outputs/clean_replication_batch_002/arm_a_duplicate_replay.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "no_overreach_validation",
+      "blocker_if_missing": "no_overreach_new_failure_detected",
+      "blockers": [
+        "no_overreach_new_failure_detected",
+        "post_patch_constraint_revalidation_failed"
+      ],
+      "claim_boundary": "no-overreach is bounded to executed validation",
+      "current_repo_mechanism": "target-bounded no-overreach records exist and stronger robustness remains unclaimed",
+      "evidence_class": "native",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_005/corrected_no_overreach_validation.json",
+        "outputs/clean_replication_batch_002/no_overreach_validation.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "post_v2_37_followup",
+      "operational_gate_name": "No-Overreach Regression",
+      "public_engineering_name": "No-Overreach Validation",
+      "reason_if_deferred_or_rejected": "Batch005 has no patch, so corrected no-overreach remains not run",
+      "required_audit_assertions": [
+        "no stronger robustness claim after target-only replay"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/clean_repair.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_005/corrected_no_overreach_validation.json",
+        "outputs/clean_replication_batch_002/no_overreach_validation.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "bounded_micro_reversal",
+      "blocker_if_missing": "micro_reversal_policy_deferred",
+      "blockers": [
+        "micro_reversal_policy_deferred",
+        "micro_reversal_policy_missing"
+      ],
+      "claim_boundary": "correction traces are safety evidence only",
+      "current_repo_mechanism": "future rollback/correction trace policy only",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_005/micro_reversal_policy.json",
+        "outputs/clean_replication_batch_005/micro_reversal_trace.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "post_v2_37_followup",
+      "operational_gate_name": "Bounded Micro-Reversal",
+      "public_engineering_name": "Bounded Micro-Reversal",
+      "reason_if_deferred_or_rejected": "not needed for the current no-patch Batch005 correction",
+      "required_audit_assertions": [
+        "future bounded correction attempts must log rollback state"
+      ],
+      "required_modules_or_scripts": [
+        "planned shared repair utility"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_005/micro_reversal_policy.json",
+        "outputs/clean_replication_batch_005/micro_reversal_trace.json"
+      ],
+      "status": "deferred_with_blocker"
+    },
+    {
+      "advice_id": "bounded_exploration_budget",
+      "blocker_if_missing": "bounded_exploration_budget_exhausted",
+      "blockers": [
+        "bounded_exploration_budget_exhausted"
+      ],
+      "claim_boundary": "budget use is not repair success",
+      "current_repo_mechanism": "budget traces constrain candidate/probe attempts",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/post_v2_37_hardening_001/bounded_exploration_budget_trace.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Bounded Exploration Budget",
+      "public_engineering_name": "Bounded Exploration Budget",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "budget trace status is PASS"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/budget.py"
+      ],
+      "required_outputs": [
+        "outputs/post_v2_37_hardening_001/bounded_exploration_budget_trace.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "execution_environment_normalization",
+      "blocker_if_missing": "environment_normalization_unsafe",
+      "blockers": [
+        "environment_normalization_unsafe"
+      ],
+      "claim_boundary": "environment success is not repair success",
+      "current_repo_mechanism": "environment normalization and dependency logs are recorded before collection/replay",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/post_v2_37_hardening_001/environment_normalization_log.json",
+        "outputs/clean_replication_batch_005/dependency_resolution_summary.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Execution Environment Normalization",
+      "public_engineering_name": "Execution Environment Normalization",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "environment resolution precedes replay"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/environment.py"
+      ],
+      "required_outputs": [
+        "outputs/post_v2_37_hardening_001/environment_normalization_log.json",
+        "outputs/clean_replication_batch_005/dependency_resolution_summary.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "context_boundary_pinning",
+      "blocker_if_missing": "context_boundary_missing",
+      "blockers": [
+        "context_boundary_missing"
+      ],
+      "claim_boundary": "bounded context does not authorize broad edits",
+      "current_repo_mechanism": "context boundary maps and corrected subset derivation constrain patchable files",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/post_v2_37_hardening_001/context_boundary_map.json",
+        "outputs/clean_replication_batch_005/patchable_source_subset_derivation.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Context Boundary Pinching",
+      "public_engineering_name": "Context Boundary Pinching",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "tests/support/config/workflow/registry/audit files are not patchable"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/context_boundary.py"
+      ],
+      "required_outputs": [
+        "outputs/post_v2_37_hardening_001/context_boundary_map.json",
+        "outputs/clean_replication_batch_005/patchable_source_subset_derivation.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "public_claim_boundary_audit",
+      "blocker_if_missing": "public_claim_overreach_detected",
+      "blockers": [
+        "public_claim_overreach_detected",
+        "claim_boundary_violation"
+      ],
+      "claim_boundary": "public status must match audited evidence",
+      "current_repo_mechanism": "claim boundary and public language audits keep public docs aligned with evidence",
+      "evidence_class": "public_docs",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_005/claim_boundary.json",
+        "outputs/post_v2_37_hardening_001/public_language_audit_expanded.json",
+        "outputs/clean_replication_batch_005/memory_separation_claim_evaluation.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Public Claim Boundary Audit",
+      "public_engineering_name": "Public Claim Boundary Audit",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "no full scoring, memory-lift, or self-maintaining claims"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/audit_post_v2_37_hardening_and_batch002.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_005/claim_boundary.json",
+        "outputs/post_v2_37_hardening_001/public_language_audit_expanded.json",
+        "outputs/clean_replication_batch_005/memory_separation_claim_evaluation.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "bugsinpy_global_block",
+      "blocker_if_missing": "bugsinpy_relaxation_not_authorized",
+      "blockers": [
+        "bugsinpy_relaxation_not_authorized"
+      ],
+      "claim_boundary": "BugsInPy evidence is not reopened",
+      "current_repo_mechanism": "global block is active; future exception research remains separate",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/post_v2_37_hardening_001/bugsinpy_relaxation_research_status.json",
+        "docs/bugsinpy_byte_identical_exception_research_note.md"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_authorized_research_lane",
+      "operational_gate_name": "BugsInPy Global Block / Future Byte-Identical Exception Research",
+      "public_engineering_name": "BugsInPy Global Block and Future Byte-Identical Exception Research",
+      "reason_if_deferred_or_rejected": "global block is active; exception research is deferred",
+      "required_audit_assertions": [
+        "global block remains active"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/audit_post_v2_37_hardening_and_batch002.py"
+      ],
+      "required_outputs": [
+        "outputs/post_v2_37_hardening_001/bugsinpy_relaxation_research_status.json",
+        "docs/bugsinpy_byte_identical_exception_research_note.md"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "cryptographic_evidence_ledger_sealing",
+      "blocker_if_missing": "proof_chain_lock_missing",
+      "blockers": [
+        "proof_chain_lock_missing"
+      ],
+      "claim_boundary": "ledger integrity is custody evidence only",
+      "current_repo_mechanism": "proof-chain and obligation ledgers exist in selected lanes",
+      "evidence_class": "infrastructure",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_002/proof_chain_lock_for_second_repair.json",
+        "outputs/v2_37_core_consolidation/proof_obligations_ledger.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "post_v2_37_followup",
+      "operational_gate_name": "Cryptographic Evidence Ledger Sealing",
+      "public_engineering_name": "Cryptographic Evidence Ledger Sealing",
+      "reason_if_deferred_or_rejected": "not yet standardized for every clean replication output",
+      "required_audit_assertions": [
+        "ledger hashes are present where required"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/manifests.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_002/proof_chain_lock_for_second_repair.json",
+        "outputs/v2_37_core_consolidation/proof_obligations_ledger.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "public_release_readiness_gate",
+      "blocker_if_missing": "public_release_readiness_not_met",
+      "blockers": [
+        "public_release_readiness_not_met"
+      ],
+      "claim_boundary": "pre-alpha archive only",
+      "current_repo_mechanism": "public readiness report explicitly remains not ready",
+      "evidence_class": "public_docs",
+      "evidence_paths": [
+        "docs/public_release_readiness.md",
+        "outputs/post_v2_37_hardening_001/public_docs_accuracy_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Public Release Readiness Gate",
+      "public_engineering_name": "Public Release Readiness Gate",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "release readiness is not claimed"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/audit_post_v2_37_hardening_and_batch002.py"
+      ],
+      "required_outputs": [
+        "docs/public_release_readiness.md",
+        "outputs/post_v2_37_hardening_001/public_docs_accuracy_audit.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "v3_readiness_gate",
+      "blocker_if_missing": "blocked_v3_readiness_insufficient_external_repairs",
+      "blockers": [
+        "blocked_v3_readiness_insufficient_external_repairs",
+        "blocked_v3_readiness_insufficient_distinct_repos",
+        "blocked_v3_readiness_no_matched_null_separation",
+        "blocked_v3_readiness_evidence_classes_conflated",
+        "blocked_v3_readiness_public_claim_overreach"
+      ],
+      "claim_boundary": "future milestone, not current status",
+      "current_repo_mechanism": "future milestone scorecard remains blocked until external repair and comparison thresholds are met",
+      "evidence_class": "public_docs",
+      "evidence_paths": [
+        "outputs/post_v2_37_hardening_001/v3_0_readiness_scorecard_update.json",
+        "docs/roadmap_to_v3.md"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_replication_milestone",
+      "operational_gate_name": "v3.0 Readiness Gate",
+      "public_engineering_name": "v3.0 Readiness Gate",
+      "reason_if_deferred_or_rejected": "external repair and matched-null thresholds are not met",
+      "required_audit_assertions": [
+        "future milestone blockers remain explicit"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/audit_post_v2_37_hardening_and_batch002.py"
+      ],
+      "required_outputs": [
+        "outputs/post_v2_37_hardening_001/v3_0_readiness_scorecard_update.json",
+        "docs/roadmap_to_v3.md"
+      ],
+      "status": "deferred_with_blocker"
+    }
+  ],
+  "entry_count": 27,
+  "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch005",
+  "status": "PASS",
+  "terminology_policy": "neutral_engineering_terms_only"
+}

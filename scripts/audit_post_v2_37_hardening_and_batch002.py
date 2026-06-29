@@ -119,6 +119,10 @@ BATCH005_REQUIRED = [
     "native_challenge_verified_candidates.json",
     "native_challenge_rejection_ledger.json",
     "dependency_resolution_summary.json",
+    "target_node_selection_policy.json",
+    "target_node_semantic_intent_filter.json",
+    "target_node_replay_selection.json",
+    "non_intent_failure_classification.json",
     "targeted_issue_seed_intake_report.json",
     "targeted_issue_text_hash.json",
     "targeted_issue_text_temporal_guard.json",
@@ -149,6 +153,31 @@ BATCH005_REQUIRED = [
     "repair_intent_lock.json",
     "patch_context_alignment_audit.json",
     "post_patch_constraint_revalidation.json",
+    "source_stack_extraction_policy.json",
+    "source_stack_extraction_result.json",
+    "import_graph_extraction_result.json",
+    "ast_closure_extraction_result.json",
+    "patchable_source_subset_derivation.json",
+    "patchable_source_ranking_corrected.csv",
+    "repair_generator_capability_status_corrected.json",
+    "no_patch_reason_taxonomy.json",
+    "corrected_native_repair_attempt.json",
+    "corrected_pre_generation_context_state_snapshot.json",
+    "corrected_patch_context_alignment_audit.json",
+    "corrected_patch_safety_result.json",
+    "corrected_target_validation_result.json",
+    "corrected_duplicate_replay_result.json",
+    "corrected_no_overreach_validation.json",
+    "corrected_null_ensemble_run_results.json",
+    "corrected_null_ensemble_summary.json",
+    "corrected_matched_null_ensemble_separation_score.json",
+    "corrected_memory_separation_claim_evaluation.json",
+    "notebooklm_advice_traceability_status.json",
+    "notebooklm_advice_carry_forward_blockers.json",
+    "operational_gate_matrix_crosscheck.json",
+    "carry_forward_blocker_policy.json",
+    "carry_forward_blocker_register.json",
+    "no_silent_completion_audit.json",
     "claim_boundary.json",
     "SHA256SUMS.txt",
 ]
@@ -291,6 +320,11 @@ def blocked_terms() -> list[str]:
         "Klein " + "twist",
         "Betti" + "-number",
         "res" + "onance",
+        "recursion" + "-constant",
+        "bio" + "logical",
+        "meta" + "phorical",
+        "OS" + "QN",
+        "N" + "\u2248",
     ]
 
 
@@ -900,6 +934,17 @@ def audit_batch005_records() -> list[str]:
     null_summary = read_json(BATCH005_DIR / "null_ensemble_summary.json")
     score = read_json(BATCH005_DIR / "matched_null_ensemble_separation_score_result.json")
     claim = read_json(BATCH005_DIR / "claim_boundary.json")
+    target_filter = read_json(BATCH005_DIR / "target_node_semantic_intent_filter.json")
+    target_replay = read_json(BATCH005_DIR / "target_node_replay_selection.json")
+    non_intent = read_json(BATCH005_DIR / "non_intent_failure_classification.json")
+    source_stack = read_json(BATCH005_DIR / "source_stack_extraction_result.json")
+    import_graph = read_json(BATCH005_DIR / "import_graph_extraction_result.json")
+    ast_closure = read_json(BATCH005_DIR / "ast_closure_extraction_result.json")
+    subset_derivation = read_json(BATCH005_DIR / "patchable_source_subset_derivation.json")
+    corrected_capability = read_json(BATCH005_DIR / "repair_generator_capability_status_corrected.json")
+    taxonomy = read_json(BATCH005_DIR / "no_patch_reason_taxonomy.json")
+    corrected_attempt = read_json(BATCH005_DIR / "corrected_native_repair_attempt.json")
+    corrected_null = read_json(BATCH005_DIR / "corrected_null_ensemble_summary.json")
     if policy.get("ephemeral_checkout_required") is not True or policy.get("commit_checkout_exact_only") is not True:
         errors.append("batch005 source materialization policy invalid")
     if materialization.get("workspace_path") != "<ephemeral_root>":
@@ -933,12 +978,47 @@ def audit_batch005_records() -> list[str]:
             errors.append("batch005 native attempt used forbidden evidence")
     if not isinstance(collection, list) or not collection:
         errors.append("batch005 collection record missing")
-    if verified and len(null_runs) != 5:
-        errors.append("batch005 verified native candidate without null ensemble of 5")
+    if target_filter.get("selected_node") != "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob":
+        errors.append("batch005 intended target node was not selected")
+    if target_filter.get("status") != "PASS" and any("test_isort_respects_skip_glob" in str(node) for node in nodes.get("nodes", [])):
+        errors.append("batch005 target semantic filter failed despite intended node discovery")
+    if non_intent.get("primary_failure_source") != "selected_intended_node_only":
+        errors.append("batch005 non-intent failures are not separated")
+    if taxonomy.get("status") != "PASS" or "clean_repair_no_safe_source_patch_generated" != taxonomy.get("no_safe_patch_blocker"):
+        errors.append("batch005 no-patch taxonomy invalid")
+    if verified and target_replay.get("status") != "PASS":
+        errors.append("batch005 verified native candidate without intended target replay PASS")
     if verified and any(item.get("commit_sha") != materialization.get("commit_sha") for item in verified):
         errors.append("batch005 verified native candidate identity mismatch")
     if not verified and state.get("native_challenge_candidate_verified") is not False:
         errors.append("batch005 native verification state mismatch")
+    if verified:
+        if source_stack.get("status") != "PASS":
+            errors.append("batch005 source stack extraction did not PASS for verified target")
+        if import_graph.get("status") != "PASS" and not source_stack.get("project_source_frames"):
+            errors.append("batch005 import graph and source stack both missing for verified target")
+        if ast_closure.get("status") != "PASS":
+            errors.append("batch005 AST closure extraction did not PASS for verified target")
+        if source_stack.get("project_source_frames") and subset_derivation.get("status") != "PASS":
+            errors.append("batch005 project source frames did not produce a patchable subset")
+        if subset_derivation.get("status") == "PASS":
+            paths = subset_derivation.get("patchable_source_files", [])
+            if not paths:
+                errors.append("batch005 patchable source subset PASS without files")
+            for path in paths:
+                if str(path).startswith(("tests/", "test/", "src/darker/tests/", "configs/", ".github/", "outputs/", "scripts/", "docs/")):
+                    errors.append(f"batch005 forbidden corrected patchable path {path}")
+            if corrected_capability.get("generator_invoked") is not True:
+                errors.append("batch005 generator not invoked after corrected patchable subset")
+        if memory.get("patch_generated") is not True and null_runs:
+            errors.append("batch005 null ensemble ran without memory-enabled patch success")
+        if memory.get("patch_generated") is not True and corrected_null.get("status") != "NOT_RUN":
+            errors.append("batch005 corrected null ensemble did not remain NOT_RUN after memory failure")
+    else:
+        if corrected_attempt.get("status") != "NOT_RUN":
+            errors.append("batch005 corrected repair attempt ran without verified native target")
+        if corrected_capability.get("generator_invoked") is True:
+            errors.append("batch005 corrected generator invoked without verified target")
     if state.get("targeted_issue_seed_present") != targeted.get("targeted_issue_derived_seed_present"):
         errors.append("batch005 targeted issue seed state mismatch")
     if targeted.get("targeted_issue_derived_seed_present") is False and text_hash.get("issue_text_sha256") is not None:
@@ -950,8 +1030,10 @@ def audit_batch005_records() -> list[str]:
     if issue_policy.get("runs_only_after_native_failure") is not True or issue_policy.get("runs_after_targeted_seed_intake") is not True:
         errors.append("batch005 issue discovery policy invalid")
     if state.get("native_challenge_candidate_verified") is False and targeted.get("status") == "NOT_RUN_NO_TARGETED_SEED":
-        if state.get("issue_derived_discovery_attempted") is not True:
-            errors.append("batch005 did not attempt issue discovery after native failure and no targeted seed")
+        if state.get("issue_derived_discovery_attempted") is not False:
+            errors.append("batch005 claimed issue-derived discovery without targeted seed")
+        if issue_attempts:
+            errors.append("batch005 issue-derived attempts recorded without targeted seed")
     if issue_verified != []:
         errors.append("batch005 should not verify issue-derived candidate in current evidence")
     if issue_pool.get("lead_count", 0) == 0 and state.get("issue_derived_discovery_attempted") is True:
@@ -1079,7 +1161,9 @@ def public_language_hits() -> list[str]:
         Path("docs/replication_protocol.md"),
         Path("docs/evidence_model.md"),
         Path("docs/operational_gate_matrix.md"),
+        Path("docs/notebooklm_advice_traceability.md"),
         Path("configs/operational_gate_matrix.json"),
+        Path("configs/notebooklm_advice_traceability_matrix.json"),
         Path("configs/clean_replication_batch_003.json"),
         Path("configs/clean_replication_batch_004.json"),
         Path("configs/clean_replication_batch_005.json"),
@@ -1096,6 +1180,115 @@ def public_language_hits() -> list[str]:
             if term in text:
                 hits.append(f"{path.as_posix()}:{term}")
     return hits
+
+
+REQUIRED_NOTEBOOKLM_ADVICE_IDS = {
+    "artifact_byte_custody",
+    "workspace_transport_integrity",
+    "external_candidate_registry",
+    "baseline_registry_snapshot",
+    "semantic_failure_signature",
+    "structural_navigation_map",
+    "active_probe_router",
+    "candidate_admission_decision_map",
+    "coupled_dependency_projection_map",
+    "interlock_invariant_map",
+    "issue_derived_harness",
+    "issue_text_temporal_guard",
+    "issue_derived_latent_risk",
+    "matched_null_comparison_arms",
+    "matched_null_ensemble",
+    "failure_memory_weighting",
+    "duplicate_clean_replay",
+    "no_overreach_validation",
+    "bounded_micro_reversal",
+    "bounded_exploration_budget",
+    "execution_environment_normalization",
+    "context_boundary_pinning",
+    "public_claim_boundary_audit",
+    "bugsinpy_global_block",
+    "cryptographic_evidence_ledger_sealing",
+    "public_release_readiness_gate",
+    "v3_readiness_gate",
+}
+
+
+def audit_notebooklm_traceability_records() -> list[str]:
+    errors: list[str] = []
+    matrix_path = Path("configs/notebooklm_advice_traceability_matrix.json")
+    doc_path = Path("docs/notebooklm_advice_traceability.md")
+    if not matrix_path.is_file():
+        return ["notebooklm traceability matrix missing"]
+    if not doc_path.is_file():
+        errors.append("notebooklm traceability doc missing")
+    matrix = read_json(matrix_path)
+    entries = matrix.get("entries", [])
+    if not isinstance(entries, list):
+        return ["notebooklm traceability entries malformed"]
+    by_id = {entry.get("advice_id"): entry for entry in entries if isinstance(entry, dict)}
+    missing = sorted(REQUIRED_NOTEBOOKLM_ADVICE_IDS - set(by_id))
+    if missing:
+        errors.append(f"missing notebooklm advice entries: {missing}")
+    operational = read_json(Path("configs/operational_gate_matrix.json"))
+    gate_names = {str(gate.get("neutral_gate_name")) for gate in operational.get("gates", []) if isinstance(gate, dict)}
+    crosscheck = read_json(BATCH005_DIR / "operational_gate_matrix_crosscheck.json")
+    carry = read_json(BATCH005_DIR / "carry_forward_blocker_register.json")
+    no_silent = read_json(BATCH005_DIR / "no_silent_completion_audit.json")
+    status = read_json(BATCH005_DIR / "notebooklm_advice_traceability_status.json")
+    if crosscheck.get("status") != "PASS":
+        errors.append("notebooklm_advice_traceability_gap")
+    if no_silent.get("status") != "PASS":
+        errors.append("gate_marked_active_without_evidence")
+    if status.get("status") != "PASS":
+        errors.append("notebooklm traceability status not PASS")
+    carry_by_id = {item.get("advice_id"): item for item in carry if isinstance(item, dict)}
+    for advice_id, entry in by_id.items():
+        if not entry.get("status"):
+            errors.append(f"{advice_id}: missing status")
+        if not entry.get("public_engineering_name"):
+            errors.append(f"{advice_id}: missing public engineering name")
+        if entry.get("status") == "implemented_active":
+            for field in [
+                "current_repo_mechanism",
+                "required_outputs",
+                "required_modules_or_scripts",
+                "required_audit_assertions",
+                "blocker_if_missing",
+                "evidence_paths",
+            ]:
+                if not entry.get(field):
+                    errors.append(f"{advice_id}: active entry missing {field}")
+        if entry.get("status") != "implemented_active":
+            if not carry_by_id.get(advice_id):
+                errors.append(f"{advice_id}: deferred_gate_missing_carry_forward_blocker")
+            elif not carry_by_id[advice_id].get("next_allowed_lane") or not carry_by_id[advice_id].get("blocker"):
+                errors.append(f"{advice_id}: carry-forward blocker incomplete")
+        if entry.get("operational_gate_name") not in gate_names and entry.get("status") not in {"deferred_with_blocker", "rejected_with_reason"}:
+            errors.append(f"{advice_id}: missing operational gate cross-reference")
+    issue_entry = by_id.get("issue_derived_harness", {})
+    batch005_state = read_json(BATCH005_DIR / "consolidated_state_clean_replication_batch_005.json")
+    if (
+        batch005_state.get("issue_derived_candidate_verified") is not True
+        and issue_entry.get("status") == "implemented_active"
+    ):
+        errors.append("issue-derived harness over-marked as active")
+    memory_entry = by_id.get("failure_memory_weighting", {})
+    if memory_entry.get("status") == "implemented_active":
+        delta = read_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json") if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() else {}
+        if delta.get("failure_memory_markers_passive") is not False:
+            errors.append("failure-memory weighting over-marked as active without routing delta")
+    for path in [
+        Path("README.md"),
+        Path("docs/current_status.md"),
+        Path("docs/capability_inventory.md"),
+        Path("docs/public_release_readiness.md"),
+        Path("docs/technical_validation_gap_report.md"),
+        Path("docs/operational_gate_matrix.md"),
+    ]:
+        text = path.read_text(encoding="utf-8")
+        if "Current operational gate status" not in text:
+            errors.append(f"{path.as_posix()}: public_docs_gate_status_mismatch")
+    return errors
 
 
 def main() -> int:
@@ -1238,6 +1431,9 @@ def main() -> int:
     batch005_errors = audit_batch005_records()
     if batch005_errors:
         return fail(f"batch005 audit failed: {batch005_errors}")
+    traceability_errors = audit_notebooklm_traceability_records()
+    if traceability_errors:
+        return fail(f"notebooklm traceability audit failed: {traceability_errors}")
     repair_attempts = read_json(BATCH_DIR / "repair_attempts.json")
     verified_native_count = int(batch.get("native_candidates_verified_count", 0))
     if verified_native_count and (not isinstance(repair_attempts, list) or not repair_attempts):

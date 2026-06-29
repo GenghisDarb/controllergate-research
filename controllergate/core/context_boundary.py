@@ -19,7 +19,8 @@ def build_context_boundary_map(
     support_files: list[str],
     environment_files: list[str],
 ) -> dict[str, object]:
-    patchable = sorted(set(target_source_files) | set(imported_source_files) | set(traceback_source_files))
+    candidate_paths = sorted(set(target_source_files) | set(imported_source_files) | set(traceback_source_files))
+    patchable = [path for path in candidate_paths if validate_patch_context([path])["status"] == "PASS"]
     excluded = sorted(set(support_files) | set(environment_files))
     return {
         "status": "PASS" if patchable else "BLOCK",

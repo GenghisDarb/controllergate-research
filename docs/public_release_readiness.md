@@ -14,7 +14,7 @@ ControllerGate is currently suitable as a pre-alpha research archive. It is not 
 - The `darker_stdin_filename` matched-null comparison produced equal repair success across arms and does not establish memory separation.
 - Batch003 adds an officially ingested matched-null ensemble challenge protocol, but found no verified challenge candidate and is not a release-readiness result by itself.
 - Batch004 adds native-first dual-track challenge acquisition and issue-derived fallback as a separate evidence class, but it verified no challenge candidate and is not a release-readiness result.
-- Batch005 source-materialized retry is an acquisition and verification continuation; it does not make the repository release-ready without additional audited repair evidence.
+- The official Batch005 source-materialized artifact is ingested as custody evidence. The corrected Batch005 workflow adds target-node selection and source-subset repair gates, but it does not make the repository release-ready without a new audited repair success.
 
 ## Blocking gaps
 
@@ -28,3 +28,10 @@ ControllerGate is currently suitable as a pre-alpha research archive. It is not 
 ## Release rule
 
 Do not describe ControllerGate as technically validated until the blocking gaps are closed by audited artifacts.
+
+## Current operational gate status
+
+- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, and release-readiness blocking.
+- Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, no-overreach validation for blocked candidates, global-block exception research, and evidence-ledger sealing.
+- Deferred gates: bounded micro-reversal and v3.0 readiness.
+- Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

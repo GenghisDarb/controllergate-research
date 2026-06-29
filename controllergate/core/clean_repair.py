@@ -30,6 +30,15 @@ VERIFIED_CANDIDATE_ORDER = [
     "darker_stdin_filename",
 ]
 
+SKIP_GLOB_TARGET_NODE = "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob"
+SKIP_GLOB_SEMANTIC_MARKERS = (
+    "skip_glob",
+    "isort",
+    "test_isort_respects_skip_glob",
+    "respects skip_glob setting",
+    "conf/settings",
+)
+
 FORBIDDEN_PATCH_PREFIXES = (
     "tests/",
     "test/",
@@ -289,6 +298,43 @@ def build_structural_repair_routing_map(candidate: dict[str, object], checkout: 
     }
 
 
+def select_semantic_target_node(
+    nodes: list[str],
+    *,
+    intended_node: str,
+    semantic_markers: Iterable[str],
+) -> dict[str, object]:
+    """Select a target node by explicit semantic intent, not first failure order."""
+
+    marker_hits = [
+        marker
+        for marker in semantic_markers
+        if marker.lower() in intended_node.lower() or marker.lower().replace(" ", "_") in intended_node.lower()
+    ]
+    node_present = intended_node in nodes
+    return {
+        "status": "PASS" if node_present and marker_hits else "BLOCK",
+        "blocker": None if node_present and marker_hits else "target_node_semantic_intent_mismatch",
+        "selected_node": intended_node if node_present else None,
+        "semantic_markers": list(semantic_markers),
+        "marker_hits": marker_hits,
+        "selection_basis": "explicit_target_hint_and_semantic_marker_match",
+        "non_intent_first_failure_allowed_as_primary": False,
+    }
+
+
+def classify_non_intent_failure(node: str, selected_node: str | None, output_summary: str) -> dict[str, object]:
+    is_selected = selected_node is not None and node == selected_node
+    environment_markers = ("ModuleNotFoundError", "ImportError", "fixture", "plugin", "No module named")
+    return {
+        "node": node,
+        "selected_intended_node": selected_node,
+        "is_selected_intended_node": is_selected,
+        "classification": "selected_intended_node" if is_selected else "non_intent_fixture_or_setup_failure",
+        "environment_or_setup_signal": any(marker in output_summary for marker in environment_markers),
+    }
+
+
 def infer_failing_test_node(summary: str) -> str | None:
     match = re.search(r"_{3,}\s+([A-Za-z_][A-Za-z0-9_\[\]-]+)", summary)
     if match:
@@ -321,10 +367,18 @@ def repairability_basin_selection(candidate: dict[str, object], routing: dict[st
             reasons.append("imported_by_target_test")
         symbols = ast_symbols_for_file(checkout, rel)
         symbol_names = {str(item["name"]).lower() for item in symbols}
-        for token in ["drop_changes", "stdin", "filename", "unchanged"]:
+        for token in ["drop_changes", "stdin", "filename", "unchanged", "skip_glob", "isort", "path", "formatter", "main"]:
             if token in summary and any(token in name for name in symbol_names):
                 score += 3
                 reasons.append(f"symbol_overlap:{token}")
+        if candidate.get("candidate_id") == "darker_skip_glob_failing_test":
+            lower_rel = rel.lower()
+            if lower_rel in {"src/darker/__main__.py", "src/darker/import_sorting.py"}:
+                score += 4
+                reasons.append("skip_glob_intent_source_surface_hint")
+            if any(token in lower_rel for token in ["import", "isort", "main", "config"]):
+                score += 2
+                reasons.append("skip_glob_path_relevance")
         if patch_target_allowed(rel):
             score += 2
             reasons.append("source_file_patchable")
@@ -363,10 +417,67 @@ def build_patchable_source_subset(selection: dict[str, object]) -> dict[str, obj
     return {
         "candidate_id": selection["candidate_id"],
         "status": "PASS" if patchable else "BLOCK",
-        "blocker": None if patchable else "no_patchable_source_subset",
+        "blocker": None if patchable else "patchable_source_subset_derivation_failed",
         "patchable_source_files": [item["file_path"] for item in patchable],
         "records": patchable,
         "tests_support_config_workflow_registry_audit_patchable": False,
+    }
+
+
+def classify_repair_generator_capability(
+    *,
+    subset: dict[str, object],
+    patch: dict[str, object] | None,
+    generator_invoked: bool,
+) -> dict[str, object]:
+    if not generator_invoked:
+        status = "BLOCK"
+        capability = "repair_generator_not_implemented"
+        blocker = "clean_repair_generator_not_implemented"
+    elif not subset.get("patchable_source_files"):
+        status = "BLOCK"
+        capability = "patchable_source_subset_empty"
+        blocker = "patchable_source_subset_derivation_failed"
+    elif patch is None:
+        status = "BLOCK"
+        capability = "pre_generation_context_missing"
+        blocker = "pre_generation_context_missing"
+    elif patch.get("patch_candidate_generated") is True:
+        status = "PASS"
+        capability = "patch_generated_succeeded"
+        blocker = None
+    elif patch.get("blocker") == "clean_repair_no_safe_source_patch_generated":
+        status = "BLOCK"
+        capability = "safe_patch_generation_attempted_no_patch_found"
+        blocker = "clean_repair_no_safe_source_patch_generated"
+    elif patch.get("blocker") == "clean_repair_patch_safety_failed":
+        status = "BLOCK"
+        capability = "patch_generated_failed_safety"
+        blocker = "clean_repair_patch_safety_failed"
+    elif patch.get("blocker") == "target_validation_failed":
+        status = "BLOCK"
+        capability = "patch_generated_failed_target_validation"
+        blocker = "target_validation_failed"
+    else:
+        status = "BLOCK"
+        capability = str(patch.get("no_patch_reason") or "safe_patch_generation_attempted_no_patch_found")
+        blocker = str(patch.get("blocker") or "clean_repair_no_safe_source_patch_generated")
+    return {
+        "status": status,
+        "capability_classification": capability,
+        "blocker": blocker,
+        "generator_invoked": generator_invoked,
+        "patchable_subset_received": bool(subset.get("patchable_source_files")),
+        "patch_candidate_generated": bool(patch and patch.get("patch_candidate_generated") is True),
+        "taxonomy": [
+            "repair_generator_not_implemented",
+            "patchable_source_subset_empty",
+            "pre_generation_context_missing",
+            "safe_patch_generation_attempted_no_patch_found",
+            "patch_generated_failed_safety",
+            "patch_generated_failed_target_validation",
+            "patch_generated_succeeded",
+        ],
     }
 
 

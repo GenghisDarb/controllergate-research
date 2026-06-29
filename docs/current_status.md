@@ -12,7 +12,7 @@ ControllerGate is a provenance-first software repair research harness. The curre
 - Matched-null status for `darker_stdin_filename`: both arms succeeded equivalently; preliminary single-candidate memory separation evidence is `false`.
 - Clean replication batch003 status: officially ingested; 3 challenge candidates attempted, 0 verified, matched-null ensemble did not run, exact blocker `clean_replication_batch_003_no_verified_challenge_candidate`.
 - Clean replication batch004 status: native-first dual-track challenge acquisition is implemented with issue-derived ephemeral reproduction harness fallback as a separate evidence class; 1 native lead is carried forward, 0 native candidates verified, 0 issue-derived candidates verified, exact blocker `batch004_no_native_or_issue_derived_challenge_candidate_verified`.
-- Batch005 corrects Batch004 by materializing the source tree in an ephemeral workspace before native AST/node discovery and by checking targeted issue-derived seed intake before bounded issue discovery fallback.
+- The official Batch005 source-materialized artifact verified byte custody and source materialization, but the native target-node replay did not verify in that artifact. The corrected Batch005 workflow adds intended target-node selection, source-stack extraction, patchable source subset derivation, and no-patch taxonomy before any repair attempt.
 - Full scoring: `NOT_RUN/disallowed`.
 - Matched-null memory status: `undemonstrated_equal_performance`.
 - Self-maintaining software: `false/not_demonstrated`.
@@ -20,4 +20,11 @@ ControllerGate is a provenance-first software repair research harness. The curre
 
 ## Operational status
 
-The repository has byte-custody checks, artifact hygiene, registry validation, current-protocol audits, a clean replication adapter, bounded repair generation, deterministic matched-null ensemble scaffolding, native-first dual-track challenge acquisition, issue-derived evidence-class separation, source-materialized native retry support, and reusable workflow support. The next step is a verified native challenge candidate, or an explicitly separated issue-derived feasibility candidate if native acquisition remains blocked. It remains a pre-alpha research archive until broader external replication and audited comparison evidence exist.
+The repository has byte-custody checks, artifact hygiene, registry validation, current-protocol audits, a clean replication adapter, bounded repair generation, deterministic matched-null ensemble scaffolding, native-first dual-track challenge acquisition, issue-derived evidence-class separation, source-materialized native retry support, target-node semantic selection, source-stack extraction, and reusable workflow support. The next step is a verified native challenge target replay with a bounded source-subset repair attempt, or a precise blocked record if that gate cannot pass. It remains a pre-alpha research archive until broader external replication and audited comparison evidence exist.
+
+## Current operational gate status
+
+- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, claim-boundary audit, and release-readiness blocking.
+- Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, no-overreach validation for blocked candidates, global-block exception research, and evidence-ledger sealing.
+- Deferred gates: bounded micro-reversal and v3.0 readiness.
+- Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

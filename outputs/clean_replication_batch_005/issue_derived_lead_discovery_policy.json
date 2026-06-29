@@ -1,21 +1,7 @@
 {
-  "allowed_sources": [
-    "issue_title",
-    "issue_body",
-    "issue_created_timestamp",
-    "issue_url",
-    "repo_metadata"
-  ],
-  "forbidden_sources": [
-    "PR_patch_contents",
-    "fix_commits",
-    "later_commit_contents",
-    "maintainer_solution_guidance",
-    "gold_patches",
-    "future_tests"
-  ],
+  "bounded_discovery_disabled_for_correction_run": true,
+  "reason": "no targeted issue-derived seed was supplied",
   "runs_after_targeted_seed_intake": true,
   "runs_only_after_native_failure": true,
-  "status": "PASS",
-  "zero_lead_placeholder_forbidden_when_discovery_available": true
+  "status": "NOT_RUN_NO_TARGETED_SEED"
 }
