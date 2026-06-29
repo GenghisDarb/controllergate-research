@@ -1,0 +1,19 @@
+{
+  "ast_node_discovery_attempted": true,
+  "batch004_blocker": "batch004_no_native_or_issue_derived_challenge_candidate_verified",
+  "candidate_id": "darker_skip_glob_failing_test",
+  "corrected_action": "perform_ephemeral_source_checkout_before_ast_and_node_discovery",
+  "exact_commit_known": true,
+  "issue": "Batch004 carried a valid native challenge lead but did not materialize the source tree before AST and node-level command discovery.",
+  "native_challenge_lead_existed": true,
+  "node_level_discovery_safely_blocked": true,
+  "node_level_discovery_safely_blocked_reason": "native_challenge_source_tree_not_materialized_for_ast_node_discovery",
+  "prior_blocker": "native_challenge_command_cannot_collect_target_after_improved_collection_safely_blocked",
+  "repo_url": "https://github.com/akaihola/darker",
+  "source_tree_materialized_in_batch004": false,
+  "source_tree_materialization_required_next": true,
+  "status": "PASS",
+  "target_test_path_known": true,
+  "target_test_path": "src/darker/tests/test_main_isort.py",
+  "target_commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75"
+}
