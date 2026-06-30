@@ -86,11 +86,11 @@ Batch008 corrects declared formatter precondition materialization for `darker_sk
 
 ## Current official repair episodes
 
-As of the Batch008 implementation boundary, the confirmed external non-Ansible native repair endpoints are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. The Batch008 workflow artifact still requires manual download and official ingest before that artifact boundary is complete. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
+As of the official Batch008 ingest boundary, the confirmed external non-Ansible native repair endpoints are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
 
 ## Current operational gate status
 
 - Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, and public claim boundary audit.
 - Partial gates: structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, matched-null ensemble execution, failure-memory weighting, and no-overreach validation for blocked candidates.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
-- Current evidence counts: confirmed external native repair episodes `4` after Batch008 implementation evidence; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
+- Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

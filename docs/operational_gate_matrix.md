@@ -12,6 +12,6 @@ See `configs/operational_gate_matrix.json` for the machine-readable matrix.
 - Implemented active Batch008 gates: declared formatter precondition materialization, target replay after declared extras, bounded source-only fragment assembly, target validation, duplicate replay, and target-file no-overreach validation.
 - Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, post-patch revalidation for blocked candidates, global-block exception research, and broader evidence-ledger standardization.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
-- Current evidence counts: confirmed external native repair episodes `4` after Batch008 implementation evidence; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
+- Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
 
 The NotebookLM advice traceability matrix cross-references these operational gates in `configs/notebooklm_advice_traceability_matrix.json` and records carry-forward blockers for partial or deferred gates.

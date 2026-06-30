@@ -7,7 +7,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 ## Current status
 
 - Current protocol remains `v2.13` / `minimal_forensic_context_lane`.
-- Four external non-Ansible native source-only repair episodes are confirmed after the Batch008 implementation boundary: `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. The Batch008 artifact still requires manual download and official ingest before that artifact boundary is complete.
+- Four external non-Ansible native source-only repair episodes are confirmed after the official Batch008 ingest boundary: `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`.
 - ControllerGate has strong artifact custody, registry validation, claim-boundary enforcement, transport integrity checks, clean-replication scaffolding, artifact hygiene, and real-lead acquisition attempts.
 - v2.37 and post-v2.37 work introduced shared core gates, reusable workflow scaffolding, transport integrity, risk regulation, a clean protocol adapter, and native/issue-derived evidence class separation.
 - Clean replication batch002 now attempts real external leads, resolves project environments before replay, and produced one additional native repair for `darker_non_ascii_drop_changes` with target validation PASS and duplicate clean replay 3/3.
@@ -41,14 +41,14 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 
 ControllerGate does not currently claim autonomous repair, full benchmark scoring, memory-lift evidence, self-maintaining software, or technical validation readiness. Issue-derived harnesses do not count as native external repairs. Historical lanes remain auditable evidence, but new replication work should use the clean replication protocol and reusable workflow where possible.
 
-The next technical objective is to manually verify the Batch008 workflow artifact when provided, ingest only its output evidence, and preserve the claim boundary: the new repair endpoint does not demonstrate memory lift, full scoring, self-maintaining software, or technical validation readiness.
+The next technical objective is Batch009 patch-quarantined matched-null calibration on the already repaired Batch008 candidate. This is retrospective diagnostic work only; it must not add another repair episode or claim prospective memory lift, full scoring, self-maintaining software, or technical validation readiness.
 
 ## Current operational gate status
 
 - Implemented active gates: artifact byte custody, workspace transport integrity, external candidate registry validation, semantic failure signatures, target-node admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, execution environment normalization, context boundary pinning, public claim boundary audit, and public release readiness blocking.
 - Partial gates: baseline registry snapshots, structural navigation, active probe routing, dependency projection reuse, interlock invariant mapping reuse, issue-derived harness handling, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, no-overreach validation for non-successful candidates, global-block exception research, and evidence-ledger sealing.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
-- Current evidence counts: confirmed external native repair episodes `4` after Batch008 implementation evidence; confirmed issue-derived repair episodes `0`; accepted matched-null comparisons `1` with equal performance; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
+- Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; accepted matched-null comparisons `1` with equal performance; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
 
 ## Basic local checks
 

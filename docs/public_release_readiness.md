@@ -9,7 +9,7 @@ ControllerGate is currently suitable as a pre-alpha research archive. It is not 
 - Core unit tests pass locally and in the workflow.
 - Current protocol remains v2.13.
 - Clean replication batch002 attempts real leads and structured environment resolution.
-- Confirmed external non-Ansible native repair endpoints after Batch008 implementation evidence: 4 (`py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, `darker_skip_glob_failing_test`). The Batch008 artifact still requires manual download and official ingest before that artifact boundary is complete.
+- Confirmed external non-Ansible native repair endpoints after official Batch008 ingest: 4 (`py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, `darker_skip_glob_failing_test`).
 - The `darker_non_ascii_drop_changes` no-overreach evidence is target-file bounded only; broader robustness is not claimed.
 - The `darker_stdin_filename` matched-null comparison produced equal repair success across arms and does not establish memory separation.
 - Batch003 adds an officially ingested matched-null ensemble challenge protocol, but found no verified challenge candidate and is not a release-readiness result by itself.
@@ -37,4 +37,4 @@ Do not describe ControllerGate as technically validated until the blocking gaps 
 - Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, and release-readiness blocking.
 - Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, post-patch revalidation for blocked candidates, global-block exception research, and broader evidence-ledger standardization.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
-- Current evidence counts: confirmed external native repair episodes `4` after Batch008 implementation evidence; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
+- Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

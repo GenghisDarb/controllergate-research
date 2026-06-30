@@ -1,0 +1,19 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "recommendation": "Run Batch009 as patch-quarantined retrospective matched-null calibration on the already repaired Batch008 candidate.",
+  "required_claim_boundary": {
+    "full_scoring": "NOT_RUN/disallowed",
+    "memory_lift": "undemonstrated_equal_performance_unless_retrospective_diagnostic_only_threshold_passes",
+    "prospective_memory_lift": "not_claimed",
+    "self_maintaining_software": "false/not_demonstrated",
+    "technical_validation_release_readiness": "not_ready"
+  },
+  "required_quarantine": {
+    "deny_batch008_patch_bytes": true,
+    "deny_batch008_patch_rationale": true,
+    "deny_batch008_successful_repair_details": true,
+    "deny_failure_memory_to_null_ensemble": true,
+    "shared_context_must_be_reconstructed_from_source_commit": true
+  },
+  "status": "READY_FOR_BATCH009_RETROSPECTIVE_CALIBRATION"
+}

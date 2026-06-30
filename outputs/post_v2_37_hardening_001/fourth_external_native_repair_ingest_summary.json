@@ -1,0 +1,23 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+  "confirmed_external_native_repair_episode_count": 4,
+  "duplicate_replay_status": "PASS",
+  "episode_lock_status": "PASS",
+  "issue_derived_repair_episode_count": 0,
+  "memory_lift": "undemonstrated_equal_performance",
+  "no_overreach_status": "PASS",
+  "patch_sha256": "a1d68d46fe2a796a0424bd784e8b7edf1145d710df99dd28973d6ab328ad6ea3",
+  "registry_lock": {
+    "episode_id": "darker_skip_glob_failing_test:post_v2_37_batch008_declared_precondition",
+    "registry": "configs/external_repair_episode_registry.json",
+    "status": "LOCKED"
+  },
+  "repair_success": true,
+  "repo_url": "https://github.com/akaihola/darker",
+  "self_maintaining_software": "false/not_demonstrated",
+  "status": "PASS",
+  "target_command": "python -m pytest src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob -q",
+  "target_test_path": "src/darker/tests/test_main_isort.py",
+  "target_validation_status": "PASS"
+}

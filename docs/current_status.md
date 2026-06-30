@@ -4,7 +4,7 @@ ControllerGate is a provenance-first software repair research harness. The curre
 
 ## Evidence boundary
 
-- Confirmed external non-Ansible native repair episodes after the Batch008 implementation boundary: 4 (`py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, `darker_skip_glob_failing_test`). The Batch008 artifact still requires manual download and official ingest before that artifact boundary is complete.
+- Confirmed external non-Ansible native repair episodes after the official Batch008 ingest boundary: 4 (`py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, `darker_skip_glob_failing_test`).
 - Clean replication batch002 lead pool: loaded with 5 native-capable leads.
 - Clean replication batch002 acquisition: real clone, checkout, environment resolution, collection, and replay paths are attempted.
 - Clean replication batch002 repair generation: one additional native source-only repair officially ingested for `darker_non_ascii_drop_changes` with target validation PASS and duplicate clean replay 3/3.
@@ -30,4 +30,4 @@ The repository has byte-custody checks, artifact hygiene, registry validation, c
 - Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, claim-boundary audit, and release-readiness blocking.
 - Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, post-patch revalidation for blocked candidates, global-block exception research, and broader evidence-ledger standardization.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
-- Current evidence counts: confirmed external native repair episodes `4` after Batch008 implementation evidence; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
+- Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

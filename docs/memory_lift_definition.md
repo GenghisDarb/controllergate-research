@@ -22,4 +22,4 @@ Current status: `undemonstrated_equal_performance`. Batch003 did not verify a ch
 - Matched-null comparison arms: implemented active for the existing `darker_stdin_filename` comparison.
 - Matched-null baseline ensemble: partial; it remains gated on a verified challenge candidate and a successful memory-enabled repair.
 - Failure-memory weighting: partial; active memory separation requires a real routing delta, not passive marker presence.
-- Current evidence counts: confirmed external native repair episodes `4` after Batch008 implementation evidence; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
+- Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
