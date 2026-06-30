@@ -247,28 +247,29 @@
         "coupled_dependency_projection_missing"
       ],
       "claim_boundary": "projection does not authorize broad edits",
-      "current_repo_mechanism": "import, traceback, AST, and context-boundary files are recorded for candidates reaching replay",
+      "current_repo_mechanism": "Batch006 records coupled dependency interlock evidence over the verified native source subset",
       "evidence_class": "diagnostic",
       "evidence_paths": [
-        "outputs/clean_replication_batch_005/import_graph_extraction_result.json",
-        "outputs/clean_replication_batch_005/ast_closure_extraction_result.json"
+        "outputs/clean_replication_batch_006/coupled_dependency_interlock_map.json",
+        "outputs/clean_replication_batch_006/dual_projection_consistency_check.json"
       ],
       "internal_design_term": "not_applicable",
-      "next_allowed_lane": "post_v2_37_followup",
+      "next_allowed_lane": "continuous",
       "operational_gate_name": "Coupled Dependency Projection Map",
       "public_engineering_name": "Coupled Dependency Projection Map",
-      "reason_if_deferred_or_rejected": "Batch005 captures the projection subset, but a named shared projection artifact remains future work",
+      "reason_if_deferred_or_rejected": "",
       "required_audit_assertions": [
-        "projection files exist when source extraction runs"
+        "projection and interlock files exist before fragment planning"
       ],
       "required_modules_or_scripts": [
-        "controllergate/core/clean_repair.py"
+        "controllergate/core/interlock.py",
+        "controllergate/core/dual_projection.py"
       ],
       "required_outputs": [
-        "outputs/clean_replication_batch_005/import_graph_extraction_result.json",
-        "outputs/clean_replication_batch_005/ast_closure_extraction_result.json"
+        "outputs/clean_replication_batch_006/coupled_dependency_interlock_map.json",
+        "outputs/clean_replication_batch_006/dual_projection_consistency_check.json"
       ],
-      "status": "implemented_partial"
+      "status": "implemented_active"
     },
     {
       "advice_id": "interlock_invariant_map",
@@ -277,26 +278,28 @@
         "no_candidate_source_interlock_invariant"
       ],
       "claim_boundary": "no source interlock means no patchable-source claim",
-      "current_repo_mechanism": "patchable source subset derivation records source interlock evidence",
+      "current_repo_mechanism": "Batch006 records invariant candidates connecting target intent, command entry, import sorting, and formatter preconditions",
       "evidence_class": "diagnostic",
       "evidence_paths": [
-        "outputs/clean_replication_batch_005/patchable_source_subset_derivation.json"
+        "outputs/clean_replication_batch_006/interlock_invariant_candidates.json",
+        "outputs/clean_replication_batch_006/coupled_dependency_interlock_map.json"
       ],
       "internal_design_term": "not_applicable",
-      "next_allowed_lane": "post_v2_37_followup",
+      "next_allowed_lane": "continuous",
       "operational_gate_name": "Interlock Invariant Map",
       "public_engineering_name": "Interlock Invariant Map",
-      "reason_if_deferred_or_rejected": "Batch005 stores subset derivation; shared invariant map remains partial",
+      "reason_if_deferred_or_rejected": "",
       "required_audit_assertions": [
-        "source interlock exists before patchability is PASS"
+        "source interlock exists before fragment generation"
       ],
       "required_modules_or_scripts": [
-        "controllergate/core/clean_repair.py"
+        "controllergate/core/interlock.py"
       ],
       "required_outputs": [
-        "outputs/clean_replication_batch_005/patchable_source_subset_derivation.json"
+        "outputs/clean_replication_batch_006/interlock_invariant_candidates.json",
+        "outputs/clean_replication_batch_006/coupled_dependency_interlock_map.json"
       ],
-      "status": "implemented_partial"
+      "status": "implemented_active"
     },
     {
       "advice_id": "issue_derived_harness",
@@ -429,17 +432,17 @@
         "matched_null_ensemble_missing"
       ],
       "claim_boundary": "ensemble status is separate from repair success",
-      "current_repo_mechanism": "ensemble policy and summaries exist; Batch005 corrected null ensemble does not run without memory-enabled repair success",
+      "current_repo_mechanism": "ensemble policy and summaries exist; Batch006 does not run the ensemble because no memory-enabled patch endpoint exists",
       "evidence_class": "memory_experiment",
       "evidence_paths": [
         "outputs/clean_replication_batch_003/matched_null_ensemble_policy.json",
-        "outputs/clean_replication_batch_005/corrected_null_ensemble_summary.json"
+        "outputs/clean_replication_batch_006/memory_separation_claim_evaluation_batch006.json"
       ],
       "internal_design_term": "not_applicable",
       "next_allowed_lane": "future_verified_challenge_lane",
       "operational_gate_name": "Matched-Null Comparison Arms",
       "public_engineering_name": "Matched-Null Baseline Ensemble",
-      "reason_if_deferred_or_rejected": "Batch005 did not produce a memory-enabled patch, so the null ensemble remains not run",
+      "reason_if_deferred_or_rejected": "Batch006 blocks before patch bytes, so the null ensemble remains not run",
       "required_audit_assertions": [
         "null ensemble runs only after valid preconditions"
       ],
@@ -448,7 +451,7 @@
       ],
       "required_outputs": [
         "outputs/clean_replication_batch_003/matched_null_ensemble_policy.json",
-        "outputs/clean_replication_batch_005/corrected_null_ensemble_summary.json"
+        "outputs/clean_replication_batch_006/memory_separation_claim_evaluation_batch006.json"
       ],
       "status": "implemented_partial"
     },
@@ -460,11 +463,11 @@
         "failure_memory_markers_passive"
       ],
       "claim_boundary": "weights rank context only and cannot override hard gates",
-      "current_repo_mechanism": "failure-memory status and weight deltas are recorded; active routing delta is required for stronger claims",
+      "current_repo_mechanism": "Batch006 records failure-memory weighting as passive; active routing delta is required for stronger claims",
       "evidence_class": "memory_experiment",
       "evidence_paths": [
-        "outputs/clean_replication_batch_002/arm_a_active_failure_memory_weighting.json",
-        "outputs/clean_replication_batch_002/failure_memory_weight_delta_report.json"
+        "outputs/clean_replication_batch_006/failure_memory_weighting_trace_batch006.json",
+        "outputs/clean_replication_batch_006/memory_separation_claim_evaluation_batch006.json"
       ],
       "internal_design_term": "not_applicable",
       "next_allowed_lane": "future_matched_null_lane",
@@ -475,11 +478,11 @@
         "routing delta must be present before active status"
       ],
       "required_modules_or_scripts": [
-        "controllergate/core/clean_repair.py"
+        "controllergate/core/fragment_patch.py"
       ],
       "required_outputs": [
-        "outputs/clean_replication_batch_002/arm_a_active_failure_memory_weighting.json",
-        "outputs/clean_replication_batch_002/failure_memory_weight_delta_report.json"
+        "outputs/clean_replication_batch_006/failure_memory_weighting_trace_batch006.json",
+        "outputs/clean_replication_batch_006/memory_separation_claim_evaluation_batch006.json"
       ],
       "status": "implemented_partial"
     },
@@ -521,17 +524,17 @@
         "post_patch_constraint_revalidation_failed"
       ],
       "claim_boundary": "no-overreach is bounded to executed validation",
-      "current_repo_mechanism": "target-bounded no-overreach records exist and stronger robustness remains unclaimed",
+      "current_repo_mechanism": "target-bounded no-overreach records exist for successful repairs; Batch006 records no-overreach as not run because no patch was applied",
       "evidence_class": "native",
       "evidence_paths": [
         "outputs/clean_replication_batch_005/corrected_no_overreach_validation.json",
-        "outputs/clean_replication_batch_002/no_overreach_validation.json"
+        "outputs/clean_replication_batch_006/consolidated_state_clean_replication_batch_006.json"
       ],
       "internal_design_term": "not_applicable",
       "next_allowed_lane": "post_v2_37_followup",
       "operational_gate_name": "No-Overreach Regression",
       "public_engineering_name": "No-Overreach Validation",
-      "reason_if_deferred_or_rejected": "Batch005 has no patch, so corrected no-overreach remains not run",
+      "reason_if_deferred_or_rejected": "Batch006 has no patch, so no-overreach remains not run",
       "required_audit_assertions": [
         "no stronger robustness claim after target-only replay"
       ],
@@ -540,7 +543,7 @@
       ],
       "required_outputs": [
         "outputs/clean_replication_batch_005/corrected_no_overreach_validation.json",
-        "outputs/clean_replication_batch_002/no_overreach_validation.json"
+        "outputs/clean_replication_batch_006/consolidated_state_clean_replication_batch_006.json"
       ],
       "status": "implemented_partial"
     },
@@ -733,25 +736,26 @@
         "proof_chain_lock_missing"
       ],
       "claim_boundary": "ledger integrity is custody evidence only",
-      "current_repo_mechanism": "proof-chain and obligation ledgers exist in selected lanes",
+      "current_repo_mechanism": "Batch006 writes a blocked-lane proof chain, but validation/replay sealing remains partial until a patch validates",
       "evidence_class": "infrastructure",
       "evidence_paths": [
-        "outputs/clean_replication_batch_002/proof_chain_lock_for_second_repair.json",
+        "outputs/clean_replication_batch_006/proof_chain_lock_batch006.json",
         "outputs/v2_37_core_consolidation/proof_obligations_ledger.json"
       ],
       "internal_design_term": "not_applicable",
       "next_allowed_lane": "post_v2_37_followup",
       "operational_gate_name": "Cryptographic Evidence Ledger Sealing",
       "public_engineering_name": "Cryptographic Evidence Ledger Sealing",
-      "reason_if_deferred_or_rejected": "not yet standardized for every clean replication output",
+      "reason_if_deferred_or_rejected": "Batch006 blocks before patch validation, so final validation/replay sealing is not active",
       "required_audit_assertions": [
         "ledger hashes are present where required"
       ],
       "required_modules_or_scripts": [
+        "controllergate/core/proof_chain.py",
         "controllergate/core/manifests.py"
       ],
       "required_outputs": [
-        "outputs/clean_replication_batch_002/proof_chain_lock_for_second_repair.json",
+        "outputs/clean_replication_batch_006/proof_chain_lock_batch006.json",
         "outputs/v2_37_core_consolidation/proof_obligations_ledger.json"
       ],
       "status": "implemented_partial"
@@ -822,7 +826,7 @@
     }
   ],
   "entry_count": 27,
-  "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch005",
+  "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch006",
   "status": "PASS",
   "terminology_policy": "neutral_engineering_terms_only"
 }

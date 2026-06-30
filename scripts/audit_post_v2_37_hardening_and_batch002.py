@@ -15,7 +15,8 @@ BATCH_DIR = Path("outputs/clean_replication_batch_002")
 BATCH003_DIR = Path("outputs/clean_replication_batch_003")
 BATCH004_DIR = Path("outputs/clean_replication_batch_004")
 BATCH005_DIR = Path("outputs/clean_replication_batch_005")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch005_source_materialized_challenge")
+BATCH006_DIR = Path("outputs/clean_replication_batch_006")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch006_fragment_patch")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -179,6 +180,29 @@ BATCH005_REQUIRED = [
     "carry_forward_blocker_register.json",
     "no_silent_completion_audit.json",
     "claim_boundary.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH006_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_006.json",
+    "bounded_fragment_patch_policy.json",
+    "fragment_patch_candidate_plan.json",
+    "fragment_patch_candidates.json",
+    "fragment_safety_audits.json",
+    "fragment_assembly_seal.json",
+    "coupled_dependency_interlock_map.json",
+    "interlock_invariant_candidates.json",
+    "dual_projection_consistency_check.json",
+    "pre_generation_context_state_snapshot_batch006.json",
+    "pre_generation_prompt_lock_batch006.json",
+    "patch_context_alignment_audit_batch006.json",
+    "failure_memory_weighting_trace_batch006.json",
+    "memory_separation_claim_evaluation_batch006.json",
+    "proof_chain_lock_batch006.json",
+    "claim_boundary.json",
+    "notebooklm_advice_traceability_status.json",
+    "carry_forward_blocker_register.json",
     "SHA256SUMS.txt",
 ]
 
@@ -1060,6 +1084,99 @@ def audit_batch005_records() -> list[str]:
     return errors
 
 
+def audit_batch006_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH006_REQUIRED:
+        if not (BATCH006_DIR / name).is_file():
+            errors.append(f"batch006 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH006_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch006 manifest failed: {manifest}")
+    state = read_json(BATCH006_DIR / "consolidated_state_clean_replication_batch_006.json")
+    policy = read_json(BATCH006_DIR / "bounded_fragment_patch_policy.json")
+    plan = read_json(BATCH006_DIR / "fragment_patch_candidate_plan.json")
+    candidates = read_json(BATCH006_DIR / "fragment_patch_candidates.json")
+    safety = read_json(BATCH006_DIR / "fragment_safety_audits.json")
+    seal = read_json(BATCH006_DIR / "fragment_assembly_seal.json")
+    interlock = read_json(BATCH006_DIR / "coupled_dependency_interlock_map.json")
+    invariants = read_json(BATCH006_DIR / "interlock_invariant_candidates.json")
+    dual = read_json(BATCH006_DIR / "dual_projection_consistency_check.json")
+    snapshot = read_json(BATCH006_DIR / "pre_generation_context_state_snapshot_batch006.json")
+    lock = read_json(BATCH006_DIR / "pre_generation_prompt_lock_batch006.json")
+    alignment = read_json(BATCH006_DIR / "patch_context_alignment_audit_batch006.json")
+    memory = read_json(BATCH006_DIR / "failure_memory_weighting_trace_batch006.json")
+    memory_claim = read_json(BATCH006_DIR / "memory_separation_claim_evaluation_batch006.json")
+    proof = read_json(BATCH006_DIR / "proof_chain_lock_batch006.json")
+    claim = read_json(BATCH006_DIR / "claim_boundary.json")
+    traceability = read_json(BATCH006_DIR / "notebooklm_advice_traceability_status.json")
+    blockers = read_json(BATCH006_DIR / "carry_forward_blocker_register.json")
+    expected_candidate = "darker_skip_glob_failing_test"
+    if state.get("candidate_id") != expected_candidate or plan.get("candidate_id") != expected_candidate:
+        errors.append("batch006 candidate identity changed")
+    if state.get("commit_sha") != "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75":
+        errors.append("batch006 commit identity changed")
+    if policy.get("status") != "PASS" or policy.get("source_only_repair_required") is not True:
+        errors.append("batch006 bounded fragment patch policy invalid")
+    if int(policy.get("max_fragments", 0)) > 3 or int(policy.get("max_modified_files", 0)) > 3 or int(policy.get("max_changed_lines", 0)) > 50:
+        errors.append("batch006 fragment caps too broad")
+    if interlock.get("status") != "PASS" or int(interlock.get("admitted_source_count", 0)) < 1:
+        errors.append("batch006 interlock map missing admitted source records")
+    if invariants.get("status") != "PASS":
+        errors.append("batch006 interlock invariant candidates invalid")
+    if lock.get("pre_generation_lock_created_before_fragment_bytes") is not True or snapshot.get("patch_bytes_exist_at_lock_time") is not False:
+        errors.append("batch006 pre-generation lock ordering invalid")
+    if plan.get("status") != "BLOCK" or plan.get("blocker") != "fragment_patch_plan_not_generated":
+        errors.append("batch006 fragment plan should block with fragment_patch_plan_not_generated")
+    if plan.get("fragment_plan_authorized") is not False:
+        errors.append("batch006 fragment plan authorized unexpectedly")
+    if candidates.get("fragments") != []:
+        errors.append("batch006 generated fragments despite blocked plan")
+    if safety.get("status") != "NOT_RUN" or seal.get("status") != "BLOCK":
+        errors.append("batch006 safety/assembly status invalid for no-fragment block")
+    if seal.get("assembled_patch") or seal.get("assembled_patch_sha256"):
+        errors.append("batch006 assembled patch recorded despite block")
+    if dual.get("status") != "BLOCK" or dual.get("patch_admissible") is not False:
+        errors.append("batch006 dual projection did not block inadmissible patch")
+    if alignment.get("status") != "NOT_RUN" or alignment.get("forbidden_evidence_used") is not False:
+        errors.append("batch006 alignment should remain NOT_RUN without forbidden evidence")
+    if memory.get("failure_memory_markers_passive") is not True:
+        errors.append("batch006 failure memory should be passive")
+    if memory_claim.get("preliminary_single_candidate_memory_separation_evidence") is not False:
+        errors.append("batch006 overclaimed memory separation")
+    if state.get("null_ensemble_run_count") != 0:
+        errors.append("batch006 null ensemble ran without comparable endpoint")
+    if state.get("assembled_patch_generated") is not False or state.get("additional_native_external_repair_acquired") is not False:
+        errors.append("batch006 overclaimed repair acquisition")
+    if proof.get("status") != "PASS" or proof.get("hash_chain_valid") is not True:
+        errors.append("batch006 proof chain invalid")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed":
+        errors.append("batch006 full scoring boundary changed")
+    if claim.get("full_memory_lift_status") != "undemonstrated":
+        errors.append("batch006 full memory lift overclaim")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch006 self-maintaining overclaim")
+    if traceability.get("status") != "PASS" or traceability.get("silent_completion") is not False:
+        errors.append("batch006 traceability status invalid")
+    if blockers.get("status") != "PASS" or not blockers.get("blockers"):
+        errors.append("batch006 carry-forward blocker register missing")
+    optional_patch_outputs = [
+        "assembled_patch.diff",
+        "assembled_patch_sha256.txt",
+        "post_patch_constraint_revalidation_batch006.json",
+        "no_overreach_validation_batch006.json",
+        "target_validation_result_batch006.json",
+        "duplicate_replay_result_batch006.json",
+        "null_ensemble_run_results_batch006.json",
+        "matched_null_ensemble_separation_score_batch006.json",
+    ]
+    for name in optional_patch_outputs:
+        if (BATCH006_DIR / name).exists():
+            errors.append(f"batch006 optional patch-success output present despite no patch: {name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -1167,6 +1284,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_003.json"),
         Path("configs/clean_replication_batch_004.json"),
         Path("configs/clean_replication_batch_005.json"),
+        Path("configs/clean_replication_batch_006.json"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
@@ -1431,6 +1549,9 @@ def main() -> int:
     batch005_errors = audit_batch005_records()
     if batch005_errors:
         return fail(f"batch005 audit failed: {batch005_errors}")
+    batch006_errors = audit_batch006_records()
+    if batch006_errors:
+        return fail(f"batch006 audit failed: {batch006_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")

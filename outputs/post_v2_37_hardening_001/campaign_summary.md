@@ -12,4 +12,6 @@ Batch004 adds native-first dual-track challenge acquisition and issue-derived fa
 
 Batch005 corrects Batch004 by materializing the source tree for native retry and running targeted issue-derived seed intake before bounded issue discovery fallback.
 
+Batch006 implements bounded fragment patch assembly, coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory records, and a proof-chain lock for the verified native challenge. It blocks before patch bytes because the source-facing projection does not authorize a source-only fragment from the observed formatter/dependency precondition.
+
 NotebookLM advice traceability status: `PASS`.

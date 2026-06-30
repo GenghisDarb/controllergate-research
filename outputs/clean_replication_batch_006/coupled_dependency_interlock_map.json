@@ -1,0 +1,128 @@
+{
+  "admitted_source_count": 4,
+  "blocker": null,
+  "candidate_id": "darker_skip_glob_failing_test",
+  "records": [
+    {
+      "calls_or_called_by_another_admitted_source_file": true,
+      "candidate_id": "darker_skip_glob_failing_test",
+      "coupling_role": "target_entry",
+      "file_path": "src/darker/__main__.py",
+      "functions_or_classes": [
+        "format_edited_parts",
+        "_modify_and_reformat_single_file",
+        "_reformat_and_flynt_single_file",
+        "_maybe_flynt_single_file",
+        "_maybe_reformat_single_file",
+        "_drop_changes_on_unedited_lines",
+        "modify_file",
+        "print_diff",
+        "print_source",
+        "_import_pygments"
+      ],
+      "imported_by_target_test": true,
+      "in_ast_closure": true,
+      "in_traceback": true,
+      "nearby_tests_or_local_regression_candidates": [
+        "src/darker/tests/test_main_isort.py"
+      ],
+      "patchable": true,
+      "reason_codes": [
+        "ast_closure_membership",
+        "direct_traceback_membership",
+        "imported_by_target_test",
+        "skip_glob_intent_source_surface_hint",
+        "skip_glob_path_relevance",
+        "source_file_patchable",
+        "symbol_overlap:main",
+        "target_import_membership",
+        "traceback_membership"
+      ],
+      "risk_if_modified": "medium"
+    },
+    {
+      "calls_or_called_by_another_admitted_source_file": true,
+      "candidate_id": "darker_skip_glob_failing_test",
+      "coupling_role": "import_sorting_path",
+      "file_path": "src/darker/import_sorting.py",
+      "functions_or_classes": [
+        "IsortArgs",
+        "apply_isort",
+        "_build_isort_args",
+        "_call_isort_code",
+        "_diff_overlaps_with_edits",
+        "isort_code",
+        "isort_code"
+      ],
+      "imported_by_target_test": true,
+      "in_ast_closure": true,
+      "in_traceback": false,
+      "nearby_tests_or_local_regression_candidates": [
+        "src/darker/tests/test_main_isort.py"
+      ],
+      "patchable": true,
+      "reason_codes": [
+        "ast_closure_membership",
+        "imported_by_target_test",
+        "skip_glob_intent_source_surface_hint",
+        "skip_glob_path_relevance",
+        "source_file_patchable",
+        "symbol_overlap:isort",
+        "target_import_membership"
+      ],
+      "risk_if_modified": "medium"
+    },
+    {
+      "calls_or_called_by_another_admitted_source_file": true,
+      "candidate_id": "darker_skip_glob_failing_test",
+      "coupling_role": "formatter_path",
+      "file_path": "src/darker/formatters/__init__.py",
+      "functions_or_classes": [
+        "get_formatter_entry_points",
+        "get_formatter_names",
+        "create_formatter"
+      ],
+      "imported_by_target_test": true,
+      "in_ast_closure": true,
+      "in_traceback": false,
+      "nearby_tests_or_local_regression_candidates": [
+        "src/darker/tests/test_main_isort.py"
+      ],
+      "patchable": true,
+      "reason_codes": [
+        "ast_closure_membership",
+        "imported_by_target_test",
+        "source_file_patchable",
+        "symbol_overlap:formatter",
+        "target_import_membership"
+      ],
+      "risk_if_modified": "medium"
+    },
+    {
+      "calls_or_called_by_another_admitted_source_file": false,
+      "candidate_id": "darker_skip_glob_failing_test",
+      "coupling_role": "exception_path",
+      "file_path": "src/darker/exceptions.py",
+      "functions_or_classes": [
+        "DependencyError",
+        "IncompatiblePackageError",
+        "MissingPackageError"
+      ],
+      "imported_by_target_test": true,
+      "in_ast_closure": true,
+      "in_traceback": false,
+      "nearby_tests_or_local_regression_candidates": [
+        "src/darker/tests/test_main_isort.py"
+      ],
+      "patchable": true,
+      "reason_codes": [
+        "ast_closure_membership",
+        "imported_by_target_test",
+        "source_file_patchable",
+        "target_import_membership"
+      ],
+      "risk_if_modified": "low"
+    }
+  ],
+  "status": "PASS"
+}

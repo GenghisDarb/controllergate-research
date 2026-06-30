@@ -14,6 +14,7 @@ ControllerGate has made meaningful progress as a research harness, but the evide
 - Batch003 officially records matched-null ensemble calibration and challenge-candidate difficulty-band admission, but found 0 verified challenge candidates; the matched-null ensemble did not run.
 - Batch004 records native-first dual-track challenge acquisition with issue-derived ephemeral reproduction harness fallback as a separate evidence class. It verified 0 native challenge candidates and 0 issue-derived candidates.
 - The official Batch005 source-materialized artifact verified byte custody and source materialization. The corrected Batch005 workflow adds intended target-node selection, source-stack extraction, patchable source subset derivation, and explicit no-patch taxonomy before any repair attempt.
+- Batch006 adds bounded fragment patch assembly, coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory weighting records, and proof-chain custody for the verified native challenge candidate. It blocks before patch bytes with `fragment_patch_plan_not_generated`.
 
 ## Remaining gaps
 
@@ -26,11 +27,11 @@ ControllerGate has made meaningful progress as a research harness, but the evide
 
 ## Current blocker
 
-Batch002 has demonstrated two additional source-only repairs after environment resolution. Batch003 and batch004 show that challenge-candidate acquisition remains difficult. Batch005 now addresses source materialization and target-node/source-subset derivation, but no additional repair is counted until a corrected target replay, source-only patch safety, target validation, and duplicate clean replay all pass.
+Batch002 has demonstrated two additional source-only repairs after environment resolution. Batch003 and batch004 show that challenge-candidate acquisition remains difficult. Batch005 addresses source materialization and target-node/source-subset derivation. Batch006 adds fragment assembly gates, but no additional repair is counted until a safe assembled source-only patch passes target validation and duplicate clean replay.
 
 ## Current operational gate status
 
 - Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, and release-readiness blocking.
-- Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, no-overreach validation for blocked candidates, global-block exception research, and evidence-ledger sealing.
+- Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, post-patch revalidation for blocked candidates, global-block exception research, and broader evidence-ledger standardization.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

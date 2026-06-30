@@ -1,0 +1,31 @@
+{
+  "allowed_source_files": [
+    "src/darker/__main__.py",
+    "src/darker/exceptions.py",
+    "src/darker/formatters/__init__.py",
+    "src/darker/import_sorting.py"
+  ],
+  "blockers": [
+    "fragment_patch_plan_not_generated",
+    "fragment_assembly_failed",
+    "assembled_patch_safety_failed"
+  ],
+  "candidate_id": "darker_skip_glob_failing_test",
+  "forbidden_patch_targets": [
+    "tests",
+    "support files",
+    "configs",
+    "workflows",
+    "registry files",
+    "audit files",
+    "docs",
+    "generated expectations"
+  ],
+  "max_changed_lines": 50,
+  "max_final_assembled_patches": 1,
+  "max_fragments": 3,
+  "max_functions": 3,
+  "max_modified_files": 3,
+  "source_only_repair_required": true,
+  "status": "PASS"
+}

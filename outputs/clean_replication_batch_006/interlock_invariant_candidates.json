@@ -1,0 +1,37 @@
+{
+  "blocker": null,
+  "candidate_id": "darker_skip_glob_failing_test",
+  "invariants": [
+    {
+      "description": "The target invokes the command entry path with the import-sorting option against a path covered by the skip pattern.",
+      "invariant_id": "target_main_isort_skip_glob_relation",
+      "patchable": true,
+      "present": true,
+      "projection_membership": [
+        "target_test",
+        "target_entry",
+        "import_sorting_path"
+      ],
+      "required_roles": [
+        "target_entry",
+        "import_sorting_path"
+      ],
+      "risk_notes": "A patch must not change tests, dependency files, registry files, or broad formatter behavior."
+    },
+    {
+      "description": "Formatter loading appears in the observed traceback, but the target intent remains the import-sorting skip behavior.",
+      "invariant_id": "formatter_entry_point_is_precondition_not_primary_intent",
+      "patchable": false,
+      "present": true,
+      "projection_membership": [
+        "target_entry",
+        "formatter_path"
+      ],
+      "required_roles": [
+        "formatter_path"
+      ],
+      "risk_notes": "Formatter changes require a source-facing explanation before patch bytes are authorized."
+    }
+  ],
+  "status": "PASS"
+}

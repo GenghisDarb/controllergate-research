@@ -158,17 +158,18 @@
         "coupled_dependency_projection_missing"
       ],
       "claim_boundary": "projection maps context; it does not authorize broad edits",
-      "current_module_or_script": "outputs/v2_36_resolved_commit_replay_seed_promotion/coupled_dependency_projection_map_v2_36.json",
+      "current_module_or_script": "controllergate/core/interlock.py",
       "evidence_class_affected": "diagnostic_only_evidence",
       "expected_output_files": [
-        "coupled_dependency_projection_map_v2_36.json"
+        "outputs/clean_replication_batch_006/coupled_dependency_interlock_map.json",
+        "outputs/clean_replication_batch_006/dual_projection_consistency_check.json"
       ],
       "neutral_gate_name": "Coupled Dependency Projection Map",
-      "next_required_implementation_step": "reuse for repair-context selection",
+      "next_required_implementation_step": "reuse for future repair-context selection",
       "notebooklm_advice_ids": [
         "coupled_dependency_projection_map"
       ],
-      "status": "partial"
+      "status": "implemented"
     },
     {
       "audit_assertion": "source interlock exists before patchability is claimed",
@@ -176,17 +177,39 @@
         "no_candidate_source_interlock_invariant"
       ],
       "claim_boundary": "no source interlock means no source patch claim",
-      "current_module_or_script": "outputs/v2_36_resolved_commit_replay_seed_promotion/interlock_invariant_map_v2_36.json",
+      "current_module_or_script": "controllergate/core/interlock.py",
       "evidence_class_affected": "diagnostic_only_evidence",
       "expected_output_files": [
-        "interlock_invariant_map_v2_36.json"
+        "outputs/clean_replication_batch_006/interlock_invariant_candidates.json"
       ],
       "neutral_gate_name": "Interlock Invariant Map",
-      "next_required_implementation_step": "integrate with clean repair attempts",
+      "next_required_implementation_step": "reuse for future fragment repair attempts",
       "notebooklm_advice_ids": [
         "interlock_invariant_map"
       ],
-      "status": "partial"
+      "status": "implemented"
+    },
+    {
+      "audit_assertion": "fragment patches are capped, source-only, independently audited, and assembled once",
+      "blocker_names": [
+        "fragment_patch_plan_not_generated",
+        "fragment_assembly_failed",
+        "assembled_patch_safety_failed"
+      ],
+      "claim_boundary": "fragment assembly is not repair success until target validation and duplicate replay pass",
+      "current_module_or_script": "controllergate/core/fragment_patch.py",
+      "evidence_class_affected": "native_repair_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_006/bounded_fragment_patch_policy.json",
+        "outputs/clean_replication_batch_006/fragment_assembly_seal.json"
+      ],
+      "neutral_gate_name": "Bounded Fragment Patch Assembly",
+      "next_required_implementation_step": "authorize fragment bytes only after target-facing and source-facing projections both pass",
+      "notebooklm_advice_ids": [
+        "interlock_invariant_map",
+        "coupled_dependency_projection_map"
+      ],
+      "status": "implemented"
     },
     {
       "audit_assertion": "issue-derived harness evidence stays separate from native evidence",
@@ -267,13 +290,13 @@
         "failure_memory_weighting_invalid"
       ],
       "claim_boundary": "weights are triage evidence only",
-      "current_module_or_script": "configs/failure_memory_weight_ledger.json",
+      "current_module_or_script": "outputs/clean_replication_batch_006/failure_memory_weighting_trace_batch006.json",
       "evidence_class_affected": "diagnostic_only_evidence",
       "expected_output_files": [
-        "failure_memory_weights JSON"
+        "outputs/clean_replication_batch_006/failure_memory_weighting_trace_batch006.json"
       ],
       "neutral_gate_name": "Failure Memory Weighting",
-      "next_required_implementation_step": "reuse only with matched-null separation",
+      "next_required_implementation_step": "require active routing delta before any memory-separation claim",
       "notebooklm_advice_ids": [
         "failure_memory_weighting"
       ],
@@ -430,13 +453,13 @@
         "proof_ledger_hash_chain_invalid"
       ],
       "claim_boundary": "ledger consistency is custody evidence only",
-      "current_module_or_script": "planned shared ledger helper",
+      "current_module_or_script": "controllergate/core/proof_chain.py",
       "evidence_class_affected": "infrastructure_evidence",
       "expected_output_files": [
-        "proof_obligations_ledger.json"
+        "outputs/clean_replication_batch_006/proof_chain_lock_batch006.json"
       ],
       "neutral_gate_name": "Cryptographic Evidence Ledger Sealing",
-      "next_required_implementation_step": "standardize in shared core",
+      "next_required_implementation_step": "seal validation and replay hashes after a future patch validates",
       "notebooklm_advice_ids": [
         "cryptographic_evidence_ledger_sealing"
       ],

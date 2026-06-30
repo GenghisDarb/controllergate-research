@@ -1,0 +1,40 @@
+{
+  "allowed_source_files": [
+    "src/darker/__main__.py",
+    "src/darker/exceptions.py",
+    "src/darker/formatters/__init__.py",
+    "src/darker/import_sorting.py"
+  ],
+  "candidate_id": "darker_skip_glob_failing_test",
+  "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+  "context_hash_inputs": {
+    "batch005_ast_closure_sha256": "b4cb22bacfda1a4484a5aabdb4914876afdd913d2444e5699c226454b8cb2f70",
+    "batch005_import_graph_sha256": "866c726642159951b687d9b8bb191063e468dd84611d66035ba568da8822941e",
+    "batch005_patchable_subset_sha256": "65ce69beae7961c19193240c7cacd956d7c242c9a8875101fb9e71df0230ab45",
+    "batch005_replay_sha256": "efdd061e3cf53c6da24760e40feb86e3911c5cdd77e4e3bb0704d71cbd6378d7",
+    "batch005_source_stack_sha256": "b808a4d937a7e1a5ab63dbaa539926b8ac950518127101b537eed1d9702460ed",
+    "failure_memory_trace_sha256": "2076649858a7a9ac823de449f72646c2fc03c838032c1c615feb3173b3779463",
+    "interlock_map_sha256": "ea60f58045c9c26c756423e6958c12aa8c0eb40f0b4817d1af7a5cd948cb58fc"
+  },
+  "environment_file_sha256": "18fa04be44a11acaf55db8968a05719bd7021b9d6e886767ee23a67715c3a296",
+  "forbidden_evidence_attestation": {
+    "fixed_commits_used": false,
+    "gold_patches_used": false,
+    "issue_solution_comments_used": false,
+    "later_commits_used": false,
+    "pr_patch_contents_used": false
+  },
+  "patch_bytes_exist_at_lock_time": false,
+  "repo_url": "https://github.com/akaihola/darker",
+  "semantic_failure_signature_hash": "5be05f4e49ca379379d6145e4121b3e890e0cda878f4f3881548ebc1df4f0763",
+  "status": "PASS",
+  "target_command": [
+    "python",
+    "-m",
+    "pytest",
+    "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+    "-q"
+  ],
+  "target_test_path": "src/darker/tests/test_main_isort.py",
+  "target_test_sha256": "a3e5e34c6ad9715f755aa0cd33e2f5d5290fbf39cc439580c6d6026ecbe86092"
+}

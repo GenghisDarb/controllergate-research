@@ -1,0 +1,26 @@
+{
+  "blocker": "fragment_patch_plan_not_generated",
+  "candidate_id": "darker_skip_glob_failing_test",
+  "fragment_plan_authorized": false,
+  "patch_admissible": false,
+  "source_facing_projection": {
+    "allowed_source_subset_non_empty": true,
+    "blocking_reason": "formatter/dependency precondition appears before the import-sorting skip behavior in the observed replay",
+    "interlock_map_status": "PASS",
+    "source_repair_point_admissible": false
+  },
+  "status": "BLOCK",
+  "test_facing_projection": {
+    "expected_target_validation": "NOT_RUN_NO_PATCH",
+    "semantic_failure_signature_hash": "5be05f4e49ca379379d6145e4121b3e890e0cda878f4f3881548ebc1df4f0763",
+    "target_command": [
+      "python",
+      "-m",
+      "pytest",
+      "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+      "-q"
+    ],
+    "target_intent_addressed": false,
+    "target_intent_known": true
+  }
+}

@@ -16,6 +16,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 - Clean replication batch003 implements a matched-null ensemble challenge protocol and is officially ingested. It found no verified challenge candidate, so the matched-null ensemble did not run; the correct blocker is `clean_replication_batch_003_no_verified_challenge_candidate`.
 - Clean replication batch004 implements native-first dual-track challenge acquisition with issue-derived ephemeral reproduction harness fallback as a separate evidence class. It currently blocks because neither track verified a challenge candidate.
 - The official Batch005 source-materialized artifact verified byte custody and source materialization, but did not verify the native target-node replay; the corrected Batch005 workflow adds intended target-node selection, source-stack extraction, patchable source subset derivation, and explicit no-patch taxonomy before any repair attempt.
+- Batch006 adds bounded fragment patch assembly for the verified native challenge candidate. It records coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory weighting, and a proof-chain lock, but blocks before patch bytes because the observed replay does not yet authorize a source-only fragment.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift on external real bugs is not demonstrated; the matched-null status is `undemonstrated_equal_performance`.
 - Self-maintaining software is not demonstrated.
@@ -38,7 +39,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 
 ControllerGate does not currently claim autonomous repair, full benchmark scoring, memory-lift evidence, self-maintaining software, or technical validation readiness. Issue-derived harnesses do not count as native external repairs. Historical lanes remain auditable evidence, but new replication work should use the clean replication protocol and reusable workflow where possible.
 
-The next technical objective is completing the corrected Batch005 native target-node replay and source-subset repair attempt. If the intended target cannot replay, the correct state is a blocked record. If replay succeeds but no safe source patch is generated, the correct state is a no-safe-patch record, not a memory-lift claim.
+The next technical objective is resolving the Batch006 formatter/dependency precondition or adding an authorized source-facing fragment rule for the verified native challenge candidate. If no safe fragment plan can be generated, the correct state remains a blocked record, not a repair or memory-lift claim.
 
 ## Current operational gate status
 

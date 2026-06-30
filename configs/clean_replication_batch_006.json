@@ -1,0 +1,29 @@
+{
+  "allowed_source_files": [
+    "src/darker/__main__.py",
+    "src/darker/import_sorting.py",
+    "src/darker/formatters/__init__.py",
+    "src/darker/exceptions.py"
+  ],
+  "batch_id": "clean_replication_batch_006",
+  "candidate_id": "darker_skip_glob_failing_test",
+  "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+  "current_protocol_version": "v2.13",
+  "duplicate_replay_required_for_success": 3,
+  "full_scoring": false,
+  "max_changed_lines": 50,
+  "max_fragments": 3,
+  "max_functions": 3,
+  "max_modified_files": 3,
+  "null_ensemble_size": 5,
+  "repo_url": "https://github.com/akaihola/darker",
+  "source_only_repair_required": true,
+  "target_command": [
+    "python",
+    "-m",
+    "pytest",
+    "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+    "-q"
+  ],
+  "target_test_path": "src/darker/tests/test_main_isort.py"
+}

@@ -15,7 +15,7 @@ Required comparison:
 
 A preliminary single-candidate claim requires an accepted matched-null or matched-null ensemble separation score of at least `0.95` with active failure-memory routing. If a memory-disabled arm or null ensemble succeeds equivalently, the score is `0.0` and memory separation evidence remains false. Broader claims require more than one accepted comparison.
 
-Current status: `undemonstrated_equal_performance`. Batch003 did not verify a challenge candidate, and Batch004 did not verify either a native challenge candidate or an issue-derived feasibility candidate. The official Batch005 source-materialized artifact did not verify the native target-node replay. The corrected Batch005 workflow may authorize a matched-null ensemble only after a memory-enabled repair succeeds; issue-derived evidence remains separate and cannot establish native memory separation by itself.
+Current status: `undemonstrated_equal_performance`. Batch003 did not verify a challenge candidate, and Batch004 did not verify either a native challenge candidate or an issue-derived feasibility candidate. Batch005 corrected target-node selection and patchable source-subset extraction for the native challenge candidate. Batch006 implements bounded fragment patch assembly, but blocks before patch bytes with passive failure-memory weighting, so no matched-null ensemble runs and no memory separation evidence is added. Issue-derived evidence remains separate and cannot establish native memory separation by itself.
 
 ## Current operational gate status
 

@@ -72,9 +72,13 @@ Batch004 current outcome: 1 native carry-forward lead was attempted, 0 native ch
 
 Batch005 corrects Batch004 by requiring the native retry to clone and checkout the exact source commit in an ephemeral workspace before AST node discovery, collection, and node-level replay. The corrected Batch005 workflow selects the intended `test_isort_respects_skip_glob` node by semantic intent, classifies non-intent setup failures separately, extracts source-stack/import/AST context, derives a source-only patchable subset, and distinguishes empty-subset, generator-not-implemented, no-safe-patch, safety-failure, validation-failure, and success outcomes. If the native retry fails before target verification, Batch005 checks targeted issue-derived seed intake before bounded issue discovery fallback. Issue-derived candidates remain a separate evidence class and never increment native repair counts.
 
+## Batch006 bounded fragment patch assembly
+
+Batch006 continues from the verified Batch005 native challenge candidate. It builds a bounded fragment patch policy, coupled dependency interlock map, dual projection consistency check, pre-generation context lock, passive failure-memory weighting trace, fragment assembly seal, and proof-chain lock. It may assemble at most one source-only patch from at most three fragments, but only after both target-facing and source-facing projections authorize patch bytes. The current Batch006 result blocks before patch bytes with `fragment_patch_plan_not_generated`.
+
 ## Current official repair episodes
 
-As of the post-v2.37 Batch005 correction boundary, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
+As of the post-v2.37 Batch006 boundary, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
 
 ## Current operational gate status
 

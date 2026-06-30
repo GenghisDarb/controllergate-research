@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002 ingest, batch003/batch004 ingest, and batch005 native repair-subset challenge
+    name: post-v2.37 hardening, batch002-batch006 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -67,8 +67,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch005_native_repair_subset/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch005_native_repair_subset \( \
+          test -f artifact_payload/post_v2_37_hardening_batch006_fragment_patch/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch006_fragment_patch \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -89,11 +89,11 @@ jobs:
             exit 1
           fi
 
-      - name: Upload native repair-subset challenge post-v2.37 hardening artifact
+      - name: Upload Batch006 fragment patch post-v2.37 hardening artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch005_native_repair_subset_artifacts
+          name: post_v2_37_hardening_batch006_fragment_patch_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch005_native_repair_subset/**
+            artifact_payload/post_v2_37_hardening_batch006_fragment_patch/**
           if-no-files-found: error
