@@ -1,0 +1,18 @@
+{
+  "batch007_black_extra_executed": false,
+  "batch007_blocked_fragment_generation": true,
+  "batch007_declared_black_extra_detected": true,
+  "batch007_detected_precondition_before_target_behavior": true,
+  "batch007_gap": "declared formatter extra was not executed because no active runtime workspace was available",
+  "batch008_corrective_action": "materialize fresh runtime workspace, install declared formatter extras, rerun target-intent reachability",
+  "blocker_before_correction": "target_precondition_unresolved",
+  "candidate_id": "darker_skip_glob_failing_test",
+  "evidence_paths": [
+    "outputs/clean_replication_batch_007/install_strategy_matrix.json",
+    "outputs/clean_replication_batch_007/target_intent_reachability_map.json",
+    "outputs/clean_replication_batch_007/candidate_retirement_decision.json",
+    "outputs/clean_replication_batch_007/trace_feedback_alignment_status.json"
+  ],
+  "final_retirement_premature_until_declared_extras_attempted": true,
+  "status": "PASS"
+}

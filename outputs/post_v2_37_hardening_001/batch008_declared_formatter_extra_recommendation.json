@@ -1,0 +1,17 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "claim_boundary": "precondition materialization is not repair success",
+  "declared_extras_to_attempt": [
+    "isort",
+    "black",
+    "isort,black"
+  ],
+  "exact_commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+  "recommended_batch": "clean_replication_batch_008",
+  "runtime_workspace_required": true,
+  "status": "PASS",
+  "successor_gate": "declared_formatter_extra_materialization",
+  "target_command": "python -m pytest src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob -q",
+  "workspace_must_be_outside_onedrive": true,
+  "workspace_must_be_outside_repo": true
+}
