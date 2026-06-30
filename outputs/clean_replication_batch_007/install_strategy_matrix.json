@@ -1,0 +1,56 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "status": "PASS",
+  "strategies": [
+    {
+      "attempted": true,
+      "command": "python -m pip install -U pip setuptools wheel",
+      "declared_or_baseline": true,
+      "order": 1,
+      "result": "PASS_IN_BATCH005_BASELINE"
+    },
+    {
+      "attempted": false,
+      "command": "python -m pip install -e .[test]",
+      "declared_or_baseline": false,
+      "order": 2,
+      "result": "SKIPPED_NOT_DECLARED"
+    },
+    {
+      "attempted": false,
+      "command": "python -m pip install -e .[tests]",
+      "declared_or_baseline": false,
+      "order": 3,
+      "result": "SKIPPED_NOT_DECLARED"
+    },
+    {
+      "attempted": false,
+      "command": "python -m pip install -e .[dev]",
+      "declared_or_baseline": true,
+      "order": 4,
+      "result": "NOT_EXECUTED_NO_COMMITTED_RUNTIME_WORKSPACE"
+    },
+    {
+      "attempted": true,
+      "command": "python -m pip install -e .[isort]",
+      "declared_or_baseline": true,
+      "order": 5,
+      "result": "PASS_IN_BATCH005_BASELINE"
+    },
+    {
+      "attempted": false,
+      "command": "python -m pip install -e .[black]",
+      "declared_or_baseline": true,
+      "order": 6,
+      "result": "NOT_EXECUTED_NO_COMMITTED_RUNTIME_WORKSPACE"
+    },
+    {
+      "attempted": false,
+      "command": "python -m pip install -e .",
+      "declared_or_baseline": true,
+      "order": 7,
+      "result": "NOT_EXECUTED_NO_COMMITTED_RUNTIME_WORKSPACE"
+    }
+  ],
+  "undeclared_dependency_install_used": false
+}

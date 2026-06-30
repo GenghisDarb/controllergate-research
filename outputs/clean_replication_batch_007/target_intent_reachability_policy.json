@@ -1,0 +1,21 @@
+{
+  "allowed_classifications": [
+    "target_behavior_reached",
+    "precondition_failure_before_target_behavior",
+    "environment_dependency_failure",
+    "entrypoint_resolution_failure",
+    "target_passed_after_precondition_resolution",
+    "target_intent_unreachable"
+  ],
+  "blockers": [
+    "target_intent_not_reached",
+    "target_precondition_unresolved",
+    "target_passed_after_precondition_resolution",
+    "entrypoint_resolution_failure",
+    "environment_dependency_failure_before_target"
+  ],
+  "candidate_id": "darker_skip_glob_failing_test",
+  "max_feedback_iterations": 3,
+  "status": "PASS",
+  "target_behavior_required_before_patch_generation": true
+}

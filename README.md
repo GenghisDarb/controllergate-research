@@ -17,6 +17,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 - Clean replication batch004 implements native-first dual-track challenge acquisition with issue-derived ephemeral reproduction harness fallback as a separate evidence class. It currently blocks because neither track verified a challenge candidate.
 - The official Batch005 source-materialized artifact verified byte custody and source materialization, but did not verify the native target-node replay; the corrected Batch005 workflow adds intended target-node selection, source-stack extraction, patchable source subset derivation, and explicit no-patch taxonomy before any repair attempt.
 - Batch006 adds bounded fragment patch assembly for the verified native challenge candidate. It records coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory weighting, and a proof-chain lock, but blocks before patch bytes because the observed replay does not yet authorize a source-only fragment.
+- Batch007 adds target-intent reachability and precondition resolution for the same verified native challenge candidate. It records formatter/dependency precondition evidence, trace-feedback alignment, iterative dual projection recheck, and an explicit completion decision; the candidate is retired under `target_precondition_unresolved` because the replay remains blocked before the intended import-sorting skip behavior.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift on external real bugs is not demonstrated; the matched-null status is `undemonstrated_equal_performance`.
 - Self-maintaining software is not demonstrated.
@@ -32,19 +33,19 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 - Run the current protocol audit and dry-run without promoting later lanes to current.
 - Run clean replication acquisition over explicit external leads.
 - Create isolated candidate workspaces and attempt structured environment resolution before collection and replay.
-- Generate bounded source-only repair patches from verified native candidate context and require patch safety, target validation, and duplicate replay before recording a repair success.
+- Generate bounded source-only repair patches from verified native candidate context only after target-intent reachability and trace-feedback alignment gates pass, then require patch safety, target validation, and duplicate replay before recording a repair success.
 - Define deterministic matched-null ensemble policies for future challenge candidates, including memory-enabled and memory-disabled arm separation, fair null perturbations, and explicit score boundaries.
 
 ## Current limits
 
 ControllerGate does not currently claim autonomous repair, full benchmark scoring, memory-lift evidence, self-maintaining software, or technical validation readiness. Issue-derived harnesses do not count as native external repairs. Historical lanes remain auditable evidence, but new replication work should use the clean replication protocol and reusable workflow where possible.
 
-The next technical objective is resolving the Batch006 formatter/dependency precondition or adding an authorized source-facing fragment rule for the verified native challenge candidate. If no safe fragment plan can be generated, the correct state remains a blocked record, not a repair or memory-lift claim.
+The next technical objective is not to retry `darker_skip_glob_failing_test` blindly. Batch007 retires that challenge candidate unless new authorized runtime precondition evidence is supplied. If no aligned target replay can be produced, the correct state remains a blocked record, not a repair or memory-lift claim.
 
 ## Current operational gate status
 
-- Implemented active gates: artifact byte custody, workspace transport integrity, external candidate registry validation, semantic failure signatures, target-node admission decisions, matched-null arm separation, duplicate clean replay, bounded exploration budget, execution environment normalization, context boundary pinning, public claim boundary audit, and public release readiness blocking.
-- Partial gates: baseline registry snapshots, structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness handling, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, no-overreach validation for non-successful candidates, global-block exception research, and evidence-ledger sealing.
+- Implemented active gates: artifact byte custody, workspace transport integrity, external candidate registry validation, semantic failure signatures, target-node admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, execution environment normalization, context boundary pinning, public claim boundary audit, and public release readiness blocking.
+- Partial gates: baseline registry snapshots, structural navigation, active probe routing, dependency projection reuse, interlock invariant mapping reuse, issue-derived harness handling, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, no-overreach validation for non-successful candidates, global-block exception research, and evidence-ledger sealing.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; accepted matched-null comparisons `1` with equal performance; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
 

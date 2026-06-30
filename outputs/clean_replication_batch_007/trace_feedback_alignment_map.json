@@ -1,0 +1,18 @@
+{
+  "admitted_source_path": "darker_skip_glob_failing_test",
+  "blocker": "trace_feedback_alignment_failed",
+  "classification": "precondition_before_target_behavior",
+  "generated_patch_path": null,
+  "intended_repair_path": [
+    "target test",
+    "import sorting",
+    "skip pattern"
+  ],
+  "observed_runtime_path": [
+    "src/darker/tests/test_main_isort.py",
+    "src/darker/__main__.py",
+    "src/darker/formatters/__init__.py"
+  ],
+  "post_patch_validation_path": null,
+  "status": "BLOCK"
+}

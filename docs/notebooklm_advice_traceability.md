@@ -2,7 +2,7 @@
 
 This document maps recurring NotebookLM recommendations to neutral ControllerGate engineering gates. Each item is either active, partial, deferred with a blocker, or rejected with an engineering reason.
 
-- Implemented active gates: 15
+- Implemented active gates: 19
 - Implemented partial gates: 10
 - Deferred gates: 2
 - Rejected gates: 0

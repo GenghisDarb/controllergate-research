@@ -76,13 +76,17 @@ Batch005 corrects Batch004 by requiring the native retry to clone and checkout t
 
 Batch006 continues from the verified Batch005 native challenge candidate. It builds a bounded fragment patch policy, coupled dependency interlock map, dual projection consistency check, pre-generation context lock, passive failure-memory weighting trace, fragment assembly seal, and proof-chain lock. It may assemble at most one source-only patch from at most three fragments, but only after both target-facing and source-facing projections authorize patch bytes. The current Batch006 result blocks before patch bytes with `fragment_patch_plan_not_generated`.
 
+## Batch007 target-intent reachability and precondition resolution
+
+Batch007 continues from Batch006 and verifies whether the observed replay reaches the intended import-sorting skip behavior before any fragment patch can be generated. It records formatter/dependency precondition evidence, declared metadata scans, install strategy decisions, trace-feedback alignment, iterative dual projection recheck, and an explicit completion decision ladder. The current Batch007 result retires `darker_skip_glob_failing_test` with `target_precondition_unresolved`; no patch, validation, duplicate replay, no-overreach, or matched-null ensemble is authorized.
+
 ## Current official repair episodes
 
-As of the post-v2.37 Batch006 boundary, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
+As of the post-v2.37 Batch007 boundary, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
 
 ## Current operational gate status
 
-- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, and public claim boundary audit.
+- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, and public claim boundary audit.
 - Partial gates: structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, matched-null ensemble execution, failure-memory weighting, and no-overreach validation for blocked candidates.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

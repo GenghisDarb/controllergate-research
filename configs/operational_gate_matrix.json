@@ -500,10 +500,88 @@
         "v3_readiness_gate"
       ],
       "status": "blocked"
+    },
+    {
+      "audit_assertion": "patch generation is forbidden unless the observed runtime reaches the intended target behavior",
+      "blocker_names": [
+        "target_intent_not_reached",
+        "target_precondition_unresolved"
+      ],
+      "claim_boundary": "reachability is a routing gate and not repair success",
+      "current_module_or_script": "controllergate/core/target_reachability.py",
+      "evidence_class_affected": "diagnostic_only_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_007/target_intent_reachability_map.json",
+        "outputs/clean_replication_batch_007/projected_vs_observed_runtime_path.json"
+      ],
+      "neutral_gate_name": "Target-Intent Reachability Gate",
+      "next_required_implementation_step": "do not retry retired candidates without new authorized precondition evidence",
+      "notebooklm_advice_ids": [
+        "target_intent_reachability_gate"
+      ],
+      "status": "implemented"
+    },
+    {
+      "audit_assertion": "declared metadata and formatter entry-point probes are recorded before a precondition blocker is accepted",
+      "blocker_names": [
+        "target_precondition_unresolved",
+        "entrypoint_resolution_failure",
+        "environment_dependency_failure_before_target"
+      ],
+      "claim_boundary": "precondition-only resolution does not count as source repair",
+      "current_module_or_script": "controllergate/core/target_reachability.py",
+      "evidence_class_affected": "diagnostic_only_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_007/install_strategy_matrix.json",
+        "outputs/clean_replication_batch_007/precondition_resolution_attempts.json"
+      ],
+      "neutral_gate_name": "Formatter/Dependency Precondition Resolution",
+      "next_required_implementation_step": "materialize a normalized runtime only from declared project metadata before any future retry",
+      "notebooklm_advice_ids": [
+        "formatter_dependency_precondition_resolution"
+      ],
+      "status": "implemented"
+    },
+    {
+      "audit_assertion": "the repair generator cannot run until intended, observed, source, patch, and validation paths align",
+      "blocker_names": [
+        "trace_feedback_alignment_failed"
+      ],
+      "claim_boundary": "alignment is a routing guard and not repair success",
+      "current_module_or_script": "controllergate/core/target_reachability.py",
+      "evidence_class_affected": "diagnostic_only_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_007/trace_feedback_alignment_map.json",
+        "outputs/clean_replication_batch_007/interdependent_gate_status_vector.json"
+      ],
+      "neutral_gate_name": "Trace-Feedback Alignment Gate",
+      "next_required_implementation_step": "carry the same alignment map into any future generator/null arms",
+      "notebooklm_advice_ids": [
+        "trace_feedback_alignment_gate"
+      ],
+      "status": "implemented"
+    },
+    {
+      "audit_assertion": "projection rechecks occur across the feedback loop and keep fragment generation unauthorized while target behavior is blocked",
+      "blocker_names": [
+        "dual_projection_recheck_failed_after_feedback"
+      ],
+      "claim_boundary": "projection recheck is diagnostic evidence only until validation passes",
+      "current_module_or_script": "controllergate/core/target_reachability.py",
+      "evidence_class_affected": "diagnostic_only_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_007/dual_projection_recheck_batch007.json"
+      ],
+      "neutral_gate_name": "Dual Projection Recheck",
+      "next_required_implementation_step": "reuse iterative recheck before future fragment generation",
+      "notebooklm_advice_ids": [
+        "dual_projection_recheck"
+      ],
+      "status": "implemented"
     }
   ],
   "matrix_id": "operational_gate_matrix_post_v2_37",
-  "notebooklm_advice_cross_reference_count": 27,
+  "notebooklm_advice_cross_reference_count": 31,
   "notebooklm_advice_traceability_matrix_path": "configs/notebooklm_advice_traceability_matrix.json",
   "terminology_policy": "neutral_engineering_terms_only"
 }

@@ -1,0 +1,210 @@
+{
+  "downstream_gate_violation": false,
+  "gates": [
+    {
+      "blocker": null,
+      "gate": "artifact_ingest",
+      "input_hashes": [
+        "03989e3f2b01b0f5a272cd3c6dcfadc94360893b4649e01eff907f566a5a0f94"
+      ],
+      "next_allowed_action": "continue",
+      "output_hashes": [],
+      "status": "PASS"
+    },
+    {
+      "blocker": null,
+      "gate": "byte_custody",
+      "input_hashes": [
+        "133a627761ef345333c3dc040dadbe603e08585b69fecdc11289451825425734"
+      ],
+      "next_allowed_action": "continue",
+      "output_hashes": [],
+      "status": "PASS"
+    },
+    {
+      "blocker": null,
+      "gate": "candidate_identity",
+      "input_hashes": [
+        "f131383ac10c6b94fd7a09092e40af8a076adc26a82734a76271b081dd66aea3"
+      ],
+      "next_allowed_action": "continue",
+      "output_hashes": [],
+      "status": "PASS"
+    },
+    {
+      "blocker": null,
+      "gate": "exact_commit_checkout",
+      "input_hashes": [
+        "9b469cdf9b3dc4f3d57973ba9cc1b7cca3df2b51ec486a4a6b68a99c662ab460"
+      ],
+      "next_allowed_action": "continue",
+      "output_hashes": [],
+      "status": "PASS"
+    },
+    {
+      "blocker": null,
+      "gate": "environment_resolution",
+      "input_hashes": [
+        "15f68180d1d8c8f634e65b590bee4a72f208beca60c258a037f017d802c95c16"
+      ],
+      "next_allowed_action": "continue",
+      "output_hashes": [],
+      "status": "PASS"
+    },
+    {
+      "blocker": null,
+      "gate": "intended_target_replay",
+      "input_hashes": [
+        "efdd061e3cf53c6da24760e40feb86e3911c5cdd77e4e3bb0704d71cbd6378d7"
+      ],
+      "next_allowed_action": "continue",
+      "output_hashes": [],
+      "status": "PASS"
+    },
+    {
+      "blocker": "trace_feedback_alignment_failed",
+      "gate": "trace_feedback_alignment",
+      "input_hashes": [],
+      "next_allowed_action": "stop_or_retire",
+      "output_hashes": [],
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "target_precondition_unresolved",
+      "gate": "precondition_resolution",
+      "input_hashes": [],
+      "next_allowed_action": "stop_or_retire",
+      "output_hashes": [],
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "target_intent_not_reached",
+      "gate": "target_intent_reachability",
+      "input_hashes": [],
+      "next_allowed_action": "stop_or_retire",
+      "output_hashes": [],
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "target_intent_not_reached",
+      "gate": "source_stack_extraction",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "target_intent_not_reached",
+      "gate": "import_graph_extraction",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "target_intent_not_reached",
+      "gate": "ast_closure_extraction",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "target_intent_not_reached",
+      "gate": "patchable_source_subset",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "target_intent_not_reached",
+      "gate": "coupled_dependency_interlock",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "dual_projection_recheck_failed_after_feedback",
+      "gate": "dual_projection_recheck",
+      "input_hashes": [],
+      "next_allowed_action": "stop_or_retire",
+      "output_hashes": [],
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "target_intent_not_reached",
+      "gate": "pre_generation_context_lock",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "target_intent_not_reached",
+      "gate": "bounded_fragment_patch_assembly",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "no_patch_generated",
+      "gate": "patch_safety",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "no_patch_generated",
+      "gate": "target_validation",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "no_patch_generated",
+      "gate": "duplicate_replay",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "no_patch_generated",
+      "gate": "no_overreach_validation",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "no_memory_enabled_comparable_endpoint",
+      "gate": "matched_null_eligibility",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "blocker": "no_repair_success",
+      "gate": "registry_update",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "candidate_retired_before_repair_claim",
+      "gate": "claim_boundary",
+      "input_hashes": [],
+      "next_allowed_action": "none",
+      "output_hashes": [],
+      "status": "NOT_APPLICABLE"
+    }
+  ],
+  "status": "PASS"
+}

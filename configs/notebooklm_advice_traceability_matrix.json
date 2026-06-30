@@ -302,6 +302,140 @@
       "status": "implemented_active"
     },
     {
+      "advice_id": "target_intent_reachability_gate",
+      "blocker_if_missing": "target_intent_not_reached",
+      "blockers": [
+        "target_intent_not_reached"
+      ],
+      "claim_boundary": "target-intent reachability is a precondition for repair, not repair success",
+      "current_repo_mechanism": "Batch007 classifies whether the replay reaches the intended target behavior before patch generation",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_007/target_intent_reachability_policy.json",
+        "outputs/clean_replication_batch_007/target_intent_reachability_map.json",
+        "outputs/clean_replication_batch_007/projected_vs_observed_runtime_path.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Target-Intent Reachability Gate",
+      "public_engineering_name": "Target-Intent Reachability Gate",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "patch generation is forbidden until target behavior is reached"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/target_reachability.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_007/target_intent_reachability_policy.json",
+        "outputs/clean_replication_batch_007/target_intent_reachability_map.json",
+        "outputs/clean_replication_batch_007/projected_vs_observed_runtime_path.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "formatter_dependency_precondition_resolution",
+      "blocker_if_missing": "target_precondition_unresolved",
+      "blockers": [
+        "target_precondition_unresolved"
+      ],
+      "claim_boundary": "environment/precondition resolution is not repair success",
+      "current_repo_mechanism": "Batch007 records declared metadata, formatter entry-point probes, and install strategy decisions before retiring the candidate",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_007/environment_precondition_resolution_policy.json",
+        "outputs/clean_replication_batch_007/project_metadata_dependency_scan.json",
+        "outputs/clean_replication_batch_007/install_strategy_matrix.json",
+        "outputs/clean_replication_batch_007/precondition_resolution_attempts.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Formatter/Dependency Precondition Resolution",
+      "public_engineering_name": "Formatter/Dependency Precondition Resolution",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "precondition-only or unresolved environment paths cannot be counted as source repairs"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/target_reachability.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_007/environment_precondition_resolution_policy.json",
+        "outputs/clean_replication_batch_007/project_metadata_dependency_scan.json",
+        "outputs/clean_replication_batch_007/install_strategy_matrix.json",
+        "outputs/clean_replication_batch_007/precondition_resolution_attempts.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "trace_feedback_alignment_gate",
+      "blocker_if_missing": "trace_feedback_alignment_missing",
+      "blockers": [
+        "trace_feedback_alignment_missing"
+      ],
+      "claim_boundary": "trace alignment controls routing and does not prove repair success",
+      "current_repo_mechanism": "Batch007 compares intended, observed, source, patch, and validation paths before allowing fragment generation",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_007/trace_feedback_alignment_policy.json",
+        "outputs/clean_replication_batch_007/trace_feedback_alignment_map.json",
+        "outputs/clean_replication_batch_007/trace_feedback_loop_attempts.json",
+        "outputs/clean_replication_batch_007/interdependent_gate_status_vector.json",
+        "outputs/clean_replication_batch_007/completion_decision_ladder.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Trace-Feedback Alignment Gate",
+      "public_engineering_name": "Trace-Feedback Alignment Gate",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "first mismatch does not stop the lane while an allowed feedback step remains"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/target_reachability.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_007/trace_feedback_alignment_policy.json",
+        "outputs/clean_replication_batch_007/trace_feedback_alignment_map.json",
+        "outputs/clean_replication_batch_007/trace_feedback_loop_attempts.json",
+        "outputs/clean_replication_batch_007/interdependent_gate_status_vector.json",
+        "outputs/clean_replication_batch_007/completion_decision_ladder.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "dual_projection_recheck",
+      "blocker_if_missing": "dual_projection_recheck_failed_after_feedback",
+      "blockers": [
+        "dual_projection_recheck_failed_after_feedback"
+      ],
+      "claim_boundary": "projection recheck is a routing gate, not repair success",
+      "current_repo_mechanism": "Batch007 reruns projection checks before normalization, after normalization, and before patch generation",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_007/dual_projection_recheck_batch007.json",
+        "outputs/clean_replication_batch_007/source_facing_projection_recheck.json",
+        "outputs/clean_replication_batch_007/test_facing_projection_recheck.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Dual Projection Recheck",
+      "public_engineering_name": "Dual Projection Recheck",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "fragment planning remains unauthorized while projection recheck blocks"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/target_reachability.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_007/dual_projection_recheck_batch007.json",
+        "outputs/clean_replication_batch_007/source_facing_projection_recheck.json",
+        "outputs/clean_replication_batch_007/test_facing_projection_recheck.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
       "advice_id": "issue_derived_harness",
       "blocker_if_missing": "issue_derived_harness_generation_failed",
       "blockers": [
@@ -825,8 +959,8 @@
       "status": "deferred_with_blocker"
     }
   ],
-  "entry_count": 27,
-  "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch006",
+  "entry_count": 31,
+  "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch007",
   "status": "PASS",
   "terminology_policy": "neutral_engineering_terms_only"
 }

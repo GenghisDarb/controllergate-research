@@ -16,6 +16,7 @@ ControllerGate is currently suitable as a pre-alpha research archive. It is not 
 - Batch004 adds native-first dual-track challenge acquisition and issue-derived fallback as a separate evidence class, but it verified no challenge candidate and is not a release-readiness result.
 - The official Batch005 source-materialized artifact is ingested as custody evidence. The corrected Batch005 workflow adds target-node selection and source-subset repair gates, but it does not make the repository release-ready without a new audited repair success.
 - Batch006 adds bounded fragment patch assembly and related consistency checks for the verified native challenge candidate, but it blocks before patch bytes and does not make the repository release-ready.
+- Batch007 adds target-intent reachability, precondition resolution, trace-feedback alignment, and explicit candidate retirement for the same challenge candidate, but it blocks with `target_precondition_unresolved` and does not make the repository release-ready.
 
 ## Blocking gaps
 
@@ -32,7 +33,7 @@ Do not describe ControllerGate as technically validated until the blocking gaps 
 
 ## Current operational gate status
 
-- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, and release-readiness blocking.
+- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, and release-readiness blocking.
 - Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, post-patch revalidation for blocked candidates, global-block exception research, and broader evidence-ledger standardization.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

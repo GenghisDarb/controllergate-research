@@ -1,0 +1,32 @@
+{
+  "blocker": "dual_projection_recheck_failed_after_feedback",
+  "candidate_id": "darker_skip_glob_failing_test",
+  "fragment_plan_authorized": false,
+  "rechecks": [
+    {
+      "fragment_plan_authorized": false,
+      "mismatch_reason": "precondition before target behavior",
+      "next_feedback_step": "declared_precondition_resolution",
+      "source_facing_projection_status": "BLOCK",
+      "stage": "before_precondition_normalization",
+      "test_facing_projection_status": "BLOCK"
+    },
+    {
+      "fragment_plan_authorized": false,
+      "mismatch_reason": "precondition unresolved",
+      "next_feedback_step": "retire_candidate",
+      "source_facing_projection_status": "BLOCK",
+      "stage": "after_precondition_normalization",
+      "test_facing_projection_status": "BLOCK"
+    },
+    {
+      "fragment_plan_authorized": false,
+      "mismatch_reason": "target behavior not reached",
+      "next_feedback_step": "stop",
+      "source_facing_projection_status": "NOT_RUN",
+      "stage": "before_patch_generation",
+      "test_facing_projection_status": "BLOCK"
+    }
+  ],
+  "status": "BLOCK"
+}

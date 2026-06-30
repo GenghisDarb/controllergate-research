@@ -16,7 +16,8 @@ BATCH003_DIR = Path("outputs/clean_replication_batch_003")
 BATCH004_DIR = Path("outputs/clean_replication_batch_004")
 BATCH005_DIR = Path("outputs/clean_replication_batch_005")
 BATCH006_DIR = Path("outputs/clean_replication_batch_006")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch006_fragment_patch")
+BATCH007_DIR = Path("outputs/clean_replication_batch_007")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch007_target_reachability")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -206,6 +207,54 @@ BATCH006_REQUIRED = [
     "SHA256SUMS.txt",
 ]
 
+BATCH007_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_007.json",
+    "target_intent_reachability_policy.json",
+    "target_intent_reachability_map.json",
+    "precondition_failure_classification.json",
+    "precondition_resolution_plan.json",
+    "precondition_resolution_attempts.json",
+    "formatter_dependency_probe.json",
+    "entrypoint_probe.json",
+    "target_replay_after_precondition_resolution.json",
+    "dual_projection_recheck_batch007.json",
+    "environment_precondition_resolution_policy.json",
+    "project_metadata_dependency_scan.json",
+    "declared_extras_scan.json",
+    "install_strategy_matrix.json",
+    "formatter_entrypoint_resolution_attempts.json",
+    "import_probe_results.json",
+    "precondition_resolution_log_hashes.json",
+    "source_facing_projection_recheck.json",
+    "test_facing_projection_recheck.json",
+    "fragment_patch_candidate_plan_batch007.json",
+    "fragment_patch_candidates_batch007.json",
+    "fragment_safety_audits_batch007.json",
+    "fragment_assembly_seal_batch007.json",
+    "candidate_retirement_decision.json",
+    "memory_separation_claim_evaluation_batch007.json",
+    "claim_boundary.json",
+    "notebooklm_advice_traceability_status.json",
+    "carry_forward_blocker_register.json",
+    "proof_chain_lock_batch007.json",
+    "trace_feedback_alignment_policy.json",
+    "trace_feedback_alignment_map.json",
+    "projected_vs_observed_runtime_path.json",
+    "runtime_path_dissonance_report.json",
+    "trace_feedback_alignment_status.json",
+    "trace_feedback_loop_policy.json",
+    "trace_feedback_loop_attempts.json",
+    "trace_feedback_loop_final_decision.json",
+    "completion_decision_ladder.json",
+    "system_interlock_completion_status.json",
+    "interdependent_gate_status_vector.json",
+    "precondition_to_source_context_feedback.json",
+    "repair_generator_trace_consumption_audit.json",
+    "null_ensemble_trace_alignment_audit.json",
+    "SHA256SUMS.txt",
+]
+
 BATCH003_REQUIRED = [
     "consolidated_state_clean_replication_batch_003.json",
     "matched_null_ensemble_policy.json",
@@ -343,6 +392,7 @@ def blocked_terms() -> list[str]:
         "Klein " + "bottle",
         "Klein " + "twist",
         "Betti" + "-number",
+        "cym" + "atics",
         "res" + "onance",
         "recursion" + "-constant",
         "bio" + "logical",
@@ -1177,6 +1227,155 @@ def audit_batch006_records() -> list[str]:
     return errors
 
 
+def audit_batch007_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH007_REQUIRED:
+        if not (BATCH007_DIR / name).is_file():
+            errors.append(f"batch007 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH007_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch007 manifest failed: {manifest}")
+
+    state = read_json(BATCH007_DIR / "consolidated_state_clean_replication_batch_007.json")
+    policy = read_json(BATCH007_DIR / "target_intent_reachability_policy.json")
+    target_map = read_json(BATCH007_DIR / "target_intent_reachability_map.json")
+    classification = read_json(BATCH007_DIR / "precondition_failure_classification.json")
+    env_policy = read_json(BATCH007_DIR / "environment_precondition_resolution_policy.json")
+    metadata = read_json(BATCH007_DIR / "project_metadata_dependency_scan.json")
+    extras = read_json(BATCH007_DIR / "declared_extras_scan.json")
+    install_matrix = read_json(BATCH007_DIR / "install_strategy_matrix.json")
+    attempts = read_json(BATCH007_DIR / "precondition_resolution_attempts.json")
+    formatter_probe = read_json(BATCH007_DIR / "formatter_dependency_probe.json")
+    entrypoint_probe = read_json(BATCH007_DIR / "entrypoint_probe.json")
+    replay_after = read_json(BATCH007_DIR / "target_replay_after_precondition_resolution.json")
+    projected = read_json(BATCH007_DIR / "projected_vs_observed_runtime_path.json")
+    dissonance = read_json(BATCH007_DIR / "runtime_path_dissonance_report.json")
+    trace_policy = read_json(BATCH007_DIR / "trace_feedback_alignment_policy.json")
+    trace_map = read_json(BATCH007_DIR / "trace_feedback_alignment_map.json")
+    trace_status = read_json(BATCH007_DIR / "trace_feedback_alignment_status.json")
+    loop_policy = read_json(BATCH007_DIR / "trace_feedback_loop_policy.json")
+    loop_attempts = read_json(BATCH007_DIR / "trace_feedback_loop_attempts.json")
+    loop_decision = read_json(BATCH007_DIR / "trace_feedback_loop_final_decision.json")
+    dual = read_json(BATCH007_DIR / "dual_projection_recheck_batch007.json")
+    source_recheck = read_json(BATCH007_DIR / "source_facing_projection_recheck.json")
+    test_recheck = read_json(BATCH007_DIR / "test_facing_projection_recheck.json")
+    feedback = read_json(BATCH007_DIR / "precondition_to_source_context_feedback.json")
+    plan = read_json(BATCH007_DIR / "fragment_patch_candidate_plan_batch007.json")
+    candidates = read_json(BATCH007_DIR / "fragment_patch_candidates_batch007.json")
+    safety = read_json(BATCH007_DIR / "fragment_safety_audits_batch007.json")
+    seal = read_json(BATCH007_DIR / "fragment_assembly_seal_batch007.json")
+    generator = read_json(BATCH007_DIR / "repair_generator_trace_consumption_audit.json")
+    null_alignment = read_json(BATCH007_DIR / "null_ensemble_trace_alignment_audit.json")
+    ladder = read_json(BATCH007_DIR / "completion_decision_ladder.json")
+    retirement = read_json(BATCH007_DIR / "candidate_retirement_decision.json")
+    vector = read_json(BATCH007_DIR / "interdependent_gate_status_vector.json")
+    system_status = read_json(BATCH007_DIR / "system_interlock_completion_status.json")
+    memory = read_json(BATCH007_DIR / "memory_separation_claim_evaluation_batch007.json")
+    claim = read_json(BATCH007_DIR / "claim_boundary.json")
+    traceability = read_json(BATCH007_DIR / "notebooklm_advice_traceability_status.json")
+    proof = read_json(BATCH007_DIR / "proof_chain_lock_batch007.json")
+
+    expected_candidate = "darker_skip_glob_failing_test"
+    expected_blocker = "target_precondition_unresolved"
+    if state.get("candidate_id") != expected_candidate or target_map.get("candidate_id") != expected_candidate:
+        errors.append("batch007 candidate identity changed")
+    if policy.get("status") != "PASS" or policy.get("target_behavior_required_before_patch_generation") is not True:
+        errors.append("batch007 target-intent policy invalid")
+    if target_map.get("runtime_path_classification") != "precondition_failure_before_target_behavior":
+        errors.append("batch007 target-intent classification mismatch")
+    if target_map.get("target_behavior_reached") is not False or projected.get("target_behavior_reached") is not False:
+        errors.append("batch007 target behavior should not be reached")
+    if classification.get("source_bug_classification_authorized") is not False:
+        errors.append("batch007 authorized source bug classification before target behavior")
+    if classification.get("classification") != "entrypoint_resolution_failure":
+        errors.append("batch007 precondition classification mismatch")
+    if env_policy.get("uses_only_checked_out_project_metadata") is not True or env_policy.get("fixed_later_gold_pr_evidence_used") is not False:
+        errors.append("batch007 environment policy invalid")
+    if metadata.get("formatter_dependency_declared_as_extra") is not True or extras.get("black_extra_declared") is not True:
+        errors.append("batch007 declared formatter dependency evidence missing")
+    strategies = install_matrix.get("strategies", [])
+    if not isinstance(strategies, list) or not strategies:
+        errors.append("batch007 install strategy matrix missing")
+    if install_matrix.get("undeclared_dependency_install_used") is not False:
+        errors.append("batch007 used undeclared dependency install")
+    if not any(item.get("command") == "python -m pip install -e .[black]" and item.get("declared_or_baseline") is True for item in strategies if isinstance(item, dict)):
+        errors.append("batch007 black declared extra strategy missing")
+    if formatter_probe.get("status") != "BLOCK" or entrypoint_probe.get("status") != "BLOCK":
+        errors.append("batch007 formatter/entrypoint probes should block")
+    if replay_after.get("status") != "NOT_RUN" or replay_after.get("blocker") != expected_blocker:
+        errors.append("batch007 replay after precondition should remain blocked/not run")
+    if dissonance.get("status") != "BLOCK" or trace_status.get("aligned_target_behavior_reached") is not False:
+        errors.append("batch007 trace-feedback dissonance should block alignment")
+    if trace_policy.get("patch_generation_requires") != "aligned_target_behavior_reached":
+        errors.append("batch007 trace-feedback policy invalid")
+    if trace_map.get("generated_patch_path") is not None or trace_map.get("post_patch_validation_path") is not None:
+        errors.append("batch007 trace map recorded patch/validation path despite no patch")
+    if loop_policy.get("stop_after_first_mismatch") is not False:
+        errors.append("batch007 feedback loop stopped after first mismatch")
+    if not isinstance(loop_attempts, list) or len(loop_attempts) < 2:
+        errors.append("batch007 feedback loop did not record the allowed next step")
+    if loop_decision.get("final_decision") != "candidate_retired_precondition_unresolved":
+        errors.append("batch007 feedback loop final decision mismatch")
+    rechecks = dual.get("rechecks", [])
+    if not isinstance(rechecks, list) or len(rechecks) < 3:
+        errors.append("batch007 dual projection recheck was not iterative")
+    if dual.get("fragment_plan_authorized") is not False or any(item.get("fragment_plan_authorized") is not False for item in rechecks if isinstance(item, dict)):
+        errors.append("batch007 fragment plan authorized despite blocked projection")
+    if source_recheck.get("source_repair_point_admissible") is not False or test_recheck.get("target_behavior_reached") is not False:
+        errors.append("batch007 projection recheck overclaimed source or target readiness")
+    if feedback.get("stale_source_context_reused") is not False:
+        errors.append("batch007 reused stale source context after precondition analysis")
+    if plan.get("fragment_plan_authorized") is not False or candidates.get("fragments") != []:
+        errors.append("batch007 generated fragment candidates without reachability")
+    if safety.get("status") != "NOT_RUN" or seal.get("assembled_patch_generated") is not False:
+        errors.append("batch007 safety/assembly should remain not run")
+    if generator.get("generator_ran") is not False or generator.get("status") != "NOT_RUN":
+        errors.append("batch007 repair generator ran without aligned trace")
+    if null_alignment.get("null_ensemble_ran") is not False or null_alignment.get("status") != "NOT_RUN":
+        errors.append("batch007 null ensemble ran without comparable endpoint")
+    if ladder.get("completion_decision") != "candidate_retired_precondition_unresolved":
+        errors.append("batch007 completion decision invalid")
+    if retirement.get("retired") is not True or retirement.get("blocker") != expected_blocker:
+        errors.append("batch007 candidate retirement decision invalid")
+    if vector.get("status") != "PASS" or vector.get("downstream_gate_violation") is not False:
+        errors.append("batch007 interdependent gate vector invalid")
+    gates = vector.get("gates", [])
+    if isinstance(gates, list):
+        seen_block = False
+        for gate in gates:
+            status = gate.get("status") if isinstance(gate, dict) else None
+            if seen_block and status == "PASS":
+                errors.append("batch007 downstream gate passed after upstream block")
+                break
+            if status in {"BLOCK", "FAILED"}:
+                seen_block = True
+    if system_status.get("completion_decision") != "candidate_retired_precondition_unresolved":
+        errors.append("batch007 system completion status mismatch")
+    if memory.get("preliminary_single_candidate_memory_separation_evidence") is not False:
+        errors.append("batch007 memory separation overclaim")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed":
+        errors.append("batch007 full scoring boundary changed")
+    if claim.get("full_memory_lift_status") != "undemonstrated":
+        errors.append("batch007 memory lift overclaim")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch007 self-maintaining software overclaim")
+    if traceability.get("status") != "PASS" or traceability.get("silent_completion") is not False:
+        errors.append("batch007 traceability/silent-completion status invalid")
+    if proof.get("status") != "PASS" or proof.get("hash_chain_valid") is not True:
+        errors.append("batch007 proof chain invalid")
+    if state.get("exact_blocker") != expected_blocker:
+        errors.append("batch007 exact blocker mismatch")
+    if state.get("fragment_generation_authorized") is not False or state.get("assembled_patch_generated") is not False:
+        errors.append("batch007 overclaimed patch authorization")
+    if state.get("target_validation_status") != "NOT_RUN" or state.get("duplicate_replay_status") != "NOT_RUN":
+        errors.append("batch007 validation/replay should remain NOT_RUN")
+    if state.get("preliminary_single_candidate_memory_separation_evidence") is not False:
+        errors.append("batch007 preliminary memory evidence overclaimed")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -1285,6 +1484,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_004.json"),
         Path("configs/clean_replication_batch_005.json"),
         Path("configs/clean_replication_batch_006.json"),
+        Path("configs/clean_replication_batch_007.json"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
@@ -1311,6 +1511,10 @@ REQUIRED_NOTEBOOKLM_ADVICE_IDS = {
     "candidate_admission_decision_map",
     "coupled_dependency_projection_map",
     "interlock_invariant_map",
+    "target_intent_reachability_gate",
+    "formatter_dependency_precondition_resolution",
+    "trace_feedback_alignment_gate",
+    "dual_projection_recheck",
     "issue_derived_harness",
     "issue_text_temporal_guard",
     "issue_derived_latent_risk",
@@ -1416,6 +1620,8 @@ def main() -> int:
         + require_files(BATCH003_DIR, BATCH003_REQUIRED)
         + require_files(BATCH004_DIR, BATCH004_REQUIRED)
         + require_files(BATCH005_DIR, BATCH005_REQUIRED)
+        + require_files(BATCH006_DIR, BATCH006_REQUIRED)
+        + require_files(BATCH007_DIR, BATCH007_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -1429,6 +1635,10 @@ def main() -> int:
         return fail("batch004 manifest mismatch")
     if verify_manifest(BATCH005_DIR)["status"] != "PASS":
         return fail("batch005 manifest mismatch")
+    if verify_manifest(BATCH006_DIR)["status"] != "PASS":
+        return fail("batch006 manifest mismatch")
+    if verify_manifest(BATCH007_DIR)["status"] != "PASS":
+        return fail("batch007 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
         return fail("core tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -1552,6 +1762,9 @@ def main() -> int:
     batch006_errors = audit_batch006_records()
     if batch006_errors:
         return fail(f"batch006 audit failed: {batch006_errors}")
+    batch007_errors = audit_batch007_records()
+    if batch007_errors:
+        return fail(f"batch007 audit failed: {batch007_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")

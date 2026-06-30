@@ -1,0 +1,18 @@
+{
+  "blocker": "target_intent_not_reached",
+  "candidate_id": "darker_skip_glob_failing_test",
+  "classification": "precondition_before_target_behavior",
+  "dissonance_reason": "observed runtime path stops at formatter/dependency precondition before import-sorting path filtering",
+  "intended_path": [
+    "target test",
+    "command entry",
+    "import sorting",
+    "path filtering"
+  ],
+  "observed_path": [
+    "target test",
+    "command entry",
+    "formatter entry-point resolution"
+  ],
+  "status": "BLOCK"
+}

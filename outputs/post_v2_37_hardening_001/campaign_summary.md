@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_ADDITIONAL_REPAIR.
+Status: PASS_WITH_BATCH007_TARGET_PRECONDITION_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -13,5 +13,7 @@ Batch004 adds native-first dual-track challenge acquisition and issue-derived fa
 Batch005 corrects Batch004 by materializing the source tree for native retry and running targeted issue-derived seed intake before bounded issue discovery fallback.
 
 Batch006 implements bounded fragment patch assembly, coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory records, and a proof-chain lock for the verified native challenge. It blocks before patch bytes because the source-facing projection does not authorize a source-only fragment from the observed formatter/dependency precondition.
+
+Batch007 adds target-intent reachability, formatter/dependency precondition resolution records, trace-feedback alignment, iterative dual projection recheck, and an explicit completion decision ladder. The candidate is retired because the runtime path remains blocked before the intended import-sorting skip behavior.
 
 NotebookLM advice traceability status: `PASS`.
