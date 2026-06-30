@@ -5,7 +5,7 @@
     "collection_attempted": true,
     "command_record": {
       "command": [
-        "<ephemeral_root>\\native_retry_venv\\Scripts\\python.exe",
+        "<ephemeral_root>/native_retry_venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_isort.py",
@@ -13,9 +13,9 @@
         "-q"
       ],
       "cwd": "<ephemeral_workspace>",
-      "normalized_output_sha256": "0f137237bee84d9728ba202bd88157c5c6f8a876673b24a0e986685a6efbcb91",
-      "output_sha256": "9b2f7d6b31155d33b9e00c3c284eefccd2518aace14ba7e85e2748533f3bc400",
-      "output_summary": "STDOUT:\nsrc/darker/tests/test_main_isort.py::test_isort_option_without_isort\nsrc/darker/tests/test_main_isort.py::test_isort_option_with_isort\nsrc/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports[run_isort0-isort_args0]\nsrc/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports[run_isort1-isort_args1]\nsrc/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n\n5 tests collected in 24.44s\n\nSTDERR:",
+      "normalized_output_sha256": "809b9383207741a80b195b081783ae9f21b941b2a40994a4dcaa8feea2f7d64a",
+      "output_sha256": "7c2be0f8f2dc5a991c6f3da419cc07107df6a0e833cfe498c1a7ffc9079d130c",
+      "output_summary": "STDOUT:\nsrc/darker/tests/test_main_isort.py::test_isort_option_without_isort\nsrc/darker/tests/test_main_isort.py::test_isort_option_with_isort\nsrc/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports[run_isort0-isort_args0]\nsrc/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports[run_isort1-isort_args1]\nsrc/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n\n5 tests collected in 0.23s\n\nSTDERR:",
       "returncode": 0,
       "timed_out": false,
       "timeout_seconds": 120

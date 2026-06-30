@@ -3,16 +3,16 @@
     "candidate_id": "darker_skip_glob_failing_test",
     "command_record": {
       "command": [
-        "<ephemeral_root>\\native_retry_venv\\Scripts\\python.exe",
+        "<ephemeral_root>/native_retry_venv/bin/python",
         "-m",
         "pytest",
         "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
         "-q"
       ],
       "cwd": "<ephemeral_workspace>",
-      "normalized_output_sha256": "85f8efe751d4bbc4cbc89d8a60f874fa4c63d03367016c60b92d128df3e236b8",
-      "output_sha256": "1865ac9f73c3767bf69e60e3e92f76fb3394ade3c51d89ef7aaef37ebbaa1e86",
-      "output_summary": "STDOUT:\nF                                                                        [100%]\n================================== FAILURES ===================================\n________________________ test_isort_respects_skip_glob ________________________\n\ntmp_path = WindowsPath('<system_temp>/pytest-of-thisb/pytest-339/test_isort_respects_skip_glob0')\n\n    def test_isort_respects_skip_glob(tmp_path):\n        \"\"\"Test that Darker respects isort's skip_glob setting.\"\"\"\n        # Create a pyproject.toml file with isort skip_glob configuration\n        configuration = dedent(\n            \"\"\"\n            [tool.isort]\n            skip_glob = ['*/conf/settings/*']\n            filter_files = true\n            \"\"\"\n        )\n        (tmp_path / \"pyproject.toml\").write_text(configuration)\n        # Create a file that should be skipped\n        settings_dir = tmp_path / \"conf\" / \"settings\"\n        settings_dir.mkdir(parents=True)\n        backoffice_py = settings_dir / \"backoffice.py\"\n        backoffice_py.write_text(\"import sys\\nimport os\\n\")\n\n        # Run darker with --isort\n>       darker.__main__.main([\"--isort\", str(settings_dir / \"backoffice.py\")])\n\nsrc\\darker\\tests\\test_main_isort.py:117:\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsrc\\darker\\__main__.py:522: in main\n    formatter = create_formatter(args.formatter)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nname = 'black'\n\n    def create_formatter(name: str) -> BaseFormatter:\n        \"\"\"Create a code re-formatter plugi",
+      "normalized_output_sha256": "5be05f4e49ca379379d6145e4121b3e890e0cda878f4f3881548ebc1df4f0763",
+      "output_sha256": "483beeeec98ad3dda393f5aff056cc79cd8373984979767d948c5f0d92d4f23c",
+      "output_summary": "STDOUT:\nF                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_isort_respects_skip_glob _________________________\n\ntmp_path = PosixPath('<system_temp>/pytest-of-runner/pytest-1/test_isort_respects_skip_glob0')\n\n    def test_isort_respects_skip_glob(tmp_path):\n        \"\"\"Test that Darker respects isort's skip_glob setting.\"\"\"\n        # Create a pyproject.toml file with isort skip_glob configuration\n        configuration = dedent(\n            \"\"\"\n            [tool.isort]\n            skip_glob = ['*/conf/settings/*']\n            filter_files = true\n            \"\"\"\n        )\n        (tmp_path / \"pyproject.toml\").write_text(configuration)\n        # Create a file that should be skipped\n        settings_dir = tmp_path / \"conf\" / \"settings\"\n        settings_dir.mkdir(parents=True)\n        backoffice_py = settings_dir / \"backoffice.py\"\n        backoffice_py.write_text(\"import sys\\nimport os\\n\")\n\n        # Run darker with --isort\n>       darker.__main__.main([\"--isort\", str(settings_dir / \"backoffice.py\")])\n\nsrc/darker/tests/test_main_isort.py:117:\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsrc/darker/__main__.py:522: in main\n    formatter = create_formatter(args.formatter)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nname = 'black'\n\n    def create_formatter(name: str) -> BaseFormatter:\n        \"\"\"Create a code re-formatter plugin instance by name.\"\"\"\n        matching_entry_poin",
       "returncode": 1,
       "timed_out": false,
       "timeout_seconds": 120
@@ -20,11 +20,11 @@
     "environment_only_failure": false,
     "node": "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
     "returncode": 1,
-    "semantic_failure_signature_hash": "85f8efe751d4bbc4cbc89d8a60f874fa4c63d03367016c60b92d128df3e236b8",
+    "semantic_failure_signature_hash": "5be05f4e49ca379379d6145e4121b3e890e0cda878f4f3881548ebc1df4f0763",
     "semantic_intent_match": true,
     "status": "PRE_PATCH_FAILURE_OBSERVED",
     "target_command": [
-      "<ephemeral_root>\\native_retry_venv\\Scripts\\python.exe",
+      "<ephemeral_root>/native_retry_venv/bin/python",
       "-m",
       "pytest",
       "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",

@@ -1,0 +1,22 @@
+{
+  "allowed_patchable_source_files": [
+    "src/darker/__main__.py",
+    "src/darker/import_sorting.py",
+    "src/darker/formatters/__init__.py",
+    "src/darker/exceptions.py"
+  ],
+  "candidate_id": "darker_skip_glob_failing_test",
+  "do_not_redo_acquisition": true,
+  "do_not_run_issue_derived_fallback_without_separate_seed_or_config": true,
+  "max_final_patches": 1,
+  "max_fragments": 3,
+  "recommended_action": "bounded_fragment_patch_assembly_over_verified_native_subset",
+  "recommended_next_batch": "clean_replication_batch_006",
+  "required_claim_boundaries": {
+    "current_protocol_version": "v2.13",
+    "full_scoring": "NOT_RUN/disallowed",
+    "memory_lift": "undemonstrated_equal_performance",
+    "self_maintaining_software": "false/not_demonstrated"
+  },
+  "status": "PASS"
+}

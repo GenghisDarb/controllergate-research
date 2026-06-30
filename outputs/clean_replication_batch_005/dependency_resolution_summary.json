@@ -6,7 +6,7 @@
     "pyproject.toml isort optional group",
     "pyproject.toml dev pytest tooling"
   ],
-  "python": "E:\\ControllerGate-Ephemeral\\clean_replication_batch_005\\native_retry_venv\\Scripts\\python.exe",
+  "python": "/tmp/controllergate_ephemeral/clean_replication_batch_005/native_retry_venv/bin/python",
   "python_redacted": "<ephemeral_venv_python>",
   "records": [
     {
@@ -14,7 +14,7 @@
         "<python_executable>",
         "-m",
         "venv",
-        "<ephemeral_workspace>\\native_retry_venv"
+        "<ephemeral_workspace>/native_retry_venv"
       ],
       "cwd": null,
       "normalized_output_sha256": "13c0b773ac924b2d8eec5c1d6c7dd134bf2339b7c3201b31f49cef38e7d6cb3b",
@@ -27,7 +27,7 @@
     },
     {
       "command": [
-        "<ephemeral_root>\\native_retry_venv\\Scripts\\python.exe",
+        "<ephemeral_root>/native_retry_venv/bin/python",
         "-m",
         "pip",
         "install",
@@ -37,9 +37,9 @@
         "wheel"
       ],
       "cwd": "<ephemeral_workspace>",
-      "normalized_output_sha256": "3a4d1e8689f68192f829a00e5f2dda7486c26484c496e9cdb7b377d0069e1d2c",
-      "output_sha256": "f8933ebab85ef9c326f919d2435a2d692b390ca289864e2cbc0e06c7f8d13ba8",
-      "output_summary": "STDOUT:\nRequirement already satisfied: pip in <ephemeral_workspace>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging setuptools wheel\n\nSTDERR:",
+      "normalized_output_sha256": "44151b1e3362e8b0cf3ced2facc040185f773a034831b2c603de7597ed38f101",
+      "output_sha256": "1367d7d74f9d17492e55b24d86e43a04f3a022bf0fefdd86bb207e578a27a3f7",
+      "output_summary": "STDOUT:\nRequirement already satisfied: pip in <ephemeral_workspace>/lib/python3.10/site-packages (23.0.1)\nCollecting pip\n  Using cached pip-26.1.2-py3-none-any.whl (1.8 MB)\nRequirement already satisfied: setuptools in <ephemeral_workspace>/lib/python3.10/site-packages (79.0.1)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl (32 kB)\nCollecting packaging>=24.0\n  Using cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, pip, packaging, wheel\n  Attempting uninstall: setuptools\n    Found existing installation: setuptools 79.0.1\n    Uninstalling setuptools-79.0.1:\n      Successfully uninstalled setuptools-79.0.1\n  Attempting uninstall: pip\n    Found existing installation: pip 23.0.1\n    Uninstalling pip-23.0.1:\n      Successfully uninstalled pip-23.0.1\nSuccessfully installed packaging-26.2 pip-26.1.2 setuptools-82.0.1 wheel-0.47.0\n\nSTDERR:",
       "returncode": 0,
       "stage": "upgrade_build_tools",
       "timed_out": false,
@@ -47,7 +47,7 @@
     },
     {
       "command": [
-        "<ephemeral_root>\\native_retry_venv\\Scripts\\python.exe",
+        "<ephemeral_root>/native_retry_venv/bin/python",
         "-m",
         "pip",
         "install",
@@ -59,9 +59,9 @@
         "darkgraylib>=2.4.0,<3.0.dev0"
       ],
       "cwd": "<ephemeral_workspace>",
-      "normalized_output_sha256": "f02729f25f58b9d65a3219a2b833dcdd7534c476cf911009da4c44669444cdc9",
-      "output_sha256": "ff3224a9415113616ee75e51b4c39ef952160f2ccfd154ab01293a6aaabdf240",
-      "output_summary": "STDOUT:\nCollecting pytest\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting pytest-kwparametrize\n  Using cached pytest_kwparametrize-0.0.3-py3-none-any.whl.metadata (4.9 kB)\nCollecting isort\n  Using cached isort-8.0.1-py3-none-any.whl.metadata (11 kB)\nCollecting toml\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting typing_extensions\n  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\nCollecting darkgraylib<3.0.dev0,>=2.4.0\n  Using cached darkgraylib-2.4.1-py3-none-any.whl.metadata (3.9 kB)\nCollecting colorama>=0.4 (from pytest)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=1.0.1 (from pytest)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nRequirement already satisfied: packaging>=22 in <ephemeral_workspace>\\Lib\\site-packages (from pytest) (26.2)\nCollecting pluggy<2,>=1.5 (from pytest)\n  Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)\nCollecting pygments>=2.7.2 (from pytest)\n  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)\nUsing cached darkgraylib-2.4.1-py3-none-any.whl (57 kB)\nUsing cached pytest-9.1.1-py3-none-any.whl (386 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached pytest_kwparametrize-0.0.3-py3-none-any.whl (7.2 kB)\nUsing cached isort-8.0.1-py3-none-any.whl (89 kB)\nUsing cached toml-0.10.2-py2.py3-none-any.whl (16 kB)\nUsing cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)\nUsing cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nUsing cached iniconfig-2.3.0-py3-none-any.whl (",
+      "normalized_output_sha256": "539dbfdff76e5f1376bdebf38f5e1c4e1b8a3332d5a5d6956ee1ca2b53b782cf",
+      "output_sha256": "bf4542c068fa6d631ffa4f924a761b37076bfdfd049128fa2f0e37a67dcc6560",
+      "output_summary": "STDOUT:\nCollecting pytest\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting pytest-kwparametrize\n  Downloading pytest_kwparametrize-0.0.3-py3-none-any.whl.metadata (4.9 kB)\nCollecting isort\n  Downloading isort-8.0.1-py3-none-any.whl.metadata (11 kB)\nCollecting toml\n  Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting typing_extensions\n  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\nCollecting darkgraylib<3.0.dev0,>=2.4.0\n  Downloading darkgraylib-2.4.1-py3-none-any.whl.metadata (3.9 kB)\nCollecting exceptiongroup>=1 (from pytest)\n  Using cached exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)\nCollecting iniconfig>=1.0.1 (from pytest)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nRequirement already satisfied: packaging>=22 in <ephemeral_workspace>/lib/python3.10/site-packages (from pytest) (26.2)\nCollecting pluggy<2,>=1.5 (from pytest)\n  Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)\nCollecting pygments>=2.7.2 (from pytest)\n  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting tomli>=1 (from pytest)\n  Using cached tomli-2.4.1-py3-none-any.whl.metadata (10 kB)\nDownloading darkgraylib-2.4.1-py3-none-any.whl (57 kB)\nUsing cached pytest-9.1.1-py3-none-any.whl (386 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nDownloading pytest_kwparametrize-0.0.3-py3-none-any.whl (7.2 kB)\nDownloading isort-8.0.1-py3-none-any.whl (89 kB)\nDownloading toml-0.10.2-py2.py3-none-any.whl (16 kB)\nUsing cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)",
       "returncode": 0,
       "stage": "install_declared_test_dependencies",
       "timed_out": false,
