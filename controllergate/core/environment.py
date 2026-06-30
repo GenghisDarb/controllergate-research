@@ -156,23 +156,41 @@ def command_record(
 def _parse_pyproject(root: Path) -> dict[str, object]:
     path = root / "pyproject.toml"
     if not path.is_file():
-        return {"dependencies": [], "optional_groups": []}
+        return {"dependencies": [], "optional_groups": [], "optional_dependencies_by_group": {}, "dependency_groups": {}}
     text = path.read_text(encoding="utf-8")
     if tomllib is None:
         dependencies = _fallback_pyproject_dependencies(text)
-        optional_groups = _fallback_pyproject_optional_groups(text)
-        return {"dependencies": dependencies, "optional_groups": optional_groups}
+        optional_by_group = _fallback_pyproject_optional_dependencies_by_group(text)
+        dependency_groups = _fallback_pyproject_dependency_groups(text)
+        return {
+            "dependencies": dependencies,
+            "optional_groups": sorted(optional_by_group),
+            "optional_dependencies_by_group": optional_by_group,
+            "dependency_groups": dependency_groups,
+        }
     try:
         data = tomllib.loads(text)
     except Exception:
-        return {"dependencies": [], "optional_groups": []}
+        return {"dependencies": [], "optional_groups": [], "optional_dependencies_by_group": {}, "dependency_groups": {}}
     project = data.get("project", {}) if isinstance(data, dict) else {}
     dependencies = project.get("dependencies", []) if isinstance(project, dict) else []
     optional = project.get("optional-dependencies", {}) if isinstance(project, dict) else {}
-    optional_groups = sorted(optional.keys()) if isinstance(optional, dict) else []
+    optional_by_group = {
+        str(key): [str(item) for item in value]
+        for key, value in optional.items()
+        if isinstance(key, str) and isinstance(value, list)
+    } if isinstance(optional, dict) else {}
+    dependency_groups_raw = data.get("dependency-groups", {}) if isinstance(data, dict) else {}
+    dependency_groups = {
+        str(key): [str(item) for item in value]
+        for key, value in dependency_groups_raw.items()
+        if isinstance(key, str) and isinstance(value, list)
+    } if isinstance(dependency_groups_raw, dict) else {}
     return {
         "dependencies": dependencies if isinstance(dependencies, list) else [],
-        "optional_groups": optional_groups,
+        "optional_groups": sorted(optional_by_group),
+        "optional_dependencies_by_group": optional_by_group,
+        "dependency_groups": dependency_groups,
     }
 
 
@@ -185,29 +203,47 @@ def _fallback_pyproject_dependencies(text: str) -> list[str]:
 
 
 def _fallback_pyproject_optional_groups(text: str) -> list[str]:
+    return sorted(_fallback_pyproject_optional_dependencies_by_group(text))
+
+
+def _fallback_pyproject_optional_dependencies_by_group(text: str) -> dict[str, list[str]]:
     groups = re.findall(r"(?m)^\s*\[project\.optional-dependencies\]\s*$([\s\S]*?)(?=^\s*\[|\Z)", text)
     if not groups:
-        return []
-    return sorted(set(re.findall(r"(?m)^\s*([A-Za-z0-9_.-]+)\s*=", groups[0])))
+        return {}
+    result: dict[str, list[str]] = {}
+    for group, raw in re.findall(r"(?ms)^\s*([A-Za-z0-9_.-]+)\s*=\s*\[(.*?)\]", groups[0]):
+        result[group] = [item for item in re.findall(r"""["']([^"']+)["']""", raw) if item.strip()]
+    return result
+
+
+def _fallback_pyproject_dependency_groups(text: str) -> dict[str, list[str]]:
+    groups = re.findall(r"(?m)^\s*\[dependency-groups\]\s*$([\s\S]*?)(?=^\s*\[|\Z)", text)
+    if not groups:
+        return {}
+    result: dict[str, list[str]] = {}
+    for group, raw in re.findall(r"(?ms)^\s*([A-Za-z0-9_.-]+)\s*=\s*\[(.*?)\]", groups[0]):
+        result[group] = [item for item in re.findall(r"""["']([^"']+)["']""", raw) if item.strip()]
+    return result
 
 
 def _parse_setup_cfg(root: Path) -> dict[str, object]:
     path = root / "setup.cfg"
     if not path.is_file():
-        return {"dependencies": [], "optional_groups": []}
+        return {"dependencies": [], "optional_groups": [], "optional_dependencies_by_group": {}}
     parser = configparser.ConfigParser()
     try:
         parser.read(path, encoding="utf-8")
     except Exception:
-        return {"dependencies": [], "optional_groups": []}
+        return {"dependencies": [], "optional_groups": [], "optional_dependencies_by_group": {}}
     dependencies: list[str] = []
     if parser.has_option("options", "install_requires"):
         dependencies.extend(line.strip() for line in parser.get("options", "install_requires").splitlines() if line.strip())
-    optional_groups: list[str] = []
+    optional_by_group: dict[str, list[str]] = {}
     prefix = "options.extras_require"
     if parser.has_section(prefix):
-        optional_groups.extend(parser.options(prefix))
-    return {"dependencies": dependencies, "optional_groups": sorted(set(optional_groups))}
+        for group in parser.options(prefix):
+            optional_by_group[group] = [line.strip() for line in parser.get(prefix, group).splitlines() if line.strip()]
+    return {"dependencies": dependencies, "optional_groups": sorted(optional_by_group), "optional_dependencies_by_group": optional_by_group}
 
 
 def _parse_requirements(root: Path) -> list[str]:
@@ -228,10 +264,21 @@ def project_metadata_summary(root: str | Path) -> dict[str, object]:
     setup_cfg = _parse_setup_cfg(checkout)
     requirements = _parse_requirements(checkout)
     optional_groups = sorted(set(pyproject["optional_groups"]) | set(setup_cfg["optional_groups"]))
-    dependencies = list(pyproject["dependencies"]) + list(setup_cfg["dependencies"]) + requirements
+    optional_by_group = {}
+    optional_by_group.update(pyproject.get("optional_dependencies_by_group", {}))
+    optional_by_group.update(setup_cfg.get("optional_dependencies_by_group", {}))
+    dependency_groups = pyproject.get("dependency_groups", {})
+    dependencies = (
+        list(pyproject["dependencies"])
+        + list(setup_cfg["dependencies"])
+        + [item for values in optional_by_group.values() for item in values]
+        + [item for values in dependency_groups.values() for item in values] if isinstance(dependency_groups, dict) else []
+    ) + requirements
     return {
         "environment_files": detect_environment_lock_source(checkout),
         "optional_dependency_groups": optional_groups,
+        "optional_dependencies_by_group": optional_by_group,
+        "dependency_groups": dependency_groups if isinstance(dependency_groups, dict) else {},
         "declared_dependency_strings": dependencies,
         "requirements_files": [name for name in ["requirements.txt", "requirements-dev.txt", "requirements-test.txt", "requirements_tests.txt"] if (checkout / name).is_file()],
     }

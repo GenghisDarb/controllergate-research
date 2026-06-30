@@ -22,15 +22,16 @@
 - Corrected Batch005 intended target-node selection, source-stack extraction, patchable source subset derivation, and no-patch taxonomy for `darker_skip_glob_failing_test`.
 - Batch006 bounded fragment patch assembly for `darker_skip_glob_failing_test`, including coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory weighting records, and proof-chain custody.
 - Batch007 target-intent reachability and precondition resolution for `darker_skip_glob_failing_test`, including formatter/dependency probes, trace-feedback alignment, iterative dual projection recheck, explicit candidate retirement, and a completion decision ladder.
+- Batch008 declared formatter precondition materialization for `darker_skip_glob_failing_test`, including fresh ephemeral runtime materialization, declared formatter extra installs, declared target-test tooling, target-intent replay after declared extras, bounded fragment patch assembly, target validation, duplicate replay, and target-file no-overreach evidence.
 - NotebookLM advice traceability matrix with operational gate cross-checks, carry-forward blockers, and no-silent-completion audit.
 
 ## Partial
 
-- Candidate acquisition beyond the first three confirmed external native repair episodes.
+- Candidate acquisition beyond the first four confirmed external native repair endpoints.
 - Broader source-only repair generation across diverse repositories and failure types.
 - Matched-null ensemble execution on a verified moderate-complexity challenge candidate.
 - Acquisition of a verified native challenge candidate, or a separately classified issue-derived feasibility candidate.
-- Batch006 native repair remains blocked before patch bytes with `fragment_patch_plan_not_generated`; Batch007 retires the same challenge candidate with `target_precondition_unresolved` because target intent is still not reached after allowed precondition analysis. No additional repair is counted until a safe assembled patch passes target validation and duplicate clean replay.
+- Batch006 and Batch007 document the earlier precondition and projection blockers. Batch008 corrects the declared formatter precondition gap and records a bounded source-only repair endpoint; broader memory or release claims still require additional audited comparison evidence.
 - Matched-null memory separation evidence beyond equal-performance outcomes.
 - Public release readiness evidence.
 
@@ -46,4 +47,4 @@
 - Implemented active gates: artifact byte custody, workspace transport integrity, external candidate registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, and public release readiness blocking.
 - Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, post-patch revalidation for blocked candidates, global-block exception research, and broader evidence-ledger standardization.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
-- Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
+- Current evidence counts: confirmed external native repair episodes `4` after Batch008 implementation evidence; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

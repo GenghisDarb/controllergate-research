@@ -1,0 +1,38 @@
+{
+  "allowed_declared_extras": [
+    "isort",
+    "black",
+    "isort,black"
+  ],
+  "allowed_source_files": [
+    "src/darker/import_sorting.py"
+  ],
+  "allowed_target_test_tool_packages": [
+    "pytest",
+    "pytest-kwparametrize"
+  ],
+  "batch_id": "clean_replication_batch_008",
+  "candidate_id": "darker_skip_glob_failing_test",
+  "commit_sha": "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75",
+  "current_protocol_version": "v2.13",
+  "duplicate_replay_required_count": 3,
+  "full_scoring": false,
+  "max_final_patches": 1,
+  "max_source_fragments": 3,
+  "no_overreach_command": [
+    "python",
+    "-m",
+    "pytest",
+    "src/darker/tests/test_main_isort.py",
+    "-q"
+  ],
+  "repo_url": "https://github.com/akaihola/darker",
+  "target_command": [
+    "python",
+    "-m",
+    "pytest",
+    "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+    "-q"
+  ],
+  "target_test_path": "src/darker/tests/test_main_isort.py"
+}

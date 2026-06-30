@@ -17,7 +17,8 @@ BATCH004_DIR = Path("outputs/clean_replication_batch_004")
 BATCH005_DIR = Path("outputs/clean_replication_batch_005")
 BATCH006_DIR = Path("outputs/clean_replication_batch_006")
 BATCH007_DIR = Path("outputs/clean_replication_batch_007")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch007_target_reachability")
+BATCH008_DIR = Path("outputs/clean_replication_batch_008")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch008_declared_precondition")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -69,6 +70,9 @@ POST_REQUIRED = [
     "batch004_artifact_verification.json",
     "batch004_source_materialization_gap_diagnosis.json",
     "batch004_issue_lead_gap_diagnosis.json",
+    "batch007_target_reachability_artifact_verification.json",
+    "batch007_declared_precondition_gap_diagnosis.json",
+    "batch008_declared_formatter_extra_recommendation.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
     "campaign_summary.md",
@@ -252,6 +256,41 @@ BATCH007_REQUIRED = [
     "precondition_to_source_context_feedback.json",
     "repair_generator_trace_consumption_audit.json",
     "null_ensemble_trace_alignment_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH008_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_008.json",
+    "runtime_workspace_materialization_policy.json",
+    "runtime_workspace_materialization_log.json",
+    "declared_formatter_extra_scan.json",
+    "declared_formatter_extra_install_attempts.json",
+    "formatter_import_probe_after_declared_extras.json",
+    "entrypoint_resolution_after_declared_extras.json",
+    "target_replay_after_declared_extras.json",
+    "target_intent_reachability_after_declared_extras.json",
+    "dual_projection_recheck_batch008.json",
+    "trace_feedback_alignment_status_batch008.json",
+    "source_stack_after_declared_extras.json",
+    "patchable_source_subset_after_declared_extras.json",
+    "coupled_dependency_interlock_map_batch008.json",
+    "dual_projection_consistency_after_declared_extras.json",
+    "bounded_fragment_patch_policy_batch008.json",
+    "fragment_patch_candidates_batch008.json",
+    "fragment_safety_audits_batch008.json",
+    "assembled_patch_batch008.diff",
+    "assembled_patch_batch008_sha256.txt",
+    "target_validation_result_batch008.json",
+    "duplicate_replay_result_batch008.json",
+    "no_overreach_validation_batch008.json",
+    "proof_chain_lock_batch008.json",
+    "candidate_retirement_decision_batch008.json",
+    "targeted_issue_seed_fallback_batch008.json",
+    "memory_separation_claim_evaluation_batch008.json",
+    "notebooklm_advice_traceability_status.json",
+    "carry_forward_blocker_register.json",
+    "claim_boundary.json",
     "SHA256SUMS.txt",
 ]
 
@@ -1376,6 +1415,160 @@ def audit_batch007_records() -> list[str]:
     return errors
 
 
+def audit_batch008_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH008_REQUIRED:
+        if not (BATCH008_DIR / name).is_file():
+            errors.append(f"batch008 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH008_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch008 manifest failed: {manifest}")
+
+    artifact = read_json(POST_DIR / "batch007_target_reachability_artifact_verification.json")
+    gap = read_json(POST_DIR / "batch007_declared_precondition_gap_diagnosis.json")
+    recommendation = read_json(POST_DIR / "batch008_declared_formatter_extra_recommendation.json")
+    if artifact.get("status") != "PASS" or artifact.get("artifact_source") != "manual_download_local_file":
+        errors.append("batch007 artifact ingest verification missing or not manual")
+    if artifact.get("actual_sha256") != "f05c7d4605aaba9e27445ed1de0c770b75df68a3cd173796a47623f945428fc7":
+        errors.append("batch007 artifact SHA mismatch")
+    if artifact.get("actual_size_bytes") != 278040 or artifact.get("artifact_id") != 7970646051:
+        errors.append("batch007 artifact identity mismatch")
+    if gap.get("batch007_declared_black_extra_detected") is not True or gap.get("batch007_black_extra_executed") is not False:
+        errors.append("batch007 declared-precondition gap not recorded")
+    if recommendation.get("recommended_batch") != "clean_replication_batch_008" or recommendation.get("runtime_workspace_required") is not True:
+        errors.append("batch008 corrective action missing")
+
+    state = read_json(BATCH008_DIR / "consolidated_state_clean_replication_batch_008.json")
+    policy = read_json(BATCH008_DIR / "runtime_workspace_materialization_policy.json")
+    materialization = read_json(BATCH008_DIR / "runtime_workspace_materialization_log.json")
+    scan = read_json(BATCH008_DIR / "declared_formatter_extra_scan.json")
+    installs = read_json(BATCH008_DIR / "declared_formatter_extra_install_attempts.json")
+    imports = read_json(BATCH008_DIR / "formatter_import_probe_after_declared_extras.json")
+    entrypoint = read_json(BATCH008_DIR / "entrypoint_resolution_after_declared_extras.json")
+    replay = read_json(BATCH008_DIR / "target_replay_after_declared_extras.json")
+    reachability = read_json(BATCH008_DIR / "target_intent_reachability_after_declared_extras.json")
+    dual = read_json(BATCH008_DIR / "dual_projection_recheck_batch008.json")
+    trace = read_json(BATCH008_DIR / "trace_feedback_alignment_status_batch008.json")
+    source_stack = read_json(BATCH008_DIR / "source_stack_after_declared_extras.json")
+    subset = read_json(BATCH008_DIR / "patchable_source_subset_after_declared_extras.json")
+    interlock = read_json(BATCH008_DIR / "coupled_dependency_interlock_map_batch008.json")
+    dual_consistency = read_json(BATCH008_DIR / "dual_projection_consistency_after_declared_extras.json")
+    patch_policy = read_json(BATCH008_DIR / "bounded_fragment_patch_policy_batch008.json")
+    fragments = read_json(BATCH008_DIR / "fragment_patch_candidates_batch008.json")
+    safety = read_json(BATCH008_DIR / "fragment_safety_audits_batch008.json")
+    validation = read_json(BATCH008_DIR / "target_validation_result_batch008.json")
+    duplicate = read_json(BATCH008_DIR / "duplicate_replay_result_batch008.json")
+    no_overreach = read_json(BATCH008_DIR / "no_overreach_validation_batch008.json")
+    proof = read_json(BATCH008_DIR / "proof_chain_lock_batch008.json")
+    retirement = read_json(BATCH008_DIR / "candidate_retirement_decision_batch008.json")
+    issue_seed = read_json(BATCH008_DIR / "targeted_issue_seed_fallback_batch008.json")
+    memory = read_json(BATCH008_DIR / "memory_separation_claim_evaluation_batch008.json")
+    traceability = read_json(BATCH008_DIR / "notebooklm_advice_traceability_status.json")
+    blockers = read_json(BATCH008_DIR / "carry_forward_blocker_register.json")
+    claim = read_json(BATCH008_DIR / "claim_boundary.json")
+    patch_text = (BATCH008_DIR / "assembled_patch_batch008.diff").read_text(encoding="utf-8")
+    patch_sha = (BATCH008_DIR / "assembled_patch_batch008_sha256.txt").read_text(encoding="utf-8").strip()
+
+    expected_candidate = "darker_skip_glob_failing_test"
+    if state.get("candidate_id") != expected_candidate or materialization.get("candidate_id") != expected_candidate:
+        errors.append("batch008 candidate identity changed")
+    if state.get("commit_sha") != "bd28cdc3e1a56f2d2a6e25d6ca75a7cc41e71f75":
+        errors.append("batch008 commit identity changed")
+    if policy.get("fixed_later_gold_pr_evidence_forbidden") is not True:
+        errors.append("batch008 workspace policy does not forbid fixed/later/gold/PR evidence")
+    if materialization.get("status") != "PASS" or materialization.get("workspace_classification") != "workspace_materialized_decision_time_safe":
+        errors.append("batch008 runtime workspace materialization did not pass")
+    if materialization.get("workspace_outside_live_repo") is not True or materialization.get("workspace_outside_onedrive") is not True:
+        errors.append("batch008 workspace location guard failed")
+    if materialization.get("target_test_exists") is not True or "pyproject.toml" not in materialization.get("environment_files", []):
+        errors.append("batch008 target or environment file missing")
+    if materialization.get("fixed_later_gold_pr_evidence_used") is not False or materialization.get("tests_fixtures_expectations_mutated") is not False:
+        errors.append("batch008 forbidden evidence or mutation recorded")
+    if scan.get("status") != "PASS" or scan.get("black_declared") is not True or scan.get("isort_declared") is not True:
+        errors.append("batch008 declared formatter extra scan failed")
+    if "pytest>=6.2.0" not in scan.get("declared_target_test_tool_specs", []) or "pytest-kwparametrize>=0.0.3" not in scan.get("declared_target_test_tool_specs", []):
+        errors.append("batch008 declared target-test tooling evidence missing")
+    attempts = installs.get("attempts", [])
+    required_commands = {
+        ".[isort]",
+        ".[black]",
+        ".[isort,black]",
+    }
+    seen_commands = {
+        item.get("command", [])[-1]
+        for item in attempts
+        if isinstance(item, dict) and isinstance(item.get("command"), list) and item.get("command")
+    }
+    if installs.get("status") != "PASS" or not required_commands.issubset(seen_commands):
+        errors.append("batch008 declared formatter extra installs did not pass")
+    if installs.get("undeclared_dependency_install_used") is not False:
+        errors.append("batch008 undeclared dependency install used")
+    if imports.get("status") != "PASS" or entrypoint.get("status") != "PASS" or entrypoint.get("create_formatter_black_resolves") is not True:
+        errors.append("batch008 formatter import or entrypoint probe failed")
+    if replay.get("status") != "target_behavior_reached_and_failed":
+        errors.append("batch008 pre-patch target replay did not reach intended failing behavior")
+    if replay.get("pre_patch") is not True or replay.get("returncode") == 0:
+        errors.append("batch008 replay must be failing pre-patch evidence")
+    if reachability.get("target_behavior_reached") is not True or reachability.get("fragment_generation_may_run") is not True:
+        errors.append("batch008 target reachability did not authorize fragment generation")
+    if dual.get("status") != "PASS" or trace.get("status") != "PASS":
+        errors.append("batch008 dual projection or trace alignment did not pass")
+    if source_stack.get("status") != "PASS" or subset.get("status") != "PASS":
+        errors.append("batch008 source stack or patchable subset missing")
+    if subset.get("allowed_patchable_files") != ["src/darker/import_sorting.py"]:
+        errors.append("batch008 patchable subset changed")
+    if interlock.get("status") != "PASS" or dual_consistency.get("status") != "PASS":
+        errors.append("batch008 interlock/dual consistency failed")
+    if patch_policy.get("status") != "PASS" or int(patch_policy.get("max_final_patches", 0)) != 1:
+        errors.append("batch008 patch policy invalid")
+    if fragments.get("status") != "PASS" or int(fragments.get("fragment_count", 0)) > 3:
+        errors.append("batch008 fragment candidate count invalid")
+    if safety.get("status") != "PASS" or safety.get("source_only") is not True or safety.get("non_degenerate") is not True:
+        errors.append("batch008 patch safety failed")
+    if safety.get("modified_files") != ["src/darker/import_sorting.py"]:
+        errors.append("batch008 patch touched unauthorized files")
+    if "FileSkipSetting" not in patch_text or "file_path" not in patch_text:
+        errors.append("batch008 patch missing expected semantic delta")
+    if patch_sha != safety.get("patch_sha256"):
+        errors.append("batch008 patch SHA record mismatch")
+    if validation.get("status") != "PASS" or validation.get("returncode") != 0:
+        errors.append("batch008 target validation failed")
+    if duplicate.get("status") != "PASS" or duplicate.get("passes") != 3:
+        errors.append("batch008 duplicate replay failed")
+    if no_overreach.get("status") != "PASS" or no_overreach.get("returncode") != 0:
+        errors.append("batch008 no-overreach validation failed")
+    if proof.get("status") != "PASS" or proof.get("hash_chain_valid") is not True:
+        errors.append("batch008 proof chain invalid")
+    if retirement.get("completion_decision") != "repair_success" or retirement.get("retired") is not False:
+        errors.append("batch008 candidate retirement/success decision invalid")
+    if issue_seed.get("status") != "NOT_RUN" or issue_seed.get("targeted_issue_seed_present") is not False:
+        errors.append("batch008 issue-derived fallback should not run after native success")
+    if memory.get("preliminary_single_candidate_memory_separation_evidence") is not False or memory.get("null_ensemble_run_count") != 0:
+        errors.append("batch008 memory separation overclaim")
+    if traceability.get("status") != "PASS" or traceability.get("silent_completion") is not False:
+        errors.append("batch008 traceability invalid")
+    if blockers.get("status") != "PASS":
+        errors.append("batch008 carry-forward blocker register invalid")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch008 claim boundary changed")
+    if claim.get("full_memory_lift_status") != "undemonstrated":
+        errors.append("batch008 memory lift overclaim")
+    if state.get("additional_native_external_repair_acquired") is not True:
+        errors.append("batch008 did not record successful additional native repair")
+    if state.get("target_validation_status") != "PASS" or state.get("duplicate_replay_status") != "PASS" or state.get("no_overreach_status") != "PASS":
+        errors.append("batch008 final validation statuses are not PASS")
+    registry = read_json(Path("configs/external_repair_episode_registry.json"))
+    episodes = registry.get("episodes", [])
+    registry_entry = next((item for item in episodes if isinstance(item, dict) and item.get("candidate_id") == expected_candidate), None)
+    if not registry_entry or registry_entry.get("scoreable") is not True:
+        errors.append("batch008 successful repair missing from external repair episode registry")
+    elif registry_entry.get("semantic_failure_signature_hash") != state.get("semantic_failure_signature_hash"):
+        errors.append("batch008 registry semantic failure signature hash mismatch")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -1485,6 +1678,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_005.json"),
         Path("configs/clean_replication_batch_006.json"),
         Path("configs/clean_replication_batch_007.json"),
+        Path("configs/clean_replication_batch_008.json"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
@@ -1513,6 +1707,7 @@ REQUIRED_NOTEBOOKLM_ADVICE_IDS = {
     "interlock_invariant_map",
     "target_intent_reachability_gate",
     "formatter_dependency_precondition_resolution",
+    "declared_precondition_materialization",
     "trace_feedback_alignment_gate",
     "dual_projection_recheck",
     "issue_derived_harness",
@@ -1622,6 +1817,7 @@ def main() -> int:
         + require_files(BATCH005_DIR, BATCH005_REQUIRED)
         + require_files(BATCH006_DIR, BATCH006_REQUIRED)
         + require_files(BATCH007_DIR, BATCH007_REQUIRED)
+        + require_files(BATCH008_DIR, BATCH008_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -1639,6 +1835,8 @@ def main() -> int:
         return fail("batch006 manifest mismatch")
     if verify_manifest(BATCH007_DIR)["status"] != "PASS":
         return fail("batch007 manifest mismatch")
+    if verify_manifest(BATCH008_DIR)["status"] != "PASS":
+        return fail("batch008 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
         return fail("core tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -1765,6 +1963,9 @@ def main() -> int:
     batch007_errors = audit_batch007_records()
     if batch007_errors:
         return fail(f"batch007 audit failed: {batch007_errors}")
+    batch008_errors = audit_batch008_records()
+    if batch008_errors:
+        return fail(f"batch008 audit failed: {batch008_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")

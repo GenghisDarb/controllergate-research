@@ -1,0 +1,62 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "passes": 3,
+  "records": [
+    {
+      "command": [
+        "<ephemeral_root>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+        "-q"
+      ],
+      "cwd": "<ephemeral_workspace>",
+      "normalized_output_sha256": "0c4de0bfd34cc34e0e33fbb09aec5581f4bb4b86b1325e094983ca242b569cad",
+      "output_sha256": "d66a0624589aeeaf20db13662cdf0f907cff94f5f6dfa6277c422088b7f240ae",
+      "output_summary": "STDOUT:\n.                                                                        [100%]\n============================ slowest 10 durations =============================\n3.92s call     src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n0.42s setup    src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n\n(1 durations < 0.005s hidden.  Use -vv to show these durations.)\n1 passed in 23.22s\n\nSTDERR:",
+      "replay_index": 1,
+      "returncode": 0,
+      "status": "PASS",
+      "timed_out": false,
+      "timeout_seconds": 180
+    },
+    {
+      "command": [
+        "<ephemeral_root>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+        "-q"
+      ],
+      "cwd": "<ephemeral_workspace>",
+      "normalized_output_sha256": "6cd983b660de031e02d226eccdec8f56dd45ecac88612a5dd119581eb219a627",
+      "output_sha256": "dae0df94e8ac866e90854c52da57bc73655eaa9c840266571caaec0ef83065af",
+      "output_summary": "STDOUT:\n.                                                                        [100%]\n============================ slowest 10 durations =============================\n3.82s call     src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n0.38s setup    src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n\n(1 durations < 0.005s hidden.  Use -vv to show these durations.)\n1 passed in 20.35s\n\nSTDERR:",
+      "replay_index": 2,
+      "returncode": 0,
+      "status": "PASS",
+      "timed_out": false,
+      "timeout_seconds": 180
+    },
+    {
+      "command": [
+        "<ephemeral_root>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+        "-q"
+      ],
+      "cwd": "<ephemeral_workspace>",
+      "normalized_output_sha256": "fb710cc6ea693255fc282b6d05c647d95119b1d4586267ea97a66aee6461d7ad",
+      "output_sha256": "8482f5dce89d45c10f51e9f5bdbe4f1a0ed6f622bc1754ba0f48c7448aab304c",
+      "output_summary": "STDOUT:\n.                                                                        [100%]\n============================ slowest 10 durations =============================\n3.84s call     src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n0.42s setup    src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n\n(1 durations < 0.005s hidden.  Use -vv to show these durations.)\n1 passed in 20.21s\n\nSTDERR:",
+      "replay_index": 3,
+      "returncode": 0,
+      "status": "PASS",
+      "timed_out": false,
+      "timeout_seconds": 180
+    }
+  ],
+  "required_passes": 3,
+  "status": "PASS"
+}

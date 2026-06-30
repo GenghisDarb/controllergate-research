@@ -50,7 +50,26 @@ def classify_runtime_path(output: str, *, returncode: int | None) -> dict[str, A
 
 
 def fragment_generation_authorized(runtime_classification: str, dual_projection_status: str) -> bool:
-    return runtime_classification == "aligned_target_behavior_reached" and dual_projection_status == "PASS"
+    return runtime_classification in {"aligned_target_behavior_reached", "target_behavior_reached_and_failed"} and dual_projection_status == "PASS"
+
+
+def classify_declared_precondition_replay(output: str, *, returncode: int | None) -> dict[str, Any]:
+    base = classify_runtime_path(output, returncode=returncode)
+    if returncode == 0:
+        status = "target_passed_after_declared_precondition_resolution"
+    elif base["classification"] == "environment_dependency_block":
+        status = "environment_dependency_failure_after_declared_extras"
+    elif base["classification"] == "precondition_before_target_behavior":
+        status = "target_precondition_unresolved_after_declared_extras"
+    elif base["target_behavior_reached"] is True:
+        status = "target_behavior_reached_and_failed"
+    else:
+        status = "ambiguous_runtime_path_after_declared_extras"
+    return {
+        **base,
+        "status": status,
+        "target_passed_after_declared_precondition_resolution": status == "target_passed_after_declared_precondition_resolution",
+    }
 
 
 EXPLICIT_COMPLETION_OUTCOMES = {

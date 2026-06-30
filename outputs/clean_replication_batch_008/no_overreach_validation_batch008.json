@@ -1,0 +1,19 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "command": [
+    "<ephemeral_root>\\venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "src/darker/tests/test_main_isort.py",
+    "-q"
+  ],
+  "cwd": "<ephemeral_workspace>",
+  "normalized_output_sha256": "00c45b8f937c878b338a49c6025c105e79b2c43b6b5d18a3f1336ab118581af1",
+  "output_sha256": "a7aff7485865d6282bb4e90393bcb70189ba9f199d7b634241ceaa2416909a9f",
+  "output_summary": "STDOUT:\n.....                                                                    [100%]\n============================ slowest 10 durations =============================\n4.16s setup    src/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports[run_isort1-isort_args1]\n3.98s setup    src/darker/tests/test_main_isort.py::test_isort_option_with_isort_calls_sortimports[run_isort0-isort_args0]\n3.81s setup    src/darker/tests/test_main_isort.py::test_isort_option_with_isort\n3.68s call     src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n2.60s call     src/darker/tests/test_main_isort.py::test_isort_option_without_isort\n1.06s setup    src/darker/tests/test_main_isort.py::test_isort_option_without_isort\n0.03s teardown src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n\n(3 durations < 0.005s hidden.  Use -vv to show these durations.)\n5 passed in 35.62s\n\nSTDERR:",
+  "returncode": 0,
+  "scope": "target_test_file",
+  "status": "PASS",
+  "timed_out": false,
+  "timeout_seconds": 240
+}

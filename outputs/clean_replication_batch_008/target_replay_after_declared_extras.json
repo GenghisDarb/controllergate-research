@@ -1,0 +1,38 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "command": [
+    "<ephemeral_root>\\venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+    "-q"
+  ],
+  "cwd": "<ephemeral_workspace>",
+  "environment_markers_found": [],
+  "exact_target_command": [
+    "python",
+    "-m",
+    "pytest",
+    "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+    "-q"
+  ],
+  "normalized_output_sha256": "d7bf67098ca2e7f4951fd2160ab39e60cdd37ca4d104596a8d459e3f410f5af9",
+  "output_sha256": "6e6fdbfcc288cbc4639c3bd08f1514b68bdb3979515b1f5000aeaa47598076a9",
+  "output_summary": "STDOUT:\nF                                                                        [100%]\n================================== FAILURES ===================================\n________________________ test_isort_respects_skip_glob ________________________\n\ntmp_path = WindowsPath('<system_temp>/pytest-of-thisb/pytest-391/test_isort_respects_skip_glob0')\n\n    def test_isort_respects_skip_glob(tmp_path):\n        \"\"\"Test that Darker respects isort's skip_glob setting.\"\"\"\n        # Create a pyproject.toml file with isort skip_glob configuration\n        configuration = dedent(\n            \"\"\"\n            [tool.isort]\n            skip_glob = ['*/conf/settings/*']\n            filter_files = true\n            \"\"\"\n        )\n        (tmp_path / \"pyproject.toml\").write_text(configuration)\n        # Create a file that should be skipped\n        settings_dir = tmp_path / \"conf\" / \"settings\"\n        settings_dir.mkdir(parents=True)\n        backoffice_py = settings_dir / \"backoffice.py\"\n        backoffice_py.write_text(\"import sys\\nimport os\\n\")\n\n        # Run darker with --isort\n        darker.__main__.main([\"--isort\", str(settings_dir / \"backoffice.py\")])\n\n>       assert backoffice_py.read_text() == \"import sys\\nimport os\\n\"\nE       AssertionError: assert 'import os\\nimport sys\\n' == 'import sys\\nimport os\\n'\nE\nE         + import os\nE           import sys\nE         - import os\n\nsrc\\darker\\tests\\test_main_isort.py:119: AssertionError\n============================ slowest 10 durations =============================\n4.13s call     src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n0.39s",
+  "pre_patch": true,
+  "precondition_markers_found": [],
+  "returncode": 1,
+  "semantic_failure_signature_hash": "d7bf67098ca2e7f4951fd2160ab39e60cdd37ca4d104596a8d459e3f410f5af9",
+  "status": "target_behavior_reached_and_failed",
+  "target_behavior_markers_found": [
+    "test_isort_respects_skip_glob",
+    "skip_glob",
+    "isort",
+    "AssertionError"
+  ],
+  "target_behavior_reached": true,
+  "target_failed_after_declared_precondition_resolution": true,
+  "target_passed_after_declared_precondition_resolution": false,
+  "timed_out": false,
+  "timeout_seconds": 180
+}

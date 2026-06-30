@@ -80,13 +80,17 @@ Batch006 continues from the verified Batch005 native challenge candidate. It bui
 
 Batch007 continues from Batch006 and verifies whether the observed replay reaches the intended import-sorting skip behavior before any fragment patch can be generated. It records formatter/dependency precondition evidence, declared metadata scans, install strategy decisions, trace-feedback alignment, iterative dual projection recheck, and an explicit completion decision ladder. The current Batch007 result retires `darker_skip_glob_failing_test` with `target_precondition_unresolved`; no patch, validation, duplicate replay, no-overreach, or matched-null ensemble is authorized.
 
+## Batch008 declared precondition materialization
+
+Batch008 corrects declared formatter precondition materialization for `darker_skip_glob_failing_test`. It creates a fresh ephemeral runtime workspace, checks out the exact candidate commit, installs only declared formatter extras and declared target-test tooling, reruns the exact target command, and authorizes bounded source-only repair only after the target behavior is reached and failing. The Batch008 implementation records one source-only patch, target validation PASS, duplicate replay 3/3, and target-file no-overreach PASS. It does not run full scoring, does not claim memory lift, and does not claim self-maintaining software.
+
 ## Current official repair episodes
 
-As of the post-v2.37 Batch007 boundary, the confirmed external non-Ansible native repair episodes are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, and `darker_stdin_filename`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
+As of the Batch008 implementation boundary, the confirmed external non-Ansible native repair endpoints are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. The Batch008 workflow artifact still requires manual download and official ingest before that artifact boundary is complete. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
 
 ## Current operational gate status
 
 - Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, and public claim boundary audit.
 - Partial gates: structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, matched-null ensemble execution, failure-memory weighting, and no-overreach validation for blocked candidates.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
-- Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
+- Current evidence counts: confirmed external native repair episodes `4` after Batch008 implementation evidence; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

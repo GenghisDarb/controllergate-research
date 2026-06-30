@@ -5,7 +5,7 @@ ControllerGate is a provenance-first software repair research harness. It emphas
 ## Current evidence boundary
 
 - Current protocol: `v2.13` / `minimal_forensic_context_lane`.
-- Confirmed external non-Ansible native repair episodes after official ingest: `3` (`py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`).
+- Confirmed external non-Ansible native repair endpoints after Batch008 implementation evidence: `4` (`py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, `darker_skip_glob_failing_test`). The Batch008 artifact still requires manual download and official ingest before that artifact boundary is complete.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift on external real bugs: `undemonstrated_equal_performance`.
 - Self-maintaining software: `false/not_demonstrated`.
@@ -71,7 +71,8 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 - The official Batch005 source-materialized artifact verified byte custody and source materialization, but did not verify a native target-node repair candidate.
 - The corrected Batch005 workflow adds intended target-node selection, source-stack extraction, patchable source subset derivation, no-patch taxonomy, and NotebookLM advice traceability locks.
 - Batch006 adds bounded fragment patch assembly, coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory records, and proof-chain custody for the verified native challenge candidate. It blocks before patch bytes with `fragment_patch_plan_not_generated`.
-- Batch007 adds target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, and explicit candidate retirement. It blocks with `target_precondition_unresolved`; until new authorized runtime precondition evidence exists, no additional repair is counted.
+- Batch007 adds target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, and explicit candidate retirement.
+- Batch008 corrects declared formatter precondition materialization, reaches the intended target behavior after declared extras, and records one bounded source-only repair endpoint with target validation PASS, duplicate replay 3/3, and target-file no-overreach PASS.
 - BugsInPy remains globally blocked for active use.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `undemonstrated_equal_performance`.
@@ -79,11 +80,11 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 
 ## Safest next step
 
-After the Batch007 workflow completes, manually download the target-reachability artifact and ingest it through the same byte-custody boundary.
+After the Batch008 workflow completes, manually download the declared-precondition artifact and ingest it through the same byte-custody boundary.
 
 ## Current operational gate status
 
 - Implemented active gates include artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, and release-readiness blocking.
 - Partial gates include structural navigation, active probe routing, issue-derived harness execution, matched-null ensemble execution, failure-memory weighting, and post-patch validation for blocked candidates.
 - Deferred gates include bounded micro-reversal and v3.0 readiness.
-- Current evidence counts: confirmed external native repair episodes `3`; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
+- Current evidence counts: confirmed external native repair episodes `4` after Batch008 implementation evidence; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

@@ -1,0 +1,36 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "rebuilt_after_declared_extras": true,
+  "source_files": [
+    {
+      "file_path": "src/darker/__main__.py",
+      "function_or_class": [
+        "main"
+      ],
+      "reason_codes": [
+        "target_entry"
+      ]
+    },
+    {
+      "file_path": "src/darker/import_sorting.py",
+      "function_or_class": [
+        "_build_isort_args",
+        "_call_isort_code"
+      ],
+      "reason_codes": [
+        "traceback_membership",
+        "patchable_source"
+      ]
+    },
+    {
+      "file_path": "src/darker/formatters/__init__.py",
+      "function_or_class": [
+        "create_formatter"
+      ],
+      "reason_codes": [
+        "formatter_entrypoint_context"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

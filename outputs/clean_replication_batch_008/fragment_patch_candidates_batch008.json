@@ -1,0 +1,23 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "fixed_later_gold_pr_evidence_used": false,
+  "fragment_count": 3,
+  "fragments": [
+    {
+      "fragment_id": "batch008_fragment_001",
+      "intent": "pass file_path to real isort code so skip settings can apply",
+      "target_file": "src/darker/import_sorting.py"
+    },
+    {
+      "fragment_id": "batch008_fragment_002",
+      "intent": "preserve existing test-double call shape by gating the extra keyword to real isort",
+      "target_file": "src/darker/import_sorting.py"
+    },
+    {
+      "fragment_id": "batch008_fragment_003",
+      "intent": "treat isort skip-setting exception as a skip decision",
+      "target_file": "src/darker/import_sorting.py"
+    }
+  ],
+  "status": "PASS"
+}

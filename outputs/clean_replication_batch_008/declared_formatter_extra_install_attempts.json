@@ -1,0 +1,117 @@
+{
+  "attempts": [
+    {
+      "command": [
+        "<ephemeral_root>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-U",
+        "pip",
+        "setuptools",
+        "wheel"
+      ],
+      "cwd": "<ephemeral_workspace>",
+      "declared_or_baseline": true,
+      "normalized_output_sha256": "3a4d1e8689f68192f829a00e5f2dda7486c26484c496e9cdb7b377d0069e1d2c",
+      "output_sha256": "abbd1fffc752e996e9f12c93222990ed4a0a1b705cf0c458134d71c42547035e",
+      "output_summary": "STDOUT:\nRequirement already satisfied: pip in <ephemeral_workspace>\\Lib\\site-packages (26.1.2)\nCollecting setuptools\n  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)\nCollecting wheel\n  Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)\nCollecting packaging>=24.0 (from wheel)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nUsing cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nUsing cached wheel-0.47.0-py3-none-any.whl (32 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nInstalling collected packages: setuptools, packaging, wheel\n\nSuccessfully installed packaging setuptools wheel\n\nSTDERR:",
+      "returncode": 0,
+      "stage": "baseline_build_tools",
+      "status": "PASS",
+      "timed_out": false,
+      "timeout_seconds": 900
+    },
+    {
+      "command": [
+        "<ephemeral_root>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        ".[isort]"
+      ],
+      "cwd": "<ephemeral_workspace>",
+      "declared_or_baseline": true,
+      "normalized_output_sha256": "06908d8f052f38ad8c2b3871c8284827d255d56c520d4e1d6905602131c46b56",
+      "output_sha256": "edf8500be966411df388c8339c39a132171f6e343d7d59cd4fd06c834fbd05bd",
+      "output_summary": "STDOUT:\nObtaining file:///<ephemeral_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCollecting darkgraylib<3.0.dev0,>=2.4.0 (from darker==2.1.1)\n  Using cached darkgraylib-2.4.1-py3-none-any.whl.metadata (3.9 kB)\nCollecting toml>=0.10.0 (from darker==2.1.1)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting typing_extensions>=4.0.1 (from darker==2.1.1)\n  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\nCollecting isort>=5.1.0 (from darker==2.1.1)\n  Using cached isort-8.0.1-py3-none-any.whl.metadata (11 kB)\nUsing cached darkgraylib-2.4.1-py3-none-any.whl (57 kB)\nUsing cached isort-8.0.1-py3-none-any.whl (89 kB)\nUsing cached toml-0.10.2-py2.py3-none-any.whl (16 kB)\nUsing cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)\nBuilding wheels for collected packages: darker\n  Building editable for darker (pyproject.toml): started\n  Building editable for darker (pyproject.toml): finished with status 'done'\n  Created wheel for darker: filename=darker-2.1.1-0.editable-py3-none-any.whl size=15701 sha256=0745d9a17ba71717096f03eac8acd6c1f6f84e2c64023517c36907681bf54430\n  Stored in d",
+      "returncode": 0,
+      "stage": "declared_extra:.[isort]",
+      "status": "PASS",
+      "timed_out": false,
+      "timeout_seconds": 420
+    },
+    {
+      "command": [
+        "<ephemeral_root>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        ".[black]"
+      ],
+      "cwd": "<ephemeral_workspace>",
+      "declared_or_baseline": true,
+      "normalized_output_sha256": "8d35fdf54083c746a19fe6656c5251f7aa79786426c51a55fc54bc1cec44879a",
+      "output_sha256": "d7ae48a6b7354ba44c3648f055ee68ffc5aba45585b27cac78bb97e53686db78",
+      "output_summary": "STDOUT:\nObtaining file:///<ephemeral_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: darkgraylib<3.0.dev0,>=2.4.0 in <ephemeral_workspace>\\Lib\\site-packages (from darker==2.1.1) (2.4.1)\nRequirement already satisfied: toml>=0.10.0 in <ephemeral_workspace>\\Lib\\site-packages (from darker==2.1.1) (0.10.2)\nRequirement already satisfied: typing_extensions>=4.0.1 in <ephemeral_workspace>\\Lib\\site-packages (from darker==2.1.1) (4.15.0)\nCollecting black>=24.10.0 (from darker==2.1.1)\n  Using cached black-26.5.1-cp313-cp313-win_amd64.whl.metadata (95 kB)\nCollecting click>=8.0.0 (from black>=24.10.0->darker==2.1.1)\n  Using cached click-8.4.2-py3-none-any.whl.metadata (2.6 kB)\nCollecting mypy-extensions>=0.4.3 (from black>=24.10.0->darker==2.1.1)\n  Using cached mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)\nRequirement already satisfied: packaging>=22.0 in <ephemeral_workspace>\\Lib\\site-packages (from black>=24.10.0->darker==2.1.1) (26.2)\nCollecting pathspec>=1.0.0 (from black>=24.10.0->darker==2.1.1)\n  Using cached pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)\nCollecting platformdirs>=2 (from",
+      "returncode": 0,
+      "stage": "declared_extra:.[black]",
+      "status": "PASS",
+      "timed_out": false,
+      "timeout_seconds": 420
+    },
+    {
+      "command": [
+        "<ephemeral_root>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        ".[isort,black]"
+      ],
+      "cwd": "<ephemeral_workspace>",
+      "declared_or_baseline": true,
+      "normalized_output_sha256": "9bb7bd7675dc9b96b87b8cd55dd02a043dc954d564c8fe9cc2285bbc343415a2",
+      "output_sha256": "a3e86cbc14d313fc9f3ecc4058c4559f0be212d2b503edecbe40176886642849",
+      "output_summary": "STDOUT:\nObtaining file:///<ephemeral_workspace>\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: darkgraylib<3.0.dev0,>=2.4.0 in <ephemeral_workspace>\\Lib\\site-packages (from darker==2.1.1) (2.4.1)\nRequirement already satisfied: toml>=0.10.0 in <ephemeral_workspace>\\Lib\\site-packages (from darker==2.1.1) (0.10.2)\nRequirement already satisfied: typing_extensions>=4.0.1 in <ephemeral_workspace>\\Lib\\site-packages (from darker==2.1.1) (4.15.0)\nRequirement already satisfied: black>=24.10.0 in <ephemeral_workspace>\\Lib\\site-packages (from darker==2.1.1) (26.5.1)\nRequirement already satisfied: isort>=5.1.0 in <ephemeral_workspace>\\Lib\\site-packages (from darker==2.1.1) (8.0.1)\nRequirement already satisfied: click>=8.0.0 in <ephemeral_workspace>\\Lib\\site-packages (from black>=24.10.0->darker==2.1.1) (8.4.2)\nRequirement already satisfied: mypy-extensions>=0.4.3 in <ephemeral_workspace>\\Lib\\site-packages (from black>=24.10.0->darker==2.1.1) (1.1.0)\nRequirement already satisfied: packaging>=22.0 in <ephemeral_workspace>\\Lib\\site-packages (from black>=24.10.0->darker==2.1.1) (26.2)\nRequirement already satisfied: path",
+      "returncode": 0,
+      "stage": "declared_extra:.[isort,black]",
+      "status": "PASS",
+      "timed_out": false,
+      "timeout_seconds": 420
+    },
+    {
+      "command": [
+        "<ephemeral_root>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "pytest>=6.2.0",
+        "pytest-kwparametrize>=0.0.3"
+      ],
+      "cwd": "<ephemeral_workspace>",
+      "declared_or_baseline": true,
+      "normalized_output_sha256": "92ba57f37872840db449db7b1c39dc7b8d5b591d9c1ec74ef852a2370c8293d9",
+      "output_sha256": "cd1a5a98b8f64dc2568e91c5071967b338fae22138d4f5464e2f718aa094ba17",
+      "output_summary": "STDOUT:\nCollecting pytest>=6.2.0\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting pytest-kwparametrize>=0.0.3\n  Using cached pytest_kwparametrize-0.0.3-py3-none-any.whl.metadata (4.9 kB)\nRequirement already satisfied: colorama>=0.4 in <ephemeral_workspace>\\Lib\\site-packages (from pytest>=6.2.0) (0.4.6)\nCollecting iniconfig>=1.0.1 (from pytest>=6.2.0)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nRequirement already satisfied: packaging>=22 in <ephemeral_workspace>\\Lib\\site-packages (from pytest>=6.2.0) (26.2)\nCollecting pluggy<2,>=1.5 (from pytest>=6.2.0)\n  Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)\nCollecting pygments>=2.7.2 (from pytest>=6.2.0)\n  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)\nUsing cached pytest-9.1.1-py3-none-any.whl (386 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached pytest_kwparametrize-0.0.3-py3-none-any.whl (7.2 kB)\nUsing cached iniconfig-2.3.0-py3-none-any.whl (7.5 kB)\nUsing cached pygments-2.20.0-py3-none-any.whl (1.2 MB)\nInstalling collected packages: pygments, pluggy, iniconfig, pytest, pytest-kwparametrize\n\nSuccessfully installed iniconfig pluggy pygments pytest pytest-kwparametrize\n\nSTDERR:",
+      "returncode": 0,
+      "stage": "declared_target_test_tooling",
+      "status": "PASS",
+      "timed_out": false,
+      "timeout_seconds": 300
+    }
+  ],
+  "declared_extras_attempted": [
+    "isort",
+    "black",
+    "isort,black"
+  ],
+  "declared_target_test_tool_specs_attempted": [
+    "pytest>=6.2.0",
+    "pytest-kwparametrize>=0.0.3"
+  ],
+  "status": "PASS",
+  "undeclared_dependency_install_used": false
+}

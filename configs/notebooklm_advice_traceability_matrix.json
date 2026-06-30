@@ -308,12 +308,11 @@
         "target_intent_not_reached"
       ],
       "claim_boundary": "target-intent reachability is a precondition for repair, not repair success",
-      "current_repo_mechanism": "Batch007 classifies whether the replay reaches the intended target behavior before patch generation",
+      "current_repo_mechanism": "Batch008 reruns target-intent reachability after declared formatter preconditions are materialized",
       "evidence_class": "diagnostic",
       "evidence_paths": [
-        "outputs/clean_replication_batch_007/target_intent_reachability_policy.json",
-        "outputs/clean_replication_batch_007/target_intent_reachability_map.json",
-        "outputs/clean_replication_batch_007/projected_vs_observed_runtime_path.json"
+        "outputs/clean_replication_batch_008/target_intent_reachability_after_declared_extras.json",
+        "outputs/clean_replication_batch_008/target_replay_after_declared_extras.json"
       ],
       "internal_design_term": "not_applicable",
       "next_allowed_lane": "continuous",
@@ -324,29 +323,28 @@
         "patch generation is forbidden until target behavior is reached"
       ],
       "required_modules_or_scripts": [
-        "controllergate/core/target_reachability.py"
+        "controllergate/core/target_reachability.py",
+        "controllergate/core/precondition_resolution.py"
       ],
       "required_outputs": [
-        "outputs/clean_replication_batch_007/target_intent_reachability_policy.json",
-        "outputs/clean_replication_batch_007/target_intent_reachability_map.json",
-        "outputs/clean_replication_batch_007/projected_vs_observed_runtime_path.json"
+        "outputs/clean_replication_batch_008/target_intent_reachability_after_declared_extras.json",
+        "outputs/clean_replication_batch_008/target_replay_after_declared_extras.json"
       ],
       "status": "implemented_active"
     },
     {
       "advice_id": "formatter_dependency_precondition_resolution",
-      "blocker_if_missing": "target_precondition_unresolved",
+      "blocker_if_missing": "target_precondition_unresolved_after_declared_extras",
       "blockers": [
-        "target_precondition_unresolved"
+        "target_precondition_unresolved_after_declared_extras"
       ],
       "claim_boundary": "environment/precondition resolution is not repair success",
-      "current_repo_mechanism": "Batch007 records declared metadata, formatter entry-point probes, and install strategy decisions before retiring the candidate",
+      "current_repo_mechanism": "Batch008 materializes a fresh runtime workspace and attempts declared formatter extras before accepting a precondition blocker",
       "evidence_class": "diagnostic",
       "evidence_paths": [
-        "outputs/clean_replication_batch_007/environment_precondition_resolution_policy.json",
-        "outputs/clean_replication_batch_007/project_metadata_dependency_scan.json",
-        "outputs/clean_replication_batch_007/install_strategy_matrix.json",
-        "outputs/clean_replication_batch_007/precondition_resolution_attempts.json"
+        "outputs/clean_replication_batch_008/declared_formatter_extra_scan.json",
+        "outputs/clean_replication_batch_008/declared_formatter_extra_install_attempts.json",
+        "outputs/clean_replication_batch_008/formatter_import_probe_after_declared_extras.json"
       ],
       "internal_design_term": "not_applicable",
       "next_allowed_lane": "continuous",
@@ -357,13 +355,45 @@
         "precondition-only or unresolved environment paths cannot be counted as source repairs"
       ],
       "required_modules_or_scripts": [
-        "controllergate/core/target_reachability.py"
+        "controllergate/core/precondition_resolution.py",
+        "controllergate/core/environment.py"
       ],
       "required_outputs": [
-        "outputs/clean_replication_batch_007/environment_precondition_resolution_policy.json",
-        "outputs/clean_replication_batch_007/project_metadata_dependency_scan.json",
-        "outputs/clean_replication_batch_007/install_strategy_matrix.json",
-        "outputs/clean_replication_batch_007/precondition_resolution_attempts.json"
+        "outputs/clean_replication_batch_008/declared_formatter_extra_scan.json",
+        "outputs/clean_replication_batch_008/declared_formatter_extra_install_attempts.json",
+        "outputs/clean_replication_batch_008/formatter_import_probe_after_declared_extras.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "declared_precondition_materialization",
+      "blocker_if_missing": "declared_formatter_extra_install_failed",
+      "blockers": [
+        "declared_formatter_extra_install_failed",
+        "declared_formatter_extra_missing"
+      ],
+      "claim_boundary": "declared precondition materialization is not repair success by itself",
+      "current_repo_mechanism": "Batch008 executes declared formatter extras in an isolated runtime workspace before final target routing",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_008/runtime_workspace_materialization_log.json",
+        "outputs/clean_replication_batch_008/declared_formatter_extra_install_attempts.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Formatter/Dependency Precondition Resolution",
+      "public_engineering_name": "Declared Precondition Materialization",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "declared extras are attempted before precondition retirement"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/precondition_resolution.py",
+        "controllergate/core/environment.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_008/runtime_workspace_materialization_log.json",
+        "outputs/clean_replication_batch_008/declared_formatter_extra_install_attempts.json"
       ],
       "status": "implemented_active"
     },
@@ -374,14 +404,11 @@
         "trace_feedback_alignment_missing"
       ],
       "claim_boundary": "trace alignment controls routing and does not prove repair success",
-      "current_repo_mechanism": "Batch007 compares intended, observed, source, patch, and validation paths before allowing fragment generation",
+      "current_repo_mechanism": "Batch008 records trace-feedback alignment after declared preconditions and before fragment patch assembly",
       "evidence_class": "diagnostic",
       "evidence_paths": [
-        "outputs/clean_replication_batch_007/trace_feedback_alignment_policy.json",
-        "outputs/clean_replication_batch_007/trace_feedback_alignment_map.json",
-        "outputs/clean_replication_batch_007/trace_feedback_loop_attempts.json",
-        "outputs/clean_replication_batch_007/interdependent_gate_status_vector.json",
-        "outputs/clean_replication_batch_007/completion_decision_ladder.json"
+        "outputs/clean_replication_batch_008/trace_feedback_alignment_status_batch008.json",
+        "outputs/clean_replication_batch_008/source_stack_after_declared_extras.json"
       ],
       "internal_design_term": "not_applicable",
       "next_allowed_lane": "continuous",
@@ -395,11 +422,8 @@
         "controllergate/core/target_reachability.py"
       ],
       "required_outputs": [
-        "outputs/clean_replication_batch_007/trace_feedback_alignment_policy.json",
-        "outputs/clean_replication_batch_007/trace_feedback_alignment_map.json",
-        "outputs/clean_replication_batch_007/trace_feedback_loop_attempts.json",
-        "outputs/clean_replication_batch_007/interdependent_gate_status_vector.json",
-        "outputs/clean_replication_batch_007/completion_decision_ladder.json"
+        "outputs/clean_replication_batch_008/trace_feedback_alignment_status_batch008.json",
+        "outputs/clean_replication_batch_008/source_stack_after_declared_extras.json"
       ],
       "status": "implemented_active"
     },
@@ -410,12 +434,11 @@
         "dual_projection_recheck_failed_after_feedback"
       ],
       "claim_boundary": "projection recheck is a routing gate, not repair success",
-      "current_repo_mechanism": "Batch007 reruns projection checks before normalization, after normalization, and before patch generation",
+      "current_repo_mechanism": "Batch008 reruns projection checks after declared precondition materialization and before patch assembly",
       "evidence_class": "diagnostic",
       "evidence_paths": [
-        "outputs/clean_replication_batch_007/dual_projection_recheck_batch007.json",
-        "outputs/clean_replication_batch_007/source_facing_projection_recheck.json",
-        "outputs/clean_replication_batch_007/test_facing_projection_recheck.json"
+        "outputs/clean_replication_batch_008/dual_projection_recheck_batch008.json",
+        "outputs/clean_replication_batch_008/dual_projection_consistency_after_declared_extras.json"
       ],
       "internal_design_term": "not_applicable",
       "next_allowed_lane": "continuous",
@@ -426,12 +449,12 @@
         "fragment planning remains unauthorized while projection recheck blocks"
       ],
       "required_modules_or_scripts": [
-        "controllergate/core/target_reachability.py"
+        "controllergate/core/target_reachability.py",
+        "controllergate/core/dual_projection.py"
       ],
       "required_outputs": [
-        "outputs/clean_replication_batch_007/dual_projection_recheck_batch007.json",
-        "outputs/clean_replication_batch_007/source_facing_projection_recheck.json",
-        "outputs/clean_replication_batch_007/test_facing_projection_recheck.json"
+        "outputs/clean_replication_batch_008/dual_projection_recheck_batch008.json",
+        "outputs/clean_replication_batch_008/dual_projection_consistency_after_declared_extras.json"
       ],
       "status": "implemented_active"
     },
@@ -658,17 +681,17 @@
         "post_patch_constraint_revalidation_failed"
       ],
       "claim_boundary": "no-overreach is bounded to executed validation",
-      "current_repo_mechanism": "target-bounded no-overreach records exist for successful repairs; Batch006 records no-overreach as not run because no patch was applied",
+      "current_repo_mechanism": "target-bounded no-overreach records exist for successful repairs including the Batch008 target-test-file replay",
       "evidence_class": "native",
       "evidence_paths": [
         "outputs/clean_replication_batch_005/corrected_no_overreach_validation.json",
-        "outputs/clean_replication_batch_006/consolidated_state_clean_replication_batch_006.json"
+        "outputs/clean_replication_batch_008/no_overreach_validation_batch008.json"
       ],
       "internal_design_term": "not_applicable",
-      "next_allowed_lane": "post_v2_37_followup",
+      "next_allowed_lane": "continuous",
       "operational_gate_name": "No-Overreach Regression",
       "public_engineering_name": "No-Overreach Validation",
-      "reason_if_deferred_or_rejected": "Batch006 has no patch, so no-overreach remains not run",
+      "reason_if_deferred_or_rejected": "",
       "required_audit_assertions": [
         "no stronger robustness claim after target-only replay"
       ],
@@ -677,9 +700,9 @@
       ],
       "required_outputs": [
         "outputs/clean_replication_batch_005/corrected_no_overreach_validation.json",
-        "outputs/clean_replication_batch_006/consolidated_state_clean_replication_batch_006.json"
+        "outputs/clean_replication_batch_008/no_overreach_validation_batch008.json"
       ],
-      "status": "implemented_partial"
+      "status": "implemented_active"
     },
     {
       "advice_id": "bounded_micro_reversal",
@@ -959,7 +982,7 @@
       "status": "deferred_with_blocker"
     }
   ],
-  "entry_count": 31,
+  "entry_count": 32,
   "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch007",
   "status": "PASS",
   "terminology_policy": "neutral_engineering_terms_only"

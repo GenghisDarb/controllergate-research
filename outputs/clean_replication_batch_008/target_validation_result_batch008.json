@@ -1,0 +1,19 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "command": [
+    "<ephemeral_root>\\venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob",
+    "-q"
+  ],
+  "cwd": "<ephemeral_workspace>",
+  "normalized_output_sha256": "22f374cd14bcd14ec79603317d32b76d087d6bf4e5f5b572026b8e00d1088eb2",
+  "output_sha256": "908ef23cb55fa268f73c86faed2b62d59d7764323f84fcd2c18bb583b851b8c7",
+  "output_summary": "STDOUT:\n.                                                                        [100%]\n============================ slowest 10 durations =============================\n3.88s call     src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n0.40s setup    src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob\n\n(1 durations < 0.005s hidden.  Use -vv to show these durations.)\n1 passed in 23.55s\n\nSTDERR:",
+  "patch_sha256": "a1d68d46fe2a796a0424bd784e8b7edf1145d710df99dd28973d6ab328ad6ea3",
+  "returncode": 0,
+  "status": "PASS",
+  "timed_out": false,
+  "timeout_seconds": 180
+}

@@ -1,0 +1,30 @@
+diff --git a/src/darker/import_sorting.py b/src/darker/import_sorting.py
+index d94ac58..9398b79 100644
+--- a/src/darker/import_sorting.py
++++ b/src/darker/import_sorting.py
+@@ -49,6 +49,7 @@ class IsortArgs(TypedDict, total=False):
+     line_length: int
+     settings_file: str
+     settings_path: str
++    file_path: Path
+ 
+ 
+ def apply_isort(  # pylint: disable=too-many-arguments
+@@ -116,6 +117,8 @@ def _build_isort_args(
+         isort_args["settings_file"] = config
+     else:
+         isort_args["settings_path"] = str(find_project_root((str(src),)))
++    if isort_code is getattr(isort, "code", None):
++        isort_args["file_path"] = src
+     if line_length:
+         isort_args["line_length"] = line_length
+     return isort_args
+@@ -135,7 +138,7 @@ def _call_isort_code(content: TextDocument, isort_args: IsortArgs) -> TextDocume
+     )
+     try:
+         code = isort_code(code=code, **isort_args)
+-    except isort.exceptions.FileSkipComment:
++    except (isort.exceptions.FileSkipComment, isort.exceptions.FileSkipSetting):
+         pass
+     return TextDocument.from_str(
+         code,

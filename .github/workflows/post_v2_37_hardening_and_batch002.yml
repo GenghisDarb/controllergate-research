@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch007 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch008 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -67,8 +67,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch007_target_reachability/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch007_target_reachability \( \
+          test -f artifact_payload/post_v2_37_hardening_batch008_declared_precondition/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch008_declared_precondition \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -89,11 +89,11 @@ jobs:
             exit 1
           fi
 
-      - name: Upload Batch007 target reachability post-v2.37 hardening artifact
+      - name: Upload Batch008 declared precondition post-v2.37 hardening artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch007_target_reachability_artifacts
+          name: post_v2_37_hardening_batch008_declared_precondition_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch007_target_reachability/**
+            artifact_payload/post_v2_37_hardening_batch008_declared_precondition/**
           if-no-files-found: error
