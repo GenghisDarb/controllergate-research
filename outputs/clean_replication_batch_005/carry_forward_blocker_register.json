@@ -64,6 +64,30 @@
     "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
   },
   {
+    "advice_id": "targeted_prospective_seed_intake",
+    "blocker": "targeted_prospective_seed_missing_or_invalid",
+    "minimum_condition_to_unblock": "Batch012 has no supplied targeted seed",
+    "next_allowed_lane": "targeted_seed_handoff",
+    "reason_not_implemented_now": "Batch012 has no supplied targeted seed",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
+    "advice_id": "native_target_test_verification",
+    "blocker": "targeted_prospective_seed_missing_or_invalid",
+    "minimum_condition_to_unblock": "Batch012 blocks before source checkout because the seed is absent",
+    "next_allowed_lane": "targeted_seed_handoff",
+    "reason_not_implemented_now": "Batch012 blocks before source checkout because the seed is absent",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
+    "advice_id": "prospective_memory_eligibility_gate",
+    "blocker": "targeted_prospective_seed_missing_or_invalid",
+    "minimum_condition_to_unblock": "Batch012 has no valid seed, so eligibility is not run",
+    "next_allowed_lane": "targeted_seed_handoff",
+    "reason_not_implemented_now": "Batch012 has no valid seed, so eligibility is not run",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
     "advice_id": "failure_memory_weighting",
     "blocker": "failure_memory_weighting_not_applied",
     "minimum_condition_to_unblock": "implement reusable gate evidence and audit assertion",

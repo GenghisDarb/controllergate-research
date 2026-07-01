@@ -778,10 +778,69 @@
         "prospective_memory_challenge"
       ],
       "status": "implemented_partial"
+    },
+    {
+      "audit_assertion": "a missing or invalid manual seed blocks before any new acquisition, native verification, issue-derived fallback, or matched-null run",
+      "blocker_names": [
+        "targeted_prospective_seed_missing_or_invalid"
+      ],
+      "claim_boundary": "seed intake is an admission gate and not repair or memory evidence",
+      "current_module_or_script": "controllergate/core/targeted_seed.py",
+      "evidence_class_affected": "diagnostic_only_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_012/targeted_seed_presence_check.json",
+        "outputs/clean_replication_batch_012/targeted_seed_schema_validation.json"
+      ],
+      "neutral_gate_name": "Targeted Prospective Seed Intake",
+      "next_required_implementation_step": "supply a reviewed targeted seed at external_seeds_pending/targeted_prospective_seed_batch012.json",
+      "notebooklm_advice_ids": [
+        "targeted_prospective_seed_intake"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "audit_assertion": "native verification runs before issue-derived fallback when a valid seed provides native target tests",
+      "blocker_names": [
+        "targeted_prospective_seed_missing_or_invalid",
+        "native_pre_patch_failure_not_reproduced"
+      ],
+      "claim_boundary": "native verification is not run without a valid targeted seed and source commit",
+      "current_module_or_script": "controllergate/core/targeted_seed.py",
+      "evidence_class_affected": "native_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_012/native_verification_result.json"
+      ],
+      "neutral_gate_name": "Native Target Test Verification",
+      "next_required_implementation_step": "after valid seed intake, resolve the source commit and run native target verification first",
+      "notebooklm_advice_ids": [
+        "native_target_test_verification"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "audit_assertion": "matched-null memory comparison remains blocked until a fresh candidate verifies and both route diversity and mapped status features pass",
+      "blocker_names": [
+        "targeted_prospective_seed_missing_or_invalid",
+        "prospective_memory_eligibility_not_met"
+      ],
+      "claim_boundary": "eligibility does not claim memory separation",
+      "current_module_or_script": "controllergate/core/prospective_memory_challenge.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_012/prospective_memory_eligibility_gate.json",
+        "outputs/clean_replication_batch_012/route_diversity_status.json",
+        "outputs/clean_replication_batch_012/status_feature_mappability.json"
+      ],
+      "neutral_gate_name": "Prospective Memory Eligibility Gate",
+      "next_required_implementation_step": "run eligibility only after seed validation and pre-repair failure verification",
+      "notebooklm_advice_ids": [
+        "prospective_memory_eligibility_gate"
+      ],
+      "status": "implemented_partial"
     }
   ],
   "matrix_id": "operational_gate_matrix_post_v2_37",
-  "notebooklm_advice_cross_reference_count": 42,
+  "notebooklm_advice_cross_reference_count": 45,
   "notebooklm_advice_traceability_matrix_path": "configs/notebooklm_advice_traceability_matrix.json",
   "terminology_policy": "neutral_engineering_terms_only"
 }

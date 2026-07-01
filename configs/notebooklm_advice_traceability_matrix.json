@@ -827,6 +827,98 @@
       "status": "implemented_partial"
     },
     {
+      "advice_id": "targeted_prospective_seed_intake",
+      "blocker_if_missing": "targeted_prospective_seed_missing_or_invalid",
+      "blockers": [
+        "targeted_prospective_seed_missing_or_invalid"
+      ],
+      "claim_boundary": "seed intake is admission evidence only",
+      "current_repo_mechanism": "Batch012 records the required manual seed intake gate and blocks before any new acquisition when the seed is absent",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_012/targeted_seed_presence_check.json",
+        "outputs/clean_replication_batch_012/targeted_seed_schema_validation.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Targeted Prospective Seed Intake",
+      "public_engineering_name": "Targeted Prospective Seed Intake",
+      "reason_if_deferred_or_rejected": "Batch012 has no supplied targeted seed",
+      "required_audit_assertions": [
+        "missing or invalid seed blocks before native or issue-derived verification"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/targeted_seed.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_012/targeted_seed_presence_check.json",
+        "outputs/clean_replication_batch_012/targeted_seed_schema_validation.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "native_target_test_verification",
+      "blocker_if_missing": "targeted_prospective_seed_missing_or_invalid",
+      "blockers": [
+        "targeted_prospective_seed_missing_or_invalid",
+        "native_pre_patch_failure_not_reproduced"
+      ],
+      "claim_boundary": "native verification requires a valid seed and checked-out source tree",
+      "current_repo_mechanism": "Batch012 records native-first ordering but does not run verification without a valid seed",
+      "evidence_class": "native",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_012/native_verification_result.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Native Target Test Verification",
+      "public_engineering_name": "Native Target Test Verification",
+      "reason_if_deferred_or_rejected": "Batch012 blocks before source checkout because the seed is absent",
+      "required_audit_assertions": [
+        "native target tests run before issue-derived fallback when a valid seed supplies them"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/targeted_seed.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_012/native_verification_result.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "prospective_memory_eligibility_gate",
+      "blocker_if_missing": "targeted_prospective_seed_missing_or_invalid",
+      "blockers": [
+        "targeted_prospective_seed_missing_or_invalid",
+        "prospective_memory_eligibility_not_met"
+      ],
+      "claim_boundary": "eligibility cannot prove memory separation without matched-null evidence",
+      "current_repo_mechanism": "Batch012 keeps prospective memory eligibility behind fresh-candidate verification, route diversity, mapped status features, and preregistration",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_012/prospective_memory_eligibility_gate.json",
+        "outputs/clean_replication_batch_012/route_diversity_status.json",
+        "outputs/clean_replication_batch_012/status_feature_mappability.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Prospective Memory Eligibility Gate",
+      "public_engineering_name": "Prospective Memory Eligibility Gate",
+      "reason_if_deferred_or_rejected": "Batch012 has no valid seed, so eligibility is not run",
+      "required_audit_assertions": [
+        "eligibility remains not run until a fresh candidate verifies"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/prospective_memory_challenge.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_012/prospective_memory_eligibility_gate.json",
+        "outputs/clean_replication_batch_012/route_diversity_status.json",
+        "outputs/clean_replication_batch_012/status_feature_mappability.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
       "advice_id": "high_pass_source_ranking_filter",
       "blocker_if_missing": "high_pass_filter_no_legal_source_remaining",
       "blockers": [
@@ -1286,7 +1378,7 @@
       "status": "deferred_with_blocker"
     }
   ],
-  "entry_count": 42,
+  "entry_count": 45,
   "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch007",
   "status": "PASS",
   "terminology_policy": "neutral_engineering_terms_only"

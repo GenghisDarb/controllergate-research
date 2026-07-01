@@ -77,6 +77,7 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 - Batch009 shows null ensemble failure under patch quarantine, but the memory-enabled arm has passive markers, no routing delta, and no generated patch, so the matched-null score remains `0.0`.
 - Batch010 implements active status-code weighting, High-Pass Source Ranking Filter, Two-Candidate Selection Policy, and Strict Minimum-Delta Routing as retrospective calibration. It blocks with `active_memory_routing_delta_not_established` and does not authorize memory-enabled patch generation.
 - Batch011 implements prospective memory challenge eligibility, retires `darker_skip_glob_failing_test` from further memory-lift attempts, reviews bounded fresh leads from existing ingested evidence, and blocks with `batch011_no_fresh_candidate_verified`.
+- Batch012 implements Targeted Prospective Seed Intake and blocks with `targeted_prospective_seed_missing_or_invalid` when the required reviewed seed is absent. Native verification, issue-derived fallback, repair-only fallback, and matched-null comparison remain not run.
 - BugsInPy remains globally blocked for active use.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
@@ -84,11 +85,11 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 
 ## Safest next step
 
-Next, a prospective memory-lift comparison would require a fresh verified candidate, legal alternative source/context routes, mappable status features, and pre-registered matched-null rules before any successful patch exists.
+Next, a prospective memory-lift comparison would require a reviewed targeted prospective seed, a fresh verified candidate, legal alternative source/context routes, mappable status features, and pre-registered matched-null rules before any successful patch exists.
 
 ## Current operational gate status
 
 - Implemented active gates include artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, release-readiness blocking, status-code weighting policy, High-Pass Source Ranking Filter, Curvature-Based Candidate Selection, Two-Winner Source Selection, and Strict Minimum-Delta Routing.
-- Partial gates include structural navigation, active probe routing, issue-derived harness execution, matched-null ensemble execution, Active Failure-Memory Routing, Prospective Memory Challenge, failure-memory weighting, and post-patch validation for blocked candidates.
+- Partial gates include structural navigation, active probe routing, Targeted Prospective Seed Intake, Native Target Test Verification, issue-derived harness execution, matched-null ensemble execution, Active Failure-Memory Routing, Prospective Memory Challenge, prospective memory eligibility, failure-memory weighting, and post-patch validation for blocked candidates.
 - Deferred gates include bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

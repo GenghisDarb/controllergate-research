@@ -21,7 +21,8 @@ BATCH008_DIR = Path("outputs/clean_replication_batch_008")
 BATCH009_DIR = Path("outputs/clean_replication_batch_009")
 BATCH010_DIR = Path("outputs/clean_replication_batch_010")
 BATCH011_DIR = Path("outputs/clean_replication_batch_011")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch011_prospective_memory_challenge")
+BATCH012_DIR = Path("outputs/clean_replication_batch_012")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch012_targeted_seed")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -407,6 +408,28 @@ BATCH011_REQUIRED = [
     "matched_null_ensemble_separation_score.json",
     "prospective_memory_lift_evaluation.json",
     "repair_successes.json",
+    "claim_boundary.json",
+    "notebooklm_advice_traceability_status.json",
+    "carry_forward_blocker_register.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH012_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_012.json",
+    "targeted_seed_presence_check.json",
+    "targeted_seed_schema_validation.json",
+    "targeted_seed_forbidden_evidence_audit.json",
+    "targeted_seed_intake_report.json",
+    "targeted_seed_required_next_action.md",
+    "native_verification_result.json",
+    "issue_derived_harness_policy.json",
+    "issue_derived_harness_verification_result.json",
+    "prospective_memory_eligibility_gate.json",
+    "route_diversity_status.json",
+    "status_feature_mappability.json",
+    "matched_null_ensemble_summary.json",
+    "repair_only_fallback_summary.json",
     "claim_boundary.json",
     "notebooklm_advice_traceability_status.json",
     "carry_forward_blocker_register.json",
@@ -2214,6 +2237,99 @@ def audit_batch011_records() -> list[str]:
     return errors
 
 
+def audit_batch012_records() -> list[str]:
+    errors: list[str] = []
+    blocker = "targeted_prospective_seed_missing_or_invalid"
+    for name in BATCH012_REQUIRED:
+        if not (BATCH012_DIR / name).is_file():
+            errors.append(f"batch012 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH012_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch012 manifest failed: {manifest}")
+    state = read_json(BATCH012_DIR / "consolidated_state_clean_replication_batch_012.json")
+    presence = read_json(BATCH012_DIR / "targeted_seed_presence_check.json")
+    schema = read_json(BATCH012_DIR / "targeted_seed_schema_validation.json")
+    forbidden = read_json(BATCH012_DIR / "targeted_seed_forbidden_evidence_audit.json")
+    intake = read_json(BATCH012_DIR / "targeted_seed_intake_report.json")
+    native = read_json(BATCH012_DIR / "native_verification_result.json")
+    issue_policy = read_json(BATCH012_DIR / "issue_derived_harness_policy.json")
+    issue_result = read_json(BATCH012_DIR / "issue_derived_harness_verification_result.json")
+    eligibility = read_json(BATCH012_DIR / "prospective_memory_eligibility_gate.json")
+    route = read_json(BATCH012_DIR / "route_diversity_status.json")
+    mappable = read_json(BATCH012_DIR / "status_feature_mappability.json")
+    matched = read_json(BATCH012_DIR / "matched_null_ensemble_summary.json")
+    repair_only = read_json(BATCH012_DIR / "repair_only_fallback_summary.json")
+    claim = read_json(BATCH012_DIR / "claim_boundary.json")
+    traceability = read_json(BATCH012_DIR / "notebooklm_advice_traceability_status.json")
+    carry = read_json(BATCH012_DIR / "carry_forward_blocker_register.json")
+    next_action = (BATCH012_DIR / "targeted_seed_required_next_action.md").read_text(encoding="utf-8")
+    if presence.get("status") != "BLOCK" or presence.get("seed_present") is not False or presence.get("blocker") != blocker:
+        errors.append("batch012 targeted seed presence check did not block missing seed")
+    if presence.get("automated_fresh_candidate_search_attempted") is not False:
+        errors.append("batch012 attempted automated fresh candidate search")
+    if schema.get("status") != "BLOCK" or schema.get("valid") is not False or schema.get("blocker") != blocker:
+        errors.append("batch012 seed schema validation blocker mismatch")
+    if forbidden.get("status") not in {"NOT_RUN", "BLOCK"} or forbidden.get("blocker") != blocker:
+        errors.append("batch012 forbidden evidence audit did not stop on missing seed")
+    if intake.get("status") != "BLOCK" or intake.get("exact_blocker") != blocker:
+        errors.append("batch012 seed intake report did not record blocker")
+    for field in ["native_verification_status", "issue_derived_verification_status", "matched_null_ensemble_status"]:
+        if intake.get(field) != "NOT_RUN":
+            errors.append(f"batch012 {field} should be NOT_RUN")
+    if intake.get("repair_only_fallback_attempted") is not False:
+        errors.append("batch012 repair-only fallback ran without seed")
+    if native.get("status") != "NOT_RUN" or native.get("native_candidate_verified") is not False:
+        errors.append("batch012 native verification ran without seed")
+    if issue_policy.get("increments_native_repair_count") is not False:
+        errors.append("batch012 issue-derived policy increments native count")
+    if issue_result.get("status") != "NOT_RUN" or issue_result.get("increments_native_repair_count") is not False:
+        errors.append("batch012 issue-derived verification ran or changed counts")
+    if eligibility.get("status") != "NOT_RUN" or eligibility.get("eligible") is not False or eligibility.get("blocker") != blocker:
+        errors.append("batch012 prospective eligibility should be NOT_RUN with missing seed")
+    if route.get("status") != "NOT_RUN" or mappable.get("status") != "NOT_RUN":
+        errors.append("batch012 route diversity or mappable status features ran")
+    if matched.get("status") != "NOT_RUN" or matched.get("null_ensemble_run_count") != 0 or matched.get("matched_null_score") is not None:
+        errors.append("batch012 matched-null ensemble ran or scored without seed")
+    if repair_only.get("repair_only_fallback_attempted") is not False or repair_only.get("preliminary_prospective_single_candidate_memory_separation_evidence") is not False:
+        errors.append("batch012 repair-only fallback overclaimed")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("full_memory_lift_claimed") is not False:
+        errors.append("batch012 claim boundary overclaimed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch012 self-maintaining claim changed")
+    if claim.get("confirmed_native_repair_episode_count") != 4 or claim.get("confirmed_issue_derived_repair_episode_count") != 0:
+        errors.append("batch012 repair counts changed")
+    if state.get("status") != "BLOCK" or state.get("exact_blocker") != blocker:
+        errors.append("batch012 state blocker mismatch")
+    expected_not_run = [
+        "native_verification_status",
+        "issue_derived_verification_status",
+        "prospective_memory_eligibility_status",
+        "route_diversity_status",
+        "mappable_status_feature_status",
+    ]
+    for field in expected_not_run:
+        if state.get(field) != "NOT_RUN":
+            errors.append(f"batch012 state {field} should be NOT_RUN")
+    if state.get("targeted_seed_present") is not False or state.get("targeted_seed_validation_status") != "BLOCK":
+        errors.append("batch012 targeted seed state mismatch")
+    if state.get("matched_null_ensemble_run_count") != 0 or state.get("matched_null_score") is not None:
+        errors.append("batch012 matched-null state over-ran")
+    if state.get("repair_only_fallback_attempted") is not False or state.get("additional_native_repair_acquired") is not False:
+        errors.append("batch012 repair fallback state over-ran")
+    if state.get("additional_issue_derived_repair_feasibility") is not False:
+        errors.append("batch012 issue-derived repair feasibility overclaimed")
+    if traceability.get("status") != "PASS" or traceability.get("blocker") != blocker:
+        errors.append("batch012 traceability status missing blocker")
+    blockers = carry.get("blockers", [])
+    if carry.get("status") != "PASS" or not any(isinstance(item, dict) and item.get("blocker") == blocker for item in blockers):
+        errors.append("batch012 carry-forward blocker missing")
+    if blocker not in next_action or "external_seeds_pending/targeted_prospective_seed_batch012.json" not in next_action:
+        errors.append("batch012 next-action file missing seed path or blocker")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -2310,6 +2426,7 @@ def public_language_hits() -> list[str]:
         Path("docs/current_status.md"),
         Path("docs/capability_inventory.md"),
         Path("docs/claim_boundaries.md"),
+        Path("docs/memory_lift_definition.md"),
         Path("docs/public_release_readiness.md"),
         Path("docs/technical_validation_gap_report.md"),
         Path("docs/replication_protocol.md"),
@@ -2327,11 +2444,14 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_009.json"),
         Path("configs/clean_replication_batch_010.json"),
         Path("configs/clean_replication_batch_011.json"),
+        Path("configs/clean_replication_batch_012.json"),
         Path("controllergate/core/failure_memory.py"),
         Path("controllergate/core/status_code_weighting.py"),
         Path("controllergate/core/source_ranking.py"),
         Path("controllergate/core/prospective_memory_challenge.py"),
         Path("controllergate/core/curvature_selection.py"),
+        Path("controllergate/core/issue_derived_harness.py"),
+        Path("controllergate/core/targeted_seed.py"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
@@ -2339,6 +2459,8 @@ def public_language_hits() -> list[str]:
     paths.extend(sorted(BATCH010_DIR.glob("*.md")))
     paths.extend(sorted(BATCH011_DIR.glob("*.json")))
     paths.extend(sorted(BATCH011_DIR.glob("*.md")))
+    paths.extend(sorted(BATCH012_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH012_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -2377,6 +2499,9 @@ REQUIRED_NOTEBOOKLM_ADVICE_IDS = {
     "curvature_based_candidate_selection",
     "two_winner_source_selection",
     "prospective_memory_challenge",
+    "targeted_prospective_seed_intake",
+    "native_target_test_verification",
+    "prospective_memory_eligibility_gate",
     "high_pass_source_ranking_filter",
     "two_candidate_selection_policy",
     "strict_minimum_delta_routing",
@@ -2487,6 +2612,7 @@ def main() -> int:
         + require_files(BATCH009_DIR, BATCH009_REQUIRED)
         + require_files(BATCH010_DIR, BATCH010_REQUIRED)
         + require_files(BATCH011_DIR, BATCH011_REQUIRED)
+        + require_files(BATCH012_DIR, BATCH012_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -2512,6 +2638,8 @@ def main() -> int:
         return fail("batch010 manifest mismatch")
     if verify_manifest(BATCH011_DIR)["status"] != "PASS":
         return fail("batch011 manifest mismatch")
+    if verify_manifest(BATCH012_DIR)["status"] != "PASS":
+        return fail("batch012 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
         return fail("core tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -2650,6 +2778,9 @@ def main() -> int:
     batch011_errors = audit_batch011_records()
     if batch011_errors:
         return fail(f"batch011 audit failed: {batch011_errors}")
+    batch012_errors = audit_batch012_records()
+    if batch012_errors:
+        return fail(f"batch012 audit failed: {batch012_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
