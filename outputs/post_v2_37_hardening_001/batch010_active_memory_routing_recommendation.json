@@ -1,0 +1,19 @@
+{
+  "candidate_id": "darker_skip_glob_failing_test",
+  "recommendation": "Implement Batch010 as active status-code weighting with strict minimum-delta routing audit before any memory-routing diagnostic is evaluated.",
+  "required_claim_boundary": {
+    "current_protocol": "v2.13",
+    "full_scoring": "NOT_RUN/disallowed",
+    "prospective_memory_lift": "not_demonstrated",
+    "self_maintaining_software": "false/not_demonstrated",
+    "technical_validation_release_readiness": "not_ready"
+  },
+  "required_controls": [
+    "status-code evidence must map to source/context features before changing weights",
+    "unmapped codes must not change routing",
+    "successful patch bytes and rationale remain quarantined",
+    "routing delta must satisfy strict minimum-delta policy",
+    "retrospective diagnostic must not increment the repair episode count"
+  ],
+  "status": "READY_FOR_BATCH010_ACTIVE_MEMORY_ROUTING_CALIBRATION"
+}
