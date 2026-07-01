@@ -1,0 +1,25 @@
+{
+  "alias_allowed_only_if_canonical_absent": true,
+  "alias_seed_path": "external_seeds_pending/targeted_prospective_seed_batch014.json",
+  "canonical_path_preferred": true,
+  "canonical_seed_path": "external_seeds_pending/targeted_prospective_seed_batch013.json",
+  "claim_boundary": {
+    "current_protocol_version": "v2.13",
+    "full_scoring": "NOT_RUN/disallowed",
+    "memory_lift": "not_demonstrated",
+    "self_maintaining_software": "false/not_demonstrated"
+  },
+  "do_not_run_automated_candidate_search": true,
+  "recommended_next_boundary": "batch014_targeted_seed_execution_under_acquisition_locks",
+  "required_before_replay": [
+    "tracked targeted seed",
+    "workflow-visible seed path",
+    "Source-Commit Environment Lock",
+    "Target Command Manifest",
+    "Fresh Workspace Purity Gate",
+    "Baseline Registry Drift Precheck",
+    "Rollback Block Ledger readiness"
+  ],
+  "status": "READY_FOR_BATCH014_TARGETED_SEED_EXECUTION",
+  "stop_if_seed_absent_after_locks_ready": "targeted_prospective_seed_missing_or_invalid_after_locks_ready"
+}
