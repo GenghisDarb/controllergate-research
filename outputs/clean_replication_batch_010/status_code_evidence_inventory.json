@@ -1,0 +1,57 @@
+{
+  "records": [
+    {
+      "candidate_id": "darker_skip_glob_failing_test",
+      "decision_time_safe": true,
+      "evidence_path": "outputs/clean_replication_batch_007/precondition_failure_classification.json",
+      "evidence_sha256": "91c654489164f1eb3c6f28516017447b14a7189a007882715d59cfe0c21f9108",
+      "function_or_class": null,
+      "reason": "prior blocker was environment/precondition path rather than source-edit path",
+      "source_path": null,
+      "status_code": "PRECONDITION_UNRESOLVED",
+      "uses_patch_bytes_or_rationale": false
+    },
+    {
+      "candidate_id": "darker_skip_glob_failing_test",
+      "decision_time_safe": true,
+      "evidence_path": "outputs/clean_replication_batch_009/arm_a_repair_generation_result.json",
+      "evidence_sha256": "f7ca607a114305aed1c9eda4faa918e4dcbf93c9e8ccaef7478e52f6c8e1a336",
+      "function_or_class": null,
+      "reason": "Batch009 did not generate a patch because memory markers were passive",
+      "source_path": null,
+      "status_code": "NO_PATCH_GENERATED",
+      "uses_patch_bytes_or_rationale": false
+    },
+    {
+      "candidate_id": "darker_skip_glob_failing_test",
+      "decision_time_safe": true,
+      "evidence_path": "outputs/clean_replication_batch_008/candidate_retirement_decision_batch008.json",
+      "evidence_sha256": "ddefbee99c0383e71fb35b2b53ca76b26259037bc820a25670514bb7ffd33bf2",
+      "function_or_class": null,
+      "reason": "success evidence is excluded from weighting because it would reveal prior repair detail for this candidate",
+      "source_path": "src/darker/import_sorting.py",
+      "status_code": "REPAIR_SUCCESS",
+      "uses_patch_bytes_or_rationale": true
+    }
+  ],
+  "status": "PASS",
+  "taxonomy": [
+    "OVERFLOW",
+    "FLATLINE",
+    "PINNED_EDGE",
+    "MONOTONE_SLOPE",
+    "ENVIRONMENT_FAILURE",
+    "COLLECTION_FAILURE",
+    "PRECONDITION_UNRESOLVED",
+    "TARGET_INTENT_NOT_REACHED",
+    "PATCHABLE_SOURCE_EMPTY",
+    "NO_PATCH_GENERATED",
+    "PATCH_SAFETY_FAILED",
+    "TARGET_VALIDATION_FAILED",
+    "DUPLICATE_REPLAY_FAILED",
+    "NO_OVERREACH_FAILED",
+    "TARGET_VALIDATION_PASSED",
+    "DUPLICATE_REPLAY_PASSED",
+    "REPAIR_SUCCESS"
+  ]
+}

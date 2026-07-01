@@ -24,22 +24,6 @@
     "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
   },
   {
-    "advice_id": "coupled_dependency_projection_map",
-    "blocker": "coupled_dependency_projection_missing",
-    "minimum_condition_to_unblock": "Batch005 captures the projection subset, but a named shared projection artifact remains future work",
-    "next_allowed_lane": "post_v2_37_followup",
-    "reason_not_implemented_now": "Batch005 captures the projection subset, but a named shared projection artifact remains future work",
-    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
-  },
-  {
-    "advice_id": "interlock_invariant_map",
-    "blocker": "no_candidate_source_interlock_invariant",
-    "minimum_condition_to_unblock": "Batch005 stores subset derivation; shared invariant map remains partial",
-    "next_allowed_lane": "post_v2_37_followup",
-    "reason_not_implemented_now": "Batch005 stores subset derivation; shared invariant map remains partial",
-    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
-  },
-  {
     "advice_id": "issue_derived_harness",
     "blocker": "issue_derived_harness_generation_failed",
     "minimum_condition_to_unblock": "current run did not exercise a valid issue-derived harness",
@@ -58,9 +42,17 @@
   {
     "advice_id": "matched_null_ensemble",
     "blocker": "matched_null_ensemble_missing",
-    "minimum_condition_to_unblock": "Batch005 did not produce a memory-enabled patch, so the null ensemble remains not run",
+    "minimum_condition_to_unblock": "Batch006 blocks before patch bytes, so the null ensemble remains not run",
     "next_allowed_lane": "future_verified_challenge_lane",
-    "reason_not_implemented_now": "Batch005 did not produce a memory-enabled patch, so the null ensemble remains not run",
+    "reason_not_implemented_now": "Batch006 blocks before patch bytes, so the null ensemble remains not run",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
+    "advice_id": "active_failure_memory_routing",
+    "blocker": "active_memory_routing_delta_not_established",
+    "minimum_condition_to_unblock": "Batch010 blocks because no admissible routing delta is available without prior patch details",
+    "next_allowed_lane": "future_fresh_candidate_lane",
+    "reason_not_implemented_now": "Batch010 blocks because no admissible routing delta is available without prior patch details",
     "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
   },
   {
@@ -69,14 +61,6 @@
     "minimum_condition_to_unblock": "implement reusable gate evidence and audit assertion",
     "next_allowed_lane": "future_matched_null_lane",
     "reason_not_implemented_now": "implemented partially under current lane scope",
-    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
-  },
-  {
-    "advice_id": "no_overreach_validation",
-    "blocker": "no_overreach_new_failure_detected",
-    "minimum_condition_to_unblock": "Batch005 has no patch, so corrected no-overreach remains not run",
-    "next_allowed_lane": "post_v2_37_followup",
-    "reason_not_implemented_now": "Batch005 has no patch, so corrected no-overreach remains not run",
     "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
   },
   {
@@ -98,9 +82,9 @@
   {
     "advice_id": "cryptographic_evidence_ledger_sealing",
     "blocker": "proof_chain_lock_missing",
-    "minimum_condition_to_unblock": "not yet standardized for every clean replication output",
+    "minimum_condition_to_unblock": "Batch006 blocks before patch validation, so final validation/replay sealing is not active",
     "next_allowed_lane": "post_v2_37_followup",
-    "reason_not_implemented_now": "not yet standardized for every clean replication output",
+    "reason_not_implemented_now": "Batch006 blocks before patch validation, so final validation/replay sealing is not active",
     "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
   },
   {

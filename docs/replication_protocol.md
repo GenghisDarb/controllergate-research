@@ -88,13 +88,21 @@ Batch008 corrects declared formatter precondition materialization for `darker_sk
 
 Batch009 runs retrospective matched-null calibration on the already repaired Batch008 candidate. Both the memory-enabled arm and memory-disabled null ensemble are denied access to Batch008 patch bytes, fragment records, patch rationale, and successful repair details. This diagnostic does not add another native repair episode and cannot establish prospective memory lift because the successful Batch008 patch already exists.
 
+Batch009 outcome: patch quarantine passes and the null ensemble fails 5/5, but Arm A does not generate a patch and its routing delta is false because the available failure-memory markers are passive. The matched-null score remains `0.0`.
+
+## Batch010 active status-code weighting calibration
+
+Batch010 converts prior decision-time-safe status codes into deterministic weighting records and applies a High-Pass Source Ranking Filter, Two-Candidate Selection Policy, and Strict Minimum-Delta Routing audit before any memory-enabled patch generation can be labeled active. It uses the same already repaired Batch008 candidate only as retrospective calibration, keeps Batch008 patch bytes and rationale quarantined, and does not increment the repair episode count.
+
+Batch010 outcome: the safe status-code evidence does not establish a source, context, or generation routing delta. Patch generation, target validation, duplicate replay, and null ensemble rerun remain `NOT_RUN` or blocked, with exact blocker `active_memory_routing_delta_not_established`.
+
 ## Current official repair episodes
 
-As of the official Batch008 ingest boundary, the confirmed external non-Ansible native repair endpoints are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
+As of the Batch010 retrospective calibration boundary, the confirmed external non-Ansible native repair endpoints remain `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
 
 ## Current operational gate status
 
-- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, and public claim boundary audit.
-- Partial gates: structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, matched-null ensemble execution, failure-memory weighting, and no-overreach validation for blocked candidates.
+- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, status-code weighting policy, High-Pass Source Ranking Filter, Two-Candidate Selection Policy, and Strict Minimum-Delta Routing.
+- Partial gates: structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, matched-null ensemble execution, Active Failure-Memory Routing, failure-memory weighting, and no-overreach validation for blocked candidates.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

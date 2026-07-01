@@ -18,23 +18,25 @@ ControllerGate has made meaningful progress as a research harness, but the evide
 - Batch007 adds target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, and candidate retirement for the same challenge candidate.
 - Batch008 corrects declared formatter precondition materialization, reaches the intended target behavior after declared extras, and validates one bounded source-only patch with target validation PASS, duplicate replay 3/3, and target-file no-overreach PASS. No additional matched-null memory evidence is counted.
 - Batch009 is retrospective patch-quarantined matched-null calibration on the already repaired Batch008 candidate. It does not add another repair episode and does not satisfy prospective memory-lift requirements.
+- Batch009 showed null ensemble failure under patch quarantine, but Arm A did not actively change routing or generate a patch; the matched-null score remains `0.0`.
+- Batch010 implements active status-code weighting and strict routing-delta auditing, then blocks with `active_memory_routing_delta_not_established` because the available safe status-code evidence does not change source, context, or generation routing.
 
 ## Remaining gaps
 
 - Additional external repair successes across more repositories are still useful for broader replication.
 - Clean repair generation needs broader coverage beyond the currently validated darker repair case.
-- Matched-null memory separation evidence is not accepted yet.
+- Matched-null memory separation evidence is not accepted yet; Batch010 remains retrospective no-delta calibration, not prospective memory lift.
 - A matched-null ensemble on a verified challenge candidate has not run or produced accepted separation evidence.
 - Full scoring remains disallowed.
 - Public claims must remain conservative.
 
 ## Current blocker
 
-Batch002 has demonstrated two additional source-only repairs after environment resolution. Batch003 and batch004 show that challenge-candidate acquisition remains difficult. Batch005 addresses source materialization and target-node/source-subset derivation. Batch006 adds fragment assembly gates, Batch007 adds target-intent/precondition gates, and Batch008 demonstrates one bounded repair after declared precondition materialization. The remaining blocker is not a single-target repair endpoint; it is the lack of broader audited replication and accepted matched-null memory separation evidence.
+Batch002 has demonstrated two additional source-only repairs after environment resolution. Batch003 and batch004 show that challenge-candidate acquisition remains difficult. Batch005 addresses source materialization and target-node/source-subset derivation. Batch006 adds fragment assembly gates, Batch007 adds target-intent/precondition gates, and Batch008 demonstrates one bounded repair after declared precondition materialization. Batch009 and Batch010 calibrate matched-null and active routing controls without establishing memory separation. The remaining blocker is not a single-target repair endpoint; it is the lack of broader audited replication and accepted prospective matched-null memory separation evidence.
 
 ## Current operational gate status
 
-- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, and release-readiness blocking.
-- Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, failure-memory weighting, post-patch revalidation for blocked candidates, global-block exception research, and broader evidence-ledger standardization.
+- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, release-readiness blocking, status-code weighting policy, High-Pass Source Ranking Filter, Two-Candidate Selection Policy, and Strict Minimum-Delta Routing.
+- Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, Active Failure-Memory Routing, failure-memory weighting, post-patch revalidation for blocked candidates, global-block exception research, and broader evidence-ledger standardization.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

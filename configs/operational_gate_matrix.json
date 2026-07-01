@@ -620,10 +620,89 @@
         "prospective_memory_lift_requirement"
       ],
       "status": "implemented"
+    },
+    {
+      "audit_assertion": "status-code weighting may not authorize a memory-routing diagnostic without strict routing delta",
+      "blocker_names": [
+        "active_memory_routing_delta_not_established",
+        "forced_routing_delta_without_evidence"
+      ],
+      "claim_boundary": "active routing is diagnostic only unless target validation, replay, and null comparison pass",
+      "current_module_or_script": "controllergate/core/status_code_weighting.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_010/status_code_to_weight_map.json",
+        "outputs/clean_replication_batch_010/routing_delta_audit.json"
+      ],
+      "neutral_gate_name": "Active Failure-Memory Routing",
+      "next_required_implementation_step": "obtain a fresh candidate or additional decision-time-safe memory feature that changes route selection",
+      "notebooklm_advice_ids": [
+        "active_failure_memory_routing"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "audit_assertion": "filtering cannot remove every legal patchable source path",
+      "blocker_names": [
+        "high_pass_filter_no_legal_source_remaining",
+        "high_pass_filter_uses_forbidden_patch_memory"
+      ],
+      "claim_boundary": "source filtering is not repair success",
+      "current_module_or_script": "controllergate/core/source_ranking.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_010/high_pass_filter_application.json",
+        "outputs/clean_replication_batch_010/masked_or_downranked_context_paths.json"
+      ],
+      "neutral_gate_name": "High-Pass Source Ranking Filter",
+      "next_required_implementation_step": "reuse the filter only with evidence-linked weights",
+      "notebooklm_advice_ids": [
+        "high_pass_source_ranking_filter"
+      ],
+      "status": "implemented"
+    },
+    {
+      "audit_assertion": "primary route and secondary availability are recorded before generation",
+      "blocker_names": [
+        "two_candidate_selection_missing"
+      ],
+      "claim_boundary": "route selection does not authorize a patch without replay and safety gates",
+      "current_module_or_script": "controllergate/core/source_ranking.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_010/two_candidate_selection_policy.json",
+        "outputs/clean_replication_batch_010/admitted_alternative_paths.json"
+      ],
+      "neutral_gate_name": "Two-Candidate Selection Policy",
+      "next_required_implementation_step": "require secondary-route evidence where alternatives exist",
+      "notebooklm_advice_ids": [
+        "two_candidate_selection_policy"
+      ],
+      "status": "implemented"
+    },
+    {
+      "audit_assertion": "metadata-only or score-only changes are not enough to call memory routing active",
+      "blocker_names": [
+        "active_memory_routing_delta_not_established",
+        "forced_routing_delta_without_evidence"
+      ],
+      "claim_boundary": "no active memory claim without source, context, or generation delta",
+      "current_module_or_script": "controllergate/core/source_ranking.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_010/strict_minimum_delta_policy.json",
+        "outputs/clean_replication_batch_010/routing_delta_report.json"
+      ],
+      "neutral_gate_name": "Strict Minimum-Delta Routing",
+      "next_required_implementation_step": "preserve strict delta checks before any future memory-routing diagnostic",
+      "notebooklm_advice_ids": [
+        "strict_minimum_delta_routing"
+      ],
+      "status": "implemented"
     }
   ],
   "matrix_id": "operational_gate_matrix_post_v2_37",
-  "notebooklm_advice_cross_reference_count": 34,
+  "notebooklm_advice_cross_reference_count": 38,
   "notebooklm_advice_traceability_matrix_path": "configs/notebooklm_advice_traceability_matrix.json",
   "terminology_policy": "neutral_engineering_terms_only"
 }

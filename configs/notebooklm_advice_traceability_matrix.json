@@ -673,6 +673,128 @@
       "status": "implemented_active"
     },
     {
+      "advice_id": "active_failure_memory_routing",
+      "blocker_if_missing": "active_memory_routing_delta_not_established",
+      "blockers": [
+        "active_memory_routing_delta_not_established"
+      ],
+      "claim_boundary": "active routing requires source, context, or generation delta",
+      "current_repo_mechanism": "Batch010 converts prior status-code evidence into deterministic weighting but blocks when strict routing delta is not established",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_010/status_code_to_weight_map.json",
+        "outputs/clean_replication_batch_010/routing_delta_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_fresh_candidate_lane",
+      "operational_gate_name": "Active Failure-Memory Routing",
+      "public_engineering_name": "Active Failure-Memory Routing",
+      "reason_if_deferred_or_rejected": "Batch010 blocks because no admissible routing delta is available without prior patch details",
+      "required_audit_assertions": [
+        "routing delta must be true before memory-routing diagnostic"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/failure_memory.py",
+        "controllergate/core/status_code_weighting.py",
+        "controllergate/core/source_ranking.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_010/status_code_to_weight_map.json",
+        "outputs/clean_replication_batch_010/routing_delta_audit.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "high_pass_source_ranking_filter",
+      "blocker_if_missing": "high_pass_filter_no_legal_source_remaining",
+      "blockers": [
+        "high_pass_filter_no_legal_source_remaining"
+      ],
+      "claim_boundary": "filtering is routing evidence, not repair success",
+      "current_repo_mechanism": "Batch010 applies a filter that cannot mask all legal patchable source files",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_010/high_pass_filter_application.json",
+        "outputs/clean_replication_batch_010/masked_or_downranked_context_paths.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "High-Pass Source Ranking Filter",
+      "public_engineering_name": "High-Pass Source Ranking Filter",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "at least one legal patchable source remains"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/source_ranking.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_010/high_pass_filter_application.json",
+        "outputs/clean_replication_batch_010/masked_or_downranked_context_paths.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "two_candidate_selection_policy",
+      "blocker_if_missing": "two_candidate_selection_missing",
+      "blockers": [
+        "two_candidate_selection_missing"
+      ],
+      "claim_boundary": "route selection does not authorize patch generation by itself",
+      "current_repo_mechanism": "Batch010 records primary route and secondary route availability",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_010/two_candidate_selection_policy.json",
+        "outputs/clean_replication_batch_010/admitted_alternative_paths.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Two-Candidate Selection Policy",
+      "public_engineering_name": "Two-Candidate Selection Policy",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "primary route exists and secondary is recorded if available"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/source_ranking.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_010/two_candidate_selection_policy.json",
+        "outputs/clean_replication_batch_010/admitted_alternative_paths.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "strict_minimum_delta_routing",
+      "blocker_if_missing": "forced_routing_delta_without_evidence",
+      "blockers": [
+        "forced_routing_delta_without_evidence"
+      ],
+      "claim_boundary": "no active memory claim without routing delta",
+      "current_repo_mechanism": "Batch010 rejects metadata-only or score-only changes as active routing",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_010/strict_minimum_delta_policy.json",
+        "outputs/clean_replication_batch_010/routing_delta_report.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Strict Minimum-Delta Routing",
+      "public_engineering_name": "Strict Minimum-Delta Routing",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "routing delta reason codes are machine-checkable"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/source_ranking.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_010/strict_minimum_delta_policy.json",
+        "outputs/clean_replication_batch_010/routing_delta_report.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
       "advice_id": "failure_memory_weighting",
       "blocker_if_missing": "failure_memory_weighting_not_applied",
       "blockers": [
@@ -1042,7 +1164,7 @@
       "status": "deferred_with_blocker"
     }
   ],
-  "entry_count": 34,
+  "entry_count": 38,
   "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch007",
   "status": "PASS",
   "terminology_policy": "neutral_engineering_terms_only"

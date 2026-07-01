@@ -19,7 +19,8 @@ BATCH006_DIR = Path("outputs/clean_replication_batch_006")
 BATCH007_DIR = Path("outputs/clean_replication_batch_007")
 BATCH008_DIR = Path("outputs/clean_replication_batch_008")
 BATCH009_DIR = Path("outputs/clean_replication_batch_009")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch009_patch_quarantined_matched_null")
+BATCH010_DIR = Path("outputs/clean_replication_batch_010")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch010_active_memory_routing")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -78,6 +79,9 @@ POST_REQUIRED = [
     "fourth_external_native_repair_ingest_summary.json",
     "batch008_null_ensemble_gap_diagnosis.json",
     "batch009_patch_quarantine_recommendation.json",
+    "batch009_patch_quarantined_matched_null_artifact_verification.json",
+    "batch009_passive_memory_diagnosis.json",
+    "batch010_active_memory_routing_recommendation.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
     "campaign_summary.md",
@@ -332,6 +336,39 @@ BATCH009_REQUIRED = [
     "SHA256SUMS.txt",
 ]
 
+BATCH010_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_010.json",
+    "status_code_weighting_policy.json",
+    "status_code_evidence_inventory.json",
+    "status_code_to_weight_map.json",
+    "failure_memory_source_marker_map.json",
+    "high_pass_source_ranking_filter.json",
+    "two_candidate_selection_policy.json",
+    "strict_minimum_delta_policy.json",
+    "baseline_source_ranking.json",
+    "memory_weighted_source_ranking.json",
+    "routing_delta_report.json",
+    "routing_delta_audit.json",
+    "context_selection_delta_report.json",
+    "generation_strategy_delta_report.json",
+    "high_pass_filter_application.json",
+    "masked_or_downranked_context_paths.json",
+    "admitted_alternative_paths.json",
+    "active_memory_repair_attempt.json",
+    "null_ensemble_rerun_results.json",
+    "null_ensemble_rerun_summary.json",
+    "null_ensemble_memory_exclusion_audit.json",
+    "matched_null_score_result_batch010.json",
+    "matched_null_score_audit_batch010.json",
+    "memory_routing_diagnostic_evaluation_batch010.json",
+    "prospective_memory_lift_requirement_update.json",
+    "claim_boundary.json",
+    "notebooklm_advice_traceability_status.json",
+    "carry_forward_blocker_register.json",
+    "SHA256SUMS.txt",
+]
+
 BATCH003_REQUIRED = [
     "consolidated_state_clean_replication_batch_003.json",
     "matched_null_ensemble_policy.json",
@@ -476,6 +513,8 @@ def blocked_terms() -> list[str]:
         "meta" + "phorical",
         "OS" + "QN",
         "N" + "\u2248",
+        "chro" + "matin",
+        "epi" + "genetic",
     ]
 
 
@@ -969,6 +1008,35 @@ def audit_phase_a_ingest_records() -> list[str]:
         errors.append("batch008 null ensemble gap diagnosis overclaimed")
     if batch009_recommendation.get("status") != "READY_FOR_BATCH009_RETROSPECTIVE_CALIBRATION":
         errors.append("batch009 patch quarantine recommendation missing")
+    batch009_verification = read_json(POST_DIR / "batch009_patch_quarantined_matched_null_artifact_verification.json")
+    passive_diagnosis = read_json(POST_DIR / "batch009_passive_memory_diagnosis.json")
+    batch010_recommendation = read_json(POST_DIR / "batch010_active_memory_routing_recommendation.json")
+    if batch009_verification.get("status") != "PASS":
+        errors.append("batch009 artifact verification not PASS")
+    if batch009_verification.get("actual_sha256") != "2fb48b3df92ba7aac9b07b6f82d288755209fa6fe868f2ecf18be757b1f3f249":
+        errors.append("batch009 artifact SHA mismatch")
+    if batch009_verification.get("actual_size") != 325952 or batch009_verification.get("entry_count") != 418:
+        errors.append("batch009 artifact size or entry count mismatch")
+    if batch009_verification.get("unsafe_path_count") != 0 or batch009_verification.get("duplicate_path_count") != 0 or batch009_verification.get("pycache_pyc_count") != 0:
+        errors.append("batch009 artifact path/cache safety failed")
+    required_records = batch009_verification.get("required_batch009_records_verified", {})
+    if not isinstance(required_records, dict) or not all(required_records.values()):
+        errors.append("batch009 required records were not all verified")
+    if passive_diagnosis.get("status") != "PASS":
+        errors.append("batch009 passive memory diagnosis not PASS")
+    if passive_diagnosis.get("patch_quarantine_passed") is not True:
+        errors.append("batch009 passive diagnosis missing patch quarantine PASS")
+    if passive_diagnosis.get("null_ensemble_run_count") != 5 or passive_diagnosis.get("null_ensemble_failed_count") != 5:
+        errors.append("batch009 passive diagnosis null ensemble counts invalid")
+    if passive_diagnosis.get("arm_a_patch_generated") is not False or passive_diagnosis.get("arm_a_routing_delta_detected") is not False:
+        errors.append("batch009 passive diagnosis overstates Arm A")
+    if passive_diagnosis.get("matched_null_score") != 0.0 or passive_diagnosis.get("prospective_memory_lift") != "not_demonstrated":
+        errors.append("batch009 passive diagnosis overclaims memory evidence")
+    if batch010_recommendation.get("status") != "READY_FOR_BATCH010_ACTIVE_MEMORY_ROUTING_CALIBRATION":
+        errors.append("batch010 active routing recommendation missing")
+    boundary = batch010_recommendation.get("required_claim_boundary", {})
+    if not isinstance(boundary, dict) or boundary.get("full_scoring") != "NOT_RUN/disallowed" or boundary.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch010 recommendation claim boundary invalid")
     return errors
 
 
@@ -1738,6 +1806,149 @@ def audit_batch009_records() -> list[str]:
     return errors
 
 
+def audit_batch010_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH010_REQUIRED:
+        if not (BATCH010_DIR / name).is_file():
+            errors.append(f"batch010 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH010_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch010 manifest failed: {manifest}")
+    state = read_json(BATCH010_DIR / "consolidated_state_clean_replication_batch_010.json")
+    policy = read_json(BATCH010_DIR / "status_code_weighting_policy.json")
+    inventory = read_json(BATCH010_DIR / "status_code_evidence_inventory.json")
+    weight_map = read_json(BATCH010_DIR / "status_code_to_weight_map.json")
+    source_marker = read_json(BATCH010_DIR / "failure_memory_source_marker_map.json")
+    high_pass_policy = read_json(BATCH010_DIR / "high_pass_source_ranking_filter.json")
+    two_candidate = read_json(BATCH010_DIR / "two_candidate_selection_policy.json")
+    delta_policy = read_json(BATCH010_DIR / "strict_minimum_delta_policy.json")
+    baseline = read_json(BATCH010_DIR / "baseline_source_ranking.json")
+    weighted = read_json(BATCH010_DIR / "memory_weighted_source_ranking.json")
+    delta = read_json(BATCH010_DIR / "routing_delta_report.json")
+    delta_audit = read_json(BATCH010_DIR / "routing_delta_audit.json")
+    context_delta = read_json(BATCH010_DIR / "context_selection_delta_report.json")
+    generation_delta = read_json(BATCH010_DIR / "generation_strategy_delta_report.json")
+    filter_application = read_json(BATCH010_DIR / "high_pass_filter_application.json")
+    masked = read_json(BATCH010_DIR / "masked_or_downranked_context_paths.json")
+    alternatives = read_json(BATCH010_DIR / "admitted_alternative_paths.json")
+    active = read_json(BATCH010_DIR / "active_memory_repair_attempt.json")
+    null_results = read_json(BATCH010_DIR / "null_ensemble_rerun_results.json")
+    null_summary = read_json(BATCH010_DIR / "null_ensemble_rerun_summary.json")
+    null_exclusion = read_json(BATCH010_DIR / "null_ensemble_memory_exclusion_audit.json")
+    score = read_json(BATCH010_DIR / "matched_null_score_result_batch010.json")
+    score_audit = read_json(BATCH010_DIR / "matched_null_score_audit_batch010.json")
+    diagnostic = read_json(BATCH010_DIR / "memory_routing_diagnostic_evaluation_batch010.json")
+    prospective = read_json(BATCH010_DIR / "prospective_memory_lift_requirement_update.json")
+    claim = read_json(BATCH010_DIR / "claim_boundary.json")
+    traceability = read_json(BATCH010_DIR / "notebooklm_advice_traceability_status.json")
+    carry = read_json(BATCH010_DIR / "carry_forward_blocker_register.json")
+    blocker = "active_memory_routing_delta_not_established"
+    if policy.get("status") != "PASS" or policy.get("status_codes_affect_routing_only_when_mapped_to_evidence") is not True:
+        errors.append("status_code_weighting_policy_missing")
+    if policy.get("unmapped_codes_do_not_change_weights") is not True or policy.get("patch_bytes_and_rationale_forbidden_as_memory") is not True:
+        errors.append("status code weighting policy weakens quarantine")
+    records = inventory.get("records", [])
+    if inventory.get("status") != "PASS" or not isinstance(records, list) or len(records) < 3:
+        errors.append("status-code evidence inventory invalid")
+    for record in records if isinstance(records, list) else []:
+        if not isinstance(record, dict):
+            errors.append("status-code evidence record malformed")
+            continue
+        for field in ["status_code", "candidate_id", "evidence_path", "evidence_sha256", "reason"]:
+            if not record.get(field):
+                errors.append(f"status-code evidence missing {field}")
+        if record.get("decision_time_safe") is not True:
+            errors.append("status-code evidence not decision-time safe")
+    weights = weight_map.get("weights", [])
+    if weight_map.get("status") != "PASS" or not isinstance(weights, list):
+        errors.append("status code weight map invalid")
+    for weight in weights if isinstance(weights, list) else []:
+        if not isinstance(weight, dict):
+            errors.append("weight record malformed")
+            continue
+        for field in ["status_code", "source_path", "evidence_path", "evidence_sha256", "reason", "weight_class"]:
+            if not weight.get(field):
+                errors.append(f"weight missing {field}")
+    unmapped = weight_map.get("unmapped_records", [])
+    excluded = weight_map.get("excluded_records", [])
+    if source_marker.get("unmapped_status_count") != len(unmapped) or source_marker.get("excluded_patch_detail_count") != len(excluded):
+        errors.append("failure memory source marker counts mismatch")
+    if weight_map.get("no_relevant_memory_features_available") is not True or source_marker.get("no_relevant_memory_features_available") is not True:
+        errors.append("no_relevant_memory_features_available not recorded")
+    if not any(isinstance(item, dict) and item.get("unmapped_reason") == "no_legal_source_context_feature" for item in unmapped):
+        errors.append("status_code_evidence_unmapped")
+    if not any(isinstance(item, dict) and item.get("exclusion_reason") == "patch_detail_quarantine" for item in excluded):
+        errors.append("high_pass_filter_uses_forbidden_patch_memory")
+    if baseline.get("status") != "PASS" or weighted.get("status") != "PASS":
+        errors.append("source ranking outputs invalid")
+    if baseline.get("ranking_hash") != state.get("baseline_source_ranking_hash"):
+        errors.append("baseline source ranking hash mismatch")
+    if weighted.get("ranking_hash") != state.get("memory_weighted_source_ranking_hash"):
+        errors.append("memory-weighted source ranking hash mismatch")
+    if delta_policy.get("status") != "PASS" or delta_policy.get("metadata_only_delta_rejected") is not True:
+        errors.append("strict minimum-delta policy invalid")
+    if delta.get("routing_delta_detected") is not False or delta.get("blocker") != blocker:
+        errors.append("routing delta report should block without measurable delta")
+    if delta.get("routing_delta_reason_codes") != []:
+        errors.append("forced_routing_delta_without_evidence")
+    if delta_audit.get("status") != "PASS" or delta_audit.get("routing_delta_detected") is not False or delta_audit.get("forced_routing_delta_without_evidence") is not False:
+        errors.append("routing delta audit invalid")
+    if context_delta.get("context_changed") is not False or generation_delta.get("generation_strategy_changed") is not False:
+        errors.append("context or generation delta was forced")
+    if high_pass_policy.get("status") != "PASS" or high_pass_policy.get("forbidden_patch_memory_excluded") is not True:
+        errors.append("high-pass source ranking policy invalid")
+    admitted = filter_application.get("admitted", [])
+    if filter_application.get("status") != "PASS" or not isinstance(admitted, list) or not admitted:
+        errors.append("high_pass_filter_no_legal_source_remaining")
+    if masked.get("status") != "PASS" or alternatives.get("status") != "PASS":
+        errors.append("high-pass filter application records invalid")
+    selection = two_candidate.get("selection", {})
+    if two_candidate.get("status") != "PASS" or not isinstance(selection, dict) or not selection.get("primary_route"):
+        errors.append("two-candidate selection missing primary route")
+    if active.get("patch_generation_authorized") is not False or active.get("patch_generated") is not False:
+        errors.append("routing delta false did not block memory-enabled patch authorization")
+    if active.get("blocker") != blocker:
+        errors.append("active memory repair attempt blocker mismatch")
+    if (BATCH010_DIR / "active_memory_patch.diff").exists() or (BATCH010_DIR / "active_memory_patch_sha256.txt").exists():
+        errors.append("active memory patch artifact exists despite blocked routing delta")
+    if null_results.get("status") != "NOT_RUN" or null_summary.get("null_ensemble_run_count") != 0:
+        errors.append("null ensemble reran without active routing delta")
+    if null_exclusion.get("status") != "PASS" or null_exclusion.get("null_ensemble_read_failure_memory") is not False or null_exclusion.get("null_ensemble_read_patch_artifacts") is not False:
+        errors.append("null ensemble memory exclusion audit invalid")
+    if score.get("matched_null_ensemble_separation_score") != 0.0 or score.get("routing_delta_detected") is not False:
+        errors.append("Batch010 matched-null score must remain zero without routing delta")
+    if score_audit.get("retrospective_not_prospective") is not True or score_audit.get("overclaim_detected") is not False:
+        errors.append("matched-null score audit overclaimed")
+    if diagnostic.get("retrospective_single_candidate_memory_routing_diagnostic") is not False or diagnostic.get("memory_separation_evidence") is not False:
+        errors.append("retrospective_diagnostic_overclaimed")
+    if prospective.get("status") != "PASS" or prospective.get("fresh_candidate_required") is not True or prospective.get("full_memory_lift_claim_allowed") is not False:
+        errors.append("prospective_memory_lift_overclaimed")
+    if claim.get("prospective_memory_lift") != "not_demonstrated" or claim.get("full_memory_lift_claimed") is not False:
+        errors.append("prospective memory lift claim boundary invalid")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("Batch010 claim boundary overclaimed")
+    if state.get("status") != "BLOCK" or state.get("exact_blocker") != blocker:
+        errors.append("Batch010 state blocker mismatch")
+    if state.get("active_memory_patch_generated") is not False or state.get("batch010_adds_repair_episode") is not False:
+        errors.append("Batch010 state increments repair or patch generation")
+    if state.get("confirmed_native_repair_episode_count") != 4:
+        errors.append("Batch010 repair episode count changed")
+    if traceability.get("failure_memory_weighting") != "implemented_partial" or traceability.get("failure_memory_weighting_blocker") != blocker:
+        errors.append("Batch010 traceability overstates failure-memory weighting")
+    if traceability.get("strict_minimum_delta_routing") != "implemented_active":
+        errors.append("Batch010 traceability missing strict minimum-delta routing")
+    blockers = carry.get("blockers", [])
+    if carry.get("status") != "PASS" or not any(isinstance(item, dict) and item.get("blocker") == blocker for item in blockers):
+        errors.append("Batch010 carry-forward blocker missing")
+    episodes = read_json(Path("configs/external_repair_episode_registry.json")).get("episodes", [])
+    matches = [item for item in episodes if isinstance(item, dict) and item.get("candidate_id") == "darker_skip_glob_failing_test"]
+    if len(matches) != 1:
+        errors.append("Batch010 duplicated darker_skip_glob repair episode")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -1848,9 +2059,16 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_006.json"),
         Path("configs/clean_replication_batch_007.json"),
         Path("configs/clean_replication_batch_008.json"),
+        Path("configs/clean_replication_batch_009.json"),
+        Path("configs/clean_replication_batch_010.json"),
+        Path("controllergate/core/failure_memory.py"),
+        Path("controllergate/core/status_code_weighting.py"),
+        Path("controllergate/core/source_ranking.py"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
+    paths.extend(sorted(BATCH010_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH010_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -1884,6 +2102,11 @@ REQUIRED_NOTEBOOKLM_ADVICE_IDS = {
     "issue_derived_latent_risk",
     "matched_null_comparison_arms",
     "matched_null_ensemble",
+    "active_failure_memory_routing",
+    "high_pass_source_ranking_filter",
+    "two_candidate_selection_policy",
+    "strict_minimum_delta_routing",
+    "prospective_memory_lift_requirement",
     "failure_memory_weighting",
     "duplicate_clean_replay",
     "no_overreach_validation",
@@ -1988,6 +2211,7 @@ def main() -> int:
         + require_files(BATCH007_DIR, BATCH007_REQUIRED)
         + require_files(BATCH008_DIR, BATCH008_REQUIRED)
         + require_files(BATCH009_DIR, BATCH009_REQUIRED)
+        + require_files(BATCH010_DIR, BATCH010_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -2009,6 +2233,8 @@ def main() -> int:
         return fail("batch008 manifest mismatch")
     if verify_manifest(BATCH009_DIR)["status"] != "PASS":
         return fail("batch009 manifest mismatch")
+    if verify_manifest(BATCH010_DIR)["status"] != "PASS":
+        return fail("batch010 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
         return fail("core tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -2141,6 +2367,9 @@ def main() -> int:
     batch009_errors = audit_batch009_records()
     if batch009_errors:
         return fail(f"batch009 audit failed: {batch009_errors}")
+    batch010_errors = audit_batch010_records()
+    if batch010_errors:
+        return fail(f"batch010 audit failed: {batch010_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")

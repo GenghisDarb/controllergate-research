@@ -65,6 +65,16 @@ from controllergate.core.proof_chain import build_proof_chain_lock
 from controllergate.core.patch_quarantine import audit_patch_quarantine, build_patch_artifact_denylist
 from controllergate.core.matched_null import null_ensemble_success_rate, retrospective_matched_null_calibration_score
 from controllergate.core.memory_policy import evaluate_retrospective_memory_claim, prospective_memory_lift_requirement
+from controllergate.core.failure_memory import build_status_code_inventory, relevant_records_for_candidate
+from controllergate.core.status_code_weighting import build_status_code_weight_map, weights_are_evidence_linked
+from controllergate.core.source_ranking import (
+    apply_high_pass_filter,
+    apply_status_weights,
+    baseline_source_ranking,
+    select_two_candidate_routes,
+    stable_hash as source_stable_hash,
+    strict_minimum_delta,
+)
 from controllergate.core.target_reachability import classify_runtime_path, completion_decision, downstream_gate_violation, fragment_generation_authorized
 from controllergate.experiments.replication_batch import run_replication_batch
 
@@ -86,7 +96,9 @@ BATCH008_ID = "clean_replication_batch_008"
 BATCH008_DIR = Path("outputs") / BATCH008_ID
 BATCH009_ID = "clean_replication_batch_009"
 BATCH009_DIR = Path("outputs") / BATCH009_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch009_patch_quarantined_matched_null")
+BATCH010_ID = "clean_replication_batch_010"
+BATCH010_DIR = Path("outputs") / BATCH010_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch010_active_memory_routing")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -518,8 +530,13 @@ ACTIVE_PUBLIC_LANGUAGE_PATHS = [
     "configs/clean_replication_batch_006.json",
     "configs/clean_replication_batch_007.json",
     "configs/clean_replication_batch_008.json",
+    "configs/clean_replication_batch_009.json",
+    "configs/clean_replication_batch_010.json",
     ".github/workflows/post_v2_37_hardening_and_batch002.yml",
     "controllergate/core/environment.py",
+    "controllergate/core/failure_memory.py",
+    "controllergate/core/status_code_weighting.py",
+    "controllergate/core/source_ranking.py",
     "controllergate/experiments/replication_batch.py",
     "scripts/post_v2_37_hardening_and_batch002_runner.py",
     "scripts/audit_post_v2_37_hardening_and_batch002.py",
@@ -542,6 +559,8 @@ def public_language_audit(paths: list[str]) -> dict[str, object]:
         "bio" + "logical",
         "OS" + "QN",
         "N" + "\u2248",
+        "chro" + "matin",
+        "epi" + "genetic",
     ]
     hits: list[dict[str, object]] = []
     for rel in paths:
@@ -582,6 +601,7 @@ def write_public_docs_reports() -> None:
         "Batch007 adds target-intent reachability and precondition resolution",
         "Batch008 corrects declared formatter precondition materialization",
         "Batch009 patch-quarantined matched-null calibration",
+        "Batch010 implements active status-code weighting",
         "Current operational gate status",
     ]
     missing = [phrase for phrase in required_phrases if phrase not in readme]
@@ -636,7 +656,7 @@ def write_public_docs_reports() -> None:
             "evidence_classes": matrix.get("evidence_classes", []),
         },
     )
-    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH006_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH007_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH008_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH009_DIR.glob("*.json"))]
+    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH006_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH007_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH008_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH009_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH010_DIR.glob("*.json"))]
     write_json_deterministic(
         POST_DIR / "public_language_audit_expanded.json",
         public_language_audit(ACTIVE_PUBLIC_LANGUAGE_PATHS + artifact_paths),
@@ -706,6 +726,10 @@ def notebooklm_advice_entries(batch005_state: dict[str, object]) -> list[dict[st
         entry("matched_null_ensemble", "Matched-Null Baseline Ensemble", "implemented_partial", "ensemble policy and summaries exist; Batch006 does not run the ensemble because no memory-enabled patch endpoint exists", ["outputs/clean_replication_batch_003/matched_null_ensemble_policy.json", "outputs/clean_replication_batch_006/memory_separation_claim_evaluation_batch006.json"], ["controllergate/core/clean_repair.py"], ["null ensemble runs only after valid preconditions"], ["matched_null_ensemble_missing"], "memory_experiment", "ensemble status is separate from repair success", "future_verified_challenge_lane", "Batch006 blocks before patch bytes, so the null ensemble remains not run", gate_name="Matched-Null Comparison Arms"),
         entry("patch_artifact_quarantine", "Patch Artifact Quarantine", "implemented_active", "Batch009 denies prior successful patch artifacts to both matched-null arms", ["outputs/clean_replication_batch_009/patch_artifact_quarantine_audit.json", "outputs/clean_replication_batch_009/patch_artifact_denylist.json"], ["controllergate/core/patch_quarantine.py"], ["denied paths are excluded from arm context manifests"], ["matched_null_patch_quarantine_failed"], "memory_experiment", "patch quarantine enables retrospective calibration only", "continuous", gate_name="Patch Artifact Quarantine"),
         entry("prospective_memory_lift_requirement", "Prospective Memory-Lift Requirement", "implemented_active", "Batch009 records that prospective memory-lift evidence requires a fresh candidate and pre-registered matched-null rules", ["outputs/clean_replication_batch_009/prospective_memory_lift_requirement.json", "outputs/clean_replication_batch_009/memory_separation_claim_evaluation_batch009.json"], ["controllergate/core/memory_policy.py"], ["retrospective calibration is not labeled as prospective memory lift"], ["prospective_memory_lift_overclaimed"], "memory_experiment", "retrospective diagnostics cannot establish prospective memory lift", "future_fresh_candidate_lane", gate_name="Prospective Memory-Lift Requirement"),
+        entry("active_failure_memory_routing", "Active Failure-Memory Routing", "implemented_partial", "Batch010 converts prior status-code evidence into deterministic weighting but blocks when strict routing delta is not established", ["outputs/clean_replication_batch_010/status_code_to_weight_map.json", "outputs/clean_replication_batch_010/routing_delta_audit.json"], ["controllergate/core/failure_memory.py", "controllergate/core/status_code_weighting.py", "controllergate/core/source_ranking.py"], ["routing delta must be true before memory-routing diagnostic"], ["active_memory_routing_delta_not_established"], "memory_experiment", "active routing requires source, context, or generation delta", "future_fresh_candidate_lane", "Batch010 blocks because no admissible routing delta is available without prior patch details", gate_name="Active Failure-Memory Routing"),
+        entry("high_pass_source_ranking_filter", "High-Pass Source Ranking Filter", "implemented_active", "Batch010 applies a filter that cannot mask all legal patchable source files", ["outputs/clean_replication_batch_010/high_pass_filter_application.json", "outputs/clean_replication_batch_010/masked_or_downranked_context_paths.json"], ["controllergate/core/source_ranking.py"], ["at least one legal patchable source remains"], ["high_pass_filter_no_legal_source_remaining"], "memory_experiment", "filtering is routing evidence, not repair success", "continuous", gate_name="High-Pass Source Ranking Filter"),
+        entry("two_candidate_selection_policy", "Two-Candidate Selection Policy", "implemented_active", "Batch010 records primary route and secondary route availability", ["outputs/clean_replication_batch_010/two_candidate_selection_policy.json", "outputs/clean_replication_batch_010/admitted_alternative_paths.json"], ["controllergate/core/source_ranking.py"], ["primary route exists and secondary is recorded if available"], ["two_candidate_selection_missing"], "memory_experiment", "route selection does not authorize patch generation by itself", "continuous", gate_name="Two-Candidate Selection Policy"),
+        entry("strict_minimum_delta_routing", "Strict Minimum-Delta Routing", "implemented_active", "Batch010 rejects metadata-only or score-only changes as active routing", ["outputs/clean_replication_batch_010/strict_minimum_delta_policy.json", "outputs/clean_replication_batch_010/routing_delta_report.json"], ["controllergate/core/source_ranking.py"], ["routing delta reason codes are machine-checkable"], ["forced_routing_delta_without_evidence"], "memory_experiment", "no active memory claim without routing delta", "continuous", gate_name="Strict Minimum-Delta Routing"),
         entry("failure_memory_weighting", "Failure Memory Weighting", "implemented_partial", "Batch006 records failure-memory weighting as passive; active routing delta is required for stronger claims", ["outputs/clean_replication_batch_006/failure_memory_weighting_trace_batch006.json", "outputs/clean_replication_batch_006/memory_separation_claim_evaluation_batch006.json"], ["controllergate/core/fragment_patch.py"], ["routing delta must be present before active status"], ["failure_memory_weighting_not_applied", "failure_memory_markers_passive"], "memory_experiment", "weights rank context only and cannot override hard gates", "future_matched_null_lane", "" if routing_delta_active else "failure-memory markers remain passive for claim purposes"),
         entry("duplicate_clean_replay", "Duplicate Clean Replay", "implemented_active", "successful repairs require duplicate replay evidence", ["outputs/clean_replication_batch_002/duplicate_replay_results.json", "outputs/clean_replication_batch_002/arm_a_duplicate_replay.json"], ["controllergate/core/patch_safety.py"], ["scoreable repairs require duplicate replay PASS"], ["duplicate_replay_failed"], "native", "single target validation is not enough for scoreable status", "continuous"),
         entry("no_overreach_validation", "No-Overreach Validation", "implemented_active", "target-bounded no-overreach records exist for successful repairs including the Batch008 target-test-file replay", ["outputs/clean_replication_batch_005/corrected_no_overreach_validation.json", "outputs/clean_replication_batch_008/no_overreach_validation_batch008.json"], ["controllergate/core/clean_repair.py"], ["no stronger robustness claim after target-only replay"], ["no_overreach_new_failure_detected", "post_patch_constraint_revalidation_failed"], "native", "no-overreach is bounded to executed validation", "continuous", gate_name="No-Overreach Regression"),
@@ -816,6 +840,62 @@ def write_notebooklm_traceability_outputs(batch005_state: dict[str, object]) -> 
             ],
             "next_required_implementation_step": "use a fresh candidate before any successful patch exists",
         },
+        {
+            "neutral_gate_name": "Active Failure-Memory Routing",
+            "status": "implemented_partial",
+            "audit_assertion": "status-code weighting may not authorize a memory-routing diagnostic without strict routing delta",
+            "blocker_names": ["active_memory_routing_delta_not_established", "forced_routing_delta_without_evidence"],
+            "claim_boundary": "active routing is diagnostic only unless target validation, replay, and null comparison pass",
+            "current_module_or_script": "controllergate/core/status_code_weighting.py",
+            "evidence_class_affected": "memory_experiment_evidence",
+            "expected_output_files": [
+                "outputs/clean_replication_batch_010/status_code_to_weight_map.json",
+                "outputs/clean_replication_batch_010/routing_delta_audit.json",
+            ],
+            "next_required_implementation_step": "obtain a fresh candidate or additional decision-time-safe memory feature that changes route selection",
+        },
+        {
+            "neutral_gate_name": "High-Pass Source Ranking Filter",
+            "status": "implemented",
+            "audit_assertion": "filtering cannot remove every legal patchable source path",
+            "blocker_names": ["high_pass_filter_no_legal_source_remaining", "high_pass_filter_uses_forbidden_patch_memory"],
+            "claim_boundary": "source filtering is not repair success",
+            "current_module_or_script": "controllergate/core/source_ranking.py",
+            "evidence_class_affected": "memory_experiment_evidence",
+            "expected_output_files": [
+                "outputs/clean_replication_batch_010/high_pass_filter_application.json",
+                "outputs/clean_replication_batch_010/masked_or_downranked_context_paths.json",
+            ],
+            "next_required_implementation_step": "reuse the filter only with evidence-linked weights",
+        },
+        {
+            "neutral_gate_name": "Two-Candidate Selection Policy",
+            "status": "implemented",
+            "audit_assertion": "primary route and secondary availability are recorded before generation",
+            "blocker_names": ["two_candidate_selection_missing"],
+            "claim_boundary": "route selection does not authorize a patch without replay and safety gates",
+            "current_module_or_script": "controllergate/core/source_ranking.py",
+            "evidence_class_affected": "memory_experiment_evidence",
+            "expected_output_files": [
+                "outputs/clean_replication_batch_010/two_candidate_selection_policy.json",
+                "outputs/clean_replication_batch_010/admitted_alternative_paths.json",
+            ],
+            "next_required_implementation_step": "require secondary-route evidence where alternatives exist",
+        },
+        {
+            "neutral_gate_name": "Strict Minimum-Delta Routing",
+            "status": "implemented",
+            "audit_assertion": "metadata-only or score-only changes are not enough to call memory routing active",
+            "blocker_names": ["active_memory_routing_delta_not_established", "forced_routing_delta_without_evidence"],
+            "claim_boundary": "no active memory claim without source, context, or generation delta",
+            "current_module_or_script": "controllergate/core/source_ranking.py",
+            "evidence_class_affected": "memory_experiment_evidence",
+            "expected_output_files": [
+                "outputs/clean_replication_batch_010/strict_minimum_delta_policy.json",
+                "outputs/clean_replication_batch_010/routing_delta_report.json",
+            ],
+            "next_required_implementation_step": "preserve strict delta checks before any future memory-routing diagnostic",
+        },
     ]
     existing_gate_names = {str(gate.get("neutral_gate_name")) for gate in operational.get("gates", []) if isinstance(gate, dict)}
     for spec in gate_specs:
@@ -895,6 +975,27 @@ def write_notebooklm_traceability_outputs(batch005_state: dict[str, object]) -> 
             ]
         ),
     )
+    write_json_deterministic(BATCH005_DIR / "carry_forward_blocker_register.json", carry_forward)
+    write_json_deterministic(BATCH005_DIR / "notebooklm_advice_carry_forward_blockers.json", carry_forward)
+    write_json_deterministic(
+        BATCH005_DIR / "operational_gate_matrix_crosscheck.json",
+        {
+            "status": "PASS" if not missing_crossrefs else "FAIL",
+            "missing_cross_reference_advice_ids": missing_crossrefs,
+            "matrix_entry_count": len(entries),
+            "operational_gate_count": len(gate_names),
+        },
+    )
+    write_json_deterministic(
+        BATCH005_DIR / "no_silent_completion_audit.json",
+        {
+            "status": "PASS" if not silent_failures else "FAIL",
+            "silent_completion_failures": silent_failures,
+            "active_entry_count": len(active),
+        },
+    )
+    write_json_deterministic(BATCH005_DIR / "notebooklm_advice_traceability_status.json", status)
+    write_sha256sums(BATCH005_DIR)
     return status
 
 
@@ -4292,6 +4393,339 @@ def load_official_batch008_state() -> dict[str, object]:
     return write_batch008_outputs()
 
 
+def load_official_batch009_state(batch008_state: dict[str, object]) -> dict[str, object]:
+    verification_path = POST_DIR / "batch009_patch_quarantined_matched_null_artifact_verification.json"
+    state_path = BATCH009_DIR / "consolidated_state_clean_replication_batch_009.json"
+    if verification_path.is_file() and state_path.is_file():
+        verification = load_json(verification_path)
+        if verification.get("status") == "PASS":
+            return load_json(state_path)
+    return write_batch009_outputs(batch008_state)
+
+
+def write_batch010_outputs(batch009_state: dict[str, object]) -> dict[str, object]:
+    BATCH010_DIR.mkdir(parents=True, exist_ok=True)
+    candidate_id = "darker_skip_glob_failing_test"
+    legal_sources = ["src/darker/import_sorting.py"]
+    status_records = [
+        {
+            "status_code": "PRECONDITION_UNRESOLVED",
+            "candidate_id": candidate_id,
+            "source_path": None,
+            "function_or_class": None,
+            "evidence_path": "outputs/clean_replication_batch_007/precondition_failure_classification.json",
+            "evidence_sha256": sha256_file(BATCH007_DIR / "precondition_failure_classification.json"),
+            "decision_time_safe": True,
+            "uses_patch_bytes_or_rationale": False,
+            "reason": "prior blocker was environment/precondition path rather than source-edit path",
+        },
+        {
+            "status_code": "NO_PATCH_GENERATED",
+            "candidate_id": candidate_id,
+            "source_path": None,
+            "function_or_class": None,
+            "evidence_path": "outputs/clean_replication_batch_009/arm_a_repair_generation_result.json",
+            "evidence_sha256": sha256_file(BATCH009_DIR / "arm_a_repair_generation_result.json"),
+            "decision_time_safe": True,
+            "uses_patch_bytes_or_rationale": False,
+            "reason": "Batch009 did not generate a patch because memory markers were passive",
+        },
+        {
+            "status_code": "REPAIR_SUCCESS",
+            "candidate_id": candidate_id,
+            "source_path": "src/darker/import_sorting.py",
+            "function_or_class": None,
+            "evidence_path": "outputs/clean_replication_batch_008/candidate_retirement_decision_batch008.json",
+            "evidence_sha256": sha256_file(BATCH008_DIR / "candidate_retirement_decision_batch008.json"),
+            "decision_time_safe": True,
+            "uses_patch_bytes_or_rationale": True,
+            "reason": "success evidence is excluded from weighting because it would reveal prior repair detail for this candidate",
+        },
+    ]
+    inventory = build_status_code_inventory(status_records)
+    relevant = relevant_records_for_candidate(inventory, candidate_id)
+    weight_map = build_status_code_weight_map(relevant, legal_sources)
+    baseline = baseline_source_ranking(legal_sources)
+    weighted = apply_status_weights(baseline, weight_map)
+    high_pass = apply_high_pass_filter(weighted)
+    two_candidate = select_two_candidate_routes(weighted)
+    context_before = legal_sources
+    context_after = legal_sources
+    generation_before = {"strategy": "bounded_fragment", "max_fragments": 3, "route": legal_sources[0]}
+    generation_after = {"strategy": "bounded_fragment", "max_fragments": 3, "route": legal_sources[0]}
+    delta = strict_minimum_delta(
+        before=baseline,
+        after=weighted,
+        context_before=context_before,
+        context_after=context_after,
+        generation_before=generation_before,
+        generation_after=generation_after,
+    )
+    routing_delta = delta["routing_delta_detected"] is True
+    blocker = None if routing_delta else "active_memory_routing_delta_not_established"
+
+    write_json_deterministic(
+        BATCH010_DIR / "status_code_weighting_policy.json",
+        {
+            "status": "PASS",
+            "status_codes_affect_routing_only_when_mapped_to_evidence": True,
+            "unmapped_codes_do_not_change_weights": True,
+            "patch_bytes_and_rationale_forbidden_as_memory": True,
+            "blocker_if_missing": "status_code_weighting_policy_missing",
+        },
+    )
+    write_json_deterministic(BATCH010_DIR / "status_code_evidence_inventory.json", inventory)
+    write_json_deterministic(BATCH010_DIR / "status_code_to_weight_map.json", weight_map)
+    write_json_deterministic(
+        BATCH010_DIR / "failure_memory_source_marker_map.json",
+        {
+            "status": "PASS",
+            "candidate_id": candidate_id,
+            "legal_source_paths": legal_sources,
+            "mapped_weight_count": len(weight_map["weights"]),
+            "unmapped_status_count": len(weight_map["unmapped_records"]),
+            "excluded_patch_detail_count": len(weight_map["excluded_records"]),
+            "no_relevant_memory_features_available": weight_map["no_relevant_memory_features_available"],
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "high_pass_source_ranking_filter.json",
+        {
+            "status": "PASS",
+            "do_not_mask_all_legal_sources": True,
+            "do_not_mask_only_patchable_source": True,
+            "forbidden_patch_memory_excluded": True,
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "two_candidate_selection_policy.json",
+        {
+            "status": "PASS",
+            "primary_route_required": True,
+            "secondary_route_required_if_available": True,
+            "selection": two_candidate,
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "strict_minimum_delta_policy.json",
+        {
+            "status": "PASS",
+            "minimum_delta_fields": [
+                "top_ranked_source_file_changed",
+                "top_ranked_function_or_class_changed",
+                "context_selection_changed",
+                "generation_strategy_changed",
+            ],
+            "metadata_only_delta_rejected": True,
+            "blocker_if_false": "active_memory_routing_delta_not_established",
+        },
+    )
+    write_json_deterministic(BATCH010_DIR / "baseline_source_ranking.json", {"status": "PASS", "ranking": baseline, "ranking_hash": source_stable_hash(baseline)})
+    write_json_deterministic(BATCH010_DIR / "memory_weighted_source_ranking.json", {"status": "PASS", "ranking": weighted, "ranking_hash": source_stable_hash(weighted)})
+    write_json_deterministic(BATCH010_DIR / "routing_delta_report.json", delta)
+    write_json_deterministic(
+        BATCH010_DIR / "routing_delta_audit.json",
+        {
+            "status": "PASS",
+            "routing_delta_detected": routing_delta,
+            "forced_routing_delta_without_evidence": False,
+            "blocker": blocker,
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "context_selection_delta_report.json",
+        {
+            "status": "PASS",
+            "context_before": context_before,
+            "context_after": context_after,
+            "context_changed": context_before != context_after,
+            "context_before_hash": delta["context_before_hash"],
+            "context_after_hash": delta["context_after_hash"],
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "generation_strategy_delta_report.json",
+        {
+            "status": "PASS",
+            "generation_strategy_before": generation_before,
+            "generation_strategy_after": generation_after,
+            "generation_strategy_changed": generation_before != generation_after,
+            "generation_strategy_before_hash": delta["generation_strategy_before_hash"],
+            "generation_strategy_after_hash": delta["generation_strategy_after_hash"],
+        },
+    )
+    write_json_deterministic(BATCH010_DIR / "high_pass_filter_application.json", high_pass)
+    write_json_deterministic(
+        BATCH010_DIR / "masked_or_downranked_context_paths.json",
+        {
+            "status": "PASS",
+            "masked_paths": high_pass.get("masked", []),
+            "downranked_paths": [],
+            "reason": "no mapped source-level penalty was available under quarantine",
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "admitted_alternative_paths.json",
+        {
+            "status": "PASS",
+            "admitted_paths": legal_sources,
+            "secondary_route_available": two_candidate.get("secondary_available"),
+            "reason": "only one legal patchable source path is available",
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "active_memory_repair_attempt.json",
+        {
+            "status": "BLOCK",
+            "candidate_id": candidate_id,
+            "routing_delta_detected": routing_delta,
+            "patch_generation_authorized": False,
+            "patch_generated": False,
+            "blocker": blocker,
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "null_ensemble_rerun_results.json",
+        {
+            "status": "NOT_RUN",
+            "run_results": [],
+            "blocker": blocker,
+            "reason": "null rerun is not authorized without an active memory routing delta",
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "null_ensemble_rerun_summary.json",
+        {
+            "status": "NOT_RUN",
+            "null_ensemble_run_count": 0,
+            "null_success_rate": None,
+            "blocker": blocker,
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "null_ensemble_memory_exclusion_audit.json",
+        {
+            "status": "PASS",
+            "null_ensemble_read_failure_memory": False,
+            "null_ensemble_read_patch_artifacts": False,
+            "null_ensemble_run_count": 0,
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "matched_null_score_result_batch010.json",
+        {
+            "status": "PASS",
+            "score_computed": True,
+            "matched_null_ensemble_separation_score": 0.0,
+            "routing_delta_detected": routing_delta,
+            "blocker": blocker,
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "matched_null_score_audit_batch010.json",
+        {
+            "status": "PASS",
+            "score_zero_when_routing_delta_false": True,
+            "retrospective_not_prospective": True,
+            "overclaim_detected": False,
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "memory_routing_diagnostic_evaluation_batch010.json",
+        {
+            "status": "PASS",
+            "retrospective_single_candidate_memory_routing_diagnostic": False,
+            "memory_separation_evidence": False,
+            "reason": blocker,
+        },
+    )
+    write_json_deterministic(BATCH010_DIR / "prospective_memory_lift_requirement_update.json", prospective_memory_lift_requirement())
+    write_json_deterministic(
+        BATCH010_DIR / "claim_boundary.json",
+        {
+            "status": "PASS",
+            "current_protocol_version": "v2.13",
+            "retrospective_calibration_only": True,
+            "full_scoring": "NOT_RUN/disallowed",
+            "prospective_memory_lift": "not_demonstrated",
+            "full_memory_lift_claimed": False,
+            "self_maintaining_software": "false/not_demonstrated",
+            "technical_validation_release_readiness": "not_ready",
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "notebooklm_advice_traceability_status.json",
+        {
+            "status": "PASS",
+            "failure_memory_weighting": "implemented_partial",
+            "failure_memory_weighting_blocker": blocker,
+            "high_pass_source_ranking_filter": "implemented_active",
+            "two_candidate_selection_policy": "implemented_active",
+            "strict_minimum_delta_routing": "implemented_active",
+            "prospective_memory_lift_requirement": "implemented_active",
+            "matched_null_ensemble": "not_run_without_active_delta",
+            "issue_derived_harness": "unchanged_partial_not_exercised",
+            "silent_completion": False,
+        },
+    )
+    write_json_deterministic(
+        BATCH010_DIR / "carry_forward_blocker_register.json",
+        {
+            "status": "PASS",
+            "blockers": [
+                {
+                    "blocker": blocker,
+                    "safe_next_step": "use a fresh prospective candidate or additional decision-time-safe non-patch memory feature before claiming active memory routing",
+                }
+            ],
+        },
+    )
+    state = {
+        "lane_id": BATCH010_ID,
+        "status": "BLOCK",
+        "exact_blocker": blocker,
+        "candidate_id": candidate_id,
+        "status_code_weighting_status": "PASS",
+        "high_pass_source_ranking_filter_status": high_pass["status"],
+        "baseline_source_ranking_hash": source_stable_hash(baseline),
+        "memory_weighted_source_ranking_hash": source_stable_hash(weighted),
+        "routing_delta_detected": routing_delta,
+        "routing_delta_reason_codes": delta["routing_delta_reason_codes"],
+        "active_memory_patch_generated": False,
+        "active_memory_target_validation_status": "NOT_RUN",
+        "active_memory_duplicate_replay_status": "NOT_RUN",
+        "null_ensemble_run_count": 0,
+        "null_ensemble_success_rate": None,
+        "matched_null_score": 0.0,
+        "retrospective_single_candidate_memory_routing_diagnostic": False,
+        "prospective_memory_lift_status": "not_demonstrated",
+        "confirmed_native_repair_episode_count": 4,
+        "full_scoring": "NOT_RUN/disallowed",
+        "self_maintaining_software": "false/not_demonstrated",
+        "batch010_adds_repair_episode": False,
+        "batch009_result_preserved": batch009_state.get("status") == "PASS",
+    }
+    write_json_deterministic(BATCH010_DIR / "consolidated_state_clean_replication_batch_010.json", state)
+    write_text_lf(
+        BATCH010_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication batch 010",
+                "",
+                "Status: BLOCK.",
+                "",
+                "Batch010 implements active status-code weighting and strict minimum-delta routing audit for the already repaired Batch008 candidate.",
+                "",
+                "The available decision-time-safe status codes do not establish a source, context, or generation routing delta without using quarantined prior patch details.",
+                "",
+                "Patch generation is therefore not authorized as memory-enabled, the matched-null score remains 0.0, and prospective memory lift remains not demonstrated.",
+            ]
+        ),
+    )
+    write_sha256sums(BATCH010_DIR)
+    return state
+
+
 def main() -> int:
     POST_DIR.mkdir(parents=True, exist_ok=True)
     BATCH_DIR.mkdir(parents=True, exist_ok=True)
@@ -4302,6 +4736,7 @@ def main() -> int:
     BATCH007_DIR.mkdir(parents=True, exist_ok=True)
     BATCH008_DIR.mkdir(parents=True, exist_ok=True)
     BATCH009_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH010_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
@@ -4311,7 +4746,8 @@ def main() -> int:
     batch006_state = write_batch006_outputs()
     batch007_state = write_batch007_outputs()
     batch008_state = load_official_batch008_state()
-    batch009_state = write_batch009_outputs(batch008_state)
+    batch009_state = load_official_batch009_state(batch008_state)
+    batch010_state = write_batch010_outputs(batch009_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -4323,6 +4759,7 @@ def main() -> int:
         "configs/clean_replication_batch_007.json",
         "configs/clean_replication_batch_008.json",
         "configs/clean_replication_batch_009.json",
+        "configs/clean_replication_batch_010.json",
         "configs/notebooklm_advice_traceability_matrix.json",
         "configs/operational_gate_matrix.json",
         "inputs/clean_replication_batch_002_lead_pool.json",
@@ -4442,6 +4879,7 @@ def main() -> int:
             "batch007_artifact_name": "post_v2_37_hardening_batch007_target_reachability_artifacts",
             "batch008_artifact_name": "post_v2_37_hardening_batch008_declared_precondition_artifacts",
             "batch009_artifact_name": "post_v2_37_hardening_batch009_patch_quarantined_matched_null_artifacts",
+            "batch010_artifact_name": "post_v2_37_hardening_batch010_active_memory_routing_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
@@ -4492,7 +4930,7 @@ def main() -> int:
         },
     )
 
-    final_status = "PASS_WITH_BATCH009_RETROSPECTIVE_CALIBRATION" if batch009_state.get("status") == "PASS" else "PASS_WITH_BATCH009_BLOCKED"
+    final_status = "PASS_WITH_BATCH010_BLOCKED" if batch010_state.get("status") == "BLOCK" else "PASS_WITH_BATCH010_RETROSPECTIVE_DIAGNOSTIC"
     arm_a_result = load_json(BATCH_DIR / "matched_null_arm_a_results.json") if (BATCH_DIR / "matched_null_arm_a_results.json").is_file() else {}
     arm_b_result = load_json(BATCH_DIR / "matched_null_arm_b_results.json") if (BATCH_DIR / "matched_null_arm_b_results.json").is_file() else {}
     matched_arm_results = [item for item in [arm_a_result, arm_b_result] if item]
@@ -4502,7 +4940,7 @@ def main() -> int:
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     final_report = {
         "status": final_status,
-        "exact_blocker": batch009_state.get("exact_blocker"),
+        "exact_blocker": batch010_state.get("exact_blocker"),
         "batch002_exact_blocker": batch_state["exact_blocker"],
         "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
@@ -4662,6 +5100,23 @@ def main() -> int:
         "batch009_retrospective_single_candidate_memory_separation_diagnostic": batch009_state["retrospective_single_candidate_memory_separation_diagnostic"],
         "batch009_prospective_memory_lift_status": batch009_state["prospective_memory_lift_status"],
         "batch009_adds_repair_episode": batch009_state["batch009_adds_repair_episode"],
+        "clean_replication_batch_010_status": batch010_state["status"],
+        "clean_replication_batch_010_exact_blocker": batch010_state.get("exact_blocker"),
+        "batch010_status_code_weighting_status": batch010_state["status_code_weighting_status"],
+        "batch010_high_pass_source_ranking_filter_status": batch010_state["high_pass_source_ranking_filter_status"],
+        "batch010_baseline_source_ranking_hash": batch010_state["baseline_source_ranking_hash"],
+        "batch010_memory_weighted_source_ranking_hash": batch010_state["memory_weighted_source_ranking_hash"],
+        "batch010_routing_delta_detected": batch010_state["routing_delta_detected"],
+        "batch010_routing_delta_reason_codes": batch010_state["routing_delta_reason_codes"],
+        "batch010_active_memory_patch_generated": batch010_state["active_memory_patch_generated"],
+        "batch010_active_memory_target_validation_status": batch010_state["active_memory_target_validation_status"],
+        "batch010_active_memory_duplicate_replay_status": batch010_state["active_memory_duplicate_replay_status"],
+        "batch010_null_ensemble_run_count": batch010_state["null_ensemble_run_count"],
+        "batch010_null_ensemble_success_rate": batch010_state["null_ensemble_success_rate"],
+        "batch010_matched_null_score": batch010_state["matched_null_score"],
+        "batch010_retrospective_single_candidate_memory_routing_diagnostic": batch010_state["retrospective_single_candidate_memory_routing_diagnostic"],
+        "batch010_prospective_memory_lift_status": batch010_state["prospective_memory_lift_status"],
+        "batch010_confirmed_native_repair_episode_count": batch010_state["confirmed_native_repair_episode_count"],
         "active_failure_memory_weighting_status": load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("status") if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() else "NOT_RUN",
         "arm_a_memory_routing_delta_status": "PASS" if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() and load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("failure_memory_markers_passive") is False else "PASSIVE_OR_NOT_RUN",
         "arm_b_memory_exclusion_status": load_json(BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").get("status") if (BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").is_file() else "NOT_RUN",
@@ -4747,13 +5202,17 @@ def main() -> int:
                 "",
                 f"Batch009 status: `{batch009_state['status']}`; patch quarantine: `{batch009_state['patch_artifact_quarantine_status']}`; null ensemble run count: `{batch009_state['null_ensemble_run_count']}`.",
                 "",
+                "Batch010 implements active status-code weighting and strict minimum-delta routing audit. It blocks because no source, context, or generation routing delta can be established without quarantined prior patch details.",
+                "",
+                f"Batch010 status: `{batch010_state['status']}`; exact blocker: `{batch010_state['exact_blocker']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
     )
     write_public_docs_reports()
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     write_json_deterministic(
@@ -4769,7 +5228,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

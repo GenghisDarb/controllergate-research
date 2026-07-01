@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH009_RETROSPECTIVE_CALIBRATION.
+Status: PASS_WITH_BATCH010_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -23,5 +23,9 @@ Batch008 status: `PASS`; additional native external repair acquired: `true`.
 Batch009 adds patch-quarantined retrospective matched-null calibration on the already repaired Batch008 candidate. The memory signal is passive, the calibration score is 0.0, and no prospective memory-lift claim is made.
 
 Batch009 status: `PASS`; patch quarantine: `PASS`; null ensemble run count: `5`.
+
+Batch010 implements active status-code weighting and strict minimum-delta routing audit. It blocks because no source, context, or generation routing delta can be established without quarantined prior patch details.
+
+Batch010 status: `BLOCK`; exact blocker: `active_memory_routing_delta_not_established`.
 
 NotebookLM advice traceability status: `PASS`.
