@@ -1,0 +1,13 @@
+{
+  "batch013_required_seed_path": "external_seeds_pending/targeted_prospective_seed_batch013.json",
+  "recommended_next_boundary": "batch013_acquisition_locks_and_targeted_seed_intake",
+  "required_locks": [
+    "Source-Commit Environment Lock",
+    "Target Command Manifest",
+    "Fresh Workspace Purity Gate",
+    "Baseline Registry Drift Precheck",
+    "Rollback Block Ledger"
+  ],
+  "status": "READY_FOR_BATCH013_ACQUISITION_LOCKS",
+  "stop_if_seed_absent_after_locks_ready": "targeted_prospective_seed_missing_or_invalid_after_locks_ready"
+}
