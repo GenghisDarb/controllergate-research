@@ -23,6 +23,7 @@
 - Batch006 bounded fragment patch assembly for `darker_skip_glob_failing_test`, including coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory weighting records, and proof-chain custody.
 - Batch007 target-intent reachability and precondition resolution for `darker_skip_glob_failing_test`, including formatter/dependency probes, trace-feedback alignment, iterative dual projection recheck, explicit candidate retirement, and a completion decision ladder.
 - Batch008 declared formatter precondition materialization for `darker_skip_glob_failing_test`, including fresh ephemeral runtime materialization, declared formatter extra installs, declared target-test tooling, target-intent replay after declared extras, bounded fragment patch assembly, target validation, duplicate replay, and target-file no-overreach evidence.
+- Batch009 patch-quarantined retrospective matched-null calibration for the already repaired Batch008 candidate, without increasing the repair episode count or claiming prospective memory lift.
 - NotebookLM advice traceability matrix with operational gate cross-checks, carry-forward blockers, and no-silent-completion audit.
 
 ## Partial
@@ -31,7 +32,7 @@
 - Broader source-only repair generation across diverse repositories and failure types.
 - Matched-null ensemble execution on a verified moderate-complexity challenge candidate.
 - Acquisition of a verified native challenge candidate, or a separately classified issue-derived feasibility candidate.
-- Batch006 and Batch007 document the earlier precondition and projection blockers. Batch008 corrects the declared formatter precondition gap and records a bounded source-only repair endpoint; broader memory or release claims still require additional audited comparison evidence.
+- Batch006 and Batch007 document the earlier precondition and projection blockers. Batch008 corrects the declared formatter precondition gap and records a bounded source-only repair endpoint; Batch009 adds retrospective matched-null calibration under patch quarantine. Broader memory or release claims still require additional prospective audited comparison evidence.
 - Matched-null memory separation evidence beyond equal-performance outcomes.
 - Public release readiness evidence.
 

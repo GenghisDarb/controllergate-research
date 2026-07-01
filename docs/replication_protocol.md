@@ -84,6 +84,10 @@ Batch007 continues from Batch006 and verifies whether the observed replay reache
 
 Batch008 corrects declared formatter precondition materialization for `darker_skip_glob_failing_test`. It creates a fresh ephemeral runtime workspace, checks out the exact candidate commit, installs only declared formatter extras and declared target-test tooling, reruns the exact target command, and authorizes bounded source-only repair only after the target behavior is reached and failing. The Batch008 implementation records one source-only patch, target validation PASS, duplicate replay 3/3, and target-file no-overreach PASS. It does not run full scoring, does not claim memory lift, and does not claim self-maintaining software.
 
+## Batch009 patch-quarantined matched-null calibration
+
+Batch009 runs retrospective matched-null calibration on the already repaired Batch008 candidate. Both the memory-enabled arm and memory-disabled null ensemble are denied access to Batch008 patch bytes, fragment records, patch rationale, and successful repair details. This diagnostic does not add another native repair episode and cannot establish prospective memory lift because the successful Batch008 patch already exists.
+
 ## Current official repair episodes
 
 As of the official Batch008 ingest boundary, the confirmed external non-Ansible native repair endpoints are `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.

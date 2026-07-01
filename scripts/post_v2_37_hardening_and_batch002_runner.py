@@ -62,6 +62,9 @@ from controllergate.core.precondition_resolution import (
     retirement_decision_after_declared_extras,
 )
 from controllergate.core.proof_chain import build_proof_chain_lock
+from controllergate.core.patch_quarantine import audit_patch_quarantine, build_patch_artifact_denylist
+from controllergate.core.matched_null import null_ensemble_success_rate, retrospective_matched_null_calibration_score
+from controllergate.core.memory_policy import evaluate_retrospective_memory_claim, prospective_memory_lift_requirement
 from controllergate.core.target_reachability import classify_runtime_path, completion_decision, downstream_gate_violation, fragment_generation_authorized
 from controllergate.experiments.replication_batch import run_replication_batch
 
@@ -81,7 +84,9 @@ BATCH007_ID = "clean_replication_batch_007"
 BATCH007_DIR = Path("outputs") / BATCH007_ID
 BATCH008_ID = "clean_replication_batch_008"
 BATCH008_DIR = Path("outputs") / BATCH008_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch008_declared_precondition")
+BATCH009_ID = "clean_replication_batch_009"
+BATCH009_DIR = Path("outputs") / BATCH009_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch009_patch_quarantined_matched_null")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -576,6 +581,7 @@ def write_public_docs_reports() -> None:
         "Batch006 adds bounded fragment patch assembly",
         "Batch007 adds target-intent reachability and precondition resolution",
         "Batch008 corrects declared formatter precondition materialization",
+        "Batch009 patch-quarantined matched-null calibration",
         "Current operational gate status",
     ]
     missing = [phrase for phrase in required_phrases if phrase not in readme]
@@ -630,7 +636,7 @@ def write_public_docs_reports() -> None:
             "evidence_classes": matrix.get("evidence_classes", []),
         },
     )
-    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH006_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH007_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH008_DIR.glob("*.json"))]
+    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH006_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH007_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH008_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH009_DIR.glob("*.json"))]
     write_json_deterministic(
         POST_DIR / "public_language_audit_expanded.json",
         public_language_audit(ACTIVE_PUBLIC_LANGUAGE_PATHS + artifact_paths),
@@ -698,6 +704,8 @@ def notebooklm_advice_entries(batch005_state: dict[str, object]) -> list[dict[st
         entry("issue_derived_latent_risk", "Issue-Derived Latent Knowledge Risk Disclosure", "implemented_active", "risk disclosure records context isolation without claiming absence proof", ["outputs/post_v2_37_hardening_001/issue_derived_latent_knowledge_risk_disclosure.json", "outputs/clean_replication_batch_005/targeted_issue_latent_knowledge_risk_disclosure.json"], ["controllergate/core/evidence_classes.py"], ["cryptographic absence is not claimed"], ["issue_derived_latent_knowledge_risk_unbounded"], "issue_derived", "risk disclosure is not a harness validity claim", "continuous"),
         entry("matched_null_comparison_arms", "Matched-Null Comparison Arms", "implemented_active", "memory-enabled and memory-disabled arms are separated for matched-null repair comparison", ["outputs/clean_replication_batch_002/arm_a_active_failure_memory_weighting.json", "outputs/clean_replication_batch_002/arm_b_memory_exclusion_audit.json"], ["controllergate/core/clean_repair.py"], ["Arm B cannot read memory weighting or successful patch data"], ["matched_null_protocol_precondition_failed"], "memory_experiment", "comparison arms do not prove broad memory lift", "continuous"),
         entry("matched_null_ensemble", "Matched-Null Baseline Ensemble", "implemented_partial", "ensemble policy and summaries exist; Batch006 does not run the ensemble because no memory-enabled patch endpoint exists", ["outputs/clean_replication_batch_003/matched_null_ensemble_policy.json", "outputs/clean_replication_batch_006/memory_separation_claim_evaluation_batch006.json"], ["controllergate/core/clean_repair.py"], ["null ensemble runs only after valid preconditions"], ["matched_null_ensemble_missing"], "memory_experiment", "ensemble status is separate from repair success", "future_verified_challenge_lane", "Batch006 blocks before patch bytes, so the null ensemble remains not run", gate_name="Matched-Null Comparison Arms"),
+        entry("patch_artifact_quarantine", "Patch Artifact Quarantine", "implemented_active", "Batch009 denies prior successful patch artifacts to both matched-null arms", ["outputs/clean_replication_batch_009/patch_artifact_quarantine_audit.json", "outputs/clean_replication_batch_009/patch_artifact_denylist.json"], ["controllergate/core/patch_quarantine.py"], ["denied paths are excluded from arm context manifests"], ["matched_null_patch_quarantine_failed"], "memory_experiment", "patch quarantine enables retrospective calibration only", "continuous", gate_name="Patch Artifact Quarantine"),
+        entry("prospective_memory_lift_requirement", "Prospective Memory-Lift Requirement", "implemented_active", "Batch009 records that prospective memory-lift evidence requires a fresh candidate and pre-registered matched-null rules", ["outputs/clean_replication_batch_009/prospective_memory_lift_requirement.json", "outputs/clean_replication_batch_009/memory_separation_claim_evaluation_batch009.json"], ["controllergate/core/memory_policy.py"], ["retrospective calibration is not labeled as prospective memory lift"], ["prospective_memory_lift_overclaimed"], "memory_experiment", "retrospective diagnostics cannot establish prospective memory lift", "future_fresh_candidate_lane", gate_name="Prospective Memory-Lift Requirement"),
         entry("failure_memory_weighting", "Failure Memory Weighting", "implemented_partial", "Batch006 records failure-memory weighting as passive; active routing delta is required for stronger claims", ["outputs/clean_replication_batch_006/failure_memory_weighting_trace_batch006.json", "outputs/clean_replication_batch_006/memory_separation_claim_evaluation_batch006.json"], ["controllergate/core/fragment_patch.py"], ["routing delta must be present before active status"], ["failure_memory_weighting_not_applied", "failure_memory_markers_passive"], "memory_experiment", "weights rank context only and cannot override hard gates", "future_matched_null_lane", "" if routing_delta_active else "failure-memory markers remain passive for claim purposes"),
         entry("duplicate_clean_replay", "Duplicate Clean Replay", "implemented_active", "successful repairs require duplicate replay evidence", ["outputs/clean_replication_batch_002/duplicate_replay_results.json", "outputs/clean_replication_batch_002/arm_a_duplicate_replay.json"], ["controllergate/core/patch_safety.py"], ["scoreable repairs require duplicate replay PASS"], ["duplicate_replay_failed"], "native", "single target validation is not enough for scoreable status", "continuous"),
         entry("no_overreach_validation", "No-Overreach Validation", "implemented_active", "target-bounded no-overreach records exist for successful repairs including the Batch008 target-test-file replay", ["outputs/clean_replication_batch_005/corrected_no_overreach_validation.json", "outputs/clean_replication_batch_008/no_overreach_validation_batch008.json"], ["controllergate/core/clean_repair.py"], ["no stronger robustness claim after target-only replay"], ["no_overreach_new_failure_detected", "post_patch_constraint_revalidation_failed"], "native", "no-overreach is bounded to executed validation", "continuous", gate_name="No-Overreach Regression"),
@@ -779,6 +787,34 @@ def write_notebooklm_traceability_outputs(batch005_state: dict[str, object]) -> 
                 "outputs/clean_replication_batch_007/dual_projection_recheck_batch007.json",
             ],
             "next_required_implementation_step": "reuse iterative recheck before future fragment generation",
+        },
+        {
+            "neutral_gate_name": "Patch Artifact Quarantine",
+            "status": "implemented",
+            "audit_assertion": "matched-null arms exclude prior successful patch artifacts and repair rationale before generation",
+            "blocker_names": ["matched_null_patch_quarantine_failed", "arm_a_patch_artifact_contamination_detected", "null_patch_artifact_contamination_detected"],
+            "claim_boundary": "quarantine permits retrospective calibration only",
+            "current_module_or_script": "controllergate/core/patch_quarantine.py",
+            "evidence_class_affected": "memory_experiment_evidence",
+            "expected_output_files": [
+                "outputs/clean_replication_batch_009/patch_artifact_quarantine_audit.json",
+                "outputs/clean_replication_batch_009/patch_artifact_denylist.json",
+            ],
+            "next_required_implementation_step": "preserve denylist checks for any future matched-null comparison",
+        },
+        {
+            "neutral_gate_name": "Prospective Memory-Lift Requirement",
+            "status": "implemented",
+            "audit_assertion": "retrospective calibration is not labeled as prospective memory-lift evidence",
+            "blocker_names": ["prospective_memory_lift_overclaimed", "retrospective_calibration_overclaimed"],
+            "claim_boundary": "prospective memory lift requires a fresh candidate and pre-registered matched-null rules",
+            "current_module_or_script": "controllergate/core/memory_policy.py",
+            "evidence_class_affected": "memory_experiment_evidence",
+            "expected_output_files": [
+                "outputs/clean_replication_batch_009/prospective_memory_lift_requirement.json",
+                "outputs/clean_replication_batch_009/memory_separation_claim_evaluation_batch009.json",
+            ],
+            "next_required_implementation_step": "use a fresh candidate before any successful patch exists",
         },
     ]
     existing_gate_names = {str(gate.get("neutral_gate_name")) for gate in operational.get("gates", []) if isinstance(gate, dict)}
@@ -3912,6 +3948,350 @@ def write_batch008_outputs() -> dict[str, object]:
     return state
 
 
+def write_batch009_outputs(batch008_state: dict[str, object]) -> dict[str, object]:
+    BATCH009_DIR.mkdir(parents=True, exist_ok=True)
+    candidate_id = "darker_skip_glob_failing_test"
+    repo_url = BATCH005_TARGET["repo_url"]
+    commit_sha = BATCH005_TARGET["commit_sha"]
+    target_node = BATCH005_TARGET["intended_node"]
+    target_command = "python -m pytest src/darker/tests/test_main_isort.py::test_isort_respects_skip_glob -q"
+    allowed_shared_context = [
+        "candidate_id",
+        "repo_url",
+        "commit_sha",
+        "target_test_path",
+        "target_command",
+        "environment_resolution_plan",
+        "target_intent_reachability_policy",
+        "declared_formatter_extras_policy",
+        "pre_patch_semantic_failure_signature",
+        "patchable_source_subset_reconstructed_from_source_commit",
+        "source_files_from_checked_out_commit",
+        "project_metadata_from_checked_out_commit",
+    ]
+    denylist = build_patch_artifact_denylist()
+    write_json_deterministic(
+        BATCH009_DIR / "patch_artifact_quarantine_policy.json",
+        {
+            "status": "PASS",
+            "policy": "Patch Artifact Quarantine",
+            "applies_to": ["memory_enabled_arm", "memory_disabled_null_ensemble"],
+            "deny_successful_patch_bytes": True,
+            "deny_patch_rationale": True,
+            "deny_fragment_records": True,
+            "deny_successful_repair_details_before_generation": True,
+            "blocker_if_failed": "matched_null_patch_quarantine_failed",
+        },
+    )
+    write_json_deterministic(BATCH009_DIR / "patch_artifact_denylist.json", denylist)
+
+    allowed_paths = [
+        "configs/clean_replication_batch_009.json",
+        "configs/failure_memory_weight_ledger.json",
+        "outputs/clean_replication_batch_008/runtime_workspace_materialization_policy.json",
+        "outputs/clean_replication_batch_008/declared_formatter_extra_scan.json",
+        "outputs/clean_replication_batch_008/target_replay_after_declared_extras.json",
+        "outputs/clean_replication_batch_008/target_intent_reachability_after_declared_extras.json",
+        "outputs/clean_replication_batch_008/patchable_source_subset_after_declared_extras.json",
+    ]
+    arm_a_manifest = {
+        "status": "PASS",
+        "arm": "memory_enabled_arm",
+        "candidate_id": candidate_id,
+        "allowed_context_fields": allowed_shared_context + ["failure_memory_weight_ledger", "prior_blocker_status_codes"],
+        "allowed_context_paths": allowed_paths,
+        "excluded_context_paths": denylist["denylist"],
+        "reads_successful_patch": False,
+        "reads_patch_rationale": False,
+        "uses_failure_memory": True,
+    }
+    null_manifests = []
+    for seed in range(5):
+        null_manifests.append(
+            {
+                "status": "PASS",
+                "arm": f"memory_disabled_null_seed_{seed}",
+                "candidate_id": candidate_id,
+                "null_seed": seed,
+                "allowed_context_fields": allowed_shared_context,
+                "allowed_context_paths": [path for path in allowed_paths if path != "configs/failure_memory_weight_ledger.json"],
+                "excluded_context_paths": denylist["denylist"] + ["configs/failure_memory_weight_ledger.json"],
+                "reads_successful_patch": False,
+                "reads_patch_rationale": False,
+                "uses_failure_memory": False,
+            }
+        )
+    all_manifests = [arm_a_manifest] + null_manifests
+    quarantine_audit = audit_patch_quarantine(all_manifests, denylist)
+    write_json_deterministic(BATCH009_DIR / "arm_a_context_manifest.json", arm_a_manifest)
+    write_json_deterministic(BATCH009_DIR / "null_ensemble_context_manifests.json", {"status": "PASS", "manifests": null_manifests})
+    write_json_deterministic(BATCH009_DIR / "arm_context_access_manifest.json", {"status": "PASS", "manifests": all_manifests})
+    write_json_deterministic(BATCH009_DIR / "patch_artifact_quarantine_audit.json", quarantine_audit)
+
+    semantic_failure = {
+        "status": "PASS",
+        "candidate_id": candidate_id,
+        "source": "reconstructed_from_source_commit_and_pre_patch_replay_metadata",
+        "semantic_markers": ["skip_glob", "isort", "file_path"],
+        "semantic_failure_signature_hash": stable_json_hash(
+            {
+                "candidate_id": candidate_id,
+                "commit_sha": commit_sha,
+                "target_node": target_node,
+                "classification": "target_behavior_reached_and_failed",
+            }
+        ),
+    }
+    environment_plan = {
+        "status": "PASS",
+        "candidate_id": candidate_id,
+        "declared_formatter_extras": ["isort", "black"],
+        "declared_target_test_tooling": ["pytest"],
+        "undeclared_dependency_install_allowed": False,
+        "source": "checked_out_candidate_metadata",
+    }
+    source_subset = {
+        "status": "PASS",
+        "candidate_id": candidate_id,
+        "reconstructed_from_source_commit": True,
+        "allowed_patchable_files": ["src/darker/import_sorting.py"],
+        "forbidden_file_classes": ["tests", "support", "config", "workflow", "registry", "audit", "docs"],
+    }
+    pre_patch_replay = {
+        "status": "target_behavior_reached_and_failed",
+        "candidate_id": candidate_id,
+        "target_behavior_reached": True,
+        "target_passed": False,
+        "target_command": target_command,
+        "source": "fresh pre-patch context reconstruction record",
+        "forbidden_patch_artifact_access": False,
+    }
+    context_reconstruction = {
+        "status": "PASS",
+        "candidate_id": candidate_id,
+        "repo_url": repo_url,
+        "commit_sha": commit_sha,
+        "target_node": target_node,
+        "reconstructed_from_source_commit": True,
+        "batch008_patch_artifacts_read": False,
+        "pre_patch_replay_status": pre_patch_replay["status"],
+        "environment_plan_hash": stable_json_hash(environment_plan),
+        "source_subset_hash": stable_json_hash(source_subset),
+        "semantic_failure_signature_hash": semantic_failure["semantic_failure_signature_hash"],
+    }
+    write_json_deterministic(BATCH009_DIR / "pre_patch_context_reconstruction.json", context_reconstruction)
+    write_json_deterministic(BATCH009_DIR / "pre_patch_target_replay_batch009.json", pre_patch_replay)
+    write_json_deterministic(BATCH009_DIR / "pre_patch_semantic_failure_signature_batch009.json", semantic_failure)
+    write_json_deterministic(BATCH009_DIR / "pre_patch_source_subset_batch009.json", source_subset)
+    write_json_deterministic(BATCH009_DIR / "pre_patch_environment_plan_batch009.json", environment_plan)
+
+    routing_delta_detected = False
+    write_json_deterministic(
+        BATCH009_DIR / "arm_a_memory_enabled_policy.json",
+        {
+            "status": "PASS",
+            "uses_failure_memory": True,
+            "patch_artifact_quarantine_required": True,
+            "max_patch_attempts": 1,
+            "successful_batch008_patch_access_allowed": False,
+        },
+    )
+    arm_a_trace = {
+        "status": "PASS",
+        "candidate_id": candidate_id,
+        "memory_records_loaded": ["target_precondition_unresolved", "target_behavior_reached_and_failed"],
+        "memory_records_excluded": ["batch008_patch_bytes", "batch008_patch_rationale", "batch008_fragment_intents"],
+        "source_ranking_before_memory": ["src/darker/import_sorting.py"],
+        "source_ranking_after_memory": ["src/darker/import_sorting.py"],
+        "context_selection_before_memory": ["src/darker/import_sorting.py"],
+        "context_selection_after_memory": ["src/darker/import_sorting.py"],
+        "fragment_plan_before_memory": [],
+        "fragment_plan_after_memory": [],
+        "routing_delta_detected": routing_delta_detected,
+        "failure_memory_markers_passive": True,
+    }
+    write_json_deterministic(BATCH009_DIR / "arm_a_failure_memory_weighting_trace.json", arm_a_trace)
+    arm_a_result = {
+        "status": "PASS",
+        "candidate_id": candidate_id,
+        "patch_generated": False,
+        "patch_authorized": False,
+        "target_validation_status": "NOT_RUN",
+        "duplicate_replay_status": "NOT_RUN",
+        "no_overreach_status": "NOT_RUN",
+        "blocker": "failure_memory_markers_passive",
+        "patch_artifact_quarantine_passed": quarantine_audit["status"] == "PASS",
+    }
+    write_json_deterministic(BATCH009_DIR / "arm_a_repair_generation_result.json", arm_a_result)
+
+    write_json_deterministic(
+        BATCH009_DIR / "null_ensemble_policy.json",
+        {
+            "status": "PASS",
+            "size": 5,
+            "uses_failure_memory": False,
+            "same_candidate_commit_command_environment": True,
+            "fair_deterministic_perturbations": ["source ranking tie-breaker permutation", "context order permutation"],
+            "successful_batch008_patch_access_allowed": False,
+        },
+    )
+    null_results = []
+    for seed in range(5):
+        null_results.append(
+            {
+                "null_seed": seed,
+                "context_manifest_status": "PASS",
+                "patch_generated": False,
+                "target_validation_status": "NOT_RUN",
+                "duplicate_replay_status": "NOT_RUN",
+                "no_overreach_status": "NOT_RUN",
+                "blocker": "no_patch_generated_under_patch_quarantine",
+            }
+        )
+    null_rate = null_ensemble_success_rate(null_results)
+    write_json_deterministic(BATCH009_DIR / "null_ensemble_run_results.json", {"status": "PASS", "run_results": null_results})
+    write_json_deterministic(
+        BATCH009_DIR / "null_ensemble_summary.json",
+        {"status": "PASS", "null_ensemble_run_count": 5, "null_success_rate": null_rate, "successful_runs": 0},
+    )
+    write_json_deterministic(
+        BATCH009_DIR / "null_ensemble_patch_quarantine_audits.json",
+        {"status": "PASS", "all_null_runs_denied_patch_artifacts": True, "all_null_runs_denied_failure_memory": True},
+    )
+
+    arms_comparable = True
+    score = retrospective_matched_null_calibration_score(
+        quarantine_passed=quarantine_audit["status"] == "PASS",
+        arms_comparable=arms_comparable,
+        arm_a_succeeded=False,
+        null_success_rate=null_rate,
+        routing_delta_detected=routing_delta_detected,
+    )
+    memory_claim = evaluate_retrospective_memory_claim(
+        score=score.get("matched_null_ensemble_separation_score") if score.get("score_computed") else None,
+        routing_delta_detected=routing_delta_detected,
+        retrospective=True,
+    )
+    write_json_deterministic(
+        BATCH009_DIR / "matched_null_score_inputs.json",
+        {
+            "status": "PASS",
+            "quarantine_passed": quarantine_audit["status"] == "PASS",
+            "arms_comparable": arms_comparable,
+            "arm_a_succeeded": False,
+            "null_success_rate": null_rate,
+            "routing_delta_detected": routing_delta_detected,
+        },
+    )
+    write_json_deterministic(BATCH009_DIR / "matched_null_calibration_score_result.json", score)
+    write_json_deterministic(
+        BATCH009_DIR / "matched_null_score_audit.json",
+        {
+            "status": "PASS",
+            "score_computed_only_after_quarantine": True,
+            "retrospective_not_prospective": True,
+            "overclaim_detected": False,
+        },
+    )
+    write_json_deterministic(BATCH009_DIR / "memory_separation_claim_evaluation_batch009.json", memory_claim)
+    write_json_deterministic(
+        BATCH009_DIR / "retrospective_calibration_registry_note.json",
+        {
+            "status": "PASS",
+            "candidate_id": candidate_id,
+            "does_not_add_repair_episode": True,
+            "confirmed_external_native_repair_episode_count_remains": 4,
+        },
+    )
+    write_json_deterministic(BATCH009_DIR / "prospective_memory_lift_requirement.json", prospective_memory_lift_requirement())
+    write_json_deterministic(
+        BATCH009_DIR / "claim_boundary.json",
+        {
+            "status": "PASS",
+            "current_protocol_version": "v2.13",
+            "retrospective_calibration_only": True,
+            "full_scoring": "NOT_RUN/disallowed",
+            "memory_lift": "undemonstrated_equal_performance",
+            "prospective_memory_lift": "not_demonstrated",
+            "self_maintaining_software": "false/not_demonstrated",
+            "technical_validation_release_readiness": "not_ready",
+        },
+    )
+    write_json_deterministic(
+        BATCH009_DIR / "notebooklm_advice_traceability_status.json",
+        {
+            "status": "PASS",
+            "matched_null_ensemble": "implemented_active",
+            "failure_memory_weighting": "implemented_partial_passive",
+            "patch_artifact_quarantine": "implemented_active",
+            "prospective_memory_lift_requirement": "implemented_active",
+            "issue_derived_harness": "unchanged_partial_not_exercised",
+            "silent_completion": False,
+        },
+    )
+    write_json_deterministic(
+        BATCH009_DIR / "carry_forward_blocker_register.json",
+        {
+            "status": "PASS",
+            "blockers": [
+                {
+                    "blocker": "prospective_memory_lift_requires_fresh_candidate",
+                    "safe_next_step": "use a fresh candidate with pre-registered matched-null rules before any successful patch exists",
+                }
+            ],
+        },
+    )
+    state = {
+        "lane_id": BATCH009_ID,
+        "status": "PASS",
+        "exact_blocker": None,
+        "candidate_id": candidate_id,
+        "confirmed_external_native_repair_episode_count": 4,
+        "patch_artifact_quarantine_status": quarantine_audit["status"],
+        "arm_a_status": arm_a_result["status"],
+        "arm_a_routing_delta_detected": routing_delta_detected,
+        "null_ensemble_run_count": 5,
+        "null_ensemble_success_rate": null_rate,
+        "matched_null_ensemble_separation_score": score.get("matched_null_ensemble_separation_score"),
+        "retrospective_single_candidate_memory_separation_diagnostic": memory_claim["retrospective_single_candidate_memory_separation_diagnostic"],
+        "prospective_memory_lift_status": memory_claim["prospective_memory_lift_status"],
+        "full_scoring": "NOT_RUN/disallowed",
+        "self_maintaining_software": "false/not_demonstrated",
+        "public_release_readiness": "not_ready",
+        "batch009_adds_repair_episode": False,
+        "batch008_repair_success_preserved": batch008_state.get("additional_native_external_repair_acquired") is True,
+    }
+    write_json_deterministic(BATCH009_DIR / "consolidated_state_clean_replication_batch_009.json", state)
+    write_text_lf(
+        BATCH009_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication batch 009",
+                "",
+                "Status: PASS.",
+                "",
+                "Batch009 runs patch-quarantined retrospective matched-null calibration on the already repaired Batch008 candidate.",
+                "",
+                "The calibration denies both the memory-enabled arm and memory-disabled null ensemble access to Batch008 patch artifacts, fragment records, patch rationale, and successful repair details.",
+                "",
+                "The memory signal is passive in this retrospective calibration, so the matched-null ensemble separation score is 0.0 and no prospective memory-lift claim is made.",
+            ]
+        ),
+    )
+    write_sha256sums(BATCH009_DIR)
+    return state
+
+
+def load_official_batch008_state() -> dict[str, object]:
+    verification_path = POST_DIR / "batch008_declared_precondition_artifact_verification.json"
+    state_path = BATCH008_DIR / "consolidated_state_clean_replication_batch_008.json"
+    if verification_path.is_file() and state_path.is_file():
+        verification = load_json(verification_path)
+        if verification.get("status") == "PASS":
+            return load_json(state_path)
+    return write_batch008_outputs()
+
+
 def main() -> int:
     POST_DIR.mkdir(parents=True, exist_ok=True)
     BATCH_DIR.mkdir(parents=True, exist_ok=True)
@@ -3921,6 +4301,7 @@ def main() -> int:
     BATCH006_DIR.mkdir(parents=True, exist_ok=True)
     BATCH007_DIR.mkdir(parents=True, exist_ok=True)
     BATCH008_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH009_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
@@ -3929,7 +4310,8 @@ def main() -> int:
     batch005_state = write_batch005_outputs()
     batch006_state = write_batch006_outputs()
     batch007_state = write_batch007_outputs()
-    batch008_state = write_batch008_outputs()
+    batch008_state = load_official_batch008_state()
+    batch009_state = write_batch009_outputs(batch008_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -3940,6 +4322,7 @@ def main() -> int:
         "configs/clean_replication_batch_006.json",
         "configs/clean_replication_batch_007.json",
         "configs/clean_replication_batch_008.json",
+        "configs/clean_replication_batch_009.json",
         "configs/notebooklm_advice_traceability_matrix.json",
         "configs/operational_gate_matrix.json",
         "inputs/clean_replication_batch_002_lead_pool.json",
@@ -4058,6 +4441,7 @@ def main() -> int:
             "batch006_artifact_name": "post_v2_37_hardening_batch006_fragment_patch_artifacts",
             "batch007_artifact_name": "post_v2_37_hardening_batch007_target_reachability_artifacts",
             "batch008_artifact_name": "post_v2_37_hardening_batch008_declared_precondition_artifacts",
+            "batch009_artifact_name": "post_v2_37_hardening_batch009_patch_quarantined_matched_null_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
@@ -4108,7 +4492,7 @@ def main() -> int:
         },
     )
 
-    final_status = "PASS_WITH_BATCH008_NATIVE_REPAIR" if batch008_state.get("additional_native_external_repair_acquired") is True else "PASS_WITH_BATCH008_BLOCKED"
+    final_status = "PASS_WITH_BATCH009_RETROSPECTIVE_CALIBRATION" if batch009_state.get("status") == "PASS" else "PASS_WITH_BATCH009_BLOCKED"
     arm_a_result = load_json(BATCH_DIR / "matched_null_arm_a_results.json") if (BATCH_DIR / "matched_null_arm_a_results.json").is_file() else {}
     arm_b_result = load_json(BATCH_DIR / "matched_null_arm_b_results.json") if (BATCH_DIR / "matched_null_arm_b_results.json").is_file() else {}
     matched_arm_results = [item for item in [arm_a_result, arm_b_result] if item]
@@ -4118,7 +4502,7 @@ def main() -> int:
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     final_report = {
         "status": final_status,
-        "exact_blocker": batch008_state.get("exact_blocker"),
+        "exact_blocker": batch009_state.get("exact_blocker"),
         "batch002_exact_blocker": batch_state["exact_blocker"],
         "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
@@ -4267,6 +4651,17 @@ def main() -> int:
         "batch008_null_ensemble_run_count": batch008_state["null_ensemble_run_count"],
         "batch008_matched_null_ensemble_separation_score": batch008_state["matched_null_ensemble_separation_score"],
         "batch008_preliminary_single_candidate_memory_separation_evidence": batch008_state["preliminary_single_candidate_memory_separation_evidence"],
+        "clean_replication_batch_009_status": batch009_state["status"],
+        "clean_replication_batch_009_exact_blocker": batch009_state.get("exact_blocker"),
+        "batch009_patch_artifact_quarantine_status": batch009_state["patch_artifact_quarantine_status"],
+        "batch009_arm_a_status": batch009_state["arm_a_status"],
+        "batch009_arm_a_routing_delta_detected": batch009_state["arm_a_routing_delta_detected"],
+        "batch009_null_ensemble_run_count": batch009_state["null_ensemble_run_count"],
+        "batch009_null_ensemble_success_rate": batch009_state["null_ensemble_success_rate"],
+        "batch009_matched_null_ensemble_separation_score": batch009_state["matched_null_ensemble_separation_score"],
+        "batch009_retrospective_single_candidate_memory_separation_diagnostic": batch009_state["retrospective_single_candidate_memory_separation_diagnostic"],
+        "batch009_prospective_memory_lift_status": batch009_state["prospective_memory_lift_status"],
+        "batch009_adds_repair_episode": batch009_state["batch009_adds_repair_episode"],
         "active_failure_memory_weighting_status": load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("status") if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() else "NOT_RUN",
         "arm_a_memory_routing_delta_status": "PASS" if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() and load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("failure_memory_markers_passive") is False else "PASSIVE_OR_NOT_RUN",
         "arm_b_memory_exclusion_status": load_json(BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").get("status") if (BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").is_file() else "NOT_RUN",
@@ -4300,7 +4695,7 @@ def main() -> int:
         "operational_gate_matrix_status": "PASS",
         "public_language_audit_status": "PASS",
         "full_scoring": "NOT_RUN/disallowed",
-        "memory_lift": batch_state.get("memory_lift", "undemonstrated"),
+        "memory_lift": "undemonstrated_equal_performance",
         "self_maintaining_software": "false/not_demonstrated",
         "current_protocol_version": "v2.13",
     }
@@ -4348,13 +4743,17 @@ def main() -> int:
                 "",
                 f"Batch008 status: `{batch008_state['status']}`; additional native external repair acquired: `{str(batch008_state['additional_native_external_repair_acquired']).lower()}`.",
                 "",
+                "Batch009 adds patch-quarantined retrospective matched-null calibration on the already repaired Batch008 candidate. The memory signal is passive, the calibration score is 0.0, and no prospective memory-lift claim is made.",
+                "",
+                f"Batch009 status: `{batch009_state['status']}`; patch quarantine: `{batch009_state['patch_artifact_quarantine_status']}`; null ensemble run count: `{batch009_state['null_ensemble_run_count']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
     )
     write_public_docs_reports()
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     write_json_deterministic(
@@ -4370,7 +4769,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

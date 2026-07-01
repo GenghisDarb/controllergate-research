@@ -613,6 +613,66 @@
       "status": "implemented_partial"
     },
     {
+      "advice_id": "patch_artifact_quarantine",
+      "blocker_if_missing": "matched_null_patch_quarantine_failed",
+      "blockers": [
+        "matched_null_patch_quarantine_failed"
+      ],
+      "claim_boundary": "patch quarantine enables retrospective calibration only",
+      "current_repo_mechanism": "Batch009 denies prior successful patch artifacts to both matched-null arms",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_009/patch_artifact_quarantine_audit.json",
+        "outputs/clean_replication_batch_009/patch_artifact_denylist.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Patch Artifact Quarantine",
+      "public_engineering_name": "Patch Artifact Quarantine",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "denied paths are excluded from arm context manifests"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/patch_quarantine.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_009/patch_artifact_quarantine_audit.json",
+        "outputs/clean_replication_batch_009/patch_artifact_denylist.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "prospective_memory_lift_requirement",
+      "blocker_if_missing": "prospective_memory_lift_overclaimed",
+      "blockers": [
+        "prospective_memory_lift_overclaimed"
+      ],
+      "claim_boundary": "retrospective diagnostics cannot establish prospective memory lift",
+      "current_repo_mechanism": "Batch009 records that prospective memory-lift evidence requires a fresh candidate and pre-registered matched-null rules",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_009/prospective_memory_lift_requirement.json",
+        "outputs/clean_replication_batch_009/memory_separation_claim_evaluation_batch009.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_fresh_candidate_lane",
+      "operational_gate_name": "Prospective Memory-Lift Requirement",
+      "public_engineering_name": "Prospective Memory-Lift Requirement",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "retrospective calibration is not labeled as prospective memory lift"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/memory_policy.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_009/prospective_memory_lift_requirement.json",
+        "outputs/clean_replication_batch_009/memory_separation_claim_evaluation_batch009.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
       "advice_id": "failure_memory_weighting",
       "blocker_if_missing": "failure_memory_weighting_not_applied",
       "blockers": [
@@ -982,7 +1042,7 @@
       "status": "deferred_with_blocker"
     }
   ],
-  "entry_count": 32,
+  "entry_count": 34,
   "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch007",
   "status": "PASS",
   "terminology_policy": "neutral_engineering_terms_only"

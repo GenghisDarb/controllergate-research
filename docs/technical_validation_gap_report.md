@@ -17,6 +17,7 @@ ControllerGate has made meaningful progress as a research harness, but the evide
 - Batch006 adds bounded fragment patch assembly, coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory weighting records, and proof-chain custody for the verified native challenge candidate. It blocks before patch bytes with `fragment_patch_plan_not_generated`.
 - Batch007 adds target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, and candidate retirement for the same challenge candidate.
 - Batch008 corrects declared formatter precondition materialization, reaches the intended target behavior after declared extras, and validates one bounded source-only patch with target validation PASS, duplicate replay 3/3, and target-file no-overreach PASS. No additional matched-null memory evidence is counted.
+- Batch009 is retrospective patch-quarantined matched-null calibration on the already repaired Batch008 candidate. It does not add another repair episode and does not satisfy prospective memory-lift requirements.
 
 ## Remaining gaps
 

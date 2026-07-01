@@ -73,6 +73,7 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 - Batch006 adds bounded fragment patch assembly, coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory records, and proof-chain custody for the verified native challenge candidate. It blocks before patch bytes with `fragment_patch_plan_not_generated`.
 - Batch007 adds target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, and explicit candidate retirement.
 - Batch008 corrects declared formatter precondition materialization, reaches the intended target behavior after declared extras, and records one bounded source-only repair endpoint with target validation PASS, duplicate replay 3/3, and target-file no-overreach PASS.
+- Batch009 adds patch-quarantined retrospective matched-null calibration on the already repaired Batch008 candidate. It does not add another repair episode and does not establish prospective memory lift.
 - BugsInPy remains globally blocked for active use.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `undemonstrated_equal_performance`.
@@ -80,7 +81,7 @@ Post-v2.37 hardening adds transport integrity, bounded exploration budget, conte
 
 ## Safest next step
 
-Next, Batch009 may run patch-quarantined matched-null calibration on the already repaired Batch008 candidate. This remains retrospective diagnostic work and does not add another repair episode.
+Next, a prospective memory-lift comparison would require a fresh candidate and pre-registered matched-null rules before any successful patch exists.
 
 ## Current operational gate status
 

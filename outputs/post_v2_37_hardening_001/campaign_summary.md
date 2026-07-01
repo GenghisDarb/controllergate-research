@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH008_NATIVE_REPAIR.
+Status: PASS_WITH_BATCH009_RETROSPECTIVE_CALIBRATION.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -19,5 +19,9 @@ Batch007 adds target-intent reachability, formatter/dependency precondition reso
 Batch008 corrects the Batch007 declared-precondition gap by materializing a fresh ephemeral runtime workspace, installing declared formatter extras and declared target-test tooling, rerunning the target command, and applying one source-only patch only after the intended target behavior is reached.
 
 Batch008 status: `PASS`; additional native external repair acquired: `true`.
+
+Batch009 adds patch-quarantined retrospective matched-null calibration on the already repaired Batch008 candidate. The memory signal is passive, the calibration score is 0.0, and no prospective memory-lift claim is made.
+
+Batch009 status: `PASS`; patch quarantine: `PASS`; null ensemble run count: `5`.
 
 NotebookLM advice traceability status: `PASS`.

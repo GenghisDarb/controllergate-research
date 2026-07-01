@@ -18,7 +18,8 @@ BATCH005_DIR = Path("outputs/clean_replication_batch_005")
 BATCH006_DIR = Path("outputs/clean_replication_batch_006")
 BATCH007_DIR = Path("outputs/clean_replication_batch_007")
 BATCH008_DIR = Path("outputs/clean_replication_batch_008")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch008_declared_precondition")
+BATCH009_DIR = Path("outputs/clean_replication_batch_009")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch009_patch_quarantined_matched_null")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -73,6 +74,10 @@ POST_REQUIRED = [
     "batch007_target_reachability_artifact_verification.json",
     "batch007_declared_precondition_gap_diagnosis.json",
     "batch008_declared_formatter_extra_recommendation.json",
+    "batch008_declared_precondition_artifact_verification.json",
+    "fourth_external_native_repair_ingest_summary.json",
+    "batch008_null_ensemble_gap_diagnosis.json",
+    "batch009_patch_quarantine_recommendation.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
     "campaign_summary.md",
@@ -291,6 +296,39 @@ BATCH008_REQUIRED = [
     "notebooklm_advice_traceability_status.json",
     "carry_forward_blocker_register.json",
     "claim_boundary.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH009_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_009.json",
+    "patch_artifact_quarantine_policy.json",
+    "patch_artifact_denylist.json",
+    "patch_artifact_quarantine_audit.json",
+    "arm_context_access_manifest.json",
+    "arm_a_context_manifest.json",
+    "null_ensemble_context_manifests.json",
+    "pre_patch_context_reconstruction.json",
+    "pre_patch_target_replay_batch009.json",
+    "pre_patch_semantic_failure_signature_batch009.json",
+    "pre_patch_source_subset_batch009.json",
+    "pre_patch_environment_plan_batch009.json",
+    "arm_a_memory_enabled_policy.json",
+    "arm_a_failure_memory_weighting_trace.json",
+    "arm_a_repair_generation_result.json",
+    "null_ensemble_policy.json",
+    "null_ensemble_run_results.json",
+    "null_ensemble_summary.json",
+    "null_ensemble_patch_quarantine_audits.json",
+    "matched_null_calibration_score_result.json",
+    "matched_null_score_inputs.json",
+    "matched_null_score_audit.json",
+    "memory_separation_claim_evaluation_batch009.json",
+    "retrospective_calibration_registry_note.json",
+    "prospective_memory_lift_requirement.json",
+    "claim_boundary.json",
+    "notebooklm_advice_traceability_status.json",
+    "carry_forward_blocker_register.json",
     "SHA256SUMS.txt",
 ]
 
@@ -911,6 +949,26 @@ def audit_phase_a_ingest_records() -> list[str]:
         errors.append("batch004 source materialization gap diagnosis invalid")
     if issue_gap.get("fallback_activated_after_native_failure") is not True or issue_gap.get("issue_derived_lead_count") != 0:
         errors.append("batch004 issue lead gap diagnosis invalid")
+    batch008_verification = read_json(POST_DIR / "batch008_declared_precondition_artifact_verification.json")
+    fourth = read_json(POST_DIR / "fourth_external_native_repair_ingest_summary.json")
+    batch008_gap = read_json(POST_DIR / "batch008_null_ensemble_gap_diagnosis.json")
+    batch009_recommendation = read_json(POST_DIR / "batch009_patch_quarantine_recommendation.json")
+    if batch008_verification.get("status") != "PASS":
+        errors.append("batch008 official artifact verification not PASS")
+    if batch008_verification.get("actual_sha256") != "5153354832807c467b7cd097162e5dfb62f22227889a4b61f5b1a6a0e77951f0":
+        errors.append("batch008 official artifact SHA mismatch")
+    if batch008_verification.get("actual_size") != 305537 or batch008_verification.get("entry_count") != 384:
+        errors.append("batch008 official artifact size or entry count mismatch")
+    if batch008_verification.get("unsafe_path_count") != 0 or batch008_verification.get("duplicate_path_count") != 0 or batch008_verification.get("pycache_pyc_count") != 0:
+        errors.append("batch008 official artifact path/cache safety failed")
+    if fourth.get("confirmed_external_native_repair_episode_count") != 4 or fourth.get("issue_derived_repair_episode_count") != 0:
+        errors.append("fourth external native repair summary count invalid")
+    if fourth.get("patch_sha256") != "a1d68d46fe2a796a0424bd784e8b7edf1145d710df99dd28973d6ab328ad6ea3":
+        errors.append("fourth external native repair patch SHA mismatch")
+    if batch008_gap.get("null_ensemble_run_count") != 0 or batch008_gap.get("memory_separation_evidence") is not False:
+        errors.append("batch008 null ensemble gap diagnosis overclaimed")
+    if batch009_recommendation.get("status") != "READY_FOR_BATCH009_RETROSPECTIVE_CALIBRATION":
+        errors.append("batch009 patch quarantine recommendation missing")
     return errors
 
 
@@ -1569,6 +1627,117 @@ def audit_batch008_records() -> list[str]:
     return errors
 
 
+def audit_batch009_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH009_REQUIRED:
+        if not (BATCH009_DIR / name).is_file():
+            errors.append(f"batch009 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH009_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch009 manifest failed: {manifest}")
+    state = read_json(BATCH009_DIR / "consolidated_state_clean_replication_batch_009.json")
+    denylist = read_json(BATCH009_DIR / "patch_artifact_denylist.json")
+    quarantine = read_json(BATCH009_DIR / "patch_artifact_quarantine_audit.json")
+    arm_manifest = read_json(BATCH009_DIR / "arm_a_context_manifest.json")
+    null_manifests = read_json(BATCH009_DIR / "null_ensemble_context_manifests.json")
+    context = read_json(BATCH009_DIR / "pre_patch_context_reconstruction.json")
+    replay = read_json(BATCH009_DIR / "pre_patch_target_replay_batch009.json")
+    source_subset = read_json(BATCH009_DIR / "pre_patch_source_subset_batch009.json")
+    env_plan = read_json(BATCH009_DIR / "pre_patch_environment_plan_batch009.json")
+    arm_policy = read_json(BATCH009_DIR / "arm_a_memory_enabled_policy.json")
+    arm_trace = read_json(BATCH009_DIR / "arm_a_failure_memory_weighting_trace.json")
+    arm_result = read_json(BATCH009_DIR / "arm_a_repair_generation_result.json")
+    null_policy = read_json(BATCH009_DIR / "null_ensemble_policy.json")
+    null_results = read_json(BATCH009_DIR / "null_ensemble_run_results.json")
+    null_summary = read_json(BATCH009_DIR / "null_ensemble_summary.json")
+    null_quarantine = read_json(BATCH009_DIR / "null_ensemble_patch_quarantine_audits.json")
+    score_inputs = read_json(BATCH009_DIR / "matched_null_score_inputs.json")
+    score = read_json(BATCH009_DIR / "matched_null_calibration_score_result.json")
+    score_audit = read_json(BATCH009_DIR / "matched_null_score_audit.json")
+    memory = read_json(BATCH009_DIR / "memory_separation_claim_evaluation_batch009.json")
+    registry_note = read_json(BATCH009_DIR / "retrospective_calibration_registry_note.json")
+    prospective = read_json(BATCH009_DIR / "prospective_memory_lift_requirement.json")
+    claim = read_json(BATCH009_DIR / "claim_boundary.json")
+    traceability = read_json(BATCH009_DIR / "notebooklm_advice_traceability_status.json")
+    denied = set(denylist.get("denylist", []))
+    required_denied = {
+        "outputs/clean_replication_batch_008/assembled_patch_batch008.diff",
+        "outputs/clean_replication_batch_008/assembled_patch_batch008_sha256.txt",
+        "outputs/clean_replication_batch_008/fragment_patch_candidates_batch008.json",
+        "outputs/clean_replication_batch_008/fragment_safety_audits_batch008.json",
+        "outputs/clean_replication_batch_008/proof_chain_lock_batch008.json",
+        "outputs/clean_replication_batch_008/target_validation_result_batch008.json",
+        "outputs/clean_replication_batch_008/duplicate_replay_result_batch008.json",
+    }
+    if denylist.get("status") != "PASS" or not required_denied.issubset(denied):
+        errors.append("batch009 patch denylist incomplete")
+    if quarantine.get("status") != "PASS":
+        errors.append("matched_null_patch_quarantine_failed")
+    if arm_manifest.get("reads_successful_patch") is not False or arm_manifest.get("reads_patch_rationale") is not False:
+        errors.append("arm_a_patch_artifact_contamination_detected")
+    for item in null_manifests.get("manifests", []):
+        if item.get("uses_failure_memory") is not False:
+            errors.append("null_memory_contamination_detected")
+        if item.get("reads_successful_patch") is not False or item.get("reads_patch_rationale") is not False:
+            errors.append("null_patch_artifact_contamination_detected")
+    if context.get("reconstructed_from_source_commit") is not True or context.get("batch008_patch_artifacts_read") is not False:
+        errors.append("batch009 pre-patch context not safely reconstructed")
+    if replay.get("status") != "target_behavior_reached_and_failed" or replay.get("target_behavior_reached") is not True:
+        errors.append("batch009_pre_patch_replay_not_reproduced")
+    if source_subset.get("allowed_patchable_files") != ["src/darker/import_sorting.py"]:
+        errors.append("batch009 source subset mismatch")
+    if env_plan.get("undeclared_dependency_install_allowed") is not False:
+        errors.append("batch009 environment plan allows undeclared install")
+    if arm_policy.get("successful_batch008_patch_access_allowed") is not False:
+        errors.append("arm A policy allows successful patch access")
+    if arm_trace.get("routing_delta_detected") is not False or arm_trace.get("failure_memory_markers_passive") is not True:
+        errors.append("batch009 passive routing delta changed")
+    if arm_result.get("patch_generated") is not False or arm_result.get("patch_artifact_quarantine_passed") is not True:
+        errors.append("batch009 arm A result invalid")
+    if null_policy.get("size") != 5 or null_policy.get("uses_failure_memory") is not False:
+        errors.append("batch009 null policy invalid")
+    runs = null_results.get("run_results", [])
+    if not isinstance(runs, list) or len(runs) != 5:
+        errors.append("batch009 null ensemble size mismatch")
+    if any(item.get("patch_generated") is not False for item in runs if isinstance(item, dict)):
+        errors.append("batch009 null run generated patch unexpectedly")
+    if null_summary.get("null_ensemble_run_count") != 5 or null_summary.get("null_success_rate") != 0.0:
+        errors.append("batch009 null summary invalid")
+    if null_quarantine.get("all_null_runs_denied_patch_artifacts") is not True or null_quarantine.get("all_null_runs_denied_failure_memory") is not True:
+        errors.append("batch009 null quarantine audit invalid")
+    if score_inputs.get("quarantine_passed") is not True or score_inputs.get("arms_comparable") is not True:
+        errors.append("matched_null_arms_not_comparable")
+    if score.get("matched_null_ensemble_separation_score") != 0.0:
+        errors.append("batch009 score must be zero for passive routing")
+    if score.get("retrospective_single_candidate_memory_separation_diagnostic") is not False:
+        errors.append("retrospective_calibration_overclaimed")
+    if score_audit.get("retrospective_not_prospective") is not True:
+        errors.append("batch009 score audit missing retrospective boundary")
+    if memory.get("retrospective_single_candidate_memory_separation_diagnostic") is not False:
+        errors.append("batch009 memory separation overclaimed")
+    if memory.get("prospective_memory_lift_status") != "not_demonstrated":
+        errors.append("prospective_memory_lift_overclaimed")
+    if registry_note.get("does_not_add_repair_episode") is not True or registry_note.get("confirmed_external_native_repair_episode_count_remains") != 4:
+        errors.append("batch009 registry note increments repair count")
+    if prospective.get("fresh_candidate_required") is not True:
+        errors.append("batch009 prospective requirement invalid")
+    if claim.get("retrospective_calibration_only") is not True or claim.get("full_scoring") != "NOT_RUN/disallowed":
+        errors.append("batch009 claim boundary invalid")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch009 self-maintaining overclaim")
+    if traceability.get("patch_artifact_quarantine") != "implemented_active":
+        errors.append("batch009 traceability missing quarantine")
+    if state.get("batch009_adds_repair_episode") is not False or state.get("confirmed_external_native_repair_episode_count") != 4:
+        errors.append("batch009 state increments repair count")
+    episodes = read_json(Path("configs/external_repair_episode_registry.json")).get("episodes", [])
+    matches = [item for item in episodes if isinstance(item, dict) and item.get("candidate_id") == "darker_skip_glob_failing_test"]
+    if len(matches) != 1:
+        errors.append("batch009 duplicated darker_skip_glob repair episode")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -1818,6 +1987,7 @@ def main() -> int:
         + require_files(BATCH006_DIR, BATCH006_REQUIRED)
         + require_files(BATCH007_DIR, BATCH007_REQUIRED)
         + require_files(BATCH008_DIR, BATCH008_REQUIRED)
+        + require_files(BATCH009_DIR, BATCH009_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -1837,6 +2007,8 @@ def main() -> int:
         return fail("batch007 manifest mismatch")
     if verify_manifest(BATCH008_DIR)["status"] != "PASS":
         return fail("batch008 manifest mismatch")
+    if verify_manifest(BATCH009_DIR)["status"] != "PASS":
+        return fail("batch009 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
         return fail("core tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -1966,6 +2138,9 @@ def main() -> int:
     batch008_errors = audit_batch008_records()
     if batch008_errors:
         return fail(f"batch008 audit failed: {batch008_errors}")
+    batch009_errors = audit_batch009_records()
+    if batch009_errors:
+        return fail(f"batch009 audit failed: {batch009_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")

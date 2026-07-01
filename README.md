@@ -19,8 +19,9 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 - Batch006 adds bounded fragment patch assembly for the verified native challenge candidate. It records coupled dependency interlock mapping, dual projection consistency checks, passive failure-memory weighting, and a proof-chain lock, but blocks before patch bytes because the observed replay does not yet authorize a source-only fragment.
 - Batch007 adds target-intent reachability and precondition resolution for the same verified native challenge candidate. It records formatter/dependency precondition evidence, trace-feedback alignment, iterative dual projection recheck, and an explicit completion decision; the candidate is retired under `target_precondition_unresolved` because the replay remains blocked before the intended import-sorting skip behavior.
 - Batch008 corrects declared formatter precondition materialization by using a fresh ephemeral runtime workspace, installing declared formatter extras and declared target-test tooling, rerunning target-intent reachability, and validating one source-only patch for `darker_skip_glob_failing_test` with target validation, duplicate replay, and target-file no-overreach evidence.
+- Batch009 patch-quarantined matched-null calibration is retrospective diagnostic work on the already repaired Batch008 candidate. It does not add another repair episode, does not establish prospective memory lift, and keeps successful Batch008 patch artifacts out of both comparison arms.
 - Full scoring remains `NOT_RUN/disallowed`.
-- Memory lift on external real bugs is not demonstrated; the matched-null status is `undemonstrated_equal_performance`.
+- Memory lift on external real bugs is not demonstrated; the matched-null status remains `undemonstrated_equal_performance`.
 - Self-maintaining software is not demonstrated.
 - BugsInPy remains globally blocked except for future byte-identical exception research.
 - This repository is currently suitable as a pre-alpha research archive, not a technical validation release.
@@ -41,7 +42,7 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 
 ControllerGate does not currently claim autonomous repair, full benchmark scoring, memory-lift evidence, self-maintaining software, or technical validation readiness. Issue-derived harnesses do not count as native external repairs. Historical lanes remain auditable evidence, but new replication work should use the clean replication protocol and reusable workflow where possible.
 
-The next technical objective is Batch009 patch-quarantined matched-null calibration on the already repaired Batch008 candidate. This is retrospective diagnostic work only; it must not add another repair episode or claim prospective memory lift, full scoring, self-maintaining software, or technical validation readiness.
+The next technical objective after Batch009 is a fresh prospective candidate if memory-lift evidence is desired. The matched-null rules must be registered before any successful patch exists for that future candidate.
 
 ## Current operational gate status
 

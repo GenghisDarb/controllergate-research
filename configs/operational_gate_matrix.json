@@ -579,10 +579,51 @@
         "dual_projection_recheck"
       ],
       "status": "implemented"
+    },
+    {
+      "audit_assertion": "matched-null arms exclude prior successful patch artifacts and repair rationale before generation",
+      "blocker_names": [
+        "matched_null_patch_quarantine_failed",
+        "arm_a_patch_artifact_contamination_detected",
+        "null_patch_artifact_contamination_detected"
+      ],
+      "claim_boundary": "quarantine permits retrospective calibration only",
+      "current_module_or_script": "controllergate/core/patch_quarantine.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_009/patch_artifact_quarantine_audit.json",
+        "outputs/clean_replication_batch_009/patch_artifact_denylist.json"
+      ],
+      "neutral_gate_name": "Patch Artifact Quarantine",
+      "next_required_implementation_step": "preserve denylist checks for any future matched-null comparison",
+      "notebooklm_advice_ids": [
+        "patch_artifact_quarantine"
+      ],
+      "status": "implemented"
+    },
+    {
+      "audit_assertion": "retrospective calibration is not labeled as prospective memory-lift evidence",
+      "blocker_names": [
+        "prospective_memory_lift_overclaimed",
+        "retrospective_calibration_overclaimed"
+      ],
+      "claim_boundary": "prospective memory lift requires a fresh candidate and pre-registered matched-null rules",
+      "current_module_or_script": "controllergate/core/memory_policy.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_009/prospective_memory_lift_requirement.json",
+        "outputs/clean_replication_batch_009/memory_separation_claim_evaluation_batch009.json"
+      ],
+      "neutral_gate_name": "Prospective Memory-Lift Requirement",
+      "next_required_implementation_step": "use a fresh candidate before any successful patch exists",
+      "notebooklm_advice_ids": [
+        "prospective_memory_lift_requirement"
+      ],
+      "status": "implemented"
     }
   ],
   "matrix_id": "operational_gate_matrix_post_v2_37",
-  "notebooklm_advice_cross_reference_count": 32,
+  "notebooklm_advice_cross_reference_count": 34,
   "notebooklm_advice_traceability_matrix_path": "configs/notebooklm_advice_traceability_matrix.json",
   "terminology_policy": "neutral_engineering_terms_only"
 }

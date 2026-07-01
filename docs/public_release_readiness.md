@@ -18,6 +18,7 @@ ControllerGate is currently suitable as a pre-alpha research archive. It is not 
 - Batch006 adds bounded fragment patch assembly and related consistency checks for the verified native challenge candidate, but it blocks before patch bytes and does not make the repository release-ready.
 - Batch007 records target-intent reachability, precondition resolution, trace-feedback alignment, and explicit candidate retirement for the same challenge candidate.
 - Batch008 corrects declared formatter precondition materialization and validates one bounded source-only repair endpoint for that candidate, but it does not make the repository release-ready without broader audited comparison evidence.
+- Batch009 retrospective matched-null calibration is diagnostic only and does not make the repository release-ready.
 
 ## Blocking gaps
 
