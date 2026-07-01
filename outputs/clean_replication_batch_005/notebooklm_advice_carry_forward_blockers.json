@@ -56,6 +56,14 @@
     "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
   },
   {
+    "advice_id": "prospective_memory_challenge",
+    "blocker": "batch011_no_fresh_candidate_verified",
+    "minimum_condition_to_unblock": "Batch011 did not verify a fresh candidate",
+    "next_allowed_lane": "future_fresh_candidate_lane",
+    "reason_not_implemented_now": "Batch011 did not verify a fresh candidate",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
     "advice_id": "failure_memory_weighting",
     "blocker": "failure_memory_weighting_not_applied",
     "minimum_condition_to_unblock": "implement reusable gate evidence and audit assertion",

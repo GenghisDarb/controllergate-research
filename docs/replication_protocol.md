@@ -96,13 +96,19 @@ Batch010 converts prior decision-time-safe status codes into deterministic weigh
 
 Batch010 outcome: the safe status-code evidence does not establish a source, context, or generation routing delta. Patch generation, target validation, duplicate replay, and null ensemble rerun remain `NOT_RUN` or blocked, with exact blocker `active_memory_routing_delta_not_established`.
 
+## Batch011 prospective memory challenge eligibility
+
+Batch011 starts the prospective memory challenge eligibility gate without creating a new versioned lane. It retires `darker_skip_glob_failing_test` from further memory-lift attempts, excludes all previously repaired candidates from new candidate selection, reviews the bounded fresh pytest-rerunfailures leads already present in the clean replication lead pool, and records Curvature-Based Candidate Selection, Two-Winner Source Selection, Strict Minimum-Delta Routing, preregistration, and patch artifact quarantine policies.
+
+Batch011 outcome: no fresh candidate verifies a pre-repair failure under the ingested decision-time-safe evidence, so the memory-enabled arm, null ensemble, patch generation, repair-only fallback, and matched-null score all remain `NOT_RUN` or uncomputed. The exact blocker is `batch011_no_fresh_candidate_verified`.
+
 ## Current official repair episodes
 
-As of the Batch010 retrospective calibration boundary, the confirmed external non-Ansible native repair endpoints remain `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `undemonstrated_equal_performance`, and self-maintaining software remains `false/not_demonstrated`.
+As of the Batch011 prospective eligibility boundary, the confirmed external non-Ansible native repair endpoints remain `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `not_demonstrated`, and self-maintaining software remains `false/not_demonstrated`.
 
 ## Current operational gate status
 
-- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, status-code weighting policy, High-Pass Source Ranking Filter, Two-Candidate Selection Policy, and Strict Minimum-Delta Routing.
-- Partial gates: structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, matched-null ensemble execution, Active Failure-Memory Routing, failure-memory weighting, and no-overreach validation for blocked candidates.
+- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, status-code weighting policy, High-Pass Source Ranking Filter, Curvature-Based Candidate Selection, Two-Winner Source Selection, and Strict Minimum-Delta Routing.
+- Partial gates: structural navigation, active probe routing, dependency projection, interlock invariant mapping, issue-derived harness execution, matched-null ensemble execution, Active Failure-Memory Routing, Prospective Memory Challenge, failure-memory weighting, and no-overreach validation for blocked candidates.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

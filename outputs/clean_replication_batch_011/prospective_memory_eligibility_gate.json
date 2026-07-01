@@ -1,0 +1,55 @@
+{
+  "blocker": "batch011_no_fresh_candidate_verified",
+  "candidate_attempts_reviewed": 2,
+  "candidate_evaluations": [
+    {
+      "blocker": "batch011_no_fresh_candidate_verified",
+      "candidate_id": "pytest_rerunfailures_subtest_errors",
+      "eligible": false,
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "batch011_no_fresh_candidate_verified",
+      "candidate_id": "pytest_rerunfailures_reruns_mode",
+      "eligible": false,
+      "status": "BLOCK"
+    }
+  ],
+  "candidate_verification_source": "outputs/clean_replication_batch_002/candidate_verification_attempts.json",
+  "candidate_verification_source_sha256": "9ae37fbefd2d3e1cf30bface70be71123a8d1d5dffe601ff27cdc4e53615fdd2",
+  "eligible": false,
+  "fresh_candidate_required": true,
+  "prior_repaired_candidates_forbidden": [
+    "darker_non_ascii_drop_changes",
+    "darker_skip_glob_failing_test",
+    "darker_stdin_filename",
+    "py_bugger_issue_65"
+  ],
+  "repaired_candidate_evaluations": [
+    {
+      "blocker": "prospective_memory_candidate_not_fresh",
+      "candidate_id": "darker_non_ascii_drop_changes",
+      "eligible": false,
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "prospective_memory_candidate_not_fresh",
+      "candidate_id": "darker_skip_glob_failing_test",
+      "eligible": false,
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "prospective_memory_candidate_not_fresh",
+      "candidate_id": "darker_stdin_filename",
+      "eligible": false,
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "prospective_memory_candidate_not_fresh",
+      "candidate_id": "py_bugger_issue_65",
+      "eligible": false,
+      "status": "BLOCK"
+    }
+  ],
+  "status": "BLOCK"
+}

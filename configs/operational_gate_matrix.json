@@ -699,10 +699,89 @@
         "strict_minimum_delta_routing"
       ],
       "status": "implemented"
+    },
+    {
+      "audit_assertion": "status-code feature weights require decision-time-safe evidence and may not read successful patch bytes",
+      "blocker_names": [
+        "prospective_memory_no_mappable_status_features"
+      ],
+      "claim_boundary": "status-code weighting is routing evidence only",
+      "current_module_or_script": "controllergate/core/status_code_weighting.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_010/status_code_to_weight_map.json",
+        "outputs/clean_replication_batch_011/prospective_memory_eligibility_gate.json"
+      ],
+      "neutral_gate_name": "Status-Code Feature Weighting",
+      "next_required_implementation_step": "use only mapped decision-time-safe features on a fresh verified candidate",
+      "notebooklm_advice_ids": [
+        "status_code_feature_weighting"
+      ],
+      "status": "implemented"
+    },
+    {
+      "audit_assertion": "candidate/source-route scoring is triage evidence and cannot replace replay or validation",
+      "blocker_names": [
+        "curvature_selection_missing",
+        "curvature_selection_no_alternative_route"
+      ],
+      "claim_boundary": "candidate selection is not repair success",
+      "current_module_or_script": "controllergate/core/curvature_selection.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_011/curvature_selection_policy.json",
+        "outputs/clean_replication_batch_011/candidate_curvature_scores.json"
+      ],
+      "neutral_gate_name": "Curvature-Based Candidate Selection",
+      "next_required_implementation_step": "run source-route scoring only after a fresh candidate verifies",
+      "notebooklm_advice_ids": [
+        "curvature_based_candidate_selection"
+      ],
+      "status": "implemented"
+    },
+    {
+      "audit_assertion": "linear and curvature winners are separately recorded and arbitrary deltas are rejected",
+      "blocker_names": [
+        "two_winner_policy_missing",
+        "forced_routing_delta_without_evidence"
+      ],
+      "claim_boundary": "two-winner routing is not patch authorization",
+      "current_module_or_script": "controllergate/core/curvature_selection.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_011/two_winner_source_selection_policy.json",
+        "outputs/clean_replication_batch_011/source_route_curvature_scores.json"
+      ],
+      "neutral_gate_name": "Two-Winner Source Selection",
+      "next_required_implementation_step": "require route diversity before memory-enabled generation",
+      "notebooklm_advice_ids": [
+        "two_winner_source_selection"
+      ],
+      "status": "implemented"
+    },
+    {
+      "audit_assertion": "fresh candidate verification, preregistration, route diversity, and mapped status features are required before matched-null memory claims",
+      "blocker_names": [
+        "batch011_no_fresh_candidate_verified",
+        "prospective_memory_eligibility_not_met"
+      ],
+      "claim_boundary": "prospective memory lift remains not demonstrated until all gates pass and matched-null evidence separates",
+      "current_module_or_script": "controllergate/core/prospective_memory_challenge.py",
+      "evidence_class_affected": "memory_experiment_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_011/prospective_memory_challenge_policy.json",
+        "outputs/clean_replication_batch_011/prospective_memory_lift_evaluation.json"
+      ],
+      "neutral_gate_name": "Prospective Memory Challenge",
+      "next_required_implementation_step": "verify a fresh native candidate before patch generation",
+      "notebooklm_advice_ids": [
+        "prospective_memory_challenge"
+      ],
+      "status": "implemented_partial"
     }
   ],
   "matrix_id": "operational_gate_matrix_post_v2_37",
-  "notebooklm_advice_cross_reference_count": 38,
+  "notebooklm_advice_cross_reference_count": 42,
   "notebooklm_advice_traceability_matrix_path": "configs/notebooklm_advice_traceability_matrix.json",
   "terminology_policy": "neutral_engineering_terms_only"
 }

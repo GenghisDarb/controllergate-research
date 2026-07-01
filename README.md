@@ -22,8 +22,9 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 - Batch009 patch-quarantined matched-null calibration is retrospective diagnostic work on the already repaired Batch008 candidate. It does not add another repair episode, does not establish prospective memory lift, and keeps successful Batch008 patch artifacts out of both comparison arms.
 - Batch009 showed null ensemble failure under patch quarantine, but Arm A still had passive memory markers, no routing delta, and no generated patch; the matched-null score correctly remains `0.0`.
 - Batch010 implements active status-code weighting, a High-Pass Source Ranking Filter, a Two-Candidate Selection Policy, and Strict Minimum-Delta Routing for the same already repaired candidate as retrospective calibration. It blocks with `active_memory_routing_delta_not_established` because the decision-time-safe status codes do not change source, context, or generation routing without using quarantined prior patch detail.
+- Batch011 prospective memory challenge eligibility retires `darker_skip_glob_failing_test` from further memory-lift attempts, reviews bounded fresh leads from the existing clean replication lead pool, and blocks with `batch011_no_fresh_candidate_verified`; no memory-enabled arm, null ensemble, patch generation, or repair-only fallback is authorized.
 - Full scoring remains `NOT_RUN/disallowed`.
-- Memory lift on external real bugs is not demonstrated; the matched-null status remains `undemonstrated_equal_performance`.
+- Memory lift on external real bugs is not demonstrated; the prospective memory-lift status remains `not_demonstrated`.
 - Self-maintaining software is not demonstrated.
 - BugsInPy remains globally blocked except for future byte-identical exception research.
 - This repository is currently suitable as a pre-alpha research archive, not a technical validation release.
@@ -39,17 +40,18 @@ Current branch: `controllergate-v1.7-alpha-real-trace-pilot`
 - Create isolated candidate workspaces and attempt structured environment resolution before collection and replay.
 - Generate bounded source-only repair patches from verified native candidate context only after target-intent reachability and trace-feedback alignment gates pass, then require patch safety, target validation, and duplicate replay before recording a repair success.
 - Define deterministic matched-null ensemble policies for future challenge candidates, including memory-enabled and memory-disabled arm separation, fair null perturbations, and explicit score boundaries.
+- Record prospective memory-challenge eligibility gates that require a fresh candidate, preregistered arms, legal alternative routes, mappable status features, strict routing delta, and patch artifact quarantine before any memory-lift claim.
 
 ## Current limits
 
 ControllerGate does not currently claim autonomous repair, full benchmark scoring, memory-lift evidence, self-maintaining software, or technical validation readiness. Issue-derived harnesses do not count as native external repairs. Historical lanes remain auditable evidence, but new replication work should use the clean replication protocol and reusable workflow where possible.
 
-The next technical objective after Batch010 is a fresh prospective candidate if memory-lift evidence is desired. The matched-null rules must be registered before any successful patch exists for that future candidate.
+The next technical objective after Batch011 is a fresh prospective candidate if memory-lift evidence is desired. The matched-null rules must be registered before any successful patch exists for that future candidate, and prior repaired candidates must not be reused for memory-lift claims.
 
 ## Current operational gate status
 
-- Implemented active gates: artifact byte custody, workspace transport integrity, external candidate registry validation, semantic failure signatures, target-node admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, execution environment normalization, context boundary pinning, public claim boundary audit, public release readiness blocking, status-code weighting policy, High-Pass Source Ranking Filter, Two-Candidate Selection Policy, and Strict Minimum-Delta Routing.
-- Partial gates: baseline registry snapshots, structural navigation, active probe routing, dependency projection reuse, interlock invariant mapping reuse, issue-derived harness handling, issue text temporal guard, matched-null ensemble execution, Active Failure-Memory Routing, failure-memory weighting, no-overreach validation for non-successful candidates, global-block exception research, and evidence-ledger sealing.
+- Implemented active gates: artifact byte custody, workspace transport integrity, external candidate registry validation, semantic failure signatures, target-node admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, execution environment normalization, context boundary pinning, public claim boundary audit, public release readiness blocking, status-code weighting policy, High-Pass Source Ranking Filter, Curvature-Based Candidate Selection, Two-Winner Source Selection, and Strict Minimum-Delta Routing.
+- Partial gates: baseline registry snapshots, structural navigation, active probe routing, dependency projection reuse, interlock invariant mapping reuse, issue-derived harness handling, issue text temporal guard, matched-null ensemble execution, Active Failure-Memory Routing, Prospective Memory Challenge, failure-memory weighting, no-overreach validation for non-successful candidates, global-block exception research, and evidence-ledger sealing.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; accepted matched-null comparisons `1` with equal performance; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.
 

@@ -20,13 +20,14 @@ ControllerGate is currently suitable as a pre-alpha research archive. It is not 
 - Batch008 corrects declared formatter precondition materialization and validates one bounded source-only repair endpoint for that candidate, but it does not make the repository release-ready without broader audited comparison evidence.
 - Batch009 retrospective matched-null calibration is diagnostic only and does not make the repository release-ready.
 - Batch010 active status-code weighting and strict routing-delta calibration is retrospective only. It blocks without an admissible routing delta and does not make the repository release-ready.
+- Batch011 prospective memory challenge eligibility blocks because no fresh candidate verifies, so it does not make the repository release-ready.
 
 ## Blocking gaps
 
-- No accepted prospective matched-null memory separation evidence; Batch009 and Batch010 remain retrospective diagnostics.
+- No accepted prospective matched-null memory separation evidence; Batch009 and Batch010 remain retrospective diagnostics, and Batch011 blocks before a fresh candidate is admitted.
 - No accepted matched-null ensemble separation evidence on a verified moderate-complexity challenge candidate.
 - No issue-derived repair episodes are counted as native evidence.
-- Memory lift remains `undemonstrated_equal_performance`; full memory lift is not claimed.
+- Memory lift remains `not_demonstrated`; full memory lift is not claimed.
 - No full scoring authorization or result.
 - No self-maintaining software evidence.
 
@@ -36,7 +37,7 @@ Do not describe ControllerGate as technically validated until the blocking gaps 
 
 ## Current operational gate status
 
-- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, release-readiness blocking, status-code weighting policy, High-Pass Source Ranking Filter, Two-Candidate Selection Policy, and Strict Minimum-Delta Routing.
-- Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, Active Failure-Memory Routing, failure-memory weighting, post-patch revalidation for blocked candidates, global-block exception research, and broader evidence-ledger standardization.
+- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, release-readiness blocking, status-code weighting policy, High-Pass Source Ranking Filter, Curvature-Based Candidate Selection, Two-Winner Source Selection, and Strict Minimum-Delta Routing.
+- Partial gates: baseline registry snapshot standardization, structural navigation, active probe routing, issue-derived harness execution, issue text temporal guard, matched-null ensemble execution, Active Failure-Memory Routing, Prospective Memory Challenge, failure-memory weighting, post-patch revalidation for blocked candidates, global-block exception research, and broader evidence-ledger standardization.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

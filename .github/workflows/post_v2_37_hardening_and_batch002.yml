@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch010 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch011 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -67,8 +67,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch010_active_memory_routing/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch010_active_memory_routing \( \
+          test -f artifact_payload/post_v2_37_hardening_batch011_prospective_memory_challenge/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch011_prospective_memory_challenge \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -89,11 +89,11 @@ jobs:
             exit 1
           fi
 
-      - name: Upload Batch010 active memory routing post-v2.37 hardening artifact
+      - name: Upload Batch011 prospective memory challenge post-v2.37 hardening artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch010_active_memory_routing_artifacts
+          name: post_v2_37_hardening_batch011_prospective_memory_challenge_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch010_active_memory_routing/**
+            artifact_payload/post_v2_37_hardening_batch011_prospective_memory_challenge/**
           if-no-files-found: error

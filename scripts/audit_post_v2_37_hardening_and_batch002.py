@@ -20,7 +20,8 @@ BATCH007_DIR = Path("outputs/clean_replication_batch_007")
 BATCH008_DIR = Path("outputs/clean_replication_batch_008")
 BATCH009_DIR = Path("outputs/clean_replication_batch_009")
 BATCH010_DIR = Path("outputs/clean_replication_batch_010")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch010_active_memory_routing")
+BATCH011_DIR = Path("outputs/clean_replication_batch_011")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch011_prospective_memory_challenge")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -366,6 +367,43 @@ BATCH010_REQUIRED = [
     "matched_null_score_audit_batch010.json",
     "memory_routing_diagnostic_evaluation_batch010.json",
     "prospective_memory_lift_requirement_update.json",
+    "claim_boundary.json",
+    "notebooklm_advice_traceability_status.json",
+    "carry_forward_blocker_register.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH011_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_011.json",
+    "prospective_memory_challenge_policy.json",
+    "prospective_memory_eligibility_gate.json",
+    "candidate_difficulty_band_policy.json",
+    "fresh_candidate_lead_pool.json",
+    "fresh_candidate_attempts.json",
+    "fresh_candidate_rejection_ledger.json",
+    "retired_memory_challenge_candidates.json",
+    "darker_skip_glob_memory_challenge_retirement.json",
+    "fresh_candidate_source_mode_trace.json",
+    "native_candidate_attempts.json",
+    "issue_derived_candidate_attempts.json",
+    "candidate_verification_attempts.json",
+    "candidate_admission_decisions.json",
+    "curvature_selection_policy.json",
+    "two_winner_source_selection_policy.json",
+    "strict_minimum_delta_policy_batch011.json",
+    "candidate_curvature_scores.json",
+    "source_route_curvature_scores.json",
+    "prospective_experiment_preregistration.json",
+    "memory_enabled_policy_batch011.json",
+    "memory_disabled_null_ensemble_policy_batch011.json",
+    "prospective_patch_artifact_quarantine_policy.json",
+    "memory_enabled_run_results.json",
+    "null_ensemble_run_results.json",
+    "null_ensemble_summary.json",
+    "matched_null_ensemble_separation_score.json",
+    "prospective_memory_lift_evaluation.json",
+    "repair_successes.json",
     "claim_boundary.json",
     "notebooklm_advice_traceability_status.json",
     "carry_forward_blocker_register.json",
@@ -1979,6 +2017,154 @@ def audit_batch010_records() -> list[str]:
     return errors
 
 
+def audit_batch011_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH011_REQUIRED:
+        if not (BATCH011_DIR / name).is_file():
+            errors.append(f"batch011 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH011_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch011 manifest failed: {manifest}")
+    state = read_json(BATCH011_DIR / "consolidated_state_clean_replication_batch_011.json")
+    policy = read_json(BATCH011_DIR / "prospective_memory_challenge_policy.json")
+    eligibility = read_json(BATCH011_DIR / "prospective_memory_eligibility_gate.json")
+    lead_pool = read_json(BATCH011_DIR / "fresh_candidate_lead_pool.json")
+    attempts = read_json(BATCH011_DIR / "fresh_candidate_attempts.json")
+    rejection = read_json(BATCH011_DIR / "fresh_candidate_rejection_ledger.json")
+    retired = read_json(BATCH011_DIR / "retired_memory_challenge_candidates.json")
+    skip_retirement = read_json(BATCH011_DIR / "darker_skip_glob_memory_challenge_retirement.json")
+    source_trace = read_json(BATCH011_DIR / "fresh_candidate_source_mode_trace.json")
+    native_attempts = read_json(BATCH011_DIR / "native_candidate_attempts.json")
+    issue_attempts = read_json(BATCH011_DIR / "issue_derived_candidate_attempts.json")
+    verification_attempts = read_json(BATCH011_DIR / "candidate_verification_attempts.json")
+    admissions = read_json(BATCH011_DIR / "candidate_admission_decisions.json")
+    curvature_policy = read_json(BATCH011_DIR / "curvature_selection_policy.json")
+    two_winner_policy = read_json(BATCH011_DIR / "two_winner_source_selection_policy.json")
+    strict_delta = read_json(BATCH011_DIR / "strict_minimum_delta_policy_batch011.json")
+    curvature_scores = read_json(BATCH011_DIR / "candidate_curvature_scores.json")
+    route_scores = read_json(BATCH011_DIR / "source_route_curvature_scores.json")
+    prereg = read_json(BATCH011_DIR / "prospective_experiment_preregistration.json")
+    memory_enabled = read_json(BATCH011_DIR / "memory_enabled_policy_batch011.json")
+    memory_disabled = read_json(BATCH011_DIR / "memory_disabled_null_ensemble_policy_batch011.json")
+    quarantine = read_json(BATCH011_DIR / "prospective_patch_artifact_quarantine_policy.json")
+    memory_results = read_json(BATCH011_DIR / "memory_enabled_run_results.json")
+    null_results = read_json(BATCH011_DIR / "null_ensemble_run_results.json")
+    null_summary = read_json(BATCH011_DIR / "null_ensemble_summary.json")
+    score = read_json(BATCH011_DIR / "matched_null_ensemble_separation_score.json")
+    lift = read_json(BATCH011_DIR / "prospective_memory_lift_evaluation.json")
+    successes = read_json(BATCH011_DIR / "repair_successes.json")
+    claim = read_json(BATCH011_DIR / "claim_boundary.json")
+    traceability = read_json(BATCH011_DIR / "notebooklm_advice_traceability_status.json")
+    carry = read_json(BATCH011_DIR / "carry_forward_blocker_register.json")
+    blocker = "batch011_no_fresh_candidate_verified"
+    repaired_ids = {
+        "py_bugger_issue_65",
+        "darker_non_ascii_drop_changes",
+        "darker_stdin_filename",
+        "darker_skip_glob_failing_test",
+    }
+    if policy.get("status") != "PASS" or policy.get("requires_fresh_candidate") is not True:
+        errors.append("prospective memory challenge policy invalid")
+    if policy.get("forbids_repaired_candidate_reuse") is not True:
+        errors.append("prospective_memory_candidate_not_fresh")
+    if eligibility.get("status") != "BLOCK" or eligibility.get("blocker") != blocker:
+        errors.append("batch011 eligibility blocker mismatch")
+    if eligibility.get("eligible") is not False:
+        errors.append("prospective memory eligibility overclaimed")
+    if lead_pool.get("fresh_candidate_count") != 2:
+        errors.append("batch011 expected two fresh lead-pool candidates")
+    if not isinstance(attempts, list) or len(attempts) != 2:
+        errors.append("batch011 fresh candidate attempts count mismatch")
+    for item in attempts if isinstance(attempts, list) else []:
+        if item.get("candidate_id") in repaired_ids:
+            errors.append("retired_memory_challenge_candidate_reused")
+        if item.get("fresh_candidate") is not True:
+            errors.append("batch011 fresh attempt missing fresh marker")
+        if item.get("fresh_candidate_verified") is not False:
+            errors.append("batch011 unexpectedly verified a fresh candidate")
+        if item.get("failure_replay_status") != "PASSING_PRE_PATCH_NOT_A_FAILURE":
+            errors.append("batch011 fresh attempt blocker changed")
+        if item.get("verification_source_sha256") != read_json(BATCH011_DIR / "prospective_memory_eligibility_gate.json").get("candidate_verification_source_sha256"):
+            errors.append("batch011 attempt source hash mismatch")
+    rejection_ids = {item.get("candidate_id") for item in rejection if isinstance(item, dict)}
+    if not repaired_ids.issubset(rejection_ids):
+        errors.append("prior repaired candidates not rejected")
+    if not any(isinstance(item, dict) and item.get("rejection_reason") == blocker for item in rejection):
+        errors.append("batch011 fresh rejection blocker missing")
+    retired_items = retired.get("retired_candidates", [])
+    retired_ids = {item.get("candidate_id") for item in retired_items if isinstance(item, dict)}
+    if retired.get("status") != "PASS" or not repaired_ids.issubset(retired_ids):
+        errors.append("retired memory challenge candidates record invalid")
+    if skip_retirement.get("candidate_id") != "darker_skip_glob_failing_test" or skip_retirement.get("retired_from_new_memory_lift_attempts") is not True:
+        errors.append("darker_skip_glob retirement missing")
+    if skip_retirement.get("blocker_if_reused") != "retired_memory_challenge_candidate_reused":
+        errors.append("retired candidate reuse blocker missing")
+    if source_trace[0].get("attempted") is not True or source_trace[1].get("attempted") is not False:
+        errors.append("batch011 source mode trace invalid")
+    if native_attempts != attempts or verification_attempts != attempts:
+        errors.append("batch011 native/verification attempts diverge")
+    if issue_attempts != []:
+        errors.append("batch011 issue-derived path unexpectedly attempted")
+    if not isinstance(admissions, list) or not admissions:
+        errors.append("batch011 admission decisions missing")
+    if any(item.get("admission_decision") in {"admitted_native_candidate", "admitted_issue_derived_candidate"} for item in admissions if isinstance(item, dict)):
+        errors.append("candidate admitted despite no verified fresh failure")
+    if curvature_policy.get("status") != "PASS" or two_winner_policy.get("status") != "PASS":
+        errors.append("curvature or two-winner policy missing")
+    if strict_delta.get("status") != "PASS" or strict_delta.get("arbitrary_score_or_metadata_shuffle_rejected") is not True:
+        errors.append("strict minimum-delta policy invalid")
+    if curvature_scores.get("status") != "NOT_RUN" or curvature_scores.get("blocker") != blocker:
+        errors.append("batch011 curvature scores should not run without verified candidate")
+    if route_scores.get("status") != "NOT_RUN" or route_scores.get("blocker") != blocker:
+        errors.append("batch011 source route scores should not run without verified candidate")
+    if prereg.get("status") != "NOT_RUN" or prereg.get("patch_generated_before_preregistration") is not False:
+        errors.append("prospective preregistration record invalid")
+    if memory_enabled.get("status") != "NOT_RUN" or memory_disabled.get("status") != "NOT_RUN":
+        errors.append("matched-null policies should remain not run")
+    if quarantine.get("status") != "PASS" or quarantine.get("patch_artifacts_not_created") is not True:
+        errors.append("batch011 patch artifact quarantine invalid")
+    if memory_results.get("status") != "NOT_RUN" or null_results.get("status") != "NOT_RUN":
+        errors.append("memory-enabled or null arm ran without eligibility")
+    if null_summary.get("null_ensemble_run_count") != 0 or null_summary.get("null_success_rate") is not None:
+        errors.append("null ensemble summary invalid")
+    if score.get("score_computed") is not False or score.get("matched_null_ensemble_separation_score") is not None:
+        errors.append("matched-null score computed without candidate")
+    if lift.get("preliminary_prospective_single_candidate_memory_separation_evidence") is not False:
+        errors.append("prospective memory lift overclaimed")
+    if lift.get("prospective_memory_lift_status") != "not_demonstrated" or lift.get("blocker") != blocker:
+        errors.append("prospective memory lift blocker mismatch")
+    if successes != []:
+        errors.append("batch011 repair success recorded without authorized run")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("full_memory_lift_claimed") is not False:
+        errors.append("batch011 claim boundary overclaimed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch011 self-maintaining overclaim")
+    if claim.get("confirmed_native_repair_episode_count") != 4:
+        errors.append("batch011 repair episode count changed")
+    if state.get("status") != "BLOCK" or state.get("exact_blocker") != blocker:
+        errors.append("batch011 state blocker mismatch")
+    if state.get("fresh_candidates_attempted_count") != 2 or state.get("fresh_candidate_verified") is not False:
+        errors.append("batch011 state fresh candidate count/status mismatch")
+    if state.get("repair_only_fallback_attempted") is not False or state.get("additional_external_repair_acquired") is not False:
+        errors.append("batch011 repair-only fallback over-ran")
+    if state.get("confirmed_native_repair_episode_count") != 4:
+        errors.append("batch011 state repair count changed")
+    if traceability.get("status_code_feature_weighting") != "implemented_active":
+        errors.append("Batch011 traceability missing status-code feature weighting")
+    if traceability.get("curvature_based_candidate_selection") != "implemented_active":
+        errors.append("Batch011 traceability missing curvature selection")
+    if traceability.get("two_winner_source_selection") != "implemented_active":
+        errors.append("Batch011 traceability missing two-winner selection")
+    if traceability.get("active_failure_memory_routing") != "implemented_partial":
+        errors.append("Batch011 active routing overclaimed")
+    blockers = carry.get("blockers", [])
+    if carry.get("status") != "PASS" or not any(isinstance(item, dict) and item.get("blocker") == blocker for item in blockers):
+        errors.append("Batch011 carry-forward blocker missing")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -2091,14 +2277,19 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_008.json"),
         Path("configs/clean_replication_batch_009.json"),
         Path("configs/clean_replication_batch_010.json"),
+        Path("configs/clean_replication_batch_011.json"),
         Path("controllergate/core/failure_memory.py"),
         Path("controllergate/core/status_code_weighting.py"),
         Path("controllergate/core/source_ranking.py"),
+        Path("controllergate/core/prospective_memory_challenge.py"),
+        Path("controllergate/core/curvature_selection.py"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
     paths.extend(sorted(BATCH010_DIR.glob("*.json")))
     paths.extend(sorted(BATCH010_DIR.glob("*.md")))
+    paths.extend(sorted(BATCH011_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH011_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -2133,6 +2324,10 @@ REQUIRED_NOTEBOOKLM_ADVICE_IDS = {
     "matched_null_comparison_arms",
     "matched_null_ensemble",
     "active_failure_memory_routing",
+    "status_code_feature_weighting",
+    "curvature_based_candidate_selection",
+    "two_winner_source_selection",
+    "prospective_memory_challenge",
     "high_pass_source_ranking_filter",
     "two_candidate_selection_policy",
     "strict_minimum_delta_routing",
@@ -2242,6 +2437,7 @@ def main() -> int:
         + require_files(BATCH008_DIR, BATCH008_REQUIRED)
         + require_files(BATCH009_DIR, BATCH009_REQUIRED)
         + require_files(BATCH010_DIR, BATCH010_REQUIRED)
+        + require_files(BATCH011_DIR, BATCH011_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -2265,6 +2461,8 @@ def main() -> int:
         return fail("batch009 manifest mismatch")
     if verify_manifest(BATCH010_DIR)["status"] != "PASS":
         return fail("batch010 manifest mismatch")
+    if verify_manifest(BATCH011_DIR)["status"] != "PASS":
+        return fail("batch011 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
         return fail("core tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -2400,6 +2598,9 @@ def main() -> int:
     batch010_errors = audit_batch010_records()
     if batch010_errors:
         return fail(f"batch010 audit failed: {batch010_errors}")
+    batch011_errors = audit_batch011_records()
+    if batch011_errors:
+        return fail(f"batch011 audit failed: {batch011_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")

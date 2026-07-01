@@ -75,6 +75,14 @@ from controllergate.core.source_ranking import (
     stable_hash as source_stable_hash,
     strict_minimum_delta,
 )
+from controllergate.core.curvature_selection import select_two_winners, two_winner_delta
+from controllergate.core.prospective_memory_challenge import (
+    REPAIRED_CANDIDATE_IDS as PROSPECTIVE_REPAIRED_CANDIDATE_IDS,
+    evaluate_prospective_memory_eligibility,
+    preregistration_order_status,
+    repair_only_fallback_evaluation,
+    route_diversity_status,
+)
 from controllergate.core.target_reachability import classify_runtime_path, completion_decision, downstream_gate_violation, fragment_generation_authorized
 from controllergate.experiments.replication_batch import run_replication_batch
 
@@ -98,7 +106,9 @@ BATCH009_ID = "clean_replication_batch_009"
 BATCH009_DIR = Path("outputs") / BATCH009_ID
 BATCH010_ID = "clean_replication_batch_010"
 BATCH010_DIR = Path("outputs") / BATCH010_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch010_active_memory_routing")
+BATCH011_ID = "clean_replication_batch_011"
+BATCH011_DIR = Path("outputs") / BATCH011_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch011_prospective_memory_challenge")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -281,7 +291,7 @@ def append_batch008_external_repair_episode_if_needed(state: dict[str, object]) 
                 "target_validation": "outputs/clean_replication_batch_008/target_validation_result_batch008.json",
             },
             "full_scoring": "NOT_RUN/disallowed",
-            "memory_lift": "undemonstrated_equal_performance",
+            "memory_lift": "not_demonstrated",
             "self_maintaining_software": "false/not_demonstrated",
             "claim_boundaries": {
                 "current_protocol_version": "v2.13",
@@ -532,11 +542,14 @@ ACTIVE_PUBLIC_LANGUAGE_PATHS = [
     "configs/clean_replication_batch_008.json",
     "configs/clean_replication_batch_009.json",
     "configs/clean_replication_batch_010.json",
+    "configs/clean_replication_batch_011.json",
     ".github/workflows/post_v2_37_hardening_and_batch002.yml",
     "controllergate/core/environment.py",
     "controllergate/core/failure_memory.py",
     "controllergate/core/status_code_weighting.py",
     "controllergate/core/source_ranking.py",
+    "controllergate/core/prospective_memory_challenge.py",
+    "controllergate/core/curvature_selection.py",
     "controllergate/experiments/replication_batch.py",
     "scripts/post_v2_37_hardening_and_batch002_runner.py",
     "scripts/audit_post_v2_37_hardening_and_batch002.py",
@@ -602,6 +615,7 @@ def write_public_docs_reports() -> None:
         "Batch008 corrects declared formatter precondition materialization",
         "Batch009 patch-quarantined matched-null calibration",
         "Batch010 implements active status-code weighting",
+        "Batch011 prospective memory challenge eligibility",
         "Current operational gate status",
     ]
     missing = [phrase for phrase in required_phrases if phrase not in readme]
@@ -639,7 +653,7 @@ def write_public_docs_reports() -> None:
             "status": "PASS" if not missing and not forbidden_hits and all(Path(path).is_file() for path in docs) else "FAIL",
             "docs_checked": docs,
             "full_scoring": "NOT_RUN/disallowed",
-            "memory_lift": "undemonstrated_equal_performance",
+            "memory_lift": "not_demonstrated",
             "self_maintaining_software": "false/not_demonstrated",
             "technical_validation_readiness_claimed": False,
             "issue_derived_counts_as_native": False,
@@ -656,7 +670,7 @@ def write_public_docs_reports() -> None:
             "evidence_classes": matrix.get("evidence_classes", []),
         },
     )
-    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH006_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH007_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH008_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH009_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH010_DIR.glob("*.json"))]
+    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH006_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH007_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH008_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH009_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH010_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH011_DIR.glob("*.json"))]
     write_json_deterministic(
         POST_DIR / "public_language_audit_expanded.json",
         public_language_audit(ACTIVE_PUBLIC_LANGUAGE_PATHS + artifact_paths),
@@ -727,6 +741,10 @@ def notebooklm_advice_entries(batch005_state: dict[str, object]) -> list[dict[st
         entry("patch_artifact_quarantine", "Patch Artifact Quarantine", "implemented_active", "Batch009 denies prior successful patch artifacts to both matched-null arms", ["outputs/clean_replication_batch_009/patch_artifact_quarantine_audit.json", "outputs/clean_replication_batch_009/patch_artifact_denylist.json"], ["controllergate/core/patch_quarantine.py"], ["denied paths are excluded from arm context manifests"], ["matched_null_patch_quarantine_failed"], "memory_experiment", "patch quarantine enables retrospective calibration only", "continuous", gate_name="Patch Artifact Quarantine"),
         entry("prospective_memory_lift_requirement", "Prospective Memory-Lift Requirement", "implemented_active", "Batch009 records that prospective memory-lift evidence requires a fresh candidate and pre-registered matched-null rules", ["outputs/clean_replication_batch_009/prospective_memory_lift_requirement.json", "outputs/clean_replication_batch_009/memory_separation_claim_evaluation_batch009.json"], ["controllergate/core/memory_policy.py"], ["retrospective calibration is not labeled as prospective memory lift"], ["prospective_memory_lift_overclaimed"], "memory_experiment", "retrospective diagnostics cannot establish prospective memory lift", "future_fresh_candidate_lane", gate_name="Prospective Memory-Lift Requirement"),
         entry("active_failure_memory_routing", "Active Failure-Memory Routing", "implemented_partial", "Batch010 converts prior status-code evidence into deterministic weighting but blocks when strict routing delta is not established", ["outputs/clean_replication_batch_010/status_code_to_weight_map.json", "outputs/clean_replication_batch_010/routing_delta_audit.json"], ["controllergate/core/failure_memory.py", "controllergate/core/status_code_weighting.py", "controllergate/core/source_ranking.py"], ["routing delta must be true before memory-routing diagnostic"], ["active_memory_routing_delta_not_established"], "memory_experiment", "active routing requires source, context, or generation delta", "future_fresh_candidate_lane", "Batch010 blocks because no admissible routing delta is available without prior patch details", gate_name="Active Failure-Memory Routing"),
+        entry("status_code_feature_weighting", "Status-Code Feature Weighting", "implemented_active", "Batch010 and Batch011 preserve evidence-linked status-code weighting while forbidding patch-byte leakage", ["outputs/clean_replication_batch_010/status_code_to_weight_map.json", "outputs/clean_replication_batch_011/prospective_memory_eligibility_gate.json"], ["controllergate/core/status_code_weighting.py", "controllergate/core/prospective_memory_challenge.py"], ["status-code features must be decision-time safe and mapped before weighting"], ["prospective_memory_no_mappable_status_features"], "memory_experiment", "status-code weighting is routing evidence only", "continuous", gate_name="Status-Code Feature Weighting"),
+        entry("curvature_based_candidate_selection", "Curvature-Based Candidate Selection", "implemented_active", "Batch011 records curvature-based source-route selection policy for future eligible fresh candidates", ["outputs/clean_replication_batch_011/curvature_selection_policy.json", "outputs/clean_replication_batch_011/candidate_curvature_scores.json"], ["controllergate/core/curvature_selection.py"], ["curvature selection is policy/triage evidence and cannot substitute for replay"], ["curvature_selection_missing"], "memory_experiment", "curvature selection is not repair success", "future_fresh_candidate_lane", gate_name="Curvature-Based Candidate Selection"),
+        entry("two_winner_source_selection", "Two-Winner Source Selection", "implemented_active", "Batch011 records separate direct and curvature route winners and rejects arbitrary routing deltas", ["outputs/clean_replication_batch_011/two_winner_source_selection_policy.json", "outputs/clean_replication_batch_011/source_route_curvature_scores.json"], ["controllergate/core/curvature_selection.py"], ["winner changes must identify source, function, context, strategy, or fragment-plan deltas"], ["two_winner_policy_missing", "forced_routing_delta_without_evidence"], "memory_experiment", "two-winner routing is not patch authorization", "future_fresh_candidate_lane", gate_name="Two-Winner Source Selection"),
+        entry("prospective_memory_challenge", "Prospective Memory Challenge", "implemented_partial", "Batch011 starts the prospective eligibility gate and blocks because no fresh candidate verified a pre-repair failure", ["outputs/clean_replication_batch_011/prospective_memory_challenge_policy.json", "outputs/clean_replication_batch_011/prospective_memory_lift_evaluation.json"], ["controllergate/core/prospective_memory_challenge.py"], ["fresh candidate, route diversity, mapped status features, preregistration, and null policy must all pass before memory claims"], ["batch011_no_fresh_candidate_verified"], "memory_experiment", "prospective memory lift remains not demonstrated", "future_fresh_candidate_lane", "Batch011 did not verify a fresh candidate", gate_name="Prospective Memory Challenge"),
         entry("high_pass_source_ranking_filter", "High-Pass Source Ranking Filter", "implemented_active", "Batch010 applies a filter that cannot mask all legal patchable source files", ["outputs/clean_replication_batch_010/high_pass_filter_application.json", "outputs/clean_replication_batch_010/masked_or_downranked_context_paths.json"], ["controllergate/core/source_ranking.py"], ["at least one legal patchable source remains"], ["high_pass_filter_no_legal_source_remaining"], "memory_experiment", "filtering is routing evidence, not repair success", "continuous", gate_name="High-Pass Source Ranking Filter"),
         entry("two_candidate_selection_policy", "Two-Candidate Selection Policy", "implemented_active", "Batch010 records primary route and secondary route availability", ["outputs/clean_replication_batch_010/two_candidate_selection_policy.json", "outputs/clean_replication_batch_010/admitted_alternative_paths.json"], ["controllergate/core/source_ranking.py"], ["primary route exists and secondary is recorded if available"], ["two_candidate_selection_missing"], "memory_experiment", "route selection does not authorize patch generation by itself", "continuous", gate_name="Two-Candidate Selection Policy"),
         entry("strict_minimum_delta_routing", "Strict Minimum-Delta Routing", "implemented_active", "Batch010 rejects metadata-only or score-only changes as active routing", ["outputs/clean_replication_batch_010/strict_minimum_delta_policy.json", "outputs/clean_replication_batch_010/routing_delta_report.json"], ["controllergate/core/source_ranking.py"], ["routing delta reason codes are machine-checkable"], ["forced_routing_delta_without_evidence"], "memory_experiment", "no active memory claim without routing delta", "continuous", gate_name="Strict Minimum-Delta Routing"),
@@ -853,6 +871,62 @@ def write_notebooklm_traceability_outputs(batch005_state: dict[str, object]) -> 
                 "outputs/clean_replication_batch_010/routing_delta_audit.json",
             ],
             "next_required_implementation_step": "obtain a fresh candidate or additional decision-time-safe memory feature that changes route selection",
+        },
+        {
+            "neutral_gate_name": "Status-Code Feature Weighting",
+            "status": "implemented",
+            "audit_assertion": "status-code feature weights require decision-time-safe evidence and may not read successful patch bytes",
+            "blocker_names": ["prospective_memory_no_mappable_status_features"],
+            "claim_boundary": "status-code weighting is routing evidence only",
+            "current_module_or_script": "controllergate/core/status_code_weighting.py",
+            "evidence_class_affected": "memory_experiment_evidence",
+            "expected_output_files": [
+                "outputs/clean_replication_batch_010/status_code_to_weight_map.json",
+                "outputs/clean_replication_batch_011/prospective_memory_eligibility_gate.json",
+            ],
+            "next_required_implementation_step": "use only mapped decision-time-safe features on a fresh verified candidate",
+        },
+        {
+            "neutral_gate_name": "Curvature-Based Candidate Selection",
+            "status": "implemented",
+            "audit_assertion": "candidate/source-route scoring is triage evidence and cannot replace replay or validation",
+            "blocker_names": ["curvature_selection_missing", "curvature_selection_no_alternative_route"],
+            "claim_boundary": "candidate selection is not repair success",
+            "current_module_or_script": "controllergate/core/curvature_selection.py",
+            "evidence_class_affected": "memory_experiment_evidence",
+            "expected_output_files": [
+                "outputs/clean_replication_batch_011/curvature_selection_policy.json",
+                "outputs/clean_replication_batch_011/candidate_curvature_scores.json",
+            ],
+            "next_required_implementation_step": "run source-route scoring only after a fresh candidate verifies",
+        },
+        {
+            "neutral_gate_name": "Two-Winner Source Selection",
+            "status": "implemented",
+            "audit_assertion": "linear and curvature winners are separately recorded and arbitrary deltas are rejected",
+            "blocker_names": ["two_winner_policy_missing", "forced_routing_delta_without_evidence"],
+            "claim_boundary": "two-winner routing is not patch authorization",
+            "current_module_or_script": "controllergate/core/curvature_selection.py",
+            "evidence_class_affected": "memory_experiment_evidence",
+            "expected_output_files": [
+                "outputs/clean_replication_batch_011/two_winner_source_selection_policy.json",
+                "outputs/clean_replication_batch_011/source_route_curvature_scores.json",
+            ],
+            "next_required_implementation_step": "require route diversity before memory-enabled generation",
+        },
+        {
+            "neutral_gate_name": "Prospective Memory Challenge",
+            "status": "implemented_partial",
+            "audit_assertion": "fresh candidate verification, preregistration, route diversity, and mapped status features are required before matched-null memory claims",
+            "blocker_names": ["batch011_no_fresh_candidate_verified", "prospective_memory_eligibility_not_met"],
+            "claim_boundary": "prospective memory lift remains not demonstrated until all gates pass and matched-null evidence separates",
+            "current_module_or_script": "controllergate/core/prospective_memory_challenge.py",
+            "evidence_class_affected": "memory_experiment_evidence",
+            "expected_output_files": [
+                "outputs/clean_replication_batch_011/prospective_memory_challenge_policy.json",
+                "outputs/clean_replication_batch_011/prospective_memory_lift_evaluation.json",
+            ],
+            "next_required_implementation_step": "verify a fresh native candidate before patch generation",
         },
         {
             "neutral_gate_name": "High-Pass Source Ranking Filter",
@@ -4726,6 +4800,472 @@ def write_batch010_outputs(batch009_state: dict[str, object]) -> dict[str, objec
     return state
 
 
+def write_batch011_outputs(batch010_state: dict[str, object]) -> dict[str, object]:
+    BATCH011_DIR.mkdir(parents=True, exist_ok=True)
+    config = load_json("configs/clean_replication_batch_011.json")
+    lead_pool = load_json(config["lead_pool_path"])
+    leads = lead_pool.get("leads", []) if isinstance(lead_pool, dict) else []
+    prior_attempts = load_json(BATCH_DIR / "candidate_verification_attempts.json")
+    prior_attempt_by_id = {
+        str(item.get("lead_id")): item
+        for item in prior_attempts
+        if isinstance(item, dict) and item.get("lead_id")
+    }
+    repaired_ids = sorted(PROSPECTIVE_REPAIRED_CANDIDATE_IDS)
+    fresh_leads = [
+        lead
+        for lead in leads
+        if isinstance(lead, dict)
+        and str(lead.get("lead_id")) not in PROSPECTIVE_REPAIRED_CANDIDATE_IDS
+    ]
+    repaired_rejections = [
+        {
+            "candidate_id": candidate_id,
+            "fresh_candidate": False,
+            "eligible_for_prospective_memory_challenge": False,
+            "rejection_reason": "prospective_memory_candidate_not_fresh",
+            "repaired_candidate_registry": "controllergate.core.prospective_memory_challenge.REPAIRED_CANDIDATE_IDS",
+        }
+        for candidate_id in repaired_ids
+    ]
+    retired_candidates = [
+        {
+            "candidate_id": candidate_id,
+            "retired_from_new_memory_lift_attempts": True,
+            "allowed_future_use": [
+                "repair_episode_evidence",
+                "regression_replay",
+                "artifact_custody_testing",
+                "public_docs_as_confirmed_repair",
+            ],
+            "forbidden_future_use": [
+                "new_candidate",
+                "prospective_memory_lift_proof",
+                "repeated_retrospective_memory_routing_attempt",
+                "repair_episode_count_increment",
+            ],
+            "blocker_if_reused": "retired_memory_challenge_candidate_reused",
+        }
+        for candidate_id in repaired_ids
+    ]
+    fresh_attempts: list[dict[str, object]] = []
+    native_attempts: list[dict[str, object]] = []
+    admission_decisions: list[dict[str, object]] = repaired_rejections.copy()
+    for lead in fresh_leads:
+        lead_id = str(lead.get("lead_id"))
+        prior = prior_attempt_by_id.get(lead_id, {})
+        failure_status = prior.get("failure_replay_status", "UNKNOWN")
+        decision = prior.get("decision", "rejected_no_verified_native_candidate")
+        verified = decision == "verified_native_candidate_pending_repair"
+        blocker = None if verified else "batch011_no_fresh_candidate_verified"
+        attempt = {
+            "candidate_id": lead_id,
+            "lead_id": lead_id,
+            "repo_url": lead.get("repo_url"),
+            "commit_hint": lead.get("commit_hint"),
+            "test_path_hint": lead.get("test_path_hint"),
+            "candidate_class": lead.get("allowed_candidate_class", "native"),
+            "fresh_candidate": True,
+            "source_mode": "existing_clean_replication_lead_pool",
+            "verification_source": "outputs/clean_replication_batch_002/candidate_verification_attempts.json",
+            "verification_source_sha256": sha256_file(BATCH_DIR / "candidate_verification_attempts.json"),
+            "commit_resolved": prior.get("commit_resolved") is True,
+            "target_test_present": prior.get("target_test_present") is True,
+            "environment_file_present": prior.get("environment_file_present") is True,
+            "collection_status": prior.get("collection_status"),
+            "failure_replay_status": failure_status,
+            "pre_repair_failure_reproduced": failure_status not in {"PASSING_PRE_PATCH_NOT_A_FAILURE", "UNKNOWN"},
+            "fresh_candidate_verified": verified,
+            "decision": "admitted_fresh_candidate" if verified else "rejected_no_verified_native_candidate",
+            "blocker": blocker,
+            "reason": "prior decision-time-safe replay evidence did not reproduce a pre-repair failure",
+        }
+        fresh_attempts.append(attempt)
+        native_attempts.append(attempt)
+        admission_decisions.append(
+            {
+                "candidate_id": lead_id,
+                "fresh_candidate": True,
+                "candidate_class": lead.get("allowed_candidate_class", "native"),
+                "admission_decision": "admitted_native_candidate" if verified else "rejected_other",
+                "blocker": blocker,
+                "failure_replay_status": failure_status,
+                "decision_time_safe_evidence_path": "outputs/clean_replication_batch_002/candidate_verification_attempts.json",
+            }
+        )
+
+    fresh_candidate_verified = any(item.get("fresh_candidate_verified") is True for item in fresh_attempts)
+    blocker = None if fresh_candidate_verified else "batch011_no_fresh_candidate_verified"
+    eligibility = {
+        "status": "PASS" if fresh_candidate_verified else "BLOCK",
+        "eligible": fresh_candidate_verified,
+        "blocker": blocker,
+        "fresh_candidate_required": True,
+        "prior_repaired_candidates_forbidden": repaired_ids,
+        "candidate_attempts_reviewed": len(fresh_attempts),
+        "candidate_verification_source": "outputs/clean_replication_batch_002/candidate_verification_attempts.json",
+        "candidate_verification_source_sha256": sha256_file(BATCH_DIR / "candidate_verification_attempts.json"),
+        "candidate_evaluations": [
+            evaluate_prospective_memory_eligibility(
+                {
+                    "candidate_id": str(item.get("lead_id")),
+                    "native_candidate": True,
+                    "pre_repair_failure_reproduced": item.get("fresh_candidate_verified") is True,
+                    "source_file_count": 0,
+                    "function_or_class_count": 0,
+                    "status_features": [],
+                }
+            )
+            for item in fresh_attempts
+        ],
+        "repaired_candidate_evaluations": [
+            evaluate_prospective_memory_eligibility(
+                {
+                    "candidate_id": candidate_id,
+                    "native_candidate": True,
+                    "pre_repair_failure_reproduced": True,
+                    "source_file_count": 2,
+                    "function_or_class_count": 2,
+                    "status_features": [
+                        {
+                            "decision_time_safe": True,
+                            "source_path": "not_used_for_repaired_candidate",
+                            "uses_patch_bytes_or_rationale": False,
+                        }
+                    ],
+                }
+            )
+            for candidate_id in repaired_ids
+        ],
+    }
+    route_diversity = {
+        "status": "NOT_RUN" if not fresh_candidate_verified else "BLOCK",
+        "blocker": blocker,
+        "reason": "route diversity is evaluated only after a fresh candidate verifies",
+        "requires_two_legal_source_or_function_routes": True,
+    }
+    mappable_status_features = {
+        "status": "NOT_RUN" if not fresh_candidate_verified else "BLOCK",
+        "blocker": blocker,
+        "reason": "status-code feature mapping is evaluated only after a fresh candidate verifies",
+        "patch_bytes_or_success_rationale_forbidden": True,
+    }
+    curvature_policy = {
+        "status": "PASS",
+        "heuristic_only": True,
+        "feature_fields": [
+            "failure_proximity_score",
+            "traceback_centrality",
+            "import_graph_centrality",
+            "ast_closure_centrality",
+            "dependency_spread_penalty",
+            "environment_precondition_friction_penalty",
+            "prior_status_code_weight_if_legally_mapped",
+            "alternative_route_availability",
+            "target_intent_reachability_status",
+        ],
+        "not_success_evidence": True,
+    }
+    two_winner_policy = {
+        "status": "PASS",
+        "winner_linear_required": True,
+        "winner_curvature_required": True,
+        "routing_diversity_low_when_winners_match": True,
+        "blocker_if_missing": "two_winner_policy_missing",
+    }
+    strict_delta_policy = {
+        "status": "PASS",
+        "active_delta_requires_change_in": [
+            "winner_linear",
+            "winner_curvature",
+            "selected_source_file",
+            "selected_function_or_class",
+            "context_capsule_contents",
+            "generation_strategy",
+            "fragment_plan",
+        ],
+        "arbitrary_score_or_metadata_shuffle_rejected": True,
+        "blocker_if_forced": "forced_routing_delta_without_evidence",
+    }
+    curvature_scores = [
+        {
+            "candidate_id": item["candidate_id"],
+            "status": "NOT_RUN",
+            "blocker": item["blocker"],
+            "reason": "source-route scoring requires verified pre-repair failure",
+            "commit_resolved": item["commit_resolved"],
+            "target_test_present": item["target_test_present"],
+            "environment_file_present": item["environment_file_present"],
+            "failure_replay_status": item["failure_replay_status"],
+        }
+        for item in fresh_attempts
+    ]
+    route_scores = {
+        "status": "NOT_RUN",
+        "blocker": blocker,
+        "source_routes": [],
+        "two_winner_selection": select_two_winners([]),
+        "memory_weighted_two_winner_selection": select_two_winners([]),
+        "two_winner_delta": two_winner_delta(select_two_winners([]), select_two_winners([])),
+    }
+    preregistration_order = preregistration_order_status(
+        ["batch011_started", "fresh_candidate_attempts_reviewed", "no_fresh_candidate_verified"]
+    )
+    repair_only = repair_only_fallback_evaluation(attempted=False, repair_succeeded=False)
+    common_not_run = {
+        "status": "NOT_RUN",
+        "blocker": blocker,
+        "reason": "fresh prospective candidate did not verify",
+    }
+    write_json_deterministic(
+        BATCH011_DIR / "prospective_memory_challenge_policy.json",
+        {
+            "status": "PASS",
+            "requires_fresh_candidate": True,
+            "requires_native_candidate_for_memory_lift": True,
+            "requires_pre_repair_failure_reproduction": True,
+            "requires_patchable_alternative_routes": True,
+            "requires_mappable_status_features": True,
+            "requires_preregistration_before_patch": True,
+            "forbids_repaired_candidate_reuse": True,
+            "forbids_fixed_later_gold_pr_patch_content": True,
+            "full_scoring": "NOT_RUN/disallowed",
+        },
+    )
+    write_json_deterministic(BATCH011_DIR / "prospective_memory_eligibility_gate.json", eligibility)
+    write_json_deterministic(
+        BATCH011_DIR / "candidate_difficulty_band_policy.json",
+        {
+            "status": "PASS",
+            "preferred_target_command_width": ["single_node", "single_file"],
+            "preferred_source_context_file_count": [2, 4],
+            "reject_external_network_required": True,
+            "reject_broad_suite_only_failure": True,
+            "reject_missing_environment_file": True,
+            "reject_trivial_single_path_candidates_for_memory_lift": True,
+        },
+    )
+    write_json_deterministic(
+        BATCH011_DIR / "fresh_candidate_lead_pool.json",
+        {
+            "status": "PASS",
+            "source_lead_pool": config["lead_pool_path"],
+            "source_lead_pool_sha256": sha256_file(config["lead_pool_path"]),
+            "fresh_candidate_count": len(fresh_leads),
+            "fresh_leads": fresh_leads,
+            "repaired_candidates_excluded": repaired_ids,
+        },
+    )
+    write_json_deterministic(BATCH011_DIR / "fresh_candidate_attempts.json", fresh_attempts)
+    write_json_deterministic(
+        BATCH011_DIR / "fresh_candidate_rejection_ledger.json",
+        repaired_rejections
+        + [
+            {
+                "candidate_id": item["candidate_id"],
+                "fresh_candidate": True,
+                "rejection_reason": item["blocker"],
+                "decision": item["decision"],
+                "failure_replay_status": item["failure_replay_status"],
+            }
+            for item in fresh_attempts
+            if item.get("fresh_candidate_verified") is not True
+        ],
+    )
+    write_json_deterministic(BATCH011_DIR / "retired_memory_challenge_candidates.json", {"status": "PASS", "retired_candidates": retired_candidates})
+    write_json_deterministic(
+        BATCH011_DIR / "darker_skip_glob_memory_challenge_retirement.json",
+        {
+            "status": "PASS",
+            "candidate_id": "darker_skip_glob_failing_test",
+            "retired_from_new_memory_lift_attempts": True,
+            "retirement_reasons": [
+                "already repaired in Batch008",
+                "patch artifacts remain quarantined",
+                "Batch009 retrospective calibration found no active memory route",
+                "Batch010 status-code weighting found no legal routing delta",
+                "only one legal patchable source path remained available",
+            ],
+            "blocker_if_reused": "retired_memory_challenge_candidate_reused",
+        },
+    )
+    write_json_deterministic(
+        BATCH011_DIR / "fresh_candidate_source_mode_trace.json",
+        [
+            {
+                "mode": "existing_clean_replication_lead_pool_native",
+                "attempted": True,
+                "fresh_candidate_count": len(fresh_attempts),
+                "verified_count": len([item for item in fresh_attempts if item.get("fresh_candidate_verified") is True]),
+            },
+            {
+                "mode": "issue_derived_candidate",
+                "attempted": False,
+                "reason": "native bounded leads were reviewed first and no safe issue-derived seed was provided",
+            },
+        ],
+    )
+    write_json_deterministic(BATCH011_DIR / "native_candidate_attempts.json", native_attempts)
+    write_json_deterministic(BATCH011_DIR / "issue_derived_candidate_attempts.json", [])
+    write_json_deterministic(BATCH011_DIR / "candidate_verification_attempts.json", fresh_attempts)
+    write_json_deterministic(BATCH011_DIR / "candidate_admission_decisions.json", admission_decisions)
+    write_json_deterministic(BATCH011_DIR / "curvature_selection_policy.json", curvature_policy)
+    write_json_deterministic(BATCH011_DIR / "two_winner_source_selection_policy.json", two_winner_policy)
+    write_json_deterministic(BATCH011_DIR / "strict_minimum_delta_policy_batch011.json", strict_delta_policy)
+    write_json_deterministic(BATCH011_DIR / "candidate_curvature_scores.json", {"status": "NOT_RUN", "blocker": blocker, "candidate_scores": curvature_scores})
+    write_json_deterministic(BATCH011_DIR / "source_route_curvature_scores.json", route_scores)
+    write_json_deterministic(
+        BATCH011_DIR / "prospective_experiment_preregistration.json",
+        {
+            "status": "NOT_RUN",
+            "blocker": blocker,
+            "pre_registration_required_before_patch": True,
+            "patch_generated_before_preregistration": False,
+            "order_check": preregistration_order,
+        },
+    )
+    write_json_deterministic(
+        BATCH011_DIR / "memory_enabled_policy_batch011.json",
+        {
+            "status": "NOT_RUN",
+            "blocker": blocker,
+            "policy_prepared": True,
+            "allowed_memory": "decision-time-safe status-code weighting only",
+            "successful_patch_bytes_forbidden": True,
+        },
+    )
+    write_json_deterministic(
+        BATCH011_DIR / "memory_disabled_null_ensemble_policy_batch011.json",
+        {
+            "status": "NOT_RUN",
+            "blocker": blocker,
+            "policy_prepared": True,
+            "null_ensemble_size": int(config["null_ensemble_size"]),
+            "may_read_failure_memory": False,
+            "successful_patch_bytes_forbidden": True,
+        },
+    )
+    write_json_deterministic(
+        BATCH011_DIR / "prospective_patch_artifact_quarantine_policy.json",
+        {
+            "status": "PASS",
+            "successful_patch_bytes_forbidden_before_experiment": True,
+            "patch_artifacts_not_created": True,
+            "blocker_if_violated": "prospective_preregistration_violation",
+        },
+    )
+    write_json_deterministic(BATCH011_DIR / "memory_enabled_run_results.json", common_not_run)
+    write_json_deterministic(BATCH011_DIR / "null_ensemble_run_results.json", {"status": "NOT_RUN", "run_results": [], "blocker": blocker})
+    write_json_deterministic(BATCH011_DIR / "null_ensemble_summary.json", {"status": "NOT_RUN", "null_ensemble_run_count": 0, "null_success_rate": None, "blocker": blocker})
+    write_json_deterministic(
+        BATCH011_DIR / "matched_null_ensemble_separation_score.json",
+        {
+            "status": "NOT_RUN",
+            "score_computed": False,
+            "matched_null_ensemble_separation_score": None,
+            "blocker": blocker,
+        },
+    )
+    write_json_deterministic(
+        BATCH011_DIR / "prospective_memory_lift_evaluation.json",
+        {
+            "status": "BLOCK",
+            "prospective_memory_lift_status": "not_demonstrated",
+            "preliminary_prospective_single_candidate_memory_separation_evidence": False,
+            "fresh_candidate_verified": fresh_candidate_verified,
+            "routing_delta_detected": False,
+            "matched_null_ensemble_separation_score": None,
+            "blocker": blocker,
+        },
+    )
+    write_json_deterministic(BATCH011_DIR / "repair_successes.json", [])
+    write_json_deterministic(
+        BATCH011_DIR / "claim_boundary.json",
+        {
+            "status": "PASS",
+            "current_protocol_version": "v2.13",
+            "full_scoring": "NOT_RUN/disallowed",
+            "full_memory_lift_claimed": False,
+            "prospective_memory_lift": "not_demonstrated",
+            "self_maintaining_software": "false/not_demonstrated",
+            "technical_validation_release_readiness": "not_ready",
+            "confirmed_native_repair_episode_count": batch010_state.get("confirmed_native_repair_episode_count", 4),
+        },
+    )
+    write_json_deterministic(
+        BATCH011_DIR / "notebooklm_advice_traceability_status.json",
+        {
+            "status": "PASS",
+            "active_failure_memory_routing": "implemented_partial",
+            "active_failure_memory_routing_blocker": blocker,
+            "status_code_feature_weighting": "implemented_active",
+            "high_pass_source_ranking_filter": "implemented_active",
+            "curvature_based_candidate_selection": "implemented_active",
+            "two_winner_source_selection": "implemented_active",
+            "strict_minimum_delta_routing": "implemented_active",
+            "prospective_memory_lift_requirement": "implemented_active",
+            "matched_null_ensemble": "not_run_without_fresh_verified_candidate",
+            "issue_derived_harness": "unchanged_partial_not_exercised",
+            "silent_completion": False,
+        },
+    )
+    write_json_deterministic(
+        BATCH011_DIR / "carry_forward_blocker_register.json",
+        {
+            "status": "PASS",
+            "blockers": [
+                {
+                    "blocker": blocker,
+                    "safe_next_step": "provide or acquire a fresh decision-time-safe native candidate that reproduces a pre-repair failure and has at least two legal source or function routes",
+                }
+            ],
+        },
+    )
+    state = {
+        "lane_id": BATCH011_ID,
+        "status": "BLOCK",
+        "exact_blocker": blocker,
+        "retrospective_candidate_retirement_status": "PASS",
+        "fresh_candidates_attempted_count": len(fresh_attempts),
+        "fresh_candidate_verified": fresh_candidate_verified,
+        "prospective_memory_eligibility_status": eligibility["status"],
+        "route_diversity_status": route_diversity["status"],
+        "mappable_status_feature_status": mappable_status_features["status"],
+        "two_winner_policy_status": two_winner_policy["status"],
+        "routing_delta_detected": False,
+        "memory_enabled_run_status": "NOT_RUN",
+        "null_ensemble_run_count": 0,
+        "null_ensemble_success_rate": None,
+        "matched_null_score": None,
+        "preliminary_prospective_single_candidate_memory_separation_evidence": False,
+        "repair_only_fallback_attempted": repair_only["repair_only_fallback_attempted"],
+        "additional_external_repair_acquired": repair_only["additional_external_repair_acquired"],
+        "confirmed_native_repair_episode_count": batch010_state.get("confirmed_native_repair_episode_count", 4),
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "not_demonstrated",
+        "self_maintaining_software": "false/not_demonstrated",
+    }
+    write_json_deterministic(BATCH011_DIR / "consolidated_state_clean_replication_batch_011.json", state)
+    write_text_lf(
+        BATCH011_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication batch 011",
+                "",
+                "Status: BLOCK.",
+                "",
+                "Batch011 records the prospective memory challenge eligibility gate, retires the already repaired retrospective candidate from further memory-lift attempts, and reviews bounded fresh leads from the existing clean replication lead pool.",
+                "",
+                "No fresh candidate verified a pre-repair failure under the ingested decision-time-safe evidence, so no memory-enabled arm, null ensemble, patch generation, or repair-only fallback was authorized.",
+                "",
+                f"Exact blocker: `{blocker}`.",
+            ]
+        ),
+    )
+    write_sha256sums(BATCH011_DIR)
+    return state
+
+
 def main() -> int:
     POST_DIR.mkdir(parents=True, exist_ok=True)
     BATCH_DIR.mkdir(parents=True, exist_ok=True)
@@ -4737,6 +5277,7 @@ def main() -> int:
     BATCH008_DIR.mkdir(parents=True, exist_ok=True)
     BATCH009_DIR.mkdir(parents=True, exist_ok=True)
     BATCH010_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH011_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
@@ -4748,6 +5289,7 @@ def main() -> int:
     batch008_state = load_official_batch008_state()
     batch009_state = load_official_batch009_state(batch008_state)
     batch010_state = write_batch010_outputs(batch009_state)
+    batch011_state = write_batch011_outputs(batch010_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -4760,6 +5302,7 @@ def main() -> int:
         "configs/clean_replication_batch_008.json",
         "configs/clean_replication_batch_009.json",
         "configs/clean_replication_batch_010.json",
+        "configs/clean_replication_batch_011.json",
         "configs/notebooklm_advice_traceability_matrix.json",
         "configs/operational_gate_matrix.json",
         "inputs/clean_replication_batch_002_lead_pool.json",
@@ -4880,6 +5423,7 @@ def main() -> int:
             "batch008_artifact_name": "post_v2_37_hardening_batch008_declared_precondition_artifacts",
             "batch009_artifact_name": "post_v2_37_hardening_batch009_patch_quarantined_matched_null_artifacts",
             "batch010_artifact_name": "post_v2_37_hardening_batch010_active_memory_routing_artifacts",
+            "batch011_artifact_name": "post_v2_37_hardening_batch011_prospective_memory_challenge_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
@@ -4912,6 +5456,10 @@ def main() -> int:
                 "Formatter/Dependency Precondition Resolution",
                 "Trace-Feedback Alignment Gate",
                 "Dual Projection Recheck",
+                "Status-Code Feature Weighting",
+                "Curvature-Based Candidate Selection",
+                "Two-Winner Source Selection",
+                "Prospective Memory Challenge",
             ],
             "partial_gates": ["Issue-Derived Ephemeral Reproduction Harness", "Failure Memory Weighting", "Cryptographic Evidence Ledger Sealing", "Post-Patch Constraint Revalidation"],
             "planned_gates": ["Bounded Micro-Reversal", "Multi-File Patch Fragment Proposer"],
@@ -4930,7 +5478,12 @@ def main() -> int:
         },
     )
 
-    final_status = "PASS_WITH_BATCH010_BLOCKED" if batch010_state.get("status") == "BLOCK" else "PASS_WITH_BATCH010_RETROSPECTIVE_DIAGNOSTIC"
+    if batch011_state.get("status") == "BLOCK":
+        final_status = "PASS_WITH_BATCH011_BLOCKED"
+    elif batch010_state.get("status") == "BLOCK":
+        final_status = "PASS_WITH_BATCH010_BLOCKED"
+    else:
+        final_status = "PASS_WITH_BATCH010_RETROSPECTIVE_DIAGNOSTIC"
     arm_a_result = load_json(BATCH_DIR / "matched_null_arm_a_results.json") if (BATCH_DIR / "matched_null_arm_a_results.json").is_file() else {}
     arm_b_result = load_json(BATCH_DIR / "matched_null_arm_b_results.json") if (BATCH_DIR / "matched_null_arm_b_results.json").is_file() else {}
     matched_arm_results = [item for item in [arm_a_result, arm_b_result] if item]
@@ -4940,7 +5493,7 @@ def main() -> int:
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     final_report = {
         "status": final_status,
-        "exact_blocker": batch010_state.get("exact_blocker"),
+        "exact_blocker": batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
         "batch002_exact_blocker": batch_state["exact_blocker"],
         "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
@@ -5117,6 +5670,24 @@ def main() -> int:
         "batch010_retrospective_single_candidate_memory_routing_diagnostic": batch010_state["retrospective_single_candidate_memory_routing_diagnostic"],
         "batch010_prospective_memory_lift_status": batch010_state["prospective_memory_lift_status"],
         "batch010_confirmed_native_repair_episode_count": batch010_state["confirmed_native_repair_episode_count"],
+        "clean_replication_batch_011_status": batch011_state["status"],
+        "clean_replication_batch_011_exact_blocker": batch011_state.get("exact_blocker"),
+        "batch011_retrospective_candidate_retirement_status": batch011_state["retrospective_candidate_retirement_status"],
+        "batch011_fresh_candidates_attempted_count": batch011_state["fresh_candidates_attempted_count"],
+        "batch011_fresh_candidate_verified": batch011_state["fresh_candidate_verified"],
+        "batch011_prospective_memory_eligibility_status": batch011_state["prospective_memory_eligibility_status"],
+        "batch011_route_diversity_status": batch011_state["route_diversity_status"],
+        "batch011_mappable_status_feature_status": batch011_state["mappable_status_feature_status"],
+        "batch011_two_winner_policy_status": batch011_state["two_winner_policy_status"],
+        "batch011_routing_delta_detected": batch011_state["routing_delta_detected"],
+        "batch011_memory_enabled_run_status": batch011_state["memory_enabled_run_status"],
+        "batch011_null_ensemble_run_count": batch011_state["null_ensemble_run_count"],
+        "batch011_null_ensemble_success_rate": batch011_state["null_ensemble_success_rate"],
+        "batch011_matched_null_score": batch011_state["matched_null_score"],
+        "batch011_preliminary_prospective_single_candidate_memory_separation_evidence": batch011_state["preliminary_prospective_single_candidate_memory_separation_evidence"],
+        "batch011_repair_only_fallback_attempted": batch011_state["repair_only_fallback_attempted"],
+        "batch011_additional_external_repair_acquired": batch011_state["additional_external_repair_acquired"],
+        "batch011_confirmed_native_repair_episode_count": batch011_state["confirmed_native_repair_episode_count"],
         "active_failure_memory_weighting_status": load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("status") if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() else "NOT_RUN",
         "arm_a_memory_routing_delta_status": "PASS" if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() and load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("failure_memory_markers_passive") is False else "PASSIVE_OR_NOT_RUN",
         "arm_b_memory_exclusion_status": load_json(BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").get("status") if (BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").is_file() else "NOT_RUN",
@@ -5150,7 +5721,7 @@ def main() -> int:
         "operational_gate_matrix_status": "PASS",
         "public_language_audit_status": "PASS",
         "full_scoring": "NOT_RUN/disallowed",
-        "memory_lift": "undemonstrated_equal_performance",
+        "memory_lift": "not_demonstrated",
         "self_maintaining_software": "false/not_demonstrated",
         "current_protocol_version": "v2.13",
     }
@@ -5167,7 +5738,7 @@ def main() -> int:
             "v2_37_official_artifact_verification": v2_37_record,
             "claim_boundary": {
                 "full_scoring": "NOT_RUN/disallowed",
-                "memory_lift": batch008_state.get("memory_lift", "undemonstrated_equal_performance"),
+                "memory_lift": batch011_state.get("memory_lift", "not_demonstrated"),
                 "self_maintaining_software": "false/not_demonstrated",
             },
         },
@@ -5206,13 +5777,17 @@ def main() -> int:
                 "",
                 f"Batch010 status: `{batch010_state['status']}`; exact blocker: `{batch010_state['exact_blocker']}`.",
                 "",
+                "Batch011 records prospective memory challenge eligibility, retires the already repaired retrospective candidate from additional memory-lift attempts, and reviews bounded fresh leads from the existing clean replication lead pool. No fresh candidate verified a pre-repair failure, so the memory-enabled arm and null ensemble remain not run.",
+                "",
+                f"Batch011 status: `{batch011_state['status']}`; exact blocker: `{batch011_state['exact_blocker']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
     )
     write_public_docs_reports()
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     write_json_deterministic(
@@ -5228,7 +5803,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

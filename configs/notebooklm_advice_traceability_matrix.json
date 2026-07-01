@@ -705,6 +705,128 @@
       "status": "implemented_partial"
     },
     {
+      "advice_id": "status_code_feature_weighting",
+      "blocker_if_missing": "prospective_memory_no_mappable_status_features",
+      "blockers": [
+        "prospective_memory_no_mappable_status_features"
+      ],
+      "claim_boundary": "status-code weighting is routing evidence only",
+      "current_repo_mechanism": "Batch010 and Batch011 preserve evidence-linked status-code weighting while forbidding patch-byte leakage",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_010/status_code_to_weight_map.json",
+        "outputs/clean_replication_batch_011/prospective_memory_eligibility_gate.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Status-Code Feature Weighting",
+      "public_engineering_name": "Status-Code Feature Weighting",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "status-code features must be decision-time safe and mapped before weighting"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/status_code_weighting.py",
+        "controllergate/core/prospective_memory_challenge.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_010/status_code_to_weight_map.json",
+        "outputs/clean_replication_batch_011/prospective_memory_eligibility_gate.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "curvature_based_candidate_selection",
+      "blocker_if_missing": "curvature_selection_missing",
+      "blockers": [
+        "curvature_selection_missing"
+      ],
+      "claim_boundary": "curvature selection is not repair success",
+      "current_repo_mechanism": "Batch011 records curvature-based source-route selection policy for future eligible fresh candidates",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_011/curvature_selection_policy.json",
+        "outputs/clean_replication_batch_011/candidate_curvature_scores.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_fresh_candidate_lane",
+      "operational_gate_name": "Curvature-Based Candidate Selection",
+      "public_engineering_name": "Curvature-Based Candidate Selection",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "curvature selection is policy/triage evidence and cannot substitute for replay"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_011/curvature_selection_policy.json",
+        "outputs/clean_replication_batch_011/candidate_curvature_scores.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "two_winner_source_selection",
+      "blocker_if_missing": "two_winner_policy_missing",
+      "blockers": [
+        "two_winner_policy_missing",
+        "forced_routing_delta_without_evidence"
+      ],
+      "claim_boundary": "two-winner routing is not patch authorization",
+      "current_repo_mechanism": "Batch011 records separate direct and curvature route winners and rejects arbitrary routing deltas",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_011/two_winner_source_selection_policy.json",
+        "outputs/clean_replication_batch_011/source_route_curvature_scores.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_fresh_candidate_lane",
+      "operational_gate_name": "Two-Winner Source Selection",
+      "public_engineering_name": "Two-Winner Source Selection",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "winner changes must identify source, function, context, strategy, or fragment-plan deltas"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_011/two_winner_source_selection_policy.json",
+        "outputs/clean_replication_batch_011/source_route_curvature_scores.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "prospective_memory_challenge",
+      "blocker_if_missing": "batch011_no_fresh_candidate_verified",
+      "blockers": [
+        "batch011_no_fresh_candidate_verified"
+      ],
+      "claim_boundary": "prospective memory lift remains not demonstrated",
+      "current_repo_mechanism": "Batch011 starts the prospective eligibility gate and blocks because no fresh candidate verified a pre-repair failure",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_011/prospective_memory_challenge_policy.json",
+        "outputs/clean_replication_batch_011/prospective_memory_lift_evaluation.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "future_fresh_candidate_lane",
+      "operational_gate_name": "Prospective Memory Challenge",
+      "public_engineering_name": "Prospective Memory Challenge",
+      "reason_if_deferred_or_rejected": "Batch011 did not verify a fresh candidate",
+      "required_audit_assertions": [
+        "fresh candidate, route diversity, mapped status features, preregistration, and null policy must all pass before memory claims"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/prospective_memory_challenge.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_011/prospective_memory_challenge_policy.json",
+        "outputs/clean_replication_batch_011/prospective_memory_lift_evaluation.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
       "advice_id": "high_pass_source_ranking_filter",
       "blocker_if_missing": "high_pass_filter_no_legal_source_remaining",
       "blockers": [
@@ -1164,7 +1286,7 @@
       "status": "deferred_with_blocker"
     }
   ],
-  "entry_count": 38,
+  "entry_count": 42,
   "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch007",
   "status": "PASS",
   "terminology_policy": "neutral_engineering_terms_only"
