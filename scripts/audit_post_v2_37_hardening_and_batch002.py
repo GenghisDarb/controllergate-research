@@ -86,6 +86,9 @@ POST_REQUIRED = [
     "batch010_active_memory_routing_artifact_verification.json",
     "batch010_no_routing_delta_diagnosis.json",
     "batch011_prospective_memory_challenge_recommendation.json",
+    "batch011_prospective_memory_challenge_artifact_verification.json",
+    "batch011_no_fresh_candidate_diagnosis.json",
+    "batch012_targeted_seed_recommendation.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
     "campaign_summary.md",
@@ -1081,6 +1084,9 @@ def audit_phase_a_ingest_records() -> list[str]:
     batch010_verification = read_json(POST_DIR / "batch010_active_memory_routing_artifact_verification.json")
     no_delta = read_json(POST_DIR / "batch010_no_routing_delta_diagnosis.json")
     batch011_recommendation = read_json(POST_DIR / "batch011_prospective_memory_challenge_recommendation.json")
+    batch011_verification = read_json(POST_DIR / "batch011_prospective_memory_challenge_artifact_verification.json")
+    no_fresh = read_json(POST_DIR / "batch011_no_fresh_candidate_diagnosis.json")
+    batch012_recommendation = read_json(POST_DIR / "batch012_targeted_seed_recommendation.json")
     if batch010_verification.get("status") != "PASS":
         errors.append("batch010 artifact verification not PASS")
     if batch010_verification.get("actual_sha256") != "7737e503d9325bb42fa8db84a650e9ee72d23bcf0d3201482f80f6976ebf005d":
@@ -1105,6 +1111,49 @@ def audit_phase_a_ingest_records() -> list[str]:
     batch011_boundary = batch011_recommendation.get("claim_boundary", {})
     if not isinstance(batch011_boundary, dict) or batch011_boundary.get("full_scoring") != "NOT_RUN/disallowed" or batch011_boundary.get("self_maintaining_software") != "false/not_demonstrated":
         errors.append("batch011 recommendation claim boundary invalid")
+    if batch011_verification.get("status") != "PASS":
+        errors.append("batch011 artifact verification not PASS")
+    if batch011_verification.get("artifact_sha256") != "65303892666866b083df8a3e11675e6b14f79a3a257d61620ab4b62d4ce58617":
+        errors.append("batch011 artifact SHA mismatch")
+    if batch011_verification.get("artifact_size_bytes") != 367179 or batch011_verification.get("zip_entry_count") != 488:
+        errors.append("batch011 artifact size or entry count mismatch")
+    if batch011_verification.get("unsafe_path_count") != 0 or batch011_verification.get("duplicate_path_count") != 0 or batch011_verification.get("pycache_pyc_payload_count") != 0:
+        errors.append("batch011 artifact path/cache safety failed")
+    if batch011_verification.get("artifact_level_manifest_checked") != 487 or batch011_verification.get("artifact_level_manifest_failures") != 0:
+        errors.append("batch011 artifact manifest verification mismatch")
+    output_checks = batch011_verification.get("output_manifest_checks", {})
+    if not isinstance(output_checks, dict):
+        errors.append("batch011 output manifest checks missing")
+    else:
+        expected_counts = {
+            "post_v2_37_hardening_001": 74,
+            "clean_replication_batch_002": 88,
+            "clean_replication_batch_003": 28,
+            "clean_replication_batch_004": 30,
+            "clean_replication_batch_005": 71,
+            "clean_replication_batch_006": 19,
+            "clean_replication_batch_007": 44,
+            "clean_replication_batch_008": 31,
+            "clean_replication_batch_009": 29,
+            "clean_replication_batch_010": 29,
+            "clean_replication_batch_011": 33,
+        }
+        for root, expected_count in expected_counts.items():
+            check = output_checks.get(root, {})
+            if not isinstance(check, dict) or check.get("checked") != expected_count or check.get("failures") != 0:
+                errors.append(f"batch011 output manifest check invalid for {root}")
+    if no_fresh.get("status") != "PASS" or no_fresh.get("batch011_exact_blocker") != "batch011_no_fresh_candidate_verified":
+        errors.append("batch011 no-fresh-candidate diagnosis invalid")
+    if no_fresh.get("retrospective_candidate_retirement_passed") is not True or no_fresh.get("automated_fresh_candidate_attempts_verified") is not False:
+        errors.append("batch011 no-fresh diagnosis status mismatch")
+    if no_fresh.get("fresh_candidates_attempted") != 2 or no_fresh.get("prospective_memory_eligibility") != "BLOCK":
+        errors.append("batch011 no-fresh diagnosis count/eligibility mismatch")
+    if no_fresh.get("targeted_prospective_seed_required") is not True or no_fresh.get("existing_candidate_pool_exhausted_for_prospective_memory_challenge") is not True:
+        errors.append("batch011 no-fresh diagnosis missing targeted-seed requirement")
+    if batch012_recommendation.get("status") != "READY_FOR_BATCH012_TARGETED_PROSPECTIVE_SEED_INTAKE":
+        errors.append("batch012 targeted seed recommendation missing")
+    if batch012_recommendation.get("required_seed_path") != "external_seeds_pending/targeted_prospective_seed_batch012.json":
+        errors.append("batch012 targeted seed path mismatch")
     return errors
 
 
