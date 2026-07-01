@@ -1,0 +1,22 @@
+{
+  "acceptable_lock_anchors": [
+    "pyproject.toml",
+    "setup.py",
+    "setup.cfg",
+    "requirements.txt",
+    "requirements-dev.txt",
+    "tox.ini",
+    "noxfile.py",
+    "Pipfile.lock",
+    "poetry.lock",
+    "Dockerfile"
+  ],
+  "blockers": [
+    "source_commit_environment_lock_missing",
+    "source_commit_environment_lock_mismatch",
+    "undeclared_dependency_install_requested"
+  ],
+  "lock_required_before_replay": true,
+  "status": "PASS",
+  "undeclared_dependency_install_allowed": false
+}

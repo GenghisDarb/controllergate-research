@@ -1,0 +1,23 @@
+{
+  "blockers": [
+    "rollback_block_missing",
+    "rollback_block_hash_chain_broken",
+    "proof_ledger_ghost_state_detected"
+  ],
+  "entry_type": "ROLLBACK_BLOCK",
+  "required_fields": [
+    "entry_index",
+    "action",
+    "result",
+    "blocker",
+    "next_allowed_action",
+    "rollback_target_entry_index",
+    "previous_state_hash",
+    "pre_action_hash",
+    "attempted_action_hash",
+    "rollback_hash",
+    "chain_status"
+  ],
+  "rollback_block_entries_required_for_blocked_branches": true,
+  "status": "PASS"
+}

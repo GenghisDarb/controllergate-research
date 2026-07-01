@@ -108,13 +108,30 @@ Batch012 continues the same post-v2.37 clean replication workflow without creati
 
 Batch012 outcome with no seed: the lane blocks with `targeted_prospective_seed_missing_or_invalid`. No automated fresh-candidate search is repeated, no native or issue-derived candidate is admitted, and native and issue-derived counts remain separate.
 
+## Batch013 acquisition locks and tracked seed enforcement
+
+Batch013 continues the same post-v2.37 clean replication workflow without creating a new versioned lane. It adds acquisition/materialization locks before seed-driven candidate work:
+
+1. baseline registry drift precheck,
+2. source-commit environment lock,
+3. target command manifest,
+4. fresh workspace purity,
+5. tracked seed and workflow visibility enforcement,
+6. gate-chain binding,
+7. rollback block ledger,
+8. active context filtering records,
+9. frozen routing-score policy,
+10. issue-derived temporal and classification separation.
+
+Batch013 outcome with no tracked seed: the lane blocks with `targeted_prospective_seed_missing_or_invalid_after_locks_ready`. No source checkout, native replay, issue-derived fallback, repair-only fallback, matched-null comparison, or repair generation is authorized.
+
 ## Current official repair episodes
 
-As of the Batch012 targeted seed boundary, the confirmed external non-Ansible native repair endpoints remain `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `not_demonstrated`, and self-maintaining software remains `false/not_demonstrated`.
+As of the Batch013 acquisition-lock boundary, the confirmed external non-Ansible native repair endpoints remain `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `not_demonstrated`, and self-maintaining software remains `false/not_demonstrated`.
 
 ## Current operational gate status
 
-- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, status-code weighting policy, High-Pass Source Ranking Filter, Curvature-Based Candidate Selection, Two-Winner Source Selection, and Strict Minimum-Delta Routing.
-- Partial gates: structural navigation, active probe routing, dependency projection, interlock invariant mapping, Targeted Prospective Seed Intake, Native Target Test Verification, issue-derived harness execution, matched-null ensemble execution, Active Failure-Memory Routing, Prospective Memory Challenge, prospective memory eligibility, failure-memory weighting, and no-overreach validation for blocked candidates.
+- Implemented active gates: artifact byte custody, workspace transport integrity, registry validation, semantic failure signatures, candidate admission decisions, target-intent reachability, formatter/dependency precondition resolution, trace-feedback alignment, iterative dual projection recheck, matched-null arm separation, duplicate clean replay, bounded exploration budget, environment normalization, context boundary pinning, public claim boundary audit, status-code weighting policy, High-Pass Source Ranking Filter, Curvature-Based Candidate Selection, Two-Winner Source Selection, Strict Minimum-Delta Routing, source-commit environment lock, target command manifest, fresh workspace purity, baseline registry drift precheck, rollback block ledger, gate-chain binding, tracked seed enforcement, routing-score freeze, and five-lock routing cross-gate checks.
+- Partial gates: structural navigation, active probe routing, dependency projection, interlock invariant mapping, Targeted Prospective Seed Intake, Native Target Test Verification, issue-derived harness execution, matched-null ensemble execution, Active Failure-Memory Routing, Prospective Memory Challenge, prospective memory eligibility, failure-memory weighting, no-overreach validation for blocked candidates, active context filtering, routing-score feature vectors, basin stability checks, routing memory diagnostics, fragment planning, and null ensemble routing fairness.
 - Deferred gates: bounded micro-reversal and v3.0 readiness.
 - Current evidence counts: confirmed external native repair episodes `4` after official Batch008 ingest; confirmed issue-derived repair episodes `0`; matched-null comparisons `1`; memory separation evidence `false`; full scoring `NOT_RUN/disallowed`; self-maintaining software `false/not_demonstrated`.

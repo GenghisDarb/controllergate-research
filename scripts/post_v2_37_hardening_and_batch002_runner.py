@@ -20,6 +20,15 @@ from controllergate.core.candidate_admission import target_node_admission_decisi
 from controllergate.core.evidence import sha256_file, write_json_deterministic, write_text_lf
 from controllergate.core.evidence_classes import classify_candidate_evidence, temporal_guard_policy
 from controllergate.core.artifact_hygiene import audit_artifact_payload, stage_artifact_payload, write_artifact_manifest
+from controllergate.core.baseline_precheck import (
+    baseline_registry_drift_precheck,
+    baseline_registry_drift_precheck_policy,
+    baseline_registry_snapshot,
+)
+from controllergate.core.command_manifest import build_target_command_manifest_summary, target_command_manifest_policy
+from controllergate.core.active_context_filtering import active_context_filtering_policy, context_filter_manifest, filter_delta_audit
+from controllergate.core.environment_lock import source_commit_environment_lock_policy, summarize_source_commit_environment_lock
+from controllergate.core.gate_chain import audit_gate_dependency, batch013_gate_chain_policy, gate_entry
 from controllergate.core.homeostasis import RISK_CHANNELS, evaluate_homeostasis_state
 from controllergate.core.manifests import verify_manifest, write_sha256sums
 from controllergate.core.normalization import evaluate_normalization_plan
@@ -76,7 +85,27 @@ from controllergate.core.source_ranking import (
     strict_minimum_delta,
 )
 from controllergate.core.issue_derived_harness import issue_derived_harness_policy, issue_derived_verification_not_run
-from controllergate.core.curvature_selection import select_two_winners, two_winner_delta
+from controllergate.core.curvature_selection import (
+    basin_stability_check_policy,
+    basin_stability_score,
+    curvature_claim_boundary,
+    curvature_feature_vector,
+    curvature_feature_vector_schema,
+    curvature_fragment_plan,
+    curvature_fragment_planning_policy,
+    curvature_heuristic_freeze,
+    curvature_memory_routing_audit,
+    curvature_memory_routing_policy,
+    curvature_score_formula,
+    curvature_thresholds,
+    global_curvature_logic_policy,
+    null_ensemble_curvature_fairness_audit,
+    null_ensemble_curvature_fairness_policy,
+    select_two_winners,
+    two_winner_decision_record,
+    two_winner_delta,
+    two_winner_global_policy,
+)
 from controllergate.core.prospective_memory_challenge import (
     REPAIRED_CANDIDATE_IDS as PROSPECTIVE_REPAIRED_CANDIDATE_IDS,
     evaluate_prospective_memory_eligibility,
@@ -85,7 +114,10 @@ from controllergate.core.prospective_memory_challenge import (
     route_diversity_status,
 )
 from controllergate.core.targeted_seed import forbidden_evidence_audit, seed_presence, validate_seed_schema
+from controllergate.core.targeted_seed import seed_git_tracking_audit
 from controllergate.core.target_reachability import classify_runtime_path, completion_decision, downstream_gate_violation, fragment_generation_authorized
+from controllergate.core.rollback_ledger import audit_rollback_block_ledger, rollback_block_entry, rollback_block_ledger_policy
+from controllergate.core.workspace_purity import audit_workspace_purity, fresh_workspace_purity_policy
 from controllergate.experiments.replication_batch import run_replication_batch
 
 POST_ID = "post_v2_37_hardening_001"
@@ -112,7 +144,9 @@ BATCH011_ID = "clean_replication_batch_011"
 BATCH011_DIR = Path("outputs") / BATCH011_ID
 BATCH012_ID = "clean_replication_batch_012"
 BATCH012_DIR = Path("outputs") / BATCH012_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch012_targeted_seed")
+BATCH013_ID = "clean_replication_batch_013"
+BATCH013_DIR = Path("outputs") / BATCH013_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch013_acquisition_locks")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -549,6 +583,7 @@ ACTIVE_PUBLIC_LANGUAGE_PATHS = [
     "configs/clean_replication_batch_010.json",
     "configs/clean_replication_batch_011.json",
     "configs/clean_replication_batch_012.json",
+    "configs/clean_replication_batch_013.json",
     ".github/workflows/post_v2_37_hardening_and_batch002.yml",
     "controllergate/core/environment.py",
     "controllergate/core/failure_memory.py",
@@ -558,6 +593,13 @@ ACTIVE_PUBLIC_LANGUAGE_PATHS = [
     "controllergate/core/curvature_selection.py",
     "controllergate/core/issue_derived_harness.py",
     "controllergate/core/targeted_seed.py",
+    "controllergate/core/environment_lock.py",
+    "controllergate/core/command_manifest.py",
+    "controllergate/core/workspace_purity.py",
+    "controllergate/core/baseline_precheck.py",
+    "controllergate/core/rollback_ledger.py",
+    "controllergate/core/gate_chain.py",
+    "controllergate/core/active_context_filtering.py",
     "controllergate/experiments/replication_batch.py",
     "scripts/post_v2_37_hardening_and_batch002_runner.py",
     "scripts/audit_post_v2_37_hardening_and_batch002.py",
@@ -625,6 +667,7 @@ def write_public_docs_reports() -> None:
         "Batch010 implements active status-code weighting",
         "Batch011 prospective memory challenge eligibility",
         "Batch012 targeted prospective seed intake",
+        "Batch013 acquisition locks",
         "Current operational gate status",
     ]
     missing = [phrase for phrase in required_phrases if phrase not in readme]
@@ -681,7 +724,7 @@ def write_public_docs_reports() -> None:
             "evidence_classes": matrix.get("evidence_classes", []),
         },
     )
-    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH006_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH007_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH008_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH009_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH010_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH011_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH012_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH012_DIR.glob("*.md"))]
+    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH006_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH007_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH008_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH009_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH010_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH011_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH012_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH012_DIR.glob("*.md"))] + [str(path) for path in sorted(BATCH013_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH013_DIR.glob("*.md"))]
     write_json_deterministic(
         POST_DIR / "public_language_audit_expanded.json",
         public_language_audit(ACTIVE_PUBLIC_LANGUAGE_PATHS + artifact_paths),
@@ -759,6 +802,25 @@ def notebooklm_advice_entries(batch005_state: dict[str, object]) -> list[dict[st
         entry("targeted_prospective_seed_intake", "Targeted Prospective Seed Intake", "implemented_partial", "Batch012 records the required manual seed intake gate and blocks before any new acquisition when the seed is absent", ["outputs/clean_replication_batch_012/targeted_seed_presence_check.json", "outputs/clean_replication_batch_012/targeted_seed_schema_validation.json"], ["controllergate/core/targeted_seed.py"], ["missing or invalid seed blocks before native or issue-derived verification"], ["targeted_prospective_seed_missing_or_invalid"], "diagnostic", "seed intake is admission evidence only", "targeted_seed_handoff", "Batch012 has no supplied targeted seed", gate_name="Targeted Prospective Seed Intake"),
         entry("native_target_test_verification", "Native Target Test Verification", "implemented_partial", "Batch012 records native-first ordering but does not run verification without a valid seed", ["outputs/clean_replication_batch_012/native_verification_result.json"], ["controllergate/core/targeted_seed.py"], ["native target tests run before issue-derived fallback when a valid seed supplies them"], ["targeted_prospective_seed_missing_or_invalid", "native_pre_patch_failure_not_reproduced"], "native", "native verification requires a valid seed and checked-out source tree", "targeted_seed_handoff", "Batch012 blocks before source checkout because the seed is absent", gate_name="Native Target Test Verification"),
         entry("prospective_memory_eligibility_gate", "Prospective Memory Eligibility Gate", "implemented_partial", "Batch012 keeps prospective memory eligibility behind fresh-candidate verification, route diversity, mapped status features, and preregistration", ["outputs/clean_replication_batch_012/prospective_memory_eligibility_gate.json", "outputs/clean_replication_batch_012/route_diversity_status.json", "outputs/clean_replication_batch_012/status_feature_mappability.json"], ["controllergate/core/prospective_memory_challenge.py"], ["eligibility remains not run until a fresh candidate verifies"], ["targeted_prospective_seed_missing_or_invalid", "prospective_memory_eligibility_not_met"], "memory_experiment", "eligibility cannot prove memory separation without matched-null evidence", "targeted_seed_handoff", "Batch012 has no valid seed, so eligibility is not run", gate_name="Prospective Memory Eligibility Gate"),
+        entry("source_commit_environment_lock", "Source Commit Environment Lock", "implemented_active", "Batch013 records that environment metadata must be tied to the selected source commit before source acquisition or replay", ["outputs/clean_replication_batch_013/source_commit_environment_lock_policy.json", "outputs/clean_replication_batch_013/source_commit_environment_lock_summary.json"], ["controllergate/core/environment_lock.py"], ["source acquisition is not allowed until source commit and environment lock metadata agree"], ["source_commit_environment_lock_missing", "source_commit_environment_lock_mismatch"], "diagnostic", "environment lock readiness is not replay success", "targeted_seed_handoff", gate_name="Source Commit Environment Lock"),
+        entry("target_command_manifest", "Target Command Manifest", "implemented_active", "Batch013 requires explicit command, cwd, environment, provenance basis, and allowed setup commands before target replay", ["outputs/clean_replication_batch_013/target_command_manifest_policy.json", "outputs/clean_replication_batch_013/target_command_manifest_summary.json"], ["controllergate/core/command_manifest.py"], ["hidden framework command state is not accepted"], ["target_command_manifest_missing", "target_command_manifest_forbidden_framework_state"], "diagnostic", "command manifest readiness is not validation", "targeted_seed_handoff", gate_name="Target Command Manifest"),
+        entry("fresh_workspace_purity_gate", "Fresh Workspace Purity Gate", "implemented_active", "Batch013 records workspace purity requirements before any source checkout or replay can run", ["outputs/clean_replication_batch_013/fresh_workspace_purity_policy.json", "outputs/clean_replication_batch_013/workspace_purity_report.json"], ["controllergate/core/workspace_purity.py"], ["runtime workspace must be outside the live repo and free of stale cache/runtime state"], ["workspace_purity_failed", "stale_cache_contamination_detected"], "diagnostic", "workspace purity is a safety precondition", "targeted_seed_handoff", gate_name="Fresh Workspace Purity Gate"),
+        entry("baseline_registry_drift_precheck", "Baseline Registry Drift Precheck", "implemented_active", "Batch013 snapshots the external repair registry before new acquisition and blocks on count or claim-boundary drift", ["outputs/clean_replication_batch_013/baseline_registry_drift_precheck_policy.json", "outputs/clean_replication_batch_013/baseline_registry_drift_precheck.json"], ["controllergate/core/baseline_precheck.py"], ["confirmed native and issue-derived counts remain unchanged"], ["baseline_registry_drift_detected", "confirmed_repair_episode_count_mismatch"], "infrastructure", "registry stability is custody evidence only", "targeted_seed_handoff", gate_name="Baseline Registry Drift Precheck"),
+        entry("rollback_block_ledger", "Rollback Block Ledger", "implemented_active", "Batch013 records a rollback block entry when the tracked seed is missing after upstream locks pass", ["outputs/clean_replication_batch_013/rollback_block_ledger_policy.json", "outputs/clean_replication_batch_013/rollback_block_ledger_audit.json"], ["controllergate/core/rollback_ledger.py"], ["blocked branches include previous-state, attempted-state, and rollback hashes"], ["rollback_block_missing", "rollback_block_hash_chain_broken"], "infrastructure", "rollback entries are proof-state records, not repair success", "targeted_seed_handoff", gate_name="Rollback Block Ledger"),
+        entry("global_curvature_logic_enforcement", "Global Curvature Logic Enforcement", "implemented_active", "Batch013 enforces that routing-score logic is triage only and cannot replace replay, validation, duplicate replay, or byte custody", ["outputs/clean_replication_batch_013/global_curvature_logic_policy.json", "outputs/clean_replication_batch_013/curvature_logic_enforcement_status.json"], ["controllergate/core/curvature_selection.py"], ["routing-score outputs are present but cannot authorize proof claims"], ["curvature_logic_policy_missing", "curvature_claim_boundary_violation"], "memory_experiment", "routing scores cannot prove repair or memory lift", "targeted_seed_handoff", gate_name="Global Curvature Logic Enforcement"),
+        entry("curvature_feature_vector", "Curvature Feature Vector", "implemented_partial", "Batch013 freezes the required feature-vector schema before seed intake; no candidate vector is admitted while the tracked seed is absent", ["outputs/clean_replication_batch_013/curvature_feature_vector_schema.json", "outputs/clean_replication_batch_013/candidate_curvature_feature_vectors.json"], ["controllergate/core/curvature_selection.py"], ["feature vectors are schema-checked and cannot use forbidden evidence"], ["curvature_feature_vector_missing"], "memory_experiment", "feature vectors are routing evidence only", "targeted_seed_handoff", "No candidate is admitted until the tracked seed gate passes", gate_name="Curvature Feature Vector"),
+        entry("basin_stability_check", "Basin Stability Check", "implemented_partial", "Batch013 records the basin stability policy and blocks candidate-specific scoring while no seed is admitted", ["outputs/clean_replication_batch_013/basin_stability_check_policy.json", "outputs/clean_replication_batch_013/basin_stability_scores.json"], ["controllergate/core/curvature_selection.py"], ["flatline, precondition-only, and no-patchable-source cases cannot be promoted"], ["curvature_flatline_signal_rejected", "curvature_no_patchable_basin"], "memory_experiment", "stability score is not repair success", "targeted_seed_handoff", "No candidate is admitted until the tracked seed gate passes", gate_name="Basin Stability Check"),
+        entry("two_winner_global_policy", "Two-Winner Global Policy", "implemented_partial", "Batch013 records direct and routing-score winner policy before seed intake; no route winner is selected while no candidate is admitted", ["outputs/clean_replication_batch_013/two_winner_global_policy.json", "outputs/clean_replication_batch_013/two_winner_decision_records.json"], ["controllergate/core/curvature_selection.py"], ["winner selection cannot be forced without route evidence"], ["curvature_no_separable_memory_route"], "memory_experiment", "two-winner selection cannot authorize patch generation", "targeted_seed_handoff", "No candidate is admitted until the tracked seed gate passes", gate_name="Two-Winner Global Policy"),
+        entry("curvature_memory_routing", "Curvature Memory Routing", "implemented_partial", "Batch013 records that memory-weighted routing must change source/context/generation routing and cannot use prior patch bytes", ["outputs/clean_replication_batch_013/curvature_memory_routing_policy.json", "outputs/clean_replication_batch_013/curvature_memory_routing_audit.json"], ["controllergate/core/curvature_selection.py"], ["scalar-only or unmapped feature changes cannot support memory-routing claims"], ["curvature_memory_routing_delta_not_established", "curvature_memory_feature_unmapped"], "memory_experiment", "memory routing is diagnostic until matched-null evidence separates", "targeted_seed_handoff", "No admitted candidate exists in Batch013", gate_name="Curvature Memory Routing"),
+        entry("curvature_fragment_planning", "Curvature Fragment Planning", "implemented_partial", "Batch013 records fragment-planning policy but does not plan fragments while the seed gate blocks", ["outputs/clean_replication_batch_013/curvature_fragment_planning_policy.json", "outputs/clean_replication_batch_013/curvature_fragment_plan.json"], ["controllergate/core/curvature_selection.py"], ["fragment plans require selected route and interlock invariant"], ["curvature_fragment_route_missing", "curvature_fragment_interlock_missing"], "diagnostic", "fragment planning is not patch authorization", "targeted_seed_handoff", "No repair run is authorized in Batch013", gate_name="Curvature Fragment Planning"),
+        entry("null_ensemble_curvature_fairness", "Null Ensemble Curvature Fairness", "implemented_partial", "Batch013 records the null fairness policy; ensemble execution remains not run while no candidate verifies", ["outputs/clean_replication_batch_013/null_ensemble_curvature_fairness_policy.json", "outputs/clean_replication_batch_013/null_ensemble_curvature_fairness_audit.json"], ["controllergate/core/curvature_selection.py"], ["null arms must receive matching routing-score feature vectors without memory weights"], ["null_curvature_fairness_failed"], "memory_experiment", "null fairness does not prove memory lift", "targeted_seed_handoff", "No null ensemble runs in Batch013", gate_name="Null Ensemble Curvature Fairness"),
+        entry("curvature_claim_boundary", "Curvature Claim Boundary", "implemented_active", "Batch013 records that route diversity, non-scalar routing deltas, null fairness, and repair/memory separation are required before memory claims", ["outputs/clean_replication_batch_013/curvature_claim_boundary.json"], ["controllergate/core/curvature_selection.py"], ["routing-score diagnostics cannot claim memory lift or release readiness"], ["curvature_claim_boundary_violation"], "public_docs", "claim boundary prevents overclaiming", "continuous", gate_name="Curvature Claim Boundary"),
+        entry("batch013_gate_chain_binding", "Batch013 Gate-Chain Binding", "implemented_active", "Batch013 records ordered gate hashes and blocks all downstream gates after the missing tracked seed", ["outputs/clean_replication_batch_013/batch013_gate_chain_policy.json", "outputs/clean_replication_batch_013/batch013_gate_chain_execution_trace.json", "outputs/clean_replication_batch_013/batch013_gate_dependency_audit.json"], ["controllergate/core/gate_chain.py"], ["downstream gates are NOT_RUN after the first blocking gate"], ["gate_chain_order_violation", "targeted_prospective_seed_missing_or_invalid_after_locks_ready"], "infrastructure", "gate-chain binding is proof custody only", "targeted_seed_handoff", gate_name="Batch013 Gate-Chain Binding"),
+        entry("targeted_seed_git_tracking", "Tracked Targeted Seed Enforcement", "implemented_active", "Batch013 requires the targeted seed to exist as a tracked workflow-visible file before candidate acquisition", ["outputs/clean_replication_batch_013/targeted_seed_git_tracking_audit.json", "outputs/clean_replication_batch_013/targeted_seed_workflow_visibility_audit.json"], ["controllergate/core/targeted_seed.py"], ["untracked, ignored, or workflow-invisible seed bytes cannot authorize acquisition"], ["targeted_prospective_seed_missing_or_invalid_after_locks_ready"], "diagnostic", "tracked seed status is an admission gate", "targeted_seed_handoff", gate_name="Tracked Targeted Seed Enforcement"),
+        entry("active_context_filtering", "Active Context Filtering", "implemented_partial", "Batch013 records active context filtering policy but no candidate context is admitted while the seed is absent", ["outputs/clean_replication_batch_013/active_context_filtering_policy.json", "outputs/clean_replication_batch_013/active_context_filter_manifest.json", "outputs/clean_replication_batch_013/context_filter_delta_audit.json"], ["controllergate/core/active_context_filtering.py"], ["filtering cannot remove every legal source path and cannot use forbidden memory inputs"], ["active_context_filter_removed_all_legal_source", "active_context_filter_forbidden_memory_input"], "diagnostic", "context filtering is routing evidence only", "targeted_seed_handoff", "No context is admitted until the tracked seed gate passes", gate_name="Active Context Filtering"),
+        entry("curvature_heuristic_freeze", "Curvature Heuristic Freeze", "implemented_active", "Batch013 freezes routing-score formula and thresholds before any seed-specific evidence can be used", ["outputs/clean_replication_batch_013/curvature_heuristic_freeze.json", "outputs/clean_replication_batch_013/curvature_score_formula.json", "outputs/clean_replication_batch_013/curvature_thresholds.json"], ["controllergate/core/curvature_selection.py"], ["post-hoc score changes after seed intake are forbidden"], ["curvature_heuristic_post_hoc_change_detected"], "memory_experiment", "frozen score rules are not repair evidence", "targeted_seed_handoff", gate_name="Curvature Heuristic Freeze"),
+        entry("five_locks_curvature_cross_gate", "Five-Locks Curvature Cross Gate", "implemented_active", "Batch013 verifies that baseline, environment, command, workspace, and tracked-seed locks block routing-score selection and repair work until all pass", ["outputs/clean_replication_batch_013/five_locks_curvature_cross_gate.json"], ["controllergate/core/gate_chain.py", "controllergate/core/curvature_selection.py"], ["candidate selection, replay, repair, and matched-null remain disabled while seed tracking blocks"], ["targeted_prospective_seed_missing_or_invalid_after_locks_ready"], "infrastructure", "cross-gate readiness is not candidate success", "targeted_seed_handoff", gate_name="Five-Locks Curvature Cross Gate"),
+        entry("issue_derived_temporal_classification", "Issue-Derived Temporal and Classification Guard", "implemented_active", "Batch013 records that issue-derived fallback remains not run and cannot increment native counts", ["outputs/clean_replication_batch_013/issue_derived_temporal_and_classification_audit.json"], ["controllergate/core/evidence_classes.py"], ["issue-derived path remains separate and temporal guard is required before use"], ["issue_derived_temporal_guard_failed", "issue_derived_classification_conflated"], "issue_derived", "issue-derived evidence is not native repair evidence", "targeted_seed_handoff", gate_name="Issue-Derived Temporal and Classification Guard"),
         entry("high_pass_source_ranking_filter", "High-Pass Source Ranking Filter", "implemented_active", "Batch010 applies a filter that cannot mask all legal patchable source files", ["outputs/clean_replication_batch_010/high_pass_filter_application.json", "outputs/clean_replication_batch_010/masked_or_downranked_context_paths.json"], ["controllergate/core/source_ranking.py"], ["at least one legal patchable source remains"], ["high_pass_filter_no_legal_source_remaining"], "memory_experiment", "filtering is routing evidence, not repair success", "continuous", gate_name="High-Pass Source Ranking Filter"),
         entry("two_candidate_selection_policy", "Two-Candidate Selection Policy", "implemented_active", "Batch010 records primary route and secondary route availability", ["outputs/clean_replication_batch_010/two_candidate_selection_policy.json", "outputs/clean_replication_batch_010/admitted_alternative_paths.json"], ["controllergate/core/source_ranking.py"], ["primary route exists and secondary is recorded if available"], ["two_candidate_selection_missing"], "memory_experiment", "route selection does not authorize patch generation by itself", "continuous", gate_name="Two-Candidate Selection Policy"),
         entry("strict_minimum_delta_routing", "Strict Minimum-Delta Routing", "implemented_active", "Batch010 rejects metadata-only or score-only changes as active routing", ["outputs/clean_replication_batch_010/strict_minimum_delta_policy.json", "outputs/clean_replication_batch_010/routing_delta_report.json"], ["controllergate/core/source_ranking.py"], ["routing delta reason codes are machine-checkable"], ["forced_routing_delta_without_evidence"], "memory_experiment", "no active memory claim without routing delta", "continuous", gate_name="Strict Minimum-Delta Routing"),
@@ -1027,6 +1089,42 @@ def write_notebooklm_traceability_outputs(batch005_state: dict[str, object]) -> 
             "next_required_implementation_step": "preserve strict delta checks before any future memory-routing diagnostic",
         },
     ]
+    gate_specs.extend(
+        [
+            {
+                "neutral_gate_name": name,
+                "status": status,
+                "audit_assertion": assertion,
+                "blocker_names": blockers,
+                "claim_boundary": boundary,
+                "current_module_or_script": module,
+                "evidence_class_affected": evidence_class,
+                "expected_output_files": outputs,
+                "next_required_implementation_step": next_step,
+            }
+            for name, status, assertion, blockers, boundary, module, evidence_class, outputs, next_step in [
+                ("Source Commit Environment Lock", "implemented", "environment metadata must be tied to the selected source commit before acquisition", ["source_commit_environment_lock_missing", "source_commit_environment_lock_mismatch"], "environment lock readiness is not repair success", "controllergate/core/environment_lock.py", "diagnostic_only_evidence", ["outputs/clean_replication_batch_013/source_commit_environment_lock_summary.json"], "supply a reviewed tracked seed before source acquisition"),
+                ("Target Command Manifest", "implemented", "target replay requires explicit command, cwd, environment, provenance basis, and allowed setup commands", ["target_command_manifest_missing", "target_command_manifest_forbidden_framework_state"], "command manifest readiness is not validation success", "controllergate/core/command_manifest.py", "diagnostic_only_evidence", ["outputs/clean_replication_batch_013/target_command_manifest_summary.json"], "supply a reviewed tracked seed before target replay"),
+                ("Fresh Workspace Purity Gate", "implemented", "runtime workspace must be fresh, outside the live repo, and outside OneDrive before replay", ["workspace_purity_failed", "stale_cache_contamination_detected"], "workspace purity is a safety precondition only", "controllergate/core/workspace_purity.py", "diagnostic_only_evidence", ["outputs/clean_replication_batch_013/workspace_purity_report.json"], "create source workspaces only after a tracked seed passes"),
+                ("Baseline Registry Drift Precheck", "implemented", "confirmed repair counts and claim boundaries must be stable before candidate acquisition", ["baseline_registry_drift_detected", "confirmed_repair_episode_count_mismatch"], "registry drift checks are custody evidence only", "controllergate/core/baseline_precheck.py", "infrastructure_evidence", ["outputs/clean_replication_batch_013/baseline_registry_drift_precheck.json"], "preserve counts before new acquisition"),
+                ("Rollback Block Ledger", "implemented", "blocked branches require previous-state, attempted-state, and rollback hashes", ["rollback_block_missing", "rollback_block_hash_chain_broken"], "rollback state is proof custody only", "controllergate/core/rollback_ledger.py", "infrastructure_evidence", ["outputs/clean_replication_batch_013/rollback_block_ledger_audit.json"], "record rollback blocks for future blocked branches"),
+                ("Global Curvature Logic Enforcement", "implemented", "routing-score logic may route but cannot replace replay, validation, duplicate replay, or byte custody", ["curvature_logic_policy_missing", "curvature_claim_boundary_violation"], "routing-score diagnostics are not proof claims", "controllergate/core/curvature_selection.py", "memory_experiment_evidence", ["outputs/clean_replication_batch_013/curvature_logic_enforcement_status.json"], "apply only after a candidate is admitted"),
+                ("Curvature Feature Vector", "implemented_partial", "feature-vector schema is frozen before seed-specific evidence is used", ["curvature_feature_vector_missing"], "feature vectors are routing evidence only", "controllergate/core/curvature_selection.py", "memory_experiment_evidence", ["outputs/clean_replication_batch_013/curvature_feature_vector_schema.json"], "admit a tracked seed before candidate vectors run"),
+                ("Basin Stability Check", "implemented_partial", "flatline, precondition-only, and no-patchable-source cases cannot be promoted", ["curvature_flatline_signal_rejected", "curvature_no_patchable_basin"], "stability score is not repair success", "controllergate/core/curvature_selection.py", "memory_experiment_evidence", ["outputs/clean_replication_batch_013/basin_stability_scores.json"], "admit a tracked seed before candidate scoring"),
+                ("Two-Winner Global Policy", "implemented_partial", "direct and routing-score winners cannot be forced without route evidence", ["curvature_no_separable_memory_route"], "two-winner selection cannot authorize patch generation", "controllergate/core/curvature_selection.py", "memory_experiment_evidence", ["outputs/clean_replication_batch_013/two_winner_decision_records.json"], "admit a tracked seed before route selection"),
+                ("Curvature Memory Routing", "implemented_partial", "memory-weighted routing must change source/context/generation routing and cannot use prior patch bytes", ["curvature_memory_routing_delta_not_established", "curvature_memory_feature_unmapped"], "memory routing is diagnostic until matched-null evidence separates", "controllergate/core/curvature_selection.py", "memory_experiment_evidence", ["outputs/clean_replication_batch_013/curvature_memory_routing_audit.json"], "admit a tracked seed and mappable features before memory routing"),
+                ("Curvature Fragment Planning", "implemented_partial", "fragment plans require selected route and interlock invariant", ["curvature_fragment_route_missing", "curvature_fragment_interlock_missing"], "fragment planning is not patch authorization", "controllergate/core/curvature_selection.py", "diagnostic_only_evidence", ["outputs/clean_replication_batch_013/curvature_fragment_plan.json"], "run only after replay and interlock gates pass"),
+                ("Null Ensemble Curvature Fairness", "implemented_partial", "null arms must receive matching routing-score feature vectors without memory weights", ["null_curvature_fairness_failed"], "null fairness does not prove memory lift", "controllergate/core/curvature_selection.py", "memory_experiment_evidence", ["outputs/clean_replication_batch_013/null_ensemble_curvature_fairness_audit.json"], "run only after matched-null preregistration"),
+                ("Curvature Claim Boundary", "implemented", "routing-score diagnostics cannot claim memory lift, full scoring, or release readiness", ["curvature_claim_boundary_violation"], "claim boundary prevents overclaiming", "controllergate/core/curvature_selection.py", "public_claim_evidence", ["outputs/clean_replication_batch_013/curvature_claim_boundary.json"], "preserve claim limits"),
+                ("Batch013 Gate-Chain Binding", "implemented", "ordered gate hashes block all downstream gates after the first blocker", ["gate_chain_order_violation", "targeted_prospective_seed_missing_or_invalid_after_locks_ready"], "gate-chain binding is proof custody only", "controllergate/core/gate_chain.py", "infrastructure_evidence", ["outputs/clean_replication_batch_013/batch013_gate_chain_execution_trace.json"], "supply a tracked seed before downstream execution"),
+                ("Tracked Targeted Seed Enforcement", "implemented", "seed bytes must be tracked and workflow-visible before acquisition", ["targeted_prospective_seed_missing_or_invalid_after_locks_ready"], "tracked seed status is an admission gate", "controllergate/core/targeted_seed.py", "diagnostic_only_evidence", ["outputs/clean_replication_batch_013/targeted_seed_git_tracking_audit.json"], "commit a reviewed tracked seed"),
+                ("Active Context Filtering", "implemented_partial", "filtering cannot remove all legal source paths or use forbidden memory inputs", ["active_context_filter_removed_all_legal_source", "active_context_filter_forbidden_memory_input"], "context filtering is routing evidence only", "controllergate/core/active_context_filtering.py", "diagnostic_only_evidence", ["outputs/clean_replication_batch_013/context_filter_delta_audit.json"], "run after seed validation admits context"),
+                ("Curvature Heuristic Freeze", "implemented", "routing-score formula and thresholds are frozen before seed-specific evidence", ["curvature_heuristic_post_hoc_change_detected"], "frozen score rules are not repair evidence", "controllergate/core/curvature_selection.py", "memory_experiment_evidence", ["outputs/clean_replication_batch_013/curvature_heuristic_freeze.json"], "do not change formula after seed intake"),
+                ("Five-Locks Curvature Cross Gate", "implemented", "baseline, environment, command, workspace, and tracked-seed locks block routing-score selection and repair until all pass", ["targeted_prospective_seed_missing_or_invalid_after_locks_ready"], "cross-gate readiness is not candidate success", "controllergate/core/gate_chain.py", "infrastructure_evidence", ["outputs/clean_replication_batch_013/five_locks_curvature_cross_gate.json"], "keep downstream execution disabled until all locks pass"),
+                ("Issue-Derived Temporal and Classification Guard", "implemented", "issue-derived fallback remains separate and cannot increment native counts", ["issue_derived_temporal_guard_failed", "issue_derived_classification_conflated"], "issue-derived evidence is not native repair evidence", "controllergate/core/evidence_classes.py", "issue_derived_evidence", ["outputs/clean_replication_batch_013/issue_derived_temporal_and_classification_audit.json"], "require temporal guard before issue-derived fallback"),
+            ]
+        ]
+    )
     existing_gate_names = {str(gate.get("neutral_gate_name")) for gate in operational.get("gates", []) if isinstance(gate, dict)}
     for spec in gate_specs:
         if spec["neutral_gate_name"] not in existing_gate_names:
@@ -5573,6 +5671,463 @@ def write_batch012_outputs(batch011_state: dict[str, object]) -> dict[str, objec
     return state
 
 
+def write_batch013_outputs(batch012_state: dict[str, object]) -> dict[str, object]:
+    BATCH013_DIR.mkdir(parents=True, exist_ok=True)
+    config = load_json("configs/clean_replication_batch_013.json")
+    seed_path = Path(str(config["seed_path"]))
+    blocker = "targeted_prospective_seed_missing_or_invalid_after_locks_ready"
+    workflow_path = ".github/workflows/post_v2_37_hardening_and_batch002.yml"
+
+    baseline_policy = baseline_registry_drift_precheck_policy()
+    baseline_snapshot = baseline_registry_snapshot("configs/external_repair_episode_registry.json")
+    baseline_precheck = baseline_registry_drift_precheck(baseline_snapshot)
+    seed_present = seed_path.is_file()
+    env_policy = source_commit_environment_lock_policy()
+    env_summary = summarize_source_commit_environment_lock(
+        source_commit_sha=None,
+        environment_lock_source_paths=[],
+        seed_present=seed_present,
+    )
+    command_policy = target_command_manifest_policy()
+    command_summary = build_target_command_manifest_summary(seed_present=seed_present)
+    workspace_policy = fresh_workspace_purity_policy()
+    workspace_report = audit_workspace_purity(None, repo_root=".", seed_present=seed_present, workspace_created=False)
+    presence = seed_presence(seed_path)
+    presence = {
+        **presence,
+        "status": "PASS" if seed_present else "BLOCK",
+        "blocker": None if seed_present else blocker,
+        "locks_completed_before_seed_block": True,
+        "automated_fresh_candidate_search_attempted": False,
+        "manual_seed_required": True,
+    }
+    git_tracking = seed_git_tracking_audit(seed_path, workflow_paths=[workflow_path])
+    workflow_visibility = {
+        "status": git_tracking["status"],
+        "seed_path": seed_path.as_posix(),
+        "workflow_path": workflow_path,
+        "workflow_visible": git_tracking["workflow_visible"],
+        "workflow_visibility_paths": git_tracking["workflow_visibility_paths"],
+        "blocker": git_tracking["blocker"],
+    }
+    if seed_present:
+        try:
+            seed = load_json(seed_path)
+        except json.JSONDecodeError as exc:
+            schema_validation = {
+                "status": "BLOCK",
+                "valid": False,
+                "blocker": blocker,
+                "blockers": [blocker],
+                "reason": f"seed JSON parse failed: {exc.msg}",
+            }
+            forbidden_audit = {"status": "NOT_RUN", "blocker": blocker, "reason": "schema validation did not pass"}
+        else:
+            existing_ids = {
+                str(item.get("candidate_id"))
+                for registry_path in [Path("configs/external_candidate_registry.json"), Path("configs/external_repair_episode_registry.json")]
+                if registry_path.is_file()
+                for item in load_json(registry_path).get("candidates", load_json(registry_path).get("episodes", []))
+                if isinstance(item, dict) and item.get("candidate_id")
+            }
+            schema_validation = validate_seed_schema(seed, existing_ids)
+            if schema_validation.get("status") != "PASS":
+                schema_validation = {**schema_validation, "blocker": schema_validation.get("blocker") or blocker}
+            forbidden_audit = forbidden_evidence_audit(seed) if schema_validation.get("status") == "PASS" else {"status": "NOT_RUN", "blocker": schema_validation.get("blocker") or blocker, "reason": "schema validation did not pass"}
+    else:
+        schema_validation = {
+            "status": "BLOCK",
+            "valid": False,
+            "blocker": blocker,
+            "blockers": [blocker],
+            "reason": "seed file is absent after acquisition locks became ready",
+            "seed_path": seed_path.as_posix(),
+        }
+        forbidden_audit = {
+            "status": "NOT_RUN",
+            "blocker": blocker,
+            "reason": "seed file is absent after acquisition locks became ready",
+        }
+
+    lock_stack_policy = {
+        "status": "PASS",
+        "locks": [
+            "baseline_registry_drift_precheck",
+            "source_commit_environment_lock",
+            "target_command_manifest",
+            "fresh_workspace_purity",
+            "targeted_seed_git_tracking",
+        ],
+        "all_locks_must_pass_before_source_acquisition": True,
+        "seed_missing_blocks_after_locks_ready": True,
+        "blocker": blocker,
+    }
+    lock_stack_status = {
+        "status": "PASS_WITH_SEED_BLOCKED",
+        "baseline_registry_drift_precheck_status": baseline_precheck["status"],
+        "source_commit_environment_lock_status": env_summary["status"],
+        "target_command_manifest_status": command_summary["status"],
+        "workspace_purity_status": workspace_report["status"],
+        "targeted_seed_git_tracking_status": git_tracking["status"],
+        "locks_ready_before_seed_block": all(
+            item.get("status") == "PASS"
+            for item in [baseline_precheck, env_summary, command_summary, workspace_report]
+        ),
+        "exact_blocker": blocker,
+    }
+    gate_inputs = {
+        "config": config,
+        "batch012_state_hash": stable_json_hash(batch012_state),
+    }
+    gate_trace = [
+        gate_entry(index=1, gate_id="baseline_registry_drift_precheck", status=baseline_precheck["status"], inputs=gate_inputs, outputs=baseline_precheck),
+        gate_entry(index=2, gate_id="source_commit_environment_lock", status=env_summary["status"], inputs=baseline_precheck, outputs=env_summary),
+        gate_entry(index=3, gate_id="target_command_manifest", status=command_summary["status"], inputs=env_summary, outputs=command_summary),
+        gate_entry(index=4, gate_id="fresh_workspace_purity", status=workspace_report["status"], inputs=command_summary, outputs=workspace_report),
+        gate_entry(index=5, gate_id="targeted_seed_presence_and_git_tracking", status="BLOCK", inputs=workspace_report, outputs={"presence": presence, "git_tracking": git_tracking}, blocker=blocker),
+    ]
+    for index, gate_id in enumerate(batch013_gate_chain_policy()["gate_order"][5:], start=6):
+        gate_trace.append(
+            gate_entry(
+                index=index,
+                gate_id=gate_id,
+                status="NOT_RUN",
+                inputs={"blocked_by": "targeted_seed_presence_and_git_tracking"},
+                outputs={"status": "NOT_RUN", "blocker": blocker},
+                blocker=blocker,
+                blocked_by_gate="targeted_seed_presence_and_git_tracking",
+            )
+        )
+    gate_dependency = audit_gate_dependency(gate_trace)
+    rollback_entry = rollback_block_entry(
+        entry_index=5,
+        action="targeted_seed_presence_and_git_tracking",
+        blocker=blocker,
+        next_allowed_action="commit_reviewed_targeted_prospective_seed_batch013",
+        rollback_target_entry_index=4,
+        pre_action_state={"locks": lock_stack_status, "seed_present": False},
+        attempted_action_state={"seed_path": seed_path.as_posix(), "seed_present": seed_present, "git_tracking": git_tracking},
+    )
+    rollback_audit = audit_rollback_block_ledger( gate_trace + [rollback_entry])
+
+    policy = global_curvature_logic_policy()
+    schema = curvature_feature_vector_schema()
+    vector = curvature_feature_vector(
+        {
+            "candidate_id": "not_selected_missing_seed",
+            "candidate_class": "prospective_memory_candidate",
+            "native_or_issue_derived": "unknown",
+            "patchable_source_file_count": 0,
+            "alternative_route_count": 0,
+            "flatline_risk": "high",
+            "target_failure_reproduces": False,
+            "semantic_failure_signature_exists": False,
+        }
+    )
+    basin = basin_stability_score(
+        {
+            "target_failure_reproduces": False,
+            "semantic_failure_signature_exists": False,
+            "patchable_source_file_count": 0,
+            "alternative_route_count": 0,
+        },
+        experiment_class="prospective_memory",
+    )
+    two_winner_record = two_winner_decision_record([])
+    memory_routing_audit = curvature_memory_routing_audit(
+        {"winner_linear": None, "winner_curvature": None, "selected_route": None},
+        {"winner_linear": None, "winner_curvature": None, "selected_route": None},
+        evidence_hashes=[],
+        feature_mapped=False,
+    )
+    fragment_plan = curvature_fragment_plan(None, interlock_count=0, repair_runs=False)
+    null_fairness = null_ensemble_curvature_fairness_audit(ensemble_runs=False, arm_a_vector_hash=None, null_vector_hashes=[])
+    claim_boundary = curvature_claim_boundary(
+        route_diversity_exists=False,
+        routing_delta_scalar_only=True,
+        null_curvature_fair=False,
+        repair_only=False,
+        issue_derived=False,
+    )
+    filtering_manifest = context_filter_manifest(
+        seed_present=seed_present,
+        before=[],
+        after=[],
+        reason="no candidate context is admitted until the tracked seed gate passes",
+    )
+    filter_delta = filter_delta_audit(filtering_manifest)
+    issue_temporal = {
+        "status": "PASS",
+        "issue_derived_path_exercised": False,
+        "issue_derived_candidate_count": 0,
+        "issue_derived_classification": "NOT_RUN",
+        "issue_derived_not_classified_as_native": True,
+        "temporal_guard_status": "NOT_RUN",
+        "blocker": blocker,
+    }
+    five_locks_cross_gate = {
+        "status": "PASS",
+        "locks_ready_before_seed_block": lock_stack_status["locks_ready_before_seed_block"],
+        "source_acquisition_allowed": False,
+        "target_replay_allowed": False,
+        "curvature_candidate_selection_allowed": False,
+        "repair_generation_allowed": False,
+        "matched_null_allowed": False,
+        "blocker": blocker,
+    }
+
+    no_run = {"status": "NOT_RUN", "blocker": blocker}
+    write_json_deterministic(BATCH013_DIR / "acquisition_lock_stack_policy.json", lock_stack_policy)
+    write_json_deterministic(BATCH013_DIR / "source_commit_environment_lock_policy.json", env_policy)
+    write_json_deterministic(BATCH013_DIR / "source_commit_environment_lock_summary.json", env_summary)
+    write_json_deterministic(BATCH013_DIR / "target_command_manifest_policy.json", command_policy)
+    write_json_deterministic(BATCH013_DIR / "target_command_manifest_summary.json", command_summary)
+    write_json_deterministic(BATCH013_DIR / "fresh_workspace_purity_policy.json", workspace_policy)
+    write_json_deterministic(BATCH013_DIR / "workspace_purity_report.json", workspace_report)
+    write_json_deterministic(BATCH013_DIR / "baseline_registry_drift_precheck_policy.json", baseline_policy)
+    write_json_deterministic(BATCH013_DIR / "baseline_registry_snapshot_batch013.json", baseline_snapshot)
+    write_json_deterministic(BATCH013_DIR / "baseline_registry_drift_precheck.json", baseline_precheck)
+    write_json_deterministic(BATCH013_DIR / "rollback_block_ledger_policy.json", rollback_block_ledger_policy())
+    write_json_deterministic(BATCH013_DIR / "rollback_block_ledger_audit.json", rollback_audit)
+    write_json_deterministic(BATCH013_DIR / "acquisition_lock_stack_status.json", lock_stack_status)
+    write_json_deterministic(BATCH013_DIR / "targeted_seed_presence_check.json", presence)
+    write_json_deterministic(BATCH013_DIR / "targeted_seed_schema_validation.json", schema_validation)
+    write_json_deterministic(BATCH013_DIR / "targeted_seed_forbidden_evidence_audit.json", forbidden_audit)
+    write_json_deterministic(BATCH013_DIR / "targeted_seed_git_tracking_audit.json", git_tracking)
+    write_json_deterministic(BATCH013_DIR / "targeted_seed_workflow_visibility_audit.json", workflow_visibility)
+    write_json_deterministic(
+        BATCH013_DIR / "targeted_seed_intake_report.json",
+        {
+            "status": "BLOCK",
+            "seed_path": seed_path.as_posix(),
+            "seed_present": seed_present,
+            "seed_schema_status": schema_validation["status"],
+            "git_tracking_status": git_tracking["status"],
+            "workflow_visibility_status": workflow_visibility["status"],
+            "locks_completed_before_seed_block": True,
+            "exact_blocker": blocker,
+            "native_verification_status": "NOT_RUN",
+            "issue_derived_verification_status": "NOT_RUN",
+            "matched_null_ensemble_status": "NOT_RUN",
+            "repair_only_fallback_attempted": False,
+        },
+    )
+    write_json_deterministic(
+        BATCH013_DIR / "targeted_seed_next_action.json",
+        {
+            "status": "BLOCK",
+            "next_allowed_action": "commit_reviewed_targeted_prospective_seed_batch013",
+            "seed_path": seed_path.as_posix(),
+            "required_git_status": "tracked",
+            "required_workflow_visibility": True,
+            "blocker": blocker,
+        },
+    )
+    write_text_lf(
+        BATCH013_DIR / "targeted_seed_required_next_action.md",
+        "\n".join(
+            [
+                "# Targeted prospective seed required after locks",
+                "",
+                f"Blocker: `{blocker}`.",
+                "",
+                f"Commit a reviewed targeted prospective seed at `{seed_path.as_posix()}` so the workflow can see the exact same seed bytes.",
+                "",
+                "The acquisition locks, command manifest placeholder, workspace purity gate, registry drift precheck, gate-chain trace, and rollback proof ledger are ready. No source checkout, issue-derived fallback, repair-only fallback, or matched-null comparison ran.",
+            ]
+        ),
+    )
+    write_json_deterministic(BATCH013_DIR / "batch013_gate_chain_policy.json", batch013_gate_chain_policy())
+    write_json_deterministic(BATCH013_DIR / "batch013_gate_chain_execution_trace.json", gate_trace)
+    write_json_deterministic(BATCH013_DIR / "batch013_gate_dependency_audit.json", gate_dependency)
+    write_json_deterministic(BATCH013_DIR / "active_context_filtering_policy.json", active_context_filtering_policy())
+    write_json_deterministic(BATCH013_DIR / "active_context_filter_manifest.json", filtering_manifest)
+    write_json_deterministic(BATCH013_DIR / "memory_enabled_context_before_filter.json", {"status": "NOT_RUN", "context_paths": [], "blocker": blocker})
+    write_json_deterministic(BATCH013_DIR / "memory_enabled_context_after_filter.json", {"status": "NOT_RUN", "context_paths": [], "blocker": blocker})
+    write_json_deterministic(BATCH013_DIR / "context_filter_delta_audit.json", filter_delta)
+    write_json_deterministic(BATCH013_DIR / "curvature_heuristic_freeze.json", curvature_heuristic_freeze())
+    write_json_deterministic(BATCH013_DIR / "curvature_score_formula.json", curvature_score_formula())
+    write_json_deterministic(BATCH013_DIR / "curvature_thresholds.json", curvature_thresholds())
+    write_json_deterministic(
+        BATCH013_DIR / "proof_obligations_ledger.json",
+        {
+            "status": "PASS",
+            "entries": gate_trace + [rollback_entry],
+            "rollback_block_present": True,
+            "rollback_blocker": blocker,
+            "next_allowed_action": "commit_reviewed_targeted_prospective_seed_batch013",
+        },
+    )
+    write_json_deterministic(BATCH013_DIR / "five_locks_curvature_cross_gate.json", five_locks_cross_gate)
+    write_json_deterministic(BATCH013_DIR / "issue_derived_temporal_and_classification_audit.json", issue_temporal)
+    write_json_deterministic(BATCH013_DIR / "global_curvature_logic_policy.json", policy)
+    write_json_deterministic(
+        BATCH013_DIR / "curvature_logic_enforcement_status.json",
+        {
+            "status": "PASS_WITH_SEED_BLOCKED",
+            "global_policy_loaded": policy["status"] == "PASS",
+            "curvature_used_as_proof": False,
+            "curvature_outputs_generated_before_seed": True,
+            "blocker": blocker,
+        },
+    )
+    write_json_deterministic(
+        BATCH013_DIR / "curvature_trace_audit.json",
+        {
+            "status": "PASS",
+            "candidate_selection_ran": False,
+            "source_route_selection_ran": False,
+            "repair_generation_ran": False,
+            "curvature_claim_boundary_status": claim_boundary["status"],
+            "blocker": blocker,
+        },
+    )
+    write_json_deterministic(BATCH013_DIR / "curvature_feature_vector_schema.json", schema)
+    write_json_deterministic(BATCH013_DIR / "candidate_curvature_feature_vectors.json", {"status": "NOT_RUN", "vectors": [vector], "blocker": blocker})
+    write_json_deterministic(BATCH013_DIR / "basin_stability_check_policy.json", basin_stability_check_policy())
+    write_json_deterministic(BATCH013_DIR / "basin_stability_scores.json", {"status": "NOT_RUN", "scores": [basin], "blocker": blocker})
+    write_json_deterministic(BATCH013_DIR / "two_winner_global_policy.json", two_winner_global_policy())
+    write_json_deterministic(BATCH013_DIR / "two_winner_decision_records.json", {"status": "NOT_RUN", "records": [two_winner_record], "blocker": blocker})
+    write_json_deterministic(BATCH013_DIR / "curvature_memory_routing_policy.json", curvature_memory_routing_policy())
+    write_json_deterministic(BATCH013_DIR / "curvature_memory_routing_audit.json", {**memory_routing_audit, "status": "NOT_RUN", "blocker": blocker})
+    write_json_deterministic(BATCH013_DIR / "curvature_fragment_planning_policy.json", curvature_fragment_planning_policy())
+    write_json_deterministic(BATCH013_DIR / "curvature_fragment_plan.json", fragment_plan)
+    write_json_deterministic(BATCH013_DIR / "null_ensemble_curvature_fairness_policy.json", null_ensemble_curvature_fairness_policy())
+    write_json_deterministic(BATCH013_DIR / "null_ensemble_curvature_fairness_audit.json", null_fairness)
+    write_json_deterministic(BATCH013_DIR / "curvature_claim_boundary.json", claim_boundary)
+    write_json_deterministic(BATCH013_DIR / "native_verification_result.json", {**no_run, "native_candidate_verified": False, "pre_repair_failure_reproduced": False})
+    write_json_deterministic(BATCH013_DIR / "issue_derived_harness_policy.json", issue_derived_harness_policy())
+    write_json_deterministic(BATCH013_DIR / "issue_derived_harness_verification_result.json", issue_derived_verification_not_run(blocker))
+    write_json_deterministic(BATCH013_DIR / "prospective_memory_eligibility_gate.json", {**no_run, "eligible": False})
+    write_json_deterministic(BATCH013_DIR / "route_diversity_status.json", {**no_run, "route_count": 0})
+    write_json_deterministic(BATCH013_DIR / "status_feature_mappability.json", {**no_run, "mapped_feature_count": 0})
+    write_json_deterministic(BATCH013_DIR / "matched_null_ensemble_summary.json", {**no_run, "null_ensemble_run_count": 0, "matched_null_score": None})
+    write_json_deterministic(BATCH013_DIR / "repair_only_fallback_summary.json", {**repair_only_fallback_evaluation(attempted=False, repair_succeeded=False), "blocker": blocker})
+    write_json_deterministic(
+        BATCH013_DIR / "claim_boundary.json",
+        {
+            "status": "PASS",
+            "full_scoring": "NOT_RUN/disallowed",
+            "full_memory_lift_claimed": False,
+            "memory_lift": "not_demonstrated",
+            "self_maintaining_software": "false/not_demonstrated",
+            "technical_validation_release_readiness": "not_ready",
+            "native_issue_derived_counts_separate": True,
+            "preliminary_prospective_single_candidate_memory_separation_evidence": False,
+            "confirmed_native_repair_episode_count": 4,
+            "confirmed_issue_derived_repair_episode_count": 0,
+        },
+    )
+    traceability = {
+        "status": "PASS",
+        "source_commit_environment_lock": "implemented_active_ready_no_seed",
+        "target_command_manifest": "implemented_active_ready_no_seed",
+        "fresh_workspace_purity_gate": "implemented_active_ready_no_seed",
+        "baseline_registry_drift_precheck": "implemented_active",
+        "rollback_block_ledger": "implemented_active",
+        "global_curvature_logic_enforcement": "implemented_active",
+        "curvature_feature_vector": "implemented_partial_no_candidate",
+        "basin_stability_check": "implemented_partial_no_candidate",
+        "two_winner_global_policy": "implemented_partial_no_candidate",
+        "curvature_memory_routing": "implemented_partial_no_candidate",
+        "curvature_guided_fragment_planning": "implemented_partial_no_repair_run",
+        "null_ensemble_curvature_fairness": "implemented_partial_no_ensemble_run",
+        "batch013_gate_chain_binding": "implemented_active",
+        "targeted_seed_git_tracking": "implemented_active_blocked_missing_seed",
+        "active_context_filtering": "implemented_partial_no_candidate",
+        "curvature_heuristic_freeze": "implemented_active",
+        "five_locks_curvature_cross_gate": "implemented_active",
+        "issue_derived_temporal_classification": "implemented_active_not_exercised",
+        "silent_completion": False,
+        "blocker": blocker,
+    }
+    carry_forward = {
+        "status": "PASS",
+        "blockers": [
+            {
+                "blocker": blocker,
+                "next_allowed_action": "commit_reviewed_targeted_prospective_seed_batch013",
+                "seed_path": seed_path.as_posix(),
+                "minimum_condition_to_unblock": "track a reviewed seed file and rerun Batch013",
+            }
+        ],
+    }
+    write_json_deterministic(BATCH013_DIR / "notebooklm_advice_traceability_status.json", traceability)
+    write_json_deterministic(BATCH013_DIR / "carry_forward_blocker_register.json", carry_forward)
+
+    state = {
+        "lane_id": BATCH013_ID,
+        "lane_type": "acquisition_locks_and_targeted_seed_intake_hardening",
+        "status": "BLOCK",
+        "exact_blocker": blocker,
+        "current_protocol_version": "v2.13",
+        "targeted_seed_path": seed_path.as_posix(),
+        "targeted_seed_present": seed_present,
+        "targeted_seed_validation_status": schema_validation["status"],
+        "targeted_seed_git_tracking_status": git_tracking["status"],
+        "targeted_seed_workflow_visibility_status": workflow_visibility["status"],
+        "source_commit_environment_lock_status": env_summary["status"],
+        "target_command_manifest_status": command_summary["status"],
+        "fresh_workspace_purity_status": workspace_report["status"],
+        "baseline_registry_drift_precheck_status": baseline_precheck["status"],
+        "rollback_block_ledger_status": rollback_audit["status"],
+        "acquisition_lock_stack_status": lock_stack_status["status"],
+        "batch013_gate_chain_status": gate_dependency["status"],
+        "active_context_filtering_status": filtering_manifest["status"],
+        "curvature_heuristic_freeze_status": "PASS",
+        "five_locks_curvature_cross_gate_status": five_locks_cross_gate["status"],
+        "issue_derived_temporal_classification_status": issue_temporal["status"],
+        "global_curvature_logic_status": "PASS_WITH_SEED_BLOCKED",
+        "curvature_feature_vector_status": "NOT_RUN",
+        "basin_stability_check_status": "NOT_RUN",
+        "two_winner_global_policy_status": "NOT_RUN",
+        "curvature_candidate_selection_status": "NOT_RUN",
+        "curvature_source_route_selection_status": "NOT_RUN",
+        "curvature_memory_routing_status": "NOT_RUN",
+        "curvature_fragment_planning_status": fragment_plan["status"],
+        "null_curvature_fairness_status": null_fairness["status"],
+        "curvature_claim_boundary_status": claim_boundary["status"],
+        "curvature_blocker_if_any": claim_boundary["blocker"],
+        "gate_chain_blocker_if_any": blocker,
+        "candidate_class": None,
+        "native_verification_status": "NOT_RUN",
+        "issue_derived_verification_status": "NOT_RUN",
+        "prospective_memory_eligibility_status": "NOT_RUN",
+        "route_diversity_status": "NOT_RUN",
+        "mappable_status_feature_status": "NOT_RUN",
+        "matched_null_ensemble_run_count": 0,
+        "matched_null_score": None,
+        "preliminary_prospective_single_candidate_memory_separation_evidence": False,
+        "repair_only_fallback_attempted": False,
+        "additional_native_repair_acquired": False,
+        "additional_issue_derived_repair_feasibility": False,
+        "confirmed_native_repair_episode_count": int(batch012_state.get("confirmed_native_repair_episode_count", 4)),
+        "confirmed_issue_derived_repair_episode_count": 0,
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "not_demonstrated",
+        "self_maintaining_software": "false/not_demonstrated",
+    }
+    write_json_deterministic(BATCH013_DIR / "consolidated_state_clean_replication_batch_013.json", state)
+    write_text_lf(
+        BATCH013_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication batch 013",
+                "",
+                "Status: BLOCK.",
+                "",
+                "Batch013 implements acquisition/materialization locks, gate-chain binding, tracked seed enforcement, active context filtering records, and frozen routing-score policy before any new candidate can run.",
+                "",
+                "The configured targeted seed is absent, so the lane stops after the locks are ready and before source checkout, native replay, issue-derived fallback, repair-only fallback, or matched-null comparison.",
+                "",
+                f"Exact blocker: `{blocker}`.",
+            ]
+        ),
+    )
+    write_sha256sums(BATCH013_DIR)
+    return state
+
+
 def main() -> int:
     POST_DIR.mkdir(parents=True, exist_ok=True)
     BATCH_DIR.mkdir(parents=True, exist_ok=True)
@@ -5586,6 +6141,7 @@ def main() -> int:
     BATCH010_DIR.mkdir(parents=True, exist_ok=True)
     BATCH011_DIR.mkdir(parents=True, exist_ok=True)
     BATCH012_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH013_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
@@ -5599,6 +6155,7 @@ def main() -> int:
     batch010_state = write_batch010_outputs(batch009_state)
     batch011_state = write_batch011_outputs(batch010_state)
     batch012_state = write_batch012_outputs(batch011_state)
+    batch013_state = write_batch013_outputs(batch012_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -5613,6 +6170,7 @@ def main() -> int:
         "configs/clean_replication_batch_010.json",
         "configs/clean_replication_batch_011.json",
         "configs/clean_replication_batch_012.json",
+        "configs/clean_replication_batch_013.json",
         "configs/notebooklm_advice_traceability_matrix.json",
         "configs/operational_gate_matrix.json",
         "inputs/clean_replication_batch_002_lead_pool.json",
@@ -5735,6 +6293,7 @@ def main() -> int:
             "batch010_artifact_name": "post_v2_37_hardening_batch010_active_memory_routing_artifacts",
             "batch011_artifact_name": "post_v2_37_hardening_batch011_prospective_memory_challenge_artifacts",
             "batch012_artifact_name": "post_v2_37_hardening_batch012_targeted_seed_artifacts",
+            "batch013_artifact_name": "post_v2_37_hardening_batch013_acquisition_locks_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
@@ -5789,7 +6348,9 @@ def main() -> int:
         },
     )
 
-    if batch012_state.get("status") == "BLOCK":
+    if batch013_state.get("status") == "BLOCK":
+        final_status = "PASS_WITH_BATCH013_BLOCKED"
+    elif batch012_state.get("status") == "BLOCK":
         final_status = "PASS_WITH_BATCH012_BLOCKED"
     elif batch011_state.get("status") == "BLOCK":
         final_status = "PASS_WITH_BATCH011_BLOCKED"
@@ -5806,7 +6367,7 @@ def main() -> int:
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     final_report = {
         "status": final_status,
-        "exact_blocker": batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
+        "exact_blocker": batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
         "batch002_exact_blocker": batch_state["exact_blocker"],
         "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
@@ -6019,6 +6580,51 @@ def main() -> int:
         "batch012_additional_issue_derived_repair_feasibility": batch012_state["additional_issue_derived_repair_feasibility"],
         "batch012_confirmed_native_repair_episode_count": batch012_state["confirmed_native_repair_episode_count"],
         "batch012_confirmed_issue_derived_repair_episode_count": batch012_state["confirmed_issue_derived_repair_episode_count"],
+        "clean_replication_batch_013_status": batch013_state["status"],
+        "clean_replication_batch_013_exact_blocker": batch013_state.get("exact_blocker"),
+        "batch013_source_commit_environment_lock_status": batch013_state["source_commit_environment_lock_status"],
+        "batch013_target_command_manifest_status": batch013_state["target_command_manifest_status"],
+        "batch013_external_command_manifest_status": batch013_state["target_command_manifest_status"],
+        "batch013_fresh_workspace_purity_status": batch013_state["fresh_workspace_purity_status"],
+        "batch013_baseline_registry_drift_precheck_status": batch013_state["baseline_registry_drift_precheck_status"],
+        "batch013_rollback_block_ledger_status": batch013_state["rollback_block_ledger_status"],
+        "batch013_acquisition_lock_stack_status": batch013_state["acquisition_lock_stack_status"],
+        "batch013_targeted_seed_present": batch013_state["targeted_seed_present"],
+        "batch013_targeted_seed_validation_status": batch013_state["targeted_seed_validation_status"],
+        "batch013_targeted_seed_git_tracking_status": batch013_state["targeted_seed_git_tracking_status"],
+        "batch013_targeted_seed_workflow_visibility_status": batch013_state["targeted_seed_workflow_visibility_status"],
+        "batch013_candidate_class": batch013_state["candidate_class"],
+        "batch013_native_verification_status": batch013_state["native_verification_status"],
+        "batch013_issue_derived_verification_status": batch013_state["issue_derived_verification_status"],
+        "batch013_prospective_memory_eligibility_status": batch013_state["prospective_memory_eligibility_status"],
+        "batch013_route_diversity_status": batch013_state["route_diversity_status"],
+        "batch013_mappable_status_feature_status": batch013_state["mappable_status_feature_status"],
+        "batch013_matched_null_ensemble_run_count": batch013_state["matched_null_ensemble_run_count"],
+        "batch013_matched_null_score": batch013_state["matched_null_score"],
+        "batch013_preliminary_prospective_memory_separation_evidence": batch013_state["preliminary_prospective_single_candidate_memory_separation_evidence"],
+        "batch013_repair_only_fallback_attempted": batch013_state["repair_only_fallback_attempted"],
+        "batch013_additional_native_repair_acquired": batch013_state["additional_native_repair_acquired"],
+        "batch013_additional_issue_derived_repair_feasibility": batch013_state["additional_issue_derived_repair_feasibility"],
+        "batch013_confirmed_native_repair_episode_count": batch013_state["confirmed_native_repair_episode_count"],
+        "batch013_confirmed_issue_derived_repair_episode_count": batch013_state["confirmed_issue_derived_repair_episode_count"],
+        "global_curvature_logic_status": batch013_state["global_curvature_logic_status"],
+        "curvature_feature_vector_status": batch013_state["curvature_feature_vector_status"],
+        "basin_stability_check_status": batch013_state["basin_stability_check_status"],
+        "two_winner_global_policy_status": batch013_state["two_winner_global_policy_status"],
+        "curvature_candidate_selection_status": batch013_state["curvature_candidate_selection_status"],
+        "curvature_source_route_selection_status": batch013_state["curvature_source_route_selection_status"],
+        "curvature_memory_routing_status": batch013_state["curvature_memory_routing_status"],
+        "curvature_fragment_planning_status": batch013_state["curvature_fragment_planning_status"],
+        "null_curvature_fairness_status": batch013_state["null_curvature_fairness_status"],
+        "curvature_claim_boundary_status": batch013_state["curvature_claim_boundary_status"],
+        "curvature_blocker_if_any": batch013_state["curvature_blocker_if_any"],
+        "batch013_gate_chain_status": batch013_state["batch013_gate_chain_status"],
+        "active_context_filtering_status": batch013_state["active_context_filtering_status"],
+        "curvature_heuristic_freeze_status": batch013_state["curvature_heuristic_freeze_status"],
+        "rollback_for_seed_failure_status": batch013_state["rollback_block_ledger_status"],
+        "five_locks_curvature_cross_gate_status": batch013_state["five_locks_curvature_cross_gate_status"],
+        "issue_derived_temporal_classification_status": batch013_state["issue_derived_temporal_classification_status"],
+        "gate_chain_blocker_if_any": batch013_state["gate_chain_blocker_if_any"],
         "active_failure_memory_weighting_status": load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("status") if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() else "NOT_RUN",
         "arm_a_memory_routing_delta_status": "PASS" if (BATCH_DIR / "arm_a_active_failure_memory_weighting.json").is_file() and load_json(BATCH_DIR / "arm_a_active_failure_memory_weighting.json").get("failure_memory_markers_passive") is False else "PASSIVE_OR_NOT_RUN",
         "arm_b_memory_exclusion_status": load_json(BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").get("status") if (BATCH_DIR / "arm_b_memory_disabled_exclusion_audit.json").is_file() else "NOT_RUN",
@@ -6069,7 +6675,7 @@ def main() -> int:
             "v2_37_official_artifact_verification": v2_37_record,
             "claim_boundary": {
                 "full_scoring": "NOT_RUN/disallowed",
-                "memory_lift": batch012_state.get("memory_lift", "not_demonstrated"),
+                "memory_lift": batch013_state.get("memory_lift", "not_demonstrated"),
                 "self_maintaining_software": "false/not_demonstrated",
             },
         },
@@ -6116,13 +6722,17 @@ def main() -> int:
                 "",
                 f"Batch012 status: `{batch012_state['status']}`; exact blocker: `{batch012_state['exact_blocker']}`.",
                 "",
+                "Batch013 adds acquisition/materialization locks, gate-chain binding, tracked seed enforcement, active context filtering records, and frozen routing-score policy. It blocks only after those locks are ready because the required tracked targeted seed is absent.",
+                "",
+                f"Batch013 status: `{batch013_state['status']}`; exact blocker: `{batch013_state['exact_blocker']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
     )
     write_public_docs_reports()
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     write_json_deterministic(
@@ -6138,7 +6748,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

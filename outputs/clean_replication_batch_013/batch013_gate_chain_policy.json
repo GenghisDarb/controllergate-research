@@ -1,0 +1,20 @@
+{
+  "blocker_if_order_violated": "gate_chain_order_violation",
+  "blocker_if_seed_missing": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+  "downstream_execution_requires_all_upstream_pass": true,
+  "gate_order": [
+    "baseline_registry_drift_precheck",
+    "source_commit_environment_lock",
+    "target_command_manifest",
+    "fresh_workspace_purity",
+    "targeted_seed_presence_and_git_tracking",
+    "targeted_seed_schema_validation",
+    "targeted_seed_forbidden_evidence_audit",
+    "native_first_replay_or_issue_derived_fallback",
+    "curvature_feature_mapping",
+    "prospective_memory_eligibility",
+    "matched_null_preregistration"
+  ],
+  "seed_gate_requires_tracked_file": true,
+  "status": "PASS"
+}

@@ -919,6 +919,589 @@
       "status": "implemented_partial"
     },
     {
+      "advice_id": "source_commit_environment_lock",
+      "blocker_if_missing": "source_commit_environment_lock_missing",
+      "blockers": [
+        "source_commit_environment_lock_missing",
+        "source_commit_environment_lock_mismatch"
+      ],
+      "claim_boundary": "environment lock readiness is not replay success",
+      "current_repo_mechanism": "Batch013 records that environment metadata must be tied to the selected source commit before source acquisition or replay",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/source_commit_environment_lock_policy.json",
+        "outputs/clean_replication_batch_013/source_commit_environment_lock_summary.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Source Commit Environment Lock",
+      "public_engineering_name": "Source Commit Environment Lock",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "source acquisition is not allowed until source commit and environment lock metadata agree"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/environment_lock.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/source_commit_environment_lock_policy.json",
+        "outputs/clean_replication_batch_013/source_commit_environment_lock_summary.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "target_command_manifest",
+      "blocker_if_missing": "target_command_manifest_missing",
+      "blockers": [
+        "target_command_manifest_missing",
+        "target_command_manifest_forbidden_framework_state"
+      ],
+      "claim_boundary": "command manifest readiness is not validation",
+      "current_repo_mechanism": "Batch013 requires explicit command, cwd, environment, provenance basis, and allowed setup commands before target replay",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/target_command_manifest_policy.json",
+        "outputs/clean_replication_batch_013/target_command_manifest_summary.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Target Command Manifest",
+      "public_engineering_name": "Target Command Manifest",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "hidden framework command state is not accepted"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/command_manifest.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/target_command_manifest_policy.json",
+        "outputs/clean_replication_batch_013/target_command_manifest_summary.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "fresh_workspace_purity_gate",
+      "blocker_if_missing": "workspace_purity_failed",
+      "blockers": [
+        "workspace_purity_failed",
+        "stale_cache_contamination_detected"
+      ],
+      "claim_boundary": "workspace purity is a safety precondition",
+      "current_repo_mechanism": "Batch013 records workspace purity requirements before any source checkout or replay can run",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/fresh_workspace_purity_policy.json",
+        "outputs/clean_replication_batch_013/workspace_purity_report.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Fresh Workspace Purity Gate",
+      "public_engineering_name": "Fresh Workspace Purity Gate",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "runtime workspace must be outside the live repo and free of stale cache/runtime state"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/workspace_purity.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/fresh_workspace_purity_policy.json",
+        "outputs/clean_replication_batch_013/workspace_purity_report.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "baseline_registry_drift_precheck",
+      "blocker_if_missing": "baseline_registry_drift_detected",
+      "blockers": [
+        "baseline_registry_drift_detected",
+        "confirmed_repair_episode_count_mismatch"
+      ],
+      "claim_boundary": "registry stability is custody evidence only",
+      "current_repo_mechanism": "Batch013 snapshots the external repair registry before new acquisition and blocks on count or claim-boundary drift",
+      "evidence_class": "infrastructure",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/baseline_registry_drift_precheck_policy.json",
+        "outputs/clean_replication_batch_013/baseline_registry_drift_precheck.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Baseline Registry Drift Precheck",
+      "public_engineering_name": "Baseline Registry Drift Precheck",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "confirmed native and issue-derived counts remain unchanged"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/baseline_precheck.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/baseline_registry_drift_precheck_policy.json",
+        "outputs/clean_replication_batch_013/baseline_registry_drift_precheck.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "rollback_block_ledger",
+      "blocker_if_missing": "rollback_block_missing",
+      "blockers": [
+        "rollback_block_missing",
+        "rollback_block_hash_chain_broken"
+      ],
+      "claim_boundary": "rollback entries are proof-state records, not repair success",
+      "current_repo_mechanism": "Batch013 records a rollback block entry when the tracked seed is missing after upstream locks pass",
+      "evidence_class": "infrastructure",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/rollback_block_ledger_policy.json",
+        "outputs/clean_replication_batch_013/rollback_block_ledger_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Rollback Block Ledger",
+      "public_engineering_name": "Rollback Block Ledger",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "blocked branches include previous-state, attempted-state, and rollback hashes"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/rollback_ledger.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/rollback_block_ledger_policy.json",
+        "outputs/clean_replication_batch_013/rollback_block_ledger_audit.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "global_curvature_logic_enforcement",
+      "blocker_if_missing": "curvature_logic_policy_missing",
+      "blockers": [
+        "curvature_logic_policy_missing",
+        "curvature_claim_boundary_violation"
+      ],
+      "claim_boundary": "routing scores cannot prove repair or memory lift",
+      "current_repo_mechanism": "Batch013 enforces that routing-score logic is triage only and cannot replace replay, validation, duplicate replay, or byte custody",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/global_curvature_logic_policy.json",
+        "outputs/clean_replication_batch_013/curvature_logic_enforcement_status.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Global Curvature Logic Enforcement",
+      "public_engineering_name": "Global Curvature Logic Enforcement",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "routing-score outputs are present but cannot authorize proof claims"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/global_curvature_logic_policy.json",
+        "outputs/clean_replication_batch_013/curvature_logic_enforcement_status.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "curvature_feature_vector",
+      "blocker_if_missing": "curvature_feature_vector_missing",
+      "blockers": [
+        "curvature_feature_vector_missing"
+      ],
+      "claim_boundary": "feature vectors are routing evidence only",
+      "current_repo_mechanism": "Batch013 freezes the required feature-vector schema before seed intake; no candidate vector is admitted while the tracked seed is absent",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/curvature_feature_vector_schema.json",
+        "outputs/clean_replication_batch_013/candidate_curvature_feature_vectors.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Curvature Feature Vector",
+      "public_engineering_name": "Curvature Feature Vector",
+      "reason_if_deferred_or_rejected": "No candidate is admitted until the tracked seed gate passes",
+      "required_audit_assertions": [
+        "feature vectors are schema-checked and cannot use forbidden evidence"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/curvature_feature_vector_schema.json",
+        "outputs/clean_replication_batch_013/candidate_curvature_feature_vectors.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "basin_stability_check",
+      "blocker_if_missing": "curvature_flatline_signal_rejected",
+      "blockers": [
+        "curvature_flatline_signal_rejected",
+        "curvature_no_patchable_basin"
+      ],
+      "claim_boundary": "stability score is not repair success",
+      "current_repo_mechanism": "Batch013 records the basin stability policy and blocks candidate-specific scoring while no seed is admitted",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/basin_stability_check_policy.json",
+        "outputs/clean_replication_batch_013/basin_stability_scores.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Basin Stability Check",
+      "public_engineering_name": "Basin Stability Check",
+      "reason_if_deferred_or_rejected": "No candidate is admitted until the tracked seed gate passes",
+      "required_audit_assertions": [
+        "flatline, precondition-only, and no-patchable-source cases cannot be promoted"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/basin_stability_check_policy.json",
+        "outputs/clean_replication_batch_013/basin_stability_scores.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "two_winner_global_policy",
+      "blocker_if_missing": "curvature_no_separable_memory_route",
+      "blockers": [
+        "curvature_no_separable_memory_route"
+      ],
+      "claim_boundary": "two-winner selection cannot authorize patch generation",
+      "current_repo_mechanism": "Batch013 records direct and routing-score winner policy before seed intake; no route winner is selected while no candidate is admitted",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/two_winner_global_policy.json",
+        "outputs/clean_replication_batch_013/two_winner_decision_records.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Two-Winner Global Policy",
+      "public_engineering_name": "Two-Winner Global Policy",
+      "reason_if_deferred_or_rejected": "No candidate is admitted until the tracked seed gate passes",
+      "required_audit_assertions": [
+        "winner selection cannot be forced without route evidence"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/two_winner_global_policy.json",
+        "outputs/clean_replication_batch_013/two_winner_decision_records.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "curvature_memory_routing",
+      "blocker_if_missing": "curvature_memory_routing_delta_not_established",
+      "blockers": [
+        "curvature_memory_routing_delta_not_established",
+        "curvature_memory_feature_unmapped"
+      ],
+      "claim_boundary": "memory routing is diagnostic until matched-null evidence separates",
+      "current_repo_mechanism": "Batch013 records that memory-weighted routing must change source/context/generation routing and cannot use prior patch bytes",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/curvature_memory_routing_policy.json",
+        "outputs/clean_replication_batch_013/curvature_memory_routing_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Curvature Memory Routing",
+      "public_engineering_name": "Curvature Memory Routing",
+      "reason_if_deferred_or_rejected": "No admitted candidate exists in Batch013",
+      "required_audit_assertions": [
+        "scalar-only or unmapped feature changes cannot support memory-routing claims"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/curvature_memory_routing_policy.json",
+        "outputs/clean_replication_batch_013/curvature_memory_routing_audit.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "curvature_fragment_planning",
+      "blocker_if_missing": "curvature_fragment_route_missing",
+      "blockers": [
+        "curvature_fragment_route_missing",
+        "curvature_fragment_interlock_missing"
+      ],
+      "claim_boundary": "fragment planning is not patch authorization",
+      "current_repo_mechanism": "Batch013 records fragment-planning policy but does not plan fragments while the seed gate blocks",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/curvature_fragment_planning_policy.json",
+        "outputs/clean_replication_batch_013/curvature_fragment_plan.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Curvature Fragment Planning",
+      "public_engineering_name": "Curvature Fragment Planning",
+      "reason_if_deferred_or_rejected": "No repair run is authorized in Batch013",
+      "required_audit_assertions": [
+        "fragment plans require selected route and interlock invariant"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/curvature_fragment_planning_policy.json",
+        "outputs/clean_replication_batch_013/curvature_fragment_plan.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "null_ensemble_curvature_fairness",
+      "blocker_if_missing": "null_curvature_fairness_failed",
+      "blockers": [
+        "null_curvature_fairness_failed"
+      ],
+      "claim_boundary": "null fairness does not prove memory lift",
+      "current_repo_mechanism": "Batch013 records the null fairness policy; ensemble execution remains not run while no candidate verifies",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/null_ensemble_curvature_fairness_policy.json",
+        "outputs/clean_replication_batch_013/null_ensemble_curvature_fairness_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Null Ensemble Curvature Fairness",
+      "public_engineering_name": "Null Ensemble Curvature Fairness",
+      "reason_if_deferred_or_rejected": "No null ensemble runs in Batch013",
+      "required_audit_assertions": [
+        "null arms must receive matching routing-score feature vectors without memory weights"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/null_ensemble_curvature_fairness_policy.json",
+        "outputs/clean_replication_batch_013/null_ensemble_curvature_fairness_audit.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "curvature_claim_boundary",
+      "blocker_if_missing": "curvature_claim_boundary_violation",
+      "blockers": [
+        "curvature_claim_boundary_violation"
+      ],
+      "claim_boundary": "claim boundary prevents overclaiming",
+      "current_repo_mechanism": "Batch013 records that route diversity, non-scalar routing deltas, null fairness, and repair/memory separation are required before memory claims",
+      "evidence_class": "public_docs",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/curvature_claim_boundary.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "continuous",
+      "operational_gate_name": "Curvature Claim Boundary",
+      "public_engineering_name": "Curvature Claim Boundary",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "routing-score diagnostics cannot claim memory lift or release readiness"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/curvature_claim_boundary.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "batch013_gate_chain_binding",
+      "blocker_if_missing": "gate_chain_order_violation",
+      "blockers": [
+        "gate_chain_order_violation",
+        "targeted_prospective_seed_missing_or_invalid_after_locks_ready"
+      ],
+      "claim_boundary": "gate-chain binding is proof custody only",
+      "current_repo_mechanism": "Batch013 records ordered gate hashes and blocks all downstream gates after the missing tracked seed",
+      "evidence_class": "infrastructure",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/batch013_gate_chain_policy.json",
+        "outputs/clean_replication_batch_013/batch013_gate_chain_execution_trace.json",
+        "outputs/clean_replication_batch_013/batch013_gate_dependency_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Batch013 Gate-Chain Binding",
+      "public_engineering_name": "Batch013 Gate-Chain Binding",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "downstream gates are NOT_RUN after the first blocking gate"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/gate_chain.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/batch013_gate_chain_policy.json",
+        "outputs/clean_replication_batch_013/batch013_gate_chain_execution_trace.json",
+        "outputs/clean_replication_batch_013/batch013_gate_dependency_audit.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "targeted_seed_git_tracking",
+      "blocker_if_missing": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+      "blockers": [
+        "targeted_prospective_seed_missing_or_invalid_after_locks_ready"
+      ],
+      "claim_boundary": "tracked seed status is an admission gate",
+      "current_repo_mechanism": "Batch013 requires the targeted seed to exist as a tracked workflow-visible file before candidate acquisition",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/targeted_seed_git_tracking_audit.json",
+        "outputs/clean_replication_batch_013/targeted_seed_workflow_visibility_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Tracked Targeted Seed Enforcement",
+      "public_engineering_name": "Tracked Targeted Seed Enforcement",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "untracked, ignored, or workflow-invisible seed bytes cannot authorize acquisition"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/targeted_seed.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/targeted_seed_git_tracking_audit.json",
+        "outputs/clean_replication_batch_013/targeted_seed_workflow_visibility_audit.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "active_context_filtering",
+      "blocker_if_missing": "active_context_filter_removed_all_legal_source",
+      "blockers": [
+        "active_context_filter_removed_all_legal_source",
+        "active_context_filter_forbidden_memory_input"
+      ],
+      "claim_boundary": "context filtering is routing evidence only",
+      "current_repo_mechanism": "Batch013 records active context filtering policy but no candidate context is admitted while the seed is absent",
+      "evidence_class": "diagnostic",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/active_context_filtering_policy.json",
+        "outputs/clean_replication_batch_013/active_context_filter_manifest.json",
+        "outputs/clean_replication_batch_013/context_filter_delta_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Active Context Filtering",
+      "public_engineering_name": "Active Context Filtering",
+      "reason_if_deferred_or_rejected": "No context is admitted until the tracked seed gate passes",
+      "required_audit_assertions": [
+        "filtering cannot remove every legal source path and cannot use forbidden memory inputs"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/active_context_filtering.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/active_context_filtering_policy.json",
+        "outputs/clean_replication_batch_013/active_context_filter_manifest.json",
+        "outputs/clean_replication_batch_013/context_filter_delta_audit.json"
+      ],
+      "status": "implemented_partial"
+    },
+    {
+      "advice_id": "curvature_heuristic_freeze",
+      "blocker_if_missing": "curvature_heuristic_post_hoc_change_detected",
+      "blockers": [
+        "curvature_heuristic_post_hoc_change_detected"
+      ],
+      "claim_boundary": "frozen score rules are not repair evidence",
+      "current_repo_mechanism": "Batch013 freezes routing-score formula and thresholds before any seed-specific evidence can be used",
+      "evidence_class": "memory_experiment",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/curvature_heuristic_freeze.json",
+        "outputs/clean_replication_batch_013/curvature_score_formula.json",
+        "outputs/clean_replication_batch_013/curvature_thresholds.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Curvature Heuristic Freeze",
+      "public_engineering_name": "Curvature Heuristic Freeze",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "post-hoc score changes after seed intake are forbidden"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/curvature_heuristic_freeze.json",
+        "outputs/clean_replication_batch_013/curvature_score_formula.json",
+        "outputs/clean_replication_batch_013/curvature_thresholds.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "five_locks_curvature_cross_gate",
+      "blocker_if_missing": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+      "blockers": [
+        "targeted_prospective_seed_missing_or_invalid_after_locks_ready"
+      ],
+      "claim_boundary": "cross-gate readiness is not candidate success",
+      "current_repo_mechanism": "Batch013 verifies that baseline, environment, command, workspace, and tracked-seed locks block routing-score selection and repair work until all pass",
+      "evidence_class": "infrastructure",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/five_locks_curvature_cross_gate.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Five-Locks Curvature Cross Gate",
+      "public_engineering_name": "Five-Locks Curvature Cross Gate",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "candidate selection, replay, repair, and matched-null remain disabled while seed tracking blocks"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/gate_chain.py",
+        "controllergate/core/curvature_selection.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/five_locks_curvature_cross_gate.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "issue_derived_temporal_classification",
+      "blocker_if_missing": "issue_derived_temporal_guard_failed",
+      "blockers": [
+        "issue_derived_temporal_guard_failed",
+        "issue_derived_classification_conflated"
+      ],
+      "claim_boundary": "issue-derived evidence is not native repair evidence",
+      "current_repo_mechanism": "Batch013 records that issue-derived fallback remains not run and cannot increment native counts",
+      "evidence_class": "issue_derived",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_013/issue_derived_temporal_and_classification_audit.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "targeted_seed_handoff",
+      "operational_gate_name": "Issue-Derived Temporal and Classification Guard",
+      "public_engineering_name": "Issue-Derived Temporal and Classification Guard",
+      "reason_if_deferred_or_rejected": "",
+      "required_audit_assertions": [
+        "issue-derived path remains separate and temporal guard is required before use"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/evidence_classes.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_013/issue_derived_temporal_and_classification_audit.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
       "advice_id": "high_pass_source_ranking_filter",
       "blocker_if_missing": "high_pass_filter_no_legal_source_remaining",
       "blockers": [
@@ -1378,7 +1961,7 @@
       "status": "deferred_with_blocker"
     }
   ],
-  "entry_count": 45,
+  "entry_count": 64,
   "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch007",
   "status": "PASS",
   "terminology_policy": "neutral_engineering_terms_only"

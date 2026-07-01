@@ -1,0 +1,121 @@
+{
+  "blocker": null,
+  "broken_entry_indices": [],
+  "entries": [
+    {
+      "blocked_by_gate": null,
+      "blocker": null,
+      "gate_id": "baseline_registry_drift_precheck",
+      "gate_index": 1,
+      "input_hash": "d76abd970e9fe01e39bbb1791b140a79536eb155c679e27e6025560083432562",
+      "output_hash": "50ac23e84df9e61454a58fdd7f8114a48aaf954dce65889a51609998c9d4d3c7",
+      "status": "PASS"
+    },
+    {
+      "blocked_by_gate": null,
+      "blocker": null,
+      "gate_id": "source_commit_environment_lock",
+      "gate_index": 2,
+      "input_hash": "50ac23e84df9e61454a58fdd7f8114a48aaf954dce65889a51609998c9d4d3c7",
+      "output_hash": "3427718c20fc48ddfc6eff6110abdc506f753a56447abc8ab4dcbac67575a456",
+      "status": "PASS"
+    },
+    {
+      "blocked_by_gate": null,
+      "blocker": null,
+      "gate_id": "target_command_manifest",
+      "gate_index": 3,
+      "input_hash": "3427718c20fc48ddfc6eff6110abdc506f753a56447abc8ab4dcbac67575a456",
+      "output_hash": "53d9fa45ab707809f87b6ea04db964ccc91b47c5c4432342e62300d46e00a711",
+      "status": "PASS"
+    },
+    {
+      "blocked_by_gate": null,
+      "blocker": null,
+      "gate_id": "fresh_workspace_purity",
+      "gate_index": 4,
+      "input_hash": "53d9fa45ab707809f87b6ea04db964ccc91b47c5c4432342e62300d46e00a711",
+      "output_hash": "c9c14d8e3c628eac457694d8828d5245dc2fa3b3c36acc0a53413e7571ead025",
+      "status": "PASS"
+    },
+    {
+      "blocked_by_gate": null,
+      "blocker": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+      "gate_id": "targeted_seed_presence_and_git_tracking",
+      "gate_index": 5,
+      "input_hash": "c9c14d8e3c628eac457694d8828d5245dc2fa3b3c36acc0a53413e7571ead025",
+      "output_hash": "aed16577a91b33cfba76966756a220f9aa7678d31d9186a540388db6e375f14a",
+      "status": "BLOCK"
+    },
+    {
+      "blocked_by_gate": "targeted_seed_presence_and_git_tracking",
+      "blocker": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+      "gate_id": "targeted_seed_schema_validation",
+      "gate_index": 6,
+      "input_hash": "a5fe6b0e420d4865e24c3f9bd98e4a6659e0267873304f6281066be6935fcca2",
+      "output_hash": "2ba3388d2ce06579a8537d72655d344520d8e5ae21ad910c18f45752c7216701",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocked_by_gate": "targeted_seed_presence_and_git_tracking",
+      "blocker": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+      "gate_id": "targeted_seed_forbidden_evidence_audit",
+      "gate_index": 7,
+      "input_hash": "a5fe6b0e420d4865e24c3f9bd98e4a6659e0267873304f6281066be6935fcca2",
+      "output_hash": "2ba3388d2ce06579a8537d72655d344520d8e5ae21ad910c18f45752c7216701",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocked_by_gate": "targeted_seed_presence_and_git_tracking",
+      "blocker": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+      "gate_id": "native_first_replay_or_issue_derived_fallback",
+      "gate_index": 8,
+      "input_hash": "a5fe6b0e420d4865e24c3f9bd98e4a6659e0267873304f6281066be6935fcca2",
+      "output_hash": "2ba3388d2ce06579a8537d72655d344520d8e5ae21ad910c18f45752c7216701",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocked_by_gate": "targeted_seed_presence_and_git_tracking",
+      "blocker": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+      "gate_id": "curvature_feature_mapping",
+      "gate_index": 9,
+      "input_hash": "a5fe6b0e420d4865e24c3f9bd98e4a6659e0267873304f6281066be6935fcca2",
+      "output_hash": "2ba3388d2ce06579a8537d72655d344520d8e5ae21ad910c18f45752c7216701",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocked_by_gate": "targeted_seed_presence_and_git_tracking",
+      "blocker": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+      "gate_id": "prospective_memory_eligibility",
+      "gate_index": 10,
+      "input_hash": "a5fe6b0e420d4865e24c3f9bd98e4a6659e0267873304f6281066be6935fcca2",
+      "output_hash": "2ba3388d2ce06579a8537d72655d344520d8e5ae21ad910c18f45752c7216701",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocked_by_gate": "targeted_seed_presence_and_git_tracking",
+      "blocker": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+      "gate_id": "matched_null_preregistration",
+      "gate_index": 11,
+      "input_hash": "a5fe6b0e420d4865e24c3f9bd98e4a6659e0267873304f6281066be6935fcca2",
+      "output_hash": "2ba3388d2ce06579a8537d72655d344520d8e5ae21ad910c18f45752c7216701",
+      "status": "NOT_RUN"
+    },
+    {
+      "action": "targeted_seed_presence_and_git_tracking",
+      "attempted_action_hash": "f92b21fccee502ff412dd5ffd56f789ae4cf9d245cc82ead392d843ef80c824b",
+      "blocker": "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
+      "chain_status": "PASS",
+      "entry_index": 5,
+      "entry_type": "ROLLBACK_BLOCK",
+      "next_allowed_action": "commit_reviewed_targeted_prospective_seed_batch013",
+      "pre_action_hash": "df8fef312a59b8c04b7cf06aca4b6d649e14e0477c2966f00b4c63cb325a43b9",
+      "previous_state_hash": "df8fef312a59b8c04b7cf06aca4b6d649e14e0477c2966f00b4c63cb325a43b9",
+      "result": "BLOCK",
+      "rollback_hash": "0d4a9abcb4bc74557b580a6b1124ee18d41d16c5445db2bfd312507960bc79bf",
+      "rollback_target_entry_index": 4
+    }
+  ],
+  "rollback_block_count": 1,
+  "status": "PASS"
+}

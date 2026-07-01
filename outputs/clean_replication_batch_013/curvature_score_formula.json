@@ -1,0 +1,16 @@
+{
+  "formula_version": "batch013_curvature_score_v1",
+  "inputs": [
+    "failure_proximity_score",
+    "traceback_centrality",
+    "import_graph_centrality",
+    "ast_closure_centrality",
+    "alternative_route_availability",
+    "target_intent_reachability_score",
+    "status_code_weight",
+    "dependency_spread_penalty",
+    "environment_precondition_friction_penalty"
+  ],
+  "score": "failure_proximity + traceback_centrality + import_graph_centrality + ast_closure_centrality + alternative_route_availability + target_intent_reachability + status_code_weight - dependency_spread_penalty - environment_precondition_friction_penalty",
+  "status": "PASS"
+}

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import subprocess
 from urllib.parse import urlparse
 
 
@@ -143,4 +144,31 @@ def native_first_order(candidate_class: str, native_test_available: bool) -> dic
         "status": "PASS",
         "native_verification_runs_first": bool(native_test_available),
         "issue_derived_allowed_after_native_failure": candidate_class == "issue_derived_reproduction_candidate",
+    }
+
+
+def seed_git_tracking_audit(path: str | Path, *, workflow_paths: list[str]) -> dict[str, object]:
+    seed_path = Path(path)
+    rel = seed_path.as_posix()
+    exists = seed_path.is_file()
+    tracked = False
+    ignored = False
+    if exists:
+        tracked = subprocess.run(["git", "ls-files", "--error-unmatch", rel], capture_output=True, text=True).returncode == 0
+        ignored = subprocess.run(["git", "check-ignore", "-q", rel], capture_output=True, text=True).returncode == 0
+    visible_paths = []
+    for workflow_path in workflow_paths:
+        path_obj = Path(workflow_path)
+        if path_obj.is_file() and rel in path_obj.read_text(encoding="utf-8", errors="replace"):
+            visible_paths.append(path_obj.as_posix())
+    status = "PASS" if exists and tracked and not ignored and visible_paths else "BLOCK"
+    return {
+        "status": status,
+        "seed_path": rel,
+        "file_exists": exists,
+        "git_tracked": tracked,
+        "ignored": ignored,
+        "workflow_visible": bool(visible_paths),
+        "workflow_visibility_paths": visible_paths,
+        "blocker": None if status == "PASS" else "targeted_prospective_seed_missing_or_invalid_after_locks_ready",
     }

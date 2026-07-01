@@ -22,7 +22,8 @@ BATCH009_DIR = Path("outputs/clean_replication_batch_009")
 BATCH010_DIR = Path("outputs/clean_replication_batch_010")
 BATCH011_DIR = Path("outputs/clean_replication_batch_011")
 BATCH012_DIR = Path("outputs/clean_replication_batch_012")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch012_targeted_seed")
+BATCH013_DIR = Path("outputs/clean_replication_batch_013")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch013_acquisition_locks")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -90,6 +91,9 @@ POST_REQUIRED = [
     "batch011_prospective_memory_challenge_artifact_verification.json",
     "batch011_no_fresh_candidate_diagnosis.json",
     "batch012_targeted_seed_recommendation.json",
+    "batch012_targeted_seed_artifact_verification.json",
+    "batch012_missing_seed_diagnosis.json",
+    "batch013_acquisition_lock_recommendation.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
     "campaign_summary.md",
@@ -422,6 +426,74 @@ BATCH012_REQUIRED = [
     "targeted_seed_forbidden_evidence_audit.json",
     "targeted_seed_intake_report.json",
     "targeted_seed_required_next_action.md",
+    "native_verification_result.json",
+    "issue_derived_harness_policy.json",
+    "issue_derived_harness_verification_result.json",
+    "prospective_memory_eligibility_gate.json",
+    "route_diversity_status.json",
+    "status_feature_mappability.json",
+    "matched_null_ensemble_summary.json",
+    "repair_only_fallback_summary.json",
+    "claim_boundary.json",
+    "notebooklm_advice_traceability_status.json",
+    "carry_forward_blocker_register.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH013_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_013.json",
+    "acquisition_lock_stack_policy.json",
+    "source_commit_environment_lock_policy.json",
+    "source_commit_environment_lock_summary.json",
+    "target_command_manifest_policy.json",
+    "target_command_manifest_summary.json",
+    "fresh_workspace_purity_policy.json",
+    "workspace_purity_report.json",
+    "baseline_registry_drift_precheck_policy.json",
+    "baseline_registry_snapshot_batch013.json",
+    "baseline_registry_drift_precheck.json",
+    "rollback_block_ledger_policy.json",
+    "rollback_block_ledger_audit.json",
+    "acquisition_lock_stack_status.json",
+    "targeted_seed_presence_check.json",
+    "targeted_seed_schema_validation.json",
+    "targeted_seed_forbidden_evidence_audit.json",
+    "targeted_seed_intake_report.json",
+    "targeted_seed_next_action.json",
+    "targeted_seed_required_next_action.md",
+    "targeted_seed_git_tracking_audit.json",
+    "targeted_seed_workflow_visibility_audit.json",
+    "batch013_gate_chain_policy.json",
+    "batch013_gate_chain_execution_trace.json",
+    "batch013_gate_dependency_audit.json",
+    "active_context_filtering_policy.json",
+    "active_context_filter_manifest.json",
+    "memory_enabled_context_before_filter.json",
+    "memory_enabled_context_after_filter.json",
+    "context_filter_delta_audit.json",
+    "curvature_heuristic_freeze.json",
+    "curvature_score_formula.json",
+    "curvature_thresholds.json",
+    "proof_obligations_ledger.json",
+    "five_locks_curvature_cross_gate.json",
+    "issue_derived_temporal_and_classification_audit.json",
+    "global_curvature_logic_policy.json",
+    "curvature_logic_enforcement_status.json",
+    "curvature_trace_audit.json",
+    "curvature_feature_vector_schema.json",
+    "candidate_curvature_feature_vectors.json",
+    "basin_stability_check_policy.json",
+    "basin_stability_scores.json",
+    "two_winner_global_policy.json",
+    "two_winner_decision_records.json",
+    "curvature_memory_routing_policy.json",
+    "curvature_memory_routing_audit.json",
+    "curvature_fragment_planning_policy.json",
+    "curvature_fragment_plan.json",
+    "null_ensemble_curvature_fairness_policy.json",
+    "null_ensemble_curvature_fairness_audit.json",
+    "curvature_claim_boundary.json",
     "native_verification_result.json",
     "issue_derived_harness_policy.json",
     "issue_derived_harness_verification_result.json",
@@ -1177,6 +1249,27 @@ def audit_phase_a_ingest_records() -> list[str]:
         errors.append("batch012 targeted seed recommendation missing")
     if batch012_recommendation.get("required_seed_path") != "external_seeds_pending/targeted_prospective_seed_batch012.json":
         errors.append("batch012 targeted seed path mismatch")
+    batch012_artifact = read_json(POST_DIR / "batch012_targeted_seed_artifact_verification.json")
+    batch012_missing = read_json(POST_DIR / "batch012_missing_seed_diagnosis.json")
+    batch013_recommendation = read_json(POST_DIR / "batch013_acquisition_lock_recommendation.json")
+    if batch012_artifact.get("status") != "PASS":
+        errors.append("batch012 targeted-seed artifact verification not PASS")
+    if batch012_artifact.get("artifact_sha256") != "0d6820881aee827bf594817eca99d67c60279d824e669e421238f80c50060dd2":
+        errors.append("batch012 targeted-seed artifact SHA mismatch")
+    if batch012_artifact.get("artifact_size_bytes") != 384028 or batch012_artifact.get("file_entry_count") != 521:
+        errors.append("batch012 targeted-seed artifact size or entry count mismatch")
+    if batch012_artifact.get("unsafe_path_count") != 0 or batch012_artifact.get("duplicate_path_count") != 0 or batch012_artifact.get("pycache_pyc_payload_count") != 0:
+        errors.append("batch012 targeted-seed artifact path/cache safety failed")
+    if batch012_artifact.get("artifact_level_manifest_failures") != 0:
+        errors.append("batch012 targeted-seed artifact manifest verification failed")
+    if batch012_missing.get("status") != "PASS" or batch012_missing.get("batch012_exact_blocker") != "targeted_prospective_seed_missing_or_invalid":
+        errors.append("batch012 missing-seed diagnosis invalid")
+    if batch012_missing.get("native_verification_ran") is not False or batch012_missing.get("prospective_memory_experiment_ran") is not False:
+        errors.append("batch012 missing-seed diagnosis says downstream gates ran")
+    if batch013_recommendation.get("status") != "READY_FOR_BATCH013_ACQUISITION_LOCKS":
+        errors.append("batch013 acquisition-lock recommendation missing")
+    if batch013_recommendation.get("batch013_required_seed_path") != "external_seeds_pending/targeted_prospective_seed_batch013.json":
+        errors.append("batch013 targeted seed path mismatch")
     return errors
 
 
@@ -2330,6 +2423,151 @@ def audit_batch012_records() -> list[str]:
     return errors
 
 
+def audit_batch013_records() -> list[str]:
+    errors: list[str] = []
+    blocker = "targeted_prospective_seed_missing_or_invalid_after_locks_ready"
+    for name in BATCH013_REQUIRED:
+        if not (BATCH013_DIR / name).is_file():
+            errors.append(f"batch013 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH013_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch013 manifest failed: {manifest}")
+    state = read_json(BATCH013_DIR / "consolidated_state_clean_replication_batch_013.json")
+    lock_stack = read_json(BATCH013_DIR / "acquisition_lock_stack_status.json")
+    baseline = read_json(BATCH013_DIR / "baseline_registry_drift_precheck.json")
+    env_lock = read_json(BATCH013_DIR / "source_commit_environment_lock_summary.json")
+    command = read_json(BATCH013_DIR / "target_command_manifest_summary.json")
+    workspace = read_json(BATCH013_DIR / "workspace_purity_report.json")
+    presence = read_json(BATCH013_DIR / "targeted_seed_presence_check.json")
+    schema = read_json(BATCH013_DIR / "targeted_seed_schema_validation.json")
+    forbidden = read_json(BATCH013_DIR / "targeted_seed_forbidden_evidence_audit.json")
+    intake = read_json(BATCH013_DIR / "targeted_seed_intake_report.json")
+    git_tracking = read_json(BATCH013_DIR / "targeted_seed_git_tracking_audit.json")
+    workflow_visibility = read_json(BATCH013_DIR / "targeted_seed_workflow_visibility_audit.json")
+    gate_trace = read_json(BATCH013_DIR / "batch013_gate_chain_execution_trace.json")
+    gate_audit = read_json(BATCH013_DIR / "batch013_gate_dependency_audit.json")
+    rollback = read_json(BATCH013_DIR / "rollback_block_ledger_audit.json")
+    proof = read_json(BATCH013_DIR / "proof_obligations_ledger.json")
+    cross_gate = read_json(BATCH013_DIR / "five_locks_curvature_cross_gate.json")
+    filtering = read_json(BATCH013_DIR / "active_context_filter_manifest.json")
+    filter_delta = read_json(BATCH013_DIR / "context_filter_delta_audit.json")
+    freeze = read_json(BATCH013_DIR / "curvature_heuristic_freeze.json")
+    formula = read_json(BATCH013_DIR / "curvature_score_formula.json")
+    thresholds = read_json(BATCH013_DIR / "curvature_thresholds.json")
+    curvature_status = read_json(BATCH013_DIR / "curvature_logic_enforcement_status.json")
+    curvature_vectors = read_json(BATCH013_DIR / "candidate_curvature_feature_vectors.json")
+    basin = read_json(BATCH013_DIR / "basin_stability_scores.json")
+    memory_routing = read_json(BATCH013_DIR / "curvature_memory_routing_audit.json")
+    fragment_plan = read_json(BATCH013_DIR / "curvature_fragment_plan.json")
+    null_fairness = read_json(BATCH013_DIR / "null_ensemble_curvature_fairness_audit.json")
+    curvature_claim = read_json(BATCH013_DIR / "curvature_claim_boundary.json")
+    issue_temporal = read_json(BATCH013_DIR / "issue_derived_temporal_and_classification_audit.json")
+    native = read_json(BATCH013_DIR / "native_verification_result.json")
+    issue_result = read_json(BATCH013_DIR / "issue_derived_harness_verification_result.json")
+    eligibility = read_json(BATCH013_DIR / "prospective_memory_eligibility_gate.json")
+    matched = read_json(BATCH013_DIR / "matched_null_ensemble_summary.json")
+    repair_only = read_json(BATCH013_DIR / "repair_only_fallback_summary.json")
+    claim = read_json(BATCH013_DIR / "claim_boundary.json")
+    traceability = read_json(BATCH013_DIR / "notebooklm_advice_traceability_status.json")
+    carry = read_json(BATCH013_DIR / "carry_forward_blocker_register.json")
+    next_action = read_json(BATCH013_DIR / "targeted_seed_next_action.json")
+    if state.get("status") != "BLOCK" or state.get("exact_blocker") != blocker:
+        errors.append("batch013 state blocker mismatch")
+    if lock_stack.get("locks_ready_before_seed_block") is not True or lock_stack.get("exact_blocker") != blocker:
+        errors.append("batch013 lock stack did not become ready before seed block")
+    for label, data in [
+        ("baseline", baseline),
+        ("environment lock", env_lock),
+        ("command manifest", command),
+        ("workspace purity", workspace),
+    ]:
+        if data.get("status") != "PASS":
+            errors.append(f"batch013 {label} did not PASS before seed block")
+    if baseline.get("confirmed_native_repair_count") != 4 or baseline.get("confirmed_issue_derived_repair_count") != 0:
+        errors.append("batch013 baseline registry counts changed")
+    if env_lock.get("lock_to_source_commit_status") != "READY_NO_SEED" or env_lock.get("source_acquisition_allowed") is not False:
+        errors.append("batch013 environment lock should be ready without source acquisition")
+    if command.get("target_command_manifest_status") != "READY_NO_SEED" or command.get("target_replay_allowed") is not False:
+        errors.append("batch013 command manifest should be ready without replay")
+    if workspace.get("workspace_purity_status") != "READY_NO_SEED" or workspace.get("workspace_created") is not False:
+        errors.append("batch013 workspace should not be created without seed")
+    if presence.get("status") != "BLOCK" or presence.get("seed_present") is not False or presence.get("blocker") != blocker:
+        errors.append("batch013 targeted seed presence did not block after locks")
+    if schema.get("status") != "BLOCK" or schema.get("valid") is not False or schema.get("blocker") != blocker:
+        errors.append("batch013 schema validation blocker mismatch")
+    if forbidden.get("status") != "NOT_RUN" or forbidden.get("blocker") != blocker:
+        errors.append("batch013 forbidden-evidence audit should not run without seed")
+    if intake.get("status") != "BLOCK" or intake.get("locks_completed_before_seed_block") is not True or intake.get("exact_blocker") != blocker:
+        errors.append("batch013 seed intake report did not preserve lock-before-block order")
+    if git_tracking.get("status") != "BLOCK" or git_tracking.get("file_exists") is not False or git_tracking.get("git_tracked") is not False:
+        errors.append("batch013 git tracking audit should block missing seed")
+    if workflow_visibility.get("status") != "BLOCK" or workflow_visibility.get("workflow_visible") is not True:
+        errors.append("batch013 workflow visibility should identify configured seed path while blocking missing seed")
+    if not isinstance(gate_trace, list) or len(gate_trace) < 5:
+        errors.append("batch013 gate trace malformed")
+    else:
+        first_block = next((item for item in gate_trace if item.get("status") == "BLOCK"), {})
+        if first_block.get("gate_id") != "targeted_seed_presence_and_git_tracking" or first_block.get("blocker") != blocker:
+            errors.append("batch013 first blocking gate mismatch")
+        downstream = [item for item in gate_trace if int(item.get("gate_index", 0)) > int(first_block.get("gate_index", 0) or 0)]
+        if any(item.get("status") != "NOT_RUN" or item.get("blocked_by_gate") != "targeted_seed_presence_and_git_tracking" for item in downstream):
+            errors.append("batch013 downstream gates ran after seed block")
+    if gate_audit.get("status") != "PASS" or gate_audit.get("blocked_gate") != "targeted_seed_presence_and_git_tracking":
+        errors.append("batch013 gate dependency audit failed")
+    if rollback.get("status") != "PASS" or rollback.get("rollback_block_count") != 1:
+        errors.append("batch013 rollback block ledger failed")
+    entries = proof.get("entries", [])
+    rollback_entries = [entry for entry in entries if isinstance(entry, dict) and entry.get("entry_type") == "ROLLBACK_BLOCK"]
+    if proof.get("status") != "PASS" or not rollback_entries:
+        errors.append("batch013 proof ledger missing rollback block")
+    elif not rollback_entries[0].get("previous_state_hash") or rollback_entries[0].get("blocker") != blocker:
+        errors.append("batch013 rollback block missing previous state hash or blocker")
+    if cross_gate.get("status") != "PASS" or cross_gate.get("source_acquisition_allowed") is not False or cross_gate.get("repair_generation_allowed") is not False:
+        errors.append("batch013 five-lock cross gate allowed downstream work")
+    if filtering.get("status") != "NOT_RUN" or filter_delta.get("status") != "NOT_RUN":
+        errors.append("batch013 active context filtering should not run without seed")
+    if freeze.get("status") != "PASS" or freeze.get("formula_frozen_before_seed_intake") is not True:
+        errors.append("batch013 scoring freeze missing")
+    if formula.get("formula_version") != freeze.get("formula_version") or thresholds.get("formula_version") != freeze.get("formula_version"):
+        errors.append("batch013 scoring formula/threshold version mismatch")
+    if curvature_status.get("status") != "PASS_WITH_SEED_BLOCKED" or curvature_status.get("curvature_used_as_proof") is not False:
+        errors.append("batch013 routing-score enforcement invalid")
+    if curvature_vectors.get("status") != "NOT_RUN" or basin.get("status") != "NOT_RUN" or memory_routing.get("status") != "NOT_RUN":
+        errors.append("batch013 routing-score candidate records ran without seed")
+    if fragment_plan.get("status") != "NOT_RUN" or null_fairness.get("status") != "NOT_RUN":
+        errors.append("batch013 fragment/null curvature records should be not run")
+    if curvature_claim.get("memory_separation_claim_allowed") is not False or curvature_claim.get("full_memory_lift_claimed") is not False:
+        errors.append("batch013 routing-score claim boundary overclaimed")
+    if issue_temporal.get("status") != "PASS" or issue_temporal.get("issue_derived_not_classified_as_native") is not True:
+        errors.append("batch013 issue-derived classification guard invalid")
+    for label, data in [
+        ("native", native),
+        ("issue-derived", issue_result),
+        ("eligibility", eligibility),
+        ("matched-null", matched),
+    ]:
+        if data.get("status") != "NOT_RUN":
+            errors.append(f"batch013 {label} ran without seed")
+    if matched.get("null_ensemble_run_count") != 0 or matched.get("matched_null_score") is not None:
+        errors.append("batch013 matched-null scored without seed")
+    if repair_only.get("repair_only_fallback_attempted") is not False or repair_only.get("preliminary_prospective_single_candidate_memory_separation_evidence") is not False:
+        errors.append("batch013 repair-only fallback overclaimed")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("full_memory_lift_claimed") is not False:
+        errors.append("batch013 claim boundary overclaimed")
+    if claim.get("confirmed_native_repair_episode_count") != 4 or claim.get("confirmed_issue_derived_repair_episode_count") != 0:
+        errors.append("batch013 repair counts changed")
+    if traceability.get("status") != "PASS" or traceability.get("blocker") != blocker:
+        errors.append("batch013 traceability missing blocker")
+    blockers = carry.get("blockers", [])
+    if carry.get("status") != "PASS" or not any(isinstance(item, dict) and item.get("blocker") == blocker for item in blockers):
+        errors.append("batch013 carry-forward blocker missing")
+    if next_action.get("next_allowed_action") != "commit_reviewed_targeted_prospective_seed_batch013" or next_action.get("required_git_status") != "tracked":
+        errors.append("batch013 next action did not require tracked seed")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -2445,6 +2683,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_010.json"),
         Path("configs/clean_replication_batch_011.json"),
         Path("configs/clean_replication_batch_012.json"),
+        Path("configs/clean_replication_batch_013.json"),
         Path("controllergate/core/failure_memory.py"),
         Path("controllergate/core/status_code_weighting.py"),
         Path("controllergate/core/source_ranking.py"),
@@ -2452,6 +2691,13 @@ def public_language_hits() -> list[str]:
         Path("controllergate/core/curvature_selection.py"),
         Path("controllergate/core/issue_derived_harness.py"),
         Path("controllergate/core/targeted_seed.py"),
+        Path("controllergate/core/environment_lock.py"),
+        Path("controllergate/core/command_manifest.py"),
+        Path("controllergate/core/workspace_purity.py"),
+        Path("controllergate/core/baseline_precheck.py"),
+        Path("controllergate/core/rollback_ledger.py"),
+        Path("controllergate/core/gate_chain.py"),
+        Path("controllergate/core/active_context_filtering.py"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
@@ -2461,6 +2707,8 @@ def public_language_hits() -> list[str]:
     paths.extend(sorted(BATCH011_DIR.glob("*.md")))
     paths.extend(sorted(BATCH012_DIR.glob("*.json")))
     paths.extend(sorted(BATCH012_DIR.glob("*.md")))
+    paths.extend(sorted(BATCH013_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH013_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -2502,6 +2750,25 @@ REQUIRED_NOTEBOOKLM_ADVICE_IDS = {
     "targeted_prospective_seed_intake",
     "native_target_test_verification",
     "prospective_memory_eligibility_gate",
+    "source_commit_environment_lock",
+    "target_command_manifest",
+    "fresh_workspace_purity_gate",
+    "baseline_registry_drift_precheck",
+    "rollback_block_ledger",
+    "global_curvature_logic_enforcement",
+    "curvature_feature_vector",
+    "basin_stability_check",
+    "two_winner_global_policy",
+    "curvature_memory_routing",
+    "curvature_fragment_planning",
+    "null_ensemble_curvature_fairness",
+    "curvature_claim_boundary",
+    "batch013_gate_chain_binding",
+    "targeted_seed_git_tracking",
+    "active_context_filtering",
+    "curvature_heuristic_freeze",
+    "five_locks_curvature_cross_gate",
+    "issue_derived_temporal_classification",
     "high_pass_source_ranking_filter",
     "two_candidate_selection_policy",
     "strict_minimum_delta_routing",
@@ -2613,6 +2880,7 @@ def main() -> int:
         + require_files(BATCH010_DIR, BATCH010_REQUIRED)
         + require_files(BATCH011_DIR, BATCH011_REQUIRED)
         + require_files(BATCH012_DIR, BATCH012_REQUIRED)
+        + require_files(BATCH013_DIR, BATCH013_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -2640,6 +2908,8 @@ def main() -> int:
         return fail("batch011 manifest mismatch")
     if verify_manifest(BATCH012_DIR)["status"] != "PASS":
         return fail("batch012 manifest mismatch")
+    if verify_manifest(BATCH013_DIR)["status"] != "PASS":
+        return fail("batch013 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
         return fail("core tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -2781,6 +3051,9 @@ def main() -> int:
     batch012_errors = audit_batch012_records()
     if batch012_errors:
         return fail(f"batch012 audit failed: {batch012_errors}")
+    batch013_errors = audit_batch013_records()
+    if batch013_errors:
+        return fail(f"batch013 audit failed: {batch013_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -2827,6 +3100,12 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
+    if final_report.get("status") != "PASS_WITH_BATCH013_BLOCKED":
+        return fail("final report did not advance to Batch013 blocked boundary")
+    if final_report.get("exact_blocker") != "targeted_prospective_seed_missing_or_invalid_after_locks_ready":
+        return fail("final report Batch013 blocker mismatch")
+    if final_report.get("batch013_gate_chain_status") != "PASS":
+        return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":
         return fail("public claim pressure not PASS")
     hits = public_language_hits()

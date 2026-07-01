@@ -88,6 +88,62 @@
     "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
   },
   {
+    "advice_id": "curvature_feature_vector",
+    "blocker": "curvature_feature_vector_missing",
+    "minimum_condition_to_unblock": "No candidate is admitted until the tracked seed gate passes",
+    "next_allowed_lane": "targeted_seed_handoff",
+    "reason_not_implemented_now": "No candidate is admitted until the tracked seed gate passes",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
+    "advice_id": "basin_stability_check",
+    "blocker": "curvature_flatline_signal_rejected",
+    "minimum_condition_to_unblock": "No candidate is admitted until the tracked seed gate passes",
+    "next_allowed_lane": "targeted_seed_handoff",
+    "reason_not_implemented_now": "No candidate is admitted until the tracked seed gate passes",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
+    "advice_id": "two_winner_global_policy",
+    "blocker": "curvature_no_separable_memory_route",
+    "minimum_condition_to_unblock": "No candidate is admitted until the tracked seed gate passes",
+    "next_allowed_lane": "targeted_seed_handoff",
+    "reason_not_implemented_now": "No candidate is admitted until the tracked seed gate passes",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
+    "advice_id": "curvature_memory_routing",
+    "blocker": "curvature_memory_routing_delta_not_established",
+    "minimum_condition_to_unblock": "No admitted candidate exists in Batch013",
+    "next_allowed_lane": "targeted_seed_handoff",
+    "reason_not_implemented_now": "No admitted candidate exists in Batch013",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
+    "advice_id": "curvature_fragment_planning",
+    "blocker": "curvature_fragment_route_missing",
+    "minimum_condition_to_unblock": "No repair run is authorized in Batch013",
+    "next_allowed_lane": "targeted_seed_handoff",
+    "reason_not_implemented_now": "No repair run is authorized in Batch013",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
+    "advice_id": "null_ensemble_curvature_fairness",
+    "blocker": "null_curvature_fairness_failed",
+    "minimum_condition_to_unblock": "No null ensemble runs in Batch013",
+    "next_allowed_lane": "targeted_seed_handoff",
+    "reason_not_implemented_now": "No null ensemble runs in Batch013",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
+    "advice_id": "active_context_filtering",
+    "blocker": "active_context_filter_removed_all_legal_source",
+    "minimum_condition_to_unblock": "No context is admitted until the tracked seed gate passes",
+    "next_allowed_lane": "targeted_seed_handoff",
+    "reason_not_implemented_now": "No context is admitted until the tracked seed gate passes",
+    "risk_if_forgotten": "gate status may be overclaimed or drift from evidence"
+  },
+  {
     "advice_id": "failure_memory_weighting",
     "blocker": "failure_memory_weighting_not_applied",
     "minimum_condition_to_unblock": "implement reusable gate evidence and audit assertion",

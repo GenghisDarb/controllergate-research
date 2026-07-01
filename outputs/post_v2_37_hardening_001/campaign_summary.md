@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH012_BLOCKED.
+Status: PASS_WITH_BATCH013_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -35,5 +35,9 @@ Batch011 status: `BLOCK`; exact blocker: `batch011_no_fresh_candidate_verified`.
 Batch012 starts Targeted Prospective Seed Intake after Batch011 exhausted automated fresh-candidate attempts. The configured seed is absent, so native verification, issue-derived fallback, prospective memory eligibility, repair-only fallback, and matched-null comparison remain not run.
 
 Batch012 status: `BLOCK`; exact blocker: `targeted_prospective_seed_missing_or_invalid`.
+
+Batch013 adds acquisition/materialization locks, gate-chain binding, tracked seed enforcement, active context filtering records, and frozen routing-score policy. It blocks only after those locks are ready because the required tracked targeted seed is absent.
+
+Batch013 status: `BLOCK`; exact blocker: `targeted_prospective_seed_missing_or_invalid_after_locks_ready`.
 
 NotebookLM advice traceability status: `PASS`.
