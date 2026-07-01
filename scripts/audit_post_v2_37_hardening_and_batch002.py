@@ -82,6 +82,9 @@ POST_REQUIRED = [
     "batch009_patch_quarantined_matched_null_artifact_verification.json",
     "batch009_passive_memory_diagnosis.json",
     "batch010_active_memory_routing_recommendation.json",
+    "batch010_active_memory_routing_artifact_verification.json",
+    "batch010_no_routing_delta_diagnosis.json",
+    "batch011_prospective_memory_challenge_recommendation.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
     "campaign_summary.md",
@@ -1037,6 +1040,33 @@ def audit_phase_a_ingest_records() -> list[str]:
     boundary = batch010_recommendation.get("required_claim_boundary", {})
     if not isinstance(boundary, dict) or boundary.get("full_scoring") != "NOT_RUN/disallowed" or boundary.get("self_maintaining_software") != "false/not_demonstrated":
         errors.append("batch010 recommendation claim boundary invalid")
+    batch010_verification = read_json(POST_DIR / "batch010_active_memory_routing_artifact_verification.json")
+    no_delta = read_json(POST_DIR / "batch010_no_routing_delta_diagnosis.json")
+    batch011_recommendation = read_json(POST_DIR / "batch011_prospective_memory_challenge_recommendation.json")
+    if batch010_verification.get("status") != "PASS":
+        errors.append("batch010 artifact verification not PASS")
+    if batch010_verification.get("actual_sha256") != "7737e503d9325bb42fa8db84a650e9ee72d23bcf0d3201482f80f6976ebf005d":
+        errors.append("batch010 artifact SHA mismatch")
+    if batch010_verification.get("actual_size") != 344744 or batch010_verification.get("entry_count") != 451:
+        errors.append("batch010 artifact size or entry count mismatch")
+    if batch010_verification.get("unsafe_path_count") != 0 or batch010_verification.get("duplicate_path_count") != 0 or batch010_verification.get("pycache_pyc_count") != 0:
+        errors.append("batch010 artifact path/cache safety failed")
+    batch010_records = batch010_verification.get("required_batch010_records_verified", {})
+    if not isinstance(batch010_records, dict) or not all(batch010_records.values()):
+        errors.append("batch010 required records were not all verified")
+    if no_delta.get("status") != "PASS" or no_delta.get("status_code_weighting_ran") is not True:
+        errors.append("batch010 no-routing-delta diagnosis invalid")
+    if no_delta.get("routing_delta_detected") is not False or no_delta.get("routing_delta_reason_codes") != []:
+        errors.append("batch010 no-routing-delta diagnosis overstates routing delta")
+    if no_delta.get("baseline_source_ranking_hash") != no_delta.get("memory_weighted_source_ranking_hash"):
+        errors.append("batch010 no-routing-delta diagnosis hash mismatch")
+    if no_delta.get("retirement_required_for_memory_lift_claims") is not True or no_delta.get("further_memory_lift_attempts_without_new_features_allowed") is not False:
+        errors.append("batch010 no-routing-delta diagnosis missing retirement boundary")
+    if batch011_recommendation.get("status") != "READY_FOR_BATCH011_PROSPECTIVE_MEMORY_CHALLENGE":
+        errors.append("batch011 prospective memory challenge recommendation missing")
+    batch011_boundary = batch011_recommendation.get("claim_boundary", {})
+    if not isinstance(batch011_boundary, dict) or batch011_boundary.get("full_scoring") != "NOT_RUN/disallowed" or batch011_boundary.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch011 recommendation claim boundary invalid")
     return errors
 
 
