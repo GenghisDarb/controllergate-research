@@ -1,0 +1,257 @@
+{
+  "candidate_id": "darker_issue_112_relative_git_dir",
+  "excluded_packages": [
+    {
+      "decision_time_safe_basis": "selected source setup.cfg",
+      "name": "isort",
+      "reason": "Not installed for the issue command because selected command does not use the optional isort extra and source setup.cfg lists isort only under extras_require."
+    },
+    {
+      "decision_time_safe_basis": "selected source setup.cfg",
+      "name": "dataclasses",
+      "reason": "Not needed for selected Python 3.7 environment because source setup.cfg requires dataclasses only for python version below 3.7."
+    }
+  ],
+  "forbidden_evidence_attestation": {
+    "fixed_commit_used": false,
+    "future_test_used": false,
+    "gold_patch_used": false,
+    "hidden_benchmark_state_used": false,
+    "hidden_label_used": false,
+    "later_commit_used": false,
+    "latest_unrestricted_resolution_used": false,
+    "post_issue_dependency_metadata_used": false,
+    "pr_patch_used": false,
+    "unrecorded_local_machine_state_used": false
+  },
+  "issue_created_at": "2021-01-02T00:00:00Z",
+  "issue_created_at_evidence": [
+    {
+      "observed": "Issue #112 page shows opened on Jan 2, 2021 and issue body states the command and traceback.",
+      "observed_at_or_before": "2021-01-02T00:00:00Z",
+      "sha256": "021e61ad0daf598636e6d8b725e9cb6456d370bed6b87a81e1acf202ebfe2556",
+      "source": "https://github.com/akaihola/darker/issues/112"
+    }
+  ],
+  "issue_url": "https://github.com/akaihola/darker/issues/112",
+  "lock_type": "manual_decision_time_dependency_lock",
+  "notes": "All package versions in this lock are at or before the 2021-01-02 issue cutoff. Top-level source requirements come from the selected source commit setup.cfg. Black-era transitive/runtime constraints are pinned to versions released before the issue cutoff to prevent modern dependency/API drift. This lock is evidence for a decision-time-safe environment attempt; Codex must still validate it in a fresh sandbox before target-intent retry.",
+  "packages": [
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "pip release history lists 20.3.3 before the issue cutoff; used as optional installer-era constraint.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-12-15",
+          "sha256": "5627b7e072fc872d23b30d7643eb964bb34d539a10cb1bff3c1766e9727a310e",
+          "source": "https://pypi.org/project/pip/"
+        }
+      ],
+      "name": "pip",
+      "release_date": "2020-12-15",
+      "version": "20.3.3"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "setuptools release history lists 51.1.1 before the issue cutoff; selected as build-system era constraint.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-12-29",
+          "sha256": "1f61366a3daa884561e5651dbbdbfb345b828a27898083c0401a8dea7058ac67",
+          "source": "https://pypi.org/project/setuptools/"
+        }
+      ],
+      "name": "setuptools",
+      "release_date": "2020-12-29",
+      "version": "51.1.1"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "wheel release history lists 0.36.2 before the issue cutoff; selected as build-system era constraint.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-12-13",
+          "sha256": "3df80ea8e21668d796125a4089f9b031a4b73756dbd99d406c3b0483bf17f441",
+          "source": "https://pypi.org/project/wheel/"
+        }
+      ],
+      "name": "wheel",
+      "release_date": "2020-12-13",
+      "version": "0.36.2"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "Darker source setup.cfg requires blackminimum 20.8b1; black 20.8b1 release predates issue cutoff.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-08-26",
+          "sha256": "20d4e91985cb5003a98dd1a7952dd01e98c041faa637ac52b72eeea40113b166",
+          "source": "https://pypi.org/project/black/20.8b1/"
+        }
+      ],
+      "name": "black",
+      "release_date": "2020-08-26",
+      "version": "20.8b1"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "Darker source setup.cfg requires toml; toml 0.10.2 release predates issue cutoff.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-11-01",
+          "sha256": "b8c4600a38993cdf81fea260433276b65ae571d694f4c04b17b0aa30ab166223",
+          "source": "https://pypi.org/project/toml/"
+        }
+      ],
+      "name": "toml",
+      "release_date": "2020-11-01",
+      "version": "0.10.2"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "Darker source setup.cfg requires typing-extensions for Python below 3.8; selected Python version is 3.7.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-08-23",
+          "sha256": "2c8a3ec6c9ce8c6a1dd2056c1b18ccedbb9676d43353ef3b525e6ce33dab83c0",
+          "source": "https://pypi.org/project/typing-extensions/"
+        }
+      ],
+      "name": "typing-extensions",
+      "release_date": "2020-08-23",
+      "version": "3.7.4.3"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "Black 20.8b1 dependency-era compatible CLI dependency; release predates issue cutoff.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-04-27",
+          "sha256": "3ca27c60854ee5ac04bc2f2625598b0159eb57a0373ef28c0e7981934e3d4f9a",
+          "source": "https://pypi.org/project/click/"
+        }
+      ],
+      "name": "click",
+      "release_date": "2020-04-27",
+      "version": "7.1.2"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "Black 20.8b1 dependency-era compatible cache/app dirs dependency; release predates issue cutoff.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-05-11",
+          "sha256": "7294577f4787fe55127e9328300c3e5db9b170b67721d172fb593f988e9f9fe9",
+          "source": "https://pypi.org/project/appdirs/"
+        }
+      ],
+      "name": "appdirs",
+      "release_date": "2020-05-11",
+      "version": "1.4.4"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "Black 20.8b1 dependency-era compatible pathspec dependency; 0.8.1 changelog predates issue cutoff.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-11-07",
+          "sha256": "41b7b43196de707fc82ca0fda59b84f85cd1506ce1d15bbdffcdcd1b3bf19028",
+          "source": "https://python-path-specification.readthedocs.io/en/stable/changes.html"
+        }
+      ],
+      "name": "pathspec",
+      "release_date": "2020-11-07",
+      "version": "0.8.1"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "Black 20.8b1 dependency-era compatible regex dependency; release predates issue cutoff.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-11-13",
+          "sha256": "a1caa35972f508cc9b3b6d469454a0733db4e209edc6c1037c018f7c459eb112",
+          "source": "https://pypi.org/project/regex/"
+        }
+      ],
+      "name": "regex",
+      "release_date": "2020-11-13",
+      "version": "2020.11.13"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "Black 20.8b1 dependency-era compatible typed-ast dependency for Python 3.7; release predates issue cutoff.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2020-12-30",
+          "sha256": "73ab80a066517356e7c7444bdeb6047842f2701b94cb8e973499c9ddeb5eb143",
+          "source": "https://pypi.org/project/typed-ast/1.4.2/"
+        }
+      ],
+      "name": "typed-ast",
+      "release_date": "2020-12-30",
+      "version": "1.4.2"
+    },
+    {
+      "evidence_basis": [
+        {
+          "evidence_kind": "package_release_history",
+          "observed": "Black 20.8b1 dependency-era compatible mypy-extensions dependency; release predates issue cutoff.",
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "release_date": "2019-10-17",
+          "sha256": "8674949d67665d5cd8b1705f0924108b99fb56195501cdcb3a5d80a37f64371d",
+          "source": "https://pypi.org/project/mypy-extensions/"
+        }
+      ],
+      "name": "mypy-extensions",
+      "release_date": "2019-10-17",
+      "version": "0.4.3"
+    }
+  ],
+  "python_version": "3.7",
+  "python_version_evidence": [
+    {
+      "observed": "Issue traceback path references a Python 3.7 virtualenv and subprocess.py from Python 3.7.",
+      "observed_at_or_before": "2021-01-02T00:00:00Z",
+      "sha256": "7df93ac25caefc4da761e1c02e6f2926b7edb9237c8c09827c9a1490c2b8fe44",
+      "source": "https://github.com/akaihola/darker/issues/112"
+    }
+  ],
+  "registry_author": "manual_dependency_lock_review",
+  "registry_review_status": "reviewed",
+  "repo_url": "https://github.com/akaihola/darker",
+  "source_commit_sha": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+  "source_commit_window": null,
+  "source_metadata_evidence": [
+    {
+      "observed": "Selected source commit setup.cfg install_requires includes blackminimum 20.8b1, toml, typing-extensions for python version below 3.8, and build metadata.",
+      "observed_at_or_before": "2021-01-02T00:00:00Z",
+      "sha256": "5e14e97c41cde93c5fc4496489a28498fb7bda717919ac7e6493b8504f273efa",
+      "source": "https://raw.githubusercontent.com/akaihola/darker/a2d13656adfaa010fb6c7339087f3347ad2b815a/setup.cfg"
+    }
+  ],
+  "target_release": {
+    "evidence_basis": [
+      {
+        "observed": "Darker 1.2.2 release metadata; issue body says latest release is 1.2.2.",
+        "observed_at_or_before": "2021-01-02T00:00:00Z",
+        "release_date": "2020-12-30",
+        "sha256": "1eac76b26cf93cf78992bc423a8181391576973374db1e5da8ca0dbcb830f422",
+        "source": "https://pypi.org/pypi/darker/1.2.2/json"
+      }
+    ],
+    "package": "darker",
+    "release_date": "2020-12-30",
+    "version": "1.2.2"
+  }
+}
