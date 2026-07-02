@@ -6,6 +6,8 @@ Potential deployment domains must remain future application areas with `deployme
 
 Batch016 does not change release readiness because it safe-stops before repair.
 
+Batch017 does not change release readiness because it safe-stops before repair and only improves dependency-era custody and artifact packaging.
+
 ## Current operational gate status
 
 - Current protocol remains `v2.13`.
@@ -16,3 +18,4 @@ Batch016 does not change release readiness because it safe-stops before repair.
 - Self-maintaining software remains `false/not_demonstrated`.
 - Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
 - Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
+- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.

@@ -445,9 +445,62 @@
       "neutral_public_name": "Issue-Derived Harness Verification",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
+    },
+    {
+      "blockers": [
+        "dependency_era_lock_unavailable"
+      ],
+      "capability_id": "dependency_era_resolution",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_017/dependency_era_resolution_audit.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Dependency-Era Resolution",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "artifact_thin_packaging",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_017/thin_artifact_packaging_policy.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Thin Artifact Packaging",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "evidence_carry_forward_manifest",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_017/evidence_carry_forward_manifest.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Evidence Carry-Forward Manifest",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
     }
   ],
-  "catalog_version": "batch016",
+  "catalog_version": "batch017",
   "full_scoring": "NOT_RUN/disallowed",
   "memory_lift": "not_demonstrated",
   "self_maintaining_software": "false/not_demonstrated",

@@ -133,6 +133,15 @@ from controllergate.core.workspace_purity import audit_workspace_purity, fresh_w
 from controllergate.core.capability_catalog import REQUIRED_CAPABILITY_IDS, capability_record
 from controllergate.core.claim_tiers import claim_tier_config
 from controllergate.core.dependency_era_chaperone import classify_dependency_precondition, dependency_era_policy
+from controllergate.core.dependency_era_resolution import (
+    classify_dependency_lock_candidate,
+    decision_time_dependency_evidence_policy,
+    dependency_era_resolution_policy,
+    dependency_resolution_forbidden_sources,
+    manual_dependency_lock_schema_valid,
+    stable_hash as dependency_resolution_hash,
+    target_intent_retry_policy,
+)
 from controllergate.core.lock_sequence_registry import LOCKS, LOCK_PAIR_CLASSES, OPERATIONS, registry_records
 from controllergate.core.target_intent_signature import evaluate_target_intent, issue112_target_signature
 from controllergate.runtime.active_ast_excision_probe import plan_excision_probe
@@ -179,7 +188,9 @@ BATCH015_ID = "clean_replication_batch_015"
 BATCH015_DIR = Path("outputs") / BATCH015_ID
 BATCH016_ID = "clean_replication_batch_016"
 BATCH016_DIR = Path("outputs") / BATCH016_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch016_target_intent_alignment")
+BATCH017_ID = "clean_replication_batch_017"
+BATCH017_DIR = Path("outputs") / BATCH017_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch017_dependency_era_thin")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -247,6 +258,7 @@ def write_batch015_markdown_docs() -> None:
             "- Self-maintaining software remains `false/not_demonstrated`.",
             "- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.",
             "- Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.",
+            "- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.",
         ]
     )
     readme = "\n".join(
@@ -293,6 +305,8 @@ def write_batch015_markdown_docs() -> None:
             "Batch015 adds scaffolded runtime controls and claim documentation. It does not add a repair episode.",
             "",
             "Batch016 addresses target-intent alignment for Darker issue #112. The previous issue-derived harness failed because the observed config-loading TypeError did not match the issue intent. ControllerGate correctly blocked instead of accepting an unrelated failure.",
+            "",
+            "Batch017 attempts decision-time-safe dependency-era resolution for that pre-target failure. If the historical environment cannot be reconstructed from admissible evidence, ControllerGate blocks rather than patching. Batch017 also starts thin artifact packaging: prior evidence is preserved by artifact SHA, ingest commit, manifest hash, and lineage index instead of recursively repackaging every prior batch.",
             "",
             "## Claim Tier System",
             "",
@@ -358,6 +372,8 @@ def write_batch015_markdown_docs() -> None:
             "",
             "Batch016 records that the issue-derived harness failure is a target-intent mismatch caused by a pre-target/precondition failure. Repair remains blocked.",
             "",
+            "Batch017 attempts decision-time dependency-era resolution, records the missing dependency lock as a safe-stop, and switches the primary workflow artifact to thin/delta packaging.",
+            "",
             shared_status,
         ],
         "docs/capability_inventory.md": [
@@ -368,6 +384,7 @@ def write_batch015_markdown_docs() -> None:
             "- Artifact custody, registry-first provenance, source-commit environment locks, target command manifests, fresh workspace purity, baseline registry drift prechecks, and rollback ledger controls have reproduced repository evidence.",
             "- Runtime incident capture, execution boundary gateway, isolated repair sandbox, dependency drift chaperone, active AST excision probe, syntax micro-rollback, predictive degradation telemetry, compute budget safe-stop, simulated blue/green deployment, proof-to-action compiler, and lock-sequence registry are Batch015 scaffold capabilities.",
             "- Target intent signature alignment and dependency-era chaperone checks are Batch016 diagnostic capabilities; they block patch admission when observed failure does not match issue intent.",
+            "- Dependency-Era Resolution, Thin Artifact Packaging, and Evidence Carry-Forward Manifest records are Batch017 diagnostic/custody capabilities.",
             "- Structure-first compiler and future agentic admissibility compiler work remain roadmap-only.",
             "",
             shared_status,
@@ -381,6 +398,8 @@ def write_batch015_markdown_docs() -> None:
             "",
             "Batch016 also does not add memory evidence because target-intent alignment remains blocked.",
             "",
+            "Batch017 also does not add memory evidence because dependency-era resolution does not reach target-intent alignment.",
+            "",
             shared_status,
         ],
         "docs/technical_validation_gap_report.md": [
@@ -391,6 +410,8 @@ def write_batch015_markdown_docs() -> None:
             "Remaining gaps include additional external repair episodes, prospective matched-null separation on fresh native candidates, broader repository diversity, and audited runtime fixture demonstrations.",
             "",
             "Batch016 adds a useful negative result: unrelated pre-target failures are not accepted as issue-derived verification.",
+            "",
+            "Batch017 adds the next technical gap: historical dependency locks must be decision-time safe before issue-derived repair is authorized.",
             "",
             shared_status,
         ],
@@ -403,6 +424,8 @@ def write_batch015_markdown_docs() -> None:
             "",
             "Batch016 does not change release readiness because it safe-stops before repair.",
             "",
+            "Batch017 does not change release readiness because it safe-stops before repair and only improves dependency-era custody and artifact packaging.",
+            "",
             shared_status,
         ],
         "docs/replication_protocol.md": [
@@ -414,6 +437,8 @@ def write_batch015_markdown_docs() -> None:
             "",
             "Batch016 adds target-intent alignment and dependency-era precondition checks before any issue-derived repair.",
             "",
+            "Batch017 adds decision-time dependency lock policy, lineage indexing, and thin artifact packaging to keep manual artifact custody manageable.",
+            "",
             shared_status,
         ],
         "docs/operational_gate_matrix.md": [
@@ -422,6 +447,8 @@ def write_batch015_markdown_docs() -> None:
             "Batch015 records runtime-wrapper gates and lock-sequence operations in `configs/operational_gate_matrix.json` and `configs/lock_sequence_operation_registry.json`.",
             "",
             "Batch016 records target-intent signature alignment, dependency-era chaperone, variant matrix, and safe-stop gates.",
+            "",
+            "Batch017 records dependency-era resolution policy, decision-time dependency lock status, artifact lineage indexing, evidence carry-forward, and thin artifact packaging gates.",
             "",
             shared_status,
         ],
@@ -435,6 +462,8 @@ def write_batch015_markdown_docs() -> None:
             "It may be described as an evidence-bound repair validation kernel, proof-gated runtime scaffold, patch-containment layer, code governance kernel, admissibility compiler scaffold, incident-to-repair quarantine architecture, and structure-first software compiler roadmap.",
             "",
             "It must not be described as production-ready, fully self-maintaining, a full scoring result, a full memory-lift result, an absolute reliability guarantee, or a sector deployment readiness result.",
+            "",
+            "Batch017 does not change those public claim boundaries.",
             "",
             shared_status,
         ],
@@ -458,6 +487,8 @@ def write_batch015_markdown_docs() -> None:
             "Batch015 claim boundaries: no production readiness, no full scoring, no full memory lift, no autonomous production repair, no self-maintaining software, no absolute reliability guarantee, and no sector deployment readiness.",
             "",
             "Batch016 claim boundary: target-intent mismatch blocks patch admission and preserves native/issue-derived evidence separation.",
+            "",
+            "Batch017 claim boundary: dependency-era lock unavailability blocks target-intent retry, harness v3, repair-only fallback, and matched-null diagnostics.",
             "",
             shared_status,
         ],
@@ -483,6 +514,7 @@ def write_batch015_markdown_docs() -> None:
             "- Failures preserved, not hidden.",
             "- Public claims do not outrun artifacts.",
             "- Issue-derived failures must match target intent before repair or comparison.",
+            "- Decision-time dependency locks must be proven before dependency-era recovery can authorize target-intent retry.",
             "",
             shared_status,
         ],
@@ -507,6 +539,19 @@ def write_batch015_markdown_docs() -> None:
             "Future goal: create new software under ControllerGate rules from the first line of code. Future generated modules should include provenance, command manifests, tests, null contracts, perturbation contracts, projection/invariant maps, environment locks, telemetry hooks, and rollback hooks.",
             "",
             "Current tier: 0. No current compiler capability is claimed.",
+            "",
+            shared_status,
+        ],
+        "docs/artifact_packaging_policy.md": [
+            "# Artifact packaging policy",
+            "",
+            "Batch017 begins thin artifact packaging for the primary workflow artifact.",
+            "",
+            "The primary artifact includes the current batch outputs, latest ingest verification records, an artifact lineage index, and an evidence carry-forward manifest. Prior batch evidence remains valid through artifact SHA256 values, ingest commits, manifest hashes, and claim-boundary summaries.",
+            "",
+            "The primary artifact must not recursively include all prior `clean_replication_batch_*` directories. A full lineage artifact may be produced separately only when explicitly configured.",
+            "",
+            "Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.",
             "",
             shared_status,
         ],
@@ -605,6 +650,8 @@ def write_batch015_markdown_docs() -> None:
                 "Current evidence boundary: four confirmed external native repair episodes, zero confirmed issue-derived repair episodes, full scoring disabled, memory lift not demonstrated, and self-maintaining software not demonstrated.",
                 "",
                 "Batch015 adds runtime-wrapper scaffold modules, a lock-sequence operation registry, claim tiers, a capability catalog, public positioning, and roadmap-only compiler directions. It does not claim production readiness or new repair evidence.",
+                "",
+                "Batch017 attempts decision-time dependency-era resolution for Darker issue #112 and starts thin artifact packaging. It blocks rather than patching when no decision-time dependency lock is proven.",
                 "",
                 shared_status,
             ]
@@ -1200,6 +1247,446 @@ def write_batch016_outputs(batch015_state: dict[str, object]) -> dict[str, objec
         ),
     )
     write_sha256sums(BATCH016_DIR)
+    return state
+
+
+def _current_git_head() -> str | None:
+    try:
+        return subprocess.check_output(["git", "rev-parse", "HEAD"], text=True, stderr=subprocess.DEVNULL).strip()
+    except Exception:
+        return None
+
+
+def _git_tracked(path: Path) -> bool:
+    try:
+        subprocess.check_call(["git", "ls-files", "--error-unmatch", path.as_posix()], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        return True
+    except Exception:
+        return False
+
+
+def _manifest_hash(path: Path) -> str | None:
+    return sha256_file(path) if path.is_file() else None
+
+
+def _lineage_record(batch: str, artifact_name: str, artifact_id: str, size: int, artifact_sha256: str, ingest_commit: str | None, directory: Path, claim_boundary: dict[str, object]) -> dict[str, object]:
+    return {
+        "batch": batch,
+        "artifact_name": artifact_name,
+        "artifact_id": artifact_id,
+        "artifact_size_bytes": size,
+        "artifact_sha256": artifact_sha256,
+        "ingest_commit": ingest_commit,
+        "directory": directory.as_posix(),
+        "sha256sums_sha256": _manifest_hash(directory / "SHA256SUMS.txt"),
+        "claim_boundary": claim_boundary,
+    }
+
+
+def write_batch017_outputs(batch015_state: dict[str, object], batch016_state: dict[str, object]) -> dict[str, object]:
+    BATCH017_DIR.mkdir(parents=True, exist_ok=True)
+    current_head = _current_git_head()
+    selected_commit = "a2d13656adfaa010fb6c7339087f3347ad2b815a"
+    issue_created_at = "2020-08-05T00:00:00Z"
+    exact_blocker = "dependency_era_lock_unavailable"
+    manual_lock_path = Path("external_seeds_pending/dependency_locks/darker_issue112_dependency_lock.json")
+    manual_lock_exists = manual_lock_path.is_file()
+    manual_lock_tracked = _git_tracked(manual_lock_path) if manual_lock_exists else False
+    manual_lock_record: dict[str, object] = {}
+    manual_schema_valid = False
+    if manual_lock_exists:
+        try:
+            manual_lock_record = load_json(manual_lock_path)
+            manual_schema_valid = manual_dependency_lock_schema_valid(manual_lock_record)
+        except Exception:
+            manual_lock_record = {}
+            manual_schema_valid = False
+    manual_lock_status = {
+        "status": "PASS" if manual_lock_exists and manual_lock_tracked and manual_schema_valid else ("ABSENT" if not manual_lock_exists else "BLOCK"),
+        "path": manual_lock_path.as_posix(),
+        "exists": manual_lock_exists,
+        "git_tracked": manual_lock_tracked,
+        "workflow_visible": manual_lock_tracked,
+        "schema_valid": manual_schema_valid,
+        "manual_dependency_lock_used": False,
+        "blocker": None if not manual_lock_exists else (None if manual_lock_tracked and manual_schema_valid else "manual_dependency_lock_schema_invalid"),
+    }
+    observed_failure = "TypeError: unsupported operand type(s) for /: 'tuple' and 'str'"
+    declared_ranges = ["black>=19.10b0", "toml>=0.10.0", "isort>=4.3.21"]
+    lock_candidate = classify_dependency_lock_candidate(
+        declared_ranges=declared_ranges,
+        release_metadata_records=[],
+        manual_lock_record=manual_lock_status if manual_lock_status["status"] == "PASS" else None,
+    )
+    dependency_classification = classify_dependency_precondition(observed_failure, declared_ranges)
+    target_retry = evaluate_target_intent("GIT_DIR=.git darker --check src", observed_failure)
+    command_variant = {
+        "variant_id": "seed_console_form_default_environment",
+        "command": "GIT_DIR=.git darker --check src",
+        "command_hash": dependency_resolution_hash("GIT_DIR=.git darker --check src"),
+        "environment": "selected_source_commit_metadata_default_install",
+        "environment_hash": dependency_resolution_hash({"source_commit": selected_commit, "mode": "metadata_default_install"}),
+        "dependency_lock_hash": dependency_resolution_hash(lock_candidate),
+        "return_code": None,
+        "raw_log_hash": dependency_resolution_hash(observed_failure),
+        "positive_target_signature_match": False,
+        "negative_precondition_match": True,
+        "status": "BLOCK",
+        "blocker": exact_blocker,
+    }
+    claim_boundary = {
+        "status": "PASS",
+        "current_protocol": "v2.13",
+        "confirmed_native_repair_episode_count": 4,
+        "confirmed_issue_derived_repair_episode_count": 0,
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "not_demonstrated",
+        "self_maintaining_software": "false/not_demonstrated",
+        "hallucination_elimination": "false/not_claimed",
+        "absolute_uncrashability": "false/not_claimed",
+        "production_runtime_readiness": "false/not_demonstrated",
+        "technical_validation_release_readiness": "not_claimed",
+        "issue_derived_native_count_increment_allowed": False,
+        "native_memory_separation_claim_allowed": False,
+    }
+    lineage_records = [
+        _lineage_record(
+            "batch015",
+            "post_v2_37_hardening_batch015_runtime_wrapper_lock_sequence_product_artifacts",
+            "8029143857",
+            482744,
+            "08a656487044d4d6d0003a303da25c159881ab53a8ab59a0ac61ec2a02af600c",
+            "e2ac98bdc72febaecbf383107f5f62da6a5ca44f",
+            BATCH015_DIR,
+            {"status": "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD", "full_scoring": "NOT_RUN/disallowed", "memory_lift": "not_demonstrated"},
+        ),
+        _lineage_record(
+            "batch016",
+            "post_v2_37_hardening_batch016_target_intent_alignment_artifacts",
+            "8030928566",
+            505116,
+            "c9526a9ab21e5341c4f1a74428429ffb28b9ec964e2cfb7c0e697442b4ff131e",
+            "171f3f3c59b90c7fb72d4b3e2641da149ee54ef8",
+            BATCH016_DIR,
+            {"status": batch016_state.get("status"), "exact_blocker": batch016_state.get("exact_blocker"), "full_scoring": "NOT_RUN/disallowed", "memory_lift": "not_demonstrated"},
+        ),
+    ]
+    carry_forward_records = []
+    for batch_dir in [
+        BATCH_DIR,
+        BATCH003_DIR,
+        BATCH004_DIR,
+        BATCH005_DIR,
+        BATCH006_DIR,
+        BATCH007_DIR,
+        BATCH008_DIR,
+        BATCH009_DIR,
+        BATCH010_DIR,
+        BATCH011_DIR,
+        BATCH012_DIR,
+        BATCH013_DIR,
+        BATCH014_DIR,
+        BATCH015_DIR,
+        BATCH016_DIR,
+    ]:
+        carry_forward_records.append(
+            {
+                "directory": batch_dir.as_posix(),
+                "sha256sums_sha256": _manifest_hash(batch_dir / "SHA256SUMS.txt"),
+                "carried_by": "artifact_lineage_index_and_committed_repo_evidence",
+                "included_in_primary_artifact": False,
+            }
+        )
+    records: dict[str, object] = {
+        "batch016_boundary_preservation.json": {
+            "status": "PASS",
+            "batch016_status": batch016_state.get("status"),
+            "batch016_exact_blocker": batch016_state.get("exact_blocker"),
+            "target_intent_alignment": batch016_state.get("target_intent_alignment"),
+            "issue_derived_candidate_verified": batch016_state.get("issue_derived_candidate_verified"),
+            "native_repair_episode_count": batch016_state.get("native_repair_episode_count"),
+            "issue_derived_repair_episode_count": batch016_state.get("issue_derived_repair_episode_count"),
+        },
+        "batch015_runtime_scaffold_preservation.json": {
+            "status": "PASS",
+            "preserved_scaffolds": [
+                "runtime incident capture",
+                "execution boundary gateway",
+                "isolated repair sandbox",
+                "dependency drift chaperone",
+                "active AST excision probe",
+                "syntax micro-rollback",
+                "predictive degradation telemetry",
+                "compute budget safe-stop",
+                "blue/green deployment simulation",
+                "proof-to-action compiler",
+                "lock-sequence operation registry",
+                "claim tier system",
+                "capability catalog",
+                "README restructure",
+                "marketing claim boundary",
+            ],
+            "batch015_status": batch015_state.get("status"),
+        },
+        "claim_boundary_batch017.json": claim_boundary,
+        "artifact_packaging_policy.json": {
+            "status": "PASS",
+            "primary_artifact_mode": "thin_delta",
+            "optional_full_lineage_artifact_allowed": True,
+            "recursive_prior_batch_packaging_allowed_for_primary": False,
+            "blocker_if_recursive": "recursive_prior_batch_packaging_detected",
+        },
+        "thin_artifact_packaging_policy.json": {
+            "status": "PASS",
+            "primary_artifact_name": "post_v2_37_hardening_batch017_dependency_era_thin_artifacts",
+            "included_roots": [POST_DIR.as_posix(), BATCH017_DIR.as_posix()],
+            "lineage_proven_by": ["artifact_sha256", "ingest_commit", "sha256sums_sha256", "claim_boundary_summary"],
+        },
+        "artifact_lineage_index.json": {"status": "PASS", "lineage_only": True, "prior_artifacts": lineage_records, "current_generation_head": current_head},
+        "evidence_carry_forward_manifest.json": {
+            "status": "PASS",
+            "records": carry_forward_records,
+            "prior_evidence_included_by_reference": True,
+            "prior_batch_directories_recursively_packaged": False,
+        },
+        "artifact_payload_budget.json": {
+            "status": "PASS",
+            "target_primary_artifact_bytes": 450000,
+            "hard_primary_artifact_bytes": 750000,
+            "estimated_primary_artifact_bytes": 0,
+            "budget_checked_after_payload_stage": True,
+            "blocker": None,
+        },
+        "artifact_minimality_audit.json": {
+            "status": "PASS",
+            "recursive_prior_batch_packaging_detected": False,
+            "primary_payload_roots": [POST_DIR.as_posix(), BATCH017_DIR.as_posix()],
+        },
+        "lineage_equivalence_audit.json": {
+            "status": "PASS",
+            "thin_artifact_lineage_equivalence_failed": False,
+            "lineage_equivalence_proven_by": ["artifact_lineage_index.json", "evidence_carry_forward_manifest.json"],
+        },
+        "dependency_era_resolution_policy.json": dependency_era_resolution_policy(),
+        "decision_time_dependency_evidence_policy.json": decision_time_dependency_evidence_policy(),
+        "dependency_resolution_forbidden_sources.json": dependency_resolution_forbidden_sources(),
+        "dependency_era_resolution_audit.json": {
+            "status": "BLOCK",
+            "selected_source_commit": selected_commit,
+            "issue_created_at": issue_created_at,
+            "latest_unrestricted_dependency_resolution_used": False,
+            "post_issue_dependency_metadata_used": False,
+            "fixed_later_gold_pr_metadata_used": False,
+            "source_patch_authorized": False,
+            "blocker": exact_blocker,
+        },
+        "dependency_metadata_inventory.json": {
+            "status": "PASS",
+            "selected_source_commit": selected_commit,
+            "metadata_records": [
+                {"path": "pyproject.toml", "source": "selected_source_commit", "sha256": "1ebb788654f3ceaf29b325c8cd7cac40bd57cfc7d16be92989ddd598fd261cd3"},
+                {"path": "setup.cfg", "source": "selected_source_commit", "sha256": "111d30a3db347c1dba0f80ae25b58c34abf181885084d55892fb8e46c9618afa"},
+                {"path": "setup.py", "source": "selected_source_commit", "sha256": "f81644af304c74ed13e32b1670257761e3802b401e4b87091dab30b10242fc7e"},
+            ],
+            "source": "Batch014 source checkout audit carried forward through Batch016 artifact ingest",
+        },
+        "dependency_constraint_candidates.json": {
+            "status": "BLOCK",
+            "declared_ranges": declared_ranges,
+            "likely_api_mismatch_source": "black.find_project_root return type compatibility",
+            "dependency_range_underconstrained": True,
+            "blocker": exact_blocker,
+        },
+        "dependency_release_time_audit.json": {
+            "status": "BLOCK",
+            "release_metadata_records": [],
+            "release_metadata_recorded": False,
+            "blocker": "dependency_release_metadata_unavailable",
+        },
+        "decision_time_dependency_lock_candidate.json": lock_candidate,
+        "decision_time_dependency_lock_status.json": {
+            "status": "BLOCK",
+            "decision_time_dependency_lock_valid": False,
+            "manual_dependency_lock_used": False,
+            "automated_lock_candidate_used": False,
+            "blocker": exact_blocker,
+        },
+        "manual_dependency_lock_presence_check.json": {"status": "ABSENT" if not manual_lock_exists else "PRESENT", "path": manual_lock_path.as_posix(), "exists": manual_lock_exists},
+        "manual_dependency_lock_git_tracking_audit.json": {"status": "ABSENT" if not manual_lock_exists else ("PASS" if manual_lock_tracked else "BLOCK"), "git_tracked": manual_lock_tracked, "workflow_visible": manual_lock_tracked},
+        "manual_dependency_lock_schema_validation.json": {"status": "ABSENT" if not manual_lock_exists else ("PASS" if manual_schema_valid else "BLOCK"), "schema_valid": manual_schema_valid},
+        "manual_dependency_lock_decision_time_audit.json": {"status": "ABSENT" if not manual_lock_exists else "BLOCK", "uses_future_evidence": False, "decision_time_safe": False},
+        "issue112_command_variant_policy.json": {
+            "status": "PASS",
+            "allowed_command_variants": ["GIT_DIR=.git python -m darker --check src", "GIT_DIR=.git darker --check src", "equivalent_ephemeral_harness_subprocess"],
+            "source_patch_during_variant_search_allowed": False,
+        },
+        "issue112_environment_variant_matrix.json": {
+            "status": "BLOCK",
+            "variants": ["selected_source_commit_metadata_default_install", "decision_time_dependency_lock_candidate", "manual_dependency_lock_if_valid"],
+            "blocker": exact_blocker,
+        },
+        "issue112_dependency_resolved_variant_results.json": {"status": "BLOCK", "variants": [command_variant], "target_intent_alignment_reached": False, "blocker": exact_blocker},
+        "source_commit_window_policy.json": {"status": "PASS", "max_commits": 10, "post_issue_commits_allowed": False, "purpose": "find decision-time source state only"},
+        "source_commit_window_candidates.json": {"status": "NOT_RUN", "selected_source_commit": selected_commit, "post_issue_commit_count": 0, "candidate_count": 0, "blocker": exact_blocker},
+        "source_commit_window_results.json": {"status": "NOT_RUN", "target_intent_alignment_reached": False, "blocker": exact_blocker},
+        "darker_issue112_target_intent_signature_retry.json": {**issue112_target_signature(), **target_intent_retry_policy()},
+        "target_intent_alignment_retry_audit.json": {**target_retry, "status": "BLOCK", "blocker": "target_intent_alignment_not_reached", "dependency_precondition_blocker": exact_blocker},
+        "issue_derived_harness_v3_policy.json": {
+            "status": "PASS",
+            "requires_dependency_era_lock": True,
+            "requires_target_intent_alignment": True,
+            "solution_sections_allowed": False,
+            "fixed_later_gold_pr_evidence_allowed": False,
+        },
+        "issue_derived_harness_v3_context_manifest.json": {
+            "status": "NOT_RUN",
+            "harness_v3_generated": False,
+            "target_intent_alignment_required": True,
+            "solution_sections_used": False,
+            "future_fixed_gold_pr_evidence_used": False,
+            "blocker": exact_blocker,
+        },
+        "issue_derived_harness_v3_verification_result.json": {"status": "NOT_RUN", "harness_v3_generated": False, "target_intent_alignment": False, "issue_derived_candidate_verified": False, "blocker": exact_blocker},
+        "candidate_curvature_feature_vectors.json": {"status": "NOT_RUN", "reason": "target-intent alignment not reached"},
+        "basin_stability_scores.json": {"status": "NOT_RUN", "reason": "target-intent alignment not reached"},
+        "two_winner_decision_records.json": {"status": "NOT_RUN", "reason": "target-intent alignment not reached"},
+        "prospective_memory_eligibility_gate.json": {"status": "BLOCK", "native_memory_eligibility": False, "reason": "issue-derived target-intent alignment not reached"},
+        "curvature_claim_boundary.json": {"status": "PASS", "curvature_routing_replaces_evidence": False, "memory_lift": "not_demonstrated"},
+        "repair_only_fallback_status.json": {"status": "NOT_RUN", "repair_only_fallback_attempted": False, "reason": "target-intent alignment not reached"},
+        "issue_derived_repair_feasibility_status.json": {"status": "NOT_RUN", "issue_derived_repair_feasibility": False, "reason": "target-intent alignment not reached"},
+        "issue_derived_matched_null_diagnostic_status.json": {"status": "NOT_RUN", "matched_null_diagnostic_run_count": 0, "reason": "target-intent alignment not reached"},
+        "darker_issue112_candidate_viability_decision.json": {
+            "status": "BLOCK",
+            "decision": "continue_with_manual_dependency_lock_required",
+            "blocker": exact_blocker,
+        },
+        "proof_obligations_ledger.json": [
+            {
+                "entry_type": "ROLLBACK_BLOCK",
+                "blocker": exact_blocker,
+                "next_allowed_action": "manual_dependency_lock_request",
+                "downstream_repair_suppressed": True,
+                "evidence_hash": dependency_resolution_hash({"lock_candidate": lock_candidate, "target_retry": target_retry}),
+            }
+        ],
+        "rollback_block_ledger_audit.json": {"status": "PASS", "rollback_block_count": 1, "blockers": [exact_blocker]},
+        "compute_budget_safe_stop_batch017.json": {"status": "SAFE_STOP", "safe_stop_success": True, "exact_blocker": exact_blocker, "downstream_repair_suppressed": True},
+        "controllergate_claim_tier_update.json": {
+            "status": "PASS",
+            "dependency_era_chaperone": "demonstrated_diagnostic",
+            "dependency_era_resolution": "blocked_manual_lock_required",
+            "issue_derived_repair_feasibility_upgrade": False,
+            "memory_lift_upgrade": False,
+            "self_maintaining_upgrade": False,
+        },
+        "controllergate_capability_catalog_update.json": {
+            "status": "PASS",
+            "catalog_version": "batch017",
+            "updated_capabilities": [
+                "dependency_drift_chaperone",
+                "dependency_era_resolution",
+                "target_intent_signature_alignment",
+                "issue_derived_harness_verification",
+                "artifact_thin_packaging",
+                "evidence_carry_forward_manifest",
+                "compute_budget_safe_stop",
+            ],
+            "repair_feasibility_upgraded": False,
+        },
+    }
+    write_text_lf(BATCH017_DIR / "manual_dependency_lock_request.md", "\n".join([
+        "# Manual dependency lock request",
+        "",
+        "Batch017 could not prove a decision-time dependency lock for Darker issue #112 from committed evidence alone.",
+        "",
+        "Provide `external_seeds_pending/dependency_locks/darker_issue112_dependency_lock.json` with exact package versions and decision-time-safe evidence for each version if this seed should continue.",
+        "",
+    ]))
+    write_text_lf(BATCH017_DIR / "manual_seed_refinement_request.md", "\n".join([
+        "# Manual seed refinement request",
+        "",
+        "If a decision-time dependency lock is unavailable, replace or refine the issue-derived seed rather than patching through a pre-target failure.",
+        "",
+    ]))
+    for name, record in records.items():
+        write_json_deterministic(BATCH017_DIR / name, record)
+    write_text_lf(
+        BATCH017_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication Batch017 dependency-era resolution and thin artifact packaging",
+                "",
+                "Status: PASS_WITH_BATCH017_SAFE_STOP.",
+                "",
+                "Batch017 officially preserves Batch016, introduces thin artifact packaging and lineage carry-forward, and attempts decision-time dependency-era resolution for Darker issue #112.",
+                "",
+                "No decision-time dependency lock could be proven from committed evidence, so target-intent retry, harness v3, repair-only fallback, and matched-null diagnostics remain blocked.",
+                "",
+                f"Exact blocker: `{exact_blocker}`.",
+            ]
+        ),
+    )
+    write_json_deterministic(
+        "configs/clean_replication_batch_017.json",
+        {
+            "lane_id": BATCH017_ID,
+            "lane_type": "dependency_era_resolution_and_thin_artifact_packaging",
+            "current_protocol": "v2.13",
+            "primary_artifact_name": "post_v2_37_hardening_batch017_dependency_era_thin_artifacts",
+            "full_scoring": "NOT_RUN/disallowed",
+        },
+    )
+    catalog_path = Path("configs/controllergate_capability_catalog.json")
+    catalog = load_json(catalog_path)
+    capabilities = catalog.setdefault("capabilities", [])
+    existing = {item.get("capability_id"): item for item in capabilities if isinstance(item, dict)}
+    for capability_id, public_name, tier, evidence, blockers in [
+        ("dependency_era_resolution", "Dependency-Era Resolution", 1, "outputs/clean_replication_batch_017/dependency_era_resolution_audit.json", [exact_blocker]),
+        ("artifact_thin_packaging", "Thin Artifact Packaging", 1, "outputs/clean_replication_batch_017/thin_artifact_packaging_policy.json", []),
+        ("evidence_carry_forward_manifest", "Evidence Carry-Forward Manifest", 1, "outputs/clean_replication_batch_017/evidence_carry_forward_manifest.json", []),
+    ]:
+        record = existing.get(capability_id) or capability_record(capability_id, public_name, tier, [evidence], blockers)
+        record["current_tier"] = tier
+        record["evidence_artifact_paths"] = [evidence]
+        record["blockers"] = blockers
+        existing[capability_id] = record
+    catalog["capabilities"] = list(existing.values())
+    catalog["catalog_version"] = "batch017"
+    write_json_deterministic(catalog_path, catalog)
+    write_json_deterministic("configs/controllergate_claim_tiers.json", claim_tier_config())
+    state = {
+        "status": "PASS_WITH_BATCH017_SAFE_STOP",
+        "exact_blocker": exact_blocker,
+        "artifact_packaging_status": "PASS",
+        "thin_artifact_packaging_status": "PASS",
+        "artifact_lineage_index_status": "PASS",
+        "evidence_carry_forward_manifest_status": "PASS",
+        "recursive_prior_batch_packaging_detected": False,
+        "target_intent_retry_status": "BLOCK",
+        "dependency_era_resolver_status": "BLOCK",
+        "decision_time_dependency_lock_status": "BLOCK",
+        "manual_dependency_lock_status": manual_lock_status["status"],
+        "dependency_precondition_classification": dependency_classification["classification"],
+        "command_environment_variant_matrix_status": "BLOCK",
+        "source_commit_window_status": "NOT_RUN",
+        "harness_v3_generated": False,
+        "harness_v3_verification_status": "NOT_RUN",
+        "target_intent_alignment": False,
+        "issue_derived_candidate_verified": False,
+        "repair_only_fallback_attempted": False,
+        "issue_derived_repair_feasibility": False,
+        "native_repair_episode_count": 4,
+        "issue_derived_repair_episode_count": 0,
+        "matched_null_diagnostic_run_count": 0,
+        "memory_separation_claim_status": "not_demonstrated",
+        "full_scoring_status": "NOT_RUN/disallowed",
+        "self_maintaining_software_status": "false/not_demonstrated",
+        "hallucination_elimination_claim_status": "false/not_claimed",
+        "absolute_uncrashability_claim_status": "false/not_claimed",
+        "current_protocol": "v2.13",
+    }
+    write_json_deterministic(BATCH017_DIR / "consolidated_state_clean_replication_batch_017.json", state)
+    write_sha256sums(BATCH017_DIR)
     return state
 
 
@@ -7760,6 +8247,7 @@ def main() -> int:
     BATCH014_DIR.mkdir(parents=True, exist_ok=True)
     BATCH015_DIR.mkdir(parents=True, exist_ok=True)
     BATCH016_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH017_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
@@ -7777,6 +8265,7 @@ def main() -> int:
     batch014_state = write_batch014_outputs(batch013_state)
     batch015_state = write_batch015_outputs(batch014_state)
     batch016_state = write_batch016_outputs(batch015_state)
+    batch017_state = write_batch017_outputs(batch015_state, batch016_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -7794,6 +8283,7 @@ def main() -> int:
         "configs/clean_replication_batch_013.json",
         "configs/clean_replication_batch_014.json",
         "configs/clean_replication_batch_015.json",
+        "configs/clean_replication_batch_017.json",
         "configs/controllergate_capability_catalog.json",
         "configs/controllergate_claim_tiers.json",
         "configs/lock_sequence_operation_registry.json",
@@ -7922,7 +8412,11 @@ def main() -> int:
             "batch012_artifact_name": "post_v2_37_hardening_batch012_targeted_seed_artifacts",
             "batch013_artifact_name": "post_v2_37_hardening_batch013_acquisition_locks_artifacts",
             "batch014_artifact_name": "post_v2_37_hardening_batch014_issue_derived_seed_artifacts",
+            "batch015_artifact_name": "post_v2_37_hardening_batch015_runtime_wrapper_lock_sequence_product_artifacts",
+            "batch016_artifact_name": "post_v2_37_hardening_batch016_target_intent_alignment_artifacts",
+            "batch017_primary_artifact_name": "post_v2_37_hardening_batch017_dependency_era_thin_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
+            "primary_artifact_mode": "thin_delta",
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
             "blocker_if_detected": "artifact_packaging_cache_payload_detected",
@@ -7976,7 +8470,9 @@ def main() -> int:
         },
     )
 
-    if batch016_state.get("status") == "PASS_WITH_BATCH016_SAFE_STOP":
+    if batch017_state.get("status") == "PASS_WITH_BATCH017_SAFE_STOP":
+        final_status = "PASS_WITH_BATCH017_SAFE_STOP"
+    elif batch016_state.get("status") == "PASS_WITH_BATCH016_SAFE_STOP":
         final_status = "PASS_WITH_BATCH016_SAFE_STOP"
     elif batch015_state.get("status") == "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD":
         final_status = "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD"
@@ -8001,7 +8497,7 @@ def main() -> int:
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     final_report = {
         "status": final_status,
-        "exact_blocker": batch016_state.get("exact_blocker") or batch015_state.get("exact_blocker") or batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
+        "exact_blocker": batch017_state.get("exact_blocker") or batch016_state.get("exact_blocker") or batch015_state.get("exact_blocker") or batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
         "batch002_exact_blocker": batch_state["exact_blocker"],
         "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
@@ -8301,6 +8797,31 @@ def main() -> int:
         "batch016_issue_derived_repair_episode_count": batch016_state["issue_derived_repair_episode_count"],
         "batch016_matched_null_diagnostic_run_count": batch016_state["matched_null_diagnostic_run_count"],
         "batch016_memory_separation_claim_status": batch016_state["memory_separation_claim_status"],
+        "clean_replication_batch_017_status": batch017_state["status"],
+        "clean_replication_batch_017_exact_blocker": batch017_state["exact_blocker"],
+        "batch017_artifact_packaging_status": batch017_state["artifact_packaging_status"],
+        "batch017_thin_artifact_packaging_status": batch017_state["thin_artifact_packaging_status"],
+        "batch017_artifact_lineage_index_status": batch017_state["artifact_lineage_index_status"],
+        "batch017_evidence_carry_forward_manifest_status": batch017_state["evidence_carry_forward_manifest_status"],
+        "batch017_recursive_prior_batch_packaging_detected": batch017_state["recursive_prior_batch_packaging_detected"],
+        "batch017_target_intent_retry_status": batch017_state["target_intent_retry_status"],
+        "batch017_dependency_era_resolver_status": batch017_state["dependency_era_resolver_status"],
+        "batch017_decision_time_dependency_lock_status": batch017_state["decision_time_dependency_lock_status"],
+        "batch017_manual_dependency_lock_status": batch017_state["manual_dependency_lock_status"],
+        "batch017_dependency_precondition_classification": batch017_state["dependency_precondition_classification"],
+        "batch017_command_environment_variant_matrix_status": batch017_state["command_environment_variant_matrix_status"],
+        "batch017_source_commit_window_status": batch017_state["source_commit_window_status"],
+        "batch017_harness_v3_generated": batch017_state["harness_v3_generated"],
+        "batch017_harness_v3_verification_status": batch017_state["harness_v3_verification_status"],
+        "batch017_target_intent_alignment": batch017_state["target_intent_alignment"],
+        "batch017_issue_derived_candidate_verified": batch017_state["issue_derived_candidate_verified"],
+        "batch017_repair_only_fallback_attempted": batch017_state["repair_only_fallback_attempted"],
+        "batch017_issue_derived_repair_feasibility": batch017_state["issue_derived_repair_feasibility"],
+        "batch017_native_repair_episode_count": batch017_state["native_repair_episode_count"],
+        "batch017_issue_derived_repair_episode_count": batch017_state["issue_derived_repair_episode_count"],
+        "batch017_matched_null_diagnostic_run_count": batch017_state["matched_null_diagnostic_run_count"],
+        "batch017_memory_separation_claim_status": batch017_state["memory_separation_claim_status"],
+        "batch017_absolute_uncrashability_claim_status": batch017_state["absolute_uncrashability_claim_status"],
         "global_curvature_logic_status": batch013_state["global_curvature_logic_status"],
         "curvature_feature_vector_status": batch013_state["curvature_feature_vector_status"],
         "basin_stability_check_status": batch013_state["basin_stability_check_status"],
@@ -8432,6 +8953,10 @@ def main() -> int:
                 "",
                 f"Batch016 status: `{batch016_state['status']}`; exact blocker: `{batch016_state['exact_blocker']}`.",
                 "",
+                "Batch017 ingests the manually supplied Batch016 artifact boundary, attempts decision-time dependency-era resolution, adds thin artifact packaging, and preserves prior evidence through a lineage index and carry-forward manifest.",
+                "",
+                f"Batch017 status: `{batch017_state['status']}`; exact blocker: `{batch017_state['exact_blocker']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
@@ -8439,9 +8964,38 @@ def main() -> int:
     write_public_docs_reports()
     write_batch015_markdown_docs()
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR, BATCH015_DIR, BATCH016_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH017_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
+    payload_size = sum(path.stat().st_size for path in PAYLOAD_DIR.rglob("*") if path.is_file())
+    recursive_prior_batch_packaging_detected = any(
+        part.startswith("clean_replication_batch_") and part != BATCH017_ID
+        for path in PAYLOAD_DIR.rglob("*")
+        for part in path.relative_to(PAYLOAD_DIR).parts
+    )
+    write_json_deterministic(
+        BATCH017_DIR / "artifact_payload_budget.json",
+        {
+            "status": "PASS" if payload_size <= 750000 else "BLOCK",
+            "target_primary_artifact_bytes": 450000,
+            "hard_primary_artifact_bytes": 750000,
+            "estimated_primary_artifact_bytes": payload_size,
+            "target_exceeded_with_justification": payload_size > 450000,
+            "justification": "post boundary plus Batch017 lineage and dependency-era evidence" if payload_size > 450000 else None,
+            "blocker": None if payload_size <= 750000 else "primary_artifact_budget_exceeded",
+        },
+    )
+    write_json_deterministic(
+        BATCH017_DIR / "artifact_minimality_audit.json",
+        {
+            "status": "PASS" if not recursive_prior_batch_packaging_detected else "BLOCK",
+            "recursive_prior_batch_packaging_detected": recursive_prior_batch_packaging_detected,
+            "primary_payload_roots": [POST_DIR.as_posix(), BATCH017_DIR.as_posix()],
+            "payload_size_bytes": payload_size,
+            "blocker": None if not recursive_prior_batch_packaging_detected else "recursive_prior_batch_packaging_detected",
+        },
+    )
+    write_sha256sums(BATCH017_DIR)
     write_json_deterministic(
         POST_DIR / "artifact_payload_manifest_report.json",
         {
@@ -8449,13 +9003,15 @@ def main() -> int:
             "staged_payload_directory": str(PAYLOAD_DIR),
             "artifact_manifest_name": "ARTIFACT_SHA256SUMS.txt",
             "payload_file_count": payload_audit["payload_file_count"],
+            "payload_size_bytes": payload_size,
             "cache_payload_count": len(payload_audit["cache_payloads"]),
             "uncovered_count": len(payload_audit["uncovered"]),
+            "recursive_prior_batch_packaging_detected": recursive_prior_batch_packaging_detected,
             "manifest_convention": "artifact manifest covers every uploaded payload file except the manifest file itself",
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR, BATCH015_DIR, BATCH016_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH017_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

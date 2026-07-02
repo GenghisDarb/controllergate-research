@@ -1,0 +1,26 @@
+{
+  "allowed_dependency_evidence": [
+    "selected_source_commit_dependency_metadata",
+    "selected_source_commit_declared_pins",
+    "selected_source_commit_ci_metadata",
+    "package_release_at_or_before_issue_created_at_with_recorded_metadata",
+    "git_tracked_manual_decision_time_dependency_lock",
+    "bounded_pre_issue_source_commit_window"
+  ],
+  "blocker_if_unresolved": "dependency_era_lock_unavailable",
+  "environment_restoration_precedes_source_patch": true,
+  "forbidden_dependency_evidence": [
+    "latest_unrestricted_pip_resolution",
+    "fixed_later_commit_dependency_metadata",
+    "post_issue_dependency_metadata_without_diagnostic_label",
+    "pr_patch_dependency_metadata",
+    "gold_patch_dependency_metadata",
+    "future_tests_or_lock_files",
+    "hidden_benchmark_state",
+    "unrecorded_package_metadata",
+    "undocumented_local_machine_state"
+  ],
+  "latest_unrestricted_dependency_resolution_allowed": false,
+  "patch_authorized_without_target_intent_alignment": false,
+  "status": "PASS"
+}

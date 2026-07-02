@@ -41,6 +41,8 @@ Batch015 adds scaffolded runtime controls and claim documentation. It does not a
 
 Batch016 addresses target-intent alignment for Darker issue #112. The previous issue-derived harness failed because the observed config-loading TypeError did not match the issue intent. ControllerGate correctly blocked instead of accepting an unrelated failure.
 
+Batch017 attempts decision-time-safe dependency-era resolution for that pre-target failure. If the historical environment cannot be reconstructed from admissible evidence, ControllerGate blocks rather than patching. Batch017 also starts thin artifact packaging: prior evidence is preserved by artifact SHA, ingest commit, manifest hash, and lineage index instead of recursively repackaging every prior batch.
+
 ## Claim Tier System
 
 ControllerGate uses tiers 0 through 5: Proposed, Demonstrated, Reproduced, Cross-Domain, Predictive, and Theorem/Formal. Every public capability must have a tier, evidence paths or evidence gaps, blockers, and forbidden overclaims.
@@ -89,6 +91,7 @@ Future work may compile agent intentions into evidence-bound audited action mani
 - Self-maintaining software remains `false/not_demonstrated`.
 - Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
 - Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
+- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.
 
 ## Basic local checks
 

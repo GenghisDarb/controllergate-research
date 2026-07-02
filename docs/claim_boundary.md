@@ -4,6 +4,8 @@ Batch015 claim boundaries: no production readiness, no full scoring, no full mem
 
 Batch016 claim boundary: target-intent mismatch blocks patch admission and preserves native/issue-derived evidence separation.
 
+Batch017 claim boundary: dependency-era lock unavailability blocks target-intent retry, harness v3, repair-only fallback, and matched-null diagnostics.
+
 ## Current operational gate status
 
 - Current protocol remains `v2.13`.
@@ -14,3 +16,4 @@ Batch016 claim boundary: target-intent mismatch blocks patch admission and prese
 - Self-maintaining software remains `false/not_demonstrated`.
 - Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
 - Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
+- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.

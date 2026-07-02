@@ -15,9 +15,17 @@ ALLOWED_ACTION_TYPES = {
     "safe_stop_required",
     "runtime_monitoring_required",
     "manual_seed_refinement_required",
+    "manual_dependency_lock_request",
 }
 
 RUNTIME_ACTIONS = {"patch_ready_for_review", "shadow_deploy_ready"}
+BLOCKED_PROOF_SAFE_ACTIONS = {
+    "environment_restore_required",
+    "manual_seed_refinement_required",
+    "manual_dependency_lock_request",
+    "rollback_required",
+    "safe_stop_required",
+}
 
 
 def _hash(value: Any) -> str:
@@ -37,7 +45,7 @@ def compile_action_manifest(proof_record: dict[str, Any], lock_sequence: list[st
             "lock_sequence": lock_sequence,
             "evidence_hash": _hash(proof_record),
         }
-    if proof_record.get("status") != "PASS":
+    if proof_record.get("status") != "PASS" and action_type not in BLOCKED_PROOF_SAFE_ACTIONS:
         return {
             "status": "BLOCK",
             "blocker": "proof_record_not_passed",

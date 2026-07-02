@@ -6,6 +6,8 @@ Current evidence boundary: four confirmed external native repair episodes, zero 
 
 Batch015 adds runtime-wrapper scaffold modules, a lock-sequence operation registry, claim tiers, a capability catalog, public positioning, and roadmap-only compiler directions. It does not claim production readiness or new repair evidence.
 
+Batch017 attempts decision-time dependency-era resolution for Darker issue #112 and starts thin artifact packaging. It blocks rather than patching when no decision-time dependency lock is proven.
+
 ## Current operational gate status
 
 - Current protocol remains `v2.13`.
@@ -16,3 +18,4 @@ Batch015 adds runtime-wrapper scaffold modules, a lock-sequence operation regist
 - Self-maintaining software remains `false/not_demonstrated`.
 - Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
 - Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
+- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.

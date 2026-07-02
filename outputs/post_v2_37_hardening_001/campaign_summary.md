@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH016_SAFE_STOP.
+Status: PASS_WITH_BATCH017_SAFE_STOP.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -51,5 +51,9 @@ Batch015 status: `PASS_WITH_BATCH015_RUNTIME_SCAFFOLD`; latest validation blocke
 Batch016 ingests the manually supplied Batch015 artifact, adds target-intent signature checking for Darker issue #112, records the mismatch as a runtime incident, classifies the observed failure as a dependency-era/precondition blocker, and safe-stops before repair.
 
 Batch016 status: `PASS_WITH_BATCH016_SAFE_STOP`; exact blocker: `dependency_api_precondition_unresolved`.
+
+Batch017 ingests the manually supplied Batch016 artifact boundary, attempts decision-time dependency-era resolution, adds thin artifact packaging, and preserves prior evidence through a lineage index and carry-forward manifest.
+
+Batch017 status: `PASS_WITH_BATCH017_SAFE_STOP`; exact blocker: `dependency_era_lock_unavailable`.
 
 NotebookLM advice traceability status: `PASS`.
