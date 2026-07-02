@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch015 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch016 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -68,8 +68,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch015_runtime_wrapper_lock_sequence_product/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch015_runtime_wrapper_lock_sequence_product \( \
+          test -f artifact_payload/post_v2_37_hardening_batch016_target_intent_alignment/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch016_target_intent_alignment \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -90,11 +90,11 @@ jobs:
             exit 1
           fi
 
-      - name: Upload Batch015 runtime-wrapper lock-sequence post-v2.37 hardening artifact
+      - name: Upload Batch016 target-intent alignment post-v2.37 hardening artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch015_runtime_wrapper_lock_sequence_product_artifacts
+          name: post_v2_37_hardening_batch016_target_intent_alignment_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch015_runtime_wrapper_lock_sequence_product/**
+            artifact_payload/post_v2_37_hardening_batch016_target_intent_alignment/**
           if-no-files-found: error

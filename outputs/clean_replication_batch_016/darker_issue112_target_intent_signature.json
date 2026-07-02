@@ -1,0 +1,27 @@
+{
+  "any_failure_sufficient": false,
+  "candidate_id": "darker_issue_112_relative_git_dir",
+  "negative_precondition_indicators": [
+    "config loading failure",
+    "TypeError: unsupported operand type(s) for /: 'tuple' and 'str'",
+    "ImportError",
+    "ModuleNotFoundError",
+    "dependency API mismatch",
+    "missing dependency",
+    "Python version incompatibility",
+    "command-line parsing failure",
+    "environment setup failure",
+    "no git repository available"
+  ],
+  "patch_authorized_without_alignment": false,
+  "positive_indicators": [
+    "GIT_DIR=.git",
+    "darker --check src",
+    "Not a git repository",
+    "git_get_modified_files",
+    "_git_check_output_lines",
+    "git diff --name-only --relative HEAD -- ."
+  ],
+  "source": "manual_redacted_issue_snapshot_no_solution_sections",
+  "status": "PASS"
+}

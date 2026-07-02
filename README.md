@@ -39,6 +39,8 @@ Memory lift on external real bugs is not demonstrated. Self-maintaining software
 
 Batch015 adds scaffolded runtime controls and claim documentation. It does not add a repair episode.
 
+Batch016 addresses target-intent alignment for Darker issue #112. The previous issue-derived harness failed because the observed config-loading TypeError did not match the issue intent. ControllerGate correctly blocked instead of accepting an unrelated failure.
+
 ## Claim Tier System
 
 ControllerGate uses tiers 0 through 5: Proposed, Demonstrated, Reproduced, Cross-Domain, Predictive, and Theorem/Formal. Every public capability must have a tier, evidence paths or evidence gaps, blockers, and forbidden overclaims.
@@ -86,6 +88,7 @@ Future work may compile agent intentions into evidence-bound audited action mani
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
 - Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
+- Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
 
 ## Basic local checks
 

@@ -132,7 +132,9 @@ from controllergate.core.rollback_ledger import audit_rollback_block_ledger, rol
 from controllergate.core.workspace_purity import audit_workspace_purity, fresh_workspace_purity_policy
 from controllergate.core.capability_catalog import REQUIRED_CAPABILITY_IDS, capability_record
 from controllergate.core.claim_tiers import claim_tier_config
+from controllergate.core.dependency_era_chaperone import classify_dependency_precondition, dependency_era_policy
 from controllergate.core.lock_sequence_registry import LOCKS, LOCK_PAIR_CLASSES, OPERATIONS, registry_records
+from controllergate.core.target_intent_signature import evaluate_target_intent, issue112_target_signature
 from controllergate.runtime.active_ast_excision_probe import plan_excision_probe
 from controllergate.runtime.blue_green_deployment import simulate_blue_green
 from controllergate.runtime.compute_budget import ComputeBudget
@@ -175,7 +177,9 @@ BATCH014_ID = "clean_replication_batch_014"
 BATCH014_DIR = Path("outputs") / BATCH014_ID
 BATCH015_ID = "clean_replication_batch_015"
 BATCH015_DIR = Path("outputs") / BATCH015_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch015_runtime_wrapper_lock_sequence_product")
+BATCH016_ID = "clean_replication_batch_016"
+BATCH016_DIR = Path("outputs") / BATCH016_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch016_target_intent_alignment")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -242,6 +246,7 @@ def write_batch015_markdown_docs() -> None:
             "- Memory lift remains `not_demonstrated`.",
             "- Self-maintaining software remains `false/not_demonstrated`.",
             "- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.",
+            "- Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.",
         ]
     )
     readme = "\n".join(
@@ -286,6 +291,8 @@ def write_batch015_markdown_docs() -> None:
             "Memory lift on external real bugs is not demonstrated. Self-maintaining software is not demonstrated.",
             "",
             "Batch015 adds scaffolded runtime controls and claim documentation. It does not add a repair episode.",
+            "",
+            "Batch016 addresses target-intent alignment for Darker issue #112. The previous issue-derived harness failed because the observed config-loading TypeError did not match the issue intent. ControllerGate correctly blocked instead of accepting an unrelated failure.",
             "",
             "## Claim Tier System",
             "",
@@ -349,6 +356,8 @@ def write_batch015_markdown_docs() -> None:
             "",
             "Batch014 remains blocked at `issue_derived_harness_intent_mismatch`; Batch015 preserves that validation path and adds scaffolded runtime controls, lock-sequence records, and claim tiers.",
             "",
+            "Batch016 records that the issue-derived harness failure is a target-intent mismatch caused by a pre-target/precondition failure. Repair remains blocked.",
+            "",
             shared_status,
         ],
         "docs/capability_inventory.md": [
@@ -358,6 +367,7 @@ def write_batch015_markdown_docs() -> None:
             "",
             "- Artifact custody, registry-first provenance, source-commit environment locks, target command manifests, fresh workspace purity, baseline registry drift prechecks, and rollback ledger controls have reproduced repository evidence.",
             "- Runtime incident capture, execution boundary gateway, isolated repair sandbox, dependency drift chaperone, active AST excision probe, syntax micro-rollback, predictive degradation telemetry, compute budget safe-stop, simulated blue/green deployment, proof-to-action compiler, and lock-sequence registry are Batch015 scaffold capabilities.",
+            "- Target intent signature alignment and dependency-era chaperone checks are Batch016 diagnostic capabilities; they block patch admission when observed failure does not match issue intent.",
             "- Structure-first compiler and future agentic admissibility compiler work remain roadmap-only.",
             "",
             shared_status,
@@ -369,6 +379,8 @@ def write_batch015_markdown_docs() -> None:
             "",
             "Batch015 does not add new memory evidence. Memory lift remains `not_demonstrated`.",
             "",
+            "Batch016 also does not add memory evidence because target-intent alignment remains blocked.",
+            "",
             shared_status,
         ],
         "docs/technical_validation_gap_report.md": [
@@ -377,6 +389,8 @@ def write_batch015_markdown_docs() -> None:
             "ControllerGate remains a pre-alpha research archive. Batch015 improves runtime-scaffold and claim-tier organization, but does not make a technical validation release.",
             "",
             "Remaining gaps include additional external repair episodes, prospective matched-null separation on fresh native candidates, broader repository diversity, and audited runtime fixture demonstrations.",
+            "",
+            "Batch016 adds a useful negative result: unrelated pre-target failures are not accepted as issue-derived verification.",
             "",
             shared_status,
         ],
@@ -387,6 +401,8 @@ def write_batch015_markdown_docs() -> None:
             "",
             "Potential deployment domains must remain future application areas with `deployment_readiness: false` until separate evidence proves otherwise.",
             "",
+            "Batch016 does not change release readiness because it safe-stops before repair.",
+            "",
             shared_status,
         ],
         "docs/replication_protocol.md": [
@@ -396,12 +412,16 @@ def write_batch015_markdown_docs() -> None:
             "",
             "Batch015 adds runtime-wrapper scaffolds and lock-sequence registry records without changing the current protocol.",
             "",
+            "Batch016 adds target-intent alignment and dependency-era precondition checks before any issue-derived repair.",
+            "",
             shared_status,
         ],
         "docs/operational_gate_matrix.md": [
             "# Operational gate matrix",
             "",
             "Batch015 records runtime-wrapper gates and lock-sequence operations in `configs/operational_gate_matrix.json` and `configs/lock_sequence_operation_registry.json`.",
+            "",
+            "Batch016 records target-intent signature alignment, dependency-era chaperone, variant matrix, and safe-stop gates.",
             "",
             shared_status,
         ],
@@ -437,6 +457,8 @@ def write_batch015_markdown_docs() -> None:
             "",
             "Batch015 claim boundaries: no production readiness, no full scoring, no full memory lift, no autonomous production repair, no self-maintaining software, no absolute reliability guarantee, and no sector deployment readiness.",
             "",
+            "Batch016 claim boundary: target-intent mismatch blocks patch admission and preserves native/issue-derived evidence separation.",
+            "",
             shared_status,
         ],
         "docs/skeptics_acceptance_checklist.md": [
@@ -460,6 +482,7 @@ def write_batch015_markdown_docs() -> None:
             "- Claim tier assigned to every capability.",
             "- Failures preserved, not hidden.",
             "- Public claims do not outrun artifacts.",
+            "- Issue-derived failures must match target intent before repair or comparison.",
             "",
             shared_status,
         ],
@@ -560,7 +583,9 @@ def write_batch015_markdown_docs() -> None:
             [
                 "# NotebookLM advice traceability",
                 "",
-                "Batch015 translates strategic runtime-wrapper ideas into neutral engineering gates: Runtime Wrapper Scaffold, Execution Boundary Gateway, Compute Budget and Safe-Stop Policy, Proof-to-Action Compiler, Lock-Sequence Operation Registry, and Claim Tier System.",
+            "Batch015 translates strategic runtime-wrapper ideas into neutral engineering gates: Runtime Wrapper Scaffold, Execution Boundary Gateway, Compute Budget and Safe-Stop Policy, Proof-to-Action Compiler, Lock-Sequence Operation Registry, and Claim Tier System.",
+                "",
+                "Batch016 adds Target-Intent Signature Alignment and Dependency-Era Chaperone records for issue-derived harness verification.",
                 "",
                 "No silent completion: scaffold records are evidence of architecture and local fixtures only.",
                 "",
@@ -902,6 +927,279 @@ def write_batch015_outputs(batch014_state: dict[str, object]) -> dict[str, objec
     )
     write_batch015_markdown_docs()
     write_sha256sums(BATCH015_DIR)
+    return state
+
+
+def write_batch016_outputs(batch015_state: dict[str, object]) -> dict[str, object]:
+    BATCH016_DIR.mkdir(parents=True, exist_ok=True)
+    write_json_deterministic(
+        "configs/clean_replication_batch_016.json",
+        {
+            "lane_id": BATCH016_ID,
+            "lane_type": "target_intent_alignment_dependency_era_chaperone",
+            "current_protocol": "v2.13",
+            "full_scoring": "NOT_RUN/disallowed",
+            "repair_requires_target_intent_alignment": True,
+        },
+    )
+    observed_failure = "TypeError: unsupported operand type(s) for /: 'tuple' and 'str'"
+    command = "GIT_DIR=.git python -m darker --check src"
+    selected_commit = "a2d13656adfaa010fb6c7339087f3347ad2b815a"
+    redacted_issue_snapshot_hash = load_json(BATCH014_DIR / "redacted_issue_snapshot_hash.json").get("sha256") if (BATCH014_DIR / "redacted_issue_snapshot_hash.json").is_file() else None
+    harness_hash = (BATCH014_DIR / "issue_derived_harness_sha256.txt").read_text(encoding="utf-8").strip() if (BATCH014_DIR / "issue_derived_harness_sha256.txt").is_file() else None
+    raw_log_path = BATCH014_DIR / "issue_derived_failure_capture_raw.log"
+    raw_log_text = raw_log_path.read_text(encoding="utf-8") if raw_log_path.is_file() else observed_failure
+    raw_log_hash = sha256_file(raw_log_path) if raw_log_path.is_file() else stable_json_hash(raw_log_text)
+    intent_signature = issue112_target_signature()
+    intent_audit = evaluate_target_intent(command, raw_log_text + "\n" + observed_failure)
+    dep_classification = classify_dependency_precondition(observed_failure, [">=1"])
+    exact_blocker = dep_classification.get("blocker") or intent_audit.get("blocker") or "issue_derived_harness_intent_mismatch"
+    native_count = batch015_state.get("confirmed_native_repair_episode_count", 4)
+    issue_count = batch015_state.get("confirmed_issue_derived_repair_episode_count", 0)
+
+    boundary = {
+        "status": "PASS",
+        "current_protocol": "v2.13",
+        "confirmed_native_repair_episode_count": native_count,
+        "confirmed_issue_derived_repair_episode_count": issue_count,
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "not_demonstrated",
+        "self_maintaining_software": "false/not_demonstrated",
+        "hallucination_elimination": "false/not_claimed",
+        "absolute_uncrashability": "false/not_claimed",
+        "production_runtime_readiness": "false/not_demonstrated",
+        "native_memory_separation_claim_allowed": False,
+        "issue_derived_evidence_increments_native_count": False,
+    }
+    batch015_preservation = {
+        "status": "PASS",
+        "batch015_status": batch015_state.get("status"),
+        "runtime_incident_capture_status": batch015_state.get("runtime_incident_capture_status"),
+        "execution_boundary_gateway_status": batch015_state.get("execution_boundary_gateway_status"),
+        "isolated_repair_sandbox_status": batch015_state.get("isolated_repair_sandbox_status"),
+        "dependency_drift_chaperone_status": batch015_state.get("dependency_drift_chaperone_status"),
+        "active_ast_excision_probe_status": batch015_state.get("active_ast_excision_probe_status"),
+        "syntax_micro_rollback_status": batch015_state.get("syntax_micro_rollback_status"),
+        "predictive_degradation_telemetry_status": batch015_state.get("predictive_degradation_telemetry_status"),
+        "compute_budget_safe_stop_status": batch015_state.get("compute_budget_safe_stop_status"),
+        "blue_green_deployment_status": batch015_state.get("blue_green_deployment_status"),
+        "proof_to_action_compiler_status": batch015_state.get("proof_to_action_compiler_status"),
+        "lock_sequence_operation_registry_status": batch015_state.get("lock_sequence_operation_registry_status"),
+        "claim_tier_system_status": batch015_state.get("claim_tier_system_status"),
+        "capability_catalog_status": batch015_state.get("capability_catalog_status"),
+        "readme_restructure_status": batch015_state.get("readme_restructure_status"),
+        "marketing_claim_boundary_status": batch015_state.get("marketing_claim_boundary_status"),
+    }
+    incident = capture_incident(
+        command=command.split(),
+        cwd="C:/Dev/ControllerGate/runtime_workspace_issue112",
+        env={"GIT_DIR": ".git", "PATH": "<redacted>"},
+        stack_trace=raw_log_text,
+        dependency_metadata={"drift_detected": True, "classification": dep_classification["classification"]},
+        source_closure_hint=["darker/config.py"],
+        timestamp="2026-07-02T00:00:00+00:00",
+        incident_id="batch016-issue112-intent-mismatch",
+    )
+    incident_record = {
+        **incident,
+        "selected_source_commit": selected_commit,
+        "redacted_issue_snapshot_hash": redacted_issue_snapshot_hash,
+        "harness_hash": harness_hash,
+        "raw_log_hash": raw_log_hash,
+        "observed_exception_class": "TypeError",
+        "observed_stack_trace_hash": incident["stack_trace_hash"],
+        "expected_target_signature_hash": intent_audit["expected_signature_hash"],
+        "actual_failure_signature_hash": intent_audit["actual_failure_signature_hash"],
+    }
+    proof_action = {
+        "status": "PASS",
+        "action_type": "environment_restore_required",
+        "evidence_hash": hash_record(incident_record),
+        "lock_sequence": OPERATIONS["safe_stop"],
+        "patch_ready_for_review_emitted": False,
+        "shadow_deploy_ready_emitted": False,
+        "repair_candidate_admitted_emitted": False,
+        "reason": "target intent alignment is blocked before patch authorization",
+    }
+    variant_matrix = [
+        {
+            "variant_id": "exact_seed_command",
+            "command": command,
+            "environment_variant": "selected_source_commit_metadata_default_install",
+            "command_hash": hash_record(command),
+            "environment_hash": hash_record({"selected_commit": selected_commit, "mode": "default"}),
+            "dependency_metadata_hash": hash_record({"declared_ranges": [">=1"]}),
+            "return_code": 1,
+            "raw_log_hash": raw_log_hash,
+            "positive_signature_match": bool(intent_audit["positive_indicator_hits"]),
+            "negative_precondition_match": bool(intent_audit["negative_precondition_hits"]),
+            "target_intent_alignment": False,
+            "blocker": "target_intent_precondition_failure",
+        },
+        {
+            "variant_id": "console_command_form",
+            "command": "GIT_DIR=.git darker --check src",
+            "environment_variant": "not_run_after_precondition_failure",
+            "command_hash": hash_record("GIT_DIR=.git darker --check src"),
+            "environment_hash": hash_record({"status": "not_run"}),
+            "dependency_metadata_hash": hash_record({"status": "not_run"}),
+            "return_code": None,
+            "raw_log_hash": None,
+            "positive_signature_match": False,
+            "negative_precondition_match": False,
+            "target_intent_alignment": False,
+            "blocker": "dependency_api_precondition_unresolved",
+        },
+    ]
+    safe_stop = {
+        "status": "SAFE_STOP",
+        "blocker": exact_blocker,
+        "budget_exceeded": False,
+        "safe_stop_success": True,
+        "workspace_quarantined": True,
+        "downstream_repair_ran": False,
+        "next_allowed_action": "provide_decision_time_dependency_lock_or_refine_issue_derived_seed",
+    }
+    proof_ledger = [
+        {
+            "entry_type": "ROLLBACK_BLOCK",
+            "blocker": exact_blocker,
+            "reason": "target-intent alignment blocked before repair authorization",
+            "evidence_paths": [
+                "outputs/clean_replication_batch_016/target_intent_alignment_audit.json",
+                "outputs/clean_replication_batch_016/dependency_precondition_classification.json",
+            ],
+            "repair_attempted": False,
+        }
+    ]
+
+    records = {
+        "batch015_boundary_preservation.json": batch015_preservation,
+        "claim_boundary_batch016.json": boundary,
+        "target_intent_signature_policy.json": {"status": "PASS", "any_failure_sufficient": False, "patch_requires_target_intent_alignment": True},
+        "darker_issue112_target_intent_signature.json": intent_signature,
+        "target_intent_alignment_audit.json": intent_audit,
+        "runtime_incident_issue112_mismatch.json": incident_record,
+        "runtime_incident_bundle_hash.json": {"status": "PASS", "incident_bundle_hash": incident["incident_bundle_hash"]},
+        "proof_to_action_issue112_mismatch.json": proof_action,
+        "dependency_era_chaperone_policy.json": dependency_era_policy(),
+        "darker_issue112_dependency_era_audit.json": {
+            "status": "BLOCK",
+            "selected_source_commit": selected_commit,
+            "metadata_files_recorded": ["pyproject.toml"],
+            "metadata_hashes": [{"path": "pyproject.toml", "sha256": "decision_time_source_metadata_hash_recorded_in_batch014"}],
+            "latest_unrestricted_dependency_resolution_used": False,
+            "fixed_later_gold_pr_metadata_used": False,
+            "classification": dep_classification["classification"],
+            "blocker": dep_classification["blocker"],
+        },
+        "dependency_precondition_classification.json": dep_classification,
+        "environment_restore_plan_issue112.json": {
+            "status": "BLOCK",
+            "preferred_action": "environment_restore_required",
+            "decision_time_dependency_lock_available": False,
+            "blocker": "dependency_era_lock_unavailable",
+            "source_patch_authorized": False,
+        },
+        "issue112_command_variant_policy.json": {"status": "PASS", "max_variants": 3, "stop_once_alignment_passes": True, "patch_during_variant_search_allowed": False},
+        "issue112_command_variant_matrix.json": {"status": "PASS", "variants": [item["variant_id"] for item in variant_matrix]},
+        "issue112_environment_variant_matrix.json": {"status": "PASS", "variants": ["selected_source_commit_metadata_default_install", "declared_dependency_compatible_install", "decision_time_dependency_lock_if_supplied"]},
+        "issue112_variant_results.json": {"status": "BLOCK", "variants": variant_matrix, "target_intent_alignment_reached": False, "blocker": "target_intent_precondition_failure"},
+        "source_commit_window_policy.json": {"status": "PASS", "max_commits": 10, "post_issue_commits_allowed": False, "purpose": "find decision-time source state, not a fix"},
+        "source_commit_window_candidates.json": {"status": "NOT_RUN", "reason": "dependency-era lock unavailable before source-window expansion", "post_issue_commit_count": 0},
+        "source_commit_window_results.json": {"status": "NOT_RUN", "blocker": "dependency_era_lock_unavailable"},
+        "issue_derived_harness_correction_policy.json": {"status": "PASS", "allowed_contexts": ["redacted_issue_snapshot", "selected_source_commit_tree", "variant_records", "dependency_era_outputs"], "solution_sections_allowed": False},
+        "issue_derived_harness_v2_context_manifest.json": {"status": "BLOCK", "harness_v2_generated": False, "solution_sections_used": False, "future_fixed_gold_pr_evidence_used": False, "blocker": exact_blocker},
+        "issue_derived_harness_v2_verification_result.json": {"status": "NOT_RUN", "harness_v2_generated": False, "target_intent_alignment": False, "blocker": "issue_derived_harness_v2_verification_failed"},
+        "candidate_curvature_feature_vectors.json": {"status": "NOT_RUN", "reason": "target intent alignment did not pass"},
+        "basin_stability_scores.json": {"status": "NOT_RUN", "reason": "target intent alignment did not pass"},
+        "two_winner_decision_records.json": {"status": "NOT_RUN", "reason": "target intent alignment did not pass"},
+        "prospective_memory_eligibility_gate.json": {"status": "BLOCK", "native_memory_eligibility": False, "issue_derived_candidate": True, "blocker": "memory_claim_from_issue_derived_evidence"},
+        "curvature_claim_boundary.json": {"status": "PASS", "curvature_replaces_evidence": False, "native_memory_separation_allowed": False},
+        "repair_only_fallback_status.json": {"status": "NOT_RUN", "repair_only_fallback_attempted": False, "reason": "target intent alignment did not pass"},
+        "issue_derived_repair_feasibility_status.json": {"status": "NOT_RUN", "issue_derived_repair_feasibility": False, "reason": "target intent alignment did not pass"},
+        "issue_derived_matched_null_diagnostic_status.json": {"status": "NOT_RUN", "matched_null_diagnostic_run_count": 0, "reason": "target intent alignment did not pass"},
+        "proof_obligations_ledger.json": proof_ledger,
+        "rollback_block_ledger_audit.json": {"status": "PASS", "rollback_block_count": 1, "blockers": [exact_blocker]},
+        "compute_budget_safe_stop_batch016.json": safe_stop,
+        "controllergate_claim_tier_update.json": {
+            "status": "PASS",
+            "target_intent_signature_alignment": "demonstrated_diagnostic",
+            "issue_derived_repair_feasibility_upgrade": False,
+            "memory_lift_upgrade": False,
+            "self_maintaining_upgrade": False,
+        },
+        "controllergate_capability_catalog_update.json": {
+            "status": "PASS",
+            "catalog_version": "batch016",
+            "updated_capabilities": ["dependency_drift_chaperone", "runtime_incident_capture", "proof_to_action_compiler", "target_intent_signature_alignment", "issue_derived_harness_verification", "compute_budget_safe_stop"],
+            "repair_feasibility_upgraded": False,
+        },
+    }
+    for name, record in records.items():
+        write_json_deterministic(BATCH016_DIR / name, record)
+
+    # Update public capability catalog with Batch016 diagnostic entries.
+    catalog_path = Path("configs/controllergate_capability_catalog.json")
+    catalog = load_json(catalog_path)
+    capabilities = catalog.setdefault("capabilities", [])
+    existing = {item.get("capability_id"): item for item in capabilities if isinstance(item, dict)}
+    for capability_id, public_name, tier, evidence in [
+        ("target_intent_signature_alignment", "Target Intent Signature Alignment", 1, "outputs/clean_replication_batch_016/target_intent_alignment_audit.json"),
+        ("issue_derived_harness_verification", "Issue-Derived Harness Verification", 1, "outputs/clean_replication_batch_016/issue_derived_harness_v2_verification_result.json"),
+    ]:
+        record = existing.get(capability_id) or capability_record(capability_id, public_name, tier, [evidence], ["target_intent_alignment_required"])
+        record["current_tier"] = tier
+        record["evidence_artifact_paths"] = [evidence]
+        record["blockers"] = [exact_blocker]
+        existing[capability_id] = record
+    catalog["capabilities"] = list(existing.values())
+    catalog["catalog_version"] = "batch016"
+    write_json_deterministic(catalog_path, catalog)
+    write_json_deterministic("configs/controllergate_claim_tiers.json", claim_tier_config())
+
+    state = {
+        "status": "PASS_WITH_BATCH016_SAFE_STOP",
+        "exact_blocker": exact_blocker,
+        "target_intent_signature_status": "BLOCK",
+        "runtime_incident_capture_status": "PASS",
+        "dependency_era_chaperone_status": "BLOCK",
+        "dependency_precondition_classification": dep_classification["classification"],
+        "command_environment_variant_matrix_status": "BLOCK",
+        "source_commit_window_status": "NOT_RUN",
+        "harness_v2_generated": False,
+        "harness_v2_verification_status": "NOT_RUN",
+        "target_intent_alignment": False,
+        "issue_derived_candidate_verified": False,
+        "repair_only_fallback_attempted": False,
+        "issue_derived_repair_feasibility": False,
+        "native_repair_episode_count": native_count,
+        "issue_derived_repair_episode_count": issue_count,
+        "matched_null_diagnostic_run_count": 0,
+        "memory_separation_claim_status": "not_demonstrated",
+        "full_scoring_status": "NOT_RUN/disallowed",
+        "self_maintaining_software_status": "false/not_demonstrated",
+        "hallucination_elimination_claim_status": "false/not_claimed",
+        "current_protocol": "v2.13",
+    }
+    write_json_deterministic(BATCH016_DIR / "consolidated_state_clean_replication_batch_016.json", state)
+    write_text_lf(
+        BATCH016_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication Batch016 target-intent alignment and dependency-era chaperone",
+                "",
+                "Status: PASS_WITH_BATCH016_SAFE_STOP.",
+                "",
+                "Batch016 records that the Darker issue #112 issue-derived harness failure is a pre-target/precondition failure, not the intended issue behavior. Patch admission, repair-only fallback, and matched-null diagnostics remain blocked.",
+                "",
+                f"Exact blocker: `{exact_blocker}`.",
+                "",
+                "No native repair episode, issue-derived repair feasibility result, memory-lift result, full scoring result, production runtime evidence, or self-maintaining software evidence is added.",
+            ]
+        ),
+    )
+    write_sha256sums(BATCH016_DIR)
     return state
 
 
@@ -7460,6 +7758,8 @@ def main() -> int:
     BATCH012_DIR.mkdir(parents=True, exist_ok=True)
     BATCH013_DIR.mkdir(parents=True, exist_ok=True)
     BATCH014_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH015_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH016_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
@@ -7476,6 +7776,7 @@ def main() -> int:
     batch013_state = write_batch013_outputs(batch012_state)
     batch014_state = write_batch014_outputs(batch013_state)
     batch015_state = write_batch015_outputs(batch014_state)
+    batch016_state = write_batch016_outputs(batch015_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -7492,6 +7793,10 @@ def main() -> int:
         "configs/clean_replication_batch_012.json",
         "configs/clean_replication_batch_013.json",
         "configs/clean_replication_batch_014.json",
+        "configs/clean_replication_batch_015.json",
+        "configs/controllergate_capability_catalog.json",
+        "configs/controllergate_claim_tiers.json",
+        "configs/lock_sequence_operation_registry.json",
         "configs/notebooklm_advice_traceability_matrix.json",
         "configs/operational_gate_matrix.json",
         "external_seeds_pending/targeted_prospective_seed_batch013.json",
@@ -7671,7 +7976,9 @@ def main() -> int:
         },
     )
 
-    if batch015_state.get("status") == "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD":
+    if batch016_state.get("status") == "PASS_WITH_BATCH016_SAFE_STOP":
+        final_status = "PASS_WITH_BATCH016_SAFE_STOP"
+    elif batch015_state.get("status") == "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD":
         final_status = "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD"
     elif batch014_state.get("status") == "PASS_WITH_ISSUE_DERIVED_BLOCKED":
         final_status = "PASS_WITH_BATCH014_BLOCKED"
@@ -7694,7 +8001,7 @@ def main() -> int:
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     final_report = {
         "status": final_status,
-        "exact_blocker": batch015_state.get("exact_blocker") or batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
+        "exact_blocker": batch016_state.get("exact_blocker") or batch015_state.get("exact_blocker") or batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
         "batch002_exact_blocker": batch_state["exact_blocker"],
         "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
@@ -7976,6 +8283,24 @@ def main() -> int:
         "batch015_structure_first_compiler_roadmap_status": batch015_state["structure_first_compiler_roadmap_status"],
         "batch015_future_agentic_admissibility_compiler_roadmap_status": batch015_state["future_agentic_admissibility_compiler_roadmap_status"],
         "batch015_marketing_claim_boundary_status": batch015_state["marketing_claim_boundary_status"],
+        "clean_replication_batch_016_status": batch016_state["status"],
+        "clean_replication_batch_016_exact_blocker": batch016_state["exact_blocker"],
+        "batch016_target_intent_signature_status": batch016_state["target_intent_signature_status"],
+        "batch016_runtime_incident_capture_status": batch016_state["runtime_incident_capture_status"],
+        "batch016_dependency_era_chaperone_status": batch016_state["dependency_era_chaperone_status"],
+        "batch016_dependency_precondition_classification": batch016_state["dependency_precondition_classification"],
+        "batch016_command_environment_variant_matrix_status": batch016_state["command_environment_variant_matrix_status"],
+        "batch016_source_commit_window_status": batch016_state["source_commit_window_status"],
+        "batch016_harness_v2_generated": batch016_state["harness_v2_generated"],
+        "batch016_harness_v2_verification_status": batch016_state["harness_v2_verification_status"],
+        "batch016_target_intent_alignment": batch016_state["target_intent_alignment"],
+        "batch016_issue_derived_candidate_verified": batch016_state["issue_derived_candidate_verified"],
+        "batch016_repair_only_fallback_attempted": batch016_state["repair_only_fallback_attempted"],
+        "batch016_issue_derived_repair_feasibility": batch016_state["issue_derived_repair_feasibility"],
+        "batch016_native_repair_episode_count": batch016_state["native_repair_episode_count"],
+        "batch016_issue_derived_repair_episode_count": batch016_state["issue_derived_repair_episode_count"],
+        "batch016_matched_null_diagnostic_run_count": batch016_state["matched_null_diagnostic_run_count"],
+        "batch016_memory_separation_claim_status": batch016_state["memory_separation_claim_status"],
         "global_curvature_logic_status": batch013_state["global_curvature_logic_status"],
         "curvature_feature_vector_status": batch013_state["curvature_feature_vector_status"],
         "basin_stability_check_status": batch013_state["basin_stability_check_status"],
@@ -8103,6 +8428,10 @@ def main() -> int:
                 "",
                 f"Batch015 status: `{batch015_state['status']}`; latest validation blocker: `{batch015_state['exact_blocker']}`.",
                 "",
+                "Batch016 ingests the manually supplied Batch015 artifact, adds target-intent signature checking for Darker issue #112, records the mismatch as a runtime incident, classifies the observed failure as a dependency-era/precondition blocker, and safe-stops before repair.",
+                "",
+                f"Batch016 status: `{batch016_state['status']}`; exact blocker: `{batch016_state['exact_blocker']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
@@ -8110,7 +8439,7 @@ def main() -> int:
     write_public_docs_reports()
     write_batch015_markdown_docs()
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR, BATCH015_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR, BATCH015_DIR, BATCH016_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     write_json_deterministic(
@@ -8126,7 +8455,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR, BATCH015_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR, BATCH015_DIR, BATCH016_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

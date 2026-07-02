@@ -25,7 +25,8 @@ BATCH012_DIR = Path("outputs/clean_replication_batch_012")
 BATCH013_DIR = Path("outputs/clean_replication_batch_013")
 BATCH014_DIR = Path("outputs/clean_replication_batch_014")
 BATCH015_DIR = Path("outputs/clean_replication_batch_015")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch015_runtime_wrapper_lock_sequence_product")
+BATCH016_DIR = Path("outputs/clean_replication_batch_016")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch016_target_intent_alignment")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -608,6 +609,47 @@ BATCH015_REQUIRED = [
     "structure_first_compiler_roadmap_status.json",
     "future_agentic_admissibility_compiler_status.json",
     "skeptics_acceptance_checklist_status.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH016_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_016.json",
+    "batch015_boundary_preservation.json",
+    "claim_boundary_batch016.json",
+    "target_intent_signature_policy.json",
+    "darker_issue112_target_intent_signature.json",
+    "target_intent_alignment_audit.json",
+    "runtime_incident_issue112_mismatch.json",
+    "runtime_incident_bundle_hash.json",
+    "proof_to_action_issue112_mismatch.json",
+    "dependency_era_chaperone_policy.json",
+    "darker_issue112_dependency_era_audit.json",
+    "dependency_precondition_classification.json",
+    "environment_restore_plan_issue112.json",
+    "issue112_command_variant_policy.json",
+    "issue112_command_variant_matrix.json",
+    "issue112_environment_variant_matrix.json",
+    "issue112_variant_results.json",
+    "source_commit_window_policy.json",
+    "source_commit_window_candidates.json",
+    "source_commit_window_results.json",
+    "issue_derived_harness_correction_policy.json",
+    "issue_derived_harness_v2_context_manifest.json",
+    "issue_derived_harness_v2_verification_result.json",
+    "candidate_curvature_feature_vectors.json",
+    "basin_stability_scores.json",
+    "two_winner_decision_records.json",
+    "prospective_memory_eligibility_gate.json",
+    "curvature_claim_boundary.json",
+    "repair_only_fallback_status.json",
+    "issue_derived_repair_feasibility_status.json",
+    "issue_derived_matched_null_diagnostic_status.json",
+    "proof_obligations_ledger.json",
+    "rollback_block_ledger_audit.json",
+    "compute_budget_safe_stop_batch016.json",
+    "controllergate_claim_tier_update.json",
+    "controllergate_capability_catalog_update.json",
     "SHA256SUMS.txt",
 ]
 
@@ -2923,7 +2965,12 @@ def audit_batch015_records() -> list[str]:
         "structure_first_compiler_roadmap",
         "future_agentic_admissibility_compiler_integration",
     }
-    if capability_ids != required_capabilities:
+    batch016_catalog_extensions = {
+        "target_intent_signature_alignment",
+        "issue_derived_harness_verification",
+    }
+    allowed_capabilities = required_capabilities | batch016_catalog_extensions
+    if not required_capabilities.issubset(capability_ids) or not capability_ids.issubset(allowed_capabilities):
         errors.append("capability_catalog_missing")
     if any("current_tier" not in item for item in capabilities if isinstance(item, dict)):
         errors.append("capability without claim tier")
@@ -2954,6 +3001,111 @@ def audit_batch015_records() -> list[str]:
         errors.append("sector_deployment_overclaim_detected")
     if state.get("status") != "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD":
         errors.append("batch015 state did not pass scaffold boundary")
+    return errors
+
+
+def audit_batch016_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH016_REQUIRED:
+        if not (BATCH016_DIR / name).is_file():
+            errors.append(f"batch016 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH016_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch016 manifest failed: {manifest}")
+
+    phase_a = read_json(POST_DIR / "batch015_runtime_wrapper_artifact_verification.json")
+    ingest = read_json(POST_DIR / "batch015_runtime_wrapper_ingest_summary.json")
+    state = read_json(BATCH016_DIR / "consolidated_state_clean_replication_batch_016.json")
+    preservation = read_json(BATCH016_DIR / "batch015_boundary_preservation.json")
+    claim = read_json(BATCH016_DIR / "claim_boundary_batch016.json")
+    signature = read_json(BATCH016_DIR / "darker_issue112_target_intent_signature.json")
+    alignment = read_json(BATCH016_DIR / "target_intent_alignment_audit.json")
+    incident = read_json(BATCH016_DIR / "runtime_incident_issue112_mismatch.json")
+    proof = read_json(BATCH016_DIR / "proof_to_action_issue112_mismatch.json")
+    dep_policy = read_json(BATCH016_DIR / "dependency_era_chaperone_policy.json")
+    dep_audit = read_json(BATCH016_DIR / "darker_issue112_dependency_era_audit.json")
+    dep_class = read_json(BATCH016_DIR / "dependency_precondition_classification.json")
+    restore = read_json(BATCH016_DIR / "environment_restore_plan_issue112.json")
+    variant_results = read_json(BATCH016_DIR / "issue112_variant_results.json")
+    window_policy = read_json(BATCH016_DIR / "source_commit_window_policy.json")
+    window_candidates = read_json(BATCH016_DIR / "source_commit_window_candidates.json")
+    harness_context = read_json(BATCH016_DIR / "issue_derived_harness_v2_context_manifest.json")
+    harness_result = read_json(BATCH016_DIR / "issue_derived_harness_v2_verification_result.json")
+    eligibility = read_json(BATCH016_DIR / "prospective_memory_eligibility_gate.json")
+    repair = read_json(BATCH016_DIR / "repair_only_fallback_status.json")
+    feasibility = read_json(BATCH016_DIR / "issue_derived_repair_feasibility_status.json")
+    matched = read_json(BATCH016_DIR / "issue_derived_matched_null_diagnostic_status.json")
+    ledger = read_json(BATCH016_DIR / "proof_obligations_ledger.json")
+    rollback = read_json(BATCH016_DIR / "rollback_block_ledger_audit.json")
+    safe_stop = read_json(BATCH016_DIR / "compute_budget_safe_stop_batch016.json")
+    catalog = read_json(Path("configs/controllergate_capability_catalog.json"))
+
+    if phase_a.get("status") != "PASS" or phase_a.get("sha256") != "08a656487044d4d6d0003a303da25c159881ab53a8ab59a0ac61ec2a02af600c":
+        errors.append("Batch015 artifact not officially ingested")
+    if ingest.get("status") != "PASS" or ingest.get("ingested_output_evidence_only") is not True:
+        errors.append("Batch015 ingest summary invalid")
+    if preservation.get("status") != "PASS" or preservation.get("batch015_status") != "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD":
+        errors.append("Batch015 boundary preservation failed")
+    if claim.get("confirmed_native_repair_episode_count") != 4 or claim.get("confirmed_issue_derived_repair_episode_count") != 0:
+        errors.append("Batch016 repair counts changed")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch016 full scoring or memory boundary changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("hallucination_elimination") != "false/not_claimed":
+        errors.append("Batch016 overclaim boundary changed")
+    if signature.get("any_failure_sufficient") is not False or not signature.get("positive_indicators"):
+        errors.append("target_intent_signature_missing")
+    if alignment.get("status") != "BLOCK" or alignment.get("target_intent_alignment") is not False:
+        errors.append("target intent alignment should be blocked")
+    if alignment.get("blocker") not in {"target_intent_precondition_failure", "issue_derived_harness_intent_mismatch"}:
+        errors.append("unexpected target intent blocker")
+    if "TypeError: unsupported operand type(s) for /: 'tuple' and 'str'" not in alignment.get("negative_precondition_hits", []):
+        errors.append("observed Batch014 mismatch not recorded")
+    if len(str(incident.get("incident_bundle_hash", ""))) != 64 or incident.get("observed_exception_class") != "TypeError":
+        errors.append("runtime incident capture record missing for mismatch")
+    if proof.get("action_type") not in {"environment_restore_required", "sandbox_probe_required", "manual_seed_refinement_required", "safe_stop_required"}:
+        errors.append("proof-to-action compiler emitted invalid action after mismatch")
+    for forbidden in ["patch_ready_for_review_emitted", "shadow_deploy_ready_emitted", "repair_candidate_admitted_emitted"]:
+        if proof.get(forbidden) is not False:
+            errors.append("patch_admitted_after_intent_mismatch")
+    if dep_policy.get("status") != "PASS" or "latest_unrestricted_pip_resolution" not in dep_policy.get("forbidden_resolution_methods", []):
+        errors.append("dependency-era chaperone policy missing")
+    if dep_audit.get("latest_unrestricted_dependency_resolution_used") is not False or dep_audit.get("fixed_later_gold_pr_metadata_used") is not False:
+        errors.append("dependency resolution used forbidden metadata")
+    if dep_class.get("classification") != "dependency_era_mismatch_candidate" or dep_class.get("source_patch_authorized") is not False:
+        errors.append("dependency precondition classification invalid")
+    if restore.get("blocker") != "dependency_era_lock_unavailable":
+        errors.append("dependency-era lock unavailable blocker missing")
+    if variant_results.get("status") != "BLOCK" or variant_results.get("target_intent_alignment_reached") is not False:
+        errors.append("target intent variant matrix invalid")
+    for item in variant_results.get("variants", []):
+        if not item.get("command_hash") or not item.get("environment_hash") or not item.get("dependency_metadata_hash"):
+            errors.append("variant record missing hash fields")
+    if window_policy.get("max_commits") != 10 or window_policy.get("post_issue_commits_allowed") is not False:
+        errors.append("source commit window policy unbounded or post-issue allowed")
+    if window_candidates.get("post_issue_commit_count") != 0:
+        errors.append("source commit window used post-issue commit")
+    if harness_context.get("solution_sections_used") is not False or harness_context.get("future_fixed_gold_pr_evidence_used") is not False:
+        errors.append("harness v2 used forbidden evidence")
+    if harness_result.get("harness_v2_generated") is not False or harness_result.get("target_intent_alignment") is not False:
+        errors.append("issue-derived harness v2 verification should not pass")
+    if eligibility.get("native_memory_eligibility") is not False:
+        errors.append("memory_claim_from_issue_derived_evidence")
+    if repair.get("repair_only_fallback_attempted") is not False or feasibility.get("issue_derived_repair_feasibility") is not False:
+        errors.append("repair attempted without target-intent alignment")
+    if matched.get("matched_null_diagnostic_run_count") != 0:
+        errors.append("matched-null diagnostic ran without target-intent alignment")
+    if not any(isinstance(item, dict) and item.get("entry_type") == "ROLLBACK_BLOCK" for item in ledger):
+        errors.append("safe_stop_missing_after_block")
+    if rollback.get("status") != "PASS" or rollback.get("rollback_block_count", 0) < 1:
+        errors.append("rollback block ledger missing after block")
+    if safe_stop.get("status") != "SAFE_STOP" or safe_stop.get("safe_stop_success") is not True:
+        errors.append("safe-stop missing after target-intent failure")
+    if state.get("status") != "PASS_WITH_BATCH016_SAFE_STOP":
+        errors.append("Batch016 state did not safe-stop")
+    if catalog.get("catalog_version") != "batch016":
+        errors.append("Batch016 capability catalog version missing")
     return errors
 
 
@@ -3082,6 +3234,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_013.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
+        Path("configs/clean_replication_batch_016.json"),
         Path("configs/lock_sequence_operation_registry.json"),
         Path("configs/controllergate_claim_tiers.json"),
         Path("configs/controllergate_capability_catalog.json"),
@@ -3125,6 +3278,8 @@ def public_language_hits() -> list[str]:
     paths.extend(sorted(BATCH014_DIR.glob("*.md")))
     paths.extend(sorted(BATCH015_DIR.glob("*.json")))
     paths.extend(sorted(BATCH015_DIR.glob("*.md")))
+    paths.extend(sorted(BATCH016_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH016_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -3299,6 +3454,7 @@ def main() -> int:
         + require_files(BATCH013_DIR, BATCH013_REQUIRED)
         + require_files(BATCH014_DIR, BATCH014_REQUIRED)
         + require_files(BATCH015_DIR, BATCH015_REQUIRED)
+        + require_files(BATCH016_DIR, BATCH016_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -3332,6 +3488,8 @@ def main() -> int:
         return fail("batch014 manifest mismatch")
     if verify_manifest(BATCH015_DIR)["status"] != "PASS":
         return fail("batch015 manifest mismatch")
+    if verify_manifest(BATCH016_DIR)["status"] != "PASS":
+        return fail("batch016 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -3482,6 +3640,9 @@ def main() -> int:
     batch015_errors = audit_batch015_records()
     if batch015_errors:
         return fail(f"batch015 audit failed: {batch015_errors}")
+    batch016_errors = audit_batch016_records()
+    if batch016_errors:
+        return fail(f"batch016 audit failed: {batch016_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -3528,12 +3689,12 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if final_report.get("status") != "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD":
-        return fail("final report did not advance to Batch015 scaffold boundary")
-    if final_report.get("exact_blocker") != "issue_derived_harness_intent_mismatch":
+    if final_report.get("status") != "PASS_WITH_BATCH016_SAFE_STOP":
+        return fail("final report did not advance to Batch016 safe-stop boundary")
+    if final_report.get("exact_blocker") not in {"dependency_api_precondition_unresolved", "target_intent_precondition_failure", "issue_derived_harness_intent_mismatch"}:
         return fail("final report latest validation blocker mismatch")
-    if final_report.get("batch015_lock_sequence_operation_registry_status") != "PASS":
-        return fail("final report missing Batch015 lock-sequence status")
+    if final_report.get("batch016_target_intent_alignment") is not False:
+        return fail("final report Batch016 target-intent boundary mismatch")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

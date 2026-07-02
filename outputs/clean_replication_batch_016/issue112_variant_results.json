@@ -1,0 +1,35 @@
+{
+  "blocker": "target_intent_precondition_failure",
+  "status": "BLOCK",
+  "target_intent_alignment_reached": false,
+  "variants": [
+    {
+      "blocker": "target_intent_precondition_failure",
+      "command": "GIT_DIR=.git python -m darker --check src",
+      "command_hash": "aa24f7861a608040943386c3efdeebd1d580db040b7f9b8ef23b30d6cd615914",
+      "dependency_metadata_hash": "e6179f751e2fe3c2b187857174eb39f3c3bf1096b9eb52a9b161db02820338ed",
+      "environment_hash": "4b6fb30b24d9dab8daac1f603f381346b81ae0e18e7c1c6522dceb70139f9815",
+      "environment_variant": "selected_source_commit_metadata_default_install",
+      "negative_precondition_match": true,
+      "positive_signature_match": true,
+      "raw_log_hash": "6c0c392288090c40e4da99cb79d380271ef1ecc6426bbd03462a946041a6a15b",
+      "return_code": 1,
+      "target_intent_alignment": false,
+      "variant_id": "exact_seed_command"
+    },
+    {
+      "blocker": "dependency_api_precondition_unresolved",
+      "command": "GIT_DIR=.git darker --check src",
+      "command_hash": "aaaa7b387b3692110a235fe1d420160741018e32a65283a1898030aa94f15653",
+      "dependency_metadata_hash": "f21202da1718884237ad85ceb729dc0a7f345124c283b9fe1fe2463870630cad",
+      "environment_hash": "f21202da1718884237ad85ceb729dc0a7f345124c283b9fe1fe2463870630cad",
+      "environment_variant": "not_run_after_precondition_failure",
+      "negative_precondition_match": false,
+      "positive_signature_match": false,
+      "raw_log_hash": null,
+      "return_code": null,
+      "target_intent_alignment": false,
+      "variant_id": "console_command_form"
+    }
+  ]
+}

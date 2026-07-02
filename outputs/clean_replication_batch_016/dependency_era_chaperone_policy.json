@@ -1,0 +1,19 @@
+{
+  "allowed_resolution_methods": [
+    "selected_source_commit_pinned_metadata",
+    "selected_source_commit_metadata_with_release_at_or_before_issue_time",
+    "manual_git_tracked_decision_time_lock",
+    "selected_source_commit_ci_metadata",
+    "selected_source_commit_tox_or_nox_metadata"
+  ],
+  "forbidden_resolution_methods": [
+    "latest_unrestricted_pip_resolution",
+    "fixed_later_commit_dependency_metadata",
+    "pr_patch_dependency_metadata",
+    "gold_patch_dependency_metadata",
+    "future_tests",
+    "hidden_benchmark_state"
+  ],
+  "patch_before_target_behavior_allowed": false,
+  "status": "PASS"
+}

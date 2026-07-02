@@ -14,6 +14,7 @@ ALLOWED_ACTION_TYPES = {
     "rollback_required",
     "safe_stop_required",
     "runtime_monitoring_required",
+    "manual_seed_refinement_required",
 }
 
 RUNTIME_ACTIONS = {"patch_ready_for_review", "shadow_deploy_ready"}

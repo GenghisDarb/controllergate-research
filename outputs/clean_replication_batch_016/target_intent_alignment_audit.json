@@ -1,0 +1,17 @@
+{
+  "actual_failure_signature_hash": "4f2764fed6b3c7ab8e52f87cba81771688b9f11b91e226d1a5e2a86d81ecab97",
+  "blocker": "target_intent_precondition_failure",
+  "command_has_required_shape": true,
+  "expected_signature_hash": "2db58d9480ece45d271d03153aaa6777b76ce311b5035bddcb55734220e679f2",
+  "negative_precondition_hits": [
+    "TypeError: unsupported operand type(s) for /: 'tuple' and 'str'"
+  ],
+  "patch_authorized": false,
+  "positive_indicator_hits": [
+    "GIT_DIR=.git",
+    "darker --check src"
+  ],
+  "semantic_positive_indicator_hits": [],
+  "status": "BLOCK",
+  "target_intent_alignment": false
+}
