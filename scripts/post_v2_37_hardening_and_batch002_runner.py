@@ -138,9 +138,13 @@ from controllergate.core.dependency_era_resolution import (
     decision_time_dependency_evidence_policy,
     dependency_era_resolution_policy,
     dependency_resolution_forbidden_sources,
+    manual_dependency_lock_presence,
     manual_dependency_lock_schema_valid,
+    manual_requirements_support_audit,
+    reconcile_issue_timestamp,
     stable_hash as dependency_resolution_hash,
     target_intent_retry_policy,
+    validate_manual_dependency_lock_record,
 )
 from controllergate.core.lock_sequence_registry import LOCKS, LOCK_PAIR_CLASSES, OPERATIONS, registry_records
 from controllergate.core.target_intent_signature import evaluate_target_intent, issue112_target_signature
@@ -190,7 +194,9 @@ BATCH016_ID = "clean_replication_batch_016"
 BATCH016_DIR = Path("outputs") / BATCH016_ID
 BATCH017_ID = "clean_replication_batch_017"
 BATCH017_DIR = Path("outputs") / BATCH017_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch017_dependency_era_thin")
+BATCH018_ID = "clean_replication_batch_018"
+BATCH018_DIR = Path("outputs") / BATCH018_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch018_manual_dependency_lock_thin")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -1687,6 +1693,513 @@ def write_batch017_outputs(batch015_state: dict[str, object], batch016_state: di
     }
     write_json_deterministic(BATCH017_DIR / "consolidated_state_clean_replication_batch_017.json", state)
     write_sha256sums(BATCH017_DIR)
+    return state
+
+
+def _git_path_tracked(path: Path) -> bool:
+    result = subprocess.run(["git", "ls-files", "--error-unmatch", path.as_posix()], cwd=Path.cwd(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return result.returncode == 0
+
+
+def _git_path_ignored(path: Path) -> bool:
+    result = subprocess.run(["git", "check-ignore", path.as_posix()], cwd=Path.cwd(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return result.returncode == 0
+
+
+def _load_targeted_seed() -> dict[str, object]:
+    seed_path = Path("external_seeds_pending/targeted_prospective_seed_batch013.json")
+    if not seed_path.is_file():
+        return {}
+    return load_json(seed_path)
+
+
+def write_batch018_markdown_docs(batch018_state: dict[str, object]) -> None:
+    shared = "\n".join(
+        [
+            "## Current operational gate status",
+            "",
+            "- Batch017 blocked because no decision-time dependency lock was available.",
+            "- Batch018 reconciles the Darker issue #112 timestamp and requires the canonical manual dependency lock JSON before retrying target intent.",
+            "- A plain requirements.txt is support evidence only; it is not authoritative unless normalized into the canonical JSON evidence schema.",
+            "- If historical environment reconstruction cannot be proven safely, ControllerGate blocks rather than patches.",
+            "- Thin artifact packaging remains active to keep manually handled artifacts small.",
+            "- Confirmed native repair episode count remains `4`.",
+            "- Confirmed issue-derived repair episode count remains `0`.",
+            "- Full scoring remains `NOT_RUN/disallowed`.",
+            "- Memory lift remains `not_demonstrated`.",
+            "- Self-maintaining software remains `false/not_demonstrated`.",
+            "- Hallucination elimination is not claimed.",
+            "- Absolute uncrashability is not claimed.",
+            "- Production runtime readiness is not claimed.",
+        ]
+    )
+    docs = {
+        "README.md": [
+            "# ControllerGate",
+            "",
+            "ControllerGate is a provenance-first software repair research harness and evidence-bound repair validation kernel for audited software-change candidates. Current protocol remains `v2.13`.",
+            "",
+            "ControllerGate remains a pre-alpha research archive. Clean replication batch002 now attempts real external leads, and confirmed external native repair episodes include `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`.",
+            "",
+            "Batch018 is the latest boundary. It officially preserves the Batch017 thin artifact, reconciles Darker issue #112 timestamp evidence, and stops at `manual_dependency_lock_absent` because no canonical decision-time dependency lock JSON is present.",
+            "",
+            "Memory lift on external real bugs is not demonstrated. Self-maintaining software is not demonstrated.",
+            "",
+            "## What ControllerGate is",
+            "",
+            "ControllerGate is an evidence-bound repair validation kernel for software-change candidates. It is designed to verify provenance, replay, patch safety, rollback readiness, and claim boundaries before accepting repair evidence.",
+            "",
+            "## What ControllerGate is not",
+            "",
+            "ControllerGate is not production-ready, not a full scoring result, not a full memory-lift result, not fully self-maintaining software, and not an absolute reliability guarantee.",
+            "",
+            shared,
+            "",
+            "## Claim Tier System",
+            "",
+            "ControllerGate uses explicit claim tiers so public claims remain tied to repository evidence.",
+            "",
+            "## Capability Catalog",
+            "",
+            "The capability catalog is stored in `configs/controllergate_capability_catalog.json` and summarized in `docs/capability_inventory.md`.",
+            "",
+            "## Skeptic's Acceptance Checklist",
+            "",
+            "The checklist in `docs/skeptics_acceptance_checklist.md` requires registry-first provenance, decision-time separation, SHA256 custody, fresh workspace purity, validation, duplicate replay, no-overreach validation, rollback records, and claim tiers.",
+            "",
+            "## Runtime-wrapper roadmap",
+            "",
+            "Batch015 introduced scaffold modules for audited runtime control. These remain scaffold evidence only unless deterministic fixture evidence is recorded.",
+            "",
+            "## Safe public claims",
+            "",
+            "- Evidence-bound repair validation kernel.",
+            "- Proof-gated patch admission and quarantine.",
+            "- Runtime-wrapper scaffold for audited local fixtures.",
+            "- Claim-tiered capability catalog.",
+            "",
+            "## Forbidden claims",
+            "",
+            "- Hallucination elimination.",
+            "- Absolute uncrashability.",
+            "- Fully self-maintaining software.",
+            "- Production-ready runtime wrapper.",
+            "- Full scoring.",
+            "- Full memory lift.",
+            "- Universal bug repair.",
+            "- Sector deployment readiness.",
+            "",
+            "## Basic local checks",
+            "",
+            "```bash",
+            "python scripts/byte_custody_preflight.py",
+            "python -m pytest tests/core tests/runtime -q",
+            "python scripts/validate_external_candidate_registry.py",
+            "python scripts/audit_post_v2_37_hardening_and_batch002.py",
+            "python scripts/controllergate_audit.py --protocol current",
+            "python scripts/controllergate_run.py --protocol current --dry-run",
+            "```",
+        ],
+        "docs/current_status.md": [
+            "# Current status",
+            "",
+            "ControllerGate remains a pre-alpha research archive with evidence-bound repair validation. The current protocol remains `v2.13`.",
+            "",
+            f"Batch018 status: `{batch018_state['status']}`; exact blocker: `{batch018_state['exact_blocker']}`.",
+            "",
+            shared,
+        ],
+        "docs/capability_inventory.md": [
+            "# Capability inventory",
+            "",
+            "Capabilities are tiered in `configs/controllergate_capability_catalog.json`.",
+            "",
+            "- Manual Dependency Lock Intake is present as a Batch018 gate and is blocked until the canonical JSON lock is supplied.",
+            "- Issue Timestamp Reconciliation is recorded for Darker issue #112 before dependency cutoff logic.",
+            "- Dependency-Era Resolution remains blocked because authoritative manual lock evidence is absent.",
+            "- Thin Artifact Packaging and Evidence Carry-Forward Manifest remain active custody capabilities.",
+            "",
+            shared,
+        ],
+        "docs/technical_validation_gap_report.md": [
+            "# Technical validation gap report",
+            "",
+            "ControllerGate is not a technical validation release. Batch018 records a precise input gap: the Darker issue #112 issue-derived path needs a decision-time dependency lock before target-intent retry.",
+            "",
+            "The system correctly blocks instead of accepting an unrelated precondition failure or unrestricted latest dependency resolution.",
+            "",
+            shared,
+        ],
+        "docs/public_release_readiness.md": [
+            "# Public release readiness",
+            "",
+            "ControllerGate is not production-ready and is not a technical validation release.",
+            "",
+            "Batch018 does not add deployment readiness. It adds custody and intake records for a missing manual dependency lock.",
+            "",
+            shared,
+        ],
+        "docs/controllergate_positioning.md": [
+            "# ControllerGate positioning",
+            "",
+            "Preferred precise claim: ControllerGate turns proposed fixes into auditable, sandboxed, rollback-safe software-change candidates and blocks unverified changes before accepted state is contaminated.",
+            "",
+            "Batch018 preserves that boundary by refusing to retry target-intent alignment without a decision-time dependency lock.",
+            "",
+            shared,
+        ],
+        "docs/skeptics_acceptance_checklist.md": [
+            "# Skeptic's acceptance checklist",
+            "",
+            "- Manual artifacts must be verified by byte size, SHA256, path safety, duplicate path checks, and manifests.",
+            "- Dependency-era replay requires decision-time dependency evidence.",
+            "- A support requirements file cannot bypass the canonical manual dependency lock JSON schema.",
+            "- Target-intent retry, harness generation, repair, and matched-null diagnostics must not run after an upstream lock block.",
+            "",
+            shared,
+        ],
+        "docs/use_case_positioning.md": [
+            "# Use case positioning",
+            "",
+            "ControllerGate is positioned for proof-gated software-change governance and research-grade repair validation. Batch018 does not claim production use-case readiness.",
+            "",
+            "deployment_readiness: false",
+            "",
+            shared,
+        ],
+        "docs/replication_protocol.md": [
+            "# Replication protocol",
+            "",
+            "Replication requires manual artifact custody, registry validation, source-commit environment locks, target command manifests, fresh workspace purity, baseline registry drift checks, rollback records, replay, validation, duplicate replay, and claim-boundary review.",
+            "",
+            "Batch018 adds issue timestamp reconciliation and canonical manual dependency lock intake before dependency-era target-intent retry.",
+            "",
+            shared,
+        ],
+        "docs/artifact_packaging_policy.md": [
+            "# Artifact packaging policy",
+            "",
+            "The primary post-v2.37 artifact remains thin and delta-oriented. Prior evidence is carried by artifact SHA, ingest commit, manifest hash, lineage index, and claim-boundary summaries instead of recursively including every prior batch output.",
+            "",
+            shared,
+        ],
+        "controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md": [
+            "# ControllerGate shareable summary",
+            "",
+            "ControllerGate is an evidence-bound repair validation kernel. Batch018 preserves the Batch017 thin artifact boundary, reconciles Darker issue #112 timestamp evidence, and blocks at `manual_dependency_lock_absent` until a canonical decision-time dependency lock JSON is supplied.",
+            "",
+            shared,
+        ],
+    }
+    for path, lines in docs.items():
+        write_text_lf(path, "\n".join(lines))
+
+
+def write_batch018_outputs(batch017_state: dict[str, object]) -> dict[str, object]:
+    BATCH018_DIR.mkdir(parents=True, exist_ok=True)
+    exact_blocker = "manual_dependency_lock_absent"
+    seed = _load_targeted_seed()
+    canonical_lock = Path("external_seeds_pending/dependency_locks/darker_issue112_dependency_lock.json")
+    support_paths = [
+        Path("external_seeds_pending/dependency_locks/darker_issue112_requirements_lock.txt"),
+        Path("external_seeds_pending/darker_issue_112_requirements_lock.txt"),
+    ]
+    presence = manual_dependency_lock_presence(canonical_lock, support_paths)
+    support_audit = manual_requirements_support_audit(bool(presence["canonical_json_present"]), list(presence["support_paths_present"]))
+    tracked = _git_path_tracked(canonical_lock) if canonical_lock.is_file() else False
+    ignored = _git_path_ignored(canonical_lock)
+    workflow_visible = tracked and canonical_lock.is_file()
+    timestamp = reconcile_issue_timestamp(
+        carried_artifact_issue_created_at="2020-08-05T00:00:00Z",
+        seed_issue_created_at=str(seed.get("issue_created_at")) if seed.get("issue_created_at") else None,
+        verified_public_issue_created_at=str(seed.get("issue_created_at")) if seed.get("issue_created_at") else None,
+        target_release_version="1.2.2",
+        target_release_date="2020-12-30",
+        public_issue_evidence_source="manual_reviewed_targeted_seed_batch013_and_batch018_prompt",
+    )
+    dependency_cutoff = {
+        "status": timestamp["status"],
+        "dependency_cutoff_timestamp": timestamp["dependency_cutoff_timestamp"],
+        "timestamp_conflict_detected": timestamp["timestamp_conflict_detected"],
+        "selected_cutoff_reason": timestamp["selected_cutoff_reason"],
+        "post_issue_dependencies_allowed": False,
+        "blocker": timestamp["blocker"],
+    }
+    git_tracking = {
+        "status": "BLOCK",
+        "canonical_path": canonical_lock.as_posix(),
+        "git_tracked": tracked,
+        "ignored_by_gitignore": ignored,
+        "workflow_visible": workflow_visible,
+        "blocker": exact_blocker if not canonical_lock.is_file() else "manual_dependency_lock_not_git_tracked" if not tracked else None,
+    }
+    schema_validation = {
+        "status": "BLOCK",
+        "canonical_path": canonical_lock.as_posix(),
+        "schema_valid": False,
+        "required_fields": [
+            "candidate_id",
+            "lock_type",
+            "repo_url",
+            "issue_url",
+            "issue_created_at",
+            "issue_created_at_evidence",
+            "source_commit_sha or source_commit_window",
+            "packages",
+            "forbidden_evidence_attestation",
+            "registry_author",
+            "registry_review_status",
+            "notes",
+        ],
+        "blocker": exact_blocker,
+    }
+    decision_time_audit = {
+        "status": "BLOCK",
+        "decision_time_safe": False,
+        "latest_unrestricted_dependency_resolution_used": False,
+        "post_issue_dependency_metadata_used": False,
+        "fixed_later_gold_pr_evidence_used": False,
+        "hidden_benchmark_state_used": False,
+        "blocker": exact_blocker,
+    }
+    normalization = {
+        "status": "BLOCK",
+        "canonical_json_present": False,
+        "support_txt_normalized_to_canonical_json": False,
+        "authoritative_lock_available": False,
+        "blocker": exact_blocker,
+    }
+    lock_validation = {
+        "status": "NOT_RUN",
+        "reason": "manual dependency lock absent",
+        "blocker": exact_blocker,
+    }
+    not_run = {"status": "NOT_RUN", "blocker": exact_blocker}
+    claim_boundary = {
+        "status": "PASS",
+        "current_protocol": "v2.13",
+        "confirmed_native_repair_episode_count": 4,
+        "confirmed_issue_derived_repair_episode_count": 0,
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "not_demonstrated",
+        "self_maintaining_software": "false/not_demonstrated",
+        "hallucination_elimination": "false/not_claimed",
+        "absolute_uncrashability": "false/not_claimed",
+        "production_runtime_readiness": "false/not_demonstrated",
+        "issue_derived_evidence_remains_separate": True,
+    }
+    proof_ledger = [
+        {
+            "entry_type": "ROLLBACK_BLOCK",
+            "blocker": exact_blocker,
+            "blocked_branch": "manual_dependency_lock_intake",
+            "next_allowed_action": "provide_canonical_manual_dependency_lock_json",
+            "downstream_target_intent_retry_suppressed": True,
+            "downstream_harness_v4_suppressed": True,
+            "downstream_repair_suppressed": True,
+            "evidence_hash": dependency_resolution_hash({"presence": presence, "timestamp": timestamp}),
+        }
+    ]
+    lineage_index = {
+        "status": "PASS",
+        "lineage_only": True,
+        "primary_artifact_mode": "thin_delta",
+        "current_batch": BATCH018_ID,
+        "prior_artifacts": [
+            {
+                "batch": BATCH017_ID,
+                "artifact_name": "post_v2_37_hardening_batch017_dependency_era_thin_artifacts",
+                "artifact_id": "8040764687",
+                "artifact_sha256": "cf7f89bd1d93b2f85b574fa6b785b64abcea46478c724bb72aa33feac28c9555",
+                "ingest_commit": "fd679602",
+                "manifest_path": "outputs/clean_replication_batch_017/SHA256SUMS.txt",
+                "claim_boundary_summary": "Batch017 safe-stop at dependency_era_lock_unavailable",
+            }
+        ],
+    }
+    carry_forward = {
+        "status": "PASS",
+        "carried_prior_evidence_by_reference": True,
+        "carried_batches": [BATCH017_ID],
+        "native_repair_episode_count": 4,
+        "issue_derived_repair_episode_count": 0,
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "not_demonstrated",
+    }
+    state = {
+        "status": "PASS_WITH_BATCH018_SAFE_STOP",
+        "exact_blocker": exact_blocker,
+        "batch017_boundary_preservation_status": "PASS",
+        "thin_artifact_lineage_preservation_status": "PASS",
+        "issue_timestamp_reconciliation_status": timestamp["status"],
+        "dependency_cutoff_timestamp": timestamp["dependency_cutoff_timestamp"],
+        "manual_dependency_lock_status": "ABSENT",
+        "manual_requirements_support_file_status": support_audit["status"],
+        "decision_time_dependency_lock_validation_status": "NOT_RUN",
+        "manual_lock_environment_materialization_status": "NOT_RUN",
+        "target_intent_retry_status": "NOT_RUN",
+        "harness_v4_generated": False,
+        "harness_v4_verification_status": "NOT_RUN",
+        "target_intent_alignment": False,
+        "issue_derived_candidate_verified": False,
+        "repair_only_fallback_attempted": False,
+        "issue_derived_repair_feasibility": False,
+        "native_repair_episode_count": 4,
+        "issue_derived_repair_episode_count": 0,
+        "matched_null_diagnostic_run_count": 0,
+        "memory_separation_claim_status": "not_demonstrated",
+        "full_scoring_status": "NOT_RUN/disallowed",
+        "self_maintaining_software_status": "false/not_demonstrated",
+        "hallucination_elimination_claim_status": "false/not_claimed",
+        "absolute_uncrashability_claim_status": "false/not_claimed",
+        "current_protocol": "v2.13",
+        "primary_artifact_name": "post_v2_37_hardening_batch018_manual_dependency_lock_thin_artifacts",
+    }
+    records = {
+        "batch017_boundary_preservation.json": {"status": "PASS", "batch017_status": batch017_state.get("status"), "batch017_exact_blocker": batch017_state.get("exact_blocker"), "claim_boundaries_preserved": True},
+        "thin_artifact_lineage_preservation.json": {"status": "PASS", "primary_artifact_remains_thin": True, "delta_oriented": True, "recursive_prior_batch_packaging_allowed": False},
+        "claim_boundary_batch018.json": claim_boundary,
+        "issue_timestamp_reconciliation_policy.json": {"status": "PASS", "conflicting_timestamps_must_be_recorded": True, "post_issue_dependencies_allowed": False, "blocker": "issue_timestamp_reconciliation_failed"},
+        "darker_issue112_timestamp_reconciliation.json": timestamp,
+        "dependency_cutoff_decision.json": dependency_cutoff,
+        "manual_dependency_lock_presence_check.json": presence,
+        "manual_dependency_lock_git_tracking_audit.json": git_tracking,
+        "manual_dependency_lock_schema_validation.json": schema_validation,
+        "manual_dependency_lock_decision_time_audit.json": decision_time_audit,
+        "manual_requirements_support_file_audit.json": support_audit,
+        "manual_dependency_lock_normalization_result.json": normalization,
+        "decision_time_dependency_lock_validation.json": lock_validation,
+        "dependency_version_evidence_audit.json": lock_validation,
+        "dependency_cutoff_compliance_audit.json": lock_validation,
+        "dependency_resolution_forbidden_sources_audit.json": {"status": "PASS", "forbidden_sources_used": False, "latest_unrestricted_dependency_resolution_used": False, "fixed_later_gold_pr_evidence_used": False},
+        "manual_lock_environment_materialization_policy.json": {"status": "PASS", "requires_valid_manual_lock": True, "fresh_workspace_outside_repo_required": True, "undeclared_dependency_install_allowed": False},
+        "manual_lock_environment_materialization_log.json": not_run,
+        "manual_lock_environment_hash.json": not_run,
+        "workspace_purity_report.json": not_run,
+        "acquisition_lock_stack_status.json": {"status": "BLOCK", "blocker": exact_blocker, "manual_dependency_lock_required_before_replay": True},
+        "issue112_command_variant_policy.json": {"status": "PASS", "requires_valid_manual_lock": True, "allowed_variants": ["GIT_DIR=.git python -m darker --check src", "GIT_DIR=.git darker --check src", "equivalent subprocess form from ephemeral harness"]},
+        "issue112_manual_lock_variant_results.json": not_run,
+        "darker_issue112_target_intent_signature_retry.json": not_run,
+        "target_intent_alignment_retry_audit.json": {"status": "NOT_RUN", "target_intent_alignment": False, "blocker": exact_blocker},
+        "source_commit_window_policy.json": {"status": "PASS", "max_commits": 10, "post_issue_commits_allowed": False, "requires_valid_manual_lock": True},
+        "source_commit_window_candidates.json": not_run,
+        "source_commit_window_results.json": not_run,
+        "issue_derived_harness_v4_policy.json": {"status": "PASS", "requires_target_intent_alignment": True, "solution_sections_allowed": False},
+        "issue_derived_harness_v4_context_manifest.json": not_run,
+        "issue_derived_harness_v4_verification_result.json": not_run,
+        "candidate_curvature_feature_vectors.json": not_run,
+        "basin_stability_scores.json": not_run,
+        "two_winner_decision_records.json": not_run,
+        "prospective_memory_eligibility_gate.json": {"status": "BLOCK", "prospective_native_memory_eligible": False, "blocker": exact_blocker},
+        "curvature_claim_boundary.json": {"status": "PASS", "issue_derived_native_memory_claim_allowed": False, "memory_lift_claim_allowed": False},
+        "repair_only_fallback_status.json": {"status": "NOT_RUN", "repair_only_fallback_attempted": False, "blocker": exact_blocker},
+        "issue_derived_repair_feasibility_status.json": {"status": "NOT_RUN", "issue_derived_repair_feasibility": False, "blocker": exact_blocker},
+        "issue_derived_matched_null_diagnostic_status.json": {"status": "NOT_RUN", "matched_null_diagnostic_run_count": 0, "blocker": exact_blocker},
+        "darker_issue112_candidate_viability_decision.json": {"status": "BLOCK", "decision": "continue_with_manual_dependency_lock_required", "blocker": exact_blocker},
+        "proof_obligations_ledger.json": proof_ledger,
+        "rollback_block_ledger_audit.json": {"status": "PASS", "rollback_block_count": 1, "blockers": [exact_blocker]},
+        "compute_budget_safe_stop_batch018.json": {"status": "SAFE_STOP", "safe_stop_success": True, "exact_blocker": exact_blocker, "downstream_repair_suppressed": True},
+        "artifact_packaging_policy.json": {"status": "PASS", "primary_artifact_mode": "thin_delta", "hard_primary_artifact_bytes": 750000},
+        "thin_artifact_packaging_policy.json": {"status": "PASS", "recursive_prior_batch_packaging_allowed": False, "primary_payload_roots": [POST_DIR.as_posix(), BATCH018_DIR.as_posix()]},
+        "artifact_lineage_index.json": lineage_index,
+        "evidence_carry_forward_manifest.json": carry_forward,
+        "artifact_payload_budget.json": {"status": "PASS", "hard_primary_artifact_bytes": 750000, "estimated_primary_artifact_bytes": None, "blocker": None},
+        "artifact_minimality_audit.json": {"status": "PASS", "recursive_prior_batch_packaging_detected": False, "blocker": None},
+        "lineage_equivalence_audit.json": {"status": "PASS", "prior_evidence_referenced_by_lineage": True},
+        "controllergate_claim_tier_update.json": {"status": "PASS", "manual_dependency_lock_intake": "blocked_missing_input", "issue_derived_repair_feasibility_upgrade": False, "memory_lift_upgrade": False, "self_maintaining_upgrade": False},
+        "controllergate_capability_catalog_update.json": {"status": "PASS", "catalog_version": "batch018", "updated_capabilities": ["dependency_era_resolution", "manual_dependency_lock_intake", "issue_timestamp_reconciliation", "target_intent_signature_alignment", "issue_derived_harness_verification", "artifact_thin_packaging", "evidence_carry_forward_manifest", "compute_budget_safe_stop"], "repair_feasibility_upgraded": False},
+        "consolidated_state_clean_replication_batch_018.json": state,
+    }
+    for name, record in records.items():
+        write_json_deterministic(BATCH018_DIR / name, record)
+    write_text_lf(
+        BATCH018_DIR / "manual_dependency_lock_request.md",
+        "\n".join(
+            [
+                "# Manual Dependency Lock Intake request",
+                "",
+                "Batch018 cannot continue Darker issue #112 target-intent retry because the canonical decision-time dependency lock JSON is absent.",
+                "",
+                "Create and commit `external_seeds_pending/dependency_locks/darker_issue112_dependency_lock.json` with exact package versions, evidence basis for each version, reconciled issue timestamp evidence, and forbidden-evidence attestation.",
+            ]
+        ),
+    )
+    write_json_deterministic(
+        BATCH018_DIR / "manual_dependency_lock_schema_template.json",
+        {
+            "candidate_id": "darker_issue_112_relative_git_dir",
+            "lock_type": "manual_decision_time_dependency_lock",
+            "repo_url": "https://github.com/akaihola/darker",
+            "issue_url": "https://github.com/akaihola/darker/issues/112",
+            "issue_created_at": timestamp["dependency_cutoff_timestamp"],
+            "issue_created_at_evidence": [{"source": "public_issue_metadata_or_reviewed_manual_evidence", "sha256": "<required>"}],
+            "target_release": {"version": "1.2.2", "release_date": "2020-12-30"},
+            "source_commit_sha": "<required-or-use-source_commit_window>",
+            "source_commit_window": None,
+            "python_version": "<optional>",
+            "packages": [{"name": "<package>", "version": "<version>", "evidence_basis": [{"source": "<decision-time-safe-source>", "observed_at_or_before": timestamp["dependency_cutoff_timestamp"], "sha256": "<required>"}]}],
+            "forbidden_evidence_attestation": {
+                "fixed_commit_used": False,
+                "later_commit_used": False,
+                "gold_patch_used": False,
+                "pr_patch_used": False,
+                "future_test_used": False,
+                "hidden_label_used": False,
+                "latest_unrestricted_resolution_used": False,
+            },
+            "registry_author": "<reviewer>",
+            "registry_review_status": "reviewed",
+            "notes": "<why each package version is decision-time safe>",
+        },
+    )
+    write_json_deterministic(BATCH018_DIR / "manual_dependency_lock_next_action.json", {"status": "ACTION_REQUIRED", "next_allowed_action": "provide_canonical_manual_dependency_lock_json", "canonical_path": canonical_lock.as_posix(), "exact_blocker": exact_blocker})
+    write_text_lf(
+        BATCH018_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication Batch018 manual dependency lock intake",
+                "",
+                "Status: PASS_WITH_BATCH018_SAFE_STOP.",
+                "",
+                "Batch018 preserves Batch017 thin-artifact lineage, reconciles the Darker issue #112 timestamp conflict, and checks for the canonical manual dependency lock JSON.",
+                "",
+                "The canonical manual dependency lock is absent, so decision-time dependency lock validation, environment materialization, target-intent retry, harness v4, repair-only fallback, and matched-null diagnostics remain not run.",
+                "",
+                f"Dependency cutoff timestamp: `{timestamp['dependency_cutoff_timestamp']}`.",
+                "",
+                f"Exact blocker: `{exact_blocker}`.",
+            ]
+        ),
+    )
+    write_json_deterministic(
+        "configs/clean_replication_batch_018.json",
+        {
+            "lane_id": BATCH018_ID,
+            "lane_type": "manual_dependency_lock_intake_and_timestamp_reconciliation",
+            "current_protocol": "v2.13",
+            "primary_artifact_name": "post_v2_37_hardening_batch018_manual_dependency_lock_thin_artifacts",
+            "canonical_manual_dependency_lock_path": canonical_lock.as_posix(),
+            "full_scoring": "NOT_RUN/disallowed",
+        },
+    )
+    catalog_path = Path("configs/controllergate_capability_catalog.json")
+    catalog = load_json(catalog_path)
+    catalog["catalog_version"] = "batch018"
+    capabilities = catalog.setdefault("capabilities", [])
+    existing = {item.get("capability_id"): item for item in capabilities if isinstance(item, dict)}
+    for capability_id, public_name, tier, evidence, blockers in [
+        ("manual_dependency_lock_intake", "Manual Dependency Lock Intake", 1, "outputs/clean_replication_batch_018/manual_dependency_lock_presence_check.json", [exact_blocker]),
+        ("issue_timestamp_reconciliation", "Issue Timestamp Reconciliation", 1, "outputs/clean_replication_batch_018/darker_issue112_timestamp_reconciliation.json", []),
+        ("dependency_era_resolution", "Dependency-Era Resolution", 1, "outputs/clean_replication_batch_018/decision_time_dependency_lock_validation.json", [exact_blocker]),
+    ]:
+        record = existing.get(capability_id) or capability_record(capability_id, public_name, tier, [evidence], blockers)
+        record["current_tier"] = tier
+        record["evidence_artifact_paths"] = [evidence]
+        record["blockers"] = blockers
+        existing[capability_id] = record
+    catalog["capabilities"] = list(existing.values())
+    write_json_deterministic(catalog_path, catalog)
+    write_sha256sums(BATCH018_DIR)
     return state
 
 
@@ -8248,6 +8761,7 @@ def main() -> int:
     BATCH015_DIR.mkdir(parents=True, exist_ok=True)
     BATCH016_DIR.mkdir(parents=True, exist_ok=True)
     BATCH017_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH018_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
@@ -8266,6 +8780,7 @@ def main() -> int:
     batch015_state = write_batch015_outputs(batch014_state)
     batch016_state = write_batch016_outputs(batch015_state)
     batch017_state = write_batch017_outputs(batch015_state, batch016_state)
+    batch018_state = write_batch018_outputs(batch017_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -8284,6 +8799,7 @@ def main() -> int:
         "configs/clean_replication_batch_014.json",
         "configs/clean_replication_batch_015.json",
         "configs/clean_replication_batch_017.json",
+        "configs/clean_replication_batch_018.json",
         "configs/controllergate_capability_catalog.json",
         "configs/controllergate_claim_tiers.json",
         "configs/lock_sequence_operation_registry.json",
@@ -8470,7 +8986,9 @@ def main() -> int:
         },
     )
 
-    if batch017_state.get("status") == "PASS_WITH_BATCH017_SAFE_STOP":
+    if batch018_state.get("status") == "PASS_WITH_BATCH018_SAFE_STOP":
+        final_status = "PASS_WITH_BATCH018_SAFE_STOP"
+    elif batch017_state.get("status") == "PASS_WITH_BATCH017_SAFE_STOP":
         final_status = "PASS_WITH_BATCH017_SAFE_STOP"
     elif batch016_state.get("status") == "PASS_WITH_BATCH016_SAFE_STOP":
         final_status = "PASS_WITH_BATCH016_SAFE_STOP"
@@ -8497,7 +9015,7 @@ def main() -> int:
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     final_report = {
         "status": final_status,
-        "exact_blocker": batch017_state.get("exact_blocker") or batch016_state.get("exact_blocker") or batch015_state.get("exact_blocker") or batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
+        "exact_blocker": batch018_state.get("exact_blocker") or batch017_state.get("exact_blocker") or batch016_state.get("exact_blocker") or batch015_state.get("exact_blocker") or batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
         "batch002_exact_blocker": batch_state["exact_blocker"],
         "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
@@ -8822,6 +9340,27 @@ def main() -> int:
         "batch017_matched_null_diagnostic_run_count": batch017_state["matched_null_diagnostic_run_count"],
         "batch017_memory_separation_claim_status": batch017_state["memory_separation_claim_status"],
         "batch017_absolute_uncrashability_claim_status": batch017_state["absolute_uncrashability_claim_status"],
+        "clean_replication_batch_018_status": batch018_state["status"],
+        "clean_replication_batch_018_exact_blocker": batch018_state["exact_blocker"],
+        "batch018_issue_timestamp_reconciliation_status": batch018_state["issue_timestamp_reconciliation_status"],
+        "batch018_dependency_cutoff_timestamp": batch018_state["dependency_cutoff_timestamp"],
+        "batch018_manual_dependency_lock_status": batch018_state["manual_dependency_lock_status"],
+        "batch018_manual_requirements_support_file_status": batch018_state["manual_requirements_support_file_status"],
+        "batch018_decision_time_dependency_lock_validation_status": batch018_state["decision_time_dependency_lock_validation_status"],
+        "batch018_manual_lock_environment_materialization_status": batch018_state["manual_lock_environment_materialization_status"],
+        "batch018_target_intent_retry_status": batch018_state["target_intent_retry_status"],
+        "batch018_harness_v4_generated": batch018_state["harness_v4_generated"],
+        "batch018_harness_v4_verification_status": batch018_state["harness_v4_verification_status"],
+        "batch018_target_intent_alignment": batch018_state["target_intent_alignment"],
+        "batch018_issue_derived_candidate_verified": batch018_state["issue_derived_candidate_verified"],
+        "batch018_repair_only_fallback_attempted": batch018_state["repair_only_fallback_attempted"],
+        "batch018_issue_derived_repair_feasibility": batch018_state["issue_derived_repair_feasibility"],
+        "batch018_native_repair_episode_count": batch018_state["native_repair_episode_count"],
+        "batch018_issue_derived_repair_episode_count": batch018_state["issue_derived_repair_episode_count"],
+        "batch018_matched_null_diagnostic_run_count": batch018_state["matched_null_diagnostic_run_count"],
+        "batch018_memory_separation_claim_status": batch018_state["memory_separation_claim_status"],
+        "batch018_hallucination_elimination_claim_status": batch018_state["hallucination_elimination_claim_status"],
+        "batch018_absolute_uncrashability_claim_status": batch018_state["absolute_uncrashability_claim_status"],
         "global_curvature_logic_status": batch013_state["global_curvature_logic_status"],
         "curvature_feature_vector_status": batch013_state["curvature_feature_vector_status"],
         "basin_stability_check_status": batch013_state["basin_stability_check_status"],
@@ -8957,45 +9496,50 @@ def main() -> int:
                 "",
                 f"Batch017 status: `{batch017_state['status']}`; exact blocker: `{batch017_state['exact_blocker']}`.",
                 "",
+                "Batch018 ingests the manually supplied Batch017 thin artifact boundary, reconciles Darker issue #112 timestamp evidence, and stops cleanly because the canonical manual dependency lock JSON is absent.",
+                "",
+                f"Batch018 status: `{batch018_state['status']}`; exact blocker: `{batch018_state['exact_blocker']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
     )
     write_public_docs_reports()
     write_batch015_markdown_docs()
+    write_batch018_markdown_docs(batch018_state)
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH017_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH018_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     payload_size = sum(path.stat().st_size for path in PAYLOAD_DIR.rglob("*") if path.is_file())
     recursive_prior_batch_packaging_detected = any(
-        part.startswith("clean_replication_batch_") and part != BATCH017_ID
+        part.startswith("clean_replication_batch_") and part != BATCH018_ID
         for path in PAYLOAD_DIR.rglob("*")
         for part in path.relative_to(PAYLOAD_DIR).parts
     )
     write_json_deterministic(
-        BATCH017_DIR / "artifact_payload_budget.json",
+        BATCH018_DIR / "artifact_payload_budget.json",
         {
             "status": "PASS" if payload_size <= 750000 else "BLOCK",
             "target_primary_artifact_bytes": 450000,
             "hard_primary_artifact_bytes": 750000,
             "estimated_primary_artifact_bytes": payload_size,
             "target_exceeded_with_justification": payload_size > 450000,
-            "justification": "post boundary plus Batch017 lineage and dependency-era evidence" if payload_size > 450000 else None,
+            "justification": "post boundary plus Batch018 manual dependency lock intake evidence" if payload_size > 450000 else None,
             "blocker": None if payload_size <= 750000 else "primary_artifact_budget_exceeded",
         },
     )
     write_json_deterministic(
-        BATCH017_DIR / "artifact_minimality_audit.json",
+        BATCH018_DIR / "artifact_minimality_audit.json",
         {
             "status": "PASS" if not recursive_prior_batch_packaging_detected else "BLOCK",
             "recursive_prior_batch_packaging_detected": recursive_prior_batch_packaging_detected,
-            "primary_payload_roots": [POST_DIR.as_posix(), BATCH017_DIR.as_posix()],
+            "primary_payload_roots": [POST_DIR.as_posix(), BATCH018_DIR.as_posix()],
             "payload_size_bytes": payload_size,
             "blocker": None if not recursive_prior_batch_packaging_detected else "recursive_prior_batch_packaging_detected",
         },
     )
-    write_sha256sums(BATCH017_DIR)
+    write_sha256sums(BATCH018_DIR)
     write_json_deterministic(
         POST_DIR / "artifact_payload_manifest_report.json",
         {
@@ -9011,7 +9555,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH017_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH018_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

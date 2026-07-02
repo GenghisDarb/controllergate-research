@@ -1,21 +1,21 @@
 # Public release readiness
 
-ControllerGate is not a technical validation release and is not production-ready. Batch015 adds safer positioning language and a claim-tier catalog.
+ControllerGate is not production-ready and is not a technical validation release.
 
-Potential deployment domains must remain future application areas with `deployment_readiness: false` until separate evidence proves otherwise.
-
-Batch016 does not change release readiness because it safe-stops before repair.
-
-Batch017 does not change release readiness because it safe-stops before repair and only improves dependency-era custody and artifact packaging.
+Batch018 does not add deployment readiness. It adds custody and intake records for a missing manual dependency lock.
 
 ## Current operational gate status
 
-- Current protocol remains `v2.13`.
-- Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0`.
+- Batch017 blocked because no decision-time dependency lock was available.
+- Batch018 reconciles the Darker issue #112 timestamp and requires the canonical manual dependency lock JSON before retrying target intent.
+- A plain requirements.txt is support evidence only; it is not authoritative unless normalized into the canonical JSON evidence schema.
+- If historical environment reconstruction cannot be proven safely, ControllerGate blocks rather than patches.
+- Thin artifact packaging remains active to keep manually handled artifacts small.
+- Confirmed native repair episode count remains `4`.
+- Confirmed issue-derived repair episode count remains `0`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
-- Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
-- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.
+- Hallucination elimination is not claimed.
+- Absolute uncrashability is not claimed.
+- Production runtime readiness is not claimed.

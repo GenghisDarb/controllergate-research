@@ -1,21 +1,19 @@
 # ControllerGate shareable summary
 
-ControllerGate is a proof-gated runtime and compiler layer for safe AI software repair.
-
-Current evidence boundary: four confirmed external native repair episodes, zero confirmed issue-derived repair episodes, full scoring disabled, memory lift not demonstrated, and self-maintaining software not demonstrated.
-
-Batch015 adds runtime-wrapper scaffold modules, a lock-sequence operation registry, claim tiers, a capability catalog, public positioning, and roadmap-only compiler directions. It does not claim production readiness or new repair evidence.
-
-Batch017 attempts decision-time dependency-era resolution for Darker issue #112 and starts thin artifact packaging. It blocks rather than patching when no decision-time dependency lock is proven.
+ControllerGate is an evidence-bound repair validation kernel. Batch018 preserves the Batch017 thin artifact boundary, reconciles Darker issue #112 timestamp evidence, and blocks at `manual_dependency_lock_absent` until a canonical decision-time dependency lock JSON is supplied.
 
 ## Current operational gate status
 
-- Current protocol remains `v2.13`.
-- Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0`.
+- Batch017 blocked because no decision-time dependency lock was available.
+- Batch018 reconciles the Darker issue #112 timestamp and requires the canonical manual dependency lock JSON before retrying target intent.
+- A plain requirements.txt is support evidence only; it is not authoritative unless normalized into the canonical JSON evidence schema.
+- If historical environment reconstruction cannot be proven safely, ControllerGate blocks rather than patches.
+- Thin artifact packaging remains active to keep manually handled artifacts small.
+- Confirmed native repair episode count remains `4`.
+- Confirmed issue-derived repair episode count remains `0`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
-- Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
-- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.
+- Hallucination elimination is not claimed.
+- Absolute uncrashability is not claimed.
+- Production runtime readiness is not claimed.

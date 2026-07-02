@@ -27,7 +27,8 @@ BATCH014_DIR = Path("outputs/clean_replication_batch_014")
 BATCH015_DIR = Path("outputs/clean_replication_batch_015")
 BATCH016_DIR = Path("outputs/clean_replication_batch_016")
 BATCH017_DIR = Path("outputs/clean_replication_batch_017")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch017_dependency_era_thin")
+BATCH018_DIR = Path("outputs/clean_replication_batch_018")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch018_manual_dependency_lock_thin")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -705,6 +706,67 @@ BATCH017_REQUIRED = [
     "proof_obligations_ledger.json",
     "rollback_block_ledger_audit.json",
     "compute_budget_safe_stop_batch017.json",
+    "controllergate_claim_tier_update.json",
+    "controllergate_capability_catalog_update.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH018_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_018.json",
+    "batch017_boundary_preservation.json",
+    "thin_artifact_lineage_preservation.json",
+    "claim_boundary_batch018.json",
+    "issue_timestamp_reconciliation_policy.json",
+    "darker_issue112_timestamp_reconciliation.json",
+    "dependency_cutoff_decision.json",
+    "manual_dependency_lock_presence_check.json",
+    "manual_dependency_lock_git_tracking_audit.json",
+    "manual_dependency_lock_schema_validation.json",
+    "manual_dependency_lock_decision_time_audit.json",
+    "manual_requirements_support_file_audit.json",
+    "manual_dependency_lock_normalization_result.json",
+    "manual_dependency_lock_request.md",
+    "manual_dependency_lock_schema_template.json",
+    "manual_dependency_lock_next_action.json",
+    "decision_time_dependency_lock_validation.json",
+    "dependency_version_evidence_audit.json",
+    "dependency_cutoff_compliance_audit.json",
+    "dependency_resolution_forbidden_sources_audit.json",
+    "manual_lock_environment_materialization_policy.json",
+    "manual_lock_environment_materialization_log.json",
+    "manual_lock_environment_hash.json",
+    "workspace_purity_report.json",
+    "acquisition_lock_stack_status.json",
+    "issue112_command_variant_policy.json",
+    "issue112_manual_lock_variant_results.json",
+    "darker_issue112_target_intent_signature_retry.json",
+    "target_intent_alignment_retry_audit.json",
+    "source_commit_window_policy.json",
+    "source_commit_window_candidates.json",
+    "source_commit_window_results.json",
+    "issue_derived_harness_v4_policy.json",
+    "issue_derived_harness_v4_context_manifest.json",
+    "issue_derived_harness_v4_verification_result.json",
+    "candidate_curvature_feature_vectors.json",
+    "basin_stability_scores.json",
+    "two_winner_decision_records.json",
+    "prospective_memory_eligibility_gate.json",
+    "curvature_claim_boundary.json",
+    "repair_only_fallback_status.json",
+    "issue_derived_repair_feasibility_status.json",
+    "issue_derived_matched_null_diagnostic_status.json",
+    "darker_issue112_candidate_viability_decision.json",
+    "proof_obligations_ledger.json",
+    "rollback_block_ledger_audit.json",
+    "compute_budget_safe_stop_batch018.json",
+    "artifact_packaging_policy.json",
+    "thin_artifact_packaging_policy.json",
+    "artifact_lineage_index.json",
+    "evidence_carry_forward_manifest.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "lineage_equivalence_audit.json",
     "controllergate_claim_tier_update.json",
     "controllergate_capability_catalog_update.json",
     "SHA256SUMS.txt",
@@ -3029,7 +3091,11 @@ def audit_batch015_records() -> list[str]:
         "artifact_thin_packaging",
         "evidence_carry_forward_manifest",
     }
-    allowed_capabilities = required_capabilities | batch016_catalog_extensions
+    batch018_catalog_extensions = {
+        "manual_dependency_lock_intake",
+        "issue_timestamp_reconciliation",
+    }
+    allowed_capabilities = required_capabilities | batch016_catalog_extensions | batch018_catalog_extensions
     if not required_capabilities.issubset(capability_ids) or not capability_ids.issubset(allowed_capabilities):
         errors.append("capability_catalog_missing")
     if any("current_tier" not in item for item in capabilities if isinstance(item, dict)):
@@ -3164,7 +3230,7 @@ def audit_batch016_records() -> list[str]:
         errors.append("safe-stop missing after target-intent failure")
     if state.get("status") != "PASS_WITH_BATCH016_SAFE_STOP":
         errors.append("Batch016 state did not safe-stop")
-    if catalog.get("catalog_version") not in {"batch016", "batch017"}:
+    if catalog.get("catalog_version") not in {"batch016", "batch017", "batch018"}:
         errors.append("Batch016 capability catalog version missing")
     return errors
 
@@ -3285,8 +3351,120 @@ def audit_batch017_records() -> list[str]:
         errors.append("safe-stop or rollback invalid")
     if state.get("status") != "PASS_WITH_BATCH017_SAFE_STOP" or state.get("exact_blocker") != "dependency_era_lock_unavailable":
         errors.append("Batch017 state did not safe-stop at dependency lock")
-    if catalog.get("catalog_version") != "batch017":
+    if catalog.get("catalog_version") not in {"batch017", "batch018"}:
         errors.append("Batch017 capability catalog version missing")
+    return errors
+
+
+def audit_batch018_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH018_REQUIRED:
+        if not (BATCH018_DIR / name).is_file():
+            errors.append(f"batch018 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH018_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch018 manifest failed: {manifest}")
+
+    phase_a = read_json(POST_DIR / "batch017_dependency_era_artifact_verification.json")
+    ingest = read_json(POST_DIR / "batch017_dependency_era_ingest_summary.json")
+    state = read_json(BATCH018_DIR / "consolidated_state_clean_replication_batch_018.json")
+    preservation = read_json(BATCH018_DIR / "batch017_boundary_preservation.json")
+    lineage_preservation = read_json(BATCH018_DIR / "thin_artifact_lineage_preservation.json")
+    claim = read_json(BATCH018_DIR / "claim_boundary_batch018.json")
+    timestamp = read_json(BATCH018_DIR / "darker_issue112_timestamp_reconciliation.json")
+    cutoff = read_json(BATCH018_DIR / "dependency_cutoff_decision.json")
+    presence = read_json(BATCH018_DIR / "manual_dependency_lock_presence_check.json")
+    tracking = read_json(BATCH018_DIR / "manual_dependency_lock_git_tracking_audit.json")
+    schema = read_json(BATCH018_DIR / "manual_dependency_lock_schema_validation.json")
+    decision_time = read_json(BATCH018_DIR / "manual_dependency_lock_decision_time_audit.json")
+    support = read_json(BATCH018_DIR / "manual_requirements_support_file_audit.json")
+    normalization = read_json(BATCH018_DIR / "manual_dependency_lock_normalization_result.json")
+    validation = read_json(BATCH018_DIR / "decision_time_dependency_lock_validation.json")
+    environment = read_json(BATCH018_DIR / "manual_lock_environment_materialization_log.json")
+    target_retry = read_json(BATCH018_DIR / "target_intent_alignment_retry_audit.json")
+    harness = read_json(BATCH018_DIR / "issue_derived_harness_v4_verification_result.json")
+    repair = read_json(BATCH018_DIR / "repair_only_fallback_status.json")
+    feasibility = read_json(BATCH018_DIR / "issue_derived_repair_feasibility_status.json")
+    matched = read_json(BATCH018_DIR / "issue_derived_matched_null_diagnostic_status.json")
+    ledger = read_json(BATCH018_DIR / "proof_obligations_ledger.json")
+    rollback = read_json(BATCH018_DIR / "rollback_block_ledger_audit.json")
+    safe_stop = read_json(BATCH018_DIR / "compute_budget_safe_stop_batch018.json")
+    packaging = read_json(BATCH018_DIR / "thin_artifact_packaging_policy.json")
+    lineage = read_json(BATCH018_DIR / "artifact_lineage_index.json")
+    carry = read_json(BATCH018_DIR / "evidence_carry_forward_manifest.json")
+    budget = read_json(BATCH018_DIR / "artifact_payload_budget.json")
+    minimality = read_json(BATCH018_DIR / "artifact_minimality_audit.json")
+    catalog = read_json(Path("configs/controllergate_capability_catalog.json"))
+
+    if phase_a.get("status") != "PASS" or phase_a.get("actual_sha256") != "cf7f89bd1d93b2f85b574fa6b785b64abcea46478c724bb72aa33feac28c9555":
+        errors.append("Batch017 artifact not officially ingested")
+    if ingest.get("status") != "PASS" or ingest.get("ingested_only_output_evidence") is not True:
+        errors.append("Batch017 ingest summary invalid")
+    if preservation.get("status") != "PASS" or preservation.get("batch017_exact_blocker") != "dependency_era_lock_unavailable":
+        errors.append("Batch017 boundary preservation failed")
+    if lineage_preservation.get("status") != "PASS" or lineage_preservation.get("primary_artifact_remains_thin") is not True:
+        errors.append("thin artifact lineage not preserved")
+    if claim.get("confirmed_native_repair_episode_count") != 4 or claim.get("confirmed_issue_derived_repair_episode_count") != 0:
+        errors.append("Batch018 repair counts changed")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch018 full scoring or memory boundary changed")
+    for field in ["self_maintaining_software", "hallucination_elimination", "absolute_uncrashability"]:
+        if "claimed" in str(claim.get(field, "")).lower() and str(claim.get(field)) not in {"false/not_claimed"}:
+            errors.append(f"Batch018 overclaim boundary changed: {field}")
+    if timestamp.get("status") != "PASS" or timestamp.get("timestamp_conflict_detected") is not True:
+        errors.append("issue timestamp reconciliation missing conflict record")
+    if timestamp.get("dependency_cutoff_timestamp") != "2021-01-02T00:00:00Z":
+        errors.append("dependency cutoff timestamp mismatch")
+    if cutoff.get("post_issue_dependencies_allowed") is not False:
+        errors.append("post-issue dependencies allowed")
+    if presence.get("canonical_path") != "external_seeds_pending/dependency_locks/darker_issue112_dependency_lock.json":
+        errors.append("canonical manual dependency lock path missing")
+    if presence.get("canonical_json_present") is not False or presence.get("blocker") != "manual_dependency_lock_absent":
+        errors.append("manual dependency lock absence not recorded")
+    if support.get("txt_can_bypass_json_schema") is not False:
+        errors.append("manual_requirements_txt_not_authoritative")
+    if tracking.get("git_tracked") is not False or tracking.get("workflow_visible") is not False:
+        errors.append("absent manual lock should not be tracked or workflow-visible")
+    if schema.get("schema_valid") is not False or schema.get("blocker") != "manual_dependency_lock_absent":
+        errors.append("manual dependency lock schema absence not recorded")
+    if decision_time.get("latest_unrestricted_dependency_resolution_used") is not False or decision_time.get("fixed_later_gold_pr_evidence_used") is not False:
+        errors.append("manual dependency lock used forbidden evidence")
+    if normalization.get("authoritative_lock_available") is not False:
+        errors.append("manual dependency lock normalization incorrectly authoritative")
+    if validation.get("status") != "NOT_RUN":
+        errors.append("dependency lock validation ran without manual lock")
+    if environment.get("status") != "NOT_RUN":
+        errors.append("environment materialization ran without manual lock")
+    if target_retry.get("status") != "NOT_RUN" or target_retry.get("target_intent_alignment") is not False:
+        errors.append("target-intent retry ran without manual lock")
+    if harness.get("status") != "NOT_RUN":
+        errors.append("harness v4 ran without target intent")
+    if repair.get("repair_only_fallback_attempted") is not False or feasibility.get("issue_derived_repair_feasibility") is not False:
+        errors.append("repair attempted without target-intent alignment")
+    if matched.get("matched_null_diagnostic_run_count") != 0:
+        errors.append("matched-null diagnostic ran without target-intent alignment")
+    if not any(isinstance(item, dict) and item.get("entry_type") == "ROLLBACK_BLOCK" and item.get("blocker") == "manual_dependency_lock_absent" for item in ledger):
+        errors.append("safe_stop_missing_after_block")
+    if rollback.get("status") != "PASS" or rollback.get("rollback_block_count") != 1:
+        errors.append("rollback block ledger invalid")
+    if safe_stop.get("status") != "SAFE_STOP" or safe_stop.get("safe_stop_success") is not True:
+        errors.append("compute budget safe-stop missing")
+    if packaging.get("status") != "PASS" or packaging.get("recursive_prior_batch_packaging_allowed") is not False:
+        errors.append("thin_artifact_policy_missing")
+    if lineage.get("status") != "PASS" or not lineage.get("prior_artifacts"):
+        errors.append("artifact_lineage_index_missing")
+    if carry.get("status") != "PASS" or carry.get("carried_prior_evidence_by_reference") is not True:
+        errors.append("evidence_carry_forward_manifest_missing")
+    if minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("recursive_prior_batch_packaging_detected")
+    if budget.get("status") != "PASS" or int(budget.get("hard_primary_artifact_bytes", 0)) != 750000:
+        errors.append("primary_artifact_budget_exceeded")
+    if state.get("status") != "PASS_WITH_BATCH018_SAFE_STOP" or state.get("exact_blocker") != "manual_dependency_lock_absent":
+        errors.append("Batch018 state did not safe-stop at manual lock")
+    if catalog.get("catalog_version") != "batch018":
+        errors.append("Batch018 capability catalog version missing")
     return errors
 
 
@@ -3678,6 +3856,8 @@ def main() -> int:
         return fail("batch016 manifest mismatch")
     if verify_manifest(BATCH017_DIR)["status"] != "PASS":
         return fail("batch017 manifest mismatch")
+    if verify_manifest(BATCH018_DIR)["status"] != "PASS":
+        return fail("batch018 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -3838,6 +4018,9 @@ def main() -> int:
     batch017_errors = audit_batch017_records()
     if batch017_errors:
         return fail(f"batch017 audit failed: {batch017_errors}")
+    batch018_errors = audit_batch018_records()
+    if batch018_errors:
+        return fail(f"batch018 audit failed: {batch018_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -3884,14 +4067,20 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if final_report.get("status") != "PASS_WITH_BATCH017_SAFE_STOP":
-        return fail("final report did not advance to Batch017 safe-stop boundary")
-    if final_report.get("exact_blocker") != "dependency_era_lock_unavailable":
+    if final_report.get("status") != "PASS_WITH_BATCH018_SAFE_STOP":
+        return fail("final report did not advance to Batch018 safe-stop boundary")
+    if final_report.get("exact_blocker") != "manual_dependency_lock_absent":
         return fail("final report latest validation blocker mismatch")
     if final_report.get("batch017_target_intent_alignment") is not False:
         return fail("final report Batch017 target-intent boundary mismatch")
     if final_report.get("batch017_recursive_prior_batch_packaging_detected") is not False:
         return fail("final report Batch017 thin artifact boundary mismatch")
+    if final_report.get("batch018_manual_dependency_lock_status") != "ABSENT":
+        return fail("final report Batch018 manual lock status mismatch")
+    if final_report.get("batch018_target_intent_alignment") is not False:
+        return fail("final report Batch018 target-intent boundary mismatch")
+    if final_report.get("batch018_dependency_cutoff_timestamp") != "2021-01-02T00:00:00Z":
+        return fail("final report Batch018 dependency cutoff mismatch")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

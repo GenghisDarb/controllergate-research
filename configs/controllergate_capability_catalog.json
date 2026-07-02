@@ -448,13 +448,13 @@
     },
     {
       "blockers": [
-        "dependency_era_lock_unavailable"
+        "manual_dependency_lock_absent"
       ],
       "capability_id": "dependency_era_resolution",
       "ci_reproduction_status": "PASS",
       "current_tier": 1,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_017/dependency_era_resolution_audit.json"
+        "outputs/clean_replication_batch_018/decision_time_dependency_lock_validation.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
@@ -498,9 +498,45 @@
       "neutral_public_name": "Evidence Carry-Forward Manifest",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
+    },
+    {
+      "blockers": [
+        "manual_dependency_lock_absent"
+      ],
+      "capability_id": "manual_dependency_lock_intake",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_018/manual_dependency_lock_presence_check.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Manual Dependency Lock Intake",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "issue_timestamp_reconciliation",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_018/darker_issue112_timestamp_reconciliation.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Issue Timestamp Reconciliation",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
     }
   ],
-  "catalog_version": "batch017",
+  "catalog_version": "batch018",
   "full_scoring": "NOT_RUN/disallowed",
   "memory_lift": "not_demonstrated",
   "self_maintaining_software": "false/not_demonstrated",

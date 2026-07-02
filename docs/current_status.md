@@ -1,21 +1,21 @@
 # Current status
 
-ControllerGate is currently an evidence-bound repair validation kernel and runtime-wrapper scaffold. The current protocol remains `v2.13`.
+ControllerGate remains a pre-alpha research archive with evidence-bound repair validation. The current protocol remains `v2.13`.
 
-Batch014 remains blocked at `issue_derived_harness_intent_mismatch`; Batch015 preserves that validation path and adds scaffolded runtime controls, lock-sequence records, and claim tiers.
-
-Batch016 records that the issue-derived harness failure is a target-intent mismatch caused by a pre-target/precondition failure. Repair remains blocked.
-
-Batch017 attempts decision-time dependency-era resolution, records the missing dependency lock as a safe-stop, and switches the primary workflow artifact to thin/delta packaging.
+Batch018 status: `PASS_WITH_BATCH018_SAFE_STOP`; exact blocker: `manual_dependency_lock_absent`.
 
 ## Current operational gate status
 
-- Current protocol remains `v2.13`.
-- Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0`.
+- Batch017 blocked because no decision-time dependency lock was available.
+- Batch018 reconciles the Darker issue #112 timestamp and requires the canonical manual dependency lock JSON before retrying target intent.
+- A plain requirements.txt is support evidence only; it is not authoritative unless normalized into the canonical JSON evidence schema.
+- If historical environment reconstruction cannot be proven safely, ControllerGate blocks rather than patches.
+- Thin artifact packaging remains active to keep manually handled artifacts small.
+- Confirmed native repair episode count remains `4`.
+- Confirmed issue-derived repair episode count remains `0`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
-- Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
-- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.
+- Hallucination elimination is not claimed.
+- Absolute uncrashability is not claimed.
+- Production runtime readiness is not claimed.

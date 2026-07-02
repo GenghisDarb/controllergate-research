@@ -134,9 +134,99 @@ def manual_dependency_lock_schema_valid(record: dict[str, Any]) -> bool:
             return False
         if not package.get("name") or not package.get("version"):
             return False
-        if not package.get("decision_time_safe_evidence"):
+        if not (package.get("evidence_basis") or package.get("decision_time_safe_evidence")):
             return False
     return True
+
+
+def reconcile_issue_timestamp(
+    *,
+    carried_artifact_issue_created_at: str | None,
+    seed_issue_created_at: str | None,
+    verified_public_issue_created_at: str | None,
+    target_release_version: str | None = None,
+    target_release_date: str | None = None,
+    public_issue_evidence_source: str | None = None,
+) -> dict[str, Any]:
+    """Reconcile decision-time cutoff evidence without silently hiding conflicts."""
+    observed = [
+        value
+        for value in [carried_artifact_issue_created_at, seed_issue_created_at, verified_public_issue_created_at]
+        if value
+    ]
+    conflict = len(set(observed)) > 1
+    resolved = bool(verified_public_issue_created_at or (seed_issue_created_at and public_issue_evidence_source))
+    selected_cutoff = verified_public_issue_created_at or seed_issue_created_at or carried_artifact_issue_created_at
+    if conflict and not resolved:
+        status = "BLOCK"
+        blocker = "issue_timestamp_reconciliation_failed"
+    else:
+        status = "PASS" if selected_cutoff else "BLOCK"
+        blocker = None if selected_cutoff else "issue_timestamp_reconciliation_failed"
+    return {
+        "status": status,
+        "carried_artifact_issue_created_at": carried_artifact_issue_created_at,
+        "seed_issue_created_at": seed_issue_created_at,
+        "verified_public_issue_created_at": verified_public_issue_created_at,
+        "target_release_version_if_recorded": target_release_version,
+        "target_release_date_if_recorded": target_release_date,
+        "dependency_cutoff_timestamp": selected_cutoff,
+        "timestamp_conflict_detected": conflict,
+        "public_issue_evidence_source": public_issue_evidence_source,
+        "selected_cutoff_reason": "verified_public_issue_metadata" if verified_public_issue_created_at else "manual_reviewed_seed_evidence" if seed_issue_created_at else "carried_artifact_fallback",
+        "blocker": blocker,
+    }
+
+
+def manual_dependency_lock_presence(
+    canonical_path: str | Path,
+    support_paths: list[str | Path],
+) -> dict[str, Any]:
+    canonical = Path(canonical_path)
+    support = [Path(path) for path in support_paths]
+    support_present = [path.as_posix() for path in support if path.is_file()]
+    return {
+        "status": "PASS" if canonical.is_file() else "BLOCK",
+        "canonical_path": canonical.as_posix(),
+        "canonical_json_present": canonical.is_file(),
+        "support_paths": [path.as_posix() for path in support],
+        "support_paths_present": support_present,
+        "plain_requirements_txt_authoritative": False,
+        "blocker": None if canonical.is_file() else "manual_dependency_lock_absent",
+    }
+
+
+def manual_requirements_support_audit(canonical_present: bool, support_paths_present: list[str]) -> dict[str, Any]:
+    support_present = bool(support_paths_present)
+    return {
+        "status": "PASS" if canonical_present or not support_present else "BLOCK",
+        "support_file_present": support_present,
+        "support_paths_present": support_paths_present,
+        "canonical_json_required": True,
+        "txt_can_bypass_json_schema": False,
+        "blocker": None if canonical_present or not support_present else "manual_requirements_txt_not_authoritative",
+    }
+
+
+def validate_manual_dependency_lock_record(record: dict[str, Any], *, dependency_cutoff_timestamp: str | None) -> dict[str, Any]:
+    blockers: list[str] = []
+    if not manual_dependency_lock_schema_valid(record):
+        blockers.append("manual_dependency_lock_schema_invalid")
+    if record.get("issue_created_at") != dependency_cutoff_timestamp:
+        blockers.append("manual_dependency_lock_timestamp_unreconciled")
+    attestation = record.get("forbidden_evidence_attestation", {})
+    if not isinstance(attestation, dict) or any(bool(attestation.get(field)) for field in ["fixed_commit_used", "later_commit_used", "gold_patch_used", "pr_patch_used", "future_test_used", "hidden_label_used"]):
+        blockers.append("manual_dependency_lock_uses_future_evidence")
+    for package in record.get("packages", []) if isinstance(record.get("packages"), list) else []:
+        if not isinstance(package, dict) or not package.get("evidence_basis"):
+            blockers.append("manual_dependency_lock_missing_evidence_basis")
+    return {
+        "status": "PASS" if not blockers else "BLOCK",
+        "valid": not blockers,
+        "dependency_cutoff_timestamp": dependency_cutoff_timestamp,
+        "blockers": sorted(set(blockers)),
+        "blocker": sorted(set(blockers))[0] if blockers else None,
+    }
 
 
 def target_intent_retry_policy() -> dict[str, Any]:

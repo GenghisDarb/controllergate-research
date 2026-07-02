@@ -1,0 +1,45 @@
+{
+  "candidate_id": "darker_issue_112_relative_git_dir",
+  "forbidden_evidence_attestation": {
+    "fixed_commit_used": false,
+    "future_test_used": false,
+    "gold_patch_used": false,
+    "hidden_label_used": false,
+    "later_commit_used": false,
+    "latest_unrestricted_resolution_used": false,
+    "pr_patch_used": false
+  },
+  "issue_created_at": "2021-01-02T00:00:00Z",
+  "issue_created_at_evidence": [
+    {
+      "sha256": "<required>",
+      "source": "public_issue_metadata_or_reviewed_manual_evidence"
+    }
+  ],
+  "issue_url": "https://github.com/akaihola/darker/issues/112",
+  "lock_type": "manual_decision_time_dependency_lock",
+  "notes": "<why each package version is decision-time safe>",
+  "packages": [
+    {
+      "evidence_basis": [
+        {
+          "observed_at_or_before": "2021-01-02T00:00:00Z",
+          "sha256": "<required>",
+          "source": "<decision-time-safe-source>"
+        }
+      ],
+      "name": "<package>",
+      "version": "<version>"
+    }
+  ],
+  "python_version": "<optional>",
+  "registry_author": "<reviewer>",
+  "registry_review_status": "reviewed",
+  "repo_url": "https://github.com/akaihola/darker",
+  "source_commit_sha": "<required-or-use-source_commit_window>",
+  "source_commit_window": null,
+  "target_release": {
+    "release_date": "2020-12-30",
+    "version": "1.2.2"
+  }
+}
