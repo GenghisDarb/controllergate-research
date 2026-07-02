@@ -1997,6 +1997,90 @@
         "docs/roadmap_to_v3.md"
       ],
       "status": "deferred_with_blocker"
+    },
+    {
+      "advice_id": "runtime_wrapper_scaffold",
+      "blocker_if_missing": "runtime_wrapper_scaffold_missing",
+      "claim_boundary": "scaffold status does not prove production runtime behavior",
+      "current_repo_mechanism": "Batch015 scaffold and output policy",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/runtime_wrapper_mvp_status.json"
+      ],
+      "operational_gate_name": "Runtime Wrapper Scaffold",
+      "public_engineering_name": "Runtime Wrapper Scaffold",
+      "required_audit_assertions": [
+        "batch015 audit verifies scaffold and claim boundaries"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/post_v2_37_hardening_and_batch002_runner.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_015/runtime_wrapper_mvp_status.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "lock_sequence_operation_registry",
+      "blocker_if_missing": "lock_sequence_operation_registry_missing",
+      "claim_boundary": "scaffold status does not prove production runtime behavior",
+      "current_repo_mechanism": "Batch015 scaffold and output policy",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/lock_sequence_operation_registry_status.json"
+      ],
+      "operational_gate_name": "Lock-Sequence Operation Registry",
+      "public_engineering_name": "Lock-Sequence Operation Registry",
+      "required_audit_assertions": [
+        "batch015 audit verifies scaffold and claim boundaries"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/post_v2_37_hardening_and_batch002_runner.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_015/lock_sequence_operation_registry_status.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "claim_tier_system",
+      "blocker_if_missing": "claim_tier_system_missing",
+      "claim_boundary": "scaffold status does not prove production runtime behavior",
+      "current_repo_mechanism": "Batch015 scaffold and output policy",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/controllergate_claim_tier_status.json"
+      ],
+      "operational_gate_name": "Claim Tier System",
+      "public_engineering_name": "Claim Tier System",
+      "required_audit_assertions": [
+        "batch015 audit verifies scaffold and claim boundaries"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/post_v2_37_hardening_and_batch002_runner.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_015/controllergate_claim_tier_status.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
+      "advice_id": "proof_to_action_compiler",
+      "blocker_if_missing": "proof_to_action_compiler_missing",
+      "claim_boundary": "scaffold status does not prove production runtime behavior",
+      "current_repo_mechanism": "Batch015 scaffold and output policy",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/proof_to_action_compiler_policy.json"
+      ],
+      "operational_gate_name": "Proof-to-Action Compiler",
+      "public_engineering_name": "Proof-to-Action Compiler",
+      "required_audit_assertions": [
+        "batch015 audit verifies scaffold and claim boundaries"
+      ],
+      "required_modules_or_scripts": [
+        "scripts/post_v2_37_hardening_and_batch002_runner.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_015/proof_to_action_compiler_policy.json"
+      ],
+      "status": "implemented_active"
     }
   ],
   "entry_count": 65,

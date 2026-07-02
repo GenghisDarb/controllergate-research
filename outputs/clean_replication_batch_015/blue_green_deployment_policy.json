@@ -1,0 +1,20 @@
+{
+  "candidate_child_state_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "live_deployment_attempted": false,
+  "parent_state_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "production_readiness_claimed": false,
+  "promotion_criteria": [
+    "target_validation_pass",
+    "duplicate_replay_pass",
+    "no_overreach_pass"
+  ],
+  "promotion_decision": "shadow_deploy_ready",
+  "rollback_criteria": [
+    "validation_fail",
+    "hash_mismatch",
+    "claim_boundary_violation"
+  ],
+  "rollback_path_recorded": true,
+  "simulation_only": true,
+  "status": "PASS"
+}

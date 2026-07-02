@@ -1,0 +1,29 @@
+{
+  "allowed_action_types": [
+    "environment_restore_required",
+    "patch_ready_for_review",
+    "repair_candidate_admitted",
+    "repair_candidate_rejected",
+    "rollback_required",
+    "runtime_monitoring_required",
+    "safe_stop_required",
+    "sandbox_probe_required",
+    "shadow_deploy_ready"
+  ],
+  "executes_unsafe_actions": false,
+  "fixture_manifest": {
+    "action_type": "patch_ready_for_review",
+    "evidence_hash": "05a7293682b8b925df35e4b3573451401fb2979ab7c30ae1a8a9922f90438b70",
+    "executes_action": false,
+    "lock_sequence": [
+      "provenance",
+      "projection",
+      "perturbation",
+      "null",
+      "projection"
+    ],
+    "manifest_hash": "6697cf9a6cec747643b7c1df5b8dd42b4f58da27a8eae45c3e9838baf97e8fc2",
+    "status": "PASS"
+  },
+  "status": "PASS"
+}

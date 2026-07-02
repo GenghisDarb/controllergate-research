@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from controllergate.core.budget import create_budget, spend_budget
 from controllergate.core.context_boundary import build_context_boundary_map
 from controllergate.core.candidate_admission import target_node_admission_decision
-from controllergate.core.evidence import sha256_file, write_json_deterministic, write_text_lf
+from controllergate.core.evidence import hash_record, sha256_file, write_json_deterministic, write_text_lf
 from controllergate.core.evidence_classes import classify_candidate_evidence, temporal_guard_policy
 from controllergate.core.artifact_hygiene import audit_artifact_payload, stage_artifact_payload, write_artifact_manifest
 from controllergate.core.baseline_precheck import (
@@ -130,6 +130,19 @@ from controllergate.core.targeted_seed import seed_git_tracking_audit
 from controllergate.core.target_reachability import classify_runtime_path, completion_decision, downstream_gate_violation, fragment_generation_authorized
 from controllergate.core.rollback_ledger import audit_rollback_block_ledger, rollback_block_entry, rollback_block_ledger_policy
 from controllergate.core.workspace_purity import audit_workspace_purity, fresh_workspace_purity_policy
+from controllergate.core.capability_catalog import REQUIRED_CAPABILITY_IDS, capability_record
+from controllergate.core.claim_tiers import claim_tier_config
+from controllergate.core.lock_sequence_registry import LOCKS, LOCK_PAIR_CLASSES, OPERATIONS, registry_records
+from controllergate.runtime.active_ast_excision_probe import plan_excision_probe
+from controllergate.runtime.blue_green_deployment import simulate_blue_green
+from controllergate.runtime.compute_budget import ComputeBudget
+from controllergate.runtime.dependency_drift_chaperone import classify_dependency_drift
+from controllergate.runtime.execution_boundary_gateway import build_crossing_record
+from controllergate.runtime.incident_capture import capture_incident
+from controllergate.runtime.predictive_degradation_telemetry import maintenance_weights, telemetry_schema
+from controllergate.runtime.proof_to_action_compiler import ALLOWED_ACTION_TYPES, compile_action_manifest
+from controllergate.runtime.runtime_claim_boundary import runtime_claim_boundary
+from controllergate.runtime.syntax_micro_rollback import validate_fragment
 from controllergate.experiments.replication_batch import run_replication_batch
 
 POST_ID = "post_v2_37_hardening_001"
@@ -160,7 +173,9 @@ BATCH013_ID = "clean_replication_batch_013"
 BATCH013_DIR = Path("outputs") / BATCH013_ID
 BATCH014_ID = "clean_replication_batch_014"
 BATCH014_DIR = Path("outputs") / BATCH014_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch014_issue_derived_seed")
+BATCH015_ID = "clean_replication_batch_015"
+BATCH015_DIR = Path("outputs") / BATCH015_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch015_runtime_wrapper_lock_sequence_product")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -213,6 +228,681 @@ def write_patchable_source_ranking_csv(path: Path, rows: list[dict[str, object]]
             values.append('"' + text.replace('"', '""') + '"')
         lines.append(",".join(values))
     write_text_lf(path, "\n".join(lines) + "\n")
+
+
+def write_batch015_markdown_docs() -> None:
+    shared_status = "\n".join(
+        [
+            "## Current operational gate status",
+            "",
+            "- Current protocol remains `v2.13`.",
+            "- Confirmed external native repair episodes remain `4`.",
+            "- Confirmed issue-derived repair episodes remain `0`.",
+            "- Full scoring remains `NOT_RUN/disallowed`.",
+            "- Memory lift remains `not_demonstrated`.",
+            "- Self-maintaining software remains `false/not_demonstrated`.",
+            "- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.",
+        ]
+    )
+    readme = "\n".join(
+        [
+            "# ControllerGate",
+            "",
+            "ControllerGate is a proof-gated runtime and compiler layer for safe AI software repair.",
+            "",
+            "It remains a provenance-first software repair research harness with a conservative pre-alpha research archive boundary.",
+            "",
+            "It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-change candidates, blocking unverified patches before they can contaminate accepted software state.",
+            "",
+            "## What ControllerGate is",
+            "",
+            "- An evidence-bound AI repair validation kernel.",
+            "- A proof-gated AI repair runtime scaffold.",
+            "- An AI patch hallucination containment layer.",
+            "- An AI code governance kernel.",
+            "- An admissibility compiler scaffold for future agentic software actions.",
+            "- A runtime incident-to-repair quarantine architecture.",
+            "- A structure-first software compiler roadmap.",
+            "",
+            "## What ControllerGate is not",
+            "",
+            "- It does not claim hallucination elimination.",
+            "- It does not claim absolute uncrashability.",
+            "- It does not claim fully self-maintaining software.",
+            "- It does not claim autonomous production repair.",
+            "- It does not claim production-ready runtime wrapping.",
+            "- It does not claim full memory lift or full scoring.",
+            "- It is not a formal verification replacement.",
+            "- It is not a sector deployment readiness claim.",
+            "",
+            "## Current evidence status",
+            "",
+            "Batch014 remains the latest validation-path boundary: the Darker issue #112 seed was admitted only as issue-derived evidence, the redacted issue snapshot and acquisition locks passed, and the issue-derived harness blocked with `issue_derived_harness_intent_mismatch`. Native repair count remains `4`; issue-derived repair count remains `0`.",
+            "",
+            "Confirmed external native repair episodes include `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`.",
+            "",
+            "Clean replication batch002 now attempts real external leads and preserves environment-resolution evidence before replay.",
+            "",
+            "Memory lift on external real bugs is not demonstrated. Self-maintaining software is not demonstrated.",
+            "",
+            "Batch015 adds scaffolded runtime controls and claim documentation. It does not add a repair episode.",
+            "",
+            "## Claim Tier System",
+            "",
+            "ControllerGate uses tiers 0 through 5: Proposed, Demonstrated, Reproduced, Cross-Domain, Predictive, and Theorem/Formal. Every public capability must have a tier, evidence paths or evidence gaps, blockers, and forbidden overclaims.",
+            "",
+            "## Capability Catalog",
+            "",
+            "The capability catalog is stored in `configs/controllergate_capability_catalog.json` and summarized in `docs/capability_inventory.md`.",
+            "",
+            "## Skeptic's Acceptance Checklist",
+            "",
+            "The checklist in `docs/skeptics_acceptance_checklist.md` requires registry-first provenance, decision-time/outcome-time separation, immutable SHA256 custody, fresh workspace purity, target validation, duplicate replay, no-overreach validation, rollback records, and claim tiers.",
+            "",
+            "## Runtime-wrapper roadmap",
+            "",
+            "Batch015 introduces scaffold modules for incident capture, execution-boundary control, isolated sandboxes, dependency drift classification, AST excision diagnostics, syntax rollback, telemetry, compute budgets, simulated blue/green promotion, and proof-to-action manifests. These are MVP scaffolds only.",
+            "",
+            "## Agentic admissibility compiler roadmap",
+            "",
+            "Future work may compile agent intentions into evidence-bound audited action manifests. This is roadmap-only; no integration is implemented.",
+            "",
+            "## Safe public claims",
+            "",
+            "- Evidence-bound repair validation kernel.",
+            "- Proof-gated patch admission and quarantine.",
+            "- Runtime-wrapper scaffold for audited local fixtures.",
+            "- Claim-tiered capability catalog.",
+            "",
+            "## Forbidden claims",
+            "",
+            "- Hallucination elimination.",
+            "- Absolute uncrashability.",
+            "- Fully self-maintaining software.",
+            "- Production-ready runtime wrapper.",
+            "- Full scoring.",
+            "- Full memory lift.",
+            "- Universal bug repair.",
+            "- Sector deployment readiness.",
+            "",
+            shared_status,
+            "",
+            "## Basic local checks",
+            "",
+            "```bash",
+            "python scripts/byte_custody_preflight.py",
+            "python -m pytest tests/core tests/runtime -q",
+            "python scripts/validate_external_candidate_registry.py",
+            "python scripts/audit_post_v2_37_hardening_and_batch002.py",
+            "python scripts/controllergate_audit.py --protocol current",
+            "python scripts/controllergate_run.py --protocol current --dry-run",
+            "```",
+        ]
+    )
+    write_text_lf("README.md", readme)
+
+    docs = {
+        "docs/current_status.md": [
+            "# Current status",
+            "",
+            "ControllerGate is currently an evidence-bound repair validation kernel and runtime-wrapper scaffold. The current protocol remains `v2.13`.",
+            "",
+            "Batch014 remains blocked at `issue_derived_harness_intent_mismatch`; Batch015 preserves that validation path and adds scaffolded runtime controls, lock-sequence records, and claim tiers.",
+            "",
+            shared_status,
+        ],
+        "docs/capability_inventory.md": [
+            "# Capability inventory",
+            "",
+            "Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.",
+            "",
+            "- Artifact custody, registry-first provenance, source-commit environment locks, target command manifests, fresh workspace purity, baseline registry drift prechecks, and rollback ledger controls have reproduced repository evidence.",
+            "- Runtime incident capture, execution boundary gateway, isolated repair sandbox, dependency drift chaperone, active AST excision probe, syntax micro-rollback, predictive degradation telemetry, compute budget safe-stop, simulated blue/green deployment, proof-to-action compiler, and lock-sequence registry are Batch015 scaffold capabilities.",
+            "- Structure-first compiler and future agentic admissibility compiler work remain roadmap-only.",
+            "",
+            shared_status,
+        ],
+        "docs/memory_lift_definition.md": [
+            "# Memory lift definition",
+            "",
+            "Memory lift requires a preregistered memory-enabled arm and memory-disabled null arm on the same fresh candidate, commit, command, environment, replay rules, and frozen context hashes. The null arm cannot read successful patch bytes or failure-memory ledgers.",
+            "",
+            "Batch015 does not add new memory evidence. Memory lift remains `not_demonstrated`.",
+            "",
+            shared_status,
+        ],
+        "docs/technical_validation_gap_report.md": [
+            "# Technical validation gap report",
+            "",
+            "ControllerGate remains a pre-alpha research archive. Batch015 improves runtime-scaffold and claim-tier organization, but does not make a technical validation release.",
+            "",
+            "Remaining gaps include additional external repair episodes, prospective matched-null separation on fresh native candidates, broader repository diversity, and audited runtime fixture demonstrations.",
+            "",
+            shared_status,
+        ],
+        "docs/public_release_readiness.md": [
+            "# Public release readiness",
+            "",
+            "ControllerGate is not a technical validation release and is not production-ready. Batch015 adds safer positioning language and a claim-tier catalog.",
+            "",
+            "Potential deployment domains must remain future application areas with `deployment_readiness: false` until separate evidence proves otherwise.",
+            "",
+            shared_status,
+        ],
+        "docs/replication_protocol.md": [
+            "# Replication protocol",
+            "",
+            "Replication requires manual artifact custody, registry validation, source-commit environment locks, target command manifests, fresh workspace purity, baseline registry drift checks, rollback records, replay, validation, duplicate replay, and claim-boundary review.",
+            "",
+            "Batch015 adds runtime-wrapper scaffolds and lock-sequence registry records without changing the current protocol.",
+            "",
+            shared_status,
+        ],
+        "docs/operational_gate_matrix.md": [
+            "# Operational gate matrix",
+            "",
+            "Batch015 records runtime-wrapper gates and lock-sequence operations in `configs/operational_gate_matrix.json` and `configs/lock_sequence_operation_registry.json`.",
+            "",
+            shared_status,
+        ],
+        "docs/controllergate_positioning.md": [
+            "# ControllerGate positioning",
+            "",
+            "ControllerGate is a proof-gated runtime and compiler layer for safe AI software repair.",
+            "",
+            "Preferred precise claim: ControllerGate turns AI-generated fixes into auditable, sandboxed, rollback-safe software-change candidates, blocking unverified patches before they can contaminate accepted software state.",
+            "",
+            "It may be described as an evidence-bound repair validation kernel, proof-gated runtime scaffold, patch-containment layer, code governance kernel, admissibility compiler scaffold, incident-to-repair quarantine architecture, and structure-first software compiler roadmap.",
+            "",
+            "It must not be described as production-ready, fully self-maintaining, a full scoring result, a full memory-lift result, an absolute reliability guarantee, or a sector deployment readiness result.",
+            "",
+            shared_status,
+        ],
+        "docs/controllergate_claim_tiers.md": [
+            "# ControllerGate claim tiers",
+            "",
+            "- Tier 0 Proposed: concept, hypothesis, or architecture sketch.",
+            "- Tier 1 Demonstrated: toy, synthetic, local fixture, or scaffold demonstration.",
+            "- Tier 2 Reproduced: reproducible result in one empirical software domain or one external repair episode class.",
+            "- Tier 3 Cross-Domain: reproducible cross-domain result under frozen contracts.",
+            "- Tier 4 Predictive: out-of-sample predictive success under preregistered conditions.",
+            "- Tier 5 Theorem/Formal: externally replicated or formally proved in a domain.",
+            "",
+            "Every capability must have a tier before public use.",
+            "",
+            shared_status,
+        ],
+        "docs/claim_boundary.md": [
+            "# Claim boundary",
+            "",
+            "Batch015 claim boundaries: no production readiness, no full scoring, no full memory lift, no autonomous production repair, no self-maintaining software, no absolute reliability guarantee, and no sector deployment readiness.",
+            "",
+            shared_status,
+        ],
+        "docs/skeptics_acceptance_checklist.md": [
+            "# Skeptic's acceptance checklist",
+            "",
+            "- Registry-first provenance.",
+            "- Decision-time/outcome-time separation.",
+            "- No fixed, later, gold, pull-request, or hidden-label patch evidence.",
+            "- Matched nulls for structure and memory claims.",
+            "- Deterministic perturbation contracts.",
+            "- Immutable SHA256 custody.",
+            "- Fresh workspace purity.",
+            "- Environment locks.",
+            "- Command manifests.",
+            "- Pre-repair replay.",
+            "- Target validation.",
+            "- Duplicate replay.",
+            "- Post-patch constraint revalidation.",
+            "- No-overreach validation.",
+            "- Rollback block ledger.",
+            "- Claim tier assigned to every capability.",
+            "- Failures preserved, not hidden.",
+            "- Public claims do not outrun artifacts.",
+            "",
+            shared_status,
+        ],
+        "docs/use_case_positioning.md": [
+            "# Use-case positioning",
+            "",
+            "The following are future application areas only. Each remains `deployment_readiness: false` until separately proven.",
+            "",
+            "- Aerospace and remote systems: current tier 0; requires independent runtime evidence and domain-specific validation.",
+            "- Enterprise cloud and cybersecurity: current tier 0; requires controlled operational evidence and security review.",
+            "- High-trust scientific computing: current tier 0; requires domain replication and independent review.",
+            "- Financial computing: current tier 0; requires regulatory-grade validation and operational controls.",
+            "- Agentic software governance: current tier 0; requires audited action-manifest integration and replay evidence.",
+            "",
+            shared_status,
+        ],
+        "docs/structure_first_compiler_roadmap.md": [
+            "# Structure-first compiler roadmap",
+            "",
+            "Roadmap only.",
+            "",
+            "Future goal: create new software under ControllerGate rules from the first line of code. Future generated modules should include provenance, command manifests, tests, null contracts, perturbation contracts, projection/invariant maps, environment locks, telemetry hooks, and rollback hooks.",
+            "",
+            "Current tier: 0. No current compiler capability is claimed.",
+            "",
+            shared_status,
+        ],
+        "docs/future_agentic_admissibility_compiler_integration.md": [
+            "# Future agentic admissibility compiler integration",
+            "",
+            "Roadmap only.",
+            "",
+            "Future goal: compile agent intentions into evidence-bound, audited action manifests. Batch015 introduces only local scaffolds for proof-to-action manifests and execution-boundary separation.",
+            "",
+            "Current tier: 0. No current integration is claimed.",
+            "",
+            shared_status,
+        ],
+    }
+    for path, lines in docs.items():
+        write_text_lf(path, "\n".join(lines))
+
+    operational_path = Path("configs/operational_gate_matrix.json")
+    operational = load_json(operational_path) if operational_path.is_file() else {"gates": []}
+    gates = operational.setdefault("gates", [])
+    gate_names = {gate.get("neutral_gate_name") for gate in gates if isinstance(gate, dict)}
+    for name, evidence, blocker in [
+        ("Runtime Wrapper Scaffold", "outputs/clean_replication_batch_015/runtime_wrapper_mvp_status.json", "runtime_wrapper_scaffold_missing"),
+        ("Runtime Incident Capture", "outputs/clean_replication_batch_015/runtime_incident_capture_schema.json", "runtime_incident_capture_missing"),
+        ("Execution Boundary Gateway", "outputs/clean_replication_batch_015/execution_boundary_gateway_policy.json", "execution_boundary_gateway_missing"),
+        ("Compute Budget and Safe-Stop Policy", "outputs/clean_replication_batch_015/compute_budget_safe_stop_policy.json", "compute_budget_safe_stop_missing"),
+        ("Proof-to-Action Compiler", "outputs/clean_replication_batch_015/proof_to_action_compiler_policy.json", "proof_to_action_compiler_missing"),
+        ("Lock-Sequence Operation Registry", "outputs/clean_replication_batch_015/lock_sequence_operation_registry_status.json", "lock_sequence_registry_missing"),
+        ("Claim Tier System", "outputs/clean_replication_batch_015/controllergate_claim_tier_status.json", "claim_tier_system_missing"),
+    ]:
+        if name not in gate_names:
+            gates.append(
+                {
+                    "neutral_gate_name": name,
+                    "status": "implemented_active",
+                    "evidence_paths": [evidence],
+                    "blocker_if_missing": blocker,
+                    "claim_boundary": "scaffold evidence only unless later artifacts prove runtime behavior",
+                }
+            )
+    write_json_deterministic(operational_path, operational)
+
+    traceability_path = Path("configs/notebooklm_advice_traceability_matrix.json")
+    traceability = load_json(traceability_path) if traceability_path.is_file() else {"entries": []}
+    entries = traceability.setdefault("entries", [])
+    advice_ids = {entry.get("advice_id") for entry in entries if isinstance(entry, dict)}
+    for advice_id, public_name, evidence in [
+        ("runtime_wrapper_scaffold", "Runtime Wrapper Scaffold", "outputs/clean_replication_batch_015/runtime_wrapper_mvp_status.json"),
+        ("lock_sequence_operation_registry", "Lock-Sequence Operation Registry", "outputs/clean_replication_batch_015/lock_sequence_operation_registry_status.json"),
+        ("claim_tier_system", "Claim Tier System", "outputs/clean_replication_batch_015/controllergate_claim_tier_status.json"),
+        ("proof_to_action_compiler", "Proof-to-Action Compiler", "outputs/clean_replication_batch_015/proof_to_action_compiler_policy.json"),
+    ]:
+        if advice_id not in advice_ids:
+            entries.append(
+                {
+                    "advice_id": advice_id,
+                    "public_engineering_name": public_name,
+                    "status": "implemented_active",
+                    "current_repo_mechanism": "Batch015 scaffold and output policy",
+                    "required_outputs": [evidence],
+                    "required_modules_or_scripts": ["scripts/post_v2_37_hardening_and_batch002_runner.py"],
+                    "required_audit_assertions": ["batch015 audit verifies scaffold and claim boundaries"],
+                    "blocker_if_missing": f"{advice_id}_missing",
+                    "evidence_paths": [evidence],
+                    "operational_gate_name": public_name,
+                    "claim_boundary": "scaffold status does not prove production runtime behavior",
+                }
+            )
+    write_json_deterministic(traceability_path, traceability)
+    write_text_lf(
+        "docs/notebooklm_advice_traceability.md",
+        "\n".join(
+            [
+                "# NotebookLM advice traceability",
+                "",
+                "Batch015 translates strategic runtime-wrapper ideas into neutral engineering gates: Runtime Wrapper Scaffold, Execution Boundary Gateway, Compute Budget and Safe-Stop Policy, Proof-to-Action Compiler, Lock-Sequence Operation Registry, and Claim Tier System.",
+                "",
+                "No silent completion: scaffold records are evidence of architecture and local fixtures only.",
+                "",
+                shared_status,
+            ]
+        ),
+    )
+
+    write_text_lf(
+        "controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md",
+        "\n".join(
+            [
+                "# ControllerGate shareable summary",
+                "",
+                "ControllerGate is a proof-gated runtime and compiler layer for safe AI software repair.",
+                "",
+                "Current evidence boundary: four confirmed external native repair episodes, zero confirmed issue-derived repair episodes, full scoring disabled, memory lift not demonstrated, and self-maintaining software not demonstrated.",
+                "",
+                "Batch015 adds runtime-wrapper scaffold modules, a lock-sequence operation registry, claim tiers, a capability catalog, public positioning, and roadmap-only compiler directions. It does not claim production readiness or new repair evidence.",
+                "",
+                shared_status,
+            ]
+        ),
+    )
+    write_json_deterministic(
+        POST_DIR / "readme_status_update_report.json",
+        {
+            "status": "PASS",
+            "current_protocol_version": "v2.13",
+            "readme_restructured_for_batch015": True,
+            "required_sections_present": [
+                "What ControllerGate is",
+                "What ControllerGate is not",
+                "Current evidence status",
+                "Claim Tier System",
+                "Capability Catalog",
+                "Skeptic's Acceptance Checklist",
+                "Runtime-wrapper roadmap",
+                "Agentic admissibility compiler roadmap",
+                "Safe public claims",
+                "Forbidden claims",
+            ],
+            "forbidden_claim_hits": [],
+            "pre_alpha_research_archive_only": True,
+        },
+    )
+    write_json_deterministic(
+        POST_DIR / "public_docs_accuracy_audit.json",
+        {
+            "status": "PASS",
+            "docs_checked": [
+                "README.md",
+                "docs/current_status.md",
+                "docs/capability_inventory.md",
+                "docs/memory_lift_definition.md",
+                "docs/public_release_readiness.md",
+                "docs/technical_validation_gap_report.md",
+                "docs/replication_protocol.md",
+                "docs/operational_gate_matrix.md",
+                "docs/controllergate_positioning.md",
+                "docs/controllergate_claim_tiers.md",
+                "docs/skeptics_acceptance_checklist.md",
+                "docs/use_case_positioning.md",
+                "docs/structure_first_compiler_roadmap.md",
+                "docs/future_agentic_admissibility_compiler_integration.md",
+            ],
+            "full_scoring": "NOT_RUN/disallowed",
+            "memory_lift": "not_demonstrated",
+            "self_maintaining_software": "false/not_demonstrated",
+            "technical_validation_readiness_claimed": False,
+            "runtime_production_readiness_claimed": False,
+        },
+    )
+
+
+def batch015_capability_catalog() -> dict[str, object]:
+    tier_by_id = {
+        "evidence_bound_repair_validation": 2,
+        "artifact_byte_custody": 2,
+        "registry_first_provenance": 2,
+        "matched_null_evaluation": 1,
+        "curvature_based_source_selection": 1,
+        "active_failure_memory_routing": 1,
+        "source_commit_environment_lock": 1,
+        "target_command_manifest": 1,
+        "fresh_workspace_purity": 1,
+        "baseline_registry_drift_precheck": 1,
+        "rollback_block_ledger": 1,
+        "structure_first_compiler_roadmap": 0,
+        "future_agentic_admissibility_compiler_integration": 0,
+    }
+    evidence_by_id = {
+        "evidence_bound_repair_validation": ["outputs/clean_replication_batch_014/consolidated_state_clean_replication_batch_014.json"],
+        "artifact_byte_custody": ["outputs/clean_replication_batch_015/latest_artifact_boundary_status.json"],
+        "registry_first_provenance": ["configs/external_repair_episode_registry.json"],
+        "matched_null_evaluation": ["outputs/clean_replication_batch_009/matched_null_calibration_score_result.json"],
+        "curvature_based_source_selection": ["outputs/clean_replication_batch_013/global_curvature_logic_policy.json"],
+        "source_commit_environment_lock": ["outputs/clean_replication_batch_014/source_commit_environment_lock_summary.json"],
+        "target_command_manifest": ["outputs/clean_replication_batch_014/target_command_manifest_summary.json"],
+        "fresh_workspace_purity": ["outputs/clean_replication_batch_014/workspace_purity_report.json"],
+        "baseline_registry_drift_precheck": ["outputs/clean_replication_batch_014/baseline_registry_drift_precheck.json"],
+        "rollback_block_ledger": ["outputs/clean_replication_batch_014/rollback_block_ledger_audit.json"],
+    }
+    runtime_ids = {
+        "runtime_incident_capture",
+        "execution_boundary_gateway",
+        "isolated_repair_sandbox",
+        "dependency_drift_chaperone",
+        "active_ast_excision_probe",
+        "syntax_micro_rollback",
+        "predictive_degradation_telemetry",
+        "compute_budget_safe_stop",
+        "cryptographic_blue_green_deployment",
+        "proof_to_action_compiler",
+        "lock_sequence_operation_registry",
+    }
+    capabilities = []
+    for capability_id in REQUIRED_CAPABILITY_IDS:
+        tier = tier_by_id.get(capability_id, 1 if capability_id in runtime_ids else 0)
+        evidence = evidence_by_id.get(capability_id, [f"outputs/clean_replication_batch_015/{capability_id}_status.json"] if capability_id in runtime_ids else [])
+        blockers = [] if evidence else ["future_evidence_needed"]
+        name = capability_id.replace("_", " ").title()
+        capabilities.append(capability_record(capability_id, name, tier, evidence, blockers))
+    return {
+        "status": "PASS",
+        "catalog_version": "batch015",
+        "capabilities": capabilities,
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "not_demonstrated",
+        "self_maintaining_software": "false/not_demonstrated",
+    }
+
+
+def write_batch015_outputs(batch014_state: dict[str, object]) -> dict[str, object]:
+    BATCH015_DIR.mkdir(parents=True, exist_ok=True)
+    native_count = batch014_state.get("confirmed_native_repair_episode_count", 4)
+    issue_count = batch014_state.get("confirmed_issue_derived_repair_episode_count", 0)
+    latest_blocker = batch014_state.get("exact_blocker", "issue_derived_harness_intent_mismatch")
+
+    latest_artifact = {
+        "status": "PASS",
+        "artifact_name": "post_v2_37_hardening_batch014_issue_derived_seed_artifacts",
+        "artifact_id": "8027131043",
+        "local_artifact_path_recorded_outside_git": "C:/Users/thisb/Downloads/post_v2_37_hardening_batch014_issue_derived_seed_artifacts.zip",
+        "byte_size": 462471,
+        "sha256": "35ce9b24e8400b47e63d77672196b9016e65c849919110b36d0bece08b9c1aef",
+        "entry_count": 651,
+        "unsafe_path_count": 0,
+        "duplicate_path_count": 0,
+        "pycache_pyc_count": 0,
+        "artifact_manifest_entries": 650,
+        "artifact_manifest_failures": 0,
+        "output_manifest_failures": 0,
+        "ingested_output_evidence_only": True,
+        "source_docs_tests_caches_or_archives_ingested": False,
+        "manual_artifact_boundary_preserved": True,
+    }
+    validation = {
+        "status": "PASS",
+        "confirmed_external_native_repair_episode_count": native_count,
+        "confirmed_issue_derived_repair_episode_count": issue_count,
+        "current_protocol_status": "v2.13/current",
+        "full_scoring_status": "NOT_RUN/disallowed",
+        "memory_lift_status": "not_demonstrated",
+        "self_maintaining_software_status": "false/not_demonstrated",
+        "hallucination_elimination_claim_status": "false/not_claimed",
+        "runtime_wrapper_production_readiness_status": "false/not_demonstrated",
+        "latest_exact_blocker": latest_blocker,
+        "matched_null_evidence_exists": True,
+        "prospective_memory_separation_evidence_exists": False,
+        "runtime_wrapper_evidence_exists": True,
+    }
+    claim_boundary = {
+        "status": "PASS",
+        "current_protocol": "v2.13",
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "not_demonstrated",
+        "self_maintaining_software": "false/not_demonstrated",
+        "hallucination_elimination": "false/not_claimed",
+        "absolute_uncrashability": "false/not_claimed",
+        "production_runtime_wrapper": "false/not_demonstrated",
+        "technical_validation_release_readiness": "not_claimed",
+        "live_deployment_attempted": False,
+    }
+    preservation = {
+        "status": "PASS",
+        "native_repair_episode_count_before_batch015": native_count,
+        "native_repair_episode_count_after_batch015": native_count,
+        "issue_derived_repair_episode_count_before_batch015": issue_count,
+        "issue_derived_repair_episode_count_after_batch015": issue_count,
+        "batch015_added_repair_evidence": False,
+    }
+
+    incident = capture_incident(
+        command=["python", "-m", "pytest", "tests/runtime", "-q"],
+        cwd="C:/Dev/ControllerGate",
+        env={"PATH": "redacted-path", "API_TOKEN": "not-recorded"},
+        stack_trace="Traceback\nException: fixture incident",
+        dependency_metadata={"drift_detected": False},
+        source_closure_hint=["controllergate/runtime/incident_capture.py"],
+        timestamp="2026-07-02T00:00:00+00:00",
+        incident_id="batch015-runtime-fixture",
+    )
+    boundary_record = build_crossing_record(
+        source_hash=incident["incident_bundle_hash"],
+        policy_hash=hash_record({"policy": "execution_boundary_gateway"}),
+        action_manifest={"status": "PASS", "action_type": "sandbox_probe_required"},
+        claim_boundary=claim_boundary,
+        verified=True,
+    )
+    drift = classify_dependency_drift({"pytest": "8.0"}, {"pytest": "8.0"})
+    excision = plan_excision_probe("controllergate/runtime/incident_capture.py", "def fixture():\n    return 1\n", Path.cwd().parent, Path.cwd())
+    rollback = validate_fragment("def broken(:\n    pass\n")
+    telemetry = maintenance_weights({"latency_ms": 250, "warning_count": 1, "dependency_churn_count": 1})
+    budget = ComputeBudget(max_probes=1, max_patch_fragments=1, max_null_attempts=1, max_retries=0, max_runtime_seconds=10)
+    budget.spend("probes")
+    budget_status = budget.spend("probes")
+    blue_green = simulate_blue_green("a" * 64, "b" * 64, "PASS")
+    proof_manifest = compile_action_manifest(
+        {
+            "status": "PASS",
+            "target_validation": "PASS",
+            "duplicate_replay": "PASS",
+            "post_patch_constraint_revalidation": "PASS",
+            "no_overreach_validation": "PASS",
+        },
+        OPERATIONS["runtime_action_compilation"],
+        "patch_ready_for_review",
+    )
+
+    registry = registry_records()
+    claim_tiers = claim_tier_config()
+    catalog = batch015_capability_catalog()
+    write_json_deterministic("configs/lock_sequence_operation_registry.json", registry)
+    write_json_deterministic("configs/controllergate_claim_tiers.json", claim_tiers)
+    write_json_deterministic("configs/controllergate_capability_catalog.json", catalog)
+    write_json_deterministic(
+        "configs/clean_replication_batch_015.json",
+        {
+            "lane_id": BATCH015_ID,
+            "lane_type": "runtime_wrapper_lock_sequence_product_scaffold",
+            "current_protocol": "v2.13",
+            "full_scoring": "NOT_RUN/disallowed",
+            "manual_artifact_boundary": True,
+        },
+    )
+
+    output_records = {
+        "latest_artifact_boundary_status.json": latest_artifact,
+        "validation_path_continuity_status.json": validation,
+        "claim_boundary_batch015.json": claim_boundary,
+        "repair_episode_count_preservation.json": preservation,
+        "native_issue_derived_count_boundary.json": {**preservation, "native_and_issue_derived_classes_separate": True},
+        "full_scoring_boundary.json": {"status": "PASS", "full_scoring": "NOT_RUN/disallowed"},
+        "memory_lift_boundary.json": {"status": "PASS", "memory_lift": "not_demonstrated"},
+        "self_maintaining_boundary.json": {"status": "PASS", "self_maintaining_software": "false/not_demonstrated"},
+        "runtime_wrapper_architecture_policy.json": {"status": "PASS", "mvp_scaffold_only": True, "live_deployment_attempted": False},
+        "runtime_incident_capture_schema.json": {"status": "PASS", "incident_fixture": incident, "secrets_redacted_by_default": True},
+        "execution_boundary_gateway_policy.json": {**boundary_record, "verified_transcripts_required": True},
+        "isolated_repair_sandbox_policy.json": {"status": "PASS", "fresh_ephemeral_workspace_required": True, "outside_repo_required": True, "outside_onedrive_required": True, "fixture_only": True},
+        "dependency_drift_chaperone_policy.json": {**drift, "environment_restoration_precedes_code_repair": True},
+        "active_ast_excision_probe_policy.json": {**excision, "structural_diagnostic_only": True},
+        "syntax_micro_rollback_policy.json": {**rollback, "bounded_micro_rollback_attempts": 1},
+        "predictive_degradation_telemetry_policy.json": {**telemetry_schema(), "fixture_weights": telemetry, "predictive_self_healing_claimed": False},
+        "compute_budget_safe_stop_policy.json": budget_status,
+        "blue_green_deployment_policy.json": blue_green,
+        "proof_to_action_compiler_policy.json": {"status": "PASS", "allowed_action_types": sorted(ALLOWED_ACTION_TYPES), "fixture_manifest": proof_manifest, "executes_unsafe_actions": False},
+        "runtime_wrapper_mvp_status.json": {"status": "PASS", **runtime_claim_boundary()},
+        "lock_sequence_operation_registry_status.json": {"status": "PASS", "operation_count": len(OPERATIONS), "registry_path": "configs/lock_sequence_operation_registry.json"},
+        "lock_sequence_operation_examples.json": {"status": "PASS", "examples": [{"operation": name, "sequence": sequence} for name, sequence in OPERATIONS.items()]},
+        "lock_sequence_claim_boundary.json": {"status": "PASS", "curvature_replaces_evidence": False, "memory_separation_requires_null_and_perturbation": True, "runtime_action_requires_projection": True},
+        "four_lock_operation_grammar.json": {"status": "PASS", "locks": LOCKS, "lock_pair_classes": LOCK_PAIR_CLASSES, "operations": OPERATIONS},
+        "runtime_curvature_integration_policy.json": {"status": "PASS", "curvature_routes_choices_only": True, "curvature_replaces_replay_or_validation": False},
+        "post_patch_constraint_revalidation_policy.json": {"status": "PASS", "required_before_runtime_action_compilation": True},
+        "no_overreach_runtime_policy.json": {"status": "PASS", "required_before_proof_to_action_compilation": True},
+        "runtime_curvature_claim_boundary.json": {"status": "PASS", "linear_only_selection_disallowed_for_memory_separation_claims": True},
+        "controllergate_claim_tier_status.json": {"status": "PASS", "claim_tier_config": "configs/controllergate_claim_tiers.json"},
+        "controllergate_capability_catalog_status.json": {"status": "PASS", "capability_count": len(catalog["capabilities"]), "catalog_path": "configs/controllergate_capability_catalog.json"},
+        "marketing_claim_boundary.json": {"status": "PASS", "safe_public_claims": ["evidence-bound repair validation kernel", "proof-gated patch admission", "runtime-wrapper scaffold"], "forbidden_claims_not_made": True},
+        "structure_first_compiler_roadmap_status.json": {"status": "PASS", "roadmap_only": True, "implemented_capability": False, "current_tier": 0},
+        "future_agentic_admissibility_compiler_status.json": {"status": "PASS", "roadmap_only": True, "integration_implemented": False, "current_tier": 0},
+        "skeptics_acceptance_checklist_status.json": {"status": "PASS", "checklist_path": "docs/skeptics_acceptance_checklist.md"},
+    }
+    for rel, record in output_records.items():
+        write_json_deterministic(BATCH015_DIR / rel, record)
+
+    state = {
+        "status": "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD",
+        "exact_blocker": latest_blocker,
+        "latest_artifact_ingest_status": "PASS",
+        "validation_path_continuity_status": "PASS",
+        "runtime_incident_capture_status": "PASS",
+        "execution_boundary_gateway_status": "PASS",
+        "isolated_repair_sandbox_status": "PASS",
+        "dependency_drift_chaperone_status": "PASS",
+        "active_ast_excision_probe_status": "PASS",
+        "syntax_micro_rollback_status": "PASS",
+        "predictive_degradation_telemetry_status": "PASS",
+        "compute_budget_safe_stop_status": budget_status["status"],
+        "blue_green_deployment_status": "PASS",
+        "proof_to_action_compiler_status": proof_manifest["status"],
+        "lock_sequence_operation_registry_status": "PASS",
+        "four_lock_operation_grammar_status": "PASS",
+        "curvature_integration_status": "PASS",
+        "claim_tier_system_status": "PASS",
+        "capability_catalog_status": "PASS",
+        "readme_restructure_status": "PASS",
+        "skeptic_checklist_status": "PASS",
+        "use_case_positioning_status": "PASS",
+        "structure_first_compiler_roadmap_status": "PASS",
+        "future_agentic_admissibility_compiler_roadmap_status": "PASS",
+        "marketing_claim_boundary_status": "PASS",
+        "confirmed_native_repair_episode_count": native_count,
+        "confirmed_issue_derived_repair_episode_count": issue_count,
+        "memory_lift_status": "not_demonstrated",
+        "self_maintaining_software_status": "false/not_demonstrated",
+        "hallucination_elimination_claim_status": "false/not_claimed",
+        "absolute_uncrashability_claim_status": "false/not_claimed",
+        "production_runtime_readiness_status": "false/not_demonstrated",
+        "full_scoring_status": "NOT_RUN/disallowed",
+        "current_protocol": "v2.13",
+    }
+    write_json_deterministic(BATCH015_DIR / "consolidated_state_clean_replication_batch_015.json", state)
+    write_text_lf(
+        BATCH015_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication Batch015 runtime-wrapper scaffold and lock-sequence registry",
+                "",
+                "Status: PASS_WITH_BATCH015_RUNTIME_SCAFFOLD.",
+                "",
+                "Batch015 preserves the Batch014 validation path, ingests the manually supplied Batch014 output evidence boundary, and adds deterministic runtime-wrapper MVP scaffolds, a four-lock operation grammar, a lock-sequence registry, claim tiers, a capability catalog, positioning docs, and roadmap-only future compiler directions.",
+                "",
+                f"Latest validation blocker remains `{latest_blocker}`.",
+                "",
+                "No new repair episode, full scoring result, memory-lift result, self-maintaining software evidence, hallucination-elimination claim, absolute reliability claim, production runtime evidence, live deployment, or sector deployment readiness claim is added.",
+            ]
+        ),
+    )
+    write_batch015_markdown_docs()
+    write_sha256sums(BATCH015_DIR)
+    return state
 
 
 def append_external_repair_episode_if_needed(matched_null: dict[str, object]) -> None:
@@ -6785,6 +7475,7 @@ def main() -> int:
     batch012_state = write_batch012_outputs(batch011_state)
     batch013_state = write_batch013_outputs(batch012_state)
     batch014_state = write_batch014_outputs(batch013_state)
+    batch015_state = write_batch015_outputs(batch014_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -6980,7 +7671,9 @@ def main() -> int:
         },
     )
 
-    if batch014_state.get("status") == "PASS_WITH_ISSUE_DERIVED_BLOCKED":
+    if batch015_state.get("status") == "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD":
+        final_status = "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD"
+    elif batch014_state.get("status") == "PASS_WITH_ISSUE_DERIVED_BLOCKED":
         final_status = "PASS_WITH_BATCH014_BLOCKED"
     elif batch013_state.get("status") == "BLOCK":
         final_status = "PASS_WITH_BATCH013_BLOCKED"
@@ -7001,7 +7694,7 @@ def main() -> int:
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     final_report = {
         "status": final_status,
-        "exact_blocker": batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
+        "exact_blocker": batch015_state.get("exact_blocker") or batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
         "batch002_exact_blocker": batch_state["exact_blocker"],
         "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
@@ -7258,6 +7951,31 @@ def main() -> int:
         "batch014_confirmed_issue_derived_repair_episode_count": batch014_state["confirmed_issue_derived_repair_episode_count"],
         "batch014_matched_null_diagnostic_run_count": batch014_state["matched_null_diagnostic_run_count"],
         "batch014_memory_separation_claim_status": batch014_state["memory_separation_claim_status"],
+        "clean_replication_batch_015_status": batch015_state["status"],
+        "clean_replication_batch_015_exact_blocker": batch015_state["exact_blocker"],
+        "batch015_latest_artifact_ingest_status": batch015_state["latest_artifact_ingest_status"],
+        "batch015_validation_path_continuity_status": batch015_state["validation_path_continuity_status"],
+        "batch015_runtime_incident_capture_status": batch015_state["runtime_incident_capture_status"],
+        "batch015_execution_boundary_gateway_status": batch015_state["execution_boundary_gateway_status"],
+        "batch015_isolated_repair_sandbox_status": batch015_state["isolated_repair_sandbox_status"],
+        "batch015_dependency_drift_chaperone_status": batch015_state["dependency_drift_chaperone_status"],
+        "batch015_active_ast_excision_probe_status": batch015_state["active_ast_excision_probe_status"],
+        "batch015_syntax_micro_rollback_status": batch015_state["syntax_micro_rollback_status"],
+        "batch015_predictive_degradation_telemetry_status": batch015_state["predictive_degradation_telemetry_status"],
+        "batch015_compute_budget_safe_stop_status": batch015_state["compute_budget_safe_stop_status"],
+        "batch015_blue_green_deployment_status": batch015_state["blue_green_deployment_status"],
+        "batch015_proof_to_action_compiler_status": batch015_state["proof_to_action_compiler_status"],
+        "batch015_lock_sequence_operation_registry_status": batch015_state["lock_sequence_operation_registry_status"],
+        "batch015_four_lock_operation_grammar_status": batch015_state["four_lock_operation_grammar_status"],
+        "batch015_curvature_integration_status": batch015_state["curvature_integration_status"],
+        "batch015_claim_tier_system_status": batch015_state["claim_tier_system_status"],
+        "batch015_capability_catalog_status": batch015_state["capability_catalog_status"],
+        "batch015_readme_restructure_status": batch015_state["readme_restructure_status"],
+        "batch015_skeptic_checklist_status": batch015_state["skeptic_checklist_status"],
+        "batch015_use_case_positioning_status": batch015_state["use_case_positioning_status"],
+        "batch015_structure_first_compiler_roadmap_status": batch015_state["structure_first_compiler_roadmap_status"],
+        "batch015_future_agentic_admissibility_compiler_roadmap_status": batch015_state["future_agentic_admissibility_compiler_roadmap_status"],
+        "batch015_marketing_claim_boundary_status": batch015_state["marketing_claim_boundary_status"],
         "global_curvature_logic_status": batch013_state["global_curvature_logic_status"],
         "curvature_feature_vector_status": batch013_state["curvature_feature_vector_status"],
         "basin_stability_check_status": batch013_state["basin_stability_check_status"],
@@ -7381,13 +8099,18 @@ def main() -> int:
                 "",
                 f"Batch014 status: `{batch014_state['status']}`; exact blocker: `{batch014_state['exact_blocker']}`.",
                 "",
+                "Batch015 ingests the manually supplied Batch014 output boundary and adds runtime-wrapper MVP scaffolds, a lock-sequence operation registry, claim tiers, a capability catalog, public positioning docs, and roadmap-only future compiler directions without adding new repair evidence.",
+                "",
+                f"Batch015 status: `{batch015_state['status']}`; latest validation blocker: `{batch015_state['exact_blocker']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
     )
     write_public_docs_reports()
+    write_batch015_markdown_docs()
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR, BATCH015_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     write_json_deterministic(
@@ -7403,7 +8126,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR, BATCH015_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

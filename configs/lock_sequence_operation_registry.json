@@ -1,0 +1,228 @@
+{
+  "lock_pair_classes": {
+    "information_pair": [
+      "provenance",
+      "projection"
+    ],
+    "structural_pair": [
+      "null",
+      "perturbation"
+    ]
+  },
+  "locks": [
+    "provenance",
+    "null",
+    "perturbation",
+    "projection"
+  ],
+  "operations": {
+    "causal_stress_test": {
+      "audit_assertions": [
+        "required_locks_present",
+        "claim_boundary_present"
+      ],
+      "blockers": [
+        "causal_stress_test_required_lock_missing"
+      ],
+      "claim_boundary": "operation cannot exceed passed lock evidence",
+      "required_artifacts": [
+        "provenance_evidence",
+        "null_evidence",
+        "perturbation_evidence"
+      ],
+      "sequence": [
+        "provenance",
+        "null",
+        "perturbation"
+      ]
+    },
+    "degradation_monitoring": {
+      "audit_assertions": [
+        "required_locks_present",
+        "claim_boundary_present"
+      ],
+      "blockers": [
+        "degradation_monitoring_required_lock_missing"
+      ],
+      "claim_boundary": "operation cannot exceed passed lock evidence",
+      "required_artifacts": [
+        "provenance_evidence",
+        "projection_evidence",
+        "perturbation_evidence"
+      ],
+      "sequence": [
+        "provenance",
+        "projection",
+        "perturbation"
+      ]
+    },
+    "dependency_drift_classification": {
+      "audit_assertions": [
+        "required_locks_present",
+        "claim_boundary_present"
+      ],
+      "blockers": [
+        "dependency_drift_classification_required_lock_missing"
+      ],
+      "claim_boundary": "operation cannot exceed passed lock evidence",
+      "required_artifacts": [
+        "provenance_evidence",
+        "projection_evidence",
+        "perturbation_evidence"
+      ],
+      "sequence": [
+        "provenance",
+        "projection",
+        "perturbation"
+      ]
+    },
+    "dual_projection_consistency": {
+      "audit_assertions": [
+        "required_locks_present",
+        "claim_boundary_present"
+      ],
+      "blockers": [
+        "dual_projection_consistency_required_lock_missing"
+      ],
+      "claim_boundary": "operation cannot exceed passed lock evidence",
+      "required_artifacts": [
+        "provenance_evidence",
+        "projection_evidence",
+        "null_evidence"
+      ],
+      "sequence": [
+        "provenance",
+        "projection",
+        "null"
+      ]
+    },
+    "evidence_admission": {
+      "audit_assertions": [
+        "required_locks_present",
+        "claim_boundary_present"
+      ],
+      "blockers": [
+        "evidence_admission_required_lock_missing"
+      ],
+      "claim_boundary": "operation cannot exceed passed lock evidence",
+      "required_artifacts": [
+        "provenance_evidence",
+        "projection_evidence"
+      ],
+      "sequence": [
+        "provenance",
+        "projection"
+      ]
+    },
+    "memory_separation_claim": {
+      "audit_assertions": [
+        "required_locks_present",
+        "claim_boundary_present"
+      ],
+      "blockers": [
+        "memory_separation_claim_required_lock_missing"
+      ],
+      "claim_boundary": "operation cannot exceed passed lock evidence",
+      "required_artifacts": [
+        "provenance_evidence",
+        "null_evidence",
+        "perturbation_evidence",
+        "projection_evidence"
+      ],
+      "sequence": [
+        "provenance",
+        "null",
+        "perturbation",
+        "projection"
+      ]
+    },
+    "repair_candidate_admission": {
+      "audit_assertions": [
+        "required_locks_present",
+        "claim_boundary_present"
+      ],
+      "blockers": [
+        "repair_candidate_admission_required_lock_missing"
+      ],
+      "claim_boundary": "operation cannot exceed passed lock evidence",
+      "required_artifacts": [
+        "provenance_evidence",
+        "projection_evidence",
+        "perturbation_evidence",
+        "null_evidence"
+      ],
+      "sequence": [
+        "provenance",
+        "projection",
+        "perturbation",
+        "null"
+      ]
+    },
+    "rollback_required": {
+      "audit_assertions": [
+        "required_locks_present",
+        "claim_boundary_present"
+      ],
+      "blockers": [
+        "rollback_required_required_lock_missing"
+      ],
+      "claim_boundary": "operation cannot exceed passed lock evidence",
+      "required_artifacts": [
+        "provenance_evidence",
+        "projection_evidence"
+      ],
+      "sequence": [
+        "provenance",
+        "projection"
+      ]
+    },
+    "runtime_action_compilation": {
+      "audit_assertions": [
+        "required_locks_present",
+        "claim_boundary_present"
+      ],
+      "blockers": [
+        "runtime_action_compilation_required_lock_missing"
+      ],
+      "claim_boundary": "operation cannot exceed passed lock evidence",
+      "required_artifacts": [
+        "provenance_evidence",
+        "projection_evidence",
+        "perturbation_evidence",
+        "null_evidence"
+      ],
+      "sequence": [
+        "provenance",
+        "projection",
+        "perturbation",
+        "null",
+        "projection"
+      ]
+    },
+    "safe_stop": {
+      "audit_assertions": [
+        "required_locks_present",
+        "claim_boundary_present"
+      ],
+      "blockers": [
+        "safe_stop_required_lock_missing"
+      ],
+      "claim_boundary": "operation cannot exceed passed lock evidence",
+      "required_artifacts": [
+        "provenance_evidence",
+        "projection_evidence"
+      ],
+      "sequence": [
+        "provenance",
+        "projection"
+      ]
+    }
+  },
+  "rules": {
+    "curvature_replaces_evidence": false,
+    "memory_separation_requires_null_and_perturbation": true,
+    "runtime_action_requires_projection": true,
+    "state_mutation_requires_provenance": true
+  },
+  "status": "PASS"
+}

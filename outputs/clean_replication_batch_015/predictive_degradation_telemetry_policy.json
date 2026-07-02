@@ -1,0 +1,29 @@
+{
+  "autonomous_repair_scheduled": false,
+  "fields": [
+    "latency_ms",
+    "memory_mb",
+    "warning_count",
+    "exception_near_miss_count",
+    "flaky_drift_count",
+    "dependency_churn_count",
+    "function_level_degradation_markers"
+  ],
+  "fixture_weights": {
+    "autonomous_repair_triggered": false,
+    "claim_boundary": "monitoring_and_scoring_only",
+    "input_hash": "aed77024ec0fdac6c1a79f2c5e64ee5f83a1cc1909b27888c56172d61ef051f5",
+    "maintenance_weight_total": 5,
+    "maintenance_weights": {
+      "dependency_churn": 2,
+      "flaky_drift": 0,
+      "latency": 2,
+      "memory": 0,
+      "near_misses": 0,
+      "warnings": 1
+    },
+    "status": "PASS"
+  },
+  "predictive_self_healing_claimed": false,
+  "status": "PASS"
+}

@@ -1,13 +1,15 @@
 # NotebookLM advice traceability
 
-This document maps recurring NotebookLM recommendations to neutral ControllerGate engineering gates. Each item is either active, partial, deferred with a blocker, or rejected with an engineering reason.
+Batch015 translates strategic runtime-wrapper ideas into neutral engineering gates: Runtime Wrapper Scaffold, Execution Boundary Gateway, Compute Budget and Safe-Stop Policy, Proof-to-Action Compiler, Lock-Sequence Operation Registry, and Claim Tier System.
 
-- Implemented active gates: 42
-- Implemented partial gates: 21
-- Deferred gates: 2
-- Rejected gates: 0
-- Carry-forward blockers: 23
+No silent completion: scaffold records are evidence of architecture and local fixtures only.
 
-The machine-readable matrix is `configs/notebooklm_advice_traceability_matrix.json`.
+## Current operational gate status
 
-Batch014 adds Issue-Derived Targeted Seed Execution as an active gate. It requires a committed targeted seed, redacted issue snapshot firewalling, dataset lead firewalling, source-commit selection, and evidence-class separation before any repair feasibility or diagnostic matched-null work can run.
+- Current protocol remains `v2.13`.
+- Confirmed external native repair episodes remain `4`.
+- Confirmed issue-derived repair episodes remain `0`.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift remains `not_demonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.

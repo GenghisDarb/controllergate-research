@@ -1213,6 +1213,69 @@
         "batch014_issue_derived_seed_execution"
       ],
       "status": "implemented"
+    },
+    {
+      "blocker_if_missing": "runtime_incident_capture_missing",
+      "claim_boundary": "scaffold evidence only unless later artifacts prove runtime behavior",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/runtime_incident_capture_schema.json"
+      ],
+      "neutral_gate_name": "Runtime Incident Capture",
+      "status": "implemented_active"
+    },
+    {
+      "blocker_if_missing": "execution_boundary_gateway_missing",
+      "claim_boundary": "scaffold evidence only unless later artifacts prove runtime behavior",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/execution_boundary_gateway_policy.json"
+      ],
+      "neutral_gate_name": "Execution Boundary Gateway",
+      "status": "implemented_active"
+    },
+    {
+      "blocker_if_missing": "compute_budget_safe_stop_missing",
+      "claim_boundary": "scaffold evidence only unless later artifacts prove runtime behavior",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/compute_budget_safe_stop_policy.json"
+      ],
+      "neutral_gate_name": "Compute Budget and Safe-Stop Policy",
+      "status": "implemented_active"
+    },
+    {
+      "blocker_if_missing": "proof_to_action_compiler_missing",
+      "claim_boundary": "scaffold evidence only unless later artifacts prove runtime behavior",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/proof_to_action_compiler_policy.json"
+      ],
+      "neutral_gate_name": "Proof-to-Action Compiler",
+      "status": "implemented_active"
+    },
+    {
+      "blocker_if_missing": "lock_sequence_registry_missing",
+      "claim_boundary": "scaffold evidence only unless later artifacts prove runtime behavior",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/lock_sequence_operation_registry_status.json"
+      ],
+      "neutral_gate_name": "Lock-Sequence Operation Registry",
+      "status": "implemented_active"
+    },
+    {
+      "blocker_if_missing": "claim_tier_system_missing",
+      "claim_boundary": "scaffold evidence only unless later artifacts prove runtime behavior",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/controllergate_claim_tier_status.json"
+      ],
+      "neutral_gate_name": "Claim Tier System",
+      "status": "implemented_active"
+    },
+    {
+      "blocker_if_missing": "runtime_wrapper_scaffold_missing",
+      "claim_boundary": "scaffold evidence only unless later artifacts prove runtime behavior",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_015/runtime_wrapper_mvp_status.json"
+      ],
+      "neutral_gate_name": "Runtime Wrapper Scaffold",
+      "status": "implemented_active"
     }
   ],
   "matrix_id": "operational_gate_matrix_post_v2_37",

@@ -24,7 +24,8 @@ BATCH011_DIR = Path("outputs/clean_replication_batch_011")
 BATCH012_DIR = Path("outputs/clean_replication_batch_012")
 BATCH013_DIR = Path("outputs/clean_replication_batch_013")
 BATCH014_DIR = Path("outputs/clean_replication_batch_014")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch014_issue_derived_seed")
+BATCH015_DIR = Path("outputs/clean_replication_batch_015")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch015_runtime_wrapper_lock_sequence_product")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -570,6 +571,46 @@ BATCH014_REQUIRED = [
     "SHA256SUMS.txt",
 ]
 
+BATCH015_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_015.json",
+    "latest_artifact_boundary_status.json",
+    "validation_path_continuity_status.json",
+    "claim_boundary_batch015.json",
+    "repair_episode_count_preservation.json",
+    "native_issue_derived_count_boundary.json",
+    "full_scoring_boundary.json",
+    "memory_lift_boundary.json",
+    "self_maintaining_boundary.json",
+    "runtime_wrapper_architecture_policy.json",
+    "runtime_incident_capture_schema.json",
+    "execution_boundary_gateway_policy.json",
+    "isolated_repair_sandbox_policy.json",
+    "dependency_drift_chaperone_policy.json",
+    "active_ast_excision_probe_policy.json",
+    "syntax_micro_rollback_policy.json",
+    "predictive_degradation_telemetry_policy.json",
+    "compute_budget_safe_stop_policy.json",
+    "blue_green_deployment_policy.json",
+    "proof_to_action_compiler_policy.json",
+    "runtime_wrapper_mvp_status.json",
+    "lock_sequence_operation_registry_status.json",
+    "lock_sequence_operation_examples.json",
+    "lock_sequence_claim_boundary.json",
+    "four_lock_operation_grammar.json",
+    "runtime_curvature_integration_policy.json",
+    "post_patch_constraint_revalidation_policy.json",
+    "no_overreach_runtime_policy.json",
+    "runtime_curvature_claim_boundary.json",
+    "controllergate_claim_tier_status.json",
+    "controllergate_capability_catalog_status.json",
+    "marketing_claim_boundary.json",
+    "structure_first_compiler_roadmap_status.json",
+    "future_agentic_admissibility_compiler_status.json",
+    "skeptics_acceptance_checklist_status.json",
+    "SHA256SUMS.txt",
+]
+
 BATCH003_REQUIRED = [
     "consolidated_state_clean_replication_batch_003.json",
     "matched_null_ensemble_policy.json",
@@ -716,6 +757,11 @@ def blocked_terms() -> list[str]:
         "N" + "\u2248",
         "chro" + "matin",
         "epi" + "genetic",
+        "telo" + "merase",
+        "ribo" + "some",
+        "nuclear " + "pore",
+        "mi" + "totic spindle",
+        "snow" + "flake",
     ]
 
 
@@ -2728,6 +2774,189 @@ def audit_batch014_records() -> list[str]:
     return errors
 
 
+def audit_batch015_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH015_REQUIRED:
+        if not (BATCH015_DIR / name).is_file():
+            errors.append(f"batch015 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH015_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch015 manifest failed: {manifest}")
+
+    state = read_json(BATCH015_DIR / "consolidated_state_clean_replication_batch_015.json")
+    latest = read_json(BATCH015_DIR / "latest_artifact_boundary_status.json")
+    validation = read_json(BATCH015_DIR / "validation_path_continuity_status.json")
+    claim = read_json(BATCH015_DIR / "claim_boundary_batch015.json")
+    preservation = read_json(BATCH015_DIR / "repair_episode_count_preservation.json")
+    native_boundary = read_json(BATCH015_DIR / "native_issue_derived_count_boundary.json")
+    runtime_status = read_json(BATCH015_DIR / "runtime_wrapper_mvp_status.json")
+    boundary = read_json(BATCH015_DIR / "execution_boundary_gateway_policy.json")
+    sandbox = read_json(BATCH015_DIR / "isolated_repair_sandbox_policy.json")
+    drift = read_json(BATCH015_DIR / "dependency_drift_chaperone_policy.json")
+    excision = read_json(BATCH015_DIR / "active_ast_excision_probe_policy.json")
+    rollback = read_json(BATCH015_DIR / "syntax_micro_rollback_policy.json")
+    telemetry = read_json(BATCH015_DIR / "predictive_degradation_telemetry_policy.json")
+    budget = read_json(BATCH015_DIR / "compute_budget_safe_stop_policy.json")
+    blue_green = read_json(BATCH015_DIR / "blue_green_deployment_policy.json")
+    compiler = read_json(BATCH015_DIR / "proof_to_action_compiler_policy.json")
+    grammar = read_json(BATCH015_DIR / "four_lock_operation_grammar.json")
+    registry_status = read_json(BATCH015_DIR / "lock_sequence_operation_registry_status.json")
+    registry = read_json(Path("configs/lock_sequence_operation_registry.json"))
+    claim_tiers = read_json(Path("configs/controllergate_claim_tiers.json"))
+    catalog = read_json(Path("configs/controllergate_capability_catalog.json"))
+    marketing = read_json(BATCH015_DIR / "marketing_claim_boundary.json")
+    roadmap = read_json(BATCH015_DIR / "structure_first_compiler_roadmap_status.json")
+    agentic = read_json(BATCH015_DIR / "future_agentic_admissibility_compiler_status.json")
+
+    runtime_modules = [
+        "controllergate/runtime/__init__.py",
+        "controllergate/runtime/incident_capture.py",
+        "controllergate/runtime/execution_boundary_gateway.py",
+        "controllergate/runtime/isolated_repair_sandbox.py",
+        "controllergate/runtime/dependency_drift_chaperone.py",
+        "controllergate/runtime/active_ast_excision_probe.py",
+        "controllergate/runtime/syntax_micro_rollback.py",
+        "controllergate/runtime/predictive_degradation_telemetry.py",
+        "controllergate/runtime/compute_budget.py",
+        "controllergate/runtime/blue_green_deployment.py",
+        "controllergate/runtime/proof_to_action_compiler.py",
+        "controllergate/runtime/runtime_claim_boundary.py",
+    ]
+    for rel in runtime_modules:
+        if not Path(rel).is_file():
+            errors.append(f"runtime_wrapper_scaffold_missing:{rel}")
+
+    if latest.get("status") != "PASS" or latest.get("sha256") != "35ce9b24e8400b47e63d77672196b9016e65c849919110b36d0bece08b9c1aef":
+        errors.append("batch015 latest artifact boundary missing or mismatched")
+    if latest.get("ingested_output_evidence_only") is not True or latest.get("source_docs_tests_caches_or_archives_ingested") is not False:
+        errors.append("batch015 artifact ingest scope invalid")
+    if validation.get("confirmed_external_native_repair_episode_count") != 4 or validation.get("confirmed_issue_derived_repair_episode_count") != 0:
+        errors.append("batch015 validation path counts changed")
+    if preservation.get("native_repair_episode_count_before_batch015") != preservation.get("native_repair_episode_count_after_batch015"):
+        errors.append("batch015 native repair count not preserved")
+    if native_boundary.get("native_and_issue_derived_classes_separate") is not True:
+        errors.append("batch015 evidence class boundary missing")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("batch015 full scoring or memory boundary changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("hallucination_elimination") != "false/not_claimed":
+        errors.append("batch015 overclaim boundary changed")
+    if claim.get("production_runtime_wrapper") != "false/not_demonstrated" or claim.get("live_deployment_attempted") is not False:
+        errors.append("batch015 live deployment or production runtime overclaim")
+    if runtime_status.get("runtime_wrapper_mvp_status") != "scaffold_only":
+        errors.append("runtime_wrapper_scaffold_missing")
+    if boundary.get("status") != "PASS" or boundary.get("direct_runtime_mutation_allowed") is not False:
+        errors.append("execution_boundary_gateway_missing")
+    if sandbox.get("fresh_ephemeral_workspace_required") is not True or sandbox.get("outside_repo_required") is not True:
+        errors.append("isolated_repair_sandbox_missing")
+    if drift.get("undeclared_dependency_install_allowed") is not False:
+        errors.append("dependency_chaperone_missing")
+    if excision.get("sandbox_only") is not True or excision.get("repair_authorized_from_probe_alone") is not False:
+        errors.append("active_ast_excision_probe_missing")
+    if rollback.get("status") != "ROLLBACK" or rollback.get("accepted_repair_evidence") is not False:
+        errors.append("syntax_micro_rollback_missing")
+    if telemetry.get("autonomous_repair_scheduled") is not False or telemetry.get("fixture_weights", {}).get("autonomous_repair_triggered") is not False:
+        errors.append("predictive_degradation_telemetry_missing")
+    if budget.get("blocker") != "safe_stop_budget_exceeded":
+        errors.append("compute_budget_safe_stop_missing")
+    if blue_green.get("simulation_only") is not True or blue_green.get("live_deployment_attempted") is not False:
+        errors.append("blue_green_deployment_missing")
+    if compiler.get("status") != "PASS" or compiler.get("executes_unsafe_actions") is not False:
+        errors.append("proof_to_action_compiler_missing")
+
+    required_locks = {"provenance", "null", "perturbation", "projection"}
+    if set(grammar.get("locks", [])) != required_locks:
+        errors.append("four_lock_operation_grammar_missing")
+    operations = registry.get("operations", {})
+    expected_operations = {
+        "evidence_admission",
+        "causal_stress_test",
+        "dual_projection_consistency",
+        "repair_candidate_admission",
+        "memory_separation_claim",
+        "runtime_action_compilation",
+        "rollback_required",
+        "degradation_monitoring",
+        "dependency_drift_classification",
+        "safe_stop",
+    }
+    if registry_status.get("status") != "PASS" or set(operations) != expected_operations:
+        errors.append("lock_sequence_registry_missing")
+    if registry.get("lock_pair_classes", {}).get("structural_pair") != ["null", "perturbation"]:
+        errors.append("lock-pair structural class missing")
+    for name, record in operations.items():
+        if not record.get("sequence") or not record.get("required_artifacts") or not record.get("blockers") or not record.get("claim_boundary"):
+            errors.append(f"{name}: incomplete lock-sequence operation record")
+    if "null" not in operations.get("memory_separation_claim", {}).get("sequence", []) or "perturbation" not in operations.get("memory_separation_claim", {}).get("sequence", []):
+        errors.append("memory separation operation missing null or perturbation lock")
+    if "projection" not in operations.get("runtime_action_compilation", {}).get("sequence", []):
+        errors.append("runtime action compilation missing projection lock")
+
+    if claim_tiers.get("untiered_capability_allowed") is not False:
+        errors.append("claim_tier_system_missing")
+    capabilities = catalog.get("capabilities", [])
+    capability_ids = {item.get("capability_id") for item in capabilities if isinstance(item, dict)}
+    required_capabilities = {
+        "evidence_bound_repair_validation",
+        "artifact_byte_custody",
+        "registry_first_provenance",
+        "matched_null_evaluation",
+        "curvature_based_source_selection",
+        "active_failure_memory_routing",
+        "source_commit_environment_lock",
+        "target_command_manifest",
+        "fresh_workspace_purity",
+        "baseline_registry_drift_precheck",
+        "rollback_block_ledger",
+        "runtime_incident_capture",
+        "execution_boundary_gateway",
+        "isolated_repair_sandbox",
+        "dependency_drift_chaperone",
+        "active_ast_excision_probe",
+        "syntax_micro_rollback",
+        "predictive_degradation_telemetry",
+        "compute_budget_safe_stop",
+        "cryptographic_blue_green_deployment",
+        "proof_to_action_compiler",
+        "lock_sequence_operation_registry",
+        "structure_first_compiler_roadmap",
+        "future_agentic_admissibility_compiler_integration",
+    }
+    if capability_ids != required_capabilities:
+        errors.append("capability_catalog_missing")
+    if any("current_tier" not in item for item in capabilities if isinstance(item, dict)):
+        errors.append("capability without claim tier")
+    if marketing.get("forbidden_claims_not_made") is not True:
+        errors.append("marketing_overclaim_detected")
+    if roadmap.get("roadmap_only") is not True or roadmap.get("implemented_capability") is not False:
+        errors.append("structural_compiler_overclaim_detected")
+    if agentic.get("roadmap_only") is not True or agentic.get("integration_implemented") is not False:
+        errors.append("agentic_compiler_overclaim_detected")
+
+    readme = Path("README.md").read_text(encoding="utf-8")
+    for required in ["What ControllerGate is", "What ControllerGate is not", "Claim Tier System", "Capability Catalog", "Skeptic's Acceptance Checklist", "Runtime-wrapper roadmap", "Safe public claims", "Forbidden claims"]:
+        if required not in readme:
+            errors.append(f"readme_claim_tier_missing:{required}")
+    for path in [
+        "docs/controllergate_claim_tiers.md",
+        "docs/controllergate_positioning.md",
+        "docs/claim_boundary.md",
+        "docs/skeptics_acceptance_checklist.md",
+        "docs/use_case_positioning.md",
+        "docs/structure_first_compiler_roadmap.md",
+        "docs/future_agentic_admissibility_compiler_integration.md",
+    ]:
+        if not Path(path).is_file():
+            errors.append(f"batch015 doc missing:{path}")
+    use_case = Path("docs/use_case_positioning.md").read_text(encoding="utf-8")
+    if "deployment_readiness: false" not in use_case:
+        errors.append("sector_deployment_overclaim_detected")
+    if state.get("status") != "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD":
+        errors.append("batch015 state did not pass scaffold boundary")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -2824,12 +3053,19 @@ def public_language_hits() -> list[str]:
         Path("docs/current_status.md"),
         Path("docs/capability_inventory.md"),
         Path("docs/claim_boundaries.md"),
+        Path("docs/claim_boundary.md"),
         Path("docs/memory_lift_definition.md"),
         Path("docs/public_release_readiness.md"),
         Path("docs/technical_validation_gap_report.md"),
         Path("docs/replication_protocol.md"),
         Path("docs/evidence_model.md"),
         Path("docs/operational_gate_matrix.md"),
+        Path("docs/controllergate_positioning.md"),
+        Path("docs/controllergate_claim_tiers.md"),
+        Path("docs/skeptics_acceptance_checklist.md"),
+        Path("docs/use_case_positioning.md"),
+        Path("docs/structure_first_compiler_roadmap.md"),
+        Path("docs/future_agentic_admissibility_compiler_integration.md"),
         Path("docs/notebooklm_advice_traceability.md"),
         Path("configs/operational_gate_matrix.json"),
         Path("configs/notebooklm_advice_traceability_matrix.json"),
@@ -2845,6 +3081,10 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_012.json"),
         Path("configs/clean_replication_batch_013.json"),
         Path("configs/clean_replication_batch_014.json"),
+        Path("configs/clean_replication_batch_015.json"),
+        Path("configs/lock_sequence_operation_registry.json"),
+        Path("configs/controllergate_claim_tiers.json"),
+        Path("configs/controllergate_capability_catalog.json"),
         Path("controllergate/core/failure_memory.py"),
         Path("controllergate/core/status_code_weighting.py"),
         Path("controllergate/core/source_ranking.py"),
@@ -2859,6 +3099,17 @@ def public_language_hits() -> list[str]:
         Path("controllergate/core/rollback_ledger.py"),
         Path("controllergate/core/gate_chain.py"),
         Path("controllergate/core/active_context_filtering.py"),
+        Path("controllergate/runtime/incident_capture.py"),
+        Path("controllergate/runtime/execution_boundary_gateway.py"),
+        Path("controllergate/runtime/isolated_repair_sandbox.py"),
+        Path("controllergate/runtime/dependency_drift_chaperone.py"),
+        Path("controllergate/runtime/active_ast_excision_probe.py"),
+        Path("controllergate/runtime/syntax_micro_rollback.py"),
+        Path("controllergate/runtime/predictive_degradation_telemetry.py"),
+        Path("controllergate/runtime/compute_budget.py"),
+        Path("controllergate/runtime/blue_green_deployment.py"),
+        Path("controllergate/runtime/proof_to_action_compiler.py"),
+        Path("controllergate/runtime/runtime_claim_boundary.py"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
     ]
@@ -2870,6 +3121,10 @@ def public_language_hits() -> list[str]:
     paths.extend(sorted(BATCH012_DIR.glob("*.md")))
     paths.extend(sorted(BATCH013_DIR.glob("*.json")))
     paths.extend(sorted(BATCH013_DIR.glob("*.md")))
+    paths.extend(sorted(BATCH014_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH014_DIR.glob("*.md")))
+    paths.extend(sorted(BATCH015_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH015_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -3043,6 +3298,7 @@ def main() -> int:
         + require_files(BATCH012_DIR, BATCH012_REQUIRED)
         + require_files(BATCH013_DIR, BATCH013_REQUIRED)
         + require_files(BATCH014_DIR, BATCH014_REQUIRED)
+        + require_files(BATCH015_DIR, BATCH015_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -3074,8 +3330,10 @@ def main() -> int:
         return fail("batch013 manifest mismatch")
     if verify_manifest(BATCH014_DIR)["status"] != "PASS":
         return fail("batch014 manifest mismatch")
-    if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
-        return fail("core tests failed")
+    if verify_manifest(BATCH015_DIR)["status"] != "PASS":
+        return fail("batch015 manifest mismatch")
+    if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
+        return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
         return fail("v2.37 audit failed")
 
@@ -3221,6 +3479,9 @@ def main() -> int:
     batch014_errors = audit_batch014_records()
     if batch014_errors:
         return fail(f"batch014 audit failed: {batch014_errors}")
+    batch015_errors = audit_batch015_records()
+    if batch015_errors:
+        return fail(f"batch015 audit failed: {batch015_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -3267,10 +3528,12 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if final_report.get("status") != "PASS_WITH_BATCH014_BLOCKED":
-        return fail("final report did not advance to Batch014 blocked boundary")
+    if final_report.get("status") != "PASS_WITH_BATCH015_RUNTIME_SCAFFOLD":
+        return fail("final report did not advance to Batch015 scaffold boundary")
     if final_report.get("exact_blocker") != "issue_derived_harness_intent_mismatch":
-        return fail("final report Batch014 blocker mismatch")
+        return fail("final report latest validation blocker mismatch")
+    if final_report.get("batch015_lock_sequence_operation_registry_status") != "PASS":
+        return fail("final report missing Batch015 lock-sequence status")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":
