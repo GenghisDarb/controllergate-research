@@ -1,0 +1,52 @@
+{
+  "blocker": null,
+  "blockers": [],
+  "missing_attestation_fields": [],
+  "missing_required_fields": [],
+  "normalized_seed": {
+    "candidate_class": "issue_derived_reproduction_candidate",
+    "candidate_id": "darker_issue_112_relative_git_dir",
+    "created_utc": "2026-07-01T17:15:00Z",
+    "environment_lock_source": "pyproject.toml",
+    "evidence_class": "issue_derived",
+    "expected_failure_type": "subprocess.CalledProcessError or command failure matching the issue-described git diff repository error",
+    "expected_target_files": [
+      "src/darker/__main__.py",
+      "src/darker/git.py"
+    ],
+    "forbidden_evidence_attestation": {
+      "fixed_commit_used": false,
+      "future_test_used": false,
+      "gold_patch_used": false,
+      "hidden_label_used": false,
+      "issue_solution_section_used": false,
+      "later_commit_used": false,
+      "pr_patch_used": false,
+      "solution_comment_used": false
+    },
+    "issue_created_at": "2021-01-02T00:00:00Z",
+    "issue_text_snapshot": "Decision-time reproduction excerpt only. Summary: Darker crashes when GIT_DIR is a relative path and the common prefix of paths to check includes a directory such as src. Example command: GIT_DIR=.git darker --check src. Observed behavior: command reports Not a git repository and raises subprocess.CalledProcessError from git diff --name-only --relative HEAD -- . while running through darker.__main__.main, format_edited_parts, darker.git.git_get_modified_files, and _git_check_output_lines. Expected behavior: darker --check src should complete without that git repository error. Solution-analysis sections from the issue body are intentionally excluded from this snapshot.",
+    "issue_text_snapshot_source": "manual_redacted_issue_snapshot_no_solution_sections",
+    "issue_title": "Crashes when GIT_DIR is a relative path, and the common prefix of paths to check includes a directory.",
+    "issue_url": "https://github.com/akaihola/darker/issues/112",
+    "native_target_test_command": null,
+    "native_target_test_paths": [],
+    "notes": "Issue-derived seed from GitHub issue #112. Uses a redacted decision-time issue snapshot containing reproduction and observed failure only. Solution-analysis sections are excluded. No native future test, fixed commit, PR patch, or gold evidence is used.",
+    "registry_author": "manual_targeted_seed",
+    "registry_review_status": "seed_draft",
+    "repo_url": "https://github.com/akaihola/darker",
+    "reproduction_steps": [
+      "Clone the Darker repository and check out the source commit selected at or before the issue creation timestamp.",
+      "Install the selected source commit in an isolated environment using its project metadata.",
+      "Run the Darker command against src with GIT_DIR=.git in the environment.",
+      "Confirm the pre-patch behavior reproduces the issue-described git repository failure."
+    ],
+    "setup_commands": [],
+    "source_commit_selection_method": "default_branch_before_issue_created_at",
+    "source_commit_sha": null,
+    "source_type": "public_github_repo",
+    "target_behavior_description": "Running Darker with a relative GIT_DIR and path argument src should not crash before completing the check. The issue-derived harness should reproduce the pre-patch git repository error using only the selected source commit and the redacted issue reproduction steps."
+  },
+  "schema_status": "PASS",
+  "status": "PASS"
+}

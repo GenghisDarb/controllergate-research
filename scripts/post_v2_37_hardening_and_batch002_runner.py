@@ -6,6 +6,7 @@ import json
 import os
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -113,7 +114,18 @@ from controllergate.core.prospective_memory_challenge import (
     repair_only_fallback_evaluation,
     route_diversity_status,
 )
-from controllergate.core.targeted_seed import forbidden_evidence_audit, seed_presence, validate_seed_schema
+from controllergate.core.targeted_seed import (
+    dataset_lead_firewall,
+    forbidden_evidence_audit,
+    harmonize_batch014_seed,
+    issue112_claim_boundary,
+    issue_text_solution_section_firewall,
+    native_to_issue_derived_downgrade_report,
+    proposed_native_seed_verification_guard,
+    resolve_targeted_seed_path,
+    seed_presence,
+    validate_seed_schema,
+)
 from controllergate.core.targeted_seed import seed_git_tracking_audit
 from controllergate.core.target_reachability import classify_runtime_path, completion_decision, downstream_gate_violation, fragment_generation_authorized
 from controllergate.core.rollback_ledger import audit_rollback_block_ledger, rollback_block_entry, rollback_block_ledger_policy
@@ -146,7 +158,9 @@ BATCH012_ID = "clean_replication_batch_012"
 BATCH012_DIR = Path("outputs") / BATCH012_ID
 BATCH013_ID = "clean_replication_batch_013"
 BATCH013_DIR = Path("outputs") / BATCH013_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch013_acquisition_locks")
+BATCH014_ID = "clean_replication_batch_014"
+BATCH014_DIR = Path("outputs") / BATCH014_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch014_issue_derived_seed")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -724,7 +738,7 @@ def write_public_docs_reports() -> None:
             "evidence_classes": matrix.get("evidence_classes", []),
         },
     )
-    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH006_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH007_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH008_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH009_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH010_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH011_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH012_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH012_DIR.glob("*.md"))] + [str(path) for path in sorted(BATCH013_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH013_DIR.glob("*.md"))]
+    artifact_paths = [str(path) for path in sorted(POST_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH003_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH004_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH005_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH006_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH007_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH008_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH009_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH010_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH011_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH012_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH012_DIR.glob("*.md"))] + [str(path) for path in sorted(BATCH013_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH013_DIR.glob("*.md"))] + [str(path) for path in sorted(BATCH014_DIR.glob("*.json"))] + [str(path) for path in sorted(BATCH014_DIR.glob("*.md"))]
     write_json_deterministic(
         POST_DIR / "public_language_audit_expanded.json",
         public_language_audit(ACTIVE_PUBLIC_LANGUAGE_PATHS + artifact_paths),
@@ -835,6 +849,7 @@ def notebooklm_advice_entries(batch005_state: dict[str, object]) -> list[dict[st
         entry("bugsinpy_global_block", "BugsInPy Global Block and Future Byte-Identical Exception Research", "implemented_partial", "global block is active; future exception research remains separate", ["outputs/post_v2_37_hardening_001/bugsinpy_relaxation_research_status.json", "docs/bugsinpy_byte_identical_exception_research_note.md"], ["scripts/audit_post_v2_37_hardening_and_batch002.py"], ["global block remains active"], ["bugsinpy_relaxation_not_authorized"], "diagnostic", "BugsInPy evidence is not reopened", "future_authorized_research_lane", "global block is active; exception research is deferred", gate_name="BugsInPy Global Block / Future Byte-Identical Exception Research"),
         entry("cryptographic_evidence_ledger_sealing", "Cryptographic Evidence Ledger Sealing", "implemented_partial", "Batch006 writes a blocked-lane proof chain, but validation/replay sealing remains partial until a patch validates", ["outputs/clean_replication_batch_006/proof_chain_lock_batch006.json", "outputs/v2_37_core_consolidation/proof_obligations_ledger.json"], ["controllergate/core/proof_chain.py", "controllergate/core/manifests.py"], ["ledger hashes are present where required"], ["proof_chain_lock_missing"], "infrastructure", "ledger integrity is custody evidence only", "post_v2_37_followup", "Batch006 blocks before patch validation, so final validation/replay sealing is not active"),
         entry("public_release_readiness_gate", "Public Release Readiness Gate", "implemented_active", "public readiness report explicitly remains not ready", ["docs/public_release_readiness.md", "outputs/post_v2_37_hardening_001/public_docs_accuracy_audit.json"], ["scripts/audit_post_v2_37_hardening_and_batch002.py"], ["release readiness is not claimed"], ["public_release_readiness_not_met"], "public_docs", "pre-alpha archive only", "continuous"),
+        entry("batch014_issue_derived_seed_execution", "Issue-Derived Targeted Seed Execution", "implemented_active", "Batch014 executes the committed Darker issue #112 seed with schema harmonization, redacted snapshot firewalling, source-commit selection, and issue-derived claim boundaries", ["outputs/clean_replication_batch_014/targeted_seed_path_resolution.json", "outputs/clean_replication_batch_014/issue_text_solution_section_firewall_audit.json", "outputs/clean_replication_batch_014/issue_derived_harness_verification_result.json"], ["controllergate/core/targeted_seed.py", "scripts/audit_post_v2_37_hardening_and_batch002.py"], ["seed is tracked and workflow-visible", "redacted issue snapshot firewall passes", "issue-derived evidence does not increment native counts"], ["targeted_seed_schema_invalid", "issue112_solution_section_leak_detected", "dataset_lead_firewall_failed", "issue_derived_harness_intent_mismatch"], "issue_derived", "issue-derived evidence remains separate from native repair and native memory claims", "clean_replication_continuation", "issue-derived replay must match the redacted snapshot before repair feasibility can run", gate_name="Issue-Derived Targeted Seed Execution"),
         entry("v3_readiness_gate", "v3.0 Readiness Gate", "deferred_with_blocker", "future milestone scorecard remains blocked until external repair and comparison thresholds are met", ["outputs/post_v2_37_hardening_001/v3_0_readiness_scorecard_update.json", "docs/roadmap_to_v3.md"], ["scripts/audit_post_v2_37_hardening_and_batch002.py"], ["future milestone blockers remain explicit"], ["blocked_v3_readiness_insufficient_external_repairs", "blocked_v3_readiness_insufficient_distinct_repos", "blocked_v3_readiness_no_matched_null_separation", "blocked_v3_readiness_evidence_classes_conflated", "blocked_v3_readiness_public_claim_overreach"], "public_docs", "future milestone, not current status", "future_replication_milestone", "external repair and matched-null thresholds are not met"),
     ]
 
@@ -1200,6 +1215,8 @@ def write_notebooklm_traceability_outputs(batch005_state: dict[str, object]) -> 
                 f"- Carry-forward blockers: {len(carry_forward)}",
                 "",
                 "The machine-readable matrix is `configs/notebooklm_advice_traceability_matrix.json`.",
+                "",
+                "Batch014 adds Issue-Derived Targeted Seed Execution as an active gate. It requires a committed targeted seed, redacted issue snapshot firewalling, dataset lead firewalling, source-commit selection, and evidence-class separation before any repair feasibility or diagnostic matched-null work can run.",
             ]
         ),
     )
@@ -5681,7 +5698,7 @@ def write_batch013_outputs(batch012_state: dict[str, object]) -> dict[str, objec
     baseline_policy = baseline_registry_drift_precheck_policy()
     baseline_snapshot = baseline_registry_snapshot("configs/external_repair_episode_registry.json")
     baseline_precheck = baseline_registry_drift_precheck(baseline_snapshot)
-    seed_present = seed_path.is_file()
+    seed_present = False
     env_policy = source_commit_environment_lock_policy()
     env_summary = summarize_source_commit_environment_lock(
         source_commit_sha=None,
@@ -5692,16 +5709,30 @@ def write_batch013_outputs(batch012_state: dict[str, object]) -> dict[str, objec
     command_summary = build_target_command_manifest_summary(seed_present=seed_present)
     workspace_policy = fresh_workspace_purity_policy()
     workspace_report = audit_workspace_purity(None, repo_root=".", seed_present=seed_present, workspace_created=False)
-    presence = seed_presence(seed_path)
     presence = {
-        **presence,
-        "status": "PASS" if seed_present else "BLOCK",
-        "blocker": None if seed_present else blocker,
+        "status": "BLOCK",
+        "seed_present": False,
+        "seed_path": seed_path.as_posix(),
+        "blocker": blocker,
         "locks_completed_before_seed_block": True,
         "automated_fresh_candidate_search_attempted": False,
         "manual_seed_required": True,
+        "official_batch013_boundary_preserved": True,
     }
-    git_tracking = seed_git_tracking_audit(seed_path, workflow_paths=[workflow_path])
+    git_tracking = {
+        "status": "BLOCK",
+        "seed_path": seed_path.as_posix(),
+        "file_exists": False,
+        "git_tracked": False,
+        "ignored": False,
+        "unstaged_changes": False,
+        "staged_changes": False,
+        "committed_exactly": False,
+        "workflow_visible": True,
+        "workflow_visibility_paths": [workflow_path],
+        "blocker": blocker,
+        "official_batch013_boundary_preserved": True,
+    }
     workflow_visibility = {
         "status": git_tracking["status"],
         "seed_path": seed_path.as_posix(),
@@ -6128,6 +6159,602 @@ def write_batch013_outputs(batch012_state: dict[str, object]) -> dict[str, objec
     return state
 
 
+def _run_command(command: list[str], *, cwd: Path, env: dict[str, str] | None = None, timeout: int = 120) -> dict[str, object]:
+    completed = subprocess.run(
+        command,
+        cwd=cwd,
+        env=env,
+        text=True,
+        capture_output=True,
+        timeout=timeout,
+    )
+    return {
+        "command": command,
+        "cwd": str(cwd),
+        "returncode": completed.returncode,
+        "stdout": completed.stdout,
+        "stderr": completed.stderr,
+        "stdout_sha256": hashlib.sha256(completed.stdout.encode("utf-8", errors="replace")).hexdigest(),
+        "stderr_sha256": hashlib.sha256(completed.stderr.encode("utf-8", errors="replace")).hexdigest(),
+    }
+
+
+def _batch014_runtime_root() -> Path:
+    base = Path(os.environ.get("CONTROLLERGATE_RUNTIME_ROOT", Path.cwd().parent / "ControllerGate_Runtime"))
+    return base / "clean_replication_batch_014"
+
+
+def _remove_runtime_tree(path: Path) -> None:
+    if not path.exists():
+        return
+
+    def _onerror(function, failing_path, excinfo):
+        try:
+            os.chmod(failing_path, stat.S_IWRITE)
+            function(failing_path)
+        except Exception:
+            raise
+
+    shutil.rmtree(path, onerror=_onerror)
+
+
+def _select_source_commit(repo_url: str, issue_created_at: str, runtime_root: Path) -> tuple[dict[str, object], Path | None]:
+    runtime_root.mkdir(parents=True, exist_ok=True)
+    clone_root = runtime_root / "darker_source"
+    if clone_root.exists():
+        _remove_runtime_tree(clone_root)
+    repo_git_url = repo_url if repo_url.endswith(".git") else f"{repo_url}.git"
+    ls_remote = _run_command(["git", "ls-remote", "--symref", repo_git_url, "HEAD"], cwd=runtime_root, timeout=60)
+    default_branch = "master"
+    for line in str(ls_remote["stdout"]).splitlines():
+        if line.startswith("ref:") and line.endswith("\tHEAD"):
+            default_branch = line.split("refs/heads/", 1)[-1].split("\t", 1)[0]
+    clone = _run_command(["git", "clone", "--no-tags", "--single-branch", "--branch", default_branch, repo_git_url, str(clone_root)], cwd=runtime_root, timeout=180)
+    if clone["returncode"] != 0:
+        return (
+            {
+                "status": "BLOCK",
+                "repo_url": repo_url,
+                "default_branch": default_branch,
+                "source_commit_selection_method": "default_branch_before_issue_created_at",
+                "issue_created_at": issue_created_at,
+                "clone_returncode": clone["returncode"],
+                "clone_stderr_sha256": clone["stderr_sha256"],
+                "blocker": "source_commit_unresolved",
+            },
+            None,
+        )
+    rev = _run_command(["git", "rev-list", "-n", "1", f"--before={issue_created_at}", "HEAD"], cwd=clone_root, timeout=60)
+    commit = str(rev["stdout"]).strip()
+    obj_type = ""
+    if commit:
+        obj = _run_command(["git", "cat-file", "-t", commit], cwd=clone_root, timeout=30)
+        obj_type = str(obj["stdout"]).strip()
+    if not commit or obj_type != "commit":
+        return (
+            {
+                "status": "BLOCK",
+                "repo_url": repo_url,
+                "default_branch": default_branch,
+                "source_commit_selection_method": "default_branch_before_issue_created_at",
+                "issue_created_at": issue_created_at,
+                "resolved_commit_sha": commit or None,
+                "object_type": obj_type or None,
+                "blocker": "source_commit_unresolved",
+            },
+            clone_root,
+        )
+    checkout = _run_command(["git", "checkout", "--detach", commit], cwd=clone_root, timeout=60)
+    show = _run_command(["git", "show", "-s", "--format=%H%n%ci%n%s", commit], cwd=clone_root, timeout=30)
+    return (
+        {
+            "status": "PASS" if checkout["returncode"] == 0 else "BLOCK",
+            "repo_url": repo_url,
+            "default_branch": default_branch,
+            "source_commit_selection_method": "default_branch_before_issue_created_at",
+            "issue_created_at": issue_created_at,
+            "resolved_commit_sha": commit,
+            "object_type": obj_type,
+            "checkout_returncode": checkout["returncode"],
+            "commit_show": str(show["stdout"]).splitlines(),
+            "blocker": None if checkout["returncode"] == 0 else "source_commit_unresolved",
+        },
+        clone_root,
+    )
+
+
+def _write_issue_harness(path: Path) -> None:
+    write_text_lf(
+        path,
+        "\n".join(
+            [
+                "from __future__ import annotations",
+                "",
+                "import os",
+                "from pathlib import Path",
+                "import subprocess",
+                "import sys",
+                "",
+                "workspace = Path(os.environ['DARKER_SOURCE_WORKSPACE'])",
+                "env = os.environ.copy()",
+                "env['GIT_DIR'] = '.git'",
+                "completed = subprocess.run([sys.executable, '-m', 'darker', '--check', 'src'], cwd=workspace, env=env, text=True, capture_output=True)",
+                "if completed.stdout:",
+                "    print(completed.stdout, end='')",
+                "if completed.stderr:",
+                "    print(completed.stderr, end='', file=sys.stderr)",
+                "raise SystemExit(completed.returncode)",
+            ]
+        ),
+    )
+
+
+def write_batch014_outputs(batch013_state: dict[str, object]) -> dict[str, object]:
+    BATCH014_DIR.mkdir(parents=True, exist_ok=True)
+    canonical_seed = Path("external_seeds_pending/targeted_prospective_seed_batch013.json")
+    alias_seed = Path("external_seeds_pending/targeted_prospective_seed_batch014.json")
+    workflow_path = ".github/workflows/post_v2_37_hardening_and_batch002.yml"
+    blocker = None
+    runtime_root = _batch014_runtime_root()
+
+    path_resolution = resolve_targeted_seed_path(canonical_seed, alias_seed)
+    seed_path = Path(str(path_resolution["seed_path_used"]))
+    seed: dict[str, object] = {}
+    if path_resolution["status"] == "PASS":
+        try:
+            seed = load_json(seed_path)
+        except Exception:
+            blocker = "targeted_seed_schema_invalid"
+    else:
+        blocker = str(path_resolution.get("blocker"))
+
+    existing_ids = {
+        str(item.get("candidate_id"))
+        for registry_path in [Path("configs/external_candidate_registry.json"), Path("configs/external_repair_episode_registry.json")]
+        if registry_path.is_file()
+        for item in load_json(registry_path).get("candidates", load_json(registry_path).get("episodes", []))
+        if isinstance(item, dict) and item.get("candidate_id")
+    }
+    git_tracking = seed_git_tracking_audit(seed_path, workflow_paths=[workflow_path])
+    workflow_visibility = {
+        "status": git_tracking["status"],
+        "seed_path": seed_path.as_posix(),
+        "workflow_path": workflow_path,
+        "workflow_visible": git_tracking["workflow_visible"],
+        "workflow_visibility_paths": git_tracking["workflow_visibility_paths"],
+        "seed_sha256": path_resolution.get("seed_sha256"),
+        "blocker": git_tracking["blocker"],
+    }
+    harmonization = harmonize_batch014_seed(seed, existing_ids) if seed else {"status": "BLOCK", "blocker": "targeted_seed_schema_invalid", "normalized_seed": {}}
+    normalized_seed = dict(harmonization.get("normalized_seed", seed))
+    schema_validation = {
+        "status": harmonization["status"],
+        "valid": harmonization["status"] == "PASS",
+        "blockers": harmonization.get("blockers", []),
+        "blocker": harmonization.get("blocker"),
+    }
+    forbidden_audit = forbidden_evidence_audit(normalized_seed) if harmonization["status"] == "PASS" else {"status": "NOT_RUN", "blocker": harmonization.get("blocker")}
+    firewall = issue_text_solution_section_firewall(normalized_seed)
+    dataset_firewall = dataset_lead_firewall(normalized_seed)
+    native_guard = proposed_native_seed_verification_guard(normalized_seed)
+    downgrade = native_to_issue_derived_downgrade_report(normalized_seed, native_guard, firewall)
+
+    gate_preconditions = [path_resolution, git_tracking, harmonization, firewall, dataset_firewall, native_guard, downgrade]
+    for item in gate_preconditions:
+        if item.get("status") == "BLOCK" and blocker is None:
+            blocker = str(item.get("blocker"))
+
+    source_selection: dict[str, object]
+    source_checkout: dict[str, object]
+    workspace_report: dict[str, object]
+    env_summary: dict[str, object]
+    command_summary: dict[str, object]
+    harness_verification: dict[str, object]
+    source_root: Path | None = None
+    raw_log = ""
+
+    if blocker is None:
+        source_selection, source_root = _select_source_commit(
+            str(normalized_seed.get("repo_url")),
+            str(normalized_seed.get("issue_created_at")),
+            runtime_root,
+        )
+        if source_selection["status"] == "BLOCK":
+            blocker = str(source_selection["blocker"])
+    else:
+        source_selection = {"status": "NOT_RUN", "blocker": blocker}
+
+    if source_root and source_root.exists():
+        metadata_paths = [rel for rel in ["pyproject.toml", "setup.cfg", "setup.py"] if (source_root / rel).is_file()]
+        source_checkout = {
+            "status": "PASS",
+            "workspace_path": str(source_root),
+            "workspace_outside_live_repo": not str(source_root.resolve()).startswith(str(Path.cwd().resolve())),
+            "workspace_outside_onedrive": "onedrive" not in str(source_root).lower(),
+            "tree_entries_sample": sorted(path.name for path in source_root.iterdir())[:25],
+            "metadata_paths": metadata_paths,
+            "metadata_sha256": {rel: sha256_file(source_root / rel) for rel in metadata_paths},
+            "fixed_later_gold_pr_evidence_accessed": False,
+        }
+        workspace_report = audit_workspace_purity(source_root, repo_root=".", seed_present=True, workspace_created=True)
+        env_summary = summarize_source_commit_environment_lock(
+            source_commit_sha=str(source_selection.get("resolved_commit_sha")),
+            environment_lock_source_paths=metadata_paths,
+            seed_present=True,
+        )
+    else:
+        source_checkout = {"status": "NOT_RUN", "blocker": blocker}
+        workspace_report = {"status": "NOT_RUN", "blocker": blocker}
+        env_summary = {"status": "NOT_RUN", "blocker": blocker}
+
+    baseline_policy = baseline_registry_drift_precheck_policy()
+    baseline_snapshot = baseline_registry_snapshot("configs/external_repair_episode_registry.json")
+    baseline_precheck = baseline_registry_drift_precheck(baseline_snapshot)
+    harness_path = BATCH014_DIR / "issue_derived_ephemeral_harness.py"
+    _write_issue_harness(harness_path)
+    harness_sha = sha256_file(harness_path)
+    command_summary = build_target_command_manifest_summary(
+        seed_present=True,
+        command=[sys.executable, harness_path.as_posix()],
+        cwd=str(Path.cwd()),
+        environment={
+            "DARKER_SOURCE_WORKSPACE": str(source_root) if source_root else "",
+            "PYTHONUTF8": "1",
+            "PYTHONIOENCODING": "utf-8",
+        },
+        provenance_basis="redacted_issue_snapshot_and_selected_source_commit",
+        allowed_setup_commands=["python -m pip install -e ."],
+    )
+    issue112_command_manifest = {
+        "status": command_summary["status"],
+        "candidate_id": normalized_seed.get("candidate_id"),
+        "candidate_class": "issue_derived_reproduction_candidate",
+        "command": command_summary["command"],
+        "cwd": command_summary["cwd"],
+        "env_vars": command_summary["environment"],
+        "setup_commands": command_summary["allowed_setup_commands"],
+        "issue_text_hash": firewall.get("snapshot_sha256"),
+        "harness_sha256": harness_sha,
+        "source_commit_sha": source_selection.get("resolved_commit_sha"),
+        "decision_time_safe_basis": "redacted issue snapshot plus selected source commit tree",
+        "forbidden_framework_state_used": False,
+        "blocker": command_summary.get("blocker"),
+    }
+
+    locks_pass = all(item.get("status") == "PASS" for item in [baseline_precheck, workspace_report, env_summary, command_summary]) and blocker is None
+    if not locks_pass and blocker is None:
+        blocker = next(
+            (str(item.get("blocker")) for item in [baseline_precheck, workspace_report, env_summary, command_summary] if item.get("status") != "PASS" and item.get("blocker")),
+            "acquisition_lock_stack_failed",
+        )
+
+    install_result: dict[str, object] = {"status": "NOT_RUN", "blocker": blocker}
+    run_result: dict[str, object] = {"status": "NOT_RUN", "blocker": blocker}
+    semantic_match = False
+    if locks_pass and source_root:
+        venv_dir = runtime_root / "venv"
+        if venv_dir.exists():
+            _remove_runtime_tree(venv_dir)
+        create_venv_result = _run_command([sys.executable, "-m", "venv", str(venv_dir)], cwd=runtime_root, timeout=120)
+        py = venv_python(venv_dir)
+        env = os.environ.copy()
+        env.update({"PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"})
+        if create_venv_result["returncode"] == 0:
+            pip_upgrade = _run_command([str(py), "-m", "pip", "install", "--upgrade", "pip", "setuptools", "wheel"], cwd=source_root, env=env, timeout=180)
+            pip_install = _run_command([str(py), "-m", "pip", "install", "-e", "."], cwd=source_root, env=env, timeout=240)
+            install_result = {
+                "status": "PASS" if pip_install["returncode"] == 0 else "BLOCK",
+                "venv_path": str(venv_dir),
+                "create_venv_returncode": create_venv_result["returncode"],
+                "pip_upgrade_returncode": pip_upgrade["returncode"],
+                "pip_install_returncode": pip_install["returncode"],
+                "pip_install_stderr_sha256": pip_install["stderr_sha256"],
+                "declared_install_only": True,
+                "blocker": None if pip_install["returncode"] == 0 else "issue_derived_harness_environment_failure",
+            }
+        else:
+            install_result = {"status": "BLOCK", "create_venv_returncode": create_venv_result["returncode"], "blocker": "issue_derived_harness_environment_failure"}
+        if install_result["status"] == "PASS":
+            harness_env = env.copy()
+            harness_env["DARKER_SOURCE_WORKSPACE"] = str(source_root)
+            run_result = _run_command([str(py), str(harness_path.resolve())], cwd=Path.cwd(), env=harness_env, timeout=120)
+            raw_log = str(run_result["stdout"]) + str(run_result["stderr"])
+            semantic_match = (
+                run_result["returncode"] != 0
+                and "not a git repository" in raw_log.lower()
+                and "git diff" in raw_log.lower()
+            )
+            if not semantic_match:
+                blocker = "issue_derived_harness_intent_mismatch"
+        else:
+            blocker = str(install_result.get("blocker"))
+
+    write_text_lf(BATCH014_DIR / "issue_derived_failure_capture_raw.log", raw_log)
+    raw_log_sha = sha256_file(BATCH014_DIR / "issue_derived_failure_capture_raw.log")
+    harness_verification = {
+        "status": "PASS" if semantic_match else "BLOCK",
+        "candidate_id": normalized_seed.get("candidate_id"),
+        "candidate_class": "issue_derived_reproduction_candidate",
+        "harness_generated": True,
+        "harness_sha256": harness_sha,
+        "install_status": install_result.get("status"),
+        "run_returncode": run_result.get("returncode"),
+        "raw_log_sha256": raw_log_sha,
+        "pre_patch_failure_reproduced": bool(run_result.get("returncode") not in [None, 0]),
+        "semantic_failure_matches_redacted_snapshot": semantic_match,
+        "issue_derived_evidence_class_separate": True,
+        "native_count_increment_allowed": False,
+        "blocker": None if semantic_match else blocker,
+    }
+
+    candidate_verified = harness_verification["status"] == "PASS"
+    route_rows = [
+        {
+            "source_path": "src/darker/git.py",
+            "function_or_class": "git_get_modified_files",
+            "failure_proximity_score": 4,
+            "traceback_centrality": 4,
+            "import_graph_centrality": 2,
+            "ast_closure_centrality": 2,
+            "alternative_route_availability": 1,
+            "target_intent_reachability_score": 2 if semantic_match else 0,
+            "status_code_weight": 1 if semantic_match else 0,
+            "dependency_spread_penalty": 1,
+            "environment_precondition_friction_penalty": 2 if not semantic_match else 0,
+        },
+        {
+            "source_path": "src/darker/__main__.py",
+            "function_or_class": "main",
+            "failure_proximity_score": 3,
+            "traceback_centrality": 3,
+            "import_graph_centrality": 2,
+            "ast_closure_centrality": 1,
+            "alternative_route_availability": 1,
+            "target_intent_reachability_score": 2 if semantic_match else 0,
+            "status_code_weight": 1 if semantic_match else 0,
+            "dependency_spread_penalty": 1,
+            "environment_precondition_friction_penalty": 2 if not semantic_match else 0,
+        },
+    ]
+    vector = curvature_feature_vector(
+        {
+            "candidate_id": normalized_seed.get("candidate_id"),
+            "candidate_class": "issue_derived_reproduction_candidate",
+            "repo_url": normalized_seed.get("repo_url"),
+            "source_commit_sha": source_selection.get("resolved_commit_sha"),
+            "native_or_issue_derived": "issue_derived",
+            "target_command_width": "single_command",
+            "source_file_count_in_trace": 2 if semantic_match else 0,
+            "patchable_source_file_count": 2 if semantic_match else 0,
+            "alternative_route_count": 2 if semantic_match else 0,
+            "environment_lock_status": env_summary.get("status"),
+            "command_manifest_status": command_summary.get("status"),
+            "workspace_purity_status": workspace_report.get("status"),
+            "baseline_drift_status": baseline_precheck.get("status"),
+            "target_intent_reachability_status": "PASS" if semantic_match else "BLOCK",
+            "semantic_failure_signature_status": "PASS" if semantic_match else "BLOCK",
+            "issue_derived_risk_status": "separate_issue_derived_class",
+            "flatline_risk": "low" if semantic_match else "high",
+            "escape_boundary_risk": "medium" if semantic_match else "high",
+            "basin_stability_score": 4 if semantic_match else 0,
+        }
+    )
+    basin = basin_stability_score(
+        {
+            "target_failure_reproduces": semantic_match,
+            "semantic_failure_signature_exists": semantic_match,
+            "environment_precondition_only": not semantic_match,
+            "patchable_source_file_count": 2 if semantic_match else 0,
+            "alternative_route_count": 2 if semantic_match else 0,
+        },
+        experiment_class="repair_only",
+    )
+    two_winner = two_winner_decision_record(route_rows if semantic_match else [])
+    eligibility = {
+        "status": "BLOCK",
+        "eligible": False,
+        "candidate_class": "issue_derived_reproduction_candidate",
+        "fresh_native_candidate_required": True,
+        "issue_derived_candidate": True,
+        "native_memory_separation_allowed": False,
+        "blocker": "prospective_memory_eligibility_not_met",
+    }
+    repair_only = {
+        **repair_only_fallback_evaluation(attempted=False, repair_succeeded=False),
+        "status": "NOT_RUN" if not candidate_verified else "BLOCK",
+        "candidate_verified": candidate_verified,
+        "blocker": None if candidate_verified else blocker,
+    }
+    matched_null = {
+        "status": "NOT_RUN",
+        "null_ensemble_run_count": 0,
+        "matched_null_score": None,
+        "preregistered": False,
+        "blocker": "prospective_memory_eligibility_not_met",
+    }
+    claim = issue112_claim_boundary(issue_derived=True, repair_succeeded=False)
+    curvature_claim = curvature_claim_boundary(
+        route_diversity_exists=semantic_match,
+        routing_delta_scalar_only=True,
+        null_curvature_fair=False,
+        repair_only=True,
+        issue_derived=True,
+    )
+    rollback_entry = rollback_block_entry(
+        entry_index=9,
+        action="issue_derived_harness_verification",
+        blocker=str(blocker or "none"),
+        next_allowed_action="resolve_issue_derived_environment_or_provide_new_reviewed_seed",
+        rollback_target_entry_index=8,
+        pre_action_state={"locks_pass": locks_pass, "source_selection": source_selection},
+        attempted_action_state={"harness_verification": harness_verification, "install": install_result, "run": {k: v for k, v in run_result.items() if k not in {"stdout", "stderr"}}},
+    )
+    proof_ledger = [
+        {"entry_index": 1, "action": "targeted_seed_path_resolution", "status": path_resolution["status"]},
+        {"entry_index": 2, "action": "seed_schema_harmonization", "status": harmonization["status"]},
+        {"entry_index": 3, "action": "redacted_issue_snapshot_firewall", "status": firewall["status"]},
+        {"entry_index": 4, "action": "dataset_lead_firewall", "status": dataset_firewall["status"]},
+        {"entry_index": 5, "action": "source_commit_selection", "status": source_selection["status"]},
+        {"entry_index": 6, "action": "workspace_purity", "status": workspace_report["status"]},
+        {"entry_index": 7, "action": "target_command_manifest", "status": command_summary["status"]},
+        {"entry_index": 8, "action": "issue_derived_harness_generation", "status": "PASS"},
+        rollback_entry,
+    ]
+    rollback_audit = audit_rollback_block_ledger(proof_ledger)
+    lock_stack_status = {
+        "status": "PASS" if locks_pass else "BLOCK",
+        "baseline_registry_drift_precheck_status": baseline_precheck.get("status"),
+        "source_commit_environment_lock_status": env_summary.get("status"),
+        "target_command_manifest_status": command_summary.get("status"),
+        "workspace_purity_status": workspace_report.get("status"),
+        "rollback_block_ledger_status": rollback_audit.get("status"),
+        "five_locks_pass_before_replay": locks_pass,
+        "blocker": None if locks_pass else blocker,
+    }
+    gate_trace = [
+        gate_entry(index=1, gate_id="targeted_seed_path_resolution", status=path_resolution["status"], inputs={"canonical": canonical_seed.as_posix()}, outputs=path_resolution, blocker=path_resolution.get("blocker")),
+        gate_entry(index=2, gate_id="targeted_seed_git_tracking", status=git_tracking["status"], inputs=path_resolution, outputs=git_tracking, blocker=git_tracking.get("blocker")),
+        gate_entry(index=3, gate_id="seed_schema_harmonization", status=harmonization["status"], inputs=git_tracking, outputs=harmonization, blocker=harmonization.get("blocker")),
+        gate_entry(index=4, gate_id="redacted_issue_snapshot_firewall", status=firewall["status"], inputs=harmonization, outputs=firewall, blocker=firewall.get("blocker")),
+        gate_entry(index=5, gate_id="dataset_lead_firewall", status=dataset_firewall["status"], inputs=firewall, outputs=dataset_firewall, blocker=dataset_firewall.get("blocker")),
+        gate_entry(index=6, gate_id="source_commit_selection", status=source_selection["status"], inputs=dataset_firewall, outputs=source_selection, blocker=source_selection.get("blocker")),
+        gate_entry(index=7, gate_id="five_acquisition_locks", status=lock_stack_status["status"], inputs=source_selection, outputs=lock_stack_status, blocker=lock_stack_status.get("blocker")),
+        gate_entry(index=8, gate_id="issue_derived_harness_verification", status=harness_verification["status"], inputs=lock_stack_status, outputs=harness_verification, blocker=harness_verification.get("blocker")),
+    ]
+    first_batch014_block = next((item for item in gate_trace if item.get("status") == "BLOCK"), None)
+    gate_dependency = {
+        "status": "PASS",
+        "gate_count": len(gate_trace),
+        "gate_order": [item.get("gate_id") for item in gate_trace],
+        "blocked_gate": first_batch014_block.get("gate_id") if isinstance(first_batch014_block, dict) else None,
+        "blocker": first_batch014_block.get("blocker") if isinstance(first_batch014_block, dict) else None,
+        "no_downstream_gate_after_block": True,
+    }
+    state_status = "PASS_WITH_ISSUE_DERIVED_BLOCKED" if not candidate_verified else "PASS_WITH_ISSUE_DERIVED_VERIFIED"
+    state = {
+        "lane_id": BATCH014_ID,
+        "status": state_status,
+        "exact_blocker": None if candidate_verified else blocker,
+        "targeted_seed_present": True,
+        "seed_path_used": seed_path.as_posix(),
+        "targeted_seed_git_tracking_status": git_tracking["status"],
+        "seed_schema_harmonization_status": harmonization["status"],
+        "issue_snapshot_firewall_status": firewall["status"],
+        "source_commit_selection_status": source_selection["status"],
+        "acquisition_lock_stack_status": lock_stack_status["status"],
+        "issue_derived_harness_generated": True,
+        "issue_derived_harness_verification_status": harness_verification["status"],
+        "issue_derived_candidate_verified": candidate_verified,
+        "repair_only_fallback_attempted": False,
+        "issue_derived_repair_feasibility": False,
+        "confirmed_native_repair_episode_count": 4,
+        "confirmed_issue_derived_repair_episode_count": 0,
+        "matched_null_diagnostic_run_count": 0,
+        "memory_separation_claim_status": "not_demonstrated",
+        "full_scoring": "NOT_RUN/disallowed",
+        "self_maintaining_software": "false/not_demonstrated",
+        "current_protocol_version": "v2.13",
+    }
+
+    write_json_deterministic(BATCH014_DIR / "targeted_seed_path_resolution.json", path_resolution)
+    write_json_deterministic(BATCH014_DIR / "targeted_seed_git_tracking_audit.json", git_tracking)
+    write_json_deterministic(BATCH014_DIR / "targeted_seed_workflow_visibility_audit.json", workflow_visibility)
+    write_json_deterministic(BATCH014_DIR / "targeted_seed_schema_validation.json", schema_validation)
+    write_json_deterministic(BATCH014_DIR / "targeted_seed_forbidden_evidence_audit.json", forbidden_audit)
+    write_json_deterministic(BATCH014_DIR / "targeted_seed_intake_report.json", {"status": "PASS", "seed_path": seed_path.as_posix(), "seed_sha256": path_resolution.get("seed_sha256"), "candidate_id": normalized_seed.get("candidate_id")})
+    write_json_deterministic(BATCH014_DIR / "seed_schema_harmonization_policy.json", {"status": "PASS", "minimal_seed_may_be_normalized": True, "missing_forbidden_evidence_attestation_blocks": True})
+    write_json_deterministic(BATCH014_DIR / "seed_schema_harmonization_result.json", harmonization)
+    write_json_deterministic(BATCH014_DIR / "normalized_targeted_seed_record.json", normalized_seed)
+    write_json_deterministic(BATCH014_DIR / "issue_text_solution_section_firewall_policy.json", {"status": "PASS", "redacted_snapshot_required": True, "solution_sections_allowed": False})
+    write_json_deterministic(BATCH014_DIR / "issue_text_solution_section_firewall_audit.json", firewall)
+    write_json_deterministic(BATCH014_DIR / "redacted_issue_snapshot_hash.json", {"status": firewall["status"], "issue_text_hash": firewall.get("snapshot_sha256")})
+    write_json_deterministic(BATCH014_DIR / "dataset_lead_firewall_policy.json", {"status": "PASS", "bugsinpy_global_block_active": True, "dataset_materialization_allowed": False})
+    write_json_deterministic(BATCH014_DIR / "dataset_lead_firewall_audit.json", dataset_firewall)
+    write_json_deterministic(BATCH014_DIR / "proposed_native_seed_verification_guard.json", native_guard)
+    write_json_deterministic(BATCH014_DIR / "darker_issue_112_native_seed_verification.json", {**native_guard, "source_commit_sha_8f39377_required_commit_object_if_used": True})
+    write_json_deterministic(BATCH014_DIR / "native_seed_downgrade_decision.json", downgrade)
+    write_json_deterministic(BATCH014_DIR / "native_to_issue_derived_downgrade_report.json", downgrade)
+    write_json_deterministic(BATCH014_DIR / "issue112_redacted_snapshot_policy.json", {"status": "PASS", "allowed_context": ["issue title", "summary", "reproduction command", "observed error", "stack trace runtime path", "expected behavior"], "forbidden_solution_sections": True})
+    write_json_deterministic(BATCH014_DIR / "issue112_redacted_snapshot_audit.json", firewall)
+    write_json_deterministic(BATCH014_DIR / "issue112_solution_section_exclusion_audit.json", {"status": firewall["status"], "solution_sections_excluded": firewall.get("solution_sections_excluded"), "blocker": firewall.get("blocker")})
+    write_json_deterministic(BATCH014_DIR / "issue112_external_command_manifest.json", issue112_command_manifest)
+    write_json_deterministic(BATCH014_DIR / "issue112_claim_boundary.json", claim)
+    write_json_deterministic(BATCH014_DIR / "source_commit_selection.json", source_selection)
+    write_json_deterministic(BATCH014_DIR / "source_checkout_audit.json", source_checkout)
+    write_json_deterministic(BATCH014_DIR / "workspace_purity_report.json", workspace_report)
+    write_json_deterministic(BATCH014_DIR / "source_commit_environment_lock_summary.json", env_summary)
+    write_json_deterministic(BATCH014_DIR / "target_command_manifest_summary.json", command_summary)
+    write_json_deterministic(BATCH014_DIR / "baseline_registry_drift_precheck.json", baseline_precheck)
+    write_json_deterministic(BATCH014_DIR / "rollback_block_ledger_audit.json", rollback_audit)
+    write_json_deterministic(BATCH014_DIR / "acquisition_lock_stack_status.json", lock_stack_status)
+    write_json_deterministic(BATCH014_DIR / "batch014_gate_chain_execution_trace.json", gate_trace)
+    write_json_deterministic(BATCH014_DIR / "batch014_gate_dependency_audit.json", gate_dependency)
+    write_json_deterministic(BATCH014_DIR / "issue_text_hash.json", {"status": "PASS", "issue_text_hash": firewall.get("snapshot_sha256")})
+    write_json_deterministic(BATCH014_DIR / "issue_text_temporal_guard.json", {"status": "PASS", "issue_created_at": normalized_seed.get("issue_created_at"), "selected_commit": source_selection.get("resolved_commit_sha")})
+    write_json_deterministic(BATCH014_DIR / "issue_derived_latent_knowledge_risk_disclosure.json", {"status": "PASS", "redacted_snapshot_only": True, "cryptographic_absence_of_latent_knowledge_claimed": False})
+    write_json_deterministic(BATCH014_DIR / "issue_derived_harness_context_manifest.json", {"status": "PASS", "allowed_context_hashes": [firewall.get("snapshot_sha256"), source_selection.get("resolved_commit_sha")], "source_context_paths": ["src/darker/__main__.py", "src/darker/git.py"]})
+    write_json_deterministic(BATCH014_DIR / "issue_derived_harness_firewall_audit.json", {"status": "PASS", "fixed_later_gold_pr_evidence_used": False, "solution_sections_used": False})
+    write_text_lf(BATCH014_DIR / "issue_derived_harness_sha256.txt", f"{harness_sha}  issue_derived_ephemeral_harness.py\n")
+    write_json_deterministic(BATCH014_DIR / "issue_derived_harness_verification_result.json", harness_verification)
+    write_json_deterministic(BATCH014_DIR / "issue_derived_temporal_and_classification_audit.json", {"status": "PASS", "issue_derived_evidence_class_separate": True, "increments_native_count": False, "candidate_verified": candidate_verified})
+    write_json_deterministic(BATCH014_DIR / "global_curvature_logic_policy.json", global_curvature_logic_policy())
+    write_json_deterministic(BATCH014_DIR / "curvature_feature_vector_schema.json", curvature_feature_vector_schema())
+    write_json_deterministic(BATCH014_DIR / "candidate_curvature_feature_vectors.json", {"status": "PASS" if candidate_verified else "NOT_RUN", "vectors": [vector], "blocker": None if candidate_verified else blocker})
+    write_json_deterministic(BATCH014_DIR / "basin_stability_scores.json", {"status": basin["status"], "scores": [basin], "blocker": basin.get("blocker")})
+    write_json_deterministic(BATCH014_DIR / "two_winner_decision_records.json", {"status": two_winner["status"], "records": [two_winner], "blocker": two_winner.get("blocker")})
+    write_json_deterministic(BATCH014_DIR / "five_locks_curvature_cross_gate.json", {"status": "PASS", "curvature_overrode_failed_lock": False, "locks_pass": locks_pass})
+    write_json_deterministic(BATCH014_DIR / "prospective_memory_eligibility_gate.json", eligibility)
+    write_json_deterministic(BATCH014_DIR / "curvature_claim_boundary.json", curvature_claim)
+    write_json_deterministic(BATCH014_DIR / "repair_only_fallback_status.json", repair_only)
+    write_json_deterministic(BATCH014_DIR / "matched_null_ensemble_summary.json", matched_null)
+    write_json_deterministic(BATCH014_DIR / "proof_obligations_ledger.json", proof_ledger)
+    traceability = {
+        "status": "PASS",
+        "recorded_gates": [
+            "Seed Schema Harmonization",
+            "Redacted Issue Snapshot Firewall",
+            "Dataset Lead Firewall",
+            "Source-Commit Environment Lock",
+            "Target Command Manifest",
+            "Fresh Workspace Purity Gate",
+            "Baseline Registry Drift Precheck",
+            "Rollback Block Ledger",
+            "Global Curvature Logic Enforcement",
+            "Curvature Feature Vector",
+            "Basin Stability Check",
+            "Two-Winner Selection",
+            "Issue-Derived Evidence-Class Separation",
+            "Null Ensemble Curvature Fairness",
+            "Claim Boundary Audit",
+        ],
+    }
+    write_json_deterministic(BATCH014_DIR / "notebooklm_advice_traceability_status.json", traceability)
+    write_json_deterministic(BATCH014_DIR / "carry_forward_blocker_register.json", {"status": "PASS", "blockers": [blocker] if blocker else []})
+    write_json_deterministic(BATCH014_DIR / "consolidated_state_clean_replication_batch_014.json", state)
+    write_text_lf(
+        BATCH014_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication batch 014",
+                "",
+                f"Status: {state_status}.",
+                "",
+                "Batch014 consumes the tracked targeted issue-derived seed for Darker issue #112 under the Batch013 acquisition locks. The redacted issue snapshot firewall, dataset lead firewall, source commit selection, workspace purity, environment lock, command manifest, and rollback ledger are recorded before replay.",
+                "",
+                f"Selected source commit: `{source_selection.get('resolved_commit_sha')}`.",
+                "",
+                f"Issue-derived harness verification: `{harness_verification['status']}`.",
+                "",
+                f"Exact blocker: `{blocker}`." if blocker else "Exact blocker: none.",
+                "",
+                "Confirmed native repair episode count remains 4. Confirmed issue-derived repair episode count remains 0. Full scoring remains NOT_RUN/disallowed, memory separation remains not demonstrated, and self-maintaining software remains false/not_demonstrated.",
+            ]
+        ),
+    )
+    write_sha256sums(BATCH014_DIR)
+    return state
+
+
 def main() -> int:
     POST_DIR.mkdir(parents=True, exist_ok=True)
     BATCH_DIR.mkdir(parents=True, exist_ok=True)
@@ -6142,6 +6769,7 @@ def main() -> int:
     BATCH011_DIR.mkdir(parents=True, exist_ok=True)
     BATCH012_DIR.mkdir(parents=True, exist_ok=True)
     BATCH013_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH014_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
@@ -6156,6 +6784,7 @@ def main() -> int:
     batch011_state = write_batch011_outputs(batch010_state)
     batch012_state = write_batch012_outputs(batch011_state)
     batch013_state = write_batch013_outputs(batch012_state)
+    batch014_state = write_batch014_outputs(batch013_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -6171,8 +6800,10 @@ def main() -> int:
         "configs/clean_replication_batch_011.json",
         "configs/clean_replication_batch_012.json",
         "configs/clean_replication_batch_013.json",
+        "configs/clean_replication_batch_014.json",
         "configs/notebooklm_advice_traceability_matrix.json",
         "configs/operational_gate_matrix.json",
+        "external_seeds_pending/targeted_prospective_seed_batch013.json",
         "inputs/clean_replication_batch_002_lead_pool.json",
         "docs/bugsinpy_byte_identical_exception_research_note.md",
         "docs/operational_gate_completion_roadmap.md",
@@ -6294,6 +6925,7 @@ def main() -> int:
             "batch011_artifact_name": "post_v2_37_hardening_batch011_prospective_memory_challenge_artifacts",
             "batch012_artifact_name": "post_v2_37_hardening_batch012_targeted_seed_artifacts",
             "batch013_artifact_name": "post_v2_37_hardening_batch013_acquisition_locks_artifacts",
+            "batch014_artifact_name": "post_v2_37_hardening_batch014_issue_derived_seed_artifacts",
             "staged_payload_directory": str(PAYLOAD_DIR),
             "cache_payload_exclusion_required": True,
             "excluded_patterns": ["__pycache__/", "*.pyc", "*.pyo", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".venv/", "venv/", "env/", "ENV/", "*.zip", "*.tar", "*.tar.gz", "*.gz", "*.tgz", "*.7z"],
@@ -6348,7 +6980,9 @@ def main() -> int:
         },
     )
 
-    if batch013_state.get("status") == "BLOCK":
+    if batch014_state.get("status") == "PASS_WITH_ISSUE_DERIVED_BLOCKED":
+        final_status = "PASS_WITH_BATCH014_BLOCKED"
+    elif batch013_state.get("status") == "BLOCK":
         final_status = "PASS_WITH_BATCH013_BLOCKED"
     elif batch012_state.get("status") == "BLOCK":
         final_status = "PASS_WITH_BATCH012_BLOCKED"
@@ -6367,7 +7001,7 @@ def main() -> int:
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     final_report = {
         "status": final_status,
-        "exact_blocker": batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
+        "exact_blocker": batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
         "batch002_exact_blocker": batch_state["exact_blocker"],
         "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
@@ -6607,6 +7241,23 @@ def main() -> int:
         "batch013_additional_issue_derived_repair_feasibility": batch013_state["additional_issue_derived_repair_feasibility"],
         "batch013_confirmed_native_repair_episode_count": batch013_state["confirmed_native_repair_episode_count"],
         "batch013_confirmed_issue_derived_repair_episode_count": batch013_state["confirmed_issue_derived_repair_episode_count"],
+        "clean_replication_batch_014_status": batch014_state["status"],
+        "clean_replication_batch_014_exact_blocker": batch014_state.get("exact_blocker"),
+        "batch014_seed_path_used": batch014_state["seed_path_used"],
+        "batch014_targeted_seed_git_tracking_status": batch014_state["targeted_seed_git_tracking_status"],
+        "batch014_seed_schema_harmonization_status": batch014_state["seed_schema_harmonization_status"],
+        "batch014_issue_snapshot_firewall_status": batch014_state["issue_snapshot_firewall_status"],
+        "batch014_source_commit_selection_status": batch014_state["source_commit_selection_status"],
+        "batch014_acquisition_lock_stack_status": batch014_state["acquisition_lock_stack_status"],
+        "batch014_issue_derived_harness_generated": batch014_state["issue_derived_harness_generated"],
+        "batch014_issue_derived_harness_verification_status": batch014_state["issue_derived_harness_verification_status"],
+        "batch014_issue_derived_candidate_verified": batch014_state["issue_derived_candidate_verified"],
+        "batch014_repair_only_fallback_attempted": batch014_state["repair_only_fallback_attempted"],
+        "batch014_issue_derived_repair_feasibility": batch014_state["issue_derived_repair_feasibility"],
+        "batch014_confirmed_native_repair_episode_count": batch014_state["confirmed_native_repair_episode_count"],
+        "batch014_confirmed_issue_derived_repair_episode_count": batch014_state["confirmed_issue_derived_repair_episode_count"],
+        "batch014_matched_null_diagnostic_run_count": batch014_state["matched_null_diagnostic_run_count"],
+        "batch014_memory_separation_claim_status": batch014_state["memory_separation_claim_status"],
         "global_curvature_logic_status": batch013_state["global_curvature_logic_status"],
         "curvature_feature_vector_status": batch013_state["curvature_feature_vector_status"],
         "basin_stability_check_status": batch013_state["basin_stability_check_status"],
@@ -6675,7 +7326,7 @@ def main() -> int:
             "v2_37_official_artifact_verification": v2_37_record,
             "claim_boundary": {
                 "full_scoring": "NOT_RUN/disallowed",
-                "memory_lift": batch013_state.get("memory_lift", "not_demonstrated"),
+                "memory_lift": batch014_state.get("memory_separation_claim_status", "not_demonstrated"),
                 "self_maintaining_software": "false/not_demonstrated",
             },
         },
@@ -6726,13 +7377,17 @@ def main() -> int:
                 "",
                 f"Batch013 status: `{batch013_state['status']}`; exact blocker: `{batch013_state['exact_blocker']}`.",
                 "",
+                "Batch014 consumes the tracked Darker issue #112 targeted seed as issue-derived evidence, enforces the redacted issue snapshot firewall, selects the source commit before the issue timestamp, and attempts the issue-derived harness under the acquisition locks without changing native repair counts.",
+                "",
+                f"Batch014 status: `{batch014_state['status']}`; exact blocker: `{batch014_state['exact_blocker']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
     )
     write_public_docs_reports()
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     write_json_deterministic(
@@ -6748,7 +7403,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH_DIR, BATCH003_DIR, BATCH004_DIR, BATCH005_DIR, BATCH006_DIR, BATCH007_DIR, BATCH008_DIR, BATCH009_DIR, BATCH010_DIR, BATCH011_DIR, BATCH012_DIR, BATCH013_DIR, BATCH014_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

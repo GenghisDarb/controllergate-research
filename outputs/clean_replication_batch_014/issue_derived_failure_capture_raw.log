@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Dev\ControllerGate_Runtime\clean_replication_batch_014\darker_source\src\darker\__main__.py", line 225, in <module>
+    RETVAL = main()
+  File "C:\Dev\ControllerGate_Runtime\clean_replication_batch_014\darker_source\src\darker\__main__.py", line 182, in main
+    args, config, config_nondefault = parse_command_line(argv)
+                                      ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Dev\ControllerGate_Runtime\clean_replication_batch_014\darker_source\src\darker\command_line.py", line 165, in parse_command_line
+    config = load_config(args.src)
+  File "C:\Dev\ControllerGate_Runtime\clean_replication_batch_014\darker_source\src\darker\config.py", line 37, in load_config
+    path = find_project_root(tuple(srcs or ["."])) / "pyproject.toml"
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'tuple' and 'str'

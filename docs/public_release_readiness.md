@@ -23,10 +23,11 @@ ControllerGate is currently suitable as a pre-alpha research archive. It is not 
 - Batch011 prospective memory challenge eligibility blocks because no fresh candidate verifies, so it does not make the repository release-ready.
 - Batch012 Targeted Prospective Seed Intake blocks when no reviewed seed is supplied, so it does not make the repository release-ready.
 - Batch013 acquisition locks and tracked seed enforcement block when no tracked reviewed seed is supplied, so it does not make the repository release-ready.
+- Batch014 issue-derived targeted seed execution preserves evidence-class separation and does not make the repository release-ready.
 
 ## Blocking gaps
 
-- No accepted prospective matched-null memory separation evidence; Batch009 and Batch010 remain retrospective diagnostics, Batch011 blocks before a fresh candidate is admitted, Batch012 lacks the reviewed targeted seed required to continue, and Batch013 confirms that future seed intake must be tracked and workflow-visible before acquisition.
+- No accepted prospective matched-null memory separation evidence; Batch009 and Batch010 remain retrospective diagnostics, Batch011 blocks before a fresh candidate is admitted, Batch013 confirms that seed intake must be tracked and workflow-visible before acquisition, and Batch014 issue-derived evidence cannot establish native memory separation.
 - No accepted matched-null ensemble separation evidence on a verified moderate-complexity challenge candidate.
 - No issue-derived repair episodes are counted as native evidence.
 - Memory lift remains `not_demonstrated`; full memory lift is not claimed.

@@ -1,0 +1,74 @@
+[
+  {
+    "blocked_by_gate": null,
+    "blocker": null,
+    "gate_id": "targeted_seed_path_resolution",
+    "gate_index": 1,
+    "input_hash": "a94bec6d03e74ed55340a16fd36031aed76edba72a3fb4d95eca7387cd6be877",
+    "output_hash": "15deda50d12caff9705d93e20a56246b37bbf60f1cdd3597b05dd3640b6d6fe2",
+    "status": "PASS"
+  },
+  {
+    "blocked_by_gate": null,
+    "blocker": null,
+    "gate_id": "targeted_seed_git_tracking",
+    "gate_index": 2,
+    "input_hash": "15deda50d12caff9705d93e20a56246b37bbf60f1cdd3597b05dd3640b6d6fe2",
+    "output_hash": "cecb8168cdac89382e4280e2579bdd82f6dea2c4d1dcc0e902f14be2954c59af",
+    "status": "PASS"
+  },
+  {
+    "blocked_by_gate": null,
+    "blocker": null,
+    "gate_id": "seed_schema_harmonization",
+    "gate_index": 3,
+    "input_hash": "cecb8168cdac89382e4280e2579bdd82f6dea2c4d1dcc0e902f14be2954c59af",
+    "output_hash": "88bf88f187b1617805ec24ba448731927524f1913c90d68d0fbb68ffa1d796ac",
+    "status": "PASS"
+  },
+  {
+    "blocked_by_gate": null,
+    "blocker": null,
+    "gate_id": "redacted_issue_snapshot_firewall",
+    "gate_index": 4,
+    "input_hash": "88bf88f187b1617805ec24ba448731927524f1913c90d68d0fbb68ffa1d796ac",
+    "output_hash": "1485a1d5dbabe678ad233c1e41851c33f43d2c2a69f476d6233379fc12c347e4",
+    "status": "PASS"
+  },
+  {
+    "blocked_by_gate": null,
+    "blocker": null,
+    "gate_id": "dataset_lead_firewall",
+    "gate_index": 5,
+    "input_hash": "1485a1d5dbabe678ad233c1e41851c33f43d2c2a69f476d6233379fc12c347e4",
+    "output_hash": "7c8133b2eb8bb83841b7eaaa642ad31eb94976ae905842f8b16b141dd32c67fa",
+    "status": "PASS"
+  },
+  {
+    "blocked_by_gate": null,
+    "blocker": null,
+    "gate_id": "source_commit_selection",
+    "gate_index": 6,
+    "input_hash": "7c8133b2eb8bb83841b7eaaa642ad31eb94976ae905842f8b16b141dd32c67fa",
+    "output_hash": "37cce80d319157ce86fa1435f56288cdcaa142fc4e6bcbb9f46cbfcd0fb800b8",
+    "status": "PASS"
+  },
+  {
+    "blocked_by_gate": null,
+    "blocker": null,
+    "gate_id": "five_acquisition_locks",
+    "gate_index": 7,
+    "input_hash": "37cce80d319157ce86fa1435f56288cdcaa142fc4e6bcbb9f46cbfcd0fb800b8",
+    "output_hash": "b7a6d2e88cb22f47bad6421a7d77c88e98bf5623ea76ac62147d35ade10a2b66",
+    "status": "PASS"
+  },
+  {
+    "blocked_by_gate": null,
+    "blocker": "issue_derived_harness_intent_mismatch",
+    "gate_id": "issue_derived_harness_verification",
+    "gate_index": 8,
+    "input_hash": "b7a6d2e88cb22f47bad6421a7d77c88e98bf5623ea76ac62147d35ade10a2b66",
+    "output_hash": "443e9a25c6d1c209e5052c4957e35aaedbce14e4f4b563ee5d5e830fbcb33456",
+    "status": "BLOCK"
+  }
+]

@@ -1927,6 +1927,44 @@
       "status": "implemented_active"
     },
     {
+      "advice_id": "batch014_issue_derived_seed_execution",
+      "blocker_if_missing": "targeted_seed_schema_invalid",
+      "blockers": [
+        "targeted_seed_schema_invalid",
+        "issue112_solution_section_leak_detected",
+        "dataset_lead_firewall_failed",
+        "issue_derived_harness_intent_mismatch"
+      ],
+      "claim_boundary": "issue-derived evidence remains separate from native repair and native memory claims",
+      "current_repo_mechanism": "Batch014 executes the committed Darker issue #112 seed with schema harmonization, redacted snapshot firewalling, source-commit selection, and issue-derived claim boundaries",
+      "evidence_class": "issue_derived",
+      "evidence_paths": [
+        "outputs/clean_replication_batch_014/targeted_seed_path_resolution.json",
+        "outputs/clean_replication_batch_014/issue_text_solution_section_firewall_audit.json",
+        "outputs/clean_replication_batch_014/issue_derived_harness_verification_result.json"
+      ],
+      "internal_design_term": "not_applicable",
+      "next_allowed_lane": "clean_replication_continuation",
+      "operational_gate_name": "Issue-Derived Targeted Seed Execution",
+      "public_engineering_name": "Issue-Derived Targeted Seed Execution",
+      "reason_if_deferred_or_rejected": "issue-derived replay must match the redacted snapshot before repair feasibility can run",
+      "required_audit_assertions": [
+        "seed is tracked and workflow-visible",
+        "redacted issue snapshot firewall passes",
+        "issue-derived evidence does not increment native counts"
+      ],
+      "required_modules_or_scripts": [
+        "controllergate/core/targeted_seed.py",
+        "scripts/audit_post_v2_37_hardening_and_batch002.py"
+      ],
+      "required_outputs": [
+        "outputs/clean_replication_batch_014/targeted_seed_path_resolution.json",
+        "outputs/clean_replication_batch_014/issue_text_solution_section_firewall_audit.json",
+        "outputs/clean_replication_batch_014/issue_derived_harness_verification_result.json"
+      ],
+      "status": "implemented_active"
+    },
+    {
       "advice_id": "v3_readiness_gate",
       "blocker_if_missing": "blocked_v3_readiness_insufficient_external_repairs",
       "blockers": [
@@ -1961,7 +1999,7 @@
       "status": "deferred_with_blocker"
     }
   ],
-  "entry_count": 64,
+  "entry_count": 65,
   "matrix_id": "notebooklm_advice_traceability_matrix_post_v2_37_batch007",
   "status": "PASS",
   "terminology_policy": "neutral_engineering_terms_only"

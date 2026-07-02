@@ -23,19 +23,20 @@ ControllerGate has made meaningful progress as a research harness, but the evide
 - Batch011 implements prospective memory challenge eligibility, retires the already repaired retrospective candidate from further memory-lift attempts, and blocks with `batch011_no_fresh_candidate_verified` after reviewing bounded fresh leads from existing ingested evidence.
 - Batch012 implements Targeted Prospective Seed Intake and blocks with `targeted_prospective_seed_missing_or_invalid` when no reviewed seed is supplied; native and issue-derived verification remain not run.
 - Batch013 implements acquisition/materialization locks, tracked seed enforcement, gate-chain binding, active context filtering records, routing-score freeze, rollback proof records, and issue-derived classification separation. It blocks with `targeted_prospective_seed_missing_or_invalid_after_locks_ready` because no tracked seed is supplied; no source checkout, replay, repair-only fallback, issue-derived fallback, or matched-null comparison runs.
+- Batch014 implements tracked issue-derived seed execution for Darker issue #112 with seed schema harmonization, redacted issue snapshot firewalling, dataset lead firewalling, source-commit selection, and issue-derived claim boundaries. It does not add a native repair episode and does not provide native memory-separation evidence.
 
 ## Remaining gaps
 
 - Additional external repair successes across more repositories are still useful for broader replication.
 - Clean repair generation needs broader coverage beyond the currently validated darker repair case.
-- Matched-null memory separation evidence is not accepted yet; Batch010 remains retrospective no-delta calibration, Batch011 did not verify a fresh candidate for prospective testing, Batch012 lacks the required targeted prospective seed, and Batch013 confirms the tracked-seed and lock stack requirements before any future prospective test can run.
+- Matched-null memory separation evidence is not accepted yet; Batch010 remains retrospective no-delta calibration, Batch011 did not verify a fresh candidate for prospective testing, Batch012 lacked the required targeted prospective seed, Batch013 confirms tracked-seed and lock-stack requirements, and Batch014 keeps issue-derived evidence separate from native memory claims.
 - A matched-null ensemble on a verified challenge candidate has not run or produced accepted separation evidence.
 - Full scoring remains disallowed.
 - Public claims must remain conservative.
 
 ## Current blocker
 
-Batch002 has demonstrated two additional source-only repairs after environment resolution. Batch003 and batch004 show that challenge-candidate acquisition remains difficult. Batch005 addresses source materialization and target-node/source-subset derivation. Batch006 adds fragment assembly gates, Batch007 adds target-intent/precondition gates, and Batch008 demonstrates one bounded repair after declared precondition materialization. Batch009 and Batch010 calibrate matched-null and active routing controls without establishing memory separation. Batch011 adds a prospective eligibility gate but blocks because no fresh candidate verifies. Batch012 requires a reviewed targeted prospective seed, and Batch013 adds the lock stack plus tracked-seed enforcement around that requirement. The remaining blocker is not a single-target repair endpoint; it is the lack of a tracked fresh seed plus broader audited replication and accepted prospective matched-null memory separation evidence.
+Batch002 has demonstrated two additional source-only repairs after environment resolution. Batch003 and batch004 show that challenge-candidate acquisition remains difficult. Batch005 addresses source materialization and target-node/source-subset derivation. Batch006 adds fragment assembly gates, Batch007 adds target-intent/precondition gates, and Batch008 demonstrates one bounded repair after declared precondition materialization. Batch009 and Batch010 calibrate matched-null and active routing controls without establishing memory separation. Batch011 adds a prospective eligibility gate but blocks because no fresh candidate verifies. Batch012 requires a reviewed targeted prospective seed, Batch013 adds the lock stack plus tracked-seed enforcement, and Batch014 executes an issue-derived seed without native count or native memory claims. The remaining blocker is not a single-target repair endpoint; it is broader audited native replication and accepted prospective matched-null memory separation evidence.
 
 ## Current operational gate status
 

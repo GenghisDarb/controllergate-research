@@ -392,7 +392,11 @@ def run_replication_batch(config: dict[str, object], command_runner: CommandRunn
     metadata_attempts: list[dict[str, object]] = []
     issue_attempts: list[dict[str, object]] = []
 
-    seed_files = discover_seed_files(["external_seeds_pending", "inputs/external_candidate_seed_drafts"])
+    configured_seed_paths = [str(path) for path in config.get("curated_seed_paths", []) if Path(str(path)).is_file()]
+    if config.get("enable_repo_curated_seed_discovery") is True:
+        seed_files = discover_seed_files(["external_seeds_pending", "inputs/external_candidate_seed_drafts"])
+    else:
+        seed_files = configured_seed_paths
     trace.append(
         {
             "mode": "curated_seed",

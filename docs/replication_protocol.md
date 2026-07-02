@@ -125,9 +125,15 @@ Batch013 continues the same post-v2.37 clean replication workflow without creati
 
 Batch013 outcome with no tracked seed: the lane blocks with `targeted_prospective_seed_missing_or_invalid_after_locks_ready`. No source checkout, native replay, issue-derived fallback, repair-only fallback, matched-null comparison, or repair generation is authorized.
 
+## Batch014 targeted issue-derived seed execution
+
+Batch014 continues the same post-v2.37 clean replication workflow without creating a new versioned lane. It consumes the committed targeted seed at `external_seeds_pending/targeted_prospective_seed_batch013.json` for Darker issue #112 as issue-derived evidence only. It requires seed schema harmonization, a redacted issue snapshot firewall, dataset lead firewall, source commit selection at or before the issue timestamp, five acquisition locks before replay, and issue-derived claim boundaries.
+
+Batch014 cannot increment native repair counts or support native memory-separation claims from issue-derived evidence. Repair-only or matched-null diagnostic work remains behind the replay and eligibility gates.
+
 ## Current official repair episodes
 
-As of the Batch013 acquisition-lock boundary, the confirmed external non-Ansible native repair endpoints remain `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `not_demonstrated`, and self-maintaining software remains `false/not_demonstrated`.
+As of the Batch014 targeted issue-derived seed boundary, the confirmed external non-Ansible native repair endpoints remain `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`. Confirmed issue-derived repair episodes remain `0` unless a future issue-derived repair validates under its separate evidence class. Full scoring remains `NOT_RUN/disallowed`, matched-null memory status is `not_demonstrated`, and self-maintaining software remains `false/not_demonstrated`.
 
 ## Current operational gate status
 

@@ -23,7 +23,8 @@ BATCH010_DIR = Path("outputs/clean_replication_batch_010")
 BATCH011_DIR = Path("outputs/clean_replication_batch_011")
 BATCH012_DIR = Path("outputs/clean_replication_batch_012")
 BATCH013_DIR = Path("outputs/clean_replication_batch_013")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch013_acquisition_locks")
+BATCH014_DIR = Path("outputs/clean_replication_batch_014")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch014_issue_derived_seed")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -503,6 +504,67 @@ BATCH013_REQUIRED = [
     "matched_null_ensemble_summary.json",
     "repair_only_fallback_summary.json",
     "claim_boundary.json",
+    "notebooklm_advice_traceability_status.json",
+    "carry_forward_blocker_register.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH014_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_014.json",
+    "targeted_seed_path_resolution.json",
+    "targeted_seed_git_tracking_audit.json",
+    "targeted_seed_workflow_visibility_audit.json",
+    "targeted_seed_schema_validation.json",
+    "targeted_seed_forbidden_evidence_audit.json",
+    "targeted_seed_intake_report.json",
+    "seed_schema_harmonization_policy.json",
+    "seed_schema_harmonization_result.json",
+    "normalized_targeted_seed_record.json",
+    "issue_text_solution_section_firewall_policy.json",
+    "issue_text_solution_section_firewall_audit.json",
+    "redacted_issue_snapshot_hash.json",
+    "dataset_lead_firewall_policy.json",
+    "dataset_lead_firewall_audit.json",
+    "proposed_native_seed_verification_guard.json",
+    "darker_issue_112_native_seed_verification.json",
+    "native_seed_downgrade_decision.json",
+    "native_to_issue_derived_downgrade_report.json",
+    "issue112_redacted_snapshot_policy.json",
+    "issue112_redacted_snapshot_audit.json",
+    "issue112_solution_section_exclusion_audit.json",
+    "issue112_external_command_manifest.json",
+    "issue112_claim_boundary.json",
+    "source_commit_selection.json",
+    "source_checkout_audit.json",
+    "workspace_purity_report.json",
+    "source_commit_environment_lock_summary.json",
+    "target_command_manifest_summary.json",
+    "baseline_registry_drift_precheck.json",
+    "rollback_block_ledger_audit.json",
+    "acquisition_lock_stack_status.json",
+    "batch014_gate_chain_execution_trace.json",
+    "batch014_gate_dependency_audit.json",
+    "issue_text_hash.json",
+    "issue_text_temporal_guard.json",
+    "issue_derived_latent_knowledge_risk_disclosure.json",
+    "issue_derived_harness_context_manifest.json",
+    "issue_derived_harness_firewall_audit.json",
+    "issue_derived_ephemeral_harness.py",
+    "issue_derived_harness_sha256.txt",
+    "issue_derived_harness_verification_result.json",
+    "issue_derived_temporal_and_classification_audit.json",
+    "global_curvature_logic_policy.json",
+    "curvature_feature_vector_schema.json",
+    "candidate_curvature_feature_vectors.json",
+    "basin_stability_scores.json",
+    "two_winner_decision_records.json",
+    "five_locks_curvature_cross_gate.json",
+    "prospective_memory_eligibility_gate.json",
+    "curvature_claim_boundary.json",
+    "repair_only_fallback_status.json",
+    "matched_null_ensemble_summary.json",
+    "proof_obligations_ledger.json",
     "notebooklm_advice_traceability_status.json",
     "carry_forward_blocker_register.json",
     "SHA256SUMS.txt",
@@ -2568,6 +2630,104 @@ def audit_batch013_records() -> list[str]:
     return errors
 
 
+def audit_batch014_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH014_REQUIRED:
+        if not (BATCH014_DIR / name).is_file():
+            errors.append(f"batch014 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH014_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch014 manifest failed: {manifest}")
+    state = read_json(BATCH014_DIR / "consolidated_state_clean_replication_batch_014.json")
+    path_resolution = read_json(BATCH014_DIR / "targeted_seed_path_resolution.json")
+    git_tracking = read_json(BATCH014_DIR / "targeted_seed_git_tracking_audit.json")
+    workflow_visibility = read_json(BATCH014_DIR / "targeted_seed_workflow_visibility_audit.json")
+    schema = read_json(BATCH014_DIR / "targeted_seed_schema_validation.json")
+    harmonization = read_json(BATCH014_DIR / "seed_schema_harmonization_result.json")
+    normalized = read_json(BATCH014_DIR / "normalized_targeted_seed_record.json")
+    firewall = read_json(BATCH014_DIR / "issue_text_solution_section_firewall_audit.json")
+    dataset = read_json(BATCH014_DIR / "dataset_lead_firewall_audit.json")
+    native_guard = read_json(BATCH014_DIR / "proposed_native_seed_verification_guard.json")
+    native_check = read_json(BATCH014_DIR / "darker_issue_112_native_seed_verification.json")
+    downgrade = read_json(BATCH014_DIR / "native_to_issue_derived_downgrade_report.json")
+    issue112_manifest = read_json(BATCH014_DIR / "issue112_external_command_manifest.json")
+    issue112_claim = read_json(BATCH014_DIR / "issue112_claim_boundary.json")
+    source_selection = read_json(BATCH014_DIR / "source_commit_selection.json")
+    workspace = read_json(BATCH014_DIR / "workspace_purity_report.json")
+    env_lock = read_json(BATCH014_DIR / "source_commit_environment_lock_summary.json")
+    command = read_json(BATCH014_DIR / "target_command_manifest_summary.json")
+    baseline = read_json(BATCH014_DIR / "baseline_registry_drift_precheck.json")
+    rollback = read_json(BATCH014_DIR / "rollback_block_ledger_audit.json")
+    lock_stack = read_json(BATCH014_DIR / "acquisition_lock_stack_status.json")
+    gate_trace = read_json(BATCH014_DIR / "batch014_gate_chain_execution_trace.json")
+    gate_dependency = read_json(BATCH014_DIR / "batch014_gate_dependency_audit.json")
+    harness = read_json(BATCH014_DIR / "issue_derived_harness_verification_result.json")
+    classification = read_json(BATCH014_DIR / "issue_derived_temporal_and_classification_audit.json")
+    eligibility = read_json(BATCH014_DIR / "prospective_memory_eligibility_gate.json")
+    curvature_claim = read_json(BATCH014_DIR / "curvature_claim_boundary.json")
+    repair_only = read_json(BATCH014_DIR / "repair_only_fallback_status.json")
+    matched = read_json(BATCH014_DIR / "matched_null_ensemble_summary.json")
+    proof = read_json(BATCH014_DIR / "proof_obligations_ledger.json")
+    traceability = read_json(BATCH014_DIR / "notebooklm_advice_traceability_status.json")
+
+    if path_resolution.get("status") != "PASS" or path_resolution.get("seed_path_used") != "external_seeds_pending/targeted_prospective_seed_batch013.json":
+        errors.append("batch014 canonical seed path was not used")
+    if git_tracking.get("status") != "PASS" or git_tracking.get("git_tracked") is not True or git_tracking.get("committed_exactly") is not True:
+        errors.append("batch014 seed is not committed and tracked")
+    if workflow_visibility.get("status") != "PASS" or workflow_visibility.get("workflow_visible") is not True:
+        errors.append("batch014 seed is not workflow-visible")
+    if schema.get("status") != "PASS" or harmonization.get("status") != "PASS":
+        errors.append("batch014 seed schema harmonization failed")
+    if normalized.get("candidate_id") != "darker_issue_112_relative_git_dir" or normalized.get("candidate_class") != "issue_derived_reproduction_candidate":
+        errors.append("batch014 normalized seed identity/class mismatch")
+    if firewall.get("status") != "PASS" or firewall.get("redacted_issue_snapshot_used") is not True or firewall.get("forbidden_section_hits"):
+        errors.append("batch014 redacted issue snapshot firewall failed")
+    if dataset.get("status") != "PASS" or dataset.get("bugsinpy_global_block_active") is not True:
+        errors.append("batch014 dataset lead firewall failed")
+    if native_guard.get("applies_to_issue112") is not True or native_guard.get("native_claimed") is not False:
+        errors.append("batch014 native guard did not identify issue #112 as issue-derived")
+    if native_check.get("source_commit_sha_8f39377_required_commit_object_if_used") is not True:
+        errors.append("batch014 issue #112 special commit guard missing")
+    if downgrade.get("native_count_increment_allowed") is not False or downgrade.get("native_memory_claim_allowed") is not False:
+        errors.append("batch014 native downgrade/count boundary failed")
+    if issue112_manifest.get("forbidden_framework_state_used") is not False or "test_black_diff" in json.dumps(issue112_manifest):
+        errors.append("batch014 issue #112 command manifest used forbidden/native target state")
+    if issue112_claim.get("native_repair_count_increment_allowed") is not False or issue112_claim.get("native_memory_separation_claim_allowed") is not False:
+        errors.append("batch014 issue #112 claim boundary overclaimed")
+    if source_selection.get("status") != "PASS" or source_selection.get("object_type") != "commit":
+        errors.append("batch014 source commit selection did not resolve a commit")
+    for label, data in [("workspace", workspace), ("environment lock", env_lock), ("command manifest", command), ("baseline", baseline)]:
+        if data.get("status") != "PASS":
+            errors.append(f"batch014 {label} did not pass before replay")
+    if rollback.get("status") != "PASS" or rollback.get("rollback_block_count", 0) < 1:
+        errors.append("batch014 rollback block ledger missing")
+    if lock_stack.get("five_locks_pass_before_replay") is not True:
+        errors.append("batch014 replay occurred without five locks")
+    if gate_dependency.get("status") != "PASS" or not isinstance(gate_trace, list):
+        errors.append("batch014 gate-chain audit failed")
+    if harness.get("candidate_class") != "issue_derived_reproduction_candidate" or harness.get("native_count_increment_allowed") is not False:
+        errors.append("batch014 harness conflated evidence classes")
+    if classification.get("increments_native_count") is not False:
+        errors.append("batch014 issue-derived classification increments native count")
+    if eligibility.get("native_memory_separation_allowed") is not False or matched.get("null_ensemble_run_count") != 0:
+        errors.append("batch014 memory/matched-null boundary over-ran")
+    if repair_only.get("repair_only_fallback_attempted") is not False:
+        errors.append("batch014 repair-only fallback ran despite unverified issue-derived candidate")
+    if curvature_claim.get("memory_separation_claim_allowed") is not False:
+        errors.append("batch014 curvature claim boundary overclaimed")
+    if state.get("confirmed_native_repair_episode_count") != 4 or state.get("confirmed_issue_derived_repair_episode_count") != 0:
+        errors.append("batch014 repair counts changed incorrectly")
+    if state.get("full_scoring") != "NOT_RUN/disallowed" or state.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("batch014 claim boundary changed")
+    if not any(isinstance(item, dict) and item.get("entry_type") == "ROLLBACK_BLOCK" for item in proof):
+        errors.append("batch014 proof ledger missing rollback block")
+    if traceability.get("status") != "PASS":
+        errors.append("batch014 traceability missing")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -2684,6 +2844,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_011.json"),
         Path("configs/clean_replication_batch_012.json"),
         Path("configs/clean_replication_batch_013.json"),
+        Path("configs/clean_replication_batch_014.json"),
         Path("controllergate/core/failure_memory.py"),
         Path("controllergate/core/status_code_weighting.py"),
         Path("controllergate/core/source_ranking.py"),
@@ -2881,6 +3042,7 @@ def main() -> int:
         + require_files(BATCH011_DIR, BATCH011_REQUIRED)
         + require_files(BATCH012_DIR, BATCH012_REQUIRED)
         + require_files(BATCH013_DIR, BATCH013_REQUIRED)
+        + require_files(BATCH014_DIR, BATCH014_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -2910,6 +3072,8 @@ def main() -> int:
         return fail("batch012 manifest mismatch")
     if verify_manifest(BATCH013_DIR)["status"] != "PASS":
         return fail("batch013 manifest mismatch")
+    if verify_manifest(BATCH014_DIR)["status"] != "PASS":
+        return fail("batch014 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "-q"]):
         return fail("core tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -3054,6 +3218,9 @@ def main() -> int:
     batch013_errors = audit_batch013_records()
     if batch013_errors:
         return fail(f"batch013 audit failed: {batch013_errors}")
+    batch014_errors = audit_batch014_records()
+    if batch014_errors:
+        return fail(f"batch014 audit failed: {batch014_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -3100,10 +3267,10 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if final_report.get("status") != "PASS_WITH_BATCH013_BLOCKED":
-        return fail("final report did not advance to Batch013 blocked boundary")
-    if final_report.get("exact_blocker") != "targeted_prospective_seed_missing_or_invalid_after_locks_ready":
-        return fail("final report Batch013 blocker mismatch")
+    if final_report.get("status") != "PASS_WITH_BATCH014_BLOCKED":
+        return fail("final report did not advance to Batch014 blocked boundary")
+    if final_report.get("exact_blocker") != "issue_derived_harness_intent_mismatch":
+        return fail("final report Batch014 blocker mismatch")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

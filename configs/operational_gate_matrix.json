@@ -1191,10 +1191,32 @@
         "issue_derived_temporal_classification"
       ],
       "status": "implemented"
+    },
+    {
+      "audit_assertion": "tracked issue-derived targeted seed execution uses redacted issue evidence only and cannot increment native counts",
+      "blocker_names": [
+        "targeted_seed_schema_invalid",
+        "issue112_solution_section_leak_detected",
+        "dataset_lead_firewall_failed",
+        "issue_derived_harness_intent_mismatch"
+      ],
+      "claim_boundary": "issue-derived seed execution is not native repair evidence",
+      "current_module_or_script": "controllergate/core/targeted_seed.py",
+      "evidence_class_affected": "issue_derived_repair_evidence",
+      "expected_output_files": [
+        "outputs/clean_replication_batch_014/issue_derived_harness_verification_result.json",
+        "outputs/clean_replication_batch_014/issue112_claim_boundary.json"
+      ],
+      "neutral_gate_name": "Issue-Derived Targeted Seed Execution",
+      "next_required_implementation_step": "resolve replay mismatch or provide a new reviewed native seed",
+      "notebooklm_advice_ids": [
+        "batch014_issue_derived_seed_execution"
+      ],
+      "status": "implemented"
     }
   ],
   "matrix_id": "operational_gate_matrix_post_v2_37",
-  "notebooklm_advice_cross_reference_count": 64,
+  "notebooklm_advice_cross_reference_count": 65,
   "notebooklm_advice_traceability_matrix_path": "configs/notebooklm_advice_traceability_matrix.json",
   "terminology_policy": "neutral_engineering_terms_only"
 }

@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch013 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch014 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -68,8 +68,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch013_acquisition_locks/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch013_acquisition_locks \( \
+          test -f artifact_payload/post_v2_37_hardening_batch014_issue_derived_seed/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch014_issue_derived_seed \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -90,11 +90,11 @@ jobs:
             exit 1
           fi
 
-      - name: Upload Batch013 acquisition locks post-v2.37 hardening artifact
+      - name: Upload Batch014 issue-derived seed post-v2.37 hardening artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch013_acquisition_locks_artifacts
+          name: post_v2_37_hardening_batch014_issue_derived_seed_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch013_acquisition_locks/**
+            artifact_payload/post_v2_37_hardening_batch014_issue_derived_seed/**
           if-no-files-found: error
