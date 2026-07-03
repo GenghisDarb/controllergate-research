@@ -1,0 +1,48 @@
+{
+  "host_python_version": "3.13.14",
+  "label_only_provider_accepted": false,
+  "providers": [
+    {
+      "custody_status": "PASS",
+      "exact_runtime_verified": false,
+      "provider_id": "host_current_python",
+      "provider_type": "host",
+      "runtime_family": "3.13",
+      "runtime_label": "3.13.14",
+      "verification_method": "sys.version_info from current interpreter",
+      "workflow_safe": false
+    },
+    {
+      "custody_status": "UNVERIFIED",
+      "exact_runtime_verified": false,
+      "provider_id": "github_actions_setup_python_37",
+      "provider_type": "hosted_setup_action",
+      "runtime_family": "3.7",
+      "runtime_label": "3.7",
+      "verification_method": "not executed in this lane; label alone is insufficient",
+      "workflow_safe": false
+    },
+    {
+      "custody_status": "UNVERIFIED",
+      "exact_runtime_verified": false,
+      "provider_id": "container_python_37",
+      "provider_type": "container",
+      "runtime_family": "3.7",
+      "runtime_label": "python:3.7",
+      "verification_method": "container digest and in-container python version not verified in this lane",
+      "workflow_safe": false
+    },
+    {
+      "custody_status": "PLAN_ONLY",
+      "exact_runtime_verified": false,
+      "provider_id": "self_hosted_python37_plan",
+      "provider_type": "self_hosted_plan",
+      "runtime_family": "3.7",
+      "runtime_label": "3.7",
+      "verification_method": "plan only; no target replay executed",
+      "workflow_safe": false
+    }
+  ],
+  "required_python_family": "3.7",
+  "status": "PASS"
+}

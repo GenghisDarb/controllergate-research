@@ -2,21 +2,17 @@
 
 - Tier 0 Proposed: concept, hypothesis, or architecture sketch.
 - Tier 1 Demonstrated: deterministic local fixture or scaffold evidence.
-- Batch020 Manual Dependency Lock validation is an evidence-custody gate, not a repair claim.
+- Batch021 Runtime Provider Selection is an evidence-custody gate, not a repair claim.
 
 ## Current operational gate status
 
-- Batch019 made Active Search-Space Geometry available as a probe-selection layer, not an evidence replacement.
-- Batch020 validates the canonical manual dependency lock and attempts bounded materialization only under that reviewed lock.
-- Legacy TXT requirements files are support evidence only and cannot bypass the canonical JSON lock.
-- Repair remains blocked before bounded materialization and Target-Intent Alignment.
-- Single-System Navigation Geometry and Coupled Interlock Extension remain separate.
-- Coupled Interlock Extension remains blocked until interlock invariants are computed.
-- Every blocked branch must write a Rollback Block Ledger entry.
-- Failure Taxonomy stays specific enough to guide Recovery Candidate Path ranking.
+- Batch021 preserves the Batch020 manual dependency lock boundary and adds Dynamic Era Materialization.
+- Runtime Provider Selection blocks target replay unless an exact Python 3.7 provider is verified.
+- Containerized Era Runtime remains plan-only until container identity and in-container runtime probes pass.
+- The self-hosted runtime plan is the next safe action when no exact provider is verified.
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0` unless issue-derived feasibility validates.
+- Confirmed issue-derived repair episodes remain `0`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Hallucination elimination, absolute uncrashability, and production runtime readiness are not claimed.
+- Broad runtime-readiness claims are not made.

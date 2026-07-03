@@ -18,7 +18,7 @@ Memory lift on external real bugs is not demonstrated.
 
 Self-maintaining software is not demonstrated.
 
-Latest continuation boundary: Batch020 status `PASS_WITH_BATCH020_MANUAL_LOCK_VALIDATED_ENVIRONMENT_BLOCKED` with exact blocker `manual_lock_environment_materialization_failed`.
+Latest continuation boundary: Batch021 status `PASS_WITH_BATCH021_RUNTIME_PROVIDER_SELF_HOSTED_PLAN` with exact blocker `runtime_provider_exact_version_unavailable`.
 
 ## What ControllerGate is
 
@@ -34,7 +34,7 @@ Latest continuation boundary: Batch020 status `PASS_WITH_BATCH020_MANUAL_LOCK_VA
 
 ## Claim Tier System
 
-Capabilities remain tiered by evidence. Batch020 does not upgrade full-scoring, memory-lift, or self-maintaining claims.
+Capabilities remain tiered by evidence. Batch021 does not upgrade full-scoring, memory-lift, or self-maintaining claims.
 
 ## Capability Catalog
 
@@ -44,17 +44,17 @@ The capability catalog records active and guarded engineering gates with claim b
 
 - Artifact custody must pass.
 - Registry and lock evidence must be decision-time safe.
-- Repair cannot run before bounded materialization and Target-Intent Alignment.
+- Target replay cannot run before verified runtime-provider and dependency-lock gates pass.
 
 ## Runtime-wrapper roadmap
 
-Runtime-wrapper work remains staged behind proof and rollback gates.
+Runtime-provider work remains staged behind proof and rollback gates.
 
 ## Safe public claims
 
 - Current protocol remains `v2.13`.
 - Confirmed external native repair episodes remain `4`.
-- Batch020 validates a manual dependency lock and blocks downstream work if materialization does not pass.
+- Batch021 adds provider selection and exact-runtime gate records for Python 3.7 materialization.
 
 ## Forbidden claims
 
@@ -64,17 +64,13 @@ Runtime-wrapper work remains staged behind proof and rollback gates.
 
 ## Current operational gate status
 
-- Batch019 made Active Search-Space Geometry available as a probe-selection layer, not an evidence replacement.
-- Batch020 validates the canonical manual dependency lock and attempts bounded materialization only under that reviewed lock.
-- Legacy TXT requirements files are support evidence only and cannot bypass the canonical JSON lock.
-- Repair remains blocked before bounded materialization and Target-Intent Alignment.
-- Single-System Navigation Geometry and Coupled Interlock Extension remain separate.
-- Coupled Interlock Extension remains blocked until interlock invariants are computed.
-- Every blocked branch must write a Rollback Block Ledger entry.
-- Failure Taxonomy stays specific enough to guide Recovery Candidate Path ranking.
+- Batch021 preserves the Batch020 manual dependency lock boundary and adds Dynamic Era Materialization.
+- Runtime Provider Selection blocks target replay unless an exact Python 3.7 provider is verified.
+- Containerized Era Runtime remains plan-only until container identity and in-container runtime probes pass.
+- The self-hosted runtime plan is the next safe action when no exact provider is verified.
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0` unless issue-derived feasibility validates.
+- Confirmed issue-derived repair episodes remain `0`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Hallucination elimination, absolute uncrashability, and production runtime readiness are not claimed.
+- Broad runtime-readiness claims are not made.

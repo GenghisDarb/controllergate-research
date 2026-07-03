@@ -1,20 +1,16 @@
 # Replication protocol
 
-Replication requires manual artifact custody, registry validation, source-commit environment locks, target command manifests, fresh workspace purity, baseline registry drift checks, rollback records, replay, validation, duplicate replay, and claim-boundary review.
+Replication requires manual artifact custody, registry validation, source-commit environment locks, target command manifests, fresh workspace purity, runtime-provider verification, replay, validation, duplicate replay, and claim-boundary review.
 
 ## Current operational gate status
 
-- Batch019 made Active Search-Space Geometry available as a probe-selection layer, not an evidence replacement.
-- Batch020 validates the canonical manual dependency lock and attempts bounded materialization only under that reviewed lock.
-- Legacy TXT requirements files are support evidence only and cannot bypass the canonical JSON lock.
-- Repair remains blocked before bounded materialization and Target-Intent Alignment.
-- Single-System Navigation Geometry and Coupled Interlock Extension remain separate.
-- Coupled Interlock Extension remains blocked until interlock invariants are computed.
-- Every blocked branch must write a Rollback Block Ledger entry.
-- Failure Taxonomy stays specific enough to guide Recovery Candidate Path ranking.
+- Batch021 preserves the Batch020 manual dependency lock boundary and adds Dynamic Era Materialization.
+- Runtime Provider Selection blocks target replay unless an exact Python 3.7 provider is verified.
+- Containerized Era Runtime remains plan-only until container identity and in-container runtime probes pass.
+- The self-hosted runtime plan is the next safe action when no exact provider is verified.
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0` unless issue-derived feasibility validates.
+- Confirmed issue-derived repair episodes remain `0`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Hallucination elimination, absolute uncrashability, and production runtime readiness are not claimed.
+- Broad runtime-readiness claims are not made.

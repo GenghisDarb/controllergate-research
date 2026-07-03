@@ -1,0 +1,13 @@
+{
+  "next_allowed_action": "provide_verified_python37_runtime_provider_or_self_hosted_runner",
+  "plan_type": "self_hosted_runtime_required",
+  "required_python_family": "3.7",
+  "requirements": [
+    "fresh workspace outside the live repository and outside OneDrive",
+    "verified Python 3.7.x interpreter",
+    "manual dependency lock installed exactly from reviewed lock evidence",
+    "runtime provider custody record with interpreter SHA256 or package-manager evidence",
+    "target replay only after provider and lock gates pass"
+  ],
+  "status": "PLAN_READY"
+}
