@@ -1,17 +1,18 @@
 # Artifact packaging policy
 
-The primary post-v2.37 artifact remains thin and delta-oriented. Batch020 carries prior evidence by artifact identity and lineage records.
+The primary post-v2.37 artifact remains thin and delta-oriented. Batch022 carries prior evidence by artifact identity and lineage records.
 
 ## Current operational gate status
 
-- Batch019 made Active Search-Space Geometry available as a probe-selection layer, not an evidence replacement.
-- Batch020 validates the canonical manual dependency lock and attempts bounded materialization only under that reviewed lock.
-- Legacy TXT requirements files are support evidence only and cannot bypass the canonical JSON lock.
-- Repair remains blocked before bounded materialization and Target-Intent Alignment.
-- Single-System Navigation Geometry and Coupled Interlock Extension remain separate.
-- Coupled Interlock Extension remains blocked until interlock invariants are computed.
-- Every blocked branch must write a Rollback Block Ledger entry.
-- Failure Taxonomy stays specific enough to guide Recovery Candidate Path ranking.
+- Batch021 blocked because no exact Python 3.7 provider was verified.
+- Batch022 adds a Docker Era-Materialization Provider path and Structured Fragility Audit scaffold.
+- The runtime must conform to the reviewed lock; the lock is not loosened to match the host runtime.
+- PSA-82 is quarantined as diagnostic inspiration only and is not ControllerGate repair evidence.
+- Structured Fragility Audit is diagnostic and cannot replace empirical gates.
+- Repair cannot activate before bounded materialization and Target-Intent Alignment.
+- Active Search-Space Geometry may prioritize probes but cannot replace empirical evidence.
+- Single-system navigation and coupled-interlock extension remain separate.
+- Coupled-interlock extension remains blocked until interlock invariants are computed.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes remain `0` unless issue-derived feasibility validates.
 - Full scoring remains `NOT_RUN/disallowed`.

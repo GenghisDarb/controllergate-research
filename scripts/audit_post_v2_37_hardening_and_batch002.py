@@ -31,7 +31,8 @@ BATCH018_DIR = Path("outputs/clean_replication_batch_018")
 BATCH019_DIR = Path("outputs/clean_replication_batch_019")
 BATCH020_DIR = Path("outputs/clean_replication_batch_020")
 BATCH021_DIR = Path("outputs/clean_replication_batch_021")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch021_dynamic_era_materialization_thin")
+BATCH022_DIR = Path("outputs/clean_replication_batch_022")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch022_docker_era_psa82_thin")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -108,6 +109,9 @@ POST_REQUIRED = [
     "batch020_manual_lock_materialization_artifact_verification.json",
     "batch020_manual_lock_materialization_ingest_summary.json",
     "batch021_dynamic_era_materialization_recommendation.json",
+    "batch021_dynamic_era_materialization_artifact_verification.json",
+    "batch021_dynamic_era_materialization_ingest_summary.json",
+    "batch022_docker_provider_and_psa82_recommendation.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
     "campaign_summary.md",
@@ -975,6 +979,94 @@ BATCH021_REQUIRED = [
     "controllergate_claim_tier_update.json",
     "controllergate_capability_catalog_update.json",
     "public_language_audit_batch021.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH022_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_022.json",
+    "batch021_boundary_preservation.json",
+    "runtime_provider_blocker_preservation.json",
+    "claim_boundary_batch022.json",
+    "psa82_package_presence_check.json",
+    "psa82_package_quarantine_policy.json",
+    "psa82_package_artifact_verification.json",
+    "psa82_final_locked_manifest_audit.json",
+    "psa82_legacy_manifest_stale_audit.json",
+    "psa82_pyc_payload_audit.json",
+    "psa82_adapter_claim_boundary.json",
+    "structured_fragility_audit_policy.json",
+    "permutation_null_audit_policy.json",
+    "patch_structure_sensitivity_policy.json",
+    "psa82_to_controllergate_adapter_mapping.json",
+    "structured_fragility_claim_boundary.json",
+    "structured_fragility_audit_status.json",
+    "docker_runtime_provider_policy.json",
+    "runtime_provider_registry_batch022.json",
+    "runtime_provider_selection_decision_batch022.json",
+    "python37_docker_provider_preflight.json",
+    "runtime_version_gate_audit_batch022.json",
+    "container_security_policy_batch022.json",
+    "docker_provider_status.json",
+    "containerized_workflow_plan.json",
+    "containerized_workflow_execution_policy.json",
+    "containerized_workflow_audit.json",
+    "manual_dependency_lock_provider_revalidation.json",
+    "manual_dependency_lock_provider_install_plan.json",
+    "manual_dependency_lock_provider_install_log.json",
+    "manual_dependency_lock_installed_freeze.json",
+    "manual_dependency_lock_installed_hashes.json",
+    "manual_dependency_lock_provider_install_status.json",
+    "manual_lock_environment_materialization_policy.json",
+    "manual_lock_environment_materialization_log.json",
+    "manual_lock_environment_hash.json",
+    "workspace_purity_report.json",
+    "acquisition_lock_stack_status.json",
+    "issue112_command_variant_policy.json",
+    "issue112_provider_variant_results.json",
+    "darker_issue112_target_intent_signature_retry.json",
+    "target_intent_alignment_retry_audit.json",
+    "issue_derived_harness_v7_policy.json",
+    "issue_derived_harness_v7_context_manifest.json",
+    "issue_derived_harness_v7_verification_result.json",
+    "candidate_curvature_feature_vectors.json",
+    "basin_stability_scores.json",
+    "two_winner_decision_records.json",
+    "prospective_memory_eligibility_gate.json",
+    "curvature_claim_boundary.json",
+    "active_search_geometry_execution_trace.json",
+    "repair_only_fallback_status.json",
+    "issue_derived_repair_feasibility_status.json",
+    "issue_derived_matched_null_diagnostic_status.json",
+    "post_patch_constraint_revalidation.json",
+    "no_overreach_validation.json",
+    "structured_fragility_audit_run_policy.json",
+    "structured_fragility_audit_results.json",
+    "permutation_null_audit_results.json",
+    "patch_structure_sensitivity_results.json",
+    "darker_issue112_candidate_viability_decision.json",
+    "next_probe_or_seed_decision.json",
+    "runtime_provider_next_action.json",
+    "proof_obligations_ledger.json",
+    "rollback_block_ledger_audit.json",
+    "compute_budget_safe_stop_batch022.json",
+    "failure_taxonomy_batch022.json",
+    "precision_failure_log_batch022.json",
+    "semantic_drift_guardrail_status.json",
+    "activation_order_guardrail_status.json",
+    "rollback_ghost_state_guardrail_status.json",
+    "dependency_overlap_grouping_status.json",
+    "consistency_reassertion_status.json",
+    "artifact_packaging_policy.json",
+    "thin_artifact_packaging_policy.json",
+    "artifact_lineage_index.json",
+    "evidence_carry_forward_manifest.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "lineage_equivalence_audit.json",
+    "controllergate_claim_tier_update.json",
+    "controllergate_capability_catalog_update.json",
+    "public_language_audit_batch022.json",
     "SHA256SUMS.txt",
 ]
 
@@ -3332,7 +3424,15 @@ def audit_batch015_records() -> list[str]:
         "self_hosted_runtime_plan",
         "runtime_version_gate",
     }
-    allowed_capabilities = required_capabilities | batch016_catalog_extensions | batch018_catalog_extensions | batch019_catalog_extensions | batch020_catalog_extensions | batch021_catalog_extensions
+    batch022_catalog_extensions = {
+        "docker_era_materialization_provider",
+        "python37_runtime_provider",
+        "structured_fragility_audit",
+        "permutation_null_audit",
+        "patch_structure_sensitivity",
+        "psa82_adapter_quarantine",
+    }
+    allowed_capabilities = required_capabilities | batch016_catalog_extensions | batch018_catalog_extensions | batch019_catalog_extensions | batch020_catalog_extensions | batch021_catalog_extensions | batch022_catalog_extensions
     if not required_capabilities.issubset(capability_ids) or not capability_ids.issubset(allowed_capabilities):
         errors.append("capability_catalog_missing")
     if any("current_tier" not in item for item in capabilities if isinstance(item, dict)):
@@ -3467,7 +3567,7 @@ def audit_batch016_records() -> list[str]:
         errors.append("safe-stop missing after target-intent failure")
     if state.get("status") != "PASS_WITH_BATCH016_SAFE_STOP":
         errors.append("Batch016 state did not safe-stop")
-    if catalog.get("catalog_version") not in {"batch016", "batch017", "batch018", "batch019", "batch020", "batch021"}:
+    if catalog.get("catalog_version") not in {"batch016", "batch017", "batch018", "batch019", "batch020", "batch021", "batch022"}:
         errors.append("Batch016 capability catalog version missing")
     return errors
 
@@ -3588,7 +3688,7 @@ def audit_batch017_records() -> list[str]:
         errors.append("safe-stop or rollback invalid")
     if state.get("status") != "PASS_WITH_BATCH017_SAFE_STOP" or state.get("exact_blocker") != "dependency_era_lock_unavailable":
         errors.append("Batch017 state did not safe-stop at dependency lock")
-    if catalog.get("catalog_version") not in {"batch017", "batch018", "batch019", "batch020", "batch021"}:
+    if catalog.get("catalog_version") not in {"batch017", "batch018", "batch019", "batch020", "batch021", "batch022"}:
         errors.append("Batch017 capability catalog version missing")
     return errors
 
@@ -3700,7 +3800,7 @@ def audit_batch018_records() -> list[str]:
         errors.append("primary_artifact_budget_exceeded")
     if state.get("status") != "PASS_WITH_BATCH018_SAFE_STOP" or state.get("exact_blocker") != "manual_dependency_lock_absent":
         errors.append("Batch018 state did not safe-stop at manual lock")
-    if catalog.get("catalog_version") not in {"batch018", "batch019", "batch020", "batch021"}:
+    if catalog.get("catalog_version") not in {"batch018", "batch019", "batch020", "batch021", "batch022"}:
         errors.append("Batch018 capability catalog version missing")
     return errors
 
@@ -3800,7 +3900,7 @@ def audit_batch019_records() -> list[str]:
         errors.append("primary_artifact_budget_exceeded")
     if state.get("status") != "PASS_WITH_BATCH019_ACTIVE_SEARCH_GEOMETRY":
         errors.append("Batch019 state did not reach active search geometry boundary")
-    if catalog.get("catalog_version") not in {"batch019", "batch020", "batch021"}:
+    if catalog.get("catalog_version") not in {"batch019", "batch020", "batch021", "batch022"}:
         errors.append("Batch019 capability catalog version missing")
     return errors
 
@@ -3936,7 +4036,7 @@ def audit_batch020_records() -> list[str]:
         errors.append("Batch020 state mismatch")
     if state.get("exact_blocker") != "manual_lock_environment_materialization_failed":
         errors.append("Batch020 exact blocker mismatch")
-    if catalog.get("catalog_version") not in {"batch020", "batch021"}:
+    if catalog.get("catalog_version") not in {"batch020", "batch021", "batch022"}:
         errors.append("Batch020 capability catalog version missing")
     return errors
 
@@ -4053,8 +4153,150 @@ def audit_batch021_records() -> list[str]:
         errors.append("primary_artifact_budget_exceeded")
     if language.get("status") != "PASS":
         errors.append("Batch021 public language audit failed")
-    if catalog.get("catalog_version") != "batch021":
+    if catalog.get("catalog_version") not in {"batch021", "batch022"}:
         errors.append("Batch021 capability catalog version missing")
+    return errors
+
+
+def audit_batch022_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH022_REQUIRED:
+        if not (BATCH022_DIR / name).is_file():
+            errors.append(f"batch022 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH022_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch022 manifest failed: {manifest}")
+    phase_a = read_json(POST_DIR / "batch021_dynamic_era_materialization_artifact_verification.json")
+    ingest = read_json(POST_DIR / "batch021_dynamic_era_materialization_ingest_summary.json")
+    recommendation = read_json(POST_DIR / "batch022_docker_provider_and_psa82_recommendation.json")
+    state = read_json(BATCH022_DIR / "consolidated_state_clean_replication_batch_022.json")
+    preservation = read_json(BATCH022_DIR / "batch021_boundary_preservation.json")
+    blocker_preservation = read_json(BATCH022_DIR / "runtime_provider_blocker_preservation.json")
+    claim = read_json(BATCH022_DIR / "claim_boundary_batch022.json")
+    docker_policy = read_json(BATCH022_DIR / "docker_runtime_provider_policy.json")
+    provider = read_json(BATCH022_DIR / "python37_docker_provider_preflight.json")
+    version_gate = read_json(BATCH022_DIR / "runtime_version_gate_audit_batch022.json")
+    security = read_json(BATCH022_DIR / "container_security_policy_batch022.json")
+    workflow = read_json(BATCH022_DIR / "containerized_workflow_audit.json")
+    lock_revalidation = read_json(BATCH022_DIR / "manual_dependency_lock_provider_revalidation.json")
+    install = read_json(BATCH022_DIR / "manual_dependency_lock_provider_install_status.json")
+    environment = read_json(BATCH022_DIR / "manual_lock_environment_materialization_log.json")
+    target_retry = read_json(BATCH022_DIR / "target_intent_alignment_retry_audit.json")
+    harness = read_json(BATCH022_DIR / "issue_derived_harness_v7_verification_result.json")
+    repair = read_json(BATCH022_DIR / "repair_only_fallback_status.json")
+    feasibility = read_json(BATCH022_DIR / "issue_derived_repair_feasibility_status.json")
+    diagnostic = read_json(BATCH022_DIR / "issue_derived_matched_null_diagnostic_status.json")
+    psa_presence = read_json(BATCH022_DIR / "psa82_package_presence_check.json")
+    psa_policy = read_json(BATCH022_DIR / "psa82_package_quarantine_policy.json")
+    psa_final = read_json(BATCH022_DIR / "psa82_final_locked_manifest_audit.json")
+    psa_legacy = read_json(BATCH022_DIR / "psa82_legacy_manifest_stale_audit.json")
+    psa_pyc = read_json(BATCH022_DIR / "psa82_pyc_payload_audit.json")
+    psa_claim = read_json(BATCH022_DIR / "psa82_adapter_claim_boundary.json")
+    fragility_policy = read_json(BATCH022_DIR / "structured_fragility_audit_policy.json")
+    fragility_status = read_json(BATCH022_DIR / "structured_fragility_audit_status.json")
+    fragility_results = read_json(BATCH022_DIR / "structured_fragility_audit_results.json")
+    null_policy = read_json(BATCH022_DIR / "permutation_null_audit_policy.json")
+    null_results = read_json(BATCH022_DIR / "permutation_null_audit_results.json")
+    sensitivity_policy = read_json(BATCH022_DIR / "patch_structure_sensitivity_policy.json")
+    sensitivity_results = read_json(BATCH022_DIR / "patch_structure_sensitivity_results.json")
+    geometry = read_json(BATCH022_DIR / "active_search_geometry_execution_trace.json")
+    curvature = read_json(BATCH022_DIR / "curvature_claim_boundary.json")
+    ledger = read_json(BATCH022_DIR / "proof_obligations_ledger.json")
+    rollback = read_json(BATCH022_DIR / "rollback_block_ledger_audit.json")
+    safe_stop = read_json(BATCH022_DIR / "compute_budget_safe_stop_batch022.json")
+    taxonomy = read_json(BATCH022_DIR / "failure_taxonomy_batch022.json")
+    activation = read_json(BATCH022_DIR / "activation_order_guardrail_status.json")
+    ghost = read_json(BATCH022_DIR / "rollback_ghost_state_guardrail_status.json")
+    dependency = read_json(BATCH022_DIR / "dependency_overlap_grouping_status.json")
+    consistency = read_json(BATCH022_DIR / "consistency_reassertion_status.json")
+    minimality = read_json(BATCH022_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH022_DIR / "artifact_payload_budget.json")
+    language = read_json(BATCH022_DIR / "public_language_audit_batch022.json")
+    catalog = read_json(Path("configs/controllergate_capability_catalog.json"))
+
+    if phase_a.get("status") != "PASS" or phase_a.get("actual_sha256") != "f6fdb5bd5b942bdf5722ec2d1e58fd4a2603515f4ec125ea601ba4b60e905ee5":
+        errors.append("Batch021 official artifact verification not preserved")
+    if phase_a.get("actual_size_bytes") != 144180 or phase_a.get("zip_entry_count") != 176:
+        errors.append("Batch021 artifact size or entry count mismatch")
+    if ingest.get("status") != "PASS" or ingest.get("zip_tar_payload_ingested") is not False:
+        errors.append("Batch021 ingest summary invalid")
+    if recommendation.get("recommended_next_batch") != "clean_replication_batch_022":
+        errors.append("Batch022 recommendation missing")
+    if preservation.get("status") != "PASS" or preservation.get("batch021_exact_blocker") != "runtime_provider_exact_version_unavailable":
+        errors.append("Batch021 boundary not preserved")
+    if blocker_preservation.get("carried_blocker") != "runtime_provider_exact_version_unavailable":
+        errors.append("Batch021 provider blocker not preserved")
+    if claim.get("native_repair_episode_count") != 4 or claim.get("issue_derived_repair_episode_count") != 0:
+        errors.append("Batch022 repair counts changed")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch022 scoring or memory boundary changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("hallucination_elimination") != "false/not_claimed" or claim.get("absolute_uncrashability") != "false/not_claimed":
+        errors.append("Batch022 overclaim boundary changed")
+    if docker_policy.get("actual_python_version_probe_required") is not True or docker_policy.get("image_label_only_allowed") is not False:
+        errors.append("Docker provider policy missing exact runtime guard")
+    if provider.get("provider_verified") is True and not provider.get("actual_python_version"):
+        errors.append("provider verified without actual Python version")
+    if provider.get("status") == "PASS" and version_gate.get("status") != "PASS":
+        errors.append("provider passed while runtime version gate failed")
+    if security.get("external_source_executed_with_write_credentials") is not False or security.get("secrets_exposed_to_external_source") is not False:
+        errors.append("external source security policy invalid")
+    if workflow.get("container_workspace_staged") is not False or workflow.get("secrets_exposed") is not False:
+        errors.append("container workflow audit invalid")
+    if lock_revalidation.get("canonical_lock_only") is not True or lock_revalidation.get("actual_sha256") != "108d961f89b603d3c6a7bcb374976992c3fadc80497bf967421cdea38aff248a":
+        errors.append("manual dependency lock provider revalidation invalid")
+    if provider.get("status") != "PASS":
+        if install.get("status") != "NOT_RUN" or environment.get("status") != "NOT_RUN" or target_retry.get("status") != "NOT_RUN":
+            errors.append("downstream provider gates ran after provider block")
+    if harness.get("harness_generated") is not False or repair.get("repair_only_fallback_attempted") is not False:
+        errors.append("harness or repair ran without target-intent alignment")
+    if feasibility.get("issue_derived_repair_feasibility") is not False or diagnostic.get("matched_null_diagnostic_run_count") != 0:
+        errors.append("issue-derived feasibility or matched-null diagnostic ran unexpectedly")
+    if psa_policy.get("final_locked_manifest_authoritative") is not True or psa_policy.get("legacy_manifest_authoritative") is not False:
+        errors.append("PSA-82 manifest authority policy invalid")
+    if psa_presence.get("psa82_package_present") is True and psa_final.get("status") != "PASS":
+        errors.append("PSA-82 final locked manifest failed")
+    if psa_legacy.get("legacy_manifest_authoritative") is not False:
+        errors.append("PSA-82 legacy manifest used as authoritative")
+    if psa_pyc.get("pyc_payloads_quarantined") is not True or psa_pyc.get("pyc_payloads_ingested") is True:
+        errors.append("PSA-82 pyc quarantine invalid")
+    if psa_claim.get("controllergate_repair_evidence") is not False:
+        errors.append("PSA-82 claim boundary overreach")
+    if fragility_policy.get("diagnostic_only") is not True or fragility_policy.get("can_increment_repair_count") is not False:
+        errors.append("Structured Fragility Audit policy invalid")
+    if fragility_status.get("used_as_repair_evidence") is not False or fragility_results.get("used_as_repair_evidence") is not False:
+        errors.append("Structured Fragility Audit used as repair evidence")
+    if null_policy.get("preregistration_required") is not True or null_results.get("invalid_by_construction_null_count") != 0:
+        errors.append("Permutation Null Audit policy/results invalid")
+    if sensitivity_policy.get("can_replace_repair_validation") is not False or sensitivity_results.get("used_as_repair_evidence") is not False:
+        errors.append("Patch-Structure Sensitivity overreach")
+    if geometry.get("empirical_evidence_replaced") is not False or curvature.get("curvature_can_replace_evidence") is not False:
+        errors.append("geometry or curvature replaced empirical evidence")
+    if rollback.get("status") != "PASS" or rollback.get("rollback_block_count", 0) < 1:
+        errors.append("Batch022 rollback block missing")
+    if not any(isinstance(item, dict) and item.get("entry_type") == "ROLLBACK_BLOCK" for item in ledger.get("entries", [])):
+        errors.append("Batch022 proof ledger rollback block missing")
+    if safe_stop.get("status") != "PASS" or safe_stop.get("downstream_repair_ran") is not False:
+        errors.append("Batch022 safe-stop invalid")
+    if taxonomy.get("status") != "PASS" or taxonomy.get("taxonomy_class") not in {"docker_runtime_provider_unavailable", "runtime_provider_exact_version_unavailable"}:
+        errors.append("Batch022 failure taxonomy invalid")
+    if activation.get("order_preserved") is not True or activation.get("repair_before_target_intent") is not False:
+        errors.append("Batch022 activation-order guardrail invalid")
+    if ghost.get("downstream_state_contaminated") is not False:
+        errors.append("Batch022 rollback ghost state detected")
+    if dependency.get("may_override_provider_gate") is not False or consistency.get("claim_boundary_reasserted") is not True:
+        errors.append("Batch022 dependency/consistency guardrail invalid")
+    if state.get("status") != "PASS_WITH_BATCH022_DOCKER_PROVIDER_BLOCKED":
+        errors.append("Batch022 state mismatch")
+    if minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("recursive_prior_batch_packaging_detected")
+    if budget.get("status") != "PASS" or int(budget.get("hard_primary_artifact_bytes", 0)) != 750000:
+        errors.append("primary_artifact_budget_exceeded")
+    if language.get("status") != "PASS":
+        errors.append("Batch022 public language audit failed")
+    if catalog.get("catalog_version") != "batch022":
+        errors.append("Batch022 capability catalog version missing")
     return errors
 
 
@@ -4411,6 +4653,7 @@ def main() -> int:
         + require_files(BATCH017_DIR, BATCH017_REQUIRED)
         + require_files(BATCH020_DIR, BATCH020_REQUIRED)
         + require_files(BATCH021_DIR, BATCH021_REQUIRED)
+        + require_files(BATCH022_DIR, BATCH022_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -4456,6 +4699,8 @@ def main() -> int:
         return fail("batch020 manifest mismatch")
     if verify_manifest(BATCH021_DIR)["status"] != "PASS":
         return fail("batch021 manifest mismatch")
+    if verify_manifest(BATCH022_DIR)["status"] != "PASS":
+        return fail("batch022 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -4628,6 +4873,9 @@ def main() -> int:
     batch021_errors = audit_batch021_records()
     if batch021_errors:
         return fail(f"batch021 audit failed: {batch021_errors}")
+    batch022_errors = audit_batch022_records()
+    if batch022_errors:
+        return fail(f"batch022 audit failed: {batch022_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -4674,9 +4922,9 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if final_report.get("status") != "PASS_WITH_BATCH021_RUNTIME_PROVIDER_SELF_HOSTED_PLAN":
-        return fail("final report did not advance to Batch021 runtime-provider boundary")
-    if final_report.get("exact_blocker") != "runtime_provider_exact_version_unavailable":
+    if final_report.get("status") != "PASS_WITH_BATCH022_DOCKER_PROVIDER_BLOCKED":
+        return fail("final report did not advance to Batch022 Docker provider boundary")
+    if final_report.get("exact_blocker") not in {"docker_runtime_provider_unavailable", "python37_docker_provider_unavailable", "runtime_provider_python_version_mismatch"}:
         return fail("final report latest validation blocker mismatch")
     if final_report.get("batch017_target_intent_alignment") is not False:
         return fail("final report Batch017 target-intent boundary mismatch")
@@ -4718,6 +4966,18 @@ def main() -> int:
         return fail("final report Batch021 harness boundary mismatch")
     if final_report.get("batch021_issue_derived_repair_feasibility") is not False:
         return fail("final report Batch021 issue-derived feasibility overclaim")
+    if final_report.get("batch022_docker_runtime_provider_status") not in {"BLOCK", "PASS"}:
+        return fail("final report Batch022 Docker provider status missing")
+    if final_report.get("batch022_manual_dependency_lock_provider_install_status") != "NOT_RUN" and final_report.get("batch022_provider_preflight_status") != "PASS":
+        return fail("final report Batch022 provider install boundary mismatch")
+    if final_report.get("batch022_target_intent_alignment_status") != "NOT_RUN":
+        return fail("final report Batch022 target-intent boundary mismatch")
+    if final_report.get("batch022_harness_v7_generated") is not False:
+        return fail("final report Batch022 harness boundary mismatch")
+    if final_report.get("batch022_issue_derived_repair_feasibility") is not False:
+        return fail("final report Batch022 issue-derived feasibility overclaim")
+    if final_report.get("batch022_structured_fragility_audit_status") != "NOT_RUN_NO_PATCH_CANDIDATE":
+        return fail("final report Batch022 structured fragility status mismatch")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

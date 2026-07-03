@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH021_RUNTIME_PROVIDER_SELF_HOSTED_PLAN.
+Status: PASS_WITH_BATCH022_DOCKER_PROVIDER_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -71,5 +71,9 @@ Batch020 status: `PASS_WITH_BATCH020_MANUAL_LOCK_VALIDATED_ENVIRONMENT_BLOCKED`;
 Batch021 ingests the manually supplied Batch020 thin artifact boundary, adds Dynamic Era Materialization and Runtime Provider Selection, and safe-stops before target replay because no exact Python 3.7 runtime provider is verified in the current workflow.
 
 Batch021 status: `PASS_WITH_BATCH021_RUNTIME_PROVIDER_SELF_HOSTED_PLAN`; exact blocker: `runtime_provider_exact_version_unavailable`.
+
+Batch022 ingests the manually supplied Batch021 thin artifact boundary, adds Docker provider preflight and Structured Fragility Audit scaffolds, quarantines PSA-82 handling, and safe-stops before target replay unless provider, lock, materialization, and Target-Intent Alignment gates pass.
+
+Batch022 status: `PASS_WITH_BATCH022_DOCKER_PROVIDER_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
 
 NotebookLM advice traceability status: `PASS`.

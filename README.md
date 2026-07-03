@@ -18,7 +18,7 @@ Memory lift on external real bugs is not demonstrated.
 
 Self-maintaining software is not demonstrated.
 
-Latest continuation boundary: Batch021 status `PASS_WITH_BATCH021_RUNTIME_PROVIDER_SELF_HOSTED_PLAN` with exact blocker `runtime_provider_exact_version_unavailable`.
+Latest continuation boundary: Batch022 status `PASS_WITH_BATCH022_DOCKER_PROVIDER_BLOCKED` with exact blocker `docker_runtime_provider_unavailable`.
 
 ## What ControllerGate is
 
@@ -34,7 +34,7 @@ Latest continuation boundary: Batch021 status `PASS_WITH_BATCH021_RUNTIME_PROVID
 
 ## Claim Tier System
 
-Capabilities remain tiered by evidence. Batch021 does not upgrade full-scoring, memory-lift, or self-maintaining claims.
+Capabilities remain tiered by evidence. Batch022 does not upgrade full-scoring, memory-lift, or self-maintaining claims.
 
 ## Capability Catalog
 
@@ -54,7 +54,7 @@ Runtime-provider work remains staged behind proof and rollback gates.
 
 - Current protocol remains `v2.13`.
 - Confirmed external native repair episodes remain `4`.
-- Batch021 adds provider selection and exact-runtime gate records for Python 3.7 materialization.
+- Batch022 adds Docker provider and Structured Fragility Audit scaffolds with safe-stop boundaries.
 
 ## Forbidden claims
 
@@ -64,13 +64,18 @@ Runtime-provider work remains staged behind proof and rollback gates.
 
 ## Current operational gate status
 
-- Batch021 preserves the Batch020 manual dependency lock boundary and adds Dynamic Era Materialization.
-- Runtime Provider Selection blocks target replay unless an exact Python 3.7 provider is verified.
-- Containerized Era Runtime remains plan-only until container identity and in-container runtime probes pass.
-- The self-hosted runtime plan is the next safe action when no exact provider is verified.
+- Batch021 blocked because no exact Python 3.7 provider was verified.
+- Batch022 adds a Docker Era-Materialization Provider path and Structured Fragility Audit scaffold.
+- The runtime must conform to the reviewed lock; the lock is not loosened to match the host runtime.
+- PSA-82 is quarantined as diagnostic inspiration only and is not ControllerGate repair evidence.
+- Structured Fragility Audit is diagnostic and cannot replace empirical gates.
+- Repair cannot activate before bounded materialization and Target-Intent Alignment.
+- Active Search-Space Geometry may prioritize probes but cannot replace empirical evidence.
+- Single-system navigation and coupled-interlock extension remain separate.
+- Coupled-interlock extension remains blocked until interlock invariants are computed.
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0`.
+- Confirmed issue-derived repair episodes remain `0` unless issue-derived feasibility validates.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Broad runtime-readiness claims are not made.
+- Hallucination elimination, absolute uncrashability, and production runtime readiness are not claimed.
