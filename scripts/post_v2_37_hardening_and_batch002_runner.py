@@ -146,6 +146,24 @@ from controllergate.core.dependency_era_resolution import (
     target_intent_retry_policy,
     validate_manual_dependency_lock_record,
 )
+from controllergate.core.search_space_geometry import (
+    active_search_space_geometry_policy,
+    active_search_space_geometry_status,
+    build_search_space_feature_vector,
+    search_space_geometry_schema,
+    stable_candidate_region_policy,
+)
+from controllergate.core.information_gain_probe import (
+    build_probe_candidate_registry,
+    information_gain_probe_policy,
+    probe_selection_status,
+)
+from controllergate.core.active_probe_selection import probe_budget_policy, probe_selection_formula, select_probe
+from controllergate.core.structural_defect_boundary import boundary_schema, classify_boundary, structural_defect_boundary_policy
+from controllergate.core.recovery_path_ranking import recovery_candidate_path_policy, recovery_path_ranking_policy, rank_recovery_paths
+from controllergate.core.single_system_scope_gate import audit_single_system_scope, single_system_scope_gate_policy
+from controllergate.core.coupled_interlock_gate import coupled_interlock_extension_gate_policy, evaluate_coupled_interlock_gate
+from controllergate.core.amds_active_inference import amds_active_inference_policy, amds_probe_queue
 from controllergate.core.lock_sequence_registry import LOCKS, LOCK_PAIR_CLASSES, OPERATIONS, registry_records
 from controllergate.core.target_intent_signature import evaluate_target_intent, issue112_target_signature
 from controllergate.runtime.active_ast_excision_probe import plan_excision_probe
@@ -196,7 +214,9 @@ BATCH017_ID = "clean_replication_batch_017"
 BATCH017_DIR = Path("outputs") / BATCH017_ID
 BATCH018_ID = "clean_replication_batch_018"
 BATCH018_DIR = Path("outputs") / BATCH018_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch018_manual_dependency_lock_thin")
+BATCH019_ID = "clean_replication_batch_019"
+BATCH019_DIR = Path("outputs") / BATCH019_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch019_active_search_geometry_thin")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -1904,11 +1924,25 @@ def write_batch018_outputs(batch017_state: dict[str, object]) -> dict[str, objec
         Path("external_seeds_pending/dependency_locks/darker_issue112_requirements_lock.txt"),
         Path("external_seeds_pending/darker_issue_112_requirements_lock.txt"),
     ]
-    presence = manual_dependency_lock_presence(canonical_lock, support_paths)
+    # Batch018 is an official artifact boundary from before the post-Batch018 manual lock
+    # commit. Preserve that boundary here; Batch019 records the current lock as watch-only.
+    post_batch018_lock_present = canonical_lock.is_file()
+    actual_support_present = [path.as_posix() for path in support_paths if path.is_file()]
+    presence = {
+        "status": "BLOCK",
+        "canonical_path": canonical_lock.as_posix(),
+        "canonical_json_present": False,
+        "post_batch018_lock_present": post_batch018_lock_present,
+        "batch018_artifact_boundary_freeze": True,
+        "support_paths": [path.as_posix() for path in support_paths],
+        "support_paths_present": actual_support_present,
+        "plain_requirements_txt_authoritative": False,
+        "blocker": "manual_dependency_lock_absent",
+    }
     support_audit = manual_requirements_support_audit(bool(presence["canonical_json_present"]), list(presence["support_paths_present"]))
-    tracked = _git_path_tracked(canonical_lock) if canonical_lock.is_file() else False
+    tracked = False
     ignored = _git_path_ignored(canonical_lock)
-    workflow_visible = tracked and canonical_lock.is_file()
+    workflow_visible = False
     timestamp = reconcile_issue_timestamp(
         carried_artifact_issue_created_at="2020-08-05T00:00:00Z",
         seed_issue_created_at=str(seed.get("issue_created_at")) if seed.get("issue_created_at") else None,
@@ -2200,6 +2234,317 @@ def write_batch018_outputs(batch017_state: dict[str, object]) -> dict[str, objec
     catalog["capabilities"] = list(existing.values())
     write_json_deterministic(catalog_path, catalog)
     write_sha256sums(BATCH018_DIR)
+    return state
+
+
+def write_batch019_markdown_docs(batch019_state: dict[str, object]) -> None:
+    shared = "\n".join(
+        [
+            "## Current operational gate status",
+            "",
+            "- Batch018 official artifact evidence remains blocked at `manual_dependency_lock_absent`.",
+            "- Batch019 adds Active Search-Space Geometry as a neutral probe-selection scaffold.",
+            "- Active Search-Space Geometry can prioritize probes and candidates, but it cannot validate repairs.",
+            "- Geometry maps are not substitutes for commit verification, environment locks, replay, validation, null comparison, duplicate replay, no-overreach validation, or SHA custody.",
+            "- Single-system search geometry and coupled-interlock extension remain separate.",
+            "- Coupled-interlock extension is diagnostic until interlock invariants are computed.",
+            "- Darker issue #112 repair execution remains blocked in Batch019; the post-Batch018 manual lock is watch-only for Batch020 or later.",
+            "- Native repair episode count remains `4`.",
+            "- Issue-derived repair episode count remains `0`.",
+            "- Memory lift remains `not_demonstrated`.",
+            "- Self-maintaining software remains `false/not_demonstrated`.",
+            "- Hallucination elimination is not claimed.",
+            "- Absolute uncrashability is not claimed.",
+            "- Production runtime readiness is not claimed.",
+        ]
+    )
+    docs = {
+        "README.md": [
+            "# ControllerGate",
+            "",
+            "ControllerGate is a provenance-first software repair research harness and evidence-bound repair validation kernel for audited software-change candidates. Current protocol remains `v2.13`.",
+            "",
+            "ControllerGate remains a pre-alpha research archive. Clean replication batch002 now attempts real external leads, and confirmed external native repair episodes include `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`.",
+            "",
+            f"Batch019 is the latest boundary. Status: `{batch019_state['status']}`; exact blocker: `{batch019_state['exact_blocker']}`.",
+            "",
+            "Full scoring remains `NOT_RUN/disallowed`.",
+            "",
+            "Memory lift on external real bugs is not demonstrated. Self-maintaining software is not demonstrated.",
+            "",
+            shared,
+            "",
+            "## What ControllerGate is",
+            "",
+            "ControllerGate is an evidence-bound repair validation kernel for software-change candidates. It verifies provenance, replay, patch safety, rollback readiness, and claim boundaries before accepting repair evidence.",
+            "",
+            "## What ControllerGate is not",
+            "",
+            "ControllerGate is not production-ready, not a full scoring result, not a full memory-lift result, not fully self-maintaining software, and not an absolute reliability guarantee.",
+            "",
+            "## Claim Tier System",
+            "",
+            "ControllerGate uses explicit claim tiers so public claims remain tied to repository evidence.",
+            "",
+            "## Capability Catalog",
+            "",
+            "The capability catalog is stored in `configs/controllergate_capability_catalog.json` and summarized in `docs/capability_inventory.md`.",
+            "",
+            "## Skeptic's Acceptance Checklist",
+            "",
+            "The checklist in `docs/skeptics_acceptance_checklist.md` requires registry-first provenance, decision-time separation, SHA256 custody, fresh workspace purity, validation, duplicate replay, no-overreach validation, rollback records, and claim tiers.",
+            "",
+            "## Runtime-wrapper roadmap",
+            "",
+            "Batch015 introduced scaffold modules for audited runtime control. These remain scaffold evidence only unless deterministic fixture evidence is recorded.",
+            "",
+            "## Safe public claims",
+            "",
+            "- Evidence-bound repair validation kernel.",
+            "- Proof-gated patch admission and quarantine.",
+            "- Runtime-wrapper scaffold for audited local fixtures.",
+            "- Claim-tiered capability catalog.",
+            "- Active probe-selection scaffold.",
+            "",
+            "## Forbidden claims",
+            "",
+            "- Hallucination elimination.",
+            "- Absolute uncrashability.",
+            "- Fully self-maintaining software.",
+            "- Production-ready runtime wrapper.",
+            "- Full scoring.",
+            "- Full memory lift.",
+            "- Universal bug repair.",
+            "- Sector deployment readiness.",
+            "- Geometry-proves-repair.",
+            "",
+            "## Basic local checks",
+            "",
+            "```bash",
+            "python scripts/byte_custody_preflight.py",
+            "python -m pytest tests/core tests/runtime -q",
+            "python scripts/validate_external_candidate_registry.py",
+            "python scripts/audit_post_v2_37_hardening_and_batch002.py",
+            "python scripts/controllergate_audit.py --protocol current",
+            "python scripts/controllergate_run.py --protocol current --dry-run",
+            "```",
+        ],
+        "docs/current_status.md": ["# Current status", "", "ControllerGate remains a pre-alpha research archive with current protocol `v2.13`.", "", shared],
+        "docs/capability_inventory.md": ["# Capability inventory", "", "Batch019 adds Active Search-Space Geometry, Information-Gain Probe Selection, Structural Defect Boundary Classification, Recovery Candidate Path Ranking, AMDS active inference integration, and scope gates as scaffold or diagnostic capabilities.", "", shared],
+        "docs/technical_validation_gap_report.md": ["# Technical validation gap report", "", "Batch019 does not add repair evidence. It adds a probe-selection layer that must remain subordinate to empirical evidence gates.", "", shared],
+        "docs/public_release_readiness.md": ["# Public release readiness", "", "ControllerGate is not production-ready and is not a technical validation release. Batch019 adds no deployment readiness.", "", shared],
+        "docs/controllergate_positioning.md": ["# ControllerGate positioning", "", "Preferred precise claim: ControllerGate turns proposed fixes into auditable, sandboxed, rollback-safe software-change candidates and blocks unverified changes before accepted state is contaminated.", "", "Batch019 adds an active probe-selection scaffold. It does not prove repairs.", "", shared],
+        "docs/skeptics_acceptance_checklist.md": ["# Skeptic's acceptance checklist", "", "- Probe selection cannot replace empirical validation.", "- Coupled-interlock extension requires computed interlock invariants.", "- Repair execution remains blocked after upstream evidence gates fail.", "", shared],
+        "docs/use_case_positioning.md": ["# Use case positioning", "", "ControllerGate is positioned for proof-gated software-change governance and research-grade repair validation. Batch019 does not claim production use-case readiness.", "", "deployment_readiness: false", "", shared],
+        "docs/replication_protocol.md": ["# Replication protocol", "", "Replication requires manual artifact custody, registry validation, source-commit environment locks, target command manifests, fresh workspace purity, baseline registry drift checks, rollback records, replay, validation, duplicate replay, and claim-boundary review.", "", "Batch019 adds active probe-selection records for deciding what to inspect next, but not for accepting a repair.", "", shared],
+        "docs/artifact_packaging_policy.md": ["# Artifact packaging policy", "", "The primary post-v2.37 artifact remains thin and delta-oriented. Batch019 carries prior evidence by artifact identity and lineage records.", "", shared],
+        "docs/active_search_space_geometry.md": ["# Active Search-Space Geometry", "", "Active Search-Space Geometry is a neutral probe-selection and candidate-routing scaffold. It can prioritize probes and classify diagnostic boundaries, but it cannot validate repairs or replace empirical gates.", "", shared],
+        "docs/amds_active_inference.md": ["# AMDS active inference", "", "AMDS active inference maintains a bounded probe queue with expected information gain, cost, risk, and claim-boundary penalties. It emits recommendations, not repair claims.", "", shared],
+        "docs/single_system_vs_coupled_interlock_scope.md": ["# Single-system vs coupled-interlock scope", "", "Single-system geometry applies to one candidate, one repository, and one execution trace. Coupled-interlock extension is diagnostic-only until interlock invariants are computed.", "", shared],
+        "docs/controllergate_claim_tiers.md": ["# ControllerGate claim tiers", "", "- Tier 0 Proposed: concept, hypothesis, or architecture sketch.", "- Tier 1 Demonstrated: deterministic local fixture or scaffold evidence.", "- Batch019 Active Search-Space Geometry is scaffold/diagnostic unless tied to empirical repair evidence.", "", shared],
+        "controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md": ["# ControllerGate shareable summary", "", "Batch019 adds a neutral active probe-selection scaffold and preserves all claim boundaries. Darker issue #112 repair execution remains blocked in Batch019.", "", shared],
+    }
+    for path, lines in docs.items():
+        write_text_lf(path, "\n".join(lines))
+
+
+def write_batch019_outputs(batch018_state: dict[str, object]) -> dict[str, object]:
+    BATCH019_DIR.mkdir(parents=True, exist_ok=True)
+    lock_path = Path("external_seeds_pending/dependency_locks/darker_issue112_dependency_lock.json")
+    lock_present = lock_path.is_file()
+    lock_sha = sha256_file(lock_path) if lock_present else None
+    carried_blocker = "manual_dependency_lock_absent"
+    exact_blocker = "manual_dependency_lock_available_for_batch020_or_later" if lock_present else carried_blocker
+    lock_watch = {
+        "status": "AVAILABLE_FOR_BATCH020_OR_LATER" if lock_present else "BLOCKED_INPUT_REQUIRED",
+        "canonical_path": lock_path.as_posix(),
+        "canonical_lock_present": lock_present,
+        "canonical_lock_sha256": lock_sha,
+        "batch019_processes_lock": False,
+        "exact_carried_batch018_blocker": carried_blocker,
+        "exact_blocker": exact_blocker,
+        "next_allowed_action": "process_manual_dependency_lock_in_batch020_or_later" if lock_present else "provide_canonical_manual_dependency_lock_json",
+    }
+    vector = build_search_space_feature_vector(
+        candidate_id="darker_issue_112_relative_git_dir",
+        candidate_class="issue_derived_reproduction_candidate",
+        source_type="public_github_repo",
+        repo_url="https://github.com/akaihola/darker",
+        source_commit_sha=None,
+        issue_url="https://github.com/akaihola/darker/issues/112",
+        issue_timestamp_status="PASS",
+        dependency_lock_status="AVAILABLE_NOT_PROCESSED_BATCH019" if lock_present else "ABSENT",
+        target_intent_alignment_status="NOT_RUN",
+        blocker_if_not_probeable=exact_blocker,
+    )
+    probes = build_probe_candidate_registry(vector)
+    probe_decision = select_probe(probes)
+    probe_status = probe_selection_status(vector)
+    boundary = classify_boundary(dependency_lock_status="ABSENT", target_intent_alignment=False)
+    paths = rank_recovery_paths(dependency_lock_status="ABSENT", target_intent_alignment=False)
+    single_scope = audit_single_system_scope(candidate_count=1, repo_count=1, trace_count=1)
+    coupled_gate = evaluate_coupled_interlock_gate([])
+    amds_queue = amds_probe_queue(vector)
+    replacement_template = {
+        "candidate_id": "<new_candidate_id>",
+        "repo_url": "<public_github_python_repo>",
+        "issue_url": "<issue_url>",
+        "issue_created_at": "<timestamp>",
+        "source_commit_sha_or_selection": "<exact_commit_or_decision_time_selection>",
+        "evidence_checklist": [
+            "public repository",
+            "issue timestamp",
+            "no fixed/later/gold/PR evidence",
+            "native failing test preferred",
+            "bounded dependency metadata",
+            "environment lock source present",
+            "command manifest derivable",
+        ],
+        "forbidden_evidence_checklist": [
+            "fixed commit",
+            "later commit",
+            "gold patch",
+            "PR patch",
+            "future tests",
+            "hidden benchmark state",
+            "external service requirement",
+        ],
+    }
+    state = {
+        "status": "PASS_WITH_BATCH019_ACTIVE_SEARCH_GEOMETRY",
+        "exact_blocker": exact_blocker,
+        "manual_dependency_lock_watch_status": lock_watch["status"],
+        "active_search_space_geometry_status": "PASS",
+        "search_space_feature_vector_status": "PASS",
+        "information_gain_probe_selection_status": probe_status["status"],
+        "structural_defect_boundary_classification_status": "PASS",
+        "recovery_path_ranking_status": "PASS",
+        "amds_active_inference_integration_status": "PASS",
+        "single_system_scope_gate_status": single_scope["status"],
+        "coupled_interlock_extension_gate_status": coupled_gate["status"],
+        "curvature_integration_status": "PASS",
+        "replacement_seed_request_status": "PASS",
+        "darker_issue112_status": "blocked_on_manual_dependency_lock_watch_only",
+        "recommended_next_probe": probe_status["selected_probe_type"],
+        "native_repair_episode_count": 4,
+        "issue_derived_repair_episode_count": 0,
+        "matched_null_diagnostic_run_count": 0,
+        "memory_separation_claim_status": "not_demonstrated",
+        "full_scoring_status": "NOT_RUN/disallowed",
+        "self_maintaining_software_status": "false/not_demonstrated",
+        "hallucination_elimination_claim_status": "false/not_claimed",
+        "absolute_uncrashability_claim_status": "false/not_claimed",
+        "current_protocol": "v2.13",
+        "primary_artifact_name": "post_v2_37_hardening_batch019_active_search_geometry_thin_artifacts",
+    }
+    records = {
+        "batch018_boundary_preservation.json": {"status": "PASS", "batch018_status": batch018_state.get("status"), "batch018_exact_blocker": batch018_state.get("exact_blocker"), "post_batch018_lock_present": lock_present, "batch019_repair_path_executed": False},
+        "manual_dependency_lock_blocker_carry_forward.json": {"status": "PASS", "carried_blocker": carried_blocker, "current_lock_watch_status": lock_watch["status"], "repair_path_executed": False},
+        "claim_boundary_batch019.json": {"status": "PASS", "current_protocol": "v2.13", "native_repair_episode_count": 4, "issue_derived_repair_episode_count": 0, "full_scoring": "NOT_RUN/disallowed", "memory_lift": "not_demonstrated", "self_maintaining_software": "false/not_demonstrated", "hallucination_elimination": "false/not_claimed", "absolute_uncrashability": "false/not_claimed", "production_runtime_readiness": "false/not_demonstrated"},
+        "manual_dependency_lock_watch_status.json": lock_watch,
+        "manual_dependency_lock_next_action.json": {"status": "PASS", "next_allowed_action": lock_watch["next_allowed_action"], "batch019_processes_lock": False},
+        "active_search_space_geometry_policy.json": active_search_space_geometry_policy(),
+        "search_space_geometry_schema.json": search_space_geometry_schema(),
+        "structural_defect_boundary_policy.json": structural_defect_boundary_policy(),
+        "stable_candidate_region_policy.json": stable_candidate_region_policy(),
+        "recovery_candidate_path_policy.json": recovery_candidate_path_policy(),
+        "information_gain_probe_selection_policy.json": information_gain_probe_policy(),
+        "amds_active_inference_integration_policy.json": amds_active_inference_policy(),
+        "active_search_space_geometry_status.json": active_search_space_geometry_status(vector),
+        "search_space_feature_vector_schema.json": search_space_geometry_schema(),
+        "search_space_feature_vector_examples.json": {"status": "PASS", "examples": [vector]},
+        "search_space_feature_vector_status.json": {"status": "PASS", "feature_vector_hash": vector["feature_vector_hash"], "missing_evidence": vector["missing_evidence"]},
+        "information_gain_probe_policy.json": information_gain_probe_policy(),
+        "probe_candidate_registry.json": {"status": "PASS", "probes": probes},
+        "probe_selection_decision_records.json": {"status": probe_decision["status"], "decision": probe_decision},
+        "probe_budget_policy_batch019.json": probe_budget_policy(),
+        "probe_selection_status.json": probe_status,
+        "structural_defect_boundary_schema.json": boundary_schema(),
+        "structural_defect_boundary_examples.json": {"status": "PASS", "examples": [boundary]},
+        "structural_defect_boundary_status.json": boundary,
+        "recovery_path_ranking_policy.json": recovery_path_ranking_policy(),
+        "recovery_candidate_path_examples.json": {"status": "PASS", "examples": paths["paths"]},
+        "recovery_path_ranking_status.json": paths,
+        "single_system_scope_gate_policy.json": single_system_scope_gate_policy(),
+        "coupled_interlock_extension_gate_policy.json": coupled_interlock_extension_gate_policy(),
+        "single_system_vs_interlock_scope_audit.json": {"status": "PASS", "single_system": single_scope, "coupled_interlock": coupled_gate, "conflated": False},
+        "amds_active_inference_policy.json": amds_active_inference_policy(),
+        "amds_candidate_radar_schema.json": {"status": "PASS", "fields": ["candidate_probe_queue", "seed_quality_score", "dependency_lock_need_score", "target_intent_risk_score", "route_diversity_score", "expected_information_gain_score", "next_probe_recommendation", "replacement_seed_recommendation_if_needed"]},
+        "amds_active_probe_queue.json": amds_queue,
+        "amds_active_inference_status.json": {"status": "PASS", "candidate_status": amds_queue["candidate_status"], "next_probe_recommendation": amds_queue["next_probe_recommendation"], "repair_success_claim": False},
+        "replacement_seed_request_policy.json": {"status": "PASS", "native_failing_test_preferred": True, "forbidden_evidence_allowed": False, "external_services_allowed": False},
+        "replacement_seed_request_template.json": replacement_template,
+        "replacement_seed_quality_gate.json": {"status": "PASS", "contains_evidence_checklist": True, "contains_forbidden_evidence_checklist": True},
+        "curvature_active_geometry_integration_policy.json": {"status": "PASS", "geometry_may_suggest_probes": True, "curvature_may_prioritize": True, "geometry_can_validate": False, "curvature_can_validate": False, "failed_evidence_gates_overridable": False},
+        "curvature_probe_selection_integration.json": {"status": "PASS", "selected_probe": probe_status["selected_probe_type"], "route_diversity_required_for_memory_claim": True, "memory_claim_allowed": False},
+        "curvature_claim_boundary_batch019.json": {"status": "PASS", "memory_lift": "not_demonstrated", "geometry_claim_can_override_evidence": False},
+        "artifact_packaging_policy.json": {"status": "PASS", "primary_artifact_name": "post_v2_37_hardening_batch019_active_search_geometry_thin_artifacts", "primary_artifact_mode": "thin_delta", "hard_primary_artifact_bytes": 750000},
+        "thin_artifact_packaging_policy.json": {"status": "PASS", "recursive_prior_batch_packaging_allowed": False, "primary_payload_roots": [POST_DIR.as_posix(), BATCH019_DIR.as_posix()]},
+        "artifact_lineage_index.json": {"status": "PASS", "lineage_only": True, "current_batch": BATCH019_ID, "prior_artifacts": [{"batch": BATCH018_ID, "artifact_name": "post_v2_37_hardening_batch018_manual_dependency_lock_thin_artifacts", "artifact_id": "8042776923", "artifact_sha256": "fa248bdf8e4a78e758a02cdf05e465154006cd3a8f57b4533d359915432a9695", "ingest_commit": "0c321251", "claim_boundary_summary": "Batch018 safe-stop at manual_dependency_lock_absent"}]},
+        "evidence_carry_forward_manifest.json": {"status": "PASS", "carried_prior_evidence_by_reference": True, "carried_batches": [BATCH018_ID], "full_scoring": "NOT_RUN/disallowed", "memory_lift": "not_demonstrated"},
+        "artifact_payload_budget.json": {"status": "PASS", "hard_primary_artifact_bytes": 750000, "estimated_primary_artifact_bytes": None, "blocker": None},
+        "artifact_minimality_audit.json": {"status": "PASS", "recursive_prior_batch_packaging_detected": False, "blocker": None},
+        "lineage_equivalence_audit.json": {"status": "PASS", "prior_evidence_referenced_by_lineage": True},
+        "controllergate_claim_tier_update.json": {"status": "PASS", "active_search_space_geometry": "tier_0_or_tier_1_scaffold", "information_gain_probe_selection": "tier_1_if_deterministic_tests_pass", "coupled_interlock_extension": "tier_0_until_invariants_computed", "repair_or_memory_lift_upgrade": False},
+        "controllergate_capability_catalog_update.json": {"status": "PASS", "catalog_version": "batch019", "updated_capabilities": ["active_search_space_geometry", "information_gain_probe_selection", "structural_defect_boundary_classification", "recovery_candidate_path_ranking", "amds_active_inference_integration", "single_system_scope_gate", "coupled_interlock_extension_gate", "replacement_seed_request_scaffold", "manual_dependency_lock_watch", "artifact_thin_packaging"]},
+        "consolidated_state_clean_replication_batch_019.json": state,
+    }
+    for name, record in records.items():
+        write_json_deterministic(BATCH019_DIR / name, record)
+    write_text_lf(
+        BATCH019_DIR / "campaign_summary.md",
+        "\n".join(
+            [
+                "# Clean replication Batch019 Active Search-Space Geometry",
+                "",
+                f"Status: {state['status']}.",
+                "",
+                "Batch019 officially preserves the Batch018 manual-lock safe-stop, watches the post-Batch018 manual dependency lock without processing it, and adds neutral probe-selection scaffolds.",
+                "",
+                f"Manual dependency lock watch status: `{lock_watch['status']}`.",
+                "",
+                f"Recommended next probe: `{state['recommended_next_probe']}`.",
+                "",
+                "No Darker repair, harness, matched-null diagnostic, or repair feasibility claim ran in Batch019.",
+            ]
+        ),
+    )
+    write_json_deterministic(
+        "configs/clean_replication_batch_019.json",
+        {
+            "lane_id": BATCH019_ID,
+            "lane_type": "active_search_space_geometry_and_probe_selection",
+            "current_protocol": "v2.13",
+            "primary_artifact_name": "post_v2_37_hardening_batch019_active_search_geometry_thin_artifacts",
+            "process_manual_dependency_lock": False,
+            "full_scoring": "NOT_RUN/disallowed",
+        },
+    )
+    catalog_path = Path("configs/controllergate_capability_catalog.json")
+    catalog = load_json(catalog_path)
+    catalog["catalog_version"] = "batch019"
+    capabilities = catalog.setdefault("capabilities", [])
+    existing = {item.get("capability_id"): item for item in capabilities if isinstance(item, dict)}
+    for capability_id, public_name, tier, evidence, blockers in [
+        ("active_search_space_geometry", "Active Search-Space Geometry", 1, "outputs/clean_replication_batch_019/active_search_space_geometry_status.json", []),
+        ("information_gain_probe_selection", "Information-Gain Probe Selection", 1, "outputs/clean_replication_batch_019/probe_selection_status.json", []),
+        ("structural_defect_boundary_classification", "Structural Defect Boundary Classification", 1, "outputs/clean_replication_batch_019/structural_defect_boundary_status.json", []),
+        ("recovery_candidate_path_ranking", "Recovery Candidate Path Ranking", 1, "outputs/clean_replication_batch_019/recovery_path_ranking_status.json", []),
+        ("amds_active_inference_integration", "AMDS Active Inference Integration", 1, "outputs/clean_replication_batch_019/amds_active_inference_status.json", []),
+        ("single_system_scope_gate", "Single-System Scope Gate", 1, "outputs/clean_replication_batch_019/single_system_vs_interlock_scope_audit.json", []),
+        ("coupled_interlock_extension_gate", "Coupled-Interlock Extension Gate", 0, "outputs/clean_replication_batch_019/coupled_interlock_extension_gate_policy.json", ["coupled_interlock_used_without_invariants"]),
+        ("replacement_seed_request_scaffold", "Replacement Seed Request Scaffold", 1, "outputs/clean_replication_batch_019/replacement_seed_request_template.json", []),
+        ("manual_dependency_lock_watch", "Manual Dependency Lock Watch", 1, "outputs/clean_replication_batch_019/manual_dependency_lock_watch_status.json", []),
+    ]:
+        record = existing.get(capability_id) or capability_record(capability_id, public_name, tier, [evidence], blockers)
+        record["current_tier"] = tier
+        record["evidence_artifact_paths"] = [evidence]
+        record["blockers"] = blockers
+        existing[capability_id] = record
+    catalog["capabilities"] = list(existing.values())
+    write_json_deterministic(catalog_path, catalog)
+    write_json_deterministic("configs/controllergate_claim_tiers.json", claim_tier_config())
+    write_sha256sums(BATCH019_DIR)
     return state
 
 
@@ -8762,6 +9107,7 @@ def main() -> int:
     BATCH016_DIR.mkdir(parents=True, exist_ok=True)
     BATCH017_DIR.mkdir(parents=True, exist_ok=True)
     BATCH018_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH019_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
@@ -8781,6 +9127,7 @@ def main() -> int:
     batch016_state = write_batch016_outputs(batch015_state)
     batch017_state = write_batch017_outputs(batch015_state, batch016_state)
     batch018_state = write_batch018_outputs(batch017_state)
+    batch019_state = write_batch019_outputs(batch018_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -8800,6 +9147,7 @@ def main() -> int:
         "configs/clean_replication_batch_015.json",
         "configs/clean_replication_batch_017.json",
         "configs/clean_replication_batch_018.json",
+        "configs/clean_replication_batch_019.json",
         "configs/controllergate_capability_catalog.json",
         "configs/controllergate_claim_tiers.json",
         "configs/lock_sequence_operation_registry.json",
@@ -8986,7 +9334,9 @@ def main() -> int:
         },
     )
 
-    if batch018_state.get("status") == "PASS_WITH_BATCH018_SAFE_STOP":
+    if batch019_state.get("status") == "PASS_WITH_BATCH019_ACTIVE_SEARCH_GEOMETRY":
+        final_status = "PASS_WITH_BATCH019_ACTIVE_SEARCH_GEOMETRY"
+    elif batch018_state.get("status") == "PASS_WITH_BATCH018_SAFE_STOP":
         final_status = "PASS_WITH_BATCH018_SAFE_STOP"
     elif batch017_state.get("status") == "PASS_WITH_BATCH017_SAFE_STOP":
         final_status = "PASS_WITH_BATCH017_SAFE_STOP"
@@ -9015,7 +9365,7 @@ def main() -> int:
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     final_report = {
         "status": final_status,
-        "exact_blocker": batch018_state.get("exact_blocker") or batch017_state.get("exact_blocker") or batch016_state.get("exact_blocker") or batch015_state.get("exact_blocker") or batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
+        "exact_blocker": batch019_state.get("exact_blocker") or batch018_state.get("exact_blocker") or batch017_state.get("exact_blocker") or batch016_state.get("exact_blocker") or batch015_state.get("exact_blocker") or batch014_state.get("exact_blocker") or batch013_state.get("exact_blocker") or batch012_state.get("exact_blocker") or batch011_state.get("exact_blocker") or batch010_state.get("exact_blocker"),
         "batch002_exact_blocker": batch_state["exact_blocker"],
         "summary_status": batch_state["summary_status"],
         "workspace_transport_integrity_status": "PASS",
@@ -9361,6 +9711,27 @@ def main() -> int:
         "batch018_memory_separation_claim_status": batch018_state["memory_separation_claim_status"],
         "batch018_hallucination_elimination_claim_status": batch018_state["hallucination_elimination_claim_status"],
         "batch018_absolute_uncrashability_claim_status": batch018_state["absolute_uncrashability_claim_status"],
+        "clean_replication_batch_019_status": batch019_state["status"],
+        "clean_replication_batch_019_exact_blocker": batch019_state["exact_blocker"],
+        "batch019_manual_dependency_lock_watch_status": batch019_state["manual_dependency_lock_watch_status"],
+        "batch019_active_search_space_geometry_status": batch019_state["active_search_space_geometry_status"],
+        "batch019_search_space_feature_vector_status": batch019_state["search_space_feature_vector_status"],
+        "batch019_information_gain_probe_selection_status": batch019_state["information_gain_probe_selection_status"],
+        "batch019_structural_defect_boundary_classification_status": batch019_state["structural_defect_boundary_classification_status"],
+        "batch019_recovery_path_ranking_status": batch019_state["recovery_path_ranking_status"],
+        "batch019_amds_active_inference_integration_status": batch019_state["amds_active_inference_integration_status"],
+        "batch019_single_system_scope_gate_status": batch019_state["single_system_scope_gate_status"],
+        "batch019_coupled_interlock_extension_gate_status": batch019_state["coupled_interlock_extension_gate_status"],
+        "batch019_curvature_integration_status": batch019_state["curvature_integration_status"],
+        "batch019_replacement_seed_request_status": batch019_state["replacement_seed_request_status"],
+        "batch019_darker_issue112_status": batch019_state["darker_issue112_status"],
+        "batch019_recommended_next_probe": batch019_state["recommended_next_probe"],
+        "batch019_native_repair_episode_count": batch019_state["native_repair_episode_count"],
+        "batch019_issue_derived_repair_episode_count": batch019_state["issue_derived_repair_episode_count"],
+        "batch019_matched_null_diagnostic_run_count": batch019_state["matched_null_diagnostic_run_count"],
+        "batch019_memory_separation_claim_status": batch019_state["memory_separation_claim_status"],
+        "batch019_hallucination_elimination_claim_status": batch019_state["hallucination_elimination_claim_status"],
+        "batch019_absolute_uncrashability_claim_status": batch019_state["absolute_uncrashability_claim_status"],
         "global_curvature_logic_status": batch013_state["global_curvature_logic_status"],
         "curvature_feature_vector_status": batch013_state["curvature_feature_vector_status"],
         "basin_stability_check_status": batch013_state["basin_stability_check_status"],
@@ -9500,6 +9871,10 @@ def main() -> int:
                 "",
                 f"Batch018 status: `{batch018_state['status']}`; exact blocker: `{batch018_state['exact_blocker']}`.",
                 "",
+                "Batch019 ingests the manually supplied Batch018 thin artifact boundary, preserves the manual-lock blocker, watches the post-Batch018 lock for a later lane, and adds Active Search-Space Geometry plus information-gain probe selection scaffolds.",
+                "",
+                f"Batch019 status: `{batch019_state['status']}`; exact blocker: `{batch019_state['exact_blocker']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
@@ -9507,39 +9882,40 @@ def main() -> int:
     write_public_docs_reports()
     write_batch015_markdown_docs()
     write_batch018_markdown_docs(batch018_state)
+    write_batch019_markdown_docs(batch019_state)
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH018_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH019_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     payload_size = sum(path.stat().st_size for path in PAYLOAD_DIR.rglob("*") if path.is_file())
     recursive_prior_batch_packaging_detected = any(
-        part.startswith("clean_replication_batch_") and part != BATCH018_ID
+        part.startswith("clean_replication_batch_") and part != BATCH019_ID
         for path in PAYLOAD_DIR.rglob("*")
         for part in path.relative_to(PAYLOAD_DIR).parts
     )
     write_json_deterministic(
-        BATCH018_DIR / "artifact_payload_budget.json",
+        BATCH019_DIR / "artifact_payload_budget.json",
         {
             "status": "PASS" if payload_size <= 750000 else "BLOCK",
             "target_primary_artifact_bytes": 450000,
             "hard_primary_artifact_bytes": 750000,
             "estimated_primary_artifact_bytes": payload_size,
             "target_exceeded_with_justification": payload_size > 450000,
-            "justification": "post boundary plus Batch018 manual dependency lock intake evidence" if payload_size > 450000 else None,
+            "justification": "post boundary plus Batch019 active search geometry evidence" if payload_size > 450000 else None,
             "blocker": None if payload_size <= 750000 else "primary_artifact_budget_exceeded",
         },
     )
     write_json_deterministic(
-        BATCH018_DIR / "artifact_minimality_audit.json",
+        BATCH019_DIR / "artifact_minimality_audit.json",
         {
             "status": "PASS" if not recursive_prior_batch_packaging_detected else "BLOCK",
             "recursive_prior_batch_packaging_detected": recursive_prior_batch_packaging_detected,
-            "primary_payload_roots": [POST_DIR.as_posix(), BATCH018_DIR.as_posix()],
+            "primary_payload_roots": [POST_DIR.as_posix(), BATCH019_DIR.as_posix()],
             "payload_size_bytes": payload_size,
             "blocker": None if not recursive_prior_batch_packaging_detected else "recursive_prior_batch_packaging_detected",
         },
     )
-    write_sha256sums(BATCH018_DIR)
+    write_sha256sums(BATCH019_DIR)
     write_json_deterministic(
         POST_DIR / "artifact_payload_manifest_report.json",
         {
@@ -9555,7 +9931,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH018_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH019_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

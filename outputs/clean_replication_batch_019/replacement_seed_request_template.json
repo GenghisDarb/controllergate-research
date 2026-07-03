@@ -1,0 +1,25 @@
+{
+  "candidate_id": "<new_candidate_id>",
+  "evidence_checklist": [
+    "public repository",
+    "issue timestamp",
+    "no fixed/later/gold/PR evidence",
+    "native failing test preferred",
+    "bounded dependency metadata",
+    "environment lock source present",
+    "command manifest derivable"
+  ],
+  "forbidden_evidence_checklist": [
+    "fixed commit",
+    "later commit",
+    "gold patch",
+    "PR patch",
+    "future tests",
+    "hidden benchmark state",
+    "external service requirement"
+  ],
+  "issue_created_at": "<timestamp>",
+  "issue_url": "<issue_url>",
+  "repo_url": "<public_github_python_repo>",
+  "source_commit_sha_or_selection": "<exact_commit_or_decision_time_selection>"
+}

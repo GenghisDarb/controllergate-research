@@ -1,0 +1,28 @@
+{
+  "allowed_recovery_path_types": [
+    "provide_manual_dependency_lock",
+    "refine_seed_issue_snapshot",
+    "replace_seed",
+    "run_source_commit_window",
+    "run_command_variant_matrix",
+    "run_dependency_lock_materialization",
+    "run_target_intent_retry",
+    "run_issue_derived_harness_correction",
+    "run_repair_only_fallback",
+    "run_matched_null_diagnostic",
+    "retire_candidate"
+  ],
+  "ranking_inputs": [
+    "blocker_severity",
+    "evidence_completeness",
+    "expected_information_gain",
+    "expected_compute_cost",
+    "expected_provenance_risk",
+    "likelihood_of_target_intent_recovery",
+    "likelihood_of_issue_derived_verification",
+    "claim_boundary_restrictions",
+    "manual_input_required"
+  ],
+  "repair_paths_require_empirical_gate_pass": true,
+  "status": "PASS"
+}

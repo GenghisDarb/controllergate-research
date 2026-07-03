@@ -1,0 +1,36 @@
+{
+  "paths": [
+    {
+      "blocked": false,
+      "path_type": "provide_manual_dependency_lock",
+      "rank": 1,
+      "repair_related": false,
+      "score": 10
+    },
+    {
+      "blocked": false,
+      "path_type": "replace_seed",
+      "rank": 2,
+      "repair_related": false,
+      "score": 5
+    },
+    {
+      "blocked": true,
+      "blocker": "manual_dependency_lock_absent",
+      "path_type": "run_target_intent_retry",
+      "rank": 3,
+      "repair_related": true,
+      "score": 0
+    },
+    {
+      "blocked": true,
+      "blocker": "manual_dependency_lock_absent",
+      "path_type": "run_repair_only_fallback",
+      "rank": 4,
+      "repair_related": true,
+      "score": 0
+    }
+  ],
+  "status": "PASS",
+  "top_recovery_path": "provide_manual_dependency_lock"
+}

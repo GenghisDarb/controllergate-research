@@ -1,0 +1,24 @@
+{
+  "examples": [
+    {
+      "allowed_probes": [
+        "dependency_lock_probe"
+      ],
+      "boundary_class": "dependency_precondition_boundary",
+      "claim_boundary": "diagnostic_only_until_empirical_validation",
+      "forbidden_actions": [
+        "patch_generation_without_empirical_gate",
+        "repair_success_claim_without_validation"
+      ],
+      "next_allowed_action": "dependency_lock_probe",
+      "required_evidence": [
+        "dependency lock",
+        "target-intent alignment",
+        "runtime incident record"
+      ],
+      "rollback_requirement": true,
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

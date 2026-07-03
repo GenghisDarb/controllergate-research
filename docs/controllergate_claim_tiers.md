@@ -1,22 +1,22 @@
 # ControllerGate claim tiers
 
 - Tier 0 Proposed: concept, hypothesis, or architecture sketch.
-- Tier 1 Demonstrated: toy, synthetic, local fixture, or scaffold demonstration.
-- Tier 2 Reproduced: reproducible result in one empirical software domain or one external repair episode class.
-- Tier 3 Cross-Domain: reproducible cross-domain result under frozen contracts.
-- Tier 4 Predictive: out-of-sample predictive success under preregistered conditions.
-- Tier 5 Theorem/Formal: externally replicated or formally proved in a domain.
-
-Every capability must have a tier before public use.
+- Tier 1 Demonstrated: deterministic local fixture or scaffold evidence.
+- Batch019 Active Search-Space Geometry is scaffold/diagnostic unless tied to empirical repair evidence.
 
 ## Current operational gate status
 
-- Current protocol remains `v2.13`.
-- Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0`.
-- Full scoring remains `NOT_RUN/disallowed`.
+- Batch018 official artifact evidence remains blocked at `manual_dependency_lock_absent`.
+- Batch019 adds Active Search-Space Geometry as a neutral probe-selection scaffold.
+- Active Search-Space Geometry can prioritize probes and candidates, but it cannot validate repairs.
+- Geometry maps are not substitutes for commit verification, environment locks, replay, validation, null comparison, duplicate replay, no-overreach validation, or SHA custody.
+- Single-system search geometry and coupled-interlock extension remain separate.
+- Coupled-interlock extension is diagnostic until interlock invariants are computed.
+- Darker issue #112 repair execution remains blocked in Batch019; the post-Batch018 manual lock is watch-only for Batch020 or later.
+- Native repair episode count remains `4`.
+- Issue-derived repair episode count remains `0`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
-- Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
-- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.
+- Hallucination elimination is not claimed.
+- Absolute uncrashability is not claimed.
+- Production runtime readiness is not claimed.

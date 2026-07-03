@@ -28,7 +28,8 @@ BATCH015_DIR = Path("outputs/clean_replication_batch_015")
 BATCH016_DIR = Path("outputs/clean_replication_batch_016")
 BATCH017_DIR = Path("outputs/clean_replication_batch_017")
 BATCH018_DIR = Path("outputs/clean_replication_batch_018")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch018_manual_dependency_lock_thin")
+BATCH019_DIR = Path("outputs/clean_replication_batch_019")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch019_active_search_geometry_thin")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -760,6 +761,61 @@ BATCH018_REQUIRED = [
     "proof_obligations_ledger.json",
     "rollback_block_ledger_audit.json",
     "compute_budget_safe_stop_batch018.json",
+    "artifact_packaging_policy.json",
+    "thin_artifact_packaging_policy.json",
+    "artifact_lineage_index.json",
+    "evidence_carry_forward_manifest.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "lineage_equivalence_audit.json",
+    "controllergate_claim_tier_update.json",
+    "controllergate_capability_catalog_update.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH019_REQUIRED = [
+    "campaign_summary.md",
+    "consolidated_state_clean_replication_batch_019.json",
+    "batch018_boundary_preservation.json",
+    "manual_dependency_lock_blocker_carry_forward.json",
+    "claim_boundary_batch019.json",
+    "manual_dependency_lock_watch_status.json",
+    "manual_dependency_lock_next_action.json",
+    "active_search_space_geometry_policy.json",
+    "search_space_geometry_schema.json",
+    "structural_defect_boundary_policy.json",
+    "stable_candidate_region_policy.json",
+    "recovery_candidate_path_policy.json",
+    "information_gain_probe_selection_policy.json",
+    "amds_active_inference_integration_policy.json",
+    "active_search_space_geometry_status.json",
+    "search_space_feature_vector_schema.json",
+    "search_space_feature_vector_examples.json",
+    "search_space_feature_vector_status.json",
+    "information_gain_probe_policy.json",
+    "probe_candidate_registry.json",
+    "probe_selection_decision_records.json",
+    "probe_budget_policy_batch019.json",
+    "probe_selection_status.json",
+    "structural_defect_boundary_schema.json",
+    "structural_defect_boundary_examples.json",
+    "structural_defect_boundary_status.json",
+    "recovery_path_ranking_policy.json",
+    "recovery_candidate_path_examples.json",
+    "recovery_path_ranking_status.json",
+    "single_system_scope_gate_policy.json",
+    "coupled_interlock_extension_gate_policy.json",
+    "single_system_vs_interlock_scope_audit.json",
+    "amds_active_inference_policy.json",
+    "amds_candidate_radar_schema.json",
+    "amds_active_probe_queue.json",
+    "amds_active_inference_status.json",
+    "replacement_seed_request_policy.json",
+    "replacement_seed_request_template.json",
+    "replacement_seed_quality_gate.json",
+    "curvature_active_geometry_integration_policy.json",
+    "curvature_probe_selection_integration.json",
+    "curvature_claim_boundary_batch019.json",
     "artifact_packaging_policy.json",
     "thin_artifact_packaging_policy.json",
     "artifact_lineage_index.json",
@@ -3095,7 +3151,18 @@ def audit_batch015_records() -> list[str]:
         "manual_dependency_lock_intake",
         "issue_timestamp_reconciliation",
     }
-    allowed_capabilities = required_capabilities | batch016_catalog_extensions | batch018_catalog_extensions
+    batch019_catalog_extensions = {
+        "active_search_space_geometry",
+        "information_gain_probe_selection",
+        "structural_defect_boundary_classification",
+        "recovery_candidate_path_ranking",
+        "amds_active_inference_integration",
+        "single_system_scope_gate",
+        "coupled_interlock_extension_gate",
+        "replacement_seed_request_scaffold",
+        "manual_dependency_lock_watch",
+    }
+    allowed_capabilities = required_capabilities | batch016_catalog_extensions | batch018_catalog_extensions | batch019_catalog_extensions
     if not required_capabilities.issubset(capability_ids) or not capability_ids.issubset(allowed_capabilities):
         errors.append("capability_catalog_missing")
     if any("current_tier" not in item for item in capabilities if isinstance(item, dict)):
@@ -3230,7 +3297,7 @@ def audit_batch016_records() -> list[str]:
         errors.append("safe-stop missing after target-intent failure")
     if state.get("status") != "PASS_WITH_BATCH016_SAFE_STOP":
         errors.append("Batch016 state did not safe-stop")
-    if catalog.get("catalog_version") not in {"batch016", "batch017", "batch018"}:
+    if catalog.get("catalog_version") not in {"batch016", "batch017", "batch018", "batch019"}:
         errors.append("Batch016 capability catalog version missing")
     return errors
 
@@ -3351,7 +3418,7 @@ def audit_batch017_records() -> list[str]:
         errors.append("safe-stop or rollback invalid")
     if state.get("status") != "PASS_WITH_BATCH017_SAFE_STOP" or state.get("exact_blocker") != "dependency_era_lock_unavailable":
         errors.append("Batch017 state did not safe-stop at dependency lock")
-    if catalog.get("catalog_version") not in {"batch017", "batch018"}:
+    if catalog.get("catalog_version") not in {"batch017", "batch018", "batch019"}:
         errors.append("Batch017 capability catalog version missing")
     return errors
 
@@ -3463,8 +3530,108 @@ def audit_batch018_records() -> list[str]:
         errors.append("primary_artifact_budget_exceeded")
     if state.get("status") != "PASS_WITH_BATCH018_SAFE_STOP" or state.get("exact_blocker") != "manual_dependency_lock_absent":
         errors.append("Batch018 state did not safe-stop at manual lock")
-    if catalog.get("catalog_version") != "batch018":
+    if catalog.get("catalog_version") not in {"batch018", "batch019"}:
         errors.append("Batch018 capability catalog version missing")
+    return errors
+
+
+def audit_batch019_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH019_REQUIRED:
+        if not (BATCH019_DIR / name).is_file():
+            errors.append(f"batch019 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH019_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch019 manifest failed: {manifest}")
+
+    phase_a = read_json(POST_DIR / "batch018_manual_dependency_lock_artifact_verification.json")
+    ingest = read_json(POST_DIR / "batch018_manual_dependency_lock_ingest_summary.json")
+    state = read_json(BATCH019_DIR / "consolidated_state_clean_replication_batch_019.json")
+    preservation = read_json(BATCH019_DIR / "batch018_boundary_preservation.json")
+    blocker = read_json(BATCH019_DIR / "manual_dependency_lock_blocker_carry_forward.json")
+    claim = read_json(BATCH019_DIR / "claim_boundary_batch019.json")
+    watch = read_json(BATCH019_DIR / "manual_dependency_lock_watch_status.json")
+    geometry_policy = read_json(BATCH019_DIR / "active_search_space_geometry_policy.json")
+    geometry_status = read_json(BATCH019_DIR / "active_search_space_geometry_status.json")
+    vector_schema = read_json(BATCH019_DIR / "search_space_feature_vector_schema.json")
+    vector_status = read_json(BATCH019_DIR / "search_space_feature_vector_status.json")
+    probe_policy = read_json(BATCH019_DIR / "information_gain_probe_policy.json")
+    probe_decision = read_json(BATCH019_DIR / "probe_selection_decision_records.json")
+    boundary = read_json(BATCH019_DIR / "structural_defect_boundary_status.json")
+    recovery = read_json(BATCH019_DIR / "recovery_path_ranking_status.json")
+    scope = read_json(BATCH019_DIR / "single_system_vs_interlock_scope_audit.json")
+    amds = read_json(BATCH019_DIR / "amds_active_inference_status.json")
+    amds_queue = read_json(BATCH019_DIR / "amds_active_probe_queue.json")
+    replacement = read_json(BATCH019_DIR / "replacement_seed_quality_gate.json")
+    curvature = read_json(BATCH019_DIR / "curvature_claim_boundary_batch019.json")
+    packaging = read_json(BATCH019_DIR / "thin_artifact_packaging_policy.json")
+    lineage = read_json(BATCH019_DIR / "artifact_lineage_index.json")
+    carry = read_json(BATCH019_DIR / "evidence_carry_forward_manifest.json")
+    budget = read_json(BATCH019_DIR / "artifact_payload_budget.json")
+    minimality = read_json(BATCH019_DIR / "artifact_minimality_audit.json")
+    catalog = read_json(Path("configs/controllergate_capability_catalog.json"))
+
+    if phase_a.get("status") != "PASS" or phase_a.get("actual_sha256") != "fa248bdf8e4a78e758a02cdf05e465154006cd3a8f57b4533d359915432a9695":
+        errors.append("Batch018 artifact not officially ingested")
+    if ingest.get("status") != "PASS" or ingest.get("ingested_only_output_evidence") is not True:
+        errors.append("Batch018 ingest summary invalid")
+    if preservation.get("status") != "PASS" or preservation.get("batch018_exact_blocker") != "manual_dependency_lock_absent":
+        errors.append("Batch018 boundary preservation failed")
+    if preservation.get("batch019_repair_path_executed") is not False:
+        errors.append("darker_repair_ran_without_manual_dependency_lock")
+    if blocker.get("carried_blocker") != "manual_dependency_lock_absent" or blocker.get("repair_path_executed") is not False:
+        errors.append("manual dependency lock blocker not carried forward")
+    if watch.get("batch019_processes_lock") is not False:
+        errors.append("Darker manual lock processed inside Batch019")
+    if claim.get("native_repair_episode_count") != 4 or claim.get("issue_derived_repair_episode_count") != 0:
+        errors.append("Batch019 repair counts changed")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch019 full scoring or memory boundary changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("hallucination_elimination") != "false/not_claimed":
+        errors.append("Batch019 overclaim boundary changed")
+    if geometry_policy.get("may_validate_repair") is not False or geometry_policy.get("may_replace_target_validation") is not False:
+        errors.append("geometry_replaced_empirical_evidence_gate")
+    if geometry_status.get("repair_validated") is not False or geometry_status.get("empirical_gates_replaced") is not False:
+        errors.append("geometry_replaced_empirical_evidence_gate")
+    if vector_schema.get("missing_evidence_must_be_explicit") is not True or not vector_status.get("missing_evidence"):
+        errors.append("search_space_feature_vector_schema_missing")
+    if probe_policy.get("selection_formula", {}).get("deterministic") is not True:
+        errors.append("probe_selection_formula_missing")
+    if probe_decision.get("status") != "PASS" or probe_decision.get("decision", {}).get("forbidden_evidence_used") is not False:
+        errors.append("probe_selection_policy_missing")
+    if boundary.get("boundary_class") != "dependency_precondition_boundary":
+        errors.append("structural_defect_boundary_missing")
+    if recovery.get("top_recovery_path") != "provide_manual_dependency_lock":
+        errors.append("recovery_path_ranking_missing")
+    if scope.get("status") != "PASS" or scope.get("conflated") is not False:
+        errors.append("single_system_scope_gate_missing")
+    coupled = scope.get("coupled_interlock", {})
+    if coupled.get("coupled_interlock_extension_active") is not False or coupled.get("blocker") != "coupled_interlock_used_without_invariants":
+        errors.append("coupled_interlock_used_without_invariants")
+    if amds.get("status") != "PASS" or amds.get("repair_success_claim") is not False:
+        errors.append("amds_active_inference_missing")
+    if amds_queue.get("candidate_status") != "blocked_on_manual_dependency_lock":
+        errors.append("Darker issue #112 not blocked on manual dependency lock")
+    if replacement.get("contains_evidence_checklist") is not True or replacement.get("contains_forbidden_evidence_checklist") is not True:
+        errors.append("replacement seed request scaffold invalid")
+    if curvature.get("geometry_claim_can_override_evidence") is not False:
+        errors.append("geometry_replaced_empirical_evidence_gate")
+    if packaging.get("status") != "PASS" or packaging.get("recursive_prior_batch_packaging_allowed") is not False:
+        errors.append("thin_artifact_policy_missing")
+    if lineage.get("status") != "PASS" or not lineage.get("prior_artifacts"):
+        errors.append("artifact_lineage_index_missing")
+    if carry.get("status") != "PASS" or carry.get("carried_prior_evidence_by_reference") is not True:
+        errors.append("evidence_carry_forward_manifest_missing")
+    if minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("recursive_prior_batch_packaging_detected")
+    if budget.get("status") != "PASS" or int(budget.get("hard_primary_artifact_bytes", 0)) != 750000:
+        errors.append("primary_artifact_budget_exceeded")
+    if state.get("status") != "PASS_WITH_BATCH019_ACTIVE_SEARCH_GEOMETRY":
+        errors.append("Batch019 state did not reach active search geometry boundary")
+    if catalog.get("catalog_version") != "batch019":
+        errors.append("Batch019 capability catalog version missing")
     return errors
 
 
@@ -3858,6 +4025,8 @@ def main() -> int:
         return fail("batch017 manifest mismatch")
     if verify_manifest(BATCH018_DIR)["status"] != "PASS":
         return fail("batch018 manifest mismatch")
+    if verify_manifest(BATCH019_DIR)["status"] != "PASS":
+        return fail("batch019 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -4021,6 +4190,9 @@ def main() -> int:
     batch018_errors = audit_batch018_records()
     if batch018_errors:
         return fail(f"batch018 audit failed: {batch018_errors}")
+    batch019_errors = audit_batch019_records()
+    if batch019_errors:
+        return fail(f"batch019 audit failed: {batch019_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -4067,9 +4239,9 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if final_report.get("status") != "PASS_WITH_BATCH018_SAFE_STOP":
-        return fail("final report did not advance to Batch018 safe-stop boundary")
-    if final_report.get("exact_blocker") != "manual_dependency_lock_absent":
+    if final_report.get("status") != "PASS_WITH_BATCH019_ACTIVE_SEARCH_GEOMETRY":
+        return fail("final report did not advance to Batch019 active search geometry boundary")
+    if final_report.get("exact_blocker") != "manual_dependency_lock_available_for_batch020_or_later":
         return fail("final report latest validation blocker mismatch")
     if final_report.get("batch017_target_intent_alignment") is not False:
         return fail("final report Batch017 target-intent boundary mismatch")
@@ -4081,6 +4253,12 @@ def main() -> int:
         return fail("final report Batch018 target-intent boundary mismatch")
     if final_report.get("batch018_dependency_cutoff_timestamp") != "2021-01-02T00:00:00Z":
         return fail("final report Batch018 dependency cutoff mismatch")
+    if final_report.get("batch019_active_search_space_geometry_status") != "PASS":
+        return fail("final report Batch019 active search geometry status mismatch")
+    if final_report.get("batch019_recommended_next_probe") != "dependency_lock_probe":
+        return fail("final report Batch019 recommended next probe mismatch")
+    if final_report.get("batch019_darker_issue112_status") != "blocked_on_manual_dependency_lock_watch_only":
+        return fail("final report Batch019 Darker status mismatch")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":
