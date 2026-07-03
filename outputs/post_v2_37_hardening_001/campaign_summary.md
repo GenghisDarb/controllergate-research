@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH019_ACTIVE_SEARCH_GEOMETRY.
+Status: PASS_WITH_BATCH020_MANUAL_LOCK_VALIDATED_ENVIRONMENT_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -63,5 +63,9 @@ Batch018 status: `PASS_WITH_BATCH018_SAFE_STOP`; exact blocker: `manual_dependen
 Batch019 ingests the manually supplied Batch018 thin artifact boundary, preserves the manual-lock blocker, watches the post-Batch018 lock for a later lane, and adds Active Search-Space Geometry plus information-gain probe selection scaffolds.
 
 Batch019 status: `PASS_WITH_BATCH019_ACTIVE_SEARCH_GEOMETRY`; exact blocker: `manual_dependency_lock_available_for_batch020_or_later`.
+
+Batch020 ingests the manually supplied Batch019 thin artifact boundary, validates the canonical manual dependency lock, and blocks downstream work unless bounded materialization and Target-Intent Alignment pass.
+
+Batch020 status: `PASS_WITH_BATCH020_MANUAL_LOCK_VALIDATED_ENVIRONMENT_BLOCKED`; exact blocker: `manual_lock_environment_materialization_failed`.
 
 NotebookLM advice traceability status: `PASS`.

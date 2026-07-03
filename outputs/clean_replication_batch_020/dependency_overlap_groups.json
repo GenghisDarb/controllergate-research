@@ -1,0 +1,49 @@
+{
+  "candidate_id": "darker_issue_112_relative_git_dir",
+  "dependency_count": 12,
+  "double_count_detected": false,
+  "groups": [
+    {
+      "dependency_names": [
+        "pip",
+        "setuptools",
+        "wheel"
+      ],
+      "group_id": "package_tooling",
+      "grouping_basis": "toolchain_role_or_shared_failure_surface",
+      "may_be_weighted_independently": false
+    },
+    {
+      "dependency_names": [
+        "appdirs",
+        "black",
+        "mypy-extensions",
+        "pathspec",
+        "regex",
+        "typed-ast"
+      ],
+      "group_id": "formatter_toolchain",
+      "grouping_basis": "toolchain_role_or_shared_failure_surface",
+      "may_be_weighted_independently": false
+    },
+    {
+      "dependency_names": [
+        "click",
+        "typing-extensions"
+      ],
+      "group_id": "cli_runtime",
+      "grouping_basis": "toolchain_role_or_shared_failure_surface",
+      "may_be_weighted_independently": false
+    },
+    {
+      "dependency_names": [
+        "toml"
+      ],
+      "group_id": "parser_config",
+      "grouping_basis": "toolchain_role_or_shared_failure_surface",
+      "may_be_weighted_independently": false
+    }
+  ],
+  "status": "PASS",
+  "used_as_repair_evidence": false
+}

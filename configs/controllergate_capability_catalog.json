@@ -1,87 +1,26 @@
 {
   "capabilities": [
     {
-      "blockers": [],
-      "capability_id": "evidence_bound_repair_validation",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 2,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_014/consolidated_state_clean_replication_batch_014.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Evidence Bound Repair Validation",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
+      "capability_id": "activation_order_guardrail",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+      "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "status": "implemented_or_guarded_batch020"
     },
     {
       "blockers": [],
-      "capability_id": "artifact_byte_custody",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 2,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_015/latest_artifact_boundary_status.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Artifact Byte Custody",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "registry_first_provenance",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 2,
-      "evidence_artifact_paths": [
-        "configs/external_repair_episode_registry.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Registry First Provenance",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "matched_null_evaluation",
+      "capability_id": "active_ast_excision_probe",
       "ci_reproduction_status": "PASS",
       "current_tier": 1,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_009/matched_null_calibration_score_result.json"
+        "outputs/clean_replication_batch_015/active_ast_excision_probe_status.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "Matched Null Evaluation",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "curvature_based_source_selection",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_013/global_curvature_logic_policy.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Curvature Based Source Selection",
+      "neutral_public_name": "Active Ast Excision Probe",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
@@ -104,52 +43,72 @@
     },
     {
       "blockers": [],
-      "capability_id": "source_commit_environment_lock",
+      "capability_id": "active_search_space_geometry",
       "ci_reproduction_status": "PASS",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
       "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_014/source_commit_environment_lock_summary.json"
+        "outputs/clean_replication_batch_019/active_search_space_geometry_status.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "Source Commit Environment Lock",
+      "neutral_public_name": "Active Search-Space Geometry",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "status": "implemented_or_guarded_batch020",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "amds_active_inference_integration",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_019/amds_active_inference_status.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "AMDS Active Inference Integration",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
     {
       "blockers": [],
-      "capability_id": "target_command_manifest",
+      "capability_id": "artifact_byte_custody",
       "ci_reproduction_status": "PASS",
-      "current_tier": 1,
+      "current_tier": 2,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_014/target_command_manifest_summary.json"
+        "outputs/clean_replication_batch_015/latest_artifact_boundary_status.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "Target Command Manifest",
+      "neutral_public_name": "Artifact Byte Custody",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
     {
       "blockers": [],
-      "capability_id": "fresh_workspace_purity",
+      "capability_id": "artifact_thin_packaging",
       "ci_reproduction_status": "PASS",
       "current_tier": 1,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_014/workspace_purity_report.json"
+        "outputs/clean_replication_batch_017/thin_artifact_packaging_policy.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "Fresh Workspace Purity",
+      "neutral_public_name": "Thin Artifact Packaging",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
@@ -172,142 +131,6 @@
     },
     {
       "blockers": [],
-      "capability_id": "rollback_block_ledger",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_014/rollback_block_ledger_audit.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Rollback Block Ledger",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "runtime_incident_capture",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_015/runtime_incident_capture_status.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Runtime Incident Capture",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "execution_boundary_gateway",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_015/execution_boundary_gateway_status.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Execution Boundary Gateway",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "isolated_repair_sandbox",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_015/isolated_repair_sandbox_status.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Isolated Repair Sandbox",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "dependency_drift_chaperone",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_015/dependency_drift_chaperone_status.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Dependency Drift Chaperone",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "active_ast_excision_probe",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_015/active_ast_excision_probe_status.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Active Ast Excision Probe",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "syntax_micro_rollback",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_015/syntax_micro_rollback_status.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Syntax Micro Rollback",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "predictive_degradation_telemetry",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_015/predictive_degradation_telemetry_status.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Predictive Degradation Telemetry",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
       "capability_id": "compute_budget_safe_stop",
       "ci_reproduction_status": "PASS",
       "current_tier": 1,
@@ -320,6 +143,32 @@
         "full memory lift"
       ],
       "neutral_public_name": "Compute Budget Safe Stop",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "capability_id": "consistency_reassertion",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+      "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "status": "implemented_or_guarded_batch020"
+    },
+    {
+      "blockers": [
+        "coupled_interlock_used_without_invariants"
+      ],
+      "capability_id": "coupled_interlock_extension_gate",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 0,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_019/coupled_interlock_extension_gate_policy.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Coupled-Interlock Extension Gate",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
@@ -342,107 +191,35 @@
     },
     {
       "blockers": [],
-      "capability_id": "proof_to_action_compiler",
+      "capability_id": "curvature_based_source_selection",
       "ci_reproduction_status": "PASS",
       "current_tier": 1,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_015/proof_to_action_compiler_status.json"
+        "outputs/clean_replication_batch_013/global_curvature_logic_policy.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "Proof To Action Compiler",
+      "neutral_public_name": "Curvature Based Source Selection",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
     {
       "blockers": [],
-      "capability_id": "lock_sequence_operation_registry",
+      "capability_id": "dependency_drift_chaperone",
       "ci_reproduction_status": "PASS",
       "current_tier": 1,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_015/lock_sequence_operation_registry_status.json"
+        "outputs/clean_replication_batch_015/dependency_drift_chaperone_status.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "Lock Sequence Operation Registry",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [
-        "future_evidence_needed"
-      ],
-      "capability_id": "structure_first_compiler_roadmap",
-      "ci_reproduction_status": "evidence_gap_recorded",
-      "current_tier": 0,
-      "evidence_artifact_paths": [],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Structure First Compiler Roadmap",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [
-        "future_evidence_needed"
-      ],
-      "capability_id": "future_agentic_admissibility_compiler_integration",
-      "ci_reproduction_status": "evidence_gap_recorded",
-      "current_tier": 0,
-      "evidence_artifact_paths": [],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Future Agentic Admissibility Compiler Integration",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [
-        "dependency_api_precondition_unresolved"
-      ],
-      "capability_id": "target_intent_signature_alignment",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_016/target_intent_alignment_audit.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Target Intent Signature Alignment",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [
-        "dependency_api_precondition_unresolved"
-      ],
-      "capability_id": "issue_derived_harness_verification",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_016/issue_derived_harness_v2_verification_result.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Issue-Derived Harness Verification",
+      "neutral_public_name": "Dependency Drift Chaperone",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
@@ -466,19 +243,26 @@
       "translation_source": null
     },
     {
-      "blockers": [],
-      "capability_id": "artifact_thin_packaging",
-      "ci_reproduction_status": "PASS",
+      "capability_id": "dependency_overlap_grouping",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
       "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "status": "implemented_or_guarded_batch020"
+    },
+    {
+      "blockers": [],
+      "capability_id": "evidence_bound_repair_validation",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 2,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_017/thin_artifact_packaging_policy.json"
+        "outputs/clean_replication_batch_014/consolidated_state_clean_replication_batch_014.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "Thin Artifact Packaging",
+      "neutral_public_name": "Evidence Bound Repair Validation",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
@@ -496,6 +280,154 @@
         "full memory lift"
       ],
       "neutral_public_name": "Evidence Carry-Forward Manifest",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "execution_boundary_gateway",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_015/execution_boundary_gateway_status.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Execution Boundary Gateway",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "fresh_workspace_purity",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_014/workspace_purity_report.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Fresh Workspace Purity",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [
+        "future_evidence_needed"
+      ],
+      "capability_id": "future_agentic_admissibility_compiler_integration",
+      "ci_reproduction_status": "evidence_gap_recorded",
+      "current_tier": 0,
+      "evidence_artifact_paths": [],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Future Agentic Admissibility Compiler Integration",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "information_gain_probe_selection",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_019/probe_selection_status.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Information-Gain Probe Selection",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "isolated_repair_sandbox",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_015/isolated_repair_sandbox_status.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Isolated Repair Sandbox",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [
+        "dependency_api_precondition_unresolved"
+      ],
+      "capability_id": "issue_derived_harness_verification",
+      "ci_reproduction_status": "PASS",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+      "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_016/issue_derived_harness_v2_verification_result.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Issue-Derived Harness Verification",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "status": "implemented_or_guarded_batch020",
+      "translation_source": null
+    },
+    {
+      "capability_id": "issue_derived_repair_feasibility",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+      "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "status": "implemented_or_guarded_batch020"
+    },
+    {
+      "blockers": [],
+      "capability_id": "issue_timestamp_reconciliation",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_018/darker_issue112_timestamp_reconciliation.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Issue Timestamp Reconciliation",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "lock_sequence_operation_registry",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_015/lock_sequence_operation_registry_status.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Lock Sequence Operation Registry",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
@@ -519,70 +451,91 @@
       "translation_source": null
     },
     {
+      "capability_id": "manual_dependency_lock_validation",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+      "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "status": "implemented_or_guarded_batch020"
+    },
+    {
       "blockers": [],
-      "capability_id": "issue_timestamp_reconciliation",
+      "capability_id": "manual_dependency_lock_watch",
       "ci_reproduction_status": "PASS",
       "current_tier": 1,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_018/darker_issue112_timestamp_reconciliation.json"
+        "outputs/clean_replication_batch_019/manual_dependency_lock_watch_status.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "Issue Timestamp Reconciliation",
+      "neutral_public_name": "Manual Dependency Lock Watch",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "capability_id": "manual_lock_environment_materialization",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+      "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "status": "implemented_or_guarded_batch020"
+    },
+    {
+      "blockers": [],
+      "capability_id": "matched_null_evaluation",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_009/matched_null_calibration_score_result.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Matched Null Evaluation",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "capability_id": "precision_failure_taxonomy",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+      "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "status": "implemented_or_guarded_batch020"
+    },
+    {
+      "blockers": [],
+      "capability_id": "predictive_degradation_telemetry",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_015/predictive_degradation_telemetry_status.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Predictive Degradation Telemetry",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
     {
       "blockers": [],
-      "capability_id": "active_search_space_geometry",
+      "capability_id": "proof_to_action_compiler",
       "ci_reproduction_status": "PASS",
       "current_tier": 1,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_019/active_search_space_geometry_status.json"
+        "outputs/clean_replication_batch_015/proof_to_action_compiler_status.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "Active Search-Space Geometry",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "information_gain_probe_selection",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_019/probe_selection_status.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Information-Gain Probe Selection",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "structural_defect_boundary_classification",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_019/structural_defect_boundary_status.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Structural Defect Boundary Classification",
+      "neutral_public_name": "Proof To Action Compiler",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
@@ -605,54 +558,18 @@
     },
     {
       "blockers": [],
-      "capability_id": "amds_active_inference_integration",
+      "capability_id": "registry_first_provenance",
       "ci_reproduction_status": "PASS",
-      "current_tier": 1,
+      "current_tier": 2,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_019/amds_active_inference_status.json"
+        "configs/external_repair_episode_registry.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "AMDS Active Inference Integration",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [],
-      "capability_id": "single_system_scope_gate",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 1,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_019/single_system_vs_interlock_scope_audit.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Single-System Scope Gate",
-      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
-      "translation_source": null
-    },
-    {
-      "blockers": [
-        "coupled_interlock_used_without_invariants"
-      ],
-      "capability_id": "coupled_interlock_extension_gate",
-      "ci_reproduction_status": "PASS",
-      "current_tier": 0,
-      "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_019/coupled_interlock_extension_gate_policy.json"
-      ],
-      "forbidden_overclaims": [
-        "production readiness",
-        "full scoring",
-        "full memory lift"
-      ],
-      "neutral_public_name": "Coupled-Interlock Extension Gate",
+      "neutral_public_name": "Registry First Provenance",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     },
@@ -675,23 +592,182 @@
     },
     {
       "blockers": [],
-      "capability_id": "manual_dependency_lock_watch",
+      "capability_id": "rollback_block_ledger",
       "ci_reproduction_status": "PASS",
       "current_tier": 1,
       "evidence_artifact_paths": [
-        "outputs/clean_replication_batch_019/manual_dependency_lock_watch_status.json"
+        "outputs/clean_replication_batch_014/rollback_block_ledger_audit.json"
       ],
       "forbidden_overclaims": [
         "production readiness",
         "full scoring",
         "full memory lift"
       ],
-      "neutral_public_name": "Manual Dependency Lock Watch",
+      "neutral_public_name": "Rollback Block Ledger",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "capability_id": "rollback_ghost_state_guardrail",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+      "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "status": "implemented_or_guarded_batch020"
+    },
+    {
+      "blockers": [],
+      "capability_id": "runtime_incident_capture",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_015/runtime_incident_capture_status.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Runtime Incident Capture",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "capability_id": "semantic_drift_guardrail",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+      "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "status": "implemented_or_guarded_batch020"
+    },
+    {
+      "blockers": [],
+      "capability_id": "single_system_scope_gate",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_019/single_system_vs_interlock_scope_audit.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Single-System Scope Gate",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "source_commit_environment_lock",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_014/source_commit_environment_lock_summary.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Source Commit Environment Lock",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "structural_defect_boundary_classification",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_019/structural_defect_boundary_status.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Structural Defect Boundary Classification",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [
+        "future_evidence_needed"
+      ],
+      "capability_id": "structure_first_compiler_roadmap",
+      "ci_reproduction_status": "evidence_gap_recorded",
+      "current_tier": 0,
+      "evidence_artifact_paths": [],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Structure First Compiler Roadmap",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "syntax_micro_rollback",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_015/syntax_micro_rollback_status.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Syntax Micro Rollback",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "blockers": [],
+      "capability_id": "target_command_manifest",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_014/target_command_manifest_summary.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Target Command Manifest",
+      "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
+      "translation_source": null
+    },
+    {
+      "capability_id": "target_intent_alignment_retry",
+      "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+      "current_tier": 1,
+      "evidence": "clean_replication_batch_020",
+      "status": "implemented_or_guarded_batch020"
+    },
+    {
+      "blockers": [
+        "dependency_api_precondition_unresolved"
+      ],
+      "capability_id": "target_intent_signature_alignment",
+      "ci_reproduction_status": "PASS",
+      "current_tier": 1,
+      "evidence_artifact_paths": [
+        "outputs/clean_replication_batch_016/target_intent_alignment_audit.json"
+      ],
+      "forbidden_overclaims": [
+        "production readiness",
+        "full scoring",
+        "full memory lift"
+      ],
+      "neutral_public_name": "Target Intent Signature Alignment",
       "next_evidence_needed": "audited external reproduction or deterministic fixture evidence",
       "translation_source": null
     }
   ],
-  "catalog_version": "batch019",
+  "catalog_version": "batch020",
   "full_scoring": "NOT_RUN/disallowed",
   "memory_lift": "not_demonstrated",
   "self_maintaining_software": "false/not_demonstrated",

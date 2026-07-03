@@ -1,0 +1,16 @@
+{
+  "correct_order": [
+    "preserve_reference_state",
+    "validate_seed_and_dependency_lock",
+    "materialize_bounded_environment",
+    "verify_target_intent_alignment",
+    "compute_feature_vector",
+    "verify_route_topology",
+    "run_preflight_checks",
+    "allow_repair_or_diagnostic_only_after_prior_gates",
+    "validate_patch_if_any",
+    "update_ledger_and_claim_boundary"
+  ],
+  "repair_before_target_intent_allowed": false,
+  "status": "PASS"
+}

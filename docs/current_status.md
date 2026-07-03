@@ -1,20 +1,20 @@
 # Current status
 
-ControllerGate remains a pre-alpha research archive with current protocol `v2.13`.
+Batch020 status: `PASS_WITH_BATCH020_MANUAL_LOCK_VALIDATED_ENVIRONMENT_BLOCKED`.
 
 ## Current operational gate status
 
-- Batch018 official artifact evidence remains blocked at `manual_dependency_lock_absent`.
-- Batch019 adds Active Search-Space Geometry as a neutral probe-selection scaffold.
-- Active Search-Space Geometry can prioritize probes and candidates, but it cannot validate repairs.
-- Geometry maps are not substitutes for commit verification, environment locks, replay, validation, null comparison, duplicate replay, no-overreach validation, or SHA custody.
-- Single-system search geometry and coupled-interlock extension remain separate.
-- Coupled-interlock extension is diagnostic until interlock invariants are computed.
-- Darker issue #112 repair execution remains blocked in Batch019; the post-Batch018 manual lock is watch-only for Batch020 or later.
-- Native repair episode count remains `4`.
-- Issue-derived repair episode count remains `0`.
+- Batch019 made Active Search-Space Geometry available as a probe-selection layer, not an evidence replacement.
+- Batch020 validates the canonical manual dependency lock and attempts bounded materialization only under that reviewed lock.
+- Legacy TXT requirements files are support evidence only and cannot bypass the canonical JSON lock.
+- Repair remains blocked before bounded materialization and Target-Intent Alignment.
+- Single-System Navigation Geometry and Coupled Interlock Extension remain separate.
+- Coupled Interlock Extension remains blocked until interlock invariants are computed.
+- Every blocked branch must write a Rollback Block Ledger entry.
+- Failure Taxonomy stays specific enough to guide Recovery Candidate Path ranking.
+- Confirmed external native repair episodes remain `4`.
+- Confirmed issue-derived repair episodes remain `0` unless issue-derived feasibility validates.
+- Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Hallucination elimination is not claimed.
-- Absolute uncrashability is not claimed.
-- Production runtime readiness is not claimed.
+- Hallucination elimination, absolute uncrashability, and production runtime readiness are not claimed.
