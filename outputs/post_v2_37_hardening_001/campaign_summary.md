@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH023_MATERIALIZATION_BLOCKED.
+Status: PASS_WITH_BATCH024_PROVIDER_BRIDGE_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -79,5 +79,9 @@ Batch022 status: `PASS_WITH_BATCH022_DOCKER_PROVIDER_BLOCKED`; exact blocker: `d
 Batch023 ingests the manually supplied Batch022 thin artifact boundary, enables a bounded Docker provider probe through an explicit activation gate, records provider bridge and credential isolation checks, and safe-stops before target replay unless provider, lock, materialization, and Target-Intent Alignment gates pass.
 
 Batch023 status: `PASS_WITH_BATCH023_MATERIALIZATION_BLOCKED`; exact blocker: `manual_lock_environment_materialization_failed`.
+
+Batch024 ingests the manually supplied Batch023 thin artifact boundary, adds a Provider Workspace Bridge, records Provider Input Bundle and Provider Output Bundle custody, attempts source checkout/materialization only inside the bounded provider path, and safe-stops before harness or repair unless Target-Intent Alignment passes.
+
+Batch024 status: `PASS_WITH_BATCH024_PROVIDER_BRIDGE_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
 
 NotebookLM advice traceability status: `PASS`.

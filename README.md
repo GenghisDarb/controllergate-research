@@ -16,7 +16,7 @@ Memory lift on external real bugs is not demonstrated.
 
 Self-maintaining software is not demonstrated.
 
-Latest continuation boundary: Batch023 status `PASS_WITH_BATCH023_PROVIDER_PREFLIGHT_BLOCKED` with exact blocker `docker_runtime_provider_unavailable`.
+Latest continuation boundary: Batch024 status `PASS_WITH_BATCH024_PROVIDER_BRIDGE_BLOCKED` with exact blocker `docker_runtime_provider_unavailable`.
 
 ## What ControllerGate is
 
@@ -32,7 +32,7 @@ Latest continuation boundary: Batch023 status `PASS_WITH_BATCH023_PROVIDER_PREFL
 
 ## Claim Tier System
 
-Capabilities remain tiered by evidence. Batch023 does not upgrade full-scoring, memory-lift, or self-maintaining claims.
+Capabilities remain tiered by evidence. Batch024 does not upgrade full-scoring, memory-lift, or self-maintaining claims.
 
 ## Capability Catalog
 
@@ -42,7 +42,7 @@ The capability catalog records active and guarded engineering gates with claim b
 
 - Artifact custody must pass.
 - Registry and lock evidence must be decision-time safe.
-- Target replay cannot run before verified runtime-provider and dependency-lock gates pass.
+- Target replay cannot run before verified runtime-provider, Provider Workspace Bridge, and dependency-lock gates pass.
 
 ## Runtime-wrapper roadmap
 
@@ -52,7 +52,7 @@ Runtime-provider work remains staged behind proof and rollback gates.
 
 - Current protocol remains `v2.13`.
 - Confirmed external native repair episodes remain `4`.
-- Batch023 adds a bounded provider probe and safe-stop boundary.
+- Batch024 adds a bounded Provider Workspace Bridge and safe-stop boundary.
 
 ## Forbidden claims
 
@@ -62,12 +62,12 @@ Runtime-provider work remains staged behind proof and rollback gates.
 
 ## Current operational gate status
 
-- Batch022 blocked because Docker provider execution was disabled pending explicit bounded-provider activation.
-- Batch023 adds a Bounded Docker Provider Probe and GitHub Actions provider bridge.
-- The runtime must conform to the reviewed lock; the lock is not loosened to match the runtime.
+- Batch023 verified Docker provider activation, Python 3.7 preflight, provider output transport, and manual dependency-lock installation in the official artifact.
+- Batch023 blocked at source workspace materialization pending an approved Provider Workspace Bridge.
+- Batch024 adds the Provider Workspace Bridge, Provider Input Bundle, Provider Output Bundle, Provider Workspace Transport, and Provider Source Materialization records.
+- The runtime must conform to the reviewed lock; the lock is not loosened to fit the runtime.
 - Provider labels are insufficient; actual Python and pip versions must be recorded inside the provider.
 - External source execution must not receive write credentials or secrets.
-- PSA-82 is handled as a quarantined diagnostic inspiration package, not ControllerGate repair evidence.
 - Structured Fragility Diagnostic is diagnostic and cannot replace empirical gates.
 - Repair cannot activate before bounded materialization and Target-Intent Alignment.
 - Active Search-Space Geometry may prioritize probes but cannot replace empirical evidence.

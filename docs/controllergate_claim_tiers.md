@@ -1,17 +1,15 @@
 # ControllerGate claim tiers
 
-- Tier 0 Proposed: concept, hypothesis, or architecture sketch.
-- Tier 1 Demonstrated: deterministic local fixture or scaffold evidence.
-- Batch023 provider records are guarded evidence-custody and diagnostic scaffolds, not repair claims.
+Batch024 records Provider Workspace Bridge and provider source materialization evidence without upgrading full-scoring, memory-lift, self-maintaining, production-readiness, or universal-repair claims.
 
 ## Current operational gate status
 
-- Batch022 blocked because Docker provider execution was disabled pending explicit bounded-provider activation.
-- Batch023 adds a Bounded Docker Provider Probe and GitHub Actions provider bridge.
-- The runtime must conform to the reviewed lock; the lock is not loosened to match the runtime.
+- Batch023 verified Docker provider activation, Python 3.7 preflight, provider output transport, and manual dependency-lock installation in the official artifact.
+- Batch023 blocked at source workspace materialization pending an approved Provider Workspace Bridge.
+- Batch024 adds the Provider Workspace Bridge, Provider Input Bundle, Provider Output Bundle, Provider Workspace Transport, and Provider Source Materialization records.
+- The runtime must conform to the reviewed lock; the lock is not loosened to fit the runtime.
 - Provider labels are insufficient; actual Python and pip versions must be recorded inside the provider.
 - External source execution must not receive write credentials or secrets.
-- PSA-82 is handled as a quarantined diagnostic inspiration package, not ControllerGate repair evidence.
 - Structured Fragility Diagnostic is diagnostic and cannot replace empirical gates.
 - Repair cannot activate before bounded materialization and Target-Intent Alignment.
 - Active Search-Space Geometry may prioritize probes but cannot replace empirical evidence.
