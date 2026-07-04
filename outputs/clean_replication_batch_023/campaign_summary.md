@@ -1,7 +1,7 @@
 # Clean replication Batch023 bounded Docker provider probe
 
-Status: PASS_WITH_BATCH023_PROVIDER_PREFLIGHT_BLOCKED.
+Status: PASS_WITH_BATCH023_MATERIALIZATION_BLOCKED.
 
-Provider preflight: `BLOCK`.
+Provider preflight: `PASS`.
 
-Exact blocker: `docker_runtime_provider_unavailable`.
+Exact blocker: `manual_lock_environment_materialization_failed`.

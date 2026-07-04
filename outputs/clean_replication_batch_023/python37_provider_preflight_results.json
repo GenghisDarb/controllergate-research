@@ -1,19 +1,25 @@
 {
-  "actual_pip_version": null,
-  "actual_python_version": null,
-  "blocker": "docker_runtime_provider_unavailable",
-  "digest_status": "not_checked",
+  "actual_pip_version": "pip 23.0.1 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)",
+  "actual_python_version": "3.7.17",
+  "blocker": null,
+  "digest_status": "recorded",
   "docker_cli_available": true,
-  "docker_daemon_available": false,
-  "docker_version": "Docker version 29.2.1, build a5c7197",
+  "docker_daemon_available": true,
+  "docker_version": "Docker version 28.0.4, build b8034c0",
   "enabled": true,
   "enabled_env": "CONTROLLERGATE_ENABLE_DOCKER_PROVIDER",
   "image": "python:3.7-slim",
-  "image_digest": null,
-  "os_release": null,
-  "provider_verified": false,
-  "reproducibility_level": "not_established",
+  "image_digest": "[\"python@sha256:b53f496ca43e5af6994f8e316cf03af31050bf7944e0e4a308ad86c001cf028b\"]",
+  "os_release": [
+    "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"",
+    "NAME=\"Debian GNU/Linux\"",
+    "VERSION_ID=\"12\"",
+    "VERSION=\"12 (bookworm)\"",
+    "VERSION_CODENAME=bookworm"
+  ],
+  "provider_verified": true,
+  "reproducibility_level": "image_digest_recorded",
   "required_python_family": "3.7",
-  "status": "BLOCK",
-  "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified."
+  "status": "PASS",
+  "target_replay_allowed": true
 }

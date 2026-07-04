@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH023_PROVIDER_PREFLIGHT_BLOCKED.
+Status: PASS_WITH_BATCH023_MATERIALIZATION_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -78,6 +78,6 @@ Batch022 status: `PASS_WITH_BATCH022_DOCKER_PROVIDER_BLOCKED`; exact blocker: `d
 
 Batch023 ingests the manually supplied Batch022 thin artifact boundary, enables a bounded Docker provider probe through an explicit activation gate, records provider bridge and credential isolation checks, and safe-stops before target replay unless provider, lock, materialization, and Target-Intent Alignment gates pass.
 
-Batch023 status: `PASS_WITH_BATCH023_PROVIDER_PREFLIGHT_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
+Batch023 status: `PASS_WITH_BATCH023_MATERIALIZATION_BLOCKED`; exact blocker: `manual_lock_environment_materialization_failed`.
 
 NotebookLM advice traceability status: `PASS`.
