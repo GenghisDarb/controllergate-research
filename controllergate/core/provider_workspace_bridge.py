@@ -188,6 +188,10 @@ try:
     }
 finally:
     (OUTPUT / "provider_result.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    host_uid = os.environ.get("PROVIDER_HOST_UID")
+    host_gid = os.environ.get("PROVIDER_HOST_GID")
+    if host_uid and host_gid:
+        subprocess.run(["chown", "-R", f"{host_uid}:{host_gid}", str(OUTPUT), str(WORK)], text=True, capture_output=True)
 '''
 
 
@@ -208,9 +212,11 @@ def run_provider_workspace_bridge(root: str | Path) -> dict[str, Any]:
     workspace_path = Path(str(workspace["workspace_path"]))
     input_dir = workspace_path / "input"
     output_dir = workspace_path / "output"
+    provider_work_dir = workspace_path / "workspace"
     input_dir.mkdir(parents=True, exist_ok=True)
     output_dir.mkdir(parents=True, exist_ok=True)
-    source_root = workspace_path / "workspace" / "source" / "darker"
+    provider_work_dir.mkdir(parents=True, exist_ok=True)
+    source_root = provider_work_dir / "source" / "darker"
     provider_output: dict[str, Any] = {}
     source_manifest = {
         "status": "NOT_RUN",
@@ -246,7 +252,11 @@ def run_provider_workspace_bridge(root: str | Path) -> dict[str, Any]:
                     "-v",
                     f"{output_dir}:/provider/output",
                     "-v",
-                    f"{workspace_path / 'workspace'}:/provider/workspace",
+                    f"{provider_work_dir}:/provider/workspace",
+                    "-e",
+                    f"PROVIDER_HOST_UID={os.getuid() if hasattr(os, 'getuid') else ''}",
+                    "-e",
+                    f"PROVIDER_HOST_GID={os.getgid() if hasattr(os, 'getgid') else ''}",
                     PYTHON37_IMAGE,
                     "python",
                     "/provider/input/provider_run.py",

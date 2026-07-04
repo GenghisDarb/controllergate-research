@@ -23,13 +23,18 @@ def create_provider_workspace(repo_root: str | Path) -> dict[str, Any]:
 
 def cleanup_provider_workspace(workspace_path: str | Path) -> dict[str, Any]:
     path = Path(workspace_path)
+    cleanup_error = None
     if path.exists():
-        shutil.rmtree(path)
+        try:
+            shutil.rmtree(path)
+        except Exception as exc:  # pragma: no cover - exercised by hosted provider ownership failures
+            cleanup_error = f"{type(exc).__name__}: {exc}"
     return {
         "status": "PASS" if not path.exists() else "BLOCK",
         "workspace_path": str(path),
         "removed": not path.exists(),
         "blocker": None if not path.exists() else "provider_workspace_cleanup_failed",
+        "cleanup_error": cleanup_error,
     }
 
 
