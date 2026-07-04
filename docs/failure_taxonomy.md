@@ -1,14 +1,16 @@
 # Failure Taxonomy
 
-Batch022 records exact provider and structured-diagnostic blocker classes instead of collapsing failures into a generic blocked state.
+Batch023 records exact provider, install, materialization, and target-intent blocker classes instead of collapsing failures into a generic blocked state.
 
 ## Current operational gate status
 
-- Batch021 blocked because no exact Python 3.7 provider was verified.
-- Batch022 adds a Docker Era-Materialization Provider path and Structured Fragility Audit scaffold.
-- The runtime must conform to the reviewed lock; the lock is not loosened to match the host runtime.
-- PSA-82 is quarantined as diagnostic inspiration only and is not ControllerGate repair evidence.
-- Structured Fragility Audit is diagnostic and cannot replace empirical gates.
+- Batch022 blocked because Docker provider execution was disabled pending explicit bounded-provider activation.
+- Batch023 adds a Bounded Docker Provider Probe and GitHub Actions provider bridge.
+- The runtime must conform to the reviewed lock; the lock is not loosened to match the runtime.
+- Provider labels are insufficient; actual Python and pip versions must be recorded inside the provider.
+- External source execution must not receive write credentials or secrets.
+- PSA-82 is handled as a quarantined diagnostic inspiration package, not ControllerGate repair evidence.
+- Structured Fragility Diagnostic is diagnostic and cannot replace empirical gates.
 - Repair cannot activate before bounded materialization and Target-Intent Alignment.
 - Active Search-Space Geometry may prioritize probes but cannot replace empirical evidence.
 - Single-system navigation and coupled-interlock extension remain separate.

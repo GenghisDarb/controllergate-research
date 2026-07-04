@@ -7,6 +7,7 @@ def structured_fragility_audit_policy() -> dict[str, Any]:
     return {
         "status": "PASS",
         "diagnostic_only": True,
+        "can_replace_target_validation": False,
         "empirical_target_validation_required_first": True,
         "duplicate_replay_required_first": True,
         "no_overreach_required_first": True,

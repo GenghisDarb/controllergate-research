@@ -4,8 +4,6 @@ ControllerGate is a provenance-first software repair research harness.
 
 It remains a pre-alpha research archive for proof-gated software-change governance.
 
-It turns proposed fixes into auditable, sandboxed, rollback-safe software-change candidates and blocks unverified changes before accepted state is contaminated.
-
 Clean replication batch002 now attempts real external leads.
 
 Confirmed external native repair episodes include `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`.
@@ -18,7 +16,7 @@ Memory lift on external real bugs is not demonstrated.
 
 Self-maintaining software is not demonstrated.
 
-Latest continuation boundary: Batch022 status `PASS_WITH_BATCH022_DOCKER_PROVIDER_BLOCKED` with exact blocker `docker_runtime_provider_unavailable`.
+Latest continuation boundary: Batch023 status `PASS_WITH_BATCH023_DOCKER_PROVIDER_NOT_ENABLED` with exact blocker `docker_provider_not_enabled`.
 
 ## What ControllerGate is
 
@@ -34,7 +32,7 @@ Latest continuation boundary: Batch022 status `PASS_WITH_BATCH022_DOCKER_PROVIDE
 
 ## Claim Tier System
 
-Capabilities remain tiered by evidence. Batch022 does not upgrade full-scoring, memory-lift, or self-maintaining claims.
+Capabilities remain tiered by evidence. Batch023 does not upgrade full-scoring, memory-lift, or self-maintaining claims.
 
 ## Capability Catalog
 
@@ -54,7 +52,7 @@ Runtime-provider work remains staged behind proof and rollback gates.
 
 - Current protocol remains `v2.13`.
 - Confirmed external native repair episodes remain `4`.
-- Batch022 adds Docker provider and Structured Fragility Audit scaffolds with safe-stop boundaries.
+- Batch023 adds a bounded provider probe and safe-stop boundary.
 
 ## Forbidden claims
 
@@ -64,11 +62,13 @@ Runtime-provider work remains staged behind proof and rollback gates.
 
 ## Current operational gate status
 
-- Batch021 blocked because no exact Python 3.7 provider was verified.
-- Batch022 adds a Docker Era-Materialization Provider path and Structured Fragility Audit scaffold.
-- The runtime must conform to the reviewed lock; the lock is not loosened to match the host runtime.
-- PSA-82 is quarantined as diagnostic inspiration only and is not ControllerGate repair evidence.
-- Structured Fragility Audit is diagnostic and cannot replace empirical gates.
+- Batch022 blocked because Docker provider execution was disabled pending explicit bounded-provider activation.
+- Batch023 adds a Bounded Docker Provider Probe and GitHub Actions provider bridge.
+- The runtime must conform to the reviewed lock; the lock is not loosened to match the runtime.
+- Provider labels are insufficient; actual Python and pip versions must be recorded inside the provider.
+- External source execution must not receive write credentials or secrets.
+- PSA-82 is handled as a quarantined diagnostic inspiration package, not ControllerGate repair evidence.
+- Structured Fragility Diagnostic is diagnostic and cannot replace empirical gates.
 - Repair cannot activate before bounded materialization and Target-Intent Alignment.
 - Active Search-Space Geometry may prioritize probes but cannot replace empirical evidence.
 - Single-system navigation and coupled-interlock extension remain separate.

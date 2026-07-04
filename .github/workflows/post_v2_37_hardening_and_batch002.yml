@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch022 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch023 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout ControllerGate
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -45,6 +47,8 @@ jobs:
 
       - name: Generate post-v2.37 hardening evidence
         shell: bash
+        env:
+          CONTROLLERGATE_ENABLE_DOCKER_PROVIDER: "1"
         run: |
           set -euo pipefail
           python scripts/post_v2_37_hardening_and_batch002_runner.py
@@ -68,8 +72,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch022_docker_era_psa82_thin/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch022_docker_era_psa82_thin \( \
+          test -f artifact_payload/post_v2_37_hardening_batch023_bounded_docker_provider_thin/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch023_bounded_docker_provider_thin \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -89,16 +93,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch022_docker_era_psa82_thin -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_022' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch023_bounded_docker_provider_thin -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_023' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch022 Docker provider and Structured Fragility Audit thin post-v2.37 hardening artifact
+      - name: Upload Batch023 bounded Docker provider thin post-v2.37 hardening artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch022_docker_era_psa82_thin_artifacts
+          name: post_v2_37_hardening_batch023_bounded_docker_provider_thin_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch022_docker_era_psa82_thin/**
+            artifact_payload/post_v2_37_hardening_batch023_bounded_docker_provider_thin/**
           if-no-files-found: error
