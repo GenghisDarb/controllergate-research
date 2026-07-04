@@ -11,7 +11,6 @@ SOURCE_COMMIT_SHA = "a2d13656adfaa010fb6c7339087f3347ad2b815a"
 RELEVANT_SOURCE_PATHS = [
     "setup.cfg",
     "src/darker/__main__.py",
-    "src/darker/main.py",
     "src/darker/git.py",
     "src/darker/command_line.py",
 ]
