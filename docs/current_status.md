@@ -1,6 +1,6 @@
 # Current status
 
-Batch023 status: `PASS_WITH_BATCH023_DOCKER_PROVIDER_NOT_ENABLED`.
+Batch023 status: `PASS_WITH_BATCH023_PROVIDER_PREFLIGHT_BLOCKED`.
 
 ## Current operational gate status
 

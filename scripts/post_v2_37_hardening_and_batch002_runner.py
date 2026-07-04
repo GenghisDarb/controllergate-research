@@ -9148,7 +9148,10 @@ def main() -> int:
     batch019_state = write_batch019_outputs(batch018_state)
     batch020_state = write_batch020_outputs(Path.cwd(), POST_DIR, BATCH020_DIR, batch019_state)
     batch021_state = write_batch021_outputs(Path.cwd(), POST_DIR, BATCH021_DIR, batch020_state)
+    batch023_provider_env_value = os.environ.pop("CONTROLLERGATE_ENABLE_DOCKER_PROVIDER", None)
     batch022_state = write_batch022_outputs(Path.cwd(), POST_DIR, BATCH022_DIR, batch021_state)
+    if batch023_provider_env_value is not None:
+        os.environ["CONTROLLERGATE_ENABLE_DOCKER_PROVIDER"] = batch023_provider_env_value
     batch023_state = write_batch023_outputs(Path.cwd(), POST_DIR, BATCH023_DIR, batch022_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
@@ -10036,7 +10039,10 @@ def main() -> int:
     write_batch019_markdown_docs(batch019_state)
     batch020_state = write_batch020_outputs(Path.cwd(), POST_DIR, BATCH020_DIR, batch019_state)
     batch021_state = write_batch021_outputs(Path.cwd(), POST_DIR, BATCH021_DIR, batch020_state)
+    batch023_provider_env_value = os.environ.pop("CONTROLLERGATE_ENABLE_DOCKER_PROVIDER", None)
     batch022_state = write_batch022_outputs(Path.cwd(), POST_DIR, BATCH022_DIR, batch021_state)
+    if batch023_provider_env_value is not None:
+        os.environ["CONTROLLERGATE_ENABLE_DOCKER_PROVIDER"] = batch023_provider_env_value
     batch023_state = write_batch023_outputs(Path.cwd(), POST_DIR, BATCH023_DIR, batch022_state)
     write_sha256sums(POST_DIR)
     stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH023_DIR])

@@ -1,16 +1,19 @@
 {
   "actual_pip_version": null,
   "actual_python_version": null,
-  "blocker": "docker_provider_not_enabled",
+  "blocker": "docker_runtime_provider_unavailable",
   "digest_status": "not_checked",
-  "enabled": false,
+  "docker_cli_available": true,
+  "docker_daemon_available": false,
+  "docker_version": "Docker version 29.2.1, build a5c7197",
+  "enabled": true,
   "enabled_env": "CONTROLLERGATE_ENABLE_DOCKER_PROVIDER",
   "image": "python:3.7-slim",
   "image_digest": null,
   "os_release": null,
   "provider_verified": false,
-  "reason": "bounded Docker provider probe was not explicitly enabled",
   "reproducibility_level": "not_established",
   "required_python_family": "3.7",
-  "status": "BLOCK"
+  "status": "BLOCK",
+  "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified."
 }
