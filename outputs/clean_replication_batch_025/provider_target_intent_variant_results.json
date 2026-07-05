@@ -1,7 +1,104 @@
 {
-  "blocker": "docker_runtime_provider_unavailable",
+  "blocker": null,
   "full_external_checkout_leaked_to_repo": false,
-  "status": "NOT_RUN",
+  "status": "PASS",
   "stdout_stderr_sanitized": true,
-  "variants": []
+  "variants": [
+    {
+      "command": "sh -lc GIT_DIR=.git python -m darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "env_keys": [],
+      "environment_precondition_error_seen": false,
+      "issue112_target_indicator_seen": true,
+      "repo_context_error_seen": true,
+      "returncode": 123,
+      "sanitized_stderr_excerpt": "fatal: not a git repository: '.git'\n",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "d7a4c06c557dd29cb1e513fea014de720462699855911babb74b48336f2950ae",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "variant_class": "source_root_relative_git_dir",
+      "variant_id": "relative_git_dir_python_module"
+    },
+    {
+      "command": "sh -lc GIT_DIR=.git darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "env_keys": [],
+      "environment_precondition_error_seen": false,
+      "issue112_target_indicator_seen": true,
+      "repo_context_error_seen": true,
+      "returncode": 123,
+      "sanitized_stderr_excerpt": "fatal: not a git repository: '.git'\n",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "d7a4c06c557dd29cb1e513fea014de720462699855911babb74b48336f2950ae",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "variant_class": "source_root_relative_git_dir",
+      "variant_id": "relative_git_dir_console"
+    },
+    {
+      "command": "python -m darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "env_keys": [],
+      "environment_precondition_error_seen": false,
+      "issue112_target_indicator_seen": false,
+      "repo_context_error_seen": false,
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "variant_class": "source_root_no_git_dir",
+      "variant_id": "source_root_no_git_dir_python_module"
+    },
+    {
+      "command": "darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "env_keys": [],
+      "environment_precondition_error_seen": false,
+      "issue112_target_indicator_seen": false,
+      "repo_context_error_seen": false,
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "variant_class": "source_root_no_git_dir",
+      "variant_id": "source_root_no_git_dir_console"
+    },
+    {
+      "command": "python -m darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "env_keys": [
+        "GIT_DIR",
+        "GIT_WORK_TREE"
+      ],
+      "environment_precondition_error_seen": false,
+      "issue112_target_indicator_seen": false,
+      "repo_context_error_seen": false,
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "variant_class": "absolute_git_dir_work_tree",
+      "variant_id": "absolute_git_dir_work_tree_python_module"
+    },
+    {
+      "command": "darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "env_keys": [
+        "GIT_DIR",
+        "GIT_WORK_TREE"
+      ],
+      "environment_precondition_error_seen": false,
+      "issue112_target_indicator_seen": false,
+      "repo_context_error_seen": false,
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "variant_class": "absolute_git_dir_work_tree",
+      "variant_id": "absolute_git_dir_work_tree_console"
+    }
+  ]
 }

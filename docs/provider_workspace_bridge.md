@@ -1,13 +1,13 @@
 # Provider Workspace Bridge
 
-Batch025 uses the verified Batch024 Provider Workspace Bridge boundary and records command-context diagnostics before any harness or repair work.
+Batch026 uses the verified Batch025 provider command context as the prerequisite for issue-derived harness v9 verification.
 
 ## Current operational gate status
 
-- Batch024 official artifact verification corrected the prior stale provider-bridge status.
-- Batch024 now stands at Target-Intent Alignment blocked with exact blocker `target_intent_alignment_not_reached`.
-- Batch025 records provider command context, source-root, `.git`, and HEAD evidence before any harness or repair work.
-- Batch025 does not run repair, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics without a real patch candidate.
+- Batch025 official artifact ingestion corrected the stale local provider-context block.
+- Batch025 now stands at Target-Intent Alignment aligned with exact blocker `issue_derived_harness_v9_generation_pending_after_target_intent_alignment`.
+- Batch026 generates and verifies the issue-derived harness v9 only after the verified Batch025 target-intent evidence is present.
+- Batch026 does not run repair, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics without a verified harness and a real patch candidate.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes remain `0` unless issue-derived feasibility validates.
 - Full scoring remains `NOT_RUN/disallowed`.

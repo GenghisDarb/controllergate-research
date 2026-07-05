@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH025_PROVIDER_CONTEXT_BLOCKED.
+Status: PASS_WITH_BATCH026_HARNESS_V9_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -86,6 +86,10 @@ Batch024 status: `PASS_WITH_BATCH024_TARGET_INTENT_BLOCKED`; exact blocker: `tar
 
 Batch025 ingests the manually supplied Batch024 thin artifact boundary, records provider command context and Git context evidence, tests bounded Target-Intent command variants, and still blocks repair, matched-null comparison, PSA-82 permutation null, and structured-fragility diagnostics without the required empirical gates.
 
-Batch025 status: `PASS_WITH_BATCH025_PROVIDER_CONTEXT_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
+Batch025 status: `PASS_WITH_BATCH025_TARGET_INTENT_ALIGNED`; exact blocker: `issue_derived_harness_v9_generation_pending_after_target_intent_alignment`.
+
+Batch026 ingests the official Batch025 target-intent-aligned artifact boundary, generates issue-derived harness v9 under the approved provider command context, and safe-stops before repair unless harness v9 verifies a target-aligned pre-repair failure.
+
+Batch026 status: `PASS_WITH_BATCH026_HARNESS_V9_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
 
 NotebookLM advice traceability status: `PASS`.

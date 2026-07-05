@@ -1,18 +1,18 @@
 {
-  "blocker": "docker_runtime_provider_unavailable",
+  "blocker": null,
   "diagnosed_failure_modes": {
-    "command_construction": false,
-    "missing_git_work_tree": false,
-    "relative_git_dir": false,
-    "source_checkout_transport": true,
-    "wrong_cwd": null
+    "command_construction": true,
+    "missing_git_work_tree": true,
+    "relative_git_dir": true,
+    "source_checkout_transport": false,
+    "wrong_cwd": false
   },
-  "docker_provider_preflight_status": "BLOCK",
-  "provider_command_status": "BLOCK",
-  "provider_execution_cwd": null,
-  "provider_source_root": null,
+  "docker_provider_preflight_status": "PASS",
+  "provider_command_status": "PASS",
+  "provider_execution_cwd": "/",
+  "provider_source_root": "/provider/workspace/source/darker",
   "provider_workspace_cleanup_status": "PASS",
   "provider_workspace_transport_status": "PASS",
-  "source_materialization_status": "NOT_RUN",
-  "status": "BLOCK"
+  "source_materialization_status": "PASS",
+  "status": "PASS"
 }
