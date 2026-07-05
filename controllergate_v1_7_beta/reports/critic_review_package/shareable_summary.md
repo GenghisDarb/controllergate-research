@@ -17,3 +17,5 @@ Latest boundary: Batch031 `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED` with
 Batch032 preserves four native repair episodes and zero issue-derived repair episodes while classifying safe.directory telemetry separately from target reproduction.
 
 Batch033 keeps four native repair episodes and zero issue-derived repair episodes; it defines only a decision-time-safe retargeting design path for Darker issue #112.
+
+Batch034 keeps four native repair episodes and zero issue-derived repair episodes; v10 execution evidence is pre-repair only.

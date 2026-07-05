@@ -17,3 +17,5 @@ Batch031 separates provider source commit equality from later provider execution
 Batch032 preserves the gap: issue-derived repair feasibility remains false unless harness v9 reproduces a target-aligned pre-repair failure after approved provider normalization.
 
 Batch033 preserves the gap: repair feasibility remains false until a separately gated harness verifies target-aligned pre-repair failure.
+
+Batch034 preserves the remaining gap: no repair episode is added until a separate gated repair phase validates a patch.

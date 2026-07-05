@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH033_RETARGETING_DESIGN_ONLY.
+Status: PASS_WITH_BATCH034_PROVIDER_EXECUTION_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -119,5 +119,9 @@ Batch032 status: `PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED`; exact bl
 Batch033 officially ingests the Batch032 safe-directory precondition artifact, preserves the v9 target-not-reproduced result, and records an issue-derived seed retargeting analysis for Darker issue #112. It is design-only: no repair, patch generation, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostic runs.
 
 Batch033 status: `PASS_WITH_BATCH033_RETARGETING_DESIGN_ONLY`; exact blocker: `issue_seed_retargeting_requires_separate_gated_v10_execution`.
+
+Batch034 officially ingests the Batch033 retargeting-design artifact, materializes an executable v10 issue-stimulus harness, and runs only the gated pre-repair provider execution path when the provider is available. Repair, patch generation, matched-null comparison, PSA-82 permutation null, and structured-fragility diagnostics remain blocked.
+
+Batch034 status: `PASS_WITH_BATCH034_PROVIDER_EXECUTION_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
 
 NotebookLM advice traceability status: `PASS`.

@@ -19,3 +19,5 @@ Exact blocker: `issue_derived_harness_v9_target_aligned_failure_not_reproduced_u
 Batch032 status: provider safe-directory precondition classification and bounded normalization are recorded. Repair generation remains blocked unless a target-aligned pre-repair failure verifies.
 
 Batch033 status: issue-derived retargeting analysis is recorded. v9 remains non-reproducing; any v10 execution requires a separate gated phase.
+
+Batch034 status: v10 harness materialization and gated pre-repair execution are recorded; current protocol remains v2.13.
