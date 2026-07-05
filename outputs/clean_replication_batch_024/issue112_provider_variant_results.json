@@ -1,5 +1,26 @@
 {
-  "blocker": "docker_runtime_provider_unavailable",
-  "status": "NOT_RUN",
-  "variants": []
+  "blocker": "target_intent_alignment_not_reached",
+  "status": "BLOCK",
+  "variants": [
+    {
+      "command": "sh -lc GIT_DIR=.git python -m darker --check src",
+      "negative_precondition_indicators": [],
+      "positive_indicators": [],
+      "returncode": 123,
+      "sanitized_stderr_excerpt": "fatal: not a git repository: '.git'\n",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "d7a4c06c557dd29cb1e513fea014de720462699855911babb74b48336f2950ae",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "sh -lc GIT_DIR=.git darker --check src",
+      "negative_precondition_indicators": [],
+      "positive_indicators": [],
+      "returncode": 123,
+      "sanitized_stderr_excerpt": "fatal: not a git repository: '.git'\n",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "d7a4c06c557dd29cb1e513fea014de720462699855911babb74b48336f2950ae",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
 }

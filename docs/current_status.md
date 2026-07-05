@@ -1,12 +1,15 @@
 # Current status
 
-Batch024 status: `PASS_WITH_BATCH024_PROVIDER_BRIDGE_BLOCKED`.
+Batch024 status: `PASS_WITH_BATCH024_TARGET_INTENT_BLOCKED`.
+
+Exact blocker: `target_intent_alignment_not_reached`.
 
 ## Current operational gate status
 
 - Batch023 verified Docker provider activation, Python 3.7 preflight, provider output transport, and manual dependency-lock installation in the official artifact.
 - Batch023 blocked at source workspace materialization pending an approved Provider Workspace Bridge.
-- Batch024 adds the Provider Workspace Bridge, Provider Input Bundle, Provider Output Bundle, Provider Workspace Transport, and Provider Source Materialization records.
+- Batch024 adds the Provider Workspace Bridge, Provider Input Bundle, Provider Output Bundle, Provider Workspace Transport, Provider Source Checkout, and Provider Source Materialization records.
+- Batch024 safe-stops at Target-Intent Alignment with exact blocker `target_intent_alignment_not_reached`.
 - The runtime must conform to the reviewed lock; the lock is not loosened to fit the runtime.
 - Provider labels are insufficient; actual Python and pip versions must be recorded inside the provider.
 - External source execution must not receive write credentials or secrets.

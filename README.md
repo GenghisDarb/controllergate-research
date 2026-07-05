@@ -16,7 +16,7 @@ Memory lift on external real bugs is not demonstrated.
 
 Self-maintaining software is not demonstrated.
 
-Latest continuation boundary: Batch024 status `PASS_WITH_BATCH024_PROVIDER_BRIDGE_BLOCKED` with exact blocker `docker_runtime_provider_unavailable`.
+Latest continuation boundary: Batch024 status `PASS_WITH_BATCH024_TARGET_INTENT_BLOCKED` with exact blocker `target_intent_alignment_not_reached`.
 
 ## What ControllerGate is
 
@@ -52,7 +52,7 @@ Runtime-provider work remains staged behind proof and rollback gates.
 
 - Current protocol remains `v2.13`.
 - Confirmed external native repair episodes remain `4`.
-- Batch024 adds a bounded Provider Workspace Bridge and safe-stop boundary.
+- Batch024 verifies the Provider Workspace Bridge, source checkout, and source materialization, then safe-stops at Target-Intent Alignment.
 
 ## Forbidden claims
 
@@ -64,7 +64,8 @@ Runtime-provider work remains staged behind proof and rollback gates.
 
 - Batch023 verified Docker provider activation, Python 3.7 preflight, provider output transport, and manual dependency-lock installation in the official artifact.
 - Batch023 blocked at source workspace materialization pending an approved Provider Workspace Bridge.
-- Batch024 adds the Provider Workspace Bridge, Provider Input Bundle, Provider Output Bundle, Provider Workspace Transport, and Provider Source Materialization records.
+- Batch024 adds the Provider Workspace Bridge, Provider Input Bundle, Provider Output Bundle, Provider Workspace Transport, Provider Source Checkout, and Provider Source Materialization records.
+- Batch024 safe-stops at Target-Intent Alignment with exact blocker `target_intent_alignment_not_reached`.
 - The runtime must conform to the reviewed lock; the lock is not loosened to fit the runtime.
 - Provider labels are insufficient; actual Python and pip versions must be recorded inside the provider.
 - External source execution must not receive write credentials or secrets.

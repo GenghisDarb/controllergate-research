@@ -1,11 +1,11 @@
 # Clean replication Batch024 Provider Workspace Bridge
 
-Status: PASS_WITH_BATCH024_PROVIDER_BRIDGE_BLOCKED.
+Status: PASS_WITH_BATCH024_TARGET_INTENT_BLOCKED.
 
-Provider Workspace Bridge: `BLOCK`.
+Provider Workspace Bridge: `PASS`.
 
-Source materialization: `NOT_RUN`.
+Source materialization: `PASS`.
 
-Target-Intent Alignment: `NOT_RUN`.
+Target-Intent Alignment: `BLOCK`.
 
-Exact blocker: `docker_runtime_provider_unavailable`.
+Exact blocker: `target_intent_alignment_not_reached`.
