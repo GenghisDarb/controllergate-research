@@ -1,6 +1,6 @@
 # ControllerGate shareable summary
 
-Latest boundary: Batch031 `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED` with blocker `docker_runtime_provider_unavailable`.
+Latest boundary: Batch031 `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED` with blocker `issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context`.
 
 ## Current operational gate status
 
@@ -13,3 +13,5 @@ Latest boundary: Batch031 `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED` with
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
+
+Batch032 preserves four native repair episodes and zero issue-derived repair episodes while classifying safe.directory telemetry separately from target reproduction.

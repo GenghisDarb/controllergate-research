@@ -13,3 +13,5 @@ Batch031 adds provider source commit predicate correction and harness execution 
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
+
+Batch032 adds safe-directory precondition classification and provider-only normalization telemetry for the issue-derived harness path.

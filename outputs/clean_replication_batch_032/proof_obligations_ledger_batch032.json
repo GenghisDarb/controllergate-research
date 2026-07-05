@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "entry_type": "BATCH031_ARTIFACT_INGEST_VERIFIED",
+      "evidence_hash": "103bd2336f61e10aa1df38a1276d61856af8ab6c3f47e4848893a8066e4d0edb"
+    },
+    {
+      "entry_type": "BATCH031_EXECUTION_RESULT_CLASSIFIED",
+      "evidence_hash": "5f5c09b27aa6b33a6c8410c11a0442778b99fc86557764fbdd501ee13f56f647"
+    },
+    {
+      "entry_type": "BATCH032_SAFE_DIRECTORY_POLICY_RECORDED",
+      "evidence_hash": "ae23d2cdcdc0ebc4cc0a41aafa8f9c4f4c2fad9744dc1435b998056e51ec0d8f"
+    },
+    {
+      "entry_type": "BATCH032_PROVIDER_NORMALIZATION_RECORDED",
+      "evidence_hash": "2bad78743528fc1aa9c4b8d14516664a99ff5433cba44922fd435ef21eaf7064"
+    },
+    {
+      "entry_type": "BATCH032_HARNESS_EXECUTION_RECORDED",
+      "evidence_hash": "59aef0e818f4c98f8b976569f7295aac6b95878f46e13305ed9c31203391c751"
+    },
+    {
+      "attempted_action_hash": "9a8c9e349fba4a18067e519c2f8473510bb7037a152692f5e0d2aa3e3e1173e8",
+      "blocker": "docker_runtime_provider_unavailable",
+      "entry_type": "ROLLBACK_BLOCK",
+      "next_allowed_action": "do_not_run_repair_until_harness_v9_verifies",
+      "previous_state_hash": "8de19368efb103f59cd7d6748543ae01d28dcd2c68d3a231ff262f7d0acf4476",
+      "rollback_hash": "a85d7171e814b3e02296f2a65962b0ba4072b7cc7eaaa0afa85f884d66bcfb77",
+      "rollback_target_entry_index": 0
+    }
+  ],
+  "hash_chain_valid": true,
+  "matched_null_without_patch_candidate": false,
+  "repair_or_patch_before_harness_v9_verification": false,
+  "status": "PASS"
+}

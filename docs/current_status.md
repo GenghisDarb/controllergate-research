@@ -2,7 +2,7 @@
 
 Batch031 status: `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED`.
 
-Exact blocker: `docker_runtime_provider_unavailable`.
+Exact blocker: `issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context`.
 
 ## Current operational gate status
 
@@ -15,3 +15,5 @@ Exact blocker: `docker_runtime_provider_unavailable`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
+
+Batch032 status: provider safe-directory precondition classification and bounded normalization are recorded. Repair generation remains blocked unless a target-aligned pre-repair failure verifies.

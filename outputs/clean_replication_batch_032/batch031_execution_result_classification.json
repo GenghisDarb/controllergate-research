@@ -1,0 +1,50 @@
+{
+  "batch031_harness_v9_executed": true,
+  "batch031_harness_v9_execution_status": "PASS",
+  "batch031_target_intent_matching_result": false,
+  "blocker": null,
+  "safe_directory_precondition_detected": true,
+  "safe_directory_precondition_is_target_reproduction": false,
+  "safe_directory_terms": [
+    "fatal: detected dubious ownership",
+    "safe.directory",
+    "dubious ownership in repository"
+  ],
+  "status": "PASS",
+  "variant_classifications": [
+    {
+      "command": "python -m darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "precondition_classification": "provider_git_safe_directory_precondition",
+      "repair_target_counted": false,
+      "returncode": 123,
+      "safe_directory_terms_observed": [
+        "fatal: detected dubious ownership",
+        "safe.directory",
+        "dubious ownership in repository"
+      ],
+      "sanitized_stderr_excerpt": "fatal: detected dubious ownership in repository at '/provider/workspace/source/darker'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /provider/workspace/source/darker\n",
+      "stderr_sha256": "79b4fd147f79557452dc3a0b2c9c6959f2968e7c11d002cf484cc1a1b0281686",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target_aligned_issue_failure": false,
+      "target_indicator_seen": false,
+      "target_terms_observed": [],
+      "variant_id": "source_root_no_git_dir_python_module"
+    },
+    {
+      "command": "python -m darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "precondition_classification": "target_not_reproduced",
+      "repair_target_counted": false,
+      "returncode": 0,
+      "safe_directory_terms_observed": [],
+      "sanitized_stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target_aligned_issue_failure": false,
+      "target_indicator_seen": false,
+      "target_terms_observed": [],
+      "variant_id": "absolute_git_dir_work_tree_python_module"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED.
+Status: PASS_WITH_BATCH032_PROVIDER_EXECUTION_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -110,6 +110,10 @@ Batch030 status: `PASS_WITH_BATCH030_HARNESS_V9_EXECUTION_BLOCKED`; exact blocke
 
 Batch031 ingests the official Batch030 artifact boundary, records the provider source commit predicate correction, and attempts provider-backed harness v9 pre-repair execution before any repair or patch activity.
 
-Batch031 status: `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
+Batch031 status: `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED`; exact blocker: `issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context`.
+
+Batch032 ingests the official Batch031 artifact boundary, classifies safe.directory telemetry as a provider precondition, applies bounded provider-only normalization when the provider is available, and safe-stops before repair unless harness v9 verifies a target-aligned pre-repair failure.
+
+Batch032 status: `PASS_WITH_BATCH032_PROVIDER_EXECUTION_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
 
 NotebookLM advice traceability status: `PASS`.
