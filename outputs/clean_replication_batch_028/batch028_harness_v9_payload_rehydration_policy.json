@@ -1,0 +1,18 @@
+{
+  "allowed_regeneration_inputs": [
+    "redacted_issue_snapshot",
+    "selected_source_commit",
+    "batch025_target_intent_evidence",
+    "approved_provider_command_context"
+  ],
+  "allowed_rehydration_sources": [
+    "outputs/clean_replication_batch_026/issue_derived_ephemeral_harness_v9.py",
+    "repo_tracked_clean_artifact_with_matching_sha256"
+  ],
+  "expected_harness_sha256": "da098a46ef7efea42f2c9b35451b51f66038d58b6675fe386868338a3b3e0c01",
+  "fallback_path": "regenerate_from_decision_time_evidence_only_if_rehydration_unavailable",
+  "fixed_gold_future_later_evidence_allowed": false,
+  "harness_hash_required_before_execution": true,
+  "preferred_path": "rehydrate_exact_verified_batch026_harness_bytes",
+  "status": "PASS"
+}

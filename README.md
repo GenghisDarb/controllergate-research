@@ -16,7 +16,7 @@ Memory lift on external real bugs is not demonstrated.
 
 Self-maintaining software is not demonstrated.
 
-Latest continuation boundary: Batch027 status `PASS_WITH_BATCH027_HARNESS_V9_EXECUTION_BLOCKED` with exact blocker `docker_runtime_provider_unavailable`.
+Latest continuation boundary: Batch028 status `PASS_WITH_BATCH028_HARNESS_V9_EXECUTION_BLOCKED` with exact blocker `docker_runtime_provider_unavailable`.
 
 ## What ControllerGate is
 

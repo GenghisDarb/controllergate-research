@@ -1,0 +1,33 @@
+{
+  "entries": [
+    {
+      "entry_type": "BATCH027_ARTIFACT_INGEST_VERIFIED",
+      "evidence_hash": "091124eda88f6e35c7035caf4cbb83501e655cd4c8a1526de00c0ddf107ee72f"
+    },
+    {
+      "entry_type": "BATCH027_EXECUTION_TELEMETRY_PRECISION_AUDITED",
+      "evidence_hash": "c938aca7624d22bb58bbcd7776764185f876e3fb8989611ac650e3a990d69e85"
+    },
+    {
+      "entry_type": "BATCH028_HARNESS_PAYLOAD_IDENTIFIED",
+      "evidence_hash": "0904da9842372b698a1dc50ec1aa1e6e20caa43984359040f45202ee60ef8394"
+    },
+    {
+      "entry_type": "BATCH028_HARNESS_V9_EXECUTION",
+      "evidence_hash": "f723078f1f6de1f31d65e956dea29dae49b5415bf2101a7cbe7b84947faceeb3"
+    },
+    {
+      "attempted_action_hash": "e67870d1aa6672ac29ea425446cbe119a3ba58ec97ddb49da22d2b2aed9a0ba4",
+      "blocker": "docker_runtime_provider_unavailable",
+      "entry_type": "ROLLBACK_BLOCK",
+      "next_allowed_action": "do_not_run_repair_until_harness_v9_verifies",
+      "previous_state_hash": "3f96bd3d3f0c1629c98aea3152e8f05659e2b0ef45a56a2a31cd75538e5b016b",
+      "rollback_hash": "cbc758607da84a17a9803ce27da8f34b0d73f226b246ca840fd0e66ce5b97a99",
+      "rollback_target_entry_index": 0
+    }
+  ],
+  "hash_chain_valid": true,
+  "matched_null_without_patch_candidate": false,
+  "repair_or_patch_before_harness_v9_verification": false,
+  "status": "PASS"
+}
