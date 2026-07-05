@@ -1,0 +1,41 @@
+{
+  "entries": [
+    {
+      "entry_type": "BATCH030_ARTIFACT_INGEST_VERIFIED",
+      "evidence_hash": "186253cd4b2836296ca5040fc38f3e47e5a8979acc324fb0da36177b9665f8c4"
+    },
+    {
+      "entry_type": "BATCH030_BLOCKER_PRECISION_AUDITED",
+      "evidence_hash": "4f8e624fa599ed01998a49e1ce4b774bb2e3426dd48338b7a207a60475e006fb"
+    },
+    {
+      "entry_type": "BATCH031_PROVIDER_SOURCE_COMMIT_PREDICATE_AUDITED",
+      "evidence_hash": "8f13764888332ed88ca50a4f77dfb3c18b2cc48090b3b996c7c3e3f8f7137cc7"
+    },
+    {
+      "entry_type": "BATCH031_HARNESS_PAYLOAD_AVAILABLE",
+      "evidence_hash": "da5aebed61c3da08f90174821841b55f14ff7bf0eb450aa41635ac9dc4cd25ec"
+    },
+    {
+      "entry_type": "BATCH031_HARNESS_PAYLOAD_INTEGRITY_VERIFIED",
+      "evidence_hash": "f2c4abd87c374da021d40a28e40f6e59bfd26b33f0ee535dcb1b424109f81dd3"
+    },
+    {
+      "entry_type": "BATCH031_PROVIDER_HARNESS_EXECUTION",
+      "evidence_hash": "51637a2aa027ec8dbf2edbecc46466d8314f86bbbcc3beef4426993112b34a92"
+    },
+    {
+      "attempted_action_hash": "9a8c9e349fba4a18067e519c2f8473510bb7037a152692f5e0d2aa3e3e1173e8",
+      "blocker": "docker_runtime_provider_unavailable",
+      "entry_type": "ROLLBACK_BLOCK",
+      "next_allowed_action": "do_not_run_repair_until_harness_v9_verifies",
+      "previous_state_hash": "11848f46a08c23708ca8ebda131e450386df7be12994e8f46538473ba0eb7fee",
+      "rollback_hash": "9072d29109051cf217124948aa1a92e04ebb237686f03b2fe89cfa99d8b4bc2d",
+      "rollback_target_entry_index": 0
+    }
+  ],
+  "hash_chain_valid": true,
+  "matched_null_without_patch_candidate": false,
+  "repair_or_patch_before_harness_v9_verification": false,
+  "status": "PASS"
+}

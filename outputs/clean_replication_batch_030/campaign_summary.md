@@ -2,7 +2,7 @@
 
 Status: PASS_WITH_BATCH030_HARNESS_V9_EXECUTION_BLOCKED.
 
-Exact blocker: `docker_runtime_provider_unavailable`.
+Exact blocker: `provider_source_commit_mismatch`.
 
 Batch029 blocker precision audit: `PASS`.
 
@@ -14,6 +14,6 @@ Harness payload integrity: `PASS`.
 
 Harness v9 executed: `false`.
 
-Harness v9 verification: `BLOCK`.
+Harness v9 verification: `NOT_RUN`.
 
 No repair, patch generation, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostic ran in Batch030.

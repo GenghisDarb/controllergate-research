@@ -1,15 +1,15 @@
 # Current status
 
-Batch030 status: `PASS_WITH_BATCH030_HARNESS_V9_EXECUTION_BLOCKED`.
+Batch031 status: `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED`.
 
 Exact blocker: `docker_runtime_provider_unavailable`.
 
 ## Current operational gate status
 
-- Batch030 ingests the official Batch029 artifact boundary and records the gate-predicate correction.
-- Batch030 separates artifact custody, telemetry precision, harness integrity, harness payload availability, and provider execution availability before running the harness.
-- Batch030 does not use relative `GIT_DIR=.git` as an active command context.
-- Batch030 does not run repair, patch generation, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics without a verified harness and a real patch candidate.
+- Batch031 ingests the official Batch030 artifact boundary and records the provider source commit predicate correction.
+- Batch031 records expected and observed provider source commit values before harness execution.
+- Batch031 does not use relative `GIT_DIR=.git` as an active command context.
+- Batch031 does not run repair, patch generation, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics without a verified harness and a real patch candidate.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes remain `0` unless issue-derived repair validates in a later gated phase.
 - Full scoring remains `NOT_RUN/disallowed`.
