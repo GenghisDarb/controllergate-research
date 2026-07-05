@@ -1,13 +1,13 @@
 # Technical validation gap report
 
-Batch026 remains a harness-verification lane and does not add repair validation evidence unless harness verification passes and a real patch candidate exists.
+Batch027 resolves whether harness v9 execution is supported by telemetry before any repair feasibility claim.
 
 ## Current operational gate status
 
-- Batch025 official artifact ingestion corrected the stale local provider-context block.
-- Batch025 now stands at Target-Intent Alignment aligned with exact blocker `issue_derived_harness_v9_generation_pending_after_target_intent_alignment`.
-- Batch026 generates and verifies the issue-derived harness v9 only after the verified Batch025 target-intent evidence is present.
-- Batch026 does not run repair, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics without a verified harness and a real patch candidate.
+- Batch026 official artifact ingestion found the harness v9 state inconsistency: the harness file exists, but generation and verification records are `NOT_RUN`.
+- Batch027 reconciles that state and executes harness v9 only under approved provider command contexts.
+- Relative `GIT_DIR=.git` is not used as the active command context.
+- Batch027 does not run repair, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics without a verified harness and a real patch candidate.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes remain `0` unless issue-derived feasibility validates.
 - Full scoring remains `NOT_RUN/disallowed`.
