@@ -1,24 +1,15 @@
 # ControllerGate shareable summary
 
-Latest boundary: Batch024 `PASS_WITH_BATCH024_TARGET_INTENT_BLOCKED` with blocker `target_intent_alignment_not_reached`.
+Latest boundary: Batch025 `PASS_WITH_BATCH025_PROVIDER_CONTEXT_BLOCKED` with blocker `docker_runtime_provider_unavailable`.
 
 ## Current operational gate status
 
-- Batch023 verified Docker provider activation, Python 3.7 preflight, provider output transport, and manual dependency-lock installation in the official artifact.
-- Batch023 blocked at source workspace materialization pending an approved Provider Workspace Bridge.
-- Batch024 adds the Provider Workspace Bridge, Provider Input Bundle, Provider Output Bundle, Provider Workspace Transport, Provider Source Checkout, and Provider Source Materialization records.
-- Batch024 safe-stops at Target-Intent Alignment with exact blocker `target_intent_alignment_not_reached`.
-- The runtime must conform to the reviewed lock; the lock is not loosened to fit the runtime.
-- Provider labels are insufficient; actual Python and pip versions must be recorded inside the provider.
-- External source execution must not receive write credentials or secrets.
-- Structured Fragility Diagnostic is diagnostic and cannot replace empirical gates.
-- Repair cannot activate before bounded materialization and Target-Intent Alignment.
-- Active Search-Space Geometry may prioritize probes but cannot replace empirical evidence.
-- Single-system navigation and coupled-interlock extension remain separate.
-- Coupled-interlock extension remains blocked until interlock invariants are computed.
+- Batch024 official artifact verification corrected the prior stale provider-bridge status.
+- Batch024 now stands at Target-Intent Alignment blocked with exact blocker `target_intent_alignment_not_reached`.
+- Batch025 records provider command context, source-root, `.git`, and HEAD evidence before any harness or repair work.
+- Batch025 does not run repair, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics without a real patch candidate.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes remain `0` unless issue-derived feasibility validates.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Hallucination elimination, absolute uncrashability, and production runtime readiness are not claimed.
