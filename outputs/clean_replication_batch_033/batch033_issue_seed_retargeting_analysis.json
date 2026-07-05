@@ -1,0 +1,68 @@
+{
+  "allowed_evidence": [
+    {
+      "decision_time_safe": true,
+      "exists": true,
+      "path": "external_seeds_pending/targeted_prospective_seed_batch013.json",
+      "sha256": "5c5f694167aa8a4e498b2e552614d0fa4a0b3d5281c125c1656aca0cda6ba44c"
+    },
+    {
+      "decision_time_safe": true,
+      "exists": true,
+      "path": "outputs/clean_replication_batch_014/normalized_targeted_seed_record.json",
+      "sha256": "dbfba7a0329060ddaf89e68cce81a63103dff94b699748b14e9c1f9711de0fc2"
+    },
+    {
+      "decision_time_safe": true,
+      "exists": true,
+      "path": "outputs/clean_replication_batch_025/provider_target_intent_variant_results.json",
+      "sha256": "58deea55fa763c7f91d0ab45b1a1942e6af9722c4039b9f004e4904141e8c7a5"
+    },
+    {
+      "decision_time_safe": true,
+      "exists": true,
+      "path": "outputs/clean_replication_batch_026/batch026_harness_v9_generation_policy.json",
+      "sha256": "52ca14abc682ef1543dad6df8a4b2ba15940d300fd1922adf3a022abb6fc4938"
+    },
+    {
+      "decision_time_safe": true,
+      "exists": true,
+      "path": "outputs/clean_replication_batch_032/batch032_harness_v9_execution_result.json",
+      "sha256": "83482dd3aa8548f8ecf999d361a8e23dcac13b91a35fbe8ef6654c055c2818a3"
+    },
+    {
+      "decision_time_safe": true,
+      "exists": true,
+      "path": "outputs/clean_replication_batch_032/batch032_harness_v9_pre_repair_verification.json",
+      "sha256": "d07d802cbbf61b18254832beef1aca5744481bb2c12e19c60388169664ad71d5"
+    },
+    {
+      "decision_time_safe": true,
+      "exists": true,
+      "path": "outputs/clean_replication_batch_032/batch032_provider_environment_normalization.json",
+      "sha256": "fa527e40ec600acb4a2ef81074910b18b641f09956700471f7d88d90cdd14bd8"
+    }
+  ],
+  "allowed_retargeting_basis": [
+    "The redacted issue snapshot states the decision-time reproduction command uses GIT_DIR=.git with darker --check src.",
+    "Batch025 target-intent variants recorded target indicators for source-root relative-GIT_DIR variants.",
+    "Batch032 proved safe.directory was only a provider precondition and that environment-clean v9 execution still did not reproduce the target failure."
+  ],
+  "blocker": "issue_seed_retargeting_requires_separate_gated_v10_execution",
+  "candidate_id": "darker_issue_112_relative_git_dir",
+  "classification": "issue_seed_retargeting_possible_from_allowed_evidence",
+  "current_v9_harness_state": "non_reproducing",
+  "forbidden_evidence_used": false,
+  "issue_derived_repair_feasibility": false,
+  "other_context_target_intent_variant_count": 0,
+  "relative_git_dir_target_intent_variant_count": 2,
+  "repair_or_patch_authorized": false,
+  "requires_separate_gated_v10_execution": true,
+  "retargeting_possible_from_allowed_evidence": true,
+  "status": "PASS",
+  "why_current_v9_non_reproduces": [
+    "Batch032 ran the v9 harness after provider-only safe.directory normalization.",
+    "The v9 approved contexts executed python -m darker --check src without the issue's relative GIT_DIR stimulus and with absolute GIT_DIR/GIT_WORK_TREE.",
+    "Both normalized Batch032 variants returned 0 with empty stdout/stderr and no target indicators."
+  ]
+}

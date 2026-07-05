@@ -15,3 +15,5 @@ Batch031 adds provider source commit predicate correction and harness execution 
 - Self-maintaining software remains `false/not_demonstrated`.
 
 Batch032 adds safe-directory precondition classification and provider-only normalization telemetry for the issue-derived harness path.
+
+Batch033 adds issue-derived seed retargeting analysis and v10 design policy while preserving claim boundaries.

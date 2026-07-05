@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH032_PROVIDER_EXECUTION_BLOCKED.
+Status: PASS_WITH_BATCH033_RETARGETING_DESIGN_ONLY.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -114,6 +114,10 @@ Batch031 status: `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED`; exact blocke
 
 Batch032 ingests the official Batch031 artifact boundary, classifies safe.directory telemetry as a provider precondition, applies bounded provider-only normalization when the provider is available, and safe-stops before repair unless harness v9 verifies a target-aligned pre-repair failure.
 
-Batch032 status: `PASS_WITH_BATCH032_PROVIDER_EXECUTION_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
+Batch032 status: `PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED`; exact blocker: `issue_seed_not_reproduced_by_current_harness`.
+
+Batch033 officially ingests the Batch032 safe-directory precondition artifact, preserves the v9 target-not-reproduced result, and records an issue-derived seed retargeting analysis for Darker issue #112. It is design-only: no repair, patch generation, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostic runs.
+
+Batch033 status: `PASS_WITH_BATCH033_RETARGETING_DESIGN_ONLY`; exact blocker: `issue_seed_retargeting_requires_separate_gated_v10_execution`.
 
 NotebookLM advice traceability status: `PASS`.

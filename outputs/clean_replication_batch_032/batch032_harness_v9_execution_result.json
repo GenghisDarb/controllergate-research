@@ -1,19 +1,81 @@
 {
-  "blocker": "docker_runtime_provider_unavailable",
-  "command": "NOT_RUN",
-  "cwd": null,
+  "command": "python /provider/workspace/harness/issue_derived_ephemeral_harness_v9.py",
+  "cwd": "/provider/workspace/source/darker",
   "environment_precondition_error_terms_observed": [],
-  "harness_path": "outputs\\clean_replication_batch_031\\issue_derived_ephemeral_harness_v9.py",
+  "harness_path": "/provider/workspace/harness/issue_derived_ephemeral_harness_v9.py",
   "harness_sha256": "da098a46ef7efea42f2c9b35451b51f66038d58b6675fe386868338a3b3e0c01",
+  "parsed_result": {
+    "active_command_contexts": [
+      "source_root_no_git_dir",
+      "absolute_git_dir_work_tree"
+    ],
+    "blocker": "issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context",
+    "harness_v9_generated": true,
+    "relative_git_dir_active_command_context_used": false,
+    "status": "BLOCK",
+    "target_aligned_pre_repair_failure_reproduced": false,
+    "variant_results": [
+      {
+        "command": "python -m darker --check src",
+        "cwd": "/provider/workspace/source/darker",
+        "environment_precondition_error_seen": false,
+        "returncode": 0,
+        "sanitized_stderr_excerpt": "",
+        "sanitized_stdout_excerpt": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "target_indicator_seen": false,
+        "variant_id": "source_root_no_git_dir_python_module"
+      },
+      {
+        "command": "python -m darker --check src",
+        "cwd": "/provider/workspace/source/darker",
+        "environment_precondition_error_seen": false,
+        "returncode": 0,
+        "sanitized_stderr_excerpt": "",
+        "sanitized_stdout_excerpt": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "target_indicator_seen": false,
+        "variant_id": "absolute_git_dir_work_tree_python_module"
+      }
+    ]
+  },
   "relative_git_dir_active_command_context_used": false,
-  "returncode": null,
+  "returncode": 0,
   "sanitized_stderr_excerpt": "",
-  "sanitized_stdout_excerpt": "",
+  "sanitized_stdout_excerpt": "{\n  \"active_command_contexts\": [\n    \"source_root_no_git_dir\",\n    \"absolute_git_dir_work_tree\"\n  ],\n  \"blocker\": \"issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context\",\n  \"harness_v9_generated\": true,\n  \"relative_git_dir_active_command_context_used\": false,\n  \"status\": \"BLOCK\",\n  \"target_aligned_pre_repair_failure_reproduced\": false,\n  \"variant_results\": [\n    {\n      \"command\": \"python -m darker --check src\",\n      \"cwd\": \"/provider/workspace/source/darker\",\n      \"environment_precondition_error_seen\": false,\n      \"returncode\": 0,\n      \"sanitized_stderr_excerpt\": \"\",\n      \"sanitized_stdout_excerpt\": \"\",\n      \"stderr_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"stdout_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"target_indicator_seen\": false,\n      \"variant_id\": \"source_root_no_git_dir_python_module\"\n    },\n    {\n      \"command\": \"python -m darker --check src\",\n      \"cwd\": \"/provider/workspace/source/darker\",\n      \"environment_precondition_error_seen\": false,\n      \"returncode\": 0,\n      \"sanitized_stderr_excerpt\": \"\",\n      \"sanitized_stdout_excerpt\": \"\",\n      \"stderr_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"stdout_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"target_indicator_seen\": false,\n      \"variant_id\": \"absolute_git_dir_work_tree_python_module\"\n    }\n  ]\n}\n",
   "source_mutated": false,
-  "status": "BLOCK",
-  "stderr_sha256": null,
-  "stdout_sha256": null,
+  "status": "PASS",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "7d263266aa0f4ec7d3fcbbcdbe551738d7f433fb53869da292a59a9c38e6bfc0",
   "target_indicator_terms_observed": [],
   "target_intent_matching_result": false,
-  "tests_mutated": false
+  "tests_mutated": false,
+  "variant_results": [
+    {
+      "command": "python -m darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "environment_precondition_error_seen": false,
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target_indicator_seen": false,
+      "variant_id": "source_root_no_git_dir_python_module"
+    },
+    {
+      "command": "python -m darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "environment_precondition_error_seen": false,
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target_indicator_seen": false,
+      "variant_id": "absolute_git_dir_work_tree_python_module"
+    }
+  ]
 }

@@ -15,3 +15,5 @@ Batch031 records expected and observed provider source commit values before atte
 - Self-maintaining software remains `false/not_demonstrated`.
 
 Batch032 records safe.directory as a provider environment precondition and verifies provider-only normalization without source, test, or HEAD mutation.
+
+Batch033 uses Batch032 provider telemetry to separate safe.directory normalization from target issue reproduction and to define a design-only retargeting path.

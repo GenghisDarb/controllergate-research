@@ -1,0 +1,21 @@
+{
+  "allowed_evidence_hash": "71e63f3d21d9aadce8828d363f29efa79b8ef992c815ee7c53418959a519f2ff",
+  "blocker": "issue_seed_retargeting_requires_separate_gated_v10_execution",
+  "classification": "issue_seed_retargeting_possible_from_allowed_evidence",
+  "command_logs_recorded": false,
+  "design_scaffold": {
+    "active_context": "relative_git_dir_issue_stimulus",
+    "candidate_command": "GIT_DIR=.git python -m darker --check src",
+    "expected_target_indicators": [
+      "Not a git repository",
+      "git_get_modified_files",
+      "_git_check_output_lines",
+      "git diff --name-only"
+    ],
+    "requires_separate_gated_execution": true
+  },
+  "executable_harness_generated": false,
+  "harness_v10_executed": false,
+  "status": "PASS_DESIGN_ONLY",
+  "target_intent_telemetry_recorded": false
+}

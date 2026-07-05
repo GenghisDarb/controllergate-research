@@ -42,7 +42,8 @@ BATCH029_DIR = Path("outputs/clean_replication_batch_029")
 BATCH030_DIR = Path("outputs/clean_replication_batch_030")
 BATCH031_DIR = Path("outputs/clean_replication_batch_031")
 BATCH032_DIR = Path("outputs/clean_replication_batch_032")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch032_safe_directory_precondition")
+BATCH033_DIR = Path("outputs/clean_replication_batch_033")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch033_issue_seed_retargeting")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -151,6 +152,8 @@ POST_REQUIRED = [
     "batch030_blocker_precision_audit.json",
     "batch031_artifact_ingest_summary.json",
     "batch031_artifact_verification.json",
+    "batch032_artifact_ingest_summary.json",
+    "batch032_artifact_verification.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
     "campaign_summary.md",
@@ -1447,6 +1450,27 @@ BATCH032_REQUIRED = [
     "consolidated_state_clean_replication_batch_032.json",
     "campaign_summary.md",
     "public_language_audit_batch032.json",
+    "artifact_packaging_policy.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH033_REQUIRED = [
+    "batch032_artifact_ingest_summary.json",
+    "batch032_artifact_verification.json",
+    "batch032_target_not_reproduced_summary.json",
+    "batch033_issue_seed_retargeting_policy.json",
+    "batch033_issue_seed_retargeting_analysis.json",
+    "batch033_harness_v10_design_policy.json",
+    "batch033_harness_v10_generation_result.json",
+    "batch033_decision_time_evidence_firewall.json",
+    "issue_derived_repair_feasibility_batch033.json",
+    "claim_boundary_batch033.json",
+    "proof_obligations_ledger_batch033.json",
+    "consolidated_state_clean_replication_batch_033.json",
+    "campaign_summary.md",
+    "public_language_audit_batch033.json",
     "artifact_packaging_policy.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
@@ -6026,6 +6050,184 @@ def audit_batch032_records() -> list[str]:
     return errors
 
 
+def audit_batch033_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH033_REQUIRED:
+        if not (BATCH033_DIR / name).is_file():
+            errors.append(f"batch033 missing required file {name}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH033_DIR).get("status") != "PASS":
+        errors.append("batch033 manifest mismatch")
+
+    batch032_state = read_json(BATCH032_DIR / "consolidated_state_clean_replication_batch_032.json")
+    state = read_json(BATCH033_DIR / "consolidated_state_clean_replication_batch_033.json")
+    ingest = read_json(BATCH033_DIR / "batch032_artifact_ingest_summary.json")
+    verification = read_json(BATCH033_DIR / "batch032_artifact_verification.json")
+    post_ingest = read_json(POST_DIR / "batch032_artifact_ingest_summary.json")
+    post_verification = read_json(POST_DIR / "batch032_artifact_verification.json")
+    target_summary = read_json(BATCH033_DIR / "batch032_target_not_reproduced_summary.json")
+    policy = read_json(BATCH033_DIR / "batch033_issue_seed_retargeting_policy.json")
+    analysis = read_json(BATCH033_DIR / "batch033_issue_seed_retargeting_analysis.json")
+    v10_policy = read_json(BATCH033_DIR / "batch033_harness_v10_design_policy.json")
+    generation = read_json(BATCH033_DIR / "batch033_harness_v10_generation_result.json")
+    firewall = read_json(BATCH033_DIR / "batch033_decision_time_evidence_firewall.json")
+    feasibility = read_json(BATCH033_DIR / "issue_derived_repair_feasibility_batch033.json")
+    claim = read_json(BATCH033_DIR / "claim_boundary_batch033.json")
+    ledger = read_json(BATCH033_DIR / "proof_obligations_ledger_batch033.json")
+    language = read_json(BATCH033_DIR / "public_language_audit_batch033.json")
+    minimality = read_json(BATCH033_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH033_DIR / "artifact_payload_budget.json")
+
+    if ingest.get("status") != "PASS" or verification.get("status") != "PASS":
+        errors.append("Batch033 did not record Batch032 artifact custody before retargeting logic")
+    if verification.get("artifact_name") != "post_v2_37_hardening_batch032_safe_directory_precondition_artifacts":
+        errors.append("Batch033 Batch032 artifact name mismatch")
+    if verification.get("artifact_id") != 8094822869 or verification.get("workflow_run_id") != 28751525030:
+        errors.append("Batch033 Batch032 artifact identity mismatch")
+    if verification.get("workflow_head_sha") != "2224875266501ce96011249bbe833c89314514e6":
+        errors.append("Batch033 Batch032 head SHA mismatch")
+    if verification.get("artifact_sha256") != "2c5fedb6d0003ba3cd8d54eefd4d3daa9355bae842aab60007a877db5c628000":
+        errors.append("Batch033 Batch032 artifact digest mismatch")
+    if verification.get("artifact_size_bytes") != 152417 or verification.get("zip_entry_count") != 157:
+        errors.append("Batch033 Batch032 artifact size/entry count mismatch")
+    if verification.get("unsafe_path_count") != 0 or verification.get("duplicate_path_count") != 0 or verification.get("pycache_pyc_payload_count") != 0:
+        errors.append("Batch033 Batch032 artifact path hygiene failed")
+    if verification.get("artifact_sha256sums_checked") != 156 or verification.get("batch032_sha256sums_checked") != 21 or verification.get("post_sha256sums_checked") != 133:
+        errors.append("Batch033 Batch032 manifest coverage mismatch")
+    if verification.get("manifest_failure_count") != 0:
+        errors.append("Batch033 Batch032 manifest failures recorded")
+    if ingest != post_ingest or verification != post_verification:
+        errors.append("Batch033 post-level Batch032 custody records do not match batch-level records")
+
+    if batch032_state.get("status") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
+        errors.append("Batch033 did not preserve official Batch032 status")
+    if batch032_state.get("exact_blocker") != "issue_seed_not_reproduced_by_current_harness":
+        errors.append("Batch033 did not preserve official Batch032 blocker")
+    if state.get("batch032_status_preserved") != batch032_state.get("status"):
+        errors.append("Batch033 state does not preserve Batch032 status")
+    if state.get("batch032_exact_blocker_preserved") != batch032_state.get("exact_blocker"):
+        errors.append("Batch033 state does not preserve Batch032 blocker")
+    if target_summary.get("status") != "PASS":
+        errors.append("Batch033 target-not-reproduced summary missing PASS")
+    if target_summary.get("harness_v9_executed") is not True or target_summary.get("harness_v9_execution_status") != "PASS":
+        errors.append("Batch033 target summary does not preserve v9 execution")
+    if target_summary.get("harness_v9_verified") is not False or target_summary.get("target_intent_matching_result") is not False:
+        errors.append("Batch033 target summary overstates v9 verification")
+    if target_summary.get("issue_derived_repair_feasibility") is not False:
+        errors.append("Batch033 target summary changed issue-derived feasibility")
+    if target_summary.get("safe_directory_classification") != "provider_git_safe_directory_precondition":
+        errors.append("Batch033 did not preserve safe.directory provider-precondition classification")
+    if target_summary.get("safe_directory_is_target_reproduction") is not False:
+        errors.append("Batch033 treated safe.directory as target reproduction")
+    if target_summary.get("normalized_variants_all_return_zero") is not True:
+        errors.append("Batch033 target summary does not preserve normalized zero-return variants")
+    if target_summary.get("target_indicator_seen_after_normalization") is not False:
+        errors.append("Batch033 target summary saw target indicator after normalization")
+
+    valid_classifications = {
+        "issue_requires_more_specific_decision_time_fixture",
+        "issue_seed_not_reproduced_by_current_harness",
+        "issue_derived_seed_retired_no_repair_feasibility",
+        "issue_seed_retargeting_possible_from_allowed_evidence",
+    }
+    if policy.get("status") != "PASS" or analysis.get("status") != "PASS":
+        errors.append("Batch033 retargeting policy/analysis not PASS")
+    if analysis.get("classification") not in valid_classifications:
+        errors.append("Batch033 retargeting classification invalid")
+    if state.get("issue_seed_retargeting_classification") != analysis.get("classification"):
+        errors.append("Batch033 state retargeting classification mismatch")
+    if policy.get("repair_or_patch_authorized") is not False or policy.get("matched_null_authorized") is not False:
+        errors.append("Batch033 retargeting policy authorized repair or matched-null")
+    if policy.get("v10_execution_authorized_in_batch033") is not False:
+        errors.append("Batch033 policy authorized v10 execution in Batch033")
+    if analysis.get("forbidden_evidence_used") is not False:
+        errors.append("Batch033 analysis used forbidden evidence")
+    if analysis.get("repair_or_patch_authorized") is not False or analysis.get("issue_derived_repair_feasibility") is not False:
+        errors.append("Batch033 analysis authorized repair/feasibility")
+
+    if analysis.get("retargeting_possible_from_allowed_evidence") is True:
+        if analysis.get("classification") != "issue_seed_retargeting_possible_from_allowed_evidence":
+            errors.append("Batch033 retargeting possible without matching classification")
+        if analysis.get("relative_git_dir_target_intent_variant_count", 0) <= 0:
+            errors.append("Batch033 retargeting possible without relative-GIT_DIR target-intent evidence")
+        if analysis.get("requires_separate_gated_v10_execution") is not True:
+            errors.append("Batch033 retargeting possible without separate v10 gate")
+        if v10_policy.get("status") != "PASS":
+            errors.append("Batch033 v10 design policy not PASS")
+        if generation.get("status") != "PASS_DESIGN_ONLY":
+            errors.append("Batch033 v10 generation result is not design-only PASS")
+        if generation.get("design_scaffold", {}).get("requires_separate_gated_execution") is not True:
+            errors.append("Batch033 v10 scaffold lacks separate gate requirement")
+        if not generation.get("allowed_evidence_hash"):
+            errors.append("Batch033 v10 design missing allowed evidence hash")
+    else:
+        if state.get("status") != "PASS_WITH_BATCH033_ISSUE_DERIVED_SEED_RETIRED":
+            errors.append("Batch033 retired-seed status mismatch")
+        if v10_policy.get("status") != "NOT_RUN" or generation.get("status") != "NOT_RUN":
+            errors.append("Batch033 v10 records should be NOT_RUN when retargeting is not possible")
+
+    if generation.get("executable_harness_generated") is not False or generation.get("harness_v10_executed") is not False:
+        errors.append("Batch033 generated or executed a v10 harness")
+    if generation.get("command_logs_recorded") is not False or generation.get("target_intent_telemetry_recorded") is not False:
+        errors.append("Batch033 claimed v10 execution telemetry without execution")
+    if v10_policy.get("repair_or_patch_authorized") is not False or v10_policy.get("execution_in_batch033") is not False:
+        errors.append("Batch033 v10 policy authorized execution or repair")
+
+    if firewall.get("status") != "PASS":
+        errors.append("Batch033 decision-time firewall failed")
+    for key in [
+        "fixed_revision_accessed",
+        "gold_patch_accessed",
+        "future_pr_accessed",
+        "later_commit_message_accessed",
+        "later_outcome_evidence_accessed",
+        "fixed_version_patch_accessed",
+        "solution_sections_used",
+    ]:
+        if firewall.get(key) is not False:
+            errors.append(f"Batch033 forbidden evidence flag set: {key}")
+    if feasibility.get("issue_derived_repair_feasibility") is not False or feasibility.get("repair_ran") is not False:
+        errors.append("Batch033 feasibility record ran repair or set feasibility true")
+    if feasibility.get("patch_generated") is not False or feasibility.get("matched_null_ran") is not False:
+        errors.append("Batch033 feasibility record generated patch or matched-null")
+    if claim.get("repair_ran") is not False or claim.get("patch_generated") is not False or claim.get("patch_authorized") is not False or claim.get("patch_attempted") is not False:
+        errors.append("Batch033 claim boundary shows repair/patch activity")
+    if claim.get("matched_null_ran") is not False or claim.get("psa82_permutation_null_ran") is not False or claim.get("structured_fragility_diagnostic_ran") is not False:
+        errors.append("Batch033 claim boundary shows downstream diagnostics")
+    if claim.get("native_repair_episode_count") != 4 or claim.get("issue_derived_repair_episode_count") != 0:
+        errors.append("Batch033 repair episode counts changed")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated" or claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("Batch033 claim boundary overclaim")
+    if claim.get("no_unregistered_tolerance_added") is not True:
+        errors.append("Batch033 unregistered tolerance flag not true")
+    if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch033 proof ledger invalid")
+    if ledger.get("repair_or_patch_before_harness_verification") is not False or ledger.get("matched_null_without_patch_candidate") is not False:
+        errors.append("Batch033 proof ledger permits forbidden downstream work")
+    if language.get("status") != "PASS":
+        errors.append("Batch033 public language audit failed")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch033 artifact minimality failed")
+    if budget.get("status") != "PASS":
+        errors.append("Batch033 artifact budget failed")
+    if state.get("current_protocol") != "v2.13":
+        errors.append("Batch033 changed current protocol")
+    if state.get("repair_ran") is not False or state.get("patch_generated") is not False or state.get("patch_authorized") is not False or state.get("patch_attempted") is not False:
+        errors.append("Batch033 state shows repair or patch activity")
+    if state.get("matched_null_diagnostic_run_count") != 0:
+        errors.append("Batch033 state shows matched-null diagnostic activity")
+    if state.get("psa82_permutation_null_status") != "NOT_RUN_NO_PATCH_CANDIDATE" or state.get("structured_fragility_diagnostic_status") != "NOT_RUN_NO_PATCH_CANDIDATE":
+        errors.append("Batch033 state changed downstream diagnostic status")
+    if state.get("native_repair_episode_count") != 4 or state.get("issue_derived_repair_episode_count") != 0:
+        errors.append("Batch033 state repair episode counts changed")
+    for path in list(BATCH033_DIR.glob("*.json")) + list(BATCH033_DIR.glob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        if any(marker in text for marker in ["1.45", "wiggle_room", "closure_tolerance", "residual_tolerance"]):
+            errors.append(f"Batch033 introduced forbidden tolerance marker in {path.name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -6168,6 +6370,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_029.json"),
         Path("configs/clean_replication_batch_030.json"),
         Path("configs/clean_replication_batch_031.json"),
+        Path("configs/clean_replication_batch_033.json"),
         Path("docs/artifact_packaging_policy.md"),
         Path("configs/lock_sequence_operation_registry.json"),
         Path("configs/controllergate_claim_tiers.json"),
@@ -6185,6 +6388,7 @@ def public_language_hits() -> list[str]:
         Path("controllergate/core/baseline_precheck.py"),
         Path("controllergate/core/rollback_ledger.py"),
         Path("controllergate/core/gate_chain.py"),
+        Path("controllergate/core/batch033_issue_seed_retargeting.py"),
         Path("controllergate/core/active_context_filtering.py"),
         Path("controllergate/runtime/incident_capture.py"),
         Path("controllergate/runtime/execution_boundary_gateway.py"),
@@ -6246,6 +6450,8 @@ def public_language_hits() -> list[str]:
     paths.extend(sorted(BATCH031_DIR.glob("*.md")))
     paths.extend(sorted(BATCH032_DIR.glob("*.json")))
     paths.extend(sorted(BATCH032_DIR.glob("*.md")))
+    paths.extend(sorted(BATCH033_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH033_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -6432,6 +6638,7 @@ def main() -> int:
         + require_files(BATCH030_DIR, BATCH030_REQUIRED)
         + require_files(BATCH031_DIR, BATCH031_REQUIRED)
         + require_files(BATCH032_DIR, BATCH032_REQUIRED)
+        + require_files(BATCH033_DIR, BATCH033_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -6493,6 +6700,8 @@ def main() -> int:
         return fail("batch031 manifest mismatch")
     if verify_manifest(BATCH032_DIR)["status"] != "PASS":
         return fail("batch032 manifest mismatch")
+    if verify_manifest(BATCH033_DIR)["status"] != "PASS":
+        return fail("batch033 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -6698,6 +6907,9 @@ def main() -> int:
     batch032_errors = audit_batch032_records()
     if batch032_errors:
         return fail(f"batch032 audit failed: {batch032_errors}")
+    batch033_errors = audit_batch033_records()
+    if batch033_errors:
+        return fail(f"batch033 audit failed: {batch033_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -6744,9 +6956,9 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH032_"):
-        return fail("final report did not advance to Batch032 safe-directory precondition boundary")
-    if final_report.get("exact_blocker") is not None and final_report.get("exact_blocker") not in {"docker_runtime_provider_unavailable", "python37_docker_provider_unavailable", "runtime_provider_python_version_mismatch", "manual_lock_environment_materialization_failed", "provider_harness_v9_execution_failed", "provider_source_checkout_failed", "provider_source_commit_mismatch", "harness_v9_file_missing", "harness_v9_payload_integrity_failed", "batch028_artifact_custody_or_harness_integrity_missing", "issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context", "issue_seed_not_reproduced_by_current_harness", "safe_directory_normalization_failed"}:
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH033_"):
+        return fail("final report did not advance to Batch033 issue-seed retargeting boundary")
+    if final_report.get("exact_blocker") is not None and final_report.get("exact_blocker") not in {"docker_runtime_provider_unavailable", "python37_docker_provider_unavailable", "runtime_provider_python_version_mismatch", "manual_lock_environment_materialization_failed", "provider_harness_v9_execution_failed", "provider_source_checkout_failed", "provider_source_commit_mismatch", "harness_v9_file_missing", "harness_v9_payload_integrity_failed", "batch028_artifact_custody_or_harness_integrity_missing", "issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context", "issue_seed_not_reproduced_by_current_harness", "safe_directory_normalization_failed", "issue_seed_retargeting_requires_separate_gated_v10_execution", "issue_derived_seed_retired_no_repair_feasibility"}:
         return fail("final report latest validation blocker mismatch")
     if final_report.get("batch017_target_intent_alignment") is not False:
         return fail("final report Batch017 target-intent boundary mismatch")
@@ -7079,6 +7291,46 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH033_"):
+        return fail("final report top-level status is not Batch033")
+    if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
+        return fail("final report Batch033 status missing")
+    if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
+        return fail("final report Batch033 did not preserve Batch032 boundary")
+    if final_report.get("batch033_batch032_artifact_ingest_status") != "PASS":
+        return fail("final report Batch033 Batch032 artifact ingest not PASS")
+    if final_report.get("batch033_batch032_target_not_reproduced_summary_status") != "PASS":
+        return fail("final report Batch033 target-not-reproduced summary not PASS")
+    if final_report.get("batch033_issue_seed_retargeting_classification") not in {
+        "issue_requires_more_specific_decision_time_fixture",
+        "issue_seed_not_reproduced_by_current_harness",
+        "issue_derived_seed_retired_no_repair_feasibility",
+        "issue_seed_retargeting_possible_from_allowed_evidence",
+    }:
+        return fail("final report Batch033 retargeting classification invalid")
+    if final_report.get("batch033_retargeting_possible_from_allowed_evidence") is True:
+        if final_report.get("batch033_issue_seed_retargeting_classification") != "issue_seed_retargeting_possible_from_allowed_evidence":
+            return fail("final report Batch033 retargeting possible/classification mismatch")
+        if final_report.get("batch033_harness_v10_design_policy_status") != "PASS":
+            return fail("final report Batch033 v10 design policy not PASS")
+        if final_report.get("batch033_harness_v10_generation_status") != "PASS_DESIGN_ONLY":
+            return fail("final report Batch033 v10 generation not design-only")
+    if final_report.get("batch033_harness_v10_executable_generated") is not False or final_report.get("batch033_harness_v10_executed") is not False:
+        return fail("final report Batch033 generated or executed v10 harness")
+    if final_report.get("batch033_issue_derived_repair_feasibility") is not False:
+        return fail("final report Batch033 issue-derived feasibility overclaim")
+    if final_report.get("batch033_repair_ran") is not False:
+        return fail("final report Batch033 repair ran unexpectedly")
+    if final_report.get("batch033_patch_generated") is not False or final_report.get("batch033_patch_authorized") is not False or final_report.get("batch033_patch_attempted") is not False:
+        return fail("final report Batch033 patch boundary changed")
+    if final_report.get("batch033_matched_null_diagnostic_run_count") != 0:
+        return fail("final report Batch033 matched-null diagnostic ran unexpectedly")
+    if final_report.get("batch033_psa82_permutation_null_status") != "NOT_RUN_NO_PATCH_CANDIDATE":
+        return fail("final report Batch033 PSA-82 diagnostic status mismatch")
+    if final_report.get("batch033_structured_fragility_diagnostic_status") != "NOT_RUN_NO_PATCH_CANDIDATE":
+        return fail("final report Batch033 structured diagnostic status mismatch")
+    if final_report.get("batch033_native_repair_episode_count") != 4 or final_report.get("batch033_issue_derived_repair_episode_count") != 0:
+        return fail("final report Batch033 repair counts changed")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

@@ -1,0 +1,28 @@
+{
+  "allowed_inputs": [
+    "redacted_issue_snapshot",
+    "selected_source_commit",
+    "existing_target_intent_evidence",
+    "existing_provider_command_context_evidence",
+    "existing_harness_telemetry"
+  ],
+  "current_protocol": "v2.13",
+  "forbidden_inputs": [
+    "fixed_revision",
+    "gold_patch",
+    "future_pr",
+    "later_commit_messages",
+    "later_outcome_evidence",
+    "fixed_version_patch"
+  ],
+  "matched_null_authorized": false,
+  "repair_or_patch_authorized": false,
+  "status": "PASS",
+  "v10_execution_authorized_in_batch033": false,
+  "valid_classifications": [
+    "issue_requires_more_specific_decision_time_fixture",
+    "issue_seed_not_reproduced_by_current_harness",
+    "issue_derived_seed_retired_no_repair_feasibility",
+    "issue_seed_retargeting_possible_from_allowed_evidence"
+  ]
+}

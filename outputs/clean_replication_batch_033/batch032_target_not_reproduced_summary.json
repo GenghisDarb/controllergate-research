@@ -1,0 +1,46 @@
+{
+  "batch032_exact_blocker": "issue_seed_not_reproduced_by_current_harness",
+  "batch032_status": "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED",
+  "environment_precondition_seen_after_normalization": false,
+  "harness_v9_executed": true,
+  "harness_v9_execution_status": "PASS",
+  "harness_v9_verified": false,
+  "issue_derived_repair_feasibility": false,
+  "normalized_variant_results": [
+    {
+      "command": "python -m darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "environment_precondition_error_seen": false,
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target_indicator_seen": false,
+      "variant_id": "source_root_no_git_dir_python_module"
+    },
+    {
+      "command": "python -m darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "environment_precondition_error_seen": false,
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target_indicator_seen": false,
+      "variant_id": "absolute_git_dir_work_tree_python_module"
+    }
+  ],
+  "normalized_variants_all_return_zero": true,
+  "provider_only_safe_directory_normalization_status": "PASS",
+  "safe_directory_classification": "provider_git_safe_directory_precondition",
+  "safe_directory_is_target_reproduction": false,
+  "source_files_unchanged": true,
+  "source_head_unchanged": true,
+  "status": "PASS",
+  "target_aligned_pre_repair_failure_reproduced": false,
+  "target_indicator_seen_after_normalization": false,
+  "target_intent_matching_result": false,
+  "tests_unchanged": true
+}

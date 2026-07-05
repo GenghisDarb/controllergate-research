@@ -15,3 +15,5 @@ Latest boundary: Batch031 `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED` with
 - Self-maintaining software remains `false/not_demonstrated`.
 
 Batch032 preserves four native repair episodes and zero issue-derived repair episodes while classifying safe.directory telemetry separately from target reproduction.
+
+Batch033 keeps four native repair episodes and zero issue-derived repair episodes; it defines only a decision-time-safe retargeting design path for Darker issue #112.

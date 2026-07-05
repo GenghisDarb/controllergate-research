@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "entry_type": "BATCH032_ARTIFACT_INGEST_VERIFIED",
+      "evidence_hash": "08c61711e67ea2c093c0812407756437b5d5f307f3607b6e128c5b2d38a3b30c"
+    },
+    {
+      "entry_type": "BATCH032_TARGET_NOT_REPRODUCED_SUMMARIZED",
+      "evidence_hash": "a340041b7dc20d3008da851a0e29c265b4df2c2707a1d802c17c9ac5ee821a49"
+    },
+    {
+      "entry_type": "BATCH033_RETARGETING_POLICY_RECORDED",
+      "evidence_hash": "061ba89b35c59d884c944ce829ddfa78e7b2e147358f814a831bf66f85532813"
+    },
+    {
+      "entry_type": "BATCH033_RETARGETING_ANALYSIS_RECORDED",
+      "evidence_hash": "b691e7b3ead27f90a9f9b92dd8f91b85889c7663d9e83f1e7931f4d7d45d8d8b"
+    },
+    {
+      "entry_type": "BATCH033_V10_DESIGN_RESULT_RECORDED",
+      "evidence_hash": "746cb015f129d88318a34003497182af348fc253087d8d8d7994c3d4dd68272d"
+    },
+    {
+      "attempted_action_hash": "b691e7b3ead27f90a9f9b92dd8f91b85889c7663d9e83f1e7931f4d7d45d8d8b",
+      "blocker": "issue_seed_retargeting_requires_separate_gated_v10_execution",
+      "entry_type": "ROLLBACK_BLOCK",
+      "next_allowed_action": "do_not_run_repair_until_separate_harness_verification",
+      "previous_state_hash": "c9f630f84e3c3f6a8370f3221396081e288fa4e81a1b3e50e8224c78ab8638b6",
+      "rollback_hash": "0d8bc9ffc1e3f753d015bbb550f286f63ac9f57c65b4ecb58bbc9c5ac151553b",
+      "rollback_target_entry_index": 0
+    }
+  ],
+  "hash_chain_valid": true,
+  "matched_null_without_patch_candidate": false,
+  "repair_or_patch_before_harness_verification": false,
+  "status": "PASS"
+}
