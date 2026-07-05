@@ -38,7 +38,8 @@ BATCH025_DIR = Path("outputs/clean_replication_batch_025")
 BATCH026_DIR = Path("outputs/clean_replication_batch_026")
 BATCH027_DIR = Path("outputs/clean_replication_batch_027")
 BATCH028_DIR = Path("outputs/clean_replication_batch_028")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch028_harness_v9_payload_rehydration")
+BATCH029_DIR = Path("outputs/clean_replication_batch_029")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch029_provider_harness_v9_pre_repair_execution")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -136,6 +137,9 @@ POST_REQUIRED = [
     "batch027_artifact_ingest_summary.json",
     "batch027_artifact_verification.json",
     "batch027_execution_telemetry_precision_audit.json",
+    "batch028_artifact_ingest_summary.json",
+    "batch028_artifact_verification.json",
+    "batch028_execution_telemetry_precision_audit.json",
     "final_report_post_v2_37_hardening_001.json",
     "consolidated_state_post_v2_37_hardening_001.json",
     "campaign_summary.md",
@@ -1332,6 +1336,29 @@ BATCH028_REQUIRED = [
     "issue_derived_ephemeral_harness_v9.py",
     "campaign_summary.md",
     "public_language_audit_batch028.json",
+    "artifact_packaging_policy.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH029_REQUIRED = [
+    "batch028_artifact_ingest_summary.json",
+    "batch028_artifact_verification.json",
+    "batch028_execution_telemetry_precision_audit.json",
+    "batch029_harness_v9_execution_policy.json",
+    "batch029_harness_payload_integrity_check.json",
+    "batch029_provider_command_context_audit.json",
+    "batch029_harness_v9_execution_result.json",
+    "batch029_harness_v9_pre_repair_verification.json",
+    "batch029_target_intent_match_report.json",
+    "batch029_decision_time_evidence_firewall.json",
+    "issue_derived_repair_feasibility_batch029.json",
+    "claim_boundary_batch029.json",
+    "proof_obligations_ledger_batch029.json",
+    "consolidated_state_clean_replication_batch_029.json",
+    "campaign_summary.md",
+    "public_language_audit_batch029.json",
     "artifact_packaging_policy.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
@@ -5404,6 +5431,127 @@ def audit_batch028_records() -> list[str]:
     return errors
 
 
+def audit_batch029_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH029_REQUIRED:
+        if not (BATCH029_DIR / name).is_file():
+            errors.append(f"batch029 missing required file {name}")
+    if errors:
+        return errors
+    manifest = verify_manifest(BATCH029_DIR)
+    if manifest.get("status") != "PASS":
+        errors.append(f"batch029 manifest failed: {manifest}")
+
+    batch028_state = read_json(BATCH028_DIR / "consolidated_state_clean_replication_batch_028.json")
+    state = read_json(BATCH029_DIR / "consolidated_state_clean_replication_batch_029.json")
+    ingest = read_json(BATCH029_DIR / "batch028_artifact_ingest_summary.json")
+    verification = read_json(BATCH029_DIR / "batch028_artifact_verification.json")
+    precision = read_json(BATCH029_DIR / "batch028_execution_telemetry_precision_audit.json")
+    post_verification = read_json(POST_DIR / "batch028_artifact_verification.json")
+    post_precision = read_json(POST_DIR / "batch028_execution_telemetry_precision_audit.json")
+    policy = read_json(BATCH029_DIR / "batch029_harness_v9_execution_policy.json")
+    integrity = read_json(BATCH029_DIR / "batch029_harness_payload_integrity_check.json")
+    provider_context = read_json(BATCH029_DIR / "batch029_provider_command_context_audit.json")
+    execution = read_json(BATCH029_DIR / "batch029_harness_v9_execution_result.json")
+    pre_repair = read_json(BATCH029_DIR / "batch029_harness_v9_pre_repair_verification.json")
+    target_report = read_json(BATCH029_DIR / "batch029_target_intent_match_report.json")
+    firewall = read_json(BATCH029_DIR / "batch029_decision_time_evidence_firewall.json")
+    feasibility = read_json(BATCH029_DIR / "issue_derived_repair_feasibility_batch029.json")
+    claim = read_json(BATCH029_DIR / "claim_boundary_batch029.json")
+    ledger = read_json(BATCH029_DIR / "proof_obligations_ledger_batch029.json")
+    language = read_json(BATCH029_DIR / "public_language_audit_batch029.json")
+    minimality = read_json(BATCH029_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH029_DIR / "artifact_payload_budget.json")
+
+    if ingest.get("status") != "PASS" or verification.get("status") != "PASS":
+        errors.append("Batch029 did not record Batch028 artifact custody before logic")
+    if verification.get("artifact_sha256") != "490d50448d97eb3947f70a399fee9a1439a6c091bb659dd86e8c5a28c724201c":
+        errors.append("Batch029 Batch028 artifact SHA mismatch")
+    if verification.get("artifact_size_bytes") != 141704 or verification.get("zip_entry_count") != 145:
+        errors.append("Batch029 Batch028 artifact size or entry count mismatch")
+    if verification.get("artifact_level_manifest_failures") != 0 or verification.get("batch028_manifest_failures") != 0 or verification.get("post_boundary_manifest_failures") != 0:
+        errors.append("Batch029 Batch028 manifest verification failed")
+    if verification.get("codex_downloaded_artifact") is not False or verification.get("zip_tar_payload_ingested") is not False:
+        errors.append("Batch029 violated manual artifact boundary")
+    if post_verification.get("artifact_sha256") != verification.get("artifact_sha256"):
+        errors.append("Batch029 post boundary Batch028 verification mismatch")
+    if precision.get("status") != "PASS" or post_precision.get("status") != "PASS":
+        errors.append("Batch029 ignored Batch028 telemetry precision audit")
+    if precision.get("provider_harness_v9_execution_failed_supported_by_executed_harness_telemetry") is not False:
+        errors.append("Batch029 precision audit treated unexecuted Batch028 blocker as telemetry")
+    if batch028_state.get("harness_v9_executed") is not False or batch028_state.get("harness_v9_execution_status") != "NOT_RUN":
+        errors.append("Batch029 prerequisite Batch028 official unexecuted state mismatch")
+    if state.get("batch028_status_preserved") != "PASS_WITH_BATCH028_HARNESS_V9_EXECUTION_BLOCKED":
+        errors.append("Batch029 did not preserve Batch028 official boundary")
+    if policy.get("requires_batch028_artifact_custody") is not True or policy.get("requires_harness_sha256_before_execution") is not True:
+        errors.append("Batch029 policy missing custody or harness SHA requirement")
+    if policy.get("relative_git_dir_active_command_context_allowed") is not False:
+        errors.append("Batch029 execution policy allows relative Git directory active command context")
+    if integrity.get("status") != "PASS" or integrity.get("verified_before_execution") is not True:
+        errors.append("Batch029 harness SHA256 was not verified before execution")
+    if integrity.get("observed_harness_sha256") != "da098a46ef7efea42f2c9b35451b51f66038d58b6675fe386868338a3b3e0c01":
+        errors.append("Batch029 harness payload SHA mismatch")
+    if provider_context.get("relative_git_dir_active_command_context_used") is True or execution.get("relative_git_dir_active_command_context_used") is True or pre_repair.get("relative_git_dir_active_command_context_used") is True:
+        errors.append("Batch029 used relative Git directory as active command context")
+    if firewall.get("fixed_revision_accessed") is not False or firewall.get("gold_patch_accessed") is not False or firewall.get("future_pr_accessed") is not False or firewall.get("later_outcome_evidence_accessed") is not False:
+        errors.append("Batch029 forbidden evidence firewall failed")
+    harness_executed = execution.get("status") in {"PASS", "BLOCK"} and execution.get("command") != "NOT_RUN"
+    if harness_executed:
+        if execution.get("returncode") is None:
+            errors.append("Batch029 executed harness without return code")
+        if not execution.get("stdout_sha256") or not execution.get("stderr_sha256"):
+            errors.append("Batch029 executed harness without stdout/stderr hashes")
+        if not execution.get("cwd"):
+            errors.append("Batch029 executed harness without cwd")
+        if state.get("provider_source_head_verified") is not True:
+            errors.append("Batch029 executed harness without selected source HEAD verification")
+    if state.get("exact_blocker") == "issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context" and not harness_executed:
+        errors.append("Batch029 claimed target failure not reproduced without executed telemetry")
+    if provider_context.get("status") == "PASS":
+        if provider_context.get("provider_source_root") is None or provider_context.get("git_dir_path") is None:
+            errors.append("Batch029 provider context missing source root or .git path")
+        if provider_context.get("absolute_git_dir") is None or provider_context.get("absolute_git_work_tree") is None:
+            errors.append("Batch029 provider context missing absolute Git environment")
+    if execution.get("source_mutated") is True or execution.get("tests_mutated") is True:
+        errors.append("Batch029 harness execution mutated source or tests")
+    harness_verified = pre_repair.get("status") == "PASS" and pre_repair.get("target_aligned_pre_repair_failure_reproduced") is True
+    if target_report.get("target_intent_matching_result") is True and not harness_verified:
+        errors.append("Batch029 target-intent report overclaimed without pre-repair verification")
+    if feasibility.get("issue_derived_repair_feasibility") is True and not harness_verified:
+        errors.append("Batch029 issue-derived repair feasibility claimed before harness verification")
+    if claim.get("repair_ran") is not False or claim.get("patch_generated") is not False or claim.get("patch_authorized") is not False or claim.get("patch_attempted") is not False:
+        errors.append("Batch029 repair or patch generation ran unexpectedly")
+    if claim.get("matched_null_ran") is not False:
+        errors.append("Batch029 matched-null ran unexpectedly")
+    if claim.get("psa82_permutation_null_ran") is not False or claim.get("structured_fragility_diagnostic_ran") is not False:
+        errors.append("Batch029 downstream diagnostic ran without patch candidate")
+    if state.get("patch_generated") is not False or state.get("patch_authorized") is not False or state.get("patch_attempted") is not False:
+        errors.append("Batch029 patch boundary changed")
+    if state.get("matched_null_diagnostic_run_count") != 0:
+        errors.append("Batch029 matched-null diagnostic count changed")
+    if state.get("native_repair_episode_count") != 4 or state.get("issue_derived_repair_episode_count") != 0:
+        errors.append("Batch029 repair counts changed")
+    if state.get("full_scoring") != "NOT_RUN/disallowed" or state.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch029 scoring or memory boundary changed")
+    if state.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("Batch029 self-maintaining claim changed")
+    if state.get("current_protocol") != "v2.13":
+        errors.append("Batch029 current protocol changed")
+    if not str(state.get("status", "")).startswith("PASS_WITH_BATCH029_"):
+        errors.append("Batch029 state mismatch")
+    if ledger.get("status") != "PASS" or ledger.get("repair_or_patch_before_harness_v9_verification") is not False:
+        errors.append("Batch029 proof ledger invalid")
+    if ledger.get("matched_null_without_patch_candidate") is not False:
+        errors.append("Batch029 matched-null proof ledger boundary invalid")
+    if language.get("status") != "PASS":
+        errors.append("Batch029 public language audit failed")
+    if minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch029 recursive prior batch packaging detected")
+    if budget.get("status") != "PASS":
+        errors.append("Batch029 artifact budget failed")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -5543,6 +5691,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_026.json"),
         Path("configs/clean_replication_batch_027.json"),
         Path("configs/clean_replication_batch_028.json"),
+        Path("configs/clean_replication_batch_029.json"),
         Path("docs/artifact_packaging_policy.md"),
         Path("configs/lock_sequence_operation_registry.json"),
         Path("configs/controllergate_claim_tiers.json"),
@@ -5613,6 +5762,8 @@ def public_language_hits() -> list[str]:
     paths.extend(sorted(BATCH027_DIR.glob("*.md")))
     paths.extend(sorted(BATCH028_DIR.glob("*.json")))
     paths.extend(sorted(BATCH028_DIR.glob("*.md")))
+    paths.extend(sorted(BATCH029_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH029_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -5795,6 +5946,7 @@ def main() -> int:
         + require_files(BATCH023_DIR, BATCH023_REQUIRED)
         + require_files(BATCH024_DIR, BATCH024_REQUIRED)
         + require_files(BATCH028_DIR, BATCH028_REQUIRED)
+        + require_files(BATCH029_DIR, BATCH029_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -5848,6 +6000,8 @@ def main() -> int:
         return fail("batch024 manifest mismatch")
     if verify_manifest(BATCH028_DIR)["status"] != "PASS":
         return fail("batch028 manifest mismatch")
+    if verify_manifest(BATCH029_DIR)["status"] != "PASS":
+        return fail("batch029 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -6041,6 +6195,9 @@ def main() -> int:
     batch028_errors = audit_batch028_records()
     if batch028_errors:
         return fail(f"batch028 audit failed: {batch028_errors}")
+    batch029_errors = audit_batch029_records()
+    if batch029_errors:
+        return fail(f"batch029 audit failed: {batch029_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -6087,9 +6244,9 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH028_"):
-        return fail("final report did not advance to Batch028 harness v9 payload rehydration boundary")
-    if final_report.get("exact_blocker") is not None and final_report.get("exact_blocker") not in {"docker_runtime_provider_unavailable", "python37_docker_provider_unavailable", "runtime_provider_python_version_mismatch", "manual_lock_environment_materialization_failed", "provider_harness_v9_execution_failed", "provider_source_checkout_failed", "provider_source_commit_mismatch", "harness_v9_file_missing", "harness_v9_payload_rehydration_source_missing", "batch027_artifact_custody_or_harness_payload_missing", "issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context"}:
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH029_"):
+        return fail("final report did not advance to Batch029 provider-backed harness execution boundary")
+    if final_report.get("exact_blocker") is not None and final_report.get("exact_blocker") not in {"docker_runtime_provider_unavailable", "python37_docker_provider_unavailable", "runtime_provider_python_version_mismatch", "manual_lock_environment_materialization_failed", "provider_harness_v9_execution_failed", "provider_source_checkout_failed", "provider_source_commit_mismatch", "harness_v9_file_missing", "harness_v9_payload_integrity_failed", "batch028_artifact_custody_or_harness_integrity_missing", "issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context"}:
         return fail("final report latest validation blocker mismatch")
     if final_report.get("batch017_target_intent_alignment") is not False:
         return fail("final report Batch017 target-intent boundary mismatch")
@@ -6286,6 +6443,36 @@ def main() -> int:
         return fail("final report Batch028 structured diagnostic status mismatch")
     if final_report.get("batch028_native_repair_episode_count") != 4 or final_report.get("batch028_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch028 repair counts changed")
+    if not str(final_report.get("clean_replication_batch_029_status", "")).startswith("PASS_WITH_BATCH029_"):
+        return fail("final report Batch029 status missing")
+    if final_report.get("batch029_batch028_status_preserved") != "PASS_WITH_BATCH028_HARNESS_V9_EXECUTION_BLOCKED":
+        return fail("final report Batch029 did not preserve Batch028 boundary")
+    if final_report.get("batch029_batch028_execution_telemetry_precision_status") != "PASS":
+        return fail("final report Batch029 telemetry precision audit not PASS")
+    if final_report.get("batch029_harness_payload_integrity_status") != "PASS":
+        return fail("final report Batch029 harness payload integrity not PASS")
+    if final_report.get("batch029_harness_payload_sha256") != "da098a46ef7efea42f2c9b35451b51f66038d58b6675fe386868338a3b3e0c01":
+        return fail("final report Batch029 harness payload SHA mismatch")
+    if final_report.get("batch029_harness_v9_executed") is True and final_report.get("batch029_provider_source_head_verified") is not True:
+        return fail("final report Batch029 executed without source HEAD verification")
+    if final_report.get("batch029_relative_git_dir_active_command_context_used") is not False:
+        return fail("final report Batch029 used relative Git directory active command context")
+    if final_report.get("batch029_issue_derived_repair_feasibility") is True and final_report.get("batch029_harness_v9_verified") is not True:
+        return fail("final report Batch029 feasibility without harness verification")
+    if final_report.get("clean_replication_batch_029_exact_blocker") == "issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context" and final_report.get("batch029_harness_v9_executed") is not True:
+        return fail("final report Batch029 claimed target failure not reproduced without execution")
+    if final_report.get("batch029_patch_generated") is not False or final_report.get("batch029_patch_authorized") is not False or final_report.get("batch029_patch_attempted") is not False:
+        return fail("final report Batch029 patch boundary changed")
+    if final_report.get("batch029_repair_only_fallback_attempted") is not False:
+        return fail("final report Batch029 repair fallback ran unexpectedly")
+    if final_report.get("batch029_matched_null_diagnostic_run_count") != 0:
+        return fail("final report Batch029 matched-null diagnostic ran unexpectedly")
+    if final_report.get("batch029_psa82_permutation_null_status") != "NOT_RUN_NO_PATCH_CANDIDATE":
+        return fail("final report Batch029 PSA-82 diagnostic status mismatch")
+    if final_report.get("batch029_structured_fragility_diagnostic_status") != "NOT_RUN_NO_PATCH_CANDIDATE":
+        return fail("final report Batch029 structured diagnostic status mismatch")
+    if final_report.get("batch029_native_repair_episode_count") != 4 or final_report.get("batch029_issue_derived_repair_episode_count") != 0:
+        return fail("final report Batch029 repair counts changed")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":
