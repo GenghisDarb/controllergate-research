@@ -1,0 +1,41 @@
+{
+  "entries": [
+    {
+      "entry_type": "BATCH029_ARTIFACT_INGEST_VERIFIED",
+      "evidence_hash": "a6b0fc2a61e7c32f5ce6de65ffe47be3b5979881423bc725e0481536166132da"
+    },
+    {
+      "entry_type": "BATCH029_BLOCKER_PRECISION_AUDITED",
+      "evidence_hash": "01b6451730f3d964e7a542a95f2b3af91293d71209520cc8dac4383cff2e36f2"
+    },
+    {
+      "entry_type": "BATCH030_GATE_PREDICATE_CORRECTED",
+      "evidence_hash": "14ca0a6c9bd918bfb60d4ea9ee9f572c67271dccc581008d8be9b23a544e7dd3"
+    },
+    {
+      "entry_type": "BATCH030_HARNESS_PAYLOAD_AVAILABLE",
+      "evidence_hash": "78141657c9c59042f81fd5869d95d68db82eeff5a20f50f5700fac1a1544a067"
+    },
+    {
+      "entry_type": "BATCH030_HARNESS_PAYLOAD_INTEGRITY_VERIFIED",
+      "evidence_hash": "b4e1f3786e82b21d703fc1ba8180965e63f989d9c2d450f10debe3d666657b90"
+    },
+    {
+      "entry_type": "BATCH030_PROVIDER_HARNESS_EXECUTION",
+      "evidence_hash": "0fc18e8e634b5634ddbe2f2ab31d730dce34d3d89b404c88306531c22d79a987"
+    },
+    {
+      "attempted_action_hash": "9a8c9e349fba4a18067e519c2f8473510bb7037a152692f5e0d2aa3e3e1173e8",
+      "blocker": "docker_runtime_provider_unavailable",
+      "entry_type": "ROLLBACK_BLOCK",
+      "next_allowed_action": "do_not_run_repair_until_harness_v9_verifies",
+      "previous_state_hash": "d2582b1ef50c23681ad2a59ec050b0d1d5412daae8a9129e578f01c447a95947",
+      "rollback_hash": "badf33b5a8da7e1739eeb8f3761f00f6de619a780dbda04fa33aa83af7e42c54",
+      "rollback_target_entry_index": 0
+    }
+  ],
+  "hash_chain_valid": true,
+  "matched_null_without_patch_candidate": false,
+  "repair_or_patch_before_harness_v9_verification": false,
+  "status": "PASS"
+}

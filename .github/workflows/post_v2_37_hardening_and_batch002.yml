@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch029 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch030 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -72,8 +72,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch029_provider_harness_v9_pre_repair_execution/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch029_provider_harness_v9_pre_repair_execution \( \
+          test -f artifact_payload/post_v2_37_hardening_batch030_gate_predicate_correction_provider_execution/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch030_gate_predicate_correction_provider_execution \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -93,16 +93,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch029_provider_harness_v9_pre_repair_execution -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_029' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch030_gate_predicate_correction_provider_execution -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_030' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch029 provider-backed harness v9 pre-repair execution artifact
+      - name: Upload Batch030 gate-predicate correction provider execution artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch029_provider_harness_v9_pre_repair_execution_artifacts
+          name: post_v2_37_hardening_batch030_gate_predicate_correction_provider_execution_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch029_provider_harness_v9_pre_repair_execution/**
+            artifact_payload/post_v2_37_hardening_batch030_gate_predicate_correction_provider_execution/**
           if-no-files-found: error

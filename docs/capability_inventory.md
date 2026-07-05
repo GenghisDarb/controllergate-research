@@ -1,13 +1,13 @@
 # Capability inventory
 
-Batch029 adds provider-backed harness v9 pre-repair execution records after the official Batch028 artifact boundary.
+Batch030 adds gate-predicate correction and provider-backed harness v9 execution records after the official Batch029 artifact boundary.
 
 ## Current operational gate status
 
-- Batch028 is preserved as a custody-clean harness-payload rehydration boundary with no executed harness telemetry.
-- Batch029 executes the rehydrated harness v9 payload only after SHA256 and source HEAD verification.
-- Relative `GIT_DIR=.git` is not used as the active command context.
-- Batch029 does not run repair, patch generation, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics without a verified harness and a real patch candidate.
+- Batch030 ingests the official Batch029 artifact boundary and records the gate-predicate correction.
+- Batch030 separates artifact custody, telemetry precision, harness integrity, harness payload availability, and provider execution availability before running the harness.
+- Batch030 does not use relative `GIT_DIR=.git` as an active command context.
+- Batch030 does not run repair, patch generation, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics without a verified harness and a real patch candidate.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes remain `0` unless issue-derived repair validates in a later gated phase.
 - Full scoring remains `NOT_RUN/disallowed`.
