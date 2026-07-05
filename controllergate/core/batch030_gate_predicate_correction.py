@@ -171,17 +171,19 @@ def gate_predicate_correction(
 ) -> dict[str, Any]:
     source_checkout = provider_probe.get("source_checkout", {}) if isinstance(provider_probe, dict) else {}
     provider_output = provider_probe.get("provider_output", {}) if isinstance(provider_probe, dict) else {}
+    provider_substage_blocker = provider_execution_substage_blocker(provider_probe)
     provider_available = provider_output.get("status") != "BLOCK" or provider_output.get("blocker") not in {"docker_runtime_provider_unavailable", PROVIDER_EXECUTION_NOT_RUN}
     real_blocker = (
         source_checkout.get("blocker")
         or provider_output.get("blocker")
+        or provider_substage_blocker
         or availability.get("blocker")
         or (PROVIDER_EXECUTION_NOT_RUN if not provider_probe else None)
     )
     verification_clean = artifact_ingest.get("status") == "PASS" and precision.get("batch028_artifact_verification_status") == "PASS"
     integrity_clean = precision.get("harness_payload_integrity_status") == "PASS"
     stale_suppressed = verification_clean and integrity_clean
-    emitted = None if provider_available and availability.get("status") == "PASS" else (real_blocker or PROVIDER_EXECUTION_NOT_RUN)
+    emitted = real_blocker if real_blocker else (None if provider_available and availability.get("status") == "PASS" else PROVIDER_EXECUTION_NOT_RUN)
     if stale_suppressed and emitted == BATCH029_STALE_BLOCKER:
         emitted = PROVIDER_EXECUTION_NOT_RUN
     return {
@@ -192,12 +194,35 @@ def gate_predicate_correction(
         "harness_payload_integrity_status": precision.get("harness_payload_integrity_status"),
         "harness_payload_available_for_execution": availability.get("status") == "PASS",
         "provider_available_for_execution": provider_available,
+        "provider_substage_blocker": provider_substage_blocker,
         "incorrect_custody_or_integrity_blocker_suppressed": stale_suppressed,
         "stale_blocker": BATCH029_STALE_BLOCKER,
         "emitted_blocker": emitted,
         "real_blocker": real_blocker,
         "blocker": None if stale_suppressed and emitted != BATCH029_STALE_BLOCKER else "batch030_gate_predicate_correction_failed",
     }
+
+
+def provider_execution_substage_blocker(provider_probe: dict[str, Any]) -> str | None:
+    if not isinstance(provider_probe, dict) or not provider_probe:
+        return PROVIDER_EXECUTION_NOT_RUN
+    source_checkout = provider_probe.get("source_checkout", {}) if isinstance(provider_probe.get("source_checkout"), dict) else {}
+    provider_output = provider_probe.get("provider_output", {}) if isinstance(provider_probe.get("provider_output"), dict) else {}
+    provider_result = provider_probe.get("provider_result", {}) if isinstance(provider_probe.get("provider_result"), dict) else {}
+    if source_checkout.get("blocker"):
+        return str(source_checkout["blocker"])
+    if provider_output.get("blocker"):
+        return str(provider_output["blocker"])
+    for key in ["provider_preflight", "source_checkout_identity", "materialization", "provider_command_context", "harness_execution", "pre_repair_verification"]:
+        record = provider_result.get(key)
+        if isinstance(record, dict) and record.get("status") == "BLOCK" and record.get("blocker"):
+            return str(record["blocker"])
+    execution = provider_result.get("harness_execution")
+    pre_repair = provider_result.get("pre_repair_verification")
+    if isinstance(execution, dict) and isinstance(pre_repair, dict):
+        if execution.get("status") == "NOT_RUN" and pre_repair.get("status") == "NOT_RUN":
+            return PROVIDER_EXECUTION_NOT_RUN
+    return None
 
 
 def _provider_records(
@@ -209,7 +234,7 @@ def _provider_records(
     provider_result = provider_probe.get("provider_result", {}) if isinstance(provider_probe, dict) else {}
     provider_output = provider_probe.get("provider_output", {}) if isinstance(provider_probe, dict) else {}
     source_checkout = provider_probe.get("source_checkout", {}) if isinstance(provider_probe, dict) else {}
-    blocker = source_checkout.get("blocker") or provider_output.get("blocker") or fallback_blocker or PROVIDER_EXECUTION_NOT_RUN
+    blocker = source_checkout.get("blocker") or provider_output.get("blocker") or provider_execution_substage_blocker(provider_probe) or fallback_blocker or PROVIDER_EXECUTION_NOT_RUN
     context = provider_result.get(
         "provider_command_context",
         {
@@ -361,15 +386,19 @@ def write_batch030_outputs(
     )
     harness_executed = execution.get("status") in {"PASS", "BLOCK"} and execution.get("command") != "NOT_RUN"
     harness_verified = pre_repair.get("status") == "PASS" and pre_repair.get("target_aligned_pre_repair_failure_reproduced") is True
+    provider_substage_blocker = provider_execution_substage_blocker(provider_probe)
     exact_blocker = None if harness_verified else (
         pre_repair.get("blocker")
         or execution.get("blocker")
         or provider_context.get("blocker")
         or correction.get("emitted_blocker")
+        or provider_substage_blocker
         or TARGET_NOT_REPRODUCED
     )
     if exact_blocker == BATCH029_STALE_BLOCKER:
         exact_blocker = PROVIDER_EXECUTION_NOT_RUN
+    if exact_blocker == TARGET_NOT_REPRODUCED and not harness_executed:
+        exact_blocker = provider_substage_blocker or PROVIDER_EXECUTION_NOT_RUN
     status = "PASS_WITH_BATCH030_HARNESS_V9_VERIFIED" if harness_verified else "PASS_WITH_BATCH030_HARNESS_V9_EXECUTION_BLOCKED"
     policy = {
         "status": "PASS",
