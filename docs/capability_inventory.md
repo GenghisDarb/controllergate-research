@@ -19,3 +19,5 @@ Batch032 adds safe-directory precondition classification and provider-only norma
 Batch033 adds issue-derived seed retargeting analysis and v10 design policy while preserving claim boundaries.
 
 Batch034 adds gated v10 issue-stimulus harness execution while preserving native and issue-derived claim boundaries.
+
+Batch035 adds a bounded source-only repair attempt after verified issue-derived pre-repair replay.

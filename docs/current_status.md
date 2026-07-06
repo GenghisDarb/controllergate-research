@@ -21,3 +21,5 @@ Batch032 status: provider safe-directory precondition classification and bounded
 Batch033 status: issue-derived retargeting analysis is recorded. v9 remains non-reproducing; any v10 execution requires a separate gated phase.
 
 Batch034 status: v10 harness materialization and gated pre-repair execution are recorded; current protocol remains v2.13.
+
+Batch035 status: gated source-only repair attempt for the verified v10 issue-derived failure; current protocol remains v2.13.

@@ -1,0 +1,16 @@
+{
+  "blocker": null,
+  "candidate_generated": true,
+  "oracle_gold_future_evidence_used": false,
+  "patch_non_empty": true,
+  "patch_path": "outputs/clean_replication_batch_035/batch035_source_only_patch_candidate.diff",
+  "patch_sha256": "5e1419c6320b07dcc80656fb184e9a604659bb705aecdde0681d332b4522440b",
+  "rationale": "Resolve relative GIT_DIR for Git subprocesses by searching cwd and parents, and set GIT_WORK_TREE when a matching Git directory is found.",
+  "source_only": true,
+  "status": "PASS",
+  "targets_git_context_handling_under_relative_git_dir_issue_stimulus": true,
+  "tests_modified": false,
+  "touched_files": [
+    "src/darker/git.py"
+  ]
+}

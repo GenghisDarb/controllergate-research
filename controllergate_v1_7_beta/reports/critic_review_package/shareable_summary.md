@@ -19,3 +19,5 @@ Batch032 preserves four native repair episodes and zero issue-derived repair epi
 Batch033 keeps four native repair episodes and zero issue-derived repair episodes; it defines only a decision-time-safe retargeting design path for Darker issue #112.
 
 Batch034 keeps four native repair episodes and zero issue-derived repair episodes; v10 execution evidence is pre-repair only.
+
+Batch035 is a gated issue-derived source-only repair attempt; native repair episode count remains separately tracked at four.

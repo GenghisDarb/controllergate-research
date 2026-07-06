@@ -1,15 +1,15 @@
 # Clean replication Batch034 v10 harness execution
 
-Status: PASS_WITH_BATCH034_PROVIDER_EXECUTION_BLOCKED.
+Status: PASS_WITH_BATCH034_HARNESS_V10_VERIFIED_REPAIR_NOT_RUN.
 
-Exact blocker: `docker_runtime_provider_unavailable`.
+Exact blocker: `None`.
 
 v10 harness materialization: `PASS`.
 
-v10 executed: `false`.
+v10 executed: `true`.
 
-v10 verified target-aligned pre-repair failure: `false`.
+v10 verified target-aligned pre-repair failure: `true`.
 
-Issue-derived repair feasibility: `false`.
+Issue-derived repair feasibility: `true`.
 
 Batch034 does not run repair, patch generation, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics.

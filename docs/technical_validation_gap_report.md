@@ -19,3 +19,5 @@ Batch032 preserves the gap: issue-derived repair feasibility remains false unles
 Batch033 preserves the gap: repair feasibility remains false until a separately gated harness verifies target-aligned pre-repair failure.
 
 Batch034 preserves the remaining gap: no repair episode is added until a separate gated repair phase validates a patch.
+
+Batch035 keeps full scoring, memory lift, and self-maintaining claims disabled while recording issue-derived repair validation evidence.

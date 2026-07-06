@@ -1,0 +1,26 @@
+diff --git a/src/darker/git.py b/src/darker/git.py
+--- a/src/darker/git.py
++++ b/src/darker/git.py
+@@ -130,10 +130,21 @@ def _git_check_output_lines(cmd: List[str], cwd: Path) -> List[str]:
+     """Log command line, run Git, split stdout to lines, exit with 123 on error"""
+     logger.debug("[%s]$ %s", cwd, " ".join(cmd))
++    env = os.environ.copy()
++    git_dir = env.get("GIT_DIR")
++    if git_dir and not os.path.isabs(git_dir):
++        relative_git_dir = Path(git_dir)
++        for parent in [cwd, *cwd.parents]:
++            candidate_git_dir = parent / relative_git_dir
++            if candidate_git_dir.exists():
++                env["GIT_DIR"] = str(candidate_git_dir)
++                if "GIT_WORK_TREE" not in env:
++                    env["GIT_WORK_TREE"] = str(parent)
++                break
+     try:
+-        return check_output(cmd, cwd=str(cwd)).decode("utf-8").splitlines()
++        return check_output(cmd, cwd=str(cwd), env=env).decode("utf-8").splitlines()
+     except CalledProcessError as exc_info:
+         if exc_info.returncode == 128:
+             # Bad revision or another Git failure
+             sys.exit(123)
+         else:
+             raise

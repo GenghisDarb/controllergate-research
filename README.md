@@ -85,3 +85,5 @@ Status: Batch032 classifies the Batch031 safe.directory provider precondition an
 Status: Batch033 ingests Batch032 and records an issue-derived retargeting decision for Darker issue #112. The result is design-only; no repair, patch, or matched-null claim is authorized.
 
 Status: Batch034 ingests Batch033 and materializes an executable v10 issue-stimulus harness. The lane stops before repair or patch generation.
+
+Status: Batch035 ingests the verified Batch034 v10 failure and runs a gated source-only repair attempt without changing current protocol claims.

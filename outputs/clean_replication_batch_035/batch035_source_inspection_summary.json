@@ -1,0 +1,15 @@
+{
+  "context_basis": "Batch034 verified issue stimulus plus selected source commit source inspection",
+  "inspected_files": [
+    "src/darker/git.py"
+  ],
+  "inspected_symbols": [
+    "_git_check_output_lines"
+  ],
+  "localized_failure_mechanism": "relative GIT_DIR was set at process entry but Git subprocesses run with a narrower cwd",
+  "observed_failure": "fatal: not a git repository: '.git'",
+  "selected_source_commit": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+  "source_context_file_count": 1,
+  "status": "PASS",
+  "tests_inspected_as_repair_oracle": false
+}
