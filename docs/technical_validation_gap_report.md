@@ -23,3 +23,5 @@ Batch034 preserves the remaining gap: no repair episode is added until a separat
 Batch035 keeps full scoring, memory lift, and self-maintaining claims disabled while recording issue-derived repair validation evidence.
 
 Batch036 preserves the repair-validation gap unless target replay and duplicate clean replay both pass; missing linter tooling remains a separate precondition.
+
+Batch037 closes the collapsed provider-execution diagnostic gap by splitting availability, workspace materialization, source-head verification, patch-hash verification, apply-check, apply, replay, and duplicate replay substages.

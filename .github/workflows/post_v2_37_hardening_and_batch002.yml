@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch036 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch037 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -72,8 +72,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch036_post_repair_failure_decomposition/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch036_post_repair_failure_decomposition \( \
+          test -f artifact_payload/post_v2_37_hardening_batch037_provider_execution_substage_recovery/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch037_provider_execution_substage_recovery \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -93,16 +93,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch036_post_repair_failure_decomposition -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_036' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch037_provider_execution_substage_recovery -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_037' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch036 post-repair failure decomposition artifact
+      - name: Upload Batch037 provider execution substage recovery artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch036_post_repair_failure_decomposition_artifacts
+          name: post_v2_37_hardening_batch037_provider_execution_substage_recovery_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch036_post_repair_failure_decomposition/**
+            artifact_payload/post_v2_37_hardening_batch037_provider_execution_substage_recovery/**
           if-no-files-found: error

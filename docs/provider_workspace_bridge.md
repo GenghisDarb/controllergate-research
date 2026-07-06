@@ -23,3 +23,5 @@ Batch034 keeps standard provider context separate from the relative-GIT_DIR issu
 Batch035 applies any repair candidate only inside the provider workspace and preserves the standard provider context versus issue-stimulus distinction.
 
 Batch036 keeps source-only patch application inside the provider workspace and separates target Git indicators from secondary linter preconditions.
+
+Batch037 explicitly materializes provider input, output, and workspace directories before Docker execution, preserving source commit and patch hash gates before application.

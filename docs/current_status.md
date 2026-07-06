@@ -25,3 +25,5 @@ Batch034 status: v10 harness materialization and gated pre-repair execution are 
 Batch035 status: gated source-only repair attempt for the verified v10 issue-derived failure; current protocol remains v2.13.
 
 Batch036 status: post-repair failure decomposition and source-only refinement for the verified v10 issue-derived failure; current protocol remains v2.13.
+
+Batch037 status: provider execution substage recovery is recorded for candidate v2. Issue-derived repair episodes remain 0 unless empirical replay and duplicate replay validate in a later official boundary.

@@ -23,3 +23,5 @@ Batch034 adds gated v10 issue-stimulus harness execution while preserving native
 Batch035 adds a bounded source-only repair attempt after verified issue-derived pre-repair replay.
 
 Batch036 adds post-repair failure decomposition and a single bounded source-only refinement candidate.
+
+- Batch037 Provider Execution Substage Recovery: implemented for explicit candidate v2 patch/replay substages; no repair success claim is made by candidate generation alone.

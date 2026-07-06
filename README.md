@@ -89,3 +89,5 @@ Status: Batch034 ingests Batch033 and materializes an executable v10 issue-stimu
 Status: Batch035 ingests the verified Batch034 v10 failure and runs a gated source-only repair attempt without changing current protocol claims.
 
 Status: Batch036 ingests the Batch035 attempted-repair artifact, decomposes the unresolved target replay, and runs a gated source-only refinement when the provider is available.
+
+Batch037 records provider execution substages for the Darker issue #112 candidate v2 path. It preserves Batch036 as an attempted but unvalidated repair, keeps full scoring disabled, and does not claim repair success without target replay plus duplicate clean replay.
