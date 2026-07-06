@@ -808,6 +808,15 @@ def write_batch037_outputs(repo_root: Path, post: Path, batch036_dir: Path, out:
             "blocker": duplicate.get("blocker") or post_repair.get("classification") or diagnosis.get("blocker"),
         },
     )
+    validation.setdefault("issue_derived_repair_validated", False)
+    validation.setdefault("issue_derived_repair_episode_count_increment_candidate", False)
+    validation.setdefault("target_failure_resolved", False)
+    validation.setdefault("duplicate_clean_replay_passed", False)
+    validation.setdefault("native_repair_episode_count_incremented", False)
+    validation.setdefault("full_scoring", "NOT_RUN/disallowed")
+    validation.setdefault("memory_lift", "not_demonstrated")
+    validation.setdefault("self_maintaining_software", "false/not_demonstrated")
+    validation.setdefault("blocker", duplicate.get("blocker") or post_repair.get("classification") or diagnosis.get("blocker"))
     validated = validation.get("issue_derived_repair_validated") is True
     target_resolved = post_repair.get("target_failure_resolved") is True
     if validated:
