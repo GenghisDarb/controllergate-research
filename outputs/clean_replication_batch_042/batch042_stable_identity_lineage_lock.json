@@ -1,0 +1,66 @@
+{
+  "batch042_count_lock_points_to_batch041_validated_repair_branch": true,
+  "current_validated_identity_primary": true,
+  "entries": [
+    {
+      "active": false,
+      "identity_id": "batch034_v10_issue_target",
+      "parent": null,
+      "role": "root_issue_derived_target"
+    },
+    {
+      "active": false,
+      "identity_id": "batch035_candidate_v1",
+      "parent": "batch034_v10_issue_target",
+      "role": "lineage_only"
+    },
+    {
+      "active": false,
+      "identity_id": "batch036_candidate_v2",
+      "parent": "batch035_candidate_v1",
+      "role": "lineage_only"
+    },
+    {
+      "active": false,
+      "identity_id": "batch037_patch_serialization_block",
+      "parent": "batch036_candidate_v2",
+      "role": "retired_blocker"
+    },
+    {
+      "active": false,
+      "identity_id": "batch038_corrected_patch",
+      "parent": "batch037_patch_serialization_block",
+      "role": "lineage_only"
+    },
+    {
+      "active": false,
+      "identity_id": "batch039_secondary_cofactor_governance",
+      "parent": "batch038_corrected_patch",
+      "role": "lineage_only"
+    },
+    {
+      "active": false,
+      "identity_id": "batch040_reviewed_lock_attempt",
+      "parent": "batch039_secondary_cofactor_governance",
+      "role": "lineage_only"
+    },
+    {
+      "active": false,
+      "identity_id": "batch041_validated_repair",
+      "parent": "batch040_reviewed_lock_attempt",
+      "role": "validated_repair_branch"
+    },
+    {
+      "active": true,
+      "identity_id": "batch042_count_lock",
+      "parent": "batch041_validated_repair",
+      "role": "current_primary_count_boundary"
+    }
+  ],
+  "no_duplicate_active_identity_ids": true,
+  "no_orphan_repair_branch_entries": true,
+  "no_stale_blocker_active_after_validation": true,
+  "no_unmarked_multi_parent_identity_merges": true,
+  "older_blockers_lineage_only_or_retired": true,
+  "status": "PASS"
+}

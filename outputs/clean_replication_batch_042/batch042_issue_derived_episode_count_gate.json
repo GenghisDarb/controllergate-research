@@ -1,0 +1,154 @@
+{
+  "checks": [
+    {
+      "blocker": null,
+      "check": "batch041_artifact_custody",
+      "evidence_path": "outputs/clean_replication_batch_042/batch041_artifact_verification.json",
+      "evidence_sha256": null,
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "post_repair_target_replay_pass",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_post_repair_target_replay_with_lock_v2.json",
+      "evidence_sha256": "6fef37f8683c5b1808ff6027e9f0901d08c7a645024e7480ce0d5e97f938a2fd",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "duplicate_clean_replay_pass",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_duplicate_clean_replay_with_lock_v2.json",
+      "evidence_sha256": "0e909456e110100389e7062546bf272d06b1acb40502b7e638a086a19013b301",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "same_selected_source_commit",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_transport_export_equivalence_audit.json",
+      "evidence_sha256": "482e5f0b5696b566b3dab6ca39601c36f3494dfbf09e147f88561315478e3b4f",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "same_corrected_patch_sha",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_transport_export_equivalence_audit.json",
+      "evidence_sha256": "482e5f0b5696b566b3dab6ca39601c36f3494dfbf09e147f88561315478e3b4f",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "same_reviewed_cofactor_lock_v2",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_pylint_provider_lock_v2.json",
+      "evidence_sha256": "1f3a5fcbb445f7d0a058f863f518fe13764622d1414aca1badb58e7cb2dd2e25",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "same_command_manifest",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_replay_classification_matrix.json",
+      "evidence_sha256": "d5a5d8fd7cab2bc754a7d75d23f707cca9b4c35460282ba018de826cdf217a9f",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "same_provider_context_class",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_post_repair_target_replay_with_lock_v2.json",
+      "evidence_sha256": "6fef37f8683c5b1808ff6027e9f0901d08c7a645024e7480ce0d5e97f938a2fd",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "transport_export_equivalence_pass",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_transport_export_equivalence_audit.json",
+      "evidence_sha256": "482e5f0b5696b566b3dab6ca39601c36f3494dfbf09e147f88561315478e3b4f",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "dependency_drift_pass",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_dependency_drift_audit.json",
+      "evidence_sha256": "44e9e60b18113f6492f24f56075faea004006788417234130625c74c48473c20",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "stable_identity_integrity_pass",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_stable_identity_integrity_audit.json",
+      "evidence_sha256": "b8fe327f91ec46aa4d5739406fc738e13d620041a1cddc5df3b2b5f334c5ab57",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "proof_ledger_referrer_pass",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_proof_ledger_referrer_audit.json",
+      "evidence_sha256": "70a88e3664a274803d854c56f36e480f896f04b5d4dbdeb38fafd72e54f9411b",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "evidence_origin_classification_pass",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_evidence_origin_classification.json",
+      "evidence_sha256": "7e3ea7c7cccdc82d972d505e14e4c25e08131d07ff59c6da6c505883eb017414",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "claim_boundary_permits_count_gate_review",
+      "evidence_path": "outputs/clean_replication_batch_041/claim_boundary_batch041.json",
+      "evidence_sha256": "dfc70f52256f236f6e57d6910eee030c695b6b617a319e95493aa4b7cd120736",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "no_forbidden_evidence_used",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_cofactor_lock_provenance_audit.json",
+      "evidence_sha256": "3e2cdd4e910c9ea110f88099f5539d4435c037a2b5b7723f41511d1b19de55f4",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "no_tests_modified",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_corrected_patch_preservation.json",
+      "evidence_sha256": "e3db14983e5d1cb507d79c81d15fc198e034e0d461a00b2b11dd7799a4c63aa7",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "patch_source_only",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_corrected_patch_preservation.json",
+      "evidence_sha256": "e3db14983e5d1cb507d79c81d15fc198e034e0d461a00b2b11dd7799a4c63aa7",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "replay_telemetry_sanitized_and_hashed",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_post_repair_target_replay_with_lock_v2.json",
+      "evidence_sha256": "6fef37f8683c5b1808ff6027e9f0901d08c7a645024e7480ce0d5e97f938a2fd",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "duplicate_fresh_workspace_telemetry_present",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_duplicate_clean_replay_with_lock_v2.json",
+      "evidence_sha256": "0e909456e110100389e7062546bf272d06b1acb40502b7e638a086a19013b301",
+      "passed": true
+    },
+    {
+      "blocker": null,
+      "check": "not_run_reasons_complete",
+      "evidence_path": "outputs/clean_replication_batch_041/batch041_validation_activation_audit.json",
+      "evidence_sha256": "126902b222a5b4986287f76991dd1fe07a5457778b7e262250a6c936adf3b362",
+      "passed": true
+    }
+  ],
+  "exact_blocker": null,
+  "failed_checks": [],
+  "full_scoring": "NOT_RUN/disallowed",
+  "issue_derived_repair_episode_count_after_batch042": 1,
+  "issue_derived_repair_episode_count_before_batch042": 0,
+  "issue_derived_repair_episode_count_increment_authorized": true,
+  "memory_lift": "not_demonstrated",
+  "native_external_repair_episode_count": 4,
+  "self_maintaining_software": "false/not_demonstrated",
+  "status": "PASS"
+}

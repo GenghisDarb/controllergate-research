@@ -1,23 +1,30 @@
 {
-  "blocker": "provider_batch041_execution_failed",
+  "blocker": null,
   "cleanup": {
-    "blocker": null,
-    "cleanup_error": null,
-    "removed": true,
-    "status": "PASS",
-    "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-provider-batch024-72759pkq"
+    "blocker": "provider_workspace_cleanup_failed",
+    "cleanup_error": "PermissionError: [Errno 1] Operation not permitted: '/tmp/controllergate-provider-batch024-hfuh1gfe/workspace/source/darker/src/darker/__pycache__/argparse_helpers.cpython-37.pyc'",
+    "removed": false,
+    "status": "BLOCK",
+    "workspace_path": "/tmp/controllergate-provider-batch024-hfuh1gfe"
   },
+  "cofactor_lock_hash": "1f3a5fcbb445f7d0a058f863f518fe13764622d1414aca1badb58e7cb2dd2e25",
+  "command": "python -m pip install --disable-pip-version-check --no-input --require-hashes -r /provider/input/pylint_provider_lock_requirements.txt",
+  "cwd": null,
   "provider_only": true,
   "provider_output": {
-    "blocker": "provider_batch041_execution_failed",
+    "blocker": null,
     "command": "docker run --rm -v <input>:ro -v <output> -v <workspace> python:3.7 python /provider/input/provider_run.py",
-    "returncode": 1,
-    "sanitized_stderr_excerpt": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+    "returncode": 0,
+    "sanitized_stderr_excerpt": "Unable to find image 'python:3.7' locally\n3.7: Pulling from library/python\n167b8a53ca45: Pulling fs layer\nb47a222d28fa: Pulling fs layer\ndebce5f9f3a9: Pulling fs layer\n1d7ca7cd2e06: Pulling fs layer\nff3119008f58: Pulling fs layer\nc2423a76a32b: Pulling fs layer\ne1c98ca4926a: Pulling fs layer\n3b62c8e1d79b: Pulling fs layer\nff3119008f58: Waiting\nc2423a76a32b: Waiting\ne1c98ca4926a: Waiting\n1d7ca7cd2e06: Waiting\n3b62c8e1d79b: Waiting\nb47a222d28fa: Verifying Checksum\nb47a222d28fa: Download complete\n167b8a53ca45: Verifying Checksum\n167b8a53ca45: Download complete\ndebce5f9f3a9: Download complete\nff3119008f58: Download complete\ne1c98ca4926a: Verifying Checksum\ne1c98ca4926a: Download complete\nc2423a76a32b: Verifying Checksum\nc2423a76a32b: Download complete\n3b62c8e1d79b: Download complete\n1d7ca7cd2e06: Verifying Checksum\n1d7ca7cd2e06: Download complete\n167b8a53ca45: Pull complete\nb47a222d28fa: Pull complete\ndebce5f9f3a9: Pull complete\n1d7ca7cd2e06: Pull complete\nff3119008f58: Pull complete\nc2423a76a32b: Pull complete\ne1c98ca4926a: Pull complete\n3b62c8e1d79b: Pull complete\nDigest: sha256:eedf63967cdb57d8214db38ce21f105003ed4e4d0358f02bedc057341bcf92a0\nStatus: Downloaded newer image for python:3.7\n",
     "sanitized_stdout_excerpt": "",
-    "status": "BLOCK",
-    "stderr_sha256": "e9133cf10b02b0b91c8b119848513db0ac541e7c3c19681266939e4b9952f7cc",
+    "status": "PASS",
+    "stderr_sha256": "076f80bfa06b47ac1da9dfdd126155ba3e39af584e8360dd5ff3cefa74e8534f",
     "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
+  "requirements_hash": "a6213db293323b0682bf33cd6d4f4d2f4ae14ac7ede391be22fd893bb5038a15",
+  "returncode": 0,
+  "sanitized_stderr_excerpt": "",
+  "sanitized_stdout_excerpt": "Requirement already satisfied: toml==0.10.2 in /usr/local/lib/python3.7/site-packages (from -r /provider/input/pylint_provider_lock_requirements.txt (line 7)) (0.10.2)\nCollecting astroid==2.4.2\n  Downloading astroid-2.4.2-py3-none-any.whl (213 kB)\nRequirement already satisfied: typed-ast<1.5,>=1.4.0 in /usr/local/lib/python3.7/site-packages (from astroid==2.4.2->-r /provider/input/pylint_provider_lock_requirements.txt (line 2)) (1.4.2)\nCollecting isort==5.11.5\n  Downloading isort-5.11.5-py3-none-any.whl (104 kB)\nCollecting lazy-object-proxy==1.4.3\n  Downloading lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (56 kB)\nCollecting mccabe==0.6.1\n  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)\nCollecting pylint==2.6.0\n  Downloading pylint-2.6.0-py3-none-any.whl (325 kB)\nCollecting six==1.17.0\n  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)\nCollecting wrapt==1.16.0\n  Downloading wrapt-1.16.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (77 kB)\nInstalling collected packages: wrapt, six, lazy-object-proxy, mccabe, isort, astroid, pylint\nSuccessfully installed astroid-2.4.2 isort-5.11.5 lazy-object-proxy-1.4.3 mccabe-0.6.1 pylint-2.6.0 six-1.17.0 wrapt-1.16.0\n",
   "source_checkout": {
     "blocker": null,
     "git_object_type": "commit",
@@ -28,7 +35,9 @@
     "status": "PASS"
   },
   "source_mutated": false,
-  "status": "BLOCK",
+  "status": "PASS",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "3aab365064bc7c2bf04324ae8b768512f08cb0f6e191f76ca1cc3c63769c88e1",
   "tests_mutated": false,
   "transport": {
     "blocker": null,
@@ -60,14 +69,20 @@
         "size_bytes": 753
       }
     ],
-    "output_file_count": 0,
-    "output_files": [],
+    "output_file_count": 1,
+    "output_files": [
+      {
+        "path": "batch041_provider_result.json",
+        "sha256": "842989e7e8b7eb5bf9753c85577fe64f930a987d23ecbd3f5e526fb38d83b988",
+        "size_bytes": 19079
+      }
+    ],
     "repo_root_mounted_read_only": true,
     "secrets_mounted": false,
     "status": "PASS",
     "workspace_outside_onedrive": true,
     "workspace_outside_repo": true,
-    "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-provider-batch024-72759pkq",
+    "workspace_path": "/tmp/controllergate-provider-batch024-hfuh1gfe",
     "write_credentials_mounted": false
   }
 }

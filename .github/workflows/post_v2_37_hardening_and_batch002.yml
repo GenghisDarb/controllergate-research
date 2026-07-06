@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch041 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch042 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -88,13 +88,36 @@ jobs:
           for key in keys:
               print(f"batch041_{key}={state.get(key)}")
           PY
+          python - <<'PY'
+          import json
+          state = json.load(open("outputs/clean_replication_batch_042/consolidated_state_clean_replication_batch_042.json", encoding="utf-8"))
+          keys = [
+              "status",
+              "exact_blocker",
+              "batch041_artifact_verification_status",
+              "repair_validation_preservation_status",
+              "issue_derived_episode_count_gate_status",
+              "issue_derived_repair_episode_count_before_batch042",
+              "issue_derived_repair_episode_count_after_batch042",
+              "native_external_repair_episode_count",
+              "stable_identity_lineage_lock_status",
+              "proof_ledger_validation_lock_status",
+              "replay_classification_preservation_status",
+              "stale_blocker_retirement_status",
+              "full_scoring",
+              "memory_lift",
+              "self_maintaining_software",
+          ]
+          for key in keys:
+              print(f"batch042_{key}={state.get(key)}")
+          PY
 
       - name: Verify clean staged artifact payload
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch041_lock_completion_identity_integrity/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch041_lock_completion_identity_integrity \( \
+          test -f artifact_payload/post_v2_37_hardening_batch042_repair_validation_count_lock/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch042_repair_validation_count_lock \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -114,16 +137,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch041_lock_completion_identity_integrity -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_041' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch042_repair_validation_count_lock -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_042' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch041 lock completion and identity integrity artifact
+      - name: Upload Batch042 repair validation count lock artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch041_lock_completion_identity_integrity_artifacts
+          name: post_v2_37_hardening_batch042_repair_validation_count_lock_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch041_lock_completion_identity_integrity/**
+            artifact_payload/post_v2_37_hardening_batch042_repair_validation_count_lock/**
           if-no-files-found: error

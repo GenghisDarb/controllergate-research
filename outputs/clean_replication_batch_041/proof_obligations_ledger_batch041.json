@@ -21,33 +21,33 @@
     },
     {
       "entry_id": "batch041_provider_materialization",
-      "evidence_hash": "1d27c54d5727a9bd5aeb2cbaa00e1cd51d0bfc85acd526cddf0b3c702abf50af",
+      "evidence_hash": "27eba064f036262a0ed95fd9ee3e0f034b9307a36f78f760e890c78d90abaa55",
       "lock_sha": "3223ec754429208399feb1720e752f9cd22cc2b2c43804554d9138c220051e77",
       "parent": "batch041_lock_v2_review",
-      "status": "BLOCK"
+      "status": "PASS"
     },
     {
       "entry_id": "batch041_post_repair_replay",
-      "evidence_hash": "2ee70b0a6e1a3042e4a9e6be80c65026b14ba5853f968db170e3903b9f64ce2a",
+      "evidence_hash": "e28f61a19cbf02a8301fb8b3b1a353ebe83010cfa321c6b25c877a48c8f3e183",
       "lock_sha": "3223ec754429208399feb1720e752f9cd22cc2b2c43804554d9138c220051e77",
       "parent": "batch041_provider_materialization",
       "patch_sha": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
-      "status": "NOT_RUN"
+      "status": "PASS"
     },
     {
       "entry_id": "batch041_duplicate_replay",
-      "evidence_hash": "2fc25ba4599630a9e125147f75fb2d7ce477c92fee4d9896f3a674fae87f00f9",
+      "evidence_hash": "eed30dd7e562f8b09c881616c78cb325dc1bf9ad5ddcc9300a6ca9775ef2cfaf",
       "lock_sha": "3223ec754429208399feb1720e752f9cd22cc2b2c43804554d9138c220051e77",
       "parent": "batch041_post_repair_replay",
       "patch_sha": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
-      "status": "NOT_RUN"
+      "status": "PASS"
     },
     {
-      "blocker": "provider_batch041_execution_failed",
+      "blocker": null,
       "entry_id": "ROLLBACK_BLOCK",
       "parent": "batch041_duplicate_replay",
       "rollback_target": "batch040_official_artifact_boundary",
-      "status": "ROLLBACK_BLOCK"
+      "status": "NOT_REQUIRED"
     }
   ],
   "hash_chain_valid": true,

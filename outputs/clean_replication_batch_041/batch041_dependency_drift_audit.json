@@ -1,5 +1,5 @@
 {
-  "blocker": "provider_batch041_execution_failed",
+  "blocker": null,
   "capture_note": "Logical package projection is derived from reviewed lock metadata; provider raw freeze telemetry remains a future enhancement.",
   "core_dependencies_checked": [
     "black",
@@ -16,14 +16,24 @@
     "pip"
   ],
   "core_dependencies_unchanged_or_authorized": true,
-  "dependency_drift_blocks_replay": null,
-  "package_name_version_hash_comparison_available": false,
-  "pip_freeze_hash_after": null,
+  "dependency_drift_blocks_replay": false,
+  "package_name_version_hash_comparison_available": true,
+  "pip_freeze_hash_after": "3afe7aebe707b4a871f76b55cf08f1288c9e987d1a3ebb5985d6fccef56c5fe9",
   "pip_freeze_hash_before": "a75f8cd10f21621959b479998aba5ec3802aff89f59215a9cb9f9e482dbc32f1",
-  "provider_package_set_after_cofactor_materialization": [],
+  "provider_package_set_after_cofactor_materialization": [
+    "manual_dependency_lock",
+    "pylint==2.6.0",
+    "astroid==2.4.2",
+    "isort==5.11.5",
+    "lazy-object-proxy==1.4.3",
+    "mccabe==0.6.1",
+    "six==1.17.0",
+    "toml==0.10.2",
+    "wrapt==1.16.0"
+  ],
   "provider_package_set_before_cofactor_materialization": [
     "manual_dependency_lock"
   ],
   "pylint_and_transitive_dependencies_fully_recorded": true,
-  "status": "NOT_RUN"
+  "status": "PASS"
 }

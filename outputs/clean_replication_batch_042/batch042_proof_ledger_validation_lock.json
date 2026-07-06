@@ -1,0 +1,95 @@
+{
+  "count_gate_points_to_validated_repair_branch": true,
+  "duplicate_replay_same_patch_and_lock_as_target_replay": true,
+  "entries": [
+    {
+      "entry_id": "batch041_artifact_ingest",
+      "evidence_hash": "75565ba889302c8c010499f811bb5f19061e7d83e78f2de665325783fe83d474",
+      "fork_marker": "official_artifact_ingest_root",
+      "parent": null,
+      "status": "PASS"
+    },
+    {
+      "entry_id": "post_repair_target_replay_pass",
+      "evidence_hash": "e28f61a19cbf02a8301fb8b3b1a353ebe83010cfa321c6b25c877a48c8f3e183",
+      "lock_sha": "3223ec754429208399feb1720e752f9cd22cc2b2c43804554d9138c220051e77",
+      "parent": "batch041_artifact_ingest",
+      "patch_sha": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "duplicate_clean_replay_pass",
+      "evidence_hash": "eed30dd7e562f8b09c881616c78cb325dc1bf9ad5ddcc9300a6ca9775ef2cfaf",
+      "lock_sha": "3223ec754429208399feb1720e752f9cd22cc2b2c43804554d9138c220051e77",
+      "parent": "post_repair_target_replay_pass",
+      "patch_sha": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "corrected_patch_sha",
+      "parent": "duplicate_clean_replay_pass",
+      "patch_sha": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "reviewed_cofactor_lock_v2_sha",
+      "lock_sha": "3223ec754429208399feb1720e752f9cd22cc2b2c43804554d9138c220051e77",
+      "parent": "corrected_patch_sha",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "transport_export_equivalence_pass",
+      "evidence_hash": "50ae94fe3854b5b97d4634725e9be347bc7579c7ee19366cb125e1a0224bafc0",
+      "parent": "reviewed_cofactor_lock_v2_sha",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "dependency_drift_pass",
+      "evidence_hash": "09bd350cc7e9a57c707bef243bbf563252ee6b07f1d1aed6f6f4237235635308",
+      "parent": "transport_export_equivalence_pass",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "stable_identity_integrity_pass",
+      "evidence_hash": "83b5a38ea5cc0bf4ea70d570cf80c0a4ea2c7bd8cd2d7112e25e3d963a9b905c",
+      "parent": "dependency_drift_pass",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "proof_ledger_referrer_pass",
+      "evidence_hash": "f38d402d6fce8d830d12d1d532cb548a1166168d2dd496b9d35db9c95e2cc1e3",
+      "parent": "stable_identity_integrity_pass",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "evidence_origin_classification_pass",
+      "evidence_hash": "bd76f4cae7d64579775b1443a632f6325b52176fb9722a3941b36d8e4157bfa7",
+      "parent": "proof_ledger_referrer_pass",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "claim_boundary",
+      "evidence_hash": "d0607ff35c803577ca6720e4f8b4f0cf772bdb766c0f1f4918c00e5832add80a",
+      "parent": "evidence_origin_classification_pass",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "count_gate",
+      "evidence_hash": "e4291bce5cef84904ba8cedd8e17a3d78ce5d7fb644e28ef0df735fb115dd5ff",
+      "issue_derived_repair_episode_count_after_batch042": 1,
+      "parent": "claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "hash_chain_valid",
+      "parent": "count_gate",
+      "status": "PASS"
+    }
+  ],
+  "every_entry_has_one_parent_or_fork_marker": true,
+  "exact_blocker": null,
+  "hash_chain_valid": true,
+  "no_dependency_on_diagnostic_or_design_mapping_as_proof": true,
+  "no_repair_count_increment_from_generated_evidence_alone": true,
+  "status": "PASS"
+}

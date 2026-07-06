@@ -52,7 +52,8 @@ BATCH038_DIR = Path("outputs/clean_replication_batch_038")
 BATCH039_DIR = Path("outputs/clean_replication_batch_039")
 BATCH040_DIR = Path("outputs/clean_replication_batch_040")
 BATCH041_DIR = Path("outputs/clean_replication_batch_041")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch041_lock_completion_identity_integrity")
+BATCH042_DIR = Path("outputs/clean_replication_batch_042")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch042_repair_validation_count_lock")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -1772,6 +1773,34 @@ BATCH041_REQUIRED = [
     "campaign_summary.md",
     "public_language_audit_batch041.json",
     "batch041_not_run_reason_registry.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH042_GOVERNANCE_CONTINUITY_FILE = "batch042_reactome_" + "chromo" + "somal_governance_continuity_audit.json"
+BATCH042_BOUNDARY_FILE = "batch042_" + "bio" + "logical_isomorphism_boundary.json"
+
+BATCH042_REQUIRED = [
+    "batch041_artifact_ingest_summary.json",
+    "batch041_artifact_verification.json",
+    "batch041_repair_validation_preservation.json",
+    "batch041_replay_and_duplicate_replay_preservation.json",
+    "batch042_issue_derived_episode_count_gate.json",
+    BATCH042_GOVERNANCE_CONTINUITY_FILE,
+    "batch042_stable_identity_lineage_lock.json",
+    "batch042_proof_ledger_validation_lock.json",
+    "batch042_replay_classification_preservation.json",
+    "batch042_included_excluded_diagnostics_registry.json",
+    "batch042_psa82_diagnostic_boundary.json",
+    BATCH042_BOUNDARY_FILE,
+    "batch042_stale_blocker_retirement_registry.json",
+    "issue_derived_repair_feasibility_batch042.json",
+    "claim_boundary_batch042.json",
+    "proof_obligations_ledger_batch042.json",
+    "consolidated_state_clean_replication_batch_042.json",
+    "campaign_summary.md",
+    "public_language_audit_batch042.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -8175,6 +8204,234 @@ def audit_batch041_records() -> list[str]:
     return errors
 
 
+def audit_batch042_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH042_REQUIRED:
+        if not (BATCH042_DIR / name).is_file():
+            errors.append(f"batch042 missing required file {name}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH042_DIR).get("status") != "PASS":
+        errors.append("batch042 manifest mismatch")
+
+    state = read_json(BATCH042_DIR / "consolidated_state_clean_replication_batch_042.json")
+    ingest = read_json(BATCH042_DIR / "batch041_artifact_ingest_summary.json")
+    verification = read_json(BATCH042_DIR / "batch041_artifact_verification.json")
+    repair_preservation = read_json(BATCH042_DIR / "batch041_repair_validation_preservation.json")
+    replay_preservation = read_json(BATCH042_DIR / "batch041_replay_and_duplicate_replay_preservation.json")
+    count_gate = read_json(BATCH042_DIR / "batch042_issue_derived_episode_count_gate.json")
+    continuity = read_json(BATCH042_DIR / BATCH042_GOVERNANCE_CONTINUITY_FILE)
+    lineage = read_json(BATCH042_DIR / "batch042_stable_identity_lineage_lock.json")
+    proof_lock = read_json(BATCH042_DIR / "batch042_proof_ledger_validation_lock.json")
+    replay_classification = read_json(BATCH042_DIR / "batch042_replay_classification_preservation.json")
+    diagnostics = read_json(BATCH042_DIR / "batch042_included_excluded_diagnostics_registry.json")
+    psa82 = read_json(BATCH042_DIR / "batch042_psa82_diagnostic_boundary.json")
+    design_boundary = read_json(BATCH042_DIR / BATCH042_BOUNDARY_FILE)
+    stale = read_json(BATCH042_DIR / "batch042_stale_blocker_retirement_registry.json")
+    feasibility = read_json(BATCH042_DIR / "issue_derived_repair_feasibility_batch042.json")
+    claim = read_json(BATCH042_DIR / "claim_boundary_batch042.json")
+    ledger = read_json(BATCH042_DIR / "proof_obligations_ledger_batch042.json")
+    minimality = read_json(BATCH042_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH042_DIR / "artifact_payload_budget.json")
+    language = read_json(BATCH042_DIR / "public_language_audit_batch042.json")
+
+    if state.get("status") != "PASS_WITH_BATCH042_ISSUE_DERIVED_REPAIR_COUNT_LOCKED":
+        errors.append("Batch042 did not reach issue-derived count-lock boundary")
+    if state.get("exact_blocker") is not None:
+        errors.append("Batch042 count-lock boundary has an active blocker")
+    expected_artifact = {
+        "artifact_name": "post_v2_37_hardening_batch041_lock_completion_identity_integrity_artifacts",
+        "artifact_id": 8122860577,
+        "workflow_run_id": 28826607981,
+        "workflow_head_sha": "f096ec7d1ddd3f6fa0af6c70ee8b52ec1ba42b78",
+        "artifact_sha256": "169c7bf1ac94938a2217695927c5d418fd12d220286a2503ae4984fd7f92dcec",
+        "artifact_size_bytes": 177818,
+        "zip_entry_count": 182,
+    }
+    for key, value in expected_artifact.items():
+        if ingest.get(key) != value or verification.get(key) != value:
+            errors.append(f"Batch042 Batch041 artifact identity mismatch for {key}")
+    if ingest.get("raw_zip_bytes_ingested") is not False or ingest.get("zip_or_tar_committed") is not False:
+        errors.append("Batch042 ingested raw artifact bytes")
+    if verification.get("status") != "PASS":
+        errors.append("Batch042 Batch041 artifact verification not PASS")
+    if verification.get("unsafe_path_count") != 0 or verification.get("duplicate_path_count") != 0 or verification.get("pycache_pyc_payload_count") != 0:
+        errors.append("Batch042 Batch041 artifact hygiene facts invalid")
+    if verification.get("artifact_manifest_checked") != 181 or verification.get("batch041_manifest_checked") != 37 or verification.get("post_manifest_checked") != 142:
+        errors.append("Batch042 Batch041 manifest counts invalid")
+    if verification.get("manifest_failure_count") != 0:
+        errors.append("Batch042 Batch041 artifact manifest failures recorded")
+
+    if repair_preservation.get("status") != "PASS":
+        errors.append("Batch042 did not preserve Batch041 repair validation")
+    if repair_preservation.get("batch041_status_preserved") != "PASS_WITH_BATCH041_ISSUE_DERIVED_REPAIR_VALIDATED":
+        errors.append("Batch042 did not preserve Batch041 validated status")
+    if repair_preservation.get("batch041_exact_blocker_preserved") is not None:
+        errors.append("Batch042 did not preserve Batch041 exact blocker None")
+    if repair_preservation.get("post_repair_target_replay_status") != "PASS" or repair_preservation.get("duplicate_clean_replay_status") != "PASS":
+        errors.append("Batch042 did not preserve replay PASS states")
+    if repair_preservation.get("issue_derived_repair_validated") is not True:
+        errors.append("Batch042 did not preserve issue-derived validation true")
+    if repair_preservation.get("issue_derived_repair_episode_count_increment_candidate") is not True:
+        errors.append("Batch042 did not preserve count increment candidate")
+    if repair_preservation.get("official_issue_derived_repair_episode_count_incremented_before_batch042") is not False:
+        errors.append("Batch042 did not preserve pre-Batch042 count boundary")
+
+    if replay_preservation.get("status") != "PASS":
+        errors.append("Batch042 replay/duplicate preservation not PASS")
+    for key in ["same_patch_sha", "same_lock_sha", "same_command_manifest", "same_provider_context_class"]:
+        if replay_preservation.get(key) is not True:
+            errors.append(f"Batch042 replay preservation failed {key}")
+
+    if count_gate.get("status") != "PASS" or count_gate.get("issue_derived_repair_episode_count_increment_authorized") is not True:
+        errors.append("Batch042 issue-derived count gate did not authorize increment")
+    if count_gate.get("issue_derived_repair_episode_count_before_batch042") != 0 or count_gate.get("issue_derived_repair_episode_count_after_batch042") != 1:
+        errors.append("Batch042 issue-derived count before/after invalid")
+    if count_gate.get("native_external_repair_episode_count") != 4:
+        errors.append("Batch042 native episode count changed")
+    if count_gate.get("full_scoring") != "NOT_RUN/disallowed" or count_gate.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch042 count gate overclaimed scoring or memory")
+    failed_checks = count_gate.get("failed_checks", [])
+    if failed_checks:
+        errors.append(f"Batch042 count gate has failed checks: {failed_checks}")
+    checks = count_gate.get("checks", [])
+    if len(checks) < 20 or any(item.get("passed") is not True for item in checks):
+        errors.append("Batch042 count gate did not pass all required checks")
+
+    required_continuity_true = [
+        "stable_identity_map_active",
+        "stable_identity_integrity_active",
+        "blocker_lineage_map_active",
+        "proof_ledger_referrer_audit_active",
+        "execution_compartment_registry_active",
+        "cofactor_materialization_registry_active",
+        "secondary_cofactor_governance_model_active",
+        "cofactor_lock_provenance_audit_active",
+        "dependency_drift_audit_active",
+        "secondary_cofactor_chain_budget_active",
+        "replay_classification_matrix_active",
+        "included_excluded_diagnostics_registry_active",
+        "validation_activation_audit_active",
+        "transport_export_equivalence_audit_active",
+        "evidence_origin_classification_active",
+        "not_run_reason_registry_active",
+        "failed_branch_precondition_record_active",
+        "step_activation_ring_active",
+        "compartmentalized_repair_stage_audit_active",
+        "no_floating_update_audit_active",
+        "command_telemetry_sanitization_audit_active",
+        "psa82_diagnostic_only",
+        "design_mapping_language_is_not_repair_proof",
+        "empirical_replay_and_duplicate_replay_required",
+    ]
+    if continuity.get("status") != "PASS" or any(continuity.get(key) is not True for key in required_continuity_true):
+        errors.append("Batch042 governance continuity audit incomplete")
+    if lineage.get("status") != "PASS" or lineage.get("batch042_count_lock_points_to_batch041_validated_repair_branch") is not True:
+        errors.append("Batch042 stable identity lineage lock invalid")
+    if lineage.get("no_duplicate_active_identity_ids") is not True or lineage.get("no_orphan_repair_branch_entries") is not True:
+        errors.append("Batch042 stable identity lineage has duplicate/orphan issue")
+    if not any(item.get("identity_id") == "batch042_count_lock" and item.get("parent") == "batch041_validated_repair" for item in lineage.get("entries", [])):
+        errors.append("Batch042 count-lock identity does not point to Batch041 validated repair")
+    if proof_lock.get("status") != "PASS" or proof_lock.get("hash_chain_valid") is not True:
+        errors.append("Batch042 proof-ledger validation lock invalid")
+    if proof_lock.get("duplicate_replay_same_patch_and_lock_as_target_replay") is not True:
+        errors.append("Batch042 proof lock did not bind duplicate replay to same patch/lock")
+    if proof_lock.get("no_repair_count_increment_from_generated_evidence_alone") is not True:
+        errors.append("Batch042 proof lock allows generated evidence alone")
+    required_entries = {
+        "batch041_artifact_ingest",
+        "post_repair_target_replay_pass",
+        "duplicate_clean_replay_pass",
+        "corrected_patch_sha",
+        "reviewed_cofactor_lock_v2_sha",
+        "transport_export_equivalence_pass",
+        "dependency_drift_pass",
+        "stable_identity_integrity_pass",
+        "proof_ledger_referrer_pass",
+        "evidence_origin_classification_pass",
+        "claim_boundary",
+        "count_gate",
+        "hash_chain_valid",
+    }
+    entry_ids = {item.get("entry_id") for item in proof_lock.get("entries", [])}
+    if not required_entries.issubset(entry_ids):
+        errors.append("Batch042 proof lock missing required entries")
+
+    if replay_classification.get("status") != "PASS":
+        errors.append("Batch042 replay classification preservation not PASS")
+    replay_expectations = {
+        "original_target_defect_resolved": True,
+        "declared_cofactor_materialized": True,
+        "full_command_replay_passed": True,
+        "duplicate_clean_replay_passed": True,
+        "issue_derived_repair_validated": True,
+        "target_indicators_absent": True,
+        "secondary_cofactor_terms_absent": True,
+        "lint_output_with_zero_return_is_not_blocker": True,
+        "lint_output_with_zero_return_is_not_separate_repair_claim": True,
+    }
+    for key, expected in replay_expectations.items():
+        if replay_classification.get(key) is not expected:
+            errors.append(f"Batch042 replay classification failed {key}")
+    if replay_classification.get("classification") != "target_defect_resolved_full_command_passed":
+        errors.append("Batch042 replay classification mismatch")
+    if replay_classification.get("return_code") != 0 or replay_classification.get("new_secondary_cofactors_observed") != []:
+        errors.append("Batch042 replay classification return/secondary facts invalid")
+
+    if diagnostics.get("status") != "PASS" or "count gate" not in diagnostics.get("included", []):
+        errors.append("Batch042 diagnostics registry invalid")
+    excluded = set(diagnostics.get("excluded_from_proof", []))
+    if "full scoring" not in excluded or "matched-null memory lift" not in excluded or "PSA-82 as proof" not in excluded:
+        errors.append("Batch042 diagnostics exclusions incomplete")
+    if psa82.get("status") != "PASS" or psa82.get("diagnostic_only") is not True:
+        errors.append("Batch042 PSA-82 diagnostic boundary invalid")
+    if any(psa82.get(key) is not False for key in ["supports_count_increment", "supports_replay_validation", "supports_duplicate_replay_validation", "supports_memory_lift", "supports_full_scoring"]):
+        errors.append("Batch042 PSA-82 boundary overclaimed")
+    if design_boundary.get("status") != "PASS" or design_boundary.get("used_as_repair_success_proof") is not False:
+        errors.append("Batch042 design-mapping boundary overclaimed")
+    if design_boundary.get("repair_success_source") != "post_repair_target_replay_and_duplicate_clean_replay":
+        errors.append("Batch042 design-mapping boundary did not preserve empirical proof source")
+    if stale.get("status") != "PASS" or stale.get("active_blocker_after_batch042") is not None:
+        errors.append("Batch042 stale blocker retirement invalid")
+    if stale.get("retired_blockers_cannot_be_active") is not True:
+        errors.append("Batch042 retired blocker active-state rule missing")
+    if any(item.get("active") is not False for item in stale.get("records", [])):
+        errors.append("Batch042 retired blocker remained active")
+    if not any(item.get("blocker") == "pinned_cofactor_lock_unavailable" for item in stale.get("records", [])):
+        errors.append("Batch042 stale blocker registry missing pinned cofactor blocker")
+
+    if feasibility.get("status") != "PASS" or feasibility.get("issue_derived_repair_episode_count_after_batch042") != 1:
+        errors.append("Batch042 feasibility/count record invalid")
+    if claim.get("status") != "PASS":
+        errors.append("Batch042 claim boundary not PASS")
+    if claim.get("native_external_repair_episodes") != 4:
+        errors.append("Batch042 claim boundary changed native count")
+    if claim.get("issue_derived_repair_episodes") != 1 or claim.get("issue_derived_repair_episode_count_incremented") is not True:
+        errors.append("Batch042 claim boundary did not increment issue-derived count to 1")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch042 full scoring or memory boundary changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("production_readiness") != "false/not_demonstrated":
+        errors.append("Batch042 self-maintaining or production boundary overclaimed")
+    if claim.get("hallucination_elimination") != "not_claimed" or claim.get("absolute_uncrashability") != "not_claimed":
+        errors.append("Batch042 absolute/general claim overclaimed")
+    if claim.get("current_protocol") != "v2.13" or state.get("current_protocol") != "v2.13":
+        errors.append("Batch042 changed current protocol")
+    if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch042 proof obligations ledger invalid")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch042 artifact minimality failed")
+    if budget.get("status") != "PASS":
+        errors.append("Batch042 artifact budget failed")
+    if language.get("status") != "PASS":
+        errors.append("Batch042 public language audit failed")
+    forbidden_markers = ["1.45", "25.7", "wiggle_room", "closure_tolerance", "residual_tolerance"]
+    for path in list(BATCH042_DIR.glob("*.json")) + list(BATCH042_DIR.glob("*.md")) + list(BATCH042_DIR.glob("*.py")) + list(BATCH042_DIR.glob("*.diff")):
+        text = path.read_text(encoding="utf-8")
+        if any(marker in text for marker in forbidden_markers):
+            errors.append(f"Batch042 introduced forbidden tolerance marker in {path.name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -8300,6 +8557,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_012.json"),
         Path("configs/clean_replication_batch_013.json"),
         Path("configs/clean_replication_batch_041.json"),
+        Path("configs/clean_replication_batch_042.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
         Path("configs/clean_replication_batch_016.json"),
@@ -8424,6 +8682,8 @@ def public_language_hits() -> list[str]:
     paths.extend(sorted(BATCH037_DIR.glob("*.diff")))
     paths.extend(sorted(BATCH041_DIR.glob("*.json")))
     paths.extend(sorted(BATCH041_DIR.glob("*.md")))
+    paths.extend(sorted(BATCH042_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH042_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -8616,6 +8876,7 @@ def main() -> int:
         + require_files(BATCH036_DIR, BATCH036_REQUIRED)
         + require_files(BATCH037_DIR, BATCH037_REQUIRED)
         + require_files(BATCH041_DIR, BATCH041_REQUIRED)
+        + require_files(BATCH042_DIR, BATCH042_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -8695,6 +8956,8 @@ def main() -> int:
         return fail("batch040 manifest mismatch")
     if verify_manifest(BATCH041_DIR)["status"] != "PASS":
         return fail("batch041 manifest mismatch")
+    if verify_manifest(BATCH042_DIR)["status"] != "PASS":
+        return fail("batch042 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -8927,6 +9190,9 @@ def main() -> int:
     batch041_errors = audit_batch041_records()
     if batch041_errors:
         return fail(f"batch041 audit failed: {batch041_errors}")
+    batch042_errors = audit_batch042_records()
+    if batch042_errors:
+        return fail(f"batch042 audit failed: {batch042_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -8973,8 +9239,8 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH041_"):
-        return fail("final report did not advance to Batch041 lock-completion boundary")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH042_"):
+        return fail("final report did not advance to Batch042 count-lock boundary")
     allowed_latest_blockers = {
         "docker_runtime_provider_unavailable",
         "python37_docker_provider_unavailable",
@@ -9035,6 +9301,7 @@ def main() -> int:
         "target_defect_resolved_full_command_failed_other_secondary",
         "duplicate_replay_failed",
         "cofactor_chain_exhausted",
+        "batch042_count_gate_failed",
         "reviewed_cofactor_lock_materialization_failed",
         "pylint_executable_verification_failed",
         "provider_only_materialization_not_passed",
@@ -9388,8 +9655,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH041_"):
-        return fail("final report top-level status is not Batch041")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH042_"):
+        return fail("final report top-level status is not Batch042")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -9812,6 +10079,40 @@ def main() -> int:
         return fail("final report Batch041 validated repair without duplicate replay PASS")
     if final_report.get("batch041_native_repair_episode_count") != 4 or final_report.get("batch041_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch041 repair counts changed")
+    if final_report.get("clean_replication_batch_042_status") != "PASS_WITH_BATCH042_ISSUE_DERIVED_REPAIR_COUNT_LOCKED":
+        return fail("final report Batch042 status mismatch")
+    if final_report.get("clean_replication_batch_042_exact_blocker") is not None:
+        return fail("final report Batch042 blocker should be None")
+    if final_report.get("batch042_primary_artifact_name") != "post_v2_37_hardening_batch042_repair_validation_count_lock_artifacts":
+        return fail("final report Batch042 artifact name mismatch")
+    if final_report.get("batch042_batch041_artifact_ingest_status") != "PASS" or final_report.get("batch042_batch041_artifact_verification_status") != "PASS":
+        return fail("final report Batch042 Batch041 artifact custody not PASS")
+    if final_report.get("batch042_repair_validation_preservation_status") != "PASS":
+        return fail("final report Batch042 repair validation preservation not PASS")
+    if final_report.get("batch042_replay_and_duplicate_replay_preservation_status") != "PASS":
+        return fail("final report Batch042 replay preservation not PASS")
+    if final_report.get("batch042_issue_derived_episode_count_gate_status") != "PASS":
+        return fail("final report Batch042 count gate not PASS")
+    if final_report.get("batch042_issue_derived_repair_episode_count_before") != 0:
+        return fail("final report Batch042 before-count mismatch")
+    if final_report.get("batch042_issue_derived_repair_episode_count_after") != 1:
+        return fail("final report Batch042 after-count mismatch")
+    if final_report.get("batch042_native_external_repair_episode_count") != 4:
+        return fail("final report Batch042 native count changed")
+    if final_report.get("batch042_stable_identity_lineage_lock_status") != "PASS":
+        return fail("final report Batch042 stable identity lineage lock not PASS")
+    if final_report.get("batch042_proof_ledger_validation_lock_status") != "PASS":
+        return fail("final report Batch042 proof-ledger validation lock not PASS")
+    if final_report.get("batch042_replay_classification_preservation_status") != "PASS":
+        return fail("final report Batch042 replay classification preservation not PASS")
+    if final_report.get("batch042_stale_blocker_retirement_status") != "PASS":
+        return fail("final report Batch042 stale blocker retirement not PASS")
+    if final_report.get("batch042_full_scoring") != "NOT_RUN/disallowed":
+        return fail("final report Batch042 full scoring boundary changed")
+    if final_report.get("batch042_memory_lift") != "not_demonstrated":
+        return fail("final report Batch042 memory-lift boundary changed")
+    if final_report.get("batch042_self_maintaining_software") != "false/not_demonstrated":
+        return fail("final report Batch042 self-maintaining boundary changed")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

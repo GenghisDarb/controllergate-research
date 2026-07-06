@@ -49,6 +49,13 @@ Batch038 reuses the provider workspace bridge for corrected patch apply-check, a
 
 Batch041 officially ingests the Batch040 artifact boundary, reconciles the artifact blocker with the prior local provider blocker, and adds stable identity, proof-ledger, cofactor provenance, dependency drift, replay-classification, transport-equivalence, and evidence-origin audits.
 
-Status: `PASS_WITH_BATCH041_PROVIDER_MATERIALIZATION_BLOCKED`. Exact blocker: `provider_batch041_execution_failed`.
+Status: `PASS_WITH_BATCH041_ISSUE_DERIVED_REPAIR_VALIDATED`. Exact blocker: `None`.
 
 Full scoring remains disabled, memory lift remains not demonstrated, and self-maintaining software is not claimed.
+
+### Batch042 issue-derived repair validation count lock
+
+- Batch042 status: `PASS_WITH_BATCH042_ISSUE_DERIVED_REPAIR_COUNT_LOCKED`.
+- Issue-derived repair episodes after Batch042: `1`.
+- Native external repair episodes remain `4`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift and self-maintaining software remain not demonstrated.
