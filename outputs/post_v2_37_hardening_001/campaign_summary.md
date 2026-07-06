@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH039_DECLARED_SECONDARY_COFACTOR_LOCK_REQUIRED.
+Status: PASS_WITH_BATCH040_REVIEWED_LOCK_MATERIALIZATION_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -143,5 +143,9 @@ Batch038 status: `PASS_WITH_BATCH038_TARGET_RESOLVED_SECONDARY_LINTER_PRECONDITI
 Batch039 officially ingests the Batch038 target-resolution artifact and introduces a general secondary cofactor governance gate. It verifies the first concrete linter cofactor as declared but unpinned, so materialization remains blocked until a reviewed provider-only lock exists.
 
 Batch039 status: `PASS_WITH_BATCH039_DECLARED_SECONDARY_COFACTOR_LOCK_REQUIRED`; exact blocker: `declared_secondary_cofactor_unpinned_lock_required`.
+
+Batch040 officially ingests the Batch039 secondary-cofactor artifact and records a general reviewed provider-only cofactor lock gate. The first concrete lock is for `pylint`; replay and duplicate replay remain empirical gates before any repair-count change.
+
+Batch040 status: `PASS_WITH_BATCH040_REVIEWED_LOCK_MATERIALIZATION_BLOCKED`; exact blocker: `provider_batch040_execution_failed`.
 
 NotebookLM advice traceability status: `PASS`.

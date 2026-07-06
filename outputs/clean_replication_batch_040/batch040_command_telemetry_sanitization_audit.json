@@ -1,0 +1,17 @@
+{
+  "commands_recorded_with_sanitized_excerpts": true,
+  "materialization_stderr_sha256": null,
+  "materialization_stdout_sha256": null,
+  "provider_output": {
+    "blocker": "provider_batch040_execution_failed",
+    "command": "docker run --rm -v <input>:ro -v <output> -v <workspace> python:3.7 python /provider/input/provider_run.py",
+    "returncode": 1,
+    "sanitized_stderr_excerpt": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+    "sanitized_stdout_excerpt": "",
+    "status": "BLOCK",
+    "stderr_sha256": "e9133cf10b02b0b91c8b119848513db0ac541e7c3c19681266939e4b9952f7cc",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "status": "PASS",
+  "token_or_secret_capture_allowed": false
+}

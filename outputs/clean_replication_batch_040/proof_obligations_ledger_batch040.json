@@ -1,0 +1,54 @@
+{
+  "entries": [
+    {
+      "entry_id": "batch039_official_ingest",
+      "evidence": {
+        "artifact_id": 8119514842,
+        "artifact_name": "post_v2_37_hardening_batch039_secondary_cofactor_governance_artifacts",
+        "artifact_sha256": "d86adfc09e55440821b6a690b4a93de24fc5cd078995d4653087697393c02be2",
+        "artifact_size_bytes": 172520,
+        "workflow_head_sha": "23f9acfdd654c3b9cb1b5bf0f6ab3cec145231bd",
+        "workflow_run_id": 28817716254,
+        "zip_entry_count": 181
+      },
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch040_reviewed_cofactor_lock_policy",
+      "evidence_hash": "a51daab39a841ea9bdec3f20b64d942329d1ce3cb225fc6ed53d02a11de03022",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch040_pylint_lock_discovery",
+      "evidence_hash": "5331c536b3bb0cd434a6781224d9f8d12dbb4c5e8a10435176b40a29724fe299",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch040_pylint_lock_review",
+      "evidence_hash": "fcfd1a947ca3e2832c63317f6d766ee798132e7c1e5c76982efd1460a8d0fb48",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch040_provider_materialization",
+      "evidence_hash": "a8e5365b9df6f316e253b95ccdb49358beed514ec9e069225613af4687ec1181",
+      "status": "BLOCK"
+    },
+    {
+      "entry_id": "batch040_post_repair_replay",
+      "evidence_hash": "94a84d7ad576da6d4fe7bad084dd5bc20f20bed4f1dce57179bd7e7b93e10e84",
+      "status": "NOT_RUN"
+    },
+    {
+      "entry_id": "batch040_duplicate_replay",
+      "evidence_hash": "7286b4ca997c135ea56182cebcbd8c6d46c1592b19141c7d869c9d3762b4db13",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "provider_batch040_execution_failed",
+      "entry_id": "ROLLBACK_BLOCK",
+      "status": "ROLLBACK_BLOCK"
+    }
+  ],
+  "hash_chain_valid": true,
+  "status": "PASS"
+}

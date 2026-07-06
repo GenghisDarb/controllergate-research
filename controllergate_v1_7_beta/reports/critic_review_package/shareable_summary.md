@@ -35,3 +35,12 @@ Batch038 adds governance backfill and patch serialization recovery for the Darke
 - Missing secondary tooling is not counted as the original target failure or as repair success.
 - Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+
+## Batch040 reviewed cofactor lock gate
+
+- Batch040 ingests the official Batch039 boundary and records a reviewed provider-only lock gate for declared secondary cofactors.
+- The first reviewed case is `pylint`, because the selected source declares it but did not pin it.
+- Provider materialization, target replay, duplicate replay, and repair counts remain governed by empirical execution gates.
+- Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0` unless replay and duplicate replay validate under the reviewed lock.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+- Batch040 status: `PASS_WITH_BATCH040_REVIEWED_LOCK_MATERIALIZATION_BLOCKED`; exact blocker: `provider_batch040_execution_failed`.

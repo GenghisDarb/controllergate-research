@@ -1,0 +1,12 @@
+{
+  "cofactor_name": "pylint",
+  "confirm_existing_lock_missing_pylint": true,
+  "confirm_unpinned_before_lock": true,
+  "isolated_lock_generation_workspace_required": true,
+  "resolver_command_template": "python -m pip download --dest <isolated-lock-workspace> --only-binary=:all: --python-version 37 --implementation cp --abi cp37m --platform manylinux2014_x86_64 pylint==2.6.0",
+  "selected_source_pyproject_toml_sha256": "1ebb788654f3ceaf29b325c8cd7cac40bd57cfc7d16be92989ddd598fd261cd3",
+  "selected_source_setup_cfg_sha256": "111d30a3db347c1dba0f80ae25b58c34abf181885084d55892fb8e46c9618afa",
+  "source_or_test_mutation_allowed": false,
+  "status": "PASS",
+  "verify_declaration_before_resolution": true
+}

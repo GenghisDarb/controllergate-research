@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch039 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch040 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -72,8 +72,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch039_secondary_cofactor_governance/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch039_secondary_cofactor_governance \( \
+          test -f artifact_payload/post_v2_37_hardening_batch040_reviewed_cofactor_lock/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch040_reviewed_cofactor_lock \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -93,16 +93,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch039_secondary_cofactor_governance -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_039' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch040_reviewed_cofactor_lock -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_040' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch039 secondary cofactor governance artifact
+      - name: Upload Batch040 reviewed cofactor lock artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch039_secondary_cofactor_governance_artifacts
+          name: post_v2_37_hardening_batch040_reviewed_cofactor_lock_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch039_secondary_cofactor_governance/**
+            artifact_payload/post_v2_37_hardening_batch040_reviewed_cofactor_lock/**
           if-no-files-found: error

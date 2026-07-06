@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import shutil
+import os
+import stat
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -24,9 +26,13 @@ def create_provider_workspace(repo_root: str | Path) -> dict[str, Any]:
 def cleanup_provider_workspace(workspace_path: str | Path) -> dict[str, Any]:
     path = Path(workspace_path)
     cleanup_error = None
+    def _make_writable_and_retry(func: Any, retry_path: str, _exc_info: Any) -> None:
+        os.chmod(retry_path, stat.S_IREAD | stat.S_IWRITE)
+        func(retry_path)
+
     if path.exists():
         try:
-            shutil.rmtree(path)
+            shutil.rmtree(path, onerror=_make_writable_and_retry)
         except Exception as exc:  # pragma: no cover - exercised by hosted provider ownership failures
             cleanup_error = f"{type(exc).__name__}: {exc}"
     return {

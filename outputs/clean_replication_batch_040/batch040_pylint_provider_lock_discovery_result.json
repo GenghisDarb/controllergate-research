@@ -1,0 +1,73 @@
+{
+  "actual_command_uses_isolated_workspace": true,
+  "blocker": null,
+  "cofactor_name": "pylint",
+  "existing_provider_dependency_lock_includes_pylint": false,
+  "extra_files": [],
+  "fixed_gold_future_later_evidence_used": false,
+  "hash_mismatches": [],
+  "isolated_workspace_outside_repo": true,
+  "missing_expected_files": [],
+  "provider_only_resolution": true,
+  "pylint_unpinned_in_selected_source": true,
+  "python37_compatibility_basis": "pip download target constraints cp37m manylinux2014_x86_64",
+  "resolved_files": [
+    {
+      "filename": "astroid-2.4.2-py3-none-any.whl",
+      "sha256": "bc58d83eb610252fd8de6363e39d4f1d0619c894b0ed24603b881c02e64c7386",
+      "size_bytes": 213994
+    },
+    {
+      "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "size_bytes": 25335
+    },
+    {
+      "filename": "isort-5.11.5-py3-none-any.whl",
+      "sha256": "ba1d72fb2595a01c7895a5128f9585a5cc4b6d395f1c8d514989b9a7eb2a8746",
+      "size_bytes": 104094
+    },
+    {
+      "filename": "lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl",
+      "sha256": "d74bb8693bf9cf75ac3b47a54d716bbb1a92648d5f781fc799347cfc95952383",
+      "size_bytes": 56482
+    },
+    {
+      "filename": "mccabe-0.6.1-py2.py3-none-any.whl",
+      "sha256": "ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42",
+      "size_bytes": 8556
+    },
+    {
+      "filename": "pylint-2.6.0-py3-none-any.whl",
+      "sha256": "bfe68f020f8a0fece830a22dd4d5dddb4ecc6137db04face4c3420a46a52239f",
+      "size_bytes": 325711
+    },
+    {
+      "filename": "six-1.17.0-py2.py3-none-any.whl",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "size_bytes": 11050
+    },
+    {
+      "filename": "toml-0.10.2-py2.py3-none-any.whl",
+      "sha256": "806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b",
+      "size_bytes": 16588
+    },
+    {
+      "filename": "wrapt-1.16.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "a86373cf37cd7764f2201b76496aba58a52e76dedfaa698ef9e9688bfd9e41cf",
+      "size_bytes": 77483
+    }
+  ],
+  "resolved_package_count": 9,
+  "resolver_command": "python -m pip download --dest <isolated-lock-workspace> --only-binary=:all: --python-version 37 --implementation cp --abi cp37m --platform manylinux2014_x86_64 pylint==2.6.0",
+  "resolver_output_reproducible": true,
+  "returncode": 0,
+  "sanitized_stderr_excerpt": "WARNING: Package 'pylint' has an invalid Requires-Python: Invalid specifier: '>=3.5.*'\n\n[notice] A new release of pip is available: 25.1 -> 26.1.2\n[notice] To update, run: C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe -m pip install --upgrade pip\n",
+  "sanitized_stdout_excerpt": "Collecting pylint==2.6.0\n  Using cached pylint-2.6.0-py3-none-any.whl.metadata (6.7 kB)\nCollecting astroid<=2.5,>=2.4.0 (from pylint==2.6.0)\n  Using cached astroid-2.5-py3-none-any.whl.metadata (3.9 kB)\nCollecting isort<6,>=4.2.5 (from pylint==2.6.0)\n  Using cached isort-5.11.5-py3-none-any.whl.metadata (13 kB)\nCollecting mccabe<0.7,>=0.6 (from pylint==2.6.0)\n  Using cached mccabe-0.6.1-py2.py3-none-any.whl.metadata (4.3 kB)\nCollecting toml>=0.7.1 (from pylint==2.6.0)\n  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)\nCollecting colorama (from pylint==2.6.0)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting lazy-object-proxy>=1.4.0 (from astroid<=2.5,>=2.4.0->pylint==2.6.0)\n  Using cached lazy_object_proxy-1.9.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.6 kB)\nINFO: pip is looking at multiple versions of astroid to determine which version is compatible with other requirements. This could take a while.\nCollecting astroid<=2.5,>=2.4.0 (from pylint==2.6.0)\n  Using cached astroid-2.4.2-py3-none-any.whl.metadata (3.9 kB)\nCollecting lazy-object-proxy==1.4.* (from astroid<=2.5,>=2.4.0->pylint==2.6.0)\n  Using cached lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl.metadata (5.1 kB)\nCollecting six~=1.12 (from astroid<=2.5,>=2.4.0->pylint==2.6.0)\n  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)\nCollecting wrapt~=1.11 (from astroid<=2.5,>=2.4.0->pylint==2.6.0)\n  Using cached wrapt-1.16.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)\nUsing cached pylint-2.6.0-py3-none-any.whl (325 kB)\nUsing cached astroid-2.4.2-py3-none-any.whl (213 kB)\nUsing cached isort-5.11.5-py3-none-any.whl (104 kB)\nUsing cached lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (56 kB)\nUsing cached mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)\nUsing cached six-1.17.0-py2.py3-none-any.whl (11 kB)\nUsing cached wrapt-1.16.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (77 kB)\nUsing cached toml-0.10.2-py2.py3-none-any.whl (16 kB)\nUsing cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nSaved c:\\users\\thisb\\appdata\\local\\temp\\controllergate-batch040-lock-a0g1_fko\\pylint-2.6.0-py3-none-any.whl\nSaved c:\\users\\thisb\\appdata\\local\\temp\\controllergate-batch040-lock-a0g1_fko\\astroid-2.4.2-py3-none-any.whl\nSaved c:\\users\\thisb\\appdata\\local\\temp\\controllergate-batch040-lock-a0g1_fko\\isort-5.11.5-py3-none-any.whl\nSaved c:\\users\\thisb\\appdata\\local\\temp\\controllergate-batch040-lock-a0g1_fko\\lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl\nSaved c:\\users\\thisb\\appdata\\local\\temp\\controllergate-batch040-lock-a0g1_fko\\mccabe-0.6.1-py2.py3-none-any.whl\nSaved c:\\users\\thisb\\appdata\\local\\temp\\controllergate-batch040-lock-a0g1_fko\\six-1.17.0-py2.py3-none-any.whl\nSaved c:\\users\\thisb\\appdata\\local\\temp\\controllergate-batch040-lock-a0g1_fko\\wrapt-1.16.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nSaved c:\\users\\thisb\\appdata\\local\\temp\\controllergate-batch040-lock-a0g1_fko\\toml-0.10.2-py2.py3-none-any.whl\nSaved c:\\users\\thisb\\appdata\\local\\temp\\controllergate-batch040-lock-a0g1_fko\\colorama-0.4.6-py2.py3-none-any.whl\nSuccessfully downloaded pylint astroid isort lazy-object-proxy mccabe six wrapt toml colorama\n",
+  "selected_source_declaration_verified": true,
+  "source_mutated": false,
+  "status": "PASS",
+  "stderr_sha256": "2d2cb23e21ed36d84fc1d5535198de0f7cd1d813079aa8172305b2e297e81849",
+  "stdout_sha256": "ceda79af2e9f1e98a2155cffaf6d18fcfeee1bd8831c53116349de6159a2f6c3",
+  "tests_mutated": false
+}

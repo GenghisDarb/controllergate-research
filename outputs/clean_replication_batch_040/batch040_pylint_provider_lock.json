@@ -1,0 +1,100 @@
+{
+  "cofactor_class": "executable_tool",
+  "cofactor_name": "pylint",
+  "fixed_gold_future_later_evidence_used": false,
+  "floating_install_counted_as_proof": false,
+  "hash_capture": true,
+  "install_command_template": "python -m pip install --disable-pip-version-check --no-input --require-hashes -r pylint_provider_lock_requirements.txt",
+  "install_specs": [
+    "pylint==2.6.0",
+    "astroid==2.4.2",
+    "isort==5.11.5",
+    "lazy-object-proxy==1.4.3",
+    "mccabe==0.6.1",
+    "six==1.17.0",
+    "toml==0.10.2",
+    "wrapt==1.16.0",
+    "colorama==0.4.6"
+  ],
+  "lock_id": "batch040_pylint_provider_only_lock",
+  "lock_record_sha256": "c2b2df443566bfc0e6be4c3d226c3b4d2de1607748fbbf1cfe7634089fd8f69c",
+  "materialization_may_expose_further_secondary_cofactors": true,
+  "packages": [
+    {
+      "filename": "pylint-2.6.0-py3-none-any.whl",
+      "name": "pylint",
+      "sha256": "bfe68f020f8a0fece830a22dd4d5dddb4ecc6137db04face4c3420a46a52239f",
+      "version": "2.6.0"
+    },
+    {
+      "filename": "astroid-2.4.2-py3-none-any.whl",
+      "name": "astroid",
+      "sha256": "bc58d83eb610252fd8de6363e39d4f1d0619c894b0ed24603b881c02e64c7386",
+      "version": "2.4.2"
+    },
+    {
+      "filename": "isort-5.11.5-py3-none-any.whl",
+      "name": "isort",
+      "sha256": "ba1d72fb2595a01c7895a5128f9585a5cc4b6d395f1c8d514989b9a7eb2a8746",
+      "version": "5.11.5"
+    },
+    {
+      "filename": "lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl",
+      "name": "lazy-object-proxy",
+      "sha256": "d74bb8693bf9cf75ac3b47a54d716bbb1a92648d5f781fc799347cfc95952383",
+      "version": "1.4.3"
+    },
+    {
+      "filename": "mccabe-0.6.1-py2.py3-none-any.whl",
+      "name": "mccabe",
+      "sha256": "ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42",
+      "version": "0.6.1"
+    },
+    {
+      "filename": "six-1.17.0-py2.py3-none-any.whl",
+      "name": "six",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "version": "1.17.0"
+    },
+    {
+      "filename": "toml-0.10.2-py2.py3-none-any.whl",
+      "name": "toml",
+      "sha256": "806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b",
+      "version": "0.10.2"
+    },
+    {
+      "filename": "wrapt-1.16.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "name": "wrapt",
+      "sha256": "a86373cf37cd7764f2201b76496aba58a52e76dedfaa698ef9e9688bfd9e41cf",
+      "version": "1.16.0"
+    },
+    {
+      "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+      "name": "colorama",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "version": "0.4.6"
+    }
+  ],
+  "provider_constraints": {
+    "abi": "cp37m",
+    "implementation": "cp",
+    "only_binary": true,
+    "platform": "manylinux2014_x86_64",
+    "python_version": "3.7"
+  },
+  "provider_only": true,
+  "requirements_sha256": "0852b3609f8ad0111c77ce57fa7113a61fc4a20f19de7779425992978021d17e",
+  "selected_source_commit": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+  "selected_source_declaration": {
+    "pylint_pin_in_selected_source": false,
+    "pyproject_declares_darker_lint_pylint": true,
+    "pyproject_toml_sha256": "1ebb788654f3ceaf29b325c8cd7cac40bd57cfc7d16be92989ddd598fd261cd3",
+    "setup_cfg_declares_pylint_under_test_extra": true,
+    "setup_cfg_sha256": "111d30a3db347c1dba0f80ae25b58c34abf181885084d55892fb8e46c9618afa"
+  },
+  "selected_source_repo": "https://github.com/akaihola/darker",
+  "source_mutation_allowed": false,
+  "status": "PASS",
+  "test_mutation_allowed": false,
+  "transitive_dependency_capture": true
+}

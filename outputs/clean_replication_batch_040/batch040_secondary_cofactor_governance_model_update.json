@@ -1,0 +1,28 @@
+{
+  "current_instance": {
+    "cofactor_name": "pylint",
+    "state": "declared_and_locked_materialization_blocked"
+  },
+  "future_cofactor_classes_supported": [
+    "python_package",
+    "executable_tool",
+    "project_extra",
+    "environment_variable",
+    "provider_runtime",
+    "operating_system_tool",
+    "service_or_daemon",
+    "project_configuration"
+  ],
+  "general_policy_not_pylint_only": true,
+  "state_machine_name": "reviewed_provider_only_secondary_cofactor_lock",
+  "states": [
+    "declared_but_unpinned",
+    "reviewed_lock_available",
+    "provider_materialized",
+    "post_repair_replay_passed",
+    "duplicate_replay_passed",
+    "new_secondary_blocker_recorded",
+    "blocked"
+  ],
+  "status": "PASS"
+}

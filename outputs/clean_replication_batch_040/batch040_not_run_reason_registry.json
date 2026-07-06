@@ -1,0 +1,61 @@
+{
+  "entries": [
+    {
+      "acceptable": true,
+      "gate_name": "provider_only_cofactor_materialization",
+      "prerequisite_missing": "provider_batch040_execution_failed",
+      "reason": "provider_batch040_execution_failed",
+      "status": "BLOCK"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "pylint_executable_verification",
+      "prerequisite_missing": "provider_batch040_execution_failed",
+      "reason": "provider_batch040_execution_failed",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "post_repair_target_replay_with_reviewed_cofactor_lock",
+      "prerequisite_missing": "provider_batch040_execution_failed",
+      "reason": "provider_batch040_execution_failed",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "duplicate_clean_replay_with_reviewed_cofactor_lock",
+      "prerequisite_missing": "provider_only_materialization_not_passed",
+      "reason": "provider_only_materialization_not_passed",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "issue_derived_repair_validation",
+      "prerequisite_missing": "provider_only_materialization_not_passed",
+      "reason": "provider_only_materialization_not_passed",
+      "status": "BLOCK"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "full_scoring",
+      "prerequisite_missing": "explicit_full_scoring_authorization_missing",
+      "reason": "explicit_full_scoring_authorization_missing",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "memory_lift",
+      "prerequisite_missing": "prospective_matched_null_protocol_not_in_scope",
+      "reason": "prospective_matched_null_protocol_not_in_scope",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "self_maintaining_software_claim",
+      "prerequisite_missing": "autonomous_repeatable_acquisition_repair_replay_not_demonstrated",
+      "reason": "autonomous_repeatable_acquisition_repair_replay_not_demonstrated",
+      "status": "NOT_RUN"
+    }
+  ],
+  "status": "PASS"
+}

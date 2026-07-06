@@ -1,0 +1,20 @@
+{
+  "applies_to_future_declared_secondary_cofactors": true,
+  "dependency_resolver_scope": "declared secondary cofactor plus transitive dependencies under provider constraints",
+  "fixed_gold_future_later_evidence_allowed": false,
+  "floating_install_counted_as_repair_proof": false,
+  "hash_capture_when_available_required": true,
+  "install_command_capture_required": true,
+  "lock_review_status_required": "reviewed",
+  "materialization_authorization_requires_reviewed_provider_safe_lock": true,
+  "new_secondary_cofactor_handling": "record_in_secondary_cofactor_chain_and_stop_unless separately reviewed",
+  "package_version_capture_required": true,
+  "policy_name": "reviewed_provider_only_secondary_cofactor_lock",
+  "python_provider_compatibility_required": true,
+  "replay_authorization_requires_materialization_pass": true,
+  "selected_source_declaration_required": true,
+  "source_mutation_allowed": false,
+  "status": "PASS",
+  "test_mutation_allowed": false,
+  "transitive_dependency_capture_required": true
+}
