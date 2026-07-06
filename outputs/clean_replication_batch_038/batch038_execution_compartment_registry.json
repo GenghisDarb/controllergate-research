@@ -1,0 +1,230 @@
+{
+  "compartments": [
+    {
+      "allowed_commands": [
+        "non-mutating verification",
+        "provider-scoped patch check/apply"
+      ],
+      "allowed_inputs": [
+        "tracked ControllerGate evidence",
+        "manual artifact verification records"
+      ],
+      "claim_limitations": "local blocks do not substitute for provider replay success",
+      "cleanup_policy": "runtime workspace cleanup required",
+      "compartment": "local_windows",
+      "custody_requirements": "hash-recorded input/output boundary",
+      "forbidden_commands": [
+        "broad candidate search",
+        "full scoring"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future source",
+        "credentials"
+      ],
+      "transport_policy": "artifact or provider workspace transport must be audited"
+    },
+    {
+      "allowed_commands": [
+        "non-mutating verification",
+        "provider-scoped patch check/apply"
+      ],
+      "allowed_inputs": [
+        "tracked ControllerGate evidence",
+        "manual artifact verification records"
+      ],
+      "claim_limitations": "local blocks do not substitute for provider replay success",
+      "cleanup_policy": "runtime workspace cleanup required",
+      "compartment": "github_actions_ubuntu",
+      "custody_requirements": "hash-recorded input/output boundary",
+      "forbidden_commands": [
+        "broad candidate search",
+        "full scoring"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future source",
+        "credentials"
+      ],
+      "transport_policy": "artifact or provider workspace transport must be audited"
+    },
+    {
+      "allowed_commands": [
+        "non-mutating verification",
+        "provider-scoped patch check/apply"
+      ],
+      "allowed_inputs": [
+        "tracked ControllerGate evidence",
+        "manual artifact verification records"
+      ],
+      "claim_limitations": "local blocks do not substitute for provider replay success",
+      "cleanup_policy": "runtime workspace cleanup required",
+      "compartment": "docker_python37_provider",
+      "custody_requirements": "hash-recorded input/output boundary",
+      "forbidden_commands": [
+        "broad candidate search",
+        "full scoring"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future source",
+        "credentials"
+      ],
+      "transport_policy": "artifact or provider workspace transport must be audited"
+    },
+    {
+      "allowed_commands": [
+        "non-mutating verification",
+        "provider-scoped patch check/apply"
+      ],
+      "allowed_inputs": [
+        "tracked ControllerGate evidence",
+        "manual artifact verification records"
+      ],
+      "claim_limitations": "local blocks do not substitute for provider replay success",
+      "cleanup_policy": "runtime workspace cleanup required",
+      "compartment": "provider_source_workspace",
+      "custody_requirements": "hash-recorded input/output boundary",
+      "forbidden_commands": [
+        "broad candidate search",
+        "full scoring"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future source",
+        "credentials"
+      ],
+      "transport_policy": "artifact or provider workspace transport must be audited"
+    },
+    {
+      "allowed_commands": [
+        "non-mutating verification",
+        "provider-scoped patch check/apply"
+      ],
+      "allowed_inputs": [
+        "tracked ControllerGate evidence",
+        "manual artifact verification records"
+      ],
+      "claim_limitations": "local blocks do not substitute for provider replay success",
+      "cleanup_policy": "runtime workspace cleanup required",
+      "compartment": "provider_harness_workspace",
+      "custody_requirements": "hash-recorded input/output boundary",
+      "forbidden_commands": [
+        "broad candidate search",
+        "full scoring"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future source",
+        "credentials"
+      ],
+      "transport_policy": "artifact or provider workspace transport must be audited"
+    },
+    {
+      "allowed_commands": [
+        "non-mutating verification",
+        "provider-scoped patch check/apply"
+      ],
+      "allowed_inputs": [
+        "tracked ControllerGate evidence",
+        "manual artifact verification records"
+      ],
+      "claim_limitations": "local blocks do not substitute for provider replay success",
+      "cleanup_policy": "runtime workspace cleanup required",
+      "compartment": "provider_repair_workspace",
+      "custody_requirements": "hash-recorded input/output boundary",
+      "forbidden_commands": [
+        "broad candidate search",
+        "full scoring"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future source",
+        "credentials"
+      ],
+      "transport_policy": "artifact or provider workspace transport must be audited"
+    },
+    {
+      "allowed_commands": [
+        "non-mutating verification",
+        "provider-scoped patch check/apply"
+      ],
+      "allowed_inputs": [
+        "tracked ControllerGate evidence",
+        "manual artifact verification records"
+      ],
+      "claim_limitations": "local blocks do not substitute for provider replay success",
+      "cleanup_policy": "runtime workspace cleanup required",
+      "compartment": "duplicate_clean_replay_workspace",
+      "custody_requirements": "hash-recorded input/output boundary",
+      "forbidden_commands": [
+        "broad candidate search",
+        "full scoring"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future source",
+        "credentials"
+      ],
+      "transport_policy": "artifact or provider workspace transport must be audited"
+    },
+    {
+      "allowed_commands": [
+        "non-mutating verification",
+        "provider-scoped patch check/apply"
+      ],
+      "allowed_inputs": [
+        "tracked ControllerGate evidence",
+        "manual artifact verification records"
+      ],
+      "claim_limitations": "local blocks do not substitute for provider replay success",
+      "cleanup_policy": "runtime workspace cleanup required",
+      "compartment": "repo_outputs_boundary",
+      "custody_requirements": "hash-recorded input/output boundary",
+      "forbidden_commands": [
+        "broad candidate search",
+        "full scoring"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future source",
+        "credentials"
+      ],
+      "transport_policy": "artifact or provider workspace transport must be audited"
+    },
+    {
+      "allowed_commands": [
+        "non-mutating verification",
+        "provider-scoped patch check/apply"
+      ],
+      "allowed_inputs": [
+        "tracked ControllerGate evidence",
+        "manual artifact verification records"
+      ],
+      "claim_limitations": "local blocks do not substitute for provider replay success",
+      "cleanup_policy": "runtime workspace cleanup required",
+      "compartment": "incoming_artifacts_quarantine",
+      "custody_requirements": "hash-recorded input/output boundary",
+      "forbidden_commands": [
+        "broad candidate search",
+        "full scoring"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future source",
+        "credentials"
+      ],
+      "transport_policy": "artifact or provider workspace transport must be audited"
+    }
+  ],
+  "status": "PASS"
+}

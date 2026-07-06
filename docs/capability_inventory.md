@@ -25,3 +25,5 @@ Batch035 adds a bounded source-only repair attempt after verified issue-derived 
 Batch036 adds post-repair failure decomposition and a single bounded source-only refinement candidate.
 
 - Batch037 Provider Execution Substage Recovery: implemented for explicit candidate v2 patch/replay substages; no repair success claim is made by candidate generation alone.
+
+- Batch038 Governance Backfill and Patch Serialization Recovery: implemented as a bounded candidate v2 continuation with no full-scoring or memory-lift claim.

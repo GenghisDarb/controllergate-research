@@ -1,0 +1,101 @@
+{
+  "entries": [
+    {
+      "acceptable_true_false": true,
+      "gate_name": "candidate_v2_patch_apply",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "valid original patch bytes",
+      "reason": "Original candidate v2 patch is corrupt and preserved as a failed branch.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "corrected_patch_apply",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "provider apply-check",
+      "reason": "Corrected patch apply requires provider apply-check PASS.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "post_repair_target_replay_v2",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "corrected patch application PASS",
+      "reason": "Replay only runs after corrected patch applies.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "duplicate_clean_replay_v2",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "post-repair target replay PASS",
+      "reason": "Duplicate replay only runs after post-repair target replay fully passes.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "ControllerAudit closure check",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "separate scoped diagnostic",
+      "reason": "ControllerAudit closure check is diagnostic-only for this batch.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "PSA-82 diagnostic",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "separate diagnostic authorization",
+      "reason": "Diagnostic is not used as repair proof.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "structured-fragility diagnostic",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "separate diagnostic authorization",
+      "reason": "Diagnostic is not used as repair proof.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "matched-null",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "separate preregistered matched-null lane",
+      "reason": "Batch038 is not a matched-null batch.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "repair count increment",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "empirical replay gates",
+      "reason": "Repair count increments only after target replay and duplicate clean replay pass.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "full scoring",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "separate authorization",
+      "reason": "Full scoring remains disabled.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "memory lift",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "matched-null evidence",
+      "reason": "Memory lift is not evaluated in Batch038.",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable_true_false": true,
+      "gate_name": "self-maintaining software claim",
+      "next_allowed_action": "preserve boundary or open separately scoped lane",
+      "prerequisite_missing": "autonomous repeated acquisition and repair evidence",
+      "reason": "Self-maintaining software is not demonstrated.",
+      "status": "NOT_RUN"
+    }
+  ],
+  "status": "PASS"
+}

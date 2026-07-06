@@ -1,0 +1,73 @@
+{
+  "cofactors": [
+    {
+      "allowed_to_install": false,
+      "cofactor_name": "pylint",
+      "may_block_full_target_pass": true,
+      "may_count_as_repair_success": false,
+      "may_count_as_target_failure": false,
+      "next_allowed_action_if_pylint_blocks": "declared_dependency_materialization_batch_or_seed_retirement",
+      "role": "secondary_linter_precondition"
+    },
+    {
+      "cofactor_name": "git safe.directory",
+      "role": "provider_git_context",
+      "status": "provider_scoped"
+    },
+    {
+      "cofactor_name": "GIT_DIR",
+      "role": "target stimulus",
+      "status": "relative_git_dir_preserved"
+    },
+    {
+      "cofactor_name": "GIT_WORK_TREE",
+      "role": "environment normalization",
+      "status": "not forced unless patch runtime sets it"
+    },
+    {
+      "cofactor_name": "provider cwd",
+      "role": "command context",
+      "status": "/provider/workspace/source/darker"
+    },
+    {
+      "cofactor_name": "source root",
+      "role": "selected source workspace",
+      "status": "a2d13656adfaa010fb6c7339087f3347ad2b815a"
+    },
+    {
+      "cofactor_name": "Python 3.7 provider",
+      "role": "runtime provider",
+      "status": "BLOCK"
+    },
+    {
+      "cofactor_name": "candidate v2 patch diff SHA256",
+      "role": "original patch custody",
+      "status": "9c1061f5c60878b7ace6a3c02f41ec2af162fd4de66192a34028ed720e864ec1"
+    },
+    {
+      "cofactor_name": "corrected candidate patch diff SHA256",
+      "role": "patch transport cofactor",
+      "status": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396"
+    },
+    {
+      "cofactor_name": "harness SHA256",
+      "role": "target command wrapper",
+      "status": "3b4dc004c36d39d6bcce845169d4b60e843c5403d2fdf9667d36773439bff233"
+    },
+    {
+      "cofactor_name": "dependency lock",
+      "role": "declared dependency materialization",
+      "status": "108d961f89b603d3c6a7bcb374976992c3fadc80497bf967421cdea38aff248a"
+    },
+    {
+      "allowed_action": "normalize patch bytes from allowed source and diff intent only",
+      "cofactor_name": "diff serialization / patch hygiene",
+      "current_status": "corrupt_patch_detected",
+      "failure": "corrupt patch at line 23",
+      "may_count_as_repair_success": false,
+      "role": "patch_transport_cofactor",
+      "suspected_bad_token": "<CTX_BLANK>"
+    }
+  ],
+  "status": "PASS"
+}

@@ -25,3 +25,5 @@ Batch035 is a gated issue-derived source-only repair attempt; native repair epis
 Batch036 preserves four native repair episodes and zero issue-derived repair episodes unless the gated v2 repair passes both target and duplicate replay.
 
 Batch037 adds provider execution substage evidence for candidate v2 while preserving the claim boundary: native repairs remain 4, issue-derived repairs remain 0 unless replay and duplicate replay validate, full scoring remains disabled.
+
+Batch038 adds governance backfill and patch serialization recovery for the Darker issue #112 candidate v2 path while preserving conservative claim boundaries.

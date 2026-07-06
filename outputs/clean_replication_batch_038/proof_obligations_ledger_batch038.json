@@ -1,0 +1,39 @@
+{
+  "entries": [
+    {
+      "entry_type": "BATCH037_ARTIFACT_PRESERVED",
+      "evidence_hash": "9958e9127d991fd4e3f3912dc0a2d094566c5aa6eff3a735ce5e701a43a63f92"
+    },
+    {
+      "entry_type": "BATCH038_SERIALIZATION_ANALYSIS",
+      "evidence_hash": "8b45501895ac651d11a7729ef9eaa017593fb7bf8ca848636c5f2a3af2e3ad4e"
+    },
+    {
+      "entry_type": "BATCH038_CORRECTED_PATCH_INTEGRITY",
+      "evidence_hash": "41613d8c3dda332dc4d61342481bbe4f504daa2e1989b60c20f38f5602c8ccb3"
+    },
+    {
+      "entry_type": "BATCH038_PROVIDER_SUBSTAGES_RECORDED",
+      "evidence_hash": "a4228757e3b69770d59cd62c5d167b58a73dbbf2465e2050daa2d7f726e7622a"
+    },
+    {
+      "entry_type": "BATCH038_CORRECTED_PATCH_APPLICATION_RECORDED",
+      "evidence_hash": "be1850677e2461371d06f6a0cb9fd1ef603474d32b86d55b65e3a10732272662"
+    },
+    {
+      "entry_type": "BATCH038_POST_REPAIR_REPLAY_RECORDED",
+      "evidence_hash": "284e1e7c874809f6207d89bf0e3aa430be7ed336129ffe42b307309a8020d98f"
+    },
+    {
+      "entry_type": "BATCH038_DUPLICATE_REPLAY_RECORDED",
+      "evidence_hash": "9fed3bf633aff4d848748816c700f70918854747988b2fb2a0aacd5033cdaa7c"
+    },
+    {
+      "blocker": "docker_runtime_provider_unavailable",
+      "entry_type": "ROLLBACK_BLOCK",
+      "reason": "Batch038 did not validate issue-derived repair."
+    }
+  ],
+  "hash_chain_valid": true,
+  "status": "PASS"
+}

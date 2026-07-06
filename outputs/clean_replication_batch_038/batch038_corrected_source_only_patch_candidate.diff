@@ -1,0 +1,52 @@
+diff --git a/src/darker/git.py b/src/darker/git.py
+--- a/src/darker/git.py
++++ b/src/darker/git.py
+@@ -48,7 +48,14 @@ def git_get_content_at_revision(path: Path, revision: str, cwd: Path) -> TextDoc
+     cmd = ["git", "show", f"{revision}:./{path}"]
+     logger.debug("[%s]$ %s", cwd, " ".join(cmd))
+     try:
+-        return TextDocument.from_str(check_output(cmd, cwd=str(cwd), encoding="utf-8"))
++        return TextDocument.from_str(
++            check_output(
++                cmd,
++                cwd=str(cwd),
++                encoding="utf-8",
++                env=_git_env_with_absolute_git_dir(cwd),
++            )
++        )
+     except CalledProcessError as exc_info:
+         if exc_info.returncode == 128:
+             # The file didn't exist at the given revision. Act as if it was an empty
+@@ -127,11 +134,31 @@ def should_reformat_file(path: Path) -> bool:
+     return path.exists() and path.suffix == ".py"
+ 
+ 
++def _git_env_with_absolute_git_dir(cwd: Path):
++    """Return environment with relative GIT_DIR resolved for Git subprocesses."""
++    env = os.environ.copy()
++    git_dir = env.get("GIT_DIR")
++    if git_dir and not os.path.isabs(git_dir):
++        relative_git_dir = Path(git_dir)
++        for parent in [cwd, *cwd.parents]:
++            candidate_git_dir = parent / relative_git_dir
++            if candidate_git_dir.exists():
++                env["GIT_DIR"] = str(candidate_git_dir)
++                if "GIT_WORK_TREE" not in env:
++                    env["GIT_WORK_TREE"] = str(parent)
++                break
++    return env
++
++
+ def _git_check_output_lines(cmd: List[str], cwd: Path) -> List[str]:
+     """Log command line, run Git, split stdout to lines, exit with 123 on error"""
+     logger.debug("[%s]$ %s", cwd, " ".join(cmd))
+     try:
+-        return check_output(cmd, cwd=str(cwd)).decode("utf-8").splitlines()
++        return (
++            check_output(cmd, cwd=str(cwd), env=_git_env_with_absolute_git_dir(cwd))
++            .decode("utf-8")
++            .splitlines()
++        )
+     except CalledProcessError as exc_info:
+         if exc_info.returncode == 128:
+             # Bad revision or another Git failure

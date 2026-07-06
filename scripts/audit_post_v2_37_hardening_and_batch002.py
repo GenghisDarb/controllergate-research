@@ -48,7 +48,8 @@ BATCH034_DIR = Path("outputs/clean_replication_batch_034")
 BATCH035_DIR = Path("outputs/clean_replication_batch_035")
 BATCH036_DIR = Path("outputs/clean_replication_batch_036")
 BATCH037_DIR = Path("outputs/clean_replication_batch_037")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch037_provider_execution_substage_recovery")
+BATCH038_DIR = Path("outputs/clean_replication_batch_038")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch038_reactome_patch_serialization_recovery")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -1592,6 +1593,47 @@ BATCH037_REQUIRED = [
     "consolidated_state_clean_replication_batch_037.json",
     "campaign_summary.md",
     "public_language_audit_batch037.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH038_REQUIRED = [
+    "batch037_artifact_ingest_summary.json",
+    "batch037_artifact_verification.json",
+    "batch037_official_boundary_preservation.json",
+    "batch038_reactome_chromosomal_governance_audit.json",
+    "batch038_stable_identity_map.json",
+    "batch038_blocker_lineage_map.json",
+    "batch038_execution_compartment_registry.json",
+    "batch038_cofactor_materialization_registry.json",
+    "batch038_not_run_reason_registry.json",
+    "batch038_failed_repair_branch_record.json",
+    "batch038_step_activation_ring.json",
+    "batch038_compartmentalized_repair_stage_audit.json",
+    "batch038_no_floating_update_audit.json",
+    "batch038_command_telemetry_sanitization_audit.json",
+    "batch038_expected_output_contract.json",
+    "batch038_independent_verifier_summary.json",
+    "batch038_psa82_diagnostic_boundary.json",
+    "batch038_biological_isomorphism_boundary.json",
+    "batch038_stale_blocker_retirement_registry.json",
+    "batch038_patch_serialization_failure_analysis.json",
+    "batch038_corrected_patch_generation_policy.json",
+    "batch038_corrected_source_only_patch_candidate.diff",
+    "batch038_corrected_patch_integrity.json",
+    "batch038_corrected_patch_apply_check.json",
+    "batch038_corrected_patch_application_result.json",
+    "batch038_corrected_patch_scope_audit.json",
+    "batch038_post_repair_target_replay.json",
+    "batch038_duplicate_clean_replay.json",
+    "batch038_issue_derived_repair_validation.json",
+    "issue_derived_repair_feasibility_batch038.json",
+    "claim_boundary_batch038.json",
+    "proof_obligations_ledger_batch038.json",
+    "consolidated_state_clean_replication_batch_038.json",
+    "campaign_summary.md",
+    "public_language_audit_batch038.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -7158,6 +7200,183 @@ def audit_batch037_records() -> list[str]:
     return errors
 
 
+def audit_batch038_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH038_REQUIRED:
+        if not (BATCH038_DIR / name).is_file():
+            errors.append(f"batch038 missing required file {name}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH038_DIR).get("status") != "PASS":
+        errors.append("batch038 manifest mismatch")
+
+    state = read_json(BATCH038_DIR / "consolidated_state_clean_replication_batch_038.json")
+    ingest = read_json(BATCH038_DIR / "batch037_artifact_ingest_summary.json")
+    verification = read_json(BATCH038_DIR / "batch037_artifact_verification.json")
+    boundary = read_json(BATCH038_DIR / "batch037_official_boundary_preservation.json")
+    governance = read_json(BATCH038_DIR / "batch038_reactome_chromosomal_governance_audit.json")
+    identity = read_json(BATCH038_DIR / "batch038_stable_identity_map.json")
+    blockers = read_json(BATCH038_DIR / "batch038_blocker_lineage_map.json")
+    cofactors = read_json(BATCH038_DIR / "batch038_cofactor_materialization_registry.json")
+    not_run = read_json(BATCH038_DIR / "batch038_not_run_reason_registry.json")
+    failed_branch = read_json(BATCH038_DIR / "batch038_failed_repair_branch_record.json")
+    step_ring = read_json(BATCH038_DIR / "batch038_step_activation_ring.json")
+    stage_audit = read_json(BATCH038_DIR / "batch038_compartmentalized_repair_stage_audit.json")
+    no_floating = read_json(BATCH038_DIR / "batch038_no_floating_update_audit.json")
+    telemetry = read_json(BATCH038_DIR / "batch038_command_telemetry_sanitization_audit.json")
+    contract = read_json(BATCH038_DIR / "batch038_expected_output_contract.json")
+    verifier = read_json(BATCH038_DIR / "batch038_independent_verifier_summary.json")
+    psa82 = read_json(BATCH038_DIR / "batch038_psa82_diagnostic_boundary.json")
+    boundary_terms = read_json(BATCH038_DIR / "batch038_biological_isomorphism_boundary.json")
+    stale = read_json(BATCH038_DIR / "batch038_stale_blocker_retirement_registry.json")
+    analysis = read_json(BATCH038_DIR / "batch038_patch_serialization_failure_analysis.json")
+    policy = read_json(BATCH038_DIR / "batch038_corrected_patch_generation_policy.json")
+    integrity = read_json(BATCH038_DIR / "batch038_corrected_patch_integrity.json")
+    apply_check = read_json(BATCH038_DIR / "batch038_corrected_patch_apply_check.json")
+    application = read_json(BATCH038_DIR / "batch038_corrected_patch_application_result.json")
+    scope = read_json(BATCH038_DIR / "batch038_corrected_patch_scope_audit.json")
+    post_repair = read_json(BATCH038_DIR / "batch038_post_repair_target_replay.json")
+    duplicate = read_json(BATCH038_DIR / "batch038_duplicate_clean_replay.json")
+    validation = read_json(BATCH038_DIR / "batch038_issue_derived_repair_validation.json")
+    feasibility = read_json(BATCH038_DIR / "issue_derived_repair_feasibility_batch038.json")
+    claim = read_json(BATCH038_DIR / "claim_boundary_batch038.json")
+    ledger = read_json(BATCH038_DIR / "proof_obligations_ledger_batch038.json")
+    minimality = read_json(BATCH038_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH038_DIR / "artifact_payload_budget.json")
+    language = read_json(BATCH038_DIR / "public_language_audit_batch038.json")
+    patch_text = (BATCH038_DIR / "batch038_corrected_source_only_patch_candidate.diff").read_text(encoding="utf-8")
+
+    if ingest.get("status") != "PASS" or verification.get("status") != "PASS":
+        errors.append("Batch038 did not preserve Batch037 artifact custody")
+    expected_artifact = {
+        "artifact_name": "post_v2_37_hardening_batch037_provider_execution_substage_recovery_artifacts",
+        "artifact_id": 8099848792,
+        "workflow_run_id": 28768059294,
+        "workflow_head_sha": "5613264ff3cca6efc8e8a13553926a9c0d254379",
+        "artifact_sha256": "7646e4c7db29e010da4f03d6f20b9e7c225a0ddfbea027c7423450e91af25fc3",
+        "artifact_size_bytes": 159993,
+        "zip_entry_count": 164,
+    }
+    for key, value in expected_artifact.items():
+        if verification.get(key) != value or ingest.get(key) != value:
+            errors.append(f"Batch038 Batch037 artifact identity mismatch for {key}")
+    if verification.get("manifest_failure_count") != 0 or verification.get("unsafe_path_count") != 0 or verification.get("duplicate_path_count") != 0:
+        errors.append("Batch038 Batch037 artifact verification facts invalid")
+    if boundary.get("batch037_status_preserved") != "PASS_WITH_BATCH037_PROVIDER_SUBSTAGE_BLOCKED":
+        errors.append("Batch038 did not preserve Batch037 official status")
+    if boundary.get("batch037_exact_blocker_preserved") != "patch_v2_apply_check_failed":
+        errors.append("Batch038 did not preserve Batch037 exact blocker")
+    if boundary.get("batch037_candidate_v2_patch_sha256") != "9c1061f5c60878b7ace6a3c02f41ec2af162fd4de66192a34028ed720e864ec1":
+        errors.append("Batch038 did not preserve original candidate v2 patch SHA")
+    if "corrupt patch at line 23" not in str(boundary.get("batch037_patch_apply_check_stderr", "")):
+        errors.append("Batch038 did not preserve corrupt-patch stderr")
+
+    for record_name, record in [
+        ("governance", governance),
+        ("identity", identity),
+        ("blockers", blockers),
+        ("cofactors", cofactors),
+        ("not_run", not_run),
+        ("failed_branch", failed_branch),
+        ("step_ring", step_ring),
+        ("stage_audit", stage_audit),
+        ("no_floating", no_floating),
+        ("telemetry", telemetry),
+        ("contract", contract),
+        ("verifier", verifier),
+        ("psa82", psa82),
+        ("boundary_terms", boundary_terms),
+        ("stale", stale),
+    ]:
+        if record.get("status") != "PASS":
+            errors.append(f"Batch038 {record_name} record not PASS")
+    if len(identity.get("records", [])) < 5:
+        errors.append("Batch038 stable identity map incomplete")
+    blocker_ids = {item.get("blocker_id") for item in blockers.get("records", []) if isinstance(item, dict)}
+    for expected in {"patch_v2_apply_check_failed", "corrupt_patch_at_line_23", "provider_batch036_execution_failed"}:
+        if expected not in blocker_ids:
+            errors.append(f"Batch038 blocker lineage missing {expected}")
+    cofactor_names = {item.get("cofactor_name") for item in cofactors.get("cofactors", []) if isinstance(item, dict)}
+    for expected in {"pylint", "diff serialization / patch hygiene", "corrected candidate patch diff SHA256"}:
+        if expected not in cofactor_names:
+            errors.append(f"Batch038 cofactor registry missing {expected}")
+    not_run_entries = not_run.get("entries", [])
+    if not isinstance(not_run_entries, list) or len(not_run_entries) < 10:
+        errors.append("Batch038 NOT_RUN reason registry incomplete")
+    for item in not_run_entries:
+        if item.get("status") == "NOT_RUN" and not item.get("reason"):
+            errors.append(f"Batch038 NOT_RUN gate lacks reason: {item.get('gate_name')}")
+
+    if failed_branch.get("failure_classification") != "patch_serialization_failure_before_semantic_repair_validation":
+        errors.append("Batch038 failed branch did not classify serialization failure")
+    if failed_branch.get("branch_closed_without_count_increment") is not True:
+        errors.append("Batch038 failed branch not closed without count increment")
+    if analysis.get("invalid_placeholder_token_detected") is not True or analysis.get("invalid_placeholder_token_removed") is not True:
+        errors.append("Batch038 did not detect/remove invalid placeholder token")
+    if analysis.get("classification") != "patch_serialization_failure_before_semantic_repair_validation":
+        errors.append("Batch038 patch failure classification mismatch")
+    if policy.get("semantic_candidate_v3_generated") is not False or policy.get("forbidden_inputs_used") != []:
+        errors.append("Batch038 corrected patch policy used forbidden or v3 path")
+    if "<CTX_BLANK>" in patch_text:
+        errors.append("Batch038 corrected patch still contains invalid placeholder token")
+    if integrity.get("corrected_patch_sha256") != "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396":
+        errors.append("Batch038 corrected patch SHA mismatch")
+    if integrity.get("original_patch_sha256") != "9c1061f5c60878b7ace6a3c02f41ec2af162fd4de66192a34028ed720e864ec1":
+        errors.append("Batch038 original patch SHA mismatch")
+    if integrity.get("source_only") is not True or integrity.get("tests_modified") is not False or integrity.get("touched_files") != ["src/darker/git.py"]:
+        errors.append("Batch038 corrected patch scope metadata invalid")
+    if scope.get("status") == "PASS":
+        if scope.get("source_only") is not True or scope.get("tests_modified") is not False or scope.get("touched_files") != ["src/darker/git.py"]:
+            errors.append("Batch038 corrected patch scope audit invalid")
+    if application.get("patch_apply_attempted") is True and apply_check.get("status") != "PASS":
+        errors.append("Batch038 applied corrected patch without successful apply-check")
+    if post_repair.get("status") in {"PASS", "BLOCK"} and application.get("status") != "PASS":
+        errors.append("Batch038 ran post-repair replay before patch application PASS")
+    if duplicate.get("status") != "NOT_RUN" and post_repair.get("target_replay_fully_passed") is not True:
+        errors.append("Batch038 ran duplicate replay before target replay fully passed")
+
+    validated = state.get("issue_derived_repair_validated") is True
+    if validated:
+        if post_repair.get("target_replay_fully_passed") is not True or duplicate.get("duplicate_replay_passed") is not True:
+            errors.append("Batch038 validated repair without replay and duplicate replay")
+        if state.get("issue_derived_repair_episode_count") != 1:
+            errors.append("Batch038 validated repair without issue-derived count increment")
+    else:
+        if state.get("issue_derived_repair_episode_count") != 0 or claim.get("issue_derived_repair_episodes") != 0:
+            errors.append("Batch038 incremented issue-derived count without validation")
+        if validation.get("issue_derived_repair_episode_count_increment_candidate") is True or feasibility.get("issue_derived_repair_episode_count_increment_candidate") is True:
+            errors.append("Batch038 marked count increment candidate without validation")
+    if state.get("native_repair_episode_count") != 4 or claim.get("native_external_repair_episodes") != 4:
+        errors.append("Batch038 native repair count changed")
+    if state.get("full_scoring") != "NOT_RUN/disallowed" or state.get("memory_lift") != "not_demonstrated" or state.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("Batch038 state overclaims")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated" or claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("Batch038 claim boundary overclaims")
+    if state.get("current_protocol") != "v2.13" or claim.get("current_protocol") != "v2.13":
+        errors.append("Batch038 changed current protocol")
+    if psa82.get("psa82_used_as_repair_proof") is not False or psa82.get("psa82_replaces_target_replay") is not False or psa82.get("psa82_replaces_duplicate_replay") is not False:
+        errors.append("Batch038 PSA-82 boundary overclaimed")
+    if boundary_terms.get("design_mapping_language_used_as_repair_proof") is not False or boundary_terms.get("repo_proof_requires_empirical_replay_and_duplicate_replay") is not True:
+        errors.append("Batch038 design mapping boundary invalid")
+    if no_floating.get("selected_source_commit_pinned") != "a2d13656adfaa010fb6c7339087f3347ad2b815a":
+        errors.append("Batch038 selected source commit not pinned")
+    if no_floating.get("no_fixed_gold_later_pr_access") is not True:
+        errors.append("Batch038 no-floating audit permits forbidden evidence")
+    if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch038 proof ledger invalid")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch038 artifact minimality failed")
+    if budget.get("status") != "PASS":
+        errors.append("Batch038 artifact budget failed")
+    if language.get("status") != "PASS":
+        errors.append("Batch038 public language audit failed")
+    for path in list(BATCH038_DIR.glob("*.json")) + list(BATCH038_DIR.glob("*.md")) + list(BATCH038_DIR.glob("*.py")) + list(BATCH038_DIR.glob("*.diff")):
+        text = path.read_text(encoding="utf-8")
+        if any(marker in text for marker in ["1.45", "wiggle_room", "closure_tolerance", "residual_tolerance"]):
+            errors.append(f"Batch038 introduced forbidden tolerance marker in {path.name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -7666,6 +7885,8 @@ def main() -> int:
         return fail("batch036 manifest mismatch")
     if verify_manifest(BATCH037_DIR)["status"] != "PASS":
         return fail("batch037 manifest mismatch")
+    if verify_manifest(BATCH038_DIR)["status"] != "PASS":
+        return fail("batch038 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -7886,6 +8107,9 @@ def main() -> int:
     batch037_errors = audit_batch037_records()
     if batch037_errors:
         return fail(f"batch037 audit failed: {batch037_errors}")
+    batch038_errors = audit_batch038_records()
+    if batch038_errors:
+        return fail(f"batch038 audit failed: {batch038_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -7932,9 +8156,66 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH037_"):
-        return fail("final report did not advance to Batch037 provider execution substage boundary")
-    if final_report.get("exact_blocker") is not None and final_report.get("exact_blocker") not in {"docker_runtime_provider_unavailable", "python37_docker_provider_unavailable", "runtime_provider_python_version_mismatch", "manual_lock_environment_materialization_failed", "provider_harness_v9_execution_failed", "provider_harness_v10_execution_failed", "provider_batch035_execution_failed", "provider_batch036_execution_failed", "provider_batch037_execution_failed", "provider_source_checkout_failed", "provider_source_commit_mismatch", "provider_workspace_materialization_failed", "candidate_v2_patch_unavailable", "candidate_v2_patch_hash_mismatch", "patch_v2_apply_check_failed", "harness_v9_file_missing", "harness_v10_file_missing", "harness_v9_payload_integrity_failed", "batch028_artifact_custody_or_harness_integrity_missing", "issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context", "issue_seed_not_reproduced_by_current_harness", "issue_seed_not_reproduced_by_v10_harness", "safe_directory_normalization_failed", "issue_seed_retargeting_requires_separate_gated_v10_execution", "issue_derived_seed_retired_no_repair_feasibility", "harness_v10_execution_not_run", "harness_v10_execution_blocked", "pre_patch_target_failure_not_reproduced", "patch_application_failed", "patch_scope_invalid", "patch_v2_application_failed", "post_repair_target_not_resolved", "repair_v2_target_not_resolved", "target_failure_still_present_with_secondary_linter_precondition", "target_resolution_blocked_by_secondary_linter_precondition", "target_failure_still_present", "target_resolution_status_ambiguous", "duplicate_clean_replay_failed", "duplicate_patch_application_failed", "issue_derived_repair_not_validated", "batch034_v10_verification_not_preserved", "no_safe_source_only_patch_candidate", "no_safe_source_only_refinement_candidate", "provider_batch035_execution_not_run", "provider_batch036_execution_not_run", "provider_batch037_execution_not_run"}:
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH038_"):
+        return fail("final report did not advance to Batch038 patch serialization recovery boundary")
+    allowed_latest_blockers = {
+        "docker_runtime_provider_unavailable",
+        "python37_docker_provider_unavailable",
+        "runtime_provider_python_version_mismatch",
+        "manual_lock_environment_materialization_failed",
+        "provider_harness_v9_execution_failed",
+        "provider_harness_v10_execution_failed",
+        "provider_batch035_execution_failed",
+        "provider_batch036_execution_failed",
+        "provider_batch037_execution_failed",
+        "provider_batch038_execution_failed",
+        "provider_source_checkout_failed",
+        "provider_source_commit_mismatch",
+        "provider_workspace_materialization_failed",
+        "candidate_v2_patch_unavailable",
+        "candidate_v2_patch_hash_mismatch",
+        "patch_v2_apply_check_failed",
+        "patch_serialization_unrecoverable",
+        "corrected_patch_unavailable",
+        "corrected_patch_integrity_failed",
+        "corrected_patch_apply_check_failed",
+        "corrected_patch_application_failed",
+        "corrected_patch_scope_invalid",
+        "harness_v9_file_missing",
+        "harness_v10_file_missing",
+        "harness_v9_payload_integrity_failed",
+        "batch028_artifact_custody_or_harness_integrity_missing",
+        "issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context",
+        "issue_seed_not_reproduced_by_current_harness",
+        "issue_seed_not_reproduced_by_v10_harness",
+        "safe_directory_normalization_failed",
+        "issue_seed_retargeting_requires_separate_gated_v10_execution",
+        "issue_derived_seed_retired_no_repair_feasibility",
+        "harness_v10_execution_not_run",
+        "harness_v10_execution_blocked",
+        "pre_patch_target_failure_not_reproduced",
+        "patch_application_failed",
+        "patch_scope_invalid",
+        "patch_v2_application_failed",
+        "post_repair_target_not_resolved",
+        "repair_v2_target_not_resolved",
+        "repair_v2_serialization_corrected_but_target_not_resolved",
+        "target_failure_still_present_with_secondary_linter_precondition",
+        "target_resolution_blocked_by_secondary_linter_precondition",
+        "target_failure_still_present",
+        "target_resolution_status_ambiguous",
+        "duplicate_clean_replay_failed",
+        "duplicate_patch_application_failed",
+        "issue_derived_repair_not_validated",
+        "batch034_v10_verification_not_preserved",
+        "no_safe_source_only_patch_candidate",
+        "no_safe_source_only_refinement_candidate",
+        "provider_batch035_execution_not_run",
+        "provider_batch036_execution_not_run",
+        "provider_batch037_execution_not_run",
+        "provider_batch038_execution_not_run",
+    }
+    if final_report.get("exact_blocker") is not None and final_report.get("exact_blocker") not in allowed_latest_blockers:
         return fail("final report latest validation blocker mismatch")
     if final_report.get("batch017_target_intent_alignment") is not False:
         return fail("final report Batch017 target-intent boundary mismatch")
@@ -8267,8 +8548,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH037_"):
-        return fail("final report top-level status is not Batch037")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH038_"):
+        return fail("final report top-level status is not Batch038")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -8526,6 +8807,49 @@ def main() -> int:
         return fail("final report Batch037 ControllerAudit diagnostic status mismatch")
     if final_report.get("batch037_native_repair_episode_count") != 4:
         return fail("final report Batch037 native repair count changed")
+    if not str(final_report.get("clean_replication_batch_038_status", "")).startswith("PASS_WITH_BATCH038_"):
+        return fail("final report Batch038 status missing")
+    if final_report.get("batch038_primary_artifact_name") != "post_v2_37_hardening_batch038_reactome_patch_serialization_recovery_artifacts":
+        return fail("final report Batch038 artifact name mismatch")
+    if final_report.get("batch038_batch037_artifact_ingest_status") != "PASS" or final_report.get("batch038_batch037_artifact_verification_status") != "PASS":
+        return fail("final report Batch038 Batch037 artifact custody not PASS")
+    if final_report.get("batch038_batch037_status_preserved") != "PASS_WITH_BATCH037_PROVIDER_SUBSTAGE_BLOCKED":
+        return fail("final report Batch038 did not preserve Batch037 provider substage boundary")
+    if final_report.get("batch038_batch037_exact_blocker_preserved") != "patch_v2_apply_check_failed":
+        return fail("final report Batch038 did not preserve Batch037 patch blocker")
+    if final_report.get("batch038_governance_artifacts_generated") is not True:
+        return fail("final report Batch038 governance artifacts missing")
+    if final_report.get("batch038_patch_serialization_failure_classification") != "patch_serialization_failure_before_semantic_repair_validation":
+        return fail("final report Batch038 patch serialization classification mismatch")
+    if final_report.get("batch038_original_patch_sha256") != "9c1061f5c60878b7ace6a3c02f41ec2af162fd4de66192a34028ed720e864ec1":
+        return fail("final report Batch038 original patch SHA mismatch")
+    if final_report.get("batch038_corrected_patch_sha256") != "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396":
+        return fail("final report Batch038 corrected patch SHA mismatch")
+    if final_report.get("batch038_corrected_patch_application_status") == "PASS":
+        if final_report.get("batch038_corrected_patch_apply_check_status") != "PASS":
+            return fail("final report Batch038 applied patch without apply-check PASS")
+        if final_report.get("batch038_corrected_patch_scope_audit_status") != "PASS":
+            return fail("final report Batch038 corrected patch scope audit not PASS")
+    if final_report.get("batch038_issue_derived_repair_validated") is True:
+        if final_report.get("batch038_post_repair_target_failure_resolved") is not True:
+            return fail("final report Batch038 validated without target resolution")
+        if final_report.get("batch038_duplicate_clean_replay_passed") is not True:
+            return fail("final report Batch038 validated without duplicate replay")
+    else:
+        if final_report.get("batch038_issue_derived_repair_episode_count") != 0:
+            return fail("final report Batch038 incremented issue-derived count without validation")
+        if final_report.get("batch038_issue_derived_repair_episode_count_increment_candidate") is not False:
+            return fail("final report Batch038 marked issue-derived count increment candidate without validation")
+    if final_report.get("batch038_native_repair_episode_count") != 4:
+        return fail("final report Batch038 native repair count changed")
+    if final_report.get("batch038_matched_null_diagnostic_run_count") != 0:
+        return fail("final report Batch038 matched-null diagnostic ran unexpectedly")
+    if final_report.get("batch038_psa82_diagnostic_status") not in {"NOT_RUN_NO_PATCH_CANDIDATE", "NOT_RUN_DIAGNOSTIC_OPTIONAL"}:
+        return fail("final report Batch038 PSA-82 diagnostic status mismatch")
+    if final_report.get("batch038_structured_fragility_diagnostic_status") not in {"NOT_RUN_NO_PATCH_CANDIDATE", "NOT_RUN_DIAGNOSTIC_OPTIONAL"}:
+        return fail("final report Batch038 structured diagnostic status mismatch")
+    if final_report.get("batch038_controller_audit_closure_check_status") not in {"NOT_RUN_NO_PATCH_CANDIDATE", "NOT_RUN_DIAGNOSTIC_OPTIONAL"}:
+        return fail("final report Batch038 ControllerAudit diagnostic status mismatch")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":
