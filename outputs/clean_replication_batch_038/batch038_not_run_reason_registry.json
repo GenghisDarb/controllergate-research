@@ -12,17 +12,17 @@
       "acceptable_true_false": true,
       "gate_name": "corrected_patch_apply",
       "next_allowed_action": "preserve boundary or open separately scoped lane",
-      "prerequisite_missing": "provider apply-check",
+      "prerequisite_missing": null,
       "reason": "Corrected patch apply requires provider apply-check PASS.",
-      "status": "NOT_RUN"
+      "status": "PASS"
     },
     {
       "acceptable_true_false": true,
       "gate_name": "post_repair_target_replay_v2",
       "next_allowed_action": "preserve boundary or open separately scoped lane",
-      "prerequisite_missing": "corrected patch application PASS",
+      "prerequisite_missing": null,
       "reason": "Replay only runs after corrected patch applies.",
-      "status": "NOT_RUN"
+      "status": "PASS"
     },
     {
       "acceptable_true_false": true,

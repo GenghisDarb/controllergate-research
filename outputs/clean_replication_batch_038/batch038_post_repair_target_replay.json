@@ -1,7 +1,28 @@
 {
-  "blocker": "docker_runtime_provider_unavailable",
-  "classification": null,
-  "status": "NOT_RUN",
-  "target_failure_resolved": false,
-  "target_replay_fully_passed": false
+  "blocker": null,
+  "classification": "target_resolution_blocked_by_secondary_linter_precondition",
+  "command": "GIT_DIR=.git python -m darker --check src",
+  "label": "post_repair_corrected_v2",
+  "missing_pylint_treated_as_repair_success": false,
+  "missing_pylint_treated_as_target_issue": false,
+  "provider_cwd": "/provider/workspace/source/darker",
+  "returncode": 1,
+  "sanitized_stderr_excerpt": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.7/runpy.py\", line 193, in _run_module_as_main\n    \"__main__\", mod_spec)\n  File \"/usr/local/lib/python3.7/runpy.py\", line 85, in _run_code\n    exec(code, run_globals)\n  File \"/provider/workspace/source/darker/src/darker/__main__.py\", line 225, in <module>\n    RETVAL = main()\n  File \"/provider/workspace/source/darker/src/darker/__main__.py\", line 214, in main\n    paths, revrange, args.isort, args.lint, black_args\n  File \"/provider/workspace/source/darker/src/darker/__main__.py\", line 142, in format_edited_parts\n    run_linter(linter_cmdline, git_root, changed_files, revrange)\n  File \"/provider/workspace/source/darker/src/darker/linting.py\", line 82, in run_linter\n    encoding=\"utf-8\",\n  File \"/usr/local/lib/python3.7/subprocess.py\", line 800, in __init__\n    restore_signals, start_new_session)\n  File \"/usr/local/lib/python3.7/subprocess.py\", line 1567, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'pylint': 'pylint'\n",
+  "sanitized_stdout_excerpt": "",
+  "secondary_linter_precondition_terms_observed": [
+    "FileNotFoundError",
+    "No such file or directory",
+    "pylint"
+  ],
+  "source_root": "/provider/workspace/source/darker",
+  "status": "PASS",
+  "stderr_sha256": "0ccc589d0c337e1828578ecc6ef684ca908225ab1c3f33b837b1819776efb68b",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "target_failure_resolved": true,
+  "target_indicator_terms_observed": [],
+  "target_replay_fully_passed": false,
+  "wrapper_command": "python /provider/workspace/harness/issue_derived_ephemeral_harness_v10.py",
+  "wrapper_returncode": 0,
+  "wrapper_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "wrapper_stdout_sha256": "2e4c93f0ba37b192cc8b20d373a84fe6f971bdf818eb100e6d2188aea9d987d8"
 }

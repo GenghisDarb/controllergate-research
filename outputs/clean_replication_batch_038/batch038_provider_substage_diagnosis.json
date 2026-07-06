@@ -1,21 +1,61 @@
 {
-  "blocker": "docker_runtime_provider_unavailable",
+  "blocker": "target_resolution_blocked_by_secondary_linter_precondition",
   "dependency_environment_materialization": {
-    "status": "NOT_RUN"
+    "blocker": null,
+    "install_log_count": 2,
+    "install_logs": [
+      {
+        "blocker": null,
+        "command": "python -m pip install --disable-pip-version-check --no-input --no-deps pip==20.3.3",
+        "cwd": null,
+        "returncode": 0,
+        "sanitized_stderr_excerpt": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\n",
+        "sanitized_stdout_excerpt": "Collecting pip==20.3.3\n  Downloading pip-20.3.3-py2.py3-none-any.whl (1.5 MB)\n     \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 1.5/1.5 MB 31.8 MB/s eta 0:00:00\nInstalling collected packages: pip\n  Attempting uninstall: pip\n    Found existing installation: pip 23.0.1\n    Uninstalling pip-23.0.1:\n      Successfully uninstalled pip-23.0.1\nSuccessfully installed pip-20.3.3\n",
+        "status": "PASS",
+        "stderr_sha256": "dcc9222a436f58f9034575d59c4ed29b4b67185d929247d7b6bd57ade91bc928",
+        "stdout_sha256": "7f2e1a713b92009b29aec9dfe7b086481e39730f2fcb8489fe0e8e597de6e598"
+      },
+      {
+        "blocker": null,
+        "command": "python -m pip install --disable-pip-version-check --no-input --no-deps setuptools==51.1.1 wheel==0.36.2 black==20.8b1 toml==0.10.2 typing-extensions==3.7.4.3 click==7.1.2 appdirs==1.4.4 pathspec==0.8.1 regex==2020.11.13 typed-ast==1.4.2 mypy-extensions==0.4.3",
+        "cwd": null,
+        "returncode": 0,
+        "sanitized_stderr_excerpt": "",
+        "sanitized_stdout_excerpt": "Collecting appdirs==1.4.4\n  Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)\nCollecting black==20.8b1\n  Downloading black-20.8b1.tar.gz (1.1 MB)\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'done'\n    Preparing wheel metadata: started\n    Preparing wheel metadata: finished with status 'done'\nCollecting click==7.1.2\n  Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)\nCollecting mypy-extensions==0.4.3\n  Downloading mypy_extensions-0.4.3-py2.py3-none-any.whl (4.5 kB)\nCollecting pathspec==0.8.1\n  Downloading pathspec-0.8.1-py2.py3-none-any.whl (28 kB)\nCollecting regex==2020.11.13\n  Downloading regex-2020.11.13-cp37-cp37m-manylinux2014_x86_64.whl (719 kB)\nCollecting toml==0.10.2\n  Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)\nCollecting typed-ast==1.4.2\n  Downloading typed_ast-1.4.2-cp37-cp37m-manylinux1_x86_64.whl (743 kB)\nCollecting typing-extensions==3.7.4.3\n  Downloading typing_extensions-3.7.4.3-py3-none-any.whl (22 kB)\nCollecting wheel==0.36.2\n  Downloading wheel-0.36.2-py2.py3-none-any.whl (35 kB)\nCollecting setuptools==51.1.1\n  Downloading setuptools-51.1.1-py3-none-any.whl (2.0 MB)\nBuilding wheels for collected packages: black\n  Building wheel for black (PEP 517): started\n  Building wheel for black (PEP 517): finished with status 'done'\n  Created wheel for black: filename=black-20.8b1-py3-none-any.whl size=124171 sha256=827549739b628694f0535e53ed7b01906cf9d15802610c686b4ee57565c3d044\n  Stored in directory: /root/.cache/pip/wheels/c5/85/79/f3af8daaf8037c0bf14beb3b7a1511a39b6e6902ca2aaf494e\nSuccessfully built black\nInstalling collected packages: wheel, typing-extensions, typed-ast, toml, setuptools, regex, pathspec, mypy-extensions, click, black, appdirs\n  Attempting uninstall: wheel\n    Found existing installation: wheel 0.41.2\n    Uninstalling wheel-0.41.2:\n      Successfully uninstalled wheel-0.41.2\n  Attempting uninstall: setuptools\n    Found existing installation: setuptools 57.5.0\n    Uninstalling setuptools-57.5.0:\n      Successfully uninstalled setuptools-57.5.0\nSuccessfully installed appdirs-1.4.4 black-20.8b1 click-7.1.2 mypy-extensions-0.4.3 pathspec-0.8.1 regex-2020.11.13 setuptools-51.1.1 toml-0.10.2 typed-ast-1.4.2 typing-extensions-3.7.4.3 wheel-0.36.2\n",
+        "status": "PASS",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "0b7c776d781d7215ce61a0262a5c58a3100d20f6a2b108fb1e8bd202a1e3eb89"
+      }
+    ],
+    "pylint_installed_by_batch038": false,
+    "status": "PASS"
   },
-  "first_blocker": "docker_runtime_provider_unavailable",
+  "first_blocker": "target_resolution_blocked_by_secondary_linter_precondition",
   "provider_output": {
-    "blocker": "docker_runtime_provider_unavailable",
-    "returncode": null,
-    "status": "BLOCK"
+    "blocker": null,
+    "command": "docker run --rm -v <input>:ro -v <output> -v <workspace> python:3.7 python /provider/input/provider_run.py",
+    "returncode": 0,
+    "sanitized_stderr_excerpt": "ulling from library/python\n167b8a53ca45: Pulling fs layer\nb47a222d28fa: Pulling fs layer\ndebce5f9f3a9: Pulling fs layer\n1d7ca7cd2e06: Pulling fs layer\nff3119008f58: Pulling fs layer\nc2423a76a32b: Pulling fs layer\ne1c98ca4926a: Pulling fs layer\n3b62c8e1d79b: Pulling fs layer\nff3119008f58: Waiting\nc2423a76a32b: Waiting\ne1c98ca4926a: Waiting\n3b62c8e1d79b: Waiting\nb47a222d28fa: Verifying Checksum\nb47a222d28fa: Download complete\n167b8a53ca45: Download complete\ndebce5f9f3a9: Verifying Checksum\ndebce5f9f3a9: Download complete\nff3119008f58: Verifying Checksum\nff3119008f58: Download complete\nc2423a76a32b: Verifying Checksum\nc2423a76a32b: Download complete\ne1c98ca4926a: Verifying Checksum\ne1c98ca4926a: Download complete\n3b62c8e1d79b: Verifying Checksum\n3b62c8e1d79b: Download complete\n1d7ca7cd2e06: Verifying Checksum\n1d7ca7cd2e06: Download complete\n167b8a53ca45: Pull complete\nb47a222d28fa: Pull complete\ndebce5f9f3a9: Pull complete\n1d7ca7cd2e06: Pull complete\nff3119008f58: Pull complete\nc2423a76a32b: Pull complete\ne1c98ca4926a: Pull complete\n3b62c8e1d79b: Pull complete\nDigest: sha256:eedf63967cdb57d8214db38ce21f105003ed4e4d0358f02bedc057341bcf92a0\nStatus: Downloaded newer image for python:3.7\n",
+    "sanitized_stdout_excerpt": "",
+    "status": "PASS",
+    "stderr_sha256": "cad9664b84131b049efdb83b90aa9013d1a182c9f438fdf1e5c20b5657a72e43",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "provider_workspace": {
-    "blocker": "docker_runtime_provider_unavailable",
-    "status": "BLOCK"
+    "blocker": null,
+    "outside_live_repo": true,
+    "outside_onedrive": true,
+    "status": "PASS",
+    "workspace_path": "/tmp/controllergate-provider-batch024-8onjj2_d"
   },
   "source_checkout": {
-    "blocker": "docker_runtime_provider_unavailable",
-    "status": "BLOCK"
+    "blocker": null,
+    "git_object_type": "commit",
+    "head_matches_expected": true,
+    "head_sha": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+    "repo_url": "https://github.com/akaihola/darker",
+    "source_commit_sha": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+    "status": "PASS"
   },
   "status": "PASS",
   "substage_order": [
@@ -31,45 +71,114 @@
   ],
   "substage_records": {
     "corrected_patch_apply": {
-      "blocker": "docker_runtime_provider_unavailable",
-      "status": "NOT_RUN"
+      "blocker": null,
+      "command": "git -c safe.directory=/provider/workspace/source/darker apply /provider/input/batch038_corrected_source_only_patch_candidate.diff",
+      "cwd": "/provider/workspace/source/darker",
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "corrected_patch_apply_check": {
-      "blocker": "docker_runtime_provider_unavailable",
-      "status": "NOT_RUN"
+      "blocker": null,
+      "command": "git -c safe.directory=/provider/workspace/source/darker apply --check /provider/input/batch038_corrected_source_only_patch_candidate.diff",
+      "cwd": "/provider/workspace/source/darker",
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "corrected_patch_available": {
-      "blocker": "docker_runtime_provider_unavailable",
-      "status": "NOT_RUN"
+      "blocker": null,
+      "patch_path": "/provider/input/batch038_corrected_source_only_patch_candidate.diff",
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "corrected_patch_hash_verified": {
-      "blocker": "docker_runtime_provider_unavailable",
-      "status": "NOT_RUN"
+      "blocker": null,
+      "expected_patch_sha256": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "invalid_placeholder_token_present": false,
+      "patch_sha256": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "f210a76df18bd0453acd2da3c76a201b1579751312c1d3d2eb7da3d8883731be"
     },
     "duplicate_clean_replay": {
-      "blocker": "docker_runtime_provider_unavailable",
-      "status": "NOT_RUN"
-    },
-    "post_repair_target_replay": {
-      "blocker": "docker_runtime_provider_unavailable",
-      "status": "NOT_RUN"
-    },
-    "provider_available": {
-      "blocker": "docker_runtime_provider_unavailable",
+      "blocker": "target_resolution_blocked_by_secondary_linter_precondition",
+      "duplicate_replay_passed": false,
       "returncode": null,
-      "sanitized_stderr_excerpt": "docker_runtime_provider_unavailable",
+      "sanitized_stderr_excerpt": "",
       "sanitized_stdout_excerpt": "",
-      "status": "BLOCK",
+      "status": "NOT_RUN",
       "stderr_sha256": null,
       "stdout_sha256": null
     },
+    "post_repair_target_replay": {
+      "blocker": "target_resolution_blocked_by_secondary_linter_precondition",
+      "classification": "target_resolution_blocked_by_secondary_linter_precondition",
+      "command": "GIT_DIR=.git python -m darker --check src",
+      "cwd": "/provider/workspace/source/darker",
+      "returncode": 1,
+      "sanitized_stderr_excerpt": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.7/runpy.py\", line 193, in _run_module_as_main\n    \"__main__\", mod_spec)\n  File \"/usr/local/lib/python3.7/runpy.py\", line 85, in _run_code\n    exec(code, run_globals)\n  File \"/provider/workspace/source/darker/src/darker/__main__.py\", line 225, in <module>\n    RETVAL = main()\n  File \"/provider/workspace/source/darker/src/darker/__main__.py\", line 214, in main\n    paths, revrange, args.isort, args.lint, black_args\n  File \"/provider/workspace/source/darker/src/darker/__main__.py\", line 142, in format_edited_parts\n    run_linter(linter_cmdline, git_root, changed_files, revrange)\n  File \"/provider/workspace/source/darker/src/darker/linting.py\", line 82, in run_linter\n    encoding=\"utf-8\",\n  File \"/usr/local/lib/python3.7/subprocess.py\", line 800, in __init__\n    restore_signals, start_new_session)\n  File \"/usr/local/lib/python3.7/subprocess.py\", line 1567, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'pylint': 'pylint'\n",
+      "sanitized_stdout_excerpt": "",
+      "status": "PASS",
+      "stderr_sha256": "0ccc589d0c337e1828578ecc6ef684ca908225ab1c3f33b837b1819776efb68b",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target_failure_resolved": true
+    },
+    "provider_available": {
+      "blocker": null,
+      "git_version": "git version 2.39.2",
+      "python_version": "Python 3.7.17",
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "Python 3.7.17\n",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "9471468771533ad6d7295d93e95f74a05221e92448e8f9804d3e4e1dc39e4a55"
+    },
     "provider_workspace_materialized": {
-      "blocker": "docker_runtime_provider_unavailable",
-      "status": "NOT_RUN"
+      "blocker": null,
+      "dependency_lock_exists": true,
+      "dependency_lock_path": "/provider/input/dependency_lock.json",
+      "harness_exists": true,
+      "harness_path": "/provider/workspace/harness/issue_derived_ephemeral_harness_v10.py",
+      "patch_exists": true,
+      "patch_path": "/provider/input/batch038_corrected_source_only_patch_candidate.diff",
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "",
+      "source_exists": true,
+      "source_root": "/provider/workspace/source/darker",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "selected_source_head_verified": {
-      "blocker": "docker_runtime_provider_unavailable",
-      "status": "NOT_RUN"
+      "blocker": null,
+      "command": "git -c safe.directory=/provider/workspace/source/darker rev-parse HEAD",
+      "cwd": "/provider/workspace/source/darker",
+      "expected_source_commit_sha": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+      "git_object_type": "commit",
+      "head_matches_expected": true,
+      "observed_source_head_sha": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+      "returncode": 0,
+      "sanitized_stderr_excerpt": "",
+      "sanitized_stdout_excerpt": "a2d13656adfaa010fb6c7339087f3347ad2b815a\n",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a8b5a2f650a61c5b15540da234a61267215ae446bc1bcc69828fccf1dc2fe856"
     }
   }
 }

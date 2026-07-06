@@ -27,3 +27,11 @@ Batch036 adds post-repair failure decomposition and a single bounded source-only
 - Batch037 Provider Execution Substage Recovery: implemented for explicit candidate v2 patch/replay substages; no repair success claim is made by candidate generation alone.
 
 - Batch038 Governance Backfill and Patch Serialization Recovery: implemented as a bounded candidate v2 continuation with no full-scoring or memory-lift claim.
+
+## Batch039 secondary cofactor governance
+
+- Batch039 ingests the official Batch038 artifact and preserves the verified target-resolution progress.
+- The remaining blocker is classified as a declared but unpinned secondary cofactor, so provider materialization is blocked until a reviewed pinned lock exists.
+- Missing secondary tooling is not counted as the original target failure or as repair success.
+- Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

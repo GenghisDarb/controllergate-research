@@ -1,16 +1,16 @@
 {
   "records": [
     {
-      "active_or_retired": "active",
+      "active_or_retired": "retired",
       "blocker_id": "docker_runtime_provider_unavailable",
       "corrected_by_batch": "Batch037",
-      "current_validity": "active",
+      "current_validity": "retired_unless_reproduced",
       "evidence_file": "outputs/clean_replication_batch_038/batch038_provider_substage_diagnosis.json",
       "first_seen_batch": "Batch021",
       "last_seen_batch": "Batch037",
       "next_allowed_action": "preserve current blocker or open scoped continuation",
-      "reason_retired_if_retired": null,
-      "replacement_blocker": "docker_runtime_provider_unavailable"
+      "reason_retired_if_retired": "retired_unless_reproduced",
+      "replacement_blocker": null
     },
     {
       "active_or_retired": "retired",
@@ -121,16 +121,16 @@
       "replacement_blocker": null
     },
     {
-      "active_or_retired": "retired",
+      "active_or_retired": "active",
       "blocker_id": "missing_pylint_secondary_precondition",
       "corrected_by_batch": null,
-      "current_validity": "active_if_reproduced_after_target_resolution",
+      "current_validity": "active",
       "evidence_file": "outputs/clean_replication_batch_038/batch038_provider_substage_diagnosis.json",
       "first_seen_batch": "Batch036",
       "last_seen_batch": "Batch038",
       "next_allowed_action": "preserve current blocker or open scoped continuation",
-      "reason_retired_if_retired": "active_if_reproduced_after_target_resolution",
-      "replacement_blocker": null
+      "reason_retired_if_retired": null,
+      "replacement_blocker": "target_resolution_blocked_by_secondary_linter_precondition"
     }
   ],
   "status": "PASS"

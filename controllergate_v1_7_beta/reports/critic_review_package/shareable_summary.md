@@ -27,3 +27,11 @@ Batch036 preserves four native repair episodes and zero issue-derived repair epi
 Batch037 adds provider execution substage evidence for candidate v2 while preserving the claim boundary: native repairs remain 4, issue-derived repairs remain 0 unless replay and duplicate replay validate, full scoring remains disabled.
 
 Batch038 adds governance backfill and patch serialization recovery for the Darker issue #112 candidate v2 path while preserving conservative claim boundaries.
+
+## Batch039 secondary cofactor governance
+
+- Batch039 ingests the official Batch038 artifact and preserves the verified target-resolution progress.
+- The remaining blocker is classified as a declared but unpinned secondary cofactor, so provider materialization is blocked until a reviewed pinned lock exists.
+- Missing secondary tooling is not counted as the original target failure or as repair success.
+- Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

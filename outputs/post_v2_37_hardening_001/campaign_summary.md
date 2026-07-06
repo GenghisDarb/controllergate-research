@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH038_PROVIDER_SUBSTAGE_BLOCKED.
+Status: PASS_WITH_BATCH039_DECLARED_SECONDARY_COFACTOR_LOCK_REQUIRED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -138,6 +138,10 @@ Batch037 status: `PASS_WITH_BATCH037_PROVIDER_SUBSTAGE_BLOCKED`; exact blocker: 
 
 Batch038 preserves the official Batch037 substage block, records governance backfill, and repairs the candidate v2 patch serialization defect without claiming repair success from patch generation or apply-check alone.
 
-Batch038 status: `PASS_WITH_BATCH038_PROVIDER_SUBSTAGE_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
+Batch038 status: `PASS_WITH_BATCH038_TARGET_RESOLVED_SECONDARY_LINTER_PRECONDITION`; exact blocker: `target_resolution_blocked_by_secondary_linter_precondition`.
+
+Batch039 officially ingests the Batch038 target-resolution artifact and introduces a general secondary cofactor governance gate. It verifies the first concrete linter cofactor as declared but unpinned, so materialization remains blocked until a reviewed provider-only lock exists.
+
+Batch039 status: `PASS_WITH_BATCH039_DECLARED_SECONDARY_COFACTOR_LOCK_REQUIRED`; exact blocker: `declared_secondary_cofactor_unpinned_lock_required`.
 
 NotebookLM advice traceability status: `PASS`.

@@ -1,12 +1,18 @@
 {
-  "blocker": "docker_runtime_provider_unavailable",
+  "blocker": "target_resolution_blocked_by_secondary_linter_precondition",
   "duplicate_clean_replay_passed": false,
   "full_scoring": "NOT_RUN/disallowed",
   "issue_derived_repair_episode_count_increment_candidate": false,
   "issue_derived_repair_validated": false,
   "memory_lift": "not_demonstrated",
   "native_repair_episode_count_incremented": false,
+  "post_repair_target_passed": false,
+  "secondary_linter_precondition_terms_observed": [
+    "FileNotFoundError",
+    "No such file or directory",
+    "pylint"
+  ],
   "self_maintaining_software": "false/not_demonstrated",
   "status": "BLOCK",
-  "target_failure_resolved": false
+  "target_failure_resolved": true
 }

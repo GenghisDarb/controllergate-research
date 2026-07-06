@@ -1,0 +1,53 @@
+{
+  "cofactors": [
+    {
+      "cofactor_class": "executable_tool",
+      "cofactor_name": "pylint",
+      "first_observed_batch": "clean_replication_batch_036",
+      "lock_available": false,
+      "may_block_full_target_replay": true,
+      "may_count_as_repair_success": false,
+      "may_count_as_target_failure": false,
+      "next_allowed_action": "reviewed_pinned_provider_only_cofactor_lock_required_before_materialization",
+      "observed_after_target_resolution": true,
+      "pinned": false,
+      "provider_only_materialization_allowed": false,
+      "source_metadata_declares_it": true,
+      "source_metadata_location": [
+        "https://raw.githubusercontent.com/akaihola/darker/a2d13656adfaa010fb6c7339087f3347ad2b815a/setup.cfg",
+        "https://raw.githubusercontent.com/akaihola/darker/a2d13656adfaa010fb6c7339087f3347ad2b815a/pyproject.toml"
+      ],
+      "source_mutation_required": false,
+      "state": "declared_but_unpinned",
+      "test_mutation_required": false
+    }
+  ],
+  "known_supporting_cofactors": [
+    {
+      "cofactor_name": "git safe.directory",
+      "provider_only": true,
+      "state": "provider_materialized"
+    },
+    {
+      "cofactor_name": "GIT_DIR",
+      "role": "target stimulus",
+      "state": "observed"
+    },
+    {
+      "cofactor_name": "GIT_WORK_TREE",
+      "role": "patch runtime normalization",
+      "state": "provider_materialized"
+    },
+    {
+      "cofactor_name": "Python 3.7 provider",
+      "state": "provider_materialized"
+    },
+    {
+      "cofactor_name": "corrected patch bytes",
+      "sha256": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "state": "declared_and_locked"
+    }
+  ],
+  "model": "general_secondary_cofactor_governance",
+  "status": "PASS"
+}

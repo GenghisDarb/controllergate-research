@@ -93,3 +93,11 @@ Status: Batch036 ingests the Batch035 attempted-repair artifact, decomposes the 
 Batch037 records provider execution substages for the Darker issue #112 candidate v2 path. It preserves Batch036 as an attempted but unvalidated repair, keeps full scoring disabled, and does not claim repair success without target replay plus duplicate clean replay.
 
 Batch038 records governance backfill and candidate v2 patch serialization recovery. It keeps repair success gated on target replay plus duplicate clean replay.
+
+## Batch039 secondary cofactor governance
+
+- Batch039 ingests the official Batch038 artifact and preserves the verified target-resolution progress.
+- The remaining blocker is classified as a declared but unpinned secondary cofactor, so provider materialization is blocked until a reviewed pinned lock exists.
+- Missing secondary tooling is not counted as the original target failure or as repair success.
+- Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

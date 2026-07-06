@@ -27,3 +27,11 @@ Batch036 keeps source-only patch application inside the provider workspace and s
 Batch037 explicitly materializes provider input, output, and workspace directories before Docker execution, preserving source commit and patch hash gates before application.
 
 Batch038 reuses the provider workspace bridge for corrected patch apply-check, apply, target replay, and duplicate replay gates.
+
+## Batch039 secondary cofactor governance
+
+- Batch039 ingests the official Batch038 artifact and preserves the verified target-resolution progress.
+- The remaining blocker is classified as a declared but unpinned secondary cofactor, so provider materialization is blocked until a reviewed pinned lock exists.
+- Missing secondary tooling is not counted as the original target failure or as repair success.
+- Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

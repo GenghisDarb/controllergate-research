@@ -2,15 +2,15 @@
   "credential_scan_pass": true,
   "records": [
     {
-      "command_argv_sanitized": null,
+      "command_argv_sanitized": "docker run --rm -v <input>:ro -v <output> -v <workspace> python:3.7 python /provider/input/provider_run.py",
       "credential_scan_pass": true,
       "cwd": null,
       "env_sanitized": true,
-      "sanitized_stderr_excerpt": "",
+      "sanitized_stderr_excerpt": "ulling from library/python\n167b8a53ca45: Pulling fs layer\nb47a222d28fa: Pulling fs layer\ndebce5f9f3a9: Pulling fs layer\n1d7ca7cd2e06: Pulling fs layer\nff3119008f58: Pulling fs layer\nc2423a76a32b: Pulling fs layer\ne1c98ca4926a: Pulling fs layer\n3b62c8e1d79b: Pulling fs layer\nff3119008f58: Waiting\nc2423a76a32b: Waiting\ne1c98ca4926a: Waiting\n3b62c8e1d79b: Waiting\nb47a222d28fa: Verifying Checksum\nb47a222d28fa: Download complete\n167b8a53ca45: Download complete\ndebce5f9f3a9: Verifying Checksum\ndebce5f9f3a9: Download complete\nff3119008f58: Verifying Checksum\nff3119008f58: Download complete\nc2423a76a32b: Verifying Checksum\nc2423a76a32b: Download complete\ne1c98ca4926a: Verifying Checksum\ne1c98ca4926a: Download complete\n3b62c8e1d79b: Verifying Checksum\n3b62c8e1d79b: Download complete\n1d7ca7cd2e06: Verifying Checksum\n1d7ca7cd2e06: Download complete\n167b8a53ca45: Pull complete\nb47a222d28fa: Pull complete\ndebce5f9f3a9: Pull complete\n1d7ca7cd2e06: Pull complete\nff3119008f58: Pull complete\nc2423a76a32b: Pull complete\ne1c98ca4926a: Pull complete\n3b62c8e1d79b: Pull complete\nDigest: sha256:eedf63967cdb57d8214db38ce21f105003ed4e4d0358f02bedc057341bcf92a0\nStatus: Downloaded newer image for python:3.7\n",
       "sanitized_stdout_excerpt": "",
       "secret_scan_pass": true,
-      "stderr_sha256": null,
-      "stdout_sha256": null,
+      "stderr_sha256": "cad9664b84131b049efdb83b90aa9013d1a182c9f438fdf1e5c20b5657a72e43",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "token_scan_pass": true
     }
   ],

@@ -1,0 +1,69 @@
+{
+  "entries": [
+    {
+      "acceptable": true,
+      "gate_name": "batch039_declared_linter_materialization_result",
+      "next_allowed_action": "satisfy prerequisite before activation",
+      "prerequisite_missing": "declared_secondary_cofactor_unpinned_lock_required",
+      "reason": "declared cofactor unpinned and no reviewed lock exists",
+      "status": "BLOCK"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "batch039_post_repair_target_replay_under_cofactor_governance",
+      "next_allowed_action": "satisfy prerequisite before activation",
+      "prerequisite_missing": "declared_secondary_cofactor_unpinned_lock_required",
+      "reason": "provider-only cofactor materialization not authorized",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "batch039_duplicate_clean_replay_under_cofactor_governance",
+      "next_allowed_action": "satisfy prerequisite before activation",
+      "prerequisite_missing": "post_repair_target_replay_fully_passed",
+      "reason": "post-repair target replay did not fully pass under governance",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "batch039_issue_derived_repair_validation",
+      "next_allowed_action": "satisfy prerequisite before activation",
+      "prerequisite_missing": "declared_secondary_cofactor_unpinned_lock_required",
+      "reason": "target replay and duplicate replay did not pass",
+      "status": "BLOCK"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "issue_derived_repair_count_increment",
+      "next_allowed_action": "satisfy prerequisite before activation",
+      "prerequisite_missing": "target_replay_and_duplicate_replay_pass",
+      "reason": "repair validation gates not satisfied",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "full_scoring",
+      "next_allowed_action": "satisfy prerequisite before activation",
+      "prerequisite_missing": "explicit_full_scoring_authorization",
+      "reason": "full scoring remains disallowed",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "memory_lift",
+      "next_allowed_action": "satisfy prerequisite before activation",
+      "prerequisite_missing": "prospective_matched_null_protocol",
+      "reason": "matched-null memory lift not in scope",
+      "status": "NOT_RUN"
+    },
+    {
+      "acceptable": true,
+      "gate_name": "self_maintaining_software_claim",
+      "next_allowed_action": "satisfy prerequisite before activation",
+      "prerequisite_missing": "separate_validation_lane",
+      "reason": "autonomous repeatable acquisition and repair not demonstrated",
+      "status": "NOT_RUN"
+    }
+  ],
+  "status": "PASS"
+}

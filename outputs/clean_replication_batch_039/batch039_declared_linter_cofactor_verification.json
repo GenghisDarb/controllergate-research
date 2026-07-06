@@ -1,0 +1,60 @@
+{
+  "candidate_id": "darker_issue_112_relative_git_dir",
+  "cofactor_name": "pylint",
+  "existing_provider_dependency_lock": {
+    "candidate_id": "darker_issue_112_relative_git_dir",
+    "package_count": 12,
+    "package_names": [
+      "pip",
+      "setuptools",
+      "wheel",
+      "black",
+      "toml",
+      "typing-extensions",
+      "click",
+      "appdirs",
+      "pathspec",
+      "regex",
+      "typed-ast",
+      "mypy-extensions"
+    ],
+    "path": "external_seeds_pending/dependency_locks/darker_issue112_dependency_lock.json",
+    "pylint_present": false,
+    "sha256": "108d961f89b603d3c6a7bcb374976992c3fadc80497bf967421cdea38aff248a",
+    "source_commit_sha": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+    "status": "PASS"
+  },
+  "existing_provider_dependency_lock_includes_pylint": false,
+  "materialization_would_require_dynamic_dependency_resolution": true,
+  "materializing_pylint_could_expose_further_secondary_cofactors": true,
+  "may_count_as_repair_success": false,
+  "may_count_as_target_failure": false,
+  "next_allowed_action": "provide_or_generate_reviewed_pinned_provider_only_cofactor_lock",
+  "pin_basis": "selected source metadata declares pylint as an extra/tool command but does not pin a version",
+  "pinned": false,
+  "pinned_hashable_provider_safe_materialization_exists": false,
+  "provider_only_materialization_without_source_or_test_mutation_possible_after_lock": true,
+  "pyproject_toml": {
+    "declares_darker_lint_pylint": true,
+    "evidence_lines": [
+      "[tool.darker]",
+      "lint = [",
+      "    \"pylint\","
+    ],
+    "location": "https://raw.githubusercontent.com/akaihola/darker/a2d13656adfaa010fb6c7339087f3347ad2b815a/pyproject.toml",
+    "sha256": "1ebb788654f3ceaf29b325c8cd7cac40bd57cfc7d16be92989ddd598fd261cd3"
+  },
+  "selected_source_commit": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+  "selected_source_repo": "https://github.com/akaihola/darker",
+  "setup_cfg": {
+    "declares_pylint_under_options_extras_require_test": true,
+    "evidence_lines": [
+      "[options.extras_require]",
+      "test =",
+      "    pylint"
+    ],
+    "location": "https://raw.githubusercontent.com/akaihola/darker/a2d13656adfaa010fb6c7339087f3347ad2b815a/setup.cfg",
+    "sha256": "111d30a3db347c1dba0f80ae25b58c34abf181885084d55892fb8e46c9618afa"
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,41 @@
+{
+  "entries": [
+    {
+      "entry_id": "batch038_official_ingest",
+      "evidence": {
+        "artifact_id": 8117490206,
+        "artifact_name": "post_v2_37_hardening_batch038_reactome_patch_serialization_recovery_artifacts",
+        "artifact_sha256": "64adc2ffa04bc97231c65177eb91bdf70a8fa198f68ff2528c334da7ef551b75",
+        "artifact_size_bytes": 179553,
+        "workflow_head_sha": "337f9460d2c83408909b03ae3dfa57a32aedf9dc",
+        "workflow_run_id": 28812461319,
+        "zip_entry_count": 184
+      },
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch039_general_secondary_cofactor_governance",
+      "evidence_hash": "67f2e9a39daa0905fe075f10e82108de0cf21e1acc76df6b6ef8e3d63a9b8d45",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch039_declared_linter_verification",
+      "evidence_hash": "209602e2d87c786a2ba91ec0e2450733d8f1b6aa75720ea2d935a5fa6e40b3ca",
+      "status": "PASS"
+    },
+    {
+      "blocker": "declared_secondary_cofactor_unpinned_lock_required",
+      "entry_id": "batch039_materialization_block",
+      "next_allowed_action": "reviewed_pinned_provider_only_cofactor_lock",
+      "status": "ROLLBACK_BLOCK"
+    }
+  ],
+  "hash_chain": [
+    "99a3ee8e987a6f22c77d374d3a67d9a87a7491547b12b3b71c883d3c1bb1b041",
+    "818771d787b8be80d585ccbeb6a2e916718078fccbb6a7db710fe6580958d4b1",
+    "8510b3e4a6d746c6bbf12edff5c56680664fa6f372eaebff7d58b738ef538778",
+    "cf961da9fc708c8f41cb96f76edf1445bc207360c802598f8d9e348f438aa87d"
+  ],
+  "hash_chain_valid": true,
+  "status": "PASS"
+}

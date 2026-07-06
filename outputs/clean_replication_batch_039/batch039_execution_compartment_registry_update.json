@@ -1,0 +1,24 @@
+{
+  "compartments": [
+    {
+      "artifact_zip_allowed": false,
+      "name": "live_repo",
+      "source_mutation_allowed": false
+    },
+    {
+      "name": "official_output_ingest",
+      "output_roots_only": true,
+      "raw_zip_bytes_ingested": false
+    },
+    {
+      "name": "provider_repair_workspace",
+      "provider_only_cofactor_materialization": "allowed_only_after_reviewed_lock",
+      "source_commit": "a2d13656adfaa010fb6c7339087f3347ad2b815a"
+    },
+    {
+      "activation_condition": "post_repair_target_replay_fully_passed",
+      "name": "duplicate_clean_replay_workspace"
+    }
+  ],
+  "status": "PASS"
+}

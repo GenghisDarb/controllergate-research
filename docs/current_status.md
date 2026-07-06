@@ -29,3 +29,11 @@ Batch036 status: post-repair failure decomposition and source-only refinement fo
 Batch037 status: provider execution substage recovery is recorded for candidate v2. Issue-derived repair episodes remain 0 unless empirical replay and duplicate replay validate in a later official boundary.
 
 Batch038 status: patch serialization recovery is recorded for candidate v2. Repair counts remain unchanged unless empirical replay and duplicate replay validate.
+
+## Batch039 secondary cofactor governance
+
+- Batch039 ingests the official Batch038 artifact and preserves the verified target-resolution progress.
+- The remaining blocker is classified as a declared but unpinned secondary cofactor, so provider materialization is blocked until a reviewed pinned lock exists.
+- Missing secondary tooling is not counted as the original target failure or as repair success.
+- Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

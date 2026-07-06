@@ -1,0 +1,20 @@
+{
+  "blocker": "declared_secondary_cofactor_unpinned_lock_required",
+  "classification": "declared_cofactor_unpinned_lock_required",
+  "cofactor_materialization_authorized": false,
+  "command": "GIT_DIR=.git python -m darker --check src",
+  "corrected_patch_verified": true,
+  "cwd": "/provider/workspace/source/darker",
+  "original_git_target_indicators_observed": [],
+  "sanitized_telemetry_available_from_batch038": true,
+  "secondary_cofactor_indicators_observed": [
+    "FileNotFoundError",
+    "No such file or directory",
+    "pylint"
+  ],
+  "status": "NOT_RUN",
+  "stderr_sha256": null,
+  "stdout_sha256": null,
+  "target_failure_resolved_in_batch038": true,
+  "target_replay_fully_passed": false
+}

@@ -1,0 +1,31 @@
+{
+  "records": [
+    {
+      "active_or_retired": "retired",
+      "blocker_id": "patch_v2_apply_check_failed",
+      "corrected_by_batch": "clean_replication_batch_038",
+      "current_validity": "corrected"
+    },
+    {
+      "active_or_retired": "retired",
+      "blocker_id": "corrupt_patch_at_line_23",
+      "corrected_by_batch": "clean_replication_batch_038",
+      "current_validity": "corrected"
+    },
+    {
+      "active_or_retired": "active",
+      "blocker_id": "target_resolution_blocked_by_secondary_linter_precondition",
+      "current_validity": "active_unless_declared_cofactor_lock_materializes_and_replay_passes",
+      "first_seen_batch": "clean_replication_batch_038",
+      "replacement_blocker": "declared_secondary_cofactor_unpinned_lock_required"
+    },
+    {
+      "active_or_retired": "active",
+      "blocker_id": "declared_secondary_cofactor_unpinned_lock_required",
+      "current_validity": "active",
+      "first_seen_batch": "clean_replication_batch_039",
+      "next_allowed_action": "reviewed_pinned_provider_only_cofactor_lock"
+    }
+  ],
+  "status": "PASS"
+}
