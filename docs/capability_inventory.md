@@ -21,3 +21,5 @@ Batch033 adds issue-derived seed retargeting analysis and v10 design policy whil
 Batch034 adds gated v10 issue-stimulus harness execution while preserving native and issue-derived claim boundaries.
 
 Batch035 adds a bounded source-only repair attempt after verified issue-derived pre-repair replay.
+
+Batch036 adds post-repair failure decomposition and a single bounded source-only refinement candidate.

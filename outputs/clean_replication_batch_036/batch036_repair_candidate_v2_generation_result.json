@@ -1,0 +1,19 @@
+{
+  "blocker": null,
+  "candidate_v2_generated": true,
+  "evidence_basis": [
+    "Batch035 post-repair target replay retained Git fatal before the secondary linter precondition",
+    "Selected source commit contains two direct Git check_output call sites but Batch035 patched only one"
+  ],
+  "forbidden_evidence_used": false,
+  "patch_non_empty": true,
+  "patch_path": "outputs/clean_replication_batch_036/batch036_source_only_patch_candidate_v2.diff",
+  "patch_sha256": "9c1061f5c60878b7ace6a3c02f41ec2af162fd4de66192a34028ed720e864ec1",
+  "rationale": "Normalize relative GIT_DIR once and propagate the normalized environment to both git_get_content_at_revision and _git_check_output_lines.",
+  "source_only": true,
+  "status": "PASS",
+  "tests_modified": false,
+  "touched_files": [
+    "src/darker/git.py"
+  ]
+}

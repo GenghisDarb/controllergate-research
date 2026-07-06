@@ -87,3 +87,5 @@ Status: Batch033 ingests Batch032 and records an issue-derived retargeting decis
 Status: Batch034 ingests Batch033 and materializes an executable v10 issue-stimulus harness. The lane stops before repair or patch generation.
 
 Status: Batch035 ingests the verified Batch034 v10 failure and runs a gated source-only repair attempt without changing current protocol claims.
+
+Status: Batch036 ingests the Batch035 attempted-repair artifact, decomposes the unresolved target replay, and runs a gated source-only refinement when the provider is available.

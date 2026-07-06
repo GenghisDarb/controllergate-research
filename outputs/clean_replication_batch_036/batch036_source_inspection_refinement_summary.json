@@ -1,0 +1,33 @@
+{
+  "batch035_failure_cause_findings": {
+    "cwd_source_root_relationship_was_misidentified": false,
+    "env_normalization_was_applied_too_late": false,
+    "env_was_not_propagated_to_all_relevant_git_subprocesses": true,
+    "linter_path_introduced_separate_declared_dependency_precondition": true,
+    "no_safe_localized_source_only_refinement_is_evident": false
+  },
+  "batch035_patch_touched_files": [
+    "src/darker/git.py"
+  ],
+  "candidate_v2_authorized": true,
+  "candidate_v2_rationale": "Centralize relative GIT_DIR normalization and apply it to both Git subprocess call sites reached by changed-line detection.",
+  "fixed_revision_inspected": false,
+  "forbidden_evidence_used": false,
+  "future_pr_or_later_commit_inspected": false,
+  "gold_patch_inspected": false,
+  "inspection_inputs": [
+    "selected source commit a2d13656adfaa010fb6c7339087f3347ad2b815a",
+    "outputs/clean_replication_batch_035/batch035_post_repair_target_replay.json",
+    "outputs/clean_replication_batch_035/batch035_source_only_patch_candidate.diff"
+  ],
+  "relevant_call_sites_inspected": [
+    "src/darker/git.py::git_get_content_at_revision",
+    "src/darker/git.py::_git_check_output_lines",
+    "src/darker/git.py::git_get_modified_files",
+    "src/darker/git.py::EditedLinenumsDiffer",
+    "src/darker/linting.py::run_linter",
+    "src/darker/__main__.py::format_edited_parts"
+  ],
+  "safe_localized_source_only_refinement_evident": true,
+  "status": "PASS"
+}

@@ -21,3 +21,5 @@ Batch033 preserves the gap: repair feasibility remains false until a separately 
 Batch034 preserves the remaining gap: no repair episode is added until a separate gated repair phase validates a patch.
 
 Batch035 keeps full scoring, memory lift, and self-maintaining claims disabled while recording issue-derived repair validation evidence.
+
+Batch036 preserves the repair-validation gap unless target replay and duplicate clean replay both pass; missing linter tooling remains a separate precondition.

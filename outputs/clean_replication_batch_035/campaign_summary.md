@@ -1,14 +1,14 @@
 # Clean replication Batch035 gated source-only repair
 
-Status: PASS_WITH_BATCH035_PROVIDER_EXECUTION_BLOCKED.
+Status: PASS_WITH_BATCH035_REPAIR_NOT_VALIDATED.
 
-Exact blocker: `docker_runtime_provider_unavailable`.
+Exact blocker: `post_repair_target_not_resolved`.
 
 Repair authorization gate: `PASS`.
 
-Patch application: `BLOCK`.
+Patch application: `PASS`.
 
-Post-repair target replay: `BLOCK`.
+Post-repair target replay: `PASS`.
 
 Duplicate clean replay: `NOT_RUN`.
 

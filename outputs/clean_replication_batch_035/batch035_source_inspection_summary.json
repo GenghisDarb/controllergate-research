@@ -8,6 +8,21 @@
   ],
   "localized_failure_mechanism": "relative GIT_DIR was set at process entry but Git subprocesses run with a narrower cwd",
   "observed_failure": "fatal: not a git repository: '.git'",
+  "provider_source_inspection": {
+    "blocker": null,
+    "inspected_files": [
+      {
+        "path": "src/darker/git.py",
+        "sha256": "b967a40e7380e77a586f77cbb7ca775f373f5103c43dd39b0ac66bb5496b80cd"
+      }
+    ],
+    "inspected_symbols": [
+      "_git_check_output_lines"
+    ],
+    "localized_candidate_source_file": "src/darker/git.py",
+    "rationale": "The issue stimulus sets a relative GIT_DIR at process start; the selected source later runs Git subprocesses from a narrower cwd, so the relative Git directory must be resolved for Git subprocesses without changing tests or provider context.",
+    "status": "PASS"
+  },
   "selected_source_commit": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
   "source_context_file_count": 1,
   "status": "PASS",

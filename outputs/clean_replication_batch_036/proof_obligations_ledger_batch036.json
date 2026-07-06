@@ -1,0 +1,50 @@
+{
+  "diagnostics_replaced_empirical_gates": false,
+  "entries": [
+    {
+      "entry_type": "BATCH035_ARTIFACT_INGEST_VERIFIED",
+      "evidence_hash": "2a317c851c180b417d62a36301a1d852841a0eab9e4e3f1fdc34bb14da44eb60"
+    },
+    {
+      "entry_type": "BATCH035_REPAIR_ATTEMPT_PRESERVED",
+      "evidence_hash": "f8ef15e6173ee07fca2b9a1d1ab0f8ee1776272bef02a8823288fc8f77acce0a"
+    },
+    {
+      "entry_type": "BATCH036_FAILURE_DECOMPOSITION_RECORDED",
+      "evidence_hash": "d644d13c43406dfa623fe64833e946161ab1c6648aa26976107e07a4cf63bb80"
+    },
+    {
+      "entry_type": "BATCH036_SOURCE_INSPECTION_RECORDED",
+      "evidence_hash": "fe6dfe4220018c9792398c2b05f7bfce6d8b653aab97f111b7f30486ce37c410"
+    },
+    {
+      "entry_type": "BATCH036_CANDIDATE_V2_RECORDED",
+      "evidence_hash": "1f928ca323cdf752937acf9177f53a816355bc92b8a41c62ba10928f938c4389"
+    },
+    {
+      "entry_type": "BATCH036_PATCH_V2_APPLICATION_RECORDED",
+      "evidence_hash": "b156783dadc6dbefd573ac03110343edc6c82ab10c8c0dfc4d6395b99ff686cb"
+    },
+    {
+      "entry_type": "BATCH036_POST_REPAIR_REPLAY_V2_RECORDED",
+      "evidence_hash": "f76e1dcd7d70873cda880e36ef2c5d94b6df8b74142123f4e0772d08f5764ae6"
+    },
+    {
+      "entry_type": "BATCH036_DUPLICATE_REPLAY_V2_RECORDED",
+      "evidence_hash": "9fed3bf633aff4d848748816c700f70918854747988b2fb2a0aacd5033cdaa7c"
+    },
+    {
+      "attempted_action_hash": "eef86b07f85bfa61d7a714e6f73ec64c374c886284cc0be441c67d7144bc6b72",
+      "blocker": "docker_runtime_provider_unavailable",
+      "entry_type": "ROLLBACK_BLOCK",
+      "next_allowed_action": "do_not_increment_issue_derived_repair_count_without_validation",
+      "previous_state_hash": "e74400bad9e998d0b7363ec68a5eef17e4854f597bf8f40375024261d06ef854",
+      "rollback_hash": "b46ec8f1b4641f02a3fca3515e764e47c8d19b7d64bd0fd3e9a16829e7061b6b",
+      "rollback_target_entry_index": 0
+    }
+  ],
+  "hash_chain_valid": true,
+  "issue_derived_count_increment_without_validation": false,
+  "repair_success_claim_from_candidate_generation_alone": false,
+  "status": "PASS"
+}

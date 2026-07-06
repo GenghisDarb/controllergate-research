@@ -21,3 +21,5 @@ Batch033 keeps four native repair episodes and zero issue-derived repair episode
 Batch034 keeps four native repair episodes and zero issue-derived repair episodes; v10 execution evidence is pre-repair only.
 
 Batch035 is a gated issue-derived source-only repair attempt; native repair episode count remains separately tracked at four.
+
+Batch036 preserves four native repair episodes and zero issue-derived repair episodes unless the gated v2 repair passes both target and duplicate replay.

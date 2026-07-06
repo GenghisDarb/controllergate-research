@@ -1,5 +1,26 @@
 {
-  "blocker": "docker_runtime_provider_unavailable",
-  "status": "BLOCK",
-  "target_failure_resolved": false
+  "blocker": null,
+  "command": "GIT_DIR=.git python -m darker --check src",
+  "environment_precondition_error_terms_observed": [],
+  "label": "post_repair",
+  "provider_cwd": "/provider/workspace/source/darker",
+  "relative_git_dir_general_provider_context_used": false,
+  "relative_git_dir_issue_stimulus_used": true,
+  "returncode": 1,
+  "sanitized_stderr_excerpt": "fatal: not a git repository: '.git'\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.7/runpy.py\", line 193, in _run_module_as_main\n    \"__main__\", mod_spec)\n  File \"/usr/local/lib/python3.7/runpy.py\", line 85, in _run_code\n    exec(code, run_globals)\n  File \"/provider/workspace/source/darker/src/darker/__main__.py\", line 225, in <module>\n    RETVAL = main()\n  File \"/provider/workspace/source/darker/src/darker/__main__.py\", line 214, in main\n    paths, revrange, args.isort, args.lint, black_args\n  File \"/provider/workspace/source/darker/src/darker/__main__.py\", line 142, in format_edited_parts\n    run_linter(linter_cmdline, git_root, changed_files, revrange)\n  File \"/provider/workspace/source/darker/src/darker/linting.py\", line 82, in run_linter\n    encoding=\"utf-8\",\n  File \"/usr/local/lib/python3.7/subprocess.py\", line 800, in __init__\n    restore_signals, start_new_session)\n  File \"/usr/local/lib/python3.7/subprocess.py\", line 1567, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'pylint': 'pylint'\n",
+  "sanitized_stdout_excerpt": "",
+  "source_root": "/provider/workspace/source/darker",
+  "status": "PASS",
+  "stderr_sha256": "7cc95c937ce3d5a881273e2e4c2c33d30ed7a4d7365d9f388a2d25a80036cbfd",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "target_aligned_failure_observed": true,
+  "target_failure_resolved": false,
+  "target_indicator_terms_observed": [
+    "Not a git repository",
+    "not a git repository"
+  ],
+  "wrapper_command": "python /provider/workspace/harness/issue_derived_ephemeral_harness_v10.py",
+  "wrapper_returncode": 0,
+  "wrapper_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "wrapper_stdout_sha256": "006ae3e92d9581934a2809b0f6e3dad06a4f167b6ab4a94d138fccb522c96afd"
 }

@@ -1,0 +1,31 @@
+{
+  "batch035_post_repair_returncode": 1,
+  "classification": "target_failure_still_present_with_secondary_linter_precondition",
+  "git_fatal_appears_before_python_traceback": true,
+  "git_fatal_occurs_before_linter_file_not_found": true,
+  "git_fatal_source_classification": "git_subprocess_stderr_embedded_in_python_stderr",
+  "linter_path_reached_after_partial_progress": true,
+  "missing_pylint_treated_as_repair_success": false,
+  "missing_pylint_treated_as_target_issue": false,
+  "post_repair_stderr_sha256": "7cc95c937ce3d5a881273e2e4c2c33d30ed7a4d7365d9f388a2d25a80036cbfd",
+  "post_repair_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "secondary_linter_precondition_terms_observed": [
+    "FileNotFoundError",
+    "No such file or directory",
+    "pylint"
+  ],
+  "source_record": "outputs/clean_replication_batch_035/batch035_post_repair_target_replay.json",
+  "status": "PASS",
+  "target_indicator_terms_observed": [
+    "Not a git repository",
+    "not a git repository"
+  ],
+  "target_indicators_remain": true,
+  "term_positions": {
+    "FileNotFoundError": 1048,
+    "No such file or directory": 1077,
+    "Not a git repository": 7,
+    "not a git repository": 7,
+    "pylint": 1105
+  }
+}

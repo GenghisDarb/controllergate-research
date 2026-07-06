@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH035_PROVIDER_EXECUTION_BLOCKED.
+Status: PASS_WITH_BATCH036_PROVIDER_EXECUTION_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -126,6 +126,10 @@ Batch034 status: `PASS_WITH_BATCH034_HARNESS_V10_VERIFIED_REPAIR_NOT_RUN`; exact
 
 Batch035 officially ingests the verified Batch034 v10 harness-execution artifact, authorizes one bounded source-only repair candidate, and validates it only through post-repair target replay plus duplicate clean replay when the provider is available. Full scoring, memory-lift, and self-maintaining claims remain disabled.
 
-Batch035 status: `PASS_WITH_BATCH035_PROVIDER_EXECUTION_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
+Batch035 status: `PASS_WITH_BATCH035_REPAIR_NOT_VALIDATED`; exact blocker: `post_repair_target_not_resolved`.
+
+Batch036 officially ingests the Batch035 attempted-repair artifact, decomposes the unresolved post-repair replay, and records a single gated source-only refinement candidate. Full scoring, memory-lift, and self-maintaining claims remain disabled.
+
+Batch036 status: `PASS_WITH_BATCH036_PROVIDER_EXECUTION_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
 
 NotebookLM advice traceability status: `PASS`.

@@ -21,3 +21,5 @@ Batch033 uses Batch032 provider telemetry to separate safe.directory normalizati
 Batch034 keeps standard provider context separate from the relative-GIT_DIR issue stimulus and records that distinction in provider command context evidence.
 
 Batch035 applies any repair candidate only inside the provider workspace and preserves the standard provider context versus issue-stimulus distinction.
+
+Batch036 keeps source-only patch application inside the provider workspace and separates target Git indicators from secondary linter preconditions.
