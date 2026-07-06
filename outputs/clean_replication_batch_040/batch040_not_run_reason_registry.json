@@ -3,36 +3,36 @@
     {
       "acceptable": true,
       "gate_name": "provider_only_cofactor_materialization",
-      "prerequisite_missing": "provider_batch040_execution_failed",
-      "reason": "provider_batch040_execution_failed",
+      "prerequisite_missing": "pinned_cofactor_lock_unavailable",
+      "reason": "pinned_cofactor_lock_unavailable",
       "status": "BLOCK"
     },
     {
       "acceptable": true,
       "gate_name": "pylint_executable_verification",
-      "prerequisite_missing": "provider_batch040_execution_failed",
-      "reason": "provider_batch040_execution_failed",
+      "prerequisite_missing": "pinned_cofactor_lock_unavailable",
+      "reason": "pinned_cofactor_lock_unavailable",
       "status": "NOT_RUN"
     },
     {
       "acceptable": true,
       "gate_name": "post_repair_target_replay_with_reviewed_cofactor_lock",
-      "prerequisite_missing": "provider_batch040_execution_failed",
-      "reason": "provider_batch040_execution_failed",
+      "prerequisite_missing": "pinned_cofactor_lock_unavailable",
+      "reason": "pinned_cofactor_lock_unavailable",
       "status": "NOT_RUN"
     },
     {
       "acceptable": true,
       "gate_name": "duplicate_clean_replay_with_reviewed_cofactor_lock",
-      "prerequisite_missing": "provider_only_materialization_not_passed",
-      "reason": "provider_only_materialization_not_passed",
+      "prerequisite_missing": "cofactor_lock_unavailable",
+      "reason": "cofactor_lock_unavailable",
       "status": "NOT_RUN"
     },
     {
       "acceptable": true,
       "gate_name": "issue_derived_repair_validation",
-      "prerequisite_missing": "provider_only_materialization_not_passed",
-      "reason": "provider_only_materialization_not_passed",
+      "prerequisite_missing": "cofactor_lock_unavailable",
+      "reason": "cofactor_lock_unavailable",
       "status": "BLOCK"
     },
     {

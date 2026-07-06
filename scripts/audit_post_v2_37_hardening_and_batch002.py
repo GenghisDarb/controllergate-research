@@ -51,7 +51,8 @@ BATCH037_DIR = Path("outputs/clean_replication_batch_037")
 BATCH038_DIR = Path("outputs/clean_replication_batch_038")
 BATCH039_DIR = Path("outputs/clean_replication_batch_039")
 BATCH040_DIR = Path("outputs/clean_replication_batch_040")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch040_reviewed_cofactor_lock")
+BATCH041_DIR = Path("outputs/clean_replication_batch_041")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch041_lock_completion_identity_integrity")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -1728,6 +1729,49 @@ BATCH040_REQUIRED = [
     "consolidated_state_clean_replication_batch_040.json",
     "campaign_summary.md",
     "public_language_audit_batch040.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH041_GOVERNANCE_CONTINUITY_FILE = "batch041_reactome_" + "chromo" + "somal_governance_continuity_audit.json"
+
+BATCH041_REQUIRED = [
+    "batch040_artifact_ingest_summary.json",
+    "batch040_artifact_verification.json",
+    "batch040_artifact_internal_status_preservation.json",
+    "batch040_local_vs_artifact_blocker_reconciliation.json",
+    "batch040_target_resolution_preservation.json",
+    "batch040_secondary_cofactor_governance_preservation.json",
+    BATCH041_GOVERNANCE_CONTINUITY_FILE,
+    "batch041_stable_identity_integrity_audit.json",
+    "batch041_stable_identity_map_update.json",
+    "batch041_proof_ledger_referrer_audit.json",
+    "batch041_cofactor_lock_provenance_audit.json",
+    "batch041_dependency_drift_audit.json",
+    "batch041_secondary_cofactor_chain_budget.json",
+    "batch041_replay_classification_matrix.json",
+    "batch041_included_excluded_diagnostics_registry.json",
+    "batch041_validation_activation_audit.json",
+    "batch041_transport_export_equivalence_audit.json",
+    "batch041_evidence_origin_classification.json",
+    "batch041_lock_completion_policy.json",
+    "batch041_pylint_lock_completion_result.json",
+    "batch041_pylint_provider_lock_v2.json",
+    "batch041_pylint_lock_v2_review.json",
+    "batch041_provider_only_cofactor_materialization_result.json",
+    "batch041_pylint_executable_verification.json",
+    "batch041_corrected_patch_preservation.json",
+    "batch041_post_repair_target_replay_with_lock_v2.json",
+    "batch041_duplicate_clean_replay_with_lock_v2.json",
+    "batch041_issue_derived_repair_validation.json",
+    "issue_derived_repair_feasibility_batch041.json",
+    "claim_boundary_batch041.json",
+    "proof_obligations_ledger_batch041.json",
+    "consolidated_state_clean_replication_batch_041.json",
+    "campaign_summary.md",
+    "public_language_audit_batch041.json",
+    "batch041_not_run_reason_registry.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -7870,6 +7914,267 @@ def audit_batch040_records() -> list[str]:
     return errors
 
 
+def audit_batch041_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH041_REQUIRED:
+        if not (BATCH041_DIR / name).is_file():
+            errors.append(f"batch041 missing required file {name}")
+    if errors:
+        return errors
+    manifest_status = verify_manifest(BATCH041_DIR).get("status")
+    if manifest_status != "PASS":
+        errors.append("batch041 manifest mismatch")
+
+    state = read_json(BATCH041_DIR / "consolidated_state_clean_replication_batch_041.json")
+    ingest = read_json(BATCH041_DIR / "batch040_artifact_ingest_summary.json")
+    verification = read_json(BATCH041_DIR / "batch040_artifact_verification.json")
+    internal = read_json(BATCH041_DIR / "batch040_artifact_internal_status_preservation.json")
+    reconciliation = read_json(BATCH041_DIR / "batch040_local_vs_artifact_blocker_reconciliation.json")
+    target_preservation = read_json(BATCH041_DIR / "batch040_target_resolution_preservation.json")
+    cofactor_preservation = read_json(BATCH041_DIR / "batch040_secondary_cofactor_governance_preservation.json")
+    continuity = read_json(BATCH041_DIR / BATCH041_GOVERNANCE_CONTINUITY_FILE)
+    stable = read_json(BATCH041_DIR / "batch041_stable_identity_integrity_audit.json")
+    identity_update = read_json(BATCH041_DIR / "batch041_stable_identity_map_update.json")
+    proof = read_json(BATCH041_DIR / "batch041_proof_ledger_referrer_audit.json")
+    provenance = read_json(BATCH041_DIR / "batch041_cofactor_lock_provenance_audit.json")
+    drift = read_json(BATCH041_DIR / "batch041_dependency_drift_audit.json")
+    chain_budget = read_json(BATCH041_DIR / "batch041_secondary_cofactor_chain_budget.json")
+    replay_matrix = read_json(BATCH041_DIR / "batch041_replay_classification_matrix.json")
+    diagnostics = read_json(BATCH041_DIR / "batch041_included_excluded_diagnostics_registry.json")
+    validation_activation = read_json(BATCH041_DIR / "batch041_validation_activation_audit.json")
+    transport = read_json(BATCH041_DIR / "batch041_transport_export_equivalence_audit.json")
+    origin = read_json(BATCH041_DIR / "batch041_evidence_origin_classification.json")
+    lock_policy = read_json(BATCH041_DIR / "batch041_lock_completion_policy.json")
+    completion = read_json(BATCH041_DIR / "batch041_pylint_lock_completion_result.json")
+    lock_v2 = read_json(BATCH041_DIR / "batch041_pylint_provider_lock_v2.json")
+    review = read_json(BATCH041_DIR / "batch041_pylint_lock_v2_review.json")
+    materialization = read_json(BATCH041_DIR / "batch041_provider_only_cofactor_materialization_result.json")
+    pylint_executable = read_json(BATCH041_DIR / "batch041_pylint_executable_verification.json")
+    patch = read_json(BATCH041_DIR / "batch041_corrected_patch_preservation.json")
+    post_repair = read_json(BATCH041_DIR / "batch041_post_repair_target_replay_with_lock_v2.json")
+    duplicate = read_json(BATCH041_DIR / "batch041_duplicate_clean_replay_with_lock_v2.json")
+    validation = read_json(BATCH041_DIR / "batch041_issue_derived_repair_validation.json")
+    feasibility = read_json(BATCH041_DIR / "issue_derived_repair_feasibility_batch041.json")
+    claim = read_json(BATCH041_DIR / "claim_boundary_batch041.json")
+    ledger = read_json(BATCH041_DIR / "proof_obligations_ledger_batch041.json")
+    not_run = read_json(BATCH041_DIR / "batch041_not_run_reason_registry.json")
+    minimality = read_json(BATCH041_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH041_DIR / "artifact_payload_budget.json")
+    language = read_json(BATCH041_DIR / "public_language_audit_batch041.json")
+
+    allowed_statuses = {
+        "PASS_WITH_BATCH041_PINNED_COFACTOR_LOCK_STILL_UNAVAILABLE",
+        "PASS_WITH_BATCH041_PROVIDER_MATERIALIZATION_BLOCKED",
+        "PASS_WITH_BATCH041_LOCK_V2_REPLAY_NOT_VALIDATED",
+        "PASS_WITH_BATCH041_DUPLICATE_REPLAY_NOT_VALIDATED",
+        "PASS_WITH_BATCH041_ISSUE_DERIVED_REPAIR_VALIDATED",
+    }
+    if state.get("status") not in allowed_statuses:
+        errors.append("Batch041 status is not an allowed lock-completion boundary")
+    expected_artifact = {
+        "artifact_name": "post_v2_37_hardening_batch040_reviewed_cofactor_lock_artifacts",
+        "artifact_id": 8121640518,
+        "workflow_run_id": 28823410425,
+        "workflow_head_sha": "4ad4aa0ec129d658a31657f09fb2429ea99bbbd6",
+        "artifact_sha256": "57da142928769bf9bd1795a8a83f752dce742df85b329ee4126b5e6a86b86a50",
+        "artifact_size_bytes": 176224,
+        "zip_entry_count": 185,
+    }
+    for key, value in expected_artifact.items():
+        if ingest.get(key) != value or verification.get(key) != value:
+            errors.append(f"Batch041 Batch040 artifact identity mismatch for {key}")
+    if ingest.get("raw_zip_bytes_ingested") is not False or ingest.get("zip_or_tar_committed") is not False:
+        errors.append("Batch041 ingested raw Batch040 artifact bytes")
+    if verification.get("status") != "PASS":
+        errors.append("Batch041 Batch040 artifact verification did not pass")
+    artifact_manifest = verification.get("artifact_level_manifest", {})
+    batch040_manifest = verification.get("batch040_output_manifest", {})
+    post_manifest = verification.get("post_output_manifest", {})
+    if (
+        artifact_manifest.get("failure_count") != 0
+        or batch040_manifest.get("failure_count") != 0
+        or post_manifest.get("failure_count") != 0
+        or verification.get("unsafe_path_count") != 0
+        or verification.get("duplicate_path_count") != 0
+    ):
+        errors.append("Batch041 Batch040 artifact verification facts invalid")
+    if artifact_manifest.get("checked") != 184 or batch040_manifest.get("checked") != 40 or post_manifest.get("checked") != 142:
+        errors.append("Batch041 Batch040 manifest check counts invalid")
+    if internal.get("status") != "PASS" or internal.get("artifact_internal_status") != "PASS_WITH_BATCH040_PINNED_COFACTOR_LOCK_UNAVAILABLE":
+        errors.append("Batch041 did not preserve official Batch040 status")
+    if internal.get("artifact_internal_exact_blocker") != "pinned_cofactor_lock_unavailable":
+        errors.append("Batch041 did not preserve official Batch040 blocker")
+    if internal.get("repo_side_pre_ingest_status") != "PASS_WITH_BATCH040_REVIEWED_LOCK_MATERIALIZATION_BLOCKED":
+        errors.append("Batch041 did not record repo-side pre-ingest Batch040 status")
+    if reconciliation.get("status") != "PASS" or reconciliation.get("post_ingest_active_batch040_blocker") != "pinned_cofactor_lock_unavailable":
+        errors.append("Batch041 did not supersede local/provider Batch040 blocker with official blocker")
+    if target_preservation.get("status") != "PASS" or target_preservation.get("batch038_original_git_target_failure_preserved_resolved") is not True:
+        errors.append("Batch041 did not preserve Batch038 target-resolution boundary")
+    if cofactor_preservation.get("status") != "PASS" or cofactor_preservation.get("batch039_secondary_cofactor_governance_preserved") is not True:
+        errors.append("Batch041 did not preserve Batch039 cofactor governance")
+    if continuity.get("status") != "PASS" or continuity.get("design_mapping_language_is_not_repair_proof") is not True:
+        errors.append("Batch041 governance continuity overclaimed")
+
+    if stable.get("status") != "PASS" or not all(
+        stable.get(key) is True
+        for key in [
+            "no_duplicate_repair_attempt_id",
+            "no_duplicate_active_blocker_ids",
+            "each_active_blocker_has_one_next_allowed_action",
+            "each_patch_candidate_has_one_parent_attempt",
+            "each_replay_result_points_to_one_patch_sha",
+            "each_cofactor_lock_points_to_one_selected_source_commit",
+            "retired_blockers_cannot_be_active",
+            "current_identity_primary_older_lineage_only",
+            "failed_branches_have_rollback_targets",
+            "no_active_branch_ambiguous_parentage",
+            "no_unmarked_identity_merge",
+        ]
+    ):
+        errors.append("Batch041 stable identity integrity audit failed")
+    if identity_update.get("current_identity") != "batch041_lock_v2":
+        errors.append("Batch041 stable identity map did not mark lock-v2 as current")
+    if proof.get("status") != "PASS" or proof.get("hash_chain_valid") is not True:
+        errors.append("Batch041 proof-ledger referrer audit failed")
+    if not any(item.get("entry_id") == "ROLLBACK_BLOCK" for item in ledger.get("entries", [])):
+        errors.append("Batch041 proof obligations ledger missing rollback boundary")
+    if ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch041 proof obligations hash chain invalid")
+
+    packages = lock_v2.get("packages", [])
+    package_names = {item.get("name") for item in packages}
+    if lock_v2.get("status") != "PASS" or lock_v2.get("lock_id") != "batch041_pylint_provider_only_lock_v2":
+        errors.append("Batch041 lock-v2 record invalid")
+    if "colorama" in package_names:
+        errors.append("Batch041 lock-v2 retained provider-excluded colorama")
+    if len(packages) != 8:
+        errors.append("Batch041 lock-v2 package count invalid")
+    if any(not item.get("name") or not item.get("version") or not item.get("sha256") for item in packages):
+        errors.append("Batch041 lock-v2 package missing exact version/hash")
+    platform_change = lock_v2.get("platform_conditioned_change", {})
+    if platform_change.get("colorama_silently_removed") is not False or platform_change.get("colorama_required_on_selected_linux_provider") is not False:
+        errors.append("Batch041 colorama platform-conditioned rationale invalid")
+    if review.get("status") == "PASS":
+        if review.get("reviewed") is not True or review.get("provider_safe") is not True or review.get("materialization_authorized") is not True:
+            errors.append("Batch041 lock-v2 PASS without reviewed/provider-safe/materialization authorization")
+        if completion.get("missing_expected_files") or completion.get("extra_unreviewed_files") or completion.get("hash_mismatches"):
+            errors.append("Batch041 reviewed lock-v2 has missing/extra/hash-mismatch entries")
+        if completion.get("resolver_output_reproducible") is not True:
+            errors.append("Batch041 reviewed lock-v2 is not reproducible")
+        if review.get("all_packages_exact_version_pinned") is not True or review.get("all_packages_have_hashes") is not True:
+            errors.append("Batch041 reviewed lock-v2 lacks exact pins or hashes")
+    else:
+        if state.get("status") != "PASS_WITH_BATCH041_PINNED_COFACTOR_LOCK_STILL_UNAVAILABLE":
+            errors.append("Batch041 lock-v2 review blocked without unavailable boundary")
+    if provenance.get("lock_mutates_source") is not False or provenance.get("lock_mutates_tests") is not False:
+        errors.append("Batch041 cofactor provenance allows source/test mutation")
+    if provenance.get("fixed_gold_future_later_evidence_used") is not False:
+        errors.append("Batch041 cofactor provenance used forbidden evidence")
+    if provenance.get("lock_review_status") != review.get("status"):
+        errors.append("Batch041 cofactor provenance review status mismatch")
+
+    if materialization.get("source_mutated") is not False or materialization.get("tests_mutated") is not False:
+        errors.append("Batch041 provider materialization mutated source/tests")
+    if review.get("status") != "PASS" and materialization.get("status") == "PASS":
+        errors.append("Batch041 materialized provider lock before reviewed lock-v2")
+    if materialization.get("status") == "PASS" and pylint_executable.get("status") != "PASS":
+        errors.append("Batch041 provider materialization passed without pylint executable verification")
+    if drift.get("status") == "BLOCK" and post_repair.get("status") != "NOT_RUN":
+        errors.append("Batch041 replay ran despite dependency drift block")
+    if materialization.get("status") != "PASS" and drift.get("status") != "NOT_RUN":
+        errors.append("Batch041 dependency drift ran without materialization")
+    if drift.get("core_dependencies_unchanged") is False and drift.get("status") != "BLOCK":
+        errors.append("Batch041 dependency drift did not block changed core dependencies")
+    if chain_budget.get("status") != "PASS" or chain_budget.get("one_off_silent_fix_used") is not False:
+        errors.append("Batch041 secondary cofactor chain budget invalid")
+    if int(chain_budget.get("max_new_secondary_cofactors_per_batch", 0)) > 1 or int(chain_budget.get("max_chain_depth", 0)) > 3:
+        errors.append("Batch041 cofactor chain budget exceeds conservative defaults")
+    if replay_matrix.get("status") != "PASS" or replay_matrix.get("classification") not in {
+        "target_defect_regressed",
+        "target_defect_resolved_but_secondary_cofactor_missing",
+        "target_defect_resolved_but_linter_reports_findings",
+        "target_defect_resolved_full_command_failed_other_secondary",
+        "target_defect_resolved_full_command_passed",
+        "duplicate_replay_passed",
+        "duplicate_replay_failed",
+        "lock_unavailable_no_replay",
+        "dependency_drift_blocks_replay",
+        "cofactor_chain_exhausted",
+    }:
+        errors.append("Batch041 replay classification invalid")
+    if diagnostics.get("status") != "PASS" or "full scoring" not in diagnostics.get("excluded", []):
+        errors.append("Batch041 diagnostics registry invalid")
+    if validation_activation.get("status") != "PASS" or validation_activation.get("validation_present_only_as_prose") is not False:
+        errors.append("Batch041 validation activation audit invalid")
+    if not validation_activation.get("not_run_validators_have_explicit_blockers", False):
+        errors.append("Batch041 NOT_RUN validators lack explicit blockers")
+    if transport.get("status") != "PASS":
+        errors.append("Batch041 transport/export equivalence did not pass")
+    if (
+        transport.get("corrected_patch_sha_in_repo") != transport.get("corrected_patch_sha_in_provider_input")
+        or transport.get("provider_source_head_matches_selected") is not True
+    ):
+        errors.append("Batch041 transport equivalence failed patch/source checks")
+    allowed_origins = {
+        "manual_artifact_ingest",
+        "uploaded_artifact_verification",
+        "repo_committed_summary",
+        "AI_generated_patch_candidate",
+        "provider_execution_telemetry",
+        "diagnostic_output",
+        "audit_result",
+        "claim_boundary",
+        "proof_ledger_entry",
+        "dependency_resolution_output",
+        "cofactor_lock_record",
+    }
+    if origin.get("status") != "PASS" or any(item.get("classification") not in allowed_origins for item in origin.get("items", [])):
+        errors.append("Batch041 evidence origin classification invalid")
+    if origin.get("diagnostic_outputs_do_not_masquerade_as_repair_proof") is not True:
+        errors.append("Batch041 evidence origin permits diagnostic-as-proof")
+    if lock_policy.get("status") != "PASS" or lock_policy.get("review_required_before_materialization") is not True:
+        errors.append("Batch041 lock completion policy invalid")
+    if patch.get("status") != "PASS" or patch.get("corrected_patch_sha256") != "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396":
+        errors.append("Batch041 corrected patch preservation invalid")
+    if patch.get("selected_source_head") != "a2d13656adfaa010fb6c7339087f3347ad2b815a" or patch.get("source_only") is not True or patch.get("tests_modified") is not False:
+        errors.append("Batch041 corrected patch boundary invalid")
+    if post_repair.get("status") != "NOT_RUN" and not (review.get("status") == "PASS" and materialization.get("status") == "PASS" and drift.get("status") == "PASS" and transport.get("status") == "PASS"):
+        errors.append("Batch041 post-repair replay ran before all activation gates passed")
+    if duplicate.get("status") != "NOT_RUN" and post_repair.get("target_replay_fully_passed") is not True:
+        errors.append("Batch041 duplicate replay ran before post-repair target replay fully passed")
+    if validation.get("issue_derived_repair_validated") is True and (post_repair.get("target_replay_fully_passed") is not True or duplicate.get("duplicate_replay_passed") is not True):
+        errors.append("Batch041 issue-derived repair validated without target+duplicate replay")
+    if feasibility.get("issue_derived_repair_feasibility") is True and validation.get("issue_derived_repair_validated") is not True:
+        errors.append("Batch041 feasibility true without validation")
+    if state.get("native_repair_episode_count") != 4 or claim.get("native_external_repair_episodes") != 4:
+        errors.append("Batch041 changed native repair count")
+    if state.get("issue_derived_repair_episode_count") != 0 or claim.get("issue_derived_repair_episodes") != 0:
+        errors.append("Batch041 incremented issue-derived repair count without policy activation")
+    if state.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("full_scoring") != "NOT_RUN/disallowed":
+        errors.append("Batch041 full scoring boundary changed")
+    if state.get("memory_lift") != "not_demonstrated" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch041 memory lift overclaimed")
+    if state.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("self_maintaining_software") != "false/not_demonstrated":
+        errors.append("Batch041 self-maintaining software overclaimed")
+    if state.get("current_protocol") != "v2.13" or claim.get("current_protocol") != "v2.13":
+        errors.append("Batch041 changed current protocol")
+    for item in not_run.get("entries", []):
+        if item.get("status") == "NOT_RUN" and not item.get("reason"):
+            errors.append(f"Batch041 NOT_RUN gate lacks reason: {item.get('gate_name')}")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch041 artifact minimality failed")
+    if budget.get("status") != "PASS":
+        errors.append("Batch041 artifact budget failed")
+    if language.get("status") != "PASS":
+        errors.append("Batch041 public language audit failed")
+    forbidden_markers = ["1.45", "25.7", "wiggle_room", "closure_tolerance", "residual_tolerance"]
+    for path in list(BATCH041_DIR.glob("*.json")) + list(BATCH041_DIR.glob("*.md")) + list(BATCH041_DIR.glob("*.py")) + list(BATCH041_DIR.glob("*.diff")):
+        text = path.read_text(encoding="utf-8")
+        if any(marker in text for marker in forbidden_markers):
+            errors.append(f"Batch041 introduced forbidden tolerance marker in {path.name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -7994,6 +8299,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_011.json"),
         Path("configs/clean_replication_batch_012.json"),
         Path("configs/clean_replication_batch_013.json"),
+        Path("configs/clean_replication_batch_041.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
         Path("configs/clean_replication_batch_016.json"),
@@ -8116,6 +8422,8 @@ def public_language_hits() -> list[str]:
     paths.extend(sorted(BATCH037_DIR.glob("*.md")))
     paths.extend(sorted(BATCH037_DIR.glob("*.py")))
     paths.extend(sorted(BATCH037_DIR.glob("*.diff")))
+    paths.extend(sorted(BATCH041_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH041_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -8307,6 +8615,7 @@ def main() -> int:
         + require_files(BATCH035_DIR, BATCH035_REQUIRED)
         + require_files(BATCH036_DIR, BATCH036_REQUIRED)
         + require_files(BATCH037_DIR, BATCH037_REQUIRED)
+        + require_files(BATCH041_DIR, BATCH041_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -8384,6 +8693,8 @@ def main() -> int:
         return fail("batch039 manifest mismatch")
     if verify_manifest(BATCH040_DIR)["status"] != "PASS":
         return fail("batch040 manifest mismatch")
+    if verify_manifest(BATCH041_DIR)["status"] != "PASS":
+        return fail("batch041 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -8613,6 +8924,9 @@ def main() -> int:
     batch040_errors = audit_batch040_records()
     if batch040_errors:
         return fail(f"batch040 audit failed: {batch040_errors}")
+    batch041_errors = audit_batch041_records()
+    if batch041_errors:
+        return fail(f"batch041 audit failed: {batch041_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -8659,8 +8973,8 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH040_"):
-        return fail("final report did not advance to Batch040 reviewed cofactor lock boundary")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH041_"):
+        return fail("final report did not advance to Batch041 lock-completion boundary")
     allowed_latest_blockers = {
         "docker_runtime_provider_unavailable",
         "python37_docker_provider_unavailable",
@@ -8709,6 +9023,18 @@ def main() -> int:
         "pinned_cofactor_lock_unavailable",
         "provider_batch040_execution_failed",
         "provider_batch040_execution_not_run",
+        "provider_batch041_execution_failed",
+        "provider_batch041_execution_not_run",
+        "lock_v2_materialization_not_passed",
+        "lock_unavailable_no_replay",
+        "dependency_drift_blocks_replay",
+        "transport_equivalence_failed",
+        "target_defect_regressed",
+        "target_defect_resolved_but_secondary_cofactor_missing",
+        "target_defect_resolved_but_linter_reports_findings",
+        "target_defect_resolved_full_command_failed_other_secondary",
+        "duplicate_replay_failed",
+        "cofactor_chain_exhausted",
         "reviewed_cofactor_lock_materialization_failed",
         "pylint_executable_verification_failed",
         "provider_only_materialization_not_passed",
@@ -9062,8 +9388,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH040_"):
-        return fail("final report top-level status is not Batch040")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH041_"):
+        return fail("final report top-level status is not Batch041")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -9437,6 +9763,55 @@ def main() -> int:
             return fail("final report Batch040 marked count increment candidate without validation")
     if final_report.get("batch040_native_repair_episode_count") != 4 or final_report.get("batch040_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch040 repair counts changed")
+    if not str(final_report.get("clean_replication_batch_041_status", "")).startswith("PASS_WITH_BATCH041_"):
+        return fail("final report Batch041 status missing")
+    if final_report.get("batch041_primary_artifact_name") != "post_v2_37_hardening_batch041_lock_completion_identity_integrity_artifacts":
+        return fail("final report Batch041 artifact name mismatch")
+    if final_report.get("batch041_batch040_artifact_ingest_status") != "PASS" or final_report.get("batch041_batch040_artifact_verification_status") != "PASS":
+        return fail("final report Batch041 Batch040 artifact custody not PASS")
+    if final_report.get("batch041_artifact_internal_status") != "PASS_WITH_BATCH040_PINNED_COFACTOR_LOCK_UNAVAILABLE":
+        return fail("final report Batch041 did not preserve artifact-internal Batch040 status")
+    if final_report.get("batch041_artifact_internal_blocker") != "pinned_cofactor_lock_unavailable":
+        return fail("final report Batch041 did not preserve artifact-internal Batch040 blocker")
+    if final_report.get("batch041_active_batch040_blocker_after_ingest") != "pinned_cofactor_lock_unavailable":
+        return fail("final report Batch041 active Batch040 blocker mismatch")
+    for key in [
+        "batch041_stable_identity_integrity_status",
+        "batch041_proof_ledger_referrer_audit_status",
+        "batch041_secondary_cofactor_chain_budget_status",
+        "batch041_replay_classification_status",
+        "batch041_diagnostics_registry_status",
+        "batch041_validation_activation_status",
+        "batch041_transport_export_equivalence_status",
+        "batch041_evidence_origin_classification_status",
+    ]:
+        if final_report.get(key) != "PASS":
+            return fail(f"final report Batch041 {key} not PASS")
+    if final_report.get("batch041_lock_completion_status") not in {"PASS", "BLOCK"}:
+        return fail("final report Batch041 lock-completion status invalid")
+    if final_report.get("batch041_lock_v2_review_status") not in {"PASS", "BLOCK"}:
+        return fail("final report Batch041 lock-v2 review status invalid")
+    if final_report.get("batch041_lock_v2_review_status") == "PASS" and final_report.get("batch041_lock_v2_provider_safe") is not True:
+        return fail("final report Batch041 reviewed lock-v2 not provider-safe")
+    if final_report.get("batch041_cofactor_lock_provenance_status") not in {"PASS", "BLOCK"}:
+        return fail("final report Batch041 cofactor provenance status invalid")
+    if final_report.get("batch041_dependency_drift_audit_status") not in {"PASS", "NOT_RUN", "BLOCK"}:
+        return fail("final report Batch041 dependency drift status invalid")
+    if final_report.get("batch041_provider_only_materialization_status") == "PASS":
+        if final_report.get("batch041_pylint_executable_verification_status") != "PASS":
+            return fail("final report Batch041 materialization passed without executable verification")
+    if final_report.get("batch041_post_repair_target_replay_status") != "NOT_RUN":
+        if final_report.get("batch041_provider_only_materialization_status") != "PASS":
+            return fail("final report Batch041 replay ran before materialization PASS")
+        if final_report.get("batch041_dependency_drift_audit_status") != "PASS":
+            return fail("final report Batch041 replay ran before dependency drift PASS")
+    if final_report.get("batch041_duplicate_clean_replay_status") != "NOT_RUN":
+        if final_report.get("batch041_post_repair_target_replay_status") != "PASS":
+            return fail("final report Batch041 duplicate replay ran before target replay PASS")
+    if final_report.get("batch041_issue_derived_repair_validated") is True and final_report.get("batch041_duplicate_clean_replay_status") != "PASS":
+        return fail("final report Batch041 validated repair without duplicate replay PASS")
+    if final_report.get("batch041_native_repair_episode_count") != 4 or final_report.get("batch041_issue_derived_repair_episode_count") != 0:
+        return fail("final report Batch041 repair counts changed")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

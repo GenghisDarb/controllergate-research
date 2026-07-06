@@ -1,12 +1,12 @@
 # Batch040 reviewed cofactor lock gate
 
-Status: `PASS_WITH_BATCH040_REVIEWED_LOCK_MATERIALIZATION_BLOCKED`
-Exact blocker: `provider_batch040_execution_failed`
+Status: `PASS_WITH_BATCH040_PINNED_COFACTOR_LOCK_UNAVAILABLE`
+Exact blocker: `pinned_cofactor_lock_unavailable`
 
 Batch040 officially ingests Batch039, preserves the secondary cofactor governance boundary, and records a general reviewed provider-only cofactor lock policy.
 
-Pylint lock discovery: `PASS`.
-Pylint lock review: `PASS`.
+Pylint lock discovery: `BLOCK`.
+Pylint lock review: `BLOCK`.
 Provider-only materialization: `BLOCK`.
 Post-repair target replay: `NOT_RUN`.
 Duplicate clean replay: `NOT_RUN`.

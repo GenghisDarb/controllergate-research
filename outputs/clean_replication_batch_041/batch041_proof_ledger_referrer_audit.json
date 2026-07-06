@@ -1,0 +1,64 @@
+{
+  "artifact_ingest_entries_distinguished_from_generated_evidence": true,
+  "cofactor_lock_entries_point_to_selected_source_metadata": true,
+  "duplicate_replay_same_patch_and_lock_as_target_replay": true,
+  "entries": [
+    {
+      "entry_id": "batch040_official_ingest",
+      "evidence_hash": "aecdb33c0537cb8546a1778663bcbf6a185aa0a4075283f025719e628570da3a",
+      "fork_marker": "root_official_artifact_ingest",
+      "parent": null,
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch041_lock_v2_completion",
+      "evidence_hash": "dee08392c53467cceb283edd9aa0d02f0bdd233fed97b78acbdc2a1685f3db51",
+      "parent": "batch040_official_ingest",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch041_lock_v2_review",
+      "evidence_hash": "c41ad4bfd10f125230a2dd4571d3ee18dc23db4de291e89d6425ae22a7813ea2",
+      "parent": "batch041_lock_v2_completion",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch041_provider_materialization",
+      "evidence_hash": "1d27c54d5727a9bd5aeb2cbaa00e1cd51d0bfc85acd526cddf0b3c702abf50af",
+      "lock_sha": "3223ec754429208399feb1720e752f9cd22cc2b2c43804554d9138c220051e77",
+      "parent": "batch041_lock_v2_review",
+      "status": "BLOCK"
+    },
+    {
+      "entry_id": "batch041_post_repair_replay",
+      "evidence_hash": "2ee70b0a6e1a3042e4a9e6be80c65026b14ba5853f968db170e3903b9f64ce2a",
+      "lock_sha": "3223ec754429208399feb1720e752f9cd22cc2b2c43804554d9138c220051e77",
+      "parent": "batch041_provider_materialization",
+      "patch_sha": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "status": "NOT_RUN"
+    },
+    {
+      "entry_id": "batch041_duplicate_replay",
+      "evidence_hash": "2fc25ba4599630a9e125147f75fb2d7ce477c92fee4d9896f3a674fae87f00f9",
+      "lock_sha": "3223ec754429208399feb1720e752f9cd22cc2b2c43804554d9138c220051e77",
+      "parent": "batch041_post_repair_replay",
+      "patch_sha": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker": "provider_batch041_execution_failed",
+      "entry_id": "ROLLBACK_BLOCK",
+      "parent": "batch041_duplicate_replay",
+      "rollback_target": "batch040_official_artifact_boundary",
+      "status": "ROLLBACK_BLOCK"
+    }
+  ],
+  "every_entry_has_one_parent_or_fork_marker": true,
+  "failed_branch_entries_point_to_rollback_target": true,
+  "hash_chain_valid": true,
+  "no_orphan_proof_entries": true,
+  "no_unmarked_multi_parent_entries": true,
+  "replay_entries_point_to_exact_patch_sha_and_lock_sha": true,
+  "rollback_entries_do_not_corrupt_main_lineage": true,
+  "status": "PASS"
+}

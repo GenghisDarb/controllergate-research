@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch040 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch041 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -67,13 +67,34 @@ jobs:
           python scripts/audit_post_v2_37_hardening_and_batch002.py
           python scripts/controllergate_audit.py --protocol current
           python scripts/controllergate_run.py --protocol current --dry-run
+          python - <<'PY'
+          import json
+          state = json.load(open("outputs/clean_replication_batch_041/consolidated_state_clean_replication_batch_041.json", encoding="utf-8"))
+          keys = [
+              "status",
+              "exact_blocker",
+              "batch040_artifact_verification_status",
+              "stable_identity_integrity_status",
+              "proof_ledger_referrer_audit_status",
+              "cofactor_lock_provenance_status",
+              "dependency_drift_audit_status",
+              "lock_completion_status",
+              "lock_v2_review_status",
+              "provider_only_materialization_status",
+              "post_repair_target_replay_status",
+              "duplicate_clean_replay_status",
+              "issue_derived_repair_validated",
+          ]
+          for key in keys:
+              print(f"batch041_{key}={state.get(key)}")
+          PY
 
       - name: Verify clean staged artifact payload
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch040_reviewed_cofactor_lock/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch040_reviewed_cofactor_lock \( \
+          test -f artifact_payload/post_v2_37_hardening_batch041_lock_completion_identity_integrity/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch041_lock_completion_identity_integrity \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -93,16 +114,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch040_reviewed_cofactor_lock -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_040' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch041_lock_completion_identity_integrity -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_041' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch040 reviewed cofactor lock artifact
+      - name: Upload Batch041 lock completion and identity integrity artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch040_reviewed_cofactor_lock_artifacts
+          name: post_v2_37_hardening_batch041_lock_completion_identity_integrity_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch040_reviewed_cofactor_lock/**
+            artifact_payload/post_v2_37_hardening_batch041_lock_completion_identity_integrity/**
           if-no-files-found: error

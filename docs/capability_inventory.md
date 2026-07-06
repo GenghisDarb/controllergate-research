@@ -43,4 +43,12 @@ Batch036 adds post-repair failure decomposition and a single bounded source-only
 - Provider materialization, target replay, duplicate replay, and repair counts remain governed by empirical execution gates.
 - Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0` unless replay and duplicate replay validate under the reviewed lock.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
-- Batch040 status: `PASS_WITH_BATCH040_REVIEWED_LOCK_MATERIALIZATION_BLOCKED`; exact blocker: `provider_batch040_execution_failed`.
+- Batch040 status: `PASS_WITH_BATCH040_PINNED_COFACTOR_LOCK_UNAVAILABLE`; exact blocker: `pinned_cofactor_lock_unavailable`.
+
+## Batch041 cofactor lock completion gate
+
+Batch041 officially ingests the Batch040 artifact boundary, reconciles the artifact blocker with the prior local provider blocker, and adds stable identity, proof-ledger, cofactor provenance, dependency drift, replay-classification, transport-equivalence, and evidence-origin audits.
+
+Status: `PASS_WITH_BATCH041_PROVIDER_MATERIALIZATION_BLOCKED`. Exact blocker: `provider_batch041_execution_failed`.
+
+Full scoring remains disabled, memory lift remains not demonstrated, and self-maintaining software is not claimed.

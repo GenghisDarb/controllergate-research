@@ -1,80 +1,23 @@
 {
-  "blocker": "provider_batch040_execution_failed",
+  "blocker": "pinned_cofactor_lock_unavailable",
   "cleanup": {
-    "blocker": null,
-    "cleanup_error": null,
-    "removed": true,
-    "status": "PASS",
-    "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-provider-batch024-7liw2hec"
+    "status": "NOT_RUN"
   },
   "provider_only": true,
   "provider_output": {
-    "blocker": "provider_batch040_execution_failed",
-    "command": "docker run --rm -v <input>:ro -v <output> -v <workspace> python:3.7 python /provider/input/provider_run.py",
-    "returncode": 1,
-    "sanitized_stderr_excerpt": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
-    "sanitized_stdout_excerpt": "",
-    "status": "BLOCK",
-    "stderr_sha256": "e9133cf10b02b0b91c8b119848513db0ac541e7c3c19681266939e4b9952f7cc",
-    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "blocker": "pinned_cofactor_lock_unavailable",
+    "status": "NOT_RUN"
   },
   "provider_workspace": {
-    "blocker": null,
-    "outside_live_repo": true,
-    "outside_onedrive": true,
-    "status": "PASS",
-    "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-provider-batch024-7liw2hec"
+    "status": "NOT_RUN"
   },
   "source_checkout": {
-    "blocker": null,
-    "git_object_type": "commit",
-    "head_matches_expected": true,
-    "head_sha": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
-    "repo_url": "https://github.com/akaihola/darker",
-    "source_commit_sha": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
-    "status": "PASS"
+    "status": "NOT_RUN"
   },
   "source_mutated": false,
   "status": "BLOCK",
   "tests_mutated": false,
   "transport": {
-    "blocker": null,
-    "input_file_count": 5,
-    "input_files": [
-      {
-        "path": "batch038_corrected_source_only_patch_candidate.diff",
-        "sha256": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
-        "size_bytes": 2163
-      },
-      {
-        "path": "dependency_lock.json",
-        "sha256": "108d961f89b603d3c6a7bcb374976992c3fadc80497bf967421cdea38aff248a",
-        "size_bytes": 10607
-      },
-      {
-        "path": "provider_run.py",
-        "sha256": "c9b81977547341d4f05c19b00b893450e6ef895b5f0a4933a567de77eed1494e",
-        "size_bytes": 21365
-      },
-      {
-        "path": "pylint_provider_lock.json",
-        "sha256": "4540ad8692ad32f167a72ab6d60596c8a0c59ee91a61d42c878d718860129e4a",
-        "size_bytes": 3642
-      },
-      {
-        "path": "pylint_provider_lock_requirements.txt",
-        "sha256": "0852b3609f8ad0111c77ce57fa7113a61fc4a20f19de7779425992978021d17e",
-        "size_bytes": 848
-      }
-    ],
-    "output_file_count": 0,
-    "output_files": [],
-    "repo_root_mounted_read_only": true,
-    "secrets_mounted": false,
-    "status": "PASS",
-    "workspace_outside_onedrive": true,
-    "workspace_outside_repo": true,
-    "workspace_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-provider-batch024-7liw2hec",
-    "write_credentials_mounted": false
+    "status": "NOT_RUN"
   }
 }

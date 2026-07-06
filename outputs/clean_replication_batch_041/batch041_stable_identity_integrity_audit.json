@@ -1,0 +1,35 @@
+{
+  "current_identity_primary_older_lineage_only": true,
+  "each_active_blocker_has_one_next_allowed_action": true,
+  "each_cofactor_lock_points_to_one_selected_source_commit": true,
+  "each_patch_candidate_has_one_parent_attempt": true,
+  "each_replay_result_points_to_one_patch_sha": true,
+  "failed_branches_have_rollback_targets": true,
+  "no_active_branch_ambiguous_parentage": true,
+  "no_duplicate_active_blocker_ids": true,
+  "no_duplicate_repair_attempt_id": true,
+  "no_unmarked_identity_merge": true,
+  "records": [
+    {
+      "active": false,
+      "parent_attempt": "batch037_patch_v2",
+      "patch_sha": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "repair_attempt_id": "batch038_corrected_patch"
+    },
+    {
+      "active": false,
+      "active_blocker": "pinned_cofactor_lock_unavailable",
+      "parent_attempt": "batch039_secondary_cofactor",
+      "repair_attempt_id": "batch040_reviewed_lock"
+    },
+    {
+      "active": true,
+      "lock_id": "batch041_pylint_provider_only_lock_v2",
+      "parent_attempt": "batch040_reviewed_lock",
+      "patch_sha": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+      "repair_attempt_id": "batch041_lock_v2"
+    }
+  ],
+  "retired_blockers_cannot_be_active": true,
+  "status": "PASS"
+}

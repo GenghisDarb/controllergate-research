@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH040_REVIEWED_LOCK_MATERIALIZATION_BLOCKED.
+Status: PASS_WITH_BATCH041_PROVIDER_MATERIALIZATION_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -146,6 +146,10 @@ Batch039 status: `PASS_WITH_BATCH039_DECLARED_SECONDARY_COFACTOR_LOCK_REQUIRED`;
 
 Batch040 officially ingests the Batch039 secondary-cofactor artifact and records a general reviewed provider-only cofactor lock gate. The first concrete lock is for `pylint`; replay and duplicate replay remain empirical gates before any repair-count change.
 
-Batch040 status: `PASS_WITH_BATCH040_REVIEWED_LOCK_MATERIALIZATION_BLOCKED`; exact blocker: `provider_batch040_execution_failed`.
+Batch040 status: `PASS_WITH_BATCH040_PINNED_COFACTOR_LOCK_UNAVAILABLE`; exact blocker: `pinned_cofactor_lock_unavailable`.
+
+Batch041 officially ingests the successful Batch040 artifact, preserves the artifact-internal pinned cofactor blocker, adds identity/proof-ledger/cofactor integrity audits, and attempts a reviewed provider-safe lock-v2 before any provider replay.
+
+Batch041 status: `PASS_WITH_BATCH041_PROVIDER_MATERIALIZATION_BLOCKED`; exact blocker: `provider_batch041_execution_failed`.
 
 NotebookLM advice traceability status: `PASS`.
