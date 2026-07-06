@@ -134,6 +134,6 @@ Batch036 status: `PASS_WITH_BATCH036_REPAIR_NOT_VALIDATED`; exact blocker: `prov
 
 Batch037 officially ingests the Batch036 provider-substage artifact, preserves candidate v2, and records explicit provider execution substages for patch application, replay, and duplicate replay. It does not claim repair success without empirical replay gates.
 
-Batch037 status: `PASS_WITH_BATCH037_PROVIDER_SUBSTAGE_BLOCKED`; exact blocker: `docker_runtime_provider_unavailable`.
+Batch037 status: `PASS_WITH_BATCH037_PROVIDER_SUBSTAGE_BLOCKED`; exact blocker: `patch_v2_apply_check_failed`.
 
 NotebookLM advice traceability status: `PASS`.

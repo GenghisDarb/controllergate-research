@@ -7440,6 +7440,62 @@ def load_official_batch036_state_or_generate(batch035_state: dict[str, object]) 
     return write_batch036_outputs(Path.cwd(), POST_DIR, BATCH035_DIR, BATCH036_DIR, batch035_state)
 
 
+def load_official_batch037_state_or_generate(batch036_state: dict[str, object]) -> dict[str, object]:
+    state_path = BATCH037_DIR / "consolidated_state_clean_replication_batch_037.json"
+    preservation_paths = [
+        BATCH037_DIR / "batch036_artifact_ingest_summary.json",
+        BATCH037_DIR / "batch036_artifact_verification.json",
+        BATCH037_DIR / "batch036_candidate_v2_preservation.json",
+        BATCH037_DIR / "batch037_provider_execution_substage_diagnosis.json",
+        BATCH037_DIR / "batch037_patch_v2_application_result.json",
+        BATCH037_DIR / "batch037_patch_v2_scope_audit.json",
+        BATCH037_DIR / "batch037_post_repair_target_replay_v2.json",
+        BATCH037_DIR / "batch037_duplicate_clean_replay_v2.json",
+        BATCH037_DIR / "batch037_issue_derived_repair_validation.json",
+        BATCH037_DIR / "claim_boundary_batch037.json",
+        BATCH037_DIR / "proof_obligations_ledger_batch037.json",
+    ]
+    if state_path.is_file() and all(path.is_file() for path in preservation_paths):
+        state = load_json(state_path)
+        ingest = load_json(BATCH037_DIR / "batch036_artifact_ingest_summary.json")
+        verification = load_json(BATCH037_DIR / "batch036_artifact_verification.json")
+        preservation = load_json(BATCH037_DIR / "batch036_candidate_v2_preservation.json")
+        diagnosis = load_json(BATCH037_DIR / "batch037_provider_execution_substage_diagnosis.json")
+        patch_application = load_json(BATCH037_DIR / "batch037_patch_v2_application_result.json")
+        post_repair = load_json(BATCH037_DIR / "batch037_post_repair_target_replay_v2.json")
+        duplicate = load_json(BATCH037_DIR / "batch037_duplicate_clean_replay_v2.json")
+        validation = load_json(BATCH037_DIR / "batch037_issue_derived_repair_validation.json")
+        if (
+            state.get("status") == "PASS_WITH_BATCH037_PROVIDER_SUBSTAGE_BLOCKED"
+            and state.get("exact_blocker") == "patch_v2_apply_check_failed"
+            and state.get("batch036_artifact_ingest_status") == "PASS"
+            and state.get("batch036_artifact_verification_status") == "PASS"
+            and state.get("candidate_v2_preservation_status") == "PASS"
+            and state.get("candidate_v2_patch_sha256") == "9c1061f5c60878b7ace6a3c02f41ec2af162fd4de66192a34028ed720e864ec1"
+            and state.get("provider_execution_first_blocker") == "patch_v2_apply_check_failed"
+            and state.get("patch_v2_application_status") == "BLOCK"
+            and state.get("patch_v2_apply_check_status") == "BLOCK"
+            and state.get("post_repair_target_replay_v2_status") == "NOT_RUN"
+            and state.get("duplicate_clean_replay_v2_status") == "NOT_RUN"
+            and state.get("issue_derived_repair_validated") is False
+            and state.get("issue_derived_repair_episode_count_increment_candidate") is False
+            and state.get("issue_derived_repair_episode_count") == 0
+            and ingest.get("status") == "PASS"
+            and verification.get("status") == "PASS"
+            and preservation.get("patch_sha256") == "9c1061f5c60878b7ace6a3c02f41ec2af162fd4de66192a34028ed720e864ec1"
+            and diagnosis.get("first_blocker") == "patch_v2_apply_check_failed"
+            and patch_application.get("status") == "BLOCK"
+            and patch_application.get("blocker") == "patch_v2_apply_check_failed"
+            and post_repair.get("status") == "NOT_RUN"
+            and duplicate.get("status") == "NOT_RUN"
+            and validation.get("issue_derived_repair_validated") is False
+        ):
+            return state
+        if str(state.get("status", "")).startswith("PASS_WITH_BATCH037_"):
+            return state
+    return write_batch037_outputs(Path.cwd(), POST_DIR, BATCH036_DIR, BATCH037_DIR, batch036_state)
+
+
 def write_batch010_outputs(batch009_state: dict[str, object]) -> dict[str, object]:
     BATCH010_DIR.mkdir(parents=True, exist_ok=True)
     candidate_id = "darker_skip_glob_failing_test"
@@ -9625,7 +9681,7 @@ def main() -> int:
     batch034_state = load_official_batch034_state_or_generate(batch033_state)
     batch035_state = load_official_batch035_state_or_generate(batch034_state)
     batch036_state = load_official_batch036_state_or_generate(batch035_state)
-    batch037_state = write_batch037_outputs(Path.cwd(), POST_DIR, BATCH036_DIR, BATCH037_DIR, batch036_state)
+    batch037_state = load_official_batch037_state_or_generate(batch036_state)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
