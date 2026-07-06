@@ -286,7 +286,13 @@ SUBSTAGE_ORDER = [
 result = {
     "substage_order": SUBSTAGE_ORDER,
     "substage_records": {name: {"status": "NOT_RUN"} for name in SUBSTAGE_ORDER},
-    "provider_only_cofactor_materialization": {"status": "NOT_RUN"},
+    "provider_only_cofactor_materialization": {
+        "status": "NOT_RUN",
+        "provider_only": True,
+        "source_mutated": False,
+        "tests_mutated": False,
+        "blocker": "reviewed_cofactor_lock_materialization_not_reached",
+    },
     "pylint_executable_verification": {"status": "NOT_RUN"},
     "corrected_patch_apply_check": {"status": "NOT_RUN"},
     "corrected_patch_application": {"status": "NOT_RUN"},
@@ -740,7 +746,17 @@ def _blocked_provider_substages(blocker: str) -> dict[str, Any]:
     ]
     records = {name: {"status": "NOT_RUN", "blocker": blocker} for name in order}
     records["provider_available"] = {"status": "BLOCK", "blocker": blocker}
-    return {"substage_order": order, "substage_records": records, "provider_only_cofactor_materialization": {"status": "BLOCK", "blocker": blocker}}
+    return {
+        "substage_order": order,
+        "substage_records": records,
+        "provider_only_cofactor_materialization": {
+            "status": "BLOCK",
+            "blocker": blocker,
+            "provider_only": True,
+            "source_mutated": False,
+            "tests_mutated": False,
+        },
+    }
 
 
 def _run_provider_execution(repo_root: Path, cofactor_lock: dict[str, Any]) -> dict[str, Any]:
