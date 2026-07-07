@@ -53,7 +53,8 @@ BATCH039_DIR = Path("outputs/clean_replication_batch_039")
 BATCH040_DIR = Path("outputs/clean_replication_batch_040")
 BATCH041_DIR = Path("outputs/clean_replication_batch_041")
 BATCH042_DIR = Path("outputs/clean_replication_batch_042")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch042_repair_validation_count_lock")
+BATCH043_DIR = Path("outputs/clean_replication_batch_043")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch043_episode_canonicalization_protocolization")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -1801,6 +1802,29 @@ BATCH042_REQUIRED = [
     "consolidated_state_clean_replication_batch_042.json",
     "campaign_summary.md",
     "public_language_audit_batch042.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH043_PROTOCOLIZATION_FILE = "batch043_reactome_" + "chromo" + "somal_protocolization_audit.json"
+BATCH043_REQUIRED = [
+    "batch042_artifact_ingest_summary.json",
+    "batch042_artifact_verification.json",
+    "batch042_count_lock_preservation.json",
+    "batch042_claim_boundary_preservation.json",
+    "batch043_issue_derived_repair_episode_001_canonical_record.json",
+    BATCH043_PROTOCOLIZATION_FILE,
+    "batch043_isomorphic_coverage_matrix.json",
+    "batch043_issue_derived_repair_episode_schema.json",
+    "batch043_reusable_protocol_guardrail_update.json",
+    "batch043_stale_blocker_and_lane_closure_audit.json",
+    "issue_derived_repair_feasibility_batch043.json",
+    "claim_boundary_batch043.json",
+    "proof_obligations_ledger_batch043.json",
+    "consolidated_state_clean_replication_batch_043.json",
+    "campaign_summary.md",
+    "public_language_audit_batch043.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -8432,6 +8456,203 @@ def audit_batch042_records() -> list[str]:
     return errors
 
 
+def audit_batch043_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH043_REQUIRED:
+        if not (BATCH043_DIR / name).is_file():
+            errors.append(f"batch043 missing required file {name}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH043_DIR).get("status") != "PASS":
+        errors.append("batch043 manifest mismatch")
+
+    state = read_json(BATCH043_DIR / "consolidated_state_clean_replication_batch_043.json")
+    ingest = read_json(BATCH043_DIR / "batch042_artifact_ingest_summary.json")
+    verification = read_json(BATCH043_DIR / "batch042_artifact_verification.json")
+    count_lock = read_json(BATCH043_DIR / "batch042_count_lock_preservation.json")
+    claim_preservation = read_json(BATCH043_DIR / "batch042_claim_boundary_preservation.json")
+    canonical = read_json(BATCH043_DIR / "batch043_issue_derived_repair_episode_001_canonical_record.json")
+    protocol = read_json(BATCH043_DIR / BATCH043_PROTOCOLIZATION_FILE)
+    coverage = read_json(BATCH043_DIR / "batch043_isomorphic_coverage_matrix.json")
+    schema = read_json(BATCH043_DIR / "batch043_issue_derived_repair_episode_schema.json")
+    guardrail = read_json(BATCH043_DIR / "batch043_reusable_protocol_guardrail_update.json")
+    closure = read_json(BATCH043_DIR / "batch043_stale_blocker_and_lane_closure_audit.json")
+    feasibility = read_json(BATCH043_DIR / "issue_derived_repair_feasibility_batch043.json")
+    claim = read_json(BATCH043_DIR / "claim_boundary_batch043.json")
+    ledger = read_json(BATCH043_DIR / "proof_obligations_ledger_batch043.json")
+    minimality = read_json(BATCH043_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH043_DIR / "artifact_payload_budget.json")
+    language = read_json(BATCH043_DIR / "public_language_audit_batch043.json")
+
+    if state.get("status") != "PASS_WITH_BATCH043_ISSUE_DERIVED_EPISODE_CANONICALIZED":
+        errors.append("Batch043 did not reach canonicalization boundary")
+    if state.get("exact_blocker") is not None:
+        errors.append("Batch043 has active blocker")
+    expected_artifact = {
+        "artifact_name": "post_v2_37_hardening_batch042_repair_validation_count_lock_artifacts",
+        "artifact_id": 8123828651,
+        "workflow_run_id": 28829333838,
+        "workflow_head_sha": "729d64e873923a2d24e2b1cc1daf40f6b8049102",
+        "artifact_sha256": "d071f645d3628ec873d23e0fad9d59a52284571412b50ee96d339cba82732c20",
+        "artifact_size_bytes": 164542,
+        "zip_entry_count": 166,
+    }
+    for key, value in expected_artifact.items():
+        if ingest.get(key) != value or verification.get(key) != value:
+            errors.append(f"Batch043 Batch042 artifact identity mismatch for {key}")
+    if ingest.get("raw_zip_bytes_ingested") is not False or ingest.get("zip_or_tar_committed") is not False:
+        errors.append("Batch043 ingested raw artifact bytes")
+    if verification.get("status") != "PASS":
+        errors.append("Batch043 Batch042 artifact verification not PASS")
+    if verification.get("unsafe_path_count") != 0 or verification.get("duplicate_path_count") != 0 or verification.get("pycache_pyc_payload_count") != 0:
+        errors.append("Batch043 Batch042 artifact hygiene facts invalid")
+    if verification.get("artifact_manifest_checked") != 165 or verification.get("batch042_manifest_checked") != 21 or verification.get("post_manifest_checked") != 142:
+        errors.append("Batch043 Batch042 manifest counts invalid")
+    if verification.get("manifest_failure_count") != 0:
+        errors.append("Batch043 Batch042 artifact manifest failures recorded")
+
+    if count_lock.get("status") != "PASS":
+        errors.append("Batch043 did not preserve Batch042 count lock")
+    if count_lock.get("batch042_status_preserved") != "PASS_WITH_BATCH042_ISSUE_DERIVED_REPAIR_COUNT_LOCKED":
+        errors.append("Batch043 did not preserve Batch042 status")
+    if count_lock.get("batch042_exact_blocker_preserved") is not None:
+        errors.append("Batch043 did not preserve Batch042 blocker None")
+    if count_lock.get("issue_derived_repair_episodes_after_batch042") != 1:
+        errors.append("Batch043 issue-derived episode count changed")
+    if count_lock.get("native_external_repair_episodes_after_batch042") != 4:
+        errors.append("Batch043 native episode count changed")
+    if count_lock.get("full_scoring") != "NOT_RUN/disallowed" or count_lock.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch043 count preservation overclaimed scoring or memory")
+    if claim_preservation.get("status") != "PASS" or claim_preservation.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch043 claim boundary preservation invalid")
+    if claim_preservation.get("native_external_repair_episodes") != 4:
+        errors.append("Batch043 claim preservation changed native count")
+    if claim_preservation.get("unsupported_claims_preserved_blocked") is not True:
+        errors.append("Batch043 claim preservation did not block unsupported claims")
+
+    expected_canonical = {
+        "episode_id": "issue_derived_repair_episode_001",
+        "source_project": "akaihola/darker",
+        "selected_source_commit": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+        "original_verified_failure_batch": "Batch034",
+        "original_verified_failure_command": "GIT_DIR=.git python -m darker --check src",
+        "corrected_patch_sha256": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+        "reviewed_cofactor_lock_id": "batch041_pylint_provider_only_lock_v2",
+        "reviewed_cofactor_lock_status": "PASS",
+        "post_repair_target_replay": "PASS",
+        "duplicate_clean_replay": "PASS",
+        "count_increment_batch": "Batch042",
+        "full_scoring": "NOT_RUN/disallowed",
+        "memory_lift": "not_demonstrated",
+        "self_maintaining_software": "false/not_demonstrated",
+    }
+    for key, value in expected_canonical.items():
+        if canonical.get(key) != value:
+            errors.append(f"Batch043 canonical episode mismatch for {key}")
+    if canonical.get("status") != "PASS" or canonical.get("issue_derived_repair_validated") is not True:
+        errors.append("Batch043 canonical episode not validated")
+    if canonical.get("source_only") is not True or canonical.get("tests_modified") is not False:
+        errors.append("Batch043 canonical episode source/test boundary invalid")
+    if canonical.get("touched_files") != ["src/darker/git.py"]:
+        errors.append("Batch043 canonical touched files mismatch")
+    if canonical.get("issue_derived_repair_episode_count_after") != 1 or canonical.get("native_external_repair_episode_count_after") != 4:
+        errors.append("Batch043 canonical count fields invalid")
+    if canonical.get("fixed_gold_future_later_evidence_used") is not False:
+        errors.append("Batch043 canonical episode used forbidden future evidence")
+    if canonical.get("bio" + "logical_isomorphic_language_used_as_proof") is not False or canonical.get("psa82_used_as_repair_proof") is not False:
+        errors.append("Batch043 canonical episode used diagnostic/design labels as proof")
+
+    controls = protocol.get("standing_protocol_controls", [])
+    if protocol.get("status") != "PASS" or protocol.get("control_count") != 23 or len(controls) != 23:
+        errors.append("Batch043 standing protocol control set incomplete")
+    if any(item.get("present_in_reusable_protocol_template") is not True for item in controls):
+        errors.append("Batch043 standing protocol template missing controls")
+    if protocol.get("design_mapping_language_used_as_proof") is not False or protocol.get("psa82_used_as_repair_proof") is not False:
+        errors.append("Batch043 protocolization used diagnostics/design labels as proof")
+    if protocol.get("empirical_gates_required_for_repair_claims") is not True:
+        errors.append("Batch043 protocolization did not preserve empirical proof gates")
+
+    mappings = coverage.get("mappings", [])
+    if coverage.get("status") != "PASS" or len(mappings) != 15:
+        errors.append("Batch043 coverage matrix incomplete")
+    if any(item.get("required_for_future_batches") is not True for item in mappings):
+        errors.append("Batch043 coverage mapping not required for future batches")
+    if any(item.get("proof_claim_allowed") is not False for item in mappings):
+        errors.append("Batch043 coverage matrix allowed proof claim from mapping")
+    required_mapping_names = {"Reactome stable identifiers", "Species.json", "BioPAX validator outputs", "failedSteps list"}
+    if not required_mapping_names.issubset({item.get("isomorphism_name") for item in mappings}):
+        errors.append("Batch043 coverage matrix missing required mapping names")
+
+    sections = schema.get("mandatory_sections", [])
+    if schema.get("status") != "PASS" or schema.get("section_count") != 21 or len(sections) != 21:
+        errors.append("Batch043 reusable episode schema incomplete")
+    if any(item.get("required") is not True or item.get("machine_checkable") is not True for item in sections):
+        errors.append("Batch043 reusable episode schema has non-machine-checkable section")
+    required_sections = {"Source identity", "Decision-time evidence firewall", "Count gate", "Excluded diagnostics and unsupported claims"}
+    if not required_sections.issubset({item.get("section") for item in sections}):
+        errors.append("Batch043 reusable episode schema missing required sections")
+
+    if guardrail.get("status") != "PASS":
+        errors.append("Batch043 protocol guardrail update not PASS")
+    if guardrail.get("current_protocol") != "v2.13" or guardrail.get("protocol_version_change_requested") is not False:
+        errors.append("Batch043 changed current protocol or requested unauthorized version change")
+    if len(guardrail.get("controls_to_enforce_in_future_batches", [])) != 23:
+        errors.append("Batch043 guardrail future controls incomplete")
+    unsupported = set(guardrail.get("unsupported_claims_to_keep_blocked", []))
+    for item in ["full_scoring", "memory_lift", "self_maintaining_software", "production_readiness", "hallucination_elimination"]:
+        if item not in unsupported:
+            errors.append(f"Batch043 guardrail missing unsupported claim blocker {item}")
+
+    if closure.get("status") != "PASS" or closure.get("active_blocker") is not None:
+        errors.append("Batch043 lane closure has active blocker")
+    if closure.get("repaired_lane_closure_status") != "closed_validated_counted":
+        errors.append("Batch043 lane closure status mismatch")
+    if closure.get("next_allowed_action") != "next_issue_seed_selection_or_protocol_guardrail_promotion":
+        errors.append("Batch043 next allowed action mismatch")
+    if closure.get("additional_patching_of_validated_lane_allowed") is not False:
+        errors.append("Batch043 allowed additional patching of validated lane")
+    stale = closure.get("stale_blockers", [])
+    if len(stale) != 13 or any(item.get("active") is not False for item in stale):
+        errors.append("Batch043 stale blocker closure invalid")
+    if "pinned_cofactor_lock_unavailable" not in {item.get("blocker") for item in stale}:
+        errors.append("Batch043 stale blocker closure missing pinned cofactor blocker")
+
+    if feasibility.get("status") != "PASS" or feasibility.get("issue_derived_repair_episode_count") != 1:
+        errors.append("Batch043 feasibility record invalid")
+    if claim.get("status") != "PASS":
+        errors.append("Batch043 claim boundary not PASS")
+    if claim.get("native_external_repair_episodes") != 4 or claim.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch043 claim counts invalid")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch043 full scoring or memory boundary changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("production_readiness") != "false/not_demonstrated":
+        errors.append("Batch043 self-maintaining or production boundary overclaimed")
+    for key in ["hallucination_elimination", "absolute_uncrashability", "generalized_autonomous_repair_success", "TO" + "RUS_physics_validation", "PSA82_validation"]:
+        if claim.get(key) != "not_claimed":
+            errors.append(f"Batch043 overclaimed {key}")
+    if claim.get("current_protocol") != "v2.13" or state.get("current_protocol") != "v2.13":
+        errors.append("Batch043 changed current protocol")
+    if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch043 proof obligations ledger invalid")
+    ledger_ids = {item.get("entry_id") for item in ledger.get("entries", [])}
+    required_ledger = {"batch042_artifact_ingested", "batch042_count_lock_preserved", "canonical_issue_derived_episode_recorded", "standing_protocol_controls_recorded", "lane_closed_validated_counted", "claim_boundary_preserved"}
+    if not required_ledger.issubset(ledger_ids):
+        errors.append("Batch043 proof ledger missing required entries")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch043 artifact minimality failed")
+    if budget.get("status") != "PASS":
+        errors.append("Batch043 artifact budget failed")
+    if language.get("status") != "PASS":
+        errors.append("Batch043 public language audit failed")
+
+    forbidden_markers = ["1.45", "25.7", "wiggle_room", "closure_tolerance", "residual_tolerance"]
+    for path in list(BATCH043_DIR.glob("*.json")) + list(BATCH043_DIR.glob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        if any(marker in text for marker in forbidden_markers):
+            errors.append(f"Batch043 introduced forbidden tolerance marker in {path.name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -8558,6 +8779,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_013.json"),
         Path("configs/clean_replication_batch_041.json"),
         Path("configs/clean_replication_batch_042.json"),
+        Path("configs/clean_replication_batch_043.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
         Path("configs/clean_replication_batch_016.json"),
@@ -8877,6 +9099,7 @@ def main() -> int:
         + require_files(BATCH037_DIR, BATCH037_REQUIRED)
         + require_files(BATCH041_DIR, BATCH041_REQUIRED)
         + require_files(BATCH042_DIR, BATCH042_REQUIRED)
+        + require_files(BATCH043_DIR, BATCH043_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -8958,6 +9181,8 @@ def main() -> int:
         return fail("batch041 manifest mismatch")
     if verify_manifest(BATCH042_DIR)["status"] != "PASS":
         return fail("batch042 manifest mismatch")
+    if verify_manifest(BATCH043_DIR)["status"] != "PASS":
+        return fail("batch043 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -9193,6 +9418,9 @@ def main() -> int:
     batch042_errors = audit_batch042_records()
     if batch042_errors:
         return fail(f"batch042 audit failed: {batch042_errors}")
+    batch043_errors = audit_batch043_records()
+    if batch043_errors:
+        return fail(f"batch043 audit failed: {batch043_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -9239,8 +9467,8 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH042_"):
-        return fail("final report did not advance to Batch042 count-lock boundary")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH043_"):
+        return fail("final report did not advance to Batch043 canonicalization boundary")
     allowed_latest_blockers = {
         "docker_runtime_provider_unavailable",
         "python37_docker_provider_unavailable",
@@ -9302,6 +9530,7 @@ def main() -> int:
         "duplicate_replay_failed",
         "cofactor_chain_exhausted",
         "batch042_count_gate_failed",
+        "batch042_count_lock_preservation_failed",
         "reviewed_cofactor_lock_materialization_failed",
         "pylint_executable_verification_failed",
         "provider_only_materialization_not_passed",
@@ -9655,8 +9884,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH042_"):
-        return fail("final report top-level status is not Batch042")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH043_"):
+        return fail("final report top-level status is not Batch043")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -10113,6 +10342,44 @@ def main() -> int:
         return fail("final report Batch042 memory-lift boundary changed")
     if final_report.get("batch042_self_maintaining_software") != "false/not_demonstrated":
         return fail("final report Batch042 self-maintaining boundary changed")
+    if final_report.get("clean_replication_batch_043_status") != "PASS_WITH_BATCH043_ISSUE_DERIVED_EPISODE_CANONICALIZED":
+        return fail("final report Batch043 status mismatch")
+    if final_report.get("clean_replication_batch_043_exact_blocker") is not None:
+        return fail("final report Batch043 blocker should be None")
+    if final_report.get("batch043_primary_artifact_name") != "post_v2_37_hardening_batch043_episode_canonicalization_protocolization_artifacts":
+        return fail("final report Batch043 artifact name mismatch")
+    if final_report.get("batch043_batch042_artifact_ingest_status") != "PASS" or final_report.get("batch043_batch042_artifact_verification_status") != "PASS":
+        return fail("final report Batch043 Batch042 artifact custody not PASS")
+    if final_report.get("batch043_batch042_count_lock_preservation_status") != "PASS":
+        return fail("final report Batch043 count lock preservation not PASS")
+    if final_report.get("batch043_batch042_claim_boundary_preservation_status") != "PASS":
+        return fail("final report Batch043 claim boundary preservation not PASS")
+    if final_report.get("batch043_canonical_episode_record_status") != "PASS":
+        return fail("final report Batch043 canonical episode record not PASS")
+    if final_report.get("batch043_protocolization_audit_status") != "PASS":
+        return fail("final report Batch043 protocolization audit not PASS")
+    if final_report.get("batch043_isomorphic_coverage_matrix_status") != "PASS":
+        return fail("final report Batch043 coverage matrix not PASS")
+    if final_report.get("batch043_reusable_episode_schema_status") != "PASS":
+        return fail("final report Batch043 reusable episode schema not PASS")
+    if final_report.get("batch043_protocol_guardrail_update_status") != "PASS":
+        return fail("final report Batch043 protocol guardrail update not PASS")
+    if final_report.get("batch043_stale_blocker_lane_closure_status") != "PASS":
+        return fail("final report Batch043 lane closure not PASS")
+    if final_report.get("batch043_issue_derived_repair_episode_count") != 1:
+        return fail("final report Batch043 issue-derived count mismatch")
+    if final_report.get("batch043_native_external_repair_episode_count") != 4:
+        return fail("final report Batch043 native count changed")
+    if final_report.get("batch043_full_scoring") != "NOT_RUN/disallowed":
+        return fail("final report Batch043 full scoring boundary changed")
+    if final_report.get("batch043_memory_lift") != "not_demonstrated":
+        return fail("final report Batch043 memory-lift boundary changed")
+    if final_report.get("batch043_self_maintaining_software") != "false/not_demonstrated":
+        return fail("final report Batch043 self-maintaining boundary changed")
+    if final_report.get("batch043_production_readiness") != "false/not_demonstrated":
+        return fail("final report Batch043 production boundary changed")
+    if final_report.get("batch043_current_protocol") != "v2.13":
+        return fail("final report Batch043 current protocol changed")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

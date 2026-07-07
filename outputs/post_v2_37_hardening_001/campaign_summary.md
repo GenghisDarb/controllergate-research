@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH042_ISSUE_DERIVED_REPAIR_COUNT_LOCKED.
+Status: PASS_WITH_BATCH043_ISSUE_DERIVED_EPISODE_CANONICALIZED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -155,5 +155,9 @@ Batch041 status: `PASS_WITH_BATCH041_ISSUE_DERIVED_REPAIR_VALIDATED`; exact bloc
 Batch042 officially ingests the Batch041 repair-validation artifact, preserves target replay and duplicate replay, and applies the issue-derived episode count gate without changing native repair counts or broader claim boundaries.
 
 Batch042 status: `PASS_WITH_BATCH042_ISSUE_DERIVED_REPAIR_COUNT_LOCKED`; exact blocker: `None`.
+
+Batch043 officially ingests the Batch042 count-lock artifact, preserves the issue-derived episode count, records the first issue-derived repair episode as a canonical reusable record, and proposes standing machine-checkable guardrails for future issue-derived repair lanes.
+
+Batch043 status: `PASS_WITH_BATCH043_ISSUE_DERIVED_EPISODE_CANONICALIZED`; exact blocker: `None`.
 
 NotebookLM advice traceability status: `PASS`.

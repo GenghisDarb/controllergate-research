@@ -125,3 +125,10 @@ Full scoring remains disabled, memory lift remains not demonstrated, and self-ma
 - Issue-derived repair episodes after Batch042: `1`.
 - Native external repair episodes remain `4`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift and self-maintaining software remain not demonstrated.
+
+### Batch043 issue-derived episode canonicalization
+
+- Batch043 status: `PASS_WITH_BATCH043_ISSUE_DERIVED_EPISODE_CANONICALIZED`.
+- The first issue-derived repair episode is now preserved as a canonical reusable record.
+- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.

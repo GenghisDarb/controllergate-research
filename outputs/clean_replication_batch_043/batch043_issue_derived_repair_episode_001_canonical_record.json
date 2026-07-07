@@ -1,0 +1,33 @@
+{
+  "biological_isomorphic_language_used_as_proof": false,
+  "corrected_patch_sha256": "1cf85f55ec48cc47199e33b3b04fc74a16bf935814784e9abdc56b574d960396",
+  "count_increment_batch": "Batch042",
+  "duplicate_clean_replay": "PASS",
+  "episode_id": "issue_derived_repair_episode_001",
+  "fixed_gold_future_later_evidence_used": false,
+  "full_scoring": "NOT_RUN/disallowed",
+  "issue_derived_repair_episode_count_after": 1,
+  "issue_derived_repair_validated": true,
+  "memory_lift": "not_demonstrated",
+  "native_external_repair_episode_count_after": 4,
+  "original_target_indicator_terms": [
+    "Not a git repository",
+    "not a git repository"
+  ],
+  "original_verified_failure_batch": "Batch034",
+  "original_verified_failure_command": "GIT_DIR=.git python -m darker --check src",
+  "post_repair_target_replay": "PASS",
+  "proof_source": "post_repair_target_replay_and_duplicate_clean_replay",
+  "psa82_used_as_repair_proof": false,
+  "reviewed_cofactor_lock_id": "batch041_pylint_provider_only_lock_v2",
+  "reviewed_cofactor_lock_status": "PASS",
+  "selected_source_commit": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+  "self_maintaining_software": "false/not_demonstrated",
+  "source_only": true,
+  "source_project": "akaihola/darker",
+  "status": "PASS",
+  "tests_modified": false,
+  "touched_files": [
+    "src/darker/git.py"
+  ]
+}

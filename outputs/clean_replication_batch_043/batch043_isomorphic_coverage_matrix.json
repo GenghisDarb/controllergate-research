@@ -1,0 +1,140 @@
+{
+  "mappings": [
+    {
+      "ControllerGate_artifact": "stable_identity_lineage_lock",
+      "audit_failure_condition": "stable_identity_lineage_lock_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "Reactome stable identifiers",
+      "isomorphism_name": "Reactome stable identifiers",
+      "operational_role": "stable identity lineage and integrity audit",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "stale_blocker_retirement_registry",
+      "audit_failure_condition": "stale_blocker_retirement_registry_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "Stable old/new ID mapping",
+      "isomorphism_name": "Stable old/new ID mapping",
+      "operational_role": "blocker lineage and stale blocker retirement",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "proof_ledger_validation_lock",
+      "audit_failure_condition": "proof_ledger_validation_lock_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "Stable ID duplicate/referrer QA",
+      "isomorphism_name": "Stable ID duplicate/referrer QA",
+      "operational_role": "proof-ledger referrer audit",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "execution_compartment_registry",
+      "audit_failure_condition": "execution_compartment_registry_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "Species.json",
+      "isomorphism_name": "Species.json",
+      "operational_role": "execution compartment registry",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "cofactor_materialization_registry",
+      "audit_failure_condition": "cofactor_materialization_registry_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "Pathway-Exchange dependency",
+      "isomorphism_name": "Pathway-Exchange dependency",
+      "operational_role": "cofactor materialization registry",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "validation_activation_and_replay_evidence",
+      "audit_failure_condition": "validation_activation_and_replay_evidence_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "BioPAX validator outputs",
+      "isomorphism_name": "BioPAX validator outputs",
+      "operational_role": "active validation and replay evidence",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "failed_branch_precondition_records",
+      "audit_failure_condition": "failed_branch_precondition_records_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "failedSteps list",
+      "isomorphism_name": "failedSteps list",
+      "operational_role": "failed branch/precondition records",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "activation_ring_and_diagnostics_registry",
+      "audit_failure_condition": "activation_ring_and_diagnostics_registry_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "stepsToRun / include-exclude QA",
+      "isomorphism_name": "stepsToRun / include-exclude QA",
+      "operational_role": "activation ring and diagnostics registry",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "compartmentalized_repair_stage_audit",
+      "audit_failure_condition": "compartmentalized_repair_stage_audit_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "multi-stage Docker",
+      "isomorphism_name": "multi-stage Docker",
+      "operational_role": "compartmentalized repair-stage audit",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "stale_blocker_retirement_registry",
+      "audit_failure_condition": "stale_blocker_retirement_registry_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "deprecated outputs",
+      "isomorphism_name": "deprecated outputs",
+      "operational_role": "stale blocker retirement registry",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "command_telemetry_sanitization_audit",
+      "audit_failure_condition": "command_telemetry_sanitization_audit_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "command args with secrets",
+      "isomorphism_name": "command args with secrets",
+      "operational_role": "command telemetry sanitization audit",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "evidence_origin_classification",
+      "audit_failure_condition": "evidence_origin_classification_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "curated vs inferred evidence",
+      "isomorphism_name": "curated vs inferred evidence",
+      "operational_role": "evidence origin classification",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "dependency_drift_and_claim_boundary_comparison",
+      "audit_failure_condition": "dependency_drift_and_claim_boundary_comparison_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "release-vs-previous-release comparisons",
+      "isomorphism_name": "release-vs-previous-release comparisons",
+      "operational_role": "dependency drift and claim-boundary comparison",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "transport_export_equivalence_audit",
+      "audit_failure_condition": "transport_export_equivalence_audit_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "nuclear-pore / CRM1 analogy",
+      "isomorphism_name": "nuclear-pore / CRM1 analogy",
+      "operational_role": "transport/export equivalence audit",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    },
+    {
+      "ControllerGate_artifact": "failed_branch_closure_and_proof_ledger_fork_markers",
+      "audit_failure_condition": "failed_branch_closure_and_proof_ledger_fork_markers_missing_or_used_as_proof",
+      "biological_or_Reactome_source_pattern": "centromere/fork-point analogy",
+      "isomorphism_name": "centromere/fork-point analogy",
+      "operational_role": "failed branch closure and proof-ledger fork markers",
+      "proof_claim_allowed": false,
+      "required_for_future_batches": true
+    }
+  ],
+  "status": "PASS"
+}

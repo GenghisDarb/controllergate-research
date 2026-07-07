@@ -1,0 +1,43 @@
+{
+  "entries": [
+    {
+      "entry_id": "batch042_artifact_ingested",
+      "evidence_hash": "82f0e92b6a62a565d25465cc1747eb5325ed4b9d2c4aa337715324ee9f4682b7",
+      "parent": null,
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch042_count_lock_preserved",
+      "evidence_hash": "578d54d618eb083af0d4ca0e16c5f4cb4d6cdf3f022561228cb4cfecb58dfa64",
+      "parent": "batch042_artifact_ingested",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "canonical_issue_derived_episode_recorded",
+      "evidence_hash": "275f0563dcd29f8ecd6b3122c2d03f252c737d7686444ce0a4d5e8c9e4d90100",
+      "parent": "batch042_count_lock_preserved",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "standing_protocol_controls_recorded",
+      "evidence_hash": "499ae83fb3ad3968a2038845bbbf1b3724dce9ccf186fd35ca9c6e55c01a1f76",
+      "parent": "canonical_issue_derived_episode_recorded",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "lane_closed_validated_counted",
+      "evidence_hash": "ff4f3fde70250a62220934d0d1c271e253a72c3e439db682a9c31c1d4851b58e",
+      "parent": "standing_protocol_controls_recorded",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "claim_boundary_preserved",
+      "evidence_hash": "0f89ec40f579053d6a5862e7647af7a3a2dd6a21166c27abdc64900998a1eab3",
+      "parent": "lane_closed_validated_counted",
+      "status": "PASS"
+    }
+  ],
+  "exact_blocker": null,
+  "hash_chain_valid": true,
+  "status": "PASS"
+}
