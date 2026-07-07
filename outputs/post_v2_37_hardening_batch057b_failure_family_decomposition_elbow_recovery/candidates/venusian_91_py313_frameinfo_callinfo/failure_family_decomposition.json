@@ -1,0 +1,33 @@
+{
+  "batch057_classification": "blocked_no_safe_source_patch",
+  "batch057_failure_signature_hash": "e913565628ff949b56021507f954cbfa4c2d078c3e061f58c4c6cb4b019ca9e0",
+  "failure_family_count": 1,
+  "families": [
+    {
+      "assertion_pattern": "f_locals is locals() identity expectation",
+      "classification": "interpreter-behavior-level",
+      "exception_type": "AssertionError",
+      "family_id": "venusian_frameinfo_locals_identity",
+      "layer": "interpreter_behavior_change",
+      "suspected_source_files": [
+        "src/venusian/advice.py"
+      ],
+      "test_nodes": [
+        "tests/test_advice.py::FrameInfoTest::testCallInfo"
+      ]
+    }
+  ],
+  "grouping_dimensions": [
+    "failing_test_node",
+    "exception_type",
+    "traceback_root",
+    "shared_assertion_pattern",
+    "suspected_source_file",
+    "environment_provider_marker",
+    "dependency_cofactor_marker",
+    "os_runtime_python_version_marker",
+    "failure_level"
+  ],
+  "lead_id": "venusian_91_py313_frameinfo_callinfo",
+  "status": "PASS"
+}

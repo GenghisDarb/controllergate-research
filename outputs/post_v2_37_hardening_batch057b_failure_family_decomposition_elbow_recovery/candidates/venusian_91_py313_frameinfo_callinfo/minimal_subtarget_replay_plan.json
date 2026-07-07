@@ -1,0 +1,23 @@
+{
+  "lead_id": "venusian_91_py313_frameinfo_callinfo",
+  "status": "PASS",
+  "subtargets": [
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\venusian_91_py313_frameinfo_callinfo\\venv\\Scripts\\python.exe",
+        "-m",
+        "tox",
+        "-e",
+        "py313",
+        "--",
+        "tests/test_advice.py::FrameInfoTest::testCallInfo"
+      ],
+      "counting_allowed": false,
+      "family_id": "venusian_frameinfo_locals_identity",
+      "patching_allowed_in_batch057b": false,
+      "purpose": "diagnostic failure-family isolation only",
+      "subtarget_id": "venusian_frameinfo_callinfo",
+      "target_node": "tests/test_advice.py::FrameInfoTest::testCallInfo"
+    }
+  ]
+}

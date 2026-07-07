@@ -1,0 +1,25 @@
+{
+  "lead_id": "pexpect_699_replwrap_bash_assertions",
+  "primary_family": {
+    "assertion_pattern": "pexpect.spawn / shell provider boundary",
+    "classification": "provider-level",
+    "exception_type": "AttributeError",
+    "family_id": "pexpect_replwrap_spawn_provider_boundary",
+    "layer": "environment_provider_bug",
+    "suspected_source_files": [
+      "pexpect/replwrap.py",
+      "pexpect/__init__.py",
+      "pexpect/pty_spawn.py",
+      "pexpect/_async.py"
+    ],
+    "test_nodes": [
+      "tests/test_replwrap.py::REPLWrapTestCase::test_bash",
+      "tests/test_replwrap.py::REPLWrapTestCase::test_bash_env",
+      "tests/test_replwrap.py::REPLWrapTestCase::test_python",
+      "tests/test_replwrap.py::REPLWrapTestCase::test_multiline"
+    ]
+  },
+  "selection_allowed_for_future_diagnostic_patch": false,
+  "selection_reason": "Failures share an AttributeError surface tied to pexpect.spawn availability and provider/shell/pty behavior in the local Windows compartment.",
+  "status": "PASS"
+}

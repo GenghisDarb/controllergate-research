@@ -1,0 +1,40 @@
+{
+  "lead_id": "freezegun_547_py313_datetimes_assertion",
+  "original_target_command": "python -m pytest tests/test_datetimes.py -q --tb=no",
+  "status": "PASS",
+  "subtarget_success_cannot_count_as_original_target_success": true,
+  "subtargets": [
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\freezegun_547_py313_datetimes_assertion\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
+        "-q",
+        "--tb=no"
+      ],
+      "counting_allowed": false,
+      "family_id": "freezegun_unittest_method_decorator_kwargs",
+      "patching_allowed_in_batch057b": false,
+      "purpose": "diagnostic failure-family isolation only",
+      "subtarget_id": "freezegun_unittest_decorator_frozen_time",
+      "target_node": "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time"
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\freezegun_547_py313_datetimes_assertion\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone",
+        "-q",
+        "--tb=no"
+      ],
+      "counting_allowed": false,
+      "family_id": "freezegun_timezone_aware_time_comparison",
+      "patching_allowed_in_batch057b": false,
+      "purpose": "diagnostic failure-family isolation only",
+      "subtarget_id": "freezegun_timezone_compare",
+      "target_node": "tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone"
+    }
+  ]
+}

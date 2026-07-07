@@ -1,0 +1,86 @@
+{
+  "ranked_candidates": [
+    {
+      "batch057_classification": "blocked_ambiguous_multi_failure_source_surface",
+      "batch057c_recommended": true,
+      "bug_layers": [
+        "primary_source_bug",
+        "secondary_source_bug"
+      ],
+      "elbow_activation_state": "elbow_open_primary_family_only_diagnostic_patch_allowed",
+      "elbow_open": true,
+      "exact_blocker": null,
+      "failure_family_count": 2,
+      "lead_id": "freezegun_547_py313_datetimes_assertion",
+      "minimal_subtarget_count": 2,
+      "minimal_subtarget_reproduced_count": 2,
+      "ranking_score": 5,
+      "retired": false,
+      "retirement_reason": null
+    },
+    {
+      "batch057_classification": "blocked_ambiguous_multi_failure_source_surface",
+      "batch057c_recommended": false,
+      "bug_layers": [
+        "dependency_install_bug",
+        "environment_provider_bug",
+        "multi_causal_failure_surface",
+        "primary_source_bug",
+        "secondary_source_bug"
+      ],
+      "elbow_activation_state": "elbow_closed_multi_family_ambiguous",
+      "elbow_open": false,
+      "exact_blocker": "elbow_closed_multi_family_ambiguous",
+      "failure_family_count": 5,
+      "lead_id": "datasette_2461_async_event_loop_cli_tests",
+      "minimal_subtarget_count": 1,
+      "minimal_subtarget_reproduced_count": 1,
+      "ranking_score": 70,
+      "retired": false,
+      "retirement_reason": null
+    },
+    {
+      "batch057_classification": "blocked_no_safe_source_patch",
+      "batch057c_recommended": false,
+      "bug_layers": [
+        "interpreter_behavior_change"
+      ],
+      "elbow_activation_state": "elbow_closed_test_expectation_or_interpreter_behavior",
+      "elbow_open": false,
+      "exact_blocker": "elbow_closed_test_expectation_or_interpreter_behavior",
+      "failure_family_count": 1,
+      "lead_id": "venusian_91_py313_frameinfo_callinfo",
+      "minimal_subtarget_count": 1,
+      "minimal_subtarget_reproduced_count": 1,
+      "ranking_score": 85,
+      "retired": false,
+      "retirement_reason": null
+    },
+    {
+      "batch057_classification": "blocked_environment_specific_failure",
+      "batch057c_recommended": false,
+      "bug_layers": [
+        "environment_provider_bug"
+      ],
+      "elbow_activation_state": "elbow_closed_environment_provider",
+      "elbow_open": false,
+      "exact_blocker": "elbow_closed_environment_provider",
+      "failure_family_count": 1,
+      "lead_id": "pexpect_699_replwrap_bash_assertions",
+      "minimal_subtarget_count": 1,
+      "minimal_subtarget_reproduced_count": 1,
+      "ranking_score": 95,
+      "retired": true,
+      "retirement_reason": "provider/shell/pty boundary dominates the replay compartment"
+    }
+  ],
+  "ranking_criteria": [
+    "clear single source family",
+    "minimal subtarget reproduces",
+    "source surface localized",
+    "not provider dominated",
+    "not test expectation dominated",
+    "not multi-family ambiguous"
+  ],
+  "status": "PASS"
+}

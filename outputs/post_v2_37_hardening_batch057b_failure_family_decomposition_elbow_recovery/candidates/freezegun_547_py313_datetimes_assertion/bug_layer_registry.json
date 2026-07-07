@@ -1,0 +1,34 @@
+{
+  "layers": [
+    {
+      "assertion_pattern": "unittest method decorator kwargs / frozen_time mismatch",
+      "classification": "source-level",
+      "exception_type": "AssertionError",
+      "family_id": "freezegun_unittest_method_decorator_kwargs",
+      "layer": "primary_source_bug",
+      "suspected_source_files": [
+        "freezegun/api.py"
+      ],
+      "test_nodes": [
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func",
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello"
+      ]
+    },
+    {
+      "assertion_pattern": "timezone-aware datetime/time comparison behavior",
+      "classification": "source-level",
+      "exception_type": "AssertionError",
+      "family_id": "freezegun_timezone_aware_time_comparison",
+      "layer": "secondary_source_bug",
+      "suspected_source_files": [
+        "freezegun/api.py"
+      ],
+      "test_nodes": [
+        "tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone"
+      ]
+    }
+  ],
+  "lead_id": "freezegun_547_py313_datetimes_assertion",
+  "status": "PASS"
+}

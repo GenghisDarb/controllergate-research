@@ -1,0 +1,24 @@
+{
+  "lead_id": "datasette_2461_async_event_loop_cli_tests",
+  "original_target_command": "python -m pytest tests/test_cli.py -q --tb=no",
+  "status": "PASS",
+  "subtarget_success_cannot_count_as_original_target_success": true,
+  "subtargets": [
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\datasette_2461_async_event_loop_cli_tests\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_cli.py::test_serve_invalid_ports[dog]",
+        "-q",
+        "--tb=no"
+      ],
+      "counting_allowed": false,
+      "family_id": "datasette_cli_invalid_port_validation",
+      "patching_allowed_in_batch057b": false,
+      "purpose": "diagnostic failure-family isolation only",
+      "subtarget_id": "datasette_invalid_port_dog",
+      "target_node": "tests/test_cli.py::test_serve_invalid_ports[dog]"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "batch057_classification": "blocked_environment_specific_failure",
+  "batch057_failure_signature_hash": "1de1750dce604fa749465e5b550d6dedf310d06113177a4168d62bf921eec9d8",
+  "failure_family_count": 1,
+  "families": [
+    {
+      "assertion_pattern": "pexpect.spawn / shell provider boundary",
+      "classification": "provider-level",
+      "exception_type": "AttributeError",
+      "family_id": "pexpect_replwrap_spawn_provider_boundary",
+      "layer": "environment_provider_bug",
+      "suspected_source_files": [
+        "pexpect/replwrap.py",
+        "pexpect/__init__.py",
+        "pexpect/pty_spawn.py",
+        "pexpect/_async.py"
+      ],
+      "test_nodes": [
+        "tests/test_replwrap.py::REPLWrapTestCase::test_bash",
+        "tests/test_replwrap.py::REPLWrapTestCase::test_bash_env",
+        "tests/test_replwrap.py::REPLWrapTestCase::test_python",
+        "tests/test_replwrap.py::REPLWrapTestCase::test_multiline"
+      ]
+    }
+  ],
+  "grouping_dimensions": [
+    "failing_test_node",
+    "exception_type",
+    "traceback_root",
+    "shared_assertion_pattern",
+    "suspected_source_file",
+    "environment_provider_marker",
+    "dependency_cofactor_marker",
+    "os_runtime_python_version_marker",
+    "failure_level"
+  ],
+  "lead_id": "pexpect_699_replwrap_bash_assertions",
+  "status": "PASS"
+}

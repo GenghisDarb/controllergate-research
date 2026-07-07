@@ -1,0 +1,158 @@
+{
+  "candidates": [
+    {
+      "layers": [
+        {
+          "assertion_pattern": "CliRunner / CLI validation failure",
+          "classification": "source-level",
+          "exception_type": "TypeError",
+          "family_id": "datasette_cli_config_setting_validation",
+          "layer": "primary_source_bug",
+          "suspected_source_files": [
+            "datasette/cli.py"
+          ],
+          "test_nodes": [
+            "tests/test_cli.py::test_setting_type_validation"
+          ]
+        },
+        {
+          "assertion_pattern": "invalid port CLI validation",
+          "classification": "source-level",
+          "exception_type": "TypeError",
+          "family_id": "datasette_cli_invalid_port_validation",
+          "layer": "secondary_source_bug",
+          "suspected_source_files": [
+            "datasette/cli.py"
+          ],
+          "test_nodes": [
+            "tests/test_cli.py::test_serve_invalid_ports[-1]",
+            "tests/test_cli.py::test_serve_invalid_ports[0.5]",
+            "tests/test_cli.py::test_serve_invalid_ports[dog]",
+            "tests/test_cli.py::test_serve_invalid_ports[65536]"
+          ]
+        },
+        {
+          "assertion_pattern": "WinError 32 temporary database/file lock",
+          "classification": "provider-level",
+          "exception_type": "PermissionError",
+          "family_id": "datasette_internal_db_file_lock",
+          "layer": "environment_provider_bug",
+          "suspected_source_files": [
+            "datasette/app.py",
+            "datasette/database.py"
+          ],
+          "test_nodes": [
+            "tests/test_cli.py::test_internal_db"
+          ]
+        },
+        {
+          "assertion_pattern": "spatialite/path behavior",
+          "classification": "dependency-level",
+          "exception_type": "mixed",
+          "family_id": "datasette_spatialite_path_behavior",
+          "layer": "dependency_install_bug",
+          "suspected_source_files": [
+            "datasette/cli.py",
+            "datasette/app.py"
+          ],
+          "test_nodes": [
+            "tests/test_cli.py::test_spatialite_error_if_attempt_to_open_spatialite"
+          ]
+        },
+        {
+          "assertion_pattern": "stderr logging / inspect cache behavior",
+          "classification": "ambiguous",
+          "exception_type": "mixed",
+          "family_id": "datasette_sql_logging_and_inspect_cache",
+          "layer": "multi_causal_failure_surface",
+          "suspected_source_files": [
+            "datasette/cli.py",
+            "datasette/app.py",
+            "datasette/database.py"
+          ],
+          "test_nodes": [
+            "tests/test_cli.py::test_sql_errors_logged_to_stderr",
+            "tests/test_cli.py::test_serve_with_inspect_file_prepopulates_table_counts_cache"
+          ]
+        }
+      ],
+      "lead_id": "datasette_2461_async_event_loop_cli_tests"
+    },
+    {
+      "layers": [
+        {
+          "assertion_pattern": "unittest method decorator kwargs / frozen_time mismatch",
+          "classification": "source-level",
+          "exception_type": "AssertionError",
+          "family_id": "freezegun_unittest_method_decorator_kwargs",
+          "layer": "primary_source_bug",
+          "suspected_source_files": [
+            "freezegun/api.py"
+          ],
+          "test_nodes": [
+            "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
+            "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func",
+            "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello"
+          ]
+        },
+        {
+          "assertion_pattern": "timezone-aware datetime/time comparison behavior",
+          "classification": "source-level",
+          "exception_type": "AssertionError",
+          "family_id": "freezegun_timezone_aware_time_comparison",
+          "layer": "secondary_source_bug",
+          "suspected_source_files": [
+            "freezegun/api.py"
+          ],
+          "test_nodes": [
+            "tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone"
+          ]
+        }
+      ],
+      "lead_id": "freezegun_547_py313_datetimes_assertion"
+    },
+    {
+      "layers": [
+        {
+          "assertion_pattern": "f_locals is locals() identity expectation",
+          "classification": "interpreter-behavior-level",
+          "exception_type": "AssertionError",
+          "family_id": "venusian_frameinfo_locals_identity",
+          "layer": "interpreter_behavior_change",
+          "suspected_source_files": [
+            "src/venusian/advice.py"
+          ],
+          "test_nodes": [
+            "tests/test_advice.py::FrameInfoTest::testCallInfo"
+          ]
+        }
+      ],
+      "lead_id": "venusian_91_py313_frameinfo_callinfo"
+    },
+    {
+      "layers": [
+        {
+          "assertion_pattern": "pexpect.spawn / shell provider boundary",
+          "classification": "provider-level",
+          "exception_type": "AttributeError",
+          "family_id": "pexpect_replwrap_spawn_provider_boundary",
+          "layer": "environment_provider_bug",
+          "suspected_source_files": [
+            "pexpect/replwrap.py",
+            "pexpect/__init__.py",
+            "pexpect/pty_spawn.py",
+            "pexpect/_async.py"
+          ],
+          "test_nodes": [
+            "tests/test_replwrap.py::REPLWrapTestCase::test_bash",
+            "tests/test_replwrap.py::REPLWrapTestCase::test_bash_env",
+            "tests/test_replwrap.py::REPLWrapTestCase::test_python",
+            "tests/test_replwrap.py::REPLWrapTestCase::test_multiline"
+          ]
+        }
+      ],
+      "lead_id": "pexpect_699_replwrap_bash_assertions"
+    }
+  ],
+  "status": "PASS"
+}

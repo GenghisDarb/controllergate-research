@@ -1,0 +1,48 @@
+{
+  "batch057_classification": "blocked_ambiguous_multi_failure_source_surface",
+  "batch057_failure_signature_hash": "c9cb6a75302bb903038d65cb72f80273e4e2e980818b98e5f3bb243ad4acf1a8",
+  "failure_family_count": 2,
+  "families": [
+    {
+      "assertion_pattern": "unittest method decorator kwargs / frozen_time mismatch",
+      "classification": "source-level",
+      "exception_type": "AssertionError",
+      "family_id": "freezegun_unittest_method_decorator_kwargs",
+      "layer": "primary_source_bug",
+      "suspected_source_files": [
+        "freezegun/api.py"
+      ],
+      "test_nodes": [
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func",
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello"
+      ]
+    },
+    {
+      "assertion_pattern": "timezone-aware datetime/time comparison behavior",
+      "classification": "source-level",
+      "exception_type": "AssertionError",
+      "family_id": "freezegun_timezone_aware_time_comparison",
+      "layer": "secondary_source_bug",
+      "suspected_source_files": [
+        "freezegun/api.py"
+      ],
+      "test_nodes": [
+        "tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone"
+      ]
+    }
+  ],
+  "grouping_dimensions": [
+    "failing_test_node",
+    "exception_type",
+    "traceback_root",
+    "shared_assertion_pattern",
+    "suspected_source_file",
+    "environment_provider_marker",
+    "dependency_cofactor_marker",
+    "os_runtime_python_version_marker",
+    "failure_level"
+  ],
+  "lead_id": "freezegun_547_py313_datetimes_assertion",
+  "status": "PASS"
+}

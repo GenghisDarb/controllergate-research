@@ -1,0 +1,24 @@
+{
+  "clusters": [
+    {
+      "cluster_id": "freezegun_unittest_method_decorator_kwargs::test_nodes",
+      "family_id": "freezegun_unittest_method_decorator_kwargs",
+      "layer": "primary_source_bug",
+      "test_nodes": [
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func",
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello"
+      ]
+    },
+    {
+      "cluster_id": "freezegun_timezone_aware_time_comparison::test_nodes",
+      "family_id": "freezegun_timezone_aware_time_comparison",
+      "layer": "secondary_source_bug",
+      "test_nodes": [
+        "tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone"
+      ]
+    }
+  ],
+  "lead_id": "freezegun_547_py313_datetimes_assertion",
+  "status": "PASS"
+}

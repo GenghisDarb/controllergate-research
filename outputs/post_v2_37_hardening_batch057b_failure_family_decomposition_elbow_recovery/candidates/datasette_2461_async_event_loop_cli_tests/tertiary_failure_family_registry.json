@@ -1,0 +1,19 @@
+{
+  "families": [
+    {
+      "assertion_pattern": "CliRunner / CLI validation failure",
+      "classification": "source-level",
+      "exception_type": "TypeError",
+      "family_id": "datasette_cli_config_setting_validation",
+      "layer": "primary_source_bug",
+      "suspected_source_files": [
+        "datasette/cli.py"
+      ],
+      "test_nodes": [
+        "tests/test_cli.py::test_setting_type_validation"
+      ]
+    }
+  ],
+  "lead_id": "datasette_2461_async_event_loop_cli_tests",
+  "status": "PASS"
+}

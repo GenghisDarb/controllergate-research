@@ -1,0 +1,46 @@
+{
+  "clusters": [
+    {
+      "cluster_id": "datasette_cli_config_setting_validation::exception_type",
+      "exception_type": [
+        "TypeError"
+      ],
+      "family_id": "datasette_cli_config_setting_validation",
+      "layer": "primary_source_bug"
+    },
+    {
+      "cluster_id": "datasette_cli_invalid_port_validation::exception_type",
+      "exception_type": [
+        "TypeError"
+      ],
+      "family_id": "datasette_cli_invalid_port_validation",
+      "layer": "secondary_source_bug"
+    },
+    {
+      "cluster_id": "datasette_internal_db_file_lock::exception_type",
+      "exception_type": [
+        "PermissionError"
+      ],
+      "family_id": "datasette_internal_db_file_lock",
+      "layer": "environment_provider_bug"
+    },
+    {
+      "cluster_id": "datasette_spatialite_path_behavior::exception_type",
+      "exception_type": [
+        "mixed"
+      ],
+      "family_id": "datasette_spatialite_path_behavior",
+      "layer": "dependency_install_bug"
+    },
+    {
+      "cluster_id": "datasette_sql_logging_and_inspect_cache::exception_type",
+      "exception_type": [
+        "mixed"
+      ],
+      "family_id": "datasette_sql_logging_and_inspect_cache",
+      "layer": "multi_causal_failure_surface"
+    }
+  ],
+  "lead_id": "datasette_2461_async_event_loop_cli_tests",
+  "status": "PASS"
+}

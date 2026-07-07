@@ -1,0 +1,38 @@
+{
+  "counting_allowed": false,
+  "failure_reproduced_count": 1,
+  "lead_id": "pexpect_699_replwrap_bash_assertions",
+  "patch_success_claim_allowed": false,
+  "results": [
+    {
+      "classification": "minimal_subtarget_failure_reproduced",
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\pexpect_699_replwrap_bash_assertions\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_replwrap.py::REPLWrapTestCase::test_bash",
+        "-q",
+        "--tb=no"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\pexpect_699_replwrap_bash_assertions\\checkout",
+      "elapsed_seconds": 1.142,
+      "exact_blocker": null,
+      "family_id": "pexpect_replwrap_spawn_provider_boundary",
+      "raw_log_path": "minimal_subtarget_logs/pexpect_replwrap_bash_raw.log",
+      "raw_log_sha256": "738e8445f57d37a3eb8d75b8237c362fadf0efed50c2a344ff3031cd545db0d8",
+      "returncode": 1,
+      "signature_path": "minimal_subtarget_logs/pexpect_replwrap_bash_signature.txt",
+      "signature_sha256": "479f45ac4a3525f0d1b387d217e05ceafdc53b6742d6b732305cc5befcb291f2",
+      "status": "PASS",
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "F                                                                        [100%]\n=========================== short test summary info ===========================\nFAILED tests/test_replwrap.py::REPLWrapTestCase::test_bash - AttributeError: ...\n1 failed in 0.07s\n",
+      "stdout_sha256": "738e8445f57d37a3eb8d75b8237c362fadf0efed50c2a344ff3031cd545db0d8",
+      "subtarget_id": "pexpect_replwrap_bash",
+      "target_node": "tests/test_replwrap.py::REPLWrapTestCase::test_bash",
+      "timed_out": false
+    }
+  ],
+  "status": "PASS",
+  "subtarget_count": 1
+}

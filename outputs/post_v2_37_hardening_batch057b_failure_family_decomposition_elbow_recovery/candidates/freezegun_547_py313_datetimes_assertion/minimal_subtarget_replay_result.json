@@ -1,0 +1,66 @@
+{
+  "counting_allowed": false,
+  "failure_reproduced_count": 2,
+  "lead_id": "freezegun_547_py313_datetimes_assertion",
+  "patch_success_claim_allowed": false,
+  "results": [
+    {
+      "classification": "minimal_subtarget_failure_reproduced",
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\freezegun_547_py313_datetimes_assertion\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
+        "-q",
+        "--tb=no"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\freezegun_547_py313_datetimes_assertion\\checkout",
+      "elapsed_seconds": 2.748,
+      "exact_blocker": null,
+      "family_id": "freezegun_unittest_method_decorator_kwargs",
+      "raw_log_path": "minimal_subtarget_logs/freezegun_unittest_decorator_frozen_time_raw.log",
+      "raw_log_sha256": "3316a0e0eef4d2686803a08b9466bf9f87dbe42f6e04caffe25efd1061a8fd78",
+      "returncode": 1,
+      "signature_path": "minimal_subtarget_logs/freezegun_unittest_decorator_frozen_time_signature.txt",
+      "signature_sha256": "20b4e61962cf717dea77209ea5bad01c63c31eb1b4bad51146691f75861481f6",
+      "status": "PASS",
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "F                                                                        [100%]\n=========================== short test summary info ===========================\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time\n1 failed in 0.77s\n",
+      "stdout_sha256": "3316a0e0eef4d2686803a08b9466bf9f87dbe42f6e04caffe25efd1061a8fd78",
+      "subtarget_id": "freezegun_unittest_decorator_frozen_time",
+      "target_node": "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
+      "timed_out": false
+    },
+    {
+      "classification": "minimal_subtarget_failure_reproduced",
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\freezegun_547_py313_datetimes_assertion\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone",
+        "-q",
+        "--tb=no"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\freezegun_547_py313_datetimes_assertion\\checkout",
+      "elapsed_seconds": 2.592,
+      "exact_blocker": null,
+      "family_id": "freezegun_timezone_aware_time_comparison",
+      "raw_log_path": "minimal_subtarget_logs/freezegun_timezone_compare_raw.log",
+      "raw_log_sha256": "0a4d7f677774fe0255addb563299eb381b38eae1aa708161a89d23cd4f8c5be6",
+      "returncode": 1,
+      "signature_path": "minimal_subtarget_logs/freezegun_timezone_compare_signature.txt",
+      "signature_sha256": "9951e122b4678d413a5f6aa24188243cc58d82ab31a65777066ea2941794875a",
+      "status": "PASS",
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "F                                                                        [100%]\n=========================== short test summary info ===========================\nFAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n1 failed in 0.82s\n",
+      "stdout_sha256": "0a4d7f677774fe0255addb563299eb381b38eae1aa708161a89d23cd4f8c5be6",
+      "subtarget_id": "freezegun_timezone_compare",
+      "target_node": "tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone",
+      "timed_out": false
+    }
+  ],
+  "status": "PASS",
+  "subtarget_count": 2
+}

@@ -1,0 +1,22 @@
+{
+  "clusters": [
+    {
+      "assertion_pattern": [
+        "unittest method decorator kwargs / frozen_time mismatch"
+      ],
+      "cluster_id": "freezegun_unittest_method_decorator_kwargs::assertion_pattern",
+      "family_id": "freezegun_unittest_method_decorator_kwargs",
+      "layer": "primary_source_bug"
+    },
+    {
+      "assertion_pattern": [
+        "timezone-aware datetime/time comparison behavior"
+      ],
+      "cluster_id": "freezegun_timezone_aware_time_comparison::assertion_pattern",
+      "family_id": "freezegun_timezone_aware_time_comparison",
+      "layer": "secondary_source_bug"
+    }
+  ],
+  "lead_id": "freezegun_547_py313_datetimes_assertion",
+  "status": "PASS"
+}

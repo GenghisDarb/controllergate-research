@@ -1,0 +1,50 @@
+{
+  "lead_id": "datasette_2461_async_event_loop_cli_tests",
+  "source_surfaces": [
+    {
+      "classification": "source-level",
+      "family_id": "datasette_cli_config_setting_validation",
+      "source_inventory_status": "PASS",
+      "suspected_source_files": [
+        "datasette/cli.py"
+      ]
+    },
+    {
+      "classification": "source-level",
+      "family_id": "datasette_cli_invalid_port_validation",
+      "source_inventory_status": "PASS",
+      "suspected_source_files": [
+        "datasette/cli.py"
+      ]
+    },
+    {
+      "classification": "provider-level",
+      "family_id": "datasette_internal_db_file_lock",
+      "source_inventory_status": "PASS",
+      "suspected_source_files": [
+        "datasette/app.py",
+        "datasette/database.py"
+      ]
+    },
+    {
+      "classification": "dependency-level",
+      "family_id": "datasette_spatialite_path_behavior",
+      "source_inventory_status": "PASS",
+      "suspected_source_files": [
+        "datasette/cli.py",
+        "datasette/app.py"
+      ]
+    },
+    {
+      "classification": "ambiguous",
+      "family_id": "datasette_sql_logging_and_inspect_cache",
+      "source_inventory_status": "PASS",
+      "suspected_source_files": [
+        "datasette/cli.py",
+        "datasette/app.py",
+        "datasette/database.py"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

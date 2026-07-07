@@ -1,0 +1,19 @@
+{
+  "lead_id": "venusian_91_py313_frameinfo_callinfo",
+  "primary_family": {
+    "assertion_pattern": "f_locals is locals() identity expectation",
+    "classification": "interpreter-behavior-level",
+    "exception_type": "AssertionError",
+    "family_id": "venusian_frameinfo_locals_identity",
+    "layer": "interpreter_behavior_change",
+    "suspected_source_files": [
+      "src/venusian/advice.py"
+    ],
+    "test_nodes": [
+      "tests/test_advice.py::FrameInfoTest::testCallInfo"
+    ]
+  },
+  "selection_allowed_for_future_diagnostic_patch": false,
+  "selection_reason": "The single failure asserts Python frame locals identity behavior under Python 3.13; no source-owned behavior was proven safe to patch.",
+  "status": "PASS"
+}

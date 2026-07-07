@@ -1,0 +1,39 @@
+{
+  "counting_allowed": false,
+  "failure_reproduced_count": 1,
+  "lead_id": "venusian_91_py313_frameinfo_callinfo",
+  "patch_success_claim_allowed": false,
+  "results": [
+    {
+      "classification": "minimal_subtarget_failure_reproduced",
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\venusian_91_py313_frameinfo_callinfo\\venv\\Scripts\\python.exe",
+        "-m",
+        "tox",
+        "-e",
+        "py313",
+        "--",
+        "tests/test_advice.py::FrameInfoTest::testCallInfo"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\venusian_91_py313_frameinfo_callinfo\\checkout",
+      "elapsed_seconds": 27.268,
+      "exact_blocker": null,
+      "family_id": "venusian_frameinfo_locals_identity",
+      "raw_log_path": "minimal_subtarget_logs/venusian_frameinfo_callinfo_raw.log",
+      "raw_log_sha256": "99562fc1dfce8647e8f9234bdfe18c9ed0fc1b61c8f5d008e7ae2845521e2e12",
+      "returncode": 1,
+      "signature_path": "minimal_subtarget_logs/venusian_frameinfo_callinfo_signature.txt",
+      "signature_sha256": "15afbfdf8fc35213c7abce90790d69c87d8eac33f6ce53dfad4bae2dfea11b6d",
+      "status": "PASS",
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": ".pkg: _optional_hooks> python C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\venusian_91_py313_frameinfo_callinfo\\venv\\Lib\\site-packages\\pyproject_api\\_backend.py True setuptools.build_meta\n.pkg: get_requires_for_build_sdist> python C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\venusian_91_py313_frameinfo_callinfo\\venv\\Lib\\site-packages\\pyproject_api\\_backend.py True setuptools.build_meta\n.pkg: get_requires_for_build_wheel> python C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\venusian_91_py313_frameinfo_callinfo\\venv\\Lib\\site-packages\\pyproject_api\\_backend.py True setuptools.build_meta\n.pkg: prepare_metadata_for_build_wheel> python C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\venusian_91_py313_frameinfo_callinfo\\venv\\Lib\\site-packages\\pyproject_api\\_backend.py True setuptools.build_meta\n.pkg: build_sdist> python C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\venusian_91_py313_frameinfo_callinfo\\venv\\Lib\\site-packages\\pyproject_api\\\n...<trimmed 1599 chars>...\n                Stmts   Miss   Cover   Missing\n---------------------------------------------------------\nsrc\\venusian\\__init__.py     178    156  12.36%   14, 105-229, 276, 281-286, 289-291, 307-337, 382-414, 481, 484-520, 556-571\nsrc\\venusian\\advice.py        23      0 100.00%\nsrc\\venusian\\compat.py         7      4  42.86%   5-6, 11-12\n---------------------------------------------------------\nTOTAL                        208    160  23.08%\n=========================== short test summary info ===========================\nFAILED tests/test_advice.py::FrameInfoTest::testCallInfo - AssertionError: Fa...\n============================== 1 failed in 0.34s ==============================\npy313: exit 1 (2.08 seconds) C:\\Dev\\ControllerGate_Runtime\\batch057\\wave_1_patch_gate\\venusian_91_py313_frameinfo_callinfo\\checkout> python -mpytest tests/test_advice.py::FrameInfoTest::testCallInfo pid=21804\n  py313: FAIL code 1 (25.11=setup[22.82]+cmd[0.21,2.08] seconds)\n  evaluation failed :( (25.31 seconds)\n",
+      "stdout_sha256": "99562fc1dfce8647e8f9234bdfe18c9ed0fc1b61c8f5d008e7ae2845521e2e12",
+      "subtarget_id": "venusian_frameinfo_callinfo",
+      "target_node": "tests/test_advice.py::FrameInfoTest::testCallInfo",
+      "timed_out": false
+    }
+  ],
+  "status": "PASS",
+  "subtarget_count": 1
+}
