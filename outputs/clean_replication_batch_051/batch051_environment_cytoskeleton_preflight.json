@@ -1,0 +1,64 @@
+{
+  "checks": [
+    {
+      "check_id": "os_specified",
+      "status": "PASS",
+      "value": "ubuntu-latest"
+    },
+    {
+      "check_id": "python_version_specified",
+      "status": "PASS",
+      "value": "3.11"
+    },
+    {
+      "check_id": "test_runner_specified",
+      "status": "PASS",
+      "value": "pytest"
+    },
+    {
+      "check_id": "failing_command_specified",
+      "status": "PASS",
+      "value": "mkdir -p ~/.config/reader && cp -n examples/config.yaml ~/.config/reader/ || true && PYTHONPATH=src pytest --runslow tests/test_cli.py -q --tb=no"
+    },
+    {
+      "check_id": "timeout_seconds_specified",
+      "status": "PASS",
+      "value": 180
+    },
+    {
+      "check_id": "buggy_commit_sha_specified",
+      "status": "PASS",
+      "value": "182902cba96501bbe989fd370bd251107ba2ad31"
+    },
+    {
+      "check_id": "dependency_install_plan_separated_from_replay_telemetry",
+      "status": "PASS",
+      "value": true
+    },
+    {
+      "check_id": "no_source_mutation",
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "no_test_mutation",
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "no_fixture_invention",
+      "status": "PASS",
+      "value": true
+    },
+    {
+      "check_id": "no_dependency_install_before_materialization_policy",
+      "status": "PASS",
+      "value": true
+    }
+  ],
+  "dependency_install_executed": false,
+  "environment_constraints_sha256": "cb3f33914c3e1e55cff71ab212c97183da1a2e047d472a5561aaf49d74251d96",
+  "exact_blocker": null,
+  "status": "PASS",
+  "target_replay_executed": false
+}

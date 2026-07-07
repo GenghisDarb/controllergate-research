@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED.
+Status: PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -187,5 +187,9 @@ Batch049 status: `PASS_WITH_BATCH049_SOURCE_APPROVAL_CYTOSKELETON_GATE`; exact b
 Batch050 officially ingests the Batch049 source-approval artifact, preserves the all-candidates-counted blocker, and adds a manual fresh-seed intake fast lane with tracked request templates. It does not authorize target replay, dependency installation, repair generation, patch generation, full scoring, or broader claims.
 
 Batch050 status: `PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED`; exact blocker: `manual_seed_artifact_absent`; approved unused issue seeds: `0`.
+
+Batch051 officially ingests the Batch050 manual-seed-boundary artifact, validates the Lemon Reader issue 355 manual seed manifest, and runs only the pre-repair replay gate when candidate approval passes. It does not authorize repair generation, patch generation, duplicate replay, full scoring, or broader claims.
+
+Batch051 status: `PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED`; exact blocker: `host_environment_not_ubuntu_latest_python311`; approved unused issue seeds: `1`; pre-repair replay: `PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED`.
 
 NotebookLM advice traceability status: `PASS`.

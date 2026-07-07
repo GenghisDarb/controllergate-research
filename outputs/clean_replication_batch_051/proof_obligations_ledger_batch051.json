@@ -1,0 +1,37 @@
+{
+  "duplicate_replay_occurred": false,
+  "entries": [
+    {
+      "entry_id": "batch050_artifact_ingested",
+      "parent": null,
+      "status": "PASS"
+    },
+    {
+      "entry_id": "manual_seed_manifest_custody_checked",
+      "parent": "batch050_artifact_ingested",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "seed_manifest_validated",
+      "parent": "manual_seed_manifest_custody_checked",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "candidate_approval_gate_evaluated",
+      "parent": "seed_manifest_validated",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "pre_repair_replay_gate_evaluated",
+      "parent": "candidate_approval_gate_evaluated",
+      "status": "PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED"
+    }
+  ],
+  "fixed_gold_future_later_evidence_accessed": false,
+  "patch_generation_occurred": false,
+  "raw_incoming_artifacts_staged": false,
+  "repair_generation_occurred": false,
+  "source_mutation_occurred": false,
+  "status": "PASS",
+  "test_mutation_occurred": false
+}

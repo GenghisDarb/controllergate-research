@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch050 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch051 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -24,7 +24,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Run byte-custody preflight before hardening
         shell: bash
@@ -137,27 +137,22 @@ jobs:
           PY
           python - <<'PY'
           import json
-          state = json.load(open("outputs/clean_replication_batch_050/consolidated_state_clean_replication_batch_050.json", encoding="utf-8"))
+          state = json.load(open("outputs/clean_replication_batch_051/consolidated_state_clean_replication_batch_051.json", encoding="utf-8"))
           keys = [
               "status",
               "exact_blocker",
-              "batch049_artifact_ingest_status",
-              "batch049_artifact_verification_status",
+              "batch050_artifact_ingest_status",
+              "batch050_artifact_verification_status",
               "current_protocol",
-              "manual_seed_package_discovery_status",
-              "manual_seed_package_found",
               "manual_seed_custody_status",
+              "seed_manifest_validation_status",
               "freshness_duplicate_count_status",
-              "evidence_leakage_fast_audit_status",
+              "evidence_leakage_audit_status",
               "environment_cytoskeleton_preflight_status",
-              "cross_environment_orthology_intake_status",
-              "candidate_approval_fast_gate_status",
-              "kernel_coupler_shell_interlock_status",
-              "environment_elbow_classifier_status",
-              "environment_elbow_classification",
-              "shell_closure_preservation_status",
-              "shell_closure_status",
+              "candidate_approval_status",
+              "candidate_approved",
               "approved_unused_issue_seed_count",
+              "pre_repair_replay_status",
               "next_allowed_action",
               "issue_derived_repair_episode_count",
               "native_external_repair_episode_count",
@@ -166,15 +161,15 @@ jobs:
               "self_maintaining_software",
           ]
           for key in keys:
-              print(f"batch050_{key}={state.get(key)}")
+              print(f"batch051_{key}={state.get(key)}")
           PY
 
       - name: Verify clean staged artifact payload
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch050_manual_seed_intake_fastlane/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch050_manual_seed_intake_fastlane \( \
+          test -f artifact_payload/post_v2_37_hardening_batch051_manual_seed_pre_repair_replay/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch051_manual_seed_pre_repair_replay \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -194,16 +189,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch050_manual_seed_intake_fastlane -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_050' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch051_manual_seed_pre_repair_replay -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_051' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch050 manual seed intake fastlane artifact
+      - name: Upload Batch051 manual seed pre-repair replay artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch050_manual_seed_intake_fastlane_artifacts
+          name: post_v2_37_hardening_batch051_manual_seed_pre_repair_replay_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch050_manual_seed_intake_fastlane/**
+            artifact_payload/post_v2_37_hardening_batch051_manual_seed_pre_repair_replay/**
           if-no-files-found: error

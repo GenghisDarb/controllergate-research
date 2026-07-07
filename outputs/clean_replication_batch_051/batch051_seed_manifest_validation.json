@@ -1,0 +1,237 @@
+{
+  "checks": [
+    {
+      "check_id": "candidate_id_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": "lemon24_reader_issue_355_local_config"
+    },
+    {
+      "check_id": "source_project_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": "lemon24/reader"
+    },
+    {
+      "check_id": "repo_url_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": "https://github.com/lemon24/reader"
+    },
+    {
+      "check_id": "issue_url_or_reference_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": "https://github.com/lemon24/reader/issues/355"
+    },
+    {
+      "check_id": "issue_body_excluded_from_evidence_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": true
+    },
+    {
+      "check_id": "buggy_commit_sha_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": "182902cba96501bbe989fd370bd251107ba2ad31"
+    },
+    {
+      "check_id": "failing_command_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": "mkdir -p ~/.config/reader && cp -n examples/config.yaml ~/.config/reader/ || true && PYTHONPATH=src pytest --runslow tests/test_cli.py -q --tb=no"
+    },
+    {
+      "check_id": "expected_failure_signature_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": "FAILED tests/test_cli.py"
+    },
+    {
+      "check_id": "os_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": "ubuntu-latest"
+    },
+    {
+      "check_id": "python_version_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": "3.11"
+    },
+    {
+      "check_id": "test_runner_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": "pytest"
+    },
+    {
+      "check_id": "timeout_seconds_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": 180
+    },
+    {
+      "check_id": "fixed_gold_future_later_absent_attestation_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": true
+    },
+    {
+      "check_id": "known_patch_included_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "future_outcome_logs_included_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "hidden_labels_included_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "source_mutation_required_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "tests_mutation_required_present",
+      "expected": "present",
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "candidate_id_expected",
+      "expected": null,
+      "status": "PASS",
+      "value": "lemon24_reader_issue_355_local_config"
+    },
+    {
+      "check_id": "source_project_expected",
+      "expected": null,
+      "status": "PASS",
+      "value": "lemon24/reader"
+    },
+    {
+      "check_id": "repo_url_present",
+      "expected": null,
+      "status": "PASS",
+      "value": "https://github.com/lemon24/reader"
+    },
+    {
+      "check_id": "issue_reference_present",
+      "expected": null,
+      "status": "PASS",
+      "value": "https://github.com/lemon24/reader/issues/355"
+    },
+    {
+      "check_id": "issue_body_excluded",
+      "expected": true,
+      "status": "PASS",
+      "value": true
+    },
+    {
+      "check_id": "buggy_commit_sha_40_hex",
+      "expected": null,
+      "status": "PASS",
+      "value": "182902cba96501bbe989fd370bd251107ba2ad31"
+    },
+    {
+      "check_id": "buggy_commit_resolves",
+      "expected": "commit",
+      "status": "PASS",
+      "value": "commit"
+    },
+    {
+      "check_id": "failing_command_present",
+      "expected": null,
+      "status": "PASS",
+      "value": "mkdir -p ~/.config/reader && cp -n examples/config.yaml ~/.config/reader/ || true && PYTHONPATH=src pytest --runslow tests/test_cli.py -q --tb=no"
+    },
+    {
+      "check_id": "expected_failure_signature_present",
+      "expected": null,
+      "status": "PASS",
+      "value": "FAILED tests/test_cli.py"
+    },
+    {
+      "check_id": "os_present",
+      "expected": null,
+      "status": "PASS",
+      "value": "ubuntu-latest"
+    },
+    {
+      "check_id": "python_version_present",
+      "expected": null,
+      "status": "PASS",
+      "value": "3.11"
+    },
+    {
+      "check_id": "test_runner_present",
+      "expected": null,
+      "status": "PASS",
+      "value": "pytest"
+    },
+    {
+      "check_id": "timeout_seconds_present",
+      "expected": null,
+      "status": "PASS",
+      "value": 180
+    },
+    {
+      "check_id": "fixed_gold_future_later_absent_attestation",
+      "expected": true,
+      "status": "PASS",
+      "value": true
+    },
+    {
+      "check_id": "known_patch_included",
+      "expected": false,
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "future_outcome_logs_included",
+      "expected": false,
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "hidden_labels_included",
+      "expected": false,
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "source_mutation_required",
+      "expected": false,
+      "status": "PASS",
+      "value": false
+    },
+    {
+      "check_id": "tests_mutation_required",
+      "expected": false,
+      "status": "PASS",
+      "value": false
+    }
+  ],
+  "commit_resolution": {
+    "command": "git fetch --depth=1 origin 182902cba96501bbe989fd370bd251107ba2ad31",
+    "object_type": "commit",
+    "return_code": 0,
+    "sanitized_stderr_excerpt": "From https://github.com/lemon24/reader\n * branch            182902cba96501bbe989fd370bd251107ba2ad31 -> FETCH_HEAD\n",
+    "status": "PASS",
+    "stderr_sha256": "81d6e442d065a78b404cedf1dfd6a5b648a3a45ae23bfa49f9ee960b4fef548a",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "exact_blocker": null,
+  "status": "PASS"
+}

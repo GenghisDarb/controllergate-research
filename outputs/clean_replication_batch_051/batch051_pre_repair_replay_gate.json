@@ -1,0 +1,22 @@
+{
+  "command": "mkdir -p ~/.config/reader && cp -n examples/config.yaml ~/.config/reader/ || true && PYTHONPATH=src pytest --runslow tests/test_cli.py -q --tb=no",
+  "cwd": null,
+  "dependency_state_recorded": true,
+  "deterministic_failure_candidate": false,
+  "exact_blocker": "host_environment_not_ubuntu_latest_python311",
+  "expected_failure_regex_observed": false,
+  "expected_failure_signature_observed": false,
+  "fixed_gold_future_later_evidence_accessed": false,
+  "host_summary": {
+    "platform_system": "Windows",
+    "python_executable": "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+    "python_version": "3.13.14"
+  },
+  "next_allowed_action": "cofactor_or_environment_materialization_gate",
+  "patch_generation_authorized": false,
+  "repair_generation_authorized": false,
+  "selected_source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
+  "source_mutated": false,
+  "status": "PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED",
+  "tests_mutated": false
+}
