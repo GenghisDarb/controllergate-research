@@ -1,0 +1,141 @@
+{
+  "allowed_source_classes": [
+    "repo-local historical candidate inventories",
+    "previously blocked candidates with retired blockers now resolved by guardrails",
+    "approved public issue-derived repositories already within project policy",
+    "manually provided artifacts only after custody verification",
+    "pinned public source metadata that can be captured before execution"
+  ],
+  "entries": [
+    {
+      "allowed_probe_classes": [
+        "source_presence_probe",
+        "source_head_probe",
+        "command_manifest_probe",
+        "target_test_presence_probe",
+        "harness_origin_probe",
+        "cofactor_declaration_probe",
+        "cofactor_lock_probe",
+        "workspace_purity_probe",
+        "workspace_equivalence_probe",
+        "dependency_drift_probe",
+        "transport_equivalence_probe",
+        "stale_cache_probe",
+        "proof_ledger_referrer_probe",
+        "evidence_origin_probe"
+      ],
+      "candidate_family": "environment_locator_policy",
+      "decision_time_safe": true,
+      "eligibility_schema_status": "PASS",
+      "evidence_firewall_status": "PASS",
+      "evidence_sha256": "fa76b774de8061fac95bf0c1b7b4d33aa19ea16f3f63ee4772f7e9cc9c3060ab",
+      "forbidden_probe_classes": [],
+      "reason_for_exclusion_if_excluded": null,
+      "reason_for_inclusion": "Batch046 authorized bounded non-mutating environment probe inventory under manual artifact custody.",
+      "source_class": "repo-local historical candidate inventories",
+      "source_pin": "381e4b34b16fdf2261347fd5c64a506b05d31d8a",
+      "source_pin_available": true,
+      "source_project": "ControllerGate prior-output evidence",
+      "source_registry_id": "repo_local_batch046_environment_locator",
+      "source_url_or_repo_id": "outputs/clean_replication_batch_046"
+    },
+    {
+      "allowed_probe_classes": [
+        "source_presence_probe",
+        "source_head_probe",
+        "command_manifest_probe",
+        "target_test_presence_probe",
+        "harness_origin_probe",
+        "cofactor_declaration_probe",
+        "cofactor_lock_probe",
+        "workspace_purity_probe",
+        "workspace_equivalence_probe",
+        "dependency_drift_probe",
+        "transport_equivalence_probe",
+        "stale_cache_probe",
+        "proof_ledger_referrer_probe",
+        "evidence_origin_probe"
+      ],
+      "candidate_family": "counted_issue_derived_episode_preservation",
+      "decision_time_safe": true,
+      "eligibility_schema_status": "PASS_PRESERVATION_ONLY",
+      "evidence_firewall_status": "PASS",
+      "evidence_sha256": "fa76b774de8061fac95bf0c1b7b4d33aa19ea16f3f63ee4772f7e9cc9c3060ab",
+      "forbidden_probe_classes": [
+        "repair_generation",
+        "target_replay",
+        "duplicate_replay"
+      ],
+      "reason_for_exclusion_if_excluded": "retired_counted_episode_not_new_candidate",
+      "reason_for_inclusion": "Already counted issue-derived episode can inform blocker classes without being reused as a new seed.",
+      "source_class": "approved public issue-derived repositories already within project policy",
+      "source_pin": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+      "source_pin_available": true,
+      "source_project": "akaihola/darker",
+      "source_registry_id": "darker_issue112_counted_issue_derived_episode",
+      "source_url_or_repo_id": "https://github.com/akaihola/darker"
+    },
+    {
+      "allowed_probe_classes": [
+        "evidence_origin_probe",
+        "proof_ledger_referrer_probe",
+        "transport_equivalence_probe"
+      ],
+      "candidate_family": "retired_bugsinpy_provenance_blocker",
+      "decision_time_safe": true,
+      "eligibility_schema_status": "PASS_DIAGNOSTIC_ONLY",
+      "evidence_firewall_status": "PASS",
+      "evidence_sha256": "fa76b774de8061fac95bf0c1b7b4d33aa19ea16f3f63ee4772f7e9cc9c3060ab",
+      "forbidden_probe_classes": [
+        "target_replay",
+        "repair_generation",
+        "dependency_install"
+      ],
+      "reason_for_exclusion_if_excluded": "not_repair_candidate_in_batch047",
+      "reason_for_inclusion": "Historical blocker family can be probed for evidence-origin and ledger patterns without reopening the lane.",
+      "source_class": "previously blocked candidates with retired blockers now resolved by guardrails",
+      "source_pin": null,
+      "source_pin_available": false,
+      "source_project": "cool-RR/PySnooper",
+      "source_registry_id": "pysnooper_family_retired_blocker",
+      "source_url_or_repo_id": "repo-local v2.17/v2.22 blocker records"
+    },
+    {
+      "allowed_probe_classes": [
+        "source_presence_probe",
+        "evidence_origin_probe",
+        "proof_ledger_referrer_probe"
+      ],
+      "candidate_family": "empty_issue_seed_inventory",
+      "decision_time_safe": true,
+      "eligibility_schema_status": "PASS_EMPTY_INVENTORY",
+      "evidence_firewall_status": "PASS",
+      "evidence_sha256": "fa76b774de8061fac95bf0c1b7b4d33aa19ea16f3f63ee4772f7e9cc9c3060ab",
+      "forbidden_probe_classes": [],
+      "reason_for_exclusion_if_excluded": "no_candidates_in_inventory",
+      "reason_for_inclusion": "Batch045 inventory establishes the immediate source-registry expansion need.",
+      "source_class": "repo-local historical candidate inventories",
+      "source_pin": "a59dcfa0a6b11181b4e5d07313ad66e04f138a12",
+      "source_pin_available": true,
+      "source_project": "ControllerGate Batch045 inventory",
+      "source_registry_id": "batch045_empty_issue_seed_inventory",
+      "source_url_or_repo_id": "outputs/clean_replication_batch_045/batch045_issue_seed_candidate_inventory.json"
+    }
+  ],
+  "exact_blocker": null,
+  "forbidden_source_classes": [
+    "fixed/gold/future/later evidence",
+    "known patches",
+    "hidden labels",
+    "synthetic failing tests",
+    "broad web scraping without registry",
+    "unpinned floating candidate acquisition",
+    "source/test mutation",
+    "dependency mutation",
+    "ToT-BROT transfer as proof",
+    "ToT-BULB probe result as proof"
+  ],
+  "registry_created_before_probe_execution": true,
+  "source_registry_entry_count": 4,
+  "status": "PASS"
+}

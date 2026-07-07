@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH046_BROT_BULB_ENVIRONMENT_LOCATOR_AUTHORIZED.
+Status: PASS_WITH_BATCH047_TOT_BULB_PROBE_EXECUTION_RECORDED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -171,5 +171,9 @@ Batch045 status: `PASS_WITH_BATCH045_PROTOCOL_CANDIDATE_SEED_INVENTORY_AUTHORIZE
 Batch046 officially ingests the Batch045 seed-inventory artifact, preserves protocol v2.14 as ready for a separate promotion lane, and records bounded environment-locator probe inventory for future seed discovery. No probe execution, replay, repair, patch generation, full scoring, memory-lift claim, or production-readiness claim is made.
 
 Batch046 status: `PASS_WITH_BATCH046_BROT_BULB_ENVIRONMENT_LOCATOR_AUTHORIZED`; exact blocker: `None`.
+
+Batch047 officially ingests the Batch046 environment-locator artifact, creates a source registry, and records bounded non-mutating probe telemetry for discovery only. It does not authorize repair generation, target replay, duplicate replay, protocol promotion, or any broader claim.
+
+Batch047 status: `PASS_WITH_BATCH047_TOT_BULB_PROBE_EXECUTION_RECORDED`; exact blocker: `None`.
 
 NotebookLM advice traceability status: `PASS`.

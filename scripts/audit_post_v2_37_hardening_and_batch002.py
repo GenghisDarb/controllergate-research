@@ -57,7 +57,8 @@ BATCH043_DIR = Path("outputs/clean_replication_batch_043")
 BATCH044_DIR = Path("outputs/clean_replication_batch_044")
 BATCH045_DIR = Path("outputs/clean_replication_batch_045")
 BATCH046_DIR = Path("outputs/clean_replication_batch_046")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch046_brot_bulb_environment_locator")
+BATCH047_DIR = Path("outputs/clean_replication_batch_047")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch047_tot_bulb_probe_execution")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -1896,6 +1897,29 @@ BATCH046_REQUIRED = [
     "consolidated_state_clean_replication_batch_046.json",
     "campaign_summary.md",
     "public_language_audit_batch046.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH047_REQUIRED = [
+    "batch046_artifact_ingest_summary.json",
+    "batch046_artifact_verification.json",
+    "batch046_brot_bulb_locator_preservation.json",
+    "batch046_claim_boundary_preservation.json",
+    "batch047_source_registry_for_bounded_probe_execution.json",
+    "batch047_tot_bulb_probe_execution_policy.json",
+    "batch047_tot_bulb_probe_execution_results.json",
+    "batch047_torus_brot_probe_interpretation.json",
+    "batch047_tot_brot_coupled_probe_interpretation.json",
+    "batch047_issue_seed_candidate_inventory.json",
+    "batch047_protocol_v2_14_boundary_preservation.json",
+    "issue_derived_repair_feasibility_batch047.json",
+    "claim_boundary_batch047.json",
+    "proof_obligations_ledger_batch047.json",
+    "consolidated_state_clean_replication_batch_047.json",
+    "campaign_summary.md",
+    "public_language_audit_batch047.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -9250,6 +9274,242 @@ def audit_batch046_records() -> list[str]:
     return errors
 
 
+def audit_batch047_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH047_REQUIRED:
+        if not (BATCH047_DIR / name).is_file():
+            errors.append(f"missing Batch047 file: {name}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH047_DIR).get("status") != "PASS":
+        errors.append("Batch047 manifest mismatch")
+
+    state = read_json(BATCH047_DIR / "consolidated_state_clean_replication_batch_047.json")
+    ingest = read_json(BATCH047_DIR / "batch046_artifact_ingest_summary.json")
+    verification = read_json(BATCH047_DIR / "batch046_artifact_verification.json")
+    locator_preservation = read_json(BATCH047_DIR / "batch046_brot_bulb_locator_preservation.json")
+    claim_preservation = read_json(BATCH047_DIR / "batch046_claim_boundary_preservation.json")
+    registry = read_json(BATCH047_DIR / "batch047_source_registry_for_bounded_probe_execution.json")
+    policy = read_json(BATCH047_DIR / "batch047_tot_bulb_probe_execution_policy.json")
+    results = read_json(BATCH047_DIR / "batch047_tot_bulb_probe_execution_results.json")
+    torus_interpretation = read_json(BATCH047_DIR / "batch047_torus_brot_probe_interpretation.json")
+    coupled_interpretation = read_json(BATCH047_DIR / "batch047_tot_brot_coupled_probe_interpretation.json")
+    inventory = read_json(BATCH047_DIR / "batch047_issue_seed_candidate_inventory.json")
+    protocol = read_json(BATCH047_DIR / "batch047_protocol_v2_14_boundary_preservation.json")
+    feasibility = read_json(BATCH047_DIR / "issue_derived_repair_feasibility_batch047.json")
+    claim = read_json(BATCH047_DIR / "claim_boundary_batch047.json")
+    ledger = read_json(BATCH047_DIR / "proof_obligations_ledger_batch047.json")
+    minimality = read_json(BATCH047_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH047_DIR / "artifact_payload_budget.json")
+    language = read_json(BATCH047_DIR / "public_language_audit_batch047.json")
+
+    if state.get("status") != "PASS_WITH_BATCH047_TOT_BULB_PROBE_EXECUTION_RECORDED":
+        errors.append("Batch047 status mismatch")
+    if state.get("exact_blocker") is not None:
+        errors.append("Batch047 blocker should be None")
+    if ingest.get("status") != "PASS" or verification.get("status") != "PASS":
+        errors.append("Batch047 Batch046 artifact ingest/verification failed")
+    if verification.get("artifact_name") != "post_v2_37_hardening_batch046_brot_bulb_environment_locator_artifacts":
+        errors.append("Batch047 Batch046 artifact name mismatch")
+    if verification.get("artifact_id") != 8126394588 or verification.get("workflow_run_id") != 28836675599:
+        errors.append("Batch047 Batch046 artifact identity mismatch")
+    if verification.get("workflow_head_sha") != "381e4b34b16fdf2261347fd5c64a506b05d31d8a":
+        errors.append("Batch047 Batch046 workflow head mismatch")
+    if verification.get("artifact_sha256") != "a5358881998a225eb0575d2a14fa3a35bd8f464c11f3dea75b2d39263d8568a0":
+        errors.append("Batch047 Batch046 artifact SHA mismatch")
+    if verification.get("artifact_size_bytes") != 166521 or verification.get("zip_entry_count") != 166:
+        errors.append("Batch047 Batch046 artifact size/entry mismatch")
+    if verification.get("artifact_manifest_checked") != 165 or verification.get("batch046_manifest_checked") != 21 or verification.get("post_manifest_checked") != 142:
+        errors.append("Batch047 Batch046 manifest counts mismatch")
+    for field in ["unsafe_path_count", "duplicate_path_count", "pycache_pyc_payload_count", "manifest_failure_count"]:
+        if verification.get(field) != 0:
+            errors.append(f"Batch047 Batch046 artifact {field} not zero")
+    if verification.get("raw_zip_bytes_ingested") is not False:
+        errors.append("Batch047 raw ZIP bytes ingested")
+
+    if locator_preservation.get("status") != "PASS":
+        errors.append("Batch047 locator preservation failed")
+    if locator_preservation.get("batch046_status_preserved") != "PASS_WITH_BATCH046_BROT_BULB_ENVIRONMENT_LOCATOR_AUTHORIZED":
+        errors.append("Batch047 Batch046 status not preserved")
+    if locator_preservation.get("environment_bug_locator_probe_authorized") is not True:
+        errors.append("Batch047 lost Batch046 probe authorization")
+    if locator_preservation.get("bounded_probe_inventory_count") != 14:
+        errors.append("Batch047 lost Batch046 probe inventory count")
+    if locator_preservation.get("probe_execution_occurred_in_batch046") is not False or locator_preservation.get("repair_generation_occurred_in_batch046") is not False:
+        errors.append("Batch047 Batch046 execution boundary changed")
+    if claim_preservation.get("status") != "PASS":
+        errors.append("Batch047 claim preservation failed")
+
+    if registry.get("status") != "PASS":
+        errors.append("Batch047 source registry not PASS")
+    entries = registry.get("entries", [])
+    if not isinstance(entries, list) or not entries:
+        errors.append("Batch047 source registry missing entries before probes")
+        entries = []
+    if registry.get("registry_created_before_probe_execution") is not True:
+        errors.append("Batch047 registry not created before probes")
+    registry_ids = {entry.get("source_registry_id") for entry in entries if isinstance(entry, dict)}
+    for entry in entries:
+        if entry.get("decision_time_safe") is not True:
+            errors.append(f"Batch047 registry entry not decision-time safe: {entry.get('source_registry_id')}")
+        if entry.get("evidence_firewall_status") != "PASS":
+            errors.append(f"Batch047 registry entry firewall not PASS: {entry.get('source_registry_id')}")
+        if not isinstance(entry.get("allowed_probe_classes"), list):
+            errors.append(f"Batch047 registry entry lacks allowed probes: {entry.get('source_registry_id')}")
+    forbidden_registry = json.dumps(registry.get("forbidden_source_classes", []), sort_keys=True)
+    for required in ["fixed/gold/future/later evidence", "known patches", "hidden labels", "ToT-BROT transfer as proof", "ToT-BULB probe result as proof"]:
+        if required not in forbidden_registry:
+            errors.append(f"Batch047 source registry missing forbidden class {required}")
+
+    if policy.get("status") != "PASS":
+        errors.append("Batch047 probe policy not PASS")
+    for field in [
+        "non_mutating_required",
+        "sanitized_telemetry_and_hashes_required",
+        "not_run_reason_required_for_skipped_probe",
+    ]:
+        if policy.get(field) is not True:
+            errors.append(f"Batch047 probe policy missing {field}")
+    for field in [
+        "source_mutation_allowed",
+        "test_mutation_allowed",
+        "fixture_mutation_allowed",
+        "harness_mutation_allowed",
+        "dependency_mutation_allowed",
+        "cache_mutation_allowed",
+        "workspace_mutation_allowed",
+        "fixed_gold_future_later_access_allowed",
+        "dependency_install_allowed",
+        "patch_generation_allowed",
+        "repair_execution_allowed",
+        "validation_claim_allowed",
+        "probe_results_are_repair_proof",
+    ]:
+        if policy.get(field) is not False:
+            errors.append(f"Batch047 probe policy over-allowed {field}")
+    if policy.get("probe_glare_blocker") != "tot_bulb_probe_glare_blocked":
+        errors.append("Batch047 probe glare blocker mismatch")
+    if set(policy.get("probe_classes_authorized", [])) != {
+        "source_presence_probe",
+        "source_head_probe",
+        "command_manifest_probe",
+        "target_test_presence_probe",
+        "harness_origin_probe",
+        "cofactor_declaration_probe",
+        "cofactor_lock_probe",
+        "workspace_purity_probe",
+        "workspace_equivalence_probe",
+        "dependency_drift_probe",
+        "transport_equivalence_probe",
+        "stale_cache_probe",
+        "proof_ledger_referrer_probe",
+        "evidence_origin_probe",
+    }:
+        errors.append("Batch047 authorized probe classes mismatch")
+
+    if results.get("status") != "PASS":
+        errors.append("Batch047 probe results not PASS")
+    result_items = results.get("results", [])
+    if not isinstance(result_items, list) or not result_items:
+        errors.append("Batch047 probe results missing")
+        result_items = []
+    if any(item.get("source_registry_id") not in registry_ids for item in result_items):
+        errors.append("Batch047 probe result emitted without registry entry")
+    for item in result_items:
+        if item.get("mutation_detected") is not False:
+            errors.append("Batch047 probe mutation violation")
+        if item.get("status") == "NOT_RUN" and not item.get("not_run_reason"):
+            errors.append("Batch047 skipped probe missing NOT_RUN reason")
+        if item.get("status") in {"PASS", "BLOCK"} and item.get("executed") is not True:
+            errors.append("Batch047 executed status mismatch")
+        if item.get("glare_blocked") is True and item.get("status") != "BLOCK":
+            errors.append("Batch047 glare block status mismatch")
+    if results.get("mutation_violation") is not False:
+        errors.append("Batch047 mutation violation flag set")
+    for field in ["fixed_gold_future_later_accessed", "dependency_install_attempted", "patch_generation_attempted", "repair_execution_attempted", "probe_results_treated_as_repair_proof"]:
+        if results.get(field) is not False:
+            errors.append(f"Batch047 probe result overclaim/forbidden action: {field}")
+    if state.get("executed_probe_count") != results.get("executed_probe_count"):
+        errors.append("Batch047 executed probe count mismatch")
+    if state.get("blocked_probe_count") != results.get("blocked_probe_count"):
+        errors.append("Batch047 blocked probe count mismatch")
+    if state.get("not_run_probe_count") != results.get("not_run_probe_count"):
+        errors.append("Batch047 NOT_RUN probe count mismatch")
+
+    if torus_interpretation.get("status") != "PASS" or torus_interpretation.get("diagnostic_only") is not True:
+        errors.append("Batch047 single-system interpretation invalid")
+    for item in torus_interpretation.get("interpretations", []):
+        if item.get("target_failure_reproducibility_status") != "NOT_RUN":
+            errors.append("Batch047 interpretation implied target replay")
+        if item.get("seed_repair_eligibility_status") != "NOT_AUTHORIZED_IN_BATCH047":
+            errors.append("Batch047 interpretation authorized repair eligibility")
+    if coupled_interpretation.get("status") != "PASS":
+        errors.append("Batch047 coupled interpretation invalid")
+    if coupled_interpretation.get("memory_lift_inferred") is not False or coupled_interpretation.get("repair_generalization_inferred") is not False:
+        errors.append("Batch047 coupled interpretation overclaim")
+    if coupled_interpretation.get("coupled_pattern_treated_as_proof") is not False:
+        errors.append("Batch047 coupled pattern treated as proof")
+    for item in coupled_interpretation.get("patterns", []):
+        if item.get("transfer_allowed_for_repair") is not False:
+            errors.append("Batch047 coupled transfer allowed for repair")
+
+    if inventory.get("status") != "PASS" or inventory.get("candidate_inventory_count") != 0:
+        errors.append("Batch047 candidate inventory count/status mismatch")
+    if inventory.get("repair_generation_authorized") is not False:
+        errors.append("Batch047 candidate inventory authorized repair generation")
+    if inventory.get("probe_results_are_discovery_evidence_only") is not True:
+        errors.append("Batch047 inventory treated probes as validation evidence")
+    if not inventory.get("empty_inventory_reason"):
+        errors.append("Batch047 empty inventory reason missing")
+    if protocol.get("status") != "PASS":
+        errors.append("Batch047 protocol boundary not PASS")
+    if protocol.get("current_protocol_before_batch047") != "v2.13" or protocol.get("current_protocol_after_batch047") != "v2.13":
+        errors.append("Batch047 current protocol changed")
+    if protocol.get("protocol_promotion_performed") is not False or protocol.get("silent_promotion_blocked") is not True:
+        errors.append("Batch047 protocol promotion boundary failed")
+    if protocol.get("recommended_future_batch") != "Batch048 protocol v2.14 promotion review":
+        errors.append("Batch047 future promotion recommendation mismatch")
+
+    if feasibility.get("status") != "PASS" or feasibility.get("repair_generation_authorized") is not False:
+        errors.append("Batch047 feasibility boundary invalid")
+    if feasibility.get("issue_derived_repair_episode_count") != 1 or feasibility.get("native_external_repair_episode_count") != 4:
+        errors.append("Batch047 feasibility counts changed")
+    if claim.get("status") != "PASS":
+        errors.append("Batch047 claim boundary failed")
+    if claim.get("native_external_repair_episodes") != 4 or claim.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch047 claim counts changed")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch047 full scoring or memory claim changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("production_readiness") != "false/not_demonstrated":
+        errors.append("Batch047 self-maintaining or production claim changed")
+    for key in ["hallucination_elimination", "absolute_uncrashability", "generalized_autonomous_repair_success", "TO" + "RUS_physics_validation", "PSA82_validation"]:
+        if claim.get(key) != "not_claimed":
+            errors.append(f"Batch047 overclaimed {key}")
+    if claim.get("TO" + "RUS_BROT_proof_claim") is not False or claim.get("ToT_BROT_proof_claim") is not False or claim.get("ToT_BULB_proof_claim") is not False:
+        errors.append("Batch047 proof term overclaim")
+    if claim.get("current_protocol") != "v2.13" or state.get("current_protocol") != "v2.13":
+        errors.append("Batch047 current protocol mismatch")
+    if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch047 proof ledger invalid")
+    if ledger.get("repair_generation_occurred") is not False or ledger.get("patch_generation_occurred") is not False:
+        errors.append("Batch047 proof ledger recorded repair/patch generation")
+    if ledger.get("target_replay_occurred") is not False or ledger.get("duplicate_replay_occurred") is not False:
+        errors.append("Batch047 proof ledger recorded replay")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch047 artifact minimality failed")
+    if budget.get("status") != "PASS" or int(budget.get("hard_primary_artifact_bytes", 0)) != 750000:
+        errors.append("Batch047 artifact budget failed")
+    if language.get("status") != "PASS":
+        errors.append("Batch047 public language audit failed")
+
+    forbidden_markers = ["1.45", "25.7", "wiggle_room", "closure_tolerance", "residual_tolerance"]
+    for path in list(BATCH047_DIR.glob("*.json")) + list(BATCH047_DIR.glob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        if any(marker in text for marker in forbidden_markers):
+            errors.append(f"Batch047 introduced forbidden tolerance marker in {path.name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -9380,6 +9640,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_044.json"),
         Path("configs/clean_replication_batch_045.json"),
         Path("configs/clean_replication_batch_046.json"),
+        Path("configs/clean_replication_batch_047.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
         Path("configs/clean_replication_batch_016.json"),
@@ -9437,6 +9698,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_036.json"),
         Path("controllergate/core/batch037_provider_execution_substage_recovery.py"),
         Path("controllergate/core/batch046_brot_bulb_environment_locator.py"),
+        Path("controllergate/core/batch047_tot_bulb_probe_execution.py"),
         Path("configs/clean_replication_batch_037.json"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
@@ -9704,6 +9966,7 @@ def main() -> int:
         + require_files(BATCH044_DIR, BATCH044_REQUIRED)
         + require_files(BATCH045_DIR, BATCH045_REQUIRED)
         + require_files(BATCH046_DIR, BATCH046_REQUIRED)
+        + require_files(BATCH047_DIR, BATCH047_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -9793,6 +10056,8 @@ def main() -> int:
         return fail("batch045 manifest mismatch")
     if verify_manifest(BATCH046_DIR)["status"] != "PASS":
         return fail("batch046 manifest mismatch")
+    if verify_manifest(BATCH047_DIR)["status"] != "PASS":
+        return fail("batch047 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -10040,6 +10305,9 @@ def main() -> int:
     batch046_errors = audit_batch046_records()
     if batch046_errors:
         return fail(f"batch046 audit failed: {batch046_errors}")
+    batch047_errors = audit_batch047_records()
+    if batch047_errors:
+        return fail(f"batch047 audit failed: {batch047_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -10086,8 +10354,8 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH046_"):
-        return fail("final report did not advance to Batch046 environment locator boundary")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH047_"):
+        return fail("final report did not advance to Batch047 bounded probe execution boundary")
     allowed_latest_blockers = {
         "docker_runtime_provider_unavailable",
         "python37_docker_provider_unavailable",
@@ -10503,8 +10771,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH046_"):
-        return fail("final report top-level status is not Batch046")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH047_"):
+        return fail("final report top-level status is not Batch047")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -11119,6 +11387,44 @@ def main() -> int:
         return fail("final report Batch046 production boundary changed")
     if final_report.get("batch046_current_protocol") != "v2.13":
         return fail("final report Batch046 current protocol changed")
+    if final_report.get("clean_replication_batch_047_status") != "PASS_WITH_BATCH047_TOT_BULB_PROBE_EXECUTION_RECORDED":
+        return fail("final report Batch047 status mismatch")
+    if final_report.get("clean_replication_batch_047_exact_blocker") is not None:
+        return fail("final report Batch047 blocker should be None")
+    if final_report.get("batch047_primary_artifact_name") != "post_v2_37_hardening_batch047_tot_bulb_probe_execution_artifacts":
+        return fail("final report Batch047 artifact name mismatch")
+    if final_report.get("batch047_batch046_artifact_ingest_status") != "PASS" or final_report.get("batch047_batch046_artifact_verification_status") != "PASS":
+        return fail("final report Batch047 Batch046 artifact custody not PASS")
+    if final_report.get("batch047_brot_bulb_locator_preservation_status") != "PASS":
+        return fail("final report Batch047 locator preservation not PASS")
+    if final_report.get("batch047_source_registry_status") != "PASS":
+        return fail("final report Batch047 source registry not PASS")
+    if int(final_report.get("batch047_source_registry_entry_count", 0)) < 1:
+        return fail("final report Batch047 source registry empty")
+    if final_report.get("batch047_probe_execution_policy_status") != "PASS" or final_report.get("batch047_probe_execution_results_status") != "PASS":
+        return fail("final report Batch047 probe policy/results not PASS")
+    if int(final_report.get("batch047_executed_probe_count", 0)) < 1:
+        return fail("final report Batch047 executed no probes")
+    if int(final_report.get("batch047_not_run_probe_count", -1)) < 0:
+        return fail("final report Batch047 NOT_RUN probe count invalid")
+    if final_report.get("batch047_candidate_inventory_count") != 0:
+        return fail("final report Batch047 candidate inventory count mismatch")
+    if final_report.get("batch047_protocol_v2_14_boundary_status") != "PASS":
+        return fail("final report Batch047 protocol boundary not PASS")
+    if final_report.get("batch047_issue_derived_repair_episode_count") != 1:
+        return fail("final report Batch047 issue-derived count mismatch")
+    if final_report.get("batch047_native_external_repair_episode_count") != 4:
+        return fail("final report Batch047 native count changed")
+    if final_report.get("batch047_full_scoring") != "NOT_RUN/disallowed":
+        return fail("final report Batch047 full scoring boundary changed")
+    if final_report.get("batch047_memory_lift") != "not_demonstrated":
+        return fail("final report Batch047 memory-lift boundary changed")
+    if final_report.get("batch047_self_maintaining_software") != "false/not_demonstrated":
+        return fail("final report Batch047 self-maintaining boundary changed")
+    if final_report.get("batch047_production_readiness") != "false/not_demonstrated":
+        return fail("final report Batch047 production boundary changed")
+    if final_report.get("batch047_current_protocol") != "v2.13":
+        return fail("final report Batch047 current protocol changed")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

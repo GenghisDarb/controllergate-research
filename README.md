@@ -1,158 +1,92 @@
 # ControllerGate
 
-ControllerGate is a provenance-first software repair research harness.
+ControllerGate is a provenance-first software repair research harness and evidence-bound repair validation kernel for audited software-change candidates. Current protocol remains `v2.13`.
 
-It remains a pre-alpha research archive for proof-gated software-change governance.
+ControllerGate remains a pre-alpha research archive. Clean replication batch002 now attempts real external leads, and confirmed external native repair episodes include `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`.
 
-Clean replication batch002 now attempts real external leads.
-
-Confirmed external native repair episodes include `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`.
-
-Current protocol remains `v2.13`.
+Batch019 is the latest boundary. Status: `PASS_WITH_BATCH019_ACTIVE_SEARCH_GEOMETRY`; exact blocker: `manual_dependency_lock_available_for_batch020_or_later`.
 
 Full scoring remains `NOT_RUN/disallowed`.
 
-Memory lift on external real bugs is not demonstrated.
-
-Self-maintaining software is not demonstrated.
-
-Latest continuation boundary: Batch031 status `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED` with exact blocker `issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context`.
-
-## What ControllerGate is
-
-- An evidence-bound repair validation harness.
-- A proof-gated software-change governance scaffold.
-- A rollback-safe candidate review system.
-
-## What ControllerGate is not
-
-- It is not production-ready.
-- It does not claim full autonomous repair.
-- It does not claim full scoring or full memory lift.
-
-## Claim Tier System
-
-Capabilities remain tiered by evidence. Batch024 does not upgrade full-scoring, memory-lift, or self-maintaining claims.
-
-## Capability Catalog
-
-The capability catalog records active and guarded engineering gates with claim boundaries.
-
-## Skeptic's Acceptance Checklist
-
-- Artifact custody must pass.
-- Registry and lock evidence must be decision-time safe.
-- Target replay cannot run before verified runtime-provider, Provider Workspace Bridge, and dependency-lock gates pass.
-
-## Runtime-wrapper roadmap
-
-Runtime-provider work remains staged behind proof and rollback gates.
-
-## Safe public claims
-
-- Current protocol remains `v2.13`.
-- Confirmed external native repair episodes remain `4`.
-- Batch024 adds a bounded Provider Workspace Bridge and safe-stop boundary.
-
-## Forbidden claims
-
-- Full memory lift is not claimed.
-- Self-maintaining software is not claimed.
-- Production readiness is not claimed.
+Memory lift on external real bugs is not demonstrated. Self-maintaining software is not demonstrated.
 
 ## Current operational gate status
 
-- Batch023 verified Docker provider activation, Python 3.7 preflight, provider output transport, and manual dependency-lock installation in the official artifact.
-- Batch023 blocked at source workspace materialization pending an approved Provider Workspace Bridge.
-- Batch024 adds the Provider Workspace Bridge, Provider Input Bundle, Provider Output Bundle, Provider Workspace Transport, and Provider Source Materialization records.
-- The runtime must conform to the reviewed lock; the lock is not loosened to fit the runtime.
-- Provider labels are insufficient; actual Python and pip versions must be recorded inside the provider.
-- External source execution must not receive write credentials or secrets.
-- Structured Fragility Diagnostic is diagnostic and cannot replace empirical gates.
-- Repair cannot activate before bounded materialization and Target-Intent Alignment.
-- Active Search-Space Geometry may prioritize probes but cannot replace empirical evidence.
-- Single-system navigation and coupled-interlock extension remain separate.
-- Coupled-interlock extension remains blocked until interlock invariants are computed.
-- Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0` unless issue-derived feasibility validates.
-- Full scoring remains `NOT_RUN/disallowed`.
+- Batch018 official artifact evidence remains blocked at `manual_dependency_lock_absent`.
+- Batch019 adds Active Search-Space Geometry as a neutral probe-selection scaffold.
+- Active Search-Space Geometry can prioritize probes and candidates, but it cannot validate repairs.
+- Geometry maps are not substitutes for commit verification, environment locks, replay, validation, null comparison, duplicate replay, no-overreach validation, or SHA custody.
+- Single-system search geometry and coupled-interlock extension remain separate.
+- Coupled-interlock extension is diagnostic until interlock invariants are computed.
+- Darker issue #112 repair execution remains blocked in Batch019; the post-Batch018 manual lock is watch-only for Batch020 or later.
+- Native repair episode count remains `4`.
+- Issue-derived repair episode count remains `0`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Hallucination elimination, absolute uncrashability, and production runtime readiness are not claimed.
+- Hallucination elimination is not claimed.
+- Absolute uncrashability is not claimed.
+- Production runtime readiness is not claimed.
 
-Status: Batch032 classifies the Batch031 safe.directory provider precondition and reruns harness v9 only after bounded provider-only normalization. Full scoring remains disabled; memory lift and self-maintaining software remain not demonstrated.
+## What ControllerGate is
 
-Status: Batch033 ingests Batch032 and records an issue-derived retargeting decision for Darker issue #112. The result is design-only; no repair, patch, or matched-null claim is authorized.
+ControllerGate is an evidence-bound repair validation kernel for software-change candidates. It verifies provenance, replay, patch safety, rollback readiness, and claim boundaries before accepting repair evidence.
 
-Status: Batch034 ingests Batch033 and materializes an executable v10 issue-stimulus harness. The lane stops before repair or patch generation.
+## What ControllerGate is not
 
-Status: Batch035 ingests the verified Batch034 v10 failure and runs a gated source-only repair attempt without changing current protocol claims.
+ControllerGate is not production-ready, not a full scoring result, not a full memory-lift result, not fully self-maintaining software, and not an absolute reliability guarantee.
 
-Status: Batch036 ingests the Batch035 attempted-repair artifact, decomposes the unresolved target replay, and runs a gated source-only refinement when the provider is available.
+## Claim Tier System
 
-Batch037 records provider execution substages for the Darker issue #112 candidate v2 path. It preserves Batch036 as an attempted but unvalidated repair, keeps full scoring disabled, and does not claim repair success without target replay plus duplicate clean replay.
+ControllerGate uses explicit claim tiers so public claims remain tied to repository evidence.
 
-Batch038 records governance backfill and candidate v2 patch serialization recovery. It keeps repair success gated on target replay plus duplicate clean replay.
+## Capability Catalog
 
-## Batch039 secondary cofactor governance
+The capability catalog is stored in `configs/controllergate_capability_catalog.json` and summarized in `docs/capability_inventory.md`.
 
-- Batch039 ingests the official Batch038 artifact and preserves the verified target-resolution progress.
-- The remaining blocker is classified as a declared but unpinned secondary cofactor, so provider materialization is blocked until a reviewed pinned lock exists.
-- Missing secondary tooling is not counted as the original target failure or as repair success.
-- Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+## Skeptic's Acceptance Checklist
 
-## Batch040 reviewed cofactor lock gate
+The checklist in `docs/skeptics_acceptance_checklist.md` requires registry-first provenance, decision-time separation, SHA256 custody, fresh workspace purity, validation, duplicate replay, no-overreach validation, rollback records, and claim tiers.
 
-- Batch040 ingests the official Batch039 boundary and records a reviewed provider-only lock gate for declared secondary cofactors.
-- The first reviewed case is `pylint`, because the selected source declares it but did not pin it.
-- Provider materialization, target replay, duplicate replay, and repair counts remain governed by empirical execution gates.
-- Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0` unless replay and duplicate replay validate under the reviewed lock.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
-- Batch040 status: `PASS_WITH_BATCH040_PINNED_COFACTOR_LOCK_UNAVAILABLE`; exact blocker: `pinned_cofactor_lock_unavailable`.
+## Runtime-wrapper roadmap
 
-## Batch041 cofactor lock completion gate
+Batch015 introduced scaffold modules for audited runtime control. These remain scaffold evidence only unless deterministic fixture evidence is recorded.
 
-Batch041 officially ingests the Batch040 artifact boundary, reconciles the artifact blocker with the prior local provider blocker, and adds stable identity, proof-ledger, cofactor provenance, dependency drift, replay-classification, transport-equivalence, and evidence-origin audits.
+## Safe public claims
 
-Status: `PASS_WITH_BATCH041_ISSUE_DERIVED_REPAIR_VALIDATED`. Exact blocker: `None`.
+- Evidence-bound repair validation kernel.
+- Proof-gated patch admission and quarantine.
+- Runtime-wrapper scaffold for audited local fixtures.
+- Claim-tiered capability catalog.
+- Active probe-selection scaffold.
 
-Full scoring remains disabled, memory lift remains not demonstrated, and self-maintaining software is not claimed.
+## Forbidden claims
 
-### Batch042 issue-derived repair validation count lock
+- Hallucination elimination.
+- Absolute uncrashability.
+- Fully self-maintaining software.
+- Production-ready runtime wrapper.
+- Full scoring.
+- Full memory lift.
+- Universal bug repair.
+- Sector deployment readiness.
+- Geometry-proves-repair.
 
-- Batch042 status: `PASS_WITH_BATCH042_ISSUE_DERIVED_REPAIR_COUNT_LOCKED`.
-- Issue-derived repair episodes after Batch042: `1`.
-- Native external repair episodes remain `4`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift and self-maintaining software remain not demonstrated.
+## Basic local checks
 
-### Batch043 issue-derived episode canonicalization
+```bash
+python scripts/byte_custody_preflight.py
+python -m pytest tests/core tests/runtime -q
+python scripts/validate_external_candidate_registry.py
+python scripts/audit_post_v2_37_hardening_and_batch002.py
+python scripts/controllergate_audit.py --protocol current
+python scripts/controllergate_run.py --protocol current --dry-run
+```
 
-- Batch043 status: `PASS_WITH_BATCH043_ISSUE_DERIVED_EPISODE_CANONICALIZED`.
-- The first issue-derived repair episode is now preserved as a canonical reusable record.
-- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
+### Batch047 bounded environment probe execution
 
-### Batch044 guardrail enforcement and seed eligibility
-
-- Batch044 status: `PASS_WITH_BATCH044_GUARDRAILS_ENFORCED_SEED_SELECTION_AUTHORIZED`.
-- Future issue-derived repair lanes now require the Batch044 standing guardrail registry and eligibility schema before repair generation.
-- Scoped next issue-seed candidate discovery is authorized; repair generation is not started by Batch044.
-- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
-
-### Batch045 protocol candidate review and seed inventory gate
-
-- Batch045 status: `PASS_WITH_BATCH045_PROTOCOL_CANDIDATE_SEED_INVENTORY_AUTHORIZED`.
-- Batch044 guardrails are preserved and reviewed as protocol candidate `v2.14`; current protocol remains `v2.13`.
-- Scoped candidate seed inventory is authorized; repair generation is not started by Batch045.
-- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
-
-### Batch046 protocol review and environment locator gate
-
-- Batch046 status: `PASS_WITH_BATCH046_BROT_BULB_ENVIRONMENT_LOCATOR_AUTHORIZED`.
-- Protocol v2.14 remains ready for a separate promotion lane; current protocol remains `v2.13`.
-- Bounded environment-probe inventory is authorized for future seed discovery; no probes or repairs run in Batch046.
-- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Batch047 status: `PASS_WITH_BATCH047_TOT_BULB_PROBE_EXECUTION_RECORDED`.
+- Batch046 locator authorization is preserved and a source registry now gates future probe execution.
+- Bounded non-mutating probe records: executed `34`, blocked `0`, not run `22`.
+- Candidate inventory remains `0`; repair generation, target replay, duplicate replay, and protocol promotion remain separate future steps.
+- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`; current protocol remains `v2.13`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.

@@ -1,94 +1,29 @@
 # Current status
 
-Batch031 status: `PASS_WITH_BATCH031_HARNESS_V9_EXECUTION_BLOCKED`.
-
-Exact blocker: `issue_derived_harness_v9_target_aligned_failure_not_reproduced_under_approved_context`.
+ControllerGate remains a pre-alpha research archive with current protocol `v2.13`.
 
 ## Current operational gate status
 
-- Batch031 ingests the official Batch030 artifact boundary and records the provider source commit predicate correction.
-- Batch031 records expected and observed provider source commit values before harness execution.
-- Batch031 does not use relative `GIT_DIR=.git` as an active command context.
-- Batch031 does not run repair, patch generation, matched-null comparison, PSA-82 permutation null, or structured-fragility diagnostics without a verified harness and a real patch candidate.
-- Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0` unless issue-derived repair validates in a later gated phase.
-- Full scoring remains `NOT_RUN/disallowed`.
+- Batch018 official artifact evidence remains blocked at `manual_dependency_lock_absent`.
+- Batch019 adds Active Search-Space Geometry as a neutral probe-selection scaffold.
+- Active Search-Space Geometry can prioritize probes and candidates, but it cannot validate repairs.
+- Geometry maps are not substitutes for commit verification, environment locks, replay, validation, null comparison, duplicate replay, no-overreach validation, or SHA custody.
+- Single-system search geometry and coupled-interlock extension remain separate.
+- Coupled-interlock extension is diagnostic until interlock invariants are computed.
+- Darker issue #112 repair execution remains blocked in Batch019; the post-Batch018 manual lock is watch-only for Batch020 or later.
+- Native repair episode count remains `4`.
+- Issue-derived repair episode count remains `0`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
+- Hallucination elimination is not claimed.
+- Absolute uncrashability is not claimed.
+- Production runtime readiness is not claimed.
 
-Batch032 status: provider safe-directory precondition classification and bounded normalization are recorded. Repair generation remains blocked unless a target-aligned pre-repair failure verifies.
+### Batch047 bounded environment probe execution
 
-Batch033 status: issue-derived retargeting analysis is recorded. v9 remains non-reproducing; any v10 execution requires a separate gated phase.
-
-Batch034 status: v10 harness materialization and gated pre-repair execution are recorded; current protocol remains v2.13.
-
-Batch035 status: gated source-only repair attempt for the verified v10 issue-derived failure; current protocol remains v2.13.
-
-Batch036 status: post-repair failure decomposition and source-only refinement for the verified v10 issue-derived failure; current protocol remains v2.13.
-
-Batch037 status: provider execution substage recovery is recorded for candidate v2. Issue-derived repair episodes remain 0 unless empirical replay and duplicate replay validate in a later official boundary.
-
-Batch038 status: patch serialization recovery is recorded for candidate v2. Repair counts remain unchanged unless empirical replay and duplicate replay validate.
-
-## Batch039 secondary cofactor governance
-
-- Batch039 ingests the official Batch038 artifact and preserves the verified target-resolution progress.
-- The remaining blocker is classified as a declared but unpinned secondary cofactor, so provider materialization is blocked until a reviewed pinned lock exists.
-- Missing secondary tooling is not counted as the original target failure or as repair success.
-- Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
-
-## Batch040 reviewed cofactor lock gate
-
-- Batch040 ingests the official Batch039 boundary and records a reviewed provider-only lock gate for declared secondary cofactors.
-- The first reviewed case is `pylint`, because the selected source declares it but did not pin it.
-- Provider materialization, target replay, duplicate replay, and repair counts remain governed by empirical execution gates.
-- Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0` unless replay and duplicate replay validate under the reviewed lock.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
-- Batch040 status: `PASS_WITH_BATCH040_PINNED_COFACTOR_LOCK_UNAVAILABLE`; exact blocker: `pinned_cofactor_lock_unavailable`.
-
-## Batch041 cofactor lock completion gate
-
-Batch041 officially ingests the Batch040 artifact boundary, reconciles the artifact blocker with the prior local provider blocker, and adds stable identity, proof-ledger, cofactor provenance, dependency drift, replay-classification, transport-equivalence, and evidence-origin audits.
-
-Status: `PASS_WITH_BATCH041_ISSUE_DERIVED_REPAIR_VALIDATED`. Exact blocker: `None`.
-
-Full scoring remains disabled, memory lift remains not demonstrated, and self-maintaining software is not claimed.
-
-### Batch042 issue-derived repair validation count lock
-
-- Batch042 status: `PASS_WITH_BATCH042_ISSUE_DERIVED_REPAIR_COUNT_LOCKED`.
-- Issue-derived repair episodes after Batch042: `1`.
-- Native external repair episodes remain `4`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift and self-maintaining software remain not demonstrated.
-
-### Batch043 issue-derived episode canonicalization
-
-- Batch043 status: `PASS_WITH_BATCH043_ISSUE_DERIVED_EPISODE_CANONICALIZED`.
-- The first issue-derived repair episode is now preserved as a canonical reusable record.
-- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
-
-### Batch044 guardrail enforcement and seed eligibility
-
-- Batch044 status: `PASS_WITH_BATCH044_GUARDRAILS_ENFORCED_SEED_SELECTION_AUTHORIZED`.
-- Future issue-derived repair lanes now require the Batch044 standing guardrail registry and eligibility schema before repair generation.
-- Scoped next issue-seed candidate discovery is authorized; repair generation is not started by Batch044.
-- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
-
-### Batch045 protocol candidate review and seed inventory gate
-
-- Batch045 status: `PASS_WITH_BATCH045_PROTOCOL_CANDIDATE_SEED_INVENTORY_AUTHORIZED`.
-- Batch044 guardrails are preserved and reviewed as protocol candidate `v2.14`; current protocol remains `v2.13`.
-- Scoped candidate seed inventory is authorized; repair generation is not started by Batch045.
-- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
-
-### Batch046 protocol review and environment locator gate
-
-- Batch046 status: `PASS_WITH_BATCH046_BROT_BULB_ENVIRONMENT_LOCATOR_AUTHORIZED`.
-- Protocol v2.14 remains ready for a separate promotion lane; current protocol remains `v2.13`.
-- Bounded environment-probe inventory is authorized for future seed discovery; no probes or repairs run in Batch046.
-- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Batch047 status: `PASS_WITH_BATCH047_TOT_BULB_PROBE_EXECUTION_RECORDED`.
+- Batch046 locator authorization is preserved and a source registry now gates future probe execution.
+- Bounded non-mutating probe records: executed `34`, blocked `0`, not run `22`.
+- Candidate inventory remains `0`; repair generation, target replay, duplicate replay, and protocol promotion remain separate future steps.
+- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`; current protocol remains `v2.13`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
