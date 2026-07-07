@@ -98,3 +98,14 @@ Batch017 attempts decision-time dependency-era resolution, records the missing d
 - Commit-resolved candidates: `23`; approved for Batch056 pre-repair replay: `8`.
 - Next allowed action: `batch056_pre_repair_replay_wave_1`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+
+### Batch056 pre-repair replay wave 1 plus wave 2 intake
+
+- Batch055 official ingest status: `PASS`.
+- Batch056 Wave 1 pre-repair replay status: `PASS`.
+- Wave 1 candidates: `5`; materialized failures: `4`; blocked/non-materialized: `1`.
+- Batch057 patch-gate recommendation count: `4`.
+- Wave 2 leads screened: `23`; commit-resolved: `18`; approved for future replay: `7`.
+- Issue-derived repair count remains `2`; native external repair count remains `4`.
+- Next allowed action: `batch057_source_only_patch_gate_wave_1`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

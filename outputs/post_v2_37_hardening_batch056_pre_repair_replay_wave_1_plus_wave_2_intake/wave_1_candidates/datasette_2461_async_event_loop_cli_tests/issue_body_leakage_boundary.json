@@ -1,0 +1,28 @@
+{
+  "batch055_record": {
+    "exact_blocker": null,
+    "failure_context_fields_used": [
+      "issue_title",
+      "failure_signature",
+      "native_test_path",
+      "failing_command",
+      "environment_constraints"
+    ],
+    "fix_text_persisted": false,
+    "issue_body_excluded_from_repair_evidence": false,
+    "issue_body_fetched": true,
+    "issue_body_sha256": "0c4de3a340ab60fddfd5e60f048cb342b42d4e401e3f1b49e5816dd104806a8a",
+    "issue_created_at": "2025-02-04T19:18:38Z",
+    "issue_reference_matches": true,
+    "issue_title": "Test failures in CI: There is no current event loop in thread 'MainThread'",
+    "lead_id": "datasette_2461_async_event_loop_cli_tests",
+    "leakage_status": "failure_context_only",
+    "repair_decision_time_evidence_uses_issue_body": false,
+    "status": "PASS"
+  },
+  "issue_body_persisted_as_repair_evidence": false,
+  "lead_id": "datasette_2461_async_event_loop_cli_tests",
+  "patch_or_workaround_text_used": false,
+  "source": "Batch055 leakage boundary preservation",
+  "status": "PASS"
+}

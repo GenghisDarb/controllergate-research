@@ -1,0 +1,110 @@
+{
+  "candidates": [
+    {
+      "candidate_output_dir": "wave_1_candidates\\datasette_2461_async_event_loop_cli_tests",
+      "candidate_sha": "f57977a08f85da40bbe04c7b0dbb57ba03694a9d",
+      "classification": "pre_repair_failure_materialized",
+      "exact_blocker": null,
+      "failure_signature": "FAILED tests/test_cli.py::test_serve_with_inspect_file_prepopulates_table_counts_cache\nFAILED tests/test_cli.py::test_spatialite_error_if_attempt_to_open_spatialite[spatialite_paths1-True]\nFAILED tests/test_cli.py::test_serve_invalid_ports[-1] - TypeError: CliRunner...\nFAILED tests/test_cli.py::test_serve_invalid_ports[0.5] - TypeError: CliRunne...\nFAILED tests/test_cli.py::test_serve_invalid_ports[dog] - TypeError: CliRunne...\nFAILED tests/test_cli.py::test_serve_invalid_ports[65536] - TypeError: CliRun...\nFAILED tests/test_cli.py::test_setting_type_validation - TypeError: CliRunner...\nFAILED tests/test_cli.py::test_sql_errors_logged_to_stderr - TypeError: CliRu...\nERROR tests/test_cli.py::test_internal_db - PermissionError: [WinError 32] Th...\n8 failed, 31 passed, 1 warning, 1 error in 20.79s",
+      "lead_id": "datasette_2461_async_event_loop_cli_tests",
+      "pre_repair_replay_result": {
+        "classification": "pre_repair_failure_materialized",
+        "command_ran": true,
+        "exact_blocker": null,
+        "patch_attempted": false,
+        "patch_authorized": false,
+        "patch_generated": false,
+        "pre_repair_replay_before_patch_authorization": true,
+        "raw_log_sha256": "755e22ef900833f82f999706e32152395204acdf96d49cebe69eb56d0dcf8dec",
+        "returncode": 1,
+        "status": "PASS",
+        "timed_out": false
+      },
+      "repo_url": "https://github.com/simonw/datasette",
+      "selected_command": "python -m pytest tests/test_cli.py -q --tb=no",
+      "target_test_paths": [
+        "tests/test_cli.py"
+      ]
+    },
+    {
+      "candidate_output_dir": "wave_1_candidates\\freezegun_547_py313_datetimes_assertion",
+      "candidate_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "classification": "pre_repair_failure_materialized",
+      "exact_blocker": null,
+      "failure_signature": "C:\\Dev\\ControllerGate_runtime\\batch056\\wave_1\\freezegun_547_py313_datetimes_assertion\\checkout\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n  C:\\Dev\\ControllerGate_runtime\\batch056\\wave_1\\freezegun_547_py313_datetimes_assertion\\checkout\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello\nFAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n4 failed, 65 passed, 3 skipped, 2 warnings in 1.28s",
+      "lead_id": "freezegun_547_py313_datetimes_assertion",
+      "pre_repair_replay_result": {
+        "classification": "pre_repair_failure_materialized",
+        "command_ran": true,
+        "exact_blocker": null,
+        "patch_attempted": false,
+        "patch_authorized": false,
+        "patch_generated": false,
+        "pre_repair_replay_before_patch_authorization": true,
+        "raw_log_sha256": "805c39f6fba17af3deec41335ba8d203a42dba7fba290ddd41ee1b29751a8413",
+        "returncode": 1,
+        "status": "PASS",
+        "timed_out": false
+      },
+      "repo_url": "https://github.com/spulec/freezegun",
+      "selected_command": "python -m pytest tests/test_datetimes.py -q --tb=no",
+      "target_test_paths": [
+        "tests/test_datetimes.py"
+      ]
+    },
+    {
+      "candidate_output_dir": "wave_1_candidates\\venusian_91_py313_frameinfo_callinfo",
+      "candidate_sha": "966cce897c0a25485918f945eb83968d04933b2d",
+      "classification": "pre_repair_failure_materialized",
+      "exact_blocker": null,
+      "failure_signature": "================================== FAILURES ===================================\n        self.assertEqual(kind, \"function call\")\n>       self.assertTrue(f_locals is locals())  # ???\nE       AssertionError: False is not true\ntests\\test_advice.py:96: AssertionError\nFAILED tests/test_advice.py::FrameInfoTest::testCallInfo - AssertionError: Fa...\n======================== 1 failed, 46 passed in 1.18s =========================\n  evaluation failed :( (64.67 seconds)",
+      "lead_id": "venusian_91_py313_frameinfo_callinfo",
+      "pre_repair_replay_result": {
+        "classification": "pre_repair_failure_materialized",
+        "command_ran": true,
+        "exact_blocker": null,
+        "patch_attempted": false,
+        "patch_authorized": false,
+        "patch_generated": false,
+        "pre_repair_replay_before_patch_authorization": true,
+        "raw_log_sha256": "7095cf27784dfdc3836dcbdc1d8549a5c88f63b1919c4422d3eb0d8e400c13e2",
+        "returncode": 1,
+        "status": "PASS",
+        "timed_out": false
+      },
+      "repo_url": "https://github.com/Pylons/venusian",
+      "selected_command": "tox -e py313",
+      "target_test_paths": [
+        "tests"
+      ]
+    },
+    {
+      "candidate_output_dir": "wave_1_candidates\\pexpect_699_replwrap_bash_assertions",
+      "candidate_sha": "000a8684bd109c3f9c9b5fabd95add4743b7f45a",
+      "classification": "pre_repair_failure_materialized",
+      "exact_blocker": null,
+      "failure_signature": "FAILED tests/test_replwrap.py::REPLWrapTestCase::test_bash - AttributeError: ...\nFAILED tests/test_replwrap.py::REPLWrapTestCase::test_bash_env - AttributeErr...\nFAILED tests/test_replwrap.py::REPLWrapTestCase::test_existing_spawn - Attrib...\nFAILED tests/test_replwrap.py::REPLWrapTestCase::test_long_running_continuation\nFAILED tests/test_replwrap.py::REPLWrapTestCase::test_long_running_multiline\nFAILED tests/test_replwrap.py::REPLWrapTestCase::test_multiline - AttributeEr...\nFAILED tests/test_replwrap.py::REPLWrapTestCase::test_no_change_prompt - Attr...\nFAILED tests/test_replwrap.py::REPLWrapTestCase::test_pager_as_cat - Attribut...\nFAILED tests/test_replwrap.py::REPLWrapTestCase::test_python - AttributeError...\n9 failed in 0.16s",
+      "lead_id": "pexpect_699_replwrap_bash_assertions",
+      "pre_repair_replay_result": {
+        "classification": "pre_repair_failure_materialized",
+        "command_ran": true,
+        "exact_blocker": null,
+        "patch_attempted": false,
+        "patch_authorized": false,
+        "patch_generated": false,
+        "pre_repair_replay_before_patch_authorization": true,
+        "raw_log_sha256": "94f4ccaef541545e93aa2778fb51c86631949722de7433a472020a92eeff39e9",
+        "returncode": 1,
+        "status": "PASS",
+        "timed_out": false
+      },
+      "repo_url": "https://github.com/pexpect/pexpect",
+      "selected_command": "python -m pytest tests/test_replwrap.py -q --tb=no",
+      "target_test_paths": [
+        "tests/test_replwrap.py"
+      ]
+    }
+  ],
+  "count": 4,
+  "status": "PASS"
+}

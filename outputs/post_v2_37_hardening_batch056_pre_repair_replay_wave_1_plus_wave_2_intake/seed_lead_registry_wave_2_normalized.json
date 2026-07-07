@@ -1,0 +1,606 @@
+{
+  "lead_count": 23,
+  "leads": [
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pyproject.toml",
+        "pytest",
+        "invalid"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "not_an_exact_issue_reference_must_resolve_or_reject",
+      "issue_url_or_reference": "https://github.com/repo-helper/pyproject-examples/issues",
+      "lead_id": "repo_helper_pyproject_examples",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Potential small pyproject validation scope, but issue reference is not exact.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/repo-helper/pyproject-examples",
+      "source_of_lead": "helper_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest",
+        "log",
+        "issue"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "not_an_exact_issue_reference_must_resolve_or_reject",
+      "issue_url_or_reference": "https://github.com/xarray-contrib/issue-from-pytest-log/issues",
+      "lead_id": "xarray_contrib_issue_from_pytest_log",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_format_issue_body.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_format_issue_body.py"
+      ],
+      "reason_this_is_promising": "Small pytest-log-to-issue tool scope, but exact issue must be resolved.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/xarray-contrib/issue-from-pytest-log",
+      "source_of_lead": "helper_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "docstring",
+        "markdown",
+        "pytest"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "not_an_exact_issue_reference_must_resolve_or_reject",
+      "issue_url_or_reference": "https://github.com/pydantic/pytest-examples/issues",
+      "lead_id": "pydantic_pytest_examples_wave2",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Small pytest plugin scope, but Batch055 already rejected non-exact pydantic pytest-examples references.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/pydantic/pytest-examples",
+      "source_of_lead": "helper_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest",
+        "log",
+        "action"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "not_an_exact_issue_reference_must_resolve_or_reject",
+      "issue_url_or_reference": "https://github.com/scientific-python/pytest-log-action/issues",
+      "lead_id": "scientific_python_pytest_log_action",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Small GitHub/pytest log action scope, but exact issue must be resolved.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/scientific-python/pytest-log-action",
+      "source_of_lead": "helper_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pyproject.toml",
+        "test"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "not_an_exact_issue_reference_must_resolve_or_reject",
+      "issue_url_or_reference": "https://github.com/bashtage/arch/issues",
+      "lead_id": "bashtage_arch_pyproject",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Potential pyproject/test failures but large dependency surface; lower priority unless exact issue is small.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/bashtage/arch",
+      "source_of_lead": "helper_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "test_reduce_contig_1d",
+        "RuntimeWarning",
+        "overflow encountered",
+        "ufunc"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/numpy/numpy/issues/21994",
+      "lead_id": "numpy_21994_ufunc_overflow",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest numpy/core/tests/test_ufunc.py::test_reduce_contig_1d -q --tb=no",
+      "possible_native_test_paths": [
+        "numpy/core/tests/test_ufunc.py"
+      ],
+      "reason_this_is_promising": "Clear issue/test clue, but NumPy has a compiled-heavy source surface.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/numpy/numpy",
+      "source_of_lead": "helper_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "test_unraisable_exception",
+        "AttributeError",
+        "Python 3.12",
+        "unraisable"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/pytest-dev/pytest/issues/11058",
+      "lead_id": "pytest_11058_unraisable_exception",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest testing/test_unraisable.py -q --tb=no",
+      "possible_native_test_paths": [
+        "testing/test_unraisable.py"
+      ],
+      "reason_this_is_promising": "Pytest self-test issue with concrete path; must screen for fix/leakage and exact commit.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/pytest-dev/pytest",
+      "source_of_lead": "helper_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "test_blackd",
+        "path separator",
+        "Windows",
+        "assertion"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/psf/black/issues/2992",
+      "lead_id": "black_2992_blackd_path_separator",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_blackd.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_blackd.py"
+      ],
+      "reason_this_is_promising": "Platform-specific test failure. Classify carefully on ubuntu-latest.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/psf/black",
+      "source_of_lead": "helper_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "test_lexer",
+        "Python 3.11",
+        "SyntaxError",
+        "lex",
+        "line number"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/pallets/jinja/issues/1628",
+      "lead_id": "jinja_1628_lexer_py311",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_lexer.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_lexer.py"
+      ],
+      "reason_this_is_promising": "Potentially small pure-Python parser/lexer scope; screen exactly.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/pallets/jinja",
+      "source_of_lead": "helper_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "LBFGSB",
+        "test_optimize",
+        "tolerance",
+        "assert_allclose",
+        "atol"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/scipy/scipy/issues/16783",
+      "lead_id": "scipy_16783_lbfgsb_tolerance",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest scipy/optimize/tests/test_lbfgsb.py -q --tb=no",
+      "possible_native_test_paths": [
+        "scipy/optimize/tests/test_lbfgsb.py"
+      ],
+      "reason_this_is_promising": "Clear numerical-test clue but SciPy is compiled-heavy.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/scipy/scipy",
+      "source_of_lead": "helper_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "Python 3.13",
+        "pipes",
+        "ModuleNotFoundError",
+        "tests/test_headerops.py",
+        "tests/test_select.py"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/open2c/pairtools/issues/250",
+      "lead_id": "pairtools_250_py313_pipes_removed",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_headerops.py tests/test_select.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_headerops.py",
+        "tests/test_select.py"
+      ],
+      "reason_this_is_promising": "Python 3.13 native collection errors may be localized if leakage screen passes.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/open2c/pairtools",
+      "source_of_lead": "halcyon_web_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest 8.4",
+        "test_lexer_classes",
+        "BashSessionLexer",
+        "AssertionError"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/pygments/pygments/issues/2992",
+      "lead_id": "pygments_2992_pytest84_lexer_classes",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_lexers.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_lexers.py"
+      ],
+      "reason_this_is_promising": "Pure-Python lexer project with a named test failure under pytest 8.4.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/pygments/pygments",
+      "source_of_lead": "halcyon_web_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "Python 3.13",
+        "docstrings",
+        "test_misc.py",
+        "test_requires_geos_method",
+        "AssertionError"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/shapely/shapely/issues/1937",
+      "lead_id": "shapely_1937_py313_docstring_indent",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_misc.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_misc.py"
+      ],
+      "reason_this_is_promising": "Python 3.13 docstring behavior clue, but Shapely may involve compiled dependencies.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/shapely/shapely",
+      "source_of_lead": "halcyon_web_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "Python 3.12",
+        "test_exceptions_dont_leak",
+        "pytest",
+        "PyQt5",
+        "Qt"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/pytest-dev/pytest-qt/issues/532",
+      "lead_id": "pytest_qt_532_py312_exceptions_dont_leak",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Concrete Python 3.12 test failure but Qt/PyQt dependency surface may be heavy.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/pytest-dev/pytest-qt",
+      "source_of_lead": "halcyon_web_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "-Wdefault",
+        "test_unraisableexception.py",
+        "test_threadexception.py",
+        "AssertionError",
+        "ExitCode"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/pytest-dev/pytest/issues/13480",
+      "lead_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest testing/test_unraisableexception.py testing/test_threadexception.py testing/test_warnings.py -q --tb=no",
+      "possible_native_test_paths": [
+        "testing/test_unraisableexception.py",
+        "testing/test_threadexception.py",
+        "testing/test_warnings.py"
+      ],
+      "reason_this_is_promising": "Recent pytest self-test failure with concrete test files and assertions.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/pytest-dev/pytest",
+      "source_of_lead": "halcyon_web_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "Python 3.13",
+        "test failure",
+        "Debian",
+        "pytest"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/piskvorky/smart_open/issues/846",
+      "lead_id": "smart_open_846_py313_test_failure",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Python 3.13 test failure report in a mostly pure-Python library.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/piskvorky/smart_open",
+      "source_of_lead": "halcyon_web_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "3 tests fail",
+        "TestControlledDict",
+        "TestScratchDir",
+        "TestCheckType",
+        "FreeBSD"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/materialsvirtuallab/monty/issues/765",
+      "lead_id": "monty_765_freebsd_three_failures",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_collections.py tests/test_tempfile.py tests/test_json.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_collections.py",
+        "tests/test_tempfile.py",
+        "tests/test_json.py"
+      ],
+      "reason_this_is_promising": "Concrete native test failures but FreeBSD-specific; likely provider/OS mismatch on ubuntu-latest.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/materialsvirtuallab/monty",
+      "source_of_lead": "halcyon_web_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "Python 3.12",
+        "imp",
+        "ModuleNotFoundError",
+        "pytest",
+        "snapshottest"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "exclude_issue_body_from_repair_evidence_if_patch_or_workaround_present",
+      "issue_url_or_reference": "https://github.com/syrusakbary/snapshottest/issues/177",
+      "lead_id": "snapshottest_177_py312_imp_removed",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": true,
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Small compatibility failure, but issue body appears to contain solution-like workaround text.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/syrusakbary/snapshottest",
+      "source_of_lead": "halcyon_web_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest",
+        "failure",
+        "native test"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/NousResearch/hermes-agent/issues/48986",
+      "lead_id": "codex_wave2_nousresearch_hermes_agent_48986",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Codex bounded GitHub search result for future replay planning.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/NousResearch/hermes-agent",
+      "source_of_lead": "codex_github_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest",
+        "failure",
+        "native test"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/NousResearch/hermes-agent/issues/60243",
+      "lead_id": "codex_wave2_nousresearch_hermes_agent_60243",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Codex bounded GitHub search result for future replay planning.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/NousResearch/hermes-agent",
+      "source_of_lead": "codex_github_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest",
+        "failure",
+        "native test"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/intel/auto-round/issues/1955",
+      "lead_id": "codex_wave2_intel_auto_round_1955",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Codex bounded GitHub search result for future replay planning.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/intel/auto-round",
+      "source_of_lead": "codex_github_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest",
+        "failure",
+        "native test"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/NousResearch/hermes-agent/issues/57197",
+      "lead_id": "codex_wave2_nousresearch_hermes_agent_57197",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Codex bounded GitHub search result for future replay planning.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/NousResearch/hermes-agent",
+      "source_of_lead": "codex_github_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest",
+        "failure",
+        "native test"
+      ],
+      "fixed_gold_future_evidence_allowed": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/m0smith/genia-2026/issues/518",
+      "lead_id": "codex_wave2_m0smith_genia_2026_518",
+      "lead_is_seed": false,
+      "patch_generated": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Codex bounded GitHub search result for future replay planning.",
+      "repair_count_incremented": false,
+      "repo_url": "https://github.com/m0smith/genia-2026",
+      "source_of_lead": "codex_github_search_wave_2",
+      "wave_2_pre_repair_replay_run": false
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,32 @@
+{
+  "candidates": [
+    {
+      "candidate_output_dir": "wave_1_candidates\\pyramid_3761_py313_test_util",
+      "candidate_sha": "ef0f6861e5b439afe43983f6c7437c30a413a34d",
+      "classification": "blocked_dependency_install_failure",
+      "exact_blocker": "blocked_dependency_install_failure",
+      "failure_signature": "ERROR tests/test_util.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.50s",
+      "lead_id": "pyramid_3761_py313_test_util",
+      "pre_repair_replay_result": {
+        "classification": "blocked_dependency_install_failure",
+        "command_ran": true,
+        "exact_blocker": "blocked_dependency_install_failure",
+        "patch_attempted": false,
+        "patch_authorized": false,
+        "patch_generated": false,
+        "pre_repair_replay_before_patch_authorization": true,
+        "raw_log_sha256": "5ba60663f967b2fa994d6815f35e9900742c9a5ca636392d39787c11f2297a7a",
+        "returncode": 2,
+        "status": "BLOCK",
+        "timed_out": false
+      },
+      "repo_url": "https://github.com/Pylons/pyramid",
+      "selected_command": "python -m pytest tests/test_util.py -q --tb=no",
+      "target_test_paths": [
+        "tests/test_util.py"
+      ]
+    }
+  ],
+  "count": 1,
+  "status": "PASS"
+}

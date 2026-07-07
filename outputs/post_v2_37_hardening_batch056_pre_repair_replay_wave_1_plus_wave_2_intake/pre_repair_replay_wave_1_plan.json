@@ -1,0 +1,59 @@
+{
+  "candidate_count": 5,
+  "candidates": [
+    {
+      "candidate_sha": "f57977a08f85da40bbe04c7b0dbb57ba03694a9d",
+      "issue_reference": "https://github.com/simonw/datasette/issues/2461",
+      "lead_id": "datasette_2461_async_event_loop_cli_tests",
+      "repo_url": "https://github.com/simonw/datasette",
+      "selected_command": "python -m pytest tests/test_cli.py -q --tb=no",
+      "target_test_paths": [
+        "tests/test_cli.py"
+      ]
+    },
+    {
+      "candidate_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "issue_reference": "https://github.com/spulec/freezegun/issues/547",
+      "lead_id": "freezegun_547_py313_datetimes_assertion",
+      "repo_url": "https://github.com/spulec/freezegun",
+      "selected_command": "python -m pytest tests/test_datetimes.py -q --tb=no",
+      "target_test_paths": [
+        "tests/test_datetimes.py"
+      ]
+    },
+    {
+      "candidate_sha": "966cce897c0a25485918f945eb83968d04933b2d",
+      "issue_reference": "https://github.com/Pylons/venusian/issues/91",
+      "lead_id": "venusian_91_py313_frameinfo_callinfo",
+      "repo_url": "https://github.com/Pylons/venusian",
+      "selected_command": "tox -e py313",
+      "target_test_paths": [
+        "tests"
+      ]
+    },
+    {
+      "candidate_sha": "000a8684bd109c3f9c9b5fabd95add4743b7f45a",
+      "issue_reference": "https://github.com/pexpect/pexpect/issues/699",
+      "lead_id": "pexpect_699_replwrap_bash_assertions",
+      "repo_url": "https://github.com/pexpect/pexpect",
+      "selected_command": "python -m pytest tests/test_replwrap.py -q --tb=no",
+      "target_test_paths": [
+        "tests/test_replwrap.py"
+      ]
+    },
+    {
+      "candidate_sha": "ef0f6861e5b439afe43983f6c7437c30a413a34d",
+      "issue_reference": "https://github.com/Pylons/pyramid/issues/3761",
+      "lead_id": "pyramid_3761_py313_test_util",
+      "repo_url": "https://github.com/Pylons/pyramid",
+      "selected_command": "python -m pytest tests/test_util.py -q --tb=no",
+      "target_test_paths": [
+        "tests/test_util.py"
+      ]
+    }
+  ],
+  "count_gate_allowed": false,
+  "duplicate_replay_allowed": false,
+  "patching_allowed": false,
+  "status": "PASS"
+}

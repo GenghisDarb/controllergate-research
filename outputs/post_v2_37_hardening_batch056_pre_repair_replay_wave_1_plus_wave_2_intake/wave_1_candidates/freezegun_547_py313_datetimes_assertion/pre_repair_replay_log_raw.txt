@@ -1,0 +1,17 @@
+.................s...........s..................FFF..................F.s [100%]
+============================== warnings summary ===============================
+tests/test_datetimes.py::test_simple_api
+  C:\Dev\ControllerGate_runtime\batch056\wave_1\freezegun_547_py313_datetimes_assertion\checkout\tests\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)
+
+tests/test_datetimes.py::test_timestamp_with_tzoffset
+  C:\Dev\ControllerGate_runtime\batch056\wave_1\freezegun_547_py313_datetimes_assertion\checkout\tests\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time
+FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func
+FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello
+FAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone
+4 failed, 65 passed, 3 skipped, 2 warnings in 1.28s
