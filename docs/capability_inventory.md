@@ -109,3 +109,16 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 - Issue-derived repair count remains `2`; native external repair count remains `4`.
 - Next allowed action: `batch057_source_only_patch_gate_wave_1`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+
+### Batch057 source-only patch gate wave 1
+
+- Batch056 official ingest status: `PASS`.
+- Batch057 source-only patch gate status: `PASS`.
+- Fresh Batch057 pre-repair reproduction count: `4`.
+- Patch-generated count: `0`; source-only target-pass count: `0`; target-fail count: `0`.
+- Blocked/no-safe-patch count: `4`.
+- Batch058 duplicate replay candidate count: `0`.
+- Wave 2 future plan is preserved only; no Wave 2 replay, patch, or count gate ran.
+- Issue-derived repair count remains `2`; native external repair count remains `4`.
+- Next allowed action: `batch057b_source_discovery_recovery_or_batch056b_wave2_pre_repair_replay`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

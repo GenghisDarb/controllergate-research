@@ -1,0 +1,54 @@
+.pkg: install_requires> python -I -m pip install setuptools>=40.9.0
+.pkg: _optional_hooks> python C:\Dev\ControllerGate_runtime\batch057\wave_1_patch_gate\venusian_91_py313_frameinfo_callinfo\venv\Lib\site-packages\pyproject_api\_backend.py True setuptools.build_meta
+.pkg: get_requires_for_build_sdist> python C:\Dev\ControllerGate_runtime\batch057\wave_1_patch_gate\venusian_91_py313_frameinfo_callinfo\venv\Lib\site-packages\pyproject_api\_backend.py True setuptools.build_meta
+.pkg: get_requires_for_build_wheel> python C:\Dev\ControllerGate_runtime\batch057\wave_1_patch_gate\venusian_91_py313_frameinfo_callinfo\venv\Lib\site-packages\pyproject_api\_backend.py True setuptools.build_meta
+.pkg: prepare_metadata_for_build_wheel> python C:\Dev\ControllerGate_runtime\batch057\wave_1_patch_gate\venusian_91_py313_frameinfo_callinfo\venv\Lib\site-packages\pyproject_api\_backend.py True setuptools.build_meta
+.pkg: build_sdist> python C:\Dev\ControllerGate_runtime\batch057\wave_1_patch_gate\venusian_91_py313_frameinfo_callinfo\venv\Lib\site-packages\pyproject_api\_backend.py True setuptools.build_meta
+py313: install_package_deps> python -I -m pip install coverage pytest pytest-cov
+py313: install_package> python -I -m pip install --force-reinstall --no-deps C:\Dev\ControllerGate_Runtime\batch057\wave_1_patch_gate\venusian_91_py313_frameinfo_callinfo\checkout\.tox\.tmp\package\1\venusian-3.1.0.tar.gz
+py313: commands[0]> python --version
+Python 3.13.14
+py313: commands[1]> python -mpytest
+============================= test session starts =============================
+platform win32 -- Python 3.13.14, pytest-9.1.1, pluggy-1.6.0
+cachedir: .tox\py313\.pytest_cache
+rootdir: C:\Dev\ControllerGate_Runtime\batch057\wave_1_patch_gate\venusian_91_py313_frameinfo_callinfo\checkout
+configfile: setup.cfg
+testpaths: tests
+plugins: cov-7.1.0
+collected 47 items
+
+tests\test_advice.py F..                                                 [  6%]
+tests\test_venusian.py ............................................      [100%]
+
+================================== FAILURES ===================================
+_________________________ FrameInfoTest.testCallInfo __________________________
+
+self = <tests.test_advice.FrameInfoTest testMethod=testCallInfo>
+
+    def testCallInfo(self):
+        (kind, module, f_locals, f_globals, codeinfo) = advice.getFrameInfo(
+            sys._getframe()
+        )
+        self.assertEqual(kind, "function call")
+>       self.assertTrue(f_locals is locals())  # ???
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: False is not true
+
+tests\test_advice.py:96: AssertionError
+=============================== tests coverage ================================
+______________ coverage: platform win32, python 3.13.14-final-0 _______________
+
+Name                       Stmts   Miss   Cover   Missing
+---------------------------------------------------------
+src\venusian\__init__.py     178      0 100.00%
+src\venusian\advice.py        23      0 100.00%
+src\venusian\compat.py         7      2  71.43%   5-6
+---------------------------------------------------------
+TOTAL                        208      2  99.04%
+=========================== short test summary info ===========================
+FAILED tests/test_advice.py::FrameInfoTest::testCallInfo - AssertionError: Fa...
+======================== 1 failed, 46 passed in 1.28s =========================
+py313: exit 1 (3.10 seconds) C:\Dev\ControllerGate_Runtime\batch057\wave_1_patch_gate\venusian_91_py313_frameinfo_callinfo\checkout> python -mpytest pid=5756
+  py313: FAIL code 1 (97.89=setup[94.53]+cmd[0.26,3.10] seconds)
+  evaluation failed :( (98.08 seconds)

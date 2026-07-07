@@ -1,0 +1,9 @@
+{
+  "lead_id": "venusian_91_py313_frameinfo_callinfo",
+  "patch_generated": false,
+  "patch_generation_classification": "blocked_no_safe_source_patch",
+  "reason": "The failure is tied to Python frame locals identity behavior in the running interpreter. No source-only edit was safe without changing the test expectation or relying on interpreter internals.",
+  "source_only_patch_gate_opened": true,
+  "source_patch_generation_forbidden": true,
+  "status": "BLOCK"
+}

@@ -1,0 +1,75 @@
+{
+  "candidate_sha": "f57977a08f85da40bbe04c7b0dbb57ba03694a9d",
+  "checkout_detail": {
+    "cat_file": {
+      "command": [
+        "git",
+        "cat-file",
+        "-e",
+        "f57977a08f85da40bbe04c7b0dbb57ba03694a9d^{commit}"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\datasette_2461_async_event_loop_cli_tests\\checkout",
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "stdout_excerpt": "",
+      "stdout_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "timed_out": false
+    },
+    "checkout": {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "f57977a08f85da40bbe04c7b0dbb57ba03694a9d"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\datasette_2461_async_event_loop_cli_tests\\checkout",
+      "returncode": 0,
+      "stderr_excerpt": "HEAD is now at f57977a /-/permissions?filter=exclude-yours/only-yours - closes #2460\n",
+      "stderr_sha256": "59903f002b6441ec314432f3351fef7d1037ba19d414753d51b156c274cda9dc",
+      "stdout_excerpt": "",
+      "stdout_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "timed_out": false
+    },
+    "clone": {
+      "command": [
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--no-checkout",
+        "https://github.com/simonw/datasette",
+        "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\datasette_2461_async_event_loop_cli_tests\\checkout"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate",
+      "returncode": 0,
+      "stderr_excerpt": "Cloning into 'C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\datasette_2461_async_event_loop_cli_tests\\checkout'...\n",
+      "stderr_sha256": "a2043cd725851e511c8a8f17c9f0ef048b7660a0bcf6d17f79ffb31e26009c7a",
+      "stdout_excerpt": "",
+      "stdout_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "timed_out": false
+    },
+    "fetch": {
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "f57977a08f85da40bbe04c7b0dbb57ba03694a9d"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057\\wave_1_patch_gate\\datasette_2461_async_event_loop_cli_tests\\checkout",
+      "returncode": 0,
+      "stderr_excerpt": "From https://github.com/simonw/datasette\n * branch            f57977a08f85da40bbe04c7b0dbb57ba03694a9d -> FETCH_HEAD\n",
+      "stderr_sha256": "9c77acf30202a0aa43b15a0dc441926d49e01e5559fd53cf64cfb1c6c67ccf1f",
+      "stdout_excerpt": "",
+      "stdout_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "timed_out": false
+    },
+    "status": "PASS"
+  },
+  "git_cat_file_e_commit_verified": true,
+  "helper_provided_sha_trusted": false,
+  "lead_id": "datasette_2461_async_event_loop_cli_tests",
+  "repo_url": "https://github.com/simonw/datasette",
+  "status": "PASS"
+}
