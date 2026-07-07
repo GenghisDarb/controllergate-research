@@ -1,0 +1,34 @@
+{
+  "dependency_install_occurred": false,
+  "duplicate_replay_occurred": false,
+  "entries": [
+    {
+      "entry_id": "batch049_artifact_ingested",
+      "parent": null,
+      "status": "PASS"
+    },
+    {
+      "entry_id": "manual_seed_fastlane_policy_emitted",
+      "parent": "batch049_artifact_ingested",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "manual_seed_discovery_completed",
+      "parent": "manual_seed_fastlane_policy_emitted",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "candidate_seed_approval_gate_evaluated",
+      "parent": "manual_seed_discovery_completed",
+      "status": "PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED"
+    }
+  ],
+  "fixed_gold_future_later_evidence_accessed": false,
+  "hash_chain_valid": true,
+  "incoming_artifacts_staged": false,
+  "mutation_occurred": false,
+  "patch_generation_occurred": false,
+  "repair_generation_occurred": false,
+  "status": "PASS",
+  "target_replay_occurred": false
+}

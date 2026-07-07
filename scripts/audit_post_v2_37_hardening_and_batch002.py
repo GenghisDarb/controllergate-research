@@ -60,7 +60,8 @@ BATCH046_DIR = Path("outputs/clean_replication_batch_046")
 BATCH047_DIR = Path("outputs/clean_replication_batch_047")
 BATCH048_DIR = Path("outputs/clean_replication_batch_048")
 BATCH049_DIR = Path("outputs/clean_replication_batch_049")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch049_source_approval_cytoskeleton")
+BATCH050_DIR = Path("outputs/clean_replication_batch_050")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch050_manual_seed_intake_fastlane")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -1985,6 +1986,31 @@ BATCH049_REQUIRED = [
     "consolidated_state_clean_replication_batch_049.json",
     "campaign_summary.md",
     "public_language_audit_batch049.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH050_REQUIRED = [
+    "batch049_artifact_ingest_summary.json",
+    "batch049_artifact_verification.json",
+    "batch049_blocker_preservation.json",
+    "batch049_claim_boundary_preservation.json",
+    "batch050_manual_fresh_seed_intake_policy.json",
+    "batch050_manual_seed_package_discovery.json",
+    "batch050_manual_seed_request_template.json",
+    "batch050_manual_seed_custody_verification.json",
+    "batch050_freshness_and_duplicate_count_audit.json",
+    "batch050_evidence_leakage_fast_audit.json",
+    "batch050_manifest_environment_cytoskeleton_preflight.json",
+    "batch050_cross_environment_orthology_intake_classification.json",
+    "batch050_candidate_seed_approval_fast_gate.json",
+    "issue_derived_repair_feasibility_batch050.json",
+    "claim_boundary_batch050.json",
+    "proof_obligations_ledger_batch050.json",
+    "consolidated_state_clean_replication_batch_050.json",
+    "campaign_summary.md",
+    "public_language_audit_batch050.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -9996,6 +10022,176 @@ def audit_batch049_records() -> list[str]:
     return errors
 
 
+def audit_batch050_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH050_REQUIRED:
+        if not (BATCH050_DIR / name).is_file():
+            errors.append(f"missing Batch050 file: {name}")
+    for path in [
+        Path("docs/templates/manual_issue_seed_manifest.template.json"),
+        Path("docs/templates/manual_issue_seed_package_readme.md"),
+    ]:
+        if not path.is_file():
+            errors.append(f"missing Batch050 template: {path.as_posix()}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH050_DIR).get("status") != "PASS":
+        errors.append("Batch050 manifest mismatch")
+
+    state = read_json(BATCH050_DIR / "consolidated_state_clean_replication_batch_050.json")
+    ingest = read_json(BATCH050_DIR / "batch049_artifact_ingest_summary.json")
+    verification = read_json(BATCH050_DIR / "batch049_artifact_verification.json")
+    blocker_preservation = read_json(BATCH050_DIR / "batch049_blocker_preservation.json")
+    claim_preservation = read_json(BATCH050_DIR / "batch049_claim_boundary_preservation.json")
+    policy = read_json(BATCH050_DIR / "batch050_manual_fresh_seed_intake_policy.json")
+    discovery = read_json(BATCH050_DIR / "batch050_manual_seed_package_discovery.json")
+    request = read_json(BATCH050_DIR / "batch050_manual_seed_request_template.json")
+    custody = read_json(BATCH050_DIR / "batch050_manual_seed_custody_verification.json")
+    freshness = read_json(BATCH050_DIR / "batch050_freshness_and_duplicate_count_audit.json")
+    leakage = read_json(BATCH050_DIR / "batch050_evidence_leakage_fast_audit.json")
+    env_preflight = read_json(BATCH050_DIR / "batch050_manifest_environment_cytoskeleton_preflight.json")
+    orthology = read_json(BATCH050_DIR / "batch050_cross_environment_orthology_intake_classification.json")
+    approval = read_json(BATCH050_DIR / "batch050_candidate_seed_approval_fast_gate.json")
+    feasibility = read_json(BATCH050_DIR / "issue_derived_repair_feasibility_batch050.json")
+    claim = read_json(BATCH050_DIR / "claim_boundary_batch050.json")
+    ledger = read_json(BATCH050_DIR / "proof_obligations_ledger_batch050.json")
+    language = read_json(BATCH050_DIR / "public_language_audit_batch050.json")
+    minimality = read_json(BATCH050_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH050_DIR / "artifact_payload_budget.json")
+    template = read_json(Path("docs/templates/manual_issue_seed_manifest.template.json"))
+    template_readme = Path("docs/templates/manual_issue_seed_package_readme.md").read_text(encoding="utf-8")
+
+    if state.get("status") != "PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED":
+        errors.append("Batch050 status mismatch for absent manual seed package")
+    if state.get("exact_blocker") != "manual_seed_artifact_absent":
+        errors.append("Batch050 exact blocker mismatch")
+    if state.get("next_allowed_action") != "provide_manual_seed_package":
+        errors.append("Batch050 next allowed action mismatch")
+    if state.get("current_protocol") != "v2.14":
+        errors.append("Batch050 did not preserve current protocol v2.14")
+    if state.get("approved_unused_issue_seed_count") != 0:
+        errors.append("Batch050 unexpectedly approved an unused issue seed")
+
+    if ingest.get("status") != "PASS" or verification.get("status") != "PASS":
+        errors.append("Batch050 Batch049 artifact ingest/verification failed")
+    if ingest.get("artifact_internal_status") != "PASS_WITH_BATCH049_SOURCE_APPROVAL_CYTOSKELETON_GATE":
+        errors.append("Batch050 did not preserve Batch049 status")
+    if ingest.get("artifact_internal_exact_blocker") != "all_candidates_already_counted":
+        errors.append("Batch050 did not preserve Batch049 blocker")
+    if verification.get("artifact_name") != "post_v2_37_hardening_batch049_source_approval_cytoskeleton_artifacts":
+        errors.append("Batch050 Batch049 artifact name mismatch")
+    if verification.get("artifact_id") != 8128503795 or verification.get("workflow_run_id") != 28842926254:
+        errors.append("Batch050 Batch049 artifact identity mismatch")
+    if verification.get("workflow_head_sha") != "3af5f89e4dcadb71fc93954b27f41e25db7baf35":
+        errors.append("Batch050 Batch049 workflow head mismatch")
+    if verification.get("zip_sha256") != "57bfaa67d35c04a61ac0a41b537ee397427dd725c950ebf69047ac100fcdf816":
+        errors.append("Batch050 Batch049 artifact SHA mismatch")
+    if verification.get("zip_size_bytes") != 178978 or verification.get("zip_entry_count") != 179:
+        errors.append("Batch050 Batch049 artifact size/entry mismatch")
+    if verification.get("artifact_manifest", {}).get("checked") != 178:
+        errors.append("Batch050 artifact manifest count mismatch")
+    if verification.get("batch049_manifest", {}).get("checked") != 34:
+        errors.append("Batch050 Batch049 manifest count mismatch")
+    if verification.get("post_manifest", {}).get("checked") != 142:
+        errors.append("Batch050 post manifest count mismatch")
+    for field in ["unsafe_path_count", "duplicate_path_count", "pycache_or_pyc_payload_count"]:
+        if verification.get(field) != 0:
+            errors.append(f"Batch050 artifact {field} not zero")
+    if verification.get("raw_zip_bytes_ingested") is not False or verification.get("zip_payload_committed") is not False:
+        errors.append("Batch050 raw ZIP bytes ingested or committed")
+
+    if blocker_preservation.get("status") != "PASS" or blocker_preservation.get("batch049_exact_blocker") != "all_candidates_already_counted":
+        errors.append("Batch050 Batch049 blocker preservation failed")
+    if blocker_preservation.get("approved_unused_issue_seed_count") != 0 or blocker_preservation.get("next_allowed_action") != "manual_artifact_required":
+        errors.append("Batch050 Batch049 approval blocker boundary changed")
+    if claim_preservation.get("native_external_repair_episodes") != 4 or claim_preservation.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch050 preserved repair episode counts changed")
+
+    if policy.get("status") != "PASS" or policy.get("accepted_package_location") != "incoming_artifacts/manual_seed_intake":
+        errors.append("Batch050 manual fresh seed intake policy invalid")
+    for required in ["known_patch_included", "future_outcome_logs_included", "hidden_labels_included", "source_or_test_mutation_required_before_approval"]:
+        if not any(required in item for item in policy.get("hard_rejection_if", [])):
+            errors.append(f"Batch050 policy missing hard rejection: {required}")
+    for field in ["repair_generation_authorized", "target_replay_authorized", "dependency_install_authorized", "patch_generation_authorized"]:
+        if policy.get(field) is not False:
+            errors.append(f"Batch050 policy over-allowed {field}")
+
+    if discovery.get("status") != "PASS" or discovery.get("manual_seed_package_found") is not False:
+        errors.append("Batch050 discovery should report no manual seed package")
+    if discovery.get("exact_blocker") != "manual_seed_artifact_absent" or discovery.get("next_allowed_action") != "provide_manual_seed_package":
+        errors.append("Batch050 discovery blocker/action mismatch")
+    for field in ["incoming_artifacts_staged", "candidate_code_executed", "dependency_install_attempted", "target_replay_executed", "patch_generation_attempted"]:
+        if discovery.get(field) is not False:
+            errors.append(f"Batch050 discovery performed forbidden action: {field}")
+
+    if request.get("status") != "PASS" or request.get("incoming_package_path") != "incoming_artifacts/manual_seed_intake":
+        errors.append("Batch050 request template invalid")
+    for key in [
+        "candidate_id",
+        "source_project",
+        "repo_url",
+        "issue_url_or_reference",
+        "buggy_commit_sha",
+        "failing_command",
+        "expected_failure_signature",
+        "fixed_gold_future_later_absent_attestation",
+        "known_patch_included",
+        "future_outcome_logs_included",
+        "hidden_labels_included",
+    ]:
+        if key not in template:
+            errors.append(f"Batch050 manifest template missing {key}")
+    for phrase in ["buggy commit, not the fixed commit", "do not include patch diffs", "do not include future fix PRs", "do not include hidden labels", "remain untracked"]:
+        if phrase not in template_readme:
+            errors.append(f"Batch050 template README missing phrase: {phrase}")
+
+    if custody.get("status") != "PASS" or custody.get("package_count") != 0:
+        errors.append("Batch050 custody verification should pass with zero packages")
+    if freshness.get("status") != "PASS" or leakage.get("status") != "PASS" or env_preflight.get("status") != "PASS" or orthology.get("status") != "PASS":
+        errors.append("Batch050 empty-package fast audits should PASS")
+    if approval.get("status") != "PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED":
+        errors.append("Batch050 approval gate status mismatch")
+    if approval.get("approved_unused_issue_seed_count") != 0 or approval.get("exact_blocker") != "manual_seed_artifact_absent":
+        errors.append("Batch050 approval gate count/blocker mismatch")
+    for field in ["repair_generation_authorized", "target_replay_authorized", "dependency_install_authorized", "patch_generation_authorized", "source_test_mutation_authorized"]:
+        if approval.get(field) is not False:
+            errors.append(f"Batch050 approval gate over-allowed {field}")
+    if feasibility.get("repair_generation_authorized") is not False or feasibility.get("target_replay_executed") is not False:
+        errors.append("Batch050 feasibility ran forbidden downstream work")
+    if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch050 proof ledger invalid")
+    for field in ["repair_generation_occurred", "patch_generation_occurred", "target_replay_occurred", "duplicate_replay_occurred", "dependency_install_occurred", "mutation_occurred", "incoming_artifacts_staged", "fixed_gold_future_later_evidence_accessed"]:
+        if ledger.get(field) is not False:
+            errors.append(f"Batch050 ledger recorded forbidden action: {field}")
+
+    if claim.get("native_external_repair_episodes") != 4 or claim.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch050 claim boundary changed repair episode counts")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch050 full scoring or memory boundary changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("production_readiness") != "false/not_demonstrated":
+        errors.append("Batch050 self-maintaining or production overclaim")
+    for key in ["hallucination_elimination", "absolute_uncrashability", "generalized_autonomous_repair_success", "TO" + "RUS_physics_validation", "PSA82_validation"]:
+        if claim.get(key) != "not_claimed":
+            errors.append(f"Batch050 overclaimed {key}")
+    if claim.get("TO" + "RUS_BROT_proof_claim") is not False or claim.get("ToT_BROT_proof_claim") is not False or claim.get("ToT_BULB_proof_claim") is not False:
+        errors.append("Batch050 proof term overclaim")
+    if claim.get("current_protocol") != "v2.14":
+        errors.append("Batch050 current protocol claim boundary mismatch")
+    if language.get("status") != "PASS":
+        errors.append("Batch050 public language audit failed")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch050 artifact minimality failed")
+    if budget.get("status") != "PASS" or int(budget.get("hard_primary_artifact_bytes", 0)) != 750000:
+        errors.append("Batch050 artifact budget failed")
+
+    forbidden_markers = ["1.45", "25.7", "wiggle_room", "closure_tolerance", "residual_tolerance"]
+    for path in list(BATCH050_DIR.glob("*.json")) + list(BATCH050_DIR.glob("*.md")) + [Path("docs/templates/manual_issue_seed_package_readme.md")]:
+        text = path.read_text(encoding="utf-8")
+        if any(marker in text for marker in forbidden_markers):
+            errors.append(f"Batch050 introduced forbidden tolerance marker in {path.name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -10129,6 +10325,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_047.json"),
         Path("configs/clean_replication_batch_048.json"),
         Path("configs/clean_replication_batch_049.json"),
+        Path("configs/clean_replication_batch_050.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
         Path("configs/clean_replication_batch_016.json"),
@@ -10172,6 +10369,7 @@ def public_language_hits() -> list[str]:
         Path("controllergate/core/batch035_gated_source_repair.py"),
         Path("controllergate/core/batch048_expanded_source_registry_probe.py"),
         Path("controllergate/core/batch049_source_approval_cytoskeleton.py"),
+        Path("controllergate/core/batch050_manual_seed_intake_fastlane.py"),
         Path("controllergate/core/active_context_filtering.py"),
         Path("controllergate/runtime/incident_capture.py"),
         Path("controllergate/runtime/execution_boundary_gateway.py"),
@@ -10459,6 +10657,7 @@ def main() -> int:
         + require_files(BATCH047_DIR, BATCH047_REQUIRED)
         + require_files(BATCH048_DIR, BATCH048_REQUIRED)
         + require_files(BATCH049_DIR, BATCH049_REQUIRED)
+        + require_files(BATCH050_DIR, BATCH050_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -10808,6 +11007,9 @@ def main() -> int:
     batch049_errors = audit_batch049_records()
     if batch049_errors:
         return fail(f"batch049 audit failed: {batch049_errors}")
+    batch050_errors = audit_batch050_records()
+    if batch050_errors:
+        return fail(f"batch050 audit failed: {batch050_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -10854,8 +11056,8 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH049_"):
-        return fail("final report did not advance to Batch049 source approval boundary")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH050_"):
+        return fail("final report did not advance to Batch050 manual seed intake boundary")
     allowed_latest_blockers = {
         "docker_runtime_provider_unavailable",
         "python37_docker_provider_unavailable",
@@ -10940,6 +11142,7 @@ def main() -> int:
         "all_candidates_already_counted",
         "all_candidates_probe_only",
         "no_candidate_sources_available",
+        "manual_seed_artifact_absent",
     }
     if final_report.get("exact_blocker") is not None and final_report.get("exact_blocker") not in allowed_latest_blockers:
         return fail("final report latest validation blocker mismatch")
@@ -11274,8 +11477,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH049_"):
-        return fail("final report top-level status is not Batch049")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH050_"):
+        return fail("final report top-level status is not Batch050")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -12003,6 +12206,50 @@ def main() -> int:
         return fail("final report Batch049 production boundary changed")
     if final_report.get("batch049_incoming_artifacts_quarantine_status") != "PASS_NOT_STAGED":
         return fail("final report Batch049 incoming artifact quarantine mismatch")
+    if final_report.get("clean_replication_batch_050_status") != "PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED":
+        return fail("final report Batch050 status mismatch")
+    if final_report.get("clean_replication_batch_050_exact_blocker") != "manual_seed_artifact_absent":
+        return fail("final report Batch050 blocker mismatch")
+    if final_report.get("batch050_primary_artifact_name") != "post_v2_37_hardening_batch050_manual_seed_intake_fastlane_artifacts":
+        return fail("final report Batch050 artifact name mismatch")
+    if final_report.get("batch050_batch049_artifact_ingest_status") != "PASS" or final_report.get("batch050_batch049_artifact_verification_status") != "PASS":
+        return fail("final report Batch050 Batch049 artifact custody not PASS")
+    if final_report.get("batch050_manual_seed_package_discovery_status") != "PASS":
+        return fail("final report Batch050 manual seed discovery not PASS")
+    if final_report.get("batch050_manual_seed_package_found") is not False:
+        return fail("final report Batch050 manual seed package found unexpectedly")
+    if final_report.get("batch050_manual_seed_custody_status") != "NOT_RUN":
+        return fail("final report Batch050 custody should be NOT_RUN without package")
+    if final_report.get("batch050_freshness_duplicate_count_status") != "NOT_RUN":
+        return fail("final report Batch050 freshness should be NOT_RUN without package")
+    if final_report.get("batch050_evidence_leakage_fast_audit_status") != "NOT_RUN":
+        return fail("final report Batch050 leakage should be NOT_RUN without package")
+    if final_report.get("batch050_environment_cytoskeleton_preflight_status") != "NOT_RUN":
+        return fail("final report Batch050 environment preflight should be NOT_RUN without package")
+    if final_report.get("batch050_cross_environment_orthology_intake_status") != "PASS":
+        return fail("final report Batch050 orthology intake mismatch")
+    if final_report.get("batch050_candidate_approval_fast_gate_status") != "PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED":
+        return fail("final report Batch050 approval gate mismatch")
+    if final_report.get("batch050_approved_unused_issue_seed_count") != 0:
+        return fail("final report Batch050 approved unused issue seed count changed")
+    if final_report.get("batch050_next_allowed_action") != "provide_manual_seed_package":
+        return fail("final report Batch050 next action mismatch")
+    if final_report.get("batch050_current_protocol") != "v2.14":
+        return fail("final report Batch050 current protocol mismatch")
+    if final_report.get("batch050_issue_derived_repair_episode_count") != 1:
+        return fail("final report Batch050 issue-derived count mismatch")
+    if final_report.get("batch050_native_external_repair_episode_count") != 4:
+        return fail("final report Batch050 native count changed")
+    if final_report.get("batch050_full_scoring") != "NOT_RUN/disallowed":
+        return fail("final report Batch050 full scoring boundary changed")
+    if final_report.get("batch050_memory_lift") != "not_demonstrated":
+        return fail("final report Batch050 memory-lift boundary changed")
+    if final_report.get("batch050_self_maintaining_software") != "false/not_demonstrated":
+        return fail("final report Batch050 self-maintaining boundary changed")
+    if final_report.get("batch050_production_readiness") != "false/not_demonstrated":
+        return fail("final report Batch050 production boundary changed")
+    if final_report.get("batch050_incoming_artifacts_quarantine_status") != "PASS_NOT_STAGED":
+        return fail("final report Batch050 incoming artifact quarantine mismatch")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

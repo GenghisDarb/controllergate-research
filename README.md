@@ -1,6 +1,6 @@
 # ControllerGate
 
-ControllerGate is a provenance-first software repair research harness and evidence-bound repair validation kernel for audited software-change candidates. Current protocol remains `v2.13`.
+ControllerGate is a provenance-first software repair research harness and evidence-bound repair validation kernel for audited software-change candidates. Current protocol remains `v2.14`.
 
 ControllerGate remains a pre-alpha research archive. Clean replication batch002 now attempts real external leads, and confirmed external native repair episodes include `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`.
 
@@ -99,3 +99,13 @@ python scripts/controllergate_run.py --protocol current --dry-run
 - Exact blocker: `all_candidates_already_counted`.
 - External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
 - Batch049 is an intake and environment-identity gate only; repair generation, target replay, dependency install, full scoring, memory-lift claims, and production-readiness claims remain disabled.
+
+### Batch050 manual fresh-seed intake fast lane
+
+- Batch050 status: `PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED`.
+- Manual seed package found: `false`.
+- Approved unused issue seed count: `0`.
+- Exact blocker: `manual_seed_artifact_absent`.
+- Next allowed action: `provide_manual_seed_package`.
+- External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Batch050 is an intake/template gate only; repair generation, target replay, dependency install, full scoring, memory-lift claims, and production-readiness claims remain disabled.

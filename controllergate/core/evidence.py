@@ -90,13 +90,15 @@ def verify_zip_artifact(zip_path: str | Path, *, expected_size: int | None = Non
 
 
 def write_json_deterministic(path: str | Path, value: Any) -> None:
-    Path(path).parent.mkdir(parents=True, exist_ok=True)
-    Path(path).write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes((json.dumps(value, indent=2, sort_keys=True) + "\n").encode("utf-8"))
 
 
 def write_text_lf(path: str | Path, value: str) -> None:
-    Path(path).parent.mkdir(parents=True, exist_ok=True)
-    Path(path).write_text(value.rstrip() + "\n", encoding="utf-8", newline="\n")
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes((value.rstrip() + "\n").encode("utf-8"))
 
 
 def hash_record(value: Any) -> str:

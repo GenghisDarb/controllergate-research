@@ -8,7 +8,9 @@ def test_readme_contains_current_status_and_limits():
 
     assert "provenance-first software repair research harness" in text
     assert "py_bugger_issue_65" in text
-    assert "Current protocol remains `v2.13`" in text
+    assert "Current protocol remains `v2.14`" in text
+    assert "PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED" in text
+    assert "manual_seed_artifact_absent" in text
     assert "Full scoring remains `NOT_RUN/disallowed`" in text
     assert "Memory lift on external real bugs is not demonstrated" in text
     assert "Self-maintaining software is not demonstrated" in text

@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH049_SOURCE_APPROVAL_CYTOSKELETON_GATE.
+Status: PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -183,5 +183,9 @@ Batch048 status: `PASS_WITH_BATCH048_EXPANDED_SOURCE_REGISTRY_PROBE_GATE`; exact
 Batch049 officially ingests the Batch048 source-registry probe artifact, preserves current protocol v2.14, and adds source approval, manual artifact custody, cross-environment identity, execution constraint, environmental probe-design, acquisition fallback, and scar-tissue gates. It does not authorize repair generation, target replay, duplicate replay, dependency installation, full scoring, or broader claims.
 
 Batch049 status: `PASS_WITH_BATCH049_SOURCE_APPROVAL_CYTOSKELETON_GATE`; exact blocker: `all_candidates_already_counted`; approved unused issue seeds: `0`.
+
+Batch050 officially ingests the Batch049 source-approval artifact, preserves the all-candidates-counted blocker, and adds a manual fresh-seed intake fast lane with tracked request templates. It does not authorize target replay, dependency installation, repair generation, patch generation, full scoring, or broader claims.
+
+Batch050 status: `PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED`; exact blocker: `manual_seed_artifact_absent`; approved unused issue seeds: `0`.
 
 NotebookLM advice traceability status: `PASS`.

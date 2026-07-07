@@ -1,0 +1,51 @@
+{
+  "accepted_package_forms": [
+    "manual_seed_manifest.json",
+    "manual_seed_manifest.json plus raw_failure_log.txt",
+    "manual_seed_manifest.json plus source_archive.zip",
+    "manual_seed_package.zip containing manifest and optional logs/source archive"
+  ],
+  "accepted_package_location": "incoming_artifacts/manual_seed_intake",
+  "dependency_install_authorized": false,
+  "hard_rejection_if": [
+    "known_patch_included",
+    "fixed_commit_referenced_as_evidence",
+    "future_outcome_logs_included",
+    "hidden_labels_included",
+    "synthetic_failing_tests_requested",
+    "source_or_test_mutation_required_before_approval",
+    "candidate_already_counted",
+    "candidate_probe_only",
+    "no_pin_or_no_custody_path"
+  ],
+  "minimum_required_manifest_fields": [
+    "candidate_id",
+    "source_project",
+    "repo_url",
+    "issue_url_or_reference",
+    "buggy_commit_sha",
+    "branch_or_tag_if_applicable",
+    "source_archive_sha256",
+    "failing_command",
+    "expected_failure_signature",
+    "expected_failure_regex_optional",
+    "raw_failure_log_sha256",
+    "os",
+    "python_version",
+    "dependency_constraints",
+    "test_runner",
+    "timeout_seconds",
+    "verifier_identity",
+    "verification_timestamp",
+    "fixed_gold_future_later_absent_attestation",
+    "known_patch_included",
+    "future_outcome_logs_included",
+    "hidden_labels_included",
+    "source_mutation_required",
+    "tests_mutation_required"
+  ],
+  "patch_generation_authorized": false,
+  "repair_generation_authorized": false,
+  "status": "PASS",
+  "target_replay_authorized": false
+}

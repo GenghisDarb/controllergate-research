@@ -1,0 +1,36 @@
+{
+  "incoming_package_path": "incoming_artifacts/manual_seed_intake",
+  "next_allowed_action": "provide_manual_seed_package",
+  "raw_incoming_artifacts_must_remain_untracked": true,
+  "status": "PASS",
+  "template_manifest": {
+    "branch_or_tag_if_applicable": null,
+    "buggy_commit_sha": "40-character sha",
+    "candidate_id": "example_project_issue_123",
+    "dependency_constraints": {},
+    "expected_failure_regex_optional": null,
+    "expected_failure_signature": "short stable failure text",
+    "failing_command": "pytest path/to/test.py::test_name",
+    "fixed_gold_future_later_absent_attestation": true,
+    "future_outcome_logs_included": false,
+    "hidden_labels_included": false,
+    "issue_url_or_reference": "https://github.com/owner/repo/issues/123",
+    "known_patch_included": false,
+    "os": "ubuntu-latest",
+    "python_version": "3.11",
+    "raw_failure_log_sha256": null,
+    "repo_url": "https://github.com/owner/repo",
+    "source_archive_sha256": null,
+    "source_mutation_required": false,
+    "source_project": "owner/repo",
+    "test_runner": "pytest",
+    "tests_mutation_required": false,
+    "timeout_seconds": 120,
+    "verification_timestamp": "YYYY-MM-DDTHH:MM:SSZ",
+    "verifier_identity": "Brad/manual reviewer"
+  },
+  "template_paths": [
+    "docs/templates/manual_issue_seed_manifest.template.json",
+    "docs/templates/manual_issue_seed_package_readme.md"
+  ]
+}
