@@ -28,6 +28,32 @@ Batch017 attempts decision-time dependency-era resolution for Darker issue #112 
 - Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
 
+### Batch052 Lemon Reader source-only patch candidate gate
+
+- Batch052 status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`.
+- Current protocol remains: `v2.14`.
+- Source-only suitability: `source_repair_suitable`.
+- Patch generation status: `PASS`.
+- Patch apply status: `PASS`.
+- Post-repair target replay status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`.
+- Duplicate replay status: `NOT_RUN`; reason: `waits_for_batch053_duplicate_clean_replay_gate`.
+- Exact blocker: `None`.
+- Next allowed action: `batch053_duplicate_clean_replay_gate`.
+- External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Batch052 does not run duplicate replay, full scoring, memory-lift claims, self-maintaining claims, or production-readiness claims.
+
+### Batch053 duplicate clean replay and evidence contract hardening
+
+- Batch053 status: `PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED`.
+- Current protocol remains: `v2.14`.
+- Duplicate clean replay status: `PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED`.
+- Duplicate clean replay return code: `None`.
+- Issue-derived repair validated candidate: `false`.
+- Exact blocker: `host_environment_not_ubuntu_latest_python311`.
+- Next allowed action: `secondary_blocker_governance_gate`.
+- External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Batch053 does not increment repair counts, run full scoring, claim memory lift, claim self-maintaining software, or claim production readiness.
+
 ### Batch050 manual fresh-seed intake fast lane
 
 - Batch050 status: `PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED`.
@@ -51,17 +77,3 @@ Batch017 attempts decision-time dependency-era resolution for Darker issue #112 
 - Next allowed action: `batch052_source_only_patch_candidate_gate`.
 - External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
 - Batch051 is a seed-approval and pre-repair replay gate only; repair generation, patch generation, duplicate replay, full scoring, memory-lift claims, and production-readiness claims remain disabled.
-
-### Batch052 Lemon Reader source-only patch candidate gate
-
-- Batch052 status: `PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED`.
-- Current protocol remains: `v2.14`.
-- Source-only suitability: `source_repair_suitable`.
-- Patch generation status: `PASS`.
-- Patch apply status: `PASS`.
-- Post-repair target replay status: `PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED`.
-- Duplicate replay status: `NOT_RUN`; reason: `target_replay_not_passed`.
-- Exact blocker: `host_environment_not_ubuntu_latest_python311`.
-- Next allowed action: `secondary_blocker_governance_gate`.
-- External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
-- Batch052 does not run duplicate replay, full scoring, memory-lift claims, self-maintaining claims, or production-readiness claims.

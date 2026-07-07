@@ -1,0 +1,9 @@
+{
+  "default_runner_policy": "load_prior_official_evidence_generate_current_batch_only",
+  "prior_official_artifacts_are_immutable_boundaries": true,
+  "shared_module": "controllergate/core/official_ingest.py",
+  "skip_if_identical": true,
+  "status": "PASS",
+  "temp_file_then_atomic_replace": true,
+  "windows_permission_error_blocker": "windows_idempotent_ingest_permission_error"
+}

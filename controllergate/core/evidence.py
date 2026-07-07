@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import time
 import zipfile
 from pathlib import Path, PurePosixPath
 from typing import Any
@@ -89,16 +90,36 @@ def verify_zip_artifact(zip_path: str | Path, *, expected_size: int | None = Non
     }
 
 
+def _write_bytes_retrying(target: Path, data: bytes, *, attempts: int = 3) -> None:
+    target.parent.mkdir(parents=True, exist_ok=True)
+    temp = target.with_name(f"{target.name}.tmp_write")
+    last_error: OSError | None = None
+    for attempt in range(1, attempts + 1):
+        try:
+            temp.write_bytes(data)
+            temp.replace(target)
+            return
+        except OSError as exc:
+            last_error = exc
+            if temp.exists():
+                try:
+                    temp.unlink()
+                except OSError:
+                    pass
+            if attempt < attempts:
+                time.sleep(0.1 * attempt)
+    if last_error is not None:
+        raise last_error
+
+
 def write_json_deterministic(path: str | Path, value: Any) -> None:
     target = Path(path)
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes((json.dumps(value, indent=2, sort_keys=True) + "\n").encode("utf-8"))
+    _write_bytes_retrying(target, (json.dumps(value, indent=2, sort_keys=True) + "\n").encode("utf-8"))
 
 
 def write_text_lf(path: str | Path, value: str) -> None:
     target = Path(path)
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes((value.rstrip() + "\n").encode("utf-8"))
+    _write_bytes_retrying(target, (value.rstrip() + "\n").encode("utf-8"))
 
 
 def hash_record(value: Any) -> str:

@@ -1,0 +1,25 @@
+{
+  "authorizes_future_count_increment_without_replay": false,
+  "dependency_materialization_policy": "same_declared_policy_as_target_replay",
+  "duplicate_fail_criteria": "original_failure_present_or_new_secondary_blocker_classified",
+  "duplicate_pass_criteria": "return_code_zero_and_original_failure_absent",
+  "example": {
+    "candidate_id": "lemon24_reader_issue_355_local_config",
+    "patch_sha256": "9fd44eb2bcd50c0fe926f51fecbfb697c245cdabd2d22ed956e1c3382a9628ac"
+  },
+  "fixture_mutation_policy": "fixtures_must_not_be_modified",
+  "forbidden_evidence_policy": "fixed_gold_future_later_and_issue_solution_material_forbidden",
+  "harness_mutation_policy": "harness_must_not_be_modified",
+  "next_allowed_action_policy": "count_gate_only_after_duplicate_pass_and_claim_boundary_preserved",
+  "patch_bytes_source": "verified_prior_batch_patch_artifact",
+  "patch_sha256": "<source_only_patch_sha256>",
+  "replay_command": "<same_target_command_as_target_replay>",
+  "sanitized_excerpt_policy": "record_bounded_sanitized_excerpts_only",
+  "selected_source_commit": "<candidate_source_commit>",
+  "source_mutation_policy": "source_mutated_only_by_patch",
+  "status": "PASS",
+  "stdout_stderr_hash_policy": "record_sha256_for_stdout_and_stderr",
+  "test_mutation_policy": "tests_must_not_be_modified",
+  "transport_equivalence_requirement": "same_commit_same_patch_same_command_same_dependency_policy",
+  "workspace_freshness_requirement": "fresh_checkout_no_prior_mutation"
+}

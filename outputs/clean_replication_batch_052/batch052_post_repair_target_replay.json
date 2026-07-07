@@ -1,19 +1,91 @@
 {
-  "exact_blocker": "host_environment_not_ubuntu_latest_python311",
+  "checkout_commands": [
+    {
+      "command": "git -C /tmp/controllergate_batch052_reader_issue_355/post_repair_reader init",
+      "return_code": 0,
+      "stderr_excerpt": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n",
+      "stderr_sha256": "3e70934f1909b0f5a846d62237fcc1509d733b9fb0321187024723dfc67176d3",
+      "stdout_sha256": "5df6038fd87438b50176799ce5b11a5590e39996ff8c88e9910176fa3db22e34"
+    },
+    {
+      "command": "git -C /tmp/controllergate_batch052_reader_issue_355/post_repair_reader remote add origin https://github.com/lemon24/reader.git",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "git -C /tmp/controllergate_batch052_reader_issue_355/post_repair_reader fetch --depth=1 origin 182902cba96501bbe989fd370bd251107ba2ad31",
+      "return_code": 0,
+      "stderr_excerpt": "From https://github.com/lemon24/reader\n * branch            182902cba96501bbe989fd370bd251107ba2ad31 -> FETCH_HEAD\n",
+      "stderr_sha256": "81d6e442d065a78b404cedf1dfd6a5b648a3a45ae23bfa49f9ee960b4fef548a",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "git -C /tmp/controllergate_batch052_reader_issue_355/post_repair_reader checkout --detach FETCH_HEAD",
+      "return_code": 0,
+      "stderr_excerpt": "HEAD is now at 182902c Move ParsedFeed to reader._parser. #307\n",
+      "stderr_sha256": "8e6d86bc5a757894aaa37b684343123ba3769e0094665b30752cb7606696444e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "command": "mkdir -p ~/.config/reader && cp -n examples/config.yaml ~/.config/reader/ || true && PYTHONPATH=src pytest --runslow tests/test_cli.py -q --tb=no",
+  "cwd": "/tmp/controllergate_batch052_reader_issue_355/post_repair_reader",
+  "dependency_install_records": [
+    {
+      "command": "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python -m venv /tmp/controllergate_batch052_reader_issue_355/post_repair_venv",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "/tmp/controllergate_batch052_reader_issue_355/post_repair_venv/bin/python -m pip install --upgrade pip setuptools wheel",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "15f416a4f6a3c9a29ea7c4bf35d6da6ed457e415f98a1fee6dc9ae708e7ba1fc"
+    },
+    {
+      "command": "/tmp/controllergate_batch052_reader_issue_355/post_repair_venv/bin/python -m pip install -e .[cli,app,tests]",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "460f765f4a81777a20aefc253e58e50153ba414b034d0fec58c22356deb2e805"
+    }
+  ],
+  "dependency_state": {
+    "declared_app_extra_detected": true,
+    "declared_cli_extra_detected": true,
+    "declared_tests_extra_detected": true,
+    "declared_unstable_plugins_extra_detected": true,
+    "dependency_source": "selected_buggy_commit_pyproject_toml",
+    "install_command": "python -m pip install -e .[cli,app,tests]",
+    "mutagen_declared_only_in_unstable_plugins_extra": true,
+    "pyproject_sha256": "847f6b6a1d9e92e70466d347842de325bdf2a437bf15d42d05a7dafa8f898199",
+    "pyproject_toml_present": true
+  },
+  "exact_blocker": null,
   "fixed_gold_future_later_evidence_accessed": false,
   "forbidden_evidence_accessed": false,
-  "host_summary": {
-    "platform_system": "Windows",
-    "python_executable": "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
-    "python_version": "3.13.14"
-  },
-  "new_failure_observed": true,
-  "next_allowed_action": "secondary_blocker_governance_gate",
+  "git_status_after_run": [
+    " M src/reader/_plugins/enclosure_tags.py"
+  ],
+  "git_status_before_run": [
+    " M src/reader/_plugins/enclosure_tags.py"
+  ],
+  "new_failure_observed": false,
+  "next_allowed_action": "batch053_duplicate_clean_replay_gate",
   "original_failure_signature_observed": false,
   "original_failure_signature_observed_after_patch": false,
-  "return_code": null,
+  "return_code": 0,
+  "sanitized_stderr_excerpt": "cp: warning: behavior of -n is non-portable and may change in future; use --update=none instead\n",
+  "sanitized_stdout_excerpt": "........                                                                 [100%]\n8 passed in 0.89s\n",
+  "selected_source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
   "source_mutated_only_by_patch": true,
   "source_only_patch_boundary_preserved": true,
-  "status": "PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED",
+  "status": "PASS_WITH_BATCH052_TARGET_REPLAY_PASSED",
+  "stderr_sha256": "2543ae08c6df91ed8d308c34f6159ab022d3a965e00edb29a58ecdef8e0a5c61",
+  "stdout_sha256": "fae80b478dca97227d363165f03b8afbe7cf5ea384c636a0e4483c311d2e64df",
   "tests_mutated": false
 }

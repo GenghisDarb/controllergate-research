@@ -67,6 +67,10 @@ from controllergate.core.batch052_source_only_patch_candidate import (
     write_batch052_outputs,
     write_batch052_public_state,
 )
+from controllergate.core.batch053_duplicate_replay_contract_hardening import (
+    write_batch053_artifact_payload_records,
+    write_batch053_outputs,
+)
 from controllergate.core.command_manifest import build_target_command_manifest_summary, target_command_manifest_policy
 from controllergate.core.dependency_overlap_grouping import dependency_overlap_audit, dependency_overlap_groups
 from controllergate.core.failure_taxonomy import classify_failure, failure_taxonomy_policy
@@ -325,7 +329,9 @@ BATCH051_ID = "clean_replication_batch_051"
 BATCH051_DIR = Path("outputs") / BATCH051_ID
 BATCH052_ID = "clean_replication_batch_052"
 BATCH052_DIR = Path("outputs") / BATCH052_ID
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch052_source_only_patch_candidate")
+BATCH053_ID = "clean_replication_batch_053"
+BATCH053_DIR = Path("outputs") / BATCH053_ID
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch053_duplicate_replay_contract_hardening")
 REPAIRED_CANDIDATE_IDS = {"py_bugger_issue_65", "darker_non_ascii_drop_changes", "darker_stdin_filename"}
 BATCH005_TARGET = {
     "candidate_id": "darker_skip_glob_failing_test",
@@ -9901,6 +9907,7 @@ def main() -> int:
     BATCH050_DIR.mkdir(parents=True, exist_ok=True)
     BATCH051_DIR.mkdir(parents=True, exist_ok=True)
     BATCH052_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH053_DIR.mkdir(parents=True, exist_ok=True)
 
     v2_37_record = load_json("outputs/v2_37_core_consolidation/v2_37_official_artifact_verification.json")
     batch_state = write_batch002_outputs()
@@ -9969,14 +9976,21 @@ def main() -> int:
         batch051_state = load_json(batch051_state_path)
     else:
         batch051_state = write_batch051_outputs(Path.cwd(), POST_DIR, BATCH050_DIR, BATCH051_DIR, batch050_state)
-    batch052_state = write_batch052_outputs(
-        Path.cwd(),
-        POST_DIR,
-        BATCH051_DIR,
-        BATCH052_DIR,
-        batch051_state,
-        batch051_verification_for_batch052,
-    )
+    batch052_state_path = BATCH052_DIR / "consolidated_state_clean_replication_batch_052.json"
+    if batch052_state_path.is_file():
+        batch052_state = load_json(batch052_state_path)
+    else:
+        batch052_state = write_batch052_outputs(
+            Path.cwd(),
+            POST_DIR,
+            BATCH051_DIR,
+            BATCH052_DIR,
+            batch051_state,
+            batch051_verification_for_batch052,
+        )
+    batch053_state = write_batch053_outputs(Path.cwd(), POST_DIR, BATCH052_DIR, BATCH053_DIR)
+    if batch052_state_path.is_file():
+        batch052_state = load_json(batch052_state_path)
     traceability_status = write_notebooklm_traceability_outputs(batch005_state)
 
     policy_files = [
@@ -10028,6 +10042,7 @@ def main() -> int:
         "configs/clean_replication_batch_050.json",
         "configs/clean_replication_batch_051.json",
         "configs/clean_replication_batch_052.json",
+        "configs/clean_replication_batch_053.json",
         "configs/controllergate_capability_catalog.json",
         "configs/controllergate_claim_tiers.json",
         "configs/lock_sequence_operation_registry.json",
@@ -10249,7 +10264,9 @@ def main() -> int:
         },
     )
 
-    if str(batch052_state.get("status", "")).startswith("PASS_WITH_BATCH052"):
+    if str(batch053_state.get("status", "")).startswith("PASS_WITH_BATCH053"):
+        final_status = str(batch053_state.get("status"))
+    elif str(batch052_state.get("status", "")).startswith("PASS_WITH_BATCH052"):
         final_status = str(batch052_state.get("status"))
     elif str(batch051_state.get("status", "")).startswith("PASS_WITH_BATCH051"):
         final_status = str(batch051_state.get("status"))
@@ -10345,7 +10362,9 @@ def main() -> int:
     matched_target_validation_pass_count = len([item for item in matched_arm_results if item.get("target_validation_status") == "PASS"])
     matched_duplicate_replay_pass_count = len([item for item in matched_arm_results if item.get("duplicate_replay_status") == "PASS"])
     latest_exact_blocker = (
-        batch052_state.get("exact_blocker")
+        batch053_state.get("exact_blocker")
+        if str(batch053_state.get("status", "")).startswith("PASS_WITH_BATCH053")
+        else batch052_state.get("exact_blocker")
         if str(batch052_state.get("status", "")).startswith("PASS_WITH_BATCH052")
         else batch051_state.get("exact_blocker")
         if str(batch051_state.get("status", "")).startswith("PASS_WITH_BATCH051")
@@ -11522,6 +11541,25 @@ def main() -> int:
         "batch052_memory_lift": batch052_state["memory_lift"],
         "batch052_self_maintaining_software": batch052_state["self_maintaining_software"],
         "batch052_incoming_artifacts_quarantine_status": batch052_state["incoming_artifacts_quarantine_status"],
+        "clean_replication_batch_053_status": batch053_state["status"],
+        "clean_replication_batch_053_exact_blocker": batch053_state["exact_blocker"],
+        "batch053_primary_artifact_name": batch053_state["primary_artifact_name"],
+        "batch053_batch052_artifact_ingest_status": batch053_state["batch052_artifact_ingest_status"],
+        "batch053_batch052_artifact_verification_status": batch053_state["batch052_artifact_verification_status"],
+        "batch053_public_state_reconciliation_status": batch053_state["public_state_reconciliation_status"],
+        "batch053_evidence_contract_hardening_status": batch053_state["evidence_contract_hardening_status"],
+        "batch053_idempotent_ingest_hardening_status": batch053_state["idempotent_ingest_hardening_status"],
+        "batch053_duplicate_replay_eligibility_status": batch053_state["duplicate_replay_eligibility_status"],
+        "batch053_duplicate_replay_status": batch053_state["duplicate_replay_status"],
+        "batch053_duplicate_replay_return_code": batch053_state["duplicate_replay_return_code"],
+        "batch053_issue_derived_repair_validated_candidate": batch053_state["issue_derived_repair_validated_candidate"],
+        "batch053_next_allowed_action": batch053_state["next_allowed_action"],
+        "batch053_native_external_repair_episode_count": batch053_state["native_external_repair_episode_count"],
+        "batch053_issue_derived_repair_episode_count": batch053_state["issue_derived_repair_episode_count"],
+        "batch053_full_scoring": batch053_state["full_scoring"],
+        "batch053_memory_lift": batch053_state["memory_lift"],
+        "batch053_self_maintaining_software": batch053_state["self_maintaining_software"],
+        "batch053_incoming_artifacts_quarantine_status": batch053_state["incoming_artifacts_quarantine_status"],
         "global_curvature_logic_status": batch013_state["global_curvature_logic_status"],
         "curvature_feature_vector_status": batch013_state["curvature_feature_vector_status"],
         "basin_stability_check_status": batch013_state["basin_stability_check_status"],
@@ -11797,6 +11835,10 @@ def main() -> int:
                 "",
                 f"Batch052 status: `{batch052_state['status']}`; exact blocker: `{batch052_state['exact_blocker']}`; source-only suitability: `{batch052_state['source_only_suitability_classification']}`; post-repair target replay: `{batch052_state['post_repair_target_replay_status']}`.",
                 "",
+                "Batch053 officially ingests the successful Batch052 source-only patch artifact, reconciles public status to the official artifact state, hardens evidence-contract and official-ingest custody, and runs the duplicate clean replay gate when the host environment allows it.",
+                "",
+                f"Batch053 status: `{batch053_state['status']}`; exact blocker: `{batch053_state['exact_blocker']}`; duplicate clean replay: `{batch053_state['duplicate_replay_status']}`; next allowed action: `{batch053_state['next_allowed_action']}`.",
+                "",
                 f"NotebookLM advice traceability status: `{traceability_status.get('status')}`.",
             ]
         ),
@@ -11806,40 +11848,18 @@ def main() -> int:
     reassert_batch047_regression_catalog_boundary(Path.cwd())
     write_batch050_public_state(Path.cwd(), batch050_state)
     write_batch051_public_state(Path.cwd(), batch051_state)
-    write_batch052_public_state(Path.cwd(), batch052_state)
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH052_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH053_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
+    write_batch053_artifact_payload_records(BATCH053_DIR, PAYLOAD_DIR)
     payload_audit = audit_artifact_payload(PAYLOAD_DIR)
     payload_size = sum(path.stat().st_size for path in PAYLOAD_DIR.rglob("*") if path.is_file())
     recursive_prior_batch_packaging_detected = any(
-        part.startswith("clean_replication_batch_") and part != BATCH052_ID
+        part.startswith("clean_replication_batch_") and part != BATCH053_ID
         for path in PAYLOAD_DIR.rglob("*")
         for part in path.relative_to(PAYLOAD_DIR).parts
     )
-    write_json_deterministic(
-        BATCH052_DIR / "artifact_payload_budget.json",
-        {
-            "status": "PASS" if payload_size <= 750000 else "BLOCK",
-            "target_primary_artifact_bytes": 450000,
-            "hard_primary_artifact_bytes": 750000,
-            "estimated_primary_artifact_bytes": payload_size,
-            "target_exceeded_with_justification": payload_size > 450000,
-            "justification": "post boundary plus Batch052 source-only patch candidate evidence" if payload_size > 450000 else None,
-            "blocker": None if payload_size <= 750000 else "primary_artifact_budget_exceeded",
-        },
-    )
-    write_json_deterministic(
-        BATCH052_DIR / "artifact_minimality_audit.json",
-        {
-            "status": "PASS" if not recursive_prior_batch_packaging_detected else "BLOCK",
-            "recursive_prior_batch_packaging_detected": recursive_prior_batch_packaging_detected,
-            "primary_payload_roots": [POST_DIR.as_posix(), BATCH052_DIR.as_posix()],
-            "payload_size_bytes": payload_size,
-            "blocker": None if not recursive_prior_batch_packaging_detected else "recursive_prior_batch_packaging_detected",
-        },
-    )
-    write_sha256sums(BATCH052_DIR)
+    write_sha256sums(BATCH053_DIR)
     write_json_deterministic(
         POST_DIR / "artifact_payload_manifest_report.json",
         {
@@ -11855,7 +11875,7 @@ def main() -> int:
         },
     )
     write_sha256sums(POST_DIR)
-    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH052_DIR])
+    stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH053_DIR])
     write_artifact_manifest(PAYLOAD_DIR)
     return 0
 

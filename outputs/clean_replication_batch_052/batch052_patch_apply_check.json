@@ -1,28 +1,28 @@
 {
   "checkout_commands": [
     {
-      "command": "git -C C:\\Dev\\ControllerGate_runtime\\batch052_reader_issue_355\\apply_check_reader init",
+      "command": "git -C /tmp/controllergate_batch052_reader_issue_355/apply_check_reader init",
       "return_code": 0,
-      "stderr_excerpt": "",
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "5301498cb337265a616e780c57b79f34986e013a50d48b7c6f3c72d9950fc623"
+      "stderr_excerpt": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n",
+      "stderr_sha256": "3e70934f1909b0f5a846d62237fcc1509d733b9fb0321187024723dfc67176d3",
+      "stdout_sha256": "7ec41871efe6e09ca5958018452784fc4bb0b2e3ae10f5b285b53db3c6a38116"
     },
     {
-      "command": "git -C C:\\Dev\\ControllerGate_runtime\\batch052_reader_issue_355\\apply_check_reader remote add origin https://github.com/lemon24/reader.git",
+      "command": "git -C /tmp/controllergate_batch052_reader_issue_355/apply_check_reader remote add origin https://github.com/lemon24/reader.git",
       "return_code": 0,
       "stderr_excerpt": "",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "command": "git -C C:\\Dev\\ControllerGate_runtime\\batch052_reader_issue_355\\apply_check_reader fetch --depth=1 origin 182902cba96501bbe989fd370bd251107ba2ad31",
+      "command": "git -C /tmp/controllergate_batch052_reader_issue_355/apply_check_reader fetch --depth=1 origin 182902cba96501bbe989fd370bd251107ba2ad31",
       "return_code": 0,
       "stderr_excerpt": "From https://github.com/lemon24/reader\n * branch            182902cba96501bbe989fd370bd251107ba2ad31 -> FETCH_HEAD\n",
       "stderr_sha256": "81d6e442d065a78b404cedf1dfd6a5b648a3a45ae23bfa49f9ee960b4fef548a",
       "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "command": "git -C C:\\Dev\\ControllerGate_runtime\\batch052_reader_issue_355\\apply_check_reader checkout --detach FETCH_HEAD",
+      "command": "git -C /tmp/controllergate_batch052_reader_issue_355/apply_check_reader checkout --detach FETCH_HEAD",
       "return_code": 0,
       "stderr_excerpt": "HEAD is now at 182902c Move ParsedFeed to reader._parser. #307\n",
       "stderr_sha256": "8e6d86bc5a757894aaa37b684343123ba3769e0094665b30752cb7606696444e",

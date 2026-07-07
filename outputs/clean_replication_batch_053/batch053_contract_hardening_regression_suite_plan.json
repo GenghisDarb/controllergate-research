@@ -1,0 +1,39 @@
+{
+  "do_not_fake_implemented_tests": true,
+  "implemented_tests": [
+    "schema_canonical_field_test",
+    "legacy_alias_read_compatibility_test",
+    "zip_pycache_pyc_normalization_test"
+  ],
+  "pending_tests": [
+    {
+      "reason": "covered by Batch053 audit; standalone unit test deferred",
+      "test": "new_artifact_canonical_emission_test"
+    },
+    {
+      "reason": "existing public docs test plus Batch053 audit cover current wording",
+      "test": "readme_current_status_exact_protocol_wording_test"
+    },
+    {
+      "reason": "covered by Batch053 public status regression audit",
+      "test": "official_artifact_supersedes_stale_local_public_state_test"
+    },
+    {
+      "reason": "covered by Batch053 official ingest records",
+      "test": "idempotent_ingest_skip_if_identical_test"
+    },
+    {
+      "reason": "requires Windows-specific file-lock fixture; behavior encoded in module and audit",
+      "test": "windows_temp_and_replace_write_path_test"
+    },
+    {
+      "reason": "covered by Batch053 official boundary mutation audit",
+      "test": "prior_official_boundary_no_rewrite_test"
+    },
+    {
+      "reason": "covered by Batch053 handoff artifact",
+      "test": "duplicate_replay_handoff_preservation_test"
+    }
+  ],
+  "status": "PASS"
+}

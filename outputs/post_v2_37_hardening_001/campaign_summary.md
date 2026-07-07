@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED.
+Status: PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -194,6 +194,10 @@ Batch051 status: `PASS_WITH_BATCH051_PRE_REPAIR_FAILURE_MATERIALIZED`; exact blo
 
 Batch052 officially ingests the successful Batch051 pre-repair replay artifact, evaluates whether the Lemon Reader issue 355 failure is suitable for a source-only patch candidate, applies the candidate only in an isolated workspace, and runs the target replay gate without duplicate replay or broader claims.
 
-Batch052 status: `PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED`; exact blocker: `host_environment_not_ubuntu_latest_python311`; source-only suitability: `source_repair_suitable`; post-repair target replay: `PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED`.
+Batch052 status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`; exact blocker: `None`; source-only suitability: `source_repair_suitable`; post-repair target replay: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`.
+
+Batch053 officially ingests the successful Batch052 source-only patch artifact, reconciles public status to the official artifact state, hardens evidence-contract and official-ingest custody, and runs the duplicate clean replay gate when the host environment allows it.
+
+Batch053 status: `PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED`; exact blocker: `host_environment_not_ubuntu_latest_python311`; duplicate clean replay: `PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED`; next allowed action: `secondary_blocker_governance_gate`.
 
 NotebookLM advice traceability status: `PASS`.

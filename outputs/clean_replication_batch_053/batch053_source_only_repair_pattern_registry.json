@@ -1,0 +1,18 @@
+{
+  "entries": [
+    {
+      "failure_class": "optional_dependency_import_blocks_plugin_import_during_config_loaded_cli_tests",
+      "future_use_allowed_as_probe_priority": true,
+      "future_use_allowed_as_proof": false,
+      "generalization_claim": false,
+      "memory_lift_claim": false,
+      "observed_in": "lemon24_reader_issue_355_local_config",
+      "patch_file": "src/reader/_plugins/enclosure_tags.py",
+      "patch_summary": "move optional dependency imports from module import time into function/runtime path",
+      "pattern_id": "lazy_optional_dependency_import_for_plugin_import_safety",
+      "source_only": true,
+      "tests_modified": false
+    }
+  ],
+  "status": "PASS"
+}
