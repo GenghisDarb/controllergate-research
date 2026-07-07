@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "already_counted": {
+      "type": "boolean"
+    },
+    "approval_status": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fixed_gold_future_later_evidence_absent": {
+      "type": "boolean"
+    },
+    "probe_only": {
+      "type": "boolean"
+    },
+    "repair_generation_authorized": {
+      "const": false
+    },
+    "source_class": {
+      "enum": [
+        "curated_manual",
+        "inferred_registry_derived",
+        "orthology_transfer",
+        "rejected_fixed_gold_future",
+        "rejected_probe_only",
+        "rejected_already_counted",
+        "rejected_unpinned_source"
+      ]
+    },
+    "source_pin_available": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "source_id",
+    "source_project",
+    "source_url_or_repo_id",
+    "source_class",
+    "approval_status",
+    "source_pin_available",
+    "already_counted",
+    "probe_only",
+    "fixed_gold_future_later_evidence_absent",
+    "eligibility_schema_status",
+    "next_allowed_action"
+  ],
+  "title": "ControllerGate external source approval registry entry",
+  "type": "object"
+}

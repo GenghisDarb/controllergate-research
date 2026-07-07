@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH048_EXPANDED_SOURCE_REGISTRY_PROBE_GATE.
+Status: PASS_WITH_BATCH049_SOURCE_APPROVAL_CYTOSKELETON_GATE.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -179,5 +179,9 @@ Batch047 status: `PASS_WITH_BATCH047_TOT_BULB_PROBE_EXECUTION_RECORDED`; exact b
 Batch048 officially ingests the Batch047 probe artifact, promotes the stable current-protocol interface to v2.14, expands the source registry under custody rules, and records candidate-specific non-mutating probe telemetry. It does not authorize repair generation, target replay, duplicate replay, full scoring, or broader claims.
 
 Batch048 status: `PASS_WITH_BATCH048_EXPANDED_SOURCE_REGISTRY_PROBE_GATE`; exact blocker: `None`.
+
+Batch049 officially ingests the Batch048 source-registry probe artifact, preserves current protocol v2.14, and adds source approval, manual artifact custody, cross-environment identity, execution constraint, environmental probe-design, acquisition fallback, and scar-tissue gates. It does not authorize repair generation, target replay, duplicate replay, dependency installation, full scoring, or broader claims.
+
+Batch049 status: `PASS_WITH_BATCH049_SOURCE_APPROVAL_CYTOSKELETON_GATE`; exact blocker: `all_candidates_already_counted`; approved unused issue seeds: `0`.
 
 NotebookLM advice traceability status: `PASS`.

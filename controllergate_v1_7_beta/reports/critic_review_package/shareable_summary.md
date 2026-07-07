@@ -27,3 +27,12 @@ Batch019 adds a neutral active probe-selection scaffold and preserves all claim 
 - Candidate-specific non-mutating probes: executed `33`, blocked `0`, not run `9`.
 - Candidate inventory remains `0`; repair generation, target replay, duplicate replay, full scoring, and broader claims remain disabled.
 - Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
+
+### Batch049 source approval and environment identity gate
+
+- Batch049 status: `PASS_WITH_BATCH049_SOURCE_APPROVAL_CYTOSKELETON_GATE`.
+- Current protocol remains: `v2.14`.
+- Approved unused issue seed count: `0`.
+- Exact blocker: `all_candidates_already_counted`.
+- External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Batch049 is an intake and environment-identity gate only; repair generation, target replay, dependency install, full scoring, memory-lift claims, and production-readiness claims remain disabled.

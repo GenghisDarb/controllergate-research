@@ -1,0 +1,72 @@
+{
+  "approval_chain": [
+    {
+      "blockers": [
+        "already_counted_source",
+        "probe_only_source_requires_separate_approval"
+      ],
+      "candidate_id": "darker_issue_112_relative_git_dir",
+      "next_allowed_action": "source_approval_or_candidate_specific_validation_required",
+      "ordered_gates": [
+        "source_discovery_provenance",
+        "source_class_validation",
+        "manual_custody_if_manual",
+        "evidence_leakage_prevention",
+        "not_already_counted",
+        "not_probe_only",
+        "source_pin_available",
+        "execution_environment_constraint_map",
+        "environmental_probe_mask_present",
+        "repair_generation_remains_false"
+      ],
+      "source_id": "darker_issue112_tracked_seed_dependency_lock",
+      "status": "BLOCK"
+    },
+    {
+      "blockers": [
+        "already_counted_source",
+        "probe_only_source_requires_separate_approval"
+      ],
+      "candidate_id": "py_bugger_issue_65",
+      "next_allowed_action": "source_approval_or_candidate_specific_validation_required",
+      "ordered_gates": [
+        "source_discovery_provenance",
+        "source_class_validation",
+        "manual_custody_if_manual",
+        "evidence_leakage_prevention",
+        "not_already_counted",
+        "not_probe_only",
+        "source_pin_available",
+        "execution_environment_constraint_map",
+        "environmental_probe_mask_present",
+        "repair_generation_remains_false"
+      ],
+      "source_id": "external_candidate_registry_reviewed_entry_probe_source",
+      "status": "BLOCK"
+    },
+    {
+      "blockers": [
+        "already_counted_source",
+        "probe_only_source_requires_separate_approval"
+      ],
+      "candidate_id": "counted_external_repair_episode_registry",
+      "next_allowed_action": "source_approval_or_candidate_specific_validation_required",
+      "ordered_gates": [
+        "source_discovery_provenance",
+        "source_class_validation",
+        "manual_custody_if_manual",
+        "evidence_leakage_prevention",
+        "not_already_counted",
+        "not_probe_only",
+        "source_pin_available",
+        "execution_environment_constraint_map",
+        "environmental_probe_mask_present",
+        "repair_generation_remains_false"
+      ],
+      "source_id": "external_repair_episode_registry_counted_episode_probe_source",
+      "status": "BLOCK"
+    }
+  ],
+  "repair_generation_authorized": false,
+  "status": "PASS"
+}

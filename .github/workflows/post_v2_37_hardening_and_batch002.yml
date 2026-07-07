@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch048 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch049 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -137,18 +137,22 @@ jobs:
           PY
           python - <<'PY'
           import json
-          state = json.load(open("outputs/clean_replication_batch_048/consolidated_state_clean_replication_batch_048.json", encoding="utf-8"))
+          state = json.load(open("outputs/clean_replication_batch_049/consolidated_state_clean_replication_batch_049.json", encoding="utf-8"))
           keys = [
               "status",
               "exact_blocker",
-              "batch047_artifact_ingest_status",
-              "batch047_artifact_verification_status",
-              "protocol_v2_14_promotion_status",
+              "batch048_artifact_ingest_status",
+              "batch048_artifact_verification_status",
               "current_protocol",
-              "expanded_source_registry_count",
-              "candidate_specific_probes_executed",
-              "candidate_specific_probes_blocked",
-              "candidate_specific_probes_not_run",
+              "external_source_approval_registry_status",
+              "manual_artifact_custody_intake_status",
+              "source_discovery_provenance_status",
+              "evidence_leakage_prevention_status",
+              "cross_environment_orthology_status",
+              "execution_environment_constraint_map_status",
+              "tot_bulb_environmental_cytoskeleton_status",
+              "candidate_approval_gate_status",
+              "approved_unused_issue_seed_count",
               "candidate_inventory_count",
               "issue_derived_repair_episode_count",
               "native_external_repair_episode_count",
@@ -157,15 +161,15 @@ jobs:
               "self_maintaining_software",
           ]
           for key in keys:
-              print(f"batch048_{key}={state.get(key)}")
+              print(f"batch049_{key}={state.get(key)}")
           PY
 
       - name: Verify clean staged artifact payload
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch048_expanded_source_registry_probe/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch048_expanded_source_registry_probe \( \
+          test -f artifact_payload/post_v2_37_hardening_batch049_source_approval_cytoskeleton/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch049_source_approval_cytoskeleton \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -185,16 +189,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch048_expanded_source_registry_probe -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_048' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch049_source_approval_cytoskeleton -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_049' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch048 expanded source registry probe artifact
+      - name: Upload Batch049 source approval cytoskeleton artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch048_expanded_source_registry_probe_artifacts
+          name: post_v2_37_hardening_batch049_source_approval_cytoskeleton_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch048_expanded_source_registry_probe/**
+            artifact_payload/post_v2_37_hardening_batch049_source_approval_cytoskeleton/**
           if-no-files-found: error

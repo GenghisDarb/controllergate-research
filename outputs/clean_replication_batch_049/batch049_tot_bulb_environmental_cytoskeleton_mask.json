@@ -1,0 +1,533 @@
+{
+  "environmental_mask_purpose": "infrastructure and environment bug-location before future replay",
+  "mutation_blocker": "tot_bulb_cytoskeleton_mutation_blocked",
+  "probe_count": 18,
+  "probes": [
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "filesystem_permission_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "filesystem_permission_probe_result.json",
+      "probe_id": "batch049_env_probe_01",
+      "probe_type": "filesystem_permission_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "container_runtime_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "container_runtime_probe_result.json",
+      "probe_id": "batch049_env_probe_02",
+      "probe_type": "container_runtime_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "docker_availability_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "docker_availability_probe_result.json",
+      "probe_id": "batch049_env_probe_03",
+      "probe_type": "docker_availability_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "workspace_mount_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "workspace_mount_probe_result.json",
+      "probe_id": "batch049_env_probe_04",
+      "probe_type": "workspace_mount_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "workspace_freshness_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "workspace_freshness_probe_result.json",
+      "probe_id": "batch049_env_probe_05",
+      "probe_type": "workspace_freshness_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "stale_cache_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "stale_cache_probe_result.json",
+      "probe_id": "batch049_env_probe_06",
+      "probe_type": "stale_cache_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "pycache_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "pycache_probe_result.json",
+      "probe_id": "batch049_env_probe_07",
+      "probe_type": "pycache_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "pytest_cache_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "pytest_cache_probe_result.json",
+      "probe_id": "batch049_env_probe_08",
+      "probe_type": "pytest_cache_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "virtualenv_contamination_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "virtualenv_contamination_probe_result.json",
+      "probe_id": "batch049_env_probe_09",
+      "probe_type": "virtualenv_contamination_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "dependency_path_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "dependency_path_probe_result.json",
+      "probe_id": "batch049_env_probe_10",
+      "probe_type": "dependency_path_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "executable_path_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "executable_path_probe_result.json",
+      "probe_id": "batch049_env_probe_11",
+      "probe_type": "executable_path_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "os_lock_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "os_lock_probe_result.json",
+      "probe_id": "batch049_env_probe_12",
+      "probe_type": "os_lock_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "safe_directory_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "safe_directory_probe_result.json",
+      "probe_id": "batch049_env_probe_13",
+      "probe_type": "safe_directory_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "source_checkout_ownership_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "source_checkout_ownership_probe_result.json",
+      "probe_id": "batch049_env_probe_14",
+      "probe_type": "source_checkout_ownership_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "environment_variable_sanitization_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "environment_variable_sanitization_probe_result.json",
+      "probe_id": "batch049_env_probe_15",
+      "probe_type": "environment_variable_sanitization_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "one_drive_or_cloud_sync_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "one_drive_or_cloud_sync_probe_result.json",
+      "probe_id": "batch049_env_probe_16",
+      "probe_type": "one_drive_or_cloud_sync_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "provider_output_transport_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "provider_output_transport_probe_result.json",
+      "probe_id": "batch049_env_probe_17",
+      "probe_type": "provider_output_transport_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "candidate source registry record",
+        "execution constraint manifest",
+        "workspace metadata"
+      ],
+      "blocker_class_if_fail": "artifact_custody_boundary_probe_blocked",
+      "forbidden_inputs": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "hidden labels",
+        "source mutation",
+        "test mutation",
+        "dependency install"
+      ],
+      "glare_limit": "NOT_RUN_if_probe_would_mutate_state",
+      "leakage_risk": "low_when_inputs_are_metadata_only",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "block_before_replay_or_repair",
+      "next_allowed_action_if_pass": "continue_environment_preflight",
+      "output_artifact": "artifact_custody_boundary_probe_result.json",
+      "probe_id": "batch049_env_probe_18",
+      "probe_type": "artifact_custody_boundary_probe",
+      "target_compartment": "future_candidate_runtime_workspace",
+      "touches_dependency_state": false
+    }
+  ],
+  "proof_authorized": false,
+  "repair_authorized": false,
+  "status": "PASS",
+  "target_replay_authorized": false
+}

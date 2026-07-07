@@ -59,7 +59,8 @@ BATCH045_DIR = Path("outputs/clean_replication_batch_045")
 BATCH046_DIR = Path("outputs/clean_replication_batch_046")
 BATCH047_DIR = Path("outputs/clean_replication_batch_047")
 BATCH048_DIR = Path("outputs/clean_replication_batch_048")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch048_expanded_source_registry_probe")
+BATCH049_DIR = Path("outputs/clean_replication_batch_049")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch049_source_approval_cytoskeleton")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -1946,6 +1947,44 @@ BATCH048_REQUIRED = [
     "consolidated_state_clean_replication_batch_048.json",
     "campaign_summary.md",
     "public_language_audit_batch048.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH049_REQUIRED = [
+    "batch048_artifact_ingest_summary.json",
+    "batch048_artifact_verification.json",
+    "batch048_source_registry_probe_preservation.json",
+    "batch048_claim_boundary_preservation.json",
+    "batch049_external_source_approval_registry.json",
+    "external_candidate_registry.schema.json",
+    "source_class_validation_audit.json",
+    "candidate_approval_chain.json",
+    "batch049_manual_artifact_custody_intake_policy.json",
+    "manual_artifact_intake_log.json",
+    "manual_artifact_custody_verification.json",
+    "batch049_source_discovery_provenance.json",
+    "batch049_failure_signature_manifest.json",
+    "batch049_evidence_leakage_prevention_check.json",
+    "future_outcome_leakage_audit.json",
+    "batch049_cross_environment_orthology_map.json",
+    "identity_equivalence_registry.json",
+    "candidate_seed_orthology_classification.json",
+    "orthology_transfer_registry.json",
+    "batch049_execution_environment_constraint_map.json",
+    "execution_constraint_manifest.json",
+    "batch049_tot_bulb_environmental_cytoskeleton_mask.json",
+    "batch049_tot_bulb_environmental_probe_design.json",
+    "batch049_acquisition_fallback_chain.json",
+    "batch049_acquisition_scar_tissue.json",
+    "batch049_candidate_approval_gate.json",
+    "issue_derived_repair_feasibility_batch049.json",
+    "claim_boundary_batch049.json",
+    "proof_obligations_ledger_batch049.json",
+    "consolidated_state_clean_replication_batch_049.json",
+    "campaign_summary.md",
+    "public_language_audit_batch049.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -9749,6 +9788,214 @@ def audit_batch048_records() -> list[str]:
     return errors
 
 
+def audit_batch049_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH049_REQUIRED:
+        if not (BATCH049_DIR / name).is_file():
+            errors.append(f"missing Batch049 file: {name}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH049_DIR).get("status") != "PASS":
+        errors.append("Batch049 manifest mismatch")
+
+    state = read_json(BATCH049_DIR / "consolidated_state_clean_replication_batch_049.json")
+    ingest = read_json(BATCH049_DIR / "batch048_artifact_ingest_summary.json")
+    verification = read_json(BATCH049_DIR / "batch048_artifact_verification.json")
+    preservation = read_json(BATCH049_DIR / "batch048_source_registry_probe_preservation.json")
+    claim_preservation = read_json(BATCH049_DIR / "batch048_claim_boundary_preservation.json")
+    source_registry = read_json(BATCH049_DIR / "batch049_external_source_approval_registry.json")
+    schema = read_json(BATCH049_DIR / "external_candidate_registry.schema.json")
+    source_validation = read_json(BATCH049_DIR / "source_class_validation_audit.json")
+    approval_chain = read_json(BATCH049_DIR / "candidate_approval_chain.json")
+    manual_policy = read_json(BATCH049_DIR / "batch049_manual_artifact_custody_intake_policy.json")
+    manual_log = read_json(BATCH049_DIR / "manual_artifact_intake_log.json")
+    manual_verification = read_json(BATCH049_DIR / "manual_artifact_custody_verification.json")
+    source_discovery = read_json(BATCH049_DIR / "batch049_source_discovery_provenance.json")
+    failure_manifest = read_json(BATCH049_DIR / "batch049_failure_signature_manifest.json")
+    leakage = read_json(BATCH049_DIR / "batch049_evidence_leakage_prevention_check.json")
+    future_audit = read_json(BATCH049_DIR / "future_outcome_leakage_audit.json")
+    orthology = read_json(BATCH049_DIR / "batch049_cross_environment_orthology_map.json")
+    identity = read_json(BATCH049_DIR / "identity_equivalence_registry.json")
+    seed_orthology = read_json(BATCH049_DIR / "candidate_seed_orthology_classification.json")
+    transfer = read_json(BATCH049_DIR / "orthology_transfer_registry.json")
+    env_map = read_json(BATCH049_DIR / "batch049_execution_environment_constraint_map.json")
+    constraint = read_json(BATCH049_DIR / "execution_constraint_manifest.json")
+    mask = read_json(BATCH049_DIR / "batch049_tot_bulb_environmental_cytoskeleton_mask.json")
+    probe_design = read_json(BATCH049_DIR / "batch049_tot_bulb_environmental_probe_design.json")
+    fallback = read_json(BATCH049_DIR / "batch049_acquisition_fallback_chain.json")
+    scar = read_json(BATCH049_DIR / "batch049_acquisition_scar_tissue.json")
+    approval_gate = read_json(BATCH049_DIR / "batch049_candidate_approval_gate.json")
+    feasibility = read_json(BATCH049_DIR / "issue_derived_repair_feasibility_batch049.json")
+    claim = read_json(BATCH049_DIR / "claim_boundary_batch049.json")
+    ledger = read_json(BATCH049_DIR / "proof_obligations_ledger_batch049.json")
+    language = read_json(BATCH049_DIR / "public_language_audit_batch049.json")
+    minimality = read_json(BATCH049_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH049_DIR / "artifact_payload_budget.json")
+
+    if state.get("status") != "PASS_WITH_BATCH049_SOURCE_APPROVAL_CYTOSKELETON_GATE":
+        errors.append("Batch049 status mismatch")
+    if state.get("current_protocol") != "v2.14":
+        errors.append("Batch049 did not preserve current protocol v2.14")
+    if state.get("approved_unused_issue_seed_count") != 0:
+        errors.append("Batch049 unexpectedly approved an unused issue seed")
+    if state.get("exact_blocker") not in {"all_candidates_already_counted", "all_candidates_probe_only", "no_candidate_sources_available"}:
+        errors.append("Batch049 exact blocker invalid for zero approved seeds")
+
+    if ingest.get("status") != "PASS" or verification.get("status") != "PASS":
+        errors.append("Batch049 Batch048 artifact ingest/verification failed")
+    if ingest.get("artifact_internal_status") != "PASS_WITH_BATCH048_EXPANDED_SOURCE_REGISTRY_PROBE_GATE":
+        errors.append("Batch049 did not preserve Batch048 artifact status")
+    if verification.get("artifact_name") != "post_v2_37_hardening_batch048_expanded_source_registry_probe_artifacts":
+        errors.append("Batch049 Batch048 artifact name mismatch")
+    if verification.get("artifact_id") != 8127718738 or verification.get("workflow_run_id") != 28840592653:
+        errors.append("Batch049 Batch048 artifact identity mismatch")
+    if verification.get("workflow_head_sha") != "8289017c936302f78005ccb7ee6c166a68b3f22d":
+        errors.append("Batch049 Batch048 workflow head mismatch")
+    if verification.get("zip_sha256") != "04f2d1dd289747536425b9de2e326ac8533c85462ee78d4e9d1fa7d8d3b9c001":
+        errors.append("Batch049 Batch048 artifact SHA mismatch")
+    if verification.get("zip_size_bytes") != 169377 or verification.get("zip_entry_count") != 166:
+        errors.append("Batch049 Batch048 artifact size/entry mismatch")
+    if verification.get("artifact_manifest", {}).get("checked") != 165:
+        errors.append("Batch049 artifact manifest count mismatch")
+    if verification.get("batch048_manifest", {}).get("checked") != 21:
+        errors.append("Batch049 Batch048 manifest count mismatch")
+    if verification.get("post_manifest", {}).get("checked") != 142:
+        errors.append("Batch049 post manifest count mismatch")
+    for field in ["unsafe_path_count", "duplicate_path_count", "pycache_or_pyc_payload_count"]:
+        if verification.get(field) != 0:
+            errors.append(f"Batch049 artifact {field} not zero")
+    if verification.get("raw_zip_bytes_ingested") is not False or verification.get("zip_payload_committed") is not False:
+        errors.append("Batch049 raw ZIP bytes ingested or committed")
+
+    if preservation.get("status") != "PASS" or preservation.get("current_protocol") != "v2.14":
+        errors.append("Batch049 Batch048 preservation failed")
+    if preservation.get("candidate_inventory_count") != 0:
+        errors.append("Batch049 changed Batch048 candidate inventory count")
+    if preservation.get("empty_inventory_reason") != "expanded_sources_are_probe_sources_or_already_counted_not_unused_candidate_seeds":
+        errors.append("Batch049 did not preserve Batch048 empty inventory reason")
+    for field in ["repair_generation_authorized", "patch_generation_attempted", "target_replay_executed", "dependency_install_attempted"]:
+        if preservation.get(field) is not False:
+            errors.append(f"Batch049 preservation over-allowed {field}")
+    if claim_preservation.get("native_external_repair_episodes") != 4 or claim_preservation.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch049 changed preserved repair episode counts")
+
+    entries = source_registry.get("entries", [])
+    if source_registry.get("status") != "PASS" or not entries:
+        errors.append("Batch049 external source approval registry missing")
+        entries = []
+    if schema.get("title") != "ControllerGate external source approval registry entry":
+        errors.append("Batch049 source registry schema invalid")
+    if source_validation.get("status") != "PASS":
+        errors.append("Batch049 source class validation failed")
+    if approval_chain.get("status") != "PASS" or approval_chain.get("repair_generation_authorized") is not False:
+        errors.append("Batch049 approval chain invalid")
+    for entry in entries:
+        if entry.get("source_class") not in {
+            "curated_manual",
+            "inferred_registry_derived",
+            "orthology_transfer",
+            "rejected_fixed_gold_future",
+            "rejected_probe_only",
+            "rejected_already_counted",
+            "rejected_unpinned_source",
+        }:
+            errors.append(f"Batch049 invalid source class: {entry.get('source_class')}")
+        if entry.get("already_counted") is True and entry.get("approval_status") == "APPROVED_UNUSED_ISSUE_SEED":
+            errors.append("Batch049 approved an already-counted source")
+        if entry.get("probe_only") is True and entry.get("approval_status") == "APPROVED_UNUSED_ISSUE_SEED":
+            errors.append("Batch049 approved a probe-only source")
+        if entry.get("fixed_gold_future_later_evidence_absent") is not True:
+            errors.append("Batch049 candidate has evidence leakage risk")
+        if entry.get("repair_generation_authorized") is not False:
+            errors.append("Batch049 registry authorized repair generation")
+
+    if manual_policy.get("status") != "PASS" or manual_policy.get("raw_zip_bytes_must_not_be_staged_or_committed") is not True:
+        errors.append("Batch049 manual artifact custody policy invalid")
+    if manual_log.get("status") != "PASS" or manual_verification.get("status") != "PASS":
+        errors.append("Batch049 manual artifact custody records invalid")
+    for record in manual_verification.get("verified_artifacts", []):
+        if record.get("contains_fixed_patch") or record.get("contains_future_outcome_evidence") or record.get("contains_hidden_labels"):
+            errors.append("Batch049 manual artifact includes forbidden evidence")
+        if record.get("quarantine_status") != "verified_not_staged_not_committed":
+            errors.append("Batch049 manual artifact quarantine invalid")
+
+    for name, obj in [
+        ("source discovery provenance", source_discovery),
+        ("failure signature manifest", failure_manifest),
+        ("evidence leakage prevention", leakage),
+        ("future outcome leakage", future_audit),
+        ("cross environment orthology", orthology),
+        ("identity equivalence", identity),
+        ("candidate seed orthology", seed_orthology),
+        ("orthology transfer", transfer),
+        ("execution environment constraint map", env_map),
+        ("execution constraint manifest", constraint),
+        ("environmental mask", mask),
+        ("environmental probe design", probe_design),
+        ("acquisition fallback chain", fallback),
+        ("acquisition scar tissue", scar),
+    ]:
+        if obj.get("status") != "PASS":
+            errors.append(f"Batch049 {name} not PASS")
+
+    if leakage.get("forbidden_evidence_accessed") is not False or future_audit.get("future_outcome_leakage_detected") is not False:
+        errors.append("Batch049 evidence leakage detected")
+    for item in failure_manifest.get("records", []):
+        if item.get("reproduction_status") != "NOT_RUN" or item.get("reason_if_NOT_RUN") != "batch049_intake_only_no_target_replay_authorized":
+            errors.append("Batch049 failure manifest ran or mislabeled target replay")
+    for item in orthology.get("records", []):
+        if item.get("transfer_allowed_for_repair") is not False:
+            errors.append("Batch049 orthology transfer authorized repair")
+    for item in transfer.get("transfers", []):
+        if item.get("orthology_transfer_used_as_proof") is not False or item.get("transfer_allowed_for_repair") is not False:
+            errors.append("Batch049 transfer used as proof or repair authorization")
+    if mask.get("repair_authorized") is not False or mask.get("target_replay_authorized") is not False or mask.get("proof_authorized") is not False:
+        errors.append("Batch049 environmental mask over-authorized proof/repair/replay")
+    for item in probe_design.get("probes", []):
+        for field in ["mutates_environment", "mutates_source", "mutates_tests", "touches_dependency_state"]:
+            if item.get(field) is not False:
+                errors.append(f"Batch049 environmental probe mutates state: {field}")
+    if approval_gate.get("status") != "BLOCK" or approval_gate.get("approved_unused_issue_seed_count") != 0:
+        errors.append("Batch049 candidate approval gate should block with zero approved seeds")
+    for field in ["repair_generation_authorized", "patch_generation_authorized", "target_replay_authorized", "dependency_install_authorized"]:
+        if approval_gate.get(field) is not False:
+            errors.append(f"Batch049 candidate approval gate over-allowed {field}")
+    if feasibility.get("repair_generation_authorized") is not False or feasibility.get("target_replay_executed") is not False:
+        errors.append("Batch049 feasibility ran forbidden downstream work")
+    if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch049 proof ledger invalid")
+    for field in ["repair_generation_occurred", "patch_generation_occurred", "target_replay_occurred", "duplicate_replay_occurred", "dependency_install_occurred", "mutation_occurred", "fixed_gold_future_later_evidence_accessed"]:
+        if ledger.get(field) is not False:
+            errors.append(f"Batch049 ledger recorded forbidden action: {field}")
+
+    if claim.get("native_external_repair_episodes") != 4 or claim.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch049 claim boundary changed repair episode counts")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch049 full scoring or memory boundary changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("production_readiness") != "false/not_demonstrated":
+        errors.append("Batch049 self-maintaining or production overclaim")
+    for key in ["hallucination_elimination", "absolute_uncrashability", "generalized_autonomous_repair_success", "TO" + "RUS_physics_validation", "PSA82_validation"]:
+        if claim.get(key) != "not_claimed":
+            errors.append(f"Batch049 overclaimed {key}")
+    if claim.get("TO" + "RUS_BROT_proof_claim") is not False or claim.get("ToT_BROT_proof_claim") is not False or claim.get("ToT_BULB_proof_claim") is not False:
+        errors.append("Batch049 proof term overclaim")
+    if claim.get("current_protocol") != "v2.14":
+        errors.append("Batch049 current protocol claim boundary mismatch")
+    if language.get("status") != "PASS":
+        errors.append("Batch049 public language audit failed")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch049 artifact minimality failed")
+    if budget.get("status") != "PASS" or int(budget.get("hard_primary_artifact_bytes", 0)) != 750000:
+        errors.append("Batch049 artifact budget failed")
+
+    forbidden_markers = ["1.45", "25.7", "wiggle_room", "closure_tolerance", "residual_tolerance"]
+    for path in list(BATCH049_DIR.glob("*.json")) + list(BATCH049_DIR.glob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        if any(marker in text for marker in forbidden_markers):
+            errors.append(f"Batch049 introduced forbidden tolerance marker in {path.name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -9881,6 +10128,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_046.json"),
         Path("configs/clean_replication_batch_047.json"),
         Path("configs/clean_replication_batch_048.json"),
+        Path("configs/clean_replication_batch_049.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
         Path("configs/clean_replication_batch_016.json"),
@@ -9923,6 +10171,7 @@ def public_language_hits() -> list[str]:
         Path("controllergate/core/batch034_v10_harness_execution.py"),
         Path("controllergate/core/batch035_gated_source_repair.py"),
         Path("controllergate/core/batch048_expanded_source_registry_probe.py"),
+        Path("controllergate/core/batch049_source_approval_cytoskeleton.py"),
         Path("controllergate/core/active_context_filtering.py"),
         Path("controllergate/runtime/incident_capture.py"),
         Path("controllergate/runtime/execution_boundary_gateway.py"),
@@ -10209,6 +10458,7 @@ def main() -> int:
         + require_files(BATCH046_DIR, BATCH046_REQUIRED)
         + require_files(BATCH047_DIR, BATCH047_REQUIRED)
         + require_files(BATCH048_DIR, BATCH048_REQUIRED)
+        + require_files(BATCH049_DIR, BATCH049_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -10555,6 +10805,9 @@ def main() -> int:
     batch048_errors = audit_batch048_records()
     if batch048_errors:
         return fail(f"batch048 audit failed: {batch048_errors}")
+    batch049_errors = audit_batch049_records()
+    if batch049_errors:
+        return fail(f"batch049 audit failed: {batch049_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -10601,8 +10854,8 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH048_"):
-        return fail("final report did not advance to Batch048 expanded source-registry probe boundary")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH049_"):
+        return fail("final report did not advance to Batch049 source approval boundary")
     allowed_latest_blockers = {
         "docker_runtime_provider_unavailable",
         "python37_docker_provider_unavailable",
@@ -10684,6 +10937,9 @@ def main() -> int:
         "provider_batch036_execution_not_run",
         "provider_batch037_execution_not_run",
         "provider_batch038_execution_not_run",
+        "all_candidates_already_counted",
+        "all_candidates_probe_only",
+        "no_candidate_sources_available",
     }
     if final_report.get("exact_blocker") is not None and final_report.get("exact_blocker") not in allowed_latest_blockers:
         return fail("final report latest validation blocker mismatch")
@@ -11018,8 +11274,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH048_"):
-        return fail("final report top-level status is not Batch048")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH049_"):
+        return fail("final report top-level status is not Batch049")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -11706,6 +11962,47 @@ def main() -> int:
         return fail("final report Batch048 production boundary changed")
     if final_report.get("batch048_incoming_artifacts_quarantine_status") != "PASS_NOT_STAGED":
         return fail("final report Batch048 incoming artifact quarantine mismatch")
+    if final_report.get("clean_replication_batch_049_status") != "PASS_WITH_BATCH049_SOURCE_APPROVAL_CYTOSKELETON_GATE":
+        return fail("final report Batch049 status mismatch")
+    if final_report.get("clean_replication_batch_049_exact_blocker") not in {"all_candidates_already_counted", "all_candidates_probe_only", "no_candidate_sources_available"}:
+        return fail("final report Batch049 blocker mismatch")
+    if final_report.get("batch049_primary_artifact_name") != "post_v2_37_hardening_batch049_source_approval_cytoskeleton_artifacts":
+        return fail("final report Batch049 artifact name mismatch")
+    if final_report.get("batch049_batch048_artifact_ingest_status") != "PASS" or final_report.get("batch049_batch048_artifact_verification_status") != "PASS":
+        return fail("final report Batch049 Batch048 artifact custody not PASS")
+    if final_report.get("batch049_current_protocol") != "v2.14":
+        return fail("final report Batch049 current protocol mismatch")
+    for key in [
+        "batch049_external_source_approval_registry_status",
+        "batch049_manual_artifact_custody_intake_status",
+        "batch049_source_discovery_provenance_status",
+        "batch049_evidence_leakage_prevention_status",
+        "batch049_cross_environment_orthology_status",
+        "batch049_execution_environment_constraint_map_status",
+        "batch049_tot_bulb_environmental_cytoskeleton_status",
+    ]:
+        if final_report.get(key) != "PASS":
+            return fail(f"final report {key} not PASS")
+    if final_report.get("batch049_candidate_approval_gate_status") != "BLOCK":
+        return fail("final report Batch049 candidate approval gate should block without approved unused seed")
+    if final_report.get("batch049_approved_unused_issue_seed_count") != 0:
+        return fail("final report Batch049 approved unused issue seed count changed")
+    if final_report.get("batch049_candidate_inventory_count") != 0:
+        return fail("final report Batch049 candidate inventory count mismatch")
+    if final_report.get("batch049_issue_derived_repair_episode_count") != 1:
+        return fail("final report Batch049 issue-derived count mismatch")
+    if final_report.get("batch049_native_external_repair_episode_count") != 4:
+        return fail("final report Batch049 native count changed")
+    if final_report.get("batch049_full_scoring") != "NOT_RUN/disallowed":
+        return fail("final report Batch049 full scoring boundary changed")
+    if final_report.get("batch049_memory_lift") != "not_demonstrated":
+        return fail("final report Batch049 memory-lift boundary changed")
+    if final_report.get("batch049_self_maintaining_software") != "false/not_demonstrated":
+        return fail("final report Batch049 self-maintaining boundary changed")
+    if final_report.get("batch049_production_readiness") != "false/not_demonstrated":
+        return fail("final report Batch049 production boundary changed")
+    if final_report.get("batch049_incoming_artifacts_quarantine_status") != "PASS_NOT_STAGED":
+        return fail("final report Batch049 incoming artifact quarantine mismatch")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":
