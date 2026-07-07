@@ -11,3 +11,6 @@ Approved unused issue seed count: `0`.
 Exact blocker: `manual_seed_artifact_absent`.
 Next allowed action: `provide_manual_seed_package`.
 Current protocol: `v2.14`.
+Environment elbow classification: `source_acquisition_boundary`.
+Shell closure status: `open_waiting_for_fresh_seed`.
+Kernel-Coupler-Shell interlock status: `PASS`.

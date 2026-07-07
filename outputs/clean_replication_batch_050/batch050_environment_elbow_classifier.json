@@ -1,0 +1,28 @@
+{
+  "allowed_classifications": [
+    "target_code_failure_candidate",
+    "source_acquisition_boundary",
+    "harness_materialization_boundary",
+    "dependency_or_cofactor_boundary",
+    "container_or_filesystem_boundary",
+    "proof_ledger_or_custody_boundary",
+    "already_counted_or_probe_only_boundary",
+    "fixed_gold_future_leakage_boundary"
+  ],
+  "classification": "source_acquisition_boundary",
+  "classification_reason": "manual_seed_artifact_absent",
+  "environment_boundary_classes": [
+    "source_acquisition_boundary",
+    "harness_materialization_boundary",
+    "dependency_or_cofactor_boundary",
+    "container_or_filesystem_boundary",
+    "proof_ledger_or_custody_boundary",
+    "already_counted_or_probe_only_boundary",
+    "fixed_gold_future_leakage_boundary"
+  ],
+  "next_allowed_action": "provide_manual_seed_package",
+  "only_target_code_failure_candidate_may_progress_to_pre_repair_replay": true,
+  "patch_generation_authorized": false,
+  "progress_toward_pre_repair_replay_authorized": false,
+  "status": "PASS"
+}

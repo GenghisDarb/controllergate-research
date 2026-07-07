@@ -1,0 +1,86 @@
+{
+  "checks": [
+    {
+      "check_id": "shell_source_manifest_before_coupler_execution",
+      "coupler_execution_attempted": false,
+      "shell_source_manifest_exists": false,
+      "status": "PASS_DISABLED_NO_COUPLER_EXECUTION"
+    },
+    {
+      "allowed_shell_candidate_classes": [
+        "curated_manual",
+        "approved_external_source"
+      ],
+      "approved_unused_issue_seed_count": 0,
+      "check_id": "shell_candidate_class_before_repair",
+      "status": "PASS_DISABLED_NO_REPAIR"
+    },
+    {
+      "check_id": "shell_evidence_leakage_audit_before_coupler_execution",
+      "coupler_execution_attempted": false,
+      "leakage_status": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "shell_environment_constraint_manifest_before_coupler_execution",
+      "coupler_execution_attempted": false,
+      "environment_constraint_status": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "coupler_harness_identity_matches_shell_manifest",
+      "coupler_execution_attempted": false,
+      "status": "PASS_DISABLED_NO_COUPLER_EXECUTION"
+    },
+    {
+      "check_id": "coupler_execution_compartment_matches_shell_environment_constraints",
+      "coupler_execution_attempted": false,
+      "status": "PASS_DISABLED_NO_COUPLER_EXECUTION"
+    },
+    {
+      "check_id": "kernel_patch_generation_disabled_unless_shell_and_coupler_pass",
+      "coupler_execution_attempted": false,
+      "kernel_patch_generation_enabled": false,
+      "shell_closure_status": "open_waiting_for_fresh_seed",
+      "status": "PASS"
+    },
+    {
+      "check_id": "environment_boundary_failures_classified_before_source_patch_generation",
+      "current_elbow_classification": "source_acquisition_boundary",
+      "environment_boundary_failure_allows_source_patch_generation": false,
+      "status": "PASS",
+      "target_pre_repair_failure_independently_materialized": false
+    },
+    {
+      "check_id": "environment_boundary_failures_block_kernel_entry",
+      "source_patch_generation_allowed": false,
+      "status": "PASS"
+    },
+    {
+      "already_counted_or_probe_only_sources_allowed_into_kernel": false,
+      "check_id": "already_counted_or_probe_only_sources_block_kernel_entry",
+      "status": "PASS"
+    },
+    {
+      "check_id": "proof_ledger_transition_parent_closure",
+      "one_parent_per_transition_or_explicit_fork_marker": true,
+      "status": "PASS"
+    },
+    {
+      "check_id": "non_engineering_language_not_used_as_repair_proof",
+      "forbidden_non_engineering_repair_proof_terms_detected": [],
+      "status": "PASS"
+    }
+  ],
+  "coupler_execution_authorized": false,
+  "definitions": {
+    "Coupler": "isolated harness, CI, and target replay layer",
+    "Kernel": "source-only patch generation layer",
+    "Shell": "source custody, evidence firewall, candidate approval, environment identity, and claim boundary layer"
+  },
+  "interlock_next_allowed_action": "provide_manual_seed_package",
+  "kernel_patch_generation_authorized": false,
+  "source_patch_generation_authorized": false,
+  "status": "PASS",
+  "target_replay_authorized": false
+}

@@ -21,6 +21,21 @@
       "entry_id": "candidate_seed_approval_gate_evaluated",
       "parent": "manual_seed_discovery_completed",
       "status": "PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED"
+    },
+    {
+      "entry_id": "environment_elbow_classified",
+      "parent": "candidate_seed_approval_gate_evaluated",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "shell_closure_preserved",
+      "parent": "environment_elbow_classified",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "kernel_coupler_shell_interlock_evaluated",
+      "parent": "shell_closure_preserved",
+      "status": "PASS"
     }
   ],
   "fixed_gold_future_later_evidence_accessed": false,

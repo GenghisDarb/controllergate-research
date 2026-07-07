@@ -44,5 +44,7 @@ Batch019 does not add repair evidence. It adds a probe-selection layer that must
 - Approved unused issue seed count: `0`.
 - Exact blocker: `manual_seed_artifact_absent`.
 - Next allowed action: `provide_manual_seed_package`.
+- Environment elbow classification: `source_acquisition_boundary`.
+- Shell closure status: `open_waiting_for_fresh_seed`.
 - External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
 - Batch050 is an intake/template gate only; repair generation, target replay, dependency install, full scoring, memory-lift claims, and production-readiness claims remain disabled.

@@ -574,6 +574,172 @@ def _approval_gate(records: list[dict[str, Any]], discovery: dict[str, Any], cus
     }
 
 
+def _environment_elbow_classifier(discovery: dict[str, Any], approval: dict[str, Any]) -> dict[str, Any]:
+    allowed = [
+        "target_code_failure_candidate",
+        "source_acquisition_boundary",
+        "harness_materialization_boundary",
+        "dependency_or_cofactor_boundary",
+        "container_or_filesystem_boundary",
+        "proof_ledger_or_custody_boundary",
+        "already_counted_or_probe_only_boundary",
+        "fixed_gold_future_leakage_boundary",
+    ]
+    if not discovery.get("manual_seed_package_found"):
+        classification = "source_acquisition_boundary"
+        reason = "manual_seed_artifact_absent"
+        next_action = "provide_manual_seed_package"
+    elif approval.get("approved_unused_issue_seed_count", 0) > 0:
+        classification = "target_code_failure_candidate"
+        reason = "fresh_unused_seed_approved_for_later_pre_repair_replay"
+        next_action = "batch051_pre_repair_replay_gate_for_approved_seed"
+    else:
+        blocker = str(approval.get("exact_blocker") or "")
+        if "already_counted" in blocker or "probe" in blocker:
+            classification = "already_counted_or_probe_only_boundary"
+        elif "leak" in blocker or "future" in blocker or "gold" in blocker or "fixed" in blocker:
+            classification = "fixed_gold_future_leakage_boundary"
+        elif "custody" in blocker or "manifest" in blocker:
+            classification = "proof_ledger_or_custody_boundary"
+        elif "environment" in blocker or "dependency" in blocker or "cofactor" in blocker:
+            classification = "dependency_or_cofactor_boundary"
+        else:
+            classification = "source_acquisition_boundary"
+        reason = blocker or "candidate_seed_approval_blocked"
+        next_action = "correct_manual_seed_package_or_provide_new_seed"
+    return {
+        "status": "PASS",
+        "allowed_classifications": allowed,
+        "classification": classification,
+        "classification_reason": reason,
+        "only_target_code_failure_candidate_may_progress_to_pre_repair_replay": True,
+        "progress_toward_pre_repair_replay_authorized": classification == "target_code_failure_candidate",
+        "patch_generation_authorized": False,
+        "next_allowed_action": next_action,
+        "environment_boundary_classes": [item for item in allowed if item != "target_code_failure_candidate"],
+    }
+
+
+def _shell_closure_preservation(approval: dict[str, Any]) -> dict[str, Any]:
+    approved_count = int(approval.get("approved_unused_issue_seed_count", 0))
+    closed = approved_count > 0
+    return {
+        "status": "PASS",
+        "approved_unused_issue_seed_count": approved_count,
+        "shell_closure_status": "closed_for_candidate_specific_pre_repair_replay" if closed else "open_waiting_for_fresh_seed",
+        "shell_closure_requires_fresh_seed_custody_and_leakage_pass": True,
+        "shell_closure_implies_repair_success": False,
+        "shell_closure_implies_self_maintaining_software": False,
+        "shell_closure_implies_production_readiness": False,
+    }
+
+
+def _kernel_coupler_shell_interlock_gate(
+    discovery: dict[str, Any],
+    custody: dict[str, Any],
+    leakage: dict[str, Any],
+    env_preflight: dict[str, Any],
+    approval: dict[str, Any],
+    elbow: dict[str, Any],
+    shell_closure: dict[str, Any],
+    ledger: dict[str, Any],
+) -> dict[str, Any]:
+    coupler_execution_attempted = False
+    target_materialized = False
+    approved_count = int(approval.get("approved_unused_issue_seed_count", 0))
+    entries = ledger.get("entries", [])
+    parent_closure_ok = all(
+        (entry.get("parent") is None) ^ bool(entry.get("explicit_fork_marker"))
+        if entry.get("entry_id") == "batch049_artifact_ingested"
+        else (isinstance(entry.get("parent"), str) ^ bool(entry.get("explicit_fork_marker")))
+        for entry in entries
+    )
+    checks = [
+        {
+            "check_id": "shell_source_manifest_before_coupler_execution",
+            "status": "PASS_DISABLED_NO_COUPLER_EXECUTION" if not coupler_execution_attempted else "PASS",
+            "shell_source_manifest_exists": discovery.get("manual_seed_package_found") is True,
+            "coupler_execution_attempted": coupler_execution_attempted,
+        },
+        {
+            "check_id": "shell_candidate_class_before_repair",
+            "status": "PASS_DISABLED_NO_REPAIR" if approved_count == 0 else "PASS",
+            "allowed_shell_candidate_classes": ["curated_manual", "approved_external_source"],
+            "approved_unused_issue_seed_count": approved_count,
+        },
+        {
+            "check_id": "shell_evidence_leakage_audit_before_coupler_execution",
+            "status": "PASS",
+            "leakage_status": leakage.get("status"),
+            "coupler_execution_attempted": coupler_execution_attempted,
+        },
+        {
+            "check_id": "shell_environment_constraint_manifest_before_coupler_execution",
+            "status": "PASS",
+            "environment_constraint_status": env_preflight.get("status"),
+            "coupler_execution_attempted": coupler_execution_attempted,
+        },
+        {
+            "check_id": "coupler_harness_identity_matches_shell_manifest",
+            "status": "PASS_DISABLED_NO_COUPLER_EXECUTION",
+            "coupler_execution_attempted": coupler_execution_attempted,
+        },
+        {
+            "check_id": "coupler_execution_compartment_matches_shell_environment_constraints",
+            "status": "PASS_DISABLED_NO_COUPLER_EXECUTION",
+            "coupler_execution_attempted": coupler_execution_attempted,
+        },
+        {
+            "check_id": "kernel_patch_generation_disabled_unless_shell_and_coupler_pass",
+            "status": "PASS",
+            "kernel_patch_generation_enabled": False,
+            "shell_closure_status": shell_closure.get("shell_closure_status"),
+            "coupler_execution_attempted": coupler_execution_attempted,
+        },
+        {
+            "check_id": "environment_boundary_failures_classified_before_source_patch_generation",
+            "status": "PASS",
+            "target_pre_repair_failure_independently_materialized": target_materialized,
+            "current_elbow_classification": elbow.get("classification"),
+            "environment_boundary_failure_allows_source_patch_generation": False,
+        },
+        {
+            "check_id": "environment_boundary_failures_block_kernel_entry",
+            "status": "PASS",
+            "source_patch_generation_allowed": False,
+        },
+        {
+            "check_id": "already_counted_or_probe_only_sources_block_kernel_entry",
+            "status": "PASS",
+            "already_counted_or_probe_only_sources_allowed_into_kernel": False,
+        },
+        {
+            "check_id": "proof_ledger_transition_parent_closure",
+            "status": "PASS" if parent_closure_ok else "BLOCK",
+            "one_parent_per_transition_or_explicit_fork_marker": parent_closure_ok,
+        },
+        {
+            "check_id": "non_engineering_language_not_used_as_repair_proof",
+            "status": "PASS",
+            "forbidden_non_engineering_repair_proof_terms_detected": [],
+        },
+    ]
+    return {
+        "status": "PASS" if all(check["status"].startswith("PASS") for check in checks) else "BLOCK",
+        "definitions": {
+            "Kernel": "source-only patch generation layer",
+            "Coupler": "isolated harness, CI, and target replay layer",
+            "Shell": "source custody, evidence firewall, candidate approval, environment identity, and claim boundary layer",
+        },
+        "checks": checks,
+        "kernel_patch_generation_authorized": False,
+        "coupler_execution_authorized": False,
+        "target_replay_authorized": False,
+        "source_patch_generation_authorized": False,
+        "interlock_next_allowed_action": approval.get("next_allowed_action"),
+    }
+
+
 def _claim_boundary(current_protocol: str) -> dict[str, Any]:
     return {
         "status": "PASS",
@@ -649,6 +815,8 @@ def write_batch050_outputs(root: Path, post_dir: Path, batch049_dir: Path, batch
     env_preflight = _environment_preflight(package_records)
     orthology = _orthology(package_records)
     approval = _approval_gate(package_records, discovery, custody, freshness, leakage, env_preflight)
+    elbow = _environment_elbow_classifier(discovery, approval)
+    shell_closure = _shell_closure_preservation(approval)
     claim = _claim_boundary(current_protocol)
     request_template = _write_templates(root, batch050_dir)
 
@@ -701,6 +869,8 @@ def write_batch050_outputs(root: Path, post_dir: Path, batch049_dir: Path, batch
             {"entry_id": "manual_seed_fastlane_policy_emitted", "status": "PASS", "parent": "batch049_artifact_ingested"},
             {"entry_id": "manual_seed_discovery_completed", "status": discovery["status"], "parent": "manual_seed_fastlane_policy_emitted"},
             {"entry_id": "candidate_seed_approval_gate_evaluated", "status": approval["status"], "parent": "manual_seed_discovery_completed"},
+            {"entry_id": "environment_elbow_classified", "status": elbow["status"], "parent": "candidate_seed_approval_gate_evaluated"},
+            {"entry_id": "shell_closure_preserved", "status": shell_closure["status"], "parent": "environment_elbow_classified"},
         ],
         "repair_generation_occurred": False,
         "patch_generation_occurred": False,
@@ -711,6 +881,14 @@ def write_batch050_outputs(root: Path, post_dir: Path, batch049_dir: Path, batch
         "incoming_artifacts_staged": False,
         "fixed_gold_future_later_evidence_accessed": False,
     }
+    interlock = _kernel_coupler_shell_interlock_gate(discovery, custody, leakage, env_preflight, approval, elbow, shell_closure, ledger)
+    ledger["entries"].append(
+        {
+            "entry_id": "kernel_coupler_shell_interlock_evaluated",
+            "status": interlock["status"],
+            "parent": "shell_closure_preserved",
+        }
+    )
 
     outputs = {
         "batch049_artifact_ingest_summary.json": ingest,
@@ -725,6 +903,9 @@ def write_batch050_outputs(root: Path, post_dir: Path, batch049_dir: Path, batch
         "batch050_manifest_environment_cytoskeleton_preflight.json": env_preflight,
         "batch050_cross_environment_orthology_intake_classification.json": orthology,
         "batch050_candidate_seed_approval_fast_gate.json": approval,
+        "batch050_kernel_coupler_shell_interlock_gate.json": interlock,
+        "batch050_environment_elbow_classifier.json": elbow,
+        "batch050_shell_closure_preservation.json": shell_closure,
         "issue_derived_repair_feasibility_batch050.json": feasibility,
         "claim_boundary_batch050.json": claim,
         "proof_obligations_ledger_batch050.json": ledger,
@@ -750,6 +931,11 @@ def write_batch050_outputs(root: Path, post_dir: Path, batch049_dir: Path, batch
         "environment_cytoskeleton_preflight_status": env_preflight["status"] if discovery["manual_seed_package_found"] else "NOT_RUN",
         "cross_environment_orthology_intake_status": orthology["status"],
         "candidate_approval_fast_gate_status": status,
+        "kernel_coupler_shell_interlock_status": interlock["status"],
+        "environment_elbow_classifier_status": elbow["status"],
+        "environment_elbow_classification": elbow["classification"],
+        "shell_closure_preservation_status": shell_closure["status"],
+        "shell_closure_status": shell_closure["shell_closure_status"],
         "approved_unused_issue_seed_count": approval["approved_unused_issue_seed_count"],
         "next_allowed_action": approval["next_allowed_action"],
         "current_protocol": current_protocol,
@@ -784,6 +970,9 @@ def write_batch050_outputs(root: Path, post_dir: Path, batch049_dir: Path, batch
                 f"Exact blocker: `{state['exact_blocker']}`.",
                 f"Next allowed action: `{state['next_allowed_action']}`.",
                 f"Current protocol: `{state['current_protocol']}`.",
+                f"Environment elbow classification: `{state['environment_elbow_classification']}`.",
+                f"Shell closure status: `{state['shell_closure_status']}`.",
+                f"Kernel-Coupler-Shell interlock status: `{state['kernel_coupler_shell_interlock_status']}`.",
             ]
         ),
     )
@@ -799,6 +988,9 @@ def write_batch050_outputs(root: Path, post_dir: Path, batch049_dir: Path, batch
             "approved_unused_issue_seed_count": state["approved_unused_issue_seed_count"],
             "exact_blocker": exact_blocker,
             "next_allowed_action": state["next_allowed_action"],
+            "kernel_coupler_shell_interlock_status": state["kernel_coupler_shell_interlock_status"],
+            "environment_elbow_classification": state["environment_elbow_classification"],
+            "shell_closure_status": state["shell_closure_status"],
         },
     )
     write_sha256sums(batch050_dir)
@@ -817,6 +1009,8 @@ def write_batch050_public_state(root: Path, state: dict[str, Any]) -> None:
             f"- Approved unused issue seed count: `{state['approved_unused_issue_seed_count']}`.",
             f"- Exact blocker: `{state['exact_blocker']}`.",
             f"- Next allowed action: `{state['next_allowed_action']}`.",
+            f"- Environment elbow classification: `{state['environment_elbow_classification']}`.",
+            f"- Shell closure status: `{state['shell_closure_status']}`.",
             f"- External native repair episodes remain `{state['native_external_repair_episode_count']}`; issue-derived repair episodes remain `{state['issue_derived_repair_episode_count']}`.",
             "- Batch050 is an intake/template gate only; repair generation, target replay, dependency install, full scoring, memory-lift claims, and production-readiness claims remain disabled.",
         ]

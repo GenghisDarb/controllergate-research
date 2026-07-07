@@ -2005,6 +2005,9 @@ BATCH050_REQUIRED = [
     "batch050_manifest_environment_cytoskeleton_preflight.json",
     "batch050_cross_environment_orthology_intake_classification.json",
     "batch050_candidate_seed_approval_fast_gate.json",
+    "batch050_kernel_coupler_shell_interlock_gate.json",
+    "batch050_environment_elbow_classifier.json",
+    "batch050_shell_closure_preservation.json",
     "issue_derived_repair_feasibility_batch050.json",
     "claim_boundary_batch050.json",
     "proof_obligations_ledger_batch050.json",
@@ -10052,6 +10055,9 @@ def audit_batch050_records() -> list[str]:
     env_preflight = read_json(BATCH050_DIR / "batch050_manifest_environment_cytoskeleton_preflight.json")
     orthology = read_json(BATCH050_DIR / "batch050_cross_environment_orthology_intake_classification.json")
     approval = read_json(BATCH050_DIR / "batch050_candidate_seed_approval_fast_gate.json")
+    interlock = read_json(BATCH050_DIR / "batch050_kernel_coupler_shell_interlock_gate.json")
+    elbow = read_json(BATCH050_DIR / "batch050_environment_elbow_classifier.json")
+    shell_closure = read_json(BATCH050_DIR / "batch050_shell_closure_preservation.json")
     feasibility = read_json(BATCH050_DIR / "issue_derived_repair_feasibility_batch050.json")
     claim = read_json(BATCH050_DIR / "claim_boundary_batch050.json")
     ledger = read_json(BATCH050_DIR / "proof_obligations_ledger_batch050.json")
@@ -10156,10 +10162,70 @@ def audit_batch050_records() -> list[str]:
     for field in ["repair_generation_authorized", "target_replay_authorized", "dependency_install_authorized", "patch_generation_authorized", "source_test_mutation_authorized"]:
         if approval.get(field) is not False:
             errors.append(f"Batch050 approval gate over-allowed {field}")
+    if elbow.get("status") != "PASS":
+        errors.append("Batch050 environment elbow classifier did not PASS")
+    if elbow.get("classification") != "source_acquisition_boundary":
+        errors.append("Batch050 absent manual package should classify as source_acquisition_boundary")
+    if elbow.get("progress_toward_pre_repair_replay_authorized") is not False:
+        errors.append("Batch050 elbow classifier authorized pre-repair replay from a boundary classification")
+    allowed_elbow = {
+        "target_code_failure_candidate",
+        "source_acquisition_boundary",
+        "harness_materialization_boundary",
+        "dependency_or_cofactor_boundary",
+        "container_or_filesystem_boundary",
+        "proof_ledger_or_custody_boundary",
+        "already_counted_or_probe_only_boundary",
+        "fixed_gold_future_leakage_boundary",
+    }
+    if set(elbow.get("allowed_classifications", [])) != allowed_elbow:
+        errors.append("Batch050 elbow classifier allowed classification set mismatch")
+    if shell_closure.get("status") != "PASS":
+        errors.append("Batch050 shell closure preservation did not PASS")
+    if shell_closure.get("approved_unused_issue_seed_count") != 0 or shell_closure.get("shell_closure_status") != "open_waiting_for_fresh_seed":
+        errors.append("Batch050 shell closure should remain open with zero approved seeds")
+    for field in ["shell_closure_implies_repair_success", "shell_closure_implies_self_maintaining_software", "shell_closure_implies_production_readiness"]:
+        if shell_closure.get(field) is not False:
+            errors.append(f"Batch050 shell closure overclaims {field}")
+    if interlock.get("status") != "PASS":
+        errors.append("Batch050 Kernel-Coupler-Shell interlock gate did not PASS")
+    if interlock.get("kernel_patch_generation_authorized") is not False or interlock.get("coupler_execution_authorized") is not False:
+        errors.append("Batch050 interlock over-authorized kernel or coupler execution")
+    if interlock.get("target_replay_authorized") is not False or interlock.get("source_patch_generation_authorized") is not False:
+        errors.append("Batch050 interlock over-authorized replay or source patch generation")
+    interlock_checks = {item.get("check_id"): item for item in interlock.get("checks", [])}
+    for check_id in [
+        "shell_source_manifest_before_coupler_execution",
+        "shell_candidate_class_before_repair",
+        "shell_evidence_leakage_audit_before_coupler_execution",
+        "shell_environment_constraint_manifest_before_coupler_execution",
+        "coupler_harness_identity_matches_shell_manifest",
+        "coupler_execution_compartment_matches_shell_environment_constraints",
+        "kernel_patch_generation_disabled_unless_shell_and_coupler_pass",
+        "environment_boundary_failures_classified_before_source_patch_generation",
+        "environment_boundary_failures_block_kernel_entry",
+        "already_counted_or_probe_only_sources_block_kernel_entry",
+        "proof_ledger_transition_parent_closure",
+        "non_engineering_language_not_used_as_repair_proof",
+    ]:
+        if not str(interlock_checks.get(check_id, {}).get("status", "")).startswith("PASS"):
+            errors.append(f"Batch050 interlock check did not PASS: {check_id}")
+    if interlock_checks.get("environment_boundary_failures_classified_before_source_patch_generation", {}).get("environment_boundary_failure_allows_source_patch_generation") is not False:
+        errors.append("Batch050 interlock allowed source patch generation from an environment boundary")
+    if interlock_checks.get("non_engineering_language_not_used_as_repair_proof", {}).get("forbidden_non_engineering_repair_proof_terms_detected") != []:
+        errors.append("Batch050 interlock detected forbidden non-engineering repair proof terms")
     if feasibility.get("repair_generation_authorized") is not False or feasibility.get("target_replay_executed") is not False:
         errors.append("Batch050 feasibility ran forbidden downstream work")
     if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
         errors.append("Batch050 proof ledger invalid")
+    for entry in ledger.get("entries", []):
+        has_parent = isinstance(entry.get("parent"), str)
+        has_fork = bool(entry.get("explicit_fork_marker"))
+        if entry.get("entry_id") == "batch049_artifact_ingested":
+            if entry.get("parent") is not None or has_fork:
+                errors.append("Batch050 ledger root entry has unexpected parent/fork marker")
+        elif has_parent == has_fork:
+            errors.append(f"Batch050 ledger transition lacks exactly one parent or explicit fork marker: {entry.get('entry_id')}")
     for field in ["repair_generation_occurred", "patch_generation_occurred", "target_replay_occurred", "duplicate_replay_occurred", "dependency_install_occurred", "mutation_occurred", "incoming_artifacts_staged", "fixed_gold_future_later_evidence_accessed"]:
         if ledger.get(field) is not False:
             errors.append(f"Batch050 ledger recorded forbidden action: {field}")
@@ -12230,6 +12296,16 @@ def main() -> int:
         return fail("final report Batch050 orthology intake mismatch")
     if final_report.get("batch050_candidate_approval_fast_gate_status") != "PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED":
         return fail("final report Batch050 approval gate mismatch")
+    if final_report.get("batch050_kernel_coupler_shell_interlock_status") != "PASS":
+        return fail("final report Batch050 interlock gate mismatch")
+    if final_report.get("batch050_environment_elbow_classifier_status") != "PASS":
+        return fail("final report Batch050 elbow classifier status mismatch")
+    if final_report.get("batch050_environment_elbow_classification") != "source_acquisition_boundary":
+        return fail("final report Batch050 elbow classification mismatch")
+    if final_report.get("batch050_shell_closure_preservation_status") != "PASS":
+        return fail("final report Batch050 shell closure preservation mismatch")
+    if final_report.get("batch050_shell_closure_status") != "open_waiting_for_fresh_seed":
+        return fail("final report Batch050 shell closure status mismatch")
     if final_report.get("batch050_approved_unused_issue_seed_count") != 0:
         return fail("final report Batch050 approved unused issue seed count changed")
     if final_report.get("batch050_next_allowed_action") != "provide_manual_seed_package":
