@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "entry_id": "batch044_artifact_ingested",
+      "evidence_hash": "592588e6df49bf45c90abafae27699e71f6d1b0489511ca1f22e1281c8202fa0",
+      "parent": null,
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch044_guardrails_preserved",
+      "evidence_hash": "3476d967dd7e55e8b26446c3893453f30fa80c02b313f650893683d93d095a23",
+      "parent": "batch044_artifact_ingested",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "protocol_candidate_review",
+      "evidence_hash": "6565beb5f9468eb8a3f0205d65fcc33c37de2f33b4bbc886b08d560661fcf998",
+      "parent": "batch044_guardrails_preserved",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "guardrail_regression_audit",
+      "evidence_hash": "393f917e37d284e5eceeb27d943ebcd7c38d789f76fd21784da1bf726c936518",
+      "parent": "protocol_candidate_review",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "scoped_seed_discovery_policy",
+      "evidence_hash": "3eaf935bf7bafdb9b9cf51168557e9e3c0326a1fddf65b28e9b22d5cb831c5e5",
+      "parent": "guardrail_regression_audit",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "next_issue_seed_candidate_discovery_gate",
+      "evidence_hash": "8c8ee94efadc9807dba99932a424dd6840cfd3241dd0b63320348484181342fa",
+      "parent": "scoped_seed_discovery_policy",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "claim_boundary_preserved",
+      "evidence_hash": "6ed3ace180c5893d80ebd92a39a9d38ed8a3691258c882b1144b8c5e0a2a0121",
+      "parent": "next_issue_seed_candidate_discovery_gate",
+      "status": "PASS"
+    }
+  ],
+  "hash_chain_valid": true,
+  "repair_generation_occurred": false,
+  "status": "PASS"
+}

@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH044_GUARDRAILS_ENFORCED_SEED_SELECTION_AUTHORIZED.
+Status: PASS_WITH_BATCH045_PROTOCOL_CANDIDATE_SEED_INVENTORY_AUTHORIZED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -163,5 +163,9 @@ Batch043 status: `PASS_WITH_BATCH043_ISSUE_DERIVED_EPISODE_CANONICALIZED`; exact
 Batch044 officially ingests the Batch043 canonicalization artifact, enforces the standing future-lane guardrail registry, activates the future issue-derived lane eligibility schema, and authorizes only scoped next issue-seed candidate discovery.
 
 Batch044 status: `PASS_WITH_BATCH044_GUARDRAILS_ENFORCED_SEED_SELECTION_AUTHORIZED`; exact blocker: `None`.
+
+Batch045 officially ingests the Batch044 guardrail artifact, reviews the guardrails as protocol candidate v2.14, and authorizes only candidate seed inventory under the existing protocol boundary.
+
+Batch045 status: `PASS_WITH_BATCH045_PROTOCOL_CANDIDATE_SEED_INVENTORY_AUTHORIZED`; exact blocker: `None`.
 
 NotebookLM advice traceability status: `PASS`.

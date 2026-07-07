@@ -55,7 +55,8 @@ BATCH041_DIR = Path("outputs/clean_replication_batch_041")
 BATCH042_DIR = Path("outputs/clean_replication_batch_042")
 BATCH043_DIR = Path("outputs/clean_replication_batch_043")
 BATCH044_DIR = Path("outputs/clean_replication_batch_044")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch044_guardrail_enforcement_seed_eligibility")
+BATCH045_DIR = Path("outputs/clean_replication_batch_045")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch045_protocol_candidate_seed_inventory")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -1847,6 +1848,28 @@ BATCH044_REQUIRED = [
     "consolidated_state_clean_replication_batch_044.json",
     "campaign_summary.md",
     "public_language_audit_batch044.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH045_REQUIRED = [
+    "batch044_artifact_ingest_summary.json",
+    "batch044_artifact_verification.json",
+    "batch044_guardrail_enforcement_preservation.json",
+    "batch044_seed_selection_authorization_preservation.json",
+    "batch044_claim_boundary_preservation.json",
+    "batch045_protocol_candidate_v2_14_review.json",
+    "batch045_reactome_" + "chromo" + "somal_guardrail_regression_audit.json",
+    "batch045_scoped_next_issue_seed_discovery_policy.json",
+    "batch045_next_issue_seed_candidate_discovery_gate.json",
+    "batch045_issue_seed_candidate_inventory.json",
+    "issue_derived_repair_feasibility_batch045.json",
+    "claim_boundary_batch045.json",
+    "proof_obligations_ledger_batch045.json",
+    "consolidated_state_clean_replication_batch_045.json",
+    "campaign_summary.md",
+    "public_language_audit_batch045.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -8841,6 +8864,194 @@ def audit_batch044_records() -> list[str]:
     return errors
 
 
+def audit_batch045_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH045_REQUIRED:
+        if not (BATCH045_DIR / name).is_file():
+            errors.append(f"batch045 missing required file {name}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH045_DIR).get("status") != "PASS":
+        errors.append("batch045 manifest mismatch")
+
+    state = read_json(BATCH045_DIR / "consolidated_state_clean_replication_batch_045.json")
+    ingest = read_json(BATCH045_DIR / "batch044_artifact_ingest_summary.json")
+    verification = read_json(BATCH045_DIR / "batch044_artifact_verification.json")
+    guardrail_preservation = read_json(BATCH045_DIR / "batch044_guardrail_enforcement_preservation.json")
+    seed_preservation = read_json(BATCH045_DIR / "batch044_seed_selection_authorization_preservation.json")
+    claim_preservation = read_json(BATCH045_DIR / "batch044_claim_boundary_preservation.json")
+    review = read_json(BATCH045_DIR / "batch045_protocol_candidate_v2_14_review.json")
+    regression = read_json(BATCH045_DIR / ("batch045_reactome_" + "chromo" + "somal_guardrail_regression_audit.json"))
+    policy = read_json(BATCH045_DIR / "batch045_scoped_next_issue_seed_discovery_policy.json")
+    gate = read_json(BATCH045_DIR / "batch045_next_issue_seed_candidate_discovery_gate.json")
+    inventory = read_json(BATCH045_DIR / "batch045_issue_seed_candidate_inventory.json")
+    feasibility = read_json(BATCH045_DIR / "issue_derived_repair_feasibility_batch045.json")
+    claim = read_json(BATCH045_DIR / "claim_boundary_batch045.json")
+    ledger = read_json(BATCH045_DIR / "proof_obligations_ledger_batch045.json")
+    minimality = read_json(BATCH045_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH045_DIR / "artifact_payload_budget.json")
+    language = read_json(BATCH045_DIR / "public_language_audit_batch045.json")
+
+    if state.get("status") != "PASS_WITH_BATCH045_PROTOCOL_CANDIDATE_SEED_INVENTORY_AUTHORIZED":
+        errors.append("Batch045 did not reach protocol candidate seed inventory boundary")
+    if state.get("exact_blocker") is not None:
+        errors.append("Batch045 has active blocker")
+    expected_artifact = {
+        "artifact_name": "post_v2_37_hardening_batch044_guardrail_enforcement_seed_eligibility_artifacts",
+        "artifact_id": 8125177977,
+        "workflow_run_id": 28833247945,
+        "workflow_head_sha": "c124f39a981eeffd4be71c02d7cbf52286229fa4",
+        "artifact_sha256": "2ab8c25432e102a4ce1b0e8e7a9536cda01645830ac0b1bc48e0fee5d60143ad",
+        "artifact_size_bytes": 161908,
+        "zip_entry_count": 162,
+    }
+    for key, value in expected_artifact.items():
+        if ingest.get(key) != value or verification.get(key) != value:
+            errors.append(f"Batch045 Batch044 artifact identity mismatch for {key}")
+    if ingest.get("raw_zip_bytes_ingested") is not False or ingest.get("zip_or_tar_committed") is not False:
+        errors.append("Batch045 ingested raw artifact bytes")
+    if verification.get("status") != "PASS":
+        errors.append("Batch045 Batch044 artifact verification not PASS")
+    if verification.get("unsafe_path_count") != 0 or verification.get("duplicate_path_count") != 0 or verification.get("pycache_pyc_payload_count") != 0:
+        errors.append("Batch045 Batch044 artifact hygiene facts invalid")
+    if verification.get("artifact_manifest_checked") != 161 or verification.get("batch044_manifest_checked") != 17 or verification.get("post_manifest_checked") != 142:
+        errors.append("Batch045 Batch044 manifest counts invalid")
+    if verification.get("manifest_failure_count") != 0:
+        errors.append("Batch045 Batch044 artifact manifest failures recorded")
+
+    if guardrail_preservation.get("status") != "PASS":
+        errors.append("Batch045 did not preserve Batch044 guardrails")
+    if guardrail_preservation.get("batch044_status_preserved") != "PASS_WITH_BATCH044_GUARDRAILS_ENFORCED_SEED_SELECTION_AUTHORIZED":
+        errors.append("Batch045 did not preserve Batch044 status")
+    if guardrail_preservation.get("batch044_exact_blocker_preserved") is not None:
+        errors.append("Batch045 did not preserve Batch044 blocker None")
+    if guardrail_preservation.get("standing_guardrail_count") != 23:
+        errors.append("Batch045 guardrail count invalid")
+    if guardrail_preservation.get("standing_guardrails_machine_checkable") is not True or guardrail_preservation.get("standing_guardrails_proof_claim_allowed") is not False:
+        errors.append("Batch045 guardrail machine/proof boundary invalid")
+    if guardrail_preservation.get("isomorphic_coverage_mapping_count") != 15:
+        errors.append("Batch045 coverage mapping count invalid")
+    if guardrail_preservation.get("future_issue_derived_lane_eligibility_schema_status") != "PASS":
+        errors.append("Batch045 eligibility schema preservation invalid")
+    if seed_preservation.get("status") != "PASS" or seed_preservation.get("next_issue_seed_selection_authorized") is not True:
+        errors.append("Batch045 did not preserve next issue-seed authorization")
+    if seed_preservation.get("repair_generation_started") is not False or seed_preservation.get("patch_generation_started") is not False or seed_preservation.get("replay_claims_made") is not False:
+        errors.append("Batch045 seed preservation allowed downstream work")
+    if claim_preservation.get("status") != "PASS":
+        errors.append("Batch045 claim preservation not PASS")
+    if claim_preservation.get("native_external_repair_episodes") != 4 or claim_preservation.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch045 claim preservation counts invalid")
+
+    if review.get("status") != "PASS" or review.get("protocol_candidate_v2_14_status") != "READY_FOR_SEPARATE_PROMOTION":
+        errors.append("Batch045 protocol candidate review not ready")
+    if review.get("current_protocol_before_review") != "v2.13" or review.get("current_protocol_after_review") != "v2.13":
+        errors.append("Batch045 changed current protocol during review")
+    if review.get("same_batch_protocol_promotion_performed") is not False:
+        errors.append("Batch045 performed same-batch protocol promotion")
+    controls = review.get("controls", [])
+    if len(controls) != 23:
+        errors.append("Batch045 protocol candidate controls incomplete")
+    for item in controls:
+        if item.get("included") is not True or item.get("machine_checkable") is not True or item.get("proof_claim_allowed") is not False:
+            errors.append(f"Batch045 protocol control invalid: {item.get('control')}")
+    if any(item.get("passed") is not True for item in review.get("checks", [])):
+        errors.append("Batch045 protocol candidate review failed a check")
+
+    mappings = regression.get("mappings", [])
+    if regression.get("status") != "PASS" or len(mappings) != 15:
+        errors.append("Batch045 guardrail regression audit incomplete")
+    for item in mappings:
+        if item.get("present") is not True or item.get("enforced") is not True or item.get("machine_checkable") is not True:
+            errors.append(f"Batch045 regression mapping invalid: {item.get('mapping')}")
+        if item.get("proof_claim_allowed") is not False or item.get("regression_detected") is not False:
+            errors.append(f"Batch045 regression mapping proof/regression boundary invalid: {item.get('mapping')}")
+        if not item.get("failure_condition"):
+            errors.append(f"Batch045 regression mapping missing failure condition: {item.get('mapping')}")
+
+    if policy.get("status") != "PASS" or policy.get("next_allowed_action") != "candidate_seed_inventory_only":
+        errors.append("Batch045 scoped seed discovery policy invalid")
+    forbidden = set(policy.get("forbidden", []))
+    for required in {"patch generation", "source mutation", "test mutation", "repair count changes", "full scoring", "memory lift", "self-maintaining claim", "fixed/gold/future/later evidence"}:
+        if required not in forbidden:
+            errors.append(f"Batch045 scoped policy missing forbidden action {required}")
+
+    if gate.get("status") != "PASS" or gate.get("seed_candidate_discovery_authorized") is not True:
+        errors.append("Batch045 seed discovery gate not authorized")
+    if gate.get("may_emit_seed_candidate_list") is not True or gate.get("next_allowed_action") != "candidate_seed_inventory_only":
+        errors.append("Batch045 seed discovery gate next action invalid")
+    if gate.get("exact_blocker") is not None:
+        errors.append("Batch045 seed discovery gate has blocker")
+    if any(item.get("passed") is not True for item in gate.get("checks", [])):
+        errors.append("Batch045 seed discovery gate failed a check")
+
+    if inventory.get("inventory_only") is not True or inventory.get("repair_generation_started") is not False:
+        errors.append("Batch045 inventory is not inventory-only")
+    candidates = inventory.get("candidates", [])
+    if inventory.get("candidate_count") != len(candidates) or len(candidates) > 3:
+        errors.append("Batch045 candidate inventory count invalid")
+    if inventory.get("candidate_count") and gate.get("seed_candidate_discovery_authorized") is not True:
+        errors.append("Batch045 inventory emitted without gate authorization")
+    for item in candidates:
+        for required in [
+            "candidate_seed_id",
+            "source_project",
+            "issue_or_seed_reference",
+            "selected_source_commit_candidate",
+            "evidence_source_type",
+            "fixed_gold_future_later_evidence_absent",
+            "eligibility_schema_initial_status",
+            "expected_pre_repair_target_failure_type",
+            "required_harness_materialization",
+            "expected_cofactors",
+            "risk_level",
+            "reason_for_priority",
+            "next_required_batch_before_repair",
+        ]:
+            if required not in item:
+                errors.append(f"Batch045 inventory candidate missing {required}")
+        if item.get("fixed_gold_future_later_evidence_absent") is not True:
+            errors.append(f"Batch045 inventory candidate permits forbidden evidence: {item.get('candidate_seed_id')}")
+
+    if feasibility.get("status") != "PASS" or feasibility.get("repair_generation_authorized") is not False:
+        errors.append("Batch045 issue-derived feasibility boundary invalid")
+    if claim.get("status") != "PASS":
+        errors.append("Batch045 claim boundary not PASS")
+    if claim.get("native_external_repair_episodes") != 4 or claim.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch045 claim counts invalid")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch045 scoring or memory boundary changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("production_readiness") != "false/not_demonstrated":
+        errors.append("Batch045 self-maintaining or production boundary overclaimed")
+    for key in ["hallucination_elimination", "absolute_uncrashability", "generalized_autonomous_repair_success", "TO" + "RUS_physics_validation", "PSA82_validation"]:
+        if claim.get(key) != "not_claimed":
+            errors.append(f"Batch045 overclaimed {key}")
+    if claim.get("current_protocol") != "v2.13" or state.get("current_protocol") != "v2.13":
+        errors.append("Batch045 changed current protocol")
+    if claim.get("protocol_promotion_performed") is not False:
+        errors.append("Batch045 promoted protocol")
+    if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch045 proof obligations ledger invalid")
+    if ledger.get("repair_generation_occurred") is not False:
+        errors.append("Batch045 ledger recorded repair generation")
+    ledger_ids = {item.get("entry_id") for item in ledger.get("entries", [])}
+    required_ledger = {"batch044_artifact_ingested", "batch044_guardrails_preserved", "protocol_candidate_review", "guardrail_regression_audit", "scoped_seed_discovery_policy", "next_issue_seed_candidate_discovery_gate", "claim_boundary_preserved"}
+    if not required_ledger.issubset(ledger_ids):
+        errors.append("Batch045 proof ledger missing required entries")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch045 artifact minimality failed")
+    if budget.get("status") != "PASS":
+        errors.append("Batch045 artifact budget failed")
+    if language.get("status") != "PASS":
+        errors.append("Batch045 public language audit failed")
+
+    forbidden_markers = ["1.45", "25.7", "wiggle_room", "closure_tolerance", "residual_tolerance"]
+    for path in list(BATCH045_DIR.glob("*.json")) + list(BATCH045_DIR.glob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        if any(marker in text for marker in forbidden_markers):
+            errors.append(f"Batch045 introduced forbidden tolerance marker in {path.name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -8969,6 +9180,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_042.json"),
         Path("configs/clean_replication_batch_043.json"),
         Path("configs/clean_replication_batch_044.json"),
+        Path("configs/clean_replication_batch_045.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
         Path("configs/clean_replication_batch_016.json"),
@@ -9290,6 +9502,7 @@ def main() -> int:
         + require_files(BATCH042_DIR, BATCH042_REQUIRED)
         + require_files(BATCH043_DIR, BATCH043_REQUIRED)
         + require_files(BATCH044_DIR, BATCH044_REQUIRED)
+        + require_files(BATCH045_DIR, BATCH045_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -9375,6 +9588,8 @@ def main() -> int:
         return fail("batch043 manifest mismatch")
     if verify_manifest(BATCH044_DIR)["status"] != "PASS":
         return fail("batch044 manifest mismatch")
+    if verify_manifest(BATCH045_DIR)["status"] != "PASS":
+        return fail("batch045 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -9616,6 +9831,9 @@ def main() -> int:
     batch044_errors = audit_batch044_records()
     if batch044_errors:
         return fail(f"batch044 audit failed: {batch044_errors}")
+    batch045_errors = audit_batch045_records()
+    if batch045_errors:
+        return fail(f"batch045 audit failed: {batch045_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -9662,8 +9880,8 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH044_"):
-        return fail("final report did not advance to Batch044 guardrail enforcement boundary")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH045_"):
+        return fail("final report did not advance to Batch045 protocol candidate seed inventory boundary")
     allowed_latest_blockers = {
         "docker_runtime_provider_unavailable",
         "python37_docker_provider_unavailable",
@@ -10079,8 +10297,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH044_"):
-        return fail("final report top-level status is not Batch044")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH045_"):
+        return fail("final report top-level status is not Batch045")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -10611,6 +10829,48 @@ def main() -> int:
         return fail("final report Batch044 production boundary changed")
     if final_report.get("batch044_current_protocol") != "v2.13":
         return fail("final report Batch044 current protocol changed")
+    if final_report.get("clean_replication_batch_045_status") != "PASS_WITH_BATCH045_PROTOCOL_CANDIDATE_SEED_INVENTORY_AUTHORIZED":
+        return fail("final report Batch045 status mismatch")
+    if final_report.get("clean_replication_batch_045_exact_blocker") is not None:
+        return fail("final report Batch045 blocker should be None")
+    if final_report.get("batch045_primary_artifact_name") != "post_v2_37_hardening_batch045_protocol_candidate_seed_inventory_artifacts":
+        return fail("final report Batch045 artifact name mismatch")
+    if final_report.get("batch045_batch044_artifact_ingest_status") != "PASS" or final_report.get("batch045_batch044_artifact_verification_status") != "PASS":
+        return fail("final report Batch045 Batch044 artifact custody not PASS")
+    if final_report.get("batch045_batch044_guardrail_enforcement_preservation_status") != "PASS":
+        return fail("final report Batch045 guardrail preservation not PASS")
+    if final_report.get("batch045_batch044_seed_selection_authorization_preservation_status") != "PASS":
+        return fail("final report Batch045 seed authorization preservation not PASS")
+    if final_report.get("batch045_batch044_claim_boundary_preservation_status") != "PASS":
+        return fail("final report Batch045 claim preservation not PASS")
+    if final_report.get("batch045_protocol_candidate_v2_14_review_status") != "PASS":
+        return fail("final report Batch045 protocol candidate review not PASS")
+    if final_report.get("batch045_protocol_candidate_v2_14_status") != "READY_FOR_SEPARATE_PROMOTION":
+        return fail("final report Batch045 protocol candidate not ready")
+    if final_report.get("batch045_guardrail_regression_audit_status") != "PASS":
+        return fail("final report Batch045 guardrail regression audit not PASS")
+    if final_report.get("batch045_scoped_next_issue_seed_discovery_policy_status") != "PASS":
+        return fail("final report Batch045 scoped discovery policy not PASS")
+    if final_report.get("batch045_next_issue_seed_candidate_discovery_gate_status") != "PASS":
+        return fail("final report Batch045 seed discovery gate not PASS")
+    if final_report.get("batch045_seed_candidate_discovery_authorized") is not True:
+        return fail("final report Batch045 seed discovery not authorized")
+    if final_report.get("batch045_candidate_inventory_count") != 0:
+        return fail("final report Batch045 candidate inventory count mismatch")
+    if final_report.get("batch045_issue_derived_repair_episode_count") != 1:
+        return fail("final report Batch045 issue-derived count mismatch")
+    if final_report.get("batch045_native_external_repair_episode_count") != 4:
+        return fail("final report Batch045 native count changed")
+    if final_report.get("batch045_full_scoring") != "NOT_RUN/disallowed":
+        return fail("final report Batch045 full scoring boundary changed")
+    if final_report.get("batch045_memory_lift") != "not_demonstrated":
+        return fail("final report Batch045 memory-lift boundary changed")
+    if final_report.get("batch045_self_maintaining_software") != "false/not_demonstrated":
+        return fail("final report Batch045 self-maintaining boundary changed")
+    if final_report.get("batch045_production_readiness") != "false/not_demonstrated":
+        return fail("final report Batch045 production boundary changed")
+    if final_report.get("batch045_current_protocol") != "v2.13":
+        return fail("final report Batch045 current protocol changed")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

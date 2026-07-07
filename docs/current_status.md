@@ -76,3 +76,11 @@ Full scoring remains disabled, memory lift remains not demonstrated, and self-ma
 - Scoped next issue-seed candidate discovery is authorized; repair generation is not started by Batch044.
 - Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
+
+### Batch045 protocol candidate review and seed inventory gate
+
+- Batch045 status: `PASS_WITH_BATCH045_PROTOCOL_CANDIDATE_SEED_INVENTORY_AUTHORIZED`.
+- Batch044 guardrails are preserved and reviewed as protocol candidate `v2.14`; current protocol remains `v2.13`.
+- Scoped candidate seed inventory is authorized; repair generation is not started by Batch045.
+- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.

@@ -1,0 +1,155 @@
+{
+  "mappings": [
+    {
+      "controllergate_control": "stable identity lineage + stable identity integrity audit",
+      "enforced": true,
+      "failure_condition": "stable_identity_lineage_plus_stable_identity_integrity_audit_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "stable identifier source",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "blocker lineage + stale blocker retirement",
+      "enforced": true,
+      "failure_condition": "blocker_lineage_plus_stale_blocker_retirement_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "old/new stable ID mapping",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "proof-ledger referrer audit",
+      "enforced": true,
+      "failure_condition": "proof-ledger_referrer_audit_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "stable ID duplicate/referrer QA",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "execution compartment registry",
+      "enforced": true,
+      "failure_condition": "execution_compartment_registry_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "Species.json",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "cofactor materialization registry",
+      "enforced": true,
+      "failure_condition": "cofactor_materialization_registry_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "Pathway-Exchange dependency",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "active validation/replay evidence",
+      "enforced": true,
+      "failure_condition": "active_validation_replay_evidence_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "BioPAX validator outputs",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "failed branch/precondition record",
+      "enforced": true,
+      "failure_condition": "failed_branch_precondition_record_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "failedSteps list",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "activation ring + diagnostics registry",
+      "enforced": true,
+      "failure_condition": "activation_ring_plus_diagnostics_registry_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "stepsToRun / include-exclude QA",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "compartmentalized repair-stage audit",
+      "enforced": true,
+      "failure_condition": "compartmentalized_repair-stage_audit_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "multi-stage Docker",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "stale blocker retirement registry",
+      "enforced": true,
+      "failure_condition": "stale_blocker_retirement_registry_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "deprecated outputs",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "command telemetry sanitization audit",
+      "enforced": true,
+      "failure_condition": "command_telemetry_sanitization_audit_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "command args with secrets",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "evidence origin classification",
+      "enforced": true,
+      "failure_condition": "evidence_origin_classification_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "curated vs inferred evidence",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "dependency drift and claim-boundary comparison",
+      "enforced": true,
+      "failure_condition": "dependency_drift_and_claim-boundary_comparison_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "release-vs-previous-release comparisons",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "transport/export equivalence audit",
+      "enforced": true,
+      "failure_condition": "transport_export_equivalence_audit_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "transport/export analogy",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    },
+    {
+      "controllergate_control": "failed branch closure + proof-ledger fork markers",
+      "enforced": true,
+      "failure_condition": "failed_branch_closure_plus_proof-ledger_fork_markers_missing_or_prose_only",
+      "machine_checkable": true,
+      "mapping": "fork-point analogy",
+      "present": true,
+      "proof_claim_allowed": false,
+      "regression_detected": false
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,25 @@
+{
+  "allowed": [
+    "discover candidate issue-derived seeds from approved decision-time sources",
+    "record source project, issue/seed identifier, and selected source candidate commit when available",
+    "record whether the future issue-derived lane eligibility schema can be satisfied",
+    "record whether pre-repair target failure appears plausibly reproducible",
+    "record whether fixed/gold/future/later evidence is absent",
+    "record candidate priority",
+    "stop before harness generation, patch generation, or repair execution"
+  ],
+  "forbidden": [
+    "patch generation",
+    "source mutation",
+    "test mutation",
+    "replay claims",
+    "repair count changes",
+    "full scoring",
+    "memory lift",
+    "self-maintaining claim",
+    "fixed/gold/future/later evidence",
+    "diagnostic analogy as proof"
+  ],
+  "next_allowed_action": "candidate_seed_inventory_only",
+  "status": "PASS"
+}
