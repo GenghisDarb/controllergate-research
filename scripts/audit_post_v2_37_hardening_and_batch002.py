@@ -54,7 +54,8 @@ BATCH040_DIR = Path("outputs/clean_replication_batch_040")
 BATCH041_DIR = Path("outputs/clean_replication_batch_041")
 BATCH042_DIR = Path("outputs/clean_replication_batch_042")
 BATCH043_DIR = Path("outputs/clean_replication_batch_043")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch043_episode_canonicalization_protocolization")
+BATCH044_DIR = Path("outputs/clean_replication_batch_044")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch044_guardrail_enforcement_seed_eligibility")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -1825,6 +1826,27 @@ BATCH043_REQUIRED = [
     "consolidated_state_clean_replication_batch_043.json",
     "campaign_summary.md",
     "public_language_audit_batch043.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH044_REQUIRED = [
+    "batch043_artifact_ingest_summary.json",
+    "batch043_artifact_verification.json",
+    "batch043_episode_canonicalization_preservation.json",
+    "batch043_claim_boundary_preservation.json",
+    "batch044_standing_guardrail_enforcement_registry.json",
+    "batch044_isomorphic_coverage_enforcement_audit.json",
+    "batch044_future_issue_derived_lane_eligibility_schema.json",
+    "batch044_next_issue_seed_selection_gate.json",
+    "batch044_protocol_version_boundary.json",
+    "issue_derived_repair_feasibility_batch044.json",
+    "claim_boundary_batch044.json",
+    "proof_obligations_ledger_batch044.json",
+    "consolidated_state_clean_replication_batch_044.json",
+    "campaign_summary.md",
+    "public_language_audit_batch044.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -8653,6 +8675,172 @@ def audit_batch043_records() -> list[str]:
     return errors
 
 
+def audit_batch044_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH044_REQUIRED:
+        if not (BATCH044_DIR / name).is_file():
+            errors.append(f"batch044 missing required file {name}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH044_DIR).get("status") != "PASS":
+        errors.append("batch044 manifest mismatch")
+
+    state = read_json(BATCH044_DIR / "consolidated_state_clean_replication_batch_044.json")
+    ingest = read_json(BATCH044_DIR / "batch043_artifact_ingest_summary.json")
+    verification = read_json(BATCH044_DIR / "batch043_artifact_verification.json")
+    episode = read_json(BATCH044_DIR / "batch043_episode_canonicalization_preservation.json")
+    claim_preservation = read_json(BATCH044_DIR / "batch043_claim_boundary_preservation.json")
+    registry = read_json(BATCH044_DIR / "batch044_standing_guardrail_enforcement_registry.json")
+    coverage = read_json(BATCH044_DIR / "batch044_isomorphic_coverage_enforcement_audit.json")
+    eligibility = read_json(BATCH044_DIR / "batch044_future_issue_derived_lane_eligibility_schema.json")
+    gate = read_json(BATCH044_DIR / "batch044_next_issue_seed_selection_gate.json")
+    protocol_boundary = read_json(BATCH044_DIR / "batch044_protocol_version_boundary.json")
+    feasibility = read_json(BATCH044_DIR / "issue_derived_repair_feasibility_batch044.json")
+    claim = read_json(BATCH044_DIR / "claim_boundary_batch044.json")
+    ledger = read_json(BATCH044_DIR / "proof_obligations_ledger_batch044.json")
+    minimality = read_json(BATCH044_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH044_DIR / "artifact_payload_budget.json")
+    language = read_json(BATCH044_DIR / "public_language_audit_batch044.json")
+
+    if state.get("status") != "PASS_WITH_BATCH044_GUARDRAILS_ENFORCED_SEED_SELECTION_AUTHORIZED":
+        errors.append("Batch044 did not reach guardrail enforcement boundary")
+    if state.get("exact_blocker") is not None:
+        errors.append("Batch044 has active blocker")
+    expected_artifact = {
+        "artifact_name": "post_v2_37_hardening_batch043_episode_canonicalization_protocolization_artifacts",
+        "artifact_id": 8124759709,
+        "workflow_run_id": 28832053935,
+        "workflow_head_sha": "9ef9270b5c7dbae936b476d1aa1cab654f56be42",
+        "artifact_sha256": "d4561125456cca29f01325223254b053c192af9a5dde41fd56f59680762b7c59",
+        "artifact_size_bytes": 163310,
+        "zip_entry_count": 163,
+    }
+    for key, value in expected_artifact.items():
+        if ingest.get(key) != value or verification.get(key) != value:
+            errors.append(f"Batch044 Batch043 artifact identity mismatch for {key}")
+    if ingest.get("raw_zip_bytes_ingested") is not False or ingest.get("zip_or_tar_committed") is not False:
+        errors.append("Batch044 ingested raw artifact bytes")
+    if verification.get("status") != "PASS":
+        errors.append("Batch044 Batch043 artifact verification not PASS")
+    if verification.get("unsafe_path_count") != 0 or verification.get("duplicate_path_count") != 0 or verification.get("pycache_pyc_payload_count") != 0:
+        errors.append("Batch044 Batch043 artifact hygiene facts invalid")
+    if verification.get("artifact_manifest_checked") != 162 or verification.get("batch043_manifest_checked") != 18 or verification.get("post_manifest_checked") != 142:
+        errors.append("Batch044 Batch043 manifest counts invalid")
+    if verification.get("manifest_failure_count") != 0:
+        errors.append("Batch044 Batch043 artifact manifest failures recorded")
+
+    if episode.get("status") != "PASS":
+        errors.append("Batch044 did not preserve Batch043 canonical episode")
+    if episode.get("batch043_status_preserved") != "PASS_WITH_BATCH043_ISSUE_DERIVED_EPISODE_CANONICALIZED":
+        errors.append("Batch044 did not preserve Batch043 status")
+    if episode.get("batch043_exact_blocker_preserved") is not None:
+        errors.append("Batch044 did not preserve Batch043 blocker None")
+    if episode.get("episode_id") != "issue_derived_repair_episode_001":
+        errors.append("Batch044 canonical episode id mismatch")
+    if episode.get("issue_derived_repair_validated") is not True or episode.get("source_only") is not True or episode.get("tests_modified") is not False:
+        errors.append("Batch044 canonical episode preservation invalid")
+    if episode.get("post_repair_target_replay") != "PASS" or episode.get("duplicate_clean_replay") != "PASS":
+        errors.append("Batch044 replay preservation invalid")
+    if episode.get("issue_derived_repair_episode_count") != 1 or episode.get("native_external_repair_episode_count") != 4:
+        errors.append("Batch044 preserved counts invalid")
+    if claim_preservation.get("status") != "PASS":
+        errors.append("Batch044 claim preservation not PASS")
+    if claim_preservation.get("issue_derived_repair_episodes") != 1 or claim_preservation.get("native_external_repair_episodes") != 4:
+        errors.append("Batch044 claim preservation counts invalid")
+    if claim_preservation.get("full_scoring") != "NOT_RUN/disallowed" or claim_preservation.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch044 claim preservation overclaimed scoring or memory")
+
+    guardrails = registry.get("guardrails", [])
+    if registry.get("status") != "PASS" or len(guardrails) != 23:
+        errors.append("Batch044 standing guardrail registry incomplete")
+    for item in guardrails:
+        if item.get("required_for_future_issue_derived_lanes") is not True:
+            errors.append(f"Batch044 guardrail not required: {item.get('guardrail_id')}")
+        if item.get("source_batch") != "Batch043" or item.get("machine_checkable") is not True:
+            errors.append(f"Batch044 guardrail source/machine-check invalid: {item.get('guardrail_id')}")
+        if item.get("allowed_to_be_prose_only") is not False or item.get("proof_claim_allowed") is not False:
+            errors.append(f"Batch044 guardrail prose/proof boundary invalid: {item.get('guardrail_id')}")
+        if item.get("enforcement_status") != "active_for_future_lanes":
+            errors.append(f"Batch044 guardrail not active: {item.get('guardrail_id')}")
+
+    mappings = coverage.get("mappings", [])
+    if coverage.get("status") != "PASS" or len(mappings) != 15:
+        errors.append("Batch044 coverage enforcement incomplete")
+    for item in mappings:
+        if item.get("present_in_Batch043") is not True or item.get("enforced_in_Batch044") is not True:
+            errors.append(f"Batch044 coverage mapping unenforced: {item.get('isomorphism_name')}")
+        if item.get("required_for_future_batches") is not True or item.get("proof_claim_allowed") is not False:
+            errors.append(f"Batch044 coverage mapping future/proof boundary invalid: {item.get('isomorphism_name')}")
+        if not item.get("ControllerGate_artifact"):
+            errors.append(f"Batch044 coverage mapping missing artifact: {item.get('isomorphism_name')}")
+
+    sections = eligibility.get("sections", [])
+    if eligibility.get("status") != "PASS" or eligibility.get("section_count") != 20 or len(sections) != 20:
+        errors.append("Batch044 future issue-derived eligibility schema incomplete")
+    if eligibility.get("repair_generation_forbidden_until_schema_satisfied") is not True:
+        errors.append("Batch044 eligibility schema did not block premature repair generation")
+    for item in sections:
+        if item.get("required_before_repair_generation") is not True or item.get("machine_checkable") is not True:
+            errors.append(f"Batch044 eligibility section invalid: {item.get('section')}")
+    required_sections = {"Issue seed identity", "Decision-time evidence firewall", "Protocol guardrail compliance plan", "Repair count gate plan"}
+    if not required_sections.issubset({item.get("section") for item in sections}):
+        errors.append("Batch044 eligibility schema missing required section")
+
+    if gate.get("status") != "PASS" or gate.get("next_issue_seed_selection_authorized") is not True:
+        errors.append("Batch044 next issue-seed selection gate did not authorize scoped discovery")
+    if gate.get("next_allowed_action") != "scoped_next_issue_seed_candidate_discovery":
+        errors.append("Batch044 next allowed action mismatch")
+    if gate.get("exact_blocker") is not None:
+        errors.append("Batch044 seed selection gate has blocker")
+    gate_checks = gate.get("checks", [])
+    if len(gate_checks) != 11 or any(item.get("passed") is not True for item in gate_checks):
+        errors.append("Batch044 seed selection gate checks incomplete")
+
+    if protocol_boundary.get("status") != "PASS":
+        errors.append("Batch044 protocol boundary not PASS")
+    if protocol_boundary.get("current_protocol") != "v2.13" or protocol_boundary.get("protocol_version_change_in_batch044") is not False:
+        errors.append("Batch044 changed current protocol")
+    if protocol_boundary.get("guardrails_enforced_as_batch_requirements") is not True:
+        errors.append("Batch044 did not enforce guardrails as batch requirements")
+    if protocol_boundary.get("recommended_future_batch") != "Batch045 Protocol Version Candidate v2.14 Review":
+        errors.append("Batch044 future protocol review recommendation mismatch")
+
+    if feasibility.get("status") != "PASS" or feasibility.get("next_issue_seed_selection_authorized") is not True:
+        errors.append("Batch044 feasibility/seed authorization invalid")
+    if claim.get("status") != "PASS":
+        errors.append("Batch044 claim boundary not PASS")
+    if claim.get("native_external_repair_episodes") != 4 or claim.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch044 claim counts invalid")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch044 scoring or memory boundary changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("production_readiness") != "false/not_demonstrated":
+        errors.append("Batch044 self-maintaining or production boundary overclaimed")
+    for key in ["hallucination_elimination", "absolute_uncrashability", "generalized_autonomous_repair_success", "TO" + "RUS_physics_validation", "PSA82_validation"]:
+        if claim.get(key) != "not_claimed":
+            errors.append(f"Batch044 overclaimed {key}")
+    if claim.get("current_protocol") != "v2.13" or state.get("current_protocol") != "v2.13":
+        errors.append("Batch044 changed current protocol")
+    if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch044 proof obligations ledger invalid")
+    ledger_ids = {item.get("entry_id") for item in ledger.get("entries", [])}
+    required_ledger = {"batch043_artifact_ingested", "batch043_episode_preserved", "standing_guardrails_enforced", "coverage_enforced", "future_seed_eligibility_schema_active", "next_issue_seed_selection_gate", "claim_boundary_preserved"}
+    if not required_ledger.issubset(ledger_ids):
+        errors.append("Batch044 proof ledger missing required entries")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch044 artifact minimality failed")
+    if budget.get("status") != "PASS":
+        errors.append("Batch044 artifact budget failed")
+    if language.get("status") != "PASS":
+        errors.append("Batch044 public language audit failed")
+
+    forbidden_markers = ["1.45", "25.7", "wiggle_room", "closure_tolerance", "residual_tolerance"]
+    for path in list(BATCH044_DIR.glob("*.json")) + list(BATCH044_DIR.glob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        if any(marker in text for marker in forbidden_markers):
+            errors.append(f"Batch044 introduced forbidden tolerance marker in {path.name}")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -8780,6 +8968,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_041.json"),
         Path("configs/clean_replication_batch_042.json"),
         Path("configs/clean_replication_batch_043.json"),
+        Path("configs/clean_replication_batch_044.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
         Path("configs/clean_replication_batch_016.json"),
@@ -9100,6 +9289,7 @@ def main() -> int:
         + require_files(BATCH041_DIR, BATCH041_REQUIRED)
         + require_files(BATCH042_DIR, BATCH042_REQUIRED)
         + require_files(BATCH043_DIR, BATCH043_REQUIRED)
+        + require_files(BATCH044_DIR, BATCH044_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -9183,6 +9373,8 @@ def main() -> int:
         return fail("batch042 manifest mismatch")
     if verify_manifest(BATCH043_DIR)["status"] != "PASS":
         return fail("batch043 manifest mismatch")
+    if verify_manifest(BATCH044_DIR)["status"] != "PASS":
+        return fail("batch044 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -9421,6 +9613,9 @@ def main() -> int:
     batch043_errors = audit_batch043_records()
     if batch043_errors:
         return fail(f"batch043 audit failed: {batch043_errors}")
+    batch044_errors = audit_batch044_records()
+    if batch044_errors:
+        return fail(f"batch044 audit failed: {batch044_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -9467,8 +9662,8 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH043_"):
-        return fail("final report did not advance to Batch043 canonicalization boundary")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH044_"):
+        return fail("final report did not advance to Batch044 guardrail enforcement boundary")
     allowed_latest_blockers = {
         "docker_runtime_provider_unavailable",
         "python37_docker_provider_unavailable",
@@ -9884,8 +10079,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH043_"):
-        return fail("final report top-level status is not Batch043")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH044_"):
+        return fail("final report top-level status is not Batch044")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -10380,6 +10575,42 @@ def main() -> int:
         return fail("final report Batch043 production boundary changed")
     if final_report.get("batch043_current_protocol") != "v2.13":
         return fail("final report Batch043 current protocol changed")
+    if final_report.get("clean_replication_batch_044_status") != "PASS_WITH_BATCH044_GUARDRAILS_ENFORCED_SEED_SELECTION_AUTHORIZED":
+        return fail("final report Batch044 status mismatch")
+    if final_report.get("clean_replication_batch_044_exact_blocker") is not None:
+        return fail("final report Batch044 blocker should be None")
+    if final_report.get("batch044_primary_artifact_name") != "post_v2_37_hardening_batch044_guardrail_enforcement_seed_eligibility_artifacts":
+        return fail("final report Batch044 artifact name mismatch")
+    if final_report.get("batch044_batch043_artifact_ingest_status") != "PASS" or final_report.get("batch044_batch043_artifact_verification_status") != "PASS":
+        return fail("final report Batch044 Batch043 artifact custody not PASS")
+    if final_report.get("batch044_episode_canonicalization_preservation_status") != "PASS":
+        return fail("final report Batch044 episode preservation not PASS")
+    if final_report.get("batch044_standing_guardrail_enforcement_status") != "PASS":
+        return fail("final report Batch044 guardrail enforcement not PASS")
+    if final_report.get("batch044_isomorphic_coverage_enforcement_status") != "PASS":
+        return fail("final report Batch044 coverage enforcement not PASS")
+    if final_report.get("batch044_future_issue_derived_lane_eligibility_schema_status") != "PASS":
+        return fail("final report Batch044 eligibility schema not PASS")
+    if final_report.get("batch044_next_issue_seed_selection_gate_status") != "PASS":
+        return fail("final report Batch044 next issue-seed gate not PASS")
+    if final_report.get("batch044_next_issue_seed_selection_authorized") is not True:
+        return fail("final report Batch044 next issue-seed selection not authorized")
+    if final_report.get("batch044_protocol_version_boundary_status") != "PASS":
+        return fail("final report Batch044 protocol boundary not PASS")
+    if final_report.get("batch044_issue_derived_repair_episode_count") != 1:
+        return fail("final report Batch044 issue-derived count mismatch")
+    if final_report.get("batch044_native_external_repair_episode_count") != 4:
+        return fail("final report Batch044 native count changed")
+    if final_report.get("batch044_full_scoring") != "NOT_RUN/disallowed":
+        return fail("final report Batch044 full scoring boundary changed")
+    if final_report.get("batch044_memory_lift") != "not_demonstrated":
+        return fail("final report Batch044 memory-lift boundary changed")
+    if final_report.get("batch044_self_maintaining_software") != "false/not_demonstrated":
+        return fail("final report Batch044 self-maintaining boundary changed")
+    if final_report.get("batch044_production_readiness") != "false/not_demonstrated":
+        return fail("final report Batch044 production boundary changed")
+    if final_report.get("batch044_current_protocol") != "v2.13":
+        return fail("final report Batch044 current protocol changed")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

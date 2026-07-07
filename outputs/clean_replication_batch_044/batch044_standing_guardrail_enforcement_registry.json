@@ -1,0 +1,237 @@
+{
+  "current_protocol": "v2.13",
+  "guardrails": [
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "stable_identity_lineage_required_before_repair_authorization_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "stable_identity_lineage_required_before_repair_authorization",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "stable_identity_integrity_audit_required_before_count_increment_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "stable_identity_integrity_audit_required_before_count_increment",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "blocker_lineage_map_required_for_active_retired_blockers_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "blocker_lineage_map_required_for_active_retired_blockers",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "proof_ledger_referrer_audit_required_before_count_increment_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "proof_ledger_referrer_audit_required_before_count_increment",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "execution_compartment_registry_required_before_provider_execution_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "execution_compartment_registry_required_before_provider_execution",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "cofactor_materialization_registry_required_for_every_secondary_blocker_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "cofactor_materialization_registry_required_for_every_secondary_blocker",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "secondary_cofactor_governance_model_required_before_dependency_install_or_lock_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "secondary_cofactor_governance_model_required_before_dependency_install_or_lock",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "cofactor_lock_provenance_audit_required_before_provider_only_materialization_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "cofactor_lock_provenance_audit_required_before_provider_only_materialization",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "dependency_drift_audit_required_before_replay_after_materialization_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "dependency_drift_audit_required_before_replay_after_materialization",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "secondary_cofactor_chain_budget_required_before_following_new_secondary_blockers_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "secondary_cofactor_chain_budget_required_before_following_new_secondary_blockers",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "replay_classification_matrix_required_before_interpreting_replay_result_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "replay_classification_matrix_required_before_interpreting_replay_result",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "included_excluded_diagnostics_registry_required_before_diagnostics_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "included_excluded_diagnostics_registry_required_before_diagnostics",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "validation_activation_audit_required_before_claiming_replay_or_duplicate_replay_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "validation_activation_audit_required_before_claiming_replay_or_duplicate_replay",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "transport_export_equivalence_audit_required_before_duplicate_replay_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "transport_export_equivalence_audit_required_before_duplicate_replay",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "evidence_origin_classification_required_before_claim_boundary_update_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "evidence_origin_classification_required_before_claim_boundary_update",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "not_run_reason_registry_required_for_skipped_gates_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "not_run_reason_registry_required_for_skipped_gates",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "failed_branch_precondition_record_required_for_blocked_repair_lanes_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "failed_branch_precondition_record_required_for_blocked_repair_lanes",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "step_activation_ring_required_before_batch_execution_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "step_activation_ring_required_before_batch_execution",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "compartmentalized_repair_stage_audit_required_before_repair_validation_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "compartmentalized_repair_stage_audit_required_before_repair_validation",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "no_floating_update_audit_required_before_provider_materialization_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "no_floating_update_audit_required_before_provider_materialization",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "command_telemetry_sanitization_audit_required_for_every_command_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "command_telemetry_sanitization_audit_required_for_every_command",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "psa82_diagnostic_boundary_required_when_psa82_is_mentioned_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "psa82_diagnostic_boundary_required_when_psa82_is_mentioned",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    },
+    {
+      "allowed_to_be_prose_only": false,
+      "audit_failure_condition": "design_mapping_boundary_required_when_design_analogies_are_mentioned_missing_or_not_enforced",
+      "enforcement_status": "active_for_future_lanes",
+      "guardrail_id": "design_mapping_boundary_required_when_design_analogies_are_mentioned",
+      "machine_checkable": true,
+      "proof_claim_allowed": false,
+      "required_for_future_issue_derived_lanes": true,
+      "source_batch": "Batch043"
+    }
+  ],
+  "source_batch": "Batch043",
+  "status": "PASS"
+}

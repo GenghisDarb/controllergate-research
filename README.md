@@ -132,3 +132,11 @@ Full scoring remains disabled, memory lift remains not demonstrated, and self-ma
 - The first issue-derived repair episode is now preserved as a canonical reusable record.
 - Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
+
+### Batch044 guardrail enforcement and seed eligibility
+
+- Batch044 status: `PASS_WITH_BATCH044_GUARDRAILS_ENFORCED_SEED_SELECTION_AUTHORIZED`.
+- Future issue-derived repair lanes now require the Batch044 standing guardrail registry and eligibility schema before repair generation.
+- Scoped next issue-seed candidate discovery is authorized; repair generation is not started by Batch044.
+- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.

@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "entry_id": "batch043_artifact_ingested",
+      "evidence_hash": "edb19f0a9414998b17ddc43ef2d1ca6f10aefeb5660ccbd687a07efc404daceb",
+      "parent": null,
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch043_episode_preserved",
+      "evidence_hash": "1d18b73a406a7ff9ebaa1d6f9d0e416626e190ecc0836689e1a823b38bf1ec49",
+      "parent": "batch043_artifact_ingested",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "standing_guardrails_enforced",
+      "evidence_hash": "1ef1da5adf759cdca1fa041dd4570d73166cd33e07f83855f3480eb920650bbf",
+      "parent": "batch043_episode_preserved",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "coverage_enforced",
+      "evidence_hash": "9e2a1324587d8eed1ee887699bd34362c98c2039275bb7a3b9cfe5bb310e0b40",
+      "parent": "standing_guardrails_enforced",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "future_seed_eligibility_schema_active",
+      "evidence_hash": "67787897757a1c36377d13f9f67411422e4649e871a0d4bb69c62c52d2d55939",
+      "parent": "coverage_enforced",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "next_issue_seed_selection_gate",
+      "evidence_hash": "be8542a4a8ef408ffe25c8d20a6d2eabb836e19ee98dcd92ed6cead5291d70f7",
+      "parent": "future_seed_eligibility_schema_active",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "claim_boundary_preserved",
+      "evidence_hash": "0f89ec40f579053d6a5862e7647af7a3a2dd6a21166c27abdc64900998a1eab3",
+      "parent": "next_issue_seed_selection_gate",
+      "status": "PASS"
+    }
+  ],
+  "exact_blocker": null,
+  "hash_chain_valid": true,
+  "status": "PASS"
+}

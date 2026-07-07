@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch043 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch044 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -135,13 +135,36 @@ jobs:
           for key in keys:
               print(f"batch043_{key}={state.get(key)}")
           PY
+          python - <<'PY'
+          import json
+          state = json.load(open("outputs/clean_replication_batch_044/consolidated_state_clean_replication_batch_044.json", encoding="utf-8"))
+          keys = [
+              "status",
+              "exact_blocker",
+              "batch043_artifact_verification_status",
+              "episode_canonicalization_preservation_status",
+              "standing_guardrail_enforcement_status",
+              "isomorphic_coverage_enforcement_status",
+              "future_issue_derived_lane_eligibility_schema_status",
+              "next_issue_seed_selection_gate_status",
+              "next_issue_seed_selection_authorized",
+              "protocol_version_boundary_status",
+              "issue_derived_repair_episode_count",
+              "native_external_repair_episode_count",
+              "full_scoring",
+              "memory_lift",
+              "self_maintaining_software",
+          ]
+          for key in keys:
+              print(f"batch044_{key}={state.get(key)}")
+          PY
 
       - name: Verify clean staged artifact payload
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch043_episode_canonicalization_protocolization/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch043_episode_canonicalization_protocolization \( \
+          test -f artifact_payload/post_v2_37_hardening_batch044_guardrail_enforcement_seed_eligibility/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch044_guardrail_enforcement_seed_eligibility \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -161,16 +184,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch043_episode_canonicalization_protocolization -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_043' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch044_guardrail_enforcement_seed_eligibility -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_044' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch043 episode canonicalization protocolization artifact
+      - name: Upload Batch044 guardrail enforcement seed eligibility artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch043_episode_canonicalization_protocolization_artifacts
+          name: post_v2_37_hardening_batch044_guardrail_enforcement_seed_eligibility_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch043_episode_canonicalization_protocolization/**
+            artifact_payload/post_v2_37_hardening_batch044_guardrail_enforcement_seed_eligibility/**
           if-no-files-found: error
