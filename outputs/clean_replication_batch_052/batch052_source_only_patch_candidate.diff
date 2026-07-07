@@ -1,0 +1,22 @@
+diff --git a/src/reader/_plugins/enclosure_tags.py b/src/reader/_plugins/enclosure_tags.py
+index c2c64ee..58df8be 100644
+--- a/src/reader/_plugins/enclosure_tags.py
++++ b/src/reader/_plugins/enclosure_tags.py
+@@ -31,7 +31,6 @@ Streaming added in :issue:`344`.
+ import io
+ from urllib.parse import urlparse
+ 
+-import mutagen.mp3
+ import requests
+ from flask import Blueprint
+ from flask import request
+@@ -95,6 +94,9 @@ def update_tags(file, tags):
+     Rewrite the prefix of file to update ID3v2 tags.
+ 
+     """
++    import mutagen
++    import mutagen.mp3
++
+     prefix = b''
+     easy = None
+     for size in [2**17, 2**17, 2**18, 2**19, 2**19, 2**19]:

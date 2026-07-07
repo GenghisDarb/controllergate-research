@@ -1,0 +1,54 @@
+{
+  "checkout_commands": [
+    {
+      "command": "git -C C:\\Dev\\ControllerGate_runtime\\batch052_reader_issue_355\\apply_check_reader init",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5301498cb337265a616e780c57b79f34986e013a50d48b7c6f3c72d9950fc623"
+    },
+    {
+      "command": "git -C C:\\Dev\\ControllerGate_runtime\\batch052_reader_issue_355\\apply_check_reader remote add origin https://github.com/lemon24/reader.git",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "git -C C:\\Dev\\ControllerGate_runtime\\batch052_reader_issue_355\\apply_check_reader fetch --depth=1 origin 182902cba96501bbe989fd370bd251107ba2ad31",
+      "return_code": 0,
+      "stderr_excerpt": "From https://github.com/lemon24/reader\n * branch            182902cba96501bbe989fd370bd251107ba2ad31 -> FETCH_HEAD\n",
+      "stderr_sha256": "81d6e442d065a78b404cedf1dfd6a5b648a3a45ae23bfa49f9ee960b4fef548a",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "git -C C:\\Dev\\ControllerGate_runtime\\batch052_reader_issue_355\\apply_check_reader checkout --detach FETCH_HEAD",
+      "return_code": 0,
+      "stderr_excerpt": "HEAD is now at 182902c Move ParsedFeed to reader._parser. #307\n",
+      "stderr_sha256": "8e6d86bc5a757894aaa37b684343123ba3769e0094665b30752cb7606696444e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "dependency_files_changed": false,
+  "exact_blocker": null,
+  "fixtures_changed": false,
+  "forbidden_paths_after_apply": [],
+  "git_apply_check_return_code": 0,
+  "git_apply_return_code": 0,
+  "harness_changed": false,
+  "next_allowed_action": "post_repair_target_replay",
+  "patch_applies": true,
+  "sanitized_stderr_excerpt": "\n",
+  "source_only_after_apply": true,
+  "source_only_scope_preserved": true,
+  "status": "PASS",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tests_changed": false,
+  "touched_after_apply": [
+    "src/reader/_plugins/enclosure_tags.py"
+  ],
+  "touched_files_after_apply": [
+    "src/reader/_plugins/enclosure_tags.py"
+  ]
+}

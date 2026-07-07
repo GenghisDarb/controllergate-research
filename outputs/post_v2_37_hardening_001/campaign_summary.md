@@ -1,6 +1,6 @@
 # Post-v2.37 hardening and clean replication batch 002
 
-Status: PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED.
+Status: PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED.
 
 This run preserves neutral transport, risk, budget, context-boundary, environment-normalization, evidence-class separation, real-lead acquisition progression, and clean artifact packaging gates while adding clean-protocol repair generation for verified native candidates. It does not create a new version lane, does not relax the BugsInPy block, and does not claim full scoring, memory lift, or self-maintaining software.
 
@@ -190,6 +190,10 @@ Batch050 status: `PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED`; exact blocke
 
 Batch051 officially ingests the Batch050 manual-seed-boundary artifact, validates the Lemon Reader issue 355 manual seed manifest, and runs only the pre-repair replay gate when candidate approval passes. It does not authorize repair generation, patch generation, duplicate replay, full scoring, or broader claims.
 
-Batch051 status: `PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED`; exact blocker: `host_environment_not_ubuntu_latest_python311`; approved unused issue seeds: `1`; pre-repair replay: `PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED`.
+Batch051 status: `PASS_WITH_BATCH051_PRE_REPAIR_FAILURE_MATERIALIZED`; exact blocker: `None`; approved unused issue seeds: `1`; pre-repair replay: `PASS_WITH_BATCH051_PRE_REPAIR_FAILURE_MATERIALIZED`.
+
+Batch052 officially ingests the successful Batch051 pre-repair replay artifact, evaluates whether the Lemon Reader issue 355 failure is suitable for a source-only patch candidate, applies the candidate only in an isolated workspace, and runs the target replay gate without duplicate replay or broader claims.
+
+Batch052 status: `PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED`; exact blocker: `host_environment_not_ubuntu_latest_python311`; source-only suitability: `source_repair_suitable`; post-repair target replay: `PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED`.
 
 NotebookLM advice traceability status: `PASS`.

@@ -1,22 +1,86 @@
 {
+  "checkout_commands": [
+    {
+      "command": "git -C /tmp/controllergate_batch051_reader_issue_355/reader init",
+      "return_code": 0,
+      "stderr_excerpt": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n",
+      "stderr_sha256": "3e70934f1909b0f5a846d62237fcc1509d733b9fb0321187024723dfc67176d3",
+      "stdout_sha256": "c7d18086323070a6d549f3c18266401d9ba22cb9495ef350ce58e939b25e774a"
+    },
+    {
+      "command": "git -C /tmp/controllergate_batch051_reader_issue_355/reader remote add origin https://github.com/lemon24/reader.git",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "git -C /tmp/controllergate_batch051_reader_issue_355/reader fetch --depth=1 origin 182902cba96501bbe989fd370bd251107ba2ad31",
+      "return_code": 0,
+      "stderr_excerpt": "From https://github.com/lemon24/reader\n * branch            182902cba96501bbe989fd370bd251107ba2ad31 -> FETCH_HEAD\n",
+      "stderr_sha256": "81d6e442d065a78b404cedf1dfd6a5b648a3a45ae23bfa49f9ee960b4fef548a",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "git -C /tmp/controllergate_batch051_reader_issue_355/reader checkout --detach FETCH_HEAD",
+      "return_code": 0,
+      "stderr_excerpt": "HEAD is now at 182902c Move ParsedFeed to reader._parser. #307\n",
+      "stderr_sha256": "8e6d86bc5a757894aaa37b684343123ba3769e0094665b30752cb7606696444e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
   "command": "mkdir -p ~/.config/reader && cp -n examples/config.yaml ~/.config/reader/ || true && PYTHONPATH=src pytest --runslow tests/test_cli.py -q --tb=no",
-  "cwd": null,
-  "dependency_state_recorded": true,
-  "deterministic_failure_candidate": false,
-  "exact_blocker": "host_environment_not_ubuntu_latest_python311",
-  "expected_failure_regex_observed": false,
-  "expected_failure_signature_observed": false,
-  "fixed_gold_future_later_evidence_accessed": false,
-  "host_summary": {
-    "platform_system": "Windows",
-    "python_executable": "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
-    "python_version": "3.13.14"
+  "cwd": "/tmp/controllergate_batch051_reader_issue_355/reader",
+  "dependency_install_records": [
+    {
+      "command": "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python -m venv /tmp/controllergate_batch051_reader_issue_355/venv",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "/tmp/controllergate_batch051_reader_issue_355/venv/bin/python -m pip install --upgrade pip setuptools wheel",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "1cd004a390d43d7dbe767e0bfd0d1acd3471e31c3cc5d5d00f20c0ba3d70ec45"
+    },
+    {
+      "command": "/tmp/controllergate_batch051_reader_issue_355/venv/bin/python -m pip install -e .[cli,app,tests]",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ca0e356c0205898d4f0d9e15a63539118e6afa1af52ea43b303b09d851f5ba1f"
+    }
+  ],
+  "dependency_state": {
+    "declared_app_extra_detected": true,
+    "declared_cli_extra_detected": true,
+    "declared_test_extra_detected": true,
+    "dependency_source": "selected_buggy_commit_pyproject_toml",
+    "install_command": "python -m pip install -e .[cli,app,tests]",
+    "pyproject_sha256": "847f6b6a1d9e92e70466d347842de325bdf2a437bf15d42d05a7dafa8f898199",
+    "pyproject_toml_present": true
   },
-  "next_allowed_action": "cofactor_or_environment_materialization_gate",
+  "dependency_state_recorded": true,
+  "deterministic_failure_candidate": true,
+  "exact_blocker": null,
+  "expected_failure_regex_observed": false,
+  "expected_failure_signature_observed": true,
+  "fixed_gold_future_later_evidence_accessed": false,
+  "git_status_after": "",
+  "git_status_before": "",
+  "next_allowed_action": "batch052_source_only_patch_candidate_gate",
   "patch_generation_authorized": false,
   "repair_generation_authorized": false,
+  "return_code": 1,
+  "sanitized_stderr_excerpt": "cp: warning: behavior of -n is non-portable and may change in future; use --update=none instead\n",
+  "sanitized_stdout_excerpt": "....F...                                                                 [100%]\n=========================== short test summary info ============================\nFAILED tests/test_cli.py::test_config_example - assert 'ERROR' not in \"2026-07-07T... 'mutagen'\\n\"\n  \n  'ERROR' is contained here:\n    2026-07-07T16:35:37    3114 ERROR    could not import plugin reader._plugins.enclosure_tags:init; original traceback follows\n  ?                             +++++\n    Traceback (most recent call last):\n      File \"/tmp/controllergate_batch051_reader_issue_355/reader/src/reader/_plugins/__init__.py\", line 37, in load\n        plugin = resolve_name(name)\n                 ^^^^^^^^^^^^^^^^^^\n      File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/pkgutil.py\", line 692, in resolve_name\n        mod = importlib.import_module(gd['pkg'])\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n      File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/importlib/__init__.py\", line 126, in import_module\n        return _bootstrap._gcd_import(name[level:], package, level)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n      File \"<frozen importlib._bootstrap>\", line 1204, in _gcd_import\n      File \"<frozen importlib._bootstrap>\", line 1176, in _find_and_load\n      File \"<frozen importlib._bootstrap>\", line 1147, in _find_and_load_unlocked\n      File \"<frozen importlib._bootstrap>\", line 690, in _load_unlocked\n      File \"<frozen importlib._bootstrap_external>\", line 940, in exec_module\n      File \"<frozen importlib._bootstrap>\", line 241, in _call_with_frames_removed\n      File \"/tmp/controllergate_batch051_reader_issue_355/reader/src/reader/_plugins/enclosure_tags.py\", line 34, in <module>\n        import mutagen.mp3\n    ModuleNotFoundError: No module named 'mutagen'\n1 failed, 7 passed in 0.81s\n",
   "selected_source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
   "source_mutated": false,
-  "status": "PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED",
+  "status": "PASS_WITH_BATCH051_PRE_REPAIR_FAILURE_MATERIALIZED",
+  "stderr_sha256": "2543ae08c6df91ed8d308c34f6159ab022d3a965e00edb29a58ecdef8e0a5c61",
+  "stdout_sha256": "a27faa8d8cee2efd4b7bef59a874d44e61000849aeacc4d68a1ef5d5248d282a",
   "tests_mutated": false
 }

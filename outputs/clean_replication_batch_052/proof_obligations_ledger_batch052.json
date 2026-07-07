@@ -1,0 +1,50 @@
+{
+  "dependency_files_mutated": false,
+  "duplicate_replay_occurred": false,
+  "entries": [
+    {
+      "entry_id": "batch051_artifact_ingested",
+      "parent": null,
+      "status": "PASS"
+    },
+    {
+      "entry_id": "batch051_pre_repair_failure_preserved",
+      "parent": "batch051_artifact_ingested",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "source_only_suitability_evaluated",
+      "parent": "batch051_pre_repair_failure_preserved",
+      "status": "source_repair_suitable"
+    },
+    {
+      "entry_id": "source_only_patch_candidate_generated",
+      "parent": "source_only_suitability_evaluated",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "patch_apply_check_evaluated",
+      "parent": "source_only_patch_candidate_generated",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "post_repair_target_replay_evaluated",
+      "parent": "patch_apply_check_evaluated",
+      "status": "PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED"
+    },
+    {
+      "entry_id": "duplicate_replay_boundary_recorded",
+      "parent": "post_repair_target_replay_evaluated",
+      "status": "NOT_RUN"
+    }
+  ],
+  "fixed_gold_future_later_evidence_accessed": false,
+  "fixtures_mutated": false,
+  "harness_mutated": false,
+  "incoming_artifacts_staged": false,
+  "issue_body_workaround_used": false,
+  "patch_generation_occurred": true,
+  "repair_generation_occurred": true,
+  "status": "PASS",
+  "tests_mutated": false
+}

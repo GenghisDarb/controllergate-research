@@ -43,11 +43,25 @@ Batch017 adds the next technical gap: historical dependency locks must be decisi
 
 ### Batch051 Lemon Reader manual seed pre-repair replay gate
 
-- Batch051 status: `PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED`.
+- Batch051 status: `PASS_WITH_BATCH051_PRE_REPAIR_FAILURE_MATERIALIZED`.
 - Candidate approved: `true`.
 - Approved unused issue seed count: `1`.
-- Pre-repair replay status: `PASS_WITH_BATCH051_PRE_REPAIR_REPLAY_BLOCKED`.
-- Exact blocker: `host_environment_not_ubuntu_latest_python311`.
-- Next allowed action: `cofactor_or_environment_materialization_gate`.
+- Pre-repair replay status: `PASS_WITH_BATCH051_PRE_REPAIR_FAILURE_MATERIALIZED`.
+- Exact blocker: `None`.
+- Next allowed action: `batch052_source_only_patch_candidate_gate`.
 - External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
 - Batch051 is a seed-approval and pre-repair replay gate only; repair generation, patch generation, duplicate replay, full scoring, memory-lift claims, and production-readiness claims remain disabled.
+
+### Batch052 Lemon Reader source-only patch candidate gate
+
+- Batch052 status: `PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED`.
+- Current protocol remains: `v2.14`.
+- Source-only suitability: `source_repair_suitable`.
+- Patch generation status: `PASS`.
+- Patch apply status: `PASS`.
+- Post-repair target replay status: `PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED`.
+- Duplicate replay status: `NOT_RUN`; reason: `target_replay_not_passed`.
+- Exact blocker: `host_environment_not_ubuntu_latest_python311`.
+- Next allowed action: `secondary_blocker_governance_gate`.
+- External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Batch052 does not run duplicate replay, full scoring, memory-lift claims, self-maintaining claims, or production-readiness claims.

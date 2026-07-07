@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch051 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch052 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -137,22 +137,23 @@ jobs:
           PY
           python - <<'PY'
           import json
-          state = json.load(open("outputs/clean_replication_batch_051/consolidated_state_clean_replication_batch_051.json", encoding="utf-8"))
+          state = json.load(open("outputs/clean_replication_batch_052/consolidated_state_clean_replication_batch_052.json", encoding="utf-8"))
           keys = [
               "status",
               "exact_blocker",
-              "batch050_artifact_ingest_status",
-              "batch050_artifact_verification_status",
+              "batch051_artifact_ingest_status",
+              "batch051_artifact_verification_status",
+              "batch051_pre_repair_failure_preservation_status",
               "current_protocol",
-              "manual_seed_custody_status",
-              "seed_manifest_validation_status",
-              "freshness_duplicate_count_status",
-              "evidence_leakage_audit_status",
-              "environment_cytoskeleton_preflight_status",
-              "candidate_approval_status",
-              "candidate_approved",
-              "approved_unused_issue_seed_count",
-              "pre_repair_replay_status",
+              "source_only_suitability_classification",
+              "source_only_suitability_status",
+              "patch_generation_status",
+              "patch_generated",
+              "patch_sha256",
+              "patch_apply_status",
+              "post_repair_target_replay_status",
+              "duplicate_replay_status",
+              "duplicate_replay_not_run_reason",
               "next_allowed_action",
               "issue_derived_repair_episode_count",
               "native_external_repair_episode_count",
@@ -161,15 +162,15 @@ jobs:
               "self_maintaining_software",
           ]
           for key in keys:
-              print(f"batch051_{key}={state.get(key)}")
+              print(f"batch052_{key}={state.get(key)}")
           PY
 
       - name: Verify clean staged artifact payload
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch051_manual_seed_pre_repair_replay/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch051_manual_seed_pre_repair_replay \( \
+          test -f artifact_payload/post_v2_37_hardening_batch052_source_only_patch_candidate/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch052_source_only_patch_candidate \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -189,16 +190,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch051_manual_seed_pre_repair_replay -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_051' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch052_source_only_patch_candidate -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_052' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch051 manual seed pre-repair replay artifact
+      - name: Upload Batch052 source-only patch candidate artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch051_manual_seed_pre_repair_replay_artifacts
+          name: post_v2_37_hardening_batch052_source_only_patch_candidate_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch051_manual_seed_pre_repair_replay/**
+            artifact_payload/post_v2_37_hardening_batch052_source_only_patch_candidate/**
           if-no-files-found: error

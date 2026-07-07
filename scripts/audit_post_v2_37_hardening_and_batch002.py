@@ -62,7 +62,8 @@ BATCH048_DIR = Path("outputs/clean_replication_batch_048")
 BATCH049_DIR = Path("outputs/clean_replication_batch_049")
 BATCH050_DIR = Path("outputs/clean_replication_batch_050")
 BATCH051_DIR = Path("outputs/clean_replication_batch_051")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch051_manual_seed_pre_repair_replay")
+BATCH052_DIR = Path("outputs/clean_replication_batch_052")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch052_source_only_patch_candidate")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -2038,6 +2039,30 @@ BATCH051_REQUIRED = [
     "consolidated_state_clean_replication_batch_051.json",
     "campaign_summary.md",
     "public_language_audit_batch051.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH052_REQUIRED = [
+    "batch051_artifact_ingest_summary.json",
+    "batch051_artifact_verification.json",
+    "batch051_pre_repair_failure_preservation.json",
+    "batch051_claim_boundary_preservation.json",
+    "batch052_target_intent_source_only_suitability_audit.json",
+    "batch052_source_only_patch_policy.json",
+    "batch052_source_only_patch_candidate.json",
+    "batch052_source_only_patch_candidate.diff",
+    "batch052_patch_scope_audit.json",
+    "batch052_patch_apply_check.json",
+    "batch052_post_repair_target_replay.json",
+    "batch052_duplicate_replay_not_run_reason.json",
+    "issue_derived_repair_feasibility_batch052.json",
+    "claim_boundary_batch052.json",
+    "proof_obligations_ledger_batch052.json",
+    "consolidated_state_clean_replication_batch_052.json",
+    "campaign_summary.md",
+    "public_language_audit_batch052.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -10595,6 +10620,211 @@ def audit_batch051_records() -> list[str]:
     return errors
 
 
+def audit_batch052_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH052_REQUIRED:
+        if not (BATCH052_DIR / name).is_file():
+            errors.append(f"missing Batch052 file: {name}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH052_DIR).get("status") != "PASS":
+        errors.append("Batch052 manifest mismatch")
+
+    state = read_json(BATCH052_DIR / "consolidated_state_clean_replication_batch_052.json")
+    ingest = read_json(BATCH052_DIR / "batch051_artifact_ingest_summary.json")
+    verification = read_json(BATCH052_DIR / "batch051_artifact_verification.json")
+    preservation = read_json(BATCH052_DIR / "batch051_pre_repair_failure_preservation.json")
+    claim_preservation = read_json(BATCH052_DIR / "batch051_claim_boundary_preservation.json")
+    suitability = read_json(BATCH052_DIR / "batch052_target_intent_source_only_suitability_audit.json")
+    policy = read_json(BATCH052_DIR / "batch052_source_only_patch_policy.json")
+    candidate = read_json(BATCH052_DIR / "batch052_source_only_patch_candidate.json")
+    scope = read_json(BATCH052_DIR / "batch052_patch_scope_audit.json")
+    apply_check = read_json(BATCH052_DIR / "batch052_patch_apply_check.json")
+    post_replay = read_json(BATCH052_DIR / "batch052_post_repair_target_replay.json")
+    duplicate = read_json(BATCH052_DIR / "batch052_duplicate_replay_not_run_reason.json")
+    feasibility = read_json(BATCH052_DIR / "issue_derived_repair_feasibility_batch052.json")
+    claim = read_json(BATCH052_DIR / "claim_boundary_batch052.json")
+    ledger = read_json(BATCH052_DIR / "proof_obligations_ledger_batch052.json")
+    language = read_json(BATCH052_DIR / "public_language_audit_batch052.json")
+    minimality = read_json(BATCH052_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH052_DIR / "artifact_payload_budget.json")
+
+    if state.get("status") not in {
+        "PASS_WITH_BATCH052_TARGET_REPLAY_PASSED",
+        "PASS_WITH_BATCH052_TARGET_REPLAY_FAILED",
+        "PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED",
+        "PASS_WITH_BATCH052_SOURCE_PATCH_NOT_AUTHORIZED",
+        "PASS_WITH_BATCH052_NO_SAFE_SOURCE_PATCH",
+        "PASS_WITH_BATCH052_PATCH_APPLY_FAILED",
+    }:
+        errors.append("Batch052 status outside allowed source-only gate states")
+    if state.get("primary_artifact_name") != "post_v2_37_hardening_batch052_source_only_patch_candidate_artifacts":
+        errors.append("Batch052 primary artifact name mismatch")
+
+    if ingest.get("status") != "PASS" or verification.get("status") != "PASS":
+        errors.append("Batch052 Batch051 artifact ingest/verification failed")
+    if ingest.get("artifact_name") != "post_v2_37_hardening_batch051_manual_seed_pre_repair_replay_artifacts":
+        errors.append("Batch052 Batch051 artifact name mismatch")
+    if ingest.get("artifact_id") != 8144696958 or ingest.get("workflow_run_id") != 28882478650:
+        errors.append("Batch052 Batch051 artifact identity mismatch")
+    if ingest.get("workflow_head_sha") != "37252a6f760196e303b96bb20c6c47cdd01ccabc":
+        errors.append("Batch052 Batch051 workflow head mismatch")
+    if ingest.get("artifact_sha256") != "e224e7236a4004d162ab9b92b1351a06b51f59a2edb47688d0fe3b55f5a8f362":
+        errors.append("Batch052 Batch051 artifact SHA mismatch")
+    if ingest.get("artifact_size_bytes") != 166618:
+        errors.append("Batch052 Batch051 artifact size mismatch")
+    if verification.get("zip_entry_count") != 164 or verification.get("unsafe_path_count") != 0 or verification.get("duplicate_path_count") != 0:
+        errors.append("Batch052 Batch051 ZIP path hygiene mismatch")
+    if verification.get("pycache_or_pyc_entry_count") != 0:
+        errors.append("Batch052 Batch051 ZIP contains pycache/pyc payload")
+    if verification.get("artifact_manifest", {}).get("checked") != 163:
+        errors.append("Batch052 artifact-level manifest coverage mismatch")
+    if verification.get("batch051_manifest", {}).get("checked") != 19:
+        errors.append("Batch052 Batch051 manifest coverage mismatch")
+    if verification.get("post_manifest", {}).get("checked") != 142:
+        errors.append("Batch052 post manifest coverage mismatch")
+    for field in ["raw_zip_bytes_ingested", "zip_payload_committed"]:
+        if ingest.get(field) is not False:
+            errors.append(f"Batch052 raw Batch051 ZIP boundary failed for {field}")
+
+    if preservation.get("status") != "PASS":
+        errors.append("Batch052 did not preserve Batch051 pre-repair failure")
+    if preservation.get("batch051_status") != "PASS_WITH_BATCH051_PRE_REPAIR_FAILURE_MATERIALIZED":
+        errors.append("Batch052 Batch051 materialized status not preserved")
+    if preservation.get("exact_blocker") is not None:
+        errors.append("Batch052 Batch051 exact blocker should remain None")
+    if preservation.get("selected_source_commit") != "182902cba96501bbe989fd370bd251107ba2ad31":
+        errors.append("Batch052 selected source commit mismatch")
+    if preservation.get("pre_repair_replay_return_code") != 1:
+        errors.append("Batch052 pre-repair replay return code mismatch")
+    if preservation.get("expected_failure_signature_observed") is not True:
+        errors.append("Batch052 expected Batch051 failure signature not preserved")
+    if preservation.get("deterministic_failure_candidate") is not True:
+        errors.append("Batch052 deterministic Batch051 failure not preserved")
+    for key in ["source_mutated", "tests_mutated", "forbidden_evidence_accessed"]:
+        if preservation.get(key) is not False:
+            errors.append(f"Batch052 Batch051 preservation boundary failed: {key}")
+    if claim_preservation.get("native_external_repair_episodes") != 4 or claim_preservation.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch052 Batch051 claim boundary preservation changed counts")
+    if claim_preservation.get("full_scoring") != "NOT_RUN/disallowed" or claim_preservation.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch052 Batch051 claim boundary overreach")
+
+    if suitability.get("status") != "PASS":
+        errors.append("Batch052 suitability audit did not PASS")
+    if suitability.get("classification") != "source_repair_suitable":
+        errors.append("Batch052 should classify Lemon Reader failure as source-repair suitable")
+    suitability_checks = {item.get("check_id"): item for item in suitability.get("checks", [])}
+    for check_id in [
+        "failure_materialized_in_batch051",
+        "source_level_optional_dependency_import_behavior",
+        "not_merely_test_isolation",
+        "not_merely_missing_optional_dependency",
+        "not_local_user_config_contamination",
+        "source_only_patch_plausible",
+        "tests_do_not_require_mutation",
+        "fixtures_do_not_require_mutation",
+        "harness_does_not_require_mutation",
+        "dependency_lock_does_not_require_mutation",
+        "fixed_gold_future_later_evidence_not_used",
+        "issue_body_workaround_patch_not_used",
+    ]:
+        if suitability_checks.get(check_id, {}).get("status") != "PASS":
+            errors.append(f"Batch052 suitability check failed: {check_id}")
+    if policy.get("status") != "PASS" or policy.get("patch_authorized") is not True:
+        errors.append("Batch052 source-only patch policy did not authorize expected candidate")
+    if policy.get("issue_body_workaround_used") is not False or policy.get("fixed_gold_future_later_evidence_used") is not False:
+        errors.append("Batch052 patch policy used forbidden evidence")
+
+    if candidate.get("status") != "PASS" or candidate.get("patch_generated") is not True:
+        errors.append("Batch052 patch candidate was not generated")
+    patch_text = (BATCH052_DIR / "batch052_source_only_patch_candidate.diff").read_text(encoding="utf-8")
+    patch_hash = hashlib.sha256(patch_text.encode("utf-8")).hexdigest()
+    if candidate.get("patch_sha256") != patch_hash:
+        errors.append("Batch052 patch SHA mismatch")
+    if "src/reader/_plugins/enclosure_tags.py" not in patch_text or "tests/" in patch_text:
+        errors.append("Batch052 patch text scope invalid")
+    if "import mutagen" not in patch_text or "-import mutagen.mp3" not in patch_text:
+        errors.append("Batch052 patch does not defer mutagen import as expected")
+    if candidate.get("source_only") is not True or candidate.get("tests_mutated") is not False:
+        errors.append("Batch052 patch candidate source-only boundary failed")
+    if candidate.get("issue_body_workaround_used") is not False or candidate.get("fixed_gold_future_later_evidence_used") is not False:
+        errors.append("Batch052 patch candidate forbidden evidence boundary failed")
+
+    if scope.get("status") != "PASS":
+        errors.append("Batch052 patch scope audit did not PASS")
+    if scope.get("touched_files") != ["src/reader/_plugins/enclosure_tags.py"]:
+        errors.append("Batch052 patch touched unexpected files")
+    for key in ["test_files_touched", "fixture_files_touched", "harness_files_touched", "dependency_files_touched", "broad_failure_hiding_detected", "pytest_special_case_detected"]:
+        if scope.get(key) is not False:
+            errors.append(f"Batch052 patch scope boundary failed: {key}")
+
+    if apply_check.get("status") != "PASS":
+        errors.append("Batch052 patch apply check did not PASS")
+    if apply_check.get("source_only_after_apply") is not True:
+        errors.append("Batch052 apply check did not remain source-only")
+    if apply_check.get("touched_files_after_apply") != ["src/reader/_plugins/enclosure_tags.py"]:
+        errors.append("Batch052 apply check touched unexpected files")
+
+    if post_replay.get("status") not in {
+        "PASS_WITH_BATCH052_TARGET_REPLAY_PASSED",
+        "PASS_WITH_BATCH052_TARGET_REPLAY_FAILED",
+        "PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED",
+        "NOT_RUN",
+    }:
+        errors.append("Batch052 post-repair target replay status invalid")
+    if post_replay.get("status") == "PASS_WITH_BATCH052_TARGET_REPLAY_PASSED":
+        if post_replay.get("return_code") != 0 or post_replay.get("original_failure_signature_observed_after_patch") is not False:
+            errors.append("Batch052 target replay pass did not clear original failure")
+        if post_replay.get("next_allowed_action") != "batch053_duplicate_clean_replay_gate":
+            errors.append("Batch052 passed replay next action mismatch")
+    if post_replay.get("status") == "PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED":
+        if post_replay.get("next_allowed_action") != "secondary_blocker_governance_gate":
+            errors.append("Batch052 secondary blocker next action mismatch")
+    if post_replay.get("fixed_gold_future_later_evidence_accessed") is not False:
+        errors.append("Batch052 post-repair replay accessed forbidden evidence")
+    if post_replay.get("tests_mutated") is not False or post_replay.get("source_only_patch_boundary_preserved") is not True:
+        errors.append("Batch052 post-repair replay mutation boundary failed")
+
+    if duplicate.get("status") != "NOT_RUN":
+        errors.append("Batch052 duplicate replay should not run in this lane")
+    if post_replay.get("status") == "PASS_WITH_BATCH052_TARGET_REPLAY_PASSED":
+        if duplicate.get("reason") != "waits_for_batch053_duplicate_clean_replay_gate":
+            errors.append("Batch052 duplicate replay not-run reason mismatch after target pass")
+    else:
+        if duplicate.get("reason") != "target_replay_not_passed":
+            errors.append("Batch052 duplicate replay not-run reason mismatch after non-pass")
+    if duplicate.get("duplicate_replay_executed") is not False:
+        errors.append("Batch052 duplicate replay execution boundary failed")
+
+    if feasibility.get("issue_derived_repair_episode_count_incremented") is not False:
+        errors.append("Batch052 issue-derived count incremented too early")
+    if claim.get("native_external_repair_episodes") != 4 or claim.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch052 claim boundary changed episode counts")
+    for key in ["full_scoring", "memory_lift", "self_maintaining_software", "production_readiness"]:
+        expected = {
+            "full_scoring": "NOT_RUN/disallowed",
+            "memory_lift": "not_demonstrated",
+            "self_maintaining_software": "false/not_demonstrated",
+            "production_readiness": "false/not_demonstrated",
+        }[key]
+        if claim.get(key) != expected or state.get(key) != expected:
+            errors.append(f"Batch052 claim boundary mismatch: {key}")
+    if ledger.get("status") != "PASS" or ledger.get("duplicate_replay_occurred") is not False:
+        errors.append("Batch052 proof ledger invalid")
+    for key in ["tests_mutated", "fixtures_mutated", "harness_mutated", "dependency_files_mutated", "fixed_gold_future_later_evidence_accessed", "issue_body_workaround_used", "incoming_artifacts_staged"]:
+        if ledger.get(key) is not False:
+            errors.append(f"Batch052 proof ledger boundary failed: {key}")
+    if language.get("status") != "PASS":
+        errors.append("Batch052 public language audit failed")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch052 artifact minimality failed")
+    if budget.get("status") != "PASS":
+        errors.append("Batch052 artifact budget failed")
+    if state.get("incoming_artifacts_quarantine_status") != "PASS_NOT_STAGED":
+        errors.append("Batch052 incoming artifacts quarantine mismatch")
+    return errors
+
+
 def public_language_hits() -> list[str]:
     paths = [
         Path("README.md"),
@@ -10640,6 +10870,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_049.json"),
         Path("configs/clean_replication_batch_050.json"),
         Path("configs/clean_replication_batch_051.json"),
+        Path("configs/clean_replication_batch_052.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
         Path("configs/clean_replication_batch_016.json"),
@@ -10685,6 +10916,7 @@ def public_language_hits() -> list[str]:
         Path("controllergate/core/batch049_source_approval_cytoskeleton.py"),
         Path("controllergate/core/batch050_manual_seed_intake_fastlane.py"),
         Path("controllergate/core/batch051_manual_seed_pre_repair_replay.py"),
+        Path("controllergate/core/batch052_source_only_patch_candidate.py"),
         Path("controllergate/core/active_context_filtering.py"),
         Path("controllergate/runtime/incident_capture.py"),
         Path("controllergate/runtime/execution_boundary_gateway.py"),
@@ -10774,6 +11006,8 @@ def public_language_hits() -> list[str]:
     paths.extend(sorted(BATCH042_DIR.glob("*.md")))
     paths.extend(sorted(BATCH051_DIR.glob("*.json")))
     paths.extend(sorted(BATCH051_DIR.glob("*.md")))
+    paths.extend(sorted(BATCH052_DIR.glob("*.json")))
+    paths.extend(sorted(BATCH052_DIR.glob("*.md")))
     hits: list[str] = []
     for path in paths:
         if not path.is_file():
@@ -10976,6 +11210,7 @@ def main() -> int:
         + require_files(BATCH049_DIR, BATCH049_REQUIRED)
         + require_files(BATCH050_DIR, BATCH050_REQUIRED)
         + require_files(BATCH051_DIR, BATCH051_REQUIRED)
+        + require_files(BATCH052_DIR, BATCH052_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -11071,6 +11306,8 @@ def main() -> int:
         return fail("batch048 manifest mismatch")
     if verify_manifest(BATCH051_DIR)["status"] != "PASS":
         return fail("batch051 manifest mismatch")
+    if verify_manifest(BATCH052_DIR)["status"] != "PASS":
+        return fail("batch052 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -11333,6 +11570,9 @@ def main() -> int:
     batch051_errors = audit_batch051_records()
     if batch051_errors:
         return fail(f"batch051 audit failed: {batch051_errors}")
+    batch052_errors = audit_batch052_records()
+    if batch052_errors:
+        return fail(f"batch052 audit failed: {batch052_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -11379,8 +11619,8 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH051_"):
-        return fail("final report did not advance to Batch051 manual seed pre-repair replay boundary")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH052_"):
+        return fail("final report did not advance to Batch052 source-only patch candidate boundary")
     allowed_latest_blockers = {
         "docker_runtime_provider_unavailable",
         "python37_docker_provider_unavailable",
@@ -11471,6 +11711,13 @@ def main() -> int:
         "declared_dependency_install_failed",
         "pre_repair_replay_failed_without_expected_signature",
         "pre_repair_failure_not_materialized",
+        "source_repair_not_suitable_test_isolation_required",
+        "source_repair_not_suitable_environment_isolation_required",
+        "source_repair_not_suitable_dependency_policy_required",
+        "source_repair_not_suitable_target_ambiguous",
+        "no_safe_source_only_patch",
+        "patch_apply_check_failed",
+        "post_repair_secondary_failure_without_original_signature",
     }
     if final_report.get("exact_blocker") is not None and final_report.get("exact_blocker") not in allowed_latest_blockers:
         return fail("final report latest validation blocker mismatch")
@@ -11805,8 +12052,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH051_"):
-        return fail("final report top-level status is not Batch051")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH052_"):
+        return fail("final report top-level status is not Batch052")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -12637,6 +12884,60 @@ def main() -> int:
         return fail("final report Batch051 self-maintaining boundary changed")
     if final_report.get("batch051_incoming_artifacts_quarantine_status") != "PASS_NOT_STAGED":
         return fail("final report Batch051 incoming artifact quarantine mismatch")
+    if final_report.get("clean_replication_batch_052_status") not in {
+        "PASS_WITH_BATCH052_TARGET_REPLAY_PASSED",
+        "PASS_WITH_BATCH052_TARGET_REPLAY_FAILED",
+        "PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED",
+        "PASS_WITH_BATCH052_SOURCE_PATCH_NOT_AUTHORIZED",
+        "PASS_WITH_BATCH052_NO_SAFE_SOURCE_PATCH",
+        "PASS_WITH_BATCH052_PATCH_APPLY_FAILED",
+    }:
+        return fail("final report Batch052 status mismatch")
+    if final_report.get("batch052_primary_artifact_name") != "post_v2_37_hardening_batch052_source_only_patch_candidate_artifacts":
+        return fail("final report Batch052 artifact name mismatch")
+    if final_report.get("batch052_batch051_artifact_ingest_status") != "PASS" or final_report.get("batch052_batch051_artifact_verification_status") != "PASS":
+        return fail("final report Batch052 Batch051 artifact custody not PASS")
+    if final_report.get("batch052_batch051_pre_repair_failure_preservation_status") != "PASS":
+        return fail("final report Batch052 pre-repair failure preservation not PASS")
+    if final_report.get("batch052_source_only_suitability_classification") != "source_repair_suitable":
+        return fail("final report Batch052 suitability classification mismatch")
+    if final_report.get("batch052_source_only_suitability_status") != "PASS":
+        return fail("final report Batch052 suitability audit not PASS")
+    if final_report.get("batch052_patch_generation_status") != "PASS" or final_report.get("batch052_patch_generated") is not True:
+        return fail("final report Batch052 patch generation mismatch")
+    if not final_report.get("batch052_patch_sha256"):
+        return fail("final report Batch052 patch SHA missing")
+    if final_report.get("batch052_patch_apply_status") != "PASS":
+        return fail("final report Batch052 patch apply did not PASS")
+    if final_report.get("batch052_post_repair_target_replay_status") not in {
+        "PASS_WITH_BATCH052_TARGET_REPLAY_PASSED",
+        "PASS_WITH_BATCH052_TARGET_REPLAY_FAILED",
+        "PASS_WITH_BATCH052_SECONDARY_BLOCKER_OBSERVED",
+        "NOT_RUN",
+    }:
+        return fail("final report Batch052 post-repair target replay status mismatch")
+    if final_report.get("batch052_duplicate_replay_status") != "NOT_RUN":
+        return fail("final report Batch052 duplicate replay should be NOT_RUN")
+    if final_report.get("batch052_post_repair_target_replay_status") == "PASS_WITH_BATCH052_TARGET_REPLAY_PASSED":
+        if final_report.get("batch052_duplicate_replay_not_run_reason") != "waits_for_batch053_duplicate_clean_replay_gate":
+            return fail("final report Batch052 duplicate replay reason mismatch after target pass")
+        if final_report.get("batch052_next_allowed_action") != "batch053_duplicate_clean_replay_gate":
+            return fail("final report Batch052 next action mismatch after target pass")
+    else:
+        if final_report.get("batch052_duplicate_replay_not_run_reason") != "target_replay_not_passed":
+            return fail("final report Batch052 duplicate replay reason mismatch after non-pass")
+    if final_report.get("batch052_native_external_repair_episode_count") != 4:
+        return fail("final report Batch052 native count changed")
+    if final_report.get("batch052_issue_derived_repair_episode_count") != 1:
+        return fail("final report Batch052 issue-derived count changed")
+    if final_report.get("batch052_full_scoring") != "NOT_RUN/disallowed":
+        return fail("final report Batch052 full scoring boundary changed")
+    if final_report.get("batch052_memory_lift") != "not_demonstrated":
+        return fail("final report Batch052 memory-lift boundary changed")
+    if final_report.get("batch052_self_maintaining_software") != "false/not_demonstrated":
+        return fail("final report Batch052 self-maintaining boundary changed")
+    if final_report.get("batch052_incoming_artifacts_quarantine_status") != "PASS_NOT_STAGED":
+        return fail("final report Batch052 incoming artifact quarantine mismatch")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

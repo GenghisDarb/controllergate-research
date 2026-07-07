@@ -1,0 +1,22 @@
+{
+  "dependency_files_modified": false,
+  "dependency_files_mutated": false,
+  "fixed_gold_future_later_evidence_used": false,
+  "fixtures_modified": false,
+  "fixtures_mutated": false,
+  "harness_modified": false,
+  "harness_mutated": false,
+  "issue_body_workaround_used": false,
+  "next_allowed_action": "patch_apply_check",
+  "patch_generated": true,
+  "patch_rationale": "Defer optional mutagen imports in the enclosure-tags plugin until tag rewriting is invoked, so app startup from the selected commit's example config does not log an import failure when the unstable plugin extra is absent.",
+  "patch_sha256": "9fd44eb2bcd50c0fe926f51fecbfb697c245cdabd2d22ed956e1c3382a9628ac",
+  "selected_source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
+  "source_only": true,
+  "status": "PASS",
+  "tests_modified": false,
+  "tests_mutated": false,
+  "touched_files": [
+    "src/reader/_plugins/enclosure_tags.py"
+  ]
+}

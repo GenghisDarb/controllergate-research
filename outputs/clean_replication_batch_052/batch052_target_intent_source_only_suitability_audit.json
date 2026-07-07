@@ -1,0 +1,63 @@
+{
+  "checks": [
+    {
+      "check_id": "failure_materialized_in_batch051",
+      "status": "PASS"
+    },
+    {
+      "check_id": "source_level_optional_dependency_import_behavior",
+      "status": "PASS"
+    },
+    {
+      "check_id": "not_merely_test_isolation",
+      "reason": "failure occurs while loading a shipped app plugin from the shipped example config",
+      "status": "PASS"
+    },
+    {
+      "check_id": "not_merely_missing_optional_dependency",
+      "reason": "the source imports an optional plugin dependency during module import, before endpoint use",
+      "status": "PASS"
+    },
+    {
+      "check_id": "not_local_user_config_contamination",
+      "reason": "config is copied from the selected commit's examples/config.yaml",
+      "status": "PASS"
+    },
+    {
+      "check_id": "source_only_patch_plausible",
+      "status": "PASS"
+    },
+    {
+      "check_id": "tests_do_not_require_mutation",
+      "status": "PASS"
+    },
+    {
+      "check_id": "fixtures_do_not_require_mutation",
+      "status": "PASS"
+    },
+    {
+      "check_id": "harness_does_not_require_mutation",
+      "status": "PASS"
+    },
+    {
+      "check_id": "dependency_lock_does_not_require_mutation",
+      "status": "PASS"
+    },
+    {
+      "check_id": "fixed_gold_future_later_evidence_not_used",
+      "status": "PASS"
+    },
+    {
+      "check_id": "issue_body_workaround_patch_not_used",
+      "status": "PASS"
+    }
+  ],
+  "classification": "source_repair_suitable",
+  "exact_blocker": null,
+  "failure_materialized_in_batch051": true,
+  "next_allowed_action": "source_only_patch_policy",
+  "observed_failure_signature": "ModuleNotFoundError: No module named 'mutagen'",
+  "observed_optional_dependency_import_failure": true,
+  "patch_generation_authorized": true,
+  "status": "PASS"
+}
