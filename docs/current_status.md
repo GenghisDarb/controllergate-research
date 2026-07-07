@@ -88,3 +88,13 @@ Batch017 attempts decision-time dependency-era resolution, records the missing d
 - Next allowed action: `batch052_source_only_patch_candidate_gate`.
 - External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
 - Batch051 is a seed-approval and pre-repair replay gate only; repair generation, patch generation, duplicate replay, full scoring, memory-lift claims, and production-readiness claims remain disabled.
+
+### Batch055 seed discovery wave 1
+
+- Batch054 official ingest status: `PASS`.
+- Batch055 seed discovery wave 1 status: `PASS`.
+- Issue-derived repair count preserved at `2`; native external repair count preserved at `4`.
+- Weak leads screened: `24`; Codex-augmented leads: `10`.
+- Commit-resolved candidates: `23`; approved for Batch056 pre-repair replay: `8`.
+- Next allowed action: `batch056_pre_repair_replay_wave_1`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

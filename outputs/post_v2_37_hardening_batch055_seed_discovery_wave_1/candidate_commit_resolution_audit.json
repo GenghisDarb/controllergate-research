@@ -1,0 +1,648 @@
+{
+  "records": [
+    {
+      "approval_status": "rejected_native_test_missing",
+      "candidate_sha": "4bf159b57e0b0d8fa211ebfbb842d3f4667d50a8",
+      "checked_native_test_paths": [
+        {
+          "exists": false,
+          "path": "tests/test_local_config.py"
+        }
+      ],
+      "default_branch": "master",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "native_test_missing",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": true,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/lemon24/reader/issues/302",
+      "lead_id": "lemon24_reader_302_local_config_failure",
+      "leakage_status": "leakage_risk_screened_issue_body_excluded",
+      "native_test_exists": false,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "pytest tests/test_local_config.py -q",
+      "repo_url": "https://github.com/lemon24/reader",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "rejected_environment_unclear",
+      "candidate_sha": "ba2af395c27cd378b326a7ce22244d755e11e580",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "network_or_dependency_boundary_risk",
+      "exact_blocker": "network_or_dependency_boundary_risk",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": true,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/pdm-project/pdm/issues/3487",
+      "lead_id": "pdm_project_pdm_3487",
+      "leakage_status": "leakage_risk_screened_issue_body_excluded",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "pytest tests/... -q --tb=no",
+      "repo_url": "https://github.com/pdm-project/pdm",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "rejected_issue_mismatch",
+      "candidate_sha": null,
+      "checked_native_test_paths": [],
+      "default_branch": null,
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "not_exact_issue_reference",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": false,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": true,
+      "issue_reference_matches": false,
+      "issue_url_or_reference": "https://github.com/pydantic/pytest-examples/issues",
+      "lead_id": "pydantic_pytest_examples_issue_discovery",
+      "leakage_status": "not_exact_issue_reference",
+      "native_test_exists": false,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "pytest tests -q --tb=no",
+      "repo_url": "https://github.com/pydantic/pytest-examples",
+      "resolution_method": "repo_or_issue_timestamp_missing",
+      "sha_resolves": false
+    },
+    {
+      "approval_status": "approved_for_pre_repair_replay_wave",
+      "candidate_sha": "f57977a08f85da40bbe04c7b0dbb57ba03694a9d",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/test_cli.py"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": null,
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/simonw/datasette/issues/2461",
+      "lead_id": "datasette_2461_async_event_loop_cli_tests",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/test_cli.py -q --tb=no",
+      "repo_url": "https://github.com/simonw/datasette",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "approved_for_pre_repair_replay_wave",
+      "candidate_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/test_datetimes.py"
+        }
+      ],
+      "default_branch": "master",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": null,
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/spulec/freezegun/issues/547",
+      "lead_id": "freezegun_547_py313_datetimes_assertion",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/test_datetimes.py -q --tb=no",
+      "repo_url": "https://github.com/spulec/freezegun",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "approved_for_pre_repair_replay_wave",
+      "candidate_sha": "966cce897c0a25485918f945eb83968d04933b2d",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": null,
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/Pylons/venusian/issues/91",
+      "lead_id": "venusian_91_py313_frameinfo_callinfo",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "tox -e py313",
+      "repo_url": "https://github.com/Pylons/venusian",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "approved_for_pre_repair_replay_wave",
+      "candidate_sha": "000a8684bd109c3f9c9b5fabd95add4743b7f45a",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/test_replwrap.py"
+        }
+      ],
+      "default_branch": "master",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": null,
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/pexpect/pexpect/issues/699",
+      "lead_id": "pexpect_699_replwrap_bash_assertions",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/test_replwrap.py -q --tb=no",
+      "repo_url": "https://github.com/pexpect/pexpect",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "rejected_native_test_missing",
+      "candidate_sha": "55946c888eec55ae2c75702426298bb4fed28ebe",
+      "checked_native_test_paths": [
+        {
+          "exists": false,
+          "path": "tests"
+        }
+      ],
+      "default_branch": "master",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "native_test_missing",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/jwodder/versioningit/issues/89",
+      "lead_id": "versioningit_89_hatch_onbuild_modulenotfound",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": false,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests -q --tb=no",
+      "repo_url": "https://github.com/jwodder/versioningit",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "approved_for_pre_repair_replay_wave",
+      "candidate_sha": "ef0f6861e5b439afe43983f6c7437c30a413a34d",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/test_util.py"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": null,
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": true,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/Pylons/pyramid/issues/3761",
+      "lead_id": "pyramid_3761_py313_test_util",
+      "leakage_status": "leakage_risk_screened_issue_body_excluded",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/test_util.py -q --tb=no",
+      "repo_url": "https://github.com/Pylons/pyramid",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "approved_for_pre_repair_replay_wave",
+      "candidate_sha": "e0b4d67b0edab769677ec5820926c946a265ec10",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests"
+        }
+      ],
+      "default_branch": "master",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": null,
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/agronholm/anyio/issues/1028",
+      "lead_id": "anyio_1028_old_pytest_assertion",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests -q --tb=no",
+      "repo_url": "https://github.com/agronholm/anyio",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "rejected_environment_unclear",
+      "candidate_sha": "b9bcecfe32c9452f0fd018449ffcca96c50505b3",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/image_methods_test.py"
+        }
+      ],
+      "default_branch": "master",
+      "environment_constraints": "compiled_or_external_dependency_risk",
+      "exact_blocker": "compiled_or_external_dependency_risk",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/emcconville/wand/issues/582",
+      "lead_id": "wand_582_py311_fx_error",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "tox -e py311",
+      "repo_url": "https://github.com/emcconville/wand",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "approved_for_pre_repair_replay_wave",
+      "candidate_sha": "0f00d49a594c2dc3576714a0669fbdbcc4dd4c7e",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": null,
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": true,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/coveragepy/coveragepy/issues/2007",
+      "lead_id": "coveragepy_2007_pytest_run_parallel",
+      "leakage_status": "leakage_risk_screened_issue_body_excluded",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests -q --tb=no",
+      "repo_url": "https://github.com/coveragepy/coveragepy",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "approved_for_pre_repair_replay_wave",
+      "candidate_sha": "14ff8554f25c83845687315c0a251048e76784ba",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests"
+        }
+      ],
+      "default_branch": "master",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": null,
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/pyscaffold/pyscaffold/issues/731",
+      "lead_id": "pyscaffold_731_pytest_modulenotfound",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests -q --tb=no",
+      "repo_url": "https://github.com/pyscaffold/pyscaffold",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "rejected_environment_unclear",
+      "candidate_sha": "9c4bcb007850012e42c13a3c0b574703cba6925f",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/console/test_Printer.py"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "windows_specific_or_host_specific",
+      "exact_blocker": "windows_specific_or_host_specific",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/beeware/briefcase/issues/1249",
+      "lead_id": "briefcase_1249_windows_printer_tox",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/console/test_Printer.py -q --tb=no",
+      "repo_url": "https://github.com/beeware/briefcase",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "probe_only_needs_manual_review",
+      "candidate_sha": "82e87a44d8a8d1ca6579d454b055a7618d23ec10",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "wave_1_approval_cap_reached",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/retracesoftware/retracesoftware/issues/86",
+      "lead_id": "retracesoftware_86_pytest_failure_hint_parser",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests -q --tb=no",
+      "repo_url": "https://github.com/retracesoftware/retracesoftware",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "probe_only_needs_manual_review",
+      "candidate_sha": "b33a27d12b93311cf6c41b77ebf2994e555e52f9",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "testing"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "wave_1_approval_cap_reached",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/pytest-dev/pytest/issues/14575",
+      "lead_id": "pytest_dev_14575_last_failed_subtest",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest testing -q --tb=no",
+      "repo_url": "https://github.com/pytest-dev/pytest",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "probe_only_needs_manual_review",
+      "candidate_sha": "6e471c075039dfef24e28d11658e03d5c949c7c3",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/test_discovery.py"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "wave_1_approval_cap_reached",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": true,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/googleapis/google-api-python-client/issues/2755",
+      "lead_id": "google_api_python_client_2755_pytest_setup_package",
+      "leakage_status": "leakage_risk_screened_issue_body_excluded",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/test_discovery.py -k test_tests_should_be_run_with_strict_positional_enforcement -q",
+      "repo_url": "https://github.com/googleapis/google-api-python-client",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "probe_only_needs_manual_review",
+      "candidate_sha": "581c0860dfedf9628e1b4c0c019e3c36e5e4a74e",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/test_builders/test_build_gettext.py"
+        }
+      ],
+      "default_branch": "master",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "wave_1_approval_cap_reached",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/sphinx-doc/sphinx/issues/14506",
+      "lead_id": "sphinx_14506_gettext_literalblock_parallel",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/test_builders/test_build_gettext.py -q --tb=no",
+      "repo_url": "https://github.com/sphinx-doc/sphinx",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "probe_only_needs_manual_review",
+      "candidate_sha": "aa273e3fe6d1242c686b27c55e23f85370606bdd",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/test_renderers"
+        }
+      ],
+      "default_branch": "master",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "wave_1_approval_cap_reached",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/executablebooks/MyST-Parser/issues/1152",
+      "lead_id": "myst_parser_1152_docutils_023_link_resolution",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/test_renderers -q --tb=no",
+      "repo_url": "https://github.com/executablebooks/MyST-Parser",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "probe_only_needs_manual_review",
+      "candidate_sha": "d8ef4d3b3a8b4269b36ec732f12ae6c21c653513",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/scripts/test_provision_som.py"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "wave_1_approval_cap_reached",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": true,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/alplabai/alp-sdk/issues/465",
+      "lead_id": "alp_sdk_465_provision_som_dry_run",
+      "leakage_status": "leakage_risk_screened_issue_body_excluded",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/scripts/test_provision_som.py -q --tb=no",
+      "repo_url": "https://github.com/alplabai/alp-sdk",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "probe_only_needs_manual_review",
+      "candidate_sha": "e67a4890c00955a1000675d93e83efedc5e81400",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/test_public_release_check.py"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "wave_1_approval_cap_reached",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/Moonweave-Research/figops/issues/217",
+      "lead_id": "figops_217_git_path_test_skip",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/test_public_release_check.py::test_public_release_check_uses_git_exclude_standard_when_available -q",
+      "repo_url": "https://github.com/Moonweave-Research/figops",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "probe_only_needs_manual_review",
+      "candidate_sha": "7fffabeba96a904ca8388f303824ebeb816b989c",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "deepinv/tests/test_transform.py"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "wave_1_approval_cap_reached",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": true,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/deepinv/deepinv/issues/1238",
+      "lead_id": "deepinv_1238_transform_identity_rng",
+      "leakage_status": "leakage_risk_screened_issue_body_excluded",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest deepinv/tests/test_transform.py -k test_transform_identity -q --tb=no",
+      "repo_url": "https://github.com/deepinv/deepinv",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "rejected_environment_unclear",
+      "candidate_sha": "b0eb2e9da238dd673ebe0a65dac75dd65b35c51a",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "testing/cffi1/test_cffi_gen_src_meson.py"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "compiled_or_external_dependency_risk",
+      "exact_blocker": "compiled_or_external_dependency_risk",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": false,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/python-cffi/cffi/issues/255",
+      "lead_id": "python_cffi_255_offline_cffi_gen_src_meson",
+      "leakage_status": "failure_context_only",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest testing/cffi1/test_cffi_gen_src_meson.py -q --tb=no",
+      "repo_url": "https://github.com/python-cffi/cffi",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    },
+    {
+      "approval_status": "probe_only_needs_manual_review",
+      "candidate_sha": "f74c362820423d16b4163e2da2a17db55c5fa91d",
+      "checked_native_test_paths": [
+        {
+          "exists": true,
+          "path": "tests/unit/server/api/test_sandbox_queries.py"
+        }
+      ],
+      "default_branch": "main",
+      "environment_constraints": "ubuntu_latest_plausible",
+      "exact_blocker": "wave_1_approval_cap_reached",
+      "fixed_or_future_evidence_used": false,
+      "git_cat_file_e_commit_verified": true,
+      "helper_provided_sha_trusted": false,
+      "issue_body_excluded_from_repair_evidence": true,
+      "issue_reference_matches": true,
+      "issue_url_or_reference": "https://github.com/Arize-ai/phoenix/issues/13925",
+      "lead_id": "arize_phoenix_13925_sandbox_wasmtime",
+      "leakage_status": "leakage_risk_screened_issue_body_excluded",
+      "native_test_exists": true,
+      "patch_or_fix_text_used": false,
+      "possible_failing_command_selected": "python -m pytest tests/unit/server/api/test_sandbox_queries.py -q --tb=no",
+      "repo_url": "https://github.com/Arize-ai/phoenix",
+      "resolution_method": "github_commit_before_issue_created_at",
+      "sha_resolves": true
+    }
+  ],
+  "status": "PASS"
+}

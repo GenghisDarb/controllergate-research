@@ -1,0 +1,131 @@
+name: post_v2_37_hardening_batch055_seed_discovery_wave_1
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  batch055-seed-discovery-wave-1:
+    name: Batch055 seed discovery wave 1 validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run byte-custody preflight before validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Install workflow test dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run shared core and runtime tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/core tests/runtime -q
+
+      - name: Validate registry, Batch055 audit, and current protocol
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/audit_batch055_seed_discovery_wave_1.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          git diff --check
+          python - <<'PY'
+          import json
+          state = json.load(open("outputs/post_v2_37_hardening_batch055_seed_discovery_wave_1/seed_discovery_wave_1_results.json", encoding="utf-8"))
+          dashboard = json.load(open("outputs/post_v2_37_hardening_batch055_seed_discovery_wave_1/twenty_seed_campaign_dashboard.json", encoding="utf-8"))
+          for key in [
+              "status",
+              "batch054_ingest_status",
+              "total_leads_screened",
+              "total_codex_augmented_leads",
+              "commit_resolved_candidate_count",
+              "approved_for_pre_repair_replay_count",
+              "issue_derived_repair_count",
+              "native_external_repair_count",
+              "next_allowed_action",
+              "full_scoring",
+              "memory_lift",
+              "self_maintaining_software",
+          ]:
+              print(f"batch055_{key}={state.get(key)}")
+          for key in [
+              "leads_rejected",
+              "leads_probe_only",
+              "planned_batch056_candidates",
+          ]:
+              print(f"batch055_dashboard_{key}={dashboard.get(key)}")
+          PY
+
+      - name: Stage clean Batch055 artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf artifact_payload/post_v2_37_hardening_batch055_seed_discovery_wave_1
+          mkdir -p artifact_payload/post_v2_37_hardening_batch055_seed_discovery_wave_1
+          cp -a outputs/post_v2_37_hardening_batch055_seed_discovery_wave_1 artifact_payload/post_v2_37_hardening_batch055_seed_discovery_wave_1/
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          root = Path("artifact_payload/post_v2_37_hardening_batch055_seed_discovery_wave_1")
+          rows = []
+          for path in sorted(root.rglob("*")):
+              if path.is_file() and path.name != "ARTIFACT_SHA256SUMS.txt":
+                  digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                  rows.append(f"{digest}  {path.relative_to(root).as_posix()}")
+          (root / "ARTIFACT_SHA256SUMS.txt").write_text("\n".join(rows) + "\n", encoding="utf-8")
+          PY
+          test -f artifact_payload/post_v2_37_hardening_batch055_seed_discovery_wave_1/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch055_seed_discovery_wave_1 \( \
+            -path '*/__pycache__/*' -o \
+            -path '*/.pytest_cache/*' -o \
+            -path '*/.mypy_cache/*' -o \
+            -path '*/.ruff_cache/*' -o \
+            -path '*/.venv/*' -o \
+            -path '*/venv/*' -o \
+            -path '*/env/*' -o \
+            -path '*/ENV/*' -o \
+            -name '*.pyc' -o \
+            -name '*.pyo' -o \
+            -name '*.zip' -o \
+            -name '*.tar' -o \
+            -name '*.tar.gz' -o \
+            -name '*.tgz' -o \
+            -name '*.7z' -o \
+            -name '*.whl' \
+          \) -print -quit | grep -q .; then
+            echo "artifact_packaging_forbidden_payload_detected"
+            exit 1
+          fi
+
+      - name: Upload Batch055 seed discovery wave 1 artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch055_seed_discovery_wave_1_artifacts
+          path: |
+            artifact_payload/post_v2_37_hardening_batch055_seed_discovery_wave_1/**
+          if-no-files-found: error

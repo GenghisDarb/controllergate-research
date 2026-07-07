@@ -1,0 +1,76 @@
+{
+  "next_allowed_action": "batch056_pre_repair_replay_wave_1",
+  "planned_batch056_candidates": [
+    {
+      "candidate_sha": "f57977a08f85da40bbe04c7b0dbb57ba03694a9d",
+      "lead_id": "datasette_2461_async_event_loop_cli_tests",
+      "native_test_exists": true,
+      "possible_failing_command_selected": "python -m pytest tests/test_cli.py -q --tb=no",
+      "ranking_basis": [
+        "commit_resolves",
+        "native_test_exists",
+        "decision_time_safe_failure_context",
+        "no_duplicate",
+        "no_fixed_gold_future_evidence"
+      ],
+      "repo_url": "https://github.com/simonw/datasette"
+    },
+    {
+      "candidate_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "lead_id": "freezegun_547_py313_datetimes_assertion",
+      "native_test_exists": true,
+      "possible_failing_command_selected": "python -m pytest tests/test_datetimes.py -q --tb=no",
+      "ranking_basis": [
+        "commit_resolves",
+        "native_test_exists",
+        "decision_time_safe_failure_context",
+        "no_duplicate",
+        "no_fixed_gold_future_evidence"
+      ],
+      "repo_url": "https://github.com/spulec/freezegun"
+    },
+    {
+      "candidate_sha": "966cce897c0a25485918f945eb83968d04933b2d",
+      "lead_id": "venusian_91_py313_frameinfo_callinfo",
+      "native_test_exists": true,
+      "possible_failing_command_selected": "tox -e py313",
+      "ranking_basis": [
+        "commit_resolves",
+        "native_test_exists",
+        "decision_time_safe_failure_context",
+        "no_duplicate",
+        "no_fixed_gold_future_evidence"
+      ],
+      "repo_url": "https://github.com/Pylons/venusian"
+    },
+    {
+      "candidate_sha": "000a8684bd109c3f9c9b5fabd95add4743b7f45a",
+      "lead_id": "pexpect_699_replwrap_bash_assertions",
+      "native_test_exists": true,
+      "possible_failing_command_selected": "python -m pytest tests/test_replwrap.py -q --tb=no",
+      "ranking_basis": [
+        "commit_resolves",
+        "native_test_exists",
+        "decision_time_safe_failure_context",
+        "no_duplicate",
+        "no_fixed_gold_future_evidence"
+      ],
+      "repo_url": "https://github.com/pexpect/pexpect"
+    },
+    {
+      "candidate_sha": "ef0f6861e5b439afe43983f6c7437c30a413a34d",
+      "lead_id": "pyramid_3761_py313_test_util",
+      "native_test_exists": true,
+      "possible_failing_command_selected": "python -m pytest tests/test_util.py -q --tb=no",
+      "ranking_basis": [
+        "commit_resolves",
+        "native_test_exists",
+        "decision_time_safe_failure_context",
+        "no_duplicate",
+        "no_fixed_gold_future_evidence"
+      ],
+      "repo_url": "https://github.com/Pylons/pyramid"
+    }
+  ],
+  "status": "PASS"
+}

@@ -198,7 +198,7 @@ Batch052 status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`; exact blocker: `None
 
 Batch053 officially ingests the successful Batch052 source-only patch artifact, reconciles public status to the official artifact state, hardens evidence-contract and official-ingest custody, and runs the duplicate clean replay gate when the host environment allows it.
 
-Batch053 status: `PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED`; exact blocker: `host_environment_not_ubuntu_latest_python311`; duplicate clean replay: `PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED`; next allowed action: `secondary_blocker_governance_gate`.
+Batch053 status: `PASS_WITH_BATCH053_DUPLICATE_CLEAN_REPLAY_PASSED`; exact blocker: `None`; duplicate clean replay: `PASS_WITH_BATCH053_DUPLICATE_CLEAN_REPLAY_PASSED`; next allowed action: `batch054_issue_derived_repair_validation_count_gate`.
 
 Batch054 officially ingests the successful Batch053 duplicate replay artifact, locks the issue-derived repair episode count when the full evidence chain passes, and prepares the next-patch seed lane without generating a new patch.
 

@@ -1,0 +1,539 @@
+{
+  "lead_count": 24,
+  "leads": [
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "local config",
+        "custom config file",
+        "FAILED",
+        "test_custom_config_file"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "exclude_issue_body_from_repair_evidence_if_patch_or_workaround_present",
+      "issue_url_or_reference": "https://github.com/lemon24/reader/issues/302",
+      "lead_id": "lemon24_reader_302_local_config_failure",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": true,
+      "possible_failing_command": "pytest tests/test_local_config.py -q",
+      "possible_native_test_paths": [
+        "tests/test_local_config.py"
+      ],
+      "reason_this_is_promising": "Real reported local-config failure in a native test area; requires leakage screening.",
+      "repo_url": "https://github.com/lemon24/reader",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "network-isolated",
+        "AssertionError",
+        "test"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/pdm-project/pdm/issues/3487",
+      "lead_id": "pdm_project_pdm_3487",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "pytest tests/... -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Potential network-isolated Python test failure; exact native command must be resolved independently.",
+      "repo_url": "https://github.com/pdm-project/pdm",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest",
+        "examples",
+        "docstring"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "not_an_exact_issue_reference_must_resolve_or_reject",
+      "issue_url_or_reference": "https://github.com/pydantic/pytest-examples/issues",
+      "lead_id": "pydantic_pytest_examples_issue_discovery",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Small pytest plugin scope, but not an exact issue reference.",
+      "repo_url": "https://github.com/pydantic/pytest-examples",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "There is no current event loop",
+        "tests/test_cli.py",
+        "pytest-asyncio"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/simonw/datasette/issues/2461",
+      "lead_id": "datasette_2461_async_event_loop_cli_tests",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_cli.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_cli.py"
+      ],
+      "reason_this_is_promising": "Native CLI test failure with named test path and async/event-loop signature.",
+      "repo_url": "https://github.com/simonw/datasette",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "Python 3.13",
+        "AssertionError",
+        "FakeDate",
+        "tests/test_datetimes.py"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/spulec/freezegun/issues/547",
+      "lead_id": "freezegun_547_py313_datetimes_assertion",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_datetimes.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_datetimes.py"
+      ],
+      "reason_this_is_promising": "Small pure-Python project with concrete assertion failures in datetime tests.",
+      "repo_url": "https://github.com/spulec/freezegun",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "Python 3.13",
+        "FrameInfoTest",
+        "testCallInfo",
+        "tox -e py313"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/Pylons/venusian/issues/91",
+      "lead_id": "venusian_91_py313_frameinfo_callinfo",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "tox -e py313",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Small package with named Python 3.13 frameinfo compatibility failure.",
+      "repo_url": "https://github.com/Pylons/venusian",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "REPLWrapTestCase",
+        "test_multiline",
+        "tests/test_replwrap.py",
+        "AssertionError"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/pexpect/pexpect/issues/699",
+      "lead_id": "pexpect_699_replwrap_bash_assertions",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_replwrap.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_replwrap.py"
+      ],
+      "reason_this_is_promising": "Concrete native tests and assertion signatures, with shell-environment caveat.",
+      "repo_url": "https://github.com/pexpect/pexpect",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "ModuleNotFoundError",
+        "hatch",
+        "versioningit-onbuild",
+        "pytest"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/jwodder/versioningit/issues/89",
+      "lead_id": "versioningit_89_hatch_onbuild_modulenotfound",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Small packaging/backend scope with pytest import failure.",
+      "repo_url": "https://github.com/jwodder/versioningit",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "Python 3.13",
+        "test_util",
+        "pytest",
+        "Fedora"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/Pylons/pyramid/issues/3761",
+      "lead_id": "pyramid_3761_py313_test_util",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_util.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_util.py"
+      ],
+      "reason_this_is_promising": "Native utility test failure with Python 3.13 context.",
+      "repo_url": "https://github.com/Pylons/pyramid",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "anyio==4.11.0",
+        "old pytest",
+        "AssertionError",
+        "Python 3.9"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/agronholm/anyio/issues/1028",
+      "lead_id": "anyio_1028_old_pytest_assertion",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Compatibility issue with old pytest and dependency interaction; screen as possible environment-only failure.",
+      "repo_url": "https://github.com/agronholm/anyio",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "Python 3.11",
+        "tests/image_methods_test.py",
+        "test_fx_error",
+        "TypeError"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/emcconville/wand/issues/582",
+      "lead_id": "wand_582_py311_fx_error",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "tox -e py311",
+      "possible_native_test_paths": [
+        "tests/image_methods_test.py"
+      ],
+      "reason_this_is_promising": "Concrete test and traceback signature, with native ImageMagick dependency risk.",
+      "repo_url": "https://github.com/emcconville/wand",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest-run-parallel",
+        "global state",
+        "sys.modules",
+        "filesystem",
+        "threads"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/coveragepy/coveragepy/issues/2007",
+      "lead_id": "coveragepy_2007_pytest_run_parallel",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Real test failure class with concurrency/global-state clues, but likely complex.",
+      "repo_url": "https://github.com/coveragepy/coveragepy",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest",
+        "ModuleNotFoundError",
+        "tests",
+        "tox"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/pyscaffold/pyscaffold/issues/731",
+      "lead_id": "pyscaffold_731_pytest_modulenotfound",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Pytest import failure after project generation; screen for exact reproduction.",
+      "repo_url": "https://github.com/pyscaffold/pyscaffold",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "Windows",
+        "tox",
+        "Printer",
+        "tests/console/test_Printer.py",
+        "FAILED"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/beeware/briefcase/issues/1249",
+      "lead_id": "briefcase_1249_windows_printer_tox",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/console/test_Printer.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/console/test_Printer.py"
+      ],
+      "reason_this_is_promising": "Concrete native test path but likely Windows-specific.",
+      "repo_url": "https://github.com/beeware/briefcase",
+      "source_of_lead": "halcyon_seed_list"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "pytest failure hint",
+        "AssertionError",
+        "OperationalError",
+        "tests/conftest.py"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/retracesoftware/retracesoftware/issues/86",
+      "lead_id": "retracesoftware_86_pytest_failure_hint_parser",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/"
+      ],
+      "reason_this_is_promising": "Parser-only pytest failure classification issue discovered through GitHub issue search.",
+      "repo_url": "https://github.com/retracesoftware/retracesoftware",
+      "search_query": "python pytest AssertionError tests/test is:issue",
+      "source_of_lead": "codex_github_search"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "--last-failed",
+        "subtest",
+        "unittest",
+        "deselected"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/pytest-dev/pytest/issues/14575",
+      "lead_id": "pytest_dev_14575_last_failed_subtest",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest testing -q --tb=no",
+      "possible_native_test_paths": [
+        "testing/"
+      ],
+      "reason_this_is_promising": "Small reproduction class in a pure-Python pytest subsystem.",
+      "repo_url": "https://github.com/pytest-dev/pytest",
+      "search_query": "python pytest AssertionError tests/test is:issue",
+      "source_of_lead": "codex_github_search"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "strict positional",
+        "pytest",
+        "tests/test_discovery.py",
+        "TypeError"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "exclude_issue_body_from_repair_evidence_if_patch_or_workaround_present",
+      "issue_url_or_reference": "https://github.com/googleapis/google-api-python-client/issues/2755",
+      "lead_id": "google_api_python_client_2755_pytest_setup_package",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": true,
+      "possible_failing_command": "python -m pytest tests/test_discovery.py -k test_tests_should_be_run_with_strict_positional_enforcement -q",
+      "possible_native_test_paths": [
+        "tests/test_discovery.py"
+      ],
+      "reason_this_is_promising": "Concrete native test path and command; issue body must be excluded because it contains implementation guidance.",
+      "repo_url": "https://github.com/googleapis/google-api-python-client",
+      "search_query": "python pytest AssertionError tests/test is:issue",
+      "source_of_lead": "codex_github_search"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "test_gettext_literalblock_additional",
+        "literalblock.pot",
+        "pytest-xdist"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/sphinx-doc/sphinx/issues/14506",
+      "lead_id": "sphinx_14506_gettext_literalblock_parallel",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_builders/test_build_gettext.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_builders/test_build_gettext.py"
+      ],
+      "reason_this_is_promising": "Named test failure in pure-Python docs build tests, but parallel/Fedora context requires screening.",
+      "repo_url": "https://github.com/sphinx-doc/sphinx",
+      "search_query": "tox failure pytest tests Python is:issue",
+      "source_of_lead": "codex_github_search"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "docutils 0.23",
+        "test_link_resolution",
+        "system_message"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/executablebooks/MyST-Parser/issues/1152",
+      "lead_id": "myst_parser_1152_docutils_023_link_resolution",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_renderers -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/test_renderers/"
+      ],
+      "reason_this_is_promising": "Named renderer test failure with dependency-version context.",
+      "repo_url": "https://github.com/executablebooks/MyST-Parser",
+      "search_query": "tox failure pytest tests Python is:issue",
+      "source_of_lead": "codex_github_search"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "provision_som",
+        "dry-run",
+        "tests/scripts/test_provision_som.py",
+        "bmaptool"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "exclude_issue_body_from_repair_evidence_if_patch_or_workaround_present",
+      "issue_url_or_reference": "https://github.com/alplabai/alp-sdk/issues/465",
+      "lead_id": "alp_sdk_465_provision_som_dry_run",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": true,
+      "possible_failing_command": "python -m pytest tests/scripts/test_provision_som.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/scripts/test_provision_som.py"
+      ],
+      "reason_this_is_promising": "Concrete native test path and environment-boundary behavior, but issue body includes suggested direction.",
+      "repo_url": "https://github.com/alplabai/alp-sdk",
+      "search_query": "python pytest AssertionError tests/test is:issue",
+      "source_of_lead": "codex_github_search"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "test_public_release_check",
+        "git not on PATH",
+        "FileNotFoundError"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/Moonweave-Research/figops/issues/217",
+      "lead_id": "figops_217_git_path_test_skip",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest tests/test_public_release_check.py::test_public_release_check_uses_git_exclude_standard_when_available -q",
+      "possible_native_test_paths": [
+        "tests/test_public_release_check.py"
+      ],
+      "reason_this_is_promising": "Small Python repo with a concrete native test path; likely environment-boundary classification.",
+      "repo_url": "https://github.com/Moonweave-Research/figops",
+      "search_query": "python pytest AssertionError tests/test is:issue",
+      "source_of_lead": "codex_github_search"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "test_transform_identity",
+        "AssertionError",
+        "homography",
+        "affine"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/deepinv/deepinv/issues/1238",
+      "lead_id": "deepinv_1238_transform_identity_rng",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest deepinv/tests/test_transform.py -k test_transform_identity -q --tb=no",
+      "possible_native_test_paths": [
+        "deepinv/tests/test_transform.py"
+      ],
+      "reason_this_is_promising": "Concrete native test path, but larger dependency surface.",
+      "repo_url": "https://github.com/deepinv/deepinv",
+      "search_query": "python pytest AssertionError tests/test is:issue",
+      "source_of_lead": "codex_github_search"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "offline",
+        "test_cffi_gen_src_meson.py",
+        "meson",
+        "pytest"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "screen_issue_body_for_patch_workaround_and_exclude_if_present",
+      "issue_url_or_reference": "https://github.com/python-cffi/cffi/issues/255",
+      "lead_id": "python_cffi_255_offline_cffi_gen_src_meson",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": "unknown_screen_required",
+      "possible_failing_command": "python -m pytest testing/cffi1/test_cffi_gen_src_meson.py -q --tb=no",
+      "possible_native_test_paths": [
+        "testing/cffi1/test_cffi_gen_src_meson.py"
+      ],
+      "reason_this_is_promising": "Concrete test path, but compiled/tooling dependencies need screening.",
+      "repo_url": "https://github.com/python-cffi/cffi",
+      "search_query": "tox failure pytest tests Python is:issue",
+      "source_of_lead": "codex_github_search"
+    },
+    {
+      "do_not_include_fix_or_patch": true,
+      "failure_keywords": [
+        "test_sandbox_providers_returns_nested_configs",
+        "wasmtime",
+        "sqlite"
+      ],
+      "helper_provided_sha_trusted": false,
+      "issue_body_policy": "exclude_issue_body_from_repair_evidence_if_patch_or_workaround_present",
+      "issue_url_or_reference": "https://github.com/Arize-ai/phoenix/issues/13925",
+      "lead_id": "arize_phoenix_13925_sandbox_wasmtime",
+      "lead_is_seed": false,
+      "patch_or_workaround_in_issue_body": true,
+      "possible_failing_command": "python -m pytest tests/unit/server/api/test_sandbox_queries.py -q --tb=no",
+      "possible_native_test_paths": [
+        "tests/unit/server/api/test_sandbox_queries.py"
+      ],
+      "reason_this_is_promising": "Concrete native test path but issue includes root-cause and long-term fix notes.",
+      "repo_url": "https://github.com/Arize-ai/phoenix",
+      "search_query": "python pytest AssertionError tests/test is:issue",
+      "source_of_lead": "codex_github_search"
+    }
+  ],
+  "status": "PASS"
+}
