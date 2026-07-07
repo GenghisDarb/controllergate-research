@@ -138,6 +138,17 @@ python scripts/controllergate_run.py --protocol current --dry-run
 - External native repair episodes remain `4`; issue-derived repair episodes remain `1`.
 - Batch053 does not increment repair counts, run full scoring, claim memory lift, claim self-maintaining software, or claim production readiness.
 
+### Batch054 issue-derived repair count gate and next patch preparation
+
+- Batch054 status: `PASS_WITH_BATCH054_ISSUE_DERIVED_REPAIR_COUNT_LOCKED`.
+- Current protocol remains: `v2.14`.
+- Issue-derived repair episodes after Batch054: `2`.
+- External native repair episodes remain `4`.
+- Exact blocker: `None`.
+- Next allowed action: `batch055_next_patch_seed_gate`.
+- Next seed fastlane status: `WAITING_FOR_FRESH_SEED`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`; production readiness remains `false/not_demonstrated`.
+
 ### Batch050 manual fresh-seed intake fast lane
 
 - Batch050 status: `PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED`.

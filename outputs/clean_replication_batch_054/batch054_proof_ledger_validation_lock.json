@@ -1,0 +1,94 @@
+{
+  "analogy_language_used_as_proof": false,
+  "count_gate_points_to_validated_repair_branch": true,
+  "duplicate_replay_points_to_same_patch_and_source_commit": true,
+  "entries": [
+    {
+      "entry_hash": "2f13e294d4196b00312762821793092f198987e565e6aca67bd3d24eb143326b",
+      "entry_id": "batch051_pre_repair_failure_materialization",
+      "explicit_fork_marker": true,
+      "parent": null,
+      "patch_sha256": "9fd44eb2bcd50c0fe926f51fecbfb697c245cdabd2d22ed956e1c3382a9628ac",
+      "previous_hash": null,
+      "source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
+      "status": "PASS"
+    },
+    {
+      "entry_hash": "d8729a4a29c9526243fd0472706576b203c76748f5a9c5a56f2c789b1386afc9",
+      "entry_id": "batch052_source_only_patch",
+      "explicit_fork_marker": false,
+      "parent": "batch051_pre_repair_failure_materialization",
+      "patch_sha256": "9fd44eb2bcd50c0fe926f51fecbfb697c245cdabd2d22ed956e1c3382a9628ac",
+      "previous_hash": "2f13e294d4196b00312762821793092f198987e565e6aca67bd3d24eb143326b",
+      "source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
+      "status": "PASS"
+    },
+    {
+      "entry_hash": "11dee1fbc11a7d93fe64c0948a383bf83b9af7ccdc58838a6b0bf93b8f0f1bb2",
+      "entry_id": "batch052_target_replay_pass",
+      "explicit_fork_marker": false,
+      "parent": "batch052_source_only_patch",
+      "patch_sha256": "9fd44eb2bcd50c0fe926f51fecbfb697c245cdabd2d22ed956e1c3382a9628ac",
+      "previous_hash": "d8729a4a29c9526243fd0472706576b203c76748f5a9c5a56f2c789b1386afc9",
+      "source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
+      "status": "PASS"
+    },
+    {
+      "entry_hash": "3827995ec0059ba72e10486bbbae077e2697f553efff631d919f3aa7065d831e",
+      "entry_id": "batch053_duplicate_replay_pass",
+      "explicit_fork_marker": false,
+      "parent": "batch052_target_replay_pass",
+      "patch_sha256": "9fd44eb2bcd50c0fe926f51fecbfb697c245cdabd2d22ed956e1c3382a9628ac",
+      "previous_hash": "11dee1fbc11a7d93fe64c0948a383bf83b9af7ccdc58838a6b0bf93b8f0f1bb2",
+      "source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
+      "status": "PASS"
+    },
+    {
+      "entry_hash": "95c4b83902d24d1ff2a3bb08225a74a5d4bf8525f21e057398a18bd8126bba16",
+      "entry_id": "batch053_contract_hardening",
+      "explicit_fork_marker": false,
+      "parent": "batch053_duplicate_replay_pass",
+      "patch_sha256": "9fd44eb2bcd50c0fe926f51fecbfb697c245cdabd2d22ed956e1c3382a9628ac",
+      "previous_hash": "3827995ec0059ba72e10486bbbae077e2697f553efff631d919f3aa7065d831e",
+      "source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
+      "status": "PASS"
+    },
+    {
+      "entry_hash": "8478b61a11ef00586b95ff0d6d905f972e2231bda63eaccda509fd88de6bc5e1",
+      "entry_id": "batch054_count_gate",
+      "explicit_fork_marker": false,
+      "parent": "batch053_contract_hardening",
+      "patch_sha256": "9fd44eb2bcd50c0fe926f51fecbfb697c245cdabd2d22ed956e1c3382a9628ac",
+      "previous_hash": "95c4b83902d24d1ff2a3bb08225a74a5d4bf8525f21e057398a18bd8126bba16",
+      "source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
+      "status": "PASS"
+    },
+    {
+      "entry_hash": "723f317e829b5e9798deed95bddf5a559cc579a2fed3a9338f34789d74b75a98",
+      "entry_id": "episode_002_canonicalization",
+      "explicit_fork_marker": false,
+      "parent": "batch054_count_gate",
+      "patch_sha256": "9fd44eb2bcd50c0fe926f51fecbfb697c245cdabd2d22ed956e1c3382a9628ac",
+      "previous_hash": "8478b61a11ef00586b95ff0d6d905f972e2231bda63eaccda509fd88de6bc5e1",
+      "source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
+      "status": "PASS"
+    },
+    {
+      "entry_hash": "2901b2aafc242c4019ba748d525015ff09d73030c3a68f6e3d6e0df97e66435f",
+      "entry_id": "claim_boundary",
+      "explicit_fork_marker": false,
+      "parent": "episode_002_canonicalization",
+      "patch_sha256": "9fd44eb2bcd50c0fe926f51fecbfb697c245cdabd2d22ed956e1c3382a9628ac",
+      "previous_hash": "723f317e829b5e9798deed95bddf5a559cc579a2fed3a9338f34789d74b75a98",
+      "source_commit": "182902cba96501bbe989fd370bd251107ba2ad31",
+      "status": "PASS"
+    }
+  ],
+  "episode_record_hash": "670f681b8bd0d6d3a0e7d321003c56e3e6da9867c90d8afcc5ad829a207effa5",
+  "every_entry_has_one_parent_or_explicit_fork_marker": true,
+  "exact_blocker": null,
+  "generated_evidence_masquerades_as_provider_telemetry": false,
+  "hash_chain_valid": true,
+  "historical_probe_or_matched_null_evidence_used_as_proof": false,
+  "status": "PASS"
+}

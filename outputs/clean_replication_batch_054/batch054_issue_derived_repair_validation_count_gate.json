@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "check_id": "batch053_artifact_custody_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "batch051_pre_repair_failure_materialized",
+      "status": "PASS"
+    },
+    {
+      "check_id": "batch052_source_only_suitability_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "batch052_patch_generated_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "batch052_patch_sha_matches",
+      "status": "PASS"
+    },
+    {
+      "check_id": "batch052_patch_apply_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "batch052_target_replay_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "batch053_duplicate_replay_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "same_source_commit",
+      "status": "PASS"
+    },
+    {
+      "check_id": "same_patch_bytes",
+      "status": "PASS"
+    },
+    {
+      "check_id": "same_or_equivalent_command",
+      "status": "PASS"
+    },
+    {
+      "check_id": "transport_equivalence_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "dependency_equivalence_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "public_state_reconciliation_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "evidence_contract_hardening_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "idempotent_ingest_hardening_pass",
+      "status": "PASS"
+    },
+    {
+      "check_id": "source_only_scope_preserved",
+      "status": "PASS"
+    },
+    {
+      "check_id": "tests_modified_false",
+      "status": "PASS"
+    },
+    {
+      "check_id": "fixtures_modified_false",
+      "status": "PASS"
+    },
+    {
+      "check_id": "harness_modified_false",
+      "status": "PASS"
+    },
+    {
+      "check_id": "dependency_files_modified_false",
+      "status": "PASS"
+    },
+    {
+      "check_id": "forbidden_evidence_false",
+      "status": "PASS"
+    },
+    {
+      "check_id": "issue_body_workaround_false",
+      "status": "PASS"
+    },
+    {
+      "check_id": "no_unresolved_blocker",
+      "status": "PASS"
+    },
+    {
+      "check_id": "claim_boundary_permits_count_gate",
+      "status": "PASS"
+    }
+  ],
+  "count_increment_authorized": true,
+  "exact_blocker": null,
+  "failed_checks": [],
+  "issue_derived_repair_episode_count_after": 2,
+  "issue_derived_repair_episode_count_before": 1,
+  "native_external_repair_episode_count": 4,
+  "next_allowed_action": "batch055_next_patch_seed_gate",
+  "status": "PASS_WITH_BATCH054_ISSUE_DERIVED_REPAIR_COUNT_LOCKED"
+}

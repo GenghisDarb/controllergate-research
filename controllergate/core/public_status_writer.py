@@ -21,7 +21,7 @@ def replace_section(path: str | Path, marker: str, lines: list[str]) -> dict[str
     if not target.is_file():
         return {"path": str(target), "status": "MISSING"}
     text = target.read_text(encoding="utf-8")
-    batch_match = re.search(r"\b(Batch05[23])\b", marker)
+    batch_match = re.search(r"\b(Batch05[234])\b", marker)
     target_batch = batch_match.group(1) if batch_match else None
     kept: list[str] = []
     skipping = False
@@ -75,6 +75,19 @@ def batch053_status_lines(batch053_state: dict[str, Any]) -> list[str]:
     ]
 
 
+def batch054_status_lines(batch054_state: dict[str, Any]) -> list[str]:
+    return [
+        f"- Batch054 status: `{batch054_state['status']}`.",
+        f"- Current protocol remains: `{batch054_state['current_protocol']}`.",
+        f"- Issue-derived repair episodes after Batch054: `{batch054_state['issue_derived_repair_episode_count_after']}`.",
+        f"- External native repair episodes remain `{batch054_state['native_external_repair_episode_count']}`.",
+        f"- Exact blocker: `{batch054_state['exact_blocker']}`.",
+        f"- Next allowed action: `{batch054_state['next_allowed_action']}`.",
+        f"- Next seed fastlane status: `{batch054_state['next_seed_intake_status']}`.",
+        "- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`; production readiness remains `false/not_demonstrated`.",
+    ]
+
+
 def reconcile_batch052_public_status(root: Path, batch052_state: dict[str, Any]) -> dict[str, Any]:
     marker = "### Batch052 Lemon Reader source-only patch candidate gate"
     results = [
@@ -96,6 +109,21 @@ def append_batch053_public_status(root: Path, batch053_state: dict[str, Any]) ->
     marker = "### Batch053 duplicate clean replay and evidence contract hardening"
     results = [
         replace_section(root / rel, marker, batch053_status_lines(batch053_state))
+        for rel in PUBLIC_STATUS_FILES
+    ]
+    return {
+        "status": "PASS" if all(item["status"] == "PASS" for item in results) else "BLOCK",
+        "marker": marker,
+        "results": results,
+        "current_protocol_wording": "Current protocol remains: v2.14",
+        "exact_blocker": None if all(item["status"] == "PASS" for item in results) else "public_status_file_missing",
+    }
+
+
+def append_batch054_public_status(root: Path, batch054_state: dict[str, Any]) -> dict[str, Any]:
+    marker = "### Batch054 issue-derived repair count gate and next patch preparation"
+    results = [
+        replace_section(root / rel, marker, batch054_status_lines(batch054_state))
         for rel in PUBLIC_STATUS_FILES
     ]
     return {

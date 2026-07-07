@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch053 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch054 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -137,37 +137,37 @@ jobs:
           PY
           python - <<'PY'
           import json
-          state = json.load(open("outputs/clean_replication_batch_053/consolidated_state_clean_replication_batch_053.json", encoding="utf-8"))
+          state = json.load(open("outputs/clean_replication_batch_054/consolidated_state_clean_replication_batch_054.json", encoding="utf-8"))
           keys = [
               "status",
               "exact_blocker",
-              "batch052_artifact_ingest_status",
-              "batch052_artifact_verification_status",
-              "public_state_reconciliation_status",
-              "evidence_contract_hardening_status",
-              "idempotent_ingest_hardening_status",
-              "current_protocol",
-              "duplicate_replay_eligibility_status",
-              "duplicate_replay_status",
-              "duplicate_replay_return_code",
-              "issue_derived_repair_validated_candidate",
-              "next_allowed_action",
-              "issue_derived_repair_episode_count",
+              "batch053_artifact_ingest_status",
+              "batch053_artifact_verification_status",
+              "count_gate_status",
+              "issue_derived_repair_episode_count_before",
+              "issue_derived_repair_episode_count_after",
               "native_external_repair_episode_count",
+              "episode_002_canonical_record_status",
+              "proof_ledger_validation_lock_status",
+              "public_status_update_status",
+              "next_patch_lane_preparation_status",
+              "next_seed_intake_status",
+              "next_allowed_action",
+              "current_protocol",
               "full_scoring",
               "memory_lift",
               "self_maintaining_software",
           ]
           for key in keys:
-              print(f"batch053_{key}={state.get(key)}")
+              print(f"batch054_{key}={state.get(key)}")
           PY
 
       - name: Verify clean staged artifact payload
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch053_duplicate_replay_contract_hardening/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch053_duplicate_replay_contract_hardening \( \
+          test -f artifact_payload/post_v2_37_hardening_batch054_issue_repair_count_next_patch/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch054_issue_repair_count_next_patch \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -187,16 +187,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch053_duplicate_replay_contract_hardening -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_053' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch054_issue_repair_count_next_patch -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_054' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch053 duplicate replay contract hardening artifact
+      - name: Upload Batch054 issue repair count next patch artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch053_duplicate_replay_contract_hardening_artifacts
+          name: post_v2_37_hardening_batch054_issue_repair_count_next_patch_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch053_duplicate_replay_contract_hardening/**
+            artifact_payload/post_v2_37_hardening_batch054_issue_repair_count_next_patch/**
           if-no-files-found: error

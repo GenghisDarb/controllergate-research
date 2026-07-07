@@ -1,5 +1,39 @@
 {
   "dependency_materialization_policy": "same_as_batch052_declared_project_extras_cli_app_tests",
-  "exact_blocker": "host_environment_not_ubuntu_latest_python311",
-  "status": "NOT_RUN"
+  "dependency_state": {
+    "declared_app_extra_detected": true,
+    "declared_cli_extra_detected": true,
+    "declared_tests_extra_detected": true,
+    "declared_unstable_plugins_extra_detected": true,
+    "dependency_source": "selected_buggy_commit_pyproject_toml",
+    "install_command": "python -m pip install -e .[cli,app,tests]",
+    "mutagen_declared_only_in_unstable_plugins_extra": true,
+    "pyproject_sha256": "847f6b6a1d9e92e70466d347842de325bdf2a437bf15d42d05a7dafa8f898199",
+    "pyproject_toml_present": true
+  },
+  "exact_blocker": null,
+  "install_records": [
+    {
+      "command": "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python -m venv /tmp/batch053_reader_issue_355_duplicate/duplicate_replay_venv",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "/tmp/batch053_reader_issue_355_duplicate/duplicate_replay_venv/bin/python -m pip install --upgrade pip setuptools wheel",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "d7b67a81bfbff46611555666afdd296f92860388bdecc07783377b0f193cba65"
+    },
+    {
+      "command": "/tmp/batch053_reader_issue_355_duplicate/duplicate_replay_venv/bin/python -m pip install -e .[cli,app,tests]",
+      "return_code": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "39b2110f27423affc8e3ed74772f6db87a9629f9d46a5b5d426fd2c0482540ac"
+    }
+  ],
+  "status": "PASS"
 }
