@@ -1,0 +1,61 @@
+{
+  "memory_lift_inference": false,
+  "prioritization": [
+    {
+      "false_transfer_risk": "medium_without_candidate_specific_replay",
+      "next_allowed_action": "candidate_seed_inventory_evaluation_only",
+      "priority_reason": "Custody-safe source with a pinned or repo-local evidence path; priority does not authorize repair.",
+      "priority_score": 9,
+      "related_patterns": [
+        "shared_environment_custody_gap"
+      ],
+      "required_candidate_specific_probe": "candidate_specific_non_mutating_probe_only",
+      "shared_blocker_class": "source_or_cofactor_materialization_custody",
+      "shared_cofactor_pattern": "declared_or_reviewed_lock_required_before_execution",
+      "shared_environment_bug_class": "transport_and_context_boundary",
+      "shared_harness_pattern": "candidate_specific_harness_required_before_replay",
+      "shared_transport_pattern": "manifest_preserved_artifact_payload",
+      "source_registry_id": "darker_issue112_tracked_seed_dependency_lock",
+      "transfer_allowed_for_repair": false,
+      "transfer_candidate": true
+    },
+    {
+      "false_transfer_risk": "medium_without_candidate_specific_replay",
+      "next_allowed_action": "candidate_seed_inventory_evaluation_only",
+      "priority_reason": "Custody-safe source with a pinned or repo-local evidence path; priority does not authorize repair.",
+      "priority_score": 8,
+      "related_patterns": [
+        "shared_environment_custody_gap"
+      ],
+      "required_candidate_specific_probe": "candidate_specific_non_mutating_probe_only",
+      "shared_blocker_class": "source_or_cofactor_materialization_custody",
+      "shared_cofactor_pattern": "declared_or_reviewed_lock_required_before_execution",
+      "shared_environment_bug_class": "transport_and_context_boundary",
+      "shared_harness_pattern": "candidate_specific_harness_required_before_replay",
+      "shared_transport_pattern": "manifest_preserved_artifact_payload",
+      "source_registry_id": "external_candidate_registry_reviewed_entry_probe_source",
+      "transfer_allowed_for_repair": false,
+      "transfer_candidate": true
+    },
+    {
+      "false_transfer_risk": "medium_without_candidate_specific_replay",
+      "next_allowed_action": "candidate_seed_inventory_evaluation_only",
+      "priority_reason": "Custody-safe source with a pinned or repo-local evidence path; priority does not authorize repair.",
+      "priority_score": 7,
+      "related_patterns": [
+        "shared_environment_custody_gap"
+      ],
+      "required_candidate_specific_probe": "candidate_specific_non_mutating_probe_only",
+      "shared_blocker_class": "source_or_cofactor_materialization_custody",
+      "shared_cofactor_pattern": "declared_or_reviewed_lock_required_before_execution",
+      "shared_environment_bug_class": "transport_and_context_boundary",
+      "shared_harness_pattern": "candidate_specific_harness_required_before_replay",
+      "shared_transport_pattern": "manifest_preserved_artifact_payload",
+      "source_registry_id": "external_repair_episode_registry_counted_episode_probe_source",
+      "transfer_allowed_for_repair": false,
+      "transfer_candidate": true
+    }
+  ],
+  "status": "PASS",
+  "transfer_as_proof_claimed": false
+}

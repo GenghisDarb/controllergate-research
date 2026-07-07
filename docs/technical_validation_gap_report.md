@@ -19,11 +19,11 @@ Batch019 does not add repair evidence. It adds a probe-selection layer that must
 - Absolute uncrashability is not claimed.
 - Production runtime readiness is not claimed.
 
-### Batch047 bounded environment probe execution
+### Batch048 protocol promotion and source-registry probes
 
-- Batch047 status: `PASS_WITH_BATCH047_TOT_BULB_PROBE_EXECUTION_RECORDED`.
-- Batch046 locator authorization is preserved and a source registry now gates future probe execution.
-- Bounded non-mutating probe records: executed `34`, blocked `0`, not run `22`.
-- Candidate inventory remains `0`; repair generation, target replay, duplicate replay, and protocol promotion remain separate future steps.
-- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`; current protocol remains `v2.13`.
-- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
+- Batch048 status: `PASS_WITH_BATCH048_EXPANDED_SOURCE_REGISTRY_PROBE_GATE`.
+- Current protocol interface: `v2.14`.
+- Expanded source registry entries: `3`.
+- Candidate-specific non-mutating probes: executed `33`, blocked `0`, not run `9`.
+- Candidate inventory remains `0`; repair generation, target replay, duplicate replay, full scoring, and broader claims remain disabled.
+- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.

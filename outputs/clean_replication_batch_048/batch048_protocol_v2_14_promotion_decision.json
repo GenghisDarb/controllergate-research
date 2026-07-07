@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "check": "batch044_guardrails_enforced",
+      "evidence_path": "outputs/clean_replication_batch_044/consolidated_state_clean_replication_batch_044.json",
+      "status": "PASS"
+    },
+    {
+      "check": "batch045_protocol_candidate_review_passed",
+      "evidence_path": "outputs/clean_replication_batch_045/consolidated_state_clean_replication_batch_045.json",
+      "status": "PASS"
+    },
+    {
+      "check": "batch046_boundary_lock_passed",
+      "evidence_path": "outputs/clean_replication_batch_046/consolidated_state_clean_replication_batch_046.json",
+      "status": "PASS"
+    },
+    {
+      "check": "batch047_probe_execution_preserved_guardrails",
+      "evidence_path": "outputs/clean_replication_batch_047/batch047_protocol_v2_14_boundary_preservation.json",
+      "status": "PASS"
+    },
+    {
+      "check": "current_protocol_before_decision_v2_13",
+      "evidence_path": "outputs/clean_replication_batch_047/consolidated_state_clean_replication_batch_047.json",
+      "status": "PASS"
+    },
+    {
+      "check": "promotion_preserves_repair_counts",
+      "evidence_path": "outputs/clean_replication_batch_047/claim_boundary_batch047.json",
+      "status": "PASS"
+    },
+    {
+      "check": "promotion_does_not_enable_full_scoring",
+      "evidence_path": "configs/controllergate_current.yaml",
+      "status": "PASS"
+    },
+    {
+      "check": "promotion_does_not_enable_memory_lift",
+      "evidence_path": "outputs/v2_14_capability_recovery_lane/candidate_state_v2_14.json",
+      "status": "PASS"
+    },
+    {
+      "check": "promotion_does_not_claim_self_maintaining_software",
+      "evidence_path": "outputs/v2_14_capability_recovery_lane/candidate_state_v2_14.json",
+      "status": "PASS"
+    },
+    {
+      "check": "promotion_does_not_authorize_repair_generation",
+      "evidence_path": "outputs/clean_replication_batch_048/batch048_protocol_v2_14_promotion_decision.json",
+      "status": "PASS"
+    },
+    {
+      "check": "all_v2_14_guardrails_machine_checkable",
+      "evidence_path": "outputs/clean_replication_batch_044/batch044_standing_guardrail_enforcement_registry.json",
+      "status": "PASS"
+    },
+    {
+      "check": "public_language_audit_clean",
+      "evidence_path": "outputs/clean_replication_batch_048/public_language_audit_batch048.json",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundaries_preserved": true,
+  "current_protocol_after_decision": "v2.14",
+  "current_protocol_before_decision": "v2.13",
+  "exact_blocker": null,
+  "full_scoring_enabled": false,
+  "memory_lift_claimed": false,
+  "protocol_candidate": "v2.14",
+  "protocol_v2_14_promotion_status": "PROMOTED",
+  "repair_counts_changed": false,
+  "repair_generation_authorized": false,
+  "self_maintaining_software_claimed": false,
+  "status": "PASS"
+}

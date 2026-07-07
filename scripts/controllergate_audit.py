@@ -59,7 +59,7 @@ def select_protocol(protocol: str) -> dict[str, Any]:
     current_version = str(config.get("protocol_version", ""))
     if protocol == "current":
         return config
-    if protocol == "v2.13" and current_version == "v2.13":
+    if protocol in {"v2.13", "v2.14"} and current_version == protocol:
         return config
     raise ValueError(f"unsupported protocol {protocol!r}; current config points to {current_version!r}")
 
@@ -87,8 +87,10 @@ def claim_boundary_status(config: dict[str, Any]) -> tuple[str, list[str]]:
         if not str(boundaries.get("non_ansible_positive_memory_count", "")).startswith("0"):
             errors.append("config non-Ansible positive-memory boundary changed")
 
+    protocol_version = str(config.get("protocol_version", ""))
     output_dir = REPO_ROOT / str(config["output_dir"])
-    state_path = output_dir / "candidate_state_v2_13.json"
+    state_filename = "candidate_state_v2_14.json" if protocol_version == "v2.14" else "candidate_state_v2_13.json"
+    state_path = output_dir / state_filename
     if not state_path.is_file():
         errors.append(f"missing candidate state: {state_path}")
         return "FAIL", errors
@@ -107,14 +109,19 @@ def claim_boundary_status(config: dict[str, Any]) -> tuple[str, list[str]]:
         errors.append("family generalization boundary changed")
     if final.get("non_ansible_positive_memory_count") != 0:
         errors.append("non-Ansible positive-memory count boundary changed")
-    if final.get("pysnooper2_classification") != "blocked_fixture_materialization_incomplete":
+    if protocol_version == "v2.14":
+        if final.get("pysnooper2_final_classification") != "pysnooper2_fixture_materialization_forbidden_or_unavailable":
+            errors.append("PySnooper:2 v2.14 final blocker changed")
+        if final.get("pysnooper1_final_classification") != "pysnooper1_dependency_recovery_execution_blocked":
+            errors.append("PySnooper:1 v2.14 final blocker changed")
+    elif final.get("pysnooper2_classification") != "blocked_fixture_materialization_incomplete":
         errors.append("PySnooper:2 final blocker changed")
     return ("PASS" if not errors else "FAIL"), errors
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run the configured ControllerGate protocol audit.")
-    parser.add_argument("--protocol", choices=["current", "v2.13"], default="current")
+    parser.add_argument("--protocol", choices=["current", "v2.13", "v2.14"], default="current")
     args = parser.parse_args()
 
     try:

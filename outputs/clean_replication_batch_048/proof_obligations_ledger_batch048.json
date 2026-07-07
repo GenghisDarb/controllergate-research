@@ -1,0 +1,31 @@
+{
+  "entries": [
+    {
+      "entry_id": "batch047_artifact_ingested",
+      "hash": "8eb1f34e2db40545c95264886a23930056f73656587df63b67d3f67362614642",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "protocol_v2_14_promotion_decision",
+      "parent": "batch047_artifact_ingested",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "expanded_source_registry_created",
+      "parent": "protocol_v2_14_promotion_decision",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "candidate_specific_probes_recorded",
+      "parent": "expanded_source_registry_created",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "claim_boundary_preserved",
+      "parent": "candidate_specific_probes_recorded",
+      "status": "PASS"
+    }
+  ],
+  "next_allowed_action": "manual_artifact_custody_or_external_source_approval_required_for_new_unused_candidate_seed",
+  "status": "PASS"
+}

@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch047 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch048 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -137,21 +137,19 @@ jobs:
           PY
           python - <<'PY'
           import json
-          state = json.load(open("outputs/clean_replication_batch_047/consolidated_state_clean_replication_batch_047.json", encoding="utf-8"))
+          state = json.load(open("outputs/clean_replication_batch_048/consolidated_state_clean_replication_batch_048.json", encoding="utf-8"))
           keys = [
               "status",
               "exact_blocker",
-              "batch046_artifact_verification_status",
-              "brot_bulb_locator_preservation_status",
-              "source_registry_status",
-              "source_registry_entry_count",
-              "probe_execution_policy_status",
-              "probe_execution_results_status",
-              "executed_probe_count",
-              "blocked_probe_count",
-              "not_run_probe_count",
+              "batch047_artifact_ingest_status",
+              "batch047_artifact_verification_status",
+              "protocol_v2_14_promotion_status",
+              "current_protocol",
+              "expanded_source_registry_count",
+              "candidate_specific_probes_executed",
+              "candidate_specific_probes_blocked",
+              "candidate_specific_probes_not_run",
               "candidate_inventory_count",
-              "protocol_v2_14_boundary_status",
               "issue_derived_repair_episode_count",
               "native_external_repair_episode_count",
               "full_scoring",
@@ -159,15 +157,15 @@ jobs:
               "self_maintaining_software",
           ]
           for key in keys:
-              print(f"batch047_{key}={state.get(key)}")
+              print(f"batch048_{key}={state.get(key)}")
           PY
 
       - name: Verify clean staged artifact payload
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch047_tot_bulb_probe_execution/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch047_tot_bulb_probe_execution \( \
+          test -f artifact_payload/post_v2_37_hardening_batch048_expanded_source_registry_probe/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch048_expanded_source_registry_probe \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -187,16 +185,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch047_tot_bulb_probe_execution -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_047' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch048_expanded_source_registry_probe -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_048' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch047 bounded probe execution artifact
+      - name: Upload Batch048 expanded source registry probe artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch047_tot_bulb_probe_execution_artifacts
+          name: post_v2_37_hardening_batch048_expanded_source_registry_probe_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch047_tot_bulb_probe_execution/**
+            artifact_payload/post_v2_37_hardening_batch048_expanded_source_registry_probe/**
           if-no-files-found: error

@@ -1,0 +1,33 @@
+{
+  "allowed_expansion_sources": [
+    "repo-local historical candidate inventories",
+    "previously blocked candidates with retired blockers now resolved by guardrails",
+    "approved public issue-derived repositories already within project policy",
+    "manually supplied source artifacts after custody verification",
+    "pinned public source metadata that can be captured before execution",
+    "public issue/repo metadata only when source commit can be pinned before any execution"
+  ],
+  "candidate_specific_probes_discovery_only": true,
+  "dependency_install_allowed": false,
+  "forbidden_sources": [
+    "fixed/gold/future/later evidence",
+    "known patches",
+    "patch diffs",
+    "hidden labels",
+    "future PRs",
+    "later commits",
+    "later outcome comments",
+    "synthetic failing tests",
+    "broad unregistered web scraping",
+    "unpinned floating candidate acquisition",
+    "source/test mutation",
+    "dependency mutation",
+    "ToT-BROT transfer as proof",
+    "ToT-BULB probe result as proof"
+  ],
+  "patch_generation_allowed": false,
+  "repair_generation_allowed": false,
+  "source_registry_required_before_probe_execution": true,
+  "status": "PASS",
+  "target_replay_allowed": false
+}

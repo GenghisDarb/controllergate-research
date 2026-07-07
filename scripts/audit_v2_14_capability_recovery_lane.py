@@ -466,7 +466,18 @@ def audit_filesystem(root: Path, errors: list[str]) -> None:
             errors.append(f"forbidden packaged output under artifact root: {path.relative_to(root).as_posix()}")
     current_config = (REPO_ROOT / "configs" / "controllergate_current.yaml").read_text(encoding="utf-8")
     if "protocol_version: v2.13" not in current_config:
-        errors.append("configs/controllergate_current.yaml no longer points to v2.13")
+        batch048_decision = REPO_ROOT / "outputs" / "clean_replication_batch_048" / "batch048_protocol_v2_14_promotion_decision.json"
+        if "protocol_version: v2.14" not in current_config or not batch048_decision.is_file():
+            errors.append("configs/controllergate_current.yaml no longer points to v2.13")
+            return
+        decision = load_json(batch048_decision, errors)
+        if decision.get("protocol_v2_14_promotion_status") != "PROMOTED":
+            errors.append("configs/controllergate_current.yaml changed without Batch048 v2.14 promotion")
+        if decision.get("current_protocol_before_decision") != "v2.13" or decision.get("current_protocol_after_decision") != "v2.14":
+            errors.append("Batch048 v2.14 promotion decision has invalid protocol transition")
+        for field in ["repair_counts_changed", "repair_generation_authorized", "full_scoring_enabled", "memory_lift_claimed", "self_maintaining_software_claimed"]:
+            if decision.get(field) is not False:
+                errors.append(f"Batch048 v2.14 promotion over-allowed {field}")
 
 
 def main() -> int:

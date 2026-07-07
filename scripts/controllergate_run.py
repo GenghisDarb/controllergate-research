@@ -57,7 +57,7 @@ def select_protocol(protocol: str) -> dict[str, Any]:
     current_version = str(config.get("protocol_version", ""))
     if protocol == "current":
         return config
-    if protocol == "v2.13" and current_version == "v2.13":
+    if protocol in {"v2.13", "v2.14"} and current_version == protocol:
         return config
     raise ValueError(f"unsupported protocol {protocol!r}; current config points to {current_version!r}")
 
@@ -96,7 +96,7 @@ def dry_run(config: dict[str, Any], selected_protocol: str) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Inspect or run the configured ControllerGate protocol.")
-    parser.add_argument("--protocol", choices=["current", "v2.13"], default="current")
+    parser.add_argument("--protocol", choices=["current", "v2.13", "v2.14"], default="current")
     parser.add_argument("--dry-run", action="store_true", help="Inspect configured runner without executing it.")
     args = parser.parse_args()
 
@@ -111,7 +111,7 @@ def main() -> int:
 
     print(
         "controllergate non-dry-run dispatch is intentionally disabled for the current protocol interface. "
-        "v2.13 runner execution can create or modify campaign evidence and should be invoked only through "
+        "versioned runner execution can create or modify campaign evidence and should be invoked only through "
         "the versioned runner after explicit authorization for a new evidence-producing run.",
         file=sys.stderr,
     )

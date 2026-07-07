@@ -1,0 +1,29 @@
+{
+  "allowed_probe_classes": [
+    "source_presence_probe",
+    "source_head_probe",
+    "command_manifest_probe",
+    "target_test_presence_probe",
+    "harness_origin_probe",
+    "cofactor_declaration_probe",
+    "cofactor_lock_probe",
+    "workspace_purity_probe",
+    "workspace_equivalence_probe",
+    "dependency_drift_probe",
+    "transport_equivalence_probe",
+    "stale_cache_probe",
+    "proof_ledger_referrer_probe",
+    "evidence_origin_probe"
+  ],
+  "dependency_install_allowed": false,
+  "duplicate_replay_allowed": false,
+  "fixed_gold_future_later_evidence_allowed": false,
+  "non_mutating_only": true,
+  "patch_generation_allowed": false,
+  "probe_glare_blocks_overbroad_probes": true,
+  "probe_results_discovery_evidence_only": true,
+  "repair_generation_allowed": false,
+  "source_test_fixture_harness_cache_mutation_allowed": false,
+  "status": "PASS",
+  "target_replay_allowed": false
+}
