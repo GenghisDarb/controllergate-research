@@ -1,0 +1,37 @@
+{
+  "does_not_replace_custody": true,
+  "does_not_replace_duplicate_replay": true,
+  "does_not_replace_evidence_origin_checks": true,
+  "does_not_replace_replay": true,
+  "probe_result_proves_bug": false,
+  "public_docs_single_system_cross_system_confusion_corrected_or_historical": true,
+  "status": "PASS",
+  "terms": [
+    {
+      "cross_family_transfer_allowed": false,
+      "definition": "single-system bounded, escape, and recovery geometry for one candidate repo/environment at a time",
+      "machine_checkable_artifact_required": true,
+      "ordinary_single_lane_repair_allowed": true,
+      "repair_proof_allowed": false,
+      "scope": "single_system",
+      "term": "TORUS-BROT"
+    },
+    {
+      "cross_family_transfer_allowed": true,
+      "definition": "cross-repo, cross-family, cross-environment, or cross-blocker transfer analysis",
+      "machine_checkable_artifact_required": true,
+      "ordinary_single_lane_repair_allowed": false,
+      "repair_proof_allowed": false,
+      "scope": "coupled_cross_system",
+      "term": "ToT-BROT"
+    },
+    {
+      "canonical_external_definition_claimed": false,
+      "definition": "ControllerGate-specific bounded illumination probes for hidden environment bugs before seed selection",
+      "machine_checkable_artifact_required": true,
+      "repair_proof_allowed": false,
+      "scope": "bounded_environment_probe_instrument",
+      "term": "ToT-BULB"
+    }
+  ]
+}

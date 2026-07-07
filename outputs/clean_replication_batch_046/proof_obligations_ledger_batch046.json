@@ -1,0 +1,62 @@
+{
+  "entries": [
+    {
+      "entry_id": "batch045_artifact_ingested",
+      "evidence_hash": "e4049c914cb8eaf470195e5ebb3552c3ed2e1e4ee202f45577f33e368e2bf041",
+      "parent": null,
+      "status": "PASS"
+    },
+    {
+      "entry_id": "protocol_candidate_preserved",
+      "evidence_hash": "dca436e3a5b74359174882278039288e3f61fc10bc5de30974092b41f279cc1d",
+      "parent": "batch045_artifact_ingested",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "protocol_promotion_decision_recorded",
+      "evidence_hash": "5e1d1689c38fe3a936ca5b21dbd5ee8bbe11b83c30ff2dd9628a40c3a17b82b6",
+      "parent": "protocol_candidate_preserved",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "brot_bulb_boundary_locked",
+      "evidence_hash": "4a179a44520f76a57409def17d69d12217b9ee595ec417b51a7fedc49d3070dd",
+      "parent": "protocol_promotion_decision_recorded",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "environment_map_recorded",
+      "evidence_hash": "26e2959b1f970633bf618d6e135ab5aea98855cad0170e4725d5b18baaf945e8",
+      "parent": "brot_bulb_boundary_locked",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "coupled_blocker_graph_recorded",
+      "evidence_hash": "82cc02f40de99bd249c961b8328022e0ae78aee57b479e6e298389d30260e41d",
+      "parent": "environment_map_recorded",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "probe_design_recorded",
+      "evidence_hash": "9b13f1424087d561753a062152e4ac00d6e6bb6aea996f4503c26555c08e3c96",
+      "parent": "coupled_blocker_graph_recorded",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "environment_bug_locator_gate",
+      "evidence_hash": "8562fb64d249822a73e4f9cf4d3a6cbb69f443077ddcdac0e1d52680a2679dfb",
+      "parent": "probe_design_recorded",
+      "status": "PASS"
+    },
+    {
+      "entry_id": "claim_boundary_preserved",
+      "evidence_hash": "0798663328eea792b01b2ec7af1a873efe34340174e1687c57088874f69f6c6e",
+      "parent": "environment_bug_locator_gate",
+      "status": "PASS"
+    }
+  ],
+  "hash_chain_valid": true,
+  "probe_execution_occurred": false,
+  "repair_generation_occurred": false,
+  "status": "PASS"
+}

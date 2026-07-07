@@ -1,0 +1,25 @@
+{
+  "allowed_expansion_sources": [
+    "approved public issue-derived repositories already within project policy",
+    "repo-local historical candidate inventories",
+    "previously blocked candidates with retired blockers now resolved by guardrails",
+    "public source metadata that can be pinned before execution",
+    "manually provided artifacts only after custody verification"
+  ],
+  "candidate_seed_requires_eligibility_schema": true,
+  "forbidden": [
+    "fixed/gold/future/later evidence",
+    "hidden labels",
+    "known patches",
+    "synthetic failing tests",
+    "source/test mutation",
+    "dependency mutation",
+    "broad web scraping without a source registry",
+    "unpinned floating candidate acquisition",
+    "ToT-BROT transfer used as proof",
+    "ToT-BULB probe result used as proof"
+  ],
+  "repair_generation_allowed": false,
+  "source_registry_required": true,
+  "status": "PASS"
+}

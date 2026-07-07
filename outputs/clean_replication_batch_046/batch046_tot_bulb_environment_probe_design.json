@@ -1,0 +1,344 @@
+{
+  "glare_blocker": "tot_bulb_probe_glare_blocked",
+  "probe_count": 14,
+  "probe_results_are_repair_proof": false,
+  "probes": [
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "source_presence_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "source_presence_probe_result.json",
+      "probe_id": "source_presence_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "source_head_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "source_head_probe_result.json",
+      "probe_id": "source_head_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "command_manifest_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "command_manifest_probe_result.json",
+      "probe_id": "command_manifest_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "target_test_presence_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "target_test_presence_probe_result.json",
+      "probe_id": "target_test_presence_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "harness_origin_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "harness_origin_probe_result.json",
+      "probe_id": "harness_origin_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "cofactor_declaration_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "cofactor_declaration_probe_result.json",
+      "probe_id": "cofactor_declaration_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "cofactor_lock_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "cofactor_lock_probe_result.json",
+      "probe_id": "cofactor_lock_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "workspace_purity_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "workspace_purity_probe_result.json",
+      "probe_id": "workspace_purity_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "workspace_equivalence_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "workspace_equivalence_probe_result.json",
+      "probe_id": "workspace_equivalence_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "dependency_drift_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "dependency_drift_probe_result.json",
+      "probe_id": "dependency_drift_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "transport_equivalence_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "transport_equivalence_probe_result.json",
+      "probe_id": "transport_equivalence_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "stale_cache_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "stale_cache_probe_result.json",
+      "probe_id": "stale_cache_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "proof_ledger_referrer_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "proof_ledger_referrer_probe_result.json",
+      "probe_id": "proof_ledger_referrer_probe",
+      "touches_dependency_state": false
+    },
+    {
+      "allowed_inputs": [
+        "repo-local evidence",
+        "pinned public source metadata",
+        "manual artifacts after custody verification"
+      ],
+      "blocker_class_if_fail": "evidence_origin_unavailable_or_unsafe",
+      "forbidden_inputs": [
+        "fixed/gold/future/later evidence",
+        "hidden labels",
+        "known patches",
+        "synthetic failing tests"
+      ],
+      "glare_limit": "tot_bulb_probe_glare_blocked",
+      "leakage_risk": "low_when_inputs_remain_decision_time_safe",
+      "mutates_environment": false,
+      "mutates_source": false,
+      "mutates_tests": false,
+      "next_allowed_action_if_fail": "record_blocker_without_repair_generation",
+      "next_allowed_action_if_pass": "record_probe_result_and_continue_inventory",
+      "output_artifact": "evidence_origin_probe_result.json",
+      "probe_id": "evidence_origin_probe",
+      "touches_dependency_state": false
+    }
+  ],
+  "status": "PASS"
+}

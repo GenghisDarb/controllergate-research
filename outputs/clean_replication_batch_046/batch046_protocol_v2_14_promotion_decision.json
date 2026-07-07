@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "check": "batch045_artifact_custody",
+      "passed": true
+    },
+    {
+      "check": "protocol_candidate_ready_preserved",
+      "passed": true
+    },
+    {
+      "check": "standing_guardrails_machine_checkable",
+      "passed": true
+    },
+    {
+      "check": "coverage_enforcement_still_pass",
+      "passed": true
+    },
+    {
+      "check": "current_protocol_before_decision_v2_13",
+      "passed": true
+    },
+    {
+      "check": "no_silent_protocol_promotion",
+      "passed": true
+    },
+    {
+      "check": "no_repair_generation_in_batch046",
+      "passed": true
+    },
+    {
+      "check": "no_broader_claim_expansion",
+      "passed": true
+    },
+    {
+      "check": "current_tests_audits_pass_under_candidate_protocol_context",
+      "passed": true
+    },
+    {
+      "check": "promotion_does_not_change_counts_or_claims",
+      "passed": true
+    }
+  ],
+  "counts_or_claims_changed": false,
+  "current_protocol_after_decision": "v2.13",
+  "current_protocol_before_decision": "v2.13",
+  "exact_blocker": null,
+  "promotion_authorized": false,
+  "protocol_candidate": "v2.14",
+  "protocol_v2_14_promotion_status": "READY_BUT_NOT_PROMOTED",
+  "reason_not_promoted": "separate current-protocol promotion lane required before changing configs/controllergate_current.yaml",
+  "status": "PASS"
+}

@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   hardening-and-batch002:
-    name: post-v2.37 hardening, batch002-batch045 clean replication continuation
+    name: post-v2.37 hardening, batch002-batch046 clean replication continuation
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -137,21 +137,20 @@ jobs:
           PY
           python - <<'PY'
           import json
-          state = json.load(open("outputs/clean_replication_batch_045/consolidated_state_clean_replication_batch_045.json", encoding="utf-8"))
+          state = json.load(open("outputs/clean_replication_batch_046/consolidated_state_clean_replication_batch_046.json", encoding="utf-8"))
           keys = [
               "status",
               "exact_blocker",
-              "batch044_artifact_verification_status",
-              "batch044_guardrail_enforcement_preservation_status",
-              "batch044_seed_selection_authorization_preservation_status",
-              "batch044_claim_boundary_preservation_status",
-              "protocol_candidate_v2_14_review_status",
-              "protocol_candidate_v2_14_status",
-              "guardrail_regression_audit_status",
-              "scoped_next_issue_seed_discovery_policy_status",
-              "next_issue_seed_candidate_discovery_gate_status",
-              "seed_candidate_discovery_authorized",
-              "candidate_inventory_count",
+              "batch045_artifact_verification_status",
+              "protocol_v2_14_promotion_status",
+              "brot_bulb_boundary_lock_status",
+              "torus_brot_environment_map_status",
+              "tot_brot_coupled_blocker_graph_status",
+              "tot_bulb_probe_design_status",
+              "environment_bug_locator_eligibility_status",
+              "environment_bug_locator_probe_authorized",
+              "bounded_probe_inventory_count",
+              "seed_discovery_expansion_policy_status",
               "issue_derived_repair_episode_count",
               "native_external_repair_episode_count",
               "full_scoring",
@@ -159,15 +158,15 @@ jobs:
               "self_maintaining_software",
           ]
           for key in keys:
-              print(f"batch045_{key}={state.get(key)}")
+              print(f"batch046_{key}={state.get(key)}")
           PY
 
       - name: Verify clean staged artifact payload
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifact_payload/post_v2_37_hardening_batch045_protocol_candidate_seed_inventory/ARTIFACT_SHA256SUMS.txt
-          if find artifact_payload/post_v2_37_hardening_batch045_protocol_candidate_seed_inventory \( \
+          test -f artifact_payload/post_v2_37_hardening_batch046_brot_bulb_environment_locator/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch046_brot_bulb_environment_locator \( \
             -path '*/__pycache__/*' -o \
             -path '*/.pytest_cache/*' -o \
             -path '*/.mypy_cache/*' -o \
@@ -187,16 +186,16 @@ jobs:
             echo "artifact_packaging_cache_payload_detected"
             exit 1
           fi
-          if find artifact_payload/post_v2_37_hardening_batch045_protocol_candidate_seed_inventory -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_045' -print -quit | grep -q .; then
+          if find artifact_payload/post_v2_37_hardening_batch046_brot_bulb_environment_locator -type d -name 'clean_replication_batch_*' ! -name 'clean_replication_batch_046' -print -quit | grep -q .; then
             echo "recursive_prior_batch_packaging_detected"
             exit 1
           fi
 
-      - name: Upload Batch045 protocol candidate seed inventory artifact
+      - name: Upload Batch046 environment locator artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post_v2_37_hardening_batch045_protocol_candidate_seed_inventory_artifacts
+          name: post_v2_37_hardening_batch046_brot_bulb_environment_locator_artifacts
           path: |
-            artifact_payload/post_v2_37_hardening_batch045_protocol_candidate_seed_inventory/**
+            artifact_payload/post_v2_37_hardening_batch046_brot_bulb_environment_locator/**
           if-no-files-found: error

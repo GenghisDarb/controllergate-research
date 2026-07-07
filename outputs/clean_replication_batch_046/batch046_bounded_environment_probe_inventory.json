@@ -1,0 +1,331 @@
+{
+  "empty_inventory_reason": null,
+  "inventory_only": true,
+  "probe_inventory_count": 14,
+  "probes": [
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "source_presence_blocker",
+      "expected_outputs": [
+        "source_presence_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 1,
+      "probe_id": "source_presence_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "source_head_blocker",
+      "expected_outputs": [
+        "source_head_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 2,
+      "probe_id": "source_head_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "command_manifest_blocker",
+      "expected_outputs": [
+        "command_manifest_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 3,
+      "probe_id": "command_manifest_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "target_test_presence_blocker",
+      "expected_outputs": [
+        "target_test_presence_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 4,
+      "probe_id": "target_test_presence_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "harness_origin_blocker",
+      "expected_outputs": [
+        "harness_origin_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 5,
+      "probe_id": "harness_origin_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "cofactor_declaration_blocker",
+      "expected_outputs": [
+        "cofactor_declaration_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 6,
+      "probe_id": "cofactor_declaration_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "cofactor_lock_blocker",
+      "expected_outputs": [
+        "cofactor_lock_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 7,
+      "probe_id": "cofactor_lock_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "workspace_purity_blocker",
+      "expected_outputs": [
+        "workspace_purity_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 8,
+      "probe_id": "workspace_purity_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "workspace_equivalence_blocker",
+      "expected_outputs": [
+        "workspace_equivalence_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 9,
+      "probe_id": "workspace_equivalence_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "dependency_drift_blocker",
+      "expected_outputs": [
+        "dependency_drift_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 10,
+      "probe_id": "dependency_drift_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "transport_equivalence_blocker",
+      "expected_outputs": [
+        "transport_equivalence_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 11,
+      "probe_id": "transport_equivalence_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "stale_cache_blocker",
+      "expected_outputs": [
+        "stale_cache_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 12,
+      "probe_id": "stale_cache_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "proof_ledger_referrer_blocker",
+      "expected_outputs": [
+        "proof_ledger_referrer_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 13,
+      "probe_id": "proof_ledger_referrer_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    },
+    {
+      "allowed_inputs": [
+        "source registry entry",
+        "repo-local prior evidence",
+        "manual artifact after custody verification"
+      ],
+      "expected_environment_bug_class": "evidence_origin_blocker",
+      "expected_outputs": [
+        "evidence_origin_probe_result.json"
+      ],
+      "leakage_risk": "low",
+      "mutation_risk": "none_when_policy_followed",
+      "next_batch_required": "Batch047 bounded environment probe execution or seed discovery expansion",
+      "priority": 14,
+      "probe_id": "evidence_origin_probe",
+      "purpose": "locate hidden environment blocker before seed selection",
+      "required_guardrails": [
+        "decision-time evidence firewall",
+        "no mutation",
+        "proof boundary"
+      ],
+      "target_candidate_or_family": "future_issue_seed_discovery_pool"
+    }
+  ],
+  "probes_run_in_batch046": false,
+  "status": "PASS"
+}

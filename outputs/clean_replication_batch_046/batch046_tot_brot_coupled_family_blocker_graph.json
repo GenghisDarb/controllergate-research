@@ -1,0 +1,101 @@
+{
+  "edges": [
+    {
+      "decision_time_safe": true,
+      "edge_type": "shared_cofactor",
+      "evidence_source": "repo-local prior batch outputs",
+      "false_transfer_risk": "medium_without_candidate_specific_evidence",
+      "from": "historical_blocker_family",
+      "required_next_probe": "cofactor_probe",
+      "to": "future_issue_seed_discovery",
+      "transfer_allowed": false
+    },
+    {
+      "decision_time_safe": true,
+      "edge_type": "shared_harness_pattern",
+      "evidence_source": "repo-local prior batch outputs",
+      "false_transfer_risk": "medium_without_candidate_specific_evidence",
+      "from": "historical_blocker_family",
+      "required_next_probe": "harness_pattern_probe",
+      "to": "future_issue_seed_discovery",
+      "transfer_allowed": false
+    },
+    {
+      "decision_time_safe": true,
+      "edge_type": "shared_source_acquisition_pattern",
+      "evidence_source": "repo-local prior batch outputs",
+      "false_transfer_risk": "medium_without_candidate_specific_evidence",
+      "from": "historical_blocker_family",
+      "required_next_probe": "source_acquisition_pattern_probe",
+      "to": "future_issue_seed_discovery",
+      "transfer_allowed": false
+    },
+    {
+      "decision_time_safe": true,
+      "edge_type": "shared_command_manifest_pattern",
+      "evidence_source": "repo-local prior batch outputs",
+      "false_transfer_risk": "medium_without_candidate_specific_evidence",
+      "from": "historical_blocker_family",
+      "required_next_probe": "command_manifest_pattern_probe",
+      "to": "future_issue_seed_discovery",
+      "transfer_allowed": false
+    },
+    {
+      "decision_time_safe": true,
+      "edge_type": "shared_dependency_lock_pattern",
+      "evidence_source": "repo-local prior batch outputs",
+      "false_transfer_risk": "medium_without_candidate_specific_evidence",
+      "from": "historical_blocker_family",
+      "required_next_probe": "dependency_lock_pattern_probe",
+      "to": "future_issue_seed_discovery",
+      "transfer_allowed": false
+    },
+    {
+      "decision_time_safe": true,
+      "edge_type": "shared_environment_drift_pattern",
+      "evidence_source": "repo-local prior batch outputs",
+      "false_transfer_risk": "medium_without_candidate_specific_evidence",
+      "from": "historical_blocker_family",
+      "required_next_probe": "environment_drift_pattern_probe",
+      "to": "future_issue_seed_discovery",
+      "transfer_allowed": false
+    },
+    {
+      "decision_time_safe": true,
+      "edge_type": "shared_transport_custody_pattern",
+      "evidence_source": "repo-local prior batch outputs",
+      "false_transfer_risk": "medium_without_candidate_specific_evidence",
+      "from": "historical_blocker_family",
+      "required_next_probe": "transport_custody_pattern_probe",
+      "to": "future_issue_seed_discovery",
+      "transfer_allowed": false
+    },
+    {
+      "decision_time_safe": true,
+      "edge_type": "shared_proof_ledger_pattern",
+      "evidence_source": "repo-local prior batch outputs",
+      "false_transfer_risk": "medium_without_candidate_specific_evidence",
+      "from": "historical_blocker_family",
+      "required_next_probe": "proof_ledger_pattern_probe",
+      "to": "future_issue_seed_discovery",
+      "transfer_allowed": false
+    }
+  ],
+  "graph_claim_boundary": "safe_discovery_guidance_only_not_repair_proof",
+  "memory_lift_inferred": false,
+  "nodes": [
+    "source_acquisition_blockers",
+    "target_test_provenance_blockers",
+    "harness_origin_blockers",
+    "workspace_equivalence_blockers",
+    "dependency_cofactor_blockers",
+    "patch_serialization_blockers",
+    "patch_apply_blockers",
+    "post_repair_replay_blockers",
+    "duplicate_replay_blockers",
+    "proof_ledger_blockers",
+    "stale_blocker_lineage"
+  ],
+  "status": "PASS",
+  "transfer_counts_as_repair_proof": false
+}

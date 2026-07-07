@@ -56,7 +56,8 @@ BATCH042_DIR = Path("outputs/clean_replication_batch_042")
 BATCH043_DIR = Path("outputs/clean_replication_batch_043")
 BATCH044_DIR = Path("outputs/clean_replication_batch_044")
 BATCH045_DIR = Path("outputs/clean_replication_batch_045")
-PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch045_protocol_candidate_seed_inventory")
+BATCH046_DIR = Path("outputs/clean_replication_batch_046")
+PAYLOAD_DIR = Path("artifact_payload/post_v2_37_hardening_batch046_brot_bulb_environment_locator")
 
 POST_REQUIRED = [
     "workspace_transport_integrity_policy.json",
@@ -1870,6 +1871,31 @@ BATCH045_REQUIRED = [
     "consolidated_state_clean_replication_batch_045.json",
     "campaign_summary.md",
     "public_language_audit_batch045.json",
+    "artifact_payload_budget.json",
+    "artifact_minimality_audit.json",
+    "SHA256SUMS.txt",
+]
+
+BATCH046_REQUIRED = [
+    "batch045_artifact_ingest_summary.json",
+    "batch045_artifact_verification.json",
+    "batch045_protocol_candidate_preservation.json",
+    "batch045_seed_inventory_preservation.json",
+    "batch045_claim_boundary_preservation.json",
+    "batch046_protocol_v2_14_promotion_decision.json",
+    "batch046_brot_bulb_isomorphism_boundary_lock.json",
+    "batch046_torus_brot_single_system_environment_map.json",
+    "batch046_tot_brot_coupled_family_blocker_graph.json",
+    "batch046_tot_bulb_environment_probe_design.json",
+    "batch046_environment_bug_locator_eligibility_gate.json",
+    "batch046_bounded_environment_probe_inventory.json",
+    "batch046_seed_discovery_expansion_policy.json",
+    "issue_derived_repair_feasibility_batch046.json",
+    "claim_boundary_batch046.json",
+    "proof_obligations_ledger_batch046.json",
+    "consolidated_state_clean_replication_batch_046.json",
+    "campaign_summary.md",
+    "public_language_audit_batch046.json",
     "artifact_payload_budget.json",
     "artifact_minimality_audit.json",
     "SHA256SUMS.txt",
@@ -9052,6 +9078,178 @@ def audit_batch045_records() -> list[str]:
     return errors
 
 
+def audit_batch046_records() -> list[str]:
+    errors: list[str] = []
+    for name in BATCH046_REQUIRED:
+        if not (BATCH046_DIR / name).is_file():
+            errors.append(f"missing Batch046 file: {name}")
+    if errors:
+        return errors
+    if verify_manifest(BATCH046_DIR).get("status") != "PASS":
+        errors.append("Batch046 manifest mismatch")
+
+    state = read_json(BATCH046_DIR / "consolidated_state_clean_replication_batch_046.json")
+    ingest = read_json(BATCH046_DIR / "batch045_artifact_ingest_summary.json")
+    verification = read_json(BATCH046_DIR / "batch045_artifact_verification.json")
+    protocol = read_json(BATCH046_DIR / "batch045_protocol_candidate_preservation.json")
+    inventory = read_json(BATCH046_DIR / "batch045_seed_inventory_preservation.json")
+    preservation = read_json(BATCH046_DIR / "batch045_claim_boundary_preservation.json")
+    decision = read_json(BATCH046_DIR / "batch046_protocol_v2_14_promotion_decision.json")
+    boundary = read_json(BATCH046_DIR / "batch046_brot_bulb_isomorphism_boundary_lock.json")
+    environment_map = read_json(BATCH046_DIR / "batch046_torus_brot_single_system_environment_map.json")
+    graph = read_json(BATCH046_DIR / "batch046_tot_brot_coupled_family_blocker_graph.json")
+    probe_design = read_json(BATCH046_DIR / "batch046_tot_bulb_environment_probe_design.json")
+    locator_gate = read_json(BATCH046_DIR / "batch046_environment_bug_locator_eligibility_gate.json")
+    probe_inventory = read_json(BATCH046_DIR / "batch046_bounded_environment_probe_inventory.json")
+    expansion = read_json(BATCH046_DIR / "batch046_seed_discovery_expansion_policy.json")
+    feasibility = read_json(BATCH046_DIR / "issue_derived_repair_feasibility_batch046.json")
+    claim = read_json(BATCH046_DIR / "claim_boundary_batch046.json")
+    ledger = read_json(BATCH046_DIR / "proof_obligations_ledger_batch046.json")
+    minimality = read_json(BATCH046_DIR / "artifact_minimality_audit.json")
+    budget = read_json(BATCH046_DIR / "artifact_payload_budget.json")
+    language = read_json(BATCH046_DIR / "public_language_audit_batch046.json")
+
+    if state.get("status") != "PASS_WITH_BATCH046_BROT_BULB_ENVIRONMENT_LOCATOR_AUTHORIZED":
+        errors.append("Batch046 status mismatch")
+    if state.get("exact_blocker") is not None:
+        errors.append("Batch046 blocker should be None")
+    if ingest.get("status") != "PASS" or verification.get("status") != "PASS":
+        errors.append("Batch046 Batch045 artifact ingest/verification failed")
+    if verification.get("artifact_name") != "post_v2_37_hardening_batch045_protocol_candidate_seed_inventory_artifacts":
+        errors.append("Batch046 Batch045 artifact name mismatch")
+    if verification.get("artifact_id") != 8125906842 or verification.get("workflow_run_id") != 28835270412:
+        errors.append("Batch046 Batch045 artifact identity mismatch")
+    if verification.get("workflow_head_sha") != "a59dcfa0a6b11181b4e5d07313ad66e04f138a12":
+        errors.append("Batch046 Batch045 workflow head mismatch")
+    if verification.get("artifact_sha256") != "ce319e0bf749a8718157d4ed7ddf6b43706a1f56174e0f8d454433f433dde828":
+        errors.append("Batch046 Batch045 artifact SHA mismatch")
+    if verification.get("artifact_size_bytes") != 162923 or verification.get("zip_entry_count") != 163:
+        errors.append("Batch046 Batch045 artifact size/entry mismatch")
+    if verification.get("artifact_manifest_checked") != 162 or verification.get("batch045_manifest_checked") != 18 or verification.get("post_manifest_checked") != 142:
+        errors.append("Batch046 Batch045 manifest counts mismatch")
+    for field in ["unsafe_path_count", "duplicate_path_count", "pycache_pyc_payload_count", "manifest_failure_count"]:
+        if verification.get(field) != 0:
+            errors.append(f"Batch046 Batch045 artifact {field} not zero")
+    if verification.get("raw_zip_bytes_ingested") is not False:
+        errors.append("Batch046 raw ZIP bytes ingested")
+
+    if protocol.get("status") != "PASS" or protocol.get("protocol_candidate_v2_14_status") != "READY_FOR_SEPARATE_PROMOTION":
+        errors.append("Batch046 protocol candidate preservation failed")
+    if inventory.get("status") != "PASS" or inventory.get("candidate_inventory_count") != 0:
+        errors.append("Batch046 seed inventory preservation failed")
+    if inventory.get("empty_inventory_reason") != "no_safe_unused_issue_derived_seed_in_repository_local_sources":
+        errors.append("Batch046 empty inventory reason mismatch")
+    if preservation.get("status") != "PASS":
+        errors.append("Batch046 claim preservation failed")
+
+    if decision.get("status") != "PASS":
+        errors.append("Batch046 promotion decision failed")
+    if decision.get("protocol_v2_14_promotion_status") != "READY_BUT_NOT_PROMOTED":
+        errors.append("Batch046 protocol promotion status mismatch")
+    if decision.get("promotion_authorized") is not False:
+        errors.append("Batch046 silently authorized protocol promotion")
+    if decision.get("current_protocol_before_decision") != "v2.13" or decision.get("current_protocol_after_decision") != "v2.13":
+        errors.append("Batch046 current protocol changed")
+    if decision.get("counts_or_claims_changed") is not False:
+        errors.append("Batch046 promotion changed counts or claims")
+    if not all(item.get("passed") is True for item in decision.get("checks", [])):
+        errors.append("Batch046 promotion checks not all PASS")
+
+    if boundary.get("status") != "PASS":
+        errors.append("Batch046 boundary lock failed")
+    terms = {item.get("term"): item for item in boundary.get("terms", []) if isinstance(item, dict)}
+    for term in ["TO" + "RUS-BROT", "ToT-BROT", "ToT-BULB"]:
+        if term not in terms:
+            errors.append(f"Batch046 missing boundary term {term}")
+        elif terms[term].get("repair_proof_allowed") is not False or terms[term].get("machine_checkable_artifact_required") is not True:
+            errors.append(f"Batch046 boundary term {term} proof boundary invalid")
+    if terms.get("ToT-BROT", {}).get("ordinary_single_lane_repair_allowed") is not False:
+        errors.append("Batch046 ToT-BROT single-lane boundary invalid")
+    if terms.get("ToT-BULB", {}).get("canonical_external_definition_claimed") is not False:
+        errors.append("Batch046 ToT-BULB external definition overclaim")
+    for flag in ["does_not_replace_replay", "does_not_replace_duplicate_replay", "does_not_replace_custody", "does_not_replace_evidence_origin_checks"]:
+        if boundary.get(flag) is not True:
+            errors.append(f"Batch046 boundary missing {flag}")
+    if boundary.get("probe_result_proves_bug") is not False:
+        errors.append("Batch046 probe result proof overclaim")
+
+    if environment_map.get("status") != "PASS" or environment_map.get("diagnostic_only") is not True:
+        errors.append("Batch046 environment map invalid")
+    if environment_map.get("repair_success_created") is not False:
+        errors.append("Batch046 environment map created repair success")
+    entry_ids = {item.get("candidate_id") for item in environment_map.get("entries", []) if isinstance(item, dict)}
+    for required in ["darker_issue_112_relative_git_dir", "pysnooper_1", "bugsinpy_family_blockers", "batch045_issue_seed_inventory"]:
+        if required not in entry_ids:
+            errors.append(f"Batch046 environment map missing {required}")
+
+    if graph.get("status") != "PASS" or graph.get("memory_lift_inferred") is not False or graph.get("transfer_counts_as_repair_proof") is not False:
+        errors.append("Batch046 coupled blocker graph overclaim")
+    for edge in graph.get("edges", []):
+        if edge.get("decision_time_safe") is not True or edge.get("transfer_allowed") is not False:
+            errors.append("Batch046 coupled blocker edge invalid")
+
+    if probe_design.get("status") != "PASS" or probe_design.get("probe_count") != 14:
+        errors.append("Batch046 probe design count/status mismatch")
+    if probe_design.get("probe_results_are_repair_proof") is not False:
+        errors.append("Batch046 probe design proof overclaim")
+    for probe in probe_design.get("probes", []):
+        if probe.get("mutates_environment") is not False or probe.get("mutates_source") is not False or probe.get("mutates_tests") is not False:
+            errors.append("Batch046 mutating probe design detected")
+        if probe.get("touches_dependency_state") is not False:
+            errors.append("Batch046 dependency-mutating probe design detected")
+        if probe.get("glare_limit") != "tot_bulb_probe_glare_blocked":
+            errors.append("Batch046 glare blocker mismatch")
+
+    if locator_gate.get("status") != "PASS" or locator_gate.get("environment_bug_locator_probe_authorized") is not True:
+        errors.append("Batch046 locator gate not authorized")
+    if locator_gate.get("next_allowed_action") != "bounded_probe_inventory_only":
+        errors.append("Batch046 locator gate allowed wrong next action")
+    if not all(item.get("passed") is True for item in locator_gate.get("checks", [])):
+        errors.append("Batch046 locator gate checks not all PASS")
+    if probe_inventory.get("status") != "PASS" or probe_inventory.get("probes_run_in_batch046") is not False:
+        errors.append("Batch046 probe inventory execution boundary failed")
+    if probe_inventory.get("probe_inventory_count") != 14 or probe_inventory.get("inventory_only") is not True:
+        errors.append("Batch046 probe inventory count/status mismatch")
+
+    if expansion.get("status") != "PASS" or expansion.get("source_registry_required") is not True:
+        errors.append("Batch046 seed discovery expansion policy invalid")
+    if expansion.get("candidate_seed_requires_eligibility_schema") is not True or expansion.get("repair_generation_allowed") is not False:
+        errors.append("Batch046 expansion policy weakened repair boundary")
+    forbidden_text = json.dumps(expansion.get("forbidden", []), sort_keys=True)
+    for required in ["fixed/gold/future/later evidence", "hidden labels", "known patches", "ToT-BROT transfer used as proof", "ToT-BULB probe result used as proof"]:
+        if required not in forbidden_text:
+            errors.append(f"Batch046 expansion policy missing {required}")
+
+    if feasibility.get("status") != "PASS" or feasibility.get("repair_generation_authorized") is not False:
+        errors.append("Batch046 feasibility boundary invalid")
+    if feasibility.get("issue_derived_repair_episode_count") != 1 or feasibility.get("native_external_repair_episode_count") != 4:
+        errors.append("Batch046 feasibility counts changed")
+    if claim.get("status") != "PASS":
+        errors.append("Batch046 claim boundary failed")
+    if claim.get("native_external_repair_episodes") != 4 or claim.get("issue_derived_repair_episodes") != 1:
+        errors.append("Batch046 claim counts changed")
+    if claim.get("full_scoring") != "NOT_RUN/disallowed" or claim.get("memory_lift") != "not_demonstrated":
+        errors.append("Batch046 full scoring or memory claim changed")
+    if claim.get("self_maintaining_software") != "false/not_demonstrated" or claim.get("production_readiness") != "false/not_demonstrated":
+        errors.append("Batch046 self-maintaining or production claim changed")
+    if claim.get("TO" + "RUS_BROT_proof_claim") is not False or claim.get("ToT_BROT_proof_claim") is not False or claim.get("ToT_BULB_proof_claim") is not False:
+        errors.append("Batch046 proof term overclaim")
+    if claim.get("current_protocol") != "v2.13" or state.get("current_protocol") != "v2.13":
+        errors.append("Batch046 current protocol mismatch")
+
+    if ledger.get("status") != "PASS" or ledger.get("hash_chain_valid") is not True:
+        errors.append("Batch046 proof ledger invalid")
+    if ledger.get("repair_generation_occurred") is not False or ledger.get("probe_execution_occurred") is not False:
+        errors.append("Batch046 proof ledger recorded forbidden execution")
+    if minimality.get("status") != "PASS" or minimality.get("recursive_prior_batch_packaging_detected") is not False:
+        errors.append("Batch046 artifact minimality failed")
+    if budget.get("status") != "PASS" or int(budget.get("hard_primary_artifact_bytes", 0)) != 750000:
+        errors.append("Batch046 artifact budget failed")
+    if language.get("status") != "PASS":
+        errors.append("Batch046 public language audit failed")
+    return errors
+
+
 def audit_batch003_records() -> list[str]:
     errors: list[str] = []
     state = read_json(BATCH003_DIR / "consolidated_state_clean_replication_batch_003.json")
@@ -9181,6 +9379,7 @@ def public_language_hits() -> list[str]:
         Path("configs/clean_replication_batch_043.json"),
         Path("configs/clean_replication_batch_044.json"),
         Path("configs/clean_replication_batch_045.json"),
+        Path("configs/clean_replication_batch_046.json"),
         Path("configs/clean_replication_batch_014.json"),
         Path("configs/clean_replication_batch_015.json"),
         Path("configs/clean_replication_batch_016.json"),
@@ -9237,6 +9436,7 @@ def public_language_hits() -> list[str]:
         Path("controllergate/core/batch036_post_repair_failure_decomposition.py"),
         Path("configs/clean_replication_batch_036.json"),
         Path("controllergate/core/batch037_provider_execution_substage_recovery.py"),
+        Path("controllergate/core/batch046_brot_bulb_environment_locator.py"),
         Path("configs/clean_replication_batch_037.json"),
         Path("controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"),
         Path(".github/workflows/post_v2_37_hardening_and_batch002.yml"),
@@ -9503,6 +9703,7 @@ def main() -> int:
         + require_files(BATCH043_DIR, BATCH043_REQUIRED)
         + require_files(BATCH044_DIR, BATCH044_REQUIRED)
         + require_files(BATCH045_DIR, BATCH045_REQUIRED)
+        + require_files(BATCH046_DIR, BATCH046_REQUIRED)
     )
     if missing:
         return fail(f"missing required files: {missing}")
@@ -9590,6 +9791,8 @@ def main() -> int:
         return fail("batch044 manifest mismatch")
     if verify_manifest(BATCH045_DIR)["status"] != "PASS":
         return fail("batch045 manifest mismatch")
+    if verify_manifest(BATCH046_DIR)["status"] != "PASS":
+        return fail("batch046 manifest mismatch")
     if not command_passes([sys.executable, "-m", "pytest", "tests/core", "tests/runtime", "-q"]):
         return fail("core/runtime tests failed")
     if not command_passes([sys.executable, "scripts/audit_v2_37_core_consolidation_and_clean_replication.py"]):
@@ -9834,6 +10037,9 @@ def main() -> int:
     batch045_errors = audit_batch045_records()
     if batch045_errors:
         return fail(f"batch045 audit failed: {batch045_errors}")
+    batch046_errors = audit_batch046_records()
+    if batch046_errors:
+        return fail(f"batch046 audit failed: {batch046_errors}")
     traceability_errors = audit_notebooklm_traceability_records()
     if traceability_errors:
         return fail(f"notebooklm traceability audit failed: {traceability_errors}")
@@ -9880,8 +10086,8 @@ def main() -> int:
         return fail("self-maintaining software overclaim")
 
     final_report = read_json(POST_DIR / "final_report_post_v2_37_hardening_001.json")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH045_"):
-        return fail("final report did not advance to Batch045 protocol candidate seed inventory boundary")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH046_"):
+        return fail("final report did not advance to Batch046 environment locator boundary")
     allowed_latest_blockers = {
         "docker_runtime_provider_unavailable",
         "python37_docker_provider_unavailable",
@@ -10297,8 +10503,8 @@ def main() -> int:
         return fail("final report Batch032 matched-null diagnostic ran unexpectedly")
     if final_report.get("batch032_native_repair_episode_count") != 4 or final_report.get("batch032_issue_derived_repair_episode_count") != 0:
         return fail("final report Batch032 repair counts changed")
-    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH045_"):
-        return fail("final report top-level status is not Batch045")
+    if not str(final_report.get("status", "")).startswith("PASS_WITH_BATCH046_"):
+        return fail("final report top-level status is not Batch046")
     if not str(final_report.get("clean_replication_batch_033_status", "")).startswith("PASS_WITH_BATCH033_"):
         return fail("final report Batch033 status missing")
     if final_report.get("batch033_batch032_status_preserved") != "PASS_WITH_BATCH032_HARNESS_V9_TARGET_NOT_REPRODUCED":
@@ -10871,6 +11077,48 @@ def main() -> int:
         return fail("final report Batch045 production boundary changed")
     if final_report.get("batch045_current_protocol") != "v2.13":
         return fail("final report Batch045 current protocol changed")
+    if final_report.get("clean_replication_batch_046_status") != "PASS_WITH_BATCH046_BROT_BULB_ENVIRONMENT_LOCATOR_AUTHORIZED":
+        return fail("final report Batch046 status mismatch")
+    if final_report.get("clean_replication_batch_046_exact_blocker") is not None:
+        return fail("final report Batch046 blocker should be None")
+    if final_report.get("batch046_primary_artifact_name") != "post_v2_37_hardening_batch046_brot_bulb_environment_locator_artifacts":
+        return fail("final report Batch046 artifact name mismatch")
+    if final_report.get("batch046_batch045_artifact_ingest_status") != "PASS" or final_report.get("batch046_batch045_artifact_verification_status") != "PASS":
+        return fail("final report Batch046 Batch045 artifact custody not PASS")
+    if final_report.get("batch046_protocol_candidate_v2_14_preservation_status") != "PASS":
+        return fail("final report Batch046 protocol candidate preservation not PASS")
+    if final_report.get("batch046_protocol_v2_14_promotion_decision_status") != "PASS":
+        return fail("final report Batch046 promotion decision not PASS")
+    if final_report.get("batch046_protocol_v2_14_promotion_status") != "READY_BUT_NOT_PROMOTED":
+        return fail("final report Batch046 promotion status mismatch")
+    for key in [
+        "batch046_brot_bulb_boundary_lock_status",
+        "batch046_torus_brot_environment_map_status",
+        "batch046_tot_brot_coupled_blocker_graph_status",
+        "batch046_tot_bulb_probe_design_status",
+        "batch046_environment_bug_locator_eligibility_status",
+        "batch046_seed_discovery_expansion_policy_status",
+    ]:
+        if final_report.get(key) != "PASS":
+            return fail(f"final report {key} not PASS")
+    if final_report.get("batch046_environment_bug_locator_probe_authorized") is not True:
+        return fail("final report Batch046 environment locator not authorized")
+    if final_report.get("batch046_bounded_probe_inventory_count") != 14:
+        return fail("final report Batch046 probe inventory count mismatch")
+    if final_report.get("batch046_issue_derived_repair_episode_count") != 1:
+        return fail("final report Batch046 issue-derived count mismatch")
+    if final_report.get("batch046_native_external_repair_episode_count") != 4:
+        return fail("final report Batch046 native count changed")
+    if final_report.get("batch046_full_scoring") != "NOT_RUN/disallowed":
+        return fail("final report Batch046 full scoring boundary changed")
+    if final_report.get("batch046_memory_lift") != "not_demonstrated":
+        return fail("final report Batch046 memory-lift boundary changed")
+    if final_report.get("batch046_self_maintaining_software") != "false/not_demonstrated":
+        return fail("final report Batch046 self-maintaining boundary changed")
+    if final_report.get("batch046_production_readiness") != "false/not_demonstrated":
+        return fail("final report Batch046 production boundary changed")
+    if final_report.get("batch046_current_protocol") != "v2.13":
+        return fail("final report Batch046 current protocol changed")
     if final_report.get("batch013_gate_chain_status") != "PASS":
         return fail("final report missing Batch013 gate-chain PASS")
     if final_report.get("public_claim_overreach_status") != "PASS":

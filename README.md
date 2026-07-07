@@ -148,3 +148,11 @@ Full scoring remains disabled, memory lift remains not demonstrated, and self-ma
 - Scoped candidate seed inventory is authorized; repair generation is not started by Batch045.
 - Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
+
+### Batch046 protocol review and environment locator gate
+
+- Batch046 status: `PASS_WITH_BATCH046_BROT_BULB_ENVIRONMENT_LOCATOR_AUTHORIZED`.
+- Protocol v2.14 remains ready for a separate promotion lane; current protocol remains `v2.13`.
+- Bounded environment-probe inventory is authorized for future seed discovery; no probes or repairs run in Batch046.
+- Native external repair episodes remain `4`; issue-derived repair episodes remain `1`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift, production readiness, and self-maintaining software remain not demonstrated.
