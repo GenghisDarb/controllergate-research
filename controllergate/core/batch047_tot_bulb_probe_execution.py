@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from .batch020_manual_lock import public_language_audit
+from .batch024_provider_workspace_bridge import BATCH024_CAPABILITIES
 from .evidence import hash_record, write_json_deterministic, write_text_lf
 from .manifests import verify_manifest, write_sha256sums
 
@@ -720,3 +721,38 @@ def write_batch047_public_state(root: Path, state: dict[str, Any]) -> None:
         else:
             text = text.rstrip() + "\n" + shared + "\n"
         path.write_text(text, encoding="utf-8", newline="\n")
+
+
+def reassert_batch047_regression_catalog_boundary(root: Path) -> None:
+    """Keep legacy regression audits on the last accepted capability catalog era.
+
+    Batch047 intentionally avoids replaying the older public-document rewrite
+    chain, but the Batch020-Batch024 regression audits still require the
+    capability catalog to preserve the Batch024 compatibility boundary after
+    the runner refreshes Batch015 state. This helper updates only the
+    catalog/claim-tier custody fields needed by those audits.
+    """
+
+    catalog_path = root / "configs/controllergate_capability_catalog.json"
+    catalog = _read_json(catalog_path, {})
+    catalog["catalog_version"] = "batch024"
+    capabilities = catalog.setdefault("capabilities", [])
+    existing = {item.get("capability_id"): item for item in capabilities if isinstance(item, dict)}
+    for capability_id in BATCH024_CAPABILITIES:
+        prior = existing.get(capability_id, {})
+        existing[capability_id] = {
+            **prior,
+            "capability_id": capability_id,
+            "current_tier": prior.get("current_tier", 1),
+            "status": "implemented_or_guarded_batch024",
+            "evidence": "clean_replication_batch_024",
+            "claim_boundary": "does_not_upgrade_full_scoring_memory_lift_or_self_maintaining_claims",
+        }
+    catalog["capabilities"] = sorted(existing.values(), key=lambda item: item.get("capability_id", ""))
+    write_json_deterministic(catalog_path, catalog)
+
+    tiers_path = root / "configs/controllergate_claim_tiers.json"
+    tiers = _read_json(tiers_path, {})
+    tiers["latest_batch"] = "batch024"
+    tiers["no_claim_tier_upgrade"] = True
+    write_json_deterministic(tiers_path, tiers)

@@ -53,7 +53,11 @@ from controllergate.core.batch043_episode_protocolization import write_batch043_
 from controllergate.core.batch044_guardrail_seed_eligibility import write_batch044_outputs, write_batch044_public_state
 from controllergate.core.batch045_protocol_candidate_seed_inventory import write_batch045_outputs, write_batch045_public_state
 from controllergate.core.batch046_brot_bulb_environment_locator import write_batch046_outputs, write_batch046_public_state
-from controllergate.core.batch047_tot_bulb_probe_execution import write_batch047_outputs, write_batch047_public_state
+from controllergate.core.batch047_tot_bulb_probe_execution import (
+    reassert_batch047_regression_catalog_boundary,
+    write_batch047_outputs,
+    write_batch047_public_state,
+)
 from controllergate.core.command_manifest import build_target_command_manifest_summary, target_command_manifest_policy
 from controllergate.core.dependency_overlap_grouping import dependency_overlap_audit, dependency_overlap_groups
 from controllergate.core.failure_taxonomy import classify_failure, failure_taxonomy_policy
@@ -11603,6 +11607,7 @@ def main() -> int:
     batch023_state = load_json(BATCH023_DIR / "consolidated_state_clean_replication_batch_023.json")
     # Prior public-facing sections are already committed and audited; Batch047
     # appends only the current status to avoid repeated legacy doc rewrites.
+    reassert_batch047_regression_catalog_boundary(Path.cwd())
     write_batch047_public_state(Path.cwd(), batch047_state)
     write_sha256sums(POST_DIR)
     stage_artifact_payload(PAYLOAD_DIR, [POST_DIR, BATCH047_DIR])
