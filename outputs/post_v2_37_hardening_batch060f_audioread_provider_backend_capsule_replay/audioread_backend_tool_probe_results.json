@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "tool_availability": {
+    "ffmpeg": {
+      "command": [
+        "python",
+        "-c",
+        "import shutil; print(shutil.which('ffmpeg'))"
+      ],
+      "command_text": "python -c import shutil; print(shutil.which('ffmpeg'))",
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060f\\baseline_checkout",
+      "elapsed_seconds": 0.442,
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "af5d8a21858f42808c9bcc17012b77bcc2fd6ab3b071dbd4a05f13f410470541",
+      "timed_out": false
+    },
+    "ffprobe": {
+      "command": [
+        "python",
+        "-c",
+        "import shutil; print(shutil.which('ffprobe'))"
+      ],
+      "command_text": "python -c import shutil; print(shutil.which('ffprobe'))",
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060f\\baseline_checkout",
+      "elapsed_seconds": 0.413,
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "af5d8a21858f42808c9bcc17012b77bcc2fd6ab3b071dbd4a05f13f410470541",
+      "timed_out": false
+    },
+    "gst-launch-1.0": {
+      "command": [
+        "python",
+        "-c",
+        "import shutil; print(shutil.which('gst-launch-1.0'))"
+      ],
+      "command_text": "python -c import shutil; print(shutil.which('gst-launch-1.0'))",
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060f\\baseline_checkout",
+      "elapsed_seconds": 0.422,
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "af5d8a21858f42808c9bcc17012b77bcc2fd6ab3b071dbd4a05f13f410470541",
+      "timed_out": false
+    }
+  }
+}

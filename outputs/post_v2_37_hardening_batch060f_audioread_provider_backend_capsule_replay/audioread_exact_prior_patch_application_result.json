@@ -1,0 +1,67 @@
+{
+  "application": {
+    "command": [
+      "git",
+      "apply",
+      "C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch060_source_only_patch_gate_wave_3\\candidates\\audioread_144_py313_aifc_removed\\source_only_patch_candidate.diff"
+    ],
+    "command_text": "git apply C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch060_source_only_patch_gate_wave_3\\candidates\\audioread_144_py313_aifc_removed\\source_only_patch_candidate.diff",
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060f\\branch_replay_checkout",
+    "elapsed_seconds": 0.105,
+    "returncode": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "timed_out": false
+  },
+  "clone_verification": {
+    "cat_file": {
+      "command": [
+        "git",
+        "cat-file",
+        "-e",
+        "577f8e2cbe99f33dd7d236deb1626e372f4762e9^{commit}"
+      ],
+      "command_text": "git cat-file -e 577f8e2cbe99f33dd7d236deb1626e372f4762e9^{commit}",
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060f\\branch_replay_checkout",
+      "elapsed_seconds": 0.131,
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "checkout": {
+      "command": [
+        "git",
+        "checkout",
+        "577f8e2cbe99f33dd7d236deb1626e372f4762e9"
+      ],
+      "command_text": "git checkout 577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060f\\branch_replay_checkout",
+      "elapsed_seconds": 0.243,
+      "returncode": 0,
+      "stderr_sha256": "a8f95d7ee76b20ab41ba6740f16768cc087f2de62aefbb580fa8fb815c09527d",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "clone": {
+      "command": [
+        "git",
+        "clone",
+        "--no-checkout",
+        "https://github.com/beetbox/audioread.git",
+        "C:\\Dev\\ControllerGate_runtime\\batch060f\\branch_replay_checkout"
+      ],
+      "command_text": "git clone --no-checkout https://github.com/beetbox/audioread.git C:\\Dev\\ControllerGate_runtime\\batch060f\\branch_replay_checkout",
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060f",
+      "elapsed_seconds": 1.571,
+      "returncode": 0,
+      "stderr_sha256": "cb16a50ef46f94520cc2af07501dcb0caf5eac3dbbb0b8a61a71189a1e901195",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "post_checkout_status": [],
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "workspace": "C:\\Dev\\ControllerGate_runtime\\batch060f\\branch_replay_checkout"
+}

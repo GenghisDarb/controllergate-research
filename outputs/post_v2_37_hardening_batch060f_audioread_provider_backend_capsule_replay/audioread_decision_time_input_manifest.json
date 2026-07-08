@@ -1,0 +1,30 @@
+{
+  "allowed_evidence": [
+    "Batch058b artifact and decision",
+    "Batch060 Audioread patch and branch records",
+    "Batch060b Audioread provider/backend classification records",
+    "buggy Audioread source tree at candidate SHA",
+    "decision-time project metadata at candidate SHA",
+    "fresh Batch060f logs"
+  ],
+  "forbidden_evidence": [
+    "fixed commits",
+    "future commits",
+    "PR patches",
+    "issue-body fix/workaround text",
+    "future issue comments",
+    "release notes after fix",
+    "StackOverflow/web fix snippets",
+    "modern fixed Audioread source",
+    "test edits",
+    "fixture edits",
+    "synthetic tests",
+    "undeclared backend dependency installs"
+  ],
+  "source_sha256s": {
+    "batch060b_failed_branch": "7f058fe44c081412003f6773901740a4c2f78b2c58e872406cd19c81d8bff9d3",
+    "batch060b_provider_plan": "f3faa79ba8b74511662d55ae5127e02a615eaafb61e44a945cc8a5305de8fa03",
+    "patch": "c010f384c7d4f6e77d3b861a6533675fb0f9e589cfedc3705a7847659e7428cd"
+  },
+  "status": "PASS"
+}

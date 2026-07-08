@@ -1,0 +1,21 @@
+{
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+  "expected_prior_patch_sha256": "c010f384c7d4f6e77d3b861a6533675fb0f9e589cfedc3705a7847659e7428cd",
+  "original_target_command": "tox -e py313",
+  "patch_identity_verified": true,
+  "post_patch_failure": "NoBackendError",
+  "pre_patch_failure": "ModuleNotFoundError: No module named 'aifc'",
+  "prior_duplicate_replay_allowed": false,
+  "prior_future_recovery_recommendation": "future_audioread_provider_backend_capsule_replay",
+  "prior_outcome": "source_only_patch_partial_improvement",
+  "prior_patch_changed_files": [
+    "audioread/rawread.py"
+  ],
+  "prior_patch_file": "outputs/post_v2_37_hardening_batch060_source_only_patch_gate_wave_3/candidates/audioread_144_py313_aifc_removed/source_only_patch_candidate.diff",
+  "prior_patch_sha256": "c010f384c7d4f6e77d3b861a6533675fb0f9e589cfedc3705a7847659e7428cd",
+  "prior_post_patch_layer_classification": "audioread_optional_backend_capsule_needed",
+  "prior_repair_count_increment_allowed": false,
+  "repo": "https://github.com/beetbox/audioread",
+  "status": "PASS"
+}

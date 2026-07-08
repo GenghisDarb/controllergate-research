@@ -1,0 +1,220 @@
+command: C:\Dev\ControllerGate_runtime\batch060f\tool_venv\Scripts\python.exe -m tox -e py313
+cwd: C:\Dev\ControllerGate_runtime\batch060f\branch_replay_checkout
+returncode: 1
+timed_out: False
+elapsed_seconds: 51.412
+
+STDOUT
+py313: install_deps> python -I -m pip install pytest
+.pkg: install_requires> python -I -m pip install flit_core<4,>=3.2
+.pkg: _optional_hooks> python C:\Dev\ControllerGate_runtime\batch060f\tool_venv\Lib\site-packages\pyproject_api\_backend.py True flit_core.buildapi
+.pkg: get_requires_for_build_sdist> python C:\Dev\ControllerGate_runtime\batch060f\tool_venv\Lib\site-packages\pyproject_api\_backend.py True flit_core.buildapi
+.pkg: install_requires_for_build_sdist> python -I -m pip install "tox; extra == \"test\""
+.pkg: build_sdist> python C:\Dev\ControllerGate_runtime\batch060f\tool_venv\Lib\site-packages\pyproject_api\_backend.py True flit_core.buildapi
+py313: install_package> python -I -m pip install --force-reinstall --no-deps C:\Dev\ControllerGate_Runtime\batch060f\branch_replay_checkout\.tox\.tmp\package\1\audioread-3.0.2.tar.gz
+py313: commands[0]> pytest
+============================= test session starts =============================
+platform win32 -- Python 3.13.14, pytest-9.1.1, pluggy-1.6.0
+cachedir: .tox\py313\.pytest_cache
+rootdir: C:\Dev\ControllerGate_Runtime\batch060f\branch_replay_checkout
+configfile: pyproject.toml
+collected 4 items
+
+test\test_audioread.py FFFF                                              [100%]
+
+================================== FAILURES ===================================
+______________________ test_audioread_early_exit[test-1] ______________________
+
+audiofile = <conftest.AudiofileSpec object at 0x000002B044D10EC0>
+
+    def test_audioread_early_exit(audiofile):
+        """Abort the read before it is completed.
+    
+        This test guards against regressions such as
+        https://github.com/beetbox/audioread/pull/78
+    
+        """
+>       with audioread.audio_open(audiofile.path) as a:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test\test_audioread.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'C:\\Dev\\ControllerGate_Runtime\\batch060f\\branch_replay_checkout\\test\\data\\test-1.mp3'
+backends = [<class 'audioread.rawread.RawAudioFile'>]
+
+    def audio_open(path, backends=None):
+        """Open an audio file using a library that is available on this
+        system.
+    
+        The optional `backends` parameter can be a list of audio file
+        classes to try opening the file with. If it is not provided,
+        `audio_open` tries all available backends. If you call this function
+        many times, you can avoid the cost of checking for available
+        backends every time by calling `available_backends` once and passing
+        the result to each `audio_open` call.
+    
+        If all backends fail to read the file, a NoBackendError exception is
+        raised.
+        """
+        if backends is None:
+            backends = available_backends()
+    
+        for BackendClass in backends:
+            try:
+                return BackendClass(path)
+            except DecodeError:
+                pass
+    
+        # All backends failed!
+>       raise NoBackendError()
+E       audioread.exceptions.NoBackendError
+
+.tox\py313\Lib\site-packages\audioread\__init__.py:132: NoBackendError
+______________________ test_audioread_early_exit[test-2] ______________________
+
+audiofile = <conftest.AudiofileSpec object at 0x000002B044CCBED0>
+
+    def test_audioread_early_exit(audiofile):
+        """Abort the read before it is completed.
+    
+        This test guards against regressions such as
+        https://github.com/beetbox/audioread/pull/78
+    
+        """
+>       with audioread.audio_open(audiofile.path) as a:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test\test_audioread.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'C:\\Dev\\ControllerGate_Runtime\\batch060f\\branch_replay_checkout\\test\\data\\test-2.mp3'
+backends = [<class 'audioread.rawread.RawAudioFile'>]
+
+    def audio_open(path, backends=None):
+        """Open an audio file using a library that is available on this
+        system.
+    
+        The optional `backends` parameter can be a list of audio file
+        classes to try opening the file with. If it is not provided,
+        `audio_open` tries all available backends. If you call this function
+        many times, you can avoid the cost of checking for available
+        backends every time by calling `available_backends` once and passing
+        the result to each `audio_open` call.
+    
+        If all backends fail to read the file, a NoBackendError exception is
+        raised.
+        """
+        if backends is None:
+            backends = available_backends()
+    
+        for BackendClass in backends:
+            try:
+                return BackendClass(path)
+            except DecodeError:
+                pass
+    
+        # All backends failed!
+>       raise NoBackendError()
+E       audioread.exceptions.NoBackendError
+
+.tox\py313\Lib\site-packages\audioread\__init__.py:132: NoBackendError
+_________________________ test_audioread_full[test-1] _________________________
+
+audiofile = <conftest.AudiofileSpec object at 0x000002B044D90690>
+
+    def test_audioread_full(audiofile):
+        """Read the audio data from the file."""
+>       with audioread.audio_open(audiofile.path) as a:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test\test_audioread.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'C:\\Dev\\ControllerGate_Runtime\\batch060f\\branch_replay_checkout\\test\\data\\test-1.mp3'
+backends = [<class 'audioread.rawread.RawAudioFile'>]
+
+    def audio_open(path, backends=None):
+        """Open an audio file using a library that is available on this
+        system.
+    
+        The optional `backends` parameter can be a list of audio file
+        classes to try opening the file with. If it is not provided,
+        `audio_open` tries all available backends. If you call this function
+        many times, you can avoid the cost of checking for available
+        backends every time by calling `available_backends` once and passing
+        the result to each `audio_open` call.
+    
+        If all backends fail to read the file, a NoBackendError exception is
+        raised.
+        """
+        if backends is None:
+            backends = available_backends()
+    
+        for BackendClass in backends:
+            try:
+                return BackendClass(path)
+            except DecodeError:
+                pass
+    
+        # All backends failed!
+>       raise NoBackendError()
+E       audioread.exceptions.NoBackendError
+
+.tox\py313\Lib\site-packages\audioread\__init__.py:132: NoBackendError
+_________________________ test_audioread_full[test-2] _________________________
+
+audiofile = <conftest.AudiofileSpec object at 0x000002B044D78C30>
+
+    def test_audioread_full(audiofile):
+        """Read the audio data from the file."""
+>       with audioread.audio_open(audiofile.path) as a:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test\test_audioread.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'C:\\Dev\\ControllerGate_Runtime\\batch060f\\branch_replay_checkout\\test\\data\\test-2.mp3'
+backends = [<class 'audioread.rawread.RawAudioFile'>]
+
+    def audio_open(path, backends=None):
+        """Open an audio file using a library that is available on this
+        system.
+    
+        The optional `backends` parameter can be a list of audio file
+        classes to try opening the file with. If it is not provided,
+        `audio_open` tries all available backends. If you call this function
+        many times, you can avoid the cost of checking for available
+        backends every time by calling `available_backends` once and passing
+        the result to each `audio_open` call.
+    
+        If all backends fail to read the file, a NoBackendError exception is
+        raised.
+        """
+        if backends is None:
+            backends = available_backends()
+    
+        for BackendClass in backends:
+            try:
+                return BackendClass(path)
+            except DecodeError:
+                pass
+    
+        # All backends failed!
+>       raise NoBackendError()
+E       audioread.exceptions.NoBackendError
+
+.tox\py313\Lib\site-packages\audioread\__init__.py:132: NoBackendError
+=========================== short test summary info ===========================
+FAILED test/test_audioread.py::test_audioread_early_exit[test-1] - audioread....
+FAILED test/test_audioread.py::test_audioread_early_exit[test-2] - audioread....
+FAILED test/test_audioread.py::test_audioread_full[test-1] - audioread.except...
+FAILED test/test_audioread.py::test_audioread_full[test-2] - audioread.except...
+============================== 4 failed in 0.31s ==============================
+py313: exit 1 (1.73 seconds) C:\Dev\ControllerGate_Runtime\batch060f\branch_replay_checkout> pytest pid=10888
+.pkg: _exit> python C:\Dev\ControllerGate_runtime\batch060f\tool_venv\Lib\site-packages\pyproject_api\_backend.py True flit_core.buildapi
+  py313: FAIL code 1 (48.84=setup[47.11]+cmd[1.73] seconds)
+  evaluation failed :( (48.98 seconds)
+
+
+STDERR

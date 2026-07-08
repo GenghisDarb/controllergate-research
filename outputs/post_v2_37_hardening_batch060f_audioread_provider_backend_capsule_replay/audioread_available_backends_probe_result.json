@@ -1,0 +1,19 @@
+{
+  "probe": {
+    "command": [
+      "python",
+      "-c",
+      "import audioread; print([getattr(b, '__name__', str(b)) for b in audioread.available_backends()])"
+    ],
+    "command_text": "python -c import audioread; print([getattr(b, '__name__', str(b)) for b in audioread.available_backends()])",
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060f\\branch_replay_checkout",
+    "elapsed_seconds": 0.336,
+    "returncode": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "79d2cbbe8454ed581c1fa0f6a65896b9f21d3a092a66dcd85c59ea71770e9af7",
+    "timed_out": false
+  },
+  "status": "PASS",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "['RawAudioFile']"
+}

@@ -1,0 +1,156 @@
+command: python --version
+cwd: C:\Dev\ControllerGate_runtime\batch060f\baseline_checkout
+returncode: 0
+timed_out: False
+elapsed_seconds: 0.063
+
+STDOUT
+Python 3.13.14
+
+
+STDERR
+
+
+
+--- probe ---
+
+command: python -m pip --version
+cwd: C:\Dev\ControllerGate_runtime\batch060f\baseline_checkout
+returncode: 0
+timed_out: False
+elapsed_seconds: 1.308
+
+STDOUT
+pip 25.1 from C:\Users\thisb\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\pip (python 3.13)
+
+
+
+STDERR
+
+
+
+--- probe ---
+
+command: C:\Dev\ControllerGate_runtime\batch060f\tool_venv\Scripts\python.exe -m tox --version
+cwd: C:\Dev\ControllerGate_runtime\batch060f\baseline_checkout
+returncode: 0
+timed_out: False
+elapsed_seconds: 2.646
+
+STDOUT
+4.56.3 from C:\Dev\ControllerGate_runtime\batch060f\tool_venv\Lib\site-packages\tox\__init__.py
+
+
+STDERR
+
+
+
+--- probe ---
+
+command: python -c import shutil; print(shutil.which('ffmpeg'))
+cwd: C:\Dev\ControllerGate_runtime\batch060f\baseline_checkout
+returncode: 0
+timed_out: False
+elapsed_seconds: 0.442
+
+STDOUT
+None
+
+
+STDERR
+
+
+
+--- probe ---
+
+command: python -c import shutil; print(shutil.which('ffprobe'))
+cwd: C:\Dev\ControllerGate_runtime\batch060f\baseline_checkout
+returncode: 0
+timed_out: False
+elapsed_seconds: 0.413
+
+STDOUT
+None
+
+
+STDERR
+
+
+
+--- probe ---
+
+command: python -c import shutil; print(shutil.which('gst-launch-1.0'))
+cwd: C:\Dev\ControllerGate_runtime\batch060f\baseline_checkout
+returncode: 0
+timed_out: False
+elapsed_seconds: 0.422
+
+STDOUT
+None
+
+
+STDERR
+
+
+
+--- probe ---
+
+command: python -c import importlib.util; print(importlib.util.find_spec('audioread'))
+cwd: C:\Dev\ControllerGate_runtime\batch060f\baseline_checkout
+returncode: 0
+timed_out: False
+elapsed_seconds: 0.214
+
+STDOUT
+ModuleSpec(name='audioread', loader=<_frozen_importlib_external.SourceFileLoader object at 0x000002159DB895E0>, origin='C:\\Dev\\ControllerGate_runtime\\batch060f\\baseline_checkout\\audioread\\__init__.py', submodule_search_locations=['C:\\Dev\\ControllerGate_runtime\\batch060f\\baseline_checkout\\audioread'])
+
+
+STDERR
+
+
+
+--- probe ---
+
+command: python -c import importlib.util; print(importlib.util.find_spec('aifc'))
+cwd: C:\Dev\ControllerGate_runtime\batch060f\baseline_checkout
+returncode: 0
+timed_out: False
+elapsed_seconds: 0.249
+
+STDOUT
+None
+
+
+STDERR
+
+
+
+--- probe ---
+
+command: python -c import importlib.util; print(importlib.util.find_spec('audioop'))
+cwd: C:\Dev\ControllerGate_runtime\batch060f\baseline_checkout
+returncode: 0
+timed_out: False
+elapsed_seconds: 0.2
+
+STDOUT
+None
+
+
+STDERR
+
+
+
+--- probe ---
+
+command: python -c import importlib.util; print(importlib.util.find_spec('sunau'))
+cwd: C:\Dev\ControllerGate_runtime\batch060f\baseline_checkout
+returncode: 0
+timed_out: False
+elapsed_seconds: 0.221
+
+STDOUT
+None
+
+
+STDERR

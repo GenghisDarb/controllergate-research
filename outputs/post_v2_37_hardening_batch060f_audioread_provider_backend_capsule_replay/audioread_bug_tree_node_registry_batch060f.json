@@ -1,0 +1,27 @@
+{
+  "nodes": [
+    {
+      "failure": "ModuleNotFoundError: No module named 'aifc'",
+      "node_id": "audioread_node_1_removed_stdlib_import_crash",
+      "source_contact": [
+        "audioread/rawread.py"
+      ],
+      "terminal_state": "resolved_by_exact_prior_patch_in_branch_replay"
+    },
+    {
+      "failure": "NoBackendError",
+      "node_id": "audioread_node_2_post_patch_backend_provider_failure",
+      "source_provider_contact": [
+        "audioread/__init__.py available_backends",
+        "external backend tools"
+      ],
+      "terminal_state": "provider_backend_capsule_unavailable"
+    },
+    {
+      "failure": "MP3/backend-dependent target remained unavailable without declared backend materialization",
+      "node_id": "audioread_node_3_mp3_backend_dependent_target",
+      "terminal_state": "provider_backend_capsule_unavailable"
+    }
+  ],
+  "status": "PASS"
+}
