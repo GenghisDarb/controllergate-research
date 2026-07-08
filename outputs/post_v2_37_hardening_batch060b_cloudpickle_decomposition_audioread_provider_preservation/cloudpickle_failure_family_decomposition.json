@@ -1,0 +1,45 @@
+{
+  "answers": {
+    "class_dict_family_separate_interpreter_behavior_family": true,
+    "distutils_family_classification": "cloudpickle_mixed_source_provider_surface",
+    "families_share_one_source_root": false,
+    "full_target_pass_possible_with_one_bounded_patch": "not_established",
+    "module_importability_failures_one_family": true,
+    "needs_primary_family_diagnostic_patch_lane_or_provider_first": "provider_runtime_recovery_or_layered_primary_family_gate_first",
+    "one_safe_primary_source_patch_available_now": false
+  },
+  "batch060b_patch_generation_allowed": false,
+  "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+  "families": [
+    {
+      "classification": "cloudpickle_mixed_source_provider_surface",
+      "exception_message": "No module named 'distutils'",
+      "exception_type": "ModuleNotFoundError",
+      "family_id": "cloudpickle_family_1_distutils_importability",
+      "nodes": [
+        "tests/cloudpickle_test.py::CloudPickleTest::test_module_importability",
+        "tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability"
+      ],
+      "patch_license": "future_provider_or_primary_family_gate_required",
+      "provider_dependency_component": "missing distutils module under Python 3.13 runtime",
+      "source_component": "native tests exercise module importability across stdlib modules; source compatibility may need bounded handling only after provider/source frontier is explicit"
+    },
+    {
+      "classification": "cloudpickle_interpreter_behavior_change",
+      "exception_message": "unexpected __firstlineno__ in extracted class dictionary",
+      "exception_type": "AssertionError",
+      "family_id": "cloudpickle_family_2_class_dict_firstlineno",
+      "interpreter_component": "Python 3.13 class namespace includes __firstlineno__",
+      "nodes": [
+        "tests/cloudpickle_test.py::test_extract_class_dict"
+      ],
+      "patch_license": "future_primary_family_diagnostic_only_if_targeted",
+      "source_contact_candidates": [
+        "cloudpickle/cloudpickle.py",
+        "cloudpickle/cloudpickle_fast.py"
+      ]
+    }
+  ],
+  "family_count": 2,
+  "status": "PASS"
+}

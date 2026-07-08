@@ -1,0 +1,112 @@
+{
+  "batch060_diagnostic_results": {
+    "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+    "records": [
+      {
+        "command": "python -m pytest tests/cloudpickle_test.py::CloudPickleTest::test_module_importability -q --tb=short",
+        "diagnostic_id": "diag_1",
+        "diagnostic_success_is_repair_success": false,
+        "failure_signature": {
+          "assertion_errors": [],
+          "failed_node_count": 1,
+          "failed_nodes": [
+            "tests/cloudpickle_test.py::CloudPickleTest::test_module_importability"
+          ],
+          "module_errors": [
+            "ModuleNotFoundError: No module named 'distutils'"
+          ],
+          "no_backend_error_observed": false,
+          "raw_log_sha256": "965134857247d9e074c167b0b1b2afc5e0701c831a20bf222c16c0a576e30c7a",
+          "semantic_signature_sha256": "223e625c56aca9cfdd676b4465a14b57d8dbc69a99628fc7fdaf0479a527b78e",
+          "traceback_or_error_root_count": 2,
+          "traceback_or_error_roots": [
+            "tests\\cloudpickle_test.py:743: in test_module_importability",
+            "E   ModuleNotFoundError: No module named 'distutils'"
+          ]
+        },
+        "result": {
+          "command": "python -m pytest tests/cloudpickle_test.py::CloudPickleTest::test_module_importability -q --tb=short",
+          "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060\\cloudpickle_507_py313_typevar_distutils\\checkout",
+          "elapsed_seconds": 1.561,
+          "returncode": 1,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "c81735cd05727a6dca2f74091891998a31c3523252529ce9ffd7e2c81a72b58b",
+          "timed_out": false
+        }
+      },
+      {
+        "command": "python -m pytest tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability -q --tb=short",
+        "diagnostic_id": "diag_2",
+        "diagnostic_success_is_repair_success": false,
+        "failure_signature": {
+          "assertion_errors": [],
+          "failed_node_count": 1,
+          "failed_nodes": [
+            "tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability"
+          ],
+          "module_errors": [
+            "ModuleNotFoundError: No module named 'distutils'"
+          ],
+          "no_backend_error_observed": false,
+          "raw_log_sha256": "3a838aa7d4f33473785056ee579ded215d68656eca14367154722ba040c915be",
+          "semantic_signature_sha256": "5441602a1cfe3feb7c7477d63d4e872c1c97280427124a685c0bffc30f125d55",
+          "traceback_or_error_root_count": 2,
+          "traceback_or_error_roots": [
+            "tests\\cloudpickle_test.py:743: in test_module_importability",
+            "E   ModuleNotFoundError: No module named 'distutils'"
+          ]
+        },
+        "result": {
+          "command": "python -m pytest tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability -q --tb=short",
+          "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060\\cloudpickle_507_py313_typevar_distutils\\checkout",
+          "elapsed_seconds": 2.247,
+          "returncode": 1,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "47049bc6ac5b7a884d8ab1df009256e3aece8848845128fc7b1542c19d5fef22",
+          "timed_out": false
+        }
+      },
+      {
+        "command": "python -m pytest tests/cloudpickle_test.py::test_extract_class_dict -q --tb=short",
+        "diagnostic_id": "diag_3",
+        "diagnostic_success_is_repair_success": false,
+        "failure_signature": {
+          "assertion_errors": [
+            "AssertionError: a...",
+            "AssertionError: assert ['C_CONSTANT'...', 'method_c'] == ['C_CONSTANT'...', 'method_c']"
+          ],
+          "failed_node_count": 1,
+          "failed_nodes": [
+            "tests/cloudpickle_test.py::test_extract_class_dict"
+          ],
+          "module_errors": [],
+          "no_backend_error_observed": false,
+          "raw_log_sha256": "fffafcaf56b7b3984d7fb544401330e8c7f381792d182c9dfe2882e1264725be",
+          "semantic_signature_sha256": "4c96b3eb454070ad2df2bdbefe9540608399bb9d03562878f09c6960cb0613b6",
+          "traceback_or_error_root_count": 5,
+          "traceback_or_error_roots": [
+            "tests\\cloudpickle_test.py:117: in test_extract_class_dict",
+            "E   AssertionError: assert ['C_CONSTANT'...', 'method_c'] == ['C_CONSTANT'...', 'method_c']",
+            "E     At index 2 diff: '__firstlineno__' != 'method_c'",
+            "E     Left contains one more item: 'method_c'",
+            "E     Use -v to get more diff"
+          ]
+        },
+        "result": {
+          "command": "python -m pytest tests/cloudpickle_test.py::test_extract_class_dict -q --tb=short",
+          "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060\\cloudpickle_507_py313_typevar_distutils\\checkout",
+          "elapsed_seconds": 1.992,
+          "returncode": 1,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "40c04de3d5b133001966f90eb5ba39ad5d6f80a516a8cbabf4a7f76beb1c5366",
+          "timed_out": false
+        }
+      }
+    ],
+    "status": "PASS"
+  },
+  "batch060_diagnostic_results_sha256": "5292a18160be646c56a0ddbd188a08472904f8e0e2d0840ad9a05b8a36b43165",
+  "not_run_reason": "batch060_diagnostic_replay_sufficient_for_decomposition",
+  "rerun_performed_in_batch060b": false,
+  "status": "PASS"
+}

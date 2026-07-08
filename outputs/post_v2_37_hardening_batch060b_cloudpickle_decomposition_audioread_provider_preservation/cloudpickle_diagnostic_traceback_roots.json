@@ -1,0 +1,15 @@
+{
+  "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+  "status": "PASS",
+  "traceback_roots": [
+    "tests\\cloudpickle_test.py:743: in test_module_importability",
+    "E   ModuleNotFoundError: No module named 'distutils'",
+    "tests\\cloudpickle_test.py:743: in test_module_importability",
+    "E   ModuleNotFoundError: No module named 'distutils'",
+    "tests\\cloudpickle_test.py:117: in test_extract_class_dict",
+    "E   AssertionError: assert ['C_CONSTANT'...', 'method_c'] == ['C_CONSTANT'...', 'method_c']",
+    "E     At index 2 diff: '__firstlineno__' != 'method_c'",
+    "E     Left contains one more item: 'method_c'",
+    "E     Use -v to get more diff"
+  ]
+}

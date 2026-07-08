@@ -1,0 +1,17 @@
+{
+  "batch060_classification": "source_only_patch_partial_improvement",
+  "batch060_patch_boundary": "source_only",
+  "branch_record_purpose": "preserve_failed_repair_branch_for_future_provider_backend_capsule_work",
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "changed_files": [
+    "audioread/rawread.py"
+  ],
+  "duplicate_replay_allowed": false,
+  "post_patch_failure": "NoBackendError",
+  "post_patch_failure_sha256": "d3086a071ae48e4654e8b972c41867a6d0e8dcbcb12f348e56da647ad95cea75",
+  "pre_patch_failure": "ModuleNotFoundError: No module named 'aifc'",
+  "repair_count_increment_allowed": false,
+  "status": "PASS",
+  "target_command": "tox -e py313",
+  "target_pass": false
+}

@@ -1,0 +1,49 @@
+{
+  "edges": [
+    {
+      "family": "distutils_importability",
+      "from": "tests/cloudpickle_test.py",
+      "to": "provider_runtime_distutils"
+    },
+    {
+      "family": "class_dict_firstlineno",
+      "from": "tests/cloudpickle_test.py",
+      "to": "python313_class_namespace"
+    },
+    {
+      "family": "class_dict_firstlineno",
+      "from": "python313_class_namespace",
+      "status": "candidate_source_contact",
+      "to": "cloudpickle/cloudpickle.py"
+    },
+    {
+      "family": "class_dict_firstlineno",
+      "from": "python313_class_namespace",
+      "status": "candidate_source_contact",
+      "to": "cloudpickle/cloudpickle_fast.py"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "tests/cloudpickle_test.py",
+      "type": "native_test_file"
+    },
+    {
+      "id": "cloudpickle/cloudpickle.py",
+      "type": "candidate_source_file"
+    },
+    {
+      "id": "cloudpickle/cloudpickle_fast.py",
+      "type": "candidate_source_file"
+    },
+    {
+      "id": "provider_runtime_distutils",
+      "type": "provider_dependency_boundary"
+    },
+    {
+      "id": "python313_class_namespace",
+      "type": "interpreter_behavior_boundary"
+    }
+  ],
+  "status": "PASS"
+}

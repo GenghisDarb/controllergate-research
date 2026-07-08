@@ -1,0 +1,51 @@
+{
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "interpretation": "stdlib_import_survival_exposed_backend_provider_layer",
+  "partial_improvement_not_counted": true,
+  "post_patch_replay_result": {
+    "candidate_id": "audioread_144_py313_aifc_removed",
+    "classification": "source_only_patch_partial_improvement",
+    "result": {
+      "command": "tox -e py313",
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060\\audioread_144_py313_aifc_removed\\checkout",
+      "elapsed_seconds": 15.962,
+      "returncode": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5407fd97c954045b02a18dcc4ece721050d3264b722c98dd404bd25ecb12d8f4",
+      "timed_out": false
+    },
+    "target_pass": false
+  },
+  "post_patch_signature": {
+    "exception": "NoBackendError",
+    "failed_node_count": 4,
+    "failed_nodes": [
+      "test/test_audioread.py::test_audioread_early_exit[test-1]",
+      "test/test_audioread.py::test_audioread_early_exit[test-2]",
+      "test/test_audioread.py::test_audioread_full[test-1]",
+      "test/test_audioread.py::test_audioread_full[test-2]"
+    ],
+    "raw_log_sha256": "24d20db715e4bf0f557bb3a40b66b0a6b4cdf1a0567505c42156a257fd0013d9",
+    "semantic_signature_sha256": "d3086a071ae48e4654e8b972c41867a6d0e8dcbcb12f348e56da647ad95cea75",
+    "traceback_roots": [
+      "test\\test_audioread.py:29:",
+      "E       audioread.exceptions.NoBackendError",
+      "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:132: NoBackendError",
+      "test\\test_audioread.py:29:",
+      "E       audioread.exceptions.NoBackendError",
+      "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:132: NoBackendError",
+      "test\\test_audioread.py:38:",
+      "E       audioread.exceptions.NoBackendError",
+      "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:132: NoBackendError",
+      "test\\test_audioread.py:38:",
+      "E       audioread.exceptions.NoBackendError",
+      "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:132: NoBackendError"
+    ]
+  },
+  "pre_patch_signature": {
+    "exception": "ModuleNotFoundError",
+    "message": "No module named 'aifc'",
+    "source_contact": "audioread/rawread.py import aifc"
+  },
+  "status": "PASS"
+}

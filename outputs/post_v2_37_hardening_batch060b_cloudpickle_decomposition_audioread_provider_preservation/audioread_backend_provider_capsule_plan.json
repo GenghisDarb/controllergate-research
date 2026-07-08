@@ -1,0 +1,35 @@
+{
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "decision_time_inputs": [
+    "Batch060 pre-repair and post-repair logs",
+    "Batch060 changed file manifest",
+    "Batch060 target command",
+    "buggy project metadata only in future execution"
+  ],
+  "explicitly_not_run_in_batch060b": [
+    "backend dependency installation",
+    "third-party replacement installation",
+    "source patching",
+    "test mutation",
+    "post-repair replay",
+    "duplicate replay",
+    "count gate"
+  ],
+  "future_bounded_checks": [
+    "inspect declared optional audio backends",
+    "inspect declared audio backend test dependencies",
+    "verify whether tox py313 includes backend tools",
+    "verify whether MP3 tests require ffmpeg, gstreamer, mad, coreaudio, or equivalent project-declared providers",
+    "split WAV/AIFF/raw target nodes from MP3/backend target nodes",
+    "classify rawread eligibility for MP3 files before any source repair"
+  ],
+  "plan_type": "future_provider_backend_capsule_replay",
+  "reactome_style_provider_capsule_fields": [
+    "provider requirements",
+    "local dependencies",
+    "runtime boundary",
+    "incompatible/deprecated exclusions",
+    "output verification"
+  ],
+  "status": "PASS"
+}

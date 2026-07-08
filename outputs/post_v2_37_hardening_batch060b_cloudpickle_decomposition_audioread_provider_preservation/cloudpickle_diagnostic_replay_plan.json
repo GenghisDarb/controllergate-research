@@ -1,0 +1,11 @@
+{
+  "allowed_if_needed_commands": [
+    "python -m pytest tests/cloudpickle_test.py::CloudPickleTest::test_module_importability -q --tb=long",
+    "python -m pytest tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability -q --tb=long",
+    "python -m pytest tests/cloudpickle_test.py::test_extract_class_dict -q --tb=long -vv"
+  ],
+  "not_run_reason": "batch060_diagnostic_replay_sufficient_for_decomposition",
+  "reason": "Batch060 diagnostic minimal replay artifacts are sufficient for Batch060b decomposition.",
+  "rerun_required": false,
+  "status": "PASS"
+}

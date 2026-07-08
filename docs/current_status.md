@@ -2,19 +2,19 @@
 
 ControllerGate is currently an evidence-bound repair validation kernel and runtime-wrapper scaffold. The current protocol remains `v2.14`.
 
-Batch060 is the latest validation-path boundary. It officially ingests Batch059, preserves the Wave 3 materialized-failure evidence, and runs a bounded source-only patch gate for exactly two approved Wave 3 candidates: `audioread_144_py313_aifc_removed` and `cloudpickle_507_py313_typevar_distutils`.
+Batch060b is the latest validation-path boundary. It officially ingests Batch060, preserves the Wave 3 source-only patch-gate evidence, and records Cloudpickle failure-family decomposition plus Audioread partial-improvement provider/backend preservation.
 
-Batch060 generated and applied one source-only Audioread patch, then classified the result as partial improvement because the original target command still did not pass. Cloudpickle remained decomposition-needed after bounded diagnostic traceback replay, so no patch was generated for it. Batch060 does not run duplicate replay, does not run a count gate, and does not increment repair counts.
+Audioread remains a failed-repair branch record: Batch060 removed the `aifc` import crash, but the original target command still failed with `NoBackendError`, so the next Audioread work is a future provider/backend capsule replay, not a repair count.
 
-Batch060 candidate classifications:
+Cloudpickle decomposes into two families: a `distutils` importability/provider-runtime surface and a separate Python 3.13 `__firstlineno__` class-dictionary behavior surface. Batch060b generates no patches, applies no patches, runs no duplicate replay, runs no count gate, and does not increment repair counts.
 
-- `audioread_144_py313_aifc_removed`: fresh replay `pre_repair_failure_materialized`; patch generated/applied `true`; post-repair original target `source_only_patch_partial_improvement`; not a Batch061 duplicate-replay candidate.
-- `cloudpickle_507_py313_typevar_distutils`: fresh replay `pre_repair_failure_materialized`; diagnostic replay separated `distutils` import failure from `__firstlineno__` class-dict behavior; patch generated/applied `false`; decomposition recommended.
+Batch060b candidate classifications:
+
+- `audioread_144_py313_aifc_removed`: preserved as `source_only_patch_partial_improvement`; post-patch layer classification `audioread_optional_backend_capsule_needed`; future recommendation `future_audioread_provider_backend_capsule_replay`.
+- `cloudpickle_507_py313_typevar_distutils`: decomposed into `cloudpickle_mixed_source_provider_surface` and `cloudpickle_interpreter_behavior_change`; future patch-license state `cloudpickle_patch_license_closed_provider_dependency_first`.
 - Source-only target-pass count: `0`.
-- Partial-improvement count: `1`.
-- Blocked/no-safe-patch count: `1`.
 - Batch061 duplicate replay candidate count: `0`.
-- Next allowed action: `batch060b_failure_family_decomposition_cloudpickle`.
+- Next allowed action: `batch060c_cloudpickle_provider_runtime_recovery`.
 
 ## Current operational gate status
 
@@ -27,6 +27,7 @@ Batch060 candidate classifications:
 - Batch058 screens Wave 3 leads and approves two candidates for bounded replay.
 - Batch059 materializes pre-repair target-code failures for both approved Wave 3 candidates and routes future work to `batch060_source_only_patch_gate_wave_3`.
 - Batch060 runs the bounded source-only patch gate, records one partial improvement, records zero source-only target passes, and preserves repair counts unchanged.
+- Batch060b preserves the Audioread partial-improvement branch, decomposes Cloudpickle failure families, records zero Batch061 candidates, and routes future work to `batch060c_cloudpickle_provider_runtime_recovery`.
 
 ## Batch039 secondary cofactor governance
 

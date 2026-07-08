@@ -1,0 +1,27 @@
+{
+  "clusters": [
+    {
+      "cluster_id": "distutils_importability_traceback_cluster",
+      "nodes": [
+        "tests/cloudpickle_test.py::CloudPickleTest::test_module_importability",
+        "tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability"
+      ],
+      "traceback_roots": [
+        "tests\\cloudpickle_test.py:743: in test_module_importability",
+        "E   ModuleNotFoundError: No module named 'distutils'"
+      ]
+    },
+    {
+      "cluster_id": "class_dict_firstlineno_traceback_cluster",
+      "nodes": [
+        "tests/cloudpickle_test.py::test_extract_class_dict"
+      ],
+      "traceback_roots": [
+        "tests\\cloudpickle_test.py:117: in test_extract_class_dict",
+        "E     At index 2 diff: '__firstlineno__' != 'method_c'"
+      ]
+    }
+  ],
+  "source": "Batch060 diagnostic minimal replay artifacts",
+  "status": "PASS"
+}

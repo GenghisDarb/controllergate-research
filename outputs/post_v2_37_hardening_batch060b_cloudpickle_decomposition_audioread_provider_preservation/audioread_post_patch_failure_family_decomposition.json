@@ -1,0 +1,14 @@
+{
+  "alternate_classifications_considered": [
+    "audioread_provider_backend_missing",
+    "audioread_mixed_source_provider_surface",
+    "audioread_raw_backend_selection_issue"
+  ],
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "counts_as_repair": false,
+  "provider_backend_layer_status": "backend_provider_capability_unmaterialized_for_mp3_tests",
+  "reason": "Batch060 removed the removed-stdlib import crash, then MP3 target tests reached NoBackendError. That is a backend/provider capability boundary until future replay splits raw/WAV/AIFF paths from MP3 backend paths.",
+  "selected_classification": "audioread_optional_backend_capsule_needed",
+  "source_layer_status": "aifc_import_crash_removed_but_target_not_passed",
+  "status": "PASS"
+}

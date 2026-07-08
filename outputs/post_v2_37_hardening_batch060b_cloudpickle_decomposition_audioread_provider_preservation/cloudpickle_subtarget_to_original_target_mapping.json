@@ -1,0 +1,21 @@
+{
+  "original_target_command": "python -m pytest tests/cloudpickle_test.py -q --tb=no",
+  "status": "PASS",
+  "subtargets": [
+    {
+      "maps_to_original_target": true,
+      "node": "tests/cloudpickle_test.py::CloudPickleTest::test_module_importability",
+      "repair_success_claim_allowed": false
+    },
+    {
+      "maps_to_original_target": true,
+      "node": "tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability",
+      "repair_success_claim_allowed": false
+    },
+    {
+      "maps_to_original_target": true,
+      "node": "tests/cloudpickle_test.py::test_extract_class_dict",
+      "repair_success_claim_allowed": false
+    }
+  ]
+}

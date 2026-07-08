@@ -1,0 +1,18 @@
+{
+  "purpose": "future_layered_gate_only",
+  "status": "PASS",
+  "subtargets": [
+    {
+      "family": "distutils_importability",
+      "node": "tests/cloudpickle_test.py::CloudPickleTest::test_module_importability"
+    },
+    {
+      "family": "distutils_importability",
+      "node": "tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability"
+    },
+    {
+      "family": "class_dict_firstlineno",
+      "node": "tests/cloudpickle_test.py::test_extract_class_dict"
+    }
+  ]
+}
