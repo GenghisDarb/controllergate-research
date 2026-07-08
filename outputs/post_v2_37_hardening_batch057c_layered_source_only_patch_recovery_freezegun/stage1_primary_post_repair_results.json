@@ -1,0 +1,93 @@
+{
+  "results": {
+    "full_target": {
+      "classification": "full_target_fail",
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_datetimes.py",
+        "-q",
+        "--tb=no"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout",
+      "elapsed_seconds": 2.165,
+      "passed": false,
+      "raw_log_sha256": "733dd3343f0f4c5b9b259b0648603e78905a2de61493001951fe5534c1b64a91",
+      "returncode": 1,
+      "status": "PASS",
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": ".................s...........s.......................................F.s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n1 failed, 68 passed, 3 skipped, 2 warnings in 1.11s\n",
+      "stdout_sha256": "733dd3343f0f4c5b9b259b0648603e78905a2de61493001951fe5534c1b64a91",
+      "timed_out": false
+    },
+    "primary_family": {
+      "classification": "primary_family_pass",
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator",
+        "-q",
+        "--tb=no"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout",
+      "elapsed_seconds": 1.507,
+      "passed": true,
+      "raw_log_sha256": "cd9f00546c34cfb5721e29ec23a1ed6cb673c65a1f499cca23fbf0be701ed940",
+      "returncode": 0,
+      "status": "PASS",
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "....                                                                     [100%]\n4 passed in 0.42s\n",
+      "stdout_sha256": "cd9f00546c34cfb5721e29ec23a1ed6cb673c65a1f499cca23fbf0be701ed940",
+      "timed_out": false
+    },
+    "primary_minimal": {
+      "classification": "primary_minimal_pass",
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
+        "-q",
+        "--tb=no"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout",
+      "elapsed_seconds": 1.469,
+      "passed": true,
+      "raw_log_sha256": "f6b6e232e0345fa742cf57cbc60c8884709a6f029bd43161ca6e812c9175f2a8",
+      "returncode": 0,
+      "status": "PASS",
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": ".                                                                        [100%]\n1 passed in 0.41s\n",
+      "stdout_sha256": "f6b6e232e0345fa742cf57cbc60c8884709a6f029bd43161ca6e812c9175f2a8",
+      "timed_out": false
+    },
+    "secondary_minimal": {
+      "classification": "secondary_minimal_fail",
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone",
+        "-q",
+        "--tb=no"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout",
+      "elapsed_seconds": 1.505,
+      "passed": false,
+      "raw_log_sha256": "82602b783fccb30e840df8a42b821537952ff8585958a1dffd38d9bb12096319",
+      "returncode": 1,
+      "status": "PASS",
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "F                                                                        [100%]\n=========================== short test summary info ===========================\nFAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n1 failed in 0.38s\n",
+      "stdout_sha256": "82602b783fccb30e840df8a42b821537952ff8585958a1dffd38d9bb12096319",
+      "timed_out": false
+    }
+  },
+  "status": "PASS"
+}

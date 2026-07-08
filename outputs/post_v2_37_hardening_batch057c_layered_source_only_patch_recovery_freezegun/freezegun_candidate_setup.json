@@ -1,0 +1,149 @@
+{
+  "candidate_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+  "lead_id": "freezegun_547_py313_datetimes_assertion",
+  "raw_workspace_committed": false,
+  "repo_url": "https://github.com/spulec/freezegun",
+  "status": "PASS",
+  "steps": {
+    "cat_file": {
+      "combined_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command": [
+        "git",
+        "cat-file",
+        "-e",
+        "df263dcec48f43154a5873eb0dff2d4ba94374da^{commit}"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout",
+      "elapsed_seconds": 0.081,
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "checkout": {
+      "combined_log_sha256": "b22cf52024c02c66a650b97ea921ed5b2d3048a3e17d676162112125f560aa97",
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "df263dcec48f43154a5873eb0dff2d4ba94374da"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout",
+      "elapsed_seconds": 1.056,
+      "returncode": 0,
+      "stderr_excerpt": "HEAD is now at df263dc Extend type checking\n",
+      "stderr_sha256": "b22cf52024c02c66a650b97ea921ed5b2d3048a3e17d676162112125f560aa97",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "clone": {
+      "combined_log_sha256": "d3b8f286a49c0d6011c7b4d1bceafe56907c1acb1b417893b1de08dcd16222b6",
+      "command": [
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--no-checkout",
+        "https://github.com/spulec/freezegun",
+        "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate",
+      "elapsed_seconds": 1.545,
+      "returncode": 0,
+      "stderr_excerpt": "Cloning into 'C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout'...\n",
+      "stderr_sha256": "d3b8f286a49c0d6011c7b4d1bceafe56907c1acb1b417893b1de08dcd16222b6",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "fetch": {
+      "combined_log_sha256": "591e6edd0a57be8e6448ffa27a09e8f10f9efe4c979a92249ed0cef7e6ab5ae3",
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "df263dcec48f43154a5873eb0dff2d4ba94374da"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout",
+      "elapsed_seconds": 1.318,
+      "returncode": 0,
+      "stderr_excerpt": "From https://github.com/spulec/freezegun\n * branch            df263dcec48f43154a5873eb0dff2d4ba94374da -> FETCH_HEAD\n",
+      "stderr_sha256": "591e6edd0a57be8e6448ffa27a09e8f10f9efe4c979a92249ed0cef7e6ab5ae3",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "pip_install_editable": {
+      "combined_log_sha256": "ad5b1ba95982c14a026f0a06dd1480fb2e3cbfc8240a6ab71783c4c0f5a36509",
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        "."
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout",
+      "elapsed_seconds": 17.888,
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "Obtaining file:///C:/Dev/ControllerGate_runtime/batch057c/freezegun_layered_patch_recovery/checkout\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nColl\n...<trimmed 472 chars>...\n (pyproject.toml): started\n  Building editable for freezegun (pyproject.toml): finished with status 'done'\n  Created wheel for freezegun: filename=freezegun-1.5.0-0.editable-py3-none-any.whl size=10402 sha256=e33007ec5d7fa9754a49da885237cc31b61479294faa4fb57d39b58f778a0a54\n  Stored in directory: C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-ephem-wheel-cache-4sz7_6bl\\wheels\\09\\7b\\a5\\d83244e3b9f7b9055ef2747ac492350c15278285a8d3eb825d\nSuccessfully built freezegun\nInstalling collected packages: six, python-dateutil, freezegun\n\nSuccessfully installed freezegun-1.5.0 python-dateutil-2.9.0.post0 six-1.17.0\n",
+      "stdout_sha256": "ad5b1ba95982c14a026f0a06dd1480fb2e3cbfc8240a6ab71783c4c0f5a36509",
+      "timed_out": false
+    },
+    "pip_pytest": {
+      "combined_log_sha256": "b98309efc98522516b0b06ef84f5026f87d608ba718fd4c052dff6f42b7432a0",
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--upgrade",
+        "pip",
+        "pytest"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout",
+      "elapsed_seconds": 12.846,
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "Requirement already satisfied: pip in C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\venv\\Lib\\site-packages (26.1.2)\nCollecting pytest\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting colorama>=0.4 (from pytest)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=1.0.1 (from pytest)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting packaging>=22 (from pytest)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nCollecting pluggy<2,>=1.5 (from pytest)\n  Using cached pl\n...<trimmed 77 chars>...\nm pytest)\n  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)\nUsing cached pytest-9.1.1-py3-none-any.whl (386 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nUsing cached iniconfig-2.3.0-py3-none-any.whl (7.5 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nUsing cached pygments-2.20.0-py3-none-any.whl (1.2 MB)\nInstalling collected packages: pygments, pluggy, packaging, iniconfig, colorama, pytest\n\nSuccessfully installed colorama-0.4.6 iniconfig-2.3.0 packaging-26.2 pluggy-1.6.0 pygments-2.20.0 pytest-9.1.1\n",
+      "stdout_sha256": "b98309efc98522516b0b06ef84f5026f87d608ba718fd4c052dff6f42b7432a0",
+      "timed_out": false
+    },
+    "venv": {
+      "combined_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command": [
+        "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+        "-m",
+        "venv",
+        "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\venv"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery",
+      "elapsed_seconds": 11.945,
+      "returncode": 0,
+      "stderr_excerpt": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    }
+  },
+  "suspect_source_file": {
+    "exists": true,
+    "path": "freezegun/api.py",
+    "sha256": "98c94f52a438f917fae88c501eb674a0c04edbd7f57e431e977feeb737f456cc"
+  },
+  "target_test_file": {
+    "exists": true,
+    "path": "tests/test_datetimes.py",
+    "sha256": "0a840463671967e9e255b19fbc9a8f93b5b0a4446e260f39779cd86dbf1e0bec"
+  },
+  "workspace_outside_live_repo": true,
+  "workspace_path": "C:\\Dev\\ControllerGate_runtime\\batch057c\\freezegun_layered_patch_recovery\\checkout"
+}

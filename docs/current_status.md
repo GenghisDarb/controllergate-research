@@ -143,3 +143,16 @@ Batch017 attempts decision-time dependency-era resolution, records the missing d
 | `freezegun_547_py313_datetimes_assertion` | `elbow_open_primary_family_only_diagnostic_patch_allowed` | `primary_source_bug, secondary_source_bug` |
 | `venusian_91_py313_frameinfo_callinfo` | `elbow_closed_test_expectation_or_interpreter_behavior` | `interpreter_behavior_change` |
 | `pexpect_699_replwrap_bash_assertions` | `elbow_closed_environment_provider` | `environment_provider_bug` |
+
+### Batch057c layered source-only patch recovery Freezegun
+
+- Batch057b official ingest status: `PASS`.
+- Batch057c Freezegun layered patch status: `PASS`.
+- Fresh pre-repair replay status: `pre_repair_failure_reproduced`.
+- Primary family patch status: `stage1_primary_patch_partial_improvement_secondary_still_fails`.
+- Secondary family patch status: `stage2_not_authorized`.
+- Full original target post-repair status: `FAIL`.
+- Batch058 duplicate replay candidate exists: `False`.
+- Issue-derived repair count remains `2`; native external repair count remains `4`.
+- Next allowed action: `batch056b_wave2_pre_repair_replay`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
