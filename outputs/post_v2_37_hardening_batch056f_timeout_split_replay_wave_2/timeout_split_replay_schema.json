@@ -1,0 +1,19 @@
+{
+  "required_candidate_files": [
+    "timeout_split_replay_plan.json",
+    "timeout_split_phase_budget.json",
+    "timeout_split_allowed_evidence_manifest.json",
+    "timeout_split_forbidden_evidence_audit.json",
+    "timeout_split_workspace_manifest.json",
+    "timeout_split_provider_precondition_check.json",
+    "timeout_split_execution_trace.json"
+  ],
+  "required_phase_files": [
+    "phase_<n>_command.txt",
+    "phase_<n>_log_raw.txt or phase_<n>_not_run_reason.txt",
+    "phase_<n>_result.json",
+    "phase_<n>_timeout_status.json",
+    "phase_<n>_classification.json"
+  ],
+  "status": "PASS"
+}

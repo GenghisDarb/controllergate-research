@@ -200,3 +200,18 @@ Batch017 attempts decision-time dependency-era resolution for Darker issue #112 
 - Next allowed action: `batch056f_timeout_split_replay_wave_2`.
 - Issue-derived repair count remains `2`; native external repair count remains `4`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+
+## Batch056f timeout split replay wave 2
+
+- Batch056e official ingest: `PASS`.
+- Timeout split replay standard: `PASS`.
+- Reactome step-gating pattern: `infrastructure_pattern_only`.
+- Timeout candidates processed: `4`.
+- Target-code failure materialization count: `0`.
+- Provider/network/model blocked count: `3`.
+- Retired/manual-review count: `1`.
+- Future patch-gate candidates: `none`.
+- Wave 3 recommendation: `recommended`.
+- Next allowed action: `batch058_seed_discovery_wave_3`.
+- Issue-derived repair count remains `2`; native external repair count remains `4`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

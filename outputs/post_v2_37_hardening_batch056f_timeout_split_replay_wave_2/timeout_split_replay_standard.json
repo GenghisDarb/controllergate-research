@@ -1,0 +1,95 @@
+{
+  "phases": [
+    {
+      "allowed_evidence": [
+        "Batch056e verified provider capsule",
+        "Batch056e timeout decomposition",
+        "buggy-checkout metadata already captured in capsule"
+      ],
+      "mutates_source_or_tests": false,
+      "phase": "phase_0_metadata_only",
+      "repair_success_claim_allowed": false,
+      "timeout_budget_seconds": 1
+    },
+    {
+      "allowed_evidence": [
+        "Batch056e verified provider capsule",
+        "Batch056e timeout decomposition",
+        "buggy-checkout metadata already captured in capsule"
+      ],
+      "mutates_source_or_tests": false,
+      "phase": "phase_1_environment_probe",
+      "repair_success_claim_allowed": false,
+      "timeout_budget_seconds": 10
+    },
+    {
+      "allowed_evidence": [
+        "Batch056e verified provider capsule",
+        "Batch056e timeout decomposition",
+        "buggy-checkout metadata already captured in capsule"
+      ],
+      "mutates_source_or_tests": false,
+      "phase": "phase_2_dependency_resolution_probe",
+      "repair_success_claim_allowed": false,
+      "timeout_budget_seconds": 15
+    },
+    {
+      "allowed_evidence": [
+        "Batch056e verified provider capsule",
+        "Batch056e timeout decomposition",
+        "buggy-checkout metadata already captured in capsule"
+      ],
+      "mutates_source_or_tests": false,
+      "phase": "phase_3_import_probe",
+      "repair_success_claim_allowed": false,
+      "timeout_budget_seconds": 10
+    },
+    {
+      "allowed_evidence": [
+        "Batch056e verified provider capsule",
+        "Batch056e timeout decomposition",
+        "buggy-checkout metadata already captured in capsule"
+      ],
+      "mutates_source_or_tests": false,
+      "phase": "phase_4_test_collection_probe",
+      "repair_success_claim_allowed": false,
+      "timeout_budget_seconds": 20
+    },
+    {
+      "allowed_evidence": [
+        "Batch056e verified provider capsule",
+        "Batch056e timeout decomposition",
+        "buggy-checkout metadata already captured in capsule"
+      ],
+      "mutates_source_or_tests": false,
+      "phase": "phase_5_minimal_subtarget_probe",
+      "repair_success_claim_allowed": false,
+      "timeout_budget_seconds": 20
+    },
+    {
+      "allowed_evidence": [
+        "Batch056e verified provider capsule",
+        "Batch056e timeout decomposition",
+        "buggy-checkout metadata already captured in capsule"
+      ],
+      "mutates_source_or_tests": false,
+      "phase": "phase_6_module_or_step_specific_probe",
+      "repair_success_claim_allowed": false,
+      "timeout_budget_seconds": 20
+    },
+    {
+      "allowed_evidence": [
+        "Batch056e verified provider capsule",
+        "Batch056e timeout decomposition",
+        "buggy-checkout metadata already captured in capsule"
+      ],
+      "mutates_source_or_tests": false,
+      "phase": "phase_7_original_target_replay",
+      "repair_success_claim_allowed": false,
+      "timeout_budget_seconds": 30
+    }
+  ],
+  "standard": "timeout_split_replay_wave_2_provider_capsule_step_gating",
+  "status": "PASS",
+  "target_code_failure_materialization_rule": "only after provider setup is stable and a declared replay phase produces a native test/code failure"
+}

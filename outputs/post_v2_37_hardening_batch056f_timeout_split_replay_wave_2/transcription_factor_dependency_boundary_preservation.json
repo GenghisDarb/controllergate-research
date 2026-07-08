@@ -1,0 +1,20 @@
+{
+  "boundary": "transcription_factor_dependency_boundary",
+  "count_boundary_changed": false,
+  "dependency_blocker_examples": {
+    "pairtools_250_py313_pipes_removed": "blocked_compiled_dependency",
+    "pytest_13480_wdefault_unraisable_threadexception": "blocked_tox_env_unavailable"
+  },
+  "interpretation": "dependency blockers are provider-materialization blockers, not target-code repair failures",
+  "metadata_scope": "explanatory_audit_metadata_only",
+  "operational_authority": "operational states, replay results, SHA manifests, and count-gate boundaries remain authoritative",
+  "operational_states": [
+    "blocked_dependency_install_failure",
+    "blocked_compiled_dependency",
+    "blocked_tox_env_unavailable"
+  ],
+  "patch_license_changed": false,
+  "patch_license_denied": true,
+  "proof_rules_changed": false,
+  "status": "PASS"
+}

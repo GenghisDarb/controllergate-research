@@ -1,0 +1,22 @@
+{
+  "batch056f_scope_candidates": [
+    "codex_wave2_nousresearch_hermes_agent_48986",
+    "codex_wave2_nousresearch_hermes_agent_60243",
+    "codex_wave2_nousresearch_hermes_agent_57197",
+    "codex_wave2_m0smith_genia_2026_518"
+  ],
+  "boundary": "cytoskeleton_timeout_boundary",
+  "count_boundary_changed": false,
+  "metadata_scope": "explanatory_audit_metadata_only",
+  "operational_authority": "operational states, replay results, SHA manifests, and count-gate boundaries remain authoritative",
+  "operational_states": [
+    "blocked_timeout",
+    "network_or_model_download_timeout",
+    "test_execution_timeout"
+  ],
+  "patch_license_changed": false,
+  "proof_rule": "target-code failure only materializes when a bounded declared replay phase produces native test/code failure after provider stability",
+  "proof_rules_changed": false,
+  "status": "PASS",
+  "timeout_candidates_interpretation": "provider-boundary blockers until timeout split replay proves otherwise"
+}
