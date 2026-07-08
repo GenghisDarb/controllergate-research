@@ -1,0 +1,85 @@
+{
+  "claim_boundary": {
+    "batch058_ingest_status": "PASS",
+    "blocked_candidate_count": 0,
+    "candidate_replay_classifications": {
+      "audioread_144_py313_aifc_removed": "pre_repair_failure_materialized",
+      "cloudpickle_507_py313_typevar_distutils": "pre_repair_failure_materialized"
+    },
+    "candidate_results": [
+      {
+        "amds_bridge_classification": "target_failure_materialized_single_source_family",
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "exact_blocker": null,
+        "failed_nodes": [
+          "test/test_audioread.py::test_audioread_early_exit[test-1]",
+          "test/test_audioread.py::test_audioread_early_exit[test-2]",
+          "test/test_audioread.py::test_audioread_full[test-1]",
+          "test/test_audioread.py::test_audioread_full[test-2]"
+        ],
+        "future_decomposition_candidate": false,
+        "future_patch_gate_candidate": true,
+        "future_provider_recovery_candidate": false,
+        "patch_license_state": "patch_license_future_open_single_source_family",
+        "pre_repair_replay_classification": "pre_repair_failure_materialized",
+        "provider_capsule_setup_status": "provider_capsule_setup_pass",
+        "target_code_failure_materialized": true
+      },
+      {
+        "amds_bridge_classification": "target_failure_materialized_future_decomposition_recommended",
+        "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+        "exact_blocker": null,
+        "failed_nodes": [
+          "tests/cloudpickle_test.py::CloudPickleTest::test_module_importability",
+          "tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability",
+          "tests/cloudpickle_test.py::test_extract_class_dict"
+        ],
+        "future_decomposition_candidate": true,
+        "future_patch_gate_candidate": true,
+        "future_provider_recovery_candidate": false,
+        "patch_license_state": "patch_license_future_open_primary_family_diagnostic_only",
+        "pre_repair_replay_classification": "pre_repair_failure_materialized",
+        "provider_capsule_setup_status": "provider_capsule_setup_pass",
+        "target_code_failure_materialized": true
+      }
+    ],
+    "count_gate_run": false,
+    "current_protocol": "v2.14",
+    "duplicate_replay_run": false,
+    "exact_blocker": null,
+    "failure_not_reproduced_count": 0,
+    "full_scoring": "NOT_RUN/disallowed",
+    "full_scoring_claim_allowed": false,
+    "future_decomposition_candidates": [
+      "cloudpickle_507_py313_typevar_distutils"
+    ],
+    "future_patch_gate_candidates": [
+      "audioread_144_py313_aifc_removed",
+      "cloudpickle_507_py313_typevar_distutils"
+    ],
+    "future_provider_recovery_candidates": [],
+    "issue_derived_repair_count": 2,
+    "materialized_failure_is_repair_success": false,
+    "memory_lift": "not_demonstrated",
+    "memory_lift_claim_allowed": false,
+    "native_external_repair_count": 4,
+    "next_allowed_action": "batch060_source_only_patch_gate_wave_3",
+    "patch_applied": false,
+    "patch_generated": false,
+    "post_repair_replay_run": false,
+    "pre_repair_replay_run": true,
+    "provider_capsule_setup_status_by_candidate": {
+      "audioread_144_py313_aifc_removed": "provider_capsule_setup_pass",
+      "cloudpickle_507_py313_typevar_distutils": "provider_capsule_setup_pass"
+    },
+    "provider_setup_is_repair_success": false,
+    "repair_count_increment": false,
+    "self_maintaining_software": "false/not_demonstrated",
+    "self_maintaining_software_claim_allowed": false,
+    "source_mutated": false,
+    "status": "PASS",
+    "target_code_failure_materialization_count": 2,
+    "tests_mutated": false
+  },
+  "status": "PASS"
+}

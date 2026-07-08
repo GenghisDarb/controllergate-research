@@ -2,15 +2,19 @@
 
 ControllerGate is currently an evidence-bound repair validation kernel and runtime-wrapper scaffold. The current protocol remains `v2.14`.
 
-Batch059 is the latest validation-path boundary. It officially ingests Batch058, preserves the Wave 3 provider-capsule prescreen, and runs bounded pre-repair replay for exactly two approved Wave 3 candidates: `audioread_144_py313_aifc_removed` and `cloudpickle_507_py313_typevar_distutils`.
+Batch060 is the latest validation-path boundary. It officially ingests Batch059, preserves the Wave 3 materialized-failure evidence, and runs a bounded source-only patch gate for exactly two approved Wave 3 candidates: `audioread_144_py313_aifc_removed` and `cloudpickle_507_py313_typevar_distutils`.
 
-Both Batch059 candidates materialized target-code failures under declared provider setup. Batch059 does not generate or apply patches, does not run post-repair replay, does not run duplicate replay, and does not run a count gate.
+Batch060 generated and applied one source-only Audioread patch, then classified the result as partial improvement because the original target command still did not pass. Cloudpickle remained decomposition-needed after bounded diagnostic traceback replay, so no patch was generated for it. Batch060 does not run duplicate replay, does not run a count gate, and does not increment repair counts.
 
-Batch059 candidate replay classifications:
+Batch060 candidate classifications:
 
-- `audioread_144_py313_aifc_removed`: provider capsule setup `provider_capsule_setup_pass`; pre-repair replay `pre_repair_failure_materialized`; AMDS bridge `target_failure_materialized_single_source_family`; future patch-gate candidate.
-- `cloudpickle_507_py313_typevar_distutils`: provider capsule setup `provider_capsule_setup_pass`; pre-repair replay `pre_repair_failure_materialized`; AMDS bridge `target_failure_materialized_future_decomposition_recommended`; future patch-gate and decomposition candidate.
-- Next allowed action: `batch060_source_only_patch_gate_wave_3`.
+- `audioread_144_py313_aifc_removed`: fresh replay `pre_repair_failure_materialized`; patch generated/applied `true`; post-repair original target `source_only_patch_partial_improvement`; not a Batch061 duplicate-replay candidate.
+- `cloudpickle_507_py313_typevar_distutils`: fresh replay `pre_repair_failure_materialized`; diagnostic replay separated `distutils` import failure from `__firstlineno__` class-dict behavior; patch generated/applied `false`; decomposition recommended.
+- Source-only target-pass count: `0`.
+- Partial-improvement count: `1`.
+- Blocked/no-safe-patch count: `1`.
+- Batch061 duplicate replay candidate count: `0`.
+- Next allowed action: `batch060b_failure_family_decomposition_cloudpickle`.
 
 ## Current operational gate status
 
@@ -22,7 +26,7 @@ Batch059 candidate replay classifications:
 - Self-maintaining software remains `false/not_demonstrated`.
 - Batch058 screens Wave 3 leads and approves two candidates for bounded replay.
 - Batch059 materializes pre-repair target-code failures for both approved Wave 3 candidates and routes future work to `batch060_source_only_patch_gate_wave_3`.
-- Batch059 remains replay/materialization-only; repair counts do not change.
+- Batch060 runs the bounded source-only patch gate, records one partial improvement, records zero source-only target passes, and preserves repair counts unchanged.
 
 ## Batch039 secondary cofactor governance
 

@@ -1,0 +1,43 @@
+{
+  "dashboard": {
+    "candidate_results": [
+      {
+        "amds_bridge_classification": "target_failure_materialized_single_source_family",
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "exact_blocker": null,
+        "failed_nodes": [
+          "test/test_audioread.py::test_audioread_early_exit[test-1]",
+          "test/test_audioread.py::test_audioread_early_exit[test-2]",
+          "test/test_audioread.py::test_audioread_full[test-1]",
+          "test/test_audioread.py::test_audioread_full[test-2]"
+        ],
+        "future_decomposition_candidate": false,
+        "future_patch_gate_candidate": true,
+        "future_provider_recovery_candidate": false,
+        "patch_license_state": "patch_license_future_open_single_source_family",
+        "pre_repair_replay_classification": "pre_repair_failure_materialized",
+        "provider_capsule_setup_status": "provider_capsule_setup_pass",
+        "target_code_failure_materialized": true
+      },
+      {
+        "amds_bridge_classification": "target_failure_materialized_future_decomposition_recommended",
+        "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+        "exact_blocker": null,
+        "failed_nodes": [
+          "tests/cloudpickle_test.py::CloudPickleTest::test_module_importability",
+          "tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability",
+          "tests/cloudpickle_test.py::test_extract_class_dict"
+        ],
+        "future_decomposition_candidate": true,
+        "future_patch_gate_candidate": true,
+        "future_provider_recovery_candidate": false,
+        "patch_license_state": "patch_license_future_open_primary_family_diagnostic_only",
+        "pre_repair_replay_classification": "pre_repair_failure_materialized",
+        "provider_capsule_setup_status": "provider_capsule_setup_pass",
+        "target_code_failure_materialized": true
+      }
+    ],
+    "status": "PASS"
+  },
+  "status": "PASS"
+}

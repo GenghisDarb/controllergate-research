@@ -1,0 +1,18 @@
+command: python -m pytest tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability -q --tb=short
+cwd: C:\Dev\ControllerGate_runtime\batch060\cloudpickle_507_py313_typevar_distutils\checkout
+returncode: 1
+timed_out: False
+elapsed_seconds: 2.247
+
+--- stdout ---
+F
+================================== FAILURES ===================================
+_____________ Protocol2CloudPickleTest.test_module_importability ______________
+tests\cloudpickle_test.py:743: in test_module_importability
+    import distutils
+E   ModuleNotFoundError: No module named 'distutils'
+=========================== short test summary info ===========================
+FAILED tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability
+1 failed in 0.45s
+
+--- stderr ---

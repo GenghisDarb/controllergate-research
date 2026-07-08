@@ -1,0 +1,34 @@
+{
+  "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+  "classification": "pre_repair_failure_materialized",
+  "failure_signature": {
+    "assertion_errors": [
+      "AssertionError: a..."
+    ],
+    "failed_node_count": 3,
+    "failed_nodes": [
+      "tests/cloudpickle_test.py::CloudPickleTest::test_module_importability",
+      "tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability",
+      "tests/cloudpickle_test.py::test_extract_class_dict"
+    ],
+    "module_errors": [],
+    "no_backend_error_observed": false,
+    "raw_log_sha256": "3c9afd65ade08264043afe6f9e588e1fc06ceb3f79f4c81b10a7e2b1ac0f8819",
+    "semantic_signature_sha256": "8ce9655e4357e5311b728693f86a4ec1d8872ba30c91cfa25e69edb4a30188e2",
+    "traceback_or_error_root_count": 2,
+    "traceback_or_error_roots": [
+      "C:\\Dev\\ControllerGate_Runtime\\batch060\\cloudpickle_507_py313_typevar_distutils\\checkout\\cloudpickle\\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.",
+      "C:\\Dev\\ControllerGate_runtime\\batch060\\cloudpickle_507_py313_typevar_distutils\\provider_venv\\Lib\\site-packages\\tornado\\ioloop.py:271: DeprecationWarning: There is no current event loop"
+    ]
+  },
+  "original_target_reproduced": true,
+  "result": {
+    "command": "python -m pytest tests/cloudpickle_test.py -q --tb=no",
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060\\cloudpickle_507_py313_typevar_distutils\\checkout",
+    "elapsed_seconds": 60.801,
+    "returncode": 1,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "35662924c257e864f7e522ef04b7dbb9920017d3f0f0ee97137d6077ab2bfdab",
+    "timed_out": false
+  }
+}

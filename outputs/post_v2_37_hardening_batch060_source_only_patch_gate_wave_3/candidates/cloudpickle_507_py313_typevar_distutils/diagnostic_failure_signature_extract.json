@@ -1,0 +1,64 @@
+{
+  "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+  "records": [
+    {
+      "assertion_errors": [],
+      "failed_node_count": 1,
+      "failed_nodes": [
+        "tests/cloudpickle_test.py::CloudPickleTest::test_module_importability"
+      ],
+      "module_errors": [
+        "ModuleNotFoundError: No module named 'distutils'"
+      ],
+      "no_backend_error_observed": false,
+      "raw_log_sha256": "965134857247d9e074c167b0b1b2afc5e0701c831a20bf222c16c0a576e30c7a",
+      "semantic_signature_sha256": "223e625c56aca9cfdd676b4465a14b57d8dbc69a99628fc7fdaf0479a527b78e",
+      "traceback_or_error_root_count": 2,
+      "traceback_or_error_roots": [
+        "tests\\cloudpickle_test.py:743: in test_module_importability",
+        "E   ModuleNotFoundError: No module named 'distutils'"
+      ]
+    },
+    {
+      "assertion_errors": [],
+      "failed_node_count": 1,
+      "failed_nodes": [
+        "tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability"
+      ],
+      "module_errors": [
+        "ModuleNotFoundError: No module named 'distutils'"
+      ],
+      "no_backend_error_observed": false,
+      "raw_log_sha256": "3a838aa7d4f33473785056ee579ded215d68656eca14367154722ba040c915be",
+      "semantic_signature_sha256": "5441602a1cfe3feb7c7477d63d4e872c1c97280427124a685c0bffc30f125d55",
+      "traceback_or_error_root_count": 2,
+      "traceback_or_error_roots": [
+        "tests\\cloudpickle_test.py:743: in test_module_importability",
+        "E   ModuleNotFoundError: No module named 'distutils'"
+      ]
+    },
+    {
+      "assertion_errors": [
+        "AssertionError: a...",
+        "AssertionError: assert ['C_CONSTANT'...', 'method_c'] == ['C_CONSTANT'...', 'method_c']"
+      ],
+      "failed_node_count": 1,
+      "failed_nodes": [
+        "tests/cloudpickle_test.py::test_extract_class_dict"
+      ],
+      "module_errors": [],
+      "no_backend_error_observed": false,
+      "raw_log_sha256": "fffafcaf56b7b3984d7fb544401330e8c7f381792d182c9dfe2882e1264725be",
+      "semantic_signature_sha256": "4c96b3eb454070ad2df2bdbefe9540608399bb9d03562878f09c6960cb0613b6",
+      "traceback_or_error_root_count": 5,
+      "traceback_or_error_roots": [
+        "tests\\cloudpickle_test.py:117: in test_extract_class_dict",
+        "E   AssertionError: assert ['C_CONSTANT'...', 'method_c'] == ['C_CONSTANT'...', 'method_c']",
+        "E     At index 2 diff: '__firstlineno__' != 'method_c'",
+        "E     Left contains one more item: 'method_c'",
+        "E     Use -v to get more diff"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

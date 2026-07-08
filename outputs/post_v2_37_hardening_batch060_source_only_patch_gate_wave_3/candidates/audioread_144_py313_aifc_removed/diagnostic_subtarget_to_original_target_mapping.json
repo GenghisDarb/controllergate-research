@@ -1,0 +1,10 @@
+{
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "diagnostic_commands": [
+    "tox -e py313 -- test/test_audioread.py::test_audioread_early_exit",
+    "tox -e py313 -- test/test_audioread.py::test_audioread_full"
+  ],
+  "diagnostic_subtarget_pass_is_repair_success": false,
+  "original_command": "tox -e py313",
+  "status": "PASS"
+}

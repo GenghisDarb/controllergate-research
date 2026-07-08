@@ -1,0 +1,63 @@
+{
+  "batch059_ingest_status": "PASS",
+  "batch060_repair_count_increment_allowed": false,
+  "batch061_duplicate_replay_candidates": [],
+  "blocked_no_safe_patch_count": 1,
+  "candidate_classifications": {
+    "audioread_144_py313_aifc_removed": "source_only_patch_partial_improvement",
+    "cloudpickle_507_py313_typevar_distutils": "source_only_patch_not_generated"
+  },
+  "candidate_results": [
+    {
+      "amds_bridge_classification": "target_failure_materialized_single_source_family",
+      "blocked_no_safe_patch": false,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "changed_files": [
+        "audioread/rawread.py"
+      ],
+      "diagnostic_status": "PASS",
+      "exact_blocker": "source_only_patch_partial_improvement",
+      "fresh_pre_repair_replay_status": "pre_repair_failure_materialized",
+      "partial_improvement": true,
+      "patch_applied": true,
+      "patch_generated": true,
+      "patch_license_state": "patch_license_open_single_source_family",
+      "post_repair_classification": "source_only_patch_partial_improvement",
+      "source_only_target_pass": false
+    },
+    {
+      "amds_bridge_classification": "target_failure_materialized_future_decomposition_recommended",
+      "blocked_no_safe_patch": true,
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "changed_files": [],
+      "diagnostic_status": "PASS",
+      "exact_blocker": "source_only_patch_not_generated",
+      "fresh_pre_repair_replay_status": "pre_repair_failure_materialized",
+      "partial_improvement": false,
+      "patch_applied": false,
+      "patch_generated": false,
+      "patch_license_state": "patch_license_closed_decomposition_needed",
+      "post_repair_classification": "source_only_patch_not_generated",
+      "source_only_target_pass": false
+    }
+  ],
+  "count_gate_run": false,
+  "current_protocol": "v2.14",
+  "duplicate_replay_required_before_count": true,
+  "duplicate_replay_run": false,
+  "exact_blocker": "batch060b_failure_family_decomposition_cloudpickle",
+  "full_scoring": "NOT_RUN/disallowed",
+  "issue_derived_repair_count": 2,
+  "memory_lift": "not_demonstrated",
+  "minimal_subtarget_pass_counts_as_repair": false,
+  "native_external_repair_count": 4,
+  "next_allowed_action": "batch060b_failure_family_decomposition_cloudpickle",
+  "partial_improvement_count": 1,
+  "partial_improvement_counts_as_repair": false,
+  "patch_applied_count": 1,
+  "patch_generated_count": 1,
+  "repair_count_increment": false,
+  "self_maintaining_software": "false/not_demonstrated",
+  "source_only_target_pass_count": 0,
+  "status": "PASS"
+}

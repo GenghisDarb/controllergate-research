@@ -1,0 +1,14 @@
+{
+  "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+  "candidate_sha": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+  "count_gate_allowed": false,
+  "diagnostic_commands": [
+    "python -m pytest tests/cloudpickle_test.py::CloudPickleTest::test_module_importability -q --tb=short",
+    "python -m pytest tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability -q --tb=short",
+    "python -m pytest tests/cloudpickle_test.py::test_extract_class_dict -q --tb=short"
+  ],
+  "duplicate_replay_allowed": false,
+  "original_target_command": "python -m pytest tests/cloudpickle_test.py -q --tb=no",
+  "patch_scope": "source_only_if_licensed",
+  "repo_url": "https://github.com/cloudpipe/cloudpickle"
+}

@@ -1,0 +1,35 @@
+{
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "minimal_subtarget_pass_is_repair_success": false,
+  "records": [
+    {
+      "command": "tox -e py313 -- test/test_audioread.py::test_audioread_early_exit",
+      "diagnostic_id": "post_diag_1",
+      "diagnostic_success_is_repair_success": false,
+      "result": {
+        "command": "tox -e py313 -- test/test_audioread.py::test_audioread_early_exit",
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060\\audioread_144_py313_aifc_removed\\checkout",
+        "elapsed_seconds": 18.876,
+        "returncode": 1,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a9186ccd07be1a4d8b006bfedbd8626a7583e04a7ccefd1c6e51be35ab74b459",
+        "timed_out": false
+      }
+    },
+    {
+      "command": "tox -e py313 -- test/test_audioread.py::test_audioread_full",
+      "diagnostic_id": "post_diag_2",
+      "diagnostic_success_is_repair_success": false,
+      "result": {
+        "command": "tox -e py313 -- test/test_audioread.py::test_audioread_full",
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch060\\audioread_144_py313_aifc_removed\\checkout",
+        "elapsed_seconds": 14.654,
+        "returncode": 1,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c119b64906d412dad37c45159657cd8606b5b8b1b13ecfefcd675b7d80ba794f",
+        "timed_out": false
+      }
+    }
+  ],
+  "status": "PASS"
+}

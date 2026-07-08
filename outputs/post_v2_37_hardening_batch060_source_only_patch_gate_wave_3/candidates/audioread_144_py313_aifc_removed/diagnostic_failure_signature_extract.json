@@ -1,0 +1,60 @@
+{
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "records": [
+    {
+      "assertion_errors": [],
+      "failed_node_count": 2,
+      "failed_nodes": [
+        "test/test_audioread.py::test_audioread_early_exit[test-1]",
+        "test/test_audioread.py::test_audioread_early_exit[test-2]"
+      ],
+      "module_errors": [
+        "ModuleNotFoundError: No module named 'aifc'"
+      ],
+      "no_backend_error_observed": false,
+      "raw_log_sha256": "9c7a909597d6ce34d1bf1b1e18a7ef449bcdbf94466289e192cc8f9a6702cffe",
+      "semantic_signature_sha256": "e01d1f01ae20a1ae547d85da80d697a72b288c616c63d0d25cf9559deff348c1",
+      "traceback_or_error_root_count": 10,
+      "traceback_or_error_roots": [
+        "test\\test_audioread.py:29:",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:123: in audio_open",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:80: in available_backends",
+        "E   ModuleNotFoundError: No module named 'aifc'",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\rawread.py:16: ModuleNotFoundError",
+        "test\\test_audioread.py:29:",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:123: in audio_open",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:80: in available_backends",
+        "E   ModuleNotFoundError: No module named 'aifc'",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\rawread.py:16: ModuleNotFoundError"
+      ]
+    },
+    {
+      "assertion_errors": [],
+      "failed_node_count": 2,
+      "failed_nodes": [
+        "test/test_audioread.py::test_audioread_full[test-1]",
+        "test/test_audioread.py::test_audioread_full[test-2]"
+      ],
+      "module_errors": [
+        "ModuleNotFoundError: No module named 'aifc'"
+      ],
+      "no_backend_error_observed": false,
+      "raw_log_sha256": "83ce733b6f76c4d866932151d4684ed335dbaca98d0b008e740cf7f14836a0f5",
+      "semantic_signature_sha256": "36ea560d9acaa6e75fb34aa0001d8364762f26af7e3c879fb31529af15e775a1",
+      "traceback_or_error_root_count": 10,
+      "traceback_or_error_roots": [
+        "test\\test_audioread.py:38:",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:123: in audio_open",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:80: in available_backends",
+        "E   ModuleNotFoundError: No module named 'aifc'",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\rawread.py:16: ModuleNotFoundError",
+        "test\\test_audioread.py:38:",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:123: in audio_open",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:80: in available_backends",
+        "E   ModuleNotFoundError: No module named 'aifc'",
+        "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\rawread.py:16: ModuleNotFoundError"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,22 @@
+command: python -m pytest tests/cloudpickle_test.py::test_extract_class_dict -q --tb=short
+cwd: C:\Dev\ControllerGate_runtime\batch060\cloudpickle_507_py313_typevar_distutils\checkout
+returncode: 1
+timed_out: False
+elapsed_seconds: 1.992
+
+--- stdout ---
+F
+================================== FAILURES ===================================
+___________________________ test_extract_class_dict ___________________________
+tests\cloudpickle_test.py:117: in test_extract_class_dict
+    assert sorted(clsdict.keys()) == ["C_CONSTANT", "__doc__", "method_c"]
+E   AssertionError: assert ['C_CONSTANT'...', 'method_c'] == ['C_CONSTANT'...', 'method_c']
+E
+E     At index 2 diff: '__firstlineno__' != 'method_c'
+E     Left contains one more item: 'method_c'
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a...
+1 failed in 0.64s
+
+--- stderr ---

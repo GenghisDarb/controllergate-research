@@ -1,0 +1,13 @@
+{
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+  "count_gate_allowed": false,
+  "diagnostic_commands": [
+    "tox -e py313 -- test/test_audioread.py::test_audioread_early_exit",
+    "tox -e py313 -- test/test_audioread.py::test_audioread_full"
+  ],
+  "duplicate_replay_allowed": false,
+  "original_target_command": "tox -e py313",
+  "patch_scope": "source_only_if_licensed",
+  "repo_url": "https://github.com/beetbox/audioread"
+}

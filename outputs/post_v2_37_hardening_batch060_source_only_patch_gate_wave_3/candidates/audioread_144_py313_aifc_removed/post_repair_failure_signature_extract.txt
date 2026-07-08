@@ -1,0 +1,29 @@
+{
+  "assertion_errors": [],
+  "failed_node_count": 4,
+  "failed_nodes": [
+    "test/test_audioread.py::test_audioread_early_exit[test-1]",
+    "test/test_audioread.py::test_audioread_early_exit[test-2]",
+    "test/test_audioread.py::test_audioread_full[test-1]",
+    "test/test_audioread.py::test_audioread_full[test-2]"
+  ],
+  "module_errors": [],
+  "no_backend_error_observed": true,
+  "raw_log_sha256": "24d20db715e4bf0f557bb3a40b66b0a6b4cdf1a0567505c42156a257fd0013d9",
+  "semantic_signature_sha256": "d3086a071ae48e4654e8b972c41867a6d0e8dcbcb12f348e56da647ad95cea75",
+  "traceback_or_error_root_count": 12,
+  "traceback_or_error_roots": [
+    "test\\test_audioread.py:29:",
+    "E       audioread.exceptions.NoBackendError",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:132: NoBackendError",
+    "test\\test_audioread.py:29:",
+    "E       audioread.exceptions.NoBackendError",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:132: NoBackendError",
+    "test\\test_audioread.py:38:",
+    "E       audioread.exceptions.NoBackendError",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:132: NoBackendError",
+    "test\\test_audioread.py:38:",
+    "E       audioread.exceptions.NoBackendError",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:132: NoBackendError"
+  ]
+}

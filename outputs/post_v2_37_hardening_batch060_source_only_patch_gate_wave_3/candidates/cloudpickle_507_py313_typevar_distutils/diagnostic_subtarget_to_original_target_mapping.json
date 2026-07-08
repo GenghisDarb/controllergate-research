@@ -1,0 +1,11 @@
+{
+  "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+  "diagnostic_commands": [
+    "python -m pytest tests/cloudpickle_test.py::CloudPickleTest::test_module_importability -q --tb=short",
+    "python -m pytest tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability -q --tb=short",
+    "python -m pytest tests/cloudpickle_test.py::test_extract_class_dict -q --tb=short"
+  ],
+  "diagnostic_subtarget_pass_is_repair_success": false,
+  "original_command": "python -m pytest tests/cloudpickle_test.py -q --tb=no",
+  "status": "PASS"
+}

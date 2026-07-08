@@ -1,0 +1,92 @@
+diff --git a/audioread/rawread.py b/audioread/rawread.py
+index fabf96b..5de09a6 100644
+--- a/audioread/rawread.py
++++ b/audioread/rawread.py
+@@ -13,10 +13,19 @@
+ # included in all copies or substantial portions of the Software.
+ 
+ """Uses standard-library modules to read AIFF, AIFF-C, and WAV files."""
+-import aifc
+-import audioop
++try:
++    import aifc
++except ImportError:
++    aifc = None
++try:
++    import audioop
++except ImportError:
++    audioop = None
+ import struct
+-import sunau
++try:
++    import sunau
++except ImportError:
++    sunau = None
+ import wave
+ 
+ from .exceptions import DecodeError
+@@ -58,15 +67,16 @@ class RawAudioFile(AudioFile):
+     def __init__(self, filename):
+         self._fh = open(filename, 'rb')
+ 
+-        try:
+-            self._file = aifc.open(self._fh)
+-        except aifc.Error:
+-            # Return to the beginning of the file to try the next reader.
+-            self._fh.seek(0)
+-        else:
+-            self._needs_byteswap = True
+-            self._check()
+-            return
++        if aifc is not None:
++            try:
++                self._file = aifc.open(self._fh)
++            except aifc.Error:
++                # Return to the beginning of the file to try the next reader.
++                self._fh.seek(0)
++            else:
++                self._needs_byteswap = True
++                self._check()
++                return
+ 
+         try:
+             self._file = wave.open(self._fh)
+@@ -78,15 +88,16 @@ class RawAudioFile(AudioFile):
+             self._check()
+             return
+ 
+-        try:
+-            self._file = sunau.open(self._fh)
+-        except sunau.Error:
+-            self._fh.seek(0)
+-            pass
+-        else:
+-            self._needs_byteswap = True
+-            self._check()
+-            return
++        if sunau is not None:
++            try:
++                self._file = sunau.open(self._fh)
++            except sunau.Error:
++                self._fh.seek(0)
++                pass
++            else:
++                self._needs_byteswap = True
++                self._check()
++                return
+ 
+         # None of the three libraries could open the file.
+         self._fh.close()
+@@ -130,7 +141,11 @@ class RawAudioFile(AudioFile):
+                 break
+ 
+             # Make sure we have the desired bitdepth and endianness.
+-            data = audioop.lin2lin(data, old_width, TARGET_WIDTH)
++            if old_width != TARGET_WIDTH:
++                if audioop is None:
++                    self.close()
++                    raise BitWidthError()
++                data = audioop.lin2lin(data, old_width, TARGET_WIDTH)
+             if self._needs_byteswap and self._file.getcomptype() != 'sowt':
+                 # Big-endian data. Swap endianness.
+                 data = byteswap(data)
