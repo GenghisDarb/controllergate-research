@@ -1,0 +1,108 @@
+{
+  "helper_leads": {
+    "helper_leads_count": 0,
+    "path": "C:\\Dev\\ControllerGate\\incoming_artifacts\\seed_leads\\seed_leads_wave_3.json",
+    "status": "ABSENT"
+  },
+  "network_api_available": true,
+  "query_records": [
+    {
+      "api_meta": {
+        "command": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "search/issues",
+          "-f",
+          "q=Python 3.13 pytest ModuleNotFoundError is:issue",
+          "-f",
+          "per_page=10"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate",
+        "elapsed_seconds": 1.481,
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "cb5808ca356b31d9eb4c6c4653039c260e13397dd50ac0ea373d819446b0e520",
+        "timed_out": false
+      },
+      "query": "Python 3.13 pytest ModuleNotFoundError is:issue",
+      "result_count": 10,
+      "status": "PASS"
+    },
+    {
+      "api_meta": {
+        "command": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "search/issues",
+          "-f",
+          "q=Python 3.13 pytest TypeError is:issue",
+          "-f",
+          "per_page=10"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate",
+        "elapsed_seconds": 1.181,
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d7113efcb6e855829ee200e12d14fed6185172804edc90ad044d64aaa81fe29e",
+        "timed_out": false
+      },
+      "query": "Python 3.13 pytest TypeError is:issue",
+      "result_count": 10,
+      "status": "PASS"
+    },
+    {
+      "api_meta": {
+        "command": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "search/issues",
+          "-f",
+          "q=Python 3.13 tox py313 is:issue",
+          "-f",
+          "per_page=10"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate",
+        "elapsed_seconds": 1.133,
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6876069c4df99796c7a59bac05af771035e8acfb5dba2ba8bdc76a213fd1a881",
+        "timed_out": false
+      },
+      "query": "Python 3.13 tox py313 is:issue",
+      "result_count": 10,
+      "status": "PASS"
+    },
+    {
+      "api_meta": {
+        "command": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "search/issues",
+          "-f",
+          "q=Python 3.12 pytest ModuleNotFoundError is:issue",
+          "-f",
+          "per_page=10"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate",
+        "elapsed_seconds": 1.252,
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a5d4b4fd581a884f62930347f5a18348ece5d8b98cfe5e5c472e61649c7f2ff3",
+        "timed_out": false
+      },
+      "query": "Python 3.12 pytest ModuleNotFoundError is:issue",
+      "result_count": 9,
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "total_leads": 37
+}

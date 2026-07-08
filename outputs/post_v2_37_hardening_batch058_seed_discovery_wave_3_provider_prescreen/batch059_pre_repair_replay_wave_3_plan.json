@@ -1,0 +1,37 @@
+{
+  "max_candidates": 8,
+  "planned_candidates": [
+    {
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "issue_url": "https://github.com/beetbox/audioread/issues/144",
+      "lead_id": "audioread_144_py313_aifc_removed",
+      "native_test_paths_found": [
+        {
+          "exists": true,
+          "kind": "file",
+          "path": "test/test_audioread.py",
+          "sha": "b44e37d87b062f36258e36ea4f8060d46f7a20da"
+        }
+      ],
+      "possible_failing_command": "tox -e py313",
+      "repo_url": "https://github.com/beetbox/audioread"
+    },
+    {
+      "candidate_sha": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+      "issue_url": "https://github.com/cloudpipe/cloudpickle/issues/507",
+      "lead_id": "cloudpickle_507_py313_typevar_distutils",
+      "native_test_paths_found": [
+        {
+          "exists": true,
+          "kind": "file",
+          "path": "tests/cloudpickle_test.py",
+          "sha": "22a1b3a27085f9a536aa34108095ff1a365827f5"
+        }
+      ],
+      "possible_failing_command": "python -m pytest tests/cloudpickle_test.py -q --tb=no",
+      "repo_url": "https://github.com/cloudpipe/cloudpickle"
+    }
+  ],
+  "pre_repair_replay_run_in_batch058": false,
+  "status": "PASS"
+}

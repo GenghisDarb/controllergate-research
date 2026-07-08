@@ -1,0 +1,29 @@
+{
+  "approval_status": "rejected_compiled_dependency_too_heavy",
+  "candidate_sha": "b9528762252dacdf5d803b52a88666bea12dd01a",
+  "future_replay_readiness": "future_replay_rejected_compiled_dependency",
+  "issue_url": "https://github.com/quodlibet/quodlibet/issues/4473",
+  "lead_id": "quodlibet_4473_py313_cgi_telnetlib_removed",
+  "native_test_path_checks": [
+    {
+      "exists": true,
+      "kind": "file",
+      "path": "tests/test_update.py",
+      "sha": "5a537ef60da391d1892d0ca449476bb5d8d8bf4a"
+    },
+    {
+      "exists": true,
+      "kind": "file",
+      "path": "tests/plugin/test_prefs.py",
+      "sha": "005544f7a3dc0e476b50eca200aa636061eaa17c"
+    }
+  ],
+  "possible_failing_command": "python -m pytest tests/test_update.py tests/plugin/test_prefs.py -q --tb=no",
+  "possible_native_test_paths": [
+    "tests/test_update.py",
+    "tests/plugin/test_prefs.py"
+  ],
+  "repair_success_claim_allowed": false,
+  "repo_url": "https://github.com/quodlibet/quodlibet",
+  "status": "PASS"
+}

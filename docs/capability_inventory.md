@@ -215,3 +215,19 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 - Next allowed action: `batch058_seed_discovery_wave_3`.
 - Issue-derived repair count remains `2`; native external repair count remains `4`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+
+## Batch058 seed discovery wave 3 provider prescreen
+
+- Batch056f official ingest: `PASS`.
+- Wave 2 timeout/provider paths remain closed without target-code failure materialization.
+- Reactome/provider-capsule lesson carried forward as infrastructure pattern only.
+- Wave 3 leads screened: `37`.
+- Codex-augmented leads count: `30`.
+- Commit-resolved candidates: `37`.
+- Provider-capsule prescreen pass count: `2`.
+- Approved for Batch059 replay: `2`.
+- Rejected/unbounded provider count: `0`.
+- Batch059 planned candidates: `audioread_144_py313_aifc_removed, cloudpickle_507_py313_typevar_distutils`.
+- Next allowed action: `batch059_pre_repair_replay_wave_3_limited`.
+- Issue-derived repair count remains `2`; native external repair count remains `4`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

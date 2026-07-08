@@ -1,0 +1,37 @@
+{
+  "approval_status": "rejected_native_test_missing",
+  "candidate_sha": "efa0ca5bc5fdd0e8d3b2b1349740b741de1db9ea",
+  "future_replay_readiness": "future_replay_manual_review",
+  "issue_url": "https://github.com/mwclient/mwclient/issues/340",
+  "lead_id": "mwclient_340_pytest_cov_addopts",
+  "native_test_path_checks": [
+    {
+      "api_meta": {
+        "command": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "repos/mwclient/mwclient/contents/tests",
+          "-f",
+          "ref=efa0ca5bc5fdd0e8d3b2b1349740b741de1db9ea"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate",
+        "elapsed_seconds": 0.697,
+        "returncode": 1,
+        "stderr_sha256": "d2c8985c89b29a842ac4946d13bdbc297709f44f20bb968faf9682664b211db6",
+        "stdout_sha256": "e45906ce02e79f16fb87a838d86bb4e497e37a9591f97608fa013bbcd8b9cbc2",
+        "timed_out": false
+      },
+      "exists": false,
+      "path": "tests/"
+    }
+  ],
+  "possible_failing_command": "python -m pytest -q --tb=no",
+  "possible_native_test_paths": [
+    "tests/"
+  ],
+  "repair_success_claim_allowed": false,
+  "repo_url": "https://github.com/mwclient/mwclient",
+  "status": "PASS"
+}
