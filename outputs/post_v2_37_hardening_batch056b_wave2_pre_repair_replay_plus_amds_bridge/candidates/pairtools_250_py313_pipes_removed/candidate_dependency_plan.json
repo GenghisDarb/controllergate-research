@@ -1,0 +1,66 @@
+{
+  "declared_environment_files": [
+    {
+      "is_file": true,
+      "path": "setup.py",
+      "sha256": "df149292c60bcbb107d213da3bc9d10cc5391f6c2c17e0225fd67f75ca5c7422"
+    },
+    {
+      "is_file": true,
+      "path": "requirements.txt",
+      "sha256": "e9e1dcf7f63f328e4f39751f8e7fb98fbfa38f4b7a749951c3d192750a06e720"
+    },
+    {
+      "is_file": true,
+      "path": "requirements-dev.txt",
+      "sha256": "5e9e9cae45a5ff1596a97f171d7ae90919e0eb70db5efbf5ced06a22241153b2"
+    },
+    {
+      "is_file": true,
+      "path": "pytest.ini",
+      "sha256": "7cb50af7f3e8b7b47f63bb14257970bf043c9d34ae95a08387f0c803f8bd5623"
+    }
+  ],
+  "exact_blocker": "blocked_dependency_install_failure",
+  "install_editable": {
+    "combined_log_sha256": "ed0daa257aa40ebc9d22f220c23081dbdffc1a4269a0e0cb7ae107c6ddd461c4",
+    "command": [
+      "C:\\Dev\\ControllerGate_runtime\\batch056b\\pairtools_250_py313_pipes_removed\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "-e",
+      "."
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056b\\pairtools_250_py313_pipes_removed\\checkout",
+    "elapsed_seconds": 33.876,
+    "returncode": 1,
+    "stderr_excerpt": "  error: subprocess-exited-with-error\n  \n  Getting requirements to build wheel did not run successfully.\n  exit code: 1\n  \n  [60 lines of output]\n  # pysam: Cython 3.2.8 is available - using cythonize if necessary\n  # pysam: htslib mode is shared\n  # pysam: HTSLIB_CONFIGURE_OPTIONS=None\n  '.' is not recognized as an internal or external command,\n  operable program or batch file.\n  '.' is not recognized as an internal or external command,\n  operable program or batch file.\n  # pysam: htslib configure options: None\n  Traceback (most recent call last):\n    File \"C:\\Dev\\ControllerGate_runtime\\batch\n...<trimmed 3191 chars>...\n                ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n                               # no special security\n                               ^^^^^^^^^^^^^^^^^^^^^\n      ...<4 lines>...\n                               cwd,\n                               ^^^^\n                               startupinfo)\n                               ^^^^^^^^^^^^\n  FileNotFoundError: [WinError 2] The system cannot find the file specified\n  [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nERROR: Failed to build 'pysam' when getting requirements to build wheel\n",
+    "stderr_sha256": "4cc67d76f618bef461c4eb8c8fcc7155de814460676723f6705753c16bf6f97b",
+    "stdout_excerpt": "Obtaining file:///C:/Dev/ControllerGate_runtime/batch056b/pairtools_250_py313_pipes_removed/checkout\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCol\n...<trimmed 286 chars>...\nhed click-8.4.2-py3-none-any.whl.metadata (2.6 kB)\nCollecting scipy>=1.7.0 (from pairtools==1.1.0)\n  Using cached scipy-1.18.0-cp313-cp313-win_amd64.whl.metadata (61 kB)\nCollecting pandas>=1.3.4 (from pairtools==1.1.0)\n  Using cached pandas-3.0.3-cp313-cp313-win_amd64.whl.metadata (19 kB)\nCollecting pysam>=0.15.0 (from pairtools==1.1.0)\n  Using cached pysam-0.24.0.tar.gz (5.2 MB)\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'error'\n",
+    "stdout_sha256": "2e673bc5aa0e9ede468c18db2758fac2fad6b94ce43ae298113bd6aaf3cf0537",
+    "timed_out": false
+  },
+  "install_pytest": {
+    "combined_log_sha256": "8b0b124271148d1f38bf247f59815e4f3a8531bf93a2e8197d41348895b40c64",
+    "command": [
+      "C:\\Dev\\ControllerGate_runtime\\batch056b\\pairtools_250_py313_pipes_removed\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--upgrade",
+      "pip",
+      "pytest"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056b\\pairtools_250_py313_pipes_removed\\checkout",
+    "elapsed_seconds": 12.271,
+    "returncode": 0,
+    "stderr_excerpt": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_excerpt": "Requirement already satisfied: pip in C:\\Dev\\ControllerGate_runtime\\batch056b\\pairtools_250_py313_pipes_removed\\venv\\Lib\\site-packages (26.1.2)\nCollecting pytest\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting colorama>=0.4 (from pytest)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=1.0.1 (from pytest)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting packaging>=22 (from pytest)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nCollecting pluggy<2,>=1.5 (from pytest)\n  Using cached p\n...<trimmed 78 chars>...\nm pytest)\n  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)\nUsing cached pytest-9.1.1-py3-none-any.whl (386 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nUsing cached iniconfig-2.3.0-py3-none-any.whl (7.5 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nUsing cached pygments-2.20.0-py3-none-any.whl (1.2 MB)\nInstalling collected packages: pygments, pluggy, packaging, iniconfig, colorama, pytest\n\nSuccessfully installed colorama-0.4.6 iniconfig-2.3.0 packaging-26.2 pluggy-1.6.0 pygments-2.20.0 pytest-9.1.1\n",
+    "stdout_sha256": "8b0b124271148d1f38bf247f59815e4f3a8531bf93a2e8197d41348895b40c64",
+    "timed_out": false
+  },
+  "status": "BLOCK",
+  "undeclared_dependencies_installed": false
+}

@@ -1,0 +1,130 @@
+name: post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  batch056b-wave2-pre-repair-replay-plus-amds-bridge:
+    name: Batch056b Wave 2 pre-repair replay plus AMDS bridge validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run byte-custody preflight before validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Install workflow test dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run shared core and runtime tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/core tests/runtime -q
+
+      - name: Validate registry, prior audits, Batch056b audit, and current protocol
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/audit_batch056b_wave2_pre_repair_replay_plus_amds_bridge.py
+          python scripts/audit_batch057c_layered_source_only_patch_recovery_freezegun.py
+          python scripts/audit_batch057b_failure_family_decomposition_elbow_recovery.py
+          python scripts/audit_batch057_source_only_patch_gate_wave_1.py
+          python scripts/audit_batch056_pre_repair_replay_wave_1_plus_wave_2_intake.py
+          python scripts/audit_batch055_seed_discovery_wave_1.py
+          python scripts/audit_post_v2_37_hardening_and_batch002.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          git diff --check
+          python - <<'PY'
+          import json
+          root = "outputs/post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge"
+          final = json.load(open(f"{root}/batch056b_final_decision.json", encoding="utf-8"))
+          results = json.load(open(f"{root}/wave2_pre_repair_replay_results.json", encoding="utf-8"))
+          materialized = json.load(open(f"{root}/wave2_materialized_failure_registry.json", encoding="utf-8"))
+          blocked = json.load(open(f"{root}/wave2_blocked_candidate_registry.json", encoding="utf-8"))
+          dashboard = json.load(open(f"{root}/wave2_amds_bridge_dashboard.json", encoding="utf-8"))
+          claim = json.load(open(f"{root}/claim_boundary.json", encoding="utf-8"))
+          print(f"batch056b_status={final.get('status')}")
+          print(f"batch056b_next_allowed_action={final.get('next_allowed_action')}")
+          print(f"wave2_candidate_count={results.get('candidate_count')}")
+          print(f"wave2_materialized_failure_count={materialized.get('count')}")
+          print(f"wave2_blocked_count={blocked.get('count')}")
+          print(f"wave2_amds_bridge_classifications={dashboard.get('classifications')}")
+          print(f"batch056b_full_scoring={claim.get('full_scoring')}")
+          print(f"batch056b_memory_lift={claim.get('memory_lift')}")
+          print(f"batch056b_self_maintaining={claim.get('self_maintaining_software')}")
+          PY
+
+      - name: Stage clean Batch056b artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf artifact_payload/post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge
+          mkdir -p artifact_payload/post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge
+          cp -a outputs/post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge artifact_payload/post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge/
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          root = Path("artifact_payload/post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge")
+          rows = []
+          for path in sorted(root.rglob("*")):
+              if path.is_file() and path.name != "ARTIFACT_SHA256SUMS.txt":
+                  digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                  rows.append(f"{digest}  {path.relative_to(root).as_posix()}")
+          (root / "ARTIFACT_SHA256SUMS.txt").write_text("\n".join(rows) + "\n", encoding="utf-8")
+          PY
+          test -f artifact_payload/post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge \( \
+            -path '*/__pycache__/*' -o \
+            -path '*/.pytest_cache/*' -o \
+            -path '*/.mypy_cache/*' -o \
+            -path '*/.ruff_cache/*' -o \
+            -path '*/.venv/*' -o \
+            -path '*/venv/*' -o \
+            -path '*/env/*' -o \
+            -path '*/ENV/*' -o \
+            -name '*.pyc' -o \
+            -name '*.pyo' -o \
+            -name '*.zip' -o \
+            -name '*.tar' -o \
+            -name '*.tar.gz' -o \
+            -name '*.tgz' -o \
+            -name '*.7z' -o \
+            -name '*.whl' \
+          \) -print -quit | grep -q .; then
+            echo "artifact_packaging_forbidden_payload_detected"
+            exit 1
+          fi
+
+      - name: Upload Batch056b Wave 2 pre-repair replay plus AMDS bridge artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge_artifacts
+          path: |
+            artifact_payload/post_v2_37_hardening_batch056b_wave2_pre_repair_replay_plus_amds_bridge/**
+          if-no-files-found: error

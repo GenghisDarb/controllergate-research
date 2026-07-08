@@ -1,0 +1,56 @@
+{
+  "declared_environment_files": [
+    {
+      "is_file": true,
+      "path": "pyproject.toml",
+      "sha256": "1a68e44d13069f2619a2be466bfcd74a2ca626d3529a86d35d7bc20d4231ede1"
+    },
+    {
+      "is_file": true,
+      "path": "pytest.ini",
+      "sha256": "0f7aa0f676bbb39865852b718fcb494a47970b71c4a804017595f03d64b52722"
+    }
+  ],
+  "exact_blocker": null,
+  "install_editable": {
+    "combined_log_sha256": "a1cd2e7c124e2674d057a338e390ce8fc3bfd3ad2647a6579468bfd3118f388c",
+    "command": [
+      "C:\\Dev\\ControllerGate_runtime\\batch056b\\codex_wave2_m0smith_genia_2026_518\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "-e",
+      "."
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056b\\codex_wave2_m0smith_genia_2026_518\\checkout",
+    "elapsed_seconds": 18.278,
+    "returncode": 0,
+    "stderr_excerpt": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_excerpt": "Obtaining file:///C:/Dev/ControllerGate_runtime/batch056b/codex_wave2_m0smith_genia_2026_518/checkout\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Installing backend dependencies: started\n  Installing backend dependencies: finished with status 'done'\n  Preparing editable metadat\n...<trimmed 283 chars>...\nilding wheels for collected packages: genia\n  Building editable for genia (pyproject.toml): started\n  Building editable for genia (pyproject.toml): finished with status 'done'\n  Created wheel for genia: filename=genia-0.1.14-py3-none-any.whl size=23522 sha256=540064f77603c61bdd5fcadc520c716a737964435054ceffabc6f15c8f8461fb\n  Stored in directory: C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-ephem-wheel-cache-t7nlnqmr\\wheels\\b4\\35\\5e\\6a9f522acee93bbc8fa0d73e448bd248c5c4cd441039ff77d5\nSuccessfully built genia\nInstalling collected packages: pyyaml, genia\n\nSuccessfully installed genia-0.1.14 pyyaml-6.0.3\n",
+    "stdout_sha256": "a1cd2e7c124e2674d057a338e390ce8fc3bfd3ad2647a6579468bfd3118f388c",
+    "timed_out": false
+  },
+  "install_pytest": {
+    "combined_log_sha256": "82bca1d9b86dbad8b2a2dce67fc427e081eb3d79ee2a83aa39b526d7af6781c9",
+    "command": [
+      "C:\\Dev\\ControllerGate_runtime\\batch056b\\codex_wave2_m0smith_genia_2026_518\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--upgrade",
+      "pip",
+      "pytest"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056b\\codex_wave2_m0smith_genia_2026_518\\checkout",
+    "elapsed_seconds": 11.432,
+    "returncode": 0,
+    "stderr_excerpt": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_excerpt": "Requirement already satisfied: pip in C:\\Dev\\ControllerGate_runtime\\batch056b\\codex_wave2_m0smith_genia_2026_518\\venv\\Lib\\site-packages (26.1.2)\nCollecting pytest\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting colorama>=0.4 (from pytest)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=1.0.1 (from pytest)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting packaging>=22 (from pytest)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nCollecting pluggy<2,>=1.5 (from pytest)\n  Using cached \n...<trimmed 79 chars>...\nm pytest)\n  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)\nUsing cached pytest-9.1.1-py3-none-any.whl (386 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nUsing cached iniconfig-2.3.0-py3-none-any.whl (7.5 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nUsing cached pygments-2.20.0-py3-none-any.whl (1.2 MB)\nInstalling collected packages: pygments, pluggy, packaging, iniconfig, colorama, pytest\n\nSuccessfully installed colorama-0.4.6 iniconfig-2.3.0 packaging-26.2 pluggy-1.6.0 pygments-2.20.0 pytest-9.1.1\n",
+    "stdout_sha256": "82bca1d9b86dbad8b2a2dce67fc427e081eb3d79ee2a83aa39b526d7af6781c9",
+    "timed_out": false
+  },
+  "status": "PASS",
+  "undeclared_dependencies_installed": false
+}

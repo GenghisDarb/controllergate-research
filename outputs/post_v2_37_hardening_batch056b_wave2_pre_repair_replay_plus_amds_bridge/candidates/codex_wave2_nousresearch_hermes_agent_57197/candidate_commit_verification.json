@@ -1,0 +1,81 @@
+{
+  "candidate_sha": "30e947e0a05ef535e4b25a183d8bbe34fd68d1d5",
+  "cat_file": {
+    "combined_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "command": [
+      "git",
+      "cat-file",
+      "-e",
+      "30e947e0a05ef535e4b25a183d8bbe34fd68d1d5^{commit}"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056b\\codex_wave2_nousresearch_hermes_agent_57197\\checkout",
+    "elapsed_seconds": 0.105,
+    "returncode": 0,
+    "stderr_excerpt": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_excerpt": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "timed_out": false
+  },
+  "cat_file_commit_verified": true,
+  "checkout": {
+    "combined_log_sha256": "c204c706a2e3925725e80bc37706de8d8a9d03af0c20d347fc40c583a659f1e7",
+    "command": [
+      "git",
+      "checkout",
+      "--detach",
+      "30e947e0a05ef535e4b25a183d8bbe34fd68d1d5"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056b\\codex_wave2_nousresearch_hermes_agent_57197\\checkout",
+    "elapsed_seconds": 28.958,
+    "returncode": 0,
+    "stderr_excerpt": "HEAD is now at 30e947e0a feat(gateway): persist per-session /model overrides across gateway restarts\n",
+    "stderr_sha256": "c204c706a2e3925725e80bc37706de8d8a9d03af0c20d347fc40c583a659f1e7",
+    "stdout_excerpt": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "timed_out": false
+  },
+  "checkout_succeeded": true,
+  "clone": {
+    "combined_log_sha256": "fb3a4115d7bc26de3eb17614f131781526f397fa3c2264f5180239d0ad93778b",
+    "command": [
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "--no-checkout",
+      "https://github.com/NousResearch/hermes-agent",
+      "C:\\Dev\\ControllerGate_runtime\\batch056b\\codex_wave2_nousresearch_hermes_agent_57197\\checkout"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate",
+    "elapsed_seconds": 9.206,
+    "returncode": 0,
+    "stderr_excerpt": "Cloning into 'C:\\Dev\\ControllerGate_runtime\\batch056b\\codex_wave2_nousresearch_hermes_agent_57197\\checkout'...\n",
+    "stderr_sha256": "fb3a4115d7bc26de3eb17614f131781526f397fa3c2264f5180239d0ad93778b",
+    "stdout_excerpt": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "timed_out": false
+  },
+  "exact_blocker": null,
+  "fetch": {
+    "combined_log_sha256": "296ca38bb3ddc46401477e0007eafa0a6ced4f0d311875d5a8f485b4637b569a",
+    "command": [
+      "git",
+      "fetch",
+      "--depth",
+      "1",
+      "origin",
+      "30e947e0a05ef535e4b25a183d8bbe34fd68d1d5"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056b\\codex_wave2_nousresearch_hermes_agent_57197\\checkout",
+    "elapsed_seconds": 1.394,
+    "returncode": 0,
+    "stderr_excerpt": "From https://github.com/NousResearch/hermes-agent\n * branch                30e947e0a05ef535e4b25a183d8bbe34fd68d1d5 -> FETCH_HEAD\n",
+    "stderr_sha256": "296ca38bb3ddc46401477e0007eafa0a6ced4f0d311875d5a8f485b4637b569a",
+    "stdout_excerpt": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "timed_out": false
+  },
+  "lead_id": "codex_wave2_nousresearch_hermes_agent_57197",
+  "repo_url": "https://github.com/NousResearch/hermes-agent",
+  "status": "PASS"
+}

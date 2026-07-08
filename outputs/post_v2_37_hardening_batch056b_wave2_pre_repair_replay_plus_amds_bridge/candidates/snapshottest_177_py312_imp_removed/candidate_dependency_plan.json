@@ -1,0 +1,61 @@
+{
+  "declared_environment_files": [
+    {
+      "is_file": true,
+      "path": "setup.py",
+      "sha256": "e846972796a54594d528f6e7629d3e62837b1a3900c6578ef2134ce8f393a8e0"
+    },
+    {
+      "is_file": true,
+      "path": "setup.cfg",
+      "sha256": "2b74ea71cd2d83557bd53fb44ffd5b1b1d8bf571d852b82ae9b618c312eb4091"
+    },
+    {
+      "is_file": true,
+      "path": "tox.ini",
+      "sha256": "ac17d159c6d798583eac05cca96a19557bb0bfbcc350f43340d42ccfaa14f2d3"
+    }
+  ],
+  "exact_blocker": null,
+  "install_editable": {
+    "combined_log_sha256": "9ca5bdbf0b5c2d6c84b5cd0fbc2ceff8824064028a39b6e38a58db3e263891f7",
+    "command": [
+      "C:\\Dev\\ControllerGate_runtime\\batch056b\\snapshottest_177_py312_imp_removed\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "-e",
+      "."
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056b\\snapshottest_177_py312_imp_removed\\checkout",
+    "elapsed_seconds": 14.062,
+    "returncode": 0,
+    "stderr_excerpt": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_excerpt": "Obtaining file:///C:/Dev/ControllerGate_runtime/batch056b/snapshottest_177_py312_imp_removed/checkout\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCo\n...<trimmed 976 chars>...\nith status 'done'\n  Created wheel for snapshottest: filename=snapshottest-1.0.0a1-0.editable-py3-none-any.whl size=6194 sha256=714f331bf6aef0f9a6b598c0e587813620011999ec67490559aa1a1b5e045a99\n  Stored in directory: C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-ephem-wheel-cache-wodcfxdj\\wheels\\5c\\ad\\71\\f7ec02815f5492715934d58534ee3f80a03726de0d6366a329\nSuccessfully built snapshottest\nInstalling collected packages: wasmer-compiler-cranelift, wasmer, termcolor, fastdiff, snapshottest\n\nSuccessfully installed fastdiff-0.3.0 snapshottest-1.0.0a1 termcolor-3.3.0 wasmer-1.1.0 wasmer-compiler-cranelift-1.1.0\n",
+    "stdout_sha256": "9ca5bdbf0b5c2d6c84b5cd0fbc2ceff8824064028a39b6e38a58db3e263891f7",
+    "timed_out": false
+  },
+  "install_pytest": {
+    "combined_log_sha256": "afe386397ae79dfb1bcdb7dd639154aa2058f3f8aae7b383578eb23ae8453958",
+    "command": [
+      "C:\\Dev\\ControllerGate_runtime\\batch056b\\snapshottest_177_py312_imp_removed\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--upgrade",
+      "pip",
+      "pytest"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056b\\snapshottest_177_py312_imp_removed\\checkout",
+    "elapsed_seconds": 10.911,
+    "returncode": 0,
+    "stderr_excerpt": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_excerpt": "Requirement already satisfied: pip in C:\\Dev\\ControllerGate_runtime\\batch056b\\snapshottest_177_py312_imp_removed\\venv\\Lib\\site-packages (26.1.2)\nCollecting pytest\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting colorama>=0.4 (from pytest)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=1.0.1 (from pytest)\n  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting packaging>=22 (from pytest)\n  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)\nCollecting pluggy<2,>=1.5 (from pytest)\n  Using cached \n...<trimmed 79 chars>...\nm pytest)\n  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)\nUsing cached pytest-9.1.1-py3-none-any.whl (386 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nUsing cached iniconfig-2.3.0-py3-none-any.whl (7.5 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nUsing cached pygments-2.20.0-py3-none-any.whl (1.2 MB)\nInstalling collected packages: pygments, pluggy, packaging, iniconfig, colorama, pytest\n\nSuccessfully installed colorama-0.4.6 iniconfig-2.3.0 packaging-26.2 pluggy-1.6.0 pygments-2.20.0 pytest-9.1.1\n",
+    "stdout_sha256": "afe386397ae79dfb1bcdb7dd639154aa2058f3f8aae7b383578eb23ae8453958",
+    "timed_out": false
+  },
+  "status": "PASS",
+  "undeclared_dependencies_installed": false
+}
