@@ -1,0 +1,26 @@
+{
+  "classification": "provider_dependency_recovery_succeeded_failure_not_reproduced",
+  "command": "python -m pytest tests -q --tb=no",
+  "command_change_status": "preserved_command_used",
+  "provider_dependency_recovery_is_not_repair_success": true,
+  "replay": {
+    "combined_log_sha256": "cdc7ba4137d03e97db74e3298028c0923e3ddc982acd64066ea8455ae071a2de",
+    "command": [
+      "C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed\\venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests",
+      "-q",
+      "--tb=no"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed\\checkout",
+    "elapsed_seconds": 11.924,
+    "returncode": 0,
+    "stderr_excerpt": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_excerpt": "........................................................................ [ 14%]\n........................................................................ [ 29%]\n........................................................................ [ 44%]\n........................................................................ [ 59%]\n........................................................................ [ 74%]\n........................................................................ [ 89%]\n..................................................                       [100%]\n=============================== tests co\n...<trimmed 648 chars>...\nle.py           203    116    43%\nsnapshottest\\nose.py              37     37     0%\nsnapshottest\\pytest.py            50     39    22%\nsnapshottest\\reporting.py         20     20     0%\nsnapshottest\\snapshot.py           3      3     0%\nsnapshottest\\sorted_dict.py       22      4    82%\nsnapshottest\\unittest.py          65     65     0%\n--------------------------------------------------\nTOTAL                            643    482    25%\n============================ SnapshotTest summary =============================\n8 snapshots passed.\n8 snapshots written in 1 test suites.\n482 passed in 9.80s\n",
+    "stdout_sha256": "cdc7ba4137d03e97db74e3298028c0923e3ddc982acd64066ea8455ae071a2de",
+    "timed_out": false
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,97 @@
+{
+  "attempts": [
+    {
+      "name": "venv",
+      "result": {
+        "combined_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "command": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-m",
+          "venv",
+          "C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed\\venv"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed",
+        "elapsed_seconds": 18.655,
+        "returncode": 0,
+        "stderr_excerpt": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_excerpt": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      }
+    },
+    {
+      "declared": false,
+      "name": "pip_upgrade",
+      "provider_tooling": true,
+      "result": {
+        "combined_log_sha256": "76317d98a8cddbced556d67899f35277f1795750143d6ea75bf310459d9d0f97",
+        "command": [
+          "C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed\\venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "--upgrade",
+          "pip"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed\\checkout",
+        "elapsed_seconds": 4.842,
+        "returncode": 0,
+        "stderr_excerpt": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_excerpt": "Requirement already satisfied: pip in C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed\\venv\\Lib\\site-packages (26.1.2)\n",
+        "stdout_sha256": "76317d98a8cddbced556d67899f35277f1795750143d6ea75bf310459d9d0f97",
+        "timed_out": false
+      }
+    },
+    {
+      "declared": true,
+      "evidence": [
+        "setup.py"
+      ],
+      "name": "pytest-cov",
+      "result": {
+        "combined_log_sha256": "baf8a2e7096a69123ec28c90eeaf35b0ac756e04b2a53ec5388a82cfd43ee2bd",
+        "command": [
+          "C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed\\venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "pytest-cov"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed\\checkout",
+        "elapsed_seconds": 24.988,
+        "returncode": 0,
+        "stderr_excerpt": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_excerpt": "Collecting pytest-cov\n  Using cached pytest_cov-7.1.0-py3-none-any.whl.metadata (32 kB)\nCollecting coverage>=7.10.6 (from coverage[toml]>=7.10.6->pytest-cov)\n  Using cached coverage-7.15.0-cp313-cp313-win_amd64.whl.metadata (8.8 kB)\nCollecting pluggy>=1.2 (from pytest-cov)\n  Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)\nCollecting pytest>=7 (from pytest-cov)\n  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\nCollecting colorama>=0.4 (from pytest>=7->pytest-cov)\n  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=1.0.1 (from pytes\n...<trimmed 423 chars>...\nn_amd64.whl (223 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached pytest-9.1.1-py3-none-any.whl (386 kB)\nUsing cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nUsing cached iniconfig-2.3.0-py3-none-any.whl (7.5 kB)\nUsing cached packaging-26.2-py3-none-any.whl (100 kB)\nUsing cached pygments-2.20.0-py3-none-any.whl (1.2 MB)\nInstalling collected packages: pygments, pluggy, packaging, iniconfig, coverage, colorama, pytest, pytest-cov\n\nSuccessfully installed colorama-0.4.6 coverage-7.15.0 iniconfig-2.3.0 packaging-26.2 pluggy-1.6.0 pygments-2.20.0 pytest-9.1.1 pytest-cov-7.1.0\n",
+        "stdout_sha256": "baf8a2e7096a69123ec28c90eeaf35b0ac756e04b2a53ec5388a82cfd43ee2bd",
+        "timed_out": false
+      }
+    },
+    {
+      "declared": true,
+      "name": "editable_project",
+      "result": {
+        "combined_log_sha256": "351c933074995a328223f1b728a92d7d748295d08d3b5d12f95c8c5faa7ed914",
+        "command": [
+          "C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed\\venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "-e",
+          "."
+        ],
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056d\\snapshottest_177_py312_imp_removed\\checkout",
+        "elapsed_seconds": 18.579,
+        "returncode": 0,
+        "stderr_excerpt": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_excerpt": "Obtaining file:///C:/Dev/ControllerGate_runtime/batch056d/snapshottest_177_py312_imp_removed/checkout\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nCo\n...<trimmed 976 chars>...\nith status 'done'\n  Created wheel for snapshottest: filename=snapshottest-1.0.0a1-0.editable-py3-none-any.whl size=6194 sha256=0ce5b14c7d688d6a003709cfd10ff792bd8294c43c189e69e36ca55fd5f30ad3\n  Stored in directory: C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-ephem-wheel-cache-5rq4_kkb\\wheels\\56\\1e\\40\\d4bef3900e1e3818551f8bb52cf469d9504307c39b8bb13b31\nSuccessfully built snapshottest\nInstalling collected packages: wasmer-compiler-cranelift, wasmer, termcolor, fastdiff, snapshottest\n\nSuccessfully installed fastdiff-0.3.0 snapshottest-1.0.0a1 termcolor-3.3.0 wasmer-1.1.0 wasmer-compiler-cranelift-1.1.0\n",
+        "stdout_sha256": "351c933074995a328223f1b728a92d7d748295d08d3b5d12f95c8c5faa7ed914",
+        "timed_out": false
+      }
+    }
+  ],
+  "status": "PASS"
+}

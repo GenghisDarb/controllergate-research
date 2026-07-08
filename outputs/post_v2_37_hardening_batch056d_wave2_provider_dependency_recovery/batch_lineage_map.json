@@ -1,0 +1,49 @@
+{
+  "batch056d_after_batch057c_valid": true,
+  "lineage": [
+    {
+      "batch": "Batch056",
+      "branch": "Wave 1 plus Wave 2 intake",
+      "chronological_order": 56,
+      "role": "Wave 1 pre-repair replay plus Wave 2 intake"
+    },
+    {
+      "batch": "Batch057",
+      "branch": "Wave 1",
+      "chronological_order": 57,
+      "role": "Wave 1 source-only patch gate"
+    },
+    {
+      "batch": "Batch057b",
+      "branch": "Wave 1",
+      "chronological_order": 58,
+      "role": "Wave 1 failure-family decomposition and elbow recovery"
+    },
+    {
+      "batch": "Batch057c",
+      "branch": "Wave 1",
+      "chronological_order": 59,
+      "role": "Wave 1 Freezegun layered patch recovery"
+    },
+    {
+      "batch": "Batch056b",
+      "branch": "Wave 2",
+      "chronological_order": 60,
+      "role": "Return to Wave 2 pre-repair replay plus AMDS bridge"
+    },
+    {
+      "batch": "Batch056d",
+      "branch": "Wave 2",
+      "chronological_order": 61,
+      "role": "Wave 2 provider/dependency recovery"
+    },
+    {
+      "batch": "Batch058",
+      "branch": "count gate reserved",
+      "chronological_order": null,
+      "role": "Reserved for duplicate clean replay and issue-derived repair count gate only after a target-pass source-only patch exists"
+    }
+  ],
+  "reason": "Batch056d is branch-relative to the Wave 2 lane after the Wave 1 Freezegun branch completed.",
+  "status": "PASS"
+}

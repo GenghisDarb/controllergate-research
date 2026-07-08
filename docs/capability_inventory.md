@@ -171,3 +171,19 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 - Next allowed action: `batch056d_wave2_provider_dependency_recovery`.
 - Issue-derived repair count remains `2`; native external repair count remains `4`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+
+### Batch056d Wave 2 provider/dependency recovery
+
+- Batch056b official ingest status: `PASS`.
+- Batch-lineage sanity: `PASS`; Batch056d follows Batch057c as a branch-relative return to the Wave 2 lane, not as a chronological rollback.
+- Provider/dependency recovery attempted candidates: `pairtools_250_py313_pipes_removed, pytest_13480_wdefault_unraisable_threadexception, snapshottest_177_py312_imp_removed`.
+- Provider/dependency recovery succeeded count: `1`.
+- Post-recovery materialized target-code failure count: `0`.
+- Still-blocked candidates: `pairtools_250_py313_pipes_removed, pytest_13480_wdefault_unraisable_threadexception, snapshottest_177_py312_imp_removed`.
+- Timeout decomposition candidates deferred: `codex_wave2_nousresearch_hermes_agent_48986, codex_wave2_nousresearch_hermes_agent_60243, codex_wave2_nousresearch_hermes_agent_57197, codex_wave2_m0smith_genia_2026_518`.
+- Future decomposition recommendations: `codex_wave2_nousresearch_hermes_agent_48986, codex_wave2_nousresearch_hermes_agent_60243, codex_wave2_nousresearch_hermes_agent_57197, codex_wave2_m0smith_genia_2026_518`.
+- Future patch-gate recommendations: `none`.
+- Freezegun provider portability recommendation: `future_explicit_authorization_required`.
+- Next allowed action: `batch056e_timeout_candidate_decomposition_wave_2`.
+- Issue-derived repair count remains `2`; native external repair count remains `4`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
