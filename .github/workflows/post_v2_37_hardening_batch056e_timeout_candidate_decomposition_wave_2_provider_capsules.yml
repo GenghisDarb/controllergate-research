@@ -1,0 +1,130 @@
+name: post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  batch056e-timeout-decomposition-provider-capsules:
+    name: Batch056e timeout decomposition provider capsules validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run byte-custody preflight before validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Install workflow test dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run shared core and runtime tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/core tests/runtime -q
+
+      - name: Validate registry, Batch056e audit, prior audits, and current protocol
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/audit_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules.py
+          python scripts/audit_batch056d_wave2_provider_dependency_recovery.py
+          python scripts/audit_batch056b_wave2_pre_repair_replay_plus_amds_bridge.py
+          python scripts/audit_batch057c_layered_source_only_patch_recovery_freezegun.py
+          python scripts/audit_batch057b_failure_family_decomposition_elbow_recovery.py
+          python scripts/audit_batch057_source_only_patch_gate_wave_1.py
+          python scripts/audit_batch056_pre_repair_replay_wave_1_plus_wave_2_intake.py
+          python scripts/audit_batch055_seed_discovery_wave_1.py
+          python scripts/audit_post_v2_37_hardening_and_batch002.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          git diff --check
+          python - <<'PY'
+          import json
+          root = "outputs/post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules"
+          final = json.load(open(f"{root}/batch056e_final_decision.json", encoding="utf-8"))
+          results = json.load(open(f"{root}/timeout_decomposition_wave_2_results.json", encoding="utf-8"))
+          capsule = json.load(open(f"{root}/provider_capsule_dashboard.json", encoding="utf-8"))
+          amds = json.load(open(f"{root}/amds_timeout_bridge_dashboard.json", encoding="utf-8"))
+          claim = json.load(open(f"{root}/claim_boundary.json", encoding="utf-8"))
+          print(f"batch056e_status={final.get('status')}")
+          print(f"batch056e_next_allowed_action={final.get('next_allowed_action')}")
+          print(f"timeout_candidates={len(results.get('results', []))}")
+          print(f"provider_capsule_statuses={capsule.get('provider_capsule_status_by_candidate')}")
+          print(f"amds_timeout_classifications={amds.get('classifications')}")
+          print(f"batch056e_full_scoring={claim.get('full_scoring')}")
+          print(f"batch056e_memory_lift={claim.get('memory_lift')}")
+          print(f"batch056e_self_maintaining={claim.get('self_maintaining_software')}")
+          PY
+
+      - name: Stage clean Batch056e artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf artifact_payload/post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules
+          mkdir -p artifact_payload/post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules
+          cp -a outputs/post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules artifact_payload/post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules/
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          root = Path("artifact_payload/post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules")
+          rows = []
+          for path in sorted(root.rglob("*")):
+              if path.is_file() and path.name != "ARTIFACT_SHA256SUMS.txt":
+                  digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                  rows.append(f"{digest}  {path.relative_to(root).as_posix()}")
+          (root / "ARTIFACT_SHA256SUMS.txt").write_text("\n".join(rows) + "\n", encoding="utf-8")
+          PY
+          test -f artifact_payload/post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules/ARTIFACT_SHA256SUMS.txt
+          if find artifact_payload/post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules \( \
+            -path '*/__pycache__/*' -o \
+            -path '*/.pytest_cache/*' -o \
+            -path '*/.mypy_cache/*' -o \
+            -path '*/.ruff_cache/*' -o \
+            -path '*/.venv/*' -o \
+            -path '*/venv/*' -o \
+            -path '*/env/*' -o \
+            -path '*/ENV/*' -o \
+            -name '*.pyc' -o \
+            -name '*.pyo' -o \
+            -name '*.zip' -o \
+            -name '*.tar' -o \
+            -name '*.tar.gz' -o \
+            -name '*.tgz' -o \
+            -name '*.7z' -o \
+            -name '*.whl' \
+          \) -print -quit | grep -q .; then
+            echo "artifact_packaging_forbidden_payload_detected"
+            exit 1
+          fi
+
+      - name: Upload Batch056e timeout decomposition provider capsules artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules_artifacts
+          path: |
+            artifact_payload/post_v2_37_hardening_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules/**
+          if-no-files-found: error

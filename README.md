@@ -271,3 +271,16 @@ python scripts/controllergate_run.py --protocol current --dry-run
 - Next allowed action: `batch056e_timeout_candidate_decomposition_wave_2`.
 - Issue-derived repair count remains `2`; native external repair count remains `4`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+
+### Batch056e timeout decomposition and provider capsules
+
+- Batch056d official ingest status: `PASS`.
+- Provider Materialization Capsule standard: `implemented_future_only`.
+- Reactome release-download-directory is recorded only as an infrastructure pattern, not as a repair seed or repair evidence.
+- Timeout candidates decomposed: `codex_wave2_nousresearch_hermes_agent_48986, codex_wave2_nousresearch_hermes_agent_60243, codex_wave2_nousresearch_hermes_agent_57197, codex_wave2_m0smith_genia_2026_518`.
+- Timeout split replay candidates: `codex_wave2_nousresearch_hermes_agent_48986, codex_wave2_nousresearch_hermes_agent_60243, codex_wave2_nousresearch_hermes_agent_57197, codex_wave2_m0smith_genia_2026_518`.
+- Provider capsule replay candidates: `none`.
+- Manual-review/rejected candidates: `none`.
+- Next allowed action: `batch056f_timeout_split_replay_wave_2`.
+- Issue-derived repair count remains `2`; native external repair count remains `4`.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.

@@ -1,0 +1,95 @@
+{
+  "candidate_id": "codex_wave2_m0smith_genia_2026_518",
+  "checkout": {
+    "cat_file_commit_verified": true,
+    "checkout": {
+      "combined_log_sha256": "652946f4e9bbe8425ce2530239b41da24569eec51adfb7b118d88d34d10d0985",
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "ce6cb9739442be9f8bd8b4d7cc0650eca8c04b4b"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056e\\codex_wave2_m0smith_genia_2026_518\\checkout",
+      "elapsed_seconds": 4.46,
+      "returncode": 0,
+      "stderr_excerpt": "HEAD is now at ce6cb97 chore: remove accidental test file\n",
+      "stderr_sha256": "652946f4e9bbe8425ce2530239b41da24569eec51adfb7b118d88d34d10d0985",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "clone": {
+      "combined_log_sha256": "6124d009f7831f11ccc02b23e9d58fe3967fb93a8eea7d635808ebf988f29530",
+      "command": [
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--no-checkout",
+        "https://github.com/m0smith/genia-2026",
+        "C:\\Dev\\ControllerGate_runtime\\batch056e\\codex_wave2_m0smith_genia_2026_518\\checkout"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate",
+      "elapsed_seconds": 1.306,
+      "returncode": 0,
+      "stderr_excerpt": "Cloning into 'C:\\Dev\\ControllerGate_runtime\\batch056e\\codex_wave2_m0smith_genia_2026_518\\checkout'...\n",
+      "stderr_sha256": "6124d009f7831f11ccc02b23e9d58fe3967fb93a8eea7d635808ebf988f29530",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "fetch": {
+      "combined_log_sha256": "727ac0706226f113bd8330f50abb80c975d110171ba3aef545d8a0dbb1c46908",
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "ce6cb9739442be9f8bd8b4d7cc0650eca8c04b4b"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056e\\codex_wave2_m0smith_genia_2026_518\\checkout",
+      "elapsed_seconds": 1.026,
+      "returncode": 0,
+      "stderr_excerpt": "From https://github.com/m0smith/genia-2026\n * branch            ce6cb9739442be9f8bd8b4d7cc0650eca8c04b4b -> FETCH_HEAD\n",
+      "stderr_sha256": "727ac0706226f113bd8330f50abb80c975d110171ba3aef545d8a0dbb1c46908",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    }
+  },
+  "evidence_files": [
+    {
+      "excerpt_sha256": "df3be71d8708b3ec8c1de1e018b909e68ca11232ce7aaa15a17f9422ce641883",
+      "line_count": 53,
+      "path": "pyproject.toml",
+      "sha256": "1a68e44d13069f2619a2be466bfcd74a2ca626d3529a86d35d7bc20d4231ede1"
+    },
+    {
+      "excerpt_sha256": "008bee9a77f386331f236ca57eea3ddc97806ddbfa2657eb3cf667234edad5f4",
+      "line_count": 16,
+      "path": "pytest.ini",
+      "sha256": "0f7aa0f676bbb39865852b718fcb494a47970b71c4a804017595f03d64b52722"
+    },
+    {
+      "excerpt_sha256": "106d42398cfbaa3352e1204a0915658d97b51ebd2e3ecfa081ffa9242418a7e5",
+      "line_count": 134,
+      "path": ".github/workflows/ci.yml",
+      "sha256": "6b68250442604b3e35f9e1a1ca21f32e0f52c7ab0f700a442a31f84211250471"
+    },
+    {
+      "excerpt_sha256": "2e5805f1d8458b8b57d193fd8b468a056764ea3c82f42f32a45d07c545d7dd47",
+      "line_count": 68,
+      "path": ".github/workflows/docs.yml",
+      "sha256": "5fe21d56dfa44aee11b4b3d1e9ebc72eb11f413b71a27d1c4e4d17059a55c2ea"
+    },
+    {
+      "excerpt_sha256": "0b6ac5f8f12283a4ced27ca81d808279275c6a0e70a6b83026e51deca1a6b819",
+      "line_count": 21,
+      "path": ".github/workflows/validate-llm-instructions.yml",
+      "sha256": "fbdef7268265694c7a8679843f048eadaf6d5e4480d8e313573c02b6e32b9067"
+    }
+  ],
+  "forbidden_evidence_used": false,
+  "status": "PASS"
+}

@@ -1,0 +1,79 @@
+{
+  "allowed_provider_actions": [
+    "smaller test subtarget",
+    "test collection only",
+    "help/version command",
+    "import-only probe",
+    "timeout budget split",
+    "network-disabled probe"
+  ],
+  "candidate_id": "codex_wave2_m0smith_genia_2026_518",
+  "candidate_sha": "ce6cb9739442be9f8bd8b4d7cc0650eca8c04b4b",
+  "capsule_hash": "0978e9ae6f23f490bb6193b04d6250ef6c51c87f6300350d837a43b084f9cf60",
+  "capsule_status": "capsule_needs_timeout_split",
+  "declared_compiled_dependencies": [],
+  "declared_config_files": [
+    "pyproject.toml",
+    "pytest.ini",
+    ".github/workflows/ci.yml",
+    ".github/workflows/docs.yml",
+    ".github/workflows/validate-llm-instructions.yml"
+  ],
+  "declared_deprecated_or_excluded_steps": [],
+  "declared_environment_variables": [],
+  "declared_external_services": [
+    "mentions_model_or_agent"
+  ],
+  "declared_extras_or_dev_dependencies": [
+    ".",
+    "PyYAML",
+    "hatchling",
+    "src",
+    "tools"
+  ],
+  "declared_install_commands": [
+    "python -m pip install -e ."
+  ],
+  "declared_local_build_steps": [],
+  "declared_os_provider": "unknown_or_implicit",
+  "declared_runtime_versions": [
+    ">=3.8"
+  ],
+  "declared_subtarget_boundaries": [
+    "smaller test subtarget",
+    "test collection only",
+    "help/version command",
+    "import-only probe",
+    "timeout budget split",
+    "network-disabled probe"
+  ],
+  "declared_test_commands": [
+    "python -m pytest tests -q --tb=no"
+  ],
+  "declared_test_runner": "pytest",
+  "declared_timeout_budget": "future bounded split required",
+  "evidence_hashes": {
+    ".github/workflows/ci.yml": "6b68250442604b3e35f9e1a1ca21f32e0f52c7ab0f700a442a31f84211250471",
+    ".github/workflows/docs.yml": "5fe21d56dfa44aee11b4b3d1e9ebc72eb11f413b71a27d1c4e4d17059a55c2ea",
+    ".github/workflows/validate-llm-instructions.yml": "fbdef7268265694c7a8679843f048eadaf6d5e4480d8e313573c02b6e32b9067",
+    "pyproject.toml": "1a68e44d13069f2619a2be466bfcd74a2ca626d3529a86d35d7bc20d4231ede1",
+    "pytest.ini": "0f7aa0f676bbb39865852b718fcb494a47970b71c4a804017595f03d64b52722"
+  },
+  "forbidden_provider_actions": [
+    "source patch generation",
+    "test mutation",
+    "undeclared dependency install",
+    "future/fixed/gold evidence use",
+    "unbounded model/data/service download"
+  ],
+  "leakage_screen_status": "PASS",
+  "provider_risk_level": "medium",
+  "provider_unknowns": [
+    "network_or_model_runtime_boundary_not_bounded",
+    "broad_test_tree_requires_subtarget_split"
+  ],
+  "repo_url": "https://github.com/m0smith/genia-2026",
+  "runtime_language": "python",
+  "source_of_each_declaration": "buggy_checkout_metadata_or_batch056b_replay_record",
+  "status": "PASS"
+}

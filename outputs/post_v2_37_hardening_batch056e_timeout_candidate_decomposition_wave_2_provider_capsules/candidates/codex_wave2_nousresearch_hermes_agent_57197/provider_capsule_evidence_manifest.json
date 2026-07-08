@@ -1,0 +1,149 @@
+{
+  "candidate_id": "codex_wave2_nousresearch_hermes_agent_57197",
+  "checkout": {
+    "cat_file_commit_verified": true,
+    "checkout": {
+      "combined_log_sha256": "c204c706a2e3925725e80bc37706de8d8a9d03af0c20d347fc40c583a659f1e7",
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "30e947e0a05ef535e4b25a183d8bbe34fd68d1d5"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056e\\codex_wave2_nousresearch_hermes_agent_57197\\checkout",
+      "elapsed_seconds": 24.062,
+      "returncode": 0,
+      "stderr_excerpt": "HEAD is now at 30e947e0a feat(gateway): persist per-session /model overrides across gateway restarts\n",
+      "stderr_sha256": "c204c706a2e3925725e80bc37706de8d8a9d03af0c20d347fc40c583a659f1e7",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "clone": {
+      "combined_log_sha256": "30286569ca7919860d3c4a6039c2fe5edd35ff48ff8b387f417c1ce53fe835b9",
+      "command": [
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--no-checkout",
+        "https://github.com/NousResearch/hermes-agent",
+        "C:\\Dev\\ControllerGate_runtime\\batch056e\\codex_wave2_nousresearch_hermes_agent_57197\\checkout"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate",
+      "elapsed_seconds": 5.879,
+      "returncode": 0,
+      "stderr_excerpt": "Cloning into 'C:\\Dev\\ControllerGate_runtime\\batch056e\\codex_wave2_nousresearch_hermes_agent_57197\\checkout'...\n",
+      "stderr_sha256": "30286569ca7919860d3c4a6039c2fe5edd35ff48ff8b387f417c1ce53fe835b9",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "fetch": {
+      "combined_log_sha256": "296ca38bb3ddc46401477e0007eafa0a6ced4f0d311875d5a8f485b4637b569a",
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "30e947e0a05ef535e4b25a183d8bbe34fd68d1d5"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch056e\\codex_wave2_nousresearch_hermes_agent_57197\\checkout",
+      "elapsed_seconds": 1.458,
+      "returncode": 0,
+      "stderr_excerpt": "From https://github.com/NousResearch/hermes-agent\n * branch                30e947e0a05ef535e4b25a183d8bbe34fd68d1d5 -> FETCH_HEAD\n",
+      "stderr_sha256": "296ca38bb3ddc46401477e0007eafa0a6ced4f0d311875d5a8f485b4637b569a",
+      "stdout_excerpt": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    }
+  },
+  "evidence_files": [
+    {
+      "excerpt_sha256": "df37d931ddd8f6dbc48f421bbb5df101c7a83886003d9ae2b35b4e24c6334bb1",
+      "line_count": 394,
+      "path": "pyproject.toml",
+      "sha256": "029ad82af35a0f7983b6f6344d0c7f55fe5b6d082ba895ddcc1be424c9ae0554"
+    },
+    {
+      "excerpt_sha256": "59ad06da6bdac33770a1a11669c886bb2cdf8c43b75ae52253be47abf565ee93",
+      "line_count": 87,
+      "path": "setup.py",
+      "sha256": "6fc4fd32be898257a28722b00a035bf9078bdf5d80028ca32200f9c235b36f2f"
+    },
+    {
+      "excerpt_sha256": "05266566b68b7d2a17f2d221e83f4f34d77874338b6ba962f5055e3d9eec44f8",
+      "line_count": 361,
+      "path": "Dockerfile",
+      "sha256": "f2ba5713e5b91b2aa7d8c629fed6a10a0f3796705c45271c834bc3f8d5471ffa"
+    },
+    {
+      "excerpt_sha256": "a2cd0c747699be472011e27fd9947dd59f55620d5afa007304002193b09385c6",
+      "line_count": 76,
+      "path": "docker-compose.yml",
+      "sha256": "df314eea77ea70e2580c96c532ebf33c9da1d8b191150852fcbebd6a0452530e"
+    },
+    {
+      "excerpt_sha256": "feefde881647fa9504fc67fbdd1afa78f7780be3c31886f06ae39a8a6cf176d1",
+      "line_count": 231,
+      "path": ".github/workflows/ci.yml",
+      "sha256": "5550117914f7c6b2e96d609435f21a74f2b40b59e1b07d295db98ce18504c528"
+    },
+    {
+      "excerpt_sha256": "74e90913cf3a803229cd69a61e2058359e1306bd63072328d6927788caf29757",
+      "line_count": 67,
+      "path": ".github/workflows/contributor-check.yml",
+      "sha256": "5784b226c29b0d8fb592e97fb5f9307dcad26688c93f623f9884974785f9172b"
+    },
+    {
+      "excerpt_sha256": "0afc702636b71d18bcc95460462a35b5a3d8022c4ebac4d386c7aee70cb6740b",
+      "line_count": 182,
+      "path": ".github/workflows/deploy-site.yml",
+      "sha256": "124838494e9f0ea1346c4cc23c6b4ac8a4061e1cf2ed72e9a9afa2559fc0782e"
+    },
+    {
+      "excerpt_sha256": "4365049e32d200b308dfe91e520de97be0113011ea8b7b3dcf978b6d057bdec0",
+      "line_count": 55,
+      "path": ".github/workflows/docker-lint.yml",
+      "sha256": "25fdc6853a04adff5d4ba6510fac4c0da6724d76eea4acb082a6102758a21be5"
+    },
+    {
+      "excerpt_sha256": "74ef8d8b314af63d25ed8f50114e77d17ab63429b28b95df73c2a6d181008251",
+      "line_count": 209,
+      "path": ".github/workflows/docker.yml",
+      "sha256": "412b15348a5dba65599dfc2b1db60ca950c981d9d7947cc524410de8de98a9e3"
+    },
+    {
+      "excerpt_sha256": "4d5d4cab8a3fe530c94360485f9c49fed2f860250e771358a0b49a625848a84c",
+      "line_count": 48,
+      "path": ".github/workflows/docs-site-checks.yml",
+      "sha256": "53d2d91803c4f769fa813377e13dfd2426282de19696bcf3155019073db0c675"
+    },
+    {
+      "excerpt_sha256": "3f29ccb7ad456ac2142cb36aa0b160b25a458bb6d740a26d963b55f8342279ab",
+      "line_count": 57,
+      "path": ".github/workflows/history-check.yml",
+      "sha256": "6b329227660d62c7ca73f51ae08645d6e0dbba0cf832fc5e803fb699ce926a1c"
+    },
+    {
+      "excerpt_sha256": "24c08c17def6a5a122b1510cd473b7b0aee4a1ea21c6950c496554586467e39b",
+      "line_count": 158,
+      "path": ".github/workflows/lint.yml",
+      "sha256": "c4554d4c1086b8ac3e88dd01583321f3c30302e2edd7666cd01cea6da94c9e46"
+    },
+    {
+      "excerpt_sha256": "18a875f95a8ec0af35865b9051c4121249bfb82a77a59bdf2318d1048924cf95",
+      "line_count": 47,
+      "path": ".github/workflows/osv-scanner.yml",
+      "sha256": "7bc02cfdac76f448531b1ec1ec5d968f678b4996fb3e7f27d3ae4846a64cc131"
+    },
+    {
+      "excerpt_sha256": "cd58a2783e66b9fe6389f701e0ebdf0699190df18dda0e21fd958e1703c343aa",
+      "line_count": 149,
+      "path": ".github/workflows/skills-index-freshness.yml",
+      "sha256": "f12c7a9335309b7e5f051001e8cbb1a4aa025c2254e5b2cad096a78b0cfb45cb"
+    }
+  ],
+  "forbidden_evidence_used": false,
+  "status": "PASS"
+}

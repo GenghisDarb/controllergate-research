@@ -1,0 +1,43 @@
+{
+  "capsule_statuses": [
+    "capsule_needs_dependency_recovery",
+    "capsule_needs_manual_review",
+    "capsule_needs_provider_image",
+    "capsule_needs_runtime_version",
+    "capsule_needs_timeout_split",
+    "capsule_ready_for_future_replay",
+    "capsule_rejected_leakage_risk",
+    "capsule_rejected_no_declared_provider_path",
+    "capsule_rejected_unbounded_provider"
+  ],
+  "fields": [
+    "candidate_id",
+    "repo_url",
+    "candidate_sha",
+    "runtime_language",
+    "declared_runtime_versions",
+    "declared_os_provider",
+    "declared_install_commands",
+    "declared_test_commands",
+    "declared_test_runner",
+    "declared_extras_or_dev_dependencies",
+    "declared_local_build_steps",
+    "declared_compiled_dependencies",
+    "declared_external_services",
+    "declared_config_files",
+    "declared_environment_variables",
+    "declared_timeout_budget",
+    "declared_subtarget_boundaries",
+    "declared_deprecated_or_excluded_steps",
+    "source_of_each_declaration",
+    "evidence_hashes",
+    "leakage_screen_status",
+    "allowed_provider_actions",
+    "forbidden_provider_actions",
+    "provider_unknowns",
+    "provider_risk_level",
+    "capsule_status"
+  ],
+  "purpose": "Prepare bounded provider/runtime conditions before replay without treating environment work as repair success.",
+  "status": "PASS"
+}
