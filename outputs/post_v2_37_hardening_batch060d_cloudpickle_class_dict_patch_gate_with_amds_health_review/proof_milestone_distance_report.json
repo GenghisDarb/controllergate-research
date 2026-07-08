@@ -1,0 +1,61 @@
+{
+  "milestones": {
+    "next_duplicate_clean_replay_candidate": {
+      "blocker": "Batch061 not run",
+      "current_distance": "near",
+      "highest_impact_next_action": "Batch061",
+      "required_evidence": "fresh replay from clean workspace",
+      "required_next_artifact": "duplicate replay artifact"
+    },
+    "next_full_scoring_gate": {
+      "blocker": "not authorized",
+      "current_distance": "blocked",
+      "highest_impact_next_action": "none",
+      "required_evidence": "scope definition",
+      "required_next_artifact": "authorization"
+    },
+    "next_issue_derived_count_increment": {
+      "blocker": "duplicate/count gate pending",
+      "current_distance": "near",
+      "highest_impact_next_action": "Batch061",
+      "required_evidence": "duplicate replay pass",
+      "required_next_artifact": "count gate ledger"
+    },
+    "next_memory_baseline": {
+      "blocker": "matched-null not active",
+      "current_distance": "far",
+      "highest_impact_next_action": "after count gate",
+      "required_evidence": "null ensemble",
+      "required_next_artifact": "preregistration"
+    },
+    "next_memory_lift_test": {
+      "blocker": "requires baseline",
+      "current_distance": "far",
+      "highest_impact_next_action": "future",
+      "required_evidence": "separation score",
+      "required_next_artifact": "matched-null run"
+    },
+    "next_self_maintenance_claim_review": {
+      "blocker": "no autonomous repeatable acquisition/repair/count loop",
+      "current_distance": "far",
+      "highest_impact_next_action": "count gate first",
+      "required_evidence": "aggregate replay/count",
+      "required_next_artifact": "multi-candidate autonomous evidence"
+    },
+    "next_target_pass_candidate": {
+      "blocker": null,
+      "current_distance": "none",
+      "highest_impact_next_action": "Batch061 duplicate replay",
+      "required_evidence": "post-repair target log",
+      "required_next_artifact": "already_present"
+    },
+    "next_three_unrelated_repairs": {
+      "blocker": "needs more unrelated candidate count gates",
+      "current_distance": "medium",
+      "highest_impact_next_action": "Batch061 then new seed",
+      "required_evidence": "unrelated repairs",
+      "required_next_artifact": "additional count evidence"
+    }
+  },
+  "status": "PASS"
+}

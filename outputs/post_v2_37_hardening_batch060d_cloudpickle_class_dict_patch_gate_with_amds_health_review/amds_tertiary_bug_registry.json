@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "confidence": "medium_high",
+      "current_status": "repair_license_future_open",
+      "decision_time_inputs_used": [
+        "buggy source tree",
+        "fresh replay logs",
+        "Batch060c provider/runtime artifacts"
+      ],
+      "evidence_files": [
+        "cloudpickle_pre_repair_class_dict_log_raw.txt",
+        "cloudpickle_post_repair_results.json"
+      ],
+      "exception_type": "ModuleNotFoundError",
+      "failure_family": "duplicate_replay_pending",
+      "forbidden_inputs_checked": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "issue-body fix text"
+      ],
+      "layer_depth": 2,
+      "next_allowed_action": "batch061_duplicate_clean_replay_and_issue_repair_count_gate_wave_3",
+      "node_id": "duplicate_replay_gate_pending",
+      "parent_node_id": "class_dict_firstlineno_source_branch",
+      "reasoning_summary": "Branch status is derived from provider recovery plus fresh pre/post repair replay.",
+      "risk_level": "low",
+      "suspected_dependency_contacts": [],
+      "suspected_interpreter_contacts": [
+        "Python 3.13 removed distutils surface"
+      ],
+      "suspected_provider_contacts": [],
+      "suspected_source_files": [],
+      "suspected_test_expectation_contacts": [],
+      "test_nodes": [
+        "tests/cloudpickle_test.py"
+      ],
+      "traceback_root": "module_importability"
+    }
+  ],
+  "status": "PASS"
+}

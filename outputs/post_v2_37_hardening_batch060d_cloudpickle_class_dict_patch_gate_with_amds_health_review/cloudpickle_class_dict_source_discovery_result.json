@@ -1,0 +1,7 @@
+{
+  "failure_family": "class_dict_firstlineno",
+  "patch_license_state": "cloudpickle_patch_license_open_single_source_family",
+  "reasoning": "__firstlineno__ is interpreter-injected class namespace metadata in Python 3.13 and leaks through the existing inherited-member filter.",
+  "source_owner": "cloudpickle/cloudpickle.py::_extract_class_dict",
+  "status": "PASS"
+}

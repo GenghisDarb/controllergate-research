@@ -1,0 +1,12 @@
+diff --git a/cloudpickle/cloudpickle.py b/cloudpickle/cloudpickle.py
+index 317be69..3f4997a 100644
+--- a/cloudpickle/cloudpickle.py
++++ b/cloudpickle/cloudpickle.py
+@@ -521,6 +521,7 @@ def _walk_global_ops(code):
+ def _extract_class_dict(cls):
+     """Retrieve a copy of the dict of a class without the inherited methods"""
+     clsdict = dict(cls.__dict__)  # copy dict proxy to a dict
++    clsdict.pop("__firstlineno__", None)
+     if len(cls.__bases__) == 1:
+         inherited_dict = cls.__bases__[0].__dict__
+     else:

@@ -1,0 +1,46 @@
+{
+  "nodes": [
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "confidence": "medium_high",
+      "current_status": "resolved_by_provider_only",
+      "decision_time_inputs_used": [
+        "buggy source tree",
+        "fresh replay logs",
+        "Batch060c provider/runtime artifacts"
+      ],
+      "evidence_files": [
+        "cloudpickle_pre_repair_class_dict_log_raw.txt",
+        "cloudpickle_post_repair_results.json"
+      ],
+      "exception_type": "ModuleNotFoundError",
+      "failure_family": "distutils_importability",
+      "forbidden_inputs_checked": [
+        "fixed commits",
+        "future commits",
+        "gold patches",
+        "issue-body fix text"
+      ],
+      "layer_depth": 1,
+      "next_allowed_action": null,
+      "node_id": "distutils_importability_provider_branch",
+      "parent_node_id": "root_multi_family_surface",
+      "reasoning_summary": "Branch status is derived from provider recovery plus fresh pre/post repair replay.",
+      "risk_level": "low",
+      "suspected_dependency_contacts": [],
+      "suspected_interpreter_contacts": [
+        "Python 3.13 removed distutils surface"
+      ],
+      "suspected_provider_contacts": [
+        "setuptools/distutils"
+      ],
+      "suspected_source_files": [],
+      "suspected_test_expectation_contacts": [],
+      "test_nodes": [
+        "tests/cloudpickle_test.py"
+      ],
+      "traceback_root": "module_importability"
+    }
+  ],
+  "status": "PASS"
+}

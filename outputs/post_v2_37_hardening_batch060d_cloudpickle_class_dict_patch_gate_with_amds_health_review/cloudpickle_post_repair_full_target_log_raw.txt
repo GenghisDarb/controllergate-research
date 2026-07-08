@@ -1,0 +1,18 @@
+$ C:\Dev\ControllerGate_runtime\batch060d_patch_gate\venv\Scripts\python.exe -m pytest tests/cloudpickle_test.py -q --tb=no
+return_code=0
+--- stdout ---
+.................s...................s.........ss...........................................s............................................s...................s.........ss...........................................s.................................
+============================== warnings summary ===============================
+tests/cloudpickle_test.py::CloudPickleTest::test_itertools_count
+tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count
+  C:\Dev\ControllerGate_runtime\batch060d_patch_gate\cloudpickle\cloudpickle\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.
+    return Pickler.dump(self, obj)
+
+tests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine
+  C:\Dev\ControllerGate_runtime\batch060d_patch_gate\venv\Lib\site-packages\tornado\ioloop.py:271: DeprecationWarning: There is no current event loop
+    loop = asyncio.get_event_loop()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+236 passed, 10 skipped, 3 warnings in 75.15s (0:01:15)
+
+--- stderr ---

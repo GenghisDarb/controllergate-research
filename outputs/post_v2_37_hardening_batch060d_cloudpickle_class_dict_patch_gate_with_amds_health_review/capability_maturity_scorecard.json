@@ -1,0 +1,196 @@
+{
+  "advisory_diagnostic_only": true,
+  "dimensions": {
+    "AMDS_failure_board_mapping": {
+      "evidence_files": [
+        "amds_bug_tree_node_registry.json"
+      ],
+      "grade": "B",
+      "reason": "Known branches are mapped.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "AMDS_full_bug_tree_closure": {
+      "evidence_files": [
+        "amds_full_bug_tree_state.json"
+      ],
+      "grade": "B",
+      "reason": "Closure mode installed for this candidate.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "artifact_custody": {
+      "evidence_files": [
+        "batch060c_artifact_sha256_verification.json"
+      ],
+      "grade": "A",
+      "reason": "Manual artifact custody and manifests verified.",
+      "trend_since_previous_batch": "unchanged",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "decision_time_outcome_separation": {
+      "evidence_files": [
+        "cloudpickle_forbidden_evidence_audit.json"
+      ],
+      "grade": "A",
+      "reason": "Forbidden evidence audits preserve boundary.",
+      "trend_since_previous_batch": "unchanged",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "documentation_currentness": {
+      "evidence_files": [
+        "project_health_review_batch060d.md"
+      ],
+      "grade": "B",
+      "reason": "Public summaries updated.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "duplicate_clean_replay_readiness": {
+      "evidence_files": [
+        "batch061_duplicate_replay_candidates.json"
+      ],
+      "grade": "C",
+      "reason": "Candidate ready but duplicate replay not run.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "memory_lift_readiness": {
+      "evidence_files": [
+        "claim_boundary.json"
+      ],
+      "grade": "D",
+      "reason": "No matched memory experiment in this batch.",
+      "trend_since_previous_batch": "unchanged",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "overall_project_direction": {
+      "evidence_files": [
+        "next_highest_impact_action_report.json"
+      ],
+      "grade": "B",
+      "reason": "Shortest path to count milestone is visible.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "patch_license_quality": {
+      "evidence_files": [
+        "cloudpickle_patch_license_from_amds.json"
+      ],
+      "grade": "B",
+      "reason": "Single source-family license recorded.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "post_repair_target_replay": {
+      "evidence_files": [
+        "cloudpickle_post_repair_results.json"
+      ],
+      "grade": "B",
+      "reason": "Original target passed after patch.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "pre_repair_replay_quality": {
+      "evidence_files": [
+        "cloudpickle_pre_repair_class_dict_log_raw.txt"
+      ],
+      "grade": "B",
+      "reason": "Fresh minimal and full target replay occurred.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "provider_runtime_materialization": {
+      "evidence_files": [
+        "cloudpickle_provider_runtime_preservation.json"
+      ],
+      "grade": "B",
+      "reason": "Provider recovery preserved and reused.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "recurring_issue_resolution": {
+      "evidence_files": [
+        "recurring_bottleneck_trend_report.json"
+      ],
+      "grade": "C",
+      "reason": "Recurring blockers are tracked; some still manual.",
+      "trend_since_previous_batch": "unchanged",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "repair_count_gate_readiness": {
+      "evidence_files": [
+        "batch061_count_gate_recommendation.json"
+      ],
+      "grade": "C",
+      "reason": "Count gate waits for Batch061.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "repo_hygiene": {
+      "evidence_files": [
+        "project_health_review_batch060d.json"
+      ],
+      "grade": "C",
+      "reason": "Topology issues are tracked but not refactored.",
+      "trend_since_previous_batch": "unchanged",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "self_maintenance_readiness": {
+      "evidence_files": [
+        "self_maintenance_readiness_review.json"
+      ],
+      "grade": "D",
+      "reason": "Reusable scaffolds exist but no autonomous loop.",
+      "trend_since_previous_batch": "unchanged",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "sha_manifest_integrity": {
+      "evidence_files": [
+        "SHA256SUMS.txt"
+      ],
+      "grade": "A",
+      "reason": "Batch060d SHA256SUMS covers outputs.",
+      "trend_since_previous_batch": "unchanged",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "source_contact_topology": {
+      "evidence_files": [
+        "cloudpickle_source_contact_graph_extrusion_result.json"
+      ],
+      "grade": "B",
+      "reason": "Source contact localized to _extract_class_dict.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    },
+    "source_only_patch_quality": {
+      "evidence_files": [
+        "cloudpickle_class_dict_patch_safety_check.json"
+      ],
+      "grade": "B",
+      "reason": "One-file source-only patch passed target.",
+      "trend_since_previous_batch": "improved",
+      "what_would_lower_grade": "claim-boundary drift or manifest/evidence mismatch",
+      "what_would_raise_grade": "duplicate replay/count evidence across unrelated candidates"
+    }
+  },
+  "status": "PASS"
+}

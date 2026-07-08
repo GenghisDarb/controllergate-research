@@ -1,0 +1,17 @@
+{
+  "cannot_bypass": [
+    "patch gates",
+    "duplicate replay",
+    "count gates",
+    "evidence boundaries"
+  ],
+  "policy_id": "amds_full_bug_tree_closure_policy",
+  "requires_full_closure_before_source_only_patch_gate_when": [
+    "multiple_failure_families_exist",
+    "partial_improvement_exposes_new_layer",
+    "provider_runtime_blockers_appear",
+    "candidate_previously_hit_ambiguous_multi_family_surface",
+    "target_has_source_and_interpreter_behavior_layers"
+  ],
+  "status": "PASS"
+}

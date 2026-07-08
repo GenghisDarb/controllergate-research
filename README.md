@@ -29,6 +29,30 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 ## Current evidence status
 
+Batch060d is the latest validation-path boundary. It officially ingests Batch060c and runs the bounded Cloudpickle class-dict source-only patch gate. The remaining `class_dict_firstlineno` family freshly reproduced after provider/runtime preservation; a one-file source-only Cloudpickle patch was generated and applied only in the isolated Cloudpickle workspace; the minimal class-dict target and original full target passed after the patch.
+
+Batch060d does not run duplicate clean replay, does not run count gates, does not increment repair counts, does not run full scoring, does not claim memory lift, and does not claim self-maintaining software. It installs AMDS Full Bug-Tree Closure Mode and an advisory project health review. The project health grade is advisory and does not constitute proof. Workflow success is not equivalent to repair success. Provider recovery is not repair success. Partial improvement is not repair success. Self-maintaining software remains false/not_demonstrated.
+
+Batch060d status:
+
+- Cloudpickle patch generated/applied status: `true / true`, isolated workspace only.
+- Cloudpickle repair outcome classification: `source_only_patch_target_pass`.
+- Source-only target-pass count: `1`.
+- Batch061 duplicate replay candidate count: `1`.
+- AMDS full bug-tree closure mode: `PASS`; maximum bug-tree depth `2`.
+- Project health grade: `B`; traffic-light status `yellow`.
+- Strongest capability gained: bounded provider-recovered source-only patch gate that produced a full-target pass candidate.
+- Strongest recurring blocker: duplicate clean replay and count-gate evidence remain pending after target pass.
+- Distance to next repair-count milestone: `near`, pending Batch061 duplicate clean replay and count gate.
+- Distance to self-maintaining claim: `far`, because autonomous repeatable acquisition, repair, duplicate replay, and count evidence are not demonstrated.
+- TLD/Reactome/isomorphic correctness status: `PASS` as audit/governance metadata only, not repair proof.
+- Issue-derived repair count preserved at `2`.
+- Native external repair count preserved at `4`.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift remains `not_demonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Next allowed action: `batch061_duplicate_clean_replay_and_issue_repair_count_gate_wave_3`.
+
 Batch060c is the latest validation-path boundary. It officially ingests Batch060b, executes Cloudpickle provider/runtime recovery, and adds reusable provider/runtime routing plus maintenance-memory ledgers.
 
 Cloudpickle's `distutils` importability family is resolved by provider/runtime materialization: declared dev requirements alone left `distutils` unavailable in a fresh Python 3.13 venv, while `setuptools` materialization, justified by the buggy `setup.py`, made both `distutils` nodes pass. The full target remains failing only on the Python 3.13 `__firstlineno__` class-dictionary family.
