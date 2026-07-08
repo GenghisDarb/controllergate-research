@@ -1,0 +1,69 @@
+{
+  "allowed_evidence": [
+    "buggy checkout metadata",
+    "Batch060/060b replay logs",
+    "isolated Python runtime probes",
+    "declared provider install logs"
+  ],
+  "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+  "candidate_sha": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+  "metadata": {
+    "candidate_sha": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+    "declared_test_dependency_source": "dev-requirements.txt",
+    "dev_requirements_declares_setuptools": false,
+    "distutils_declared_as_setup_py_fallback": true,
+    "head_sha": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+    "metadata_files": [
+      {
+        "excerpt": "#!/usr/bin/env python\n# -*- coding: utf-8 -*-\nimport os\nimport re\n\ntry:\n    from setuptools import setup\nexcept ImportError:\n    from distutils.core import setup\n\n\n# Function to parse __version__ in `cloudpickle/__init__.py`\ndef find_version():\n    here = os.path.abspath(os.path.dirname(__file__))\n    with open(os.path.join(here, 'cloudpickle', '__init__.py'), 'r') as fp:\n        version_file = fp.read()\n    version_match = re.search(r\"^__version__ = ['\\\"]([^'\\\"]*)['\\\"]\",\n                              version_file, re.M)\n    if version_match:\n        return version_match.group(1)\n    raise RuntimeError(\"Unable to find version string.\")\n\n\ndist = setup(\n    name='cloudpickle',\n    version=find_version(),\n    description='Extended pickling support for Python objects',\n    author='Cloudpipe',\n    author_email='cloudpipe@googlegroups.com',\n    url='https://github.com/cloudpipe/cloudpickle',\n    license='BSD-3-Clause',\n    packages=['cloudpickle'],\n    long_description=open('README.md').read(),\n    long_description_content_type=\"text/markdown\",\n    classifiers=[\n        'Development Status :: 4 - Beta',\n        'Intended Audience :: Developers',\n        'License :: OSI Approved :: BSD License',\n        'Operating System :: POSIX',\n        'Operating System :: Microsoft :: Windows',\n        'Operating System :: MacOS :: MacOS X',\n        'Programming Language :: Python :: 3.6',\n        'Programming Language :: Python :: 3.7',\n        'Programming Language :: Python :: 3.8',\n        'Programming Language :: Python :: 3.9',\n        'Programming Language :: Python :: Implementation :: CPython',\n        'Programming Language :: Python :: Implementation :: PyPy',\n        'Topic :: Software Development :: Libraries :: Python Modules',\n        'Topic :: Scientific/Engineering',\n        'Topic :: System :: Distributed Computing',\n    ],\n    test_suite='tests',\n    python_requires='>=3.6',\n)\n",
+        "exists": true,
+        "path": "setup.py",
+        "sha256": "bab883f6b1968be58939d059270348ad64b5dfce1bab5678b49f08b40fcfa45c"
+      },
+      {
+        "excerpt": "[tox]\nenvlist = py35, py36, py37, py38, py39, py310, py311, pypy3\n\n[testenv]\ndeps = -rdev-requirements.txt\nsetenv =\n    PYTHONPATH = {toxinidir}:{toxinidir}/tests\ncommands =\n     py.test {posargs:-lv --maxfail=5}\n\n[pytest]\naddopts = -s\n",
+        "exists": true,
+        "path": "tox.ini",
+        "sha256": "0d403126e06e951838b6f8eef715c71035fe65e47b77f312615a55f8f752bc34"
+      },
+      {
+        "excerpt": "# Dependencies for running the tests with py.test\nflake8\npytest\npytest-cov\npsutil\n# To test on older Python versions\npickle5 >=0.0.11 ; python_version == '3.7' and python_implementation == 'CPython'\n# To be able to test tornado coroutines\ntornado\n# To be able to test numpy specific things\n# but do not build numpy from source on Python nightly\nnumpy >=1.18.5; python_version <= '3.8'\n# Code coverage uploader for Travis:\ncodecov\ncoverage\n# Utility package used when running the cloudpickle test suite\n./tests/cloudpickle_testpkg\n",
+        "exists": true,
+        "path": "dev-requirements.txt",
+        "sha256": "ad0ce11685fc0571f5601ab534d0734c69e20d177a466648640a14e370ff096e"
+      },
+      {
+        "excerpt": "",
+        "exists": false,
+        "path": "pyproject.toml",
+        "sha256": null
+      },
+      {
+        "excerpt": "",
+        "exists": false,
+        "path": "setup.cfg",
+        "sha256": null
+      }
+    ],
+    "python_requires": ">=3.6",
+    "repo_path": "C:\\Dev\\ControllerGate_runtime\\batch060c_probe\\cloudpickle",
+    "setuptools_declared_by_setup_py_import": true,
+    "status": "PASS",
+    "tox_envlist": "py35, py36, py37, py38, py39, py310, py311, pypy3"
+  },
+  "probe_log_sha256s": {
+    "post_class_dict": "78253779bd3edf25ba07e930157acf7a99ede3e3b9f64094a09a330b13c0b2a2",
+    "post_distutils_1": "afc8917ef568b73095af2883c1895b1be5f06f8889442af9315b8208c66d84f0",
+    "post_distutils_2": "0f916e8cb82d124fbf02aa1626ec1926c1011573d028c97691a6a59271a2c021",
+    "post_full": "840c47a1cd8db8f7860f5ecd5ae2e23980bde3485ebb85ce1127ae1c42df1c38",
+    "post_probe": "dd8894edf8ff96e82737e294cbdd63b09f469e8b9abc0646dd8e584be17a0bb8",
+    "pre_setuptools_class_dict": "fd0be44bec2f26fa250a80c2cc68521152c7eb52197b9607d2d65abf5c40a54c",
+    "pre_setuptools_distutils_1": "37b44af21c3e66a49b0a01b024398c954067d1885143c31c9fcd5ac9bb500fef",
+    "pre_setuptools_distutils_2": "73cf16f21f3947845028865694c19f0dc0751145515722f10e07e5b911934109",
+    "pre_setuptools_full": "9e20592bf676312bfc1d2b49e016f5d2f4ff074e3a94e5601665ff8b7c1d45ea",
+    "provider_install": "85a8ba1b1264c4fe615fefbd5324b7bfe4746066b739330837535d9c5845ae2c",
+    "provider_setuptools_install": "e7b80047f130bfa21bea24952718d9f94dd68dfdd16424255235635c972d5e38"
+  },
+  "repo_url": "https://github.com/cloudpipe/cloudpickle",
+  "status": "PASS"
+}

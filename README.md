@@ -29,11 +29,13 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 ## Current evidence status
 
-Batch060b is the latest validation-path boundary. It officially ingests Batch060, preserves the Wave 3 source-only patch-gate evidence, and records Cloudpickle failure-family decomposition plus Audioread partial-improvement provider/backend preservation.
+Batch060c is the latest validation-path boundary. It officially ingests Batch060b, executes Cloudpickle provider/runtime recovery, and adds reusable provider/runtime routing plus maintenance-memory ledgers.
 
-Audioread remains a failed-repair branch record: Batch060 removed the `aifc` import crash, but the original target command still failed with `NoBackendError`, so the next Audioread work is a future provider/backend capsule replay, not a repair count.
+Cloudpickle's `distutils` importability family is resolved by provider/runtime materialization: declared dev requirements alone left `distutils` unavailable in a fresh Python 3.13 venv, while `setuptools` materialization, justified by the buggy `setup.py`, made both `distutils` nodes pass. The full target remains failing only on the Python 3.13 `__firstlineno__` class-dictionary family.
 
-Cloudpickle decomposes into two families: a `distutils` importability/provider-runtime surface and a separate Python 3.13 `__firstlineno__` class-dictionary behavior surface. Batch060b generates no patches, applies no patches, runs no duplicate replay, runs no count gate, and does not increment repair counts. Confirmed external native repair episodes remain `4`. Confirmed issue-derived repair episodes remain `2`. Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+Batch060c generates no patches, applies no patches, runs no duplicate replay, runs no count gate, and does not increment repair counts. Confirmed external native repair episodes remain `4`. Confirmed issue-derived repair episodes remain `2`. Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+
+Batch060c also adds a reusable Provider/Runtime Recovery Pattern Library, an Autonomic Bottleneck Routing Layer, and maintenance-memory ledgers. These are reusable subsystem improvements and future-routing recommendations, not repair success and not a self-maintaining software claim.
 
 Confirmed external native repair episodes include `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`.
 
@@ -41,13 +43,16 @@ Memory lift on external real bugs is not demonstrated. Self-maintaining software
 
 Clean replication batch002 now attempts real external leads and preserves environment-resolution evidence before replay.
 
-Batch060b candidate classifications:
+Batch060c candidate classifications:
 
-- `audioread_144_py313_aifc_removed`: preserved as `source_only_patch_partial_improvement`; post-patch layer classification `audioread_optional_backend_capsule_needed`; future recommendation `future_audioread_provider_backend_capsule_replay`.
-- `cloudpickle_507_py313_typevar_distutils`: decomposed into `cloudpickle_mixed_source_provider_surface` and `cloudpickle_interpreter_behavior_change`; future patch-license state `cloudpickle_patch_license_closed_provider_dependency_first`.
+- `cloudpickle_507_py313_typevar_distutils`: provider/runtime recovery classification `provider_runtime_recovery_succeeded_target_failure_materialized`; `distutils` family `distutils_family_resolved_by_provider`; `class_dict` family `class_dict_family_still_fails_interpreter_behavior`; future patch-license state `cloudpickle_patch_license_future_open_class_dict_single_family`.
+- `audioread_144_py313_aifc_removed`: preserved as `partial_improvement_preserved_future_provider_backend_capsule`; no Audioread action ran in Batch060c.
 - Source-only target-pass count: `0`.
 - Batch061 duplicate replay candidate count: `0`.
-- Next allowed action: `batch060c_cloudpickle_provider_runtime_recovery`.
+- Reusable patterns learned: removed stdlib module, optional backend missing, test-runner provider mismatch, interpreter behavior change, compiled dependency boundary, network/model external-service boundary, and source-provider mixed surface.
+- Recurring issue classes identified: `18`.
+- Repo topology/duplication audit: `PASS`.
+- Next allowed action: `batch060d_cloudpickle_class_dict_source_only_patch_gate`.
 
 ## Claim Tier System
 
@@ -99,6 +104,7 @@ Future work may compile agent intentions into evidence-bound audited action mani
 - Batch059 materializes pre-repair target-code failures for both approved Wave 3 candidates and routes future work to `batch060_source_only_patch_gate_wave_3`.
 - Batch060 runs the bounded source-only patch gate, records one partial improvement, records zero source-only target passes, and preserves repair counts unchanged.
 - Batch060b preserves the Audioread partial-improvement branch, decomposes Cloudpickle failure families, records zero Batch061 candidates, and routes future work to `batch060c_cloudpickle_provider_runtime_recovery`.
+- Batch060c resolves the Cloudpickle `distutils` family through provider/runtime materialization, leaves the `class_dict_firstlineno` family for a future source-only patch gate, and installs reusable provider/runtime routing plus maintenance-memory records.
 
 ## Basic local checks
 
@@ -106,6 +112,7 @@ Future work may compile agent intentions into evidence-bound audited action mani
 python scripts/byte_custody_preflight.py
 python -m pytest tests/core tests/runtime -q
 python scripts/validate_external_candidate_registry.py
+python scripts/audit_batch060c_cloudpickle_provider_runtime_recovery.py
 python scripts/audit_batch060b_cloudpickle_decomposition_audioread_provider_preservation.py
 python scripts/audit_batch060_source_only_patch_gate_wave_3.py
 python scripts/audit_post_v2_37_hardening_and_batch002.py

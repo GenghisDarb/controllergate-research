@@ -1,0 +1,16 @@
+{
+  "answers": {
+    "declares_or_implies_distutils": true,
+    "declares_or_implies_setuptools": true,
+    "declares_python_version_range": ">=3.6",
+    "declares_test_dependencies": "dev-requirements.txt",
+    "different_python_version_declared_safe": "tox declares up to py311, but Batch059/060 evidence is py313 so version split is future-only",
+    "distutils_missing_due_to_python_313_runtime_removal_or_provider_image": true,
+    "failure_remains_after_provider_normalization": "class_dict_firstlineno remains",
+    "installing_setuptools_decision_time_safe": true,
+    "provider_runtime_normalization_hides_true_source_failure": false,
+    "runner_python_version_excludes_stdlib_distutils": true
+  },
+  "provider_runtime_status": "provider_runtime_capsule_needs_declared_setuptools",
+  "status": "PASS"
+}

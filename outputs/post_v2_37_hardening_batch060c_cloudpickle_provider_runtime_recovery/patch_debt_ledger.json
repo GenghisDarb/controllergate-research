@@ -1,0 +1,138 @@
+{
+  "categories": {
+    "audit_only_metadata_fixes": [
+      "TLD/Reactome boundary reports"
+    ],
+    "durable_infrastructure_fixes": [
+      "official_ingest helper",
+      "manifest helper"
+    ],
+    "policy_boundaries_do_not_fix": [
+      "manual artifact custody",
+      "no-count without duplicate replay"
+    ],
+    "provider_runtime_capsule_fixes": [
+      "provider/runtime pattern library"
+    ],
+    "repo_structure_refactor_candidates": [
+      "audit helper extraction"
+    ],
+    "temporary_operational_patches": [
+      "batch-specific workflow/audit scaffolding"
+    ],
+    "workflow_scaffolding_fixes": [
+      "future reusable workflow template"
+    ]
+  },
+  "entries": [
+    {
+      "action": "scheduled_later",
+      "entry_id": "artifact_ingestion_path_confusion",
+      "left_alone_because_safety_boundary": false,
+      "problem": "artifact ingestion path confusion"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "checksum_manifest_path_normalization",
+      "left_alone_because_safety_boundary": false,
+      "problem": "checksum manifest path normalization"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "incoming_artifacts_quarantine_handling",
+      "left_alone_because_safety_boundary": true,
+      "problem": "incoming artifacts quarantine handling"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "workflow_artifact_naming_drift",
+      "left_alone_because_safety_boundary": false,
+      "problem": "workflow artifact naming drift"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "batch_numbering_confusion",
+      "left_alone_because_safety_boundary": false,
+      "problem": "batch numbering confusion"
+    },
+    {
+      "action": "converted_into_config",
+      "entry_id": "provider_dependency_materialization_blockers",
+      "left_alone_because_safety_boundary": false,
+      "problem": "provider dependency materialization blockers"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "timeout_model_network_blockers",
+      "left_alone_because_safety_boundary": false,
+      "problem": "timeout model network blockers"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "audit_boilerplate_duplication",
+      "left_alone_because_safety_boundary": false,
+      "problem": "audit boilerplate duplication"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "source_only_patch_gate_scaffolding_duplication",
+      "left_alone_because_safety_boundary": false,
+      "problem": "source only patch gate scaffolding duplication"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "byte_custody_check_repetition",
+      "left_alone_because_safety_boundary": false,
+      "problem": "byte custody check repetition"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "registry_validation_repetition",
+      "left_alone_because_safety_boundary": false,
+      "problem": "registry validation repetition"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "current_protocol_v214_check_repetition",
+      "left_alone_because_safety_boundary": false,
+      "problem": "current protocol v214 check repetition"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "claim_boundary_repetition",
+      "left_alone_because_safety_boundary": false,
+      "problem": "claim boundary repetition"
+    },
+    {
+      "action": "converted_into_config",
+      "entry_id": "provider_capsule_pattern_repetition",
+      "left_alone_because_safety_boundary": false,
+      "problem": "provider capsule pattern repetition"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "amds_bridge_artifact_repetition",
+      "left_alone_because_safety_boundary": false,
+      "problem": "amds bridge artifact repetition"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "explanatory_metadata_boundary_handling",
+      "left_alone_because_safety_boundary": false,
+      "problem": "explanatory metadata boundary handling"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "issue_body_leakage_check_repetition",
+      "left_alone_because_safety_boundary": false,
+      "problem": "issue body leakage check repetition"
+    },
+    {
+      "action": "scheduled_later",
+      "entry_id": "fixed_gold_future_evidence_exclusion_repetition",
+      "left_alone_because_safety_boundary": false,
+      "problem": "fixed gold future evidence exclusion repetition"
+    }
+  ],
+  "status": "PASS"
+}

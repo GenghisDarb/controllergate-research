@@ -1,0 +1,288 @@
+{
+  "patterns": [
+    {
+      "allowed_probe_types": [
+        "importlib.util.find_spec",
+        "declared provider install",
+        "minimal native replay"
+      ],
+      "claim_boundary": {
+        "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+        "provider_recovery_is_repair_success": false,
+        "source_patch_requires_later_license": true
+      },
+      "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+      "example_prior_candidates": [
+        "cloudpickle_507_py313_typevar_distutils",
+        "audioread_144_py313_aifc_removed"
+      ],
+      "forbidden_action": "patch target source before provider boundary is resolved",
+      "learned_from_batches": [
+        "Batch060",
+        "Batch060b",
+        "Batch060c"
+      ],
+      "likely_layer": "source_provider_mixed",
+      "pattern_id": "removed_stdlib_module",
+      "provider_capsule_requirements": [
+        "module availability before and after declared provider materialization"
+      ],
+      "required_declared_evidence": [
+        "buggy checkout metadata",
+        "test/runtime dependency declarations"
+      ],
+      "safe_pre_patch_action": "inspect declared runtime/dependency metadata and run provider/runtime availability probes",
+      "symptom_signatures": [
+        "ModuleNotFoundError: No module named '<stdlib_module>'",
+        "missing stdlib module under newer Python"
+      ],
+      "when_to_decompose": "multiple families remain after provider probe",
+      "when_to_open_future_patch_license": "missing-module family remains source-owned after provider boundary is resolved",
+      "when_to_quarantine": "no declared provider/runtime materialization path exists"
+    },
+    {
+      "allowed_probe_types": [
+        "provider availability probe",
+        "backend-specific native replay"
+      ],
+      "claim_boundary": {
+        "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+        "provider_recovery_is_repair_success": false,
+        "source_patch_requires_later_license": true
+      },
+      "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+      "example_prior_candidates": [
+        "audioread_144_py313_aifc_removed"
+      ],
+      "forbidden_action": "count partial improvement as repair success",
+      "learned_from_batches": [
+        "Batch060",
+        "Batch060b",
+        "Batch060c"
+      ],
+      "likely_layer": "provider",
+      "pattern_id": "optional_backend_missing",
+      "provider_capsule_requirements": [
+        "backend provider identity",
+        "backend-dependent target split"
+      ],
+      "required_declared_evidence": [
+        "project backend declarations",
+        "native target logs"
+      ],
+      "safe_pre_patch_action": "create backend provider capsule and split backend-dependent tests from source import tests",
+      "symptom_signatures": [
+        "NoBackendError",
+        "audio backend unavailable",
+        "raw backend import survives but decode backend unavailable"
+      ],
+      "when_to_decompose": "source import survival exposes separate backend family",
+      "when_to_open_future_patch_license": "backend boundary is resolved and a source-owned failure remains",
+      "when_to_quarantine": "backend requires unbounded external service or undeclared dependency"
+    },
+    {
+      "allowed_probe_types": [
+        "collection probe",
+        "runner availability probe"
+      ],
+      "claim_boundary": {
+        "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+        "provider_recovery_is_repair_success": false,
+        "source_patch_requires_later_license": true
+      },
+      "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+      "example_prior_candidates": [
+        "pytest_13480_wdefault_unraisable_threadexception"
+      ],
+      "forbidden_action": "invent undeclared runner repair",
+      "learned_from_batches": [
+        "Batch056d",
+        "Batch060c"
+      ],
+      "likely_layer": "test_runner",
+      "pattern_id": "test_runner_provider_mismatch",
+      "provider_capsule_requirements": [
+        "declared runner identity",
+        "exact command manifest"
+      ],
+      "required_declared_evidence": [
+        "tox.ini",
+        "noxfile.py",
+        "pyproject.toml",
+        "setup.cfg"
+      ],
+      "safe_pre_patch_action": "inspect buggy-checkout tox/nox/pytest metadata and use declared command only",
+      "symptom_signatures": [
+        "tox env unavailable",
+        "pytest addopts dependency mismatch",
+        "runner command mismatch"
+      ],
+      "when_to_decompose": "runner failure masks target failure",
+      "when_to_open_future_patch_license": "target failure materializes after runner boundary clears",
+      "when_to_quarantine": "runner cannot be bounded to declared metadata"
+    },
+    {
+      "allowed_probe_types": [
+        "minimal native replay",
+        "source contact graph"
+      ],
+      "claim_boundary": {
+        "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+        "provider_recovery_is_repair_success": false,
+        "source_patch_requires_later_license": true
+      },
+      "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+      "example_prior_candidates": [
+        "cloudpickle_507_py313_typevar_distutils",
+        "freezegun_547_py313_datetimes_assertion"
+      ],
+      "forbidden_action": "patch tests or expectations",
+      "learned_from_batches": [
+        "Batch057c",
+        "Batch060b",
+        "Batch060c"
+      ],
+      "likely_layer": "interpreter_behavior",
+      "pattern_id": "python_runtime_behavior_change",
+      "provider_capsule_requirements": [
+        "runtime identity and version split"
+      ],
+      "required_declared_evidence": [
+        "native failing test",
+        "runtime version",
+        "buggy source contact"
+      ],
+      "safe_pre_patch_action": "classify as interpreter behavior until source ownership is proven",
+      "symptom_signatures": [
+        "__firstlineno__",
+        "frame locals identity",
+        "TypeVar weakref",
+        "changed Python 3.13 behavior"
+      ],
+      "when_to_decompose": "interpreter behavior coexists with provider/runtime families",
+      "when_to_open_future_patch_license": "single bounded source-owned family remains",
+      "when_to_quarantine": "behavior change cannot be tied to candidate source"
+    },
+    {
+      "allowed_probe_types": [
+        "dependency declaration check",
+        "install log classification"
+      ],
+      "claim_boundary": {
+        "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+        "provider_recovery_is_repair_success": false,
+        "source_patch_requires_later_license": true
+      },
+      "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+      "example_prior_candidates": [
+        "pairtools_250_py313_pipes_removed"
+      ],
+      "forbidden_action": "patch source to bypass missing native dependency",
+      "learned_from_batches": [
+        "Batch056d",
+        "Batch056e",
+        "Batch060c"
+      ],
+      "likely_layer": "dependency",
+      "pattern_id": "compiled_dependency_boundary",
+      "provider_capsule_requirements": [
+        "compiler/system dependency identity"
+      ],
+      "required_declared_evidence": [
+        "dependency lock",
+        "build metadata",
+        "system library declaration"
+      ],
+      "safe_pre_patch_action": "require bounded declared provider capsule",
+      "symptom_signatures": [
+        "C extension build failure",
+        "system library missing",
+        "native binary unavailable"
+      ],
+      "when_to_decompose": "dependency boundary masks target source failure",
+      "when_to_open_future_patch_license": "target source failure remains after dependency boundary clears",
+      "when_to_quarantine": "compiled boundary is undeclared or unbounded"
+    },
+    {
+      "allowed_probe_types": [
+        "timeout split replay",
+        "service dependency check"
+      ],
+      "claim_boundary": {
+        "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+        "provider_recovery_is_repair_success": false,
+        "source_patch_requires_later_license": true
+      },
+      "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+      "example_prior_candidates": [
+        "codex_wave2_nousresearch_hermes_agent_48986"
+      ],
+      "forbidden_action": "patch target source to bypass provider",
+      "learned_from_batches": [
+        "Batch056f",
+        "Batch058",
+        "Batch060c"
+      ],
+      "likely_layer": "environment",
+      "pattern_id": "network_model_external_service_boundary",
+      "provider_capsule_requirements": [
+        "network/model/provider availability boundary"
+      ],
+      "required_declared_evidence": [
+        "provider/service declaration",
+        "offline fixture declaration if any"
+      ],
+      "safe_pre_patch_action": "quarantine or require explicit provider capsule",
+      "symptom_signatures": [
+        "model download timeout",
+        "network wait",
+        "credential required",
+        "GPU provider required"
+      ],
+      "when_to_decompose": "timeout hides source failure",
+      "when_to_open_future_patch_license": "source failure materializes without service leakage",
+      "when_to_quarantine": "external service is required or nondeterministic"
+    },
+    {
+      "allowed_probe_types": [
+        "AMDS bridge",
+        "MinimalProbe",
+        "post-provider pre-repair replay"
+      ],
+      "claim_boundary": {
+        "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+        "provider_recovery_is_repair_success": false,
+        "source_patch_requires_later_license": true
+      },
+      "count_gate_policy": "no_count_until_original_target_pass_duplicate_replay_and_count_gate",
+      "example_prior_candidates": [
+        "cloudpickle_507_py313_typevar_distutils",
+        "audioread_144_py313_aifc_removed"
+      ],
+      "forbidden_action": "collapse mixed surface into generic failed patch",
+      "learned_from_batches": [
+        "Batch060",
+        "Batch060b",
+        "Batch060c"
+      ],
+      "likely_layer": "source_provider_mixed",
+      "pattern_id": "source_provider_mixed_surface",
+      "provider_capsule_requirements": [
+        "family status after provider recovery"
+      ],
+      "required_declared_evidence": [
+        "before/after failure signatures",
+        "provider probe logs"
+      ],
+      "safe_pre_patch_action": "resolve provider/runtime layer before source patch licensing",
+      "symptom_signatures": [
+        "provider recovery changes failure family",
+        "partial improvement exposes provider layer"
+      ],
+      "when_to_decompose": "multiple families remain after provider recovery",
+      "when_to_open_future_patch_license": "single source-owned family remains after provider recovery",
+      "when_to_quarantine": "family ownership remains ambiguous"
+    }
+  ],
+  "status": "PASS"
+}

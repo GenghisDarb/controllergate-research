@@ -1,0 +1,366 @@
+{
+  "issue_count": 18,
+  "issues": [
+    {
+      "batches_observed": [
+        "Batch012",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch012",
+      "issue_id": "artifact_ingestion_path_confusion",
+      "issue_name": "artifact ingestion path confusion",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "manual artifact paths and local boundaries differ from workflow paths",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch015",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch015",
+      "issue_id": "checksum_manifest_path_normalization",
+      "issue_name": "checksum manifest path normalization",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "manifest hash custody depends on exact committed bytes and path roots",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch018",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch018",
+      "issue_id": "incoming_artifacts_quarantine_handling",
+      "issue_name": "incoming artifacts quarantine handling",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "incoming artifacts remain untracked and must not be staged",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch024",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch024",
+      "issue_id": "workflow_artifact_naming_drift",
+      "issue_name": "workflow artifact naming drift",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "workflow names and artifact names are long and similar",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch056b",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch056b",
+      "issue_id": "batch_numbering_confusion",
+      "issue_name": "batch numbering confusion",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "branch-relative batch lanes are not chronological",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch056d",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch056d",
+      "issue_id": "provider_dependency_materialization_blockers",
+      "issue_name": "provider dependency materialization blockers",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "provider/runtime layer often blocks target failure materialization",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch056f",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch056f",
+      "issue_id": "timeout_model_network_blockers",
+      "issue_name": "timeout model network blockers",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "external/model/network timeouts need quarantine",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch050",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch050",
+      "issue_id": "audit_boilerplate_duplication",
+      "issue_name": "audit boilerplate duplication",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "needs_refactor",
+      "symptom": "audit scripts repeat claim-boundary and manifest checks",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch052",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch052",
+      "issue_id": "source_only_patch_gate_scaffolding_duplication",
+      "issue_name": "source only patch gate scaffolding duplication",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "needs_refactor",
+      "symptom": "patch gate scripts share structure",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch015",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch015",
+      "issue_id": "byte_custody_check_repetition",
+      "issue_name": "byte custody check repetition",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "needs_refactor",
+      "symptom": "byte custody preflight repeated in workflows",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch024",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch024",
+      "issue_id": "registry_validation_repetition",
+      "issue_name": "registry validation repetition",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "needs_refactor",
+      "symptom": "registry validation repeated in workflows",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch037",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch037",
+      "issue_id": "current_protocol_v214_check_repetition",
+      "issue_name": "current protocol v214 check repetition",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "needs_refactor",
+      "symptom": "current protocol audit/dry-run repeated",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch050",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch050",
+      "issue_id": "claim_boundary_repetition",
+      "issue_name": "claim boundary repetition",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "needs_refactor",
+      "symptom": "no-count/no-full-scoring/no-memory-lift boundaries repeated",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch056e",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch056e",
+      "issue_id": "provider_capsule_pattern_repetition",
+      "issue_name": "provider capsule pattern repetition",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "provider capsule patterns recur across candidates",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": true
+    },
+    {
+      "batches_observed": [
+        "Batch056b",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch056b",
+      "issue_id": "amds_bridge_artifact_repetition",
+      "issue_name": "amds bridge artifact repetition",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "AMDS bridge artifacts recur across lanes",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": false
+    },
+    {
+      "batches_observed": [
+        "Batch056f",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch056f",
+      "issue_id": "explanatory_metadata_boundary_handling",
+      "issue_name": "explanatory metadata boundary handling",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "TLD/Reactome explanatory metadata must stay non-proof",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": false
+    },
+    {
+      "batches_observed": [
+        "Batch014",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch014",
+      "issue_id": "issue_body_leakage_check_repetition",
+      "issue_name": "issue body leakage check repetition",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "issue-body leakage checks recur",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": false
+    },
+    {
+      "batches_observed": [
+        "Batch012",
+        "Batch060c"
+      ],
+      "current_workaround": "batch-specific audit/output records",
+      "first_seen_batch": "Batch012",
+      "issue_id": "fixed_gold_future_evidence_exclusion_repetition",
+      "issue_name": "fixed gold future evidence exclusion repetition",
+      "last_seen_batch": "Batch060c",
+      "proposed_permanent_fix": "shared utility/config registry where safety-preserving",
+      "recommended_future_batch": "batch06x_repo_topology_cleanup_review",
+      "recommended_owner_file_or_module": "controllergate/core or configs, depending on safety boundary",
+      "risk_if_unfixed": "continued implementation friction and repeated manual custody checks",
+      "root_cause_hypothesis": "versioned lanes intentionally preserve evidence but duplicate mechanics before consolidation",
+      "status": "watch",
+      "symptom": "fixed/gold/future exclusion checks recur",
+      "temporary_fix_pattern": "local deterministic output/audit generation",
+      "whether_codex_keeps_repatching_it": false
+    }
+  ],
+  "status": "PASS"
+}

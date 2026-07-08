@@ -1,0 +1,26 @@
+{
+  "nodes": [
+    "tests/cloudpickle_test.py",
+    "python313_class_namespace",
+    "cloudpickle/cloudpickle.py",
+    "cloudpickle/cloudpickle_fast.py"
+  ],
+  "remaining_edges": [
+    {
+      "from": "tests/cloudpickle_test.py::test_extract_class_dict",
+      "to": "python313_class_namespace"
+    },
+    {
+      "from": "python313_class_namespace",
+      "to": "cloudpickle/cloudpickle.py"
+    },
+    {
+      "from": "python313_class_namespace",
+      "to": "cloudpickle/cloudpickle_fast.py"
+    }
+  ],
+  "resolved_provider_nodes": [
+    "provider_runtime_distutils"
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,40 @@
+{
+  "artifact_names_too_similar": [
+    "post_v2_37_hardening_batch060*",
+    "batch060b/batch060c"
+  ],
+  "audit_assertions_repeated": [
+    "repair counts",
+    "full scoring disabled",
+    "self-maintaining disabled"
+  ],
+  "confusing_directory_names": [
+    "branch-relative batch056b/056d/057c ordering"
+  ],
+  "duplicated_logic_noticed": [
+    "audit git status helpers",
+    "required output file lists",
+    "workflow packaging blocks"
+  ],
+  "existing_utilities_to_reuse": [
+    "controllergate/core/official_ingest.py",
+    "controllergate/core/manifests.py"
+  ],
+  "files_expected_but_not_found": [],
+  "helpers_copied_instead_of_reused": [
+    "read_json",
+    "expect_false",
+    "audit_git_status"
+  ],
+  "overlapping_scripts": [
+    "generate_batch060*.py",
+    "audit_batch060*.py"
+  ],
+  "status": "PASS",
+  "workflow_steps_repeated": [
+    "byte custody",
+    "pytest",
+    "registry validation",
+    "artifact packaging"
+  ]
+}

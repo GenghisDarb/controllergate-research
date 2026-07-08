@@ -1,0 +1,10 @@
+{
+  "probes": [
+    "python --version",
+    "python -c importlib.util.find_spec('distutils')",
+    "python -c importlib.util.find_spec('setuptools')",
+    "declared dev-requirements install",
+    "declared setup.py setuptools provider materialization"
+  ],
+  "status": "PASS"
+}

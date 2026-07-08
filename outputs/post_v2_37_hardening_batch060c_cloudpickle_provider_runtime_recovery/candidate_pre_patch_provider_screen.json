@@ -1,0 +1,21 @@
+{
+  "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+  "class_dict_family_after_recovery": "class_dict_family_still_fails_interpreter_behavior",
+  "distutils_family_after_recovery": "distutils_family_resolved_by_provider",
+  "evidence_used": [
+    "Batch060b decomposition",
+    "buggy checkout setup.py",
+    "buggy checkout dev-requirements.txt",
+    "Batch060c provider probes"
+  ],
+  "forbidden_evidence_checked": true,
+  "next_allowed_action": "batch060d_cloudpickle_class_dict_source_only_patch_gate",
+  "patch_license_precondition": "closed_provider_first",
+  "provider_runtime_patterns_detected": [
+    "removed_stdlib_module",
+    "source_provider_mixed_surface",
+    "python_runtime_behavior_change"
+  ],
+  "provider_screen_status": "provider_recovery_required",
+  "status": "PASS"
+}

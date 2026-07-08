@@ -1,0 +1,43 @@
+{
+  "learned_from_batch": "Batch060c",
+  "rule_count": 6,
+  "rules": [
+    {
+      "if": "removed stdlib module is missing",
+      "patch_authorization": "future_only_after_provider_boundary_resolved",
+      "rule_id": "route_removed_stdlib_module_provider_first",
+      "then": "check optional backend/source import/provider materialization before source patching"
+    },
+    {
+      "if": "optional backend is missing",
+      "patch_authorization": "closed_until_provider_boundary_resolved",
+      "rule_id": "route_optional_backend_capsule",
+      "then": "create backend provider capsule and split backend tests from source import tests"
+    },
+    {
+      "if": "test runner provider mismatch occurs",
+      "patch_authorization": "closed_unbounded_if_metadata_absent",
+      "rule_id": "route_test_runner_metadata_first",
+      "then": "inspect buggy checkout metadata and block undeclared runner repair"
+    },
+    {
+      "if": "interpreter behavior changes",
+      "patch_authorization": "future_only_after_single_family_source_contact",
+      "rule_id": "route_interpreter_behavior_decomposition",
+      "then": "decompose and prove source ownership before patch"
+    },
+    {
+      "if": "network/model/external service boundary occurs",
+      "patch_authorization": "closed_until_source_failure_materializes",
+      "rule_id": "route_external_service_quarantine",
+      "then": "quarantine or require provider capsule"
+    },
+    {
+      "if": "compiled dependency boundary occurs",
+      "patch_authorization": "closed_if_undeclared",
+      "rule_id": "route_compiled_dependency_capsule",
+      "then": "require bounded declared provider capsule"
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,37 @@
+{
+  "overlaps": [
+    {
+      "current_locations": [
+        "scripts/generate_batch060*.py",
+        "controllergate/core/official_ingest.py"
+      ],
+      "expected_benefit": "fewer one-off artifact verification blocks",
+      "must_preserve_behavior": true,
+      "overlap_id": "artifact_ingestion",
+      "recommended_future_batch": "batch06x_artifact_ingestion_utility_consolidation",
+      "recommended_shared_module": "controllergate/core/official_ingest.py",
+      "refactor_risk": "medium",
+      "required_regression_tests": [
+        "safe path",
+        "duplicate path",
+        "manifest coverage"
+      ]
+    },
+    {
+      "current_locations": [
+        "versioned generate scripts"
+      ],
+      "expected_benefit": "consistent no-count and no-overclaim records",
+      "must_preserve_behavior": true,
+      "overlap_id": "claim_boundary_creation",
+      "recommended_future_batch": "batch06x_audit_boilerplate_deduplication",
+      "recommended_shared_module": "controllergate/core/claim_boundary.py",
+      "refactor_risk": "high",
+      "required_regression_tests": [
+        "full scoring disabled",
+        "memory lift disabled"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

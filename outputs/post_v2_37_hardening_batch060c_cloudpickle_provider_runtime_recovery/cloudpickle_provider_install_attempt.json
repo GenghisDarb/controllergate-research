@@ -1,0 +1,18 @@
+{
+  "attempts": [
+    {
+      "command": "python -m pip install -r dev-requirements.txt",
+      "declared_basis": "dev-requirements.txt",
+      "distutils_after_attempt": "missing",
+      "return_code": 0
+    },
+    {
+      "command": "python -m pip install setuptools",
+      "declared_basis": "setup.py imports setuptools",
+      "distutils_after_attempt": "available",
+      "return_code": 0
+    }
+  ],
+  "status": "PASS",
+  "undeclared_dependency_install": false
+}

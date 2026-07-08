@@ -1,0 +1,28 @@
+{
+  "confidence": "medium",
+  "do_not_patch_policy_boundaries": [
+    "manual artifact boundary",
+    "no duplicate replay/no count"
+  ],
+  "do_not_repeat_mistakes": [
+    "do not stage incoming_artifacts",
+    "do not treat provider recovery as repair success",
+    "do not collapse partial improvement into generic failure"
+  ],
+  "learned_patterns": [
+    "provider_runtime_pattern_library",
+    "maintenance_memory_ledger",
+    "repo_topology_audit"
+  ],
+  "next_best_repo_hygiene_batch": "batch06x_audit_boilerplate_deduplication",
+  "open_questions": [
+    "which audit helper extractions can be proven safe by tests?"
+  ],
+  "permanent_fix_candidates": [
+    "shared audit helper library",
+    "provider capsule registry",
+    "workflow template"
+  ],
+  "repo_structure_advice_for_future_codex": "Use existing core helpers first, but do not refactor evidence semantics inside a repair lane.",
+  "status": "PASS"
+}

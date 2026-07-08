@@ -1,0 +1,292 @@
+{
+  "count": 7,
+  "possible_duplicates": [
+    {
+      "differences": "batch-specific constants and required-file lists",
+      "is_exact_duplicate": false,
+      "is_near_duplicate": true,
+      "locations": [
+        "scripts/audit_batch056b_wave2_pre_repair_replay_plus_amds_bridge.py",
+        "scripts/audit_batch056d_wave2_provider_dependency_recovery.py",
+        "scripts/audit_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules.py",
+        "scripts/audit_batch056f_timeout_split_replay_wave_2.py",
+        "scripts/audit_batch057c_layered_source_only_patch_recovery_freezegun.py",
+        "scripts/audit_batch058_seed_discovery_wave_3_provider_prescreen.py",
+        "scripts/audit_batch059_pre_repair_replay_wave_3_limited.py",
+        "scripts/audit_batch060_source_only_patch_gate_wave_3.py",
+        "scripts/audit_batch060b_cloudpickle_decomposition_audioread_provider_preservation.py"
+      ],
+      "recommended_future_refactor": "extract only after preserving per-batch audit semantics",
+      "risk_level": "medium",
+      "safe_refactor_preconditions": [
+        "all current audits pass",
+        "unit tests cover helper behavior"
+      ],
+      "shared_behavior": "batch-local JSON/audit/git-status utility behavior",
+      "should_merge_now": false,
+      "similarity_reason": "same helper name appears across multiple versioned scripts",
+      "symbol_or_file": "audit_git_status",
+      "tests_required_before_refactor": [
+        "manifest verification",
+        "claim boundary verification",
+        "git status quarantine"
+      ]
+    },
+    {
+      "differences": "batch-specific constants and required-file lists",
+      "is_exact_duplicate": false,
+      "is_near_duplicate": true,
+      "locations": [
+        "scripts/audit_batch056b_wave2_pre_repair_replay_plus_amds_bridge.py",
+        "scripts/audit_batch056d_wave2_provider_dependency_recovery.py",
+        "scripts/audit_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules.py",
+        "scripts/audit_batch056f_timeout_split_replay_wave_2.py",
+        "scripts/audit_batch057b_failure_family_decomposition_elbow_recovery.py",
+        "scripts/audit_batch057c_layered_source_only_patch_recovery_freezegun.py",
+        "scripts/audit_batch058_seed_discovery_wave_3_provider_prescreen.py",
+        "scripts/audit_batch059_pre_repair_replay_wave_3_limited.py",
+        "scripts/audit_batch060_source_only_patch_gate_wave_3.py",
+        "scripts/audit_batch060b_cloudpickle_decomposition_audioread_provider_preservation.py"
+      ],
+      "recommended_future_refactor": "extract only after preserving per-batch audit semantics",
+      "risk_level": "medium",
+      "safe_refactor_preconditions": [
+        "all current audits pass",
+        "unit tests cover helper behavior"
+      ],
+      "shared_behavior": "batch-local JSON/audit/git-status utility behavior",
+      "should_merge_now": false,
+      "similarity_reason": "same helper name appears across multiple versioned scripts",
+      "symbol_or_file": "expect_false",
+      "tests_required_before_refactor": [
+        "manifest verification",
+        "claim boundary verification",
+        "git status quarantine"
+      ]
+    },
+    {
+      "differences": "batch-specific constants and required-file lists",
+      "is_exact_duplicate": false,
+      "is_near_duplicate": true,
+      "locations": [
+        "scripts/audit_batch055_seed_discovery_wave_1.py",
+        "scripts/audit_batch056_pre_repair_replay_wave_1_plus_wave_2_intake.py",
+        "scripts/audit_batch056b_wave2_pre_repair_replay_plus_amds_bridge.py",
+        "scripts/audit_batch056d_wave2_provider_dependency_recovery.py",
+        "scripts/audit_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules.py",
+        "scripts/audit_batch056f_timeout_split_replay_wave_2.py",
+        "scripts/audit_batch057_source_only_patch_gate_wave_1.py",
+        "scripts/audit_batch057b_failure_family_decomposition_elbow_recovery.py",
+        "scripts/audit_batch057c_layered_source_only_patch_recovery_freezegun.py",
+        "scripts/audit_batch058_seed_discovery_wave_3_provider_prescreen.py",
+        "scripts/audit_batch059_pre_repair_replay_wave_3_limited.py",
+        "scripts/audit_batch060_source_only_patch_gate_wave_3.py",
+        "scripts/audit_batch060b_cloudpickle_decomposition_audioread_provider_preservation.py"
+      ],
+      "recommended_future_refactor": "extract only after preserving per-batch audit semantics",
+      "risk_level": "medium",
+      "safe_refactor_preconditions": [
+        "all current audits pass",
+        "unit tests cover helper behavior"
+      ],
+      "shared_behavior": "batch-local JSON/audit/git-status utility behavior",
+      "should_merge_now": false,
+      "similarity_reason": "same helper name appears across multiple versioned scripts",
+      "symbol_or_file": "git_lines",
+      "tests_required_before_refactor": [
+        "manifest verification",
+        "claim boundary verification",
+        "git status quarantine"
+      ]
+    },
+    {
+      "differences": "batch-specific constants and required-file lists",
+      "is_exact_duplicate": false,
+      "is_near_duplicate": true,
+      "locations": [
+        "scripts/audit_batch055_seed_discovery_wave_1.py",
+        "scripts/audit_batch056_pre_repair_replay_wave_1_plus_wave_2_intake.py",
+        "scripts/audit_batch056b_wave2_pre_repair_replay_plus_amds_bridge.py",
+        "scripts/audit_batch056d_wave2_provider_dependency_recovery.py",
+        "scripts/audit_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules.py",
+        "scripts/audit_batch056f_timeout_split_replay_wave_2.py",
+        "scripts/audit_batch057_source_only_patch_gate_wave_1.py",
+        "scripts/audit_batch057b_failure_family_decomposition_elbow_recovery.py",
+        "scripts/audit_batch057c_layered_source_only_patch_recovery_freezegun.py",
+        "scripts/audit_batch058_seed_discovery_wave_3_provider_prescreen.py",
+        "scripts/audit_batch059_pre_repair_replay_wave_3_limited.py",
+        "scripts/audit_batch060_source_only_patch_gate_wave_3.py",
+        "scripts/audit_batch060b_cloudpickle_decomposition_audioread_provider_preservation.py",
+        "scripts/audit_clean_replication_protocol.py",
+        "scripts/audit_post_v2_37_hardening_and_batch002.py",
+        "scripts/audit_v1_8_controlled_repo_replay_capture_plan.py",
+        "scripts/audit_v1_8_episode_001_torus_replay_capture_artifact.py",
+        "scripts/audit_v1_8_episode_001_torus_replay_capture_dry_run_plan.py",
+        "scripts/audit_v1_8_episode_002_torus_replay_capture_artifact.py",
+        "scripts/audit_v1_8_episode_002_torus_replay_capture_dry_run_plan.py",
+        "scripts/audit_v1_8_episode_003_limited_replay_scoring_artifact.py",
+        "scripts/audit_v1_8_episode_003_limited_replay_scoring_candidate_plan.py",
+        "scripts/audit_v1_8_episodes_004_010_memory_relevance_campaign.py",
+        "scripts/audit_v1_9_episodes_011_013_organic_style_replay_pilot.py",
+        "scripts/audit_v1_9_organic_style_replay_pilot_completion_pass.py"
+      ],
+      "recommended_future_refactor": "extract only after preserving per-batch audit semantics",
+      "risk_level": "medium",
+      "safe_refactor_preconditions": [
+        "all current audits pass",
+        "unit tests cover helper behavior"
+      ],
+      "shared_behavior": "batch-local JSON/audit/git-status utility behavior",
+      "should_merge_now": false,
+      "similarity_reason": "same helper name appears across multiple versioned scripts",
+      "symbol_or_file": "main",
+      "tests_required_before_refactor": [
+        "manifest verification",
+        "claim boundary verification",
+        "git status quarantine"
+      ]
+    },
+    {
+      "differences": "batch-specific constants and required-file lists",
+      "is_exact_duplicate": false,
+      "is_near_duplicate": true,
+      "locations": [
+        "scripts/audit_batch055_seed_discovery_wave_1.py",
+        "scripts/audit_batch056_pre_repair_replay_wave_1_plus_wave_2_intake.py",
+        "scripts/audit_batch056b_wave2_pre_repair_replay_plus_amds_bridge.py",
+        "scripts/audit_batch056d_wave2_provider_dependency_recovery.py",
+        "scripts/audit_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules.py",
+        "scripts/audit_batch056f_timeout_split_replay_wave_2.py",
+        "scripts/audit_batch057_source_only_patch_gate_wave_1.py",
+        "scripts/audit_batch057b_failure_family_decomposition_elbow_recovery.py",
+        "scripts/audit_batch057c_layered_source_only_patch_recovery_freezegun.py",
+        "scripts/audit_batch058_seed_discovery_wave_3_provider_prescreen.py",
+        "scripts/audit_batch059_pre_repair_replay_wave_3_limited.py",
+        "scripts/audit_batch060_source_only_patch_gate_wave_3.py",
+        "scripts/audit_batch060b_cloudpickle_decomposition_audioread_provider_preservation.py",
+        "scripts/audit_post_v2_37_hardening_and_batch002.py",
+        "scripts/audit_v2_37_core_consolidation_and_clean_replication.py",
+        "scripts/generate_batch055_seed_discovery_wave_1.py",
+        "scripts/generate_batch056_pre_repair_replay_wave_1_plus_wave_2_intake.py",
+        "scripts/generate_batch056b_wave2_pre_repair_replay_plus_amds_bridge.py",
+        "scripts/generate_batch056d_wave2_provider_dependency_recovery.py",
+        "scripts/generate_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules.py",
+        "scripts/generate_batch056f_timeout_split_replay_wave_2.py",
+        "scripts/generate_batch057_source_only_patch_gate_wave_1.py",
+        "scripts/generate_batch057b_failure_family_decomposition_elbow_recovery.py",
+        "scripts/generate_batch057c_layered_source_only_patch_recovery_freezegun.py",
+        "scripts/generate_batch058_seed_discovery_wave_3_provider_prescreen.py"
+      ],
+      "recommended_future_refactor": "extract only after preserving per-batch audit semantics",
+      "risk_level": "medium",
+      "safe_refactor_preconditions": [
+        "all current audits pass",
+        "unit tests cover helper behavior"
+      ],
+      "shared_behavior": "batch-local JSON/audit/git-status utility behavior",
+      "should_merge_now": false,
+      "similarity_reason": "same helper name appears across multiple versioned scripts",
+      "symbol_or_file": "read_json",
+      "tests_required_before_refactor": [
+        "manifest verification",
+        "claim boundary verification",
+        "git status quarantine"
+      ]
+    },
+    {
+      "differences": "batch-specific constants and required-file lists",
+      "is_exact_duplicate": false,
+      "is_near_duplicate": true,
+      "locations": [
+        "scripts/audit_v2_13_minimal_forensic_context_lane.py",
+        "scripts/audit_v2_14_capability_recovery_lane.py",
+        "scripts/generate_batch060b_cloudpickle_decomposition_audioread_provider_preservation.py",
+        "scripts/generate_batch060c_cloudpickle_provider_runtime_recovery.py",
+        "scripts/prepare_vHW0_controllergate_telemetry_maintenance_plan.py",
+        "scripts/run_v1_8_episodes_004_010_memory_relevance_campaign.py",
+        "scripts/run_v1_9_episodes_011_013_organic_style_replay_pilot.py",
+        "scripts/run_v1_9_organic_style_replay_pilot_completion_pass.py",
+        "scripts/run_v2_0_external_fork_replay_pilot.py",
+        "scripts/v2_10_materialization_recovery_topological_repair_runner.py",
+        "scripts/v2_10_prepare_materialization_recovery_topological_repair.py",
+        "scripts/v2_11_prepare_topology_aware_source_repair.py",
+        "scripts/v2_11_topology_aware_source_repair_runner.py",
+        "scripts/v2_12_dependency_cofactor_recovery_runner.py",
+        "scripts/v2_12_prepare_dependency_cofactor_recovery.py",
+        "scripts/v2_13_minimal_forensic_context_lane_runner.py",
+        "scripts/v2_14_capability_recovery_lane_runner.py",
+        "scripts/v2_15_chromosomal_maintenance_gate_order_runner.py",
+        "scripts/v2_16_pysnooper1_isolated_recovery_executor_runner.py",
+        "scripts/v2_17_pysnooper1_runtime_workspace_materialization.py",
+        "scripts/v2_18_origin_licensing_source_acquisition_runner.py",
+        "scripts/v2_19_bugsinpy_materialized_test_provenance_runner.py",
+        "scripts/v2_1_external_candidate_acquisition_harness.py",
+        "scripts/v2_1b_curated_external_candidate_sourcing.py",
+        "scripts/v2_1c_v2_2_external_fork_controlled_fixture_campaign.py"
+      ],
+      "recommended_future_refactor": "extract only after preserving per-batch audit semantics",
+      "risk_level": "medium",
+      "safe_refactor_preconditions": [
+        "all current audits pass",
+        "unit tests cover helper behavior"
+      ],
+      "shared_behavior": "batch-local JSON/audit/git-status utility behavior",
+      "should_merge_now": false,
+      "similarity_reason": "same helper name appears across multiple versioned scripts",
+      "symbol_or_file": "write_json",
+      "tests_required_before_refactor": [
+        "manifest verification",
+        "claim boundary verification",
+        "git status quarantine"
+      ]
+    },
+    {
+      "differences": "batch-specific constants and required-file lists",
+      "is_exact_duplicate": false,
+      "is_near_duplicate": true,
+      "locations": [
+        "scripts/generate_batch060b_cloudpickle_decomposition_audioread_provider_preservation.py",
+        "scripts/prepare_vHW0_controllergate_telemetry_maintenance_plan.py",
+        "scripts/run_v1_8_episodes_004_010_memory_relevance_campaign.py",
+        "scripts/run_v1_9_episodes_011_013_organic_style_replay_pilot.py",
+        "scripts/run_v1_9_organic_style_replay_pilot_completion_pass.py",
+        "scripts/run_v2_0_external_fork_replay_pilot.py",
+        "scripts/v2_10_materialization_recovery_topological_repair_runner.py",
+        "scripts/v2_10_prepare_materialization_recovery_topological_repair.py",
+        "scripts/v2_11_prepare_topology_aware_source_repair.py",
+        "scripts/v2_11_topology_aware_source_repair_runner.py",
+        "scripts/v2_12_dependency_cofactor_recovery_runner.py",
+        "scripts/v2_12_prepare_dependency_cofactor_recovery.py",
+        "scripts/v2_13_minimal_forensic_context_lane_runner.py",
+        "scripts/v2_14_capability_recovery_lane_runner.py",
+        "scripts/v2_15_chromosomal_maintenance_gate_order_runner.py",
+        "scripts/v2_16_pysnooper1_isolated_recovery_executor_runner.py",
+        "scripts/v2_17_pysnooper1_runtime_workspace_materialization.py",
+        "scripts/v2_18_origin_licensing_source_acquisition_runner.py",
+        "scripts/v2_19_bugsinpy_materialized_test_provenance_runner.py",
+        "scripts/v2_1_external_candidate_acquisition_harness.py",
+        "scripts/v2_1b_curated_external_candidate_sourcing.py",
+        "scripts/v2_1c_v2_2_external_fork_controlled_fixture_campaign.py",
+        "scripts/v2_20_test_provenance_repair_lane_runner.py",
+        "scripts/v2_21_harness_origin_verification_lane_runner.py",
+        "scripts/v2_22_bugsinpy_target_test_materialization_lane_runner.py"
+      ],
+      "recommended_future_refactor": "extract only after preserving per-batch audit semantics",
+      "risk_level": "medium",
+      "safe_refactor_preconditions": [
+        "all current audits pass",
+        "unit tests cover helper behavior"
+      ],
+      "shared_behavior": "batch-local JSON/audit/git-status utility behavior",
+      "should_merge_now": false,
+      "similarity_reason": "same helper name appears across multiple versioned scripts",
+      "symbol_or_file": "write_text",
+      "tests_required_before_refactor": [
+        "manifest verification",
+        "claim boundary verification",
+        "git status quarantine"
+      ]
+    }
+  ],
+  "status": "PASS"
+}
