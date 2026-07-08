@@ -1,0 +1,138 @@
+name: post_v2_37_hardening_batch061_duplicate_clean_replay_count_gate_cloudpickle_wave_3
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  batch061-duplicate-clean-replay-count-gate:
+    name: Batch061 duplicate clean replay count gate Cloudpickle wave 3
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+      OUT_NAME: post_v2_37_hardening_batch061_duplicate_clean_replay_count_gate_cloudpickle_wave_3
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run byte-custody preflight before validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Install workflow test dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run shared core and runtime tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/core tests/runtime -q
+
+      - name: Validate registry, Batch061 audit, prior audits, and current protocol
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/audit_batch061_duplicate_clean_replay_count_gate_cloudpickle_wave_3.py
+          python scripts/audit_batch060d_cloudpickle_class_dict_patch_gate_with_amds_health_review.py
+          python scripts/audit_batch060c_cloudpickle_provider_runtime_recovery.py
+          python scripts/audit_batch060b_cloudpickle_decomposition_audioread_provider_preservation.py
+          python scripts/audit_batch060_source_only_patch_gate_wave_3.py
+          python scripts/audit_batch059_pre_repair_replay_wave_3_limited.py
+          python scripts/audit_batch058_seed_discovery_wave_3_provider_prescreen.py
+          python scripts/audit_batch056f_timeout_split_replay_wave_2.py
+          python scripts/audit_batch056e_timeout_candidate_decomposition_wave_2_provider_capsules.py
+          python scripts/audit_batch056d_wave2_provider_dependency_recovery.py
+          python scripts/audit_batch056b_wave2_pre_repair_replay_plus_amds_bridge.py
+          python scripts/audit_batch057c_layered_source_only_patch_recovery_freezegun.py
+          python scripts/audit_batch057b_failure_family_decomposition_elbow_recovery.py
+          python scripts/audit_batch057_source_only_patch_gate_wave_1.py
+          python scripts/audit_batch056_pre_repair_replay_wave_1_plus_wave_2_intake.py
+          python scripts/audit_batch055_seed_discovery_wave_1.py
+          python scripts/audit_post_v2_37_hardening_and_batch002.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          git diff --check
+          python - <<'PY'
+          import json
+          root = "outputs/post_v2_37_hardening_batch061_duplicate_clean_replay_count_gate_cloudpickle_wave_3"
+          final = json.load(open(f"{root}/batch061_final_decision.json", encoding="utf-8"))
+          print(f"batch061_status={final.get('status')}")
+          print(f"batch061_duplicate_replay_outcome={final.get('duplicate_replay_outcome')}")
+          print(f"batch061_count_gate_status={final.get('count_gate_status')}")
+          print(f"issue_derived_repair_count_before={final.get('issue_derived_repair_count_before_batch061')}")
+          print(f"issue_derived_repair_count_after={final.get('issue_derived_repair_count_after_batch061')}")
+          print(f"native_external_repair_count={final.get('native_external_repair_count')}")
+          print(f"batch061_next_allowed_action={final.get('next_allowed_action')}")
+          print(f"batch061_full_scoring={final.get('full_scoring')}")
+          print(f"batch061_memory_lift={final.get('memory_lift')}")
+          print(f"batch061_self_maintaining={final.get('self_maintaining_software')}")
+          PY
+
+      - name: Stage clean Batch061 artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "artifact_payload/${OUT_NAME}"
+          mkdir -p "artifact_payload/${OUT_NAME}"
+          cp -a "outputs/${OUT_NAME}/." "artifact_payload/${OUT_NAME}/"
+          python - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+          root = Path("artifact_payload") / os.environ["OUT_NAME"]
+          rows = []
+          for path in sorted(root.rglob("*")):
+              if path.is_file() and path.name != "ARTIFACT_SHA256SUMS.txt":
+                  digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                  rows.append(f"{digest}  {path.relative_to(root).as_posix()}")
+          (root / "ARTIFACT_SHA256SUMS.txt").write_text("\n".join(rows) + "\n", encoding="utf-8")
+          PY
+          test -f "artifact_payload/${OUT_NAME}/ARTIFACT_SHA256SUMS.txt"
+          if find "artifact_payload/${OUT_NAME}" \( \
+            -path '*/__pycache__/*' -o \
+            -path '*/.pytest_cache/*' -o \
+            -path '*/.mypy_cache/*' -o \
+            -path '*/.ruff_cache/*' -o \
+            -path '*/.venv/*' -o \
+            -path '*/venv/*' -o \
+            -path '*/env/*' -o \
+            -path '*/ENV/*' -o \
+            -name '*.pyc' -o \
+            -name '*.pyo' -o \
+            -name '*.zip' -o \
+            -name '*.tar' -o \
+            -name '*.tar.gz' -o \
+            -name '*.tgz' -o \
+            -name '*.7z' -o \
+            -name '*.whl' \
+          \) -print -quit | grep -q .; then
+            echo "artifact_packaging_forbidden_payload_detected"
+            exit 1
+          fi
+
+      - name: Upload Batch061 duplicate clean replay count gate artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch061_duplicate_clean_replay_count_gate_cloudpickle_wave_3_artifacts
+          path: |
+            artifact_payload/post_v2_37_hardening_batch061_duplicate_clean_replay_count_gate_cloudpickle_wave_3/**
+          if-no-files-found: error

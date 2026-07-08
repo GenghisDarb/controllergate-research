@@ -1,5 +1,26 @@
 # ControllerGate shareable summary
 
+Batch061 is the latest validation-path boundary. It officially ingests Batch060d and runs the duplicate clean replay/count gate for the Cloudpickle issue-derived source-only repair candidate.
+
+Batch061 preserved the exact Batch060d patch and did not generate or modify a new patch. A fresh duplicate Cloudpickle workspace reproduced the pre-repair class-dict failure, applied the exact preserved patch, and passed the post-patch class-dict target, distutils-family checks, and original full target. The duplicate replay outcome is `duplicate_clean_replay_pass`; the count gate status is `PASS`.
+
+Batch061 status:
+
+- Batch060d official ingest: `PASS`.
+- Pre-repair duplicate reproduction: `PASS`.
+- Exact patch identity: `PASS`.
+- Duplicate clean replay outcome: `duplicate_clean_replay_pass`.
+- Issue-derived repair count: `2` -> `3`.
+- Native external repair count preserved at `4`.
+- Project health grade: `B`; traffic-light status `yellow`.
+- Current protocol remains `v2.14`.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift remains `not_demonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Next allowed action: `batch062_next_issue_repair_candidate_selection_or_wave3_expansion`.
+
+Workflow success is not equivalent to repair success. Provider/runtime recovery is not repair success. A repair is counted only after duplicate clean replay and count-gate pass. The project health grade is advisory and does not constitute proof. Self-maintaining software remains false/not_demonstrated.
+
 Batch060d is the latest validation-path boundary. It officially ingests Batch060c and runs the bounded Cloudpickle class-dict source-only patch gate. The remaining `class_dict_firstlineno` family freshly reproduced after provider/runtime preservation; a one-file source-only Cloudpickle patch was generated and applied only in the isolated Cloudpickle workspace; the minimal class-dict target and original full target passed after the patch.
 
 Batch060d does not run duplicate clean replay, does not run count gates, does not increment repair counts, does not run full scoring, does not claim memory lift, and does not claim self-maintaining software. It installs AMDS Full Bug-Tree Closure Mode and an advisory project health review. The project health grade is advisory and does not constitute proof. Workflow success is not equivalent to repair success. Provider recovery is not repair success. Partial improvement is not repair success. Self-maintaining software remains false/not_demonstrated.
