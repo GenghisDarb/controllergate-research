@@ -1,0 +1,62 @@
+{
+  "manual_review_count": 2,
+  "records": [
+    {
+      "candidate_id": "venusian_91_py313_frameinfo_callinfo",
+      "expected_provider_complexity": "low",
+      "expected_repair_count_impact": "low",
+      "expected_self_maintenance_impact": "low",
+      "expected_time_to_count_gate": "far",
+      "expected_time_to_materialized_failure": "far",
+      "new_capabilities_relevant": [
+        "manual-review terminal policy"
+      ],
+      "original_batch_seen": "Batch057b",
+      "original_blocker": "interpreter behavior or test expectation boundary",
+      "original_status": "elbow_closed_test_expectation_or_interpreter_behavior",
+      "reasoning_summary": "Interpreter/test expectation boundaries are not source repair candidates without additional decision-time evidence.",
+      "recommended_next_batch_if_reopened": null,
+      "recommended_status": "manual_review",
+      "salvage_path": "manual review only",
+      "salvage_possible": "no",
+      "salvage_risk": "high",
+      "wave": "Wave 1",
+      "whether_old_blocker_was_dependency": false,
+      "whether_old_blocker_was_interpreter_behavior": true,
+      "whether_old_blocker_was_multi_family": false,
+      "whether_old_blocker_was_network_model": false,
+      "whether_old_blocker_was_provider": false,
+      "whether_old_blocker_was_source": false,
+      "whether_old_blocker_was_timeout": false
+    },
+    {
+      "candidate_id": "genia_timeout_manual_review_class",
+      "expected_provider_complexity": "high",
+      "expected_repair_count_impact": "low",
+      "expected_self_maintenance_impact": "low",
+      "expected_time_to_count_gate": "far",
+      "expected_time_to_materialized_failure": "far",
+      "new_capabilities_relevant": [
+        "terminal-state policy"
+      ],
+      "original_batch_seen": "Batch056f",
+      "original_blocker": "timeout/manual-review boundary",
+      "original_status": "manual_review_timeout_boundary",
+      "reasoning_summary": "Timeout/manual-review classification remains dominant without new bounded evidence.",
+      "recommended_next_batch_if_reopened": null,
+      "recommended_status": "manual_review",
+      "salvage_path": "manual review only",
+      "salvage_possible": "no",
+      "salvage_risk": "high",
+      "wave": "Wave 2",
+      "whether_old_blocker_was_dependency": false,
+      "whether_old_blocker_was_interpreter_behavior": false,
+      "whether_old_blocker_was_multi_family": false,
+      "whether_old_blocker_was_network_model": false,
+      "whether_old_blocker_was_provider": true,
+      "whether_old_blocker_was_source": false,
+      "whether_old_blocker_was_timeout": true
+    }
+  ],
+  "status": "PASS"
+}

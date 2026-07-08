@@ -1,0 +1,91 @@
+{
+  "records": [
+    {
+      "candidate_id": "pexpect_699_replwrap_bash_assertions",
+      "expected_provider_complexity": "high",
+      "expected_repair_count_impact": "low",
+      "expected_self_maintenance_impact": "low",
+      "expected_time_to_count_gate": "far",
+      "expected_time_to_materialized_failure": "far",
+      "new_capabilities_relevant": [
+        "provider/runtime pattern library"
+      ],
+      "original_batch_seen": "Batch057b",
+      "original_blocker": "environment provider boundary",
+      "original_status": "elbow_closed_environment_provider",
+      "reasoning_summary": "Provider/environment boundary dominated and no bounded source failure is preserved.",
+      "recommended_next_batch_if_reopened": null,
+      "recommended_status": "retire",
+      "salvage_path": "retire unless bounded provider capsule appears",
+      "salvage_possible": "no",
+      "salvage_risk": "high",
+      "wave": "Wave 1",
+      "whether_old_blocker_was_dependency": false,
+      "whether_old_blocker_was_interpreter_behavior": false,
+      "whether_old_blocker_was_multi_family": false,
+      "whether_old_blocker_was_network_model": false,
+      "whether_old_blocker_was_provider": true,
+      "whether_old_blocker_was_source": false,
+      "whether_old_blocker_was_timeout": false
+    },
+    {
+      "candidate_id": "snapshottest_177_py312_imp_removed",
+      "expected_provider_complexity": "medium",
+      "expected_repair_count_impact": "low",
+      "expected_self_maintenance_impact": "medium",
+      "expected_time_to_count_gate": "far",
+      "expected_time_to_materialized_failure": "far",
+      "new_capabilities_relevant": [
+        "terminal-state policy"
+      ],
+      "original_batch_seen": "Batch056d",
+      "original_blocker": "target failure absent after provider recovery",
+      "original_status": "provider_recovery_succeeded_target_bug_not_reproduced",
+      "reasoning_summary": "Correctly starved patch generation after target failure did not materialize.",
+      "recommended_next_batch_if_reopened": null,
+      "recommended_status": "retire",
+      "salvage_path": "retire unless new decision-time evidence materializes target failure",
+      "salvage_possible": "no",
+      "salvage_risk": "high",
+      "wave": "Wave 2",
+      "whether_old_blocker_was_dependency": true,
+      "whether_old_blocker_was_interpreter_behavior": false,
+      "whether_old_blocker_was_multi_family": false,
+      "whether_old_blocker_was_network_model": false,
+      "whether_old_blocker_was_provider": true,
+      "whether_old_blocker_was_source": false,
+      "whether_old_blocker_was_timeout": false
+    },
+    {
+      "candidate_id": "wave2_hermes_nousresearch_timeout_class",
+      "expected_provider_complexity": "very_high",
+      "expected_repair_count_impact": "low",
+      "expected_self_maintenance_impact": "low",
+      "expected_time_to_count_gate": "far",
+      "expected_time_to_materialized_failure": "far",
+      "new_capabilities_relevant": [
+        "terminal-state policy",
+        "resource/probe budget governor"
+      ],
+      "original_batch_seen": "Batch056f",
+      "original_blocker": "network/model timeout or unbounded provider",
+      "original_status": "network_or_model_timeout_boundary",
+      "reasoning_summary": "Unbounded external model/network dependencies remain outside the repair path.",
+      "recommended_next_batch_if_reopened": null,
+      "recommended_status": "retire",
+      "salvage_path": "retire or manual review unless bounded offline provider exists",
+      "salvage_possible": "no",
+      "salvage_risk": "very_high",
+      "wave": "Wave 2",
+      "whether_old_blocker_was_dependency": false,
+      "whether_old_blocker_was_interpreter_behavior": false,
+      "whether_old_blocker_was_multi_family": false,
+      "whether_old_blocker_was_network_model": true,
+      "whether_old_blocker_was_provider": true,
+      "whether_old_blocker_was_source": false,
+      "whether_old_blocker_was_timeout": true
+    }
+  ],
+  "retirement_count": 3,
+  "status": "PASS"
+}

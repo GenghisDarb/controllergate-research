@@ -1,0 +1,106 @@
+{
+  "records": [
+    {
+      "candidate_id": "datasette_2461_async_event_loop_cli_tests",
+      "new_capabilities_relevant": [
+        "AMDS full bug-tree closure",
+        "provider/runtime pattern library",
+        "recurring issue memory"
+      ],
+      "reasoning_summary": "AMDS can separate layers now, but ambiguity and provider complexity still make it lower expected value than new provider-screened Wave 3 expansion.",
+      "recommended_status": "park",
+      "salvage_possible": "maybe"
+    },
+    {
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "new_capabilities_relevant": [
+        "provider/runtime pattern library",
+        "AMDS full bug-tree closure",
+        "duplicate replay/count-gate proof pattern"
+      ],
+      "reasoning_summary": "Partial improvement is preserved as a salvageable branch, but source-only success was not achieved and secondary blockers remain.",
+      "recommended_status": "rank_below_wave3",
+      "salvage_possible": "maybe"
+    },
+    {
+      "candidate_id": "venusian_91_py313_frameinfo_callinfo",
+      "new_capabilities_relevant": [
+        "manual-review terminal policy"
+      ],
+      "reasoning_summary": "Interpreter/test expectation boundaries are not source repair candidates without additional decision-time evidence.",
+      "recommended_status": "manual_review",
+      "salvage_possible": "no"
+    },
+    {
+      "candidate_id": "pexpect_699_replwrap_bash_assertions",
+      "new_capabilities_relevant": [
+        "provider/runtime pattern library"
+      ],
+      "reasoning_summary": "Provider/environment boundary dominated and no bounded source failure is preserved.",
+      "recommended_status": "retire",
+      "salvage_possible": "no"
+    },
+    {
+      "candidate_id": "pyramid_3761_py313_test_util",
+      "new_capabilities_relevant": [
+        "candidate terminal-state policy"
+      ],
+      "reasoning_summary": "No current proof record shows a near-term count-gate path.",
+      "recommended_status": "park",
+      "salvage_possible": "no"
+    },
+    {
+      "candidate_id": "pairtools_250_py313_pipes_removed",
+      "new_capabilities_relevant": [
+        "provider/runtime pattern library"
+      ],
+      "reasoning_summary": "Provider/dependency materialization might be reassessed, but prior attempts did not materialize target-code failure.",
+      "recommended_status": "rank_below_wave3",
+      "salvage_possible": "maybe"
+    },
+    {
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "new_capabilities_relevant": [
+        "provider/runtime pattern library"
+      ],
+      "reasoning_summary": "Reassessment could improve routing, but no preserved target-code failure supports a patch gate.",
+      "recommended_status": "rank_below_wave3",
+      "salvage_possible": "maybe"
+    },
+    {
+      "candidate_id": "snapshottest_177_py312_imp_removed",
+      "new_capabilities_relevant": [
+        "terminal-state policy"
+      ],
+      "reasoning_summary": "Correctly starved patch generation after target failure did not materialize.",
+      "recommended_status": "retire",
+      "salvage_possible": "no"
+    },
+    {
+      "candidate_id": "wave2_hermes_nousresearch_timeout_class",
+      "new_capabilities_relevant": [
+        "terminal-state policy",
+        "resource/probe budget governor"
+      ],
+      "reasoning_summary": "Unbounded external model/network dependencies remain outside the repair path.",
+      "recommended_status": "retire",
+      "salvage_possible": "no"
+    },
+    {
+      "candidate_id": "genia_timeout_manual_review_class",
+      "new_capabilities_relevant": [
+        "terminal-state policy"
+      ],
+      "reasoning_summary": "Timeout/manual-review classification remains dominant without new bounded evidence.",
+      "recommended_status": "manual_review",
+      "salvage_possible": "no"
+    }
+  ],
+  "review_basis": [
+    "provider/runtime pattern library",
+    "recurring issue memory",
+    "AMDS full bug-tree closure mode",
+    "duplicate clean replay/count-gate proof pattern"
+  ],
+  "status": "PASS"
+}

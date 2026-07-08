@@ -1,0 +1,35 @@
+{
+  "records": [
+    {
+      "candidate_id": "pexpect_699_replwrap_bash_assertions",
+      "reason": "environment/provider boundary remained dominant",
+      "status": "provider_environment_retired"
+    },
+    {
+      "candidate_id": "pairtools_250_py313_pipes_removed",
+      "reason": "dependency materialization did not yield target-code repair path",
+      "status": "dependency_or_cofactor_blocked"
+    },
+    {
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "reason": "provider/dependency path did not materialize target-code failure",
+      "status": "dependency_or_cofactor_blocked"
+    },
+    {
+      "candidate_id": "snapshottest_177_py312_imp_removed",
+      "reason": "provider recovery succeeded but target bug did not reproduce",
+      "status": "provider_recovery_success_target_nonmaterialization"
+    },
+    {
+      "candidate_id": "wave2_hermes_nousresearch_timeout_class",
+      "reason": "unbounded network/model requirements remain outside patch path",
+      "status": "network_or_model_timeout_boundary"
+    },
+    {
+      "candidate_id": "genia_timeout_manual_review_class",
+      "reason": "timeout/manual-review class lacks bounded target-code materialization",
+      "status": "manual_review_timeout_boundary"
+    }
+  ],
+  "status": "PASS"
+}

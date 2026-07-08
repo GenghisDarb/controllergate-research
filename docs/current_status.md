@@ -1,5 +1,33 @@
 # Current status
 
+Batch062 is the latest strategic selection boundary. It officially ingests Batch061, preserves the counted Cloudpickle issue-derived repair, and reviews the next candidate route without patching, replaying, or changing repair counts.
+
+Batch062 status:
+
+- Batch061 official ingest: `PASS`.
+- Cloudpickle counted repair preservation: `PASS`.
+- Issue-derived repair count preserved at `3`.
+- Native external repair count preserved at `4`.
+- Candidate pool review: `PASS`.
+- Wave 1/Wave 2 salvage review: `PASS`, 10 previously blocked candidates reviewed.
+- Recommended reopening or bounded reassessment candidates: `4`.
+- Recommended parked/manual-review candidates: `3`.
+- Recommended retirement confirmations: `3`.
+- Highest-ranked parked candidate: `audioread_144_py313_aifc_removed`.
+- New-seed expansion still outranks salvage: `true`.
+- Highest-impact next path: `batch058b_seed_discovery_wave_3_expansion`.
+- Project health grade: `B`; traffic-light status `yellow`.
+- Distance to next repair-count milestone: `medium`.
+- Distance to self-maintaining claim: `far`.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift remains `not_demonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Next allowed action: `batch058b_seed_discovery_wave_3_expansion`.
+
+Self-maintaining wrapper function gap summary: candidate intake, provider capsule reuse, and generalized duplicate replay/count-gate automation remain partial or single-candidate. A self-maintaining wrapper should process every encountered bug into an auditable route or terminal state, but it should not claim it can fix every bug. Some bugs may be unrecoverable under current policy because they require forbidden evidence, unbounded providers, unavailable runtimes, or test mutation.
+
+Workflow success is not equivalent to repair success. Provider/runtime recovery is not repair success. Partial improvement is not repair success. Repair count increments require duplicate clean replay and count gate. The project health grade is advisory and does not constitute proof. Self-maintaining software remains false/not_demonstrated.
+
 Batch061 is the latest validation-path boundary. It officially ingests Batch060d and runs the duplicate clean replay/count gate for the Cloudpickle issue-derived source-only repair candidate.
 
 Batch061 preserved the exact Batch060d patch and did not generate or modify a new patch. A fresh duplicate Cloudpickle workspace reproduced the pre-repair class-dict failure, applied the exact preserved patch, and passed the post-patch class-dict target, distutils-family checks, and original full target. The duplicate replay outcome is `duplicate_clean_replay_pass`; the count gate status is `PASS`.

@@ -1,0 +1,215 @@
+{
+  "status": "PASS",
+  "terminal_state_records": [
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "counts only if duplicate replay and count gate pass",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to counted_repair under current evidence and policy.",
+      "terminal_state": "counted_repair",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to duplicate_replay_candidate under current evidence and policy.",
+      "terminal_state": "duplicate_replay_candidate",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to source_only_patch_candidate under current evidence and policy.",
+      "terminal_state": "source_only_patch_candidate",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to provider_recovery_needed under current evidence and policy.",
+      "terminal_state": "provider_recovery_needed",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to dependency_recovery_needed under current evidence and policy.",
+      "terminal_state": "dependency_recovery_needed",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to failure_family_decomposition_needed under current evidence and policy.",
+      "terminal_state": "failure_family_decomposition_needed",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to interpreter_behavior_manual_review under current evidence and policy.",
+      "terminal_state": "interpreter_behavior_manual_review",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to test_expectation_manual_review under current evidence and policy.",
+      "terminal_state": "test_expectation_manual_review",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to unbounded_external_provider under current evidence and policy.",
+      "terminal_state": "unbounded_external_provider",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to forbidden_evidence_required under current evidence and policy.",
+      "terminal_state": "forbidden_evidence_required",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to not_reproducible under current evidence and policy.",
+      "terminal_state": "not_reproducible",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to out_of_scope under current evidence and policy.",
+      "terminal_state": "out_of_scope",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to retired under current evidence and policy.",
+      "terminal_state": "retired",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to manual_review under current evidence and policy.",
+      "terminal_state": "manual_review",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    },
+    {
+      "allowed_next_action": "route-specific audited follow-up or stop",
+      "count_policy": "not counted",
+      "evidence_required": [
+        "decision-time evidence",
+        "SHA256 custody",
+        "claim boundary"
+      ],
+      "forbidden_next_action": "source patch generation without materialized target-code failure and patch license",
+      "meaning": "Candidate is routed to unrecoverable_under_current_policy under current evidence and policy.",
+      "terminal_state": "unrecoverable_under_current_policy",
+      "what_would_make_unrecoverable": "requires forbidden evidence, unbounded provider, unavailable runtime, or test mutation",
+      "what_would_reopen": "new decision-time-safe evidence or bounded provider materialization"
+    }
+  ]
+}
