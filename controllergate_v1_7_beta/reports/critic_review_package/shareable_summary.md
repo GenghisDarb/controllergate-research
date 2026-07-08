@@ -1,5 +1,34 @@
 # ControllerGate shareable summary
 
+Batch058b is the latest seed-discovery boundary. It officially ingests Batch062, preserves the current repair counts, and hardens the provider-screened Wave 3 intake path without replaying, patching, or changing repair counts.
+
+Batch058b status:
+
+- Batch062 official ingest: `PASS`.
+- Issue-derived repair count preserved at `3`.
+- Native external repair count preserved at `4`.
+- Wave 3 seed expansion: `PASS`.
+- Leads screened: `37`.
+- Deduplicated leads: `35`.
+- Duplicate rejections: `2`.
+- Provider/runtime risk rejections: `34`.
+- Approved for future replay: `0`.
+- Highest-ranked future replay candidates: `none`.
+- Project health grade: `B`; traffic-light status `yellow`.
+- Distance to next repair-count milestone: `medium`.
+- Distance to self-maintaining claim: `far`.
+- Next allowed action: `batch060f_audioread_provider_backend_capsule_replay`.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift remains `not_demonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+
+Workflow success is not equivalent to repair success.
+Seed discovery is not repair success.
+Provider/runtime pre-screening is not repair success.
+Repair count increments require duplicate clean replay and count gate.
+The project health grade is advisory and does not constitute proof.
+Self-maintaining software remains false/not_demonstrated.
+
 Batch062 is the latest strategic selection boundary. It officially ingests Batch061, preserves the counted Cloudpickle issue-derived repair, and reviews the next candidate route without patching, replaying, or changing repair counts.
 
 Batch062 status:
