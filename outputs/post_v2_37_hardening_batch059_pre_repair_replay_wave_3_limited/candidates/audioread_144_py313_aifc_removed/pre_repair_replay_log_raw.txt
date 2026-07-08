@@ -1,0 +1,195 @@
+command: tox -e py313
+cwd: C:\Dev\ControllerGate_runtime\batch059\audioread_144_py313_aifc_removed\checkout
+returncode: 1
+timed_out: False
+elapsed_seconds: 86.005
+
+--- stdout ---
+py313: install_deps> python -I -m pip install pytest
+.pkg: install_requires> python -I -m pip install flit_core<4,>=3.2
+.pkg: _optional_hooks> python C:\Dev\ControllerGate_runtime\batch059\audioread_144_py313_aifc_removed\provider_venv\Lib\site-packages\pyproject_api\_backend.py True flit_core.buildapi
+.pkg: get_requires_for_build_sdist> python C:\Dev\ControllerGate_runtime\batch059\audioread_144_py313_aifc_removed\provider_venv\Lib\site-packages\pyproject_api\_backend.py True flit_core.buildapi
+.pkg: install_requires_for_build_sdist> python -I -m pip install "tox; extra == \"test\""
+.pkg: build_sdist> python C:\Dev\ControllerGate_runtime\batch059\audioread_144_py313_aifc_removed\provider_venv\Lib\site-packages\pyproject_api\_backend.py True flit_core.buildapi
+py313: install_package> python -I -m pip install --force-reinstall --no-deps C:\Dev\ControllerGate_Runtime\batch059\audioread_144_py313_aifc_removed\tox_work\.tmp\package\1\audioread-3.0.2.tar.gz
+py313: commands[0]> pytest
+============================= test session starts =============================
+platform win32 -- Python 3.13.14, pytest-9.1.1, pluggy-1.6.0
+cachedir: C:\Dev\ControllerGate_Runtime\batch059\audioread_144_py313_aifc_removed\tox_work\py313\.pytest_cache
+rootdir: C:\Dev\ControllerGate_Runtime\batch059\audioread_144_py313_aifc_removed\checkout
+configfile: pyproject.toml
+collected 4 items
+
+test\test_audioread.py FFFF                                              [100%]
+
+================================== FAILURES ===================================
+______________________ test_audioread_early_exit[test-1] ______________________
+
+audiofile = <conftest.AudiofileSpec object at 0x000002201A844EC0>
+
+    def test_audioread_early_exit(audiofile):
+        """Abort the read before it is completed.
+
+        This test guards against regressions such as
+        https://github.com/beetbox/audioread/pull/78
+
+        """
+>       with audioread.audio_open(audiofile.path) as a:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test\test_audioread.py:29:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\tox_work\py313\Lib\site-packages\audioread\__init__.py:123: in audio_open
+    backends = available_backends()
+               ^^^^^^^^^^^^^^^^^^^^
+..\tox_work\py313\Lib\site-packages\audioread\__init__.py:80: in available_backends
+    from . import rawread
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    # This file is part of audioread.
+    # Copyright 2011, Adrian Sampson.
+    #
+    # Permission is hereby granted, free of charge, to any person obtaining
+    # a copy of this software and associated documentation files (the
+    # "Software"), to deal in the Software without restriction, including
+    # without limitation the rights to use, copy, modify, merge, publish,
+    # distribute, sublicense, and/or sell copies of the Software, and to
+    # permit persons to whom the Software is furnished to do so, subject to
+    # the following conditions:
+    #
+    # The above copyright notice and this permission notice shall be
+    # included in all copies or substantial portions of the Software.
+
+    """Uses standard-library modules to read AIFF, AIFF-C, and WAV files."""
+>   import aifc
+E   ModuleNotFoundError: No module named 'aifc'
+
+..\tox_work\py313\Lib\site-packages\audioread\rawread.py:16: ModuleNotFoundError
+______________________ test_audioread_early_exit[test-2] ______________________
+
+audiofile = <conftest.AudiofileSpec object at 0x000002201A7CBC50>
+
+    def test_audioread_early_exit(audiofile):
+        """Abort the read before it is completed.
+
+        This test guards against regressions such as
+        https://github.com/beetbox/audioread/pull/78
+
+        """
+>       with audioread.audio_open(audiofile.path) as a:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test\test_audioread.py:29:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\tox_work\py313\Lib\site-packages\audioread\__init__.py:123: in audio_open
+    backends = available_backends()
+               ^^^^^^^^^^^^^^^^^^^^
+..\tox_work\py313\Lib\site-packages\audioread\__init__.py:80: in available_backends
+    from . import rawread
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    # This file is part of audioread.
+    # Copyright 2011, Adrian Sampson.
+    #
+    # Permission is hereby granted, free of charge, to any person obtaining
+    # a copy of this software and associated documentation files (the
+    # "Software"), to deal in the Software without restriction, including
+    # without limitation the rights to use, copy, modify, merge, publish,
+    # distribute, sublicense, and/or sell copies of the Software, and to
+    # permit persons to whom the Software is furnished to do so, subject to
+    # the following conditions:
+    #
+    # The above copyright notice and this permission notice shall be
+    # included in all copies or substantial portions of the Software.
+
+    """Uses standard-library modules to read AIFF, AIFF-C, and WAV files."""
+>   import aifc
+E   ModuleNotFoundError: No module named 'aifc'
+
+..\tox_work\py313\Lib\site-packages\audioread\rawread.py:16: ModuleNotFoundError
+_________________________ test_audioread_full[test-1] _________________________
+
+audiofile = <conftest.AudiofileSpec object at 0x000002201A8C0550>
+
+    def test_audioread_full(audiofile):
+        """Read the audio data from the file."""
+>       with audioread.audio_open(audiofile.path) as a:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test\test_audioread.py:38:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\tox_work\py313\Lib\site-packages\audioread\__init__.py:123: in audio_open
+    backends = available_backends()
+               ^^^^^^^^^^^^^^^^^^^^
+..\tox_work\py313\Lib\site-packages\audioread\__init__.py:80: in available_backends
+    from . import rawread
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    # This file is part of audioread.
+    # Copyright 2011, Adrian Sampson.
+    #
+    # Permission is hereby granted, free of charge, to any person obtaining
+    # a copy of this software and associated documentation files (the
+    # "Software"), to deal in the Software without restriction, including
+    # without limitation the rights to use, copy, modify, merge, publish,
+    # distribute, sublicense, and/or sell copies of the Software, and to
+    # permit persons to whom the Software is furnished to do so, subject to
+    # the following conditions:
+    #
+    # The above copyright notice and this permission notice shall be
+    # included in all copies or substantial portions of the Software.
+
+    """Uses standard-library modules to read AIFF, AIFF-C, and WAV files."""
+>   import aifc
+E   ModuleNotFoundError: No module named 'aifc'
+
+..\tox_work\py313\Lib\site-packages\audioread\rawread.py:16: ModuleNotFoundError
+_________________________ test_audioread_full[test-2] _________________________
+
+audiofile = <conftest.AudiofileSpec object at 0x000002201A8BCC30>
+
+    def test_audioread_full(audiofile):
+        """Read the audio data from the file."""
+>       with audioread.audio_open(audiofile.path) as a:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test\test_audioread.py:38:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\tox_work\py313\Lib\site-packages\audioread\__init__.py:123: in audio_open
+    backends = available_backends()
+               ^^^^^^^^^^^^^^^^^^^^
+..\tox_work\py313\Lib\site-packages\audioread\__init__.py:80: in available_backends
+    from . import rawread
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    # This file is part of audioread.
+    # Copyright 2011, Adrian Sampson.
+    #
+    # Permission is hereby granted, free of charge, to any person obtaining
+    # a copy of this software and associated documentation files (the
+    # "Software"), to deal in the Software without restriction, including
+    # without limitation the rights to use, copy, modify, merge, publish,
+    # distribute, sublicense, and/or sell copies of the Software, and to
+    # permit persons to whom the Software is furnished to do so, subject to
+    # the following conditions:
+    #
+    # The above copyright notice and this permission notice shall be
+    # included in all copies or substantial portions of the Software.
+
+    """Uses standard-library modules to read AIFF, AIFF-C, and WAV files."""
+>   import aifc
+E   ModuleNotFoundError: No module named 'aifc'
+
+..\tox_work\py313\Lib\site-packages\audioread\rawread.py:16: ModuleNotFoundError
+=========================== short test summary info ===========================
+FAILED test/test_audioread.py::test_audioread_early_exit[test-1] - ModuleNotF...
+FAILED test/test_audioread.py::test_audioread_early_exit[test-2] - ModuleNotF...
+FAILED test/test_audioread.py::test_audioread_full[test-1] - ModuleNotFoundEr...
+FAILED test/test_audioread.py::test_audioread_full[test-2] - ModuleNotFoundEr...
+============================== 4 failed in 0.27s ==============================
+py313: exit 1 (1.52 seconds) C:\Dev\ControllerGate_Runtime\batch059\audioread_144_py313_aifc_removed\checkout> pytest pid=17044
+.pkg: _exit> python C:\Dev\ControllerGate_runtime\batch059\audioread_144_py313_aifc_removed\provider_venv\Lib\site-packages\pyproject_api\_backend.py True flit_core.buildapi
+  py313: FAIL code 1 (83.83=setup[82.31]+cmd[1.52] seconds)
+  evaluation failed :( (84.15 seconds)
+
+--- stderr ---

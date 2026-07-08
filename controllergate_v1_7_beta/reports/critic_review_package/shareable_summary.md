@@ -2,23 +2,29 @@
 
 ControllerGate is a proof-gated runtime and compiler layer for safe AI software repair.
 
-Current evidence boundary: four confirmed external native repair episodes, zero confirmed issue-derived repair episodes, full scoring disabled, memory lift not demonstrated, and self-maintaining software not demonstrated.
+Current evidence boundary: four confirmed external native repair episodes, two confirmed issue-derived repair episodes, full scoring disabled, memory lift not demonstrated, and self-maintaining software not demonstrated.
 
-Batch015 adds runtime-wrapper scaffold modules, a lock-sequence operation registry, claim tiers, a capability catalog, public positioning, and roadmap-only compiler directions. It does not claim production readiness or new repair evidence.
+Batch059 is the latest validation-path boundary. It officially ingests Batch058, preserves Wave 3 provider-capsule prescreen evidence, and runs bounded pre-repair replay for exactly two approved candidates: `audioread_144_py313_aifc_removed` and `cloudpickle_507_py313_typevar_distutils`.
 
-Batch017 attempts decision-time dependency-era resolution for Darker issue #112 and starts thin artifact packaging. It blocks rather than patching when no decision-time dependency lock is proven.
+Both Batch059 candidates materialized target-code failures under declared provider setup. Batch059 does not generate or apply patches, does not run post-repair replay, does not run duplicate replay, does not run a count gate, and does not increment repair counts.
+
+Batch059 candidate replay classifications:
+
+- `audioread_144_py313_aifc_removed`: provider capsule setup `provider_capsule_setup_pass`; pre-repair replay `pre_repair_failure_materialized`; AMDS bridge `target_failure_materialized_single_source_family`; future patch-gate candidate.
+- `cloudpickle_507_py313_typevar_distutils`: provider capsule setup `provider_capsule_setup_pass`; pre-repair replay `pre_repair_failure_materialized`; AMDS bridge `target_failure_materialized_future_decomposition_recommended`; future patch-gate and decomposition candidate.
+- Next allowed action: `batch060_source_only_patch_gate_wave_3`.
 
 ## Current operational gate status
 
-- Current protocol remains `v2.13`.
+- Current protocol remains `v2.14`.
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0`.
+- Confirmed issue-derived repair episodes remain `2`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
-- Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
-- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.
+- Batch058 screens Wave 3 leads and approves two candidates for bounded replay.
+- Batch059 materializes pre-repair target-code failures for both approved Wave 3 candidates and routes future work to `batch060_source_only_patch_gate_wave_3`.
+- Batch059 remains replay/materialization-only; repair counts do not change.
 
 ## Batch039 secondary cofactor governance
 

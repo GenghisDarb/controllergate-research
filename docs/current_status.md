@@ -1,24 +1,28 @@
 # Current status
 
-ControllerGate is currently an evidence-bound repair validation kernel and runtime-wrapper scaffold. The current protocol remains `v2.13`.
+ControllerGate is currently an evidence-bound repair validation kernel and runtime-wrapper scaffold. The current protocol remains `v2.14`.
 
-Batch014 remains blocked at `issue_derived_harness_intent_mismatch`; Batch015 preserves that validation path and adds scaffolded runtime controls, lock-sequence records, and claim tiers.
+Batch059 is the latest validation-path boundary. It officially ingests Batch058, preserves the Wave 3 provider-capsule prescreen, and runs bounded pre-repair replay for exactly two approved Wave 3 candidates: `audioread_144_py313_aifc_removed` and `cloudpickle_507_py313_typevar_distutils`.
 
-Batch016 records that the issue-derived harness failure is a target-intent mismatch caused by a pre-target/precondition failure. Repair remains blocked.
+Both Batch059 candidates materialized target-code failures under declared provider setup. Batch059 does not generate or apply patches, does not run post-repair replay, does not run duplicate replay, and does not run a count gate.
 
-Batch017 attempts decision-time dependency-era resolution, records the missing dependency lock as a safe-stop, and switches the primary workflow artifact to thin/delta packaging.
+Batch059 candidate replay classifications:
+
+- `audioread_144_py313_aifc_removed`: provider capsule setup `provider_capsule_setup_pass`; pre-repair replay `pre_repair_failure_materialized`; AMDS bridge `target_failure_materialized_single_source_family`; future patch-gate candidate.
+- `cloudpickle_507_py313_typevar_distutils`: provider capsule setup `provider_capsule_setup_pass`; pre-repair replay `pre_repair_failure_materialized`; AMDS bridge `target_failure_materialized_future_decomposition_recommended`; future patch-gate and decomposition candidate.
+- Next allowed action: `batch060_source_only_patch_gate_wave_3`.
 
 ## Current operational gate status
 
-- Current protocol remains `v2.13`.
+- Current protocol remains `v2.14`.
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0`.
+- Confirmed issue-derived repair episodes remain `2`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
-- Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
-- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.
+- Batch058 screens Wave 3 leads and approves two candidates for bounded replay.
+- Batch059 materializes pre-repair target-code failures for both approved Wave 3 candidates and routes future work to `batch060_source_only_patch_gate_wave_3`.
+- Batch059 remains replay/materialization-only; repair counts do not change.
 
 ## Batch039 secondary cofactor governance
 

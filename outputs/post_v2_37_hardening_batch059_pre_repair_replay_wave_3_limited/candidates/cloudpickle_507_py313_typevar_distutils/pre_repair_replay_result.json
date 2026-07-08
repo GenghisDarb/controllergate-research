@@ -1,0 +1,40 @@
+{
+  "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+  "classification": "pre_repair_failure_materialized",
+  "command": "python -m pytest tests/cloudpickle_test.py -q --tb=no",
+  "count_gate_run": false,
+  "duplicate_replay_run": false,
+  "failure_signature": {
+    "assertion_errors": [
+      "AssertionError: a..."
+    ],
+    "failed_node_count": 3,
+    "failed_nodes": [
+      "tests/cloudpickle_test.py::CloudPickleTest::test_module_importability",
+      "tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability",
+      "tests/cloudpickle_test.py::test_extract_class_dict"
+    ],
+    "module_errors": [],
+    "raw_log_sha256": "3b076a64f59ed9a67036b61a5be68e77ad7ec00a83fa928c628022615bdaff5c",
+    "semantic_signature_sha256": "a6ac140b26f5c8f826059bf19dd464384d7b3d05c83ff507d97c83e2164bae3b",
+    "traceback_or_error_root_count": 2,
+    "traceback_or_error_roots": [
+      "C:\\Dev\\ControllerGate_Runtime\\batch059\\cloudpickle_507_py313_typevar_distutils\\checkout\\cloudpickle\\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.",
+      "C:\\Dev\\ControllerGate_runtime\\batch059\\cloudpickle_507_py313_typevar_distutils\\provider_venv\\Lib\\site-packages\\tornado\\ioloop.py:271: DeprecationWarning: There is no current event loop"
+    ]
+  },
+  "patch_applied": false,
+  "patch_generated": false,
+  "post_repair_replay_run": false,
+  "repair_success_claim_allowed": false,
+  "result": {
+    "command": "python -m pytest tests/cloudpickle_test.py -q --tb=no",
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch059\\cloudpickle_507_py313_typevar_distutils\\checkout",
+    "elapsed_seconds": 61.063,
+    "returncode": 1,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "d4f204c15ff0b3f00a728def96eaf374d7793a2ba22b844b268b784edc28c714",
+    "timed_out": false
+  },
+  "target_code_failure_materialized": true
+}

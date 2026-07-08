@@ -1,0 +1,26 @@
+command: python -m pytest tests/cloudpickle_test.py -q --tb=no
+cwd: C:\Dev\ControllerGate_runtime\batch059\cloudpickle_507_py313_typevar_distutils\checkout
+returncode: 1
+timed_out: False
+elapsed_seconds: 61.063
+
+--- stdout ---
+F................s...................s.........ss.................................F.........s............................................s...................s.........ss.................................F.........s.................................
+============================== warnings summary ===============================
+tests/cloudpickle_test.py::CloudPickleTest::test_itertools_count
+tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count
+  C:\Dev\ControllerGate_Runtime\batch059\cloudpickle_507_py313_typevar_distutils\checkout\cloudpickle\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.
+    return Pickler.dump(self, obj)
+
+tests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine
+  C:\Dev\ControllerGate_runtime\batch059\cloudpickle_507_py313_typevar_distutils\provider_venv\Lib\site-packages\tornado\ioloop.py:271: DeprecationWarning: There is no current event loop
+    loop = asyncio.get_event_loop()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a...
+FAILED tests/cloudpickle_test.py::CloudPickleTest::test_module_importability
+FAILED tests/cloudpickle_test.py::Protocol2CloudPickleTest::test_module_importability
+3 failed, 233 passed, 10 skipped, 3 warnings in 59.94s
+
+--- stderr ---

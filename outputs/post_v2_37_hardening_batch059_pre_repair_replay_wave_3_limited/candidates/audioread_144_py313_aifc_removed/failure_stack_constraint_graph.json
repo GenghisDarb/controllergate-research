@@ -1,0 +1,37 @@
+{
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "failed_nodes": [
+    "test/test_audioread.py::test_audioread_early_exit[test-1]",
+    "test/test_audioread.py::test_audioread_early_exit[test-2]",
+    "test/test_audioread.py::test_audioread_full[test-1]",
+    "test/test_audioread.py::test_audioread_full[test-2]"
+  ],
+  "future_only": true,
+  "patch_execution_allowed_in_batch059": false,
+  "repair_success_claim_allowed": false,
+  "replay_classification": "pre_repair_failure_materialized",
+  "status": "PASS",
+  "target_code_failure_materialized": true,
+  "traceback_or_error_roots": [
+    "test\\test_audioread.py:29:",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:123: in audio_open",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:80: in available_backends",
+    "E   ModuleNotFoundError: No module named 'aifc'",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\rawread.py:16: ModuleNotFoundError",
+    "test\\test_audioread.py:29:",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:123: in audio_open",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:80: in available_backends",
+    "E   ModuleNotFoundError: No module named 'aifc'",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\rawread.py:16: ModuleNotFoundError",
+    "test\\test_audioread.py:38:",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:123: in audio_open",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:80: in available_backends",
+    "E   ModuleNotFoundError: No module named 'aifc'",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\rawread.py:16: ModuleNotFoundError",
+    "test\\test_audioread.py:38:",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:123: in audio_open",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\__init__.py:80: in available_backends",
+    "E   ModuleNotFoundError: No module named 'aifc'",
+    "..\\tox_work\\py313\\Lib\\site-packages\\audioread\\rawread.py:16: ModuleNotFoundError"
+  ]
+}

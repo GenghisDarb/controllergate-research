@@ -29,19 +29,23 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 ## Current evidence status
 
-Batch014 remains the latest validation-path boundary: the Darker issue #112 seed was admitted only as issue-derived evidence, the redacted issue snapshot and acquisition locks passed, and the issue-derived harness blocked with `issue_derived_harness_intent_mismatch`. Native repair count remains `4`; issue-derived repair count remains `0`.
+Batch059 is the latest validation-path boundary. It officially ingests Batch058, preserves the Wave 3 provider-capsule prescreen, and runs bounded pre-repair replay for exactly two approved Wave 3 candidates: `audioread_144_py313_aifc_removed` and `cloudpickle_507_py313_typevar_distutils`.
+
+Both candidates materialized target-code failures under declared provider setup. Batch059 does not generate or apply patches, does not run post-repair replay, does not run duplicate replay, and does not run a count gate.
+
+Confirmed external native repair episodes remain `4`. Confirmed issue-derived repair episodes remain `2`. Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
 
 Confirmed external native repair episodes include `py_bugger_issue_65`, `darker_non_ascii_drop_changes`, `darker_stdin_filename`, and `darker_skip_glob_failing_test`.
 
-Clean replication batch002 now attempts real external leads and preserves environment-resolution evidence before replay.
-
 Memory lift on external real bugs is not demonstrated. Self-maintaining software is not demonstrated.
 
-Batch015 adds scaffolded runtime controls and claim documentation. It does not add a repair episode.
+Clean replication batch002 now attempts real external leads and preserves environment-resolution evidence before replay.
 
-Batch016 addresses target-intent alignment for Darker issue #112. The previous issue-derived harness failed because the observed config-loading TypeError did not match the issue intent. ControllerGate correctly blocked instead of accepting an unrelated failure.
+Batch059 candidate replay classifications:
 
-Batch017 attempts decision-time-safe dependency-era resolution for that pre-target failure. If the historical environment cannot be reconstructed from admissible evidence, ControllerGate blocks rather than patching. Batch017 also starts thin artifact packaging: prior evidence is preserved by artifact SHA, ingest commit, manifest hash, and lineage index instead of recursively repackaging every prior batch.
+- `audioread_144_py313_aifc_removed`: provider capsule setup `provider_capsule_setup_pass`; pre-repair replay `pre_repair_failure_materialized`; AMDS bridge `target_failure_materialized_single_source_family`; future patch-gate candidate.
+- `cloudpickle_507_py313_typevar_distutils`: provider capsule setup `provider_capsule_setup_pass`; pre-repair replay `pre_repair_failure_materialized`; AMDS bridge `target_failure_materialized_future_decomposition_recommended`; future patch-gate and decomposition candidate.
+- Next allowed action: `batch060_source_only_patch_gate_wave_3`.
 
 ## Claim Tier System
 
@@ -83,15 +87,15 @@ Future work may compile agent intentions into evidence-bound audited action mani
 
 ## Current operational gate status
 
-- Current protocol remains `v2.13`.
+- Current protocol remains `v2.14`.
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0`.
+- Confirmed issue-derived repair episodes remain `2`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
-- Batch015 adds a runtime-wrapper scaffold, lock-sequence registry, claim tiers, and product-positioning boundaries without live deployment.
-- Batch016 addresses target-intent alignment for the issue-derived Darker seed and safe-stops before repair because the observed failure is pre-target/precondition.
-- Batch017 attempts decision-time dependency-era resolution and starts thin artifact packaging; it safe-stops if no decision-time dependency lock can be proven.
+- Batch058 screens Wave 3 leads and approves two candidates for bounded replay.
+- Batch059 materializes pre-repair target-code failures for both approved Wave 3 candidates and routes future work to `batch060_source_only_patch_gate_wave_3`.
+- Batch059 remains replay/materialization-only; repair counts do not change.
 
 ## Basic local checks
 
