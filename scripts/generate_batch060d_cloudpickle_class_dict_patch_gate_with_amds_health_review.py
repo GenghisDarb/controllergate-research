@@ -1083,7 +1083,7 @@ Batch060d status:
 - Strongest recurring blocker: duplicate clean replay and count-gate evidence remain pending after target pass.
 - Distance to next repair-count milestone: `near`, pending Batch061 duplicate clean replay and count gate.
 - Distance to self-maintaining claim: `far`, because autonomous repeatable acquisition, repair, duplicate replay, and count evidence are not demonstrated.
-- TLD/Reactome/isomorphic correctness status: `PASS` as audit/governance metadata only, not repair proof.
+- Structural-boundary/provider-capsule/isomorphic correctness status: `PASS` as audit/governance metadata only, not repair proof.
 - Issue-derived repair count preserved at `2`.
 - Native external repair count preserved at `4`.
 - Full scoring remains `NOT_RUN/disallowed`.
