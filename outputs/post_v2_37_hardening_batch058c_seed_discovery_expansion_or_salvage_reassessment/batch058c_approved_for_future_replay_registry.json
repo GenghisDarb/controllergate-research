@@ -1,0 +1,45 @@
+{
+  "approval_limit": "2_to_5",
+  "approved_count": 2,
+  "records": [
+    {
+      "approval_class": "fresh_wave3_manual_review_to_limited_replay",
+      "candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+      "candidate_sha": "041aacad506b6c6891f2898f2bd378e0896e8b86",
+      "declared_test_command": "python -m pytest testing -q --tb=no",
+      "evidence_boundary_summary": "Batch058 provider prescreen only; future replay must verify commit, command, and pre-repair failure before patching",
+      "expected_failure_family": "pytest9_skiptest_behavior",
+      "expected_proof_distance": "near_to_medium",
+      "expected_provider_risk": "provider_risk_medium",
+      "future_replay_command": "python -m pytest testing -q --tb=no",
+      "issue_url_or_reference": "https://github.com/pytest-dev/pytest/issues/13895",
+      "native_test_path": [
+        "testing/"
+      ],
+      "provider_capsule_status": "provider_capsule_manual_review_but_provider_light_enough_for_limited_future_replay",
+      "python_version_target": "python_3_12_or_3_13",
+      "reason_for_approval": "Only Wave 3 non-counted lead with pinned SHA, native test path, and declared command after applying Batch060f provider-risk filters",
+      "repo_url": "https://github.com/pytest-dev/pytest"
+    },
+    {
+      "approval_class": "salvage_limited_replay",
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "candidate_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "declared_test_command": "python -m pytest tests/test_datetimes.py -q --tb=no",
+      "evidence_boundary_summary": "preserved Batch056 decision-time replay metadata; no replay or patch in Batch058c",
+      "expected_failure_family": "datetime assertion / interpreter-compatibility family",
+      "expected_proof_distance": "medium",
+      "expected_provider_risk": "provider_risk_medium",
+      "future_replay_command": "python -m pytest tests/test_datetimes.py -q --tb=no",
+      "issue_url_or_reference": "preserved Batch056/Batch062 salvage evidence",
+      "native_test_path": [
+        "tests/test_datetimes.py"
+      ],
+      "provider_capsule_status": "provider_capsule_not_known_blocking_but_secondary_family_requires_bounded_replay",
+      "python_version_target": "python_3_13",
+      "reason_for_approval": "Highest-value salvage candidate after Audioread closure; has preserved native command and source commit but must not patch without fresh replay",
+      "repo_url": "https://github.com/spulec/freezegun"
+    }
+  ],
+  "status": "PASS"
+}

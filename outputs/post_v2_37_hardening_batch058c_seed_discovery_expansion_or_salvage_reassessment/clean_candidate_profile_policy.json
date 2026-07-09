@@ -1,0 +1,28 @@
+{
+  "disfavored_candidate_profile": [
+    "audio/video/image backend requiring missing system binaries",
+    "ML/model download or external network calls",
+    "compiled dependency chain without bounded provider metadata",
+    "private/proprietary service dependency",
+    "no native test command",
+    "no candidate SHA",
+    "fix only visible from issue body or future PR",
+    "test mutation required",
+    "provider-only failure"
+  ],
+  "goal": "Build a larger inventory of clean, provider-light, issue-derived repair candidates while approving only a bounded future replay set.",
+  "policy_id": "clean_candidate_profile_policy",
+  "preferred_candidate_profile": [
+    "pure Python project",
+    "no heavy system binary requirement",
+    "no network/model/GPU/private service requirement",
+    "clear candidate SHA",
+    "native pytest/tox/nox test command",
+    "bounded Python 3.12/3.13 compatibility failure",
+    "issue-derived failure evidence can be recorded without issue-body fix text",
+    "provider/runtime metadata exists in buggy checkout",
+    "failure likely source-owned or source-provider separable",
+    "expected proof distance near or medium"
+  ],
+  "status": "PASS"
+}

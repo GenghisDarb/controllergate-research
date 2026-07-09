@@ -1,0 +1,33 @@
+{
+  "audioread_terminal_state": {
+    "candidate_id": "audioread_144_py313_aifc_removed",
+    "reason": "Batch060f reproduced the original failure, verified the exact prior source-only patch, and found the declared provider/backend capsule unavailable. Repeated patching is not permitted because the remaining barrier is provider/backend materialization, not a licensed source-only repair target.",
+    "reopen_conditions": [
+      "declared provider/backend becomes available in workflow policy",
+      "workflow can verify ffmpeg/gstreamer/mad/coreaudio-style provider or equivalent from buggy-checkout metadata",
+      "provider capsule can be materialized without forbidden/future/fixed/gold evidence",
+      "original target can be rerun under bounded provider conditions",
+      "no test mutation or undeclared dependency installation is required"
+    ],
+    "reprocess_now": false,
+    "selected_for_batch058c_replay": false,
+    "status": "PASS",
+    "terminal_or_parked_state": "provider_backend_unavailable_declared"
+  },
+  "pattern": {
+    "batches_seen": [
+      "Batch060b",
+      "Batch060f"
+    ],
+    "example_candidates": [
+      "audioread_144_py313_aifc_removed"
+    ],
+    "filter_rule": "do not reprocess unless provider/backend can be materialized under policy",
+    "future_candidate_policy": "park terminally until provider availability changes",
+    "pattern_id": "optional_backend_unavailable",
+    "reopen_condition": "declared provider is available and bounded by buggy-checkout metadata",
+    "risk_if_ignored": "repeated patching would chase a provider boundary rather than target-code evidence",
+    "symptom": "post-branch target reaches optional backend layer but backend provider is absent"
+  },
+  "status": "PASS"
+}

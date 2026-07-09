@@ -1,0 +1,43 @@
+{
+  "queue": [
+    {
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "current_capability_relevance": "Batch058c terminal-state and provider-risk policies applied without replay",
+      "expected_provider_complexity": "medium",
+      "expected_repair_count_impact": "medium",
+      "expected_self_maintenance_impact": "medium",
+      "expected_time_to_count_gate": "medium",
+      "expected_time_to_materialized_failure": "medium",
+      "expected_value": "medium",
+      "new_capabilities_relevant": [
+        "provider/runtime pattern library",
+        "AMDS full bug-tree closure",
+        "duplicate replay/count-gate proof pattern"
+      ],
+      "new_provider_or_amds_capability_that_changes_assessment": "provider-risk filtering and terminal-state closure; no new replay evidence",
+      "original_batch_seen": "Batch057c",
+      "original_blocker": "secondary provider or interpreter-family blocker",
+      "original_status": "stage1_primary_patch_partial_improvement_secondary_still_fails",
+      "reasoning_summary": "Partial improvement is preserved as a salvageable branch, but source-only success was not achieved and secondary blockers remain.",
+      "recommended_next_batch_if_reopened": "batch057d_freezegun_provider_portability_secondary_family_probe",
+      "recommended_status": "reopen",
+      "remaining_blocker": "secondary provider or interpreter-family blocker",
+      "reopen_condition": "bounded replay can verify target failure without forbidden evidence",
+      "risk": "medium",
+      "salvage_path": "provider portability secondary-family probe",
+      "salvage_possible": "maybe",
+      "salvage_risk": "medium",
+      "wave": "Wave 1",
+      "whether_old_blocker_was_dependency": false,
+      "whether_old_blocker_was_interpreter_behavior": true,
+      "whether_old_blocker_was_multi_family": true,
+      "whether_old_blocker_was_network_model": false,
+      "whether_old_blocker_was_provider": true,
+      "whether_old_blocker_was_source": true,
+      "whether_old_blocker_was_timeout": false
+    }
+  ],
+  "queue_count": 1,
+  "replay_run": false,
+  "status": "PASS"
+}

@@ -1,0 +1,28 @@
+{
+  "batch058b_approved": 0,
+  "batch058b_screened_leads": 37,
+  "batch060f_terminal_lesson": {
+    "candidate_id": "audioread_144_py313_aifc_removed",
+    "reason": "Batch060f reproduced the original failure, verified the exact prior source-only patch, and found the declared provider/backend capsule unavailable. Repeated patching is not permitted because the remaining barrier is provider/backend materialization, not a licensed source-only repair target.",
+    "reopen_conditions": [
+      "declared provider/backend becomes available in workflow policy",
+      "workflow can verify ffmpeg/gstreamer/mad/coreaudio-style provider or equivalent from buggy-checkout metadata",
+      "provider capsule can be materialized without forbidden/future/fixed/gold evidence",
+      "original target can be rerun under bounded provider conditions",
+      "no test mutation or undeclared dependency installation is required"
+    ],
+    "reprocess_now": false,
+    "selected_for_batch058c_replay": false,
+    "status": "PASS",
+    "terminal_or_parked_state": "provider_backend_unavailable_declared"
+  },
+  "dominant_negative_patterns": [
+    "optional_backend_unavailable",
+    "declared_external_provider_missing",
+    "provider_capsule_unavailable",
+    "provider_install_not_allowed_by_workflow_policy",
+    "audio_video_system_binary_backend_risk",
+    "network_model_external_service_risk"
+  ],
+  "status": "PASS"
+}

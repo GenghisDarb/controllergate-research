@@ -1,0 +1,95 @@
+{
+  "provider_risk_patterns": [
+    {
+      "batches_seen": [
+        "Batch060b",
+        "Batch060f"
+      ],
+      "example_candidates": [
+        "audioread_144_py313_aifc_removed"
+      ],
+      "filter_rule": "do not reprocess unless provider/backend can be materialized under policy",
+      "future_candidate_policy": "park terminally until provider availability changes",
+      "pattern_id": "optional_backend_unavailable",
+      "reopen_condition": "declared provider is available and bounded by buggy-checkout metadata",
+      "risk_if_ignored": "repeated patching would chase a provider boundary rather than target-code evidence",
+      "symptom": "post-branch target reaches optional backend layer but backend provider is absent"
+    },
+    {
+      "batches_seen": [
+        "Batch058b",
+        "Batch060f"
+      ],
+      "example_candidates": [
+        "audioread_144_py313_aifc_removed"
+      ],
+      "filter_rule": "reject or park unless declared provider capsule is already available",
+      "future_candidate_policy": "prefer provider-light candidates first",
+      "pattern_id": "declared_external_provider_missing",
+      "reopen_condition": "provider path and version can be verified without installing undeclared replacements",
+      "risk_if_ignored": "artifact growth without proof-distance reduction",
+      "symptom": "candidate depends on external system binary or service that is not present"
+    },
+    {
+      "batches_seen": [
+        "Batch060f"
+      ],
+      "example_candidates": [
+        "audioread_144_py313_aifc_removed"
+      ],
+      "filter_rule": "classify as provider/runtime boundary before any patch license",
+      "future_candidate_policy": "terminal parked with explicit reopen conditions",
+      "pattern_id": "provider_capsule_unavailable",
+      "reopen_condition": "workflow policy explicitly supports the bounded capsule",
+      "risk_if_ignored": "misclassifies environment failure as repair candidate",
+      "symptom": "provider capsule cannot be installed or located under workflow policy"
+    },
+    {
+      "batches_seen": [
+        "Batch060f"
+      ],
+      "example_candidates": [
+        "audioread_144_py313_aifc_removed"
+      ],
+      "filter_rule": "record NOT_RUN provider install rather than mutating environment",
+      "future_candidate_policy": "do not approve until installation policy is explicit",
+      "pattern_id": "provider_install_not_allowed_by_workflow_policy",
+      "reopen_condition": "policy adds a bounded provider installation route",
+      "risk_if_ignored": "unbounded external state contaminates replay evidence",
+      "symptom": "system backend install would be required but not authorized"
+    },
+    {
+      "batches_seen": [
+        "Batch058b",
+        "Batch060f"
+      ],
+      "example_candidates": [
+        "audioread_144_py313_aifc_removed",
+        "beets_5420_py313_imghdr_removed"
+      ],
+      "filter_rule": "raise provider risk and require backend capsule before replay",
+      "future_candidate_policy": "prefer pure-Python alternatives",
+      "pattern_id": "audio_video_system_binary_backend_risk",
+      "reopen_condition": "bounded binary provider exists in workflow image or declared metadata",
+      "risk_if_ignored": "backend absence hides target-code signal",
+      "symptom": "audio/video/image backend requires external binaries"
+    },
+    {
+      "batches_seen": [
+        "Batch058b",
+        "Batch056d"
+      ],
+      "example_candidates": [
+        "pairtools_250_py313_pipes_removed",
+        "wrapt_259_py313_classmethod_tests"
+      ],
+      "filter_rule": "rank below provider-light Python candidates",
+      "future_candidate_policy": "manual review or salvage only",
+      "pattern_id": "compiled_dependency_high_risk_boundary",
+      "reopen_condition": "lockfile or provider capsule makes dependency recovery bounded",
+      "risk_if_ignored": "dependency build failures dominate evidence",
+      "symptom": "candidate dependency chain includes compiled or platform-sensitive packages"
+    }
+  ],
+  "status": "PASS"
+}

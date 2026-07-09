@@ -1,0 +1,830 @@
+{
+  "provider_rejections": [
+    {
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "declared_test_command": "tox -e py313",
+      "issue_url_or_reference": "https://github.com/beetbox/audioread/issues/144",
+      "native_test_path": [
+        "test/test_audioread.py"
+      ],
+      "provider_capsule_status": "provider_capsule_probably_ready",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/beetbox/audioread",
+      "screening_status": "parked_terminal_provider_unavailable_after_batch060f",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "wrapt_259_py313_classmethod_tests",
+      "candidate_sha": "5c0997c0b5be36da5f621c3473c95f9efe14891e",
+      "declared_test_command": "tox -e py313",
+      "issue_url_or_reference": "https://github.com/GrahamDumpleton/wrapt/issues/259",
+      "native_test_path": [
+        "tests/"
+      ],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/GrahamDumpleton/wrapt",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "beets_5420_py313_imghdr_removed",
+      "candidate_sha": "860daa9e923465f9e1d0d98d92bec056be5f9bb7",
+      "declared_test_command": "python -m pytest -k 'not test_completion' -q --tb=no",
+      "issue_url_or_reference": "https://github.com/beetbox/beets/issues/5420",
+      "native_test_path": [
+        "test/"
+      ],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/beetbox/beets",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "quodlibet_4473_py313_cgi_telnetlib_removed",
+      "candidate_sha": "b9528762252dacdf5d803b52a88666bea12dd01a",
+      "declared_test_command": "python -m pytest tests/test_update.py tests/plugin/test_prefs.py -q --tb=no",
+      "issue_url_or_reference": "https://github.com/quodlibet/quodlibet/issues/4473",
+      "native_test_path": [
+        "tests/test_update.py",
+        "tests/plugin/test_prefs.py"
+      ],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/quodlibet/quodlibet",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_confident_ai_deepeval_issues_2783",
+      "candidate_sha": "e37f99c76c058b02a81aac24521227eb0caad467",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/confident-ai/deepeval/issues/2783",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/confident-ai/deepeval",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_giannisp09_scarlight_issues_2",
+      "candidate_sha": "56a901f7f233ab77d7f0f26de51cf4ce141fbeab",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/giannisp09/scarlight/issues/2",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/giannisp09/scarlight",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_aim_harvard_pyradiomics_issues_949",
+      "candidate_sha": "8ed579383b44806651c463d5e691f3b2b57522ab",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/AIM-Harvard/pyradiomics/issues/949",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/AIM-Harvard/pyradiomics",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_omnigent_ai_omnigent_issues_1860",
+      "candidate_sha": "182691ae97b6a34f14d36de1c99396aedd246d2f",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/omnigent-ai/omnigent/issues/1860",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/omnigent-ai/omnigent",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_talmolab_sleap_io_issues_484",
+      "candidate_sha": "acac75ecb5b28687fd015cd32cb3e9963a848212",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/talmolab/sleap-io/issues/484",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/talmolab/sleap-io",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_ibm_mcp_context_forge_issues_4509",
+      "candidate_sha": "6a793a9be9892ba1bb0202e4446c66463e80e27f",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/IBM/mcp-context-forge/issues/4509",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/IBM/mcp-context-forge",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_langchain_ai_langgraph_issues_4956",
+      "candidate_sha": "1ea5812ed0793c57355d042928e8806952443503",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/langchain-ai/langgraph/issues/4956",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/langchain-ai/langgraph",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_prefix_dev_pixi_issues_3641",
+      "candidate_sha": "d0146fba19d7e77d5ce04beb7896863c91707091",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/prefix-dev/pixi/issues/3641",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/prefix-dev/pixi",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_aws_sagemaker_python_sdk_issues_5739",
+      "candidate_sha": "91ca011daa8853ee031e784c35a5bab23a79ad08",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/aws/sagemaker-python-sdk/issues/5739",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/aws/sagemaker-python-sdk",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "datasette_2461_async_event_loop_cli_tests",
+      "candidate_sha": "f57977a08f85da40bbe04c7b0dbb57ba03694a9d",
+      "declared_test_command": "python -m pytest tests/test_cli.py -q --tb=no",
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": [
+        "tests/test_cli.py"
+      ],
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "high",
+      "repo_url": "https://github.com/simonw/datasette",
+      "screening_status": "parked_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "pexpect_699_replwrap_bash_assertions",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "high",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "retired_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "pairtools_250_py313_pipes_removed",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "high",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "parked_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "high",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "parked_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "wave2_hermes_nousresearch_timeout_class",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "very_high",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "retired_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "genia_timeout_manual_review_class",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "high",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "manual_review_required",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    }
+  ],
+  "provider_replay_run": false,
+  "records": [
+    {
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "declared_test_command": "tox -e py313",
+      "issue_url_or_reference": "https://github.com/beetbox/audioread/issues/144",
+      "native_test_path": [
+        "test/test_audioread.py"
+      ],
+      "provider_capsule_status": "provider_capsule_probably_ready",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/beetbox/audioread",
+      "screening_status": "parked_terminal_provider_unavailable_after_batch060f",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "wrapt_259_py313_classmethod_tests",
+      "candidate_sha": "5c0997c0b5be36da5f621c3473c95f9efe14891e",
+      "declared_test_command": "tox -e py313",
+      "issue_url_or_reference": "https://github.com/GrahamDumpleton/wrapt/issues/259",
+      "native_test_path": [
+        "tests/"
+      ],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/GrahamDumpleton/wrapt",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "beets_5420_py313_imghdr_removed",
+      "candidate_sha": "860daa9e923465f9e1d0d98d92bec056be5f9bb7",
+      "declared_test_command": "python -m pytest -k 'not test_completion' -q --tb=no",
+      "issue_url_or_reference": "https://github.com/beetbox/beets/issues/5420",
+      "native_test_path": [
+        "test/"
+      ],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/beetbox/beets",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "quodlibet_4473_py313_cgi_telnetlib_removed",
+      "candidate_sha": "b9528762252dacdf5d803b52a88666bea12dd01a",
+      "declared_test_command": "python -m pytest tests/test_update.py tests/plugin/test_prefs.py -q --tb=no",
+      "issue_url_or_reference": "https://github.com/quodlibet/quodlibet/issues/4473",
+      "native_test_path": [
+        "tests/test_update.py",
+        "tests/plugin/test_prefs.py"
+      ],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/quodlibet/quodlibet",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "candidate_sha": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+      "declared_test_command": "python -m pytest tests/cloudpickle_test.py -q --tb=no",
+      "issue_url_or_reference": "https://github.com/cloudpipe/cloudpickle/issues/507",
+      "native_test_path": [
+        "tests/cloudpickle_test.py"
+      ],
+      "provider_capsule_status": "provider_capsule_ready",
+      "provider_risk": "provider_risk_low",
+      "repo_url": "https://github.com/cloudpipe/cloudpickle",
+      "screening_status": "rejected_counted_overlap",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+      "candidate_sha": "041aacad506b6c6891f2898f2bd378e0896e8b86",
+      "declared_test_command": "python -m pytest testing -q --tb=no",
+      "issue_url_or_reference": "https://github.com/pytest-dev/pytest/issues/13895",
+      "native_test_path": [
+        "testing/"
+      ],
+      "provider_capsule_status": "provider_capsule_manual_review",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/pytest-dev/pytest",
+      "screening_status": "approved_for_future_replay",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "mwclient_340_pytest_cov_addopts",
+      "candidate_sha": "efa0ca5bc5fdd0e8d3b2b1349740b741de1db9ea",
+      "declared_test_command": "python -m pytest -q --tb=no",
+      "issue_url_or_reference": "https://github.com/mwclient/mwclient/issues/340",
+      "native_test_path": [
+        "tests/"
+      ],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/mwclient/mwclient",
+      "screening_status": "manual_review_or_parked",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_confident_ai_deepeval_issues_2783",
+      "candidate_sha": "e37f99c76c058b02a81aac24521227eb0caad467",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/confident-ai/deepeval/issues/2783",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/confident-ai/deepeval",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/iMelki/mempalace/issues/15",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/iMelki/mempalace",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_zxxxv_rown_rg_issues_13",
+      "candidate_sha": "62d202213e5d4e17f2807daba51213fa7d0f7bf6",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/zxxxv/rown_rg/issues/13",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/zxxxv/rown_rg",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/raczben/wexpect/issues/68",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/raczben/wexpect",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "candidate_sha": "9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/markberger/dspy_temporal/issues/32",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/markberger/dspy_temporal",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_giannisp09_scarlight_issues_2",
+      "candidate_sha": "56a901f7f233ab77d7f0f26de51cf4ce141fbeab",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/giannisp09/scarlight/issues/2",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/giannisp09/scarlight",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_aim_harvard_pyradiomics_issues_949",
+      "candidate_sha": "8ed579383b44806651c463d5e691f3b2b57522ab",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/AIM-Harvard/pyradiomics/issues/949",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/AIM-Harvard/pyradiomics",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/aws-neuron/nki-library/issues/5",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/aws-neuron/nki-library",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_omnigent_ai_omnigent_issues_1860",
+      "candidate_sha": "182691ae97b6a34f14d36de1c99396aedd246d2f",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/omnigent-ai/omnigent/issues/1860",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/omnigent-ai/omnigent",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/david96182/ninjemail/issues/21",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/david96182/ninjemail",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/alpha-unito/streamflow/issues/1100",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/alpha-unito/streamflow",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/feder-observatory/stellarphot/issues/565",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/feder-observatory/stellarphot",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_talmolab_sleap_io_issues_484",
+      "candidate_sha": "acac75ecb5b28687fd015cd32cb3e9963a848212",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/talmolab/sleap-io/issues/484",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/talmolab/sleap-io",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/kkipngenokoech/pytest/issues/8",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/kkipngenokoech/pytest",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/pschanely/CrossHair/issues/437",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/pschanely/CrossHair",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_sha": "8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/Hipo/drf-extra-fields/issues/210",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/Hipo/drf-extra-fields",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_ibm_mcp_context_forge_issues_4509",
+      "candidate_sha": "6a793a9be9892ba1bb0202e4446c66463e80e27f",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/IBM/mcp-context-forge/issues/4509",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/IBM/mcp-context-forge",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_langchain_ai_langgraph_issues_4956",
+      "candidate_sha": "1ea5812ed0793c57355d042928e8806952443503",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/langchain-ai/langgraph/issues/4956",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/langchain-ai/langgraph",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/jupyter/nbclient/issues/316",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/jupyter/nbclient",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_prefix_dev_pixi_issues_3641",
+      "candidate_sha": "d0146fba19d7e77d5ce04beb7896863c91707091",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/prefix-dev/pixi/issues/3641",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/prefix-dev/pixi",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_wdscholia_scholia_issues_2755",
+      "candidate_sha": "b14be14d069ca12a58b3594e32c25b6911ea5cd5",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/WDscholia/scholia/issues/2755",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/WDscholia/scholia",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_sha": "c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/pypa/distutils/issues/261",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/pypa/distutils",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_coveragepy_coveragepy_issues_2128",
+      "candidate_sha": "2c014d0d153cf4dc9268ad5e0a7bd5dcdc4673e8",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/coveragepy/coveragepy/issues/2128",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/coveragepy/coveragepy",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_xolox_python_coloredlogs_issues_119",
+      "candidate_sha": "65bdfe976ac0bf81e8c0bd9a98242b9d666b2859",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/xolox/python-coloredlogs/issues/119",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/xolox/python-coloredlogs",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_sha": "6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/spec-first/connexion/issues/2012",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/spec-first/connexion",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/aio-libs/aiosmtpd/issues/403",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/aio-libs/aiosmtpd",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_aws_sagemaker_python_sdk_issues_5739",
+      "candidate_sha": "91ca011daa8853ee031e784c35a5bab23a79ad08",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/aws/sagemaker-python-sdk/issues/5739",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_compiled_dependency_high_risk",
+      "provider_risk": "provider_risk_high",
+      "repo_url": "https://github.com/aws/sagemaker-python-sdk",
+      "screening_status": "rejected_provider_runtime_risk",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/open-telemetry/opentelemetry-python-contrib/issues/3547",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/open-telemetry/opentelemetry-python-contrib",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/biface/i18n/issues/86",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/biface/i18n",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_sha": "c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+      "declared_test_command": "unknown_screen_required",
+      "issue_url_or_reference": "https://github.com/executablebooks/sphinx-multitoc-numbering/issues/28",
+      "native_test_path": [],
+      "provider_capsule_status": "provider_capsule_ambiguous",
+      "provider_risk": "provider_risk_medium",
+      "repo_url": "https://github.com/executablebooks/sphinx-multitoc-numbering",
+      "screening_status": "rejected_missing_native_test_command",
+      "source": "Batch058b Wave 3 preserved lead registry"
+    },
+    {
+      "candidate_id": "datasette_2461_async_event_loop_cli_tests",
+      "candidate_sha": "f57977a08f85da40bbe04c7b0dbb57ba03694a9d",
+      "declared_test_command": "python -m pytest tests/test_cli.py -q --tb=no",
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": [
+        "tests/test_cli.py"
+      ],
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "high",
+      "repo_url": "https://github.com/simonw/datasette",
+      "screening_status": "parked_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "candidate_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "declared_test_command": "python -m pytest tests/test_datetimes.py -q --tb=no",
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": [
+        "tests/test_datetimes.py"
+      ],
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "medium",
+      "repo_url": "https://github.com/spulec/freezegun",
+      "screening_status": "approved_for_future_replay",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "venusian_91_py313_frameinfo_callinfo",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "low",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "manual_review_required",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "pexpect_699_replwrap_bash_assertions",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "high",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "retired_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "pyramid_3761_py313_test_util",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "unknown",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "parked_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "pairtools_250_py313_pipes_removed",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "high",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "parked_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "high",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "parked_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "snapshottest_177_py312_imp_removed",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "medium",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "retired_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "wave2_hermes_nousresearch_timeout_class",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "very_high",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "retired_salvage_candidate",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    },
+    {
+      "candidate_id": "genia_timeout_manual_review_class",
+      "candidate_sha": null,
+      "declared_test_command": null,
+      "issue_url_or_reference": "preserved Wave 1/Wave 2 salvage evidence",
+      "native_test_path": null,
+      "provider_capsule_status": "salvage_reassessment_only",
+      "provider_risk": "high",
+      "repo_url": "preserved_salvage_registry",
+      "screening_status": "manual_review_required",
+      "source": "Batch062 Wave 1/Wave 2 salvage registry"
+    }
+  ],
+  "status": "PASS"
+}
