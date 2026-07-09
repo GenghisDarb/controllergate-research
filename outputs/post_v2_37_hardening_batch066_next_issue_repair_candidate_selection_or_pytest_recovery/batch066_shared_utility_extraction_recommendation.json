@@ -1,0 +1,79 @@
+{
+  "do_not_implement_in_batch066": true,
+  "fixes": [
+    {
+      "expected_development_cost": "medium",
+      "fix_id": "shared_artifact_custody_utility",
+      "priority": "critical",
+      "proof_safety_risk": "medium",
+      "public_readiness_risk": "medium",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_owner": "controllergate/core/artifacts.py",
+      "risk_if_delayed": "batch-local manifest drift",
+      "risk_if_done_now": "refactor could perturb proof lanes",
+      "should_block_next_repair_search": false
+    },
+    {
+      "expected_development_cost": "medium",
+      "fix_id": "shared_count_gate_engine",
+      "priority": "high",
+      "proof_safety_risk": "high",
+      "public_readiness_risk": "medium",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_owner": "controllergate/core/count_gate.py",
+      "risk_if_delayed": "manual count gate drift",
+      "risk_if_done_now": "must preserve counted proof semantics",
+      "should_block_next_repair_search": false
+    },
+    {
+      "expected_development_cost": "medium",
+      "fix_id": "shared_public_summary_status_updater",
+      "priority": "medium",
+      "proof_safety_risk": "low",
+      "public_readiness_risk": "high",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_owner": "controllergate/core/public_summary.py",
+      "risk_if_delayed": "public docs drift",
+      "risk_if_done_now": "summary generator needs stable fixtures",
+      "should_block_next_repair_search": false
+    },
+    {
+      "expected_development_cost": "medium",
+      "fix_id": "reusable_workflow_packaging",
+      "priority": "medium",
+      "proof_safety_risk": "medium",
+      "public_readiness_risk": "medium",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_owner": "reusable workflow template",
+      "risk_if_delayed": "workflow boilerplate drift",
+      "risk_if_done_now": "workflow template migration risk",
+      "should_block_next_repair_search": false
+    },
+    {
+      "expected_development_cost": "medium",
+      "fix_id": "provider_runtime_capsule_registry",
+      "priority": "high",
+      "proof_safety_risk": "medium",
+      "public_readiness_risk": "medium",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_owner": "controllergate/core/provider_capsules.py",
+      "risk_if_delayed": "provider decisions remain batch-local",
+      "risk_if_done_now": "schema stabilization needed",
+      "should_block_next_repair_search": false
+    },
+    {
+      "expected_development_cost": "medium",
+      "fix_id": "amds_bug_tree_schema",
+      "priority": "medium",
+      "proof_safety_risk": "medium",
+      "public_readiness_risk": "low",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_owner": "controllergate/core/amds_bug_tree.py",
+      "risk_if_delayed": "bug-tree artifacts remain varied",
+      "risk_if_done_now": "schema needs migration tests",
+      "should_block_next_repair_search": false
+    }
+  ],
+  "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+  "status": "PASS"
+}

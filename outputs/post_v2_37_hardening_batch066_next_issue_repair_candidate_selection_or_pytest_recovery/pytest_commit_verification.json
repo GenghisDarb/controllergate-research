@@ -1,0 +1,75 @@
+{
+  "candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+  "candidate_sha": "041aacad506b6c6891f2898f2bd378e0896e8b86",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-tags",
+        "--filter=blob:none",
+        "https://github.com/pytest-dev/pytest.git",
+        "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\source"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch066",
+      "duration_seconds": 13.06,
+      "returncode": 0,
+      "stderr_sha256": "e08e8c014a482d37be7a35e8f1db009dbbcb333f833b2facce08cf59ff72fd72",
+      "stdout_sample": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step": "clone",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "041aacad506b6c6891f2898f2bd378e0896e8b86"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\source",
+      "duration_seconds": 3.463,
+      "returncode": 0,
+      "stderr_sha256": "db4be2609e22646b8e3443ba7c05ef610e71170c35a728611bdd7846209104d8",
+      "stdout_sample": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step": "checkout",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "041aacad506b6c6891f2898f2bd378e0896e8b86^{commit}"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\source",
+      "duration_seconds": 0.147,
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sample": "commit\n",
+      "stdout_sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8",
+      "step": "cat_file",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\source",
+      "duration_seconds": 0.134,
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sample": "041aacad506b6c6891f2898f2bd378e0896e8b86\n",
+      "stdout_sha256": "ca15d0d9cb0881030bf5e58f39576c2623a45b5e9a5edf0e09a64f9efa4ffb2e",
+      "step": "rev_parse",
+      "timed_out": false
+    }
+  ],
+  "object_type": "commit",
+  "repo_url": "https://github.com/pytest-dev/pytest",
+  "resolved_head": "041aacad506b6c6891f2898f2bd378e0896e8b86",
+  "status": "PASS"
+}

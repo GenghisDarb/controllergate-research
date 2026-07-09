@@ -1,0 +1,108 @@
+{
+  "classification": "pytest_command_boundary_blocked_config_minversion",
+  "collect_only_returncode": 4,
+  "minversion_blocked": true,
+  "preserved_command_returncode": 4,
+  "probe_count": 6,
+  "probes": [
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "--version"
+      ],
+      "duration_seconds": 0.189,
+      "log_sha256": "35832556de52218847e997cd257bd06262b5ee3142bb01f6a1f43d6619d6a1d2",
+      "output_sample": "Python 3.13.14\n",
+      "probe_id": "python_version",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c4a684e859efa868ffdfb4967e90ffd847a0fc1f293e16ed50ea18af8e3b95f6",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "--version"
+      ],
+      "duration_seconds": 2.593,
+      "log_sha256": "65b497e5ead24214e833ff1ef5b1f33d7beca7aef0b94dffb79aaf9fb8e0c80a",
+      "output_sample": "pip 26.1.2 from C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv\\Lib\\site-packages\\pip (python 3.13)\n\n",
+      "probe_id": "pip_version",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "332e0ce6ec26fc6c64e4046104aa9dbb20a437075d34b7f66bdb2d818e00a8fd",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "--version"
+      ],
+      "duration_seconds": 4.464,
+      "log_sha256": "7b1e44d536dc9e8e8fcd532387e4aa9e95e0016f4eb3dbabf1da11af70e316d3",
+      "output_sample": "pytest 0.1.dev16964+g041aacad5\n",
+      "probe_id": "pytest_version",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "623bbf9aebe48a5711cab96ce5360fdea12c67e80c856364db74042fa0021248",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "--help"
+      ],
+      "duration_seconds": 3.398,
+      "log_sha256": "741b76b9f8de8118b0f50b58f08c72ca2daf2c9dbe33301c50751a5c619b785b",
+      "output_sample": "usage: __main__.py [options] [file_or_dir] [file_or_dir] [...]\n\npositional arguments:\n  file_or_dir\n\ngeneral:\n  -k EXPRESSION         Only run tests which match the given substring\n                        expression. An expression is a Python evaluable\n                        expression where all names are substring-matched against\n                        test names and their parent classes. Example: -k\n                        'test_method or test_other' matches all test functions\n                        and classes whose name contains 'test_method' or\n                        'test_other', while -k 'not test_method' matches those\n                        that don't contain 'test_method' in their names. -k 'not\n                        test_method and not test_other' will eliminate the\n      ",
+      "probe_id": "pytest_help",
+      "returncode": 4,
+      "stderr_sha256": "4c944f1a690b88cfa65fa5c4c7ff04a138161c8c4c247fce692cb83b675a81ac",
+      "stdout_sha256": "8eaba963ab0547e96453f36b9345fdded2921052abdfe9f0b367c55294c28c92",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "testing",
+        "--collect-only",
+        "-q"
+      ],
+      "duration_seconds": 4.413,
+      "log_sha256": "65a6e6c2f8001ed630e5a7c14ebcf124c928a9adbfedb085752f32d097309587",
+      "output_sample": "ERROR: C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\source\\pyproject.toml: 'minversion' requires pytest-2.0, actual pytest-0.1.dev16964+g041aacad5'\n\n",
+      "probe_id": "pytest_collect_testing",
+      "returncode": 4,
+      "stderr_sha256": "4c944f1a690b88cfa65fa5c4c7ff04a138161c8c4c247fce692cb83b675a81ac",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "testing",
+        "-q",
+        "--tb=no"
+      ],
+      "duration_seconds": 4.421,
+      "log_sha256": "6e1034aa2d2a9b14913a9b39cceb003ab158d1974d5602d01fdf84b9c5416ea7",
+      "output_sample": "ERROR: C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\source\\pyproject.toml: 'minversion' requires pytest-2.0, actual pytest-0.1.dev16964+g041aacad5'\n\n",
+      "probe_id": "pytest_preserved_command",
+      "returncode": 4,
+      "stderr_sha256": "4c944f1a690b88cfa65fa5c4c7ff04a138161c8c4c247fce692cb83b675a81ac",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    }
+  ],
+  "status": "PASS"
+}

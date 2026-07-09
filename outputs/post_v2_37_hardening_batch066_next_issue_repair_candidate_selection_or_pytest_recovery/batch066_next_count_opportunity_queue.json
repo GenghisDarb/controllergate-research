@@ -1,0 +1,55 @@
+{
+  "current_issue_derived_repair_count": 4,
+  "paths": [
+    {
+      "artifact_growth_risk": "medium",
+      "expected_issue_repair_count_5_impact": "possible_after_command_boundary_followup",
+      "expected_self_maintenance_impact": "medium",
+      "path_id": "batch063b_pytest_provider_runtime_recovery",
+      "permanent_fix_value": "medium",
+      "proof_distance": "medium",
+      "provider_risk": "medium_high",
+      "recommended_next_action": "batch063b_pytest_provider_runtime_recovery_followup",
+      "repo_public_readiness_impact": "medium",
+      "why_selected_or_not_selected": "selected if Batch066 confirms declared-provider install succeeds but config boundary still blocks replay"
+    },
+    {
+      "artifact_growth_risk": "medium",
+      "expected_issue_repair_count_5_impact": "possible_new_candidate",
+      "expected_self_maintenance_impact": "medium",
+      "path_id": "batch058d_seed_discovery_expansion",
+      "permanent_fix_value": "low",
+      "proof_distance": "medium",
+      "provider_risk": "medium",
+      "recommended_next_action": "batch058d_seed_discovery_expansion",
+      "repo_public_readiness_impact": "medium",
+      "why_selected_or_not_selected": "fallback if Pytest command boundary is not promising"
+    },
+    {
+      "artifact_growth_risk": "reduces_future_risk",
+      "expected_issue_repair_count_5_impact": "none_direct",
+      "expected_self_maintenance_impact": "high",
+      "path_id": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "permanent_fix_value": "high",
+      "proof_distance": "not_a_repair_path",
+      "provider_risk": "low",
+      "recommended_next_action": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "repo_public_readiness_impact": "high",
+      "why_selected_or_not_selected": "important but should not interrupt a bounded Pytest follow-up unless proof-safety duplication becomes dominant"
+    },
+    {
+      "artifact_growth_risk": "medium",
+      "expected_issue_repair_count_5_impact": "uncertain",
+      "expected_self_maintenance_impact": "low_to_medium",
+      "path_id": "future_salvage_path",
+      "permanent_fix_value": "low",
+      "proof_distance": "medium_to_far",
+      "provider_risk": "medium_high",
+      "recommended_next_action": "future_salvage_review",
+      "repo_public_readiness_impact": "low",
+      "why_selected_or_not_selected": "not selected because Pytest has an active bounded command-boundary thread"
+    }
+  ],
+  "status": "PASS",
+  "target_issue_derived_repair_count": 5
+}

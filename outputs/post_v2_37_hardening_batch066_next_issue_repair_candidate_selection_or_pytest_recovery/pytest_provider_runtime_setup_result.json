@@ -1,0 +1,48 @@
+{
+  "classification": "provider_runtime_recovered_from_declared_metadata",
+  "declared_metadata_only": true,
+  "provider_runtime_setup_status": "provider_runtime_recovered_from_declared_metadata",
+  "provider_setup": [
+    "python -m pip install -e ."
+  ],
+  "provider_setup_is_repair_success": false,
+  "records": [
+    {
+      "log_sha256": "d286d054c141ab8cff9cb526257ac5f59dad0b79544e00330b4c0c7ccecc9982",
+      "returncode": 0,
+      "step": "create_venv",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--upgrade",
+        "pip"
+      ],
+      "log_sha256": "dddd809e89ee2997762f2f6f3f9b37b5901e177d3927441793eadd8f5d9d47db",
+      "returncode": 0,
+      "step": "provider_command_1",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        "."
+      ],
+      "log_sha256": "5aafb71512955e4b12fe38b2c96482871c2ac6d99000d5ff5b8303c285a6a7ad",
+      "returncode": 0,
+      "step": "provider_command_2",
+      "timed_out": false
+    }
+  ],
+  "status": "PASS",
+  "venv_dir": "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv",
+  "venv_python": "C:\\Dev\\ControllerGate_runtime\\batch066\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe"
+}

@@ -1,0 +1,12 @@
+{
+  "allowed_probes": [
+    "python --version",
+    "python -m pip --version",
+    "python -m pytest --version",
+    "python -m pytest --help",
+    "python -m pytest testing --collect-only -q",
+    "python -m pytest testing -q --tb=no"
+  ],
+  "source_mutation": false,
+  "status": "PASS"
+}
