@@ -1,0 +1,123 @@
+### python_version
+$ 'C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\venv\Scripts\python.exe' --version
+cwd: C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source
+returncode: 0
+timed_out: False
+duration_seconds: 0.214
+
+--- stdout ---
+Python 3.13.14
+
+--- stderr ---
+
+
+### pip_version
+$ 'C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\venv\Scripts\python.exe' -m pip --version
+cwd: C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source
+returncode: 0
+timed_out: False
+duration_seconds: 2.324
+
+--- stdout ---
+pip 26.1.2 from C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\venv\Lib\site-packages\pip (python 3.13)
+
+
+--- stderr ---
+
+
+### git_rev_parse
+$ git rev-parse HEAD
+cwd: C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source
+returncode: 0
+timed_out: False
+duration_seconds: 0.223
+
+--- stdout ---
+041aacad506b6c6891f2898f2bd378e0896e8b86
+
+--- stderr ---
+
+
+### git_status_short
+$ git status --short
+cwd: C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source
+returncode: 0
+timed_out: False
+duration_seconds: 0.232
+
+--- stdout ---
+
+--- stderr ---
+
+
+### git_describe_tags_always_dirty
+$ git describe --tags --always --dirty
+cwd: C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source
+returncode: 0
+timed_out: False
+duration_seconds: 0.238
+
+--- stdout ---
+041aacad5
+
+--- stderr ---
+
+
+### git_tag_merged_head
+$ git tag --merged HEAD
+cwd: C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source
+returncode: 0
+timed_out: False
+duration_seconds: 0.229
+
+--- stdout ---
+
+--- stderr ---
+
+
+### sys_path
+$ 'C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\venv\Scripts\python.exe' -c 'import sys; print('"'"'\n'"'"'.join(sys.path))'
+cwd: C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source
+returncode: 0
+timed_out: False
+duration_seconds: 0.329
+
+--- stdout ---
+
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\python313.zip
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\DLLs
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0
+C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\venv
+C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\venv\Lib\site-packages
+C:\Dev\ControllerGate_Runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source\src
+
+--- stderr ---
+
+
+### find_spec_pytest
+$ 'C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\venv\Scripts\python.exe' -c 'import importlib.util; spec=importlib.util.find_spec('"'"'pytest'"'"'); print(spec.origin if spec else None); print(spec.submodule_search_locations if spec else None)'
+cwd: C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source
+returncode: 0
+timed_out: False
+duration_seconds: 0.877
+
+--- stdout ---
+C:\Dev\ControllerGate_Runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source\src\pytest\__init__.py
+['C:\\Dev\\ControllerGate_Runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\source\\src\\pytest']
+
+--- stderr ---
+
+
+### import_pytest_version_file
+$ 'C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\venv\Scripts\python.exe' -c 'import pytest; print(pytest.__version__); print(pytest.__file__)'
+cwd: C:\Dev\ControllerGate_runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source
+returncode: 0
+timed_out: False
+duration_seconds: 3.733
+
+--- stdout ---
+0.1.dev16964+g041aacad5
+C:\Dev\ControllerGate_Runtime\batch063b\pytest_13895_pytest9_skiptest_behavior\source\src\pytest\__init__.py
+
+--- stderr ---

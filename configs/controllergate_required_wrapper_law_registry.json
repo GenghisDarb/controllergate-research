@@ -1,0 +1,456 @@
+{
+  "required_laws": [
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Prior work misreported package pass until critic verification found disagreement.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "count_gate_precondition",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "false_win_prevention_policy_batch063b.json",
+        "critic_verification_gate_schema_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "false_win_prevention_policy_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-B",
+      "requirement_name": "False-win / builder-critic verification gate",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Earlier real-repo pilot had review-required episodes without deterministic pass/fail evidence.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "scoring_precondition",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "deterministic_replay_readiness_policy_batch063b.json",
+        "real_repo_evidence_strengthening_gate_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "deterministic_replay_readiness_policy_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-C",
+      "requirement_name": "Deterministic replay readiness and evidence-strengthening gate",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "External real-repo episodes need a strict pending bundle before normalization or scoring.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "scoring_precondition",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "external_episode_evidence_bundle_policy_batch063b.json",
+        "external_episode_pending_bundle_schema_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "external_episode_evidence_bundle_policy_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-D",
+      "requirement_name": "External evidence bundle schema",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Counted repairs do not prove memory lift without matched baseline controls.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "memory_lift_precondition",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "null_wrapper_policy_batch063b.json",
+        "matched_baseline_control_schema_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "null_wrapper_policy_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-E",
+      "requirement_name": "Null wrapper / matched baseline controls",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "already_implemented_with_evidence",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": null,
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Decision-time repair/probe logic must not use labels, gold patches, or outcome-only evidence.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "governance_only",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "strict_label_blindness_policy_batch063b.json",
+        "ground_truth_peeking_blocker_policy_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "strict_label_blindness_policy_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-F",
+      "requirement_name": "Strict label-blindness and no ground-truth peeking",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "already_implemented_with_evidence",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": null
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Activation must follow legible topology and bounded materialization, not preflight alone.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "patch_gate_precondition",
+      "public_summary_allowed": false,
+      "required_artifacts": [
+        "controllergate_5_14_6_196_errata_lock_batch063b.json",
+        "corrected_operational_stack_policy_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "controllergate_5_14_6_196_errata_lock_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-G",
+      "requirement_name": "Corrected operational stack errata lock",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Secondary providers must be declared, reviewed, pinned, and drift-audited before materialization.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "provider_boundary",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "secondary_cofactor_lock_policy_batch063b.json",
+        "reviewed_provider_lock_schema_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "secondary_cofactor_lock_policy_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-H",
+      "requirement_name": "Provider/cofactor lock and dependency drift governance",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Stale workflow reruns must not be accepted as candidate evidence.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "governance_only",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "workflow_snapshot_identity_policy_batch063b.json",
+        "runner_revision_guard_policy_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "workflow_snapshot_identity_policy_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-I",
+      "requirement_name": "Workflow snapshot and runner revision guard",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Returncode 127 is a harness/runner failure until command normalization and runner dependencies are attempted.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "provider_boundary",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "harness_sanity_policy_batch063b.json",
+        "command_normalization_policy_global_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "harness_sanity_policy_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-J",
+      "requirement_name": "Harness sanity and command normalization",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "No harness/test content is trusted unless origin was hash-pinned and non-circular before execution.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "patch_gate_precondition",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "historical_harness_origin_blocker_recovery_batch063b.json",
+        "target_test_provenance_policy_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "historical_harness_origin_blocker_recovery_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-K",
+      "requirement_name": "Non-circular harness origin / test provenance bootstrap",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Provider, command, dependency, workspace, and runner-target boundaries must be classified before patching.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "provider_boundary",
+      "public_summary_allowed": false,
+      "required_artifacts": [
+        "brot_bulb_environment_locator_policy_batch063b.json",
+        "provider_surface_vs_source_surface_classifier_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "brot_bulb_environment_locator_policy_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-L",
+      "requirement_name": "Environment locator before source patch gate",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Source-contact maps that point only to tests are insufficient for patch generation.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "patch_gate_precondition",
+      "public_summary_allowed": false,
+      "required_artifacts": [
+        "historical_ast_loop_extrusion_requirement_batch063b.json",
+        "ast_topology_patch_gate_precondition_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "historical_ast_loop_extrusion_requirement_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-M",
+      "requirement_name": "AST topology before patch gates",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "already_implemented_with_evidence",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": null,
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Failed attempts must close explicit ledger branches without count increment.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "count_gate_precondition",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "proof_ledger_forkpoint_policy_batch063b.json",
+        "failed_attempt_branch_record_schema_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "proof_ledger_forkpoint_policy_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-N",
+      "requirement_name": "Proof-ledger fork point, failed branch record, and rollback",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "already_implemented_with_evidence",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": null
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "scaffolded_with_config_and_audit",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": "batch067_universal_wrapper_hardening_implementation",
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Unbounded or repeated blocked lanes must terminally classify rather than loop.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "governance_only",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "safe_abstention_policy_historical_lock_batch063b.json",
+        "flatline_rejection_policy_batch063b.json"
+      ],
+      "required_audit_assertions": [
+        "safe_abstention_policy_historical_lock_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-O",
+      "requirement_name": "Safe abstention, flatline rejection, and minimum-deltas constraint",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "scaffolded_with_config_and_audit",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch; implementation beyond docs/config/schema requires a dedicated wrapper hardening batch"
+    },
+    {
+      "blocker_if_ignored": "historical_requirement_missing_audit_enforcement",
+      "current_repo_status": "implemented_now",
+      "minimum_audit_required_in_current_batch": "artifact_exists_and_registry_status_valid",
+      "named_future_batch": null,
+      "next_allowed_action_if_blocking": "batch067_universal_wrapper_hardening_implementation",
+      "origin_summary": "Recovered requirements must have status, owner artifacts, audit assertions, and next actions.",
+      "owner_files_or_modules": [
+        "scripts/audit_batch063b_pytest_provider_runtime_recovery_followup.py",
+        "configs/controllergate_required_wrapper_law_registry.json",
+        "docs/controllergate_historical_requirements_recovery_lock.md"
+      ],
+      "proof_lane_effect": "governance_only",
+      "public_summary_allowed": true,
+      "required_artifacts": [
+        "historical_requirement_recovery_registry_batch063b.json",
+        "configs/controllergate_required_wrapper_law_registry.json"
+      ],
+      "required_audit_assertions": [
+        "historical_requirement_recovery_registry_batch063b.json exists",
+        "status is one of the allowed recovered-requirement states",
+        "no public overclaim"
+      ],
+      "requirement_id": "HR-P",
+      "requirement_name": "Persistent enforcement instead of forgettable backlog",
+      "risk_if_forgotten": "future batches may repeat the same unsafe shortcut or lose terminal-state custody",
+      "status": "implemented_now",
+      "why_it_matters": "prevents proof drift, stale evidence, or premature repair/count claims",
+      "why_not_now": null
+    }
+  ],
+  "source": "Batch063b historical recovery",
+  "status": "PASS"
+}

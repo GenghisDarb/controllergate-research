@@ -1,0 +1,67 @@
+{
+  "classification": "pytest_command_boundary_blocked_version_origin",
+  "minversion_blocked": true,
+  "normalized": false,
+  "partially_normalized": false,
+  "pre_repair_replay_authorized": false,
+  "probes": [
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "--version"
+      ],
+      "log_sha256": "52727b15881ccc2122cffc3bbef20e158d3d50ce728811aab85b43efcff086cf",
+      "output_sample": "pytest 0.1.dev16964+g041aacad5\n",
+      "probe_id": "pytest_version",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "--help"
+      ],
+      "log_sha256": "a01fd4f7bafd34347fab853705dc83784a8652001f6fe2e478c19c1207d0125d",
+      "output_sample": "usage: __main__.py [options] [file_or_dir] [file_or_dir] [...]\n\npositional arguments:\n  file_or_dir\n\ngeneral:\n  -k EXPRESSION         Only run tests which match the given substring\n                        expression. An expression is a Python evaluable\n                        expression where all names are substring-matched against\n                        test names and their parent classes. Example: -k\n                        'test_method or test_other' matches all test functions\n                        and classes whose name contains 'test_method' or\n                        'test_other', while -k 'not test_method' matches those\n                        that don't contain 'test_method' in their names. -k 'not\n                        test_method and not test_other' will eliminate the\n                        matches. Additionally keywords are matched to classes\n                        and functions containing extra names in their\n                        'extra_keyword_matches' set, as well as functions which\n                        have names assigned directly to them. The matching is\n                        case-insensitive.\n  -m MARKEXPR           Only run tests matching given mark",
+      "probe_id": "pytest_help",
+      "returncode": 4,
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "testing",
+        "--collect-only",
+        "-q"
+      ],
+      "log_sha256": "32e356038ed9cb886ec8fa8b20c433ad84bacbda86bee601d56768a2840e4dec",
+      "output_sample": "ERROR: C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\source\\pyproject.toml: 'minversion' requires pytest-2.0, actual pytest-0.1.dev16964+g041aacad5'\n\n",
+      "probe_id": "pytest_collect_testing",
+      "returncode": 4,
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "testing",
+        "-q",
+        "--tb=no"
+      ],
+      "log_sha256": "3cb3b0c7afe6afd78f2eab1ea47d3f2b663c59bff6b851d9c7b067fee679c1d9",
+      "output_sample": "ERROR: C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\source\\pyproject.toml: 'minversion' requires pytest-2.0, actual pytest-0.1.dev16964+g041aacad5'\n\n",
+      "probe_id": "pytest_preserved_command",
+      "returncode": 4,
+      "timed_out": false
+    }
+  ],
+  "status": "PASS",
+  "version_origin_blocks_command": true
+}

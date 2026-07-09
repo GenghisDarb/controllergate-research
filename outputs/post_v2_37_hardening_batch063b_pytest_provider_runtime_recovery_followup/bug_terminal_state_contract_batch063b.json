@@ -1,0 +1,176 @@
+{
+  "contract": {
+    "command_boundary_recovery_needed": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "command boundary recovery needed",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "counted_repair": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "counted repair",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "dependency_recovery_needed": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "dependency recovery needed",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "duplicate_replay_candidate": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "duplicate replay candidate",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "failure_family_decomposition_needed": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "failure family decomposition needed",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "forbidden_evidence_required": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "forbidden evidence required",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "harness_origin_needed": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "harness origin needed",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "interpreter_behavior_manual_review": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "interpreter behavior manual review",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "manual_review": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "manual review",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "not_reproducible": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "not reproducible",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "out_of_scope": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "out of scope",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "pre_repair_materialized": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "pre repair materialized",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "provider_recovery_needed": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "provider recovery needed",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "retired": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "retired",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "source_only_patch_candidate": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "source only patch candidate",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "test_expectation_manual_review": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "test expectation manual review",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "unbounded_external_provider": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "unbounded external provider",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "unrecoverable_under_current_policy": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "unrecoverable under current policy",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    },
+    "workspace_purity_blocked": {
+      "allowed_next_action": "route_or_close_under_policy",
+      "count_policy": "no_count_increment_unless_source_only_target_pass_duplicate_replay_and_count_gate_pass",
+      "evidence_required": "hash_pinned_artifact_or_decision_time_safe_workspace_record",
+      "forbidden_next_action": "count_without_duplicate_replay_or_use_forbidden_evidence",
+      "meaning": "workspace purity blocked",
+      "proof_boundary": "terminal_or_routing_state_not_repair_success",
+      "reopen_condition": "new_decision_time_safe_evidence_or_explicit_later_batch_authorization"
+    }
+  },
+  "status": "PASS"
+}

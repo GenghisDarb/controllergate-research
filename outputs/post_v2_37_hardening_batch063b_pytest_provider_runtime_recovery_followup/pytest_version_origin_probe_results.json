@@ -1,0 +1,132 @@
+{
+  "candidate_pytest_file": "C:\\Dev\\ControllerGate_Runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\source\\src\\pytest\\__init__.py",
+  "classification": "pytest_version_origin_missing_tags",
+  "future_tag_exposure_avoided": true,
+  "observed_pytest_version": "0.1.dev16964+g041aacad5",
+  "probes": [
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "--version"
+      ],
+      "log_sha256": "79724c38ee9f97cbf1094d74b89f8b1276b0fffd835c1b38aa9bb6ed22e9cc29",
+      "probe_id": "python_version",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "Python 3.13.14\n",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "--version"
+      ],
+      "log_sha256": "c5d8e9035191ccc3bb27f73a3f0a0f23ce6d4516f570204cc404eb872895308f",
+      "probe_id": "pip_version",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "pip 26.1.2 from C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Lib\\site-packages\\pip (python 3.13)\n\n",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "log_sha256": "e6202e6f5b33c1a32dad5dc231ec5c4c1a71980df5362d5d90bdea225f56fea1",
+      "probe_id": "git_rev_parse",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "041aacad506b6c6891f2898f2bd378e0896e8b86\n",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "log_sha256": "582c8d364145a15d43325aa9df381f21a9e653e9a473638b9181619d1b86be4f",
+      "probe_id": "git_status_short",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "describe",
+        "--tags",
+        "--always",
+        "--dirty"
+      ],
+      "log_sha256": "f4f5c7ecdc64d7ddb5349a896e2a5ae2cd735b1e7283fc8220577122c1ab8725",
+      "probe_id": "git_describe_tags_always_dirty",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "041aacad5\n",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "tag",
+        "--merged",
+        "HEAD"
+      ],
+      "log_sha256": "0ac5cbc19c8d24f51f2ea22798c7985a78e9c15731db45c64d9aff4b8e06d0ee",
+      "probe_id": "git_tag_merged_head",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; print('\\n'.join(sys.path))"
+      ],
+      "log_sha256": "340916b9b73907ec5558952cb70d59e2b5902c673e7c6a891f647487a4310a9b",
+      "probe_id": "sys_path",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "\nC:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\python313.zip\nC:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\DLLs\nC:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\nC:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\nC:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\nC:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Lib\\site-packages\nC:\\Dev\\ControllerGate_Runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\source\\src\n",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-c",
+        "import importlib.util; spec=importlib.util.find_spec('pytest'); print(spec.origin if spec else None); print(spec.submodule_search_locations if spec else None)"
+      ],
+      "log_sha256": "aeed1c2cb9e7eb98930cf2b5095984a5a5e3bb493d2b0c80e70be1b2c7bfce4a",
+      "probe_id": "find_spec_pytest",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "C:\\Dev\\ControllerGate_Runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\source\\src\\pytest\\__init__.py\n['C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch063b\\\\pytest_13895_pytest9_skiptest_behavior\\\\source\\\\src\\\\pytest']\n",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\venv\\Scripts\\python.exe",
+        "-c",
+        "import pytest; print(pytest.__version__); print(pytest.__file__)"
+      ],
+      "log_sha256": "c8d3c4f7af0658359cff42da8241907a7deb9b433cd11246fae5adeec753d64b",
+      "probe_id": "import_pytest_version_file",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "0.1.dev16964+g041aacad5\nC:\\Dev\\ControllerGate_Runtime\\batch063b\\pytest_13895_pytest9_skiptest_behavior\\source\\src\\pytest\\__init__.py\n",
+      "timed_out": false
+    }
+  ],
+  "provider_runtime_recovery_is_repair_success": false,
+  "safe_ancestor_tag_restoration_executed": false,
+  "safe_ancestor_tag_restoration_status": "not_executed_because_no_predeclared_ancestor_tag_authority",
+  "status": "PASS"
+}

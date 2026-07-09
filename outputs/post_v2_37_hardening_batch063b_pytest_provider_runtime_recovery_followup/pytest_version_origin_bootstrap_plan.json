@@ -1,0 +1,15 @@
+{
+  "required_probes": [
+    "python --version",
+    "pip --version",
+    "git rev-parse HEAD",
+    "git status --short",
+    "git describe --tags --always --dirty",
+    "git tag --merged HEAD",
+    "sys.path",
+    "find_spec pytest",
+    "import pytest version/file"
+  ],
+  "status": "PASS",
+  "tag_recovery_policy": "ancestor_only_tags_if_predeclared_safe_authority_exists"
+}
