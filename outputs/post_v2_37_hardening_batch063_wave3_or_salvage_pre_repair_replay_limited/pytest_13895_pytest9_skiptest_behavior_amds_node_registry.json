@@ -1,0 +1,38 @@
+{
+  "candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+  "nodes": [
+    {
+      "candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+      "confidence": "low_to_medium",
+      "current_status": "blocked_target_command_invalid",
+      "decision_time_inputs_used": [
+        "Batch058c approved replay registry",
+        "buggy source tree",
+        "declared project metadata",
+        "fresh Batch063 replay logs"
+      ],
+      "exception_type": "see_failure_signature_extract",
+      "failure_family": "pytest9_skiptest_behavior",
+      "forbidden_inputs_checked": [
+        "fixed commits",
+        "future commits",
+        "PR patches",
+        "gold patches",
+        "issue-body fix text"
+      ],
+      "next_allowed_action": "provider_runtime_recovery",
+      "node_id": "pytest_13895_pytest9_skiptest_behavior:primary_replay_node",
+      "reasoning_summary": "Future-only routing is based on fresh pre-repair materialization and diagnostic logs; no patch is generated in Batch063.",
+      "risk_level": "provider_risk_medium",
+      "suspected_dependency_contacts": [],
+      "suspected_interpreter_contacts": [
+        "python_runtime_target:python_3_12_or_3_13"
+      ],
+      "suspected_provider_contacts": [],
+      "suspected_source_files": [],
+      "test_nodes": [],
+      "traceback_root": []
+    }
+  ],
+  "status": "PASS"
+}

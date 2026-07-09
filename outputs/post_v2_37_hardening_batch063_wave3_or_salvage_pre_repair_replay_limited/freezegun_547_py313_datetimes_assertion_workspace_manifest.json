@@ -1,0 +1,68 @@
+{
+  "candidate_id": "freezegun_547_py313_datetimes_assertion",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-tags",
+        "--filter=blob:none",
+        "https://github.com/spulec/freezegun.git",
+        "C:\\Dev\\ControllerGate_runtime\\batch063\\freezegun_547_py313_datetimes_assertion\\source"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063",
+      "duration_seconds": 4.219,
+      "returncode": 0,
+      "stderr_sha256": "b07a1973272f0462b6e0733c4ee4f5c44d83b0aa7724295cf18e79d7c36a9616",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step": "clone",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "df263dcec48f43154a5873eb0dff2d4ba94374da"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063\\freezegun_547_py313_datetimes_assertion\\source",
+      "duration_seconds": 1.919,
+      "returncode": 0,
+      "stderr_sha256": "b22cf52024c02c66a650b97ea921ed5b2d3048a3e17d676162112125f560aa97",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step": "checkout",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "df263dcec48f43154a5873eb0dff2d4ba94374da^{commit}"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063\\freezegun_547_py313_datetimes_assertion\\source",
+      "duration_seconds": 0.329,
+      "returncode": 0,
+      "stdout": "commit",
+      "step": "cat_file",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063\\freezegun_547_py313_datetimes_assertion\\source",
+      "duration_seconds": 0.235,
+      "returncode": 0,
+      "stdout": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "step": "rev_parse",
+      "timed_out": false
+    }
+  ],
+  "outside_live_repo": true,
+  "runtime_root": "C:\\Dev\\ControllerGate_runtime\\batch063",
+  "status": "PASS",
+  "workspace_path": "C:\\Dev\\ControllerGate_runtime\\batch063\\freezegun_547_py313_datetimes_assertion\\source"
+}

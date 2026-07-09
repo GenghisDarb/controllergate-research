@@ -1,0 +1,68 @@
+{
+  "candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-tags",
+        "--filter=blob:none",
+        "https://github.com/pytest-dev/pytest.git",
+        "C:\\Dev\\ControllerGate_runtime\\batch063\\pytest_13895_pytest9_skiptest_behavior\\source"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063",
+      "duration_seconds": 8.8,
+      "returncode": 0,
+      "stderr_sha256": "0a6a61a95ae4dd0b1015c24f427a3d0da7e69baf918bb9f7ce0cf9fd5cd5a3d1",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step": "clone",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "041aacad506b6c6891f2898f2bd378e0896e8b86"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063\\pytest_13895_pytest9_skiptest_behavior\\source",
+      "duration_seconds": 2.793,
+      "returncode": 0,
+      "stderr_sha256": "db4be2609e22646b8e3443ba7c05ef610e71170c35a728611bdd7846209104d8",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step": "checkout",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "041aacad506b6c6891f2898f2bd378e0896e8b86^{commit}"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063\\pytest_13895_pytest9_skiptest_behavior\\source",
+      "duration_seconds": 0.137,
+      "returncode": 0,
+      "stdout": "commit",
+      "step": "cat_file",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063\\pytest_13895_pytest9_skiptest_behavior\\source",
+      "duration_seconds": 0.11,
+      "returncode": 0,
+      "stdout": "041aacad506b6c6891f2898f2bd378e0896e8b86",
+      "step": "rev_parse",
+      "timed_out": false
+    }
+  ],
+  "outside_live_repo": true,
+  "runtime_root": "C:\\Dev\\ControllerGate_runtime\\batch063",
+  "status": "PASS",
+  "workspace_path": "C:\\Dev\\ControllerGate_runtime\\batch063\\pytest_13895_pytest9_skiptest_behavior\\source"
+}
