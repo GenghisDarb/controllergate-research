@@ -1,0 +1,41 @@
+{
+  "final_decision": {
+    "batch063_ingest_status": "PASS",
+    "batch064_audit_status": "PASS",
+    "batch065_duplicate_replay_candidate_count": 1,
+    "batch065_duplicate_replay_candidates": [
+      "freezegun_547_py313_datetimes_assertion"
+    ],
+    "count_gate_run": false,
+    "current_protocol": "v2.14",
+    "distance_to_issue_derived_repair_count_4": "near",
+    "distance_to_self_maintaining_claim": "far",
+    "duplicate_replay_run": false,
+    "exact_blocker": null,
+    "failure_split_classification": "freezegun_two_source_families",
+    "freezegun_prerepair_reproduction_status": "pre_repair_failure_materialized",
+    "full_scoring": "NOT_RUN/disallowed",
+    "issue_derived_repair_count": 3,
+    "memory_lift": "not_demonstrated",
+    "native_external_repair_count": 4,
+    "next_allowed_action": "batch065_duplicate_clean_replay_and_issue_repair_count_gate_freezegun",
+    "patch_applied": true,
+    "patch_generated": true,
+    "patch_license_state": "freezegun_patch_license_open_staged_source_family",
+    "post_repair_original_target_outcome": "source_only_patch_target_pass",
+    "project_health_grade": "B+",
+    "pytest_preserved_blocker_status": "blocked_target_command_invalid",
+    "repair_count_increment": false,
+    "self_maintaining_software": "false/not_demonstrated",
+    "source_discovery_status": "PASS",
+    "source_only_target_pass_count": 1,
+    "status": "PASS",
+    "traffic_light_status": "yellow"
+  },
+  "full_scoring": "NOT_RUN/disallowed",
+  "issue_derived_repair_count_before_batch065": 3,
+  "memory_lift": "not_demonstrated",
+  "native_external_repair_count": 4,
+  "self_maintaining_software": "false/not_demonstrated",
+  "status": "PASS"
+}

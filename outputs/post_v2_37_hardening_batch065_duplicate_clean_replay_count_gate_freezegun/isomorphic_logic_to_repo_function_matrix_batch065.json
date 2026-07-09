@@ -1,0 +1,63 @@
+{
+  "advisory_only": true,
+  "gap_list": [
+    "provider rules are still batch-local",
+    "governance rules are repeated manually in prompts and audits",
+    "some rules are artifacts rather than reusable code",
+    "public-safe engineering documentation should be consolidated"
+  ],
+  "governance_mapping": [
+    {
+      "control": "outcome-blind materialization",
+      "controllergate_mapping": "pre-repair replay before patching"
+    },
+    {
+      "control": "registry-first provenance",
+      "controllergate_mapping": "candidate registries, proof ledger, counted repair registry, patch SHA registry"
+    },
+    {
+      "control": "frozen gates and locks",
+      "controllergate_mapping": "current protocol, claim boundaries, disabled full scoring and memory-lift claims"
+    },
+    {
+      "control": "full failure preservation",
+      "controllergate_mapping": "failed branch records and terminal states"
+    },
+    {
+      "control": "bundle-bound evidence",
+      "controllergate_mapping": "artifact ZIP, SHA manifests, audit outputs"
+    },
+    {
+      "control": "contamination prevention",
+      "controllergate_mapping": "fixed/gold/future evidence exclusion, issue-body fix exclusion, no test mutation"
+    }
+  ],
+  "not_repair_evidence": true,
+  "provider_capsule_mapping": [
+    {
+      "controllergate_mapping": "provider/runtime capsule materialization",
+      "external_pattern": "local dependency materialization"
+    },
+    {
+      "controllergate_mapping": "declared provider/runtime/test command manifest",
+      "external_pattern": "configuration setup"
+    },
+    {
+      "controllergate_mapping": "bounded candidate command scope and replay step selection",
+      "external_pattern": "bounded step selection"
+    },
+    {
+      "controllergate_mapping": "terminal provider/runtime and command-boundary states",
+      "external_pattern": "incompatible step exclusions"
+    },
+    {
+      "controllergate_mapping": "artifact bundle, SHA manifest, proof ledger, replay output verification",
+      "external_pattern": "output directory verification"
+    },
+    {
+      "controllergate_mapping": "exact candidate SHA, exact patch SHA, exact provider/runtime setup, count-gate custody",
+      "external_pattern": "local version discipline"
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,70 @@
+{
+  "advisory_only": true,
+  "artifact": "readme_public_alignment_review_batch065.json",
+  "does_not_modify_proof_gate": true,
+  "duplicate_or_overlap_items": [
+    {
+      "do_not_change_in_batch065": true,
+      "duplication_type": "near_duplicate",
+      "item_id": "artifact_ingestion_sha_manifest",
+      "locations": [
+        "scripts/generate_batch064_freezegun_source_only_patch_gate.py",
+        "scripts/generate_batch065_duplicate_clean_replay_count_gate_freezegun.py"
+      ],
+      "public_readiness_risk": "medium",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_shared_module_or_config": "controllergate/core/artifacts.py",
+      "risk_level": "medium",
+      "safe_refactor_preconditions": [
+        "tests for ZIP path safety",
+        "manifest verification fixtures"
+      ],
+      "tests_required_before_refactor": [
+        "artifact custody unit tests"
+      ]
+    },
+    {
+      "do_not_change_in_batch065": true,
+      "duplication_type": "boilerplate_repetition",
+      "item_id": "workflow_packaging_upload",
+      "locations": [
+        ".github/workflows/post_v2_37_hardening_batch064_freezegun_source_only_patch_gate.yml",
+        ".github/workflows/post_v2_37_hardening_batch065_duplicate_clean_replay_count_gate_freezegun.yml"
+      ],
+      "public_readiness_risk": "medium",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_shared_module_or_config": "reusable workflow template",
+      "risk_level": "medium",
+      "safe_refactor_preconditions": [
+        "stable artifact payload contract"
+      ],
+      "tests_required_before_refactor": [
+        "workflow payload dry-run"
+      ]
+    },
+    {
+      "do_not_change_in_batch065": true,
+      "duplication_type": "conceptual_overlap",
+      "item_id": "claim_boundary_public_language_checks",
+      "locations": [
+        "batch audit scripts",
+        "public summary generators"
+      ],
+      "public_readiness_risk": "high",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_shared_module_or_config": "controllergate/core/claim_boundary.py",
+      "risk_level": "high",
+      "safe_refactor_preconditions": [
+        "golden public summary fixtures"
+      ],
+      "tests_required_before_refactor": [
+        "public language guard tests"
+      ]
+    }
+  ],
+  "no_repo_refactor_performed": true,
+  "no_workflow_deleted": true,
+  "public_readiness_status": "advisory_review_complete",
+  "repair_proof_not_modified": true,
+  "status": "PASS"
+}

@@ -1,0 +1,61 @@
+{
+  "advisory_only": true,
+  "artifact": "self_maintenance_infrastructure_backlog_after_batch065.json",
+  "does_not_modify_proof_gate": true,
+  "fixes": [
+    {
+      "blocked_by": [],
+      "category": "proof_chain_safety",
+      "fix_id": "shared_artifact_custody",
+      "permanent_fix": "Shared artifact custody utility with tests.",
+      "priority": "critical",
+      "problem": "ZIP and manifest checks recur across batches.",
+      "proof_safety_risk": "medium",
+      "public_readiness_risk": "medium",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_owner_files": [
+        "controllergate/core/artifacts.py"
+      ],
+      "risk_if_unfixed": "audit drift",
+      "temporary_workaround": "Batch-local audit scripts.",
+      "why_it_keeps_reappearing": "Each proof lane owns its own artifact boundary."
+    },
+    {
+      "blocked_by": [
+        "stable schema"
+      ],
+      "category": "count_gate_reuse",
+      "fix_id": "shared_count_gate",
+      "permanent_fix": "Reusable count-gate engine.",
+      "priority": "high",
+      "problem": "Count-gate criteria are repeated in lane scripts.",
+      "proof_safety_risk": "high",
+      "public_readiness_risk": "medium",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_owner_files": [
+        "controllergate/core/count_gate.py"
+      ],
+      "risk_if_unfixed": "manual count gate drift",
+      "temporary_workaround": "Batch065 explicit criteria matrix.",
+      "why_it_keeps_reappearing": "Candidate-specific proof gates evolved first."
+    },
+    {
+      "blocked_by": [],
+      "category": "public_language_guard",
+      "fix_id": "public_docs_refresh_gate",
+      "permanent_fix": "Shared public summary/status updater.",
+      "priority": "medium",
+      "problem": "Public status blocks can lag behind proof boundaries.",
+      "proof_safety_risk": "low",
+      "public_readiness_risk": "high",
+      "recommended_future_batch": "batch062b_repo_hygiene_utility_consolidation_planning",
+      "recommended_owner_files": [
+        "controllergate/core/public_summary.py"
+      ],
+      "risk_if_unfixed": "public readiness confusion",
+      "temporary_workaround": "Batch-local public summary generator.",
+      "why_it_keeps_reappearing": "Proof artifacts and public summaries are generated separately."
+    }
+  ],
+  "status": "PASS"
+}
