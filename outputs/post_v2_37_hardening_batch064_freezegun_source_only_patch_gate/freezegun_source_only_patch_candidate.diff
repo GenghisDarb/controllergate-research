@@ -1,0 +1,49 @@
+diff --git a/freezegun/api.py b/freezegun/api.py
+index d235292..50a3b8c 100644
+--- a/freezegun/api.py
++++ b/freezegun/api.py
+@@ -52,6 +52,9 @@ real_date = datetime.date
+ real_datetime = datetime.datetime
+ real_date_objects = [real_time, real_localtime, real_gmtime, real_monotonic, real_perf_counter, real_strftime, real_date, real_datetime]
+ 
++if not hasattr(time, "tzset"):
++    time.tzset = lambda: None  # type: ignore[attr-defined]
++
+ if _TIME_NS_PRESENT:
+     real_time_ns = time.time_ns
+     real_date_objects.append(real_time_ns)
+@@ -441,6 +444,25 @@ FakeDatetime.min = datetime_to_fakedatetime(real_datetime.min)
+ FakeDatetime.max = datetime_to_fakedatetime(real_datetime.max)
+ 
+ 
++class FactoryDateTime(real_datetime):
++    @classmethod
++    def today(cls) -> "FakeDate":
++        return FakeDate.today()
++
++
++def datetime_to_factory_datetime(datetime_: datetime.datetime) -> "FactoryDateTime":
++    return FactoryDateTime(
++        datetime_.year,
++        datetime_.month,
++        datetime_.day,
++        datetime_.hour,
++        datetime_.minute,
++        datetime_.second,
++        datetime_.microsecond,
++        datetime_.tzinfo,
++    )
++
++
+ def convert_to_timezone_naive(time_to_freeze: datetime.datetime) -> datetime.datetime:
+     """
+     Converts a potentially timezone-aware datetime to be a naive UTC datetime
+@@ -527,7 +549,7 @@ class TickingDateTimeFactory:
+ class FrozenDateTimeFactory:
+ 
+     def __init__(self, time_to_freeze: datetime.datetime):
+-        self.time_to_freeze = time_to_freeze
++        self.time_to_freeze = datetime_to_factory_datetime(time_to_freeze)
+ 
+     def __call__(self) -> datetime.datetime:
+         return self.time_to_freeze

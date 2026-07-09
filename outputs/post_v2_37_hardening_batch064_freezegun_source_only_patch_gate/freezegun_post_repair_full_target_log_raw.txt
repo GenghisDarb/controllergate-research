@@ -1,0 +1,25 @@
+$ 'C:\Dev\ControllerGate_runtime\batch064\freezegun_547_py313_datetimes_assertion\venv\Scripts\python.exe' -m pytest tests/test_datetimes.py -q --tb=no
+cwd: C:\Dev\ControllerGate_runtime\batch064\freezegun_547_py313_datetimes_assertion\source
+returncode: 0
+timed_out: False
+duration_seconds: 4.847
+
+--- stdout ---
+.................s...........s.........................................s [100%]
+============================== warnings summary ===============================
+tests/test_datetimes.py::test_simple_api
+  C:\Dev\ControllerGate_runtime\batch064\freezegun_547_py313_datetimes_assertion\source\tests\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)
+
+tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone
+  C:\Dev\ControllerGate_runtime\batch064\freezegun_547_py313_datetimes_assertion\source\tests\test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    assert now == datetime.datetime.utcfromtimestamp(time.time())
+
+tests/test_datetimes.py::test_timestamp_with_tzoffset
+  C:\Dev\ControllerGate_runtime\batch064\freezegun_547_py313_datetimes_assertion\source\tests\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+69 passed, 3 skipped, 3 warnings in 2.14s
+
+--- stderr ---

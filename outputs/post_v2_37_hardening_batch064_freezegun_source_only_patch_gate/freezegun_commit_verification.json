@@ -1,0 +1,75 @@
+{
+  "candidate_id": "freezegun_547_py313_datetimes_assertion",
+  "candidate_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-tags",
+        "--filter=blob:none",
+        "https://github.com/spulec/freezegun.git",
+        "C:\\Dev\\ControllerGate_runtime\\batch064\\freezegun_547_py313_datetimes_assertion\\source"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch064",
+      "duration_seconds": 3.576,
+      "returncode": 0,
+      "stderr_sha256": "a282946e404e6a76a099d61e06268463441cd707d5d934a7eb75baf9097d219f",
+      "stdout_sample": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step": "clone",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "df263dcec48f43154a5873eb0dff2d4ba94374da"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch064\\freezegun_547_py313_datetimes_assertion\\source",
+      "duration_seconds": 1.254,
+      "returncode": 0,
+      "stderr_sha256": "b22cf52024c02c66a650b97ea921ed5b2d3048a3e17d676162112125f560aa97",
+      "stdout_sample": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step": "checkout",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "df263dcec48f43154a5873eb0dff2d4ba94374da^{commit}"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch064\\freezegun_547_py313_datetimes_assertion\\source",
+      "duration_seconds": 0.239,
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sample": "commit\n",
+      "stdout_sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8",
+      "step": "cat_file",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch064\\freezegun_547_py313_datetimes_assertion\\source",
+      "duration_seconds": 0.21,
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sample": "df263dcec48f43154a5873eb0dff2d4ba94374da\n",
+      "stdout_sha256": "d26d8115f2533e9b0265899c599d8a70bccf724811a895c15f616248da2a0c63",
+      "step": "rev_parse",
+      "timed_out": false
+    }
+  ],
+  "object_type": "commit",
+  "repo_url": "https://github.com/spulec/freezegun",
+  "resolved_head": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+  "status": "PASS"
+}

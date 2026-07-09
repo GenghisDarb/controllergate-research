@@ -1,0 +1,133 @@
+name: post_v2_37_hardening_batch064_freezegun_source_only_patch_gate
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  batch064-freezegun-source-only-patch-gate:
+    name: Batch064 Freezegun source-only patch gate validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+      OUT_NAME: post_v2_37_hardening_batch064_freezegun_source_only_patch_gate
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run byte-custody preflight before validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Install workflow test dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run shared core and runtime tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/core tests/runtime -q
+
+      - name: Validate registry, Batch064 audit, prior audits, and current protocol
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/audit_batch064_freezegun_source_only_patch_gate.py
+          git diff --check
+          python - <<'PY'
+          import json
+          root = "outputs/post_v2_37_hardening_batch064_freezegun_source_only_patch_gate"
+          final = json.load(open(f"{root}/batch064_final_decision.json", encoding="utf-8"))
+          print(f"batch064_status={final.get('status')}")
+          print(f"batch063_ingest_status={final.get('batch063_ingest_status')}")
+          print(f"current_protocol={final.get('current_protocol')}")
+          print(f"issue_derived_repair_count={final.get('issue_derived_repair_count')}")
+          print(f"native_external_repair_count={final.get('native_external_repair_count')}")
+          print(f"freezegun_prerepair_reproduction_status={final.get('freezegun_prerepair_reproduction_status')}")
+          print(f"failure_split_classification={final.get('failure_split_classification')}")
+          print(f"patch_license_state={final.get('patch_license_state')}")
+          print(f"patch_generated={final.get('patch_generated')}")
+          print(f"patch_applied={final.get('patch_applied')}")
+          print(f"post_repair_original_target_outcome={final.get('post_repair_original_target_outcome')}")
+          print(f"source_only_target_pass_count={final.get('source_only_target_pass_count')}")
+          print(f"batch065_duplicate_replay_candidates={final.get('batch065_duplicate_replay_candidates')}")
+          print(f"pytest_preserved_blocker_status={final.get('pytest_preserved_blocker_status')}")
+          print(f"project_health_grade={final.get('project_health_grade')}")
+          print(f"traffic_light_status={final.get('traffic_light_status')}")
+          print(f"distance_to_issue_derived_repair_count_4={final.get('distance_to_issue_derived_repair_count_4')}")
+          print(f"distance_to_self_maintaining_claim={final.get('distance_to_self_maintaining_claim')}")
+          print(f"next_allowed_action={final.get('next_allowed_action')}")
+          print(f"full_scoring={final.get('full_scoring')}")
+          print(f"memory_lift={final.get('memory_lift')}")
+          print(f"self_maintaining_software={final.get('self_maintaining_software')}")
+          print(f"exact_blocker={final.get('exact_blocker')}")
+          PY
+
+      - name: Stage clean Batch064 artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "artifact_payload/${OUT_NAME}"
+          mkdir -p "artifact_payload/${OUT_NAME}"
+          cp -a "outputs/${OUT_NAME}/." "artifact_payload/${OUT_NAME}/"
+          python - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+          root = Path("artifact_payload") / os.environ["OUT_NAME"]
+          rows = []
+          for path in sorted(root.rglob("*")):
+              if path.is_file() and path.name != "ARTIFACT_SHA256SUMS.txt":
+                  digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                  rows.append(f"{digest}  {path.relative_to(root).as_posix()}")
+          (root / "ARTIFACT_SHA256SUMS.txt").write_text("\n".join(rows) + "\n", encoding="utf-8")
+          PY
+          test -f "artifact_payload/${OUT_NAME}/ARTIFACT_SHA256SUMS.txt"
+          if find "artifact_payload/${OUT_NAME}" \( \
+            -path '*/__pycache__/*' -o \
+            -path '*/.pytest_cache/*' -o \
+            -path '*/.mypy_cache/*' -o \
+            -path '*/.ruff_cache/*' -o \
+            -path '*/.venv/*' -o \
+            -path '*/venv/*' -o \
+            -path '*/env/*' -o \
+            -path '*/ENV/*' -o \
+            -name '*.pyc' -o \
+            -name '*.pyo' -o \
+            -name '*.zip' -o \
+            -name '*.tar' -o \
+            -name '*.tar.gz' -o \
+            -name '*.tgz' -o \
+            -name '*.7z' -o \
+            -name '*.whl' \
+          \) -print -quit | grep -q .; then
+            echo "artifact_packaging_forbidden_payload_detected"
+            exit 1
+          fi
+
+      - name: Upload Batch064 Freezegun source-only patch gate artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch064_freezegun_source_only_patch_gate_artifacts
+          path: |
+            artifact_payload/post_v2_37_hardening_batch064_freezegun_source_only_patch_gate/**
+          if-no-files-found: error

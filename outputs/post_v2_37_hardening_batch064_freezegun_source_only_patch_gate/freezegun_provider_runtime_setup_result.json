@@ -1,0 +1,57 @@
+{
+  "classification": "provider_runtime_recovered_from_declared_metadata",
+  "provider_install_strategy": "declared_requirements_then_project_install",
+  "provider_setup_is_repair_success": false,
+  "records": [
+    {
+      "log_sha256": "820557ab45e87dbf69921d6d9f7f0897d7b28e6a6ad244d53fc224f6ba23a8f3",
+      "returncode": 0,
+      "step": "create_venv",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch064\\freezegun_547_py313_datetimes_assertion\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--upgrade",
+        "pip"
+      ],
+      "log_sha256": "1d988c99058e4032499c3f86e5711e2f6074b771a78c461118f1221e14b3e9a3",
+      "returncode": 0,
+      "step": "provider_command_1",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch064\\freezegun_547_py313_datetimes_assertion\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "-r",
+        "requirements.txt"
+      ],
+      "log_sha256": "ce3e90b927194a3a9d837ea33946f04a47082c7df2bc96b9c8e1b04bdedc51a9",
+      "returncode": 0,
+      "step": "provider_command_2",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\Dev\\ControllerGate_runtime\\batch064\\freezegun_547_py313_datetimes_assertion\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "."
+      ],
+      "log_sha256": "42423c083b5723d06d35ba8eb9ba1c2662476973ac93e81da91bdb20d3dec761",
+      "returncode": 0,
+      "step": "provider_command_3",
+      "timed_out": false
+    }
+  ],
+  "status": "PASS",
+  "venv_dir": "C:\\Dev\\ControllerGate_runtime\\batch064\\freezegun_547_py313_datetimes_assertion\\venv",
+  "venv_python": "C:\\Dev\\ControllerGate_runtime\\batch064\\freezegun_547_py313_datetimes_assertion\\venv\\Scripts\\python.exe"
+}

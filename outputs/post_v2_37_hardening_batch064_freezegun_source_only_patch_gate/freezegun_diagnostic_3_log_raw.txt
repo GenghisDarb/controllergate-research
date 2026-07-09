@@ -1,0 +1,19 @@
+$ 'C:\Dev\ControllerGate_runtime\batch064\freezegun_547_py313_datetimes_assertion\venv\Scripts\python.exe' -m pytest tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello -q --tb=short
+cwd: C:\Dev\ControllerGate_runtime\batch064\freezegun_547_py313_datetimes_assertion\source
+returncode: 1
+timed_out: False
+duration_seconds: 3.843
+
+--- stdout ---
+F                                                                        [100%]
+================================== FAILURES ===================================
+_ TestUnitTestMethodDecorator.test_method_decorator_works_on_unittest_kwarg_hello _
+tests\test_datetimes.py:542: in test_method_decorator_works_on_unittest_kwarg_hello
+    self.assertEqual(datetime.date(2013, 4, 9), kwargs.get('hello').time_to_freeze.today())  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 8, 17, 0)
+=========================== short test summary info ===========================
+FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello
+1 failed in 1.23s
+
+--- stderr ---

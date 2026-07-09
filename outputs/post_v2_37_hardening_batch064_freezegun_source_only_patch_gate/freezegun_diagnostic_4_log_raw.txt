@@ -1,0 +1,25 @@
+$ 'C:\Dev\ControllerGate_runtime\batch064\freezegun_547_py313_datetimes_assertion\venv\Scripts\python.exe' -m pytest tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone -q --tb=short
+cwd: C:\Dev\ControllerGate_runtime\batch064\freezegun_547_py313_datetimes_assertion\source
+returncode: 1
+timed_out: False
+duration_seconds: 3.676
+
+--- stdout ---
+F                                                                        [100%]
+================================== FAILURES ===================================
+________________ test_compare_datetime_and_time_with_timezone _________________
+tests\test_datetimes.py:791: in test_compare_datetime_and_time_with_timezone
+    time.tzset()
+    ^^^^^^^^^^
+E   AttributeError: module 'time' has no attribute 'tzset'
+
+During handling of the above exception, another exception occurred:
+tests\test_datetimes.py:799: in test_compare_datetime_and_time_with_timezone
+    time.tzset()  # set the timezone back to what is was before
+    ^^^^^^^^^^
+E   AttributeError: module 'time' has no attribute 'tzset'
+=========================== short test summary info ===========================
+FAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone
+1 failed in 1.34s
+
+--- stderr ---
