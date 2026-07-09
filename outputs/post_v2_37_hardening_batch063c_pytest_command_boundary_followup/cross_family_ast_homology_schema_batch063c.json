@@ -1,0 +1,50 @@
+{
+  "allowed_uses": [
+    "routing_memory_only",
+    "candidate_prioritization",
+    "preflight_probe_selection",
+    "command_translation_review",
+    "source_topology_search_prioritization",
+    "future_memory_baseline_hypothesis"
+  ],
+  "forbidden_uses": [
+    "direct_patch_authorization",
+    "count_increment",
+    "duplicate_replay_substitute",
+    "memory_lift_claim",
+    "full_scoring_claim",
+    "self_maintaining_claim",
+    "gold_fixed_patch_substitute"
+  ],
+  "patch_authority_allowed": false,
+  "required_fields": [
+    "pattern_id",
+    "source_candidate_id",
+    "target_candidate_id",
+    "source_repo_family",
+    "target_repo_family",
+    "source_language",
+    "target_language",
+    "source_ast_shape_hash",
+    "target_ast_shape_hash",
+    "source_symbol_roles",
+    "target_symbol_roles",
+    "control_flow_shape",
+    "data_flow_shape",
+    "exception_flow_shape",
+    "import_dependency_shape",
+    "test_to_source_contact_shape",
+    "patch_shape_if_known",
+    "source_repair_result",
+    "target_repair_status",
+    "transfer_allowed_use",
+    "transfer_forbidden_use",
+    "decision_time_safe",
+    "memory_update_allowed",
+    "memory_lift_evidence_allowed",
+    "patch_authority_allowed",
+    "count_gate_evidence_allowed",
+    "audit_status"
+  ],
+  "status": "PASS"
+}

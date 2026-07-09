@@ -1,0 +1,64 @@
+{
+  "records": [
+    {
+      "audit_status": "PASS",
+      "control_flow_shape": {
+        "kind": "precondition gate before source topology"
+      },
+      "count_gate_evidence_allowed": false,
+      "data_flow_shape": {
+        "kind": "metadata-to-runner-version"
+      },
+      "decision_time_safe": true,
+      "exception_flow_shape": {
+        "kind": "boundary error before target-code failure"
+      },
+      "import_dependency_shape": {
+        "kind": "runner-target split unresolved"
+      },
+      "memory_lift_evidence_allowed": false,
+      "memory_update_allowed": true,
+      "patch_authority_allowed": false,
+      "patch_shape_if_known": null,
+      "pattern_id": "batch063c_command_boundary_to_provider_boundary_shape",
+      "source_ast_shape_hash": "4f2c8dff8ef9faf400406f07a51059d2beb6493cd22541ab4fccc3a3336499f0",
+      "source_candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "source_language": "python",
+      "source_repair_result": "counted_elsewhere_after_valid_gates",
+      "source_repo_family": "serialization_runtime_boundary",
+      "source_symbol_roles": {
+        "provider": "runtime materialization"
+      },
+      "target_ast_shape_hash": "6be22ec0724457e600a1c0fc5a882c9122898f4d41afc954900f4c70665fc51a",
+      "target_candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+      "target_language": "python",
+      "target_repair_status": "blocked_command_boundary",
+      "target_repo_family": "test_runner_command_boundary",
+      "target_symbol_roles": {
+        "runner": "self-test command boundary",
+        "target": "candidate pytest package"
+      },
+      "test_to_source_contact_shape": {
+        "kind": "not_materialized_pre_repair"
+      },
+      "transfer_allowed_use": [
+        "routing_memory_only",
+        "candidate_prioritization",
+        "preflight_probe_selection",
+        "command_translation_review",
+        "source_topology_search_prioritization",
+        "future_memory_baseline_hypothesis"
+      ],
+      "transfer_forbidden_use": [
+        "direct_patch_authorization",
+        "count_increment",
+        "duplicate_replay_substitute",
+        "memory_lift_claim",
+        "full_scoring_claim",
+        "self_maintaining_claim",
+        "gold_fixed_patch_substitute"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

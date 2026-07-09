@@ -6,6 +6,26 @@ It remains a provenance-first software repair research harness with a conservati
 
 It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-change candidates, blocking unverified patches before they can contaminate accepted software state.
 
+## Batch063c Pytest Command-Boundary Follow-up
+
+Batch063c applies the Batch067 wrapper infrastructure to Pytest command-boundary recovery and restores missing pre-generation, reward-signal, baseline-drift, and structural-transfer controls. These are engineering controls and routing evidence, not repair proof. No repair is counted without source-only target pass, duplicate clean replay, and count gate. Full scoring remains NOT_RUN/disallowed. Memory lift remains not_demonstrated. Self-maintaining software remains false/not_demonstrated.
+
+Batch063c status:
+
+- Batch067 artifact/result preservation: `PASS`.
+- Pre-generation state lock: `PASS`.
+- Reward signal: `PASS`.
+- Baseline registry precheck: `baseline_drift_precheck_PASS_isolated_runtime`.
+- Structural transfer ledger: `PASS`.
+- Pytest safe tag acquisition: `blocked_no_predeclared_ancestor_tag_authority`.
+- Pytest version-origin status: `pytest_version_origin_missing_tags`.
+- Pytest runner-target status: `runner_target_collision_unresolved_self_runner`.
+- Pytest command-boundary status: `pytest_command_boundary_blocked_version_origin`.
+- Pytest pre-repair replay: `NOT_RUN_blocked_version_origin_missing_tags_safe_tag_authority_absent`.
+- Issue-derived repair count remains `4`.
+- Native external repair count remains `4`.
+- Next allowed action: `batch063d_pytest_safe_tag_acquisition_hardening`.
+
 ## Batch067 Universal Wrapper Hardening Implementation
 
 Batch067 adds reusable wrapper and failure-translation infrastructure. These controls improve candidate intake, environment classification, command-boundary handling, and terminal-state routing. They are engineering controls, not repair proof.

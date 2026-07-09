@@ -1,0 +1,32 @@
+{
+  "hard_failures": [
+    "cognitive_state_timestamp_inversion",
+    "pre_generation_prompt_lock_missing"
+  ],
+  "required_fields": [
+    "candidate_id",
+    "batch_id",
+    "timestamp_utc",
+    "monotonic_order_index",
+    "prompt_string_sha256",
+    "prompt_string_length",
+    "context_window_manifest",
+    "context_window_sha256",
+    "decision_time_input_files",
+    "decision_time_input_hashes",
+    "ast_snippet_paths",
+    "ast_snippet_hashes",
+    "command_manifest_hash",
+    "harness_origin_hash",
+    "workspace_purity_hash",
+    "provider_capsule_hash",
+    "forbidden_inputs_checked",
+    "gold_fixed_future_exclusion_status",
+    "decision_time_outcome_overlap_status",
+    "label_blindness_status",
+    "snapshot_written_before_generation",
+    "generation_output_exists_at_snapshot_time",
+    "audit_status"
+  ],
+  "status": "PASS"
+}

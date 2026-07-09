@@ -40,3 +40,15 @@ def cross_family_homology_policy() -> dict[str, object]:
         "memory_lift_evidence_allowed": False,
         "count_gate_evidence_allowed": False,
     }
+
+
+def build_structural_homology_ledger(records: list[dict[str, object]]) -> dict[str, object]:
+    return {
+        "status": "PASS" if all(record.get("patch_authority_allowed") is False and record.get("count_gate_evidence_allowed") is False for record in records) else "FAIL",
+        "routing_memory_only": True,
+        "structural_shape_required": True,
+        "records": records,
+        "patch_authority_allowed": False,
+        "memory_lift_evidence_allowed": False,
+        "count_gate_evidence_allowed": False,
+    }

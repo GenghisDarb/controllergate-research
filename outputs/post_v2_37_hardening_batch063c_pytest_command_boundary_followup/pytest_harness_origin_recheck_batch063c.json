@@ -1,0 +1,26 @@
+{
+  "authority_source": "immutable_public_repo_commit",
+  "non_circular": true,
+  "policy": {
+    "allowed_authority_types": [
+      "immutable_public_release_bundle",
+      "immutable_public_repo_commit",
+      "pre_existing_reviewed_config",
+      "reviewed_manual_bundle"
+    ],
+    "forbidden_authority_types": [
+      "fixed_gold_future_derived_test_content",
+      "floating_HEAD",
+      "issue_body_pasted_fixture",
+      "prompt_text_hash",
+      "same_run_generated_hash",
+      "synthetic_test_reconstruction",
+      "unverified_local_file"
+    ],
+    "immutable_decision_time_safe_required": true,
+    "non_circular_required": true,
+    "status": "PASS"
+  },
+  "source_commit_sha_or_bundle_identity": "041aacad506b6c6891f2898f2bd378e0896e8b86",
+  "status": "PASS"
+}

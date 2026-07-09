@@ -1,0 +1,28 @@
+{
+  "candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+  "candidate_sha": "041aacad506b6c6891f2898f2bd378e0896e8b86",
+  "collection_command": "python -m pytest testing --collect-only -q",
+  "command_boundary_status": "runner_target_collision_unresolved_self_runner",
+  "command_string": "python -m pytest testing -q --tb=no",
+  "declared_command_source": "Batch063b preserved command plus buggy-checkout pyproject testpaths",
+  "declared_command_source_file": "pyproject.toml",
+  "diagnostic_command_template": "{python} -m {runner} {target} --collect-only",
+  "forbidden_command_shortcuts": [
+    "blind --ignore",
+    "blind --override",
+    "blind --rootdir",
+    "blind PYTHONPATH",
+    "future docs",
+    "issue workaround text",
+    "minversion suppression"
+  ],
+  "native_test_path": "testing",
+  "next_allowed_action": "prove_runner_target_import_origin",
+  "provider_setup_required": true,
+  "python_version": "3.11",
+  "repo_url": "https://github.com/pytest-dev/pytest",
+  "runner_package": "pytest",
+  "runner_target_split_required": true,
+  "target_package": "pytest",
+  "working_directory": "candidate_isolated_runtime_workspace_not_materialized_in_batch063c"
+}
