@@ -1,32 +1,15 @@
 {
-  "batch": "Batch063b",
-  "items": [
+  "queue": [
     {
-      "fix_id": "shared_artifact_custody_utility",
-      "owner": "controllergate/core/artifacts.py",
-      "priority": "critical"
+      "claim_boundary": "no repair until replay and count gate",
+      "item": "pytest command-boundary follow-up",
+      "next_batch_candidate": "batch063c_pytest_command_boundary_followup"
     },
     {
-      "fix_id": "shared_count_gate_utility",
-      "owner": "controllergate/core/count_gate.py",
-      "priority": "critical"
-    },
-    {
-      "fix_id": "shared_provider_capsule_utility",
-      "owner": "controllergate/core/provider_capsules.py",
-      "priority": "high"
-    },
-    {
-      "fix_id": "shared_command_translation_utility",
-      "owner": "controllergate/core/command_translation.py",
-      "priority": "high"
-    },
-    {
-      "fix_id": "shared_public_summary_guard",
-      "owner": "controllergate/core/public_summary.py",
-      "priority": "high"
+      "claim_boundary": "engineering controls only",
+      "item": "universal wrapper reuse across unrelated candidates",
+      "next_batch_candidate": "future_candidate_intake_batch"
     }
   ],
-  "plan_only": true,
   "status": "PASS"
 }

@@ -1,7 +1,7 @@
-# ControllerGate self-maintenance runtime wrapper roadmap
+# ControllerGate Runtime Wrapper Roadmap
 
-Batch063b adds policy scaffolding for workspace purity, candidate-isolated runtime, command translation, non-circular harness origin, source topology, terminal-state closure, and public-summary guards.
+Batch067 adds reusable wrapper and failure-translation infrastructure. These controls improve candidate intake, environment classification, command-boundary handling, and terminal-state routing. They are engineering controls, not repair proof.
 
-Current status: engineering controls are scaffolded, not proof of self-maintaining software.
+Batch067 also upgrades artifact custody, step contracts, workspace purity, command translation, harness origin, version-origin checks, terminal-state closure, proof-ledger branch records, and public-summary guards into reusable infrastructure.
 
-Next recommended wrapper-hardening path: `batch067_universal_wrapper_hardening_implementation`.
+Next recommended proof path: `batch063c_pytest_command_boundary_followup`.

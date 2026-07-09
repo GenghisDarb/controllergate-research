@@ -1,0 +1,557 @@
+{
+  "contract": {
+    "known_blocker_codes": [
+      "command_translation_step_blocked",
+      "count_gate_step_blocked",
+      "diagnostic_replay_step_blocked",
+      "duplicate_replay_step_blocked",
+      "harness_origin_step_blocked",
+      "patch_gate_step_blocked",
+      "patch_license_step_blocked",
+      "post_repair_replay_step_blocked",
+      "pre_repair_replay_step_blocked",
+      "proof_ledger_step_blocked",
+      "provider_materialization_step_blocked",
+      "public_summary_step_blocked",
+      "source_acquisition_step_blocked",
+      "source_topology_step_blocked",
+      "terminal_state_step_blocked",
+      "workspace_purity_step_blocked"
+    ],
+    "known_steps": [
+      "source_acquisition_step",
+      "harness_origin_step",
+      "workspace_purity_step",
+      "provider_materialization_step",
+      "command_translation_step",
+      "pre_repair_replay_step",
+      "diagnostic_replay_step",
+      "source_topology_step",
+      "patch_license_step",
+      "patch_gate_step",
+      "post_repair_replay_step",
+      "duplicate_replay_step",
+      "count_gate_step",
+      "proof_ledger_step",
+      "public_summary_step",
+      "terminal_state_step"
+    ],
+    "schema_version": "batch067.step_contracts.v1",
+    "steps": {
+      "command_translation_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "command_translation_step_blocked"
+        ],
+        "expected_outputs": [
+          "command_translation_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_command_translation_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "count_gate_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "count_gate_step_blocked"
+        ],
+        "expected_outputs": [
+          "count_gate_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_count_gate_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "diagnostic_replay_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "diagnostic_replay_step_blocked"
+        ],
+        "expected_outputs": [
+          "diagnostic_replay_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_diagnostic_replay_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "duplicate_replay_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "duplicate_replay_step_blocked"
+        ],
+        "expected_outputs": [
+          "duplicate_replay_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_duplicate_replay_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "harness_origin_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "harness_origin_step_blocked"
+        ],
+        "expected_outputs": [
+          "harness_origin_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_harness_origin_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "patch_gate_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "patch_gate_step_blocked"
+        ],
+        "expected_outputs": [
+          "patch_gate_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_patch_gate_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "patch_license_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "patch_license_step_blocked"
+        ],
+        "expected_outputs": [
+          "patch_license_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_patch_license_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "post_repair_replay_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "post_repair_replay_step_blocked"
+        ],
+        "expected_outputs": [
+          "post_repair_replay_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_post_repair_replay_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "pre_repair_replay_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "pre_repair_replay_step_blocked"
+        ],
+        "expected_outputs": [
+          "pre_repair_replay_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_pre_repair_replay_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "proof_ledger_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "proof_ledger_step_blocked"
+        ],
+        "expected_outputs": [
+          "proof_ledger_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_proof_ledger_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "provider_materialization_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "provider_materialization_step_blocked"
+        ],
+        "expected_outputs": [
+          "provider_materialization_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_provider_materialization_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "public_summary_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "public_summary_step_blocked"
+        ],
+        "expected_outputs": [
+          "public_summary_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_public_summary_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "source_acquisition_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "source_acquisition_step_blocked"
+        ],
+        "expected_outputs": [
+          "source_acquisition_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_source_acquisition_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "source_topology_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "source_topology_step_blocked"
+        ],
+        "expected_outputs": [
+          "source_topology_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_source_topology_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "terminal_state_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "terminal_state_step_blocked"
+        ],
+        "expected_outputs": [
+          "terminal_state_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_terminal_state_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      },
+      "workspace_purity_step": {
+        "allowed_inputs": [
+          "hash_pinned_metadata",
+          "verified_runtime_record"
+        ],
+        "blocker_codes": [
+          "workspace_purity_step_blocked"
+        ],
+        "expected_outputs": [
+          "workspace_purity_step_record"
+        ],
+        "forbidden_inputs": [
+          "fixed_commit",
+          "gold_patch",
+          "future_commit",
+          "unverified_prompt_text"
+        ],
+        "output_verifiers": [
+          "verify_workspace_purity_step_record"
+        ],
+        "reopen_conditions": [
+          "new_decision_time_safe_evidence"
+        ],
+        "required_inputs": [
+          "candidate_id",
+          "decision_time_evidence"
+        ],
+        "terminal_states": [
+          "manual_review",
+          "unrecoverable_under_current_policy"
+        ]
+      }
+    }
+  },
+  "internal_design_metadata_only": true,
+  "status": "PASS"
+}

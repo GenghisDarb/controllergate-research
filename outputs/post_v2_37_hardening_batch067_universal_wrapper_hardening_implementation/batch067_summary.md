@@ -1,0 +1,1 @@
+Batch067 adds reusable wrapper and failure-translation infrastructure. These controls improve candidate intake, environment classification, command-boundary handling, and terminal-state routing. They are engineering controls, not repair proof. Full scoring remains NOT_RUN/disallowed. Memory lift remains not_demonstrated. Self-maintaining software remains false/not_demonstrated.

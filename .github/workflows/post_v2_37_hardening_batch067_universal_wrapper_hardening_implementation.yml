@@ -1,0 +1,135 @@
+name: post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  batch067-universal-wrapper-hardening:
+    name: Batch067 universal wrapper hardening validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+      OUT_NAME: post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run byte-custody preflight before validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Install workflow test dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run Batch067 generator and test suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/generate_batch067_universal_wrapper_hardening_implementation.py
+          python -m pytest tests/core tests/runtime -q
+
+      - name: Validate registry, Batch067 audit, prior audit, and current protocol
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/audit_batch067_universal_wrapper_hardening_implementation.py
+          git diff --check
+          python - <<'PY'
+          import json
+          root = "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation"
+          final = json.load(open(f"{root}/batch067_final_decision.json", encoding="utf-8"))
+          for key in [
+              "status",
+              "batch063b_ingest_status",
+              "batch067_audit_status",
+              "current_protocol",
+              "issue_derived_repair_count",
+              "native_external_repair_count",
+              "full_scoring",
+              "memory_lift",
+              "self_maintaining_software",
+              "artifact_custody_module_status",
+              "step_contract_module_status",
+              "workspace_purity_module_status",
+              "command_translation_module_status",
+              "harness_origin_module_status",
+              "cross_environment_orthology_layer_status",
+              "candidate_seed_classification_gate_status",
+              "failure_translation_layer_status",
+              "source_approval_gate_status",
+              "pytest_next_proof_action",
+              "next_allowed_action",
+              "exact_blocker",
+          ]:
+              print(f"{key}={final.get(key)}")
+          PY
+
+      - name: Stage clean Batch067 artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "artifact_payload/${OUT_NAME}"
+          mkdir -p "artifact_payload/${OUT_NAME}"
+          cp -a "outputs/${OUT_NAME}/." "artifact_payload/${OUT_NAME}/"
+          python - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+          root = Path("artifact_payload") / os.environ["OUT_NAME"]
+          rows = []
+          for path in sorted(root.rglob("*")):
+              if path.is_file() and path.name != "ARTIFACT_SHA256SUMS.txt":
+                  digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                  rows.append(f"{digest}  {path.relative_to(root).as_posix()}")
+          (root / "ARTIFACT_SHA256SUMS.txt").write_text("\n".join(rows) + "\n", encoding="utf-8")
+          PY
+          test -f "artifact_payload/${OUT_NAME}/ARTIFACT_SHA256SUMS.txt"
+          if find "artifact_payload/${OUT_NAME}" \( \
+            -path '*/__pycache__/*' -o \
+            -path '*/.pytest_cache/*' -o \
+            -path '*/.mypy_cache/*' -o \
+            -path '*/.ruff_cache/*' -o \
+            -path '*/.venv/*' -o \
+            -path '*/venv/*' -o \
+            -path '*/env/*' -o \
+            -path '*/ENV/*' -o \
+            -name '*.pyc' -o \
+            -name '*.pyo' -o \
+            -name '*.zip' -o \
+            -name '*.tar' -o \
+            -name '*.tar.gz' -o \
+            -name '*.tgz' -o \
+            -name '*.7z' -o \
+            -name '*.whl' \
+          \) -print -quit | grep -q .; then
+            echo "artifact_packaging_forbidden_payload_detected"
+            exit 1
+          fi
+
+      - name: Upload Batch067 universal wrapper hardening artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation_artifacts
+          path: |
+            artifact_payload/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/**
+          if-no-files-found: error

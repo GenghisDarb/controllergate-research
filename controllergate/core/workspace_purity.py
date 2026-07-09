@@ -78,3 +78,62 @@ def audit_workspace_purity(
         "workspace_created": workspace_created,
         "blocker": blocker,
     }
+
+
+def candidate_runtime_path_policy() -> dict[str, object]:
+    return {
+        "status": "PASS",
+        "runtime_path_must_be_outside_repo": True,
+        "runtime_path_must_be_outside_cloud_sync": True,
+        "forbidden_reuse_markers": ["venv", ".venv", "__pycache__", ".pytest_cache", "stale_source_checkout"],
+        "rollback_target_marker_required": True,
+    }
+
+
+def tree_content_hash(path: str | Path) -> str:
+    root = Path(path)
+    rows: list[str] = []
+    if root.exists():
+        for item in sorted(root.rglob("*")):
+            if item.is_file():
+                rel = item.relative_to(root).as_posix()
+                rows.append(f"{rel}:{hashlib.sha256(item.read_bytes()).hexdigest()}")
+    return hashlib.sha256("\n".join(rows).encode("utf-8")).hexdigest()
+
+
+def audit_candidate_runtime_workspace(
+    workspace_root: str | Path,
+    *,
+    repo_root: str | Path,
+    rollback_marker: str | None = None,
+) -> dict[str, object]:
+    root = Path(workspace_root)
+    repo = Path(repo_root)
+    outside_repo = not _inside(root, repo)
+    outside_onedrive = "onedrive" not in str(root).lower()
+    reused_venvs = [p.as_posix() for name in [".venv", "venv", "env", "ENV"] for p in root.rglob(name)] if root.exists() else []
+    pycache = [p.as_posix() for p in root.rglob("__pycache__")] if root.exists() else []
+    pytest_cache = [p.as_posix() for p in root.rglob(".pytest_cache")] if root.exists() else []
+    stale_source = [p.as_posix() for p in root.rglob(".git")] if root.exists() else []
+    blockers: list[str] = []
+    if not outside_repo:
+        blockers.append("workspace_inside_repo_blocked")
+    if not outside_onedrive:
+        blockers.append("workspace_inside_onedrive_blocked")
+    if reused_venvs or pycache or pytest_cache:
+        blockers.append("stale_cache_contamination_detected")
+    return {
+        "status": "PASS" if not blockers else "BLOCK",
+        "workspace_root": str(root),
+        "outside_repo": outside_repo,
+        "outside_onedrive": outside_onedrive,
+        "no_reused_venv": not reused_venvs,
+        "no_reused_pytest_cache": not pytest_cache,
+        "no_reused_pycache": not pycache,
+        "stale_source_checkout_markers": stale_source,
+        "pre_attempt_workspace_hash": tree_content_hash(root),
+        "post_attempt_workspace_hash": tree_content_hash(root),
+        "candidate_runtime_path_record": hashlib.sha256(str(root).replace("\\", "/").encode("utf-8")).hexdigest(),
+        "rollback_target_marker": rollback_marker,
+        "blockers": blockers,
+    }

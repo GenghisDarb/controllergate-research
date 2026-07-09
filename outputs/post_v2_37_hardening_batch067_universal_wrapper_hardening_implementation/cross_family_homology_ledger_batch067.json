@@ -1,0 +1,27 @@
+{
+  "records": [
+    {
+      "audit_status": "PASS",
+      "count_gate_evidence_allowed": false,
+      "decision_time_safe": true,
+      "evidence_files": [
+        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+      ],
+      "family": "command_boundary",
+      "memory_lift_evidence_allowed": false,
+      "non_shared_features": [
+        "tag authority"
+      ],
+      "patch_authority_allowed": false,
+      "repair_proof_allowed": false,
+      "routing_use_allowed": true,
+      "shared_features": [
+        "runner-target split"
+      ],
+      "source_candidate": "pytest_batch063b",
+      "target_candidate": "future_pytest_followup"
+    }
+  ],
+  "routing_memory_only": true,
+  "status": "PASS"
+}

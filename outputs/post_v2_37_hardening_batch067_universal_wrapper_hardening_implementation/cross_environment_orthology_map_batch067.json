@@ -1,0 +1,58 @@
+{
+  "records": [
+    {
+      "allowed_use": [
+        "routing_memory_only",
+        "preflight_probe_selection",
+        "command_translation_hint"
+      ],
+      "audit_status": "PASS",
+      "constraint_type": "environment_constraint_map",
+      "decision_time_safe": true,
+      "different_structural_features": [
+        "future tag authority not yet proven"
+      ],
+      "forbidden_use": [
+        "direct_patch_authorization",
+        "repair_success_claim",
+        "count_increment",
+        "duplicate_replay_substitute",
+        "memory_lift_claim",
+        "full_scoring_claim",
+        "self_maintaining_claim",
+        "gold_patch_substitute",
+        "future_evidence_substitute"
+      ],
+      "reopen_condition": "declared_safe_version_origin_or_runner_target_import_origin_evidence",
+      "requires_manual_review": true,
+      "shared_structural_features": [
+        "self-testing runner-target split",
+        "version-origin command boundary"
+      ],
+      "source_candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+      "source_command_manifest_hash": "597cce7d1c4b9ec92bba4a174cd628012963bf9775d58c94bda760b92f440b91",
+      "source_environment": "candidate_isolated_runtime_no_tags",
+      "source_failure_id": "pytest_version_origin_missing_tags_batch063b",
+      "source_failure_signature_hash": "8b1db9a07aa28cc169d836daa660755c84ff9ef2e14f66278e79ef6785c8dc7c",
+      "source_harness_origin_hash": "ac979e2e1a61aa170b2da01d28daa0c725e45a6e2bf05afd680db3fbf501a5c6",
+      "source_os": "windows_local_or_ubuntu_workflow",
+      "source_project": "pytest",
+      "source_provider_capsule_hash": "0591e3f28eb7bd4c62eaad380b522f1669fbf39d0180b598c9b64e38d256f611",
+      "source_python_version": "3.11",
+      "source_runner": "candidate_pytest_self_runner",
+      "target_candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+      "target_command_manifest_hash": "3503d8c41694c31599327d20e9013f656f1e9c6dab6fde11ef4ccde944340ce3",
+      "target_environment": "candidate_isolated_runtime_with_declared_tag_authority_if_proven",
+      "target_failure_id": "future_command_boundary_followup",
+      "target_failure_signature_hash": "b019d6daeb5a96bd75f60f9969235d940008f3eba8ea35f289875a5dac424b22",
+      "target_harness_origin_hash": "b60b8388457eecea7645162c490f152f51612e05be55354568e1cf58f03a0989",
+      "target_os": "future_verified_runtime",
+      "target_project": "pytest",
+      "target_provider_capsule_hash": "dc1a28823e7239deef4e0327f7b4ee14d7057d98efa930a2dcfdf20093097cf9",
+      "target_python_version": "3.11",
+      "target_runner": "runner_with_import_origin_proof_required",
+      "transfer_class": "same_project_different_environment"
+    }
+  ],
+  "status": "PASS"
+}

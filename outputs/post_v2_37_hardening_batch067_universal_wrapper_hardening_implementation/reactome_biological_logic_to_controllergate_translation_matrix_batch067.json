@@ -1,0 +1,106 @@
+{
+  "internal_design_metadata_only": true,
+  "mappings": [
+    {
+      "allowed_engineering_use": "step/output contract design",
+      "audit_requirement": "neutral public translation",
+      "controllergate_equivalent": "candidate execution path",
+      "forbidden_engineering_use": "repair proof",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome pathway",
+      "risk_if_misused": "overclaim"
+    },
+    {
+      "allowed_engineering_use": "custody indexing",
+      "audit_requirement": "hash-pinned identity",
+      "controllergate_equivalent": "stable candidate/artifact/ledger ID",
+      "forbidden_engineering_use": "count substitute",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome stable identifier",
+      "risk_if_misused": "identity drift"
+    },
+    {
+      "allowed_engineering_use": "routing-memory hint",
+      "audit_requirement": "decision-time safety",
+      "controllergate_equivalent": "cross-environment failure equivalence",
+      "forbidden_engineering_use": "patch authorization",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome species orthology",
+      "risk_if_misused": "false transfer"
+    },
+    {
+      "allowed_engineering_use": "human-readable audit summary",
+      "audit_requirement": "claim boundary",
+      "controllergate_equivalent": "terminal-state explanation",
+      "forbidden_engineering_use": "success claim",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome pathway summation",
+      "risk_if_misused": "ambiguous status"
+    },
+    {
+      "allowed_engineering_use": "artifact verification",
+      "audit_requirement": "audit pass/fail",
+      "controllergate_equivalent": "independent verifier/audit result",
+      "forbidden_engineering_use": "duplicate replay substitute",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome BioPAX validation",
+      "risk_if_misused": "missing replay"
+    },
+    {
+      "allowed_engineering_use": "manifest coverage",
+      "audit_requirement": "SHA manifest",
+      "controllergate_equivalent": "declared step outputs",
+      "forbidden_engineering_use": "unbounded output acceptance",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome generated download files",
+      "risk_if_misused": "artifact drift"
+    },
+    {
+      "allowed_engineering_use": "terminal-state closure",
+      "audit_requirement": "explicit terminal state",
+      "controllergate_equivalent": "deprecated/retired blocker registry",
+      "forbidden_engineering_use": "silent skip",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome files no longer generated",
+      "risk_if_misused": "ghost state"
+    },
+    {
+      "allowed_engineering_use": "provider materialization",
+      "audit_requirement": "provider hash",
+      "controllergate_equivalent": "provider/cofactor capsule lock",
+      "forbidden_engineering_use": "source repair proof",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome Pathway-Exchange local dependency",
+      "risk_if_misused": "provider/source conflation"
+    },
+    {
+      "allowed_engineering_use": "replay scope selection",
+      "audit_requirement": "step contract",
+      "controllergate_equivalent": "bounded authorized step registry",
+      "forbidden_engineering_use": "broad sweep",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome stepsToRun.config",
+      "risk_if_misused": "unbounded execution"
+    },
+    {
+      "allowed_engineering_use": "terminal-state routing",
+      "audit_requirement": "severity mapping",
+      "controllergate_equivalent": "warning/review-required/error classification",
+      "forbidden_engineering_use": "claim promotion",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome validation warnings/errors",
+      "risk_if_misused": "false pass"
+    },
+    {
+      "allowed_engineering_use": "preflight prioritization",
+      "audit_requirement": "routing-only audit",
+      "controllergate_equivalent": "routing-memory-only structural transfer hypotheses",
+      "forbidden_engineering_use": "patch/count/memory claim",
+      "public_language_allowed": false,
+      "reactome_concept": "Reactome inferred pathway relations",
+      "risk_if_misused": "evidence leakage"
+    }
+  ],
+  "public_claim_allowed": false,
+  "status": "PASS"
+}

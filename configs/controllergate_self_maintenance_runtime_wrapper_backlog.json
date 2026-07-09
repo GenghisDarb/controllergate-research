@@ -1,313 +1,281 @@
 {
-  "batch": "Batch063b",
+  "allowed_statuses": [
+    "not_started",
+    "scaffolded",
+    "partially_working",
+    "working_for_single_candidate",
+    "working_across_multiple_candidates",
+    "validated_across_unrelated_candidates",
+    "claim_ready"
+  ],
   "items": [
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "workspace purity filter",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
-      "priority": "critical",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "scaffolded",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
-    },
-    {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
-      "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
-      ],
-      "item": "candidate-isolated runtime",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
-      "priority": "critical",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "scaffolded",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
-    },
-    {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
-      "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
-      ],
-      "item": "command translation layer",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
-      "priority": "critical",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "scaffolded",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
-    },
-    {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
-      "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
-      ],
-      "item": "provider/runtime capsule step contracts",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "workspace purity filter",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "non-circular harness origin",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
-      "priority": "critical",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "scaffolded",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
-    },
-    {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
-      "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
-      ],
-      "item": "runner-target import-origin audit",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "candidate-isolated runtime",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "AST topology extrusion",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "command translation layer",
+      "next_batch_candidate": "batch063c_pytest_command_boundary_followup",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "AMDS full bug-tree closure",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "provider/runtime capsule step contracts",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "cross-family homology ledger",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "non-circular harness origin",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "confidence abstention watchdog",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "runner-target import-origin audit",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "terminal-state registry",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "safe Git tag/version-origin policy",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "scaffolded",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "baseline registry snapshot",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "AST topology extrusion",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "scaffolded"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "proof-ledger fork-point",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "AMDS full bug-tree closure",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "scaffolded"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "public summary guard",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "cross-family homology ledger",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "scaffolded",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "repo topology cleanup",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "confidence abstention watchdog",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "shared artifact custody utility",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
-      "priority": "critical",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
-    },
-    {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
-      "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
-      ],
-      "item": "shared count-gate utility",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
-      "priority": "critical",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
-    },
-    {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
-      "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
-      ],
-      "item": "shared provider capsule utility",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "terminal-state registry",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "shared command translation utility",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "baseline registry snapshot",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "scaffolded"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "shared AMDS schema utility",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "proof-ledger fork-point",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "self-maintaining claim criteria",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "public summary guard",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
     },
     {
-      "blocked_by": "requires explicit repo-hygiene/refactor authorization",
-      "blocker_if_ignored": "wrapper_law_backlog_item_missing_audit_enforcement",
+      "blocked_by": [],
       "evidence_files": [
-        "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/batch063b_final_decision.json"
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
       ],
-      "item": "memory-lift baseline plan",
-      "minimum_audit_required_in_current_batch": "backlog_item_has_status_evidence_and_named_next_batch",
-      "next_batch_candidate": "batch067_universal_wrapper_hardening_implementation",
+      "name": "repo topology cleanup",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
       "priority": "high",
-      "risk_if_unfixed": "repeated batch-local gate logic and command-boundary ambiguity",
-      "status": "not_started",
-      "why_not_now": "Batch063b is a no-patch/no-refactor proof-boundary batch"
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "scaffolded"
+    },
+    {
+      "blocked_by": [],
+      "evidence_files": [
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
+      ],
+      "name": "shared artifact custody utility",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
+      "priority": "high",
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
+    },
+    {
+      "blocked_by": [],
+      "evidence_files": [
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
+      ],
+      "name": "shared count-gate utility",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
+      "priority": "high",
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "scaffolded"
+    },
+    {
+      "blocked_by": [],
+      "evidence_files": [
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
+      ],
+      "name": "shared provider capsule utility",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
+      "priority": "high",
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "scaffolded"
+    },
+    {
+      "blocked_by": [],
+      "evidence_files": [
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
+      ],
+      "name": "shared command translation utility",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
+      "priority": "high",
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
+    },
+    {
+      "blocked_by": [],
+      "evidence_files": [
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
+      ],
+      "name": "shared terminal-state utility",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
+      "priority": "high",
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "partially_working"
+    },
+    {
+      "blocked_by": [],
+      "evidence_files": [
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
+      ],
+      "name": "shared AMDS schema utility",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
+      "priority": "high",
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "scaffolded"
+    },
+    {
+      "blocked_by": [
+        "more counted repairs",
+        "prospective memory evidence",
+        "autonomous acquisition proof"
+      ],
+      "evidence_files": [
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
+      ],
+      "name": "self-maintaining claim criteria",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
+      "priority": "high",
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "scaffolded"
+    },
+    {
+      "blocked_by": [],
+      "evidence_files": [
+        "outputs/post_v2_37_hardening_batch067_universal_wrapper_hardening_implementation/batch067_final_decision.json"
+      ],
+      "name": "memory-lift baseline plan",
+      "next_batch_candidate": "batch067_continuation_or_batch068",
+      "priority": "high",
+      "risk_if_unfixed": "future lanes may improvise provider, command, or terminal-state handling",
+      "status": "scaffolded"
     }
   ],
   "status": "PASS"

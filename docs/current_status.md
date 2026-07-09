@@ -1,5 +1,37 @@
 # Current status
 
+## Batch067 Universal Wrapper Hardening Implementation
+
+Batch067 adds reusable wrapper and failure-translation infrastructure. These controls improve candidate intake, environment classification, command-boundary handling, and terminal-state routing. They are engineering controls, not repair proof.
+
+Batch067 status:
+
+- Artifact custody module: `working_reusable_batch067`.
+- Step contract module: `working_reusable_batch067`.
+- Workspace purity module: `working_reusable_batch067`.
+- Command translation module: `working_reusable_batch067`.
+- Harness origin module: `working_reusable_batch067`.
+- Version-origin module: `working_reusable_batch067`.
+- Runner-target module: `working_reusable_batch067`.
+- Terminal-state module: `working_reusable_batch067`.
+- Safe-abstention module: `working_reusable_batch067`.
+- Source-topology module: `working_reusable_batch067`.
+- Proof-ledger fork-point module: `working_reusable_batch067`.
+- Public summary guard: `PASS`.
+- Cross-environment equivalence layer: `working_reusable_batch067`.
+- Candidate seed classification gate: `working_reusable_batch067`.
+- Failure translation layer: `working_reusable_batch067`.
+- Source approval gate: `working_reusable_batch067`.
+- Probe-to-candidate promotion policy: active and routing-only until promoted.
+- Issue-derived repair count remains `4`.
+- Native external repair count remains `4`.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift remains `not_demonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Next allowed action: `batch063c_pytest_command_boundary_followup`.
+
+Batch067 did not generate or apply a patch, did not run duplicate clean replay, did not run a count gate, and did not increment any repair count.
+
 ## Batch063b Pytest provider/runtime recovery follow-up
 
 Batch063b is the latest Pytest command-boundary and wrapper-hardening boundary. It officially ingests Batch066, keeps repair counts unchanged, creates a fresh candidate-isolated Pytest workspace, and verifies that provider/runtime setup alone does not authorize a repair.
@@ -543,7 +575,7 @@ Batch060c candidate classifications:
 
 - Batch056d official ingest status: `PASS`.
 - Provider Materialization Capsule standard: `implemented_future_only`.
-- Reactome release-download-directory is recorded only as an infrastructure pattern, not as a repair seed or repair evidence.
+- Reference release-output-directory is recorded only as an infrastructure pattern, not as a repair seed or repair evidence.
 - Timeout candidates decomposed: `codex_wave2_nousresearch_hermes_agent_48986, codex_wave2_nousresearch_hermes_agent_60243, codex_wave2_nousresearch_hermes_agent_57197, codex_wave2_m0smith_genia_2026_518`.
 - Timeout split replay candidates: `codex_wave2_nousresearch_hermes_agent_48986, codex_wave2_nousresearch_hermes_agent_60243, codex_wave2_nousresearch_hermes_agent_57197, codex_wave2_m0smith_genia_2026_518`.
 - Provider capsule replay candidates: `none`.
@@ -556,7 +588,7 @@ Batch060c candidate classifications:
 
 - Batch056e official ingest: `PASS`.
 - Timeout split replay standard: `PASS`.
-- Reactome step-gating pattern: `infrastructure_pattern_only`.
+- Reference step-gating pattern: `infrastructure_pattern_only`.
 - Timeout candidates processed: `4`.
 - Target-code failure materialization count: `0`.
 - Provider/network/model blocked count: `3`.
@@ -571,7 +603,7 @@ Batch060c candidate classifications:
 
 - Batch056f official ingest: `PASS`.
 - Wave 2 timeout/provider paths remain closed without target-code failure materialization.
-- Reactome/provider-capsule lesson carried forward as infrastructure pattern only.
+- Reference provider-capsule lesson carried forward as infrastructure pattern only.
 - Wave 3 leads screened: `37`.
 - Codex-augmented leads count: `30`.
 - Commit-resolved candidates: `37`.

@@ -1,5 +1,7 @@
-# ControllerGate public readiness plan
+# ControllerGate Public Readiness Plan
 
-ControllerGate remains a research archive, not a technical validation release.
+Batch067 adds reusable wrapper and failure-translation infrastructure. These controls improve candidate intake, environment classification, command-boundary handling, and terminal-state routing. They are engineering controls, not repair proof.
 
-Public-facing status must keep repair counts, replay gates, command-boundary status, and claim boundaries synchronized with committed evidence. Workflow success, provider/runtime setup, command-boundary normalization, and pre-repair replay are not repair success.
+The repository remains a pre-alpha research archive. Batch067 improves public-safe status reporting and blocks overclaims, but it does not make the project release-ready.
+
+Full scoring remains `NOT_RUN/disallowed`. Memory lift remains `not_demonstrated`. Self-maintaining software remains `false/not_demonstrated`.
