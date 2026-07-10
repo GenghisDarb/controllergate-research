@@ -1,0 +1,47 @@
+{
+  "manual_waiting": {
+    "records": [
+      {
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+        "future_batch_can_consume": "batch069c_manual_artifact_command_replay_followup",
+        "reopen_condition": "verified_native_target_command_artifact",
+        "required_artifact": "verified_candidate_era_native_command_artifact",
+        "waiting_state": "manual_artifact_pending"
+      },
+      {
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+        "future_batch_can_consume": "batch069c_manual_artifact_command_replay_followup",
+        "reopen_condition": "verified_native_target_command_artifact",
+        "required_artifact": "verified_candidate_era_native_command_artifact",
+        "waiting_state": "manual_artifact_pending"
+      },
+      {
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_biface_i18n_issues_86",
+        "future_batch_can_consume": "batch069c_manual_artifact_command_replay_followup",
+        "reopen_condition": "verified_native_target_command_artifact",
+        "required_artifact": "verified_candidate_era_native_command_artifact",
+        "waiting_state": "manual_artifact_pending"
+      }
+    ],
+    "status": "PASS",
+    "waiting_candidate_count": 3
+  },
+  "runtime_waiting": {
+    "records": [
+      {
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+        "future_batch_can_consume": "batch068c_runtime_connector_readiness_buildout",
+        "reopen_condition": "approved_aws_neuron_nki_runtime_connector",
+        "required_connector": "aws_neuron_or_nki_runtime_connector",
+        "waiting_state": "runtime_connector_pending"
+      }
+    ],
+    "status": "PASS",
+    "waiting_candidate_count": 1
+  },
+  "status": "PASS"
+}

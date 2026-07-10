@@ -1,0 +1,52 @@
+{
+  "maintenance_order_violation_count": 0,
+  "patch_license_without_prior_gates_allowed": false,
+  "status": "PASS",
+  "steps": [
+    {
+      "audit_status": "PASS",
+      "order": 1,
+      "step": "artifact/source identity custody"
+    },
+    {
+      "audit_status": "PASS",
+      "order": 2,
+      "step": "candidate seed licensing"
+    },
+    {
+      "audit_status": "PASS",
+      "order": 3,
+      "step": "environment/provider boundary classification"
+    },
+    {
+      "audit_status": "PASS",
+      "order": 4,
+      "step": "command/harness origin classification"
+    },
+    {
+      "audit_status": "PASS",
+      "order": 5,
+      "step": "pre-repair materialization gate"
+    },
+    {
+      "audit_status": "PASS",
+      "order": 6,
+      "step": "source-topology and elbow-readiness assessment"
+    },
+    {
+      "audit_status": "PASS",
+      "order": 7,
+      "step": "patch-license gate"
+    },
+    {
+      "audit_status": "PASS",
+      "order": 8,
+      "step": "duplicate replay / count-gate path if a valid patch later exists"
+    },
+    {
+      "audit_status": "PASS",
+      "order": 9,
+      "step": "failed-branch closure or terminal/parked state with reopen condition"
+    }
+  ]
+}

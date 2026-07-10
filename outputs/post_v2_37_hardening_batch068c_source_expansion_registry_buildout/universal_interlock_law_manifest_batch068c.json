@@ -1,0 +1,838 @@
+{
+  "batch068b_audit_status": "PASS",
+  "batch068c_audit_status": "PASS",
+  "preserved_from_batch068b": "universal_interlock_law_manifest_batch068b.json",
+  "preserved_from_batch069b": "universal_interlock_law_manifest_batch069b.json",
+  "records": [
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "artifact_custody",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "artifact_custody_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "source_approval",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "source_approval_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "candidate_seed_classification",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "candidate_seed_classification_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "seed_readiness",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "seed_readiness_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "workspace_purity",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "workspace_purity_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "candidate_isolated_runtime",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "candidate_isolated_runtime_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "provider_capsule",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "provider_capsule_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "command_translation",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "command_translation_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "harness_origin",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "harness_origin_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "version_origin",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "version_origin_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "runner_target_split",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "runner_target_split_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "cross_environment_orthology",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "cross_environment_orthology_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "ast_topology",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "ast_topology_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "elbow_topology_authorization",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "elbow_topology_authorization_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "cognitive_state_prompt_lock",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "cognitive_state_prompt_lock_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "reward_signal",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "reward_signal_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "baseline_drift_precheck",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "baseline_drift_precheck_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "failed_branch_closure",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "failed_branch_closure_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "step_to_output_contract",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "step_to_output_contract_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "public_summary_guard",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "public_summary_guard_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "duplicate_clean_replay",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "duplicate_clean_replay_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "count_gate",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "count_gate_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    },
+    {
+      "allowed_next_states": [
+        "probe",
+        "manual_artifact_request",
+        "terminal_closure",
+        "not_run_with_reason"
+      ],
+      "audit_script": "scripts/audit_batch069b_recoverable_provider_command_followup.py",
+      "forbidden_next_states": [
+        "patch_generation_without_interlocks",
+        "duplicate_replay_without_target_pass",
+        "count_gate_without_duplicate_replay",
+        "full_scoring",
+        "memory_lift_claim"
+      ],
+      "interlock_id": "terminal_parked_reopen_registry",
+      "memory_policy": "routing_memory_only_until_valid_source_patch_replay",
+      "public_summary_boundary": "wrapper_readiness_not_repair_proof",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence",
+        "manual_artifact_verified"
+      ],
+      "repair_count_policy": "no_count_without_source_only_target_pass_duplicate_replay_and_count_gate",
+      "required_inputs": [
+        "candidate_id",
+        "decision_time_safe_evidence",
+        "hash_manifest"
+      ],
+      "required_outputs": [
+        "terminal_parked_reopen_registry_record"
+      ],
+      "terminal_states": [
+        "blocked_with_exact_reason",
+        "terminal_with_exact_reason"
+      ]
+    }
+  ],
+  "schema_version": "controllergate.universal_interlock_law.v1",
+  "status": "PASS"
+}

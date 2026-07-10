@@ -1,0 +1,104 @@
+{
+  "records": [
+    {
+      "allowed_use": "routing",
+      "audit_condition": "exists",
+      "controllergate_equivalent": "environment/provider family config",
+      "forbidden_use": "patch authority",
+      "reactome_concept": "species config",
+      "required_artifact": "environment_orthology_matrix",
+      "risk_if_missing": "environment mapping drift"
+    },
+    {
+      "allowed_use": "deduplication",
+      "audit_condition": "no duplicate active IDs",
+      "controllergate_equivalent": "stable candidate ID / proof obligation ID",
+      "forbidden_use": "repair proof",
+      "reactome_concept": "stable identifier",
+      "required_artifact": "stable_candidate_identity_map",
+      "risk_if_missing": "duplicate seed drift"
+    },
+    {
+      "allowed_use": "deduplication",
+      "audit_condition": "alias status present",
+      "controllergate_equivalent": "candidate alias / duplicate discovery map",
+      "forbidden_use": "count evidence",
+      "reactome_concept": "old stable ID mapping",
+      "required_artifact": "stable_candidate_identity_map",
+      "risk_if_missing": "double counting"
+    },
+    {
+      "allowed_use": "summary",
+      "audit_condition": "public language audit",
+      "controllergate_equivalent": "candidate readiness summary",
+      "forbidden_use": "repair proof",
+      "reactome_concept": "pathway summation",
+      "required_artifact": "batch068c_summary",
+      "risk_if_missing": "unclear readiness"
+    },
+    {
+      "allowed_use": "audit",
+      "audit_condition": "PASS",
+      "controllergate_equivalent": "independent output verifier",
+      "forbidden_use": "patch authority",
+      "reactome_concept": "validator",
+      "required_artifact": "audit script",
+      "risk_if_missing": "silent output loss"
+    },
+    {
+      "allowed_use": "routing",
+      "audit_condition": "top candidate views exist",
+      "controllergate_equivalent": "multi-candidate family projection",
+      "forbidden_use": "memory-lift evidence",
+      "reactome_concept": "multi-view export",
+      "required_artifact": "multi_view_projection_matrix",
+      "risk_if_missing": "single-view overranking"
+    },
+    {
+      "allowed_use": "custody",
+      "audit_condition": "source recorded",
+      "controllergate_equivalent": "source/contact role annotation",
+      "forbidden_use": "gold/future access",
+      "reactome_concept": "source role annotation",
+      "required_artifact": "source_expansion_inventory",
+      "risk_if_missing": "source ambiguity"
+    },
+    {
+      "allowed_use": "gate order",
+      "audit_condition": "required outputs declared",
+      "controllergate_equivalent": "authorized candidate substage registry",
+      "forbidden_use": "skip gates",
+      "reactome_concept": "authorized steps",
+      "required_artifact": "output_contract",
+      "risk_if_missing": "silent gate skip"
+    },
+    {
+      "allowed_use": "blocking clarity",
+      "audit_condition": "not-run reason present",
+      "controllergate_equivalent": "skipped/deprecated/not-run-with-reason states",
+      "forbidden_use": "failure hiding",
+      "reactome_concept": "not-run states",
+      "required_artifact": "validator ledger",
+      "risk_if_missing": "ambiguous block"
+    },
+    {
+      "allowed_use": "environment planning",
+      "audit_condition": "connector gate present",
+      "controllergate_equivalent": "provider/cofactor capsule",
+      "forbidden_use": "patch authority",
+      "reactome_concept": "provider dependency",
+      "required_artifact": "environment matrix",
+      "risk_if_missing": "environment overclaim"
+    },
+    {
+      "allowed_use": "drift detection",
+      "audit_condition": "changed states explained",
+      "controllergate_equivalent": "prior-batch continuity check",
+      "forbidden_use": "repair proof",
+      "reactome_concept": "prior release comparison",
+      "required_artifact": "prior_batch_continuity",
+      "risk_if_missing": "state drift"
+    }
+  ],
+  "status": "PASS"
+}
