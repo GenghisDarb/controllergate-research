@@ -1,0 +1,112 @@
+Batch063d tag authority discovery transcript
+{
+  "git_cat_file": {
+    "command": [
+      "git",
+      "cat-file",
+      "-t",
+      "FETCH_HEAD"
+    ],
+    "command_string": "git cat-file -t FETCH_HEAD",
+    "completed_at": "2026-07-10T01:52:31Z",
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063d\\pytest_candidate_graph",
+    "returncode": 0,
+    "started_at": "2026-07-10T01:52:31Z",
+    "stderr": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "commit\n",
+    "stdout_sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8",
+    "timed_out": false
+  },
+  "git_fetch_candidate_blobless_no_tags": {
+    "command": [
+      "git",
+      "fetch",
+      "--filter=blob:none",
+      "--no-tags",
+      "origin",
+      "041aacad506b6c6891f2898f2bd378e0896e8b86"
+    ],
+    "command_string": "git fetch --filter=blob:none --no-tags origin 041aacad506b6c6891f2898f2bd378e0896e8b86",
+    "completed_at": "2026-07-10T01:52:31Z",
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063d\\pytest_candidate_graph",
+    "returncode": 0,
+    "started_at": "2026-07-10T01:52:27Z",
+    "stderr": "From https://github.com/pytest-dev/pytest\n * branch                041aacad506b6c6891f2898f2bd378e0896e8b86 -> FETCH_HEAD\n",
+    "stderr_sha256": "a778667aaa67f9f302297c7ba234a1287419a08773d7f1255788a642701b60f0",
+    "stdout": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "timed_out": false
+  },
+  "git_init": {
+    "command": [
+      "git",
+      "init",
+      "-q"
+    ],
+    "command_string": "git init -q",
+    "completed_at": "2026-07-10T01:52:27Z",
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063d\\pytest_candidate_graph",
+    "returncode": 0,
+    "started_at": "2026-07-10T01:52:27Z",
+    "stderr": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "timed_out": false
+  },
+  "git_ls_remote_tags": {
+    "command": [
+      "git",
+      "ls-remote",
+      "--tags",
+      "https://github.com/pytest-dev/pytest.git"
+    ],
+    "command_string": "git ls-remote --tags https://github.com/pytest-dev/pytest.git",
+    "completed_at": "2026-07-10T01:52:32Z",
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063d",
+    "returncode": 0,
+    "started_at": "2026-07-10T01:52:31Z",
+    "stderr": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "a94afc6b5efa730fbd647d75f1e00d7debe656b7\trefs/tags/1.0.0\n53dc59511391a8a7d4cf2f9a3ce0b0fb8adc31df\trefs/tags/1.0.0b3\n7cb096373bc2a3312ed4c1ebdfde1a0d35a7dbb8\trefs/tags/1.0.0b6\n7fabb3df69fa06f57b2b0c4eb2ec5ef7325b396c\trefs/tags/1.0.0b8\ne80714d7017e74c41c0a6195518a3d0c760e5cd4\trefs/tags/1.0.0b9\n4f50ae13364037f581c417d9acbb56b1a30f69b4\trefs/tags/1.0.1\nf522838c77470b0f7d8bcdc7ed6b4e3f0407e422\trefs/tags/1.0.2\ne0bca8fe519e143ab320c4567fe5de9dad8cf6e8\trefs/tags/1.1.0\n9d5b313aad3f5610356385aa6b7f007362abc3c0\trefs/tags/1.1.1\n6756416d694ed4aa25cd7298419feaffce584eef\trefs/tags/1.2.0\n222a08ec03e1ea3879d4f96c6fe02a8fdec2f3b9\trefs/tags/1.2.1\na127767da68a8f4fbee251fa9cbff657cfb5744e\trefs/tags/1.3.0\n2e36e2619fbe564b37a6657d4370b01e6805c8cd\trefs/tags/1.3.1\ncaf5bdbf8935f108fa0078aabedd7bed46a76ee5\trefs/tags/1.3.2\n365459295967b317b1c3765b2692ed29c3d10d95\trefs/tags/1.3.3\nbb6e9848b3a8770b199a085d3341d498bd7b50d1\trefs/tags/1.3.4\nf741d6a01ee5441e957b577abf6b7b712fdb1250\trefs/tags/2.0.0\n98cd8edb7197309ab54d24d6d4e1ac4079071a63\trefs/tags/2.0.1\n527bc472a8b1a68705bc6f38efd2914a16ea2ab3\trefs/tags/2.0.2\n07e870dc1494b923b6f6588330598164c391612e\trefs/tags/2.0.3\n50c8218501f84ed3863d805a77b027e4c9351dc2\trefs/tags/2.1.0\n172d46abd07e422bf3eb812c6b7048f150be1438\trefs/tags/2.1.2\n448f1c0d9ccabfe5b63af81117cdb1b8a11bd750\trefs/tags/2.1.3\n48e6823c7a552e5f1c53771b0ae826ac14b26683\trefs/tags/2.2.0\nb83a3bcc80c85513b875866416306228a6a0e057\trefs/tags/2.2.1\n87b4cb283ffa559cab6bcd1d86d6a9f61fb5ac0b\trefs/tags/2.2.2\n4d21274a29f89c925922c5535166046e40c5a5b7\trefs/tags/2.2.3\n69fc6987adae78966a983eeecb8b7661d908cb48\trefs/tags/2.2.4\na5ce481022ed55c13edf043c4d7f65713cd1c607\trefs/tags/2.3.0\nd4d213f83dca2d99fe29722ae32c94fd46f4fdaa\trefs/tags/2.3.1\n6ad16936bbdcdf18a933f7a44d8438176d39ab6f\trefs/tags/2.3.2\nd6f10d502cab1e488d212ae2f0eed98e6f447741\trefs/tags/2.3.3\nb5955c59793b924a14e3ab185f38d690cef32fb3\trefs/tags/2.3.4\n8c7ae7f7a5beb922443a73c9946f459ebd1cda52\trefs/tags/2.3.5\nf9927e457b2f3f4a010287dcdecc180d66753c9b\trefs/tags/2.4.0\n2b8f4214c30e20c6cddcf81069ef928b1e975e1a\trefs/tags/2.4.1\n4b395d56cc9e706fe9f9e9478626e6f38a02d8ce\trefs/tags/2.4.2\na056b41070b453da78a8eebeed83f7de18249e19\trefs/tags/2.5.0\ncc9b3ec296567a25721040549ef69352cc4b8e33\trefs/tags/2.5.1\n1830de2c136fb4cb6b07d53bec7fefa065bd8c2f\trefs/tags/2.5.2\n52011e84d37921679fd8c9d7dfc468ad81dd6f72\trefs/tags/2.6.0\ne5eaf02e19116192693f563b41878cf89ad218ed\trefs/tags/2.6.1\n7dad3cb1577faa1e3f85d7acedf2261ea02aeaf4\trefs/tags/2.6.2\nb57545bd21ff6bf30651de1146b8a355a1486c54\trefs/tags/2.6.3\n60cdb875ed17f1e6ca0b189a4bc2cb12de5835f4\trefs/tags/2.6.4\nd2a8866bced48411be883fb0fce4f2f7cabe71ec\trefs/tags/2.7.0\n738c8762df3f2e754c252bb73175989f1e0b1443\trefs/tags/2.7.1\ne84c00efae4fc8841cf5974c0fa68fc043e50a22\trefs/tags/2.7.2\n4600c3c1bd39176f76652a54b99d56aa5d5d4389\trefs/tags/2.7.3\nb4c47c0ac0699da6c604231f07369e527f1d33cd\trefs/tags/2.7.3^{}\n1aca998f3f75a533888db079bb05dd646957e149\trefs/tags/2.8.0\nafdbb6b17aa6811f30bf2c99d4083e69bf582b3c\trefs/tags/2.8.1\n7c529e0afe7e8d4f5b3c7d9bfcecf5be0c56f2d5\trefs/tags/2.8.2\ne4a000bb001d859a1224837e9938036f76917fe4\trefs/tags/2.8.3\n8c17c7cd121fc4a435beb6b42d07b4a6fd855913\trefs/tags/2.8.4\n855b115daba16bfe9c9da29198c567921c405b93\trefs/tags/2.8.5\n82d00efa8dd4ef903f0eca2bd02fa1aab9ddbb96\trefs/tags/2.8.6\n3315b3a12fdd9ef8e05d4efb6d6bea52aa750668\trefs/tags/2.8.7\n19d05814d2e6d662b36bf07fc10ad5dbd7de6052\trefs/tags/2.9.0\n168daaa71f4cc5f846064ebebab41b9cf625a89a\trefs/tags/2.9.1\n978bb190a14d04634dffa1018dce2a5ead404efa\trefs/tags/2.9.2\nc74ce371ab923edb990f40cf21f4309e1b4871ad\trefs/tags/3.0.0\n49fc4e5e4c74c2b9914bd81856b2d62cb1473d28\trefs/tags/3.0.1\n4e58c9a7d010be4b9f67f89495d1e7c2ae9062d0\trefs/tags/3.0.2\nba6ecc14c80b6b8a045143bada89598f1f3f8c9c\trefs/tags/3.0.3\nab274299fee959e64a4a749806e1124eb5d2f29b\trefs/tags/3.0.4\nf592c7746a53999f52df46db764b31d9fbb987f9\trefs/tags/3.0.5\n0e64cd045c8477cc81014490ed5e38e5b690a1ea\trefs/tags/3.0.6\n90c934e25ed378bd517da9039dfed65c1ea570ba\trefs/tags/3.0.7\n9b48613baa9ee1ab4e1e233bfe956de03e89b23e\trefs/tags/3.1.0\n2fd7626046f55e4c1c8d64990c47fe92a00729fb\trefs/tags/3.1.1\n7cbf265bb5b279d8c39ba6dd85d4ef96aacd0163\trefs/tags/3.1.2\nb63f6770a17a122850ddc7902e16ce0c2f6af1ea\trefs/tags/3.1.3\n3d88d1827b42b7f7b0e774d19ac58f02e5c67d0a\trefs/tags/3.10.0\n2626bd9afa714c9ae1f50b99f7d0d18e7cf29d27\trefs/tags/3.10.1\nd2bca93109a7c85f316e493c5c31ee2322578980\trefs/tags/3.2.0\n45d2962e97eae33ea71adee74911952c730bc039\trefs/tags/3.2.1\nc52f87ede304f42cb9e8c79e461ccde8a55ea5f8\trefs/tags/3.2.2\n6b91bc88de36e3c75da5ab1b7480cbe067eed57b\trefs/tags/3.2.3\na0ad9e31da70606916dd22ff4fd9bd64269f5eec\trefs/tags/3.2.4\na220a40350a8a81c0f0e1986aa184e4c33da29d6\trefs/tags/3.2.5\n6cdd85122705393cfcfe08570bae581bf9f2d157\trefs/tags/3.3.0\n2a111ff700f295d9b27fb1a43219e08df62fc0bd\trefs/tags/3.3.1\nbd2d0d2c3c9bf92711e5a858e93e46d390dd4229\trefs/tags/3.3.2\n527845ef298d94b1e101684bb52e5eac3ce53485\trefs/tags/3.4.0\nb3193755927d38816e25777d9ac6776637d82bbf\trefs/tags/3.4.1\ne8368e6c2ea101a79b877509622878ab7b12d1bd\trefs/tags/3.4.2\nbeacecf29ba0b99511a4e5ae9b96ff2b0c42c775\trefs/tags/3.5.0\n4a92011e6e0cf57ed219897afca33b4cb541dac7\trefs/tags/3.5.1\n45e77031336b11a64756d745b1aba46301b32f27\trefs/tags/3.6.0\n2a79f58ba39a42d0484d688c7c1541513758e61f\trefs/tags/3.6.1\n46aa18dfa7c46e70ae5c204667f3590181abe25f\trefs/tags/3.6.2\n73d787df3a13af635d18464a6560984e78c0b4da\trefs/tags/3.6.3\n317cd41215cc4e6e829f86afdacf0dc15bb43e36\trefs/tags/3.6.4\n997ef593068a36c283cbb83d938272b9770caa36\trefs/tags/3.7.0\nf7a3f45a182ed8b4dabb130d2b46d717b006edeb\trefs/tags/3.7.1\ne0b088b52ea2c9ad9748acbed62dccfd20eccf42\trefs/tags/3.7.2\n70bdacf01aa0917d4499c1aff4f9f2061968a655\trefs/tags/3.7.3\naea962dc21c4a1c4b3236500af69d7e78c60f8d5\trefs/tags/3.7.4\n1f2062661826efb5ac4322c17e24db202bf0a147\trefs/tags/3.8.0\n3f6a46c2a47bc29993d07d47139ef101f7aa630f\trefs/tags/3.8.1\nd3673c7429f00ac7dfa91180194d43fe9dd99b5c\trefs/tags/3.8.2\n2868c314953e3a2cf2c753ebb87710d65c906cfa\trefs/tags/3.9.0\nc5bbf8ac73a78fd15016296e808d13f2a2a983f1\trefs/tags/3.9.1\n771e860011c24f5582d31ebf0631d38bee60c770\trefs/tags/3.9.2\n96784c2052ba5d36a8c3deaf039c9ab406b12cca\trefs/tags/3.9.3\nc2d6b3524cc0039e152da52fe21eb375e63704cf\trefs/tags/4.0.0\nbe3b8fc9c1417243b9567bd31992c0c42f0bf898\trefs/tags/4.0.1\n6c5a1150d46f0392e84d6c9f28ace48d5199ca22\trefs/tags/4.0.2\ne24031fb3627ae6c187ea476c99a5f6d90e876f6\trefs/tags/4.1.0\n34eeda1c09074ade61944bb5b8af326c18157a0b\trefs/tags/4.1.1\nfa979a4290cdd6ba089091bf898ea65ff1bc2a65\trefs/tags/4.2.0\n82cc3d8cc209b05edecbab8ffc8bf7565e862ce7\trefs/tags/4.2.1\nff015f630851927a39899b35b175a39945dd6c74\trefs/tags/4.3.0\n492cc4219ca00fff2ba9823dc704a2f4aa9d4a1e\trefs/tags/4.3.1\n4621638f0703620ccab416a9b1724746da402463\trefs/tags/4.4.0\n006dc30476b7ed5924f8f7e8bb97de06a9b573e6\trefs/tags/4.4.1\n3ac43314eeb3285b3680c8e481a5067b3115c46a\trefs/tags/4.4.2\n63fe547d9f97a78c63a91e139d3a17c15afe7e84\trefs/tags/4.5.0\ne7cd00ac920f3db2855becd75193d2241b84e56d\trefs/tags/4.6.0\nabb853f482e5fa37b2f18f22662d33e52117e696\trefs/tags/4.6.1\n180f93158e380fd570340b39ae5aafc066e07ff8\trefs/tags/4.6.10\n2262734edfce27bed7839c93a9f7c42ace056a70\trefs/tags/4.6.11\n70f0b77c729d689d79498bcb525a8ec6d5464dd0\trefs/tags/4.6.2\nb8e65d03bf563d5de3a285af187fd00a2f202e5e\trefs/tags/4.6.3\nd3549df5b94137453b832345a9b8074f518731b0\trefs/tags/4.6.4\n7807c263bcbb98ba91b50cb2b0dcdf55c49f80e6\trefs/tags/4.6.5\n5b499bafb24ee0347b1dc25f3f670602818e18a7\trefs/tags/4.6.6\n6f43eee106937b49bfa8e1f28a5a1aac091aa837\trefs/tags/4.6.7\n2d398d870604b4d2f95b4a0157b97553008e762a\trefs/tags/4.6.8\nf6a5578d5cc780887d98a18beb5a922ccd9c27d3\trefs/tags/4.6.9\n58bfc7736fc4f88eca669157822e00715c67a9bf\trefs/tags/5.0.0\nbb29f31d2278fc93efba7ef3e123616c13ce8022\trefs/tags/5.0.1\neaf7ce9a992cea7506553b7d77fdf9622900ae36\trefs/tags/5.1.0\nb135f5af8d9b3a2a3904a55ec51b55db737c97d1\trefs/tags/5.1.1\ne56544cb587e8f288bea12aff01355b31aec92f7\trefs/tags/5.1.2\n1a9f4a51cb2a3c3b1d8e3bd5189552a24a85f5f4\trefs/tags/5.1.3\n068ef90b92a9e9205af31cb3d82e7d2a433ff969\trefs/tags/5.2.0\n12cc729f6b50abbd3708dfc64e76ff454852b805\trefs/tags/5.2.1\nb27ba977219260528f4e47c9614c129d680dee90\trefs/tags/5.2.2\ndd9a27cf543c39f91039ecd7aa6aa595b3e79330\trefs/tags/5.2.3\nc9a96cdee8ee7c1a9ead49b355fab9aef73196fe\trefs/tags/5.2.4\nbe59827216612fd416818702be7e2b8448f4089d\trefs/tags/5.3.0\n05008f6b557ad35b71efd9e9ebca96c07402d793\trefs/tags/5.3.1\n7f24cc2feb87af41e95d2c0aee59fc81a44dbea8\trefs/tags/5.3.2\n544b4a14d5f6dbe141c34878d1a360cc6b15c87f\trefs/tags/5.3.3\n6a26ac41255a304eb3eec2da565101caf2112394\trefs/tags/5.3.4\nfd1a51a23fa687cf344f3506dff6cde0166faf2c\trefs/tags/5.3.5\nc9fd1bdbd6d25917d33b27511d8ebc2a65538899\trefs/tags/5.4.0\n3d0f3baa2bb89257dfff25ae6ebabd565287240e\trefs/tags/5.4.1\nf838c7b7eb0088a5cf6c247f158d455b15d0ccd6\trefs/tags/5.4.2\nb322004047774f4b0992bfc8b9b1123069a6d0f1\trefs/tags/5.4.3\n41a453959441d9b03cba3e47730efca27fa2f252\trefs/tags/6.0.0\nb22d4663450acd96dfaddd187f6f8c454bcc9fed\trefs/tags/6.0.0rc1\n92af2e22d276d6f9b6aca4435ec19af81ffaea49\trefs/tags/6.0.1\ne6452b577412f2dcd93b2362a28b318f3384ed22\trefs/tags/6.0.2\n09b1d7cc997200dca5adb3e62e593c312d6864d3\trefs/tags/6.0.2^{}\n868bc003ecb0af65548c14de997205cc0e37c3c6\trefs/tags/6.1.0\n0ad20b533ffc52ced7bb1a03fba664615e90c093\trefs/tags/6.1.1\n4e8b50ba01f0d8a6a2abb98440d3421a037eddb7\trefs/tags/6.1.2\ne7073afe6e2373175130511135020af8b4e3a670\trefs/tags/6.2.0\ne0ea00a70d888d81fe57059a6ca8e54fe2dbda3a\trefs/tags/6.2.0.dev0\nd3971c30f4d0f1890a372af3b98de41ee555dcb3\trefs/tags/6.2.1\nb9c98762f597f624be58d791ea7bdee6cd517967\trefs/tags/6.2.2\n3a2fd9630547e224bea6e024a4f6852761235c61\trefs/tags/6.2.3\n017dd1ccd60055bc6a7a41af11b74425da87a696\trefs/tags/6.2.4\n1569fac603d9a50022e1474b494eebf970a2a3af\trefs/tags/6.2.5\n09582048be6ec935de0114a40fb0f5e103edd793\trefs/tags/6.3.0.dev0\n3554b833c24f541af5c7272e47cfa52b89d8138d\trefs/tags/7.0.0\n2a871cd5df1f67377d86bb11ea12f65c0ca583a0\trefs/tags/7.0.0.dev0\n109312ba86a7142dfff30f3309d6f7a596f02db1\trefs/tags/7.0.0.dev0^{}\ne37fbe5685d330cbe7819c5a08d0a524df7299bf\trefs/tags/7.0.0.post1\n6e091b900876b40fbec0800633565e9bf34e479a\trefs/tags/7.0.0rc1\n3f12087fe0d86a319216653b08b66a96d400bee2\trefs/tags/7.0.1\n1dbffcc0b4d822b87ad9f90595ffab6d9beee769\trefs/tags/7.1.0\n0810aa29bcd323423b03d79d5338c3783c18e22c\trefs/tags/7.1.0.dev0\n0ad452bcbadffa2bb890c543c8b409d2df61c67d\trefs/tags/7.1.0.dev0^{}\n0ffe9e07422dfec72479a6d056154ec8b9b0dbae\trefs/tags/7.1.1\n2f2f1a601e33aa1a77de42f164ba4b642252f1c0\trefs/tags/7.1.2\n4645bcd44915c2fd6043b101626e5bf1a983ac07\trefs/tags/7.1.3\nef7da3edeceafd4e237da391001224fa7308553e\trefs/tags/7.2.0\n3af3f569d5394bb1a18426b0d57a04a094800974\trefs/tags/7.2.0^{}\nf0bf4c968195d2b17b002e866e2d0766184e02a4\trefs/tags/7.2.0.dev0\n1ae778f13ec8350e224ae6a365f21cc0d83af018\trefs/tags/7.2.1\n4191e0259805acbc499d326441c98e2b950637f1\trefs/tags/7.2.2\nef982aaf2bce28d6b27e24756a4d29377a593a1d\trefs/tags/7.3.0\ndab199281c8f969ef870d842a660e40872785bd4\trefs/tags/7.3.1\n9d47a39bdd85e6bef40a5674e5f0eded54e54d7e\trefs/tags/7.3.2\nd9bf9dbec104af1e3a2c02b04f4e1d501d5d86a2\trefs/tags/7.4.0\nec8e23951dc72ddb4a2bc273a0f5b6406f555a14\trefs/tags/7.4.0.dev0\n7855a72d2c5c810a025460f135ffdd77160bb091\trefs/tags/7.4.1\n45f34dfb8d813b00c7d8060a3ea75f7b4bc5cd7d\trefs/tags/7.4.2\n42dabba8b2a1cbe5953c64eb9cdf43ef94579c6d\trefs/tags/7.4.3\n23906106968eb95afbd61adfbc7bbb795fc9aaa9\trefs/tags/7.4.3^{}\n003e804fcf0f3097fac66bd0318b624a05e4fc67\trefs/tags/7.4.4\n33f694f4b30c5c502f21f81cb8ab907b12ad2f65\trefs/tags/7.4.4^{}\n01b4752f41763f6cce8b4efb2aa38a0c00cd1b4d\trefs/tags/8.0.0\n478f8233bca8147445f0c5129f04ada892cc6c91\trefs/tags/8.0.0^{}\n57d352460cd3c0ea38b1fc85764678fc35a264a8\trefs/tags/8.0.0.dev0\n29a6687de29c2b74785a6c0cf054de8650a15cc4\trefs/tags/8.0.0rc1\ne17d5ec871998246a87ecd3a99bbfe4e67331847\trefs/tags/8.0.0rc1^{}\n66f75ff9d9465ec6c2fb2a7b4e1a2c8ebcfc268f\trefs/tags/8.0.0rc2\n6be0a3cbf7e014834610139421a0d9804d4a3eae\trefs/tags/8.0.0rc2^{}\n009ce7d9e0cfa9b5fa391008dc8f97703d887e8d\trefs/tags/8.0.1\nd7d320a15a1f8dae909e0aa71f20ab5daeaa42d3\trefs/tags/8.0.1^{}\n6d5096aa47c1fb04fecdbdd38d6ead41505c5b70\trefs/tags/8.0.2\n31afeeb0df0e8bdab1325b5992a2cc733e981e82\trefs/tags/8.0.2^{}\ne0b4cd06a0216881a12dad17b8687e70264621e5\trefs/tags/8.1.0\nb9a167f9bbbd6eda4f0360c5bf5b7f5af50f2bc4\trefs/tags/8.1.0^{}\na53984a55b35235a21b4142822a9dd10d7e995f1\trefs/tags/8.1.0.dev0\n6d76a55d43ac325fbf7ec3dc1b5dcdb53239978d\trefs/tags/8.1.1\n81653ee385f4c62ee7e64502a7b7530096553115\trefs/tags/8.1.1^{}\n9d542fe1770e41612b4f3ee492483bb60e88d843\trefs/tags/8.1.2\ncf84163ac3549e657eed5ef2a4f4c7a5d1ffbe8c\trefs/tags/8.1.2^{}\n4f82138236d7d475677d81c35e7cbdb6aef0e1b2\trefs/tags/8.2.0\n6bd3f313447290380cbc2db30fb9ee5cca7eb941\trefs/tags/8.2.0^{}\n71849cc05c4fffe2267a6844393be3adb8248820\trefs/tags/8.2.0.dev0\n8db1993316dc1cce777bd1c88b417fefb119e85f\trefs/tags/8.2.1\n66ff8dffdf9eee9b3dd6686de34542c49ff80dcd\trefs/tags/8.2.1^{}\n16e119e9ebbc897b59f5d5e9bd74e8975fca0312\trefs/tags/8.2.2\n329d3712146e69c471be3e30883d54bdde2f76cb\trefs/tags/8.2.2^{}\n28467d74e4bbd527f6ab5644a045d31b7f1c3220\trefs/tags/8.3.0\na7d5a8eba9addd119432fa71880b51052a89812f\trefs/tags/8.3.0^{}\n9eecdc7dae706439b0a4eb0470b99c56bf2ca28f\trefs/tags/8.3.0.dev0\n45a50e303ccc165b78b66632ff4681dfef3ec48c\trefs/tags/8.3.1\nde98446075cc07c768387cf64ba497dd75c205de\trefs/tags/8.3.1^{}\nbff6f54cf622cbdc82a3672612dea297e1d67818\trefs/tags/8.3.2\nbbcec9c46509c417ef58e4849847b4aa43f4591e\trefs/tags/8.3.2^{}\nd430e325c6d8c7161ae2e468ea5045a163e4c517\trefs/tags/8.3.3\nd0f136fe64f9374f18a04562305b178fb380d1ec\trefs/tags/8.3.3^{}\n9b219dba24340a2dec4754ddb8abde57d894ddcc\trefs/tags/8.3.4\n53f8b4e634c5066c4f797a87b20060edbb086240\trefs/tags/8.3.4^{}\nfc0d5c652e9f30c85248a3f46405c34b7dd70a5d\trefs/tags/8.3.5\nb55ab2aabb68c0ce94c3903139b062d0c2790152\trefs/tags/8.3.5^{}\n3c9b9d95a3d6e8c74c59fbd82fbb1356d91aa75d\trefs/tags/8.4.0\n315b3ae798fe38264b3ab2312dced212c46f1e21\trefs/tags/8.4.0^{}\n04bac8deaf1abd49e198cfd5cb66d8001b1de1ea\trefs/tags/8.4.0.dev0\n9c1e7915ab1ac4bae9bd861b39fb1bde8b086dd8\trefs/tags/8.4.1\n8d99211f0ce3927eb7ee579f7b4f969da06dc787\trefs/tags/8.4.1^{}\n24941e4bf50e0f03114dc5262fa4730d0e7dd6ba\trefs/tags/8.4.2\nbfae4224fd554d3d7f2c277a4cc092b6ec6af3ae\trefs/tags/8.4.2^{}\n5cb901b7d34097d192bb4a43763b52452adb689b\trefs/tags/8.5.0.dev0\na65eddc3e6638c8cf407cca22458e07a793aba07\trefs/tags/9.0.0\nf4b0fd2294a0b2f89bf308d513d574e1e2e01ad5\trefs/tags/9.0.0^{}\n0be7ba7b12c40efa9c966aef5a27c7c533694561\trefs/tags/9.0.1\nd1b64aa60b9e1a0fcfaf03af7ebeb185f1024a87\trefs/tags/9.0.1^{}\n7bdca8ff2d67ac3920ef4c66d4b3a8daa3964c3b\trefs/tags/9.0.2\n3d10b5148e03eb82b3ee29181dbdc73cf82699e2\trefs/tags/9.0.2^{}\n24ec4b54c06a74721a285dcc317825b1735f4717\trefs/tags/9.0.3\na7d58d7a21b78581e636bbbdea13c66ad1657c1e\trefs/tags/9.0.3^{}\n93df2888161be8cd7066b992bf1adf1f6c71faae\trefs/tags/9.1.0\nb2522cf0b11fb33ecc1f4895fa1dffbb9252a63d\trefs/tags/9.1.0^{}\nb2af87e54026af746e49664becb33e6823242bfc\trefs/tags/9.1.0.dev0\n32afde46a16a5e48c767355969097f4812f0010f\trefs/tags/9.1.1\ncf470ec0bf7eb89cd97dd56df4859eae5db46447\trefs/tags/9.1.1^{}\nf8e2aa8abf0b47eb553ee21835f279652fffd5fd\trefs/tags/9.2.0.dev0\n2b00a9c7e27046596c8464aa69ad4a45b7c29afb\trefs/tags/v7.4.3\n23906106968eb95afbd61adfbc7bbb795fc9aaa9\trefs/tags/v7.4.3^{}\n",
+    "stdout_sha256": "c01534ed9e25293b901afc65eadac016477264bb0af31c5295fe52db6c2abe3a",
+    "timed_out": false
+  },
+  "git_remote_add": {
+    "command": [
+      "git",
+      "remote",
+      "add",
+      "origin",
+      "https://github.com/pytest-dev/pytest.git"
+    ],
+    "command_string": "git remote add origin https://github.com/pytest-dev/pytest.git",
+    "completed_at": "2026-07-10T01:52:27Z",
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063d\\pytest_candidate_graph",
+    "returncode": 0,
+    "started_at": "2026-07-10T01:52:27Z",
+    "stderr": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "timed_out": false
+  },
+  "git_rev_parse": {
+    "command": [
+      "git",
+      "rev-parse",
+      "FETCH_HEAD"
+    ],
+    "command_string": "git rev-parse FETCH_HEAD",
+    "completed_at": "2026-07-10T01:52:31Z",
+    "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063d\\pytest_candidate_graph",
+    "returncode": 0,
+    "started_at": "2026-07-10T01:52:31Z",
+    "stderr": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "041aacad506b6c6891f2898f2bd378e0896e8b86\n",
+    "stdout_sha256": "ca15d0d9cb0881030bf5e58f39576c2623a45b5e9a5edf0e09a64f9efa4ffb2e",
+    "timed_out": false
+  }
+}

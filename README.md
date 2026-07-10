@@ -6,6 +6,26 @@ It remains a provenance-first software repair research harness with a conservati
 
 It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-change candidates, blocking unverified patches before they can contaminate accepted software state.
 
+## Batch063d Pytest Safe Tag Acquisition Hardening
+
+Batch063d adds a predeclared ancestor-tag authority lifecycle for Pytest version-origin recovery. It compares committed Batch063c evidence with the manually supplied Batch063c workflow artifact, records any committed-vs-workflow artifact divergence, and then attempts a bounded tag-authority path using remote tag metadata plus a blobless candidate commit graph. The tag manifest is allowed only for version-origin reconstruction, never as patch authority or count evidence.
+
+Batch063d status:
+
+- Batch063c artifact reconciliation: `committed_vs_workflow_artifact_ingest_status_divergence_recorded`.
+- Safe tag authority: `predeclared_ancestor_tag_authority_manifest_PASS`.
+- Tag authority lifecycle: `PASS`.
+- Version-origin status: `pytest_version_origin_normalized_from_predeclared_ancestor_tag_authority`.
+- Runner-target import-origin status: `runner_target_split_requires_external_runner_identity`.
+- Command-boundary status: `pytest_command_boundary_blocked_runner_target_split_after_version_origin_normalized`.
+- Pre-repair replay: `NOT_RUN_blocked_runner_target_split_after_safe_tag_authority`.
+- Issue-derived repair count remains `4`.
+- Native external repair count remains `4`.
+- Full scoring remains `NOT_RUN/disallowed`.
+- Memory lift remains `not_demonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+- Next allowed action: `batch063e_pytest_runner_target_split_evidence_intake`.
+
 ## Batch063c Pytest Command-Boundary Follow-up
 
 Batch063c applies the Batch067 wrapper infrastructure to Pytest command-boundary recovery and restores missing pre-generation, reward-signal, baseline-drift, and structural-transfer controls. These are engineering controls and routing evidence, not repair proof. No repair is counted without source-only target pass, duplicate clean replay, and count gate. Full scoring remains NOT_RUN/disallowed. Memory lift remains not_demonstrated. Self-maintaining software remains false/not_demonstrated.

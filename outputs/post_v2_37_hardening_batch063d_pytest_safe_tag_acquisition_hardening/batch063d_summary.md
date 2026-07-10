@@ -1,0 +1,1 @@
+Batch063d verifies Batch063c artifact evidence and adds a predeclared ancestor-tag authority lifecycle for Pytest version-origin recovery. It preserves all repair/count boundaries. No patch, duplicate replay, count gate, full scoring, memory-lift claim, or self-maintaining software claim is made.

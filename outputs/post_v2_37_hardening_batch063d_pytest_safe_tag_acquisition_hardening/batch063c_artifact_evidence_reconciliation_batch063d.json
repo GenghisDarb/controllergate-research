@@ -1,0 +1,23 @@
+{
+  "artifact_evidence_compared": true,
+  "committed_evidence_used": true,
+  "divergence_is_expected_when_local_manual_Batch067_ingest_was_present_but_CI_artifact_was_absent": true,
+  "field_differences": {
+    "batch063c_final_batch067_ingest_status": {
+      "artifact": "batch067_artifact_absent_for_local_ingest",
+      "committed": "PASS"
+    },
+    "batch063c_summary_sha256": {
+      "artifact": "c46f4d40de47ce73dd06cd7ecff8356f87334715128399734e4ec2f789d1e3b6",
+      "committed": "c46f4d40de47ce73dd06cd7ecff8356f87334715128399734e4ec2f789d1e3b6"
+    },
+    "batch067_ingest_status": {
+      "artifact": "batch067_artifact_absent_for_local_ingest",
+      "committed": "PASS"
+    }
+  },
+  "not_a_blocker_because_claim_boundaries_and_counts_match": true,
+  "raw_zip_ingested": false,
+  "status": "committed_vs_workflow_artifact_ingest_status_divergence_recorded",
+  "workflow_artifact_available": true
+}

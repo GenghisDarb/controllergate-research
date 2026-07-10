@@ -1,0 +1,51 @@
+{
+  "allowed_use": "version_origin_reconstruction_only",
+  "forbidden_uses": [
+    "patch_authority",
+    "repair_success_claim",
+    "count_gate_evidence",
+    "memory_lift_evidence",
+    "gold_patch_substitute",
+    "future_fix_evidence",
+    "source_topology_authority"
+  ],
+  "hard_blockers": [
+    "blocked_no_predeclared_ancestor_tag_authority",
+    "safe_tag_authority_unbounded_future_tag_exposure",
+    "safe_tag_authority_no_reachable_ancestor_tag",
+    "tag_authority_used_without_predeclared_manifest",
+    "tag_source_bytes_read_forbidden",
+    "future_tag_exposure_used_as_authority",
+    "tag_authority_timestamp_inversion"
+  ],
+  "required_fields": [
+    "candidate_id",
+    "candidate_repo",
+    "candidate_sha",
+    "candidate_workspace_path",
+    "controllergate_repo_mutated",
+    "global_environment_mutated",
+    "baseline_registry_precheck_status",
+    "candidate_isolated_runtime_status",
+    "tag_ref_command",
+    "tag_ref_output_hash",
+    "tag_object_command",
+    "tag_object_output_hash",
+    "reachable_tag_filter_command",
+    "reachable_tag_set",
+    "unreachable_tag_set_count",
+    "future_tag_refs_seen",
+    "future_tag_refs_used",
+    "future_tag_source_read",
+    "git_describe_command",
+    "git_describe_output",
+    "setuptools_scm_version_before",
+    "setuptools_scm_version_after",
+    "version_origin_normalized",
+    "decision_time_safe",
+    "forbidden_evidence_checked",
+    "audit_status",
+    "exact_blocker"
+  ],
+  "status": "PASS"
+}
