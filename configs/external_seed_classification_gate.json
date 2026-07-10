@@ -1,0 +1,36 @@
+{
+  "allowed_approval_statuses": [
+    "approved_for_command_orthology_probe",
+    "approved_for_source_custody_probe",
+    "approved_for_manual_artifact_request",
+    "approved_for_runtime_connector_request",
+    "routing_memory_only",
+    "diagnostic_only",
+    "rejected_future_or_gold_evidence",
+    "rejected_missing_source_url",
+    "rejected_missing_issue_url",
+    "rejected_missing_candidate_sha",
+    "rejected_untrusted_source",
+    "rejected_duplicate_or_already_counted",
+    "parked_with_reopen_condition"
+  ],
+  "approval_gate_sequence": [
+    "source_identity_present",
+    "candidate_sha_status_recorded",
+    "decision_time_safety_recorded",
+    "forbidden_evidence_exclusion_recorded",
+    "license_status_recorded",
+    "native_command_evidence_or_reopen_condition_recorded"
+  ],
+  "audit_status": "PASS",
+  "forbidden_status": "approved_without_source_identity",
+  "hard_blocks": [
+    "missing_repo_url",
+    "missing_issue_url",
+    "missing_source_url",
+    "missing_candidate_sha_status",
+    "future_or_gold_evidence_risk",
+    "issue_comment_fix_text_used_as_patch_guidance"
+  ],
+  "status": "PASS"
+}

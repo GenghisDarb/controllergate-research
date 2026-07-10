@@ -1,0 +1,30 @@
+{
+  "levels": [
+    {
+      "allowed_future_use": "provider_command_probe_after_source_custody",
+      "level": "exact_declared_command",
+      "minimum_evidence": "candidate-era exact command plus verified source identity"
+    },
+    {
+      "allowed_future_use": "provider_command_probe_after_source_custody",
+      "level": "high_confidence_project_local_inference",
+      "minimum_evidence": "project-local metadata, test tree, dependency declaration, verified source identity"
+    },
+    {
+      "allowed_future_use": "manual_artifact_request",
+      "level": "medium_confidence_requires_manual_artifact",
+      "minimum_evidence": "framework family likely but command target ambiguous"
+    },
+    {
+      "allowed_future_use": "routing_memory_only",
+      "level": "low_confidence_routing_only",
+      "minimum_evidence": "weak metadata hints only"
+    },
+    {
+      "allowed_future_use": "none_until_firewall_repaired",
+      "level": "blocked_forbidden_or_untrusted",
+      "minimum_evidence": "unsafe or forbidden source boundary"
+    }
+  ],
+  "status": "PASS"
+}

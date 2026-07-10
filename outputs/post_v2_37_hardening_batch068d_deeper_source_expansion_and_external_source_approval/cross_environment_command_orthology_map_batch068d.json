@@ -1,0 +1,458 @@
+{
+  "records": [
+    {
+      "allowed_templates": [
+        "python -m pytest <target>",
+        "pytest <target>"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "pytest",
+      "source_environment_signatures": [
+        "pyproject.toml",
+        "pytest.ini",
+        "tox.ini",
+        "setup.cfg"
+      ],
+      "target_runner_family": "pytest",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "python -m unittest <module>"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "unittest",
+      "source_environment_signatures": [
+        "setup.py",
+        "pyproject.toml"
+      ],
+      "target_runner_family": "unittest",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "tox -e <env> -- <target>"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "tox",
+      "source_environment_signatures": [
+        "tox.ini"
+      ],
+      "target_runner_family": "tox",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "nox -s <session> -- <target>"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "nox",
+      "source_environment_signatures": [
+        "noxfile.py"
+      ],
+      "target_runner_family": "nox",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "hatch run test"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "hatch",
+      "source_environment_signatures": [
+        "pyproject.toml"
+      ],
+      "target_runner_family": "hatch",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "poetry run pytest <target>"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "poetry",
+      "source_environment_signatures": [
+        "pyproject.toml",
+        "poetry.lock"
+      ],
+      "target_runner_family": "poetry",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "pdm run pytest <target>"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "pdm",
+      "source_environment_signatures": [
+        "pyproject.toml",
+        "pdm.lock"
+      ],
+      "target_runner_family": "pdm",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "uv run pytest <target>"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "uv",
+      "source_environment_signatures": [
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "target_runner_family": "uv",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "make test"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "make",
+      "source_environment_signatures": [
+        "Makefile"
+      ],
+      "target_runner_family": "make",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "npm test",
+        "yarn test",
+        "pnpm test"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "npm_yarn_pnpm",
+      "source_environment_signatures": [
+        "package.json"
+      ],
+      "target_runner_family": "npm_yarn_pnpm",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "cargo test <target>"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "cargo",
+      "source_environment_signatures": [
+        "Cargo.toml"
+      ],
+      "target_runner_family": "cargo",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "go test ./..."
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "go_test",
+      "source_environment_signatures": [
+        "go.mod"
+      ],
+      "target_runner_family": "go_test",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "mvn test",
+        "gradle test"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "maven_gradle",
+      "source_environment_signatures": [
+        "pom.xml",
+        "build.gradle",
+        "build.gradle.kts"
+      ],
+      "target_runner_family": "maven_gradle",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "project-local CI command only if exact declaration is verified"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "project_specific_ci_script",
+      "source_environment_signatures": [
+        ".github/workflows/",
+        ".gitlab-ci.yml"
+      ],
+      "target_runner_family": "project_specific_ci_script",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "manual approval required"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "benchmark_harness",
+      "source_environment_signatures": [
+        "benchmark/",
+        "benchmarks/"
+      ],
+      "target_runner_family": "benchmark_harness",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "manual artifact required"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "manual_artifact_required",
+      "source_environment_signatures": [],
+      "target_runner_family": "manual_artifact_required",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    },
+    {
+      "allowed_templates": [
+        "runtime connector required"
+      ],
+      "allowed_use": "future_provider_command_probe_only_after_source_custody",
+      "audit_status": "PASS",
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "forbidden_use": [
+        "patch_authority",
+        "repair_proof",
+        "count_gate"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "runtime_connector_required",
+      "source_environment_signatures": [],
+      "target_runner_family": "runtime_connector_required",
+      "translation_basis": "candidate-era metadata and test-tree signatures"
+    }
+  ],
+  "status": "PASS"
+}

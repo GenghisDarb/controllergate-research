@@ -1,0 +1,47 @@
+{
+  "approval_requires": [
+    "repo_url",
+    "issue_url",
+    "source_url",
+    "source_type",
+    "verified_candidate_sha_or_explicit_sha_status",
+    "decision_time_safety_status",
+    "gold_fixed_future_exclusion_status",
+    "issue_comment_fix_text_exclusion_status"
+  ],
+  "approval_without_source_identity_allowed": false,
+  "approved_without_source_identity_forbidden": true,
+  "audit_status": "PASS",
+  "full_scoring_authorized": false,
+  "patch_guidance_from_issue_comments_allowed": false,
+  "schema": {
+    "allowed_use": [
+      "source_custody",
+      "command_boundary_recovery",
+      "manual_artifact_provenance",
+      "runtime_connector_planning",
+      "readiness_backlog"
+    ],
+    "forbidden_use": [
+      "patch_guidance",
+      "future_fix_leakage",
+      "gold_patch_substitute",
+      "repair_proof",
+      "count_gate",
+      "memory_lift"
+    ],
+    "required_fields": [
+      "candidate_id",
+      "source_url",
+      "source_type",
+      "why_source_is_needed",
+      "decision_time_safety_concern",
+      "hash_provenance_needed",
+      "allowed_use",
+      "forbidden_use",
+      "approval_condition"
+    ],
+    "status": "PASS"
+  },
+  "status": "PASS"
+}

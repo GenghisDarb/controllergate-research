@@ -1,0 +1,18 @@
+{
+  "allowed_operations": [
+    "parse_metadata",
+    "derive_command_family",
+    "validate_command_template_shape",
+    "check_declared_test_tree_presence_from_metadata",
+    "check_runner_dependency_declaration_from_metadata",
+    "classify_confidence"
+  ],
+  "forbidden_operations": [
+    "target_test_execution",
+    "source_mutation",
+    "patch_generation",
+    "count_gate"
+  ],
+  "status": "PASS",
+  "test_commands_execute": false
+}

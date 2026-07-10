@@ -1,0 +1,18 @@
+{
+  "audit_status": "PASS",
+  "forbidden_command_templates": [
+    "commands that skip tests",
+    "commands that mutate project config",
+    "commands derived from fixed/gold/future source",
+    "commands derived from issue-comment fix text"
+  ],
+  "forbidden_uses": [
+    "source_patch_generation",
+    "patch_authority",
+    "repair_proof",
+    "count_gate",
+    "memory_lift_evidence",
+    "full_scoring"
+  ],
+  "status": "PASS"
+}

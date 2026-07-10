@@ -1,0 +1,838 @@
+{
+  "records": [
+    {
+      "allowed_command_templates": [
+        "python -m pytest <target>",
+        "pytest <target>"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "pyproject.toml",
+        "pytest.ini",
+        "tox.ini",
+        "setup.cfg"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "pytest",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "pytest"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "pyproject.toml",
+        "pytest.ini",
+        "tox.ini",
+        "setup.cfg"
+      ],
+      "test_tree_signatures": [
+        "tests/",
+        "test_*.py"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "python -m unittest <module>"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "setup.py",
+        "pyproject.toml"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "unittest",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "unittest"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "setup.py",
+        "pyproject.toml"
+      ],
+      "test_tree_signatures": [
+        "tests/",
+        "test*.py"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "tox -e <env> -- <target>"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "tox.ini"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "tox",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "tox"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "tox.ini"
+      ],
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "nox -s <session> -- <target>"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "noxfile.py"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "nox",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "nox"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "noxfile.py"
+      ],
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "hatch run test"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "pyproject.toml"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "hatch",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "hatch"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "pyproject.toml"
+      ],
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "poetry run pytest <target>"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "pyproject.toml",
+        "poetry.lock"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "poetry",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "poetry"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "pyproject.toml",
+        "poetry.lock"
+      ],
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "pdm run pytest <target>"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "pyproject.toml",
+        "pdm.lock"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "pdm",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "pdm"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "pyproject.toml",
+        "pdm.lock"
+      ],
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "uv run pytest <target>"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "uv",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "uv"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "make test"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "Makefile"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "make",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "make"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "Makefile"
+      ],
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "npm test",
+        "yarn test",
+        "pnpm test"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "package.json"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "npm_yarn_pnpm",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "npm_yarn_pnpm"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "package.json"
+      ],
+      "test_tree_signatures": [
+        "test/",
+        "tests/"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "cargo test <target>"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "Cargo.toml"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "cargo",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "cargo"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "Cargo.toml"
+      ],
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "go test ./..."
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "go.mod"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "go_test",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "go_test"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "go.mod"
+      ],
+      "test_tree_signatures": [
+        "*_test.go"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "mvn test",
+        "gradle test"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "pom.xml",
+        "build.gradle",
+        "build.gradle.kts"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "maven_gradle",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "maven_gradle"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "pom.xml",
+        "build.gradle",
+        "build.gradle.kts"
+      ],
+      "test_tree_signatures": [
+        "src/test"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "project-local CI command only if exact declaration is verified"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        ".github/workflows/",
+        ".gitlab-ci.yml"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "project_specific_ci_script",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "project_specific_ci_script"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        ".github/workflows/",
+        ".gitlab-ci.yml"
+      ],
+      "test_tree_signatures": [
+        "project-specific"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "manual approval required"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [
+        "benchmark/",
+        "benchmarks/"
+      ],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "benchmark_harness",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "benchmark_harness"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [
+        "benchmark/",
+        "benchmarks/"
+      ],
+      "test_tree_signatures": [
+        "benchmark harness"
+      ]
+    },
+    {
+      "allowed_command_templates": [
+        "manual artifact required"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "manual_artifact_required",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "manual_artifact_required"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [],
+      "test_tree_signatures": []
+    },
+    {
+      "allowed_command_templates": [
+        "runtime connector required"
+      ],
+      "audit_status": "PASS",
+      "confidence_rules": {
+        "blocked_forbidden_or_untrusted": "forbidden evidence or unsafe source boundary",
+        "exact_declared_command": "candidate-era command text is explicitly declared with target",
+        "high_confidence_project_local_inference": "project-local metadata and test tree agree without fix/gold/future evidence",
+        "low_confidence_routing_only": "only weak metadata hints exist",
+        "medium_confidence_requires_manual_artifact": "framework family present but target is ambiguous"
+      },
+      "decision_time_safe_inputs": [
+        "candidate-era source metadata",
+        "tracked test tree",
+        "declared dependency metadata",
+        "CI config before fix"
+      ],
+      "forbidden_command_templates": [
+        "commands that skip tests",
+        "commands that mutate config",
+        "commands derived from fix text"
+      ],
+      "forbidden_inputs": [
+        "fixed commits",
+        "gold patches",
+        "future docs",
+        "issue-comment fix text",
+        "hidden benchmark labels"
+      ],
+      "harness_origin_requirements": "candidate-local or approved external source only",
+      "metadata_signatures": [],
+      "minimum_confidence_for_probe": "high_confidence_project_local_inference",
+      "pattern_id": "runtime_connector_required",
+      "provider_capsule_requirements": "isolated provider/runtime capsule when nontrivial dependencies exist",
+      "runner_dependency_signatures": [
+        "runtime_connector_required"
+      ],
+      "runner_target_requirements": "target path or node must be decision-time safe",
+      "source_files": [],
+      "test_tree_signatures": []
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,198 @@
+{
+  "families": [
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "pyproject.toml",
+        "pytest.ini",
+        "tox.ini",
+        "setup.cfg"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "pytest",
+      "test_tree_signatures": [
+        "tests/",
+        "test_*.py"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "setup.py",
+        "pyproject.toml"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "unittest",
+      "test_tree_signatures": [
+        "tests/",
+        "test*.py"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "tox.ini"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "tox",
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "noxfile.py"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "nox",
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "pyproject.toml"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "hatch",
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "pyproject.toml",
+        "poetry.lock"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "poetry",
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "pyproject.toml",
+        "pdm.lock"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "pdm",
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "uv",
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "Makefile"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "make",
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "package.json"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "npm_yarn_pnpm",
+      "test_tree_signatures": [
+        "test/",
+        "tests/"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "Cargo.toml"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "cargo",
+      "test_tree_signatures": [
+        "tests/"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "go.mod"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "go_test",
+      "test_tree_signatures": [
+        "*_test.go"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "pom.xml",
+        "build.gradle",
+        "build.gradle.kts"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "maven_gradle",
+      "test_tree_signatures": [
+        "src/test"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        ".github/workflows/",
+        ".gitlab-ci.yml"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "project_specific_ci_script",
+      "test_tree_signatures": [
+        "project-specific"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [
+        "benchmark/",
+        "benchmarks/"
+      ],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "benchmark_harness",
+      "test_tree_signatures": [
+        "benchmark harness"
+      ]
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "manual_artifact_required",
+      "test_tree_signatures": []
+    },
+    {
+      "audit_status": "PASS",
+      "metadata_signatures": [],
+      "minimum_evidence_for_family_detection": "candidate-era metadata plus source-tree presence",
+      "test_framework_family": "runtime_connector_required",
+      "test_tree_signatures": []
+    }
+  ],
+  "status": "PASS"
+}
