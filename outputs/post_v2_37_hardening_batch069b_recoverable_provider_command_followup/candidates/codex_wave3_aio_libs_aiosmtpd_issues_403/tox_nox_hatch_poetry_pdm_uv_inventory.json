@@ -1,0 +1,45 @@
+{
+  "records": [
+    {
+      "command_count": 2,
+      "commands": [
+        "pytest.ini_options]",
+        "tox/*\","
+      ],
+      "path": "pyproject.toml",
+      "sha256": "544aa1dd558abcfce7964c4749f0b5a13788883da49e2c8aeea73ce06b87f5f5"
+    },
+    {
+      "command_count": 3,
+      "commands": [
+        "pytest.fixture vs pytest.fixture()",
+        "tox",
+        "tox.ini to see which prefix provided by who"
+      ],
+      "path": "setup.cfg",
+      "sha256": "3992ec5cd03559f585143f8909795413f11ecfa4f3ec1b77fe5d4892e62f2cb6"
+    },
+    {
+      "command_count": 14,
+      "commands": [
+        "pytest",
+        "pytest --cov --cov-report=xml --cov-report=html --cov-report=term --tb=short {posargs}",
+        "pytest --profile {posargs}",
+        "pytest --verbose -p no:cov --tb=short {posargs}",
+        "pytest -v --tb=short aiosmtpd/qa",
+        "pytest >= 6.0  # Require >= 6.0 for pyproject.toml support (PEP 517)",
+        "pytest-cov",
+        "pytest-mock",
+        "pytest-print",
+        "pytest-profiling",
+        "pytest-style>=1.6.0",
+        "pytest-sugar",
+        "pytest-sugar as it doesn't declare dependency on it.",
+        "tox]"
+      ],
+      "path": "tox.ini",
+      "sha256": "42539fa0ee34e7eed018c375cc8a2ae9ef4459c168ca0110202c6527060a546a"
+    }
+  ],
+  "status": "PASS"
+}

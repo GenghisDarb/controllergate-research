@@ -1,0 +1,552 @@
+{
+  "records": [
+    {
+      "ast_topology_record": {
+        "audit_status": "PASS",
+        "batch069b_patch_generation_allowed": false,
+        "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+        "materialized_failure": false,
+        "patch_authorization_precondition": "elbow_closed_or_flatline_no_patch_license",
+        "source_file_count": 38,
+        "test_file_count": 17,
+        "topology_state": "no_materialized_failure_topology",
+        "winner_N_argmin": null,
+        "winner_N_elbow": null
+      },
+      "audit_status": "PASS",
+      "bounded_synthesized_command_created": false,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "command_manifest_status": "BLOCK",
+      "command_sources_scanned": [
+        ".github/workflows/auto-merge.yml",
+        ".github/workflows/ci-cd.yml",
+        ".github/workflows/codeql.yml",
+        "pyproject.toml",
+        "README.rst",
+        "requirements-dev.txt",
+        "requirements.txt",
+        "setup.cfg",
+        "setup.py",
+        "tox.ini"
+      ],
+      "exact_blocker": "aiosmtpd_native_test_command_unrecoverable_without_manual_artifact",
+      "exact_command_found": false,
+      "exact_command_source": null,
+      "failed_branch_record": {
+        "audit_status": "PASS",
+        "branch_closed_without_count_increment": true,
+        "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+        "duplicate_replay_status": "NOT_RUN",
+        "failure_classification": "aiosmtpd_native_test_command_unrecoverable_without_manual_artifact",
+        "parent_evidence_entry": "outputs/post_v2_37_hardening_batch069_multi_candidate_provider_command_probe/batch069_probe_result_inventory.json",
+        "patch_apply_status": "NOT_RUN_no_patch_generated",
+        "patch_sha256_if_any": null,
+        "post_repair_replay_status": "NOT_RUN_pre_repair_gate_blocked",
+        "pre_attempt_environment_hash": "bd49f9927d4a46e55b9955dd773b01dd7597c39a3d6b98d066c41633fdb76619",
+        "pre_attempt_source_head": "94710d8fd280115cbd835ae969873cc424b4e57a",
+        "pre_attempt_workspace_hash": "9f577ffc7c450dff1caa5cadd2ba689e79108cbd890e02777f1a251a55010859",
+        "repair_attempt_id": "batch069b:codex_wave3_aio_libs_aiosmtpd_issues_403:no_patch_attempt",
+        "repair_count_increment": false,
+        "rollback_required": false,
+        "rollback_target_entry": "no_source_patch_no_rollback_required"
+      },
+      "harness_origin_status": "no_harness_generated_command_missing",
+      "issue_url": "https://github.com/aio-libs/aiosmtpd/issues/403",
+      "next_allowed_candidate_action": "batch068b_manual_artifact_and_external_source_custody_intake",
+      "orthology_record": {
+        "allowed_use": [
+          "routing",
+          "provider_planning",
+          "command_boundary_risk_prediction",
+          "source_topology_search_prioritization",
+          "manual_artifact_request_planning"
+        ],
+        "ast_contact_topology_hints": [
+          "metadata_only_no_patch_topology_authority"
+        ],
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+        "decision_time_safe": true,
+        "fixture_constraints": [
+          "no_fixture_mutation",
+          "manual_artifact_required_if_target_fixture_missing"
+        ],
+        "forbidden_use": [
+          "patch_authority",
+          "count_gate_evidence",
+          "memory_lift_evidence",
+          "repair_success_claim"
+        ],
+        "known_failure_signature": "aiosmtpd_native_test_command_unrecoverable_without_manual_artifact",
+        "known_family_homology": "command_boundary_recovery_family",
+        "os_constraints": [
+          "ubuntu-latest_probe_expected",
+          "host_local_probe_recorded_when_used"
+        ],
+        "provider_constraints": [
+          "provider_capsule_passed"
+        ],
+        "python_version_constraints": [
+          "candidate_metadata_only",
+          "no_unbounded_latest_resolution"
+        ],
+        "repo_url": "https://github.com/aio-libs/aiosmtpd",
+        "runner_constraints": [
+          "candidate_local_runner_metadata_scanned"
+        ],
+        "source_environment": "candidate_sha_checkout_metadata",
+        "target_environment": "controllergate_isolated_probe_runtime",
+        "translated_failure_signature": "aiosmtpd_native_test_command_unrecoverable_without_manual_artifact"
+      },
+      "pre_repair_replay_gate_status": "NOT_RUN",
+      "pre_repair_replay_status": "NOT_RUN",
+      "provider_capsule_status": "PASS",
+      "reopen_condition": "verified_native_target_command_artifact",
+      "repo_url": "https://github.com/aio-libs/aiosmtpd",
+      "reward_signal": {
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+        "full_scoring_evidence": false,
+        "memory_lift_evidence": false,
+        "repair_skill_memory_blocker": "no_patch_attempt_and_no_target_replay_success",
+        "repair_skill_memory_update_allowed": false,
+        "routing_memory_reason": "aiosmtpd_native_test_command_unrecoverable_without_manual_artifact",
+        "routing_memory_update_allowed": true,
+        "status": "PASS"
+      },
+      "runner_declared_by_metadata": true,
+      "runner_target_status": "acceptable_non_pytest_runner_target",
+      "synthesized_command_basis": null,
+      "terminal_state": "manual_artifact_required",
+      "test_target_declared_by_metadata": false,
+      "test_tree_present": true,
+      "version_origin_status": "candidate_sha_verified_commit",
+      "workspace_purity_status": "PASS"
+    },
+    {
+      "ast_topology_record": {
+        "audit_status": "PASS",
+        "batch069b_patch_generation_allowed": false,
+        "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+        "materialized_failure": false,
+        "patch_authorization_precondition": "elbow_closed_or_flatline_no_patch_license",
+        "source_file_count": 133,
+        "test_file_count": 33,
+        "topology_state": "no_materialized_failure_topology",
+        "winner_N_argmin": null,
+        "winner_N_elbow": null
+      },
+      "audit_status": "PASS",
+      "bounded_synthesized_command_created": false,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "command_manifest_status": "BLOCK",
+      "command_sources_scanned": [
+        ".github/workflows/ci-tests.yaml",
+        ".github/workflows/release.yml",
+        "CONTRIBUTING.md",
+        "docs/source/advanced/multiple-targets.rst",
+        "docs/source/advanced/port-targets.rst",
+        "docs/source/advanced/stacked-locations.rst",
+        "docs/source/connector/container.rst",
+        "docs/source/connector/docker-compose.rst",
+        "docs/source/connector/docker.rst",
+        "docs/source/connector/flux.rst",
+        "docs/source/connector/helm3.rst",
+        "docs/source/connector/helm4.rst",
+        "docs/source/connector/kubernetes.rst",
+        "docs/source/connector/pbs.rst",
+        "docs/source/connector/queue-manager.rst",
+        "docs/source/connector/singularity.rst",
+        "docs/source/connector/slurm.rst",
+        "docs/source/connector/ssh.rst",
+        "docs/source/cwl/cwl-conformance.rst",
+        "docs/source/cwl/cwl-runner.rst",
+        "docs/source/cwl/docker/docker.rst",
+        "docs/source/cwl/docker/kubernetes.rst",
+        "docs/source/cwl/docker/no-container.rst",
+        "docs/source/cwl/docker/singularity.rst",
+        "docs/source/cwl/docker-requirement.rst",
+        "docs/source/examples/mpi/mpi.rst",
+        "docs/source/ext/binding-filter.rst",
+        "docs/source/ext/connector.rst",
+        "docs/source/ext/cwl-docker-translator.rst",
+        "docs/source/ext/data-manager.rst",
+        "docs/source/ext/database.rst",
+        "docs/source/ext/deployment-manager.rst",
+        "docs/source/ext/fault-tolerance.rst",
+        "docs/source/ext/plugins.rst",
+        "docs/source/ext/scheduling.rst",
+        "docs/source/guide/architecture.rst",
+        "docs/source/guide/bind.rst",
+        "docs/source/guide/cwl.rst",
+        "docs/source/guide/deployments.rst",
+        "docs/source/guide/inspect.rst",
+        "docs/source/guide/install.rst",
+        "docs/source/guide/run.rst",
+        "docs/source/index.rst",
+        "Makefile",
+        "pyproject.toml",
+        "README.md",
+        "tox.ini",
+        "uv.lock"
+      ],
+      "exact_blocker": "streamflow_native_test_command_unrecoverable_without_manual_artifact",
+      "exact_command_found": false,
+      "exact_command_source": null,
+      "failed_branch_record": {
+        "audit_status": "PASS",
+        "branch_closed_without_count_increment": true,
+        "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+        "duplicate_replay_status": "NOT_RUN",
+        "failure_classification": "streamflow_native_test_command_unrecoverable_without_manual_artifact",
+        "parent_evidence_entry": "outputs/post_v2_37_hardening_batch069_multi_candidate_provider_command_probe/batch069_probe_result_inventory.json",
+        "patch_apply_status": "NOT_RUN_no_patch_generated",
+        "patch_sha256_if_any": null,
+        "post_repair_replay_status": "NOT_RUN_pre_repair_gate_blocked",
+        "pre_attempt_environment_hash": "95ad6bade03d53d13603d2ea69ccb7d3611d467eaf20a4f187fd3a8964fca0f6",
+        "pre_attempt_source_head": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+        "pre_attempt_workspace_hash": "01a86ce7474fc3b2bab083af51471f2fc3603e2cade1223a48474b66065dd7c0",
+        "repair_attempt_id": "batch069b:codex_wave3_alpha_unito_streamflow_issues_1100:no_patch_attempt",
+        "repair_count_increment": false,
+        "rollback_required": false,
+        "rollback_target_entry": "no_source_patch_no_rollback_required"
+      },
+      "harness_origin_status": "no_harness_generated_command_missing",
+      "issue_url": "https://github.com/alpha-unito/streamflow/issues/1100",
+      "next_allowed_candidate_action": "batch068b_manual_artifact_and_external_source_custody_intake",
+      "orthology_record": {
+        "allowed_use": [
+          "routing",
+          "provider_planning",
+          "command_boundary_risk_prediction",
+          "source_topology_search_prioritization",
+          "manual_artifact_request_planning"
+        ],
+        "ast_contact_topology_hints": [
+          "metadata_only_no_patch_topology_authority"
+        ],
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+        "decision_time_safe": true,
+        "fixture_constraints": [
+          "no_fixture_mutation",
+          "manual_artifact_required_if_target_fixture_missing"
+        ],
+        "forbidden_use": [
+          "patch_authority",
+          "count_gate_evidence",
+          "memory_lift_evidence",
+          "repair_success_claim"
+        ],
+        "known_failure_signature": "streamflow_native_test_command_unrecoverable_without_manual_artifact",
+        "known_family_homology": "command_boundary_recovery_family",
+        "os_constraints": [
+          "ubuntu-latest_probe_expected",
+          "host_local_probe_recorded_when_used"
+        ],
+        "provider_constraints": [
+          "provider_capsule_passed"
+        ],
+        "python_version_constraints": [
+          "candidate_metadata_only",
+          "no_unbounded_latest_resolution"
+        ],
+        "repo_url": "https://github.com/alpha-unito/streamflow",
+        "runner_constraints": [
+          "candidate_local_runner_metadata_scanned"
+        ],
+        "source_environment": "candidate_sha_checkout_metadata",
+        "target_environment": "controllergate_isolated_probe_runtime",
+        "translated_failure_signature": "streamflow_native_test_command_unrecoverable_without_manual_artifact"
+      },
+      "pre_repair_replay_gate_status": "NOT_RUN",
+      "pre_repair_replay_status": "NOT_RUN",
+      "provider_capsule_status": "PASS",
+      "reopen_condition": "verified_native_target_command_artifact",
+      "repo_url": "https://github.com/alpha-unito/streamflow",
+      "reward_signal": {
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+        "full_scoring_evidence": false,
+        "memory_lift_evidence": false,
+        "repair_skill_memory_blocker": "no_patch_attempt_and_no_target_replay_success",
+        "repair_skill_memory_update_allowed": false,
+        "routing_memory_reason": "streamflow_native_test_command_unrecoverable_without_manual_artifact",
+        "routing_memory_update_allowed": true,
+        "status": "PASS"
+      },
+      "runner_declared_by_metadata": true,
+      "runner_target_status": "acceptable_non_pytest_runner_target",
+      "synthesized_command_basis": null,
+      "terminal_state": "manual_artifact_required",
+      "test_target_declared_by_metadata": false,
+      "test_tree_present": true,
+      "version_origin_status": "candidate_sha_verified_commit",
+      "workspace_purity_status": "PASS"
+    },
+    {
+      "ast_topology_record": {
+        "audit_status": "PASS",
+        "batch069b_patch_generation_allowed": false,
+        "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+        "materialized_failure": false,
+        "patch_authorization_precondition": "elbow_closed_or_flatline_no_patch_license",
+        "source_file_count": 553,
+        "test_file_count": 200,
+        "topology_state": "no_materialized_failure_topology",
+        "winner_N_argmin": null,
+        "winner_N_elbow": null
+      },
+      "audit_status": "PASS",
+      "bounded_synthesized_command_created": false,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+      "command_manifest_status": "BLOCK",
+      "command_sources_scanned": [
+        "CONTRIBUTING.md",
+        "Makefile",
+        "pyproject.toml",
+        "README.md"
+      ],
+      "exact_blocker": "nki_library_runtime_connector_required",
+      "exact_command_found": false,
+      "exact_command_source": null,
+      "failed_branch_record": {
+        "audit_status": "PASS",
+        "branch_closed_without_count_increment": true,
+        "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+        "duplicate_replay_status": "NOT_RUN",
+        "failure_classification": "nki_library_runtime_connector_required",
+        "parent_evidence_entry": "outputs/post_v2_37_hardening_batch069_multi_candidate_provider_command_probe/batch069_probe_result_inventory.json",
+        "patch_apply_status": "NOT_RUN_no_patch_generated",
+        "patch_sha256_if_any": null,
+        "post_repair_replay_status": "NOT_RUN_pre_repair_gate_blocked",
+        "pre_attempt_environment_hash": "aaa0ca55823b40e337d073fc58db57212c1df85f860e6f6b3c2ab10ad5697413",
+        "pre_attempt_source_head": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+        "pre_attempt_workspace_hash": "e57f19994e32107c9be5d33c476e8afbbaa1db0cd5a9c92aa518c54b70a2f1f8",
+        "repair_attempt_id": "batch069b:codex_wave3_aws_neuron_nki_library_issues_5:no_patch_attempt",
+        "repair_count_increment": false,
+        "rollback_required": false,
+        "rollback_target_entry": "no_source_patch_no_rollback_required"
+      },
+      "harness_origin_status": "no_harness_generated_command_missing",
+      "issue_url": "https://github.com/aws-neuron/nki-library/issues/5",
+      "next_allowed_candidate_action": "batch068c_runtime_connector_readiness_buildout",
+      "orthology_record": {
+        "allowed_use": [
+          "routing",
+          "provider_planning",
+          "command_boundary_risk_prediction",
+          "source_topology_search_prioritization",
+          "manual_artifact_request_planning"
+        ],
+        "ast_contact_topology_hints": [
+          "metadata_only_no_patch_topology_authority"
+        ],
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+        "decision_time_safe": true,
+        "fixture_constraints": [
+          "no_fixture_mutation",
+          "manual_artifact_required_if_target_fixture_missing"
+        ],
+        "forbidden_use": [
+          "patch_authority",
+          "count_gate_evidence",
+          "memory_lift_evidence",
+          "repair_success_claim"
+        ],
+        "known_failure_signature": "nki_library_runtime_connector_required",
+        "known_family_homology": "command_boundary_recovery_family",
+        "os_constraints": [
+          "ubuntu-latest_probe_expected",
+          "host_local_probe_recorded_when_used"
+        ],
+        "provider_constraints": [
+          "aws_neuron_or_nki_runtime_connector_required"
+        ],
+        "python_version_constraints": [
+          "candidate_metadata_only",
+          "no_unbounded_latest_resolution"
+        ],
+        "repo_url": "https://github.com/aws-neuron/nki-library",
+        "runner_constraints": [
+          "candidate_local_runner_metadata_scanned"
+        ],
+        "source_environment": "candidate_sha_checkout_metadata",
+        "target_environment": "controllergate_isolated_probe_runtime",
+        "translated_failure_signature": "nki_library_runtime_connector_required"
+      },
+      "pre_repair_replay_gate_status": "NOT_RUN",
+      "pre_repair_replay_status": "NOT_RUN",
+      "provider_capsule_status": "PASS",
+      "reopen_condition": "approved_aws_neuron_nki_runtime_connector",
+      "repo_url": "https://github.com/aws-neuron/nki-library",
+      "reward_signal": {
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+        "full_scoring_evidence": false,
+        "memory_lift_evidence": false,
+        "repair_skill_memory_blocker": "no_patch_attempt_and_no_target_replay_success",
+        "repair_skill_memory_update_allowed": false,
+        "routing_memory_reason": "nki_library_runtime_connector_required",
+        "routing_memory_update_allowed": true,
+        "status": "PASS"
+      },
+      "runner_declared_by_metadata": true,
+      "runner_target_status": "acceptable_non_pytest_runner_target",
+      "synthesized_command_basis": null,
+      "terminal_state": "runtime_connector_required",
+      "test_target_declared_by_metadata": false,
+      "test_tree_present": true,
+      "version_origin_status": "candidate_sha_verified_commit",
+      "workspace_purity_status": "PASS"
+    },
+    {
+      "ast_topology_record": {
+        "audit_status": "PASS",
+        "batch069b_patch_generation_allowed": false,
+        "candidate_id": "codex_wave3_biface_i18n_issues_86",
+        "materialized_failure": false,
+        "patch_authorization_precondition": "elbow_closed_or_flatline_no_patch_license",
+        "source_file_count": 48,
+        "test_file_count": 24,
+        "topology_state": "no_materialized_failure_topology",
+        "winner_N_argmin": null,
+        "winner_N_elbow": null
+      },
+      "audit_status": "PASS",
+      "bounded_synthesized_command_created": false,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "command_manifest_status": "BLOCK",
+      "command_sources_scanned": [
+        ".github/workflows/python-ci.yaml",
+        "docs/source/api/index.rst",
+        "docs/source/api/main_variables.rst",
+        "docs/source/api/modules/api.rst",
+        "docs/source/api/modules/config.rst",
+        "docs/source/api/modules/converter.rst",
+        "docs/source/api/modules/formatter.rst",
+        "docs/source/api/modules/loaders/handler.rst",
+        "docs/source/api/modules/loaders/index.rst",
+        "docs/source/api/modules/loaders/loader.rst",
+        "docs/source/api/modules/loaders/repository.rst",
+        "docs/source/api/modules/loaders/utils.rst",
+        "docs/source/api/modules/locale.rst",
+        "docs/source/api/modules/models/corpus.rst",
+        "docs/source/api/modules/models/index.rst",
+        "docs/source/api/modules/models/repository.rst",
+        "docs/source/api/modules/patterns.rst",
+        "docs/source/concept/conversions.rst",
+        "docs/source/concept/format.rst",
+        "docs/source/concept/index.rst",
+        "docs/source/concept/repository.rst",
+        "docs/source/getting_started.rst",
+        "docs/source/index.rst",
+        "docs/source/indices.rst",
+        "docs/source/introduction.rst",
+        "pyproject.toml",
+        "README.fr.md",
+        "README.md",
+        "tox.ini"
+      ],
+      "exact_blocker": "biface_i18n_native_test_command_unrecoverable_without_manual_artifact",
+      "exact_command_found": false,
+      "exact_command_source": null,
+      "failed_branch_record": {
+        "audit_status": "PASS",
+        "branch_closed_without_count_increment": true,
+        "candidate_id": "codex_wave3_biface_i18n_issues_86",
+        "duplicate_replay_status": "NOT_RUN",
+        "failure_classification": "biface_i18n_native_test_command_unrecoverable_without_manual_artifact",
+        "parent_evidence_entry": "outputs/post_v2_37_hardening_batch069_multi_candidate_provider_command_probe/batch069_probe_result_inventory.json",
+        "patch_apply_status": "NOT_RUN_no_patch_generated",
+        "patch_sha256_if_any": null,
+        "post_repair_replay_status": "NOT_RUN_pre_repair_gate_blocked",
+        "pre_attempt_environment_hash": "79f1e2f2197ca92eba41ba409093a71d93a9063cd90ca5613bbd08ba9552bec1",
+        "pre_attempt_source_head": "e093e3f3d02d84043c5913531492aa78913aec5a",
+        "pre_attempt_workspace_hash": "f70a203ab72e10a978fd748f1a1e773d4d479b2923cf5bf2ffb50ef5aa3e5178",
+        "repair_attempt_id": "batch069b:codex_wave3_biface_i18n_issues_86:no_patch_attempt",
+        "repair_count_increment": false,
+        "rollback_required": false,
+        "rollback_target_entry": "no_source_patch_no_rollback_required"
+      },
+      "harness_origin_status": "no_harness_generated_command_missing",
+      "issue_url": "https://github.com/biface/i18n/issues/86",
+      "next_allowed_candidate_action": "batch068b_manual_artifact_and_external_source_custody_intake",
+      "orthology_record": {
+        "allowed_use": [
+          "routing",
+          "provider_planning",
+          "command_boundary_risk_prediction",
+          "source_topology_search_prioritization",
+          "manual_artifact_request_planning"
+        ],
+        "ast_contact_topology_hints": [
+          "metadata_only_no_patch_topology_authority"
+        ],
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_biface_i18n_issues_86",
+        "decision_time_safe": true,
+        "fixture_constraints": [
+          "no_fixture_mutation",
+          "manual_artifact_required_if_target_fixture_missing"
+        ],
+        "forbidden_use": [
+          "patch_authority",
+          "count_gate_evidence",
+          "memory_lift_evidence",
+          "repair_success_claim"
+        ],
+        "known_failure_signature": "biface_i18n_native_test_command_unrecoverable_without_manual_artifact",
+        "known_family_homology": "command_boundary_recovery_family",
+        "os_constraints": [
+          "ubuntu-latest_probe_expected",
+          "host_local_probe_recorded_when_used"
+        ],
+        "provider_constraints": [
+          "provider_capsule_passed"
+        ],
+        "python_version_constraints": [
+          "candidate_metadata_only",
+          "no_unbounded_latest_resolution"
+        ],
+        "repo_url": "https://github.com/biface/i18n",
+        "runner_constraints": [
+          "candidate_local_runner_metadata_scanned"
+        ],
+        "source_environment": "candidate_sha_checkout_metadata",
+        "target_environment": "controllergate_isolated_probe_runtime",
+        "translated_failure_signature": "biface_i18n_native_test_command_unrecoverable_without_manual_artifact"
+      },
+      "pre_repair_replay_gate_status": "NOT_RUN",
+      "pre_repair_replay_status": "NOT_RUN",
+      "provider_capsule_status": "PASS",
+      "reopen_condition": "verified_native_target_command_artifact",
+      "repo_url": "https://github.com/biface/i18n",
+      "reward_signal": {
+        "audit_status": "PASS",
+        "candidate_id": "codex_wave3_biface_i18n_issues_86",
+        "full_scoring_evidence": false,
+        "memory_lift_evidence": false,
+        "repair_skill_memory_blocker": "no_patch_attempt_and_no_target_replay_success",
+        "repair_skill_memory_update_allowed": false,
+        "routing_memory_reason": "biface_i18n_native_test_command_unrecoverable_without_manual_artifact",
+        "routing_memory_update_allowed": true,
+        "status": "PASS"
+      },
+      "runner_declared_by_metadata": true,
+      "runner_target_status": "acceptable_non_pytest_runner_target",
+      "synthesized_command_basis": null,
+      "terminal_state": "manual_artifact_required",
+      "test_target_declared_by_metadata": false,
+      "test_tree_present": true,
+      "version_origin_status": "candidate_sha_verified_commit",
+      "workspace_purity_status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

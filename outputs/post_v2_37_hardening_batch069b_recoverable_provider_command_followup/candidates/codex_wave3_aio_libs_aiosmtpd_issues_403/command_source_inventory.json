@@ -1,0 +1,154 @@
+{
+  "ci_workflow_records": [
+    {
+      "command_count": 2,
+      "commands": [
+        "pytest",
+        "pytest -v aiosmtpd/qa"
+      ],
+      "path": ".github/workflows/ci-cd.yml",
+      "sha256": "f9baea5c058da659c79f27a5a0ad47ee3ff5a4ec9f3fd1b99fa1808189bcec9e"
+    }
+  ],
+  "command_source_count": 7,
+  "records": [
+    {
+      "command_count": 2,
+      "commands": [
+        "pytest",
+        "pytest -v aiosmtpd/qa"
+      ],
+      "path": ".github/workflows/ci-cd.yml",
+      "sha256": "f9baea5c058da659c79f27a5a0ad47ee3ff5a4ec9f3fd1b99fa1808189bcec9e"
+    },
+    {
+      "command_count": 2,
+      "commands": [
+        "pytest.ini_options]",
+        "tox/*\","
+      ],
+      "path": "pyproject.toml",
+      "sha256": "544aa1dd558abcfce7964c4749f0b5a13788883da49e2c8aeea73ce06b87f5f5"
+    },
+    {
+      "command_count": 23,
+      "commands": [
+        "pytest doctest`: https://docs.pytest.org/en/stable/doctest.html",
+        "pytest doctest`_ will run prior to actual building of the documentation.",
+        "pytest documentation`: https://docs.pytest.org/en/stable/usage.html#specifying-tests-selecting-tests",
+        "pytest documentation`_. The command above will run that one test case",
+        "pytest.",
+        "tox",
+        "tox (see pyenv's",
+        "tox -- -x",
+        "tox -- <testname>",
+        "tox -e \"py-{nocov,cov,diffcov}",
+        "tox -e py311-nocov -- -s",
+        "tox -e py311-nocov -- -x -s <testname>",
+        "tox <https://pypi.python.org/pypi/tox>`__ tool to run the",
+        "tox configuration files have been created to cater for more than one",
+        "tox specifies one (or more) **testenv**",
+        "tox will have to recreate all its testenvs,",
+        "tox will skip that whole testenv.",
+        "tox with the option ``--tox-pyenv-no-fallback`` (see tox-pyenv's",
+        "tox's testenv prepping.",
+        "tox-pyenv`` from https://pypi.org/project/tox-pyenv/"
+      ],
+      "path": "README.rst",
+      "sha256": "d1c0c25331960b0f6fdb66eb68a1451a10993704e5ac0cc44c27ce24a5544a40"
+    },
+    {
+      "command_count": 1,
+      "commands": [
+        "pytest-style==1.7.2"
+      ],
+      "path": "requirements-dev.txt",
+      "sha256": "457ad8d565199e121c4a9dae2906e71a7173840b763d0187b623832b8eb84a26"
+    },
+    {
+      "command_count": 4,
+      "commands": [
+        "pytest-asyncio==0.23.4",
+        "pytest-cov==4.1.0",
+        "pytest-mock==3.12.0",
+        "pytest==7.4.4"
+      ],
+      "path": "requirements.txt",
+      "sha256": "df4ee67759e0f1b09731722d33eefa5329c9971d7161e67b13cc3bb427218ec2"
+    },
+    {
+      "command_count": 3,
+      "commands": [
+        "pytest.fixture vs pytest.fixture()",
+        "tox",
+        "tox.ini to see which prefix provided by who"
+      ],
+      "path": "setup.cfg",
+      "sha256": "3992ec5cd03559f585143f8909795413f11ecfa4f3ec1b77fe5d4892e62f2cb6"
+    },
+    {
+      "command_count": 14,
+      "commands": [
+        "pytest",
+        "pytest --cov --cov-report=xml --cov-report=html --cov-report=term --tb=short {posargs}",
+        "pytest --profile {posargs}",
+        "pytest --verbose -p no:cov --tb=short {posargs}",
+        "pytest -v --tb=short aiosmtpd/qa",
+        "pytest >= 6.0  # Require >= 6.0 for pyproject.toml support (PEP 517)",
+        "pytest-cov",
+        "pytest-mock",
+        "pytest-print",
+        "pytest-profiling",
+        "pytest-style>=1.6.0",
+        "pytest-sugar",
+        "pytest-sugar as it doesn't declare dependency on it.",
+        "tox]"
+      ],
+      "path": "tox.ini",
+      "sha256": "42539fa0ee34e7eed018c375cc8a2ae9ef4459c168ca0110202c6527060a546a"
+    }
+  ],
+  "status": "PASS",
+  "tool_config_records": [
+    {
+      "command_count": 2,
+      "commands": [
+        "pytest.ini_options]",
+        "tox/*\","
+      ],
+      "path": "pyproject.toml",
+      "sha256": "544aa1dd558abcfce7964c4749f0b5a13788883da49e2c8aeea73ce06b87f5f5"
+    },
+    {
+      "command_count": 3,
+      "commands": [
+        "pytest.fixture vs pytest.fixture()",
+        "tox",
+        "tox.ini to see which prefix provided by who"
+      ],
+      "path": "setup.cfg",
+      "sha256": "3992ec5cd03559f585143f8909795413f11ecfa4f3ec1b77fe5d4892e62f2cb6"
+    },
+    {
+      "command_count": 14,
+      "commands": [
+        "pytest",
+        "pytest --cov --cov-report=xml --cov-report=html --cov-report=term --tb=short {posargs}",
+        "pytest --profile {posargs}",
+        "pytest --verbose -p no:cov --tb=short {posargs}",
+        "pytest -v --tb=short aiosmtpd/qa",
+        "pytest >= 6.0  # Require >= 6.0 for pyproject.toml support (PEP 517)",
+        "pytest-cov",
+        "pytest-mock",
+        "pytest-print",
+        "pytest-profiling",
+        "pytest-style>=1.6.0",
+        "pytest-sugar",
+        "pytest-sugar as it doesn't declare dependency on it.",
+        "tox]"
+      ],
+      "path": "tox.ini",
+      "sha256": "42539fa0ee34e7eed018c375cc8a2ae9ef4459c168ca0110202c6527060a546a"
+    }
+  ]
+}

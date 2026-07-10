@@ -1,0 +1,42 @@
+{
+  "allowed_command_source_files": [
+    "pyproject.toml",
+    "tox.ini",
+    "noxfile.py",
+    "setup.cfg",
+    "setup.py",
+    "requirements.txt",
+    "requirements-dev.txt",
+    "dev-requirements.txt",
+    "test-requirements.txt",
+    "uv.lock",
+    "poetry.lock",
+    "pdm.lock",
+    "hatch.toml",
+    "Makefile"
+  ],
+  "allowed_command_source_globs": [
+    ".github/workflows/*.yml",
+    ".github/workflows/*.yaml",
+    "README*",
+    "CONTRIBUTING*",
+    "TESTING*",
+    "docs/**/*.md",
+    "docs/**/*.rst"
+  ],
+  "bounded_synthesis_requires_declared_runner_and_visible_target": true,
+  "broad_suite_is_not_target_failure_materialization": true,
+  "forbidden_command_sources": [
+    "modern_docs_outside_candidate_checkout",
+    "future_commit",
+    "fixed_patch",
+    "gold_patch",
+    "issue_comment_workaround_text",
+    "blog_post",
+    "manual_guessed_command",
+    "config_suppression_flag",
+    "test_mutation",
+    "fixture_injection"
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,112 @@
+{
+  "ci_workflow_records": [
+    {
+      "command_count": 4,
+      "commands": [
+        "tox",
+        "tox --with tox-uv",
+        "uv run --no-sync make checksum",
+        "uv run --no-sync make coverage.xml"
+      ],
+      "path": ".github/workflows/ci-tests.yaml",
+      "sha256": "4da388b986dbeb90570282c7d442149fca90f78e29d2cac7ede28bd55f1f0066"
+    }
+  ],
+  "command_source_count": 5,
+  "records": [
+    {
+      "command_count": 4,
+      "commands": [
+        "tox",
+        "tox --with tox-uv",
+        "uv run --no-sync make checksum",
+        "uv run --no-sync make coverage.xml"
+      ],
+      "path": ".github/workflows/ci-tests.yaml",
+      "sha256": "4da388b986dbeb90570282c7d442149fca90f78e29d2cac7ede28bd55f1f0066"
+    },
+    {
+      "command_count": 11,
+      "commands": [
+        "make test",
+        "pytest --deploys local,docker,singularity tests/test_remotepath.py",
+        "pytest tests/test_cwl_loop.py",
+        "pytest](https://docs.pytest.org/en/7.3.x/getting-started.html). You can execute all the available tests with the following command",
+        "uv run make checksum",
+        "uv run make format codespell",
+        "uv run make format-check codespell-check",
+        "uv run make html",
+        "uv run make test",
+        "uv run pytest --deploys local,docker,singularity tests/test_remotepath.py",
+        "uv run pytest tests/test_cwl_loop.py"
+      ],
+      "path": "CONTRIBUTING.md",
+      "sha256": "2634a4431a42885b6d8d48ba5c1bc955b3482388d687b37c409f04f91ccf2cab"
+    },
+    {
+      "command_count": 4,
+      "commands": [
+        "pytest -rs ${PYTEST_EXTRA}",
+        "pytest -rs --cov --junitxml=junit.xml -o junit_family=legacy --cov-report= ${PYTEST_EXTRA}",
+        "python -m pytest -rs ${PYTEST_EXTRA}",
+        "python -m pytest -rs --cov --junitxml=junit.xml -o junit_family=legacy --cov-report= ${PYTEST_EXTRA}"
+      ],
+      "path": "Makefile",
+      "sha256": "fdafd3966f9e5da2c82e7d2a3ed076d2fcc25b88e8bc44a4a4ce0fb861a0297c"
+    },
+    {
+      "command_count": 4,
+      "commands": [
+        "pytest-asyncio==1.4.0\",",
+        "pytest-cov==7.1.0\",",
+        "pytest-xdist==3.8.0",
+        "pytest==9.1.0\","
+      ],
+      "path": "pyproject.toml",
+      "sha256": "b94a5332297e46c066203e996dccc95585bbde77bf548bcd4d3f239723772a2d"
+    },
+    {
+      "command_count": 2,
+      "commands": [
+        "pytest]",
+        "tox]"
+      ],
+      "path": "tox.ini",
+      "sha256": "074e69db7301be4598a1732cf40ea79f3e942cfba07cdc5079b94cc349ec1981"
+    }
+  ],
+  "status": "PASS",
+  "tool_config_records": [
+    {
+      "command_count": 4,
+      "commands": [
+        "pytest -rs ${PYTEST_EXTRA}",
+        "pytest -rs --cov --junitxml=junit.xml -o junit_family=legacy --cov-report= ${PYTEST_EXTRA}",
+        "python -m pytest -rs ${PYTEST_EXTRA}",
+        "python -m pytest -rs --cov --junitxml=junit.xml -o junit_family=legacy --cov-report= ${PYTEST_EXTRA}"
+      ],
+      "path": "Makefile",
+      "sha256": "fdafd3966f9e5da2c82e7d2a3ed076d2fcc25b88e8bc44a4a4ce0fb861a0297c"
+    },
+    {
+      "command_count": 4,
+      "commands": [
+        "pytest-asyncio==1.4.0\",",
+        "pytest-cov==7.1.0\",",
+        "pytest-xdist==3.8.0",
+        "pytest==9.1.0\","
+      ],
+      "path": "pyproject.toml",
+      "sha256": "b94a5332297e46c066203e996dccc95585bbde77bf548bcd4d3f239723772a2d"
+    },
+    {
+      "command_count": 2,
+      "commands": [
+        "pytest]",
+        "tox]"
+      ],
+      "path": "tox.ini",
+      "sha256": "074e69db7301be4598a1732cf40ea79f3e942cfba07cdc5079b94cc349ec1981"
+    }
+  ]
+}

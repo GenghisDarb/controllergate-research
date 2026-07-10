@@ -1,0 +1,16 @@
+{
+  "records": [
+    {
+      "command_count": 4,
+      "commands": [
+        "tox",
+        "tox --with tox-uv",
+        "uv run --no-sync make checksum",
+        "uv run --no-sync make coverage.xml"
+      ],
+      "path": ".github/workflows/ci-tests.yaml",
+      "sha256": "4da388b986dbeb90570282c7d442149fca90f78e29d2cac7ede28bd55f1f0066"
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,36 @@
+{
+  "records": [
+    {
+      "command_count": 4,
+      "commands": [
+        "pytest -rs ${PYTEST_EXTRA}",
+        "pytest -rs --cov --junitxml=junit.xml -o junit_family=legacy --cov-report= ${PYTEST_EXTRA}",
+        "python -m pytest -rs ${PYTEST_EXTRA}",
+        "python -m pytest -rs --cov --junitxml=junit.xml -o junit_family=legacy --cov-report= ${PYTEST_EXTRA}"
+      ],
+      "path": "Makefile",
+      "sha256": "fdafd3966f9e5da2c82e7d2a3ed076d2fcc25b88e8bc44a4a4ce0fb861a0297c"
+    },
+    {
+      "command_count": 4,
+      "commands": [
+        "pytest-asyncio==1.4.0\",",
+        "pytest-cov==7.1.0\",",
+        "pytest-xdist==3.8.0",
+        "pytest==9.1.0\","
+      ],
+      "path": "pyproject.toml",
+      "sha256": "b94a5332297e46c066203e996dccc95585bbde77bf548bcd4d3f239723772a2d"
+    },
+    {
+      "command_count": 2,
+      "commands": [
+        "pytest]",
+        "tox]"
+      ],
+      "path": "tox.ini",
+      "sha256": "074e69db7301be4598a1732cf40ea79f3e942cfba07cdc5079b94cc349ec1981"
+    }
+  ],
+  "status": "PASS"
+}

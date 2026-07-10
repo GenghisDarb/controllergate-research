@@ -1,0 +1,23 @@
+{
+  "forbidden_sources": [
+    "modern_docs_outside_candidate_checkout",
+    "future_commit",
+    "fixed_patch",
+    "gold_patch",
+    "issue_comment_workaround_text",
+    "blog_post",
+    "manual_guessed_command",
+    "config_suppression_flag",
+    "test_mutation",
+    "fixture_injection"
+  ],
+  "priority": [
+    "exact_command_from_candidate_local_metadata",
+    "exact_command_from_candidate_ci_workflow",
+    "exact_command_from_candidate_tox_nox_hatch_poetry_pdm_uv_make_config",
+    "exact_test_target_from_candidate_test_config_plus_declared_runner",
+    "bounded_synthesized_command_from_decision_time_metadata",
+    "manual_artifact_request"
+  ],
+  "status": "PASS"
+}
