@@ -1,0 +1,37 @@
+{
+  "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+  "command": null,
+  "command_boundary_status": "native_test_command_missing_under_decision_time_metadata",
+  "config_suppression_flags_used": false,
+  "decision_time_safe_sources": [
+    "candidate_checkout_metadata",
+    "repo_local_batch068_inventory"
+  ],
+  "exact_blocker": "native_test_command_missing_under_decision_time_metadata",
+  "issue_comment_fix_text_used": false,
+  "manifest_type": "decision_time_safe_command_boundary",
+  "manual_guessed_commands_used": false,
+  "sample_project_test_files": [
+    "test/integration/nkilib/core/attention/test_attention_bwd.py",
+    "test/integration/nkilib/core/attention/test_attention_cte.py",
+    "test/integration/nkilib/core/attention/test_attention_cte_model_config.py",
+    "test/integration/nkilib/experimental/attention/test_ring_attention_bwd.py",
+    "test/integration/nkilib/experimental/attention/test_ring_attention_fwd.py",
+    "test/integration/nkilib/experimental/benchmark/test_find_nonzero_indices_with_count.py",
+    "test/integration/nkilib/experimental/collectives/test_collectives.py",
+    "test/integration/nkilib/experimental/collectives/test_fg_allgather.py",
+    "test/integration/nkilib/experimental/collectives/test_fgcc.py",
+    "test/integration/nkilib/experimental/collectives/test_sb2sb_allgather.py",
+    "test/integration/nkilib/experimental/conv/test_conv1d.py",
+    "test/integration/nkilib/experimental/conv/test_conv3d.py",
+    "test/integration/nkilib/experimental/conv/test_depthwise_conv1d.py",
+    "test/integration/nkilib/experimental/dynamic_shapes/test_dynamic_elementwise_add.py",
+    "test/integration/nkilib/experimental/foreach/test_foreach_elementwise.py",
+    "test/integration/nkilib/experimental/foreach/test_foreach_norm.py",
+    "test/integration/nkilib/experimental/loss/test_cross_entropy_backward.py",
+    "test/integration/nkilib/experimental/loss/test_cross_entropy_forward.py",
+    "test/integration/nkilib/experimental/matmul_mxfp8/test_matmul_mxfp8_autotune_sweep.py",
+    "test/integration/nkilib/experimental/matmul_mxfp8/test_matmul_mxfp8_generic_api.py"
+  ],
+  "status": "BLOCK"
+}

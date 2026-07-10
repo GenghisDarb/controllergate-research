@@ -1,0 +1,126 @@
+{
+  "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+  "commands": {
+    "cat_file": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_alpha_unito_streamflow_issues_1100\\source",
+      "duration_seconds": 0.215,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "commit\n",
+      "stdout_sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8",
+      "timed_out": false
+    },
+    "checkout": {
+      "command": [
+        "git",
+        "checkout",
+        "-q",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_alpha_unito_streamflow_issues_1100\\source",
+      "duration_seconds": 3.67,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "fetch": {
+      "command": [
+        "git",
+        "fetch",
+        "--filter=blob:none",
+        "--no-tags",
+        "origin",
+        "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_alpha_unito_streamflow_issues_1100\\source",
+      "duration_seconds": 1.453,
+      "returncode": 0,
+      "stderr": "From https://github.com/alpha-unito/streamflow\n * branch            dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5 -> FETCH_HEAD\n",
+      "stderr_sha256": "55c5f86cf37bb0290bc352db28a52b3a42771c406fc9f35cd894a5c7aa3bb0da",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "init": {
+      "command": [
+        "git",
+        "init",
+        "-q"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_alpha_unito_streamflow_issues_1100\\source",
+      "duration_seconds": 0.346,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "remote_add": {
+      "command": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/alpha-unito/streamflow.git"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_alpha_unito_streamflow_issues_1100\\source",
+      "duration_seconds": 0.172,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "rev_parse": {
+      "command": [
+        "git",
+        "rev-parse",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_alpha_unito_streamflow_issues_1100\\source",
+      "duration_seconds": 0.174,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5\n",
+      "stdout_sha256": "84d7283c9cad878a0009044a1d843c68c2de5f0220ef79174190710b07b7ee7c",
+      "timed_out": false
+    },
+    "status_short": {
+      "command": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_alpha_unito_streamflow_issues_1100\\source",
+      "duration_seconds": 0.655,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    }
+  },
+  "exact_blocker": null,
+  "git_object_type": "commit",
+  "remote_url": "https://github.com/alpha-unito/streamflow.git",
+  "repo_url": "https://github.com/alpha-unito/streamflow",
+  "resolved_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+  "status": "PASS",
+  "workspace_committed": false,
+  "workspace_path": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_alpha_unito_streamflow_issues_1100\\source"
+}

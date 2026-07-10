@@ -1,0 +1,126 @@
+{
+  "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+  "commands": {
+    "cat_file": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aio_libs_aiosmtpd_issues_403\\source",
+      "duration_seconds": 0.293,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "commit\n",
+      "stdout_sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8",
+      "timed_out": false
+    },
+    "checkout": {
+      "command": [
+        "git",
+        "checkout",
+        "-q",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aio_libs_aiosmtpd_issues_403\\source",
+      "duration_seconds": 1.655,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "fetch": {
+      "command": [
+        "git",
+        "fetch",
+        "--filter=blob:none",
+        "--no-tags",
+        "origin",
+        "94710d8fd280115cbd835ae969873cc424b4e57a"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aio_libs_aiosmtpd_issues_403\\source",
+      "duration_seconds": 1.293,
+      "returncode": 0,
+      "stderr": "From https://github.com/aio-libs/aiosmtpd\n * branch            94710d8fd280115cbd835ae969873cc424b4e57a -> FETCH_HEAD\n",
+      "stderr_sha256": "793ec8c77f5da58c966f0829c4e06ea8b721e0138fbf4c55577dd3c6aa026dad",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "init": {
+      "command": [
+        "git",
+        "init",
+        "-q"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aio_libs_aiosmtpd_issues_403\\source",
+      "duration_seconds": 0.408,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "remote_add": {
+      "command": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/aio-libs/aiosmtpd.git"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aio_libs_aiosmtpd_issues_403\\source",
+      "duration_seconds": 0.211,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "rev_parse": {
+      "command": [
+        "git",
+        "rev-parse",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aio_libs_aiosmtpd_issues_403\\source",
+      "duration_seconds": 0.398,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "94710d8fd280115cbd835ae969873cc424b4e57a\n",
+      "stdout_sha256": "d3a57cbcceec2ac66d6fea5b5468871f32f007c3bf3956b3aaf015318a3b889c",
+      "timed_out": false
+    },
+    "status_short": {
+      "command": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aio_libs_aiosmtpd_issues_403\\source",
+      "duration_seconds": 0.455,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    }
+  },
+  "exact_blocker": null,
+  "git_object_type": "commit",
+  "remote_url": "https://github.com/aio-libs/aiosmtpd.git",
+  "repo_url": "https://github.com/aio-libs/aiosmtpd",
+  "resolved_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+  "status": "PASS",
+  "workspace_committed": false,
+  "workspace_path": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aio_libs_aiosmtpd_issues_403\\source"
+}

@@ -1,0 +1,126 @@
+{
+  "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+  "commands": {
+    "cat_file": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aws_neuron_nki_library_issues_5\\source",
+      "duration_seconds": 0.175,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "commit\n",
+      "stdout_sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8",
+      "timed_out": false
+    },
+    "checkout": {
+      "command": [
+        "git",
+        "checkout",
+        "-q",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aws_neuron_nki_library_issues_5\\source",
+      "duration_seconds": 4.812,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "fetch": {
+      "command": [
+        "git",
+        "fetch",
+        "--filter=blob:none",
+        "--no-tags",
+        "origin",
+        "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aws_neuron_nki_library_issues_5\\source",
+      "duration_seconds": 0.986,
+      "returncode": 0,
+      "stderr": "From https://github.com/aws-neuron/nki-library\n * branch            c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2 -> FETCH_HEAD\n",
+      "stderr_sha256": "feeeaf25741af49ff0db2435e38793e163c60f7b0812d7824f16fbcf685e507e",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "init": {
+      "command": [
+        "git",
+        "init",
+        "-q"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aws_neuron_nki_library_issues_5\\source",
+      "duration_seconds": 0.305,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "remote_add": {
+      "command": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/aws-neuron/nki-library.git"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aws_neuron_nki_library_issues_5\\source",
+      "duration_seconds": 0.133,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "rev_parse": {
+      "command": [
+        "git",
+        "rev-parse",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aws_neuron_nki_library_issues_5\\source",
+      "duration_seconds": 0.113,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2\n",
+      "stdout_sha256": "94e609bede36f297c83ea6e80d1910044bf8d4d637118e55704edddf27d87da4",
+      "timed_out": false
+    },
+    "status_short": {
+      "command": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aws_neuron_nki_library_issues_5\\source",
+      "duration_seconds": 0.393,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    }
+  },
+  "exact_blocker": null,
+  "git_object_type": "commit",
+  "remote_url": "https://github.com/aws-neuron/nki-library.git",
+  "repo_url": "https://github.com/aws-neuron/nki-library",
+  "resolved_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+  "status": "PASS",
+  "workspace_committed": false,
+  "workspace_path": "C:\\Dev\\ControllerGate_runtime\\batch069\\codex_wave3_aws_neuron_nki_library_issues_5\\source"
+}

@@ -1,0 +1,142 @@
+name: post_v2_37_hardening_batch069_multi_candidate_provider_command_probe
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  batch069-provider-command-probe:
+    name: Batch069 provider and command boundary probe validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+      OUT_NAME: post_v2_37_hardening_batch069_multi_candidate_provider_command_probe
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run byte-custody preflight before validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Install workflow test dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run Batch069 generator and tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/generate_batch069_multi_candidate_provider_command_probe.py
+          python -m pytest tests/core/test_batch069_provider_command_probe.py tests/core/test_batch068_seed_harvest.py tests/core/test_batch063e_runner_target_models.py tests/core/test_batch063d_tag_authority.py tests/core/test_batch063c_control_layers.py tests/core/test_batch067_wrapper_core.py tests/runtime -q
+
+      - name: Validate registry, Batch069 audit, regression audits, and current protocol
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/audit_batch069_multi_candidate_provider_command_probe.py
+          python scripts/audit_batch068_multi_seed_harvest_for_5th_issue_repair.py
+          python scripts/audit_batch063e_pytest_runner_target_split_evidence_intake.py
+          python scripts/audit_batch063d_pytest_safe_tag_acquisition_hardening.py
+          python scripts/audit_batch063c_pytest_command_boundary_followup.py
+          python scripts/audit_batch067_universal_wrapper_hardening_implementation.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          git diff --check
+          python - <<'PY'
+          import json
+          import os
+          root = f"outputs/{os.environ['OUT_NAME']}"
+          final = json.load(open(f"{root}/batch069_final_decision.json", encoding="utf-8"))
+          for key in [
+              "status",
+              "batch068_ingest_status",
+              "pytest_parking_preservation_status",
+              "active_candidate_count",
+              "probed_candidate_count",
+              "materialized_candidate_count",
+              "recoverable_candidate_count",
+              "terminal_candidate_count",
+              "top_candidate_after_probe",
+              "top_candidate_terminal_state",
+              "next_allowed_action",
+              "patch_generated",
+              "patch_applied",
+              "duplicate_replay_run",
+              "count_gate_run",
+              "repair_count_increment",
+              "issue_derived_repair_count",
+              "native_external_repair_count",
+              "full_scoring",
+              "memory_lift",
+              "self_maintaining_software",
+          ]:
+              print(f"{key}={final.get(key)}")
+          PY
+
+      - name: Stage clean Batch069 artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "artifact_payload/${OUT_NAME}"
+          mkdir -p "artifact_payload/${OUT_NAME}"
+          cp -a "outputs/${OUT_NAME}/." "artifact_payload/${OUT_NAME}/"
+          python - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+          root = Path("artifact_payload") / os.environ["OUT_NAME"]
+          rows = []
+          for path in sorted(root.rglob("*")):
+              if path.is_file() and path.name != "ARTIFACT_SHA256SUMS.txt":
+                  digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                  rows.append(f"{digest}  {path.relative_to(root).as_posix()}")
+          (root / "ARTIFACT_SHA256SUMS.txt").write_text("\n".join(rows) + "\n", encoding="utf-8")
+          PY
+          if find "artifact_payload/${OUT_NAME}" \( \
+            -path '*/__pycache__/*' -o \
+            -path '*/.pytest_cache/*' -o \
+            -path '*/.mypy_cache/*' -o \
+            -path '*/.ruff_cache/*' -o \
+            -path '*/.venv/*' -o \
+            -path '*/venv/*' -o \
+            -path '*/env/*' -o \
+            -path '*/ENV/*' -o \
+            -name '*.pyc' -o \
+            -name '*.pyo' -o \
+            -name '*.zip' -o \
+            -name '*.tar' -o \
+            -name '*.tar.gz' -o \
+            -name '*.tgz' -o \
+            -name '*.7z' -o \
+            -name '*.whl' \
+          \) -print -quit | grep -q .; then
+            echo "artifact_packaging_forbidden_payload_detected"
+            exit 1
+          fi
+
+      - name: Upload Batch069 provider command probe artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch069_multi_candidate_provider_command_probe_artifacts
+          path: |
+            artifact_payload/post_v2_37_hardening_batch069_multi_candidate_provider_command_probe/**
+          if-no-files-found: error

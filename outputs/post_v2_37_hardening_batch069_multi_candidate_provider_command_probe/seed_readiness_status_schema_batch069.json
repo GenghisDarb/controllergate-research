@@ -1,0 +1,30 @@
+{
+  "allowed_readiness_statuses": [
+    "approved_for_current_probe",
+    "approved_for_future_probe",
+    "readiness_backlog",
+    "environment_gated_with_recipe",
+    "manual_artifact_required",
+    "external_source_approval_required",
+    "parked_with_reopen_condition",
+    "terminal_with_exact_reason",
+    "already_counted_excluded",
+    "probe_only_routing_memory",
+    "orthology_routing_only"
+  ],
+  "forbidden_status": "unapproved_without_reason",
+  "required_fields": [
+    "seed_id",
+    "candidate_id",
+    "repo_url",
+    "issue_url_or_source_url",
+    "batch068_status",
+    "batch069_readiness_status",
+    "why_not_currently_approved",
+    "exact_blocker",
+    "reopen_condition",
+    "next_lowest_risk_action",
+    "audit_status"
+  ],
+  "status": "PASS"
+}

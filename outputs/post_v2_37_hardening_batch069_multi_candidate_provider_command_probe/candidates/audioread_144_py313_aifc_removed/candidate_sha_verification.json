@@ -1,0 +1,126 @@
+{
+  "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+  "commands": {
+    "cat_file": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\audioread_144_py313_aifc_removed\\source",
+      "duration_seconds": 0.243,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "commit\n",
+      "stdout_sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8",
+      "timed_out": false
+    },
+    "checkout": {
+      "command": [
+        "git",
+        "checkout",
+        "-q",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\audioread_144_py313_aifc_removed\\source",
+      "duration_seconds": 1.316,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "fetch": {
+      "command": [
+        "git",
+        "fetch",
+        "--filter=blob:none",
+        "--no-tags",
+        "origin",
+        "577f8e2cbe99f33dd7d236deb1626e372f4762e9"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\audioread_144_py313_aifc_removed\\source",
+      "duration_seconds": 1.4,
+      "returncode": 0,
+      "stderr": "From https://github.com/beetbox/audioread\n * branch            577f8e2cbe99f33dd7d236deb1626e372f4762e9 -> FETCH_HEAD\n",
+      "stderr_sha256": "c22ff37da7e3756091481bab93d52053e493abc98563cc0341e52a8f0ece2b1a",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "init": {
+      "command": [
+        "git",
+        "init",
+        "-q"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\audioread_144_py313_aifc_removed\\source",
+      "duration_seconds": 0.513,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "remote_add": {
+      "command": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/beetbox/audioread.git"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\audioread_144_py313_aifc_removed\\source",
+      "duration_seconds": 0.202,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    "rev_parse": {
+      "command": [
+        "git",
+        "rev-parse",
+        "FETCH_HEAD"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\audioread_144_py313_aifc_removed\\source",
+      "duration_seconds": 0.166,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "577f8e2cbe99f33dd7d236deb1626e372f4762e9\n",
+      "stdout_sha256": "11abeb9adb0083c478aea11efeb8f0766ca739fce7aa4108263201dbf3343d1c",
+      "timed_out": false
+    },
+    "status_short": {
+      "command": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "C:\\Dev\\ControllerGate_runtime\\batch069\\audioread_144_py313_aifc_removed\\source",
+      "duration_seconds": 0.368,
+      "returncode": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    }
+  },
+  "exact_blocker": null,
+  "git_object_type": "commit",
+  "remote_url": "https://github.com/beetbox/audioread.git",
+  "repo_url": "https://github.com/beetbox/audioread",
+  "resolved_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+  "status": "PASS",
+  "workspace_committed": false,
+  "workspace_path": "C:\\Dev\\ControllerGate_runtime\\batch069\\audioread_144_py313_aifc_removed\\source"
+}
