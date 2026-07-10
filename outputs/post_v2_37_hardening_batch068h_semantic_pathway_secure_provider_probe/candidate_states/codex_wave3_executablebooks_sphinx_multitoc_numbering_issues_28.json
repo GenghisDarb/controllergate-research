@@ -1,0 +1,370 @@
+{
+  "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+  "candidate_sha": "c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+  "candidate_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "command_argv": [
+    "pytest",
+    "--durations=10",
+    "--cov=sphinx_multitoc_numbering",
+    "--cov-report=xml",
+    "--cov-report=term-missing"
+  ],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "gate_decision": "BLOCK",
+  "issue_identity": {
+    "issue_created_at": "2026-06-30T05:15:44Z",
+    "issue_url": "https://github.com/executablebooks/sphinx-multitoc-numbering/issues/28",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": null,
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "701bdd4d3748cfd885e0eb4fefbbed31379a57028a6fcc6915598077263fab2a",
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/executablebooks/sphinx-multitoc-numbering",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "pytest",
+      "--durations=10",
+      "--cov=sphinx_multitoc_numbering",
+      "--cov-report=xml",
+      "--cov-report=term-missing"
+    ],
+    "candidate_sha": "c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+    "precedence": 60,
+    "source_class": "ci_workflow",
+    "source_path": ".github/workflows/ci.yml",
+    "source_sha256": "006cbd266d09f77a0eb6f9bb3fa1c9eff52a4710d9adde9323cd36a4d8aa9290",
+    "target_path_corroborated": false,
+    "token_safety": {
+      "argv": [
+        "pytest",
+        "--durations=10",
+        "--cov=sphinx_multitoc_numbering",
+        "--cov-report=xml",
+        "--cov-report=term-missing"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "9f44fb81cd305da8f4997f2676de3f5a1ecce5c339f0c8a405cd13e12a70aa9e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "ed5a4dcfa4eb7a5c4362750f5893ea88553009f598fa0302492cf8879bc685f3",
+      "post_state_hash": "7c2e28048c8b95706d06b1cc2eac2a0f79b0b0cce235644c423a958c933f571f",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "dedd4a9adb8a4b8c05072458653092f6c869dbae8ab762b988a2bdddde527f76",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "9f44fb81cd305da8f4997f2676de3f5a1ecce5c339f0c8a405cd13e12a70aa9e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "20c18ab44eab73840127dd3f93744dcf78ea5beaa443a961400bbb349aae4925",
+      "post_state_hash": "973a002a87aafa4754c68318ce55fc48023cccad670e71901cb86af6dcb33ac7",
+      "prior_state_hash": "7c2e28048c8b95706d06b1cc2eac2a0f79b0b0cce235644c423a958c933f571f",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "4b02e80c7c97edf00ed059547dd20fe17dadd13f375805af2c24aed017cfcf90",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/ci.yml",
+        "setup.py",
+        "tests/roots/test-nested-toctree/index.rst",
+        "tests/roots/test-nested-toctree/part1/chapter1.rst",
+        "tests/roots/test-nested-toctree/part1/chapter2.rst",
+        "tests/roots/test-nested-toctree/part1/index.rst",
+        "tests/roots/test-nested-toctree/part2/chapter3.rst"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "9f44fb81cd305da8f4997f2676de3f5a1ecce5c339f0c8a405cd13e12a70aa9e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "b9b1fabe2634ed7059cd8e6773fdb7641b8ddec599f68494e77cd6a43d878f3b",
+      "post_state_hash": "62c2f243ca18c1fa676da6afda99b0dae93c687486b994081ea8b5e40df4965d",
+      "prior_state_hash": "973a002a87aafa4754c68318ce55fc48023cccad670e71901cb86af6dcb33ac7",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "1b95f86126049792687d43ec9d2af6aa80cdc501a63930005b76b51318b18869",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "native target path not declared by decision time evidence",
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "native_target_path_not_declared_by_decision_time_evidence",
+      "decision_time_evidence_consumed": [
+        "target_path_verification"
+      ],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "BLOCK",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "9f44fb81cd305da8f4997f2676de3f5a1ecce5c339f0c8a405cd13e12a70aa9e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+      "operation_status": "COMPLETED",
+      "output_hash": "a9d91bc93484654a3e34e9aee4d4d974715dcdcdda8d4ac6c03fc2622e30e896",
+      "post_state_hash": "ea6e1aaf04b0d6a5a3609d182bf33a52d1543e3e3882f01cc8ce588644126d1e",
+      "prior_state_hash": "62c2f243ca18c1fa676da6afda99b0dae93c687486b994081ea8b5e40df4965d",
+      "reopen_conditions": [
+        "supply_reviewed_native_target_path_evidence",
+        "rerun_static_frontier_plan_with_hash_pinned_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "d750e03064d11d41f174d1804ef4d15f8a3f6696abdea433cea6962d71e57c89",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "f927f348dc23f3f6d60bb98784fee1c047865810a1f234904f13c1f511cffdc7",
+      "post_state_hash": "35767f9c786782db2d370499b41471ce8ec2b6a5a451efaa884fecbebe8b0c95",
+      "prior_state_hash": "ea6e1aaf04b0d6a5a3609d182bf33a52d1543e3e3882f01cc8ce588644126d1e",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "55c273103cda7e6117624095f6ce69f73153a5322557578b9b59d49c913ec93f",
+      "post_state_hash": "c85e484e2d8f273e4c79d445b315707dac2bb87fc06b5e3a28e51c990299a775",
+      "prior_state_hash": "35767f9c786782db2d370499b41471ce8ec2b6a5a451efaa884fecbebe8b0c95",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "b6025167c000e7b9944350f9236fc76bf2944d29ee45c4cfd372f258894976fb",
+      "post_state_hash": "ddd7c3722037e8a8ff9f1a3a75c2175ca9b3681991a4835cff4ca88749151baf",
+      "prior_state_hash": "c85e484e2d8f273e4c79d445b315707dac2bb87fc06b5e3a28e51c990299a775",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "56c50c1fe6a8e0edae8fb42736cbca06855394e981cc4d4c41930ba4a3a131e0",
+      "post_state_hash": "b4e1a3a6a101b7e7213bbdae357d3ccce174e6d39fdcef542af7a35568f382db",
+      "prior_state_hash": "ddd7c3722037e8a8ff9f1a3a75c2175ca9b3681991a4835cff4ca88749151baf",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "cc0874ac9a9abe6fe181c6228e3c72cebfb99f96df170ec7df26a1013c545a65",
+      "post_state_hash": "c17bbb9f6fffdacd89dd4f56f6061e225a20dbd8d47423caea622f42ee2fe7e2",
+      "prior_state_hash": "b4e1a3a6a101b7e7213bbdae357d3ccce174e6d39fdcef542af7a35568f382db",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "a6b73393997345d4337dd528fa8aeb5032e8fdabe89b00583e84d558e2670445",
+      "post_state_hash": "09692ff6d975a64941c6d9e0b0a0e34faf7df6fc504d4b0e037df0cd465b3668",
+      "prior_state_hash": "c17bbb9f6fffdacd89dd4f56f6061e225a20dbd8d47423caea622f42ee2fe7e2",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "3d3aea1182ac5b3814b3bb5d78d4254a0d85786302869b6fb6f82063c4f17910",
+      "post_state_hash": "6a98b208ccb140e99f2371857d2f63117c388c03b0f2f825056ac22a203898de",
+      "prior_state_hash": "09692ff6d975a64941c6d9e0b0a0e34faf7df6fc504d4b0e037df0cd465b3668",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [],
+  "state_hash": "8748fa00fd9d715d0570352101f641b1604a383384c7ce1a48e1d73348064bff",
+  "target_package": "sphinx_multitoc_numbering",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}

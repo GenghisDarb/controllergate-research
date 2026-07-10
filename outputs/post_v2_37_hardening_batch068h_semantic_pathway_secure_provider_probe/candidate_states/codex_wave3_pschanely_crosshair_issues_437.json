@@ -1,0 +1,365 @@
+{
+  "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+  "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+  "candidate_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "command_argv": [
+    "python",
+    "-m",
+    "pytest"
+  ],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "gate_decision": "BLOCK",
+  "issue_identity": {
+    "issue_created_at": "2026-06-24T17:11:20Z",
+    "issue_url": "https://github.com/pschanely/CrossHair/issues/437",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": null,
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "bfec2f703d6dc9924ea7beda69625f48929cbdae206cc078756f64fc22c98890",
+  "provider_feasibility_class": "compiled_or_system_dependency_static",
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/pschanely/CrossHair",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "python",
+      "-m",
+      "pytest"
+    ],
+    "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+    "precedence": 30,
+    "source_class": "pyproject.toml",
+    "source_path": "pyproject.toml",
+    "source_sha256": "d69634e3f82e89598b9559c0622db93548daad199e298fbb2c6af8f28d37f329",
+    "target_path_corroborated": false,
+    "token_safety": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "3f952492a47da4087ea4a20ff02947f9625ed023203844133b3062df00a31e5e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "fa6a1bf8c26a88f3f457715890f30776e1eb55a9c02062b3c327462b0788df86",
+      "post_state_hash": "de5f82e17f4f84700ef5a51e0b3e1a08fd571de3adf4845aca2f74b3be686509",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "216b2d2d14369ed043bb317be219acd679e3127729c27919fc660d95226a6d7a",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "3f952492a47da4087ea4a20ff02947f9625ed023203844133b3062df00a31e5e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "c3522a05a81975ac45f51ea83dd9e9a53625930cbc46d75b1aa14b2bfb0d18ac",
+      "post_state_hash": "af2942ffd3fa2998a4f5696c168e281eea0e6f251aa424c93f2578b11b972881",
+      "prior_state_hash": "de5f82e17f4f84700ef5a51e0b3e1a08fd571de3adf4845aca2f74b3be686509",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "ca66f5a00ac3b29fa5ee9c6ae3147266c1aecd30a13ab9fc125f615979232647",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/build_documentation.yml",
+        ".github/workflows/build_pyodide.yml",
+        ".github/workflows/build_wheels.yml",
+        ".github/workflows/test_crosshair.yml",
+        ".github/workflows/test_hypothesis_integration.yml",
+        "doc/contributing_to_docs.md",
+        "doc/source/contributing.rst",
+        "pyproject.toml"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "3f952492a47da4087ea4a20ff02947f9625ed023203844133b3062df00a31e5e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "9967dec10a2d45e054d044bbbfa6c1c9b14070695d40176548e0ad8c303ea2e1",
+      "post_state_hash": "cc0bfe6d72cd61e17d807adceb5de0428b8a31bdd1566dda2a121f94f2d3abf0",
+      "prior_state_hash": "af2942ffd3fa2998a4f5696c168e281eea0e6f251aa424c93f2578b11b972881",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "1ab02d6d93bb15a6599751e50df3f51c634aa55cf49eff78f3b08b8af5ca506a",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "native target path not declared by decision time evidence",
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "native_target_path_not_declared_by_decision_time_evidence",
+      "decision_time_evidence_consumed": [
+        "target_path_verification"
+      ],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "BLOCK",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "3f952492a47da4087ea4a20ff02947f9625ed023203844133b3062df00a31e5e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+      "operation_status": "COMPLETED",
+      "output_hash": "a9d91bc93484654a3e34e9aee4d4d974715dcdcdda8d4ac6c03fc2622e30e896",
+      "post_state_hash": "577c2e7b359a19552cdd23f604c54cae3e9a8f0035ac240b367f3243188aeeb8",
+      "prior_state_hash": "cc0bfe6d72cd61e17d807adceb5de0428b8a31bdd1566dda2a121f94f2d3abf0",
+      "reopen_conditions": [
+        "supply_reviewed_native_target_path_evidence",
+        "rerun_static_frontier_plan_with_hash_pinned_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "b541548dcd17be6813c9ce8182faa991f3c6256440374c1a4627af8bf1741228",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "f927f348dc23f3f6d60bb98784fee1c047865810a1f234904f13c1f511cffdc7",
+      "post_state_hash": "e079d0d2c0ed31c43bfd0c545f150b6de283c6d28906ff12a8e050d38952079b",
+      "prior_state_hash": "577c2e7b359a19552cdd23f604c54cae3e9a8f0035ac240b367f3243188aeeb8",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "55c273103cda7e6117624095f6ce69f73153a5322557578b9b59d49c913ec93f",
+      "post_state_hash": "8ab546afcf0a738d70293edaea638a7a7384c3501a24c6b6b51dc53891b587d1",
+      "prior_state_hash": "e079d0d2c0ed31c43bfd0c545f150b6de283c6d28906ff12a8e050d38952079b",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "b6025167c000e7b9944350f9236fc76bf2944d29ee45c4cfd372f258894976fb",
+      "post_state_hash": "95bb474d4c19124209f6439a5f49a6de5bcfb5b30926b31516ba4640da13de68",
+      "prior_state_hash": "8ab546afcf0a738d70293edaea638a7a7384c3501a24c6b6b51dc53891b587d1",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "56c50c1fe6a8e0edae8fb42736cbca06855394e981cc4d4c41930ba4a3a131e0",
+      "post_state_hash": "821cef55b08e60a32c9e546ce3321c29cc96e1bb42c8a6a0a5a21d4b65864e18",
+      "prior_state_hash": "95bb474d4c19124209f6439a5f49a6de5bcfb5b30926b31516ba4640da13de68",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "cc0874ac9a9abe6fe181c6228e3c72cebfb99f96df170ec7df26a1013c545a65",
+      "post_state_hash": "ee54dc6406483a0fa945847f0470ec1a2d57a14b5f9e17b9306a21875df90c90",
+      "prior_state_hash": "821cef55b08e60a32c9e546ce3321c29cc96e1bb42c8a6a0a5a21d4b65864e18",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "a6b73393997345d4337dd528fa8aeb5032e8fdabe89b00583e84d558e2670445",
+      "post_state_hash": "ce4601c6670a9ce8aca3d556f4cda07274f66605631a388193c310a5b11db341",
+      "prior_state_hash": "ee54dc6406483a0fa945847f0470ec1a2d57a14b5f9e17b9306a21875df90c90",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "3d3aea1182ac5b3814b3bb5d78d4254a0d85786302869b6fb6f82063c4f17910",
+      "post_state_hash": "05a604e9102546fbf15562d84566cf3b67f42da760fa7f1ae2739761ad3f7892",
+      "prior_state_hash": "ce4601c6670a9ce8aca3d556f4cda07274f66605631a388193c310a5b11db341",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [],
+  "state_hash": "fd6f1e4674142120afc07f4dccbfa73b678918b0d0cd6677b681a5b5ff7c7142",
+  "target_package": "crosshair",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}

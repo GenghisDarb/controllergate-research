@@ -1,0 +1,425 @@
+{
+  "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+  "candidate_sha": "6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+  "candidate_state": "command_source_conflict_manual_review",
+  "command_argv": [],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "command_source_conflict_manual_review",
+  "gate_decision": "MANUAL_REVIEW",
+  "issue_identity": {
+    "issue_created_at": "2024-12-10T08:01:52Z",
+    "issue_url": "https://github.com/spec-first/connexion/issues/2012",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": "tests/test_utils.py",
+  "next_allowed_action": "review_conflicting_authoritative_command_sources",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "784bb88b34d6bb641b0ae23b506a0fcd199107eb7d36932416b819aa67330ad9",
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "reopen_conditions": [
+    "review_conflicting_authoritative_command_sources"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/spec-first/connexion",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": null,
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "3306f285c6dc106c08d9f01089af82ce709f020cb6ab651b4eeb4d50c37e3dc7",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "972d1b853cc10f2be6c87d88feacdd09f7e6cb5545d0e042058d03f62970098c",
+      "post_state_hash": "06d33cc15f86766b54200b13dc88b442b1c4cb1c737d0ab6ead4d55b26fe8763",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "75195c40cede8bf5e60427c03af88be1e60f70a4fc38814b4ff1004856a7192a",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "3306f285c6dc106c08d9f01089af82ce709f020cb6ab651b4eeb4d50c37e3dc7",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "bd2be10c733e5b6be4bcca311270ae89fea8b34723e245e032e46c0c5aab29af",
+      "post_state_hash": "dc340a23a9d33cb1035e9aa2714429fe3b4f98057fc17cceaee4c93b1fa21097",
+      "prior_state_hash": "06d33cc15f86766b54200b13dc88b442b1c4cb1c737d0ab6ead4d55b26fe8763",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "3dcc9de5b011b5ff8a4a81ed3cd9332893a4b02977431f17c5d4b32bb45bb7d5",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/pipeline.yml",
+        ".github/workflows/release.yml",
+        "docs/testing.rst",
+        "pyproject.toml",
+        "tox.ini"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "3306f285c6dc106c08d9f01089af82ce709f020cb6ab651b4eeb4d50c37e3dc7",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "3c9e1693a9bb9219117e5a8c7a3fbc63162d9e82b72707283f139dc817d1cfc7",
+      "post_state_hash": "600988508b3a0eed468a5a120998590b5e1c988425ccbd19732d50b50755a910",
+      "prior_state_hash": "dc340a23a9d33cb1035e9aa2714429fe3b4f98057fc17cceaee4c93b1fa21097",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "606367fdf1743ce0cf301e7049a91596128e7dcac14b926680943105d862c580",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "target_path_verification",
+        "tests/test_utils.py"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "3306f285c6dc106c08d9f01089af82ce709f020cb6ab651b4eeb4d50c37e3dc7",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "9f1f540f35ef9844012862c207142936040eec15548d2a41a9eb5a9685a636c6",
+      "post_state_hash": "758d864911207b697159c37a429bf042ccae4631591a0c9de084536bc9148491",
+      "prior_state_hash": "600988508b3a0eed468a5a120998590b5e1c988425ccbd19732d50b50755a910",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "ab53fb397716d16dca214f97aa24d49ebce35280001fb688d772e6e31508e973",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/pipeline.yml",
+        ".github/workflows/release.yml",
+        "docs/testing.rst",
+        "pyproject.toml",
+        "tox.ini"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [
+        "3306f285c6dc106c08d9f01089af82ce709f020cb6ab651b4eeb4d50c37e3dc7",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "61477105c6d36114d120aecb32b58eb2fd4e4912c9efccfbbf4ed21356e7d9ee",
+      "post_state_hash": "4c9a17b9d14bc7a6997fd202ba7e936980dd31c78acd373d0e4152e8b4a42333",
+      "prior_state_hash": "758d864911207b697159c37a429bf042ccae4631591a0c9de084536bc9148491",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "4155447f9ad19800230a298a40f050e88c8118e4720895f2d8225c9679616cf9",
+      "verification_status": "PASS",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "command source conflict manual review",
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "command_source_conflict_manual_review",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/pipeline.yml",
+        "pyproject.toml",
+        "tox.ini"
+      ],
+      "evidence_status": "PARTIAL",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "MANUAL_REVIEW",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [
+        "3306f285c6dc106c08d9f01089af82ce709f020cb6ab651b4eeb4d50c37e3dc7",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "review_conflicting_authoritative_command_sources",
+      "operation_status": "COMPLETED",
+      "output_hash": "cb8ac33ea79d210d6f7408fba135bd025143a8178505a99a8a7abe5e336d9e02",
+      "post_state_hash": "83ea511eda513aee8eabb8aa7af25ac7762f3da77af76f8ebad914857801d576",
+      "prior_state_hash": "4c9a17b9d14bc7a6997fd202ba7e936980dd31c78acd373d0e4152e8b4a42333",
+      "reopen_conditions": [
+        "review_conflicting_authoritative_command_sources"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "28b88d764b12b281fdc8901f7bf08825f0cde1bd787c10c5e70cc027ce5e3f6f",
+      "verification_status": "PASS",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "not_run_upstream_manual_review",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "f7ab00e4b2bfdd2dc532345c539b32ac4a3c778671fb96b9a32e38fd3930d75f",
+      "post_state_hash": "ca0b5e8f61cf672b2f99100e46cc89b5b1d00456dac03738818c670b540e6a57",
+      "prior_state_hash": "83ea511eda513aee8eabb8aa7af25ac7762f3da77af76f8ebad914857801d576",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "not_run_upstream_manual_review",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "649dec20858505fe001a0e82a9a1380cfbe38b4283d8f4af08787776867492d9",
+      "post_state_hash": "8c803714a154fdc0668d209038d71c44be07900861975132bb5f45e55113411a",
+      "prior_state_hash": "ca0b5e8f61cf672b2f99100e46cc89b5b1d00456dac03738818c670b540e6a57",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "not_run_upstream_manual_review",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "c1f840c68c3a006e56e8135d1706229018e13b02581d000dfd98c192c64d1716",
+      "post_state_hash": "e311584faacec925dc59453be064a76f17a8c5052ded6f670ff32ab2a89b4cdd",
+      "prior_state_hash": "8c803714a154fdc0668d209038d71c44be07900861975132bb5f45e55113411a",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "not_run_upstream_manual_review",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "e6ab802552cf8764596638e684c96692c10579088654c00d66b39035bd044f05",
+      "post_state_hash": "650c693be25b7148f0a268722a311495133dd76b45cee5165cb04eb3a16f6eff",
+      "prior_state_hash": "e311584faacec925dc59453be064a76f17a8c5052ded6f670ff32ab2a89b4cdd",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_state": "not_run_upstream_manual_review",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "2d7554dec05fa23eb73ee5ad943656673a14b5bb30d625f11c57ca477ef5ee00",
+      "post_state_hash": "c3eef887e8db859079daf1ed2966102dc05ee0c6a71cf3e578cff19756c53145",
+      "prior_state_hash": "650c693be25b7148f0a268722a311495133dd76b45cee5165cb04eb3a16f6eff",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [
+    {
+      "argv": [
+        "min:",
+        "cp",
+        "pyproject.toml",
+        ".pyproject.toml"
+      ],
+      "candidate_sha": "6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "110f70ce8d96d97cec26e64ca4ace1769da8f0a8161e8f246980264d4f5a6baf",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "min:",
+          "cp",
+          "pyproject.toml",
+          ".pyproject.toml"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pre-commit",
+        "run",
+        "--all-files",
+        "--show-diff-on-failure"
+      ],
+      "candidate_sha": "6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "110f70ce8d96d97cec26e64ca4ace1769da8f0a8161e8f246980264d4f5a6baf",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pre-commit",
+          "run",
+          "--all-files",
+          "--show-diff-on-failure"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_utils.py"
+      ],
+      "candidate_sha": "6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "110f70ce8d96d97cec26e64ca4ace1769da8f0a8161e8f246980264d4f5a6baf",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "tests/test_utils.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "46bc49877857337a78e7c8ad177cd2f63429d9457256f8d2875bd2895f8e7694",
+  "target_package": "connexion",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}

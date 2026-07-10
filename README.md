@@ -8,13 +8,17 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 ## Validated protocol and static frontier
 
-The validated current protocol is `v2.14 capability_recovery_lane` and remains evidence-locked. Batch068g adds a separate, unpromoted static frontier engine that converts 25 verified Tier-2 candidate identities and repository metadata into deterministic provider-command-probe plans. Tier 3 authorizes only a future bounded provider-command probe; it is not repair, replay, or patch authority.
+The validated current protocol is `v2.15 semantic_frontier_planning_and_bounded_probe_lane`. Batch068h replaces generic planning passthroughs with 11 step-specific semantic handlers and 11 independent verifiers, then deterministically reprocesses the frozen 25-candidate inventory. The preceding `v2.14 capability_recovery_lane` remains directly selectable and audited.
+
+Batch068h also defines an authorization-bound, collection-only OCI provider probe for the sole Tier-3 candidate. Static protocol promotion is independent of probe success. A substrate, exact-runtime, source-custody, provider, collection, or immutability block stops the probe without patch authority, target-test execution, or repair-count changes.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
 - Confirmed issue-derived repair episodes: `4`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
+- Patches generated or applied by Batch068h: `0`.
+- Target-test bodies executed by Batch068h: `0`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.
 - Self-maintaining software: `false/not_demonstrated`.

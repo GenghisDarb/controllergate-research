@@ -1,0 +1,95 @@
+{
+  "block_is_terminal": true,
+  "forbidden_evidence_derivation_required": true,
+  "manual_review_is_terminal": true,
+  "schema_version": "controllergate.semantic_steps.v2",
+  "status": "PASS",
+  "status_model": {
+    "evidence_status": [
+      "NOT_ESTABLISHED",
+      "PARTIAL",
+      "ESTABLISHED",
+      "INVALID"
+    ],
+    "gate_decision": [
+      "PASS",
+      "BLOCK",
+      "MANUAL_REVIEW",
+      "NOT_RUN"
+    ],
+    "operation_status": [
+      "NOT_RUN",
+      "RUNNING",
+      "COMPLETED",
+      "FAILED"
+    ]
+  },
+  "steps": [
+    {
+      "handler": "establish_source_identity",
+      "name": "source_identity",
+      "step_id": "CG-RXN-001",
+      "verifier": "verify_source_identity_binding"
+    },
+    {
+      "handler": "establish_candidate_sha",
+      "name": "candidate_sha",
+      "step_id": "CG-RXN-002",
+      "verifier": "verify_candidate_sha_reachability"
+    },
+    {
+      "handler": "acquire_decision_time_metadata",
+      "name": "decision_time_metadata",
+      "step_id": "CG-RXN-003",
+      "verifier": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "handler": "resolve_native_target_paths",
+      "name": "native_target_paths",
+      "step_id": "CG-RXN-004",
+      "verifier": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "handler": "extract_authoritative_commands",
+      "name": "authoritative_commands",
+      "step_id": "CG-RXN-005",
+      "verifier": "verify_command_source_authority"
+    },
+    {
+      "handler": "rank_and_normalize_commands",
+      "name": "command_ranking",
+      "step_id": "CG-RXN-006",
+      "verifier": "verify_command_selection_determinism"
+    },
+    {
+      "handler": "resolve_runner_target_relationship",
+      "name": "runner_target",
+      "step_id": "CG-RXN-007",
+      "verifier": "verify_runner_target_contract"
+    },
+    {
+      "handler": "classify_harness_origin",
+      "name": "harness_origin",
+      "step_id": "CG-RXN-008",
+      "verifier": "verify_harness_origin_non_circularity"
+    },
+    {
+      "handler": "classify_provider_feasibility",
+      "name": "provider_feasibility",
+      "step_id": "CG-RXN-009",
+      "verifier": "verify_provider_feasibility_evidence"
+    },
+    {
+      "handler": "decide_tier3_promotion",
+      "name": "tier3_promotion",
+      "step_id": "CG-RXN-010",
+      "verifier": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "handler": "emit_candidate_terminal_state",
+      "name": "terminal_state",
+      "step_id": "CG-RXN-011",
+      "verifier": "verify_terminal_state_completeness"
+    }
+  ]
+}

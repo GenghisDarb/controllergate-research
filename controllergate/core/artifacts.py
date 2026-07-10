@@ -11,6 +11,7 @@ from .evidence import sha256_file
 
 ARCHIVE_OR_CACHE_SUFFIXES = (".zip", ".tar", ".tar.gz", ".tgz", ".7z", ".pyc", ".pyo", ".whl")
 CACHE_PARTS = {"__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", ".venv", "venv", "env", "ENV"}
+FORBIDDEN_BINARY_SUFFIXES = (".exe", ".dll", ".so", ".dylib", ".bin", ".class", ".o", ".a")
 
 
 def is_safe_zip_member(name: str) -> bool:
@@ -26,9 +27,10 @@ def duplicate_zip_members(names: Iterable[str]) -> list[str]:
     seen: set[str] = set()
     duplicates: list[str] = []
     for name in names:
-        if name in seen:
+        normalized = name.casefold()
+        if normalized in seen:
             duplicates.append(name)
-        seen.add(name)
+        seen.add(normalized)
     return duplicates
 
 
@@ -47,8 +49,11 @@ def audit_zip_entries(zip_path: str | Path) -> dict[str, object]:
     pycache = [name for name in names if "__pycache__" in PurePosixPath(name).parts]
     pyc = [name for name in names if name.endswith((".pyc", ".pyo"))]
     nested_archives = [name for name in names if is_archive_or_cache_payload(name) and name not in {"ARTIFACT_SHA256SUMS.txt", "SHA256SUMS.txt"}]
+    cache_payloads = [name for name in names if any(part in CACHE_PARTS for part in PurePosixPath(name).parts)]
+    forbidden_binaries = [name for name in names if name.lower().endswith(FORBIDDEN_BINARY_SUFFIXES)]
+    nested_count = len(nested_archives)
     return {
-        "status": "PASS" if not unsafe and not duplicates and not pycache and not pyc else "FAIL",
+        "status": "PASS" if not unsafe and not duplicates and not nested_archives and not cache_payloads and not pycache and not pyc and not forbidden_binaries else "FAIL",
         "entry_count": len(names),
         "unsafe_paths": unsafe,
         "unsafe_path_count": len(unsafe),
@@ -59,6 +64,11 @@ def audit_zip_entries(zip_path: str | Path) -> dict[str, object]:
         "pyc_payloads": pyc,
         "pyc_payload_count": len(pyc),
         "nested_archive_or_cache_payloads": nested_archives,
+        "nested_archive_or_cache_payload_count": nested_count,
+        "cache_payloads": cache_payloads,
+        "cache_payload_count": len(cache_payloads),
+        "forbidden_binary_payloads": forbidden_binaries,
+        "forbidden_binary_payload_count": len(forbidden_binaries),
     }
 
 

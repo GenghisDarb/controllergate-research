@@ -1,0 +1,487 @@
+{
+  "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+  "candidate_sha": "c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+  "candidate_state": "native_target_path_not_found_at_candidate_sha",
+  "command_argv": [],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "native_target_path_not_found_at_candidate_sha",
+  "gate_decision": "BLOCK",
+  "issue_identity": {
+    "issue_created_at": "2024-06-26T20:29:10Z",
+    "issue_url": "https://github.com/pypa/distutils/issues/261",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": null,
+  "next_allowed_action": "correct_target_path_with_decision_time_repository_evidence",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "cca70aa2b0902f25644ce56405eebb5ab9738b714f67d3783fdc7c255d33717d",
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "reopen_conditions": [
+    "correct_target_path_with_decision_time_repository_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/pypa/distutils",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": null,
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "a959b7ef8f1fddc09de0e41301b2cc301c3265ddf4238b1cf8ba08e22569c05d",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "af95c9e148ed72fe629489e2873d83808364ac6d837785599e4a433c5ba34a74",
+      "post_state_hash": "36851b92a39d42247a7f247c3268ada43c815b5d88739f1095ac16871c5df79c",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "2e24e75f710e7b4757eecc79cc367363e2ae0ae82710f97d4ff6bd0f2bb8e28e",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "a959b7ef8f1fddc09de0e41301b2cc301c3265ddf4238b1cf8ba08e22569c05d",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "ad4db41c97efe94b9b5682bbb92dfa1dd1061284f099300bbb557212c8cb4489",
+      "post_state_hash": "b4112fec994af331a9cdf30938b62ad305c03e5a59c52776a5aac8be4391ffc7",
+      "prior_state_hash": "36851b92a39d42247a7f247c3268ada43c815b5d88739f1095ac16871c5df79c",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "0738042a811d5038add035541b7cacf7bda28e73833d3094de24b3217c690147",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/main.yml",
+        "pyproject.toml",
+        "pytest.ini",
+        "tox.ini"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "a959b7ef8f1fddc09de0e41301b2cc301c3265ddf4238b1cf8ba08e22569c05d",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "fd3b80b78e7d6b7862f3ea19e0ba1a500468bdbd8102cf7b353520c8c1622722",
+      "post_state_hash": "fa6ea0a6677f63144adf64b598b1b4de47e8421630a3353101cfaadcd7002953",
+      "prior_state_hash": "b4112fec994af331a9cdf30938b62ad305c03e5a59c52776a5aac8be4391ffc7",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "a0ddae2ac337bfc2dd8ec65fc8d44e6c5406709031a18b971f57d2f6ccfe044d",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "native target path not found at candidate sha",
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "native_target_path_not_found_at_candidate_sha",
+      "decision_time_evidence_consumed": [
+        "target_path_verification"
+      ],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "BLOCK",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "a959b7ef8f1fddc09de0e41301b2cc301c3265ddf4238b1cf8ba08e22569c05d",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "correct_target_path_with_decision_time_repository_evidence",
+      "operation_status": "COMPLETED",
+      "output_hash": "a9d91bc93484654a3e34e9aee4d4d974715dcdcdda8d4ac6c03fc2622e30e896",
+      "post_state_hash": "1dfb1eae751499c1bb3a56cdaeb141af555ba26e6381a850194e1d9b66100cfe",
+      "prior_state_hash": "fa6ea0a6677f63144adf64b598b1b4de47e8421630a3353101cfaadcd7002953",
+      "reopen_conditions": [
+        "correct_target_path_with_decision_time_repository_evidence",
+        "rerun_static_frontier_plan_with_hash_pinned_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "815270ea9dad2b55ddcacab36b751897e279739fadfd22d56daf4981de3a0ef5",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "9d4f7dcbf37d9002bc843e82893058f6709548390c41c9da090d7ec8b503b905",
+      "post_state_hash": "6be6694d691c858a1db0f9f8c64820afa112016139a6ab509a52fef4a14f9841",
+      "prior_state_hash": "1dfb1eae751499c1bb3a56cdaeb141af555ba26e6381a850194e1d9b66100cfe",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "c377b66451870caec6d53ccf3ddca11fecc34b84082c92a8e5d0ae71c5f02445",
+      "post_state_hash": "5ffafa1e9b8446a1e90d2061cfbeb88d0a08399486931504d9b11b339957da66",
+      "prior_state_hash": "6be6694d691c858a1db0f9f8c64820afa112016139a6ab509a52fef4a14f9841",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "3f06eb03d95808712fb6ca7098fdee5c32584d1f13f06d7148562aa72ba99372",
+      "post_state_hash": "e7ec070f93e8a4ada90a05e4542755c1d1ee996f7203923c9455dde54b519d8c",
+      "prior_state_hash": "5ffafa1e9b8446a1e90d2061cfbeb88d0a08399486931504d9b11b339957da66",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "3c73b14ed8a5e158c94552e9938646eec8c2e73341b52929abdb9a5b8fbca01b",
+      "post_state_hash": "74e33263d7303a682df0e44195c0ee07d30be48984f94fd715e249181aef1439",
+      "prior_state_hash": "e7ec070f93e8a4ada90a05e4542755c1d1ee996f7203923c9455dde54b519d8c",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "74a099990251fbebc5b70391fea7fef0d4f9ce12d4329f801a08877c08a67d80",
+      "post_state_hash": "6731a1d3ce8ed10ebfb60d862ff35a822a8ae1278e6496bf24cff5f147ff1dba",
+      "prior_state_hash": "74e33263d7303a682df0e44195c0ee07d30be48984f94fd715e249181aef1439",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "e41eb1d890d367b74b16a223aa4ee5f343f9065dc56f98f4624ee0c5916a02dd",
+      "post_state_hash": "b2d5648023b5ad54ebf3799648c6844cec2ab5682c92e5b04aa02bef0c2000dd",
+      "prior_state_hash": "6731a1d3ce8ed10ebfb60d862ff35a822a8ae1278e6496bf24cff5f147ff1dba",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "c37c32c0206477613c6109e1e21ecd59085bc3fb8319842610efb2d6d4503e68",
+      "post_state_hash": "bc61d2f622311d0316720de28c5248f344d61717e2082b932adec54f7c43c345",
+      "prior_state_hash": "b2d5648023b5ad54ebf3799648c6844cec2ab5682c92e5b04aa02bef0c2000dd",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [
+    {
+      "argv": [
+        "pytest",
+        "{posargs}"
+      ],
+      "candidate_sha": "c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "3fe2f8391c8df8e9df7326be20f7eccde264a52939c201384b2715de7161fd03",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "{posargs}",
+        "--cov-report",
+        "xml"
+      ],
+      "candidate_sha": "c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "3fe2f8391c8df8e9df7326be20f7eccde264a52939c201384b2715de7161fd03",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "{posargs}",
+          "--cov-report",
+          "xml"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-c",
+        "import shutil; shutil.rmtree('dist', ignore_errors=True)"
+      ],
+      "candidate_sha": "c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "3fe2f8391c8df8e9df7326be20f7eccde264a52939c201384b2715de7161fd03",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-c",
+          "import shutil; shutil.rmtree('dist', ignore_errors=True)"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "jaraco.develop.finalize"
+      ],
+      "candidate_sha": "c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "3fe2f8391c8df8e9df7326be20f7eccde264a52939c201384b2715de7161fd03",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "jaraco.develop.finalize"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "3fe2f8391c8df8e9df7326be20f7eccde264a52939c201384b2715de7161fd03",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "sphinx",
+        "-W",
+        "--keep-going",
+        ".",
+        "{toxinidir}/build/html"
+      ],
+      "candidate_sha": "c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "3fe2f8391c8df8e9df7326be20f7eccde264a52939c201384b2715de7161fd03",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "sphinx",
+          "-W",
+          "--keep-going",
+          ".",
+          "{toxinidir}/build/html"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "85c0bacdf1fb20fc861c95915e00529b790cb83608c4627c9fdb3cadc819efdb",
+  "target_package": "distutils",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}

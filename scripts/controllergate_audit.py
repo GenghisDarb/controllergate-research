@@ -55,13 +55,18 @@ def load_current_config() -> dict[str, Any]:
 
 
 def select_protocol(protocol: str) -> dict[str, Any]:
-    config = load_current_config()
-    current_version = str(config.get("protocol_version", ""))
     if protocol == "current":
-        return config
-    if protocol in {"v2.13", "v2.14"} and current_version == protocol:
-        return config
-    raise ValueError(f"unsupported protocol {protocol!r}; current config points to {current_version!r}")
+        return load_current_config()
+    path = REPO_ROOT / "configs" / f"controllergate_{protocol.replace('.', '_')}.yaml"
+    if not path.is_file():
+        raise ValueError(f"unsupported protocol {protocol!r}")
+    global CURRENT_CONFIG
+    original = CURRENT_CONFIG
+    try:
+        CURRENT_CONFIG = path
+        return load_current_config()
+    finally:
+        CURRENT_CONFIG = original
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -88,6 +93,18 @@ def claim_boundary_status(config: dict[str, Any]) -> tuple[str, list[str]]:
             errors.append("config non-Ansible positive-memory boundary changed")
 
     protocol_version = str(config.get("protocol_version", ""))
+    if protocol_version == "v2.15":
+        state_path = REPO_ROOT / "outputs/current/CURRENT_PROTOCOL_STATE.json"
+        if not state_path.is_file():
+            return "FAIL", ["missing v2.15 current protocol state"]
+        state = load_json(state_path)
+        if state.get("protocol_version") != "v2.15": errors.append("v2.15 protocol state version mismatch")
+        if state.get("patch_authority") is not False: errors.append("v2.15 patch authority changed")
+        if state.get("repair_execution_authority") is not False: errors.append("v2.15 repair authority changed")
+        if state.get("full_scoring") != "NOT_RUN/disallowed": errors.append("v2.15 full scoring changed")
+        if state.get("memory_lift") != "not_demonstrated": errors.append("v2.15 memory claim changed")
+        if state.get("self_maintaining_software") != "false/not_demonstrated": errors.append("v2.15 self-maintaining claim changed")
+        return ("PASS" if not errors else "FAIL"), errors
     output_dir = REPO_ROOT / str(config["output_dir"])
     state_filename = "candidate_state_v2_14.json" if protocol_version == "v2.14" else "candidate_state_v2_13.json"
     state_path = output_dir / state_filename
@@ -121,7 +138,7 @@ def claim_boundary_status(config: dict[str, Any]) -> tuple[str, list[str]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run the configured ControllerGate protocol audit.")
-    parser.add_argument("--protocol", choices=["current", "v2.13", "v2.14"], default="current")
+    parser.add_argument("--protocol", choices=["current", "v2.14", "v2.15"], default="current")
     args = parser.parse_args()
 
     try:
@@ -137,7 +154,7 @@ def main() -> int:
         print(f"controllergate audit setup FAIL: {exc}", file=sys.stderr)
         return 2
 
-    command = [sys.executable, str(audit_script), "--artifact-root", str(output_dir)]
+    command = [sys.executable, str(audit_script)] if str(config.get("protocol_version")) == "v2.15" else [sys.executable, str(audit_script), "--artifact-root", str(output_dir)]
     result = subprocess.run(command, cwd=REPO_ROOT)
     audit_status = "PASS" if result.returncode == 0 else "FAIL"
 

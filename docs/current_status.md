@@ -2,15 +2,17 @@
 
 ## Validated protocol and static frontier
 
-The validated current protocol is `v2.14 capability_recovery_lane`. Batch068g operates as a separate static planning frontier and is not protocol-promoted. It processes the frozen 25-candidate Tier-2 set through hash-pinned command-source, target-path, runner-target, harness-origin, and provider-feasibility gates. Any Tier-3 result authorizes only a future bounded provider-command probe.
+The validated current protocol is `v2.15 semantic_frontier_planning_and_bounded_probe_lane`. Batch068h promotes the static planning interface after resolving 11 semantic handlers and 11 independent verifiers, reprocessing all 25 frozen candidates, preserving deterministic state hashes, and passing negative controls. `v2.14 capability_recovery_lane` remains directly selectable and audited.
+
+The provider capability is separately gated. Its sole Tier-3 candidate can receive only an authorization-bound, collection-only OCI probe. An unavailable secure substrate or any failed runtime, provider, source-custody, collection, or immutability gate yields an explicit stopped state; it does not affect static protocol promotion.
 
 The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIER_STATE.json`; its rendered view is `docs/CURRENT_FRONTIER_STATUS.md`.
 
 - Issue-derived repair episodes: `4`.
 - Native external repair episodes: `4`.
-- Target tests executed by Batch068g: `0`.
-- Patches generated or applied by Batch068g: `0`.
-- Runtime activation: blocked by an incomplete conjunctive evidence vector.
+- Target-test bodies executed by Batch068h: `0`.
+- Patches generated or applied by Batch068h: `0`.
+- Runtime connectors and live-device repair: inactive.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.
 - Self-maintaining software: `false/not_demonstrated`.

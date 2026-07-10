@@ -1,0 +1,395 @@
+{
+  "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+  "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+  "candidate_state": "provider_probe_plan_not_bounded",
+  "command_argv": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_cli.py"
+  ],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "provider_probe_plan_not_bounded",
+  "gate_decision": "BLOCK",
+  "issue_identity": {
+    "issue_created_at": "2026-07-02T22:51:26Z",
+    "issue_url": "https://github.com/iMelki/mempalace/issues/15",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": "tests/test_cli.py",
+  "next_allowed_action": "supply_bounded_provider_capsule_plan",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "40b34d6c2268c47027eb639781fc80a1513808b63932cd2597cbbca822cf749f",
+  "provider_feasibility_class": "network_or_model_dependency_static",
+  "reopen_conditions": [
+    "supply_bounded_provider_capsule_plan"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/iMelki/mempalace",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "python",
+      "-m",
+      "pytest",
+      "tests/test_cli.py"
+    ],
+    "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+    "precedence": 30,
+    "source_class": "pyproject.toml",
+    "source_path": "pyproject.toml",
+    "source_sha256": "fc38a62e51ac2a1000cd877c6d59c917d62c47acd0541e7084d45754a59daf08",
+    "target_path_corroborated": true,
+    "token_safety": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_cli.py"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "4056653ffa5c676fb6ad3b8b2a783856a2e62bd2d1d49cecdb152a26a179af40",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "c353ab4f98cdf3153868a4774a48cf56bfcbd39bfebc9eac0898b2c20d450a2a",
+      "post_state_hash": "071d800a73831f8584eff6a3aa9fd81c1a87ee32bdcd1394195f0123f1bb1da4",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "20fb2f4ddac852d33630a98bc3e593abff6dfba8518d7b14902f689f080d3363",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "4056653ffa5c676fb6ad3b8b2a783856a2e62bd2d1d49cecdb152a26a179af40",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "899fb79a8b4eb1c7a4e5261ced3118c6d46ac1b9f61ee35bbcdaef5009e41bb5",
+      "post_state_hash": "698ebbb7fb0bfc20028aeccbb0909bac50fe61ad553444544b74d460e24ad150",
+      "prior_state_hash": "071d800a73831f8584eff6a3aa9fd81c1a87ee32bdcd1394195f0123f1bb1da4",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "91871b508f32fa6229426ef201d15fa3f646a5ae50bed1a1955737415b909762",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/deploy-docs.yml",
+        ".github/workflows/sync-upstream.yml",
+        ".github/workflows/version-guard.yml",
+        "CONTRIBUTING.md",
+        "pyproject.toml",
+        "tests/benchmarks/README.md",
+        "website/reference/contributing.md"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "4056653ffa5c676fb6ad3b8b2a783856a2e62bd2d1d49cecdb152a26a179af40",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "6b433475c5e16ca9d863c340baf2031221dafe566652bdbc45baafb30aa60ab9",
+      "post_state_hash": "2811b4e6287973fed9d2f95c28fc9178d00f710b977020e214b9b5a369868288",
+      "prior_state_hash": "698ebbb7fb0bfc20028aeccbb0909bac50fe61ad553444544b74d460e24ad150",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "31beb020a14899f86f5b41916805d76a870c0438f410eb01c836697c09d10bc5",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "target_path_verification",
+        "tests/test_cli.py"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "4056653ffa5c676fb6ad3b8b2a783856a2e62bd2d1d49cecdb152a26a179af40",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "e5e0d1cc8e99b2b900429e210f20965acd5f07633c36ccec5dfcc7baecd45e38",
+      "post_state_hash": "8fd8fc0aa429545beae9b14ecd1409e29bd94efc6c162806f2aeaa723902a356",
+      "prior_state_hash": "2811b4e6287973fed9d2f95c28fc9178d00f710b977020e214b9b5a369868288",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "23b0816ae84d1977ad645e37adc3bbd6fac0aa8d22cda63aa9fff5b1305ebdbb",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/deploy-docs.yml",
+        ".github/workflows/sync-upstream.yml",
+        ".github/workflows/version-guard.yml",
+        "CONTRIBUTING.md",
+        "pyproject.toml",
+        "tests/benchmarks/README.md",
+        "website/reference/contributing.md"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [
+        "4056653ffa5c676fb6ad3b8b2a783856a2e62bd2d1d49cecdb152a26a179af40",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "b1c333b9d96b99484a76ed6ed991b56ccfbdd8966498f0252c0ad4dec3e99f33",
+      "post_state_hash": "4fb2cb4dc42caf3e117acf619903144bf4c04a74de54494d95b033d897cf432d",
+      "prior_state_hash": "8fd8fc0aa429545beae9b14ecd1409e29bd94efc6c162806f2aeaa723902a356",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "e0962945a2c736316c714f51341ab6593b28dfe6ff5658607c16627b8f958dc6",
+      "verification_status": "PASS",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "CONTRIBUTING.md",
+        "pyproject.toml",
+        "website/reference/contributing.md"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [
+        "4056653ffa5c676fb6ad3b8b2a783856a2e62bd2d1d49cecdb152a26a179af40",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "e20686f6eab8af11ac2828359d118dd7c1c42630520677f39c45212ac14c93aa",
+      "post_state_hash": "4aed11ec087c9325d9309e2259591ba365757262935ed332bc28805199a714b0",
+      "prior_state_hash": "4fb2cb4dc42caf3e117acf619903144bf4c04a74de54494d95b033d897cf432d",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "bf78acab0042bcb767f2602c86872b632ed938fd18a72203b6623ae8e88c1808",
+      "verification_status": "PASS",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "selected_command.argv",
+        "target_package"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [
+        "4056653ffa5c676fb6ad3b8b2a783856a2e62bd2d1d49cecdb152a26a179af40",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "55f04a7947a9fd3ee0815b92b3f00906c1fff5c0ab807d1e38672f635962bced",
+      "post_state_hash": "7a03bf0569cee729ac0e61f0c6d81ecae85286b756126209f76dc4733c253c94",
+      "prior_state_hash": "4aed11ec087c9325d9309e2259591ba365757262935ed332bc28805199a714b0",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "398f36fc2b7257e072e43ca4d3083066ceb67403d92e49e50accd727a9eec1fe",
+      "verification_status": "PASS",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "authoritative command source",
+        "decision-time evidence manifest",
+        "native target path"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [
+        "4056653ffa5c676fb6ad3b8b2a783856a2e62bd2d1d49cecdb152a26a179af40",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "3011f939eb1c4eac14506a8c6b5aa0ab42d67721d1df00113bf14c1eeaeef356",
+      "post_state_hash": "5bf0be119317c356ebfb203135c1cc521f84f845af76453b0f6e96aaf814d94b",
+      "prior_state_hash": "7a03bf0569cee729ac0e61f0c6d81ecae85286b756126209f76dc4733c253c94",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "4ecf4f4a6321f70c836f01e1fb4b600efdcb4d8b11db980aac15d3c7005dc188",
+      "verification_status": "PASS",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "provider_probe_plan_not_bounded",
+      "blocker_reason": "provider probe plan not bounded",
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "provider_probe_plan_not_bounded",
+      "decision_time_evidence_consumed": [
+        "model",
+        "provider feasibility evidence"
+      ],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "BLOCK",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [
+        "4056653ffa5c676fb6ad3b8b2a783856a2e62bd2d1d49cecdb152a26a179af40",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "supply_bounded_provider_capsule_plan",
+      "operation_status": "COMPLETED",
+      "output_hash": "0e984cecddaca8a26832ef7cb5037c4561bcb1b4ece8c214fd703ce79db8c15d",
+      "post_state_hash": "767bb8cfffbec477703d0f6878030ad37017a349f24a7362e8452e53ce870373",
+      "prior_state_hash": "5bf0be119317c356ebfb203135c1cc521f84f845af76453b0f6e96aaf814d94b",
+      "reopen_conditions": [
+        "supply_bounded_provider_capsule_plan"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "200c45a710bea2b9e24ab9553e11535b87671ad1ef556aa731f2dac01a9eb7e2",
+      "verification_status": "PASS",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "provider_probe_plan_not_bounded",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "54cd3f0b980c93eaa4b1dd764b2668a59b3e963781ad3763b0cbd7b569889ca1",
+      "post_state_hash": "89ab7b0f2722b764e7f38930a860793d54c8b60b4a5d8d599ac052ade26133e5",
+      "prior_state_hash": "767bb8cfffbec477703d0f6878030ad37017a349f24a7362e8452e53ce870373",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "provider_probe_plan_not_bounded",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "bc00c69e27961e8b526e89f72259cb297ef528080ceb35e536c8778fdb8d2ce2",
+      "post_state_hash": "99abeccce595de928f8370fe22def2a1fb62ccb3130c6dd664ea8260fbf2825d",
+      "prior_state_hash": "89ab7b0f2722b764e7f38930a860793d54c8b60b4a5d8d599ac052ade26133e5",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [],
+  "state_hash": "3c0ff66851d8e70fc44ba4ffc1209fd382aa70a26e9c2ef6591b4938fd33e50d",
+  "target_package": "mempalace",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}

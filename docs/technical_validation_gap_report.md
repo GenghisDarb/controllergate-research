@@ -4,11 +4,11 @@ ControllerGate remains a pre-alpha research archive. Batch015 improves runtime-s
 
 Remaining gaps include additional external repair episodes, prospective matched-null separation on fresh native candidates, broader repository diversity, and audited runtime fixture demonstrations.
 
-## Batch068g frontier validation boundary
+## Batch068h frontier validation boundary
 
-Batch068g hardens metadata command orthology and exposes a deterministic static planning interface without promoting it to the validated `v2.14` current protocol. Static Tier-3 authorization does not establish target replay, provider success, repair success, or production readiness.
+Batch068h validates and promotes the deterministic semantic planning interface to `v2.15`. Promotion establishes static planning and authorization-bound probe routing only. It does not establish target replay, repair success, runtime deployment, memory lift, or production readiness. `v2.14` remains selectable for regression and historical continuity.
 
-Remaining frontier gaps are candidate-specific target-path or command-authority evidence, bounded provider-command probes for any statically authorized candidates, prospective matched-null evidence, sandbox and rollback demonstrations, signed artifacts, canary evidence, and post-deployment health verification. Runtime connectors remain inactive. Full scoring remains `NOT_RUN/disallowed`; memory lift and self-maintaining software remain undemonstrated.
+Remaining frontier gaps include successful bounded provider materialization where substrate gates permit it, pre-repair target-failure replay, prospective paired memory evidence across the preregistered incident/repository/ecosystem minimums, signed release artifacts, canary evidence, and post-deployment health verification. Runtime connectors remain inactive. Full scoring remains `NOT_RUN/disallowed`; memory lift and self-maintaining software remain undemonstrated.
 
 Batch016 adds a useful negative result: unrelated pre-target failures are not accepted as issue-derived verification.
 
@@ -16,7 +16,7 @@ Batch017 adds the next technical gap: historical dependency locks must be decisi
 
 ## Current operational gate status
 
-- Current protocol is `v2.14 capability_recovery_lane`.
+- Current protocol is `v2.15 semantic_frontier_planning_and_bounded_probe_lane`.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes are `4`.
 - Full scoring remains `NOT_RUN/disallowed`.

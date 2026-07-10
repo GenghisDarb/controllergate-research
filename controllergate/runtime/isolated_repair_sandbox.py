@@ -15,7 +15,7 @@ def _inside(path: Path, parent: Path) -> bool:
         return False
 
 
-def validate_sandbox_path(path: str | Path, repo_root: str | Path) -> dict[str, Any]:
+def validate_ephemeral_workspace_path(path: str | Path, repo_root: str | Path) -> dict[str, Any]:
     sandbox = Path(path)
     repo = Path(repo_root)
     parts = [part.lower() for part in sandbox.resolve().parts]
@@ -23,7 +23,8 @@ def validate_sandbox_path(path: str | Path, repo_root: str | Path) -> dict[str, 
     valid = not _inside(sandbox, repo) and "onedrive" not in parts and not contamination
     return {
         "status": "PASS" if valid else "BLOCK",
-        "sandbox_path": str(sandbox),
+        "workspace_path": str(sandbox),
+        "security_classification": "ephemeral_isolated_workspace_not_secure_oci_sandbox",
         "outside_repo": not _inside(sandbox, repo),
         "outside_onedrive": "onedrive" not in parts,
         "contamination": contamination,
@@ -31,11 +32,11 @@ def validate_sandbox_path(path: str | Path, repo_root: str | Path) -> dict[str, 
     }
 
 
-def create_ephemeral_sandbox(repo_root: str | Path, prefix: str = "controllergate_batch015_") -> dict[str, Any]:
+def create_ephemeral_isolated_workspace(repo_root: str | Path, prefix: str = "controllergate_batch015_") -> dict[str, Any]:
     root = Path(tempfile.mkdtemp(prefix=prefix))
     marker = root / "SANDBOX_READY.txt"
     marker.write_text("sandbox ready\n", encoding="utf-8", newline="\n")
-    validation = validate_sandbox_path(root, repo_root)
+    validation = validate_ephemeral_workspace_path(root, repo_root)
     digest = hashlib.sha256(marker.read_bytes()).hexdigest()
     return {
         **validation,
@@ -43,3 +44,13 @@ def create_ephemeral_sandbox(repo_root: str | Path, prefix: str = "controllergat
         "sandbox_root_hash": digest,
         "committable": False,
     }
+
+
+def validate_sandbox_path(path: str | Path, repo_root: str | Path) -> dict[str, Any]:
+    """Deprecated compatibility alias; this is path isolation, not a secure sandbox."""
+    return validate_ephemeral_workspace_path(path, repo_root)
+
+
+def create_ephemeral_sandbox(repo_root: str | Path, prefix: str = "controllergate_batch015_") -> dict[str, Any]:
+    """Deprecated compatibility alias for an ephemeral isolated workspace."""
+    return create_ephemeral_isolated_workspace(repo_root, prefix)

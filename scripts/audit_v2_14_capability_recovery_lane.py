@@ -467,6 +467,15 @@ def audit_filesystem(root: Path, errors: list[str]) -> None:
     current_config = (REPO_ROOT / "configs" / "controllergate_current.yaml").read_text(encoding="utf-8")
     if "protocol_version: v2.13" not in current_config:
         batch048_decision = REPO_ROOT / "outputs" / "clean_replication_batch_048" / "batch048_protocol_v2_14_promotion_decision.json"
+        batch068h_decision = REPO_ROOT / "outputs" / "post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe" / "static_planning_protocol_promotion_decision_batch068h.json"
+        if "protocol_version: v2.15" in current_config and batch068h_decision.is_file():
+            decision = load_json(batch068h_decision, errors)
+            criteria = decision.get("criteria") or {}
+            if decision.get("status") != "PASS" or decision.get("protocol_before") != "v2.14" or decision.get("protocol_after") != "v2.15":
+                errors.append("configs/controllergate_current.yaml changed without valid Batch068h v2.15 promotion")
+            if not criteria or not all(value is True for value in criteria.values()):
+                errors.append("Batch068h v2.15 promotion criteria are incomplete")
+            return
         if "protocol_version: v2.14" not in current_config or not batch048_decision.is_file():
             errors.append("configs/controllergate_current.yaml no longer points to v2.13")
             return

@@ -1,0 +1,13 @@
+{
+  "deletion_rule": "no_deletion_without_verified_replacement_and_migration_proof",
+  "large_payload_policy": "retain_external_identity_and_manifest_without_repo_copy",
+  "schema_version": "controllergate.evidence_retention.v1",
+  "storage_classes": [
+    "current_product_state",
+    "current_evidence_manifest",
+    "historical_evidence_manifest",
+    "external_large_payload",
+    "deprecated_but_retained"
+  ],
+  "status": "PASS"
+}

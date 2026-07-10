@@ -1,0 +1,402 @@
+{
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+  "candidate_state": "tier3_provider_probe_authorized",
+  "command_argv": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_cli.py"
+  ],
+  "evidence_status": "ESTABLISHED",
+  "exact_blocker": null,
+  "gate_decision": "PASS",
+  "issue_identity": {
+    "issue_created_at": "2024-07-03T12:05:28Z",
+    "issue_url": "https://github.com/jupyter/nbclient/issues/316",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": "tests/test_cli.py",
+  "next_allowed_action": "batch068h_bounded_provider_command_probe",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "dde13f0ba0c9a4ca3f3f7d5f454de1926e003dac878b05c2c1b8d678dd27ea89",
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "reopen_conditions": [],
+  "repo_identity": {
+    "repo_url": "https://github.com/jupyter/nbclient",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "python",
+      "-m",
+      "pytest",
+      "tests/test_cli.py"
+    ],
+    "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+    "precedence": 30,
+    "source_class": "pyproject.toml",
+    "source_path": "pyproject.toml",
+    "source_sha256": "cfc911f54ea383d7cd7d53470e051b839ce7a2007f5ebd621c3d5af25206d0f3",
+    "target_path_corroborated": true,
+    "token_safety": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_cli.py"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "33a70d8c72cec29496ebbf59ec75ece05469fec0cf2691e1916b6dfa7f05299b",
+      "post_state_hash": "c599d24b48cf60a82dd389f4f2f086b6b119925c624801152c9365343df6fbf1",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "5b6c092290e93d477c0c4d4462ade4067d8de7aeafbf099ab08bf0e0ccf2dc3b",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "8c262954bca8bf8a473fc2ff38d67db4cd762a7126282d1ccc1124123f6698d2",
+      "post_state_hash": "9bca987e7f1ba8aeef7c46ef680a644ff700f05f9a372142bae21d7731a865f8",
+      "prior_state_hash": "c599d24b48cf60a82dd389f4f2f086b6b119925c624801152c9365343df6fbf1",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "68c7985d054052a469a2ab89fe274a5478581ab1de76128311e353c7dbb9a455",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/check-release.yml",
+        ".github/workflows/main.yml",
+        ".github/workflows/prep-release.yml",
+        ".github/workflows/publish-changelog.yml",
+        ".github/workflows/publish-release.yml",
+        "CONTRIBUTING.md",
+        "pyproject.toml"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "93c4f66dfd21c0a8e18aa320958e4af7dca301b9d9fd37e6664cd7979ecd05fd",
+      "post_state_hash": "0099719445f957dc796599b7a44cb451c620f7617ecc3a85350a2751778f1ece",
+      "prior_state_hash": "9bca987e7f1ba8aeef7c46ef680a644ff700f05f9a372142bae21d7731a865f8",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "be095bcb70214e08870980afeef35209c972607601341820bf6ab3b927831eac",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "target_path_verification",
+        "tests/test_cli.py",
+        "tests/test_client.py"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "a44916426dcd704ba2c1f0d498339b29916eca28dd8baee157f689a8a166f0bf",
+      "post_state_hash": "48f0d8f2acf6b37d188fa92ae763f56c6e54849c5828e236234e164d7fe89335",
+      "prior_state_hash": "0099719445f957dc796599b7a44cb451c620f7617ecc3a85350a2751778f1ece",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "6626150cf873b5bb1fd5eabae1f57d9867da3b3d092893765852f9e75b69172c",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/check-release.yml",
+        ".github/workflows/main.yml",
+        ".github/workflows/prep-release.yml",
+        ".github/workflows/publish-changelog.yml",
+        ".github/workflows/publish-release.yml",
+        "CONTRIBUTING.md",
+        "pyproject.toml"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "f233441baae9201630fde71506d144888c4bca3edf6f7dc99e775e65b0a7eb16",
+      "post_state_hash": "8ca513e7f03ca6e4eaf9fb076e8895592955535a2a3bb207d157be9862359357",
+      "prior_state_hash": "48f0d8f2acf6b37d188fa92ae763f56c6e54849c5828e236234e164d7fe89335",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "9ea4cb4f774e30b237a64357d6a7c66ef7507d178a99d66dfcd683f178dd647d",
+      "verification_status": "PASS",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "CONTRIBUTING.md",
+        "pyproject.toml"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "031ca35eed2a9d993313d0ed09387ce2fc27cb6b72a500b658a0cd399aa08af0",
+      "post_state_hash": "07efb4172b10c46935361b53bc6354ca1f93c1aa622d2d660b28b4ac5bf5b8fa",
+      "prior_state_hash": "8ca513e7f03ca6e4eaf9fb076e8895592955535a2a3bb207d157be9862359357",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "afd2b74fa98750188f3ee06149ff857c61883e3d13f5d151274c4b15bf6c1aa0",
+      "verification_status": "PASS",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "selected_command.argv",
+        "target_package"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "b5354576d521c14cce43b4a48dee1b7574b7e3761ea33414eb7ade2cd3553993",
+      "post_state_hash": "a2f4c9068e5514d15baa21e5b970354777f77a412f433bdf49c052f4ff4259d7",
+      "prior_state_hash": "07efb4172b10c46935361b53bc6354ca1f93c1aa622d2d660b28b4ac5bf5b8fa",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "a9ecb64ea088d060244dadb90d8b3d8d300495e9858631d45cb023c2b7c9d1ef",
+      "verification_status": "PASS",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "authoritative command source",
+        "decision-time evidence manifest",
+        "native target path"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "3011f939eb1c4eac14506a8c6b5aa0ab42d67721d1df00113bf14c1eeaeef356",
+      "post_state_hash": "5f8d02dd9c48c88ac6341b028def5dc23b55beb6f054ec759419bb9546ada889",
+      "prior_state_hash": "a2f4c9068e5514d15baa21e5b970354777f77a412f433bdf49c052f4ff4259d7",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "0e1755cfeda5920df8597879ed8d614db1140c7d2714da502032b51f1cc61bff",
+      "verification_status": "PASS",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "provider feasibility evidence"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "2eac13583099a279f7c09afac370537fd58ad404f70b6b6f93acc76d2b212192",
+      "post_state_hash": "3278de68fcad6de1c0803acd97b910eb249302bdb3b012505381ef614038b00e",
+      "prior_state_hash": "5f8d02dd9c48c88ac6341b028def5dc23b55beb6f054ec759419bb9546ada889",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "d59d68c07938dd61c793eb9d69367799fe1fc9e8bec984cc654bc203486319a6",
+      "verification_status": "PASS",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "command",
+        "harness",
+        "metadata",
+        "provider",
+        "runner_target",
+        "sha",
+        "source",
+        "target"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "batch068h_bounded_provider_command_probe",
+      "operation_status": "COMPLETED",
+      "output_hash": "b953d1d0e26a46fe20e2518c3af2281b5404a008837e1e40cc39c090fb2cfda1",
+      "post_state_hash": "b5cb23bc22af0c1fd47051d26f6a1616c77cfed0c9776f94cba4421fb380b79e",
+      "prior_state_hash": "3278de68fcad6de1c0803acd97b910eb249302bdb3b012505381ef614038b00e",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "a0dc40081450b0be63ce7dbbf970ac9e47dec612c0b4318b9dfc9d7e1692e644",
+      "verification_status": "PASS",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate terminal vocabulary",
+        "semantic promotion recomputation"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [
+        "618fd4dfe3160c160fc6ceed838829737bc66b6b5edb272f8fd8054a152dbefa",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "batch068h_bounded_provider_command_probe",
+      "operation_status": "COMPLETED",
+      "output_hash": "5aff42c0c670221e398e06f6849925bc136abcde0daae6b378e18a261b68d8ce",
+      "post_state_hash": "afb1c4f87d1e906c8738b25b3f4264c42373761a87d0e0d529c9cfa07e87c9fc",
+      "prior_state_hash": "b5cb23bc22af0c1fd47051d26f6a1616c77cfed0c9776f94cba4421fb380b79e",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "46bb8e996ffa4da306bcc4ceac10397a2186350925f3e1eca62685babddcdf0f",
+      "verification_status": "PASS",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [],
+  "state_hash": "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+  "target_package": "nbclient",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 3 static provider-command-probe authorization"
+}

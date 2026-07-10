@@ -2,13 +2,18 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
-## Batch068g frontier capabilities
+## Batch068h semantic frontier capabilities
 
-- Validated current protocol: `v2.14 capability_recovery_lane` (`PASS`).
-- Static frontier planning engine: operational and not protocol-promoted.
-- Command evidence graphs, structured argv safety, source precedence, runner-target classification, harness-origin checks, provider-feasibility classification, and deterministic candidate-state hashing: implemented in reusable core modules.
+- Validated current protocol: `v2.15 semantic_frontier_planning_and_bounded_probe_lane` (`PASS`).
+- Prior protocol: `v2.14 capability_recovery_lane` remains selectable and audited.
+- Static frontier planning engine: operational and protocol-promoted after semantic-runtime validation.
+- Step-specific semantic handlers and independent verifiers: `11` each.
+- Command evidence graphs, structured argv safety, source precedence, runner-target classification, harness-origin checks, provider-feasibility classification, deterministic candidate-state hashing, and terminal stop propagation: implemented in reusable core modules.
 - Frozen Tier-2 candidate inventory: `25`.
-- Tier 3, where present, means future bounded provider-command-probe authorization only.
+- Tier-3 candidate inventory: `1`; authorization is collection-only and does not convey repair or patch authority.
+- OCI execution policy, exact-runtime identity, offline provider materialization, workspace snapshots, rollback recreation, resource/network isolation, artifact auditor v2, and patch safety v2: implemented with fail-closed gates.
+- Prospective memory protocol: preregistered but not executed (`100` fresh incidents, `10` unrelated repositories, and `3` ecosystems or languages required).
+- Evidence catalog and deletion policy: active; no evidence is presently deletion-eligible.
 - Runtime activation requires a conjunctive future evidence vector; a repair-count floor alone is insufficient.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift and self-maintaining software remain undemonstrated.
 
@@ -20,7 +25,7 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 
 ## Current operational gate status
 
-- Current protocol is `v2.14 capability_recovery_lane`.
+- Current protocol is `v2.15 semantic_frontier_planning_and_bounded_probe_lane`.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes are `4`.
 - Full scoring remains `NOT_RUN/disallowed`.

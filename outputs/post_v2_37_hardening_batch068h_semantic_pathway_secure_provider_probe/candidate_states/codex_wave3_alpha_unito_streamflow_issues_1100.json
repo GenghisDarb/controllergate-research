@@ -1,0 +1,461 @@
+{
+  "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+  "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+  "candidate_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "command_argv": [],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "gate_decision": "BLOCK",
+  "issue_identity": {
+    "issue_created_at": "2026-06-19T19:51:43Z",
+    "issue_url": "https://github.com/alpha-unito/streamflow/issues/1100",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": null,
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "97a84b6a3ea6b053062a31f15d2ca3d8be029e1edf326926fbaf8d2d8713fe7d",
+  "provider_feasibility_class": "external_service_required_static",
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/alpha-unito/streamflow",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": null,
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "a041155e9df76c8f3a45a8958468cea90db037bc4e3b433474766407631ecf43",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "bd7529d33ff4516e22e37d0c88068bb2572d6ae31f071da361b0e91b4b8eefee",
+      "post_state_hash": "7422247254d6cd0bd269e5c0ecfa17169e9a463d7abaaf996812abbe0656d987",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "a49c49f440741bfe279dafbe3001dfd610e34ec9809c90260dc660a4ea143257",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "a041155e9df76c8f3a45a8958468cea90db037bc4e3b433474766407631ecf43",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "cd2959b6059a838ce0504956bd693b5d0082047afcb2f8366f4de67099d8f6aa",
+      "post_state_hash": "4d129b81fa3ebedae89597b1f48a3d71b8fb32895fae8f9dd7699e3d6a128a21",
+      "prior_state_hash": "7422247254d6cd0bd269e5c0ecfa17169e9a463d7abaaf996812abbe0656d987",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "0ea47e0d7f15acbe4eedd9d46541b6a4f9e6c7c655ab73cbb977b89f19d5a696",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".agents/skills/testing/SKILL.md",
+        ".github/workflows/ci-tests.yaml",
+        ".github/workflows/release.yml",
+        "CONTRIBUTING.md",
+        "pyproject.toml",
+        "tox.ini"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "a041155e9df76c8f3a45a8958468cea90db037bc4e3b433474766407631ecf43",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "f4b4c22cc20f9ff46282df61e67a37b5146423025b733e4451f284edb3f250dc",
+      "post_state_hash": "0d6ab034e8429672c637d6d302e4fadaa78f824f377eb1f333d4f187b438869f",
+      "prior_state_hash": "4d129b81fa3ebedae89597b1f48a3d71b8fb32895fae8f9dd7699e3d6a128a21",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "7079b05acfaf421f5192c3c26730af83b0606fc8b85cad0cd7fb618c1ba0b0b5",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "native target path not declared by decision time evidence",
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "native_target_path_not_declared_by_decision_time_evidence",
+      "decision_time_evidence_consumed": [
+        "target_path_verification"
+      ],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "BLOCK",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "a041155e9df76c8f3a45a8958468cea90db037bc4e3b433474766407631ecf43",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+      "operation_status": "COMPLETED",
+      "output_hash": "a9d91bc93484654a3e34e9aee4d4d974715dcdcdda8d4ac6c03fc2622e30e896",
+      "post_state_hash": "eb0da215656d108b310b0726dd6b5d48707631223f87d2af6405cbf77756a5c4",
+      "prior_state_hash": "0d6ab034e8429672c637d6d302e4fadaa78f824f377eb1f333d4f187b438869f",
+      "reopen_conditions": [
+        "supply_reviewed_native_target_path_evidence",
+        "rerun_static_frontier_plan_with_hash_pinned_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "a8ea95c7bfa66fcbf00dc00ef0bc85cc0a4ebf7562999901753dba30a9148fc8",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "f927f348dc23f3f6d60bb98784fee1c047865810a1f234904f13c1f511cffdc7",
+      "post_state_hash": "36c10da365e52151c7add9d384eb55ef15430d123f471658b09d96b275f4c36e",
+      "prior_state_hash": "eb0da215656d108b310b0726dd6b5d48707631223f87d2af6405cbf77756a5c4",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "55c273103cda7e6117624095f6ce69f73153a5322557578b9b59d49c913ec93f",
+      "post_state_hash": "5602f8d2a49d52f910dbc49245fdb3c0be78e8c46ae6e7c4d35a9d026f2ac93b",
+      "prior_state_hash": "36c10da365e52151c7add9d384eb55ef15430d123f471658b09d96b275f4c36e",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "b6025167c000e7b9944350f9236fc76bf2944d29ee45c4cfd372f258894976fb",
+      "post_state_hash": "cf23a44ca60d8c3d2f2749384f31002b22310fa5ff6e23c03795dd56e4e558b2",
+      "prior_state_hash": "5602f8d2a49d52f910dbc49245fdb3c0be78e8c46ae6e7c4d35a9d026f2ac93b",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "56c50c1fe6a8e0edae8fb42736cbca06855394e981cc4d4c41930ba4a3a131e0",
+      "post_state_hash": "e5b5b67299b04947c2fc8ed486d1902cbd2869a464b1457515b7ecbd344842ed",
+      "prior_state_hash": "cf23a44ca60d8c3d2f2749384f31002b22310fa5ff6e23c03795dd56e4e558b2",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "cc0874ac9a9abe6fe181c6228e3c72cebfb99f96df170ec7df26a1013c545a65",
+      "post_state_hash": "bb3101a4ce0ac65d775e2c8042cdf20f356ee6cd66bf3473c484a884df8d6fb2",
+      "prior_state_hash": "e5b5b67299b04947c2fc8ed486d1902cbd2869a464b1457515b7ecbd344842ed",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "a6b73393997345d4337dd528fa8aeb5032e8fdabe89b00583e84d558e2670445",
+      "post_state_hash": "f38a6586c2f179d7451cad64fe51c0a349ef3136eb98edab4a288cd6def5d552",
+      "prior_state_hash": "bb3101a4ce0ac65d775e2c8042cdf20f356ee6cd66bf3473c484a884df8d6fb2",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "3d3aea1182ac5b3814b3bb5d78d4254a0d85786302869b6fb6f82063c4f17910",
+      "post_state_hash": "1d3f20b662efc395bfee7d061ecfa0bade69c10e9d34cbc4b3b37e8b50dd8539",
+      "prior_state_hash": "f38a6586c2f179d7451cad64fe51c0a349ef3136eb98edab4a288cd6def5d552",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [
+    {
+      "argv": [
+        "bandit",
+        "-r",
+        "streamflow"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "bandit",
+          "-r",
+          "streamflow"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "make",
+        "format-check",
+        "codespell-check",
+        "pyupgrade"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "make",
+          "format-check",
+          "codespell-check",
+          "pyupgrade"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "make",
+        "typing"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "make",
+          "typing"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "py3.{10,11,12,13,14}-unit:",
+        "make",
+        "coverage-report",
+        "coverage.xml",
+        "PYTEST_EXTRA={posargs}"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "py3.{10,11,12,13,14}-unit:",
+          "make",
+          "coverage-report",
+          "coverage.xml",
+          "PYTEST_EXTRA={posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "9dbcfc430aef0d9f3763aebc40b698c2a8cfc18eb0a7d64cfb1e587082206509",
+  "target_package": "streamflow",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}

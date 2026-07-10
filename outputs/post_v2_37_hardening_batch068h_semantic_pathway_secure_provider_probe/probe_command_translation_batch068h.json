@@ -1,0 +1,25 @@
+{
+  "collection_only": true,
+  "forbidden_shortcuts_used": [],
+  "original_argv": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_cli.py"
+  ],
+  "preregistered_options": {
+    "-p no:cacheprovider": "prevent source-tree cache writes",
+    "-q": "stable node-id output"
+  },
+  "probe_argv": [
+    "python",
+    "-m",
+    "pytest",
+    "--collect-only",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/test_cli.py"
+  ],
+  "status": "PASS"
+}

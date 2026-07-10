@@ -8,12 +8,14 @@ from .core.frontier_state import verify_state_hash
 
 
 class FrontierEngine:
-    """Read-only interface to the unpromoted ControllerGate frontier state."""
+    """Read-only interface to the validated ControllerGate frontier state."""
 
     def __init__(self, repo_root: str | Path):
         self.repo_root = Path(repo_root)
         self.state_path = self.repo_root / "outputs" / "frontier" / "CURRENT_FRONTIER_STATE.json"
-        self.index_path = self.repo_root / "outputs" / "post_v2_37_hardening_batch068g_tier2_metadata_command_orthology_hardening" / "candidate_state_index_batch068g.json"
+        semantic = self.repo_root / "outputs" / "post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe" / "candidate_state_index_batch068h.json"
+        legacy = self.repo_root / "outputs" / "post_v2_37_hardening_batch068g_tier2_metadata_command_orthology_hardening" / "candidate_state_index_batch068g.json"
+        self.index_path = semantic if semantic.is_file() else legacy
 
     def status(self) -> dict[str, Any]:
         return json.loads(self.state_path.read_text(encoding="utf-8"))
@@ -25,7 +27,7 @@ class FrontierEngine:
             "status": "PASS" if verify_state_hash(state) and index.get("candidate_count") == 25 else "FAIL",
             "frontier_state_hash_valid": verify_state_hash(state),
             "candidate_count": index.get("candidate_count"),
-            "frontier_protocol_promoted": False,
+            "frontier_protocol_promoted": bool(state.get("frontier_engine_protocol_promoted", False)),
         }
 
     def plan(self, candidate_id: str) -> dict[str, Any]:
@@ -39,7 +41,7 @@ class FrontierEngine:
             "status": "PASS",
             "candidate_id": candidate_id,
             "tier": state["tier_label"],
-            "terminal_state": state["terminal_state"],
+            "terminal_state": state.get("terminal_state", state.get("candidate_state")),
             "next_allowed_action": state["next_allowed_action"],
             "provider_probe_authorized": state["tier_label"] == "Tier 3 static provider-command-probe authorization",
             "execution_authorized": False,

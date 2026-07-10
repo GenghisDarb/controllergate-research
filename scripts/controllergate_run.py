@@ -4,12 +4,15 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 from typing import Any
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 CURRENT_CONFIG = REPO_ROOT / "configs" / "controllergate_current.yaml"
 
 
@@ -53,13 +56,18 @@ def load_current_config() -> dict[str, Any]:
 
 
 def select_protocol(protocol: str) -> dict[str, Any]:
-    config = load_current_config()
-    current_version = str(config.get("protocol_version", ""))
     if protocol == "current":
-        return config
-    if protocol in {"v2.13", "v2.14"} and current_version == protocol:
-        return config
-    raise ValueError(f"unsupported protocol {protocol!r}; current config points to {current_version!r}")
+        return load_current_config()
+    path = REPO_ROOT / "configs" / f"controllergate_{protocol.replace('.', '_')}.yaml"
+    if not path.is_file():
+        raise ValueError(f"unsupported protocol {protocol!r}")
+    global CURRENT_CONFIG
+    original = CURRENT_CONFIG
+    try:
+        CURRENT_CONFIG = path
+        return load_current_config()
+    finally:
+        CURRENT_CONFIG = original
 
 
 def dry_run(config: dict[str, Any], selected_protocol: str) -> int:
@@ -96,8 +104,11 @@ def dry_run(config: dict[str, Any], selected_protocol: str) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Inspect or run the configured ControllerGate protocol.")
-    parser.add_argument("--protocol", choices=["current", "v2.13", "v2.14"], default="current")
+    parser.add_argument("action", nargs="?", choices=["status", "validate", "plan", "probe"])
+    parser.add_argument("--protocol", choices=["current", "v2.14", "v2.15"], default="current")
     parser.add_argument("--dry-run", action="store_true", help="Inspect configured runner without executing it.")
+    parser.add_argument("--candidate")
+    parser.add_argument("--authorization")
     args = parser.parse_args()
 
     try:
@@ -108,6 +119,33 @@ def main() -> int:
 
     if args.dry_run:
         return dry_run(config, args.protocol)
+
+    if str(config.get("protocol_version")) == "v2.15" and args.action:
+        from controllergate.engine import FrontierEngine
+        engine = FrontierEngine(REPO_ROOT)
+        if args.action == "status":
+            result = engine.status()
+        elif args.action == "validate":
+            result = engine.validate()
+        elif args.action == "plan":
+            result = engine.plan(str(args.candidate or ""))
+        else:
+            if not args.candidate or not args.authorization:
+                result = {"status": "BLOCK", "blocker": "probe_authorization_manifest_required"}
+            else:
+                from controllergate.runtime.probe_authorization import verify_probe_authorization
+                import json as _json
+                index = _json.loads(engine.index_path.read_text(encoding="utf-8"))
+                item = next((row for row in index["records"] if row["candidate_id"] == args.candidate), None)
+                if item is None:
+                    result = {"status": "BLOCK", "blocker": "frontier_candidate_unknown"}
+                else:
+                    state = _json.loads((REPO_ROOT / item["state_path"]).read_text(encoding="utf-8"))
+                    auth = _json.loads(Path(args.authorization).read_text(encoding="utf-8"))
+                    checked = verify_probe_authorization(auth, state)
+                    result = {**checked, "execution_authorized_for_versioned_workflow": checked["status"] == "PASS", "patch_authority": False}
+        print(json.dumps(result, indent=2, sort_keys=True))
+        return 0 if result.get("status") == "PASS" else 2
 
     print(
         "controllergate non-dry-run dispatch is intentionally disabled for the current protocol interface. "

@@ -1,0 +1,31 @@
+{
+  "allowed_graph_steps": [
+    "provider_resolution",
+    "offline_materialization",
+    "collection_run1",
+    "collection_run2"
+  ],
+  "authorization_hash": "1ec20f17e9c275d097cace8f9c0da273cac80a0aab2932d9d648ca1b541d091e",
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+  "candidate_state_hash": "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+  "command_argv": [
+    "python",
+    "-m",
+    "pytest",
+    "--collect-only",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/test_cli.py"
+  ],
+  "container_policy_hash": "70aa05fce0e67f6afea42c1549542fc25b46fb0c7c0ff5c90f311ec3a416b6e5",
+  "patch_authority": false,
+  "provider_policy_hash": "f6631c717472b484dbecaf937436e44bd4c212c050545cf4b593eaa7d3bce86f",
+  "scope": "one_run_batch068h_collection_only",
+  "source_identity": {
+    "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+    "repo_url": "https://github.com/jupyter/nbclient"
+  },
+  "target_path": "tests/test_cli.py"
+}

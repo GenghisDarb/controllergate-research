@@ -1,0 +1,38 @@
+{
+  "arm_assignment": "outcome_blind",
+  "comparability_requirements": [
+    "identical_candidate_sha",
+    "identical_environment",
+    "identical_authoritative_command",
+    "identical_time_budget",
+    "identical_compute_budget",
+    "no_future_evidence",
+    "no_gold_patch",
+    "no_outcome_leakage"
+  ],
+  "design": "paired_memory_enabled_and_memory_disabled_arms",
+  "matched_null_analysis_required": true,
+  "metrics": [
+    "safe_abstention_precision",
+    "repair_success",
+    "false_repair_rate",
+    "regression_escape_rate",
+    "human_intervention_rate",
+    "recovery_time",
+    "action_cost",
+    "compute_cost",
+    "prospective_memory_help_count",
+    "prospective_memory_harm_count"
+  ],
+  "minimum_ecosystems_or_languages": 3,
+  "minimum_fresh_incidents": 100,
+  "minimum_unrelated_repositories": 10,
+  "preregistered_thresholds": {
+    "false_repair_rate_max": 0.01,
+    "matched_null_separation_min": 0.95,
+    "regression_escape_rate_max": 0.01,
+    "safe_abstention_precision_min": 0.99
+  },
+  "schema_version": "controllergate.prospective_memory_validation.v1",
+  "status": "preregistered_not_executed"
+}

@@ -1,0 +1,562 @@
+{
+  "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+  "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+  "candidate_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "command_argv": [],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "gate_decision": "BLOCK",
+  "issue_identity": {
+    "issue_created_at": "2025-05-28T08:20:47Z",
+    "issue_url": "https://github.com/open-telemetry/opentelemetry-python-contrib/issues/3547",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": null,
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "5a25b18f999df26dbd7a4e80f9810716aad62f0868897f21c1b9be755cb08d0b",
+  "provider_feasibility_class": "external_service_required_static",
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/open-telemetry/opentelemetry-python-contrib",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": null,
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "6ce70649d71bbf3cc356fad56c4b1f589cd6433cb3b892fb3f12025a7d4d536e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "2d169e11357eceafc1b3602641c5fc053a8b6194462f5ff263c6a5380d4e1f4d",
+      "post_state_hash": "a0c0fd75fa74487449c328e2b862f89f40134fe1313e78d065a494d2229621ee",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "6cba5471180a07d0359cc9f5d3914216e6b275593c0e3d10914835342e95e910",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "6ce70649d71bbf3cc356fad56c4b1f589cd6433cb3b892fb3f12025a7d4d536e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "77c56475fd901744e357d223f0c534f599e75209127f2df4555a122db92e75b1",
+      "post_state_hash": "0fd27f8a8410ec4884715b18d2cc5d471ebf55911f5dbbf9c974edc63f3ad419",
+      "prior_state_hash": "a0c0fd75fa74487449c328e2b862f89f40134fe1313e78d065a494d2229621ee",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "671da0f5a65f9111d46bf424051b9f31238d47c5e4c71efaaaf5b8153b1d0ca7",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/backport.yml",
+        ".github/workflows/changelog.yml",
+        ".github/workflows/codeql-analysis.yml",
+        ".github/workflows/component-owners.yml",
+        ".github/workflows/core_contrib_test_0.yml",
+        ".github/workflows/fossa.yml",
+        ".github/workflows/lint_0.yml",
+        ".github/workflows/misc_0.yml",
+        "CONTRIBUTING.md",
+        "instrumentation/opentelemetry-instrumentation-botocore/tests/README.md",
+        "pyproject.toml",
+        "pytest.ini",
+        "tox.ini"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "6ce70649d71bbf3cc356fad56c4b1f589cd6433cb3b892fb3f12025a7d4d536e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "8c440700e371a9841a98c22d0b3be33da268e00cfb438001602d5fdb328010ba",
+      "post_state_hash": "f35c8a0a8fff893b12338075a6515aef41f35c45b5509711f132927b66879c72",
+      "prior_state_hash": "0fd27f8a8410ec4884715b18d2cc5d471ebf55911f5dbbf9c974edc63f3ad419",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "06aea25c1e009eb83b2ce448620150e8231532e54de2058af96164a986cda0d9",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "native target path not declared by decision time evidence",
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "native_target_path_not_declared_by_decision_time_evidence",
+      "decision_time_evidence_consumed": [
+        "target_path_verification"
+      ],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "BLOCK",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "6ce70649d71bbf3cc356fad56c4b1f589cd6433cb3b892fb3f12025a7d4d536e",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+      "operation_status": "COMPLETED",
+      "output_hash": "a9d91bc93484654a3e34e9aee4d4d974715dcdcdda8d4ac6c03fc2622e30e896",
+      "post_state_hash": "0221c308217bd78ee46b043d070516a2fc7e774ad99b02d717c7a69e3f37078f",
+      "prior_state_hash": "f35c8a0a8fff893b12338075a6515aef41f35c45b5509711f132927b66879c72",
+      "reopen_conditions": [
+        "supply_reviewed_native_target_path_evidence",
+        "rerun_static_frontier_plan_with_hash_pinned_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "cdf84fa696ef3c200e52558a372a016e2a70bc0996fe0f7f7623597d98d5ef5b",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "f927f348dc23f3f6d60bb98784fee1c047865810a1f234904f13c1f511cffdc7",
+      "post_state_hash": "66f2b80b7e4fd3483f465d2052b72bb06b3c4ad2a5e46da70967709c1533601f",
+      "prior_state_hash": "0221c308217bd78ee46b043d070516a2fc7e774ad99b02d717c7a69e3f37078f",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "55c273103cda7e6117624095f6ce69f73153a5322557578b9b59d49c913ec93f",
+      "post_state_hash": "a85975db5c6251f16ddc72c9a5dc292b96a2d54740434b30576256ef064147f0",
+      "prior_state_hash": "66f2b80b7e4fd3483f465d2052b72bb06b3c4ad2a5e46da70967709c1533601f",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "b6025167c000e7b9944350f9236fc76bf2944d29ee45c4cfd372f258894976fb",
+      "post_state_hash": "3247ecc8bfb19e60dcba4c647e8aef774cee4896e2a1b12c43c2942c3fb83c09",
+      "prior_state_hash": "a85975db5c6251f16ddc72c9a5dc292b96a2d54740434b30576256ef064147f0",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "56c50c1fe6a8e0edae8fb42736cbca06855394e981cc4d4c41930ba4a3a131e0",
+      "post_state_hash": "168cc0707ab4c9e92cd609fb58695ff50cc344651d88bf3064ce663893470485",
+      "prior_state_hash": "3247ecc8bfb19e60dcba4c647e8aef774cee4896e2a1b12c43c2942c3fb83c09",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "cc0874ac9a9abe6fe181c6228e3c72cebfb99f96df170ec7df26a1013c545a65",
+      "post_state_hash": "8485490b53ee3c81fc477fe15c9b4f264296b9a5030b7d00de6404169fd8e06b",
+      "prior_state_hash": "168cc0707ab4c9e92cd609fb58695ff50cc344651d88bf3064ce663893470485",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "a6b73393997345d4337dd528fa8aeb5032e8fdabe89b00583e84d558e2670445",
+      "post_state_hash": "3519014be17d0e3d909073d37b3f01f3c0f59661034d2d76d4b414721e547831",
+      "prior_state_hash": "8485490b53ee3c81fc477fe15c9b4f264296b9a5030b7d00de6404169fd8e06b",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "3d3aea1182ac5b3814b3bb5d78d4254a0d85786302869b6fb6f82063c4f17910",
+      "post_state_hash": "9202ccd1e8c5fa33f91abee3096a932dfe4ae87b23b9084e7a2871acb97b5e67",
+      "prior_state_hash": "3519014be17d0e3d909073d37b3f01f3c0f59661034d2d76d4b414721e547831",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [
+    {
+      "argv": [
+        "codespell"
+      ],
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "e55f1589d9a6167de045b82d8600a0d9416bf941973e8cea72683f995ef89765",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "codespell"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pre-commit",
+        "run",
+        "--color=always",
+        "--all-files",
+        "{posargs}"
+      ],
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "e55f1589d9a6167de045b82d8600a0d9416bf941973e8cea72683f995ef89765",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pre-commit",
+          "run",
+          "--color=always",
+          "--all-files",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pyright"
+      ],
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "e55f1589d9a6167de045b82d8600a0d9416bf941973e8cea72683f995ef89765",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pyright"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "{posargs}"
+      ],
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "e55f1589d9a6167de045b82d8600a0d9416bf941973e8cea72683f995ef89765",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "e55f1589d9a6167de045b82d8600a0d9416bf941973e8cea72683f995ef89765",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "{toxinidir}/.github/workflows/generate_workflows.py"
+      ],
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "e55f1589d9a6167de045b82d8600a0d9416bf941973e8cea72683f995ef89765",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "{toxinidir}/.github/workflows/generate_workflows.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "sphinx-build",
+        "-E",
+        "-a",
+        "-W",
+        "-b",
+        "html",
+        "-T",
+        ".",
+        "_build/html"
+      ],
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "e55f1589d9a6167de045b82d8600a0d9416bf941973e8cea72683f995ef89765",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "sphinx-build",
+          "-E",
+          "-a",
+          "-W",
+          "-b",
+          "html",
+          "-T",
+          ".",
+          "_build/html"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "test-distro:",
+        "pytest",
+        "{toxinidir}/opentelemetry-distro/tests",
+        "{posargs}"
+      ],
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "e55f1589d9a6167de045b82d8600a0d9416bf941973e8cea72683f995ef89765",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "test-distro:",
+          "pytest",
+          "{toxinidir}/opentelemetry-distro/tests",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "{toxinidir}/scripts/generate_instrumentation_bootstrap.py"
+      ],
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "e55f1589d9a6167de045b82d8600a0d9416bf941973e8cea72683f995ef89765",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "{toxinidir}/scripts/generate_instrumentation_bootstrap.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "a5699672b816e14089a508912e00a92da594b0e13c567a0e620f0ce69d1d79f4",
+  "target_package": "opentelemetry_python_contrib",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}

@@ -1,0 +1,43 @@
+{
+  "blocked_controls": [
+    {
+      "errors": [
+        "patch_path_invalid",
+        "source_only_boundary_failed"
+      ],
+      "patch_authorized": false,
+      "status": "BLOCK"
+    },
+    {
+      "errors": [
+        "test_change_forbidden",
+        "source_only_boundary_failed"
+      ],
+      "patch_authorized": false,
+      "status": "BLOCK"
+    },
+    {
+      "errors": [
+        "new_subprocess_or_shell_execution_forbidden"
+      ],
+      "patch_authorized": false,
+      "status": "BLOCK"
+    },
+    {
+      "errors": [
+        "dependency_change_forbidden",
+        "source_only_boundary_failed"
+      ],
+      "patch_authorized": false,
+      "status": "BLOCK"
+    }
+  ],
+  "patch_applied": false,
+  "patch_generated": false,
+  "safe_control": {
+    "errors": [],
+    "patch_authorized": true,
+    "status": "PASS"
+  },
+  "status": "PASS"
+}

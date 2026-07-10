@@ -1,0 +1,423 @@
+{
+  "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+  "candidate_sha": "8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+  "candidate_state": "command_source_conflict_manual_review",
+  "command_argv": [],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "command_source_conflict_manual_review",
+  "gate_decision": "MANUAL_REVIEW",
+  "issue_identity": {
+    "issue_created_at": "2025-01-07T10:00:27Z",
+    "issue_url": "https://github.com/Hipo/drf-extra-fields/issues/210",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": "tests/test_fields.py",
+  "next_allowed_action": "review_conflicting_authoritative_command_sources",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "eb6bd4032f85d97f4a682abacd2a61a77ab08f29b57c713436ec4835287719c1",
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "reopen_conditions": [
+    "review_conflicting_authoritative_command_sources"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/Hipo/drf-extra-fields",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": null,
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "0b89f9e1c673702a51d81038e189a08171c35f179b478b0aac457d6e5dbb7434",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "01ec7e0082dc4066a04cd75187a9c4c334b6455b96b1cf13351220a005a8b6d3",
+      "post_state_hash": "ea8278c8eb954da61de9779759feb1e53baa77fa5c2298f9f358fa77a7c48abc",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "cbc1f75644a16e411e72bb84985d2ced1166f5e606c4e17eee24d6a98727188b",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "0b89f9e1c673702a51d81038e189a08171c35f179b478b0aac457d6e5dbb7434",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "95c230e8d50dca4a19c09ffc11ba616a29dda4a59d12efac7e703bbff317bd6e",
+      "post_state_hash": "2c24714d57bf8d87cf371de9025fe85094f12f2eee2af3860ee949e2afad2c8a",
+      "prior_state_hash": "ea8278c8eb954da61de9779759feb1e53baa77fa5c2298f9f358fa77a7c48abc",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "c192efcaae30b5dc31f10b67909e8b76ba89be62652b1f682ffa46d1fe7475d4",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/tests.yml",
+        "pytest.ini",
+        "requirements.txt",
+        "setup.py",
+        "tox.ini"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "0b89f9e1c673702a51d81038e189a08171c35f179b478b0aac457d6e5dbb7434",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "547dab577ec15460575942b281664100ce19e5cfa954d5c8be912a9a503aeda1",
+      "post_state_hash": "35104385261e1fb418075f8061c419eed527132c0c83e03039c348b4534c7a01",
+      "prior_state_hash": "2c24714d57bf8d87cf371de9025fe85094f12f2eee2af3860ee949e2afad2c8a",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "94c06fbdcd494c4ebff199827c8469a10f0d1ca61854ade197520b709ea90f0f",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "target_path_verification",
+        "tests/test_fields.py",
+        "tests/test_model_serializer.py",
+        "tests/test_relations.py"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "0b89f9e1c673702a51d81038e189a08171c35f179b478b0aac457d6e5dbb7434",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "03b29c6caf08b0a71c964c3ce82bab9255d81d5fb05743088a8d22ec8707d13b",
+      "post_state_hash": "78fb10d1e8be6de8042dcb1051b92c6280e772017d75f621f9117ea3cf317e5f",
+      "prior_state_hash": "35104385261e1fb418075f8061c419eed527132c0c83e03039c348b4534c7a01",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "b0e1a4ec8ca86590eecb7834f64bae66b2b67c9ce2a526a40b15105438706df8",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/tests.yml",
+        "pytest.ini",
+        "requirements.txt",
+        "setup.py",
+        "tox.ini"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [
+        "0b89f9e1c673702a51d81038e189a08171c35f179b478b0aac457d6e5dbb7434",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "abf688f04abf3f703dee069a6d3bed3013ac14c0336e6306879aaa85e7f3f61d",
+      "post_state_hash": "89a26ab41531e61e619e7d59809b26b91a0ed63005a612c401caf2250ce511bf",
+      "prior_state_hash": "78fb10d1e8be6de8042dcb1051b92c6280e772017d75f621f9117ea3cf317e5f",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "2c2f15a6c7dac9b600089785eec472c38cfebc33cf2a54493090f98bdad58e71",
+      "verification_status": "PASS",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "command source conflict manual review",
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "command_source_conflict_manual_review",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/tests.yml",
+        "pytest.ini",
+        "tox.ini"
+      ],
+      "evidence_status": "PARTIAL",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "MANUAL_REVIEW",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [
+        "0b89f9e1c673702a51d81038e189a08171c35f179b478b0aac457d6e5dbb7434",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "review_conflicting_authoritative_command_sources",
+      "operation_status": "COMPLETED",
+      "output_hash": "df8694a9bd548499fdf70e7e540a079594f4856aad188db2ca6a996e1b9a8938",
+      "post_state_hash": "24dcfe2e410ad269e37686a5b3986a97aa0a86dfaabf573da8d8fe051b399c54",
+      "prior_state_hash": "89a26ab41531e61e619e7d59809b26b91a0ed63005a612c401caf2250ce511bf",
+      "reopen_conditions": [
+        "review_conflicting_authoritative_command_sources"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "24acaf2066e54cdac135574edf7a371ff6624475d9b9c9087043857e5f2ce6cf",
+      "verification_status": "PASS",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "not_run_upstream_manual_review",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "f7ab00e4b2bfdd2dc532345c539b32ac4a3c778671fb96b9a32e38fd3930d75f",
+      "post_state_hash": "c012955e85ade6488cb3335a1b5ff451e5d615f28ae5ac6bde910abd5283cfbe",
+      "prior_state_hash": "24dcfe2e410ad269e37686a5b3986a97aa0a86dfaabf573da8d8fe051b399c54",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "not_run_upstream_manual_review",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "649dec20858505fe001a0e82a9a1380cfbe38b4283d8f4af08787776867492d9",
+      "post_state_hash": "b7a7c1f56c1ce6226b00690b6b3af401f2b66914348a57f9f2ff03e9d7425ead",
+      "prior_state_hash": "c012955e85ade6488cb3335a1b5ff451e5d615f28ae5ac6bde910abd5283cfbe",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "not_run_upstream_manual_review",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "c1f840c68c3a006e56e8135d1706229018e13b02581d000dfd98c192c64d1716",
+      "post_state_hash": "e7010bdf1945b50c7dc398e45e769567a25df422e8731accc7d2275a61ea99ce",
+      "prior_state_hash": "b7a7c1f56c1ce6226b00690b6b3af401f2b66914348a57f9f2ff03e9d7425ead",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "not_run_upstream_manual_review",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "e6ab802552cf8764596638e684c96692c10579088654c00d66b39035bd044f05",
+      "post_state_hash": "8e46249df95be037ed42d80645013fb7d0efaff10ad7e1feb0a424651c5014ea",
+      "prior_state_hash": "e7010bdf1945b50c7dc398e45e769567a25df422e8731accc7d2275a61ea99ce",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "command_source_conflict_manual_review",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_state": "not_run_upstream_manual_review",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "2d7554dec05fa23eb73ee5ad943656673a14b5bb30d625f11c57ca477ef5ee00",
+      "post_state_hash": "288fbbe89a2c8c4a8c9e9267be35614e22bc7cf54b5bea15e90fae36bed37b58",
+      "prior_state_hash": "8e46249df95be037ed42d80645013fb7d0efaff10ad7e1feb0a424651c5014ea",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [
+    {
+      "argv": [
+        "flake8"
+      ],
+      "candidate_sha": "8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "81c39f2e1f86ba99324a4bef92a385ebe4bc7440a0fa16ad048fc8b602f9267c",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "flake8"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "py.test",
+        "{posargs}",
+        "--cov-report=xml",
+        "--cov",
+        "tests/test_fields.py"
+      ],
+      "candidate_sha": "8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "81c39f2e1f86ba99324a4bef92a385ebe4bc7440a0fa16ad048fc8b602f9267c",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "py.test",
+          "{posargs}",
+          "--cov-report=xml",
+          "--cov",
+          "tests/test_fields.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_fields.py"
+      ],
+      "candidate_sha": "8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "81c39f2e1f86ba99324a4bef92a385ebe4bc7440a0fa16ad048fc8b602f9267c",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "tests/test_fields.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "4365108803baf02542962ec7e0f752ae0efd61ce82aacd1a9c391412be6fac30",
+  "target_package": "drf_extra_fields",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}

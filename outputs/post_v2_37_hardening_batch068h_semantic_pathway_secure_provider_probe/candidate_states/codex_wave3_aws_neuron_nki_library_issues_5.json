@@ -1,0 +1,390 @@
+{
+  "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+  "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+  "candidate_state": "provider_probe_plan_not_bounded",
+  "command_argv": [
+    "python",
+    "-m",
+    "pytest",
+    "test/utils/core_lock_client.py"
+  ],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "provider_probe_plan_not_bounded",
+  "gate_decision": "BLOCK",
+  "issue_identity": {
+    "issue_created_at": "2026-07-01T23:48:47Z",
+    "issue_url": "https://github.com/aws-neuron/nki-library/issues/5",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": "test/utils/core_lock_client.py",
+  "next_allowed_action": "supply_bounded_provider_capsule_plan",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "6a171a21a948746ce9edb14be28477b28e0c3cb3b58ac5d166f37bd5e08089d2",
+  "provider_feasibility_class": "network_or_model_dependency_static",
+  "reopen_conditions": [
+    "supply_bounded_provider_capsule_plan"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/aws-neuron/nki-library",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "python",
+      "-m",
+      "pytest",
+      "test/utils/core_lock_client.py"
+    ],
+    "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+    "precedence": 30,
+    "source_class": "pyproject.toml",
+    "source_path": "pyproject.toml",
+    "source_sha256": "dd03e9248d8b3f2eb8052937403d34544635e9e06a2684517c82b0e56d5d34fc",
+    "target_path_corroborated": true,
+    "token_safety": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "test/utils/core_lock_client.py"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3",
+        "f08447058f5c9d8b6fae1a779b4858decb008a1195ca86dc6b22d5d13a0dd10c"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "497fde41af8640d22f802aedb634e3279a9ceba551e6402d8e9b67c85b7bf595",
+      "post_state_hash": "55af286eda6ebfa271c4bbae77ee0616154add38d737f6f0b8b2ec96b509be14",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "068be29752843176f86f4349b4a6c28a46b4dd9f51c27a8352c53531fc091be7",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3",
+        "f08447058f5c9d8b6fae1a779b4858decb008a1195ca86dc6b22d5d13a0dd10c"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "62fa42385fd34535d84699bbcdf886dfefb2ca165147f6ce4cf3286b2e353410",
+      "post_state_hash": "ad49a6ddc76628c8832b591050af260d4171e3db48ed4de6e7608165749dc933",
+      "prior_state_hash": "55af286eda6ebfa271c4bbae77ee0616154add38d737f6f0b8b2ec96b509be14",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "a1c6f7c760ea2ae87fa03aa8febcf709b0cb4f53cf598756553e8411c6b7bc28",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "CONTRIBUTING.md",
+        "pyproject.toml",
+        "test/README.md",
+        "test/integration/nkilib/experimental/transformer/attention_block_tkg_input_distributions_design_spec.md"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3",
+        "f08447058f5c9d8b6fae1a779b4858decb008a1195ca86dc6b22d5d13a0dd10c"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "c5da27903ace18e07d69e3b8aa2e4af14710698773e81bec6f46c4d15324d905",
+      "post_state_hash": "f5e51387721fa77a1a827c270760c04f6dbd3accf8e5bfa477a5d2cdab313752",
+      "prior_state_hash": "ad49a6ddc76628c8832b591050af260d4171e3db48ed4de6e7608165749dc933",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "9389c561582efaf9b6b609e6e65d68f5525db27122a7af19f0a4f58248a1dad5",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "target_path_verification",
+        "test/utils/core_lock_client.py",
+        "test/utils/host_management.py",
+        "test/utils/pytest_plugin.py",
+        "test/utils/test_orchestrator.py"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3",
+        "f08447058f5c9d8b6fae1a779b4858decb008a1195ca86dc6b22d5d13a0dd10c"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "5307df5f4bdd6bd6053a318f68429e2fa7f0fe6ca6c4c7290d2dd772ee900ec0",
+      "post_state_hash": "cd6fa4d04360518ce7f52e7cbdce2eb7f1e55f2a3b81c2744645cb2617ba4f6c",
+      "prior_state_hash": "f5e51387721fa77a1a827c270760c04f6dbd3accf8e5bfa477a5d2cdab313752",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "861bd8dfbf7907ff281c487702e0dc148308b2a6cd770a27e559354e4241492a",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "CONTRIBUTING.md",
+        "pyproject.toml",
+        "test/README.md",
+        "test/integration/nkilib/experimental/transformer/attention_block_tkg_input_distributions_design_spec.md"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3",
+        "f08447058f5c9d8b6fae1a779b4858decb008a1195ca86dc6b22d5d13a0dd10c"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "b819adeac169177ee7b8e68dcd5316c46a9db22691e1da6301a6b9e49b3f25c6",
+      "post_state_hash": "a95dc23d07fcae934265ddcd9b785a40f37049d3895304afc2e2298c3ad2be2d",
+      "prior_state_hash": "cd6fa4d04360518ce7f52e7cbdce2eb7f1e55f2a3b81c2744645cb2617ba4f6c",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "567546156fc2faf4253328e66fbf292ba4efa6aa326f0b5d8a4d10140cebaaaf",
+      "verification_status": "PASS",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "pyproject.toml"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3",
+        "f08447058f5c9d8b6fae1a779b4858decb008a1195ca86dc6b22d5d13a0dd10c"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "3f1b2f8f3dcab396ded3cd7aaf40f56aca8cabd757cf9274f4423e0fcae6de1c",
+      "post_state_hash": "a8e786a3a3ca1754b304f1063e65d72399499456009a65549e04b3738de89d11",
+      "prior_state_hash": "a95dc23d07fcae934265ddcd9b785a40f37049d3895304afc2e2298c3ad2be2d",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "00ec50ca7ef812f5fd77744df2e1f537bb96a016d02e3c367a7e362d55c20263",
+      "verification_status": "PASS",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "selected_command.argv",
+        "target_package"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3",
+        "f08447058f5c9d8b6fae1a779b4858decb008a1195ca86dc6b22d5d13a0dd10c"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "682477e3269090f259ad3dd86b88416afab5d819b7cc8d569f64441c871fb99d",
+      "post_state_hash": "2ec7ed302e36fb8a90a6545286cd06a36216bdd303b69a86a7e433a3a3d7270b",
+      "prior_state_hash": "a8e786a3a3ca1754b304f1063e65d72399499456009a65549e04b3738de89d11",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "ff19b0f3422f6675bda9e0c8405717e846afb9ccd949518c93987046169a01fa",
+      "verification_status": "PASS",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "authoritative command source",
+        "decision-time evidence manifest",
+        "native target path"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3",
+        "f08447058f5c9d8b6fae1a779b4858decb008a1195ca86dc6b22d5d13a0dd10c"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "3011f939eb1c4eac14506a8c6b5aa0ab42d67721d1df00113bf14c1eeaeef356",
+      "post_state_hash": "f72c130739b37f7e72b8dd73a72dedba47f102daae3308235249a057a0ad6e38",
+      "prior_state_hash": "2ec7ed302e36fb8a90a6545286cd06a36216bdd303b69a86a7e433a3a3d7270b",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "b2c4cac588695ec6c6dfa5511b0341b314d81748822d5e3a1373c5e4177fc06d",
+      "verification_status": "PASS",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "provider_probe_plan_not_bounded",
+      "blocker_reason": "provider probe plan not bounded",
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "provider_probe_plan_not_bounded",
+      "decision_time_evidence_consumed": [
+        "model",
+        "numpy",
+        "provider feasibility evidence",
+        "torch"
+      ],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "BLOCK",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3",
+        "f08447058f5c9d8b6fae1a779b4858decb008a1195ca86dc6b22d5d13a0dd10c"
+      ],
+      "next_allowed_action": "supply_bounded_provider_capsule_plan",
+      "operation_status": "COMPLETED",
+      "output_hash": "0e984cecddaca8a26832ef7cb5037c4561bcb1b4ece8c214fd703ce79db8c15d",
+      "post_state_hash": "19a7b593e3fbb895c2532f2e468cb33244b1bdf2b58a821d1fb98c9e359abe58",
+      "prior_state_hash": "f72c130739b37f7e72b8dd73a72dedba47f102daae3308235249a057a0ad6e38",
+      "reopen_conditions": [
+        "supply_bounded_provider_capsule_plan"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "dafe4e4cc007e3cf3a914113a085332a05b2adb062bcf4ca303d5f01abb5e734",
+      "verification_status": "PASS",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "provider_probe_plan_not_bounded",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "54cd3f0b980c93eaa4b1dd764b2668a59b3e963781ad3763b0cbd7b569889ca1",
+      "post_state_hash": "fc6eddb715df0f26f4d711ec54067ada45e5a7326dbcb153c0b251249dae2794",
+      "prior_state_hash": "19a7b593e3fbb895c2532f2e468cb33244b1bdf2b58a821d1fb98c9e359abe58",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "provider_probe_plan_not_bounded",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "bc00c69e27961e8b526e89f72259cb297ef528080ceb35e536c8778fdb8d2ce2",
+      "post_state_hash": "de3499b35606162b6583e770a68af95231668a3435b80b5e633b0880505157bc",
+      "prior_state_hash": "fc6eddb715df0f26f4d711ec54067ada45e5a7326dbcb153c0b251249dae2794",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [],
+  "state_hash": "1adb8b2e7f83f6c46f584c954d0967005269d5ab926449c1b1b0d654beaa1029",
+  "target_package": "nki_library",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}

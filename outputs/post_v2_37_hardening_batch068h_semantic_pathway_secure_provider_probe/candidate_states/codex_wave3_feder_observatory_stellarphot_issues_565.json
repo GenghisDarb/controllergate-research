@@ -1,0 +1,414 @@
+{
+  "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+  "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+  "candidate_state": "native_target_path_not_found_at_candidate_sha",
+  "command_argv": [],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "native_target_path_not_found_at_candidate_sha",
+  "gate_decision": "BLOCK",
+  "issue_identity": {
+    "issue_created_at": "2026-06-15T17:13:59Z",
+    "issue_url": "https://github.com/feder-observatory/stellarphot/issues/565",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": null,
+  "next_allowed_action": "correct_target_path_with_decision_time_repository_evidence",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "c7e392814125aaa83e404162d4c8981c25ef24f77df4c16890242c08bd00f695",
+  "provider_feasibility_class": "network_or_model_dependency_static",
+  "reopen_conditions": [
+    "correct_target_path_with_decision_time_repository_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/feder-observatory/stellarphot",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": null,
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "06992a82caa1132b447b652dffa816f5e71883bee324aa0aa9d485e0ba125fc4",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "ddeeffa629b0c09df284a99b4b8bf1aa6bb33ffd510bd48e8212fd7c08e01b12",
+      "post_state_hash": "d2a0e98d2c9f80fbab29798b0c20e876c370e534a3f601b5b0adf06cee17ab91",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "a5f1ad346305095c6af7aac4f175d2be886c66538d6f8dd1a4cd1bd0d8a5e6aa",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "06992a82caa1132b447b652dffa816f5e71883bee324aa0aa9d485e0ba125fc4",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "97771439deb7c14f09a94f5295e35add8956aa10de53af824bf628a49591e74b",
+      "post_state_hash": "56fc4bb0ca963ebf5dbe56e944db3803944fd995f7a2501b030437c9936c3598",
+      "prior_state_hash": "d2a0e98d2c9f80fbab29798b0c20e876c370e534a3f601b5b0adf06cee17ab91",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "eb20e54fcc76d8b9d86215bd1a94a88fb94a27e3a31e8d0ef6cf013da4f1c875",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/publish.yml",
+        ".github/workflows/test.yml",
+        "docs/dev/testing_installation.rst",
+        "pyproject.toml",
+        "tox.ini"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "06992a82caa1132b447b652dffa816f5e71883bee324aa0aa9d485e0ba125fc4",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "a3daddd26b0f78da6747641689a57177d147713e5798035b852b161ef053da89",
+      "post_state_hash": "e3a5d0f20252179e27a1afe1b34ed6ad7c74c006c2ee689b295804cb478b28d8",
+      "prior_state_hash": "56fc4bb0ca963ebf5dbe56e944db3803944fd995f7a2501b030437c9936c3598",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "6239b6b00467e10a8bda2e7afce2f393220671f47fc8a7495a0eb07fb5fa80a1",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "native target path not found at candidate sha",
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "native_target_path_not_found_at_candidate_sha",
+      "decision_time_evidence_consumed": [
+        "target_path_verification"
+      ],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "BLOCK",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "06992a82caa1132b447b652dffa816f5e71883bee324aa0aa9d485e0ba125fc4",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "correct_target_path_with_decision_time_repository_evidence",
+      "operation_status": "COMPLETED",
+      "output_hash": "a9d91bc93484654a3e34e9aee4d4d974715dcdcdda8d4ac6c03fc2622e30e896",
+      "post_state_hash": "305c9cb3f95a91f2f214b05ec1f66c59879a29515a45e93f76f38e3a09be8290",
+      "prior_state_hash": "e3a5d0f20252179e27a1afe1b34ed6ad7c74c006c2ee689b295804cb478b28d8",
+      "reopen_conditions": [
+        "correct_target_path_with_decision_time_repository_evidence",
+        "rerun_static_frontier_plan_with_hash_pinned_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "93a0d76700b21c01849a96d1d24945a9dce415aedc06f488c7ed5096c550516d",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "9d4f7dcbf37d9002bc843e82893058f6709548390c41c9da090d7ec8b503b905",
+      "post_state_hash": "4b185cd17a44718e25394ebfc211e158b0f47e0cf8b25314b193eb66dd7004c4",
+      "prior_state_hash": "305c9cb3f95a91f2f214b05ec1f66c59879a29515a45e93f76f38e3a09be8290",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "c377b66451870caec6d53ccf3ddca11fecc34b84082c92a8e5d0ae71c5f02445",
+      "post_state_hash": "425341fcba05a3bf3238927aee2ea655b80bc314b259238ae04e6c8037fbbd2a",
+      "prior_state_hash": "4b185cd17a44718e25394ebfc211e158b0f47e0cf8b25314b193eb66dd7004c4",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "3f06eb03d95808712fb6ca7098fdee5c32584d1f13f06d7148562aa72ba99372",
+      "post_state_hash": "6dece8ffeff7fc2423019b2e3b4a0389ff73ab97f0179c2281345dd50a2277e4",
+      "prior_state_hash": "425341fcba05a3bf3238927aee2ea655b80bc314b259238ae04e6c8037fbbd2a",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "3c73b14ed8a5e158c94552e9938646eec8c2e73341b52929abdb9a5b8fbca01b",
+      "post_state_hash": "ec633da4dc3943961f10352c04f7f2a5348caeb937912e3cc845f3a3bd150ea1",
+      "prior_state_hash": "6dece8ffeff7fc2423019b2e3b4a0389ff73ab97f0179c2281345dd50a2277e4",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "74a099990251fbebc5b70391fea7fef0d4f9ce12d4329f801a08877c08a67d80",
+      "post_state_hash": "3e2c1c47ae578789dd8ba5cdf76ae7ff9f52281456eb861fcb54f3a169ca79bb",
+      "prior_state_hash": "ec633da4dc3943961f10352c04f7f2a5348caeb937912e3cc845f3a3bd150ea1",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "e41eb1d890d367b74b16a223aa4ee5f343f9065dc56f98f4624ee0c5916a02dd",
+      "post_state_hash": "1e7ac35a4323769f9f7a946ff7e1a6ce956e31cd05a69b91e428df867d6802cb",
+      "prior_state_hash": "3e2c1c47ae578789dd8ba5cdf76ae7ff9f52281456eb861fcb54f3a169ca79bb",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "c37c32c0206477613c6109e1e21ecd59085bc3fb8319842610efb2d6d4503e68",
+      "post_state_hash": "2aa0d27a7f874d4b479af3ba5f71d2088a48de211e4935ccb05f73b46d7f59ba",
+      "prior_state_hash": "1e7ac35a4323769f9f7a946ff7e1a6ce956e31cd05a69b91e428df867d6802cb",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "ruff",
+        "check",
+        "{toxinidir}"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "ruff",
+          "check",
+          "{toxinidir}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "test:",
+        "pytest",
+        "--pyargs",
+        "{[tox]package_name}",
+        "{toxinidir}/docs",
+        "{posargs}"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "test:",
+          "pytest",
+          "--pyargs",
+          "{[tox]package_name}",
+          "{toxinidir}/docs",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "5510063ac00c8081758e7ff43fbdec3245e4286d554e0ac071855a06d769a6f3",
+  "target_package": "stellarphot",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}

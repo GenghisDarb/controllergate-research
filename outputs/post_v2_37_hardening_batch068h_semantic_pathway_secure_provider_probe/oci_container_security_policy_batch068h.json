@@ -1,0 +1,29 @@
+{
+  "base_image_digest_required": true,
+  "cap_drop": [
+    "ALL"
+  ],
+  "docker_socket_mount": false,
+  "host_home_mount": false,
+  "host_ipc": false,
+  "host_pid": false,
+  "network_mode_execution": "none",
+  "no_new_privileges": true,
+  "non_root": true,
+  "privileged": false,
+  "read_only_root_filesystem": true,
+  "resource_policy": {
+    "cpus": "2",
+    "memory": "2g",
+    "memory_swap": "2g",
+    "nofile_hard": 1024,
+    "nofile_soft": 1024,
+    "pids_limit": 256,
+    "timeout_seconds": 300
+  },
+  "status": "PASS",
+  "tmpfs": [
+    "/tmp",
+    "/venv"
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+  "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+  "candidate_state": "native_target_path_not_found_at_candidate_sha",
+  "command_argv": [
+    "pytest",
+    "--cov"
+  ],
+  "evidence_status": "PARTIAL",
+  "exact_blocker": "native_target_path_not_found_at_candidate_sha",
+  "gate_decision": "BLOCK",
+  "issue_identity": {
+    "issue_created_at": "2025-04-12T20:52:55Z",
+    "issue_url": "https://github.com/david96182/ninjemail/issues/21",
+    "status": "PASS"
+  },
+  "legacy_status": "deprecated_non_authoritative",
+  "native_target_path": null,
+  "next_allowed_action": "correct_target_path_with_decision_time_repository_evidence",
+  "operation_status": "COMPLETED",
+  "patch_applied": false,
+  "patch_generated": false,
+  "prior_batch068g_state_hash": "532be1d9c3b8dd55f58770591f3920bf6006b2cad5559613c2cd40751def488f",
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "reopen_conditions": [
+    "correct_target_path_with_decision_time_repository_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/david96182/ninjemail",
+    "status": "verified_from_batch068f"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "pytest",
+      "--cov"
+    ],
+    "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+    "precedence": 60,
+    "source_class": "ci_workflow",
+    "source_path": ".github/workflows/ci.yml",
+    "source_sha256": "e77984ab794fc6606268a096d3a9e63397db8f39493136825848f9ebe952bb59",
+    "target_path_corroborated": false,
+    "token_safety": {
+      "argv": [
+        "pytest",
+        "--cov"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "semantic_transitions": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "Batch068g source identity",
+        "candidate_id",
+        "repo_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_source_identity",
+      "input_hashes": [
+        "1cdc0e1f469d4ee5b84b47065015765c2c293703a87c090aa13f239739d2c1b1",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "e744fc621bfc1aec51f5f4ae43cd6e942dfb7122e5c5d786981f2fbc0afd43aa",
+      "post_state_hash": "ed908ce61b8eac2dac28f8f299397ad9932c643fd0762dd2595f669ce7686bc6",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "verification_hash": "cdf23a33419e9e29db52b0d28819d25295992e903a7621f80b0d8afd2ca2ed61",
+      "verification_status": "PASS",
+      "verifier_name": "verify_source_identity_binding"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        "candidate_sha",
+        "decision_time_evidence_manifest.candidate_sha"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "establish_candidate_sha",
+      "input_hashes": [
+        "1cdc0e1f469d4ee5b84b47065015765c2c293703a87c090aa13f239739d2c1b1",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "4f3df26008184d6da35718ff628165599506abf127df96176e2afbc8ec3e3545",
+      "post_state_hash": "8ff4bccc14bacc6ec329f3dc0b882f91154cd8ea9c0f15e5831b5d68ef9aa557",
+      "prior_state_hash": "ed908ce61b8eac2dac28f8f299397ad9932c643fd0762dd2595f669ce7686bc6",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "verification_hash": "f9a9a7777f8180563ef175e601ead14313e3d03f4b84a3fb2fc853e2ca95e752",
+      "verification_status": "PASS",
+      "verifier_name": "verify_candidate_sha_reachability"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "semantic_step_pass",
+      "decision_time_evidence_consumed": [
+        ".github/workflows/ci.yml",
+        "CONTRIBUTING.md",
+        "requirements.txt"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "PASS",
+      "handler_name": "acquire_decision_time_metadata",
+      "input_hashes": [
+        "1cdc0e1f469d4ee5b84b47065015765c2c293703a87c090aa13f239739d2c1b1",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "continue_semantic_graph",
+      "operation_status": "COMPLETED",
+      "output_hash": "2dd6ad71885a553c8509fe3108d7d45f3ceab2fff0e01a81446b3f8fe6bb7cd8",
+      "post_state_hash": "da689775f590160e2bca4c565e417f4caeaa792cbbe0b29033f4ba683089592c",
+      "prior_state_hash": "8ff4bccc14bacc6ec329f3dc0b882f91154cd8ea9c0f15e5831b5d68ef9aa557",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "verification_hash": "d2f3ef6abdeaa304c56f199f0fc0f630d0208a631e4568558a6006f96d0a39b6",
+      "verification_status": "PASS",
+      "verifier_name": "verify_metadata_manifest_and_hashes"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "native target path not found at candidate sha",
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "native_target_path_not_found_at_candidate_sha",
+      "decision_time_evidence_consumed": [
+        "target_path_verification"
+      ],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": true,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "BLOCK",
+      "handler_name": "resolve_native_target_paths",
+      "input_hashes": [
+        "1cdc0e1f469d4ee5b84b47065015765c2c293703a87c090aa13f239739d2c1b1",
+        "ae370a545414c27bf1967ec2ecec0fb135752ea5b357cffe2befd5b2868157d3"
+      ],
+      "next_allowed_action": "correct_target_path_with_decision_time_repository_evidence",
+      "operation_status": "COMPLETED",
+      "output_hash": "a9d91bc93484654a3e34e9aee4d4d974715dcdcdda8d4ac6c03fc2622e30e896",
+      "post_state_hash": "d6edd9efc679b79b94c90618b60bbf20169d5b868ba7125d7c321916e2113b34",
+      "prior_state_hash": "da689775f590160e2bca4c565e417f4caeaa792cbbe0b29033f4ba683089592c",
+      "reopen_conditions": [
+        "correct_target_path_with_decision_time_repository_evidence",
+        "rerun_static_frontier_plan_with_hash_pinned_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "verification_hash": "3439bdbf061a32c84b24474301b04793d62211aa8fb6d0e4a77ac776d8236c86",
+      "verification_status": "PASS",
+      "verifier_name": "verify_native_target_paths_at_candidate_sha"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "extract_authoritative_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "9d4f7dcbf37d9002bc843e82893058f6709548390c41c9da090d7ec8b503b905",
+      "post_state_hash": "22bd123edf37498c3d0be24ffed812ab9f9928810cea47095efbddd9076d08df",
+      "prior_state_hash": "d6edd9efc679b79b94c90618b60bbf20169d5b868ba7125d7c321916e2113b34",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_source_authority"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "rank_and_normalize_commands",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "c377b66451870caec6d53ccf3ddca11fecc34b84082c92a8e5d0ae71c5f02445",
+      "post_state_hash": "8fbdc19d641e12e0760e416950cd76b0300b7e653da3c54a3c3870d4dd702e6d",
+      "prior_state_hash": "22bd123edf37498c3d0be24ffed812ab9f9928810cea47095efbddd9076d08df",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_command_selection_determinism"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "resolve_runner_target_relationship",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "3f06eb03d95808712fb6ca7098fdee5c32584d1f13f06d7148562aa72ba99372",
+      "post_state_hash": "8e36a8b21144f0c0a0ee2824fc076a591de0d4b89722f4e6f0d11f829a01a525",
+      "prior_state_hash": "8fbdc19d641e12e0760e416950cd76b0300b7e653da3c54a3c3870d4dd702e6d",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_runner_target_contract"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_harness_origin",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "3c73b14ed8a5e158c94552e9938646eec8c2e73341b52929abdb9a5b8fbca01b",
+      "post_state_hash": "e8ad9bb237ce8230c6cffdcbc0c85a783ed8c61e85756a838613948c3c0108aa",
+      "prior_state_hash": "8e36a8b21144f0c0a0ee2824fc076a591de0d4b89722f4e6f0d11f829a01a525",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_harness_origin_non_circularity"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "classify_provider_feasibility",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "74a099990251fbebc5b70391fea7fef0d4f9ce12d4329f801a08877c08a67d80",
+      "post_state_hash": "ecb9b7c1b1ded09e298dde0bf9cef2bee9b58170191f26be247248b559fd1c98",
+      "prior_state_hash": "e8ad9bb237ce8230c6cffdcbc0c85a783ed8c61e85756a838613948c3c0108aa",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_provider_feasibility_evidence"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "decide_tier3_promotion",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "e41eb1d890d367b74b16a223aa4ee5f343f9065dc56f98f4624ee0c5916a02dd",
+      "post_state_hash": "6596a4ff4c69321af12bdbd2501be06add21e5c425da6b7ebba133821c42a032",
+      "prior_state_hash": "ecb9b7c1b1ded09e298dde0bf9cef2bee9b58170191f26be247248b559fd1c98",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_tier3_promotion_by_recomputation"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": "upstream terminal decision",
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_state": "not_run_upstream_block",
+      "decision_time_evidence_consumed": [],
+      "evidence_status": "NOT_ESTABLISHED",
+      "forbidden_evidence_checked": false,
+      "forbidden_evidence_findings": [],
+      "gate_decision": "NOT_RUN",
+      "handler_name": "emit_candidate_terminal_state",
+      "input_hashes": [],
+      "next_allowed_action": "resolve_upstream_terminal_decision",
+      "operation_status": "NOT_RUN",
+      "output_hash": "c37c32c0206477613c6109e1e21ecd59085bc3fb8319842610efb2d6d4503e68",
+      "post_state_hash": "a6a9c798582a5044b43bf4049ed44ec288ec1a8b3239114d69473e4a96214347",
+      "prior_state_hash": "6596a4ff4c69321af12bdbd2501be06add21e5c425da6b7ebba133821c42a032",
+      "reopen_conditions": [
+        "resolve_upstream_terminal_decision"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "verification_hash": "NOT_RUN",
+      "verification_status": "NOT_RUN",
+      "verifier_name": "verify_terminal_state_completeness"
+    }
+  ],
+  "source_conflicts": [],
+  "state_hash": "0d8db2afe8066ed5a2c482654392240a82e41722b2c0a925360389e087cdfbc6",
+  "target_package": "ninjemail",
+  "target_tests_executed": 0,
+  "tier_label": "Tier 2 semantic static plan"
+}
