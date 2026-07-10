@@ -1,0 +1,103 @@
+{
+  "records": [
+    {
+      "allowed_next_action": "routing memory, no probe",
+      "audit_gate": "tier_0_evidence_gate",
+      "forbidden_next_action": [
+        "skip_required_lower_tier",
+        "patch_without_replay",
+        "count_without_duplicate_replay"
+      ],
+      "memory_update_policy": "routing_memory_only",
+      "name": "raw lead only",
+      "reopen_condition": "supply_missing_evidence_for_next_tier",
+      "required_evidence": "raw lead only",
+      "tier": 0
+    },
+    {
+      "allowed_next_action": "source tracking only",
+      "audit_gate": "tier_1_evidence_gate",
+      "forbidden_next_action": [
+        "skip_required_lower_tier",
+        "patch_without_replay",
+        "count_without_duplicate_replay"
+      ],
+      "memory_update_policy": "routing_memory_only",
+      "name": "repo + issue verified",
+      "reopen_condition": "supply_missing_evidence_for_next_tier",
+      "required_evidence": "repo + issue verified",
+      "tier": 1
+    },
+    {
+      "allowed_next_action": "metadata scan allowed",
+      "audit_gate": "tier_2_evidence_gate",
+      "forbidden_next_action": [
+        "skip_required_lower_tier",
+        "patch_without_replay",
+        "count_without_duplicate_replay"
+      ],
+      "memory_update_policy": "routing_memory_only",
+      "name": "repo + issue + SHA verified",
+      "reopen_condition": "supply_missing_evidence_for_next_tier",
+      "required_evidence": "repo + issue + SHA verified",
+      "tier": 2
+    },
+    {
+      "allowed_next_action": "provider-command probe allowed",
+      "audit_gate": "tier_3_evidence_gate",
+      "forbidden_next_action": [
+        "skip_required_lower_tier",
+        "patch_without_replay",
+        "count_without_duplicate_replay"
+      ],
+      "memory_update_policy": "routing_memory_only",
+      "name": "metadata scan + high-confidence command orthology",
+      "reopen_condition": "supply_missing_evidence_for_next_tier",
+      "required_evidence": "metadata scan + high-confidence command orthology",
+      "tier": 3
+    },
+    {
+      "allowed_next_action": "source-topology/patch-license gate allowed",
+      "audit_gate": "tier_4_evidence_gate",
+      "forbidden_next_action": [
+        "skip_required_lower_tier",
+        "patch_without_replay",
+        "count_without_duplicate_replay"
+      ],
+      "memory_update_policy": "repair_memory_only_after_validated_evidence",
+      "name": "pre-repair target failure materialized",
+      "reopen_condition": "supply_missing_evidence_for_next_tier",
+      "required_evidence": "pre-repair target failure materialized",
+      "tier": 4
+    },
+    {
+      "allowed_next_action": "duplicate clean replay allowed",
+      "audit_gate": "tier_5_evidence_gate",
+      "forbidden_next_action": [
+        "skip_required_lower_tier",
+        "patch_without_replay",
+        "count_without_duplicate_replay"
+      ],
+      "memory_update_policy": "repair_memory_only_after_validated_evidence",
+      "name": "valid source-only patch and target pass",
+      "reopen_condition": "supply_missing_evidence_for_next_tier",
+      "required_evidence": "valid source-only patch and target pass",
+      "tier": 5
+    },
+    {
+      "allowed_next_action": "counted repair",
+      "audit_gate": "tier_6_evidence_gate",
+      "forbidden_next_action": [
+        "skip_required_lower_tier",
+        "patch_without_replay",
+        "count_without_duplicate_replay"
+      ],
+      "memory_update_policy": "repair_memory_only_after_validated_evidence",
+      "name": "duplicate replay and count gate pass",
+      "reopen_condition": "supply_missing_evidence_for_next_tier",
+      "required_evidence": "duplicate replay and count gate pass",
+      "tier": 6
+    }
+  ],
+  "status": "PASS"
+}

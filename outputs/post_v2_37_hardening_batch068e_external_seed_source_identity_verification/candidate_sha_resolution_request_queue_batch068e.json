@@ -1,0 +1,171 @@
+{
+  "records": [
+    {
+      "acceptable_sha_sources": [
+        "issue-linked reproduction commit if verified",
+        "release tag commit if issue explicitly targets that release and tag is decision-time safe",
+        "buggy commit supplied in manual artifact with hash/provenance",
+        "benchmark dataset commit with manifest",
+        "prior approved registry entry"
+      ],
+      "approval_condition": "candidate SHA must resolve to a commit and be tied to decision-time-safe source evidence",
+      "audit_status": "PASS",
+      "automated_resolution_possible": false,
+      "candidate_epoch_boundary": {
+        "decision_time_safe_requirement": "candidate commit must be at or before the approved issue/reproduction epoch unless separately justified",
+        "issue_created_at": "2022-07-16T16:48:45Z"
+      },
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "candidate_sha_hints": [],
+      "forbidden_sha_sources": [
+        "fix PR merge commit",
+        "post-fix commit",
+        "modern HEAD",
+        "assistant guess",
+        "issue-comment patch text",
+        "unverified external summary",
+        "floating branch name without commit hash"
+      ],
+      "issue_url": "https://github.com/numpy/numpy/issues/21994",
+      "manual_resolution_instructions": "provide exact 40-character commit SHA with provenance, source URL, observed-at/before evidence, and forbidden-evidence attestation",
+      "preferred_resolution_method": "verify issue-linked or release-tag commit via GitHub API or isolated git object lookup",
+      "repo_url": "https://github.com/numpy/numpy",
+      "risk_if_wrong_sha": "wrong source commit can convert provider/materialization work into invalid repair evidence",
+      "why_sha_needed": "candidate SHA is required before metadata scan, command orthology probe, test execution, or patch authorization"
+    },
+    {
+      "acceptable_sha_sources": [
+        "issue-linked reproduction commit if verified",
+        "release tag commit if issue explicitly targets that release and tag is decision-time safe",
+        "buggy commit supplied in manual artifact with hash/provenance",
+        "benchmark dataset commit with manifest",
+        "prior approved registry entry"
+      ],
+      "approval_condition": "candidate SHA must resolve to a commit and be tied to decision-time-safe source evidence",
+      "audit_status": "PASS",
+      "automated_resolution_possible": false,
+      "candidate_epoch_boundary": {
+        "decision_time_safe_requirement": "candidate commit must be at or before the approved issue/reproduction epoch unless separately justified",
+        "issue_created_at": "2023-05-30T17:07:17Z"
+      },
+      "candidate_id": "pytest_11058_unraisable_exception",
+      "candidate_sha_hints": [],
+      "forbidden_sha_sources": [
+        "fix PR merge commit",
+        "post-fix commit",
+        "modern HEAD",
+        "assistant guess",
+        "issue-comment patch text",
+        "unverified external summary",
+        "floating branch name without commit hash"
+      ],
+      "issue_url": "https://github.com/pytest-dev/pytest/issues/11058",
+      "manual_resolution_instructions": "provide exact 40-character commit SHA with provenance, source URL, observed-at/before evidence, and forbidden-evidence attestation",
+      "preferred_resolution_method": "verify issue-linked or release-tag commit via GitHub API or isolated git object lookup",
+      "repo_url": "https://github.com/pytest-dev/pytest",
+      "risk_if_wrong_sha": "wrong source commit can convert provider/materialization work into invalid repair evidence",
+      "why_sha_needed": "candidate SHA is required before metadata scan, command orthology probe, test execution, or patch authorization"
+    },
+    {
+      "acceptable_sha_sources": [
+        "issue-linked reproduction commit if verified",
+        "release tag commit if issue explicitly targets that release and tag is decision-time safe",
+        "buggy commit supplied in manual artifact with hash/provenance",
+        "benchmark dataset commit with manifest",
+        "prior approved registry entry"
+      ],
+      "approval_condition": "candidate SHA must resolve to a commit and be tied to decision-time-safe source evidence",
+      "audit_status": "PASS",
+      "automated_resolution_possible": false,
+      "candidate_epoch_boundary": {
+        "decision_time_safe_requirement": "candidate commit must be at or before the approved issue/reproduction epoch unless separately justified",
+        "issue_created_at": "2022-04-04T14:09:14Z"
+      },
+      "candidate_id": "black_2992_blackd_path_separator",
+      "candidate_sha_hints": [],
+      "forbidden_sha_sources": [
+        "fix PR merge commit",
+        "post-fix commit",
+        "modern HEAD",
+        "assistant guess",
+        "issue-comment patch text",
+        "unverified external summary",
+        "floating branch name without commit hash"
+      ],
+      "issue_url": "https://github.com/psf/black/issues/2992",
+      "manual_resolution_instructions": "provide exact 40-character commit SHA with provenance, source URL, observed-at/before evidence, and forbidden-evidence attestation",
+      "preferred_resolution_method": "verify issue-linked or release-tag commit via GitHub API or isolated git object lookup",
+      "repo_url": "https://github.com/psf/black",
+      "risk_if_wrong_sha": "wrong source commit can convert provider/materialization work into invalid repair evidence",
+      "why_sha_needed": "candidate SHA is required before metadata scan, command orthology probe, test execution, or patch authorization"
+    },
+    {
+      "acceptable_sha_sources": [
+        "issue-linked reproduction commit if verified",
+        "release tag commit if issue explicitly targets that release and tag is decision-time safe",
+        "buggy commit supplied in manual artifact with hash/provenance",
+        "benchmark dataset commit with manifest",
+        "prior approved registry entry"
+      ],
+      "approval_condition": "candidate SHA must resolve to a commit and be tied to decision-time-safe source evidence",
+      "audit_status": "PASS",
+      "automated_resolution_possible": false,
+      "candidate_epoch_boundary": {
+        "decision_time_safe_requirement": "candidate commit must be at or before the approved issue/reproduction epoch unless separately justified",
+        "issue_created_at": "2022-03-24T16:22:39Z"
+      },
+      "candidate_id": "jinja_1628_lexer_py311",
+      "candidate_sha_hints": [],
+      "forbidden_sha_sources": [
+        "fix PR merge commit",
+        "post-fix commit",
+        "modern HEAD",
+        "assistant guess",
+        "issue-comment patch text",
+        "unverified external summary",
+        "floating branch name without commit hash"
+      ],
+      "issue_url": "https://github.com/pallets/jinja/issues/1628",
+      "manual_resolution_instructions": "provide exact 40-character commit SHA with provenance, source URL, observed-at/before evidence, and forbidden-evidence attestation",
+      "preferred_resolution_method": "verify issue-linked or release-tag commit via GitHub API or isolated git object lookup",
+      "repo_url": "https://github.com/pallets/jinja",
+      "risk_if_wrong_sha": "wrong source commit can convert provider/materialization work into invalid repair evidence",
+      "why_sha_needed": "candidate SHA is required before metadata scan, command orthology probe, test execution, or patch authorization"
+    },
+    {
+      "acceptable_sha_sources": [
+        "issue-linked reproduction commit if verified",
+        "release tag commit if issue explicitly targets that release and tag is decision-time safe",
+        "buggy commit supplied in manual artifact with hash/provenance",
+        "benchmark dataset commit with manifest",
+        "prior approved registry entry"
+      ],
+      "approval_condition": "candidate SHA must resolve to a commit and be tied to decision-time-safe source evidence",
+      "audit_status": "PASS",
+      "automated_resolution_possible": false,
+      "candidate_epoch_boundary": {
+        "decision_time_safe_requirement": "candidate commit must be at or before the approved issue/reproduction epoch unless separately justified",
+        "issue_created_at": "2022-08-05T14:57:44Z"
+      },
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "candidate_sha_hints": [],
+      "forbidden_sha_sources": [
+        "fix PR merge commit",
+        "post-fix commit",
+        "modern HEAD",
+        "assistant guess",
+        "issue-comment patch text",
+        "unverified external summary",
+        "floating branch name without commit hash"
+      ],
+      "issue_url": "https://github.com/scipy/scipy/issues/16783",
+      "manual_resolution_instructions": "provide exact 40-character commit SHA with provenance, source URL, observed-at/before evidence, and forbidden-evidence attestation",
+      "preferred_resolution_method": "verify issue-linked or release-tag commit via GitHub API or isolated git object lookup",
+      "repo_url": "https://github.com/scipy/scipy",
+      "risk_if_wrong_sha": "wrong source commit can convert provider/materialization work into invalid repair evidence",
+      "why_sha_needed": "candidate SHA is required before metadata scan, command orthology probe, test execution, or patch authorization"
+    }
+  ],
+  "request_count": 5,
+  "status": "PASS"
+}

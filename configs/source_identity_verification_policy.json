@@ -1,0 +1,22 @@
+{
+  "allowed_methods": [
+    "GitHub API repo lookup",
+    "GitHub API issue lookup",
+    "GitHub API commit lookup for supplied SHA",
+    "git ls-remote",
+    "isolated bare clone",
+    "isolated temporary worktree"
+  ],
+  "audit_status": "PASS",
+  "forbidden_methods": [
+    "committing raw cloned source",
+    "reading fixed source for patch guidance",
+    "checking out fix commits",
+    "using issue comments as patch guidance",
+    "using external summaries as commit truth",
+    "inventing candidate SHA"
+  ],
+  "patch_authority": false,
+  "raw_source_committed": false,
+  "status": "PASS"
+}

@@ -1,0 +1,21 @@
+{
+  "acceptable_sha_sources": [
+    "issue-linked reproduction commit if verified",
+    "release tag commit if issue explicitly targets that release and tag is decision-time safe",
+    "buggy commit supplied in manual artifact with hash/provenance",
+    "benchmark dataset commit with manifest",
+    "prior approved registry entry"
+  ],
+  "approval_condition": "candidate SHA must resolve to a commit and be tied to decision-time-safe source evidence",
+  "audit_status": "PASS",
+  "forbidden_sha_sources": [
+    "fix PR merge commit",
+    "post-fix commit",
+    "modern HEAD",
+    "assistant guess",
+    "issue-comment patch text",
+    "unverified external summary",
+    "floating branch name without commit hash"
+  ],
+  "status": "PASS"
+}
