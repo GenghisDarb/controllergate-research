@@ -1,0 +1,27 @@
+{
+  "acceptable_sources": [
+    "explicit_issue_reproduction_commit_verified",
+    "manual_artifact_buggy_commit_verified",
+    "benchmark_manifest_commit_verified",
+    "release_tag_explicitly_referenced_by_issue_verified",
+    "latest_release_tag_before_issue_created_verified",
+    "latest_default_branch_commit_before_issue_created_verified",
+    "prior_approved_registry_commit_verified",
+    "sha_unresolved_request_only"
+  ],
+  "audit_status": "PASS",
+  "epoch_snapshot_is_not_issue_reproduction_proof": true,
+  "epoch_snapshot_requires_label": true,
+  "forbidden_sources": [
+    "fix PR merge commit",
+    "post-fix commit",
+    "modern HEAD",
+    "assistant guess",
+    "issue-comment patch text",
+    "unverified external summary",
+    "floating branch name without a commit hash",
+    "patch diff content",
+    "gold/fixed source"
+  ],
+  "status": "PASS"
+}

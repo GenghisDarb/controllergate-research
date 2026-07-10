@@ -1,0 +1,16 @@
+{
+  "activation_state": "not_run_precondition_blocked",
+  "audit_status": "PASS",
+  "future_required_preconditions": [
+    "sandbox_replay_pass",
+    "signed_artifact_available",
+    "rollback_target_available",
+    "operator_policy_allows_live_change"
+  ],
+  "live_hot_swap_enabled": false,
+  "live_patch_application_enabled": false,
+  "live_rollback_enabled": false,
+  "patch_authority": false,
+  "purpose": "Define future rollback/hot-swap preconditions while keeping live action disabled.",
+  "status": "scaffolded_with_config_and_audit"
+}

@@ -1,0 +1,23 @@
+{
+  "activation_state": "not_run_precondition_blocked",
+  "active_collection_enabled": false,
+  "audit_status": "PASS",
+  "forbidden_until_activation": [
+    "live_device_hook",
+    "memory_dump_collection",
+    "runtime_hot_swap",
+    "live_patch_application"
+  ],
+  "live_device_access_enabled": false,
+  "patch_authority": false,
+  "purpose": "Define future non-Git provenance records without enabling live runtime repair.",
+  "status": "scaffolded_with_config_and_audit",
+  "supported_future_evidence_kinds": [
+    "binary_hash",
+    "memory_snapshot_hash",
+    "crash_dump_hash",
+    "process_state_hash",
+    "event_stream_hash",
+    "operator_policy_hash"
+  ]
+}

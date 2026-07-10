@@ -1,0 +1,13 @@
+{
+  "allowed_tag_sources": [
+    "release tag explicitly referenced by issue body",
+    "latest release tag before issue creation when issue explicitly targets releases"
+  ],
+  "audit_status": "PASS",
+  "forbidden_tag_sources": [
+    "post-fix tag",
+    "modern latest tag without decision-time boundary",
+    "tag inferred from fix PR"
+  ],
+  "status": "PASS"
+}

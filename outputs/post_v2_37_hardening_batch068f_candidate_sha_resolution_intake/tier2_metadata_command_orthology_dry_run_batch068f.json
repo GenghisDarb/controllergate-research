@@ -1,0 +1,1584 @@
+{
+  "audit_status": "PASS",
+  "metadata_only": true,
+  "patch_generated": false,
+  "records": [
+    {
+      "audit_status": "PASS",
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/numpy/numpy/contents/pyproject.toml?ref=b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+            "content_sha256": "94f0cc6b80db34de8d8671e9e0c34c6cecd1de8f",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/numpy/numpy/contents/setup.cfg?ref=b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+            "content_sha256": "f36b4b624066781f8f4ea6b6bd521f820c85dd65",
+            "exists": true,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/numpy/numpy/contents/setup.py?ref=b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+            "content_sha256": "353b6c096930fc0820009755b44b5eaabe49c50f",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/numpy/numpy/contents/tox.ini?ref=b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+            "content_sha256": "f47551398ad87bd2f0768d870375233fa7185f84",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/numpy/numpy/contents/noxfile.py?ref=b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/numpy/numpy/contents/pytest.ini?ref=b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+            "content_sha256": "f1c49d0ff33cf7105bebf5fba20df7738d5b5a0b",
+            "exists": true,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/numpy/numpy/contents/requirements.txt?ref=b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 38906,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "pytest_11058_unraisable_exception",
+      "candidate_sha": "3a6bdcd76b57e45ca03e6a20db787564843902f1",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/pyproject.toml?ref=3a6bdcd76b57e45ca03e6a20db787564843902f1",
+            "content_sha256": "a4139a5c051a003c97964f590a17cc8c83f86e0e",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/setup.cfg?ref=3a6bdcd76b57e45ca03e6a20db787564843902f1",
+            "content_sha256": "56dadae7bf5b79ab8fdba8b5098d51cc8e1877ef",
+            "exists": true,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/setup.py?ref=3a6bdcd76b57e45ca03e6a20db787564843902f1",
+            "content_sha256": "7f1a1763ca9cebc7bc16576d353d3284ee5d3c7d",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/tox.ini?ref=3a6bdcd76b57e45ca03e6a20db787564843902f1",
+            "content_sha256": "88ae16dea0cfd53849eebbc508fc2c83e3a5ab88",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/noxfile.py?ref=3a6bdcd76b57e45ca03e6a20db787564843902f1",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/pytest.ini?ref=3a6bdcd76b57e45ca03e6a20db787564843902f1",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/requirements.txt?ref=3a6bdcd76b57e45ca03e6a20db787564843902f1",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 20634,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "black_2992_blackd_path_separator",
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/psf/black/contents/pyproject.toml?ref=24c708eb374a856372284fb1a4f021fec292f713",
+            "content_sha256": "d9373740a5c4d1cc30d8cfd348eff243ab7ac568",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/psf/black/contents/setup.cfg?ref=24c708eb374a856372284fb1a4f021fec292f713",
+            "content_sha256": "1a0a217eb9143068e2947fdfb407ff23d233e5d3",
+            "exists": true,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/psf/black/contents/setup.py?ref=24c708eb374a856372284fb1a4f021fec292f713",
+            "content_sha256": "522a42a7ce216a3ba0cd723b91781cbc6f5526b2",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/psf/black/contents/tox.ini?ref=24c708eb374a856372284fb1a4f021fec292f713",
+            "content_sha256": "090dc522cadb6662fbe561dced34f0ed39304dc2",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/psf/black/contents/noxfile.py?ref=24c708eb374a856372284fb1a4f021fec292f713",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/psf/black/contents/pytest.ini?ref=24c708eb374a856372284fb1a4f021fec292f713",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/psf/black/contents/requirements.txt?ref=24c708eb374a856372284fb1a4f021fec292f713",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 14300,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "jinja_1628_lexer_py311",
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/pallets/jinja/contents/pyproject.toml?ref=e542e100027aaa131df73ad06b71ba9a4ee348c8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pallets/jinja/contents/setup.cfg?ref=e542e100027aaa131df73ad06b71ba9a4ee348c8",
+            "content_sha256": "fcc2b4b43392b32a9ab65884d17ef93ac2840399",
+            "exists": true,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pallets/jinja/contents/setup.py?ref=e542e100027aaa131df73ad06b71ba9a4ee348c8",
+            "content_sha256": "79d070870023ba5ad4ab998a30c0966c63f10f61",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pallets/jinja/contents/tox.ini?ref=e542e100027aaa131df73ad06b71ba9a4ee348c8",
+            "content_sha256": "056ca0d9479a9097a342b412e57f80407c7c0715",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pallets/jinja/contents/noxfile.py?ref=e542e100027aaa131df73ad06b71ba9a4ee348c8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pallets/jinja/contents/pytest.ini?ref=e542e100027aaa131df73ad06b71ba9a4ee348c8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pallets/jinja/contents/requirements.txt?ref=e542e100027aaa131df73ad06b71ba9a4ee348c8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 7620,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/scipy/scipy/contents/pyproject.toml?ref=c2abdf77b459de36d198edd8b8c8648aff19f429",
+            "content_sha256": "fd38d3f59fe9b6a541e5d8413a9bb4605743175c",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/scipy/scipy/contents/setup.cfg?ref=c2abdf77b459de36d198edd8b8c8648aff19f429",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/scipy/scipy/contents/setup.py?ref=c2abdf77b459de36d198edd8b8c8648aff19f429",
+            "content_sha256": "9f53785036f26fe7ecb13414b6b1ff20e912f761",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/scipy/scipy/contents/tox.ini?ref=c2abdf77b459de36d198edd8b8c8648aff19f429",
+            "content_sha256": "07855c8ee3701bcbbb806dfb2d806cd46f1b3623",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/scipy/scipy/contents/noxfile.py?ref=c2abdf77b459de36d198edd8b8c8648aff19f429",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/scipy/scipy/contents/pytest.ini?ref=c2abdf77b459de36d198edd8b8c8648aff19f429",
+            "content_sha256": "3b68b5f9a79c83238d578a9161a22c71ee13e28b",
+            "exists": true,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/scipy/scipy/contents/requirements.txt?ref=c2abdf77b459de36d198edd8b8c8648aff19f429",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 41841,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/beetbox/audioread/contents/pyproject.toml?ref=577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+            "content_sha256": "10f14dd1376fe57df19203f4b6b840b2b2447f86",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/beetbox/audioread/contents/setup.cfg?ref=577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/beetbox/audioread/contents/setup.py?ref=577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/beetbox/audioread/contents/tox.ini?ref=577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+            "content_sha256": "923c3426c1e10095e8b2905bdaf36be9561c4343",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/beetbox/audioread/contents/noxfile.py?ref=577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/beetbox/audioread/contents/pytest.ini?ref=577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/beetbox/audioread/contents/requirements.txt?ref=577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 3155,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/aio-libs/aiosmtpd/contents/pyproject.toml?ref=94710d8fd280115cbd835ae969873cc424b4e57a",
+            "content_sha256": "c15cd36290f4534d37f7f83379dffe97571027cc",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aio-libs/aiosmtpd/contents/setup.cfg?ref=94710d8fd280115cbd835ae969873cc424b4e57a",
+            "content_sha256": "1e23cb170a602027546f2f218d19f65470cda966",
+            "exists": true,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aio-libs/aiosmtpd/contents/setup.py?ref=94710d8fd280115cbd835ae969873cc424b4e57a",
+            "content_sha256": "606849326a4002007fd42060b51e69a19c18675c",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aio-libs/aiosmtpd/contents/tox.ini?ref=94710d8fd280115cbd835ae969873cc424b4e57a",
+            "content_sha256": "8282343de8f06b99c377658abf0a71b38e6fc14f",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aio-libs/aiosmtpd/contents/noxfile.py?ref=94710d8fd280115cbd835ae969873cc424b4e57a",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aio-libs/aiosmtpd/contents/pytest.ini?ref=94710d8fd280115cbd835ae969873cc424b4e57a",
+            "content_sha256": "f2b9850fa41c7d37a6d93ff73a0fb2e756dfedf8",
+            "exists": true,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aio-libs/aiosmtpd/contents/requirements.txt?ref=94710d8fd280115cbd835ae969873cc424b4e57a",
+            "content_sha256": "7de3855ffc9764ba42bb3023ed7ca771094ac5df",
+            "exists": true,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 21448,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/alpha-unito/streamflow/contents/pyproject.toml?ref=dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+            "content_sha256": "e52e6af6e923f6deb74ea935b3508b5ac1eaa88b",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/alpha-unito/streamflow/contents/setup.cfg?ref=dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/alpha-unito/streamflow/contents/setup.py?ref=dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/alpha-unito/streamflow/contents/tox.ini?ref=dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+            "content_sha256": "04322c6cd840300176f05080be80edfe1a024fc0",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/alpha-unito/streamflow/contents/noxfile.py?ref=dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/alpha-unito/streamflow/contents/pytest.ini?ref=dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/alpha-unito/streamflow/contents/requirements.txt?ref=dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 10341,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/aws-neuron/nki-library/contents/pyproject.toml?ref=c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+            "content_sha256": "7604b570d3a806a8587c88baf8a3abee3c4b7509",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aws-neuron/nki-library/contents/setup.cfg?ref=c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aws-neuron/nki-library/contents/setup.py?ref=c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aws-neuron/nki-library/contents/tox.ini?ref=c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+            "content_sha256": null,
+            "exists": false,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aws-neuron/nki-library/contents/noxfile.py?ref=c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aws-neuron/nki-library/contents/pytest.ini?ref=c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/aws-neuron/nki-library/contents/requirements.txt?ref=c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 3835,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/biface/i18n/contents/pyproject.toml?ref=e093e3f3d02d84043c5913531492aa78913aec5a",
+            "content_sha256": "6d1bc76e2d37614a3f8d3be3372cf3bcfb578278",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/biface/i18n/contents/setup.cfg?ref=e093e3f3d02d84043c5913531492aa78913aec5a",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/biface/i18n/contents/setup.py?ref=e093e3f3d02d84043c5913531492aa78913aec5a",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/biface/i18n/contents/tox.ini?ref=e093e3f3d02d84043c5913531492aa78913aec5a",
+            "content_sha256": "dda593f23ab0dd83bf070a8b49cbb8ed52c5a694",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/biface/i18n/contents/noxfile.py?ref=e093e3f3d02d84043c5913531492aa78913aec5a",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/biface/i18n/contents/pytest.ini?ref=e093e3f3d02d84043c5913531492aa78913aec5a",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/biface/i18n/contents/requirements.txt?ref=e093e3f3d02d84043c5913531492aa78913aec5a",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 18433,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+      "candidate_sha": "041aacad506b6c6891f2898f2bd378e0896e8b86",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/pyproject.toml?ref=041aacad506b6c6891f2898f2bd378e0896e8b86",
+            "content_sha256": "1f5835254daffa167002977b44b7cf45a1ab61ac",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/setup.cfg?ref=041aacad506b6c6891f2898f2bd378e0896e8b86",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/setup.py?ref=041aacad506b6c6891f2898f2bd378e0896e8b86",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/tox.ini?ref=041aacad506b6c6891f2898f2bd378e0896e8b86",
+            "content_sha256": "bbd62b7e7c55764c8de128ccccc12d83a5bc204d",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/noxfile.py?ref=041aacad506b6c6891f2898f2bd378e0896e8b86",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/pytest.ini?ref=041aacad506b6c6891f2898f2bd378e0896e8b86",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pytest-dev/pytest/contents/requirements.txt?ref=041aacad506b6c6891f2898f2bd378e0896e8b86",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 36568,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_coveragepy_coveragepy_issues_2128",
+      "candidate_sha": "2c014d0d153cf4dc9268ad5e0a7bd5dcdc4673e8",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/coveragepy/coveragepy/contents/pyproject.toml?ref=2c014d0d153cf4dc9268ad5e0a7bd5dcdc4673e8",
+            "content_sha256": "179f07f16ae2a7ff9a68f0eb55c2b36952c6127d",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/coveragepy/coveragepy/contents/setup.cfg?ref=2c014d0d153cf4dc9268ad5e0a7bd5dcdc4673e8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/coveragepy/coveragepy/contents/setup.py?ref=2c014d0d153cf4dc9268ad5e0a7bd5dcdc4673e8",
+            "content_sha256": "4b0aba83a18544a630c31b70e38b20b67d88aa7a",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/coveragepy/coveragepy/contents/tox.ini?ref=2c014d0d153cf4dc9268ad5e0a7bd5dcdc4673e8",
+            "content_sha256": "e72961f2f77ec1f913cec4e1b3babe73480d9df5",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/coveragepy/coveragepy/contents/noxfile.py?ref=2c014d0d153cf4dc9268ad5e0a7bd5dcdc4673e8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/coveragepy/coveragepy/contents/pytest.ini?ref=2c014d0d153cf4dc9268ad5e0a7bd5dcdc4673e8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/coveragepy/coveragepy/contents/requirements.txt?ref=2c014d0d153cf4dc9268ad5e0a7bd5dcdc4673e8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 29079,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/david96182/ninjemail/contents/pyproject.toml?ref=f9d2173710502406e096bdc97573718b4bfc4d71",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/david96182/ninjemail/contents/setup.cfg?ref=f9d2173710502406e096bdc97573718b4bfc4d71",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/david96182/ninjemail/contents/setup.py?ref=f9d2173710502406e096bdc97573718b4bfc4d71",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/david96182/ninjemail/contents/tox.ini?ref=f9d2173710502406e096bdc97573718b4bfc4d71",
+            "content_sha256": null,
+            "exists": false,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/david96182/ninjemail/contents/noxfile.py?ref=f9d2173710502406e096bdc97573718b4bfc4d71",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/david96182/ninjemail/contents/pytest.ini?ref=f9d2173710502406e096bdc97573718b4bfc4d71",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/david96182/ninjemail/contents/requirements.txt?ref=f9d2173710502406e096bdc97573718b4bfc4d71",
+            "content_sha256": "0dfbff1a4dc904a315164c00e9e5f4e4df9d7abe",
+            "exists": true,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 1188,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_executablebooks_sphinx_multitoc_numbering_issues_28",
+      "candidate_sha": "c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/executablebooks/sphinx-multitoc-numbering/contents/pyproject.toml?ref=c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/executablebooks/sphinx-multitoc-numbering/contents/setup.cfg?ref=c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/executablebooks/sphinx-multitoc-numbering/contents/setup.py?ref=c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+            "content_sha256": "3486342461e8d1b4557892a21918ae089f5f1f2a",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/executablebooks/sphinx-multitoc-numbering/contents/tox.ini?ref=c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+            "content_sha256": null,
+            "exists": false,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/executablebooks/sphinx-multitoc-numbering/contents/noxfile.py?ref=c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/executablebooks/sphinx-multitoc-numbering/contents/pytest.ini?ref=c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/executablebooks/sphinx-multitoc-numbering/contents/requirements.txt?ref=c276df8f9ee939a0a7fcd820c6649663b3164ee6",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 2528,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/feder-observatory/stellarphot/contents/pyproject.toml?ref=d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+            "content_sha256": "49f1e23ce0bdae4733c5e114894af09fedf30064",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/feder-observatory/stellarphot/contents/setup.cfg?ref=d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/feder-observatory/stellarphot/contents/setup.py?ref=d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/feder-observatory/stellarphot/contents/tox.ini?ref=d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+            "content_sha256": "e7152b9d5958368aad7a9bd53cede304272eb6d4",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/feder-observatory/stellarphot/contents/noxfile.py?ref=d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/feder-observatory/stellarphot/contents/pytest.ini?ref=d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/feder-observatory/stellarphot/contents/requirements.txt?ref=d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 14141,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "candidate_sha": "8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/Hipo/drf-extra-fields/contents/pyproject.toml?ref=8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/Hipo/drf-extra-fields/contents/setup.cfg?ref=8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/Hipo/drf-extra-fields/contents/setup.py?ref=8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+            "content_sha256": "859abec36c749f15d01b622f9e0eaf5f2cd5e6c0",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/Hipo/drf-extra-fields/contents/tox.ini?ref=8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+            "content_sha256": "66fba0916382bc75fcfe1882dd1c5af03bcb5729",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/Hipo/drf-extra-fields/contents/noxfile.py?ref=8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/Hipo/drf-extra-fields/contents/pytest.ini?ref=8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+            "content_sha256": "3459e948dae0cd358afd3462ce333d9348bd0136",
+            "exists": true,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/Hipo/drf-extra-fields/contents/requirements.txt?ref=8c18a7542c8a38fe3dccd1874a74a38410aa3a7f",
+            "content_sha256": "53a4cb7f575ff715172fe803eda945c5e8a9482d",
+            "exists": true,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 7464,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/iMelki/mempalace/contents/pyproject.toml?ref=3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+            "content_sha256": "18228d7bc82183ac554c805cc84d8a1c5e5d0d17",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/iMelki/mempalace/contents/setup.cfg?ref=3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/iMelki/mempalace/contents/setup.py?ref=3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/iMelki/mempalace/contents/tox.ini?ref=3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/iMelki/mempalace/contents/noxfile.py?ref=3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/iMelki/mempalace/contents/pytest.ini?ref=3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/iMelki/mempalace/contents/requirements.txt?ref=3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 5509,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/jupyter/nbclient/contents/pyproject.toml?ref=8514e919d8405eb832e80b9ea1925767e7431ee9",
+            "content_sha256": "a6d89a585d10be3dce34be375a85cb6096c416ae",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/jupyter/nbclient/contents/setup.cfg?ref=8514e919d8405eb832e80b9ea1925767e7431ee9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/jupyter/nbclient/contents/setup.py?ref=8514e919d8405eb832e80b9ea1925767e7431ee9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/jupyter/nbclient/contents/tox.ini?ref=8514e919d8405eb832e80b9ea1925767e7431ee9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/jupyter/nbclient/contents/noxfile.py?ref=8514e919d8405eb832e80b9ea1925767e7431ee9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/jupyter/nbclient/contents/pytest.ini?ref=8514e919d8405eb832e80b9ea1925767e7431ee9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/jupyter/nbclient/contents/requirements.txt?ref=8514e919d8405eb832e80b9ea1925767e7431ee9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 8047,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/kkipngenokoech/pytest/contents/pyproject.toml?ref=e2ee3144ed6e241dea8d96215fcdca18b3892551",
+            "content_sha256": "5d32b755c7445de44bc66a9de76dc817b53e2e82",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/kkipngenokoech/pytest/contents/setup.cfg?ref=e2ee3144ed6e241dea8d96215fcdca18b3892551",
+            "content_sha256": "26a5d2e63e56657e73a498ebb5b2dd3cd85bc0c2",
+            "exists": true,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/kkipngenokoech/pytest/contents/setup.py?ref=e2ee3144ed6e241dea8d96215fcdca18b3892551",
+            "content_sha256": "7f1a1763ca9cebc7bc16576d353d3284ee5d3c7d",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/kkipngenokoech/pytest/contents/tox.ini?ref=e2ee3144ed6e241dea8d96215fcdca18b3892551",
+            "content_sha256": "9d26051ebb741f0514b9bc004ed3a61bcf5cd843",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/kkipngenokoech/pytest/contents/noxfile.py?ref=e2ee3144ed6e241dea8d96215fcdca18b3892551",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/kkipngenokoech/pytest/contents/pytest.ini?ref=e2ee3144ed6e241dea8d96215fcdca18b3892551",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/kkipngenokoech/pytest/contents/requirements.txt?ref=e2ee3144ed6e241dea8d96215fcdca18b3892551",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 20256,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "candidate_sha": "9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/markberger/dspy_temporal/contents/pyproject.toml?ref=9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+            "content_sha256": "5db7d488d23d7198b4ffcf5b78a29004c3cb8a65",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/markberger/dspy_temporal/contents/setup.cfg?ref=9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/markberger/dspy_temporal/contents/setup.py?ref=9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/markberger/dspy_temporal/contents/tox.ini?ref=9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+            "content_sha256": null,
+            "exists": false,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/markberger/dspy_temporal/contents/noxfile.py?ref=9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/markberger/dspy_temporal/contents/pytest.ini?ref=9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/markberger/dspy_temporal/contents/requirements.txt?ref=9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 6623,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_open_telemetry_opentelemetry_python_contrib_issues_3547",
+      "candidate_sha": "a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/open-telemetry/opentelemetry-python-contrib/contents/pyproject.toml?ref=a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+            "content_sha256": "38e527d049ca146f6f4ffce28e5279c33e3455fb",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/open-telemetry/opentelemetry-python-contrib/contents/setup.cfg?ref=a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/open-telemetry/opentelemetry-python-contrib/contents/setup.py?ref=a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/open-telemetry/opentelemetry-python-contrib/contents/tox.ini?ref=a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+            "content_sha256": "bc70a012581f79e7a1bc53f05482e39f9cf3bad6",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/open-telemetry/opentelemetry-python-contrib/contents/noxfile.py?ref=a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/open-telemetry/opentelemetry-python-contrib/contents/pytest.ini?ref=a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+            "content_sha256": "136015a6b0413908ad8e4dda05c8344cfc62a0d7",
+            "exists": true,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/open-telemetry/opentelemetry-python-contrib/contents/requirements.txt?ref=a912c9e57c1b3d47f270795e9f6a59eeb079f9f8",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 93887,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/pschanely/CrossHair/contents/pyproject.toml?ref=d7ac86f2087b781e298bca05ca581f799aef85a0",
+            "content_sha256": "8af03610d53a5ff03b52214812fe61be21f972fd",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pschanely/CrossHair/contents/setup.cfg?ref=d7ac86f2087b781e298bca05ca581f799aef85a0",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pschanely/CrossHair/contents/setup.py?ref=d7ac86f2087b781e298bca05ca581f799aef85a0",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pschanely/CrossHair/contents/tox.ini?ref=d7ac86f2087b781e298bca05ca581f799aef85a0",
+            "content_sha256": null,
+            "exists": false,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pschanely/CrossHair/contents/noxfile.py?ref=d7ac86f2087b781e298bca05ca581f799aef85a0",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pschanely/CrossHair/contents/pytest.ini?ref=d7ac86f2087b781e298bca05ca581f799aef85a0",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pschanely/CrossHair/contents/requirements.txt?ref=d7ac86f2087b781e298bca05ca581f799aef85a0",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 5220,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_pypa_distutils_issues_261",
+      "candidate_sha": "c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/pypa/distutils/contents/pyproject.toml?ref=c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+            "content_sha256": "ad67d3b12de084104ac6b6a80f6968a9dfed099f",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pypa/distutils/contents/setup.cfg?ref=c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pypa/distutils/contents/setup.py?ref=c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pypa/distutils/contents/tox.ini?ref=c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+            "content_sha256": "cc4db36e76f587596863ef00022e372d7d6819a2",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pypa/distutils/contents/noxfile.py?ref=c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pypa/distutils/contents/pytest.ini?ref=c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+            "content_sha256": "9a0f3bce1395ae3819030b822e5d9076c85068ea",
+            "exists": true,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/pypa/distutils/contents/requirements.txt?ref=c9729e1a0f66b7adad70c629518b7dab82ccd8c6",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 6826,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/raczben/wexpect/contents/pyproject.toml?ref=1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/raczben/wexpect/contents/setup.cfg?ref=1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+            "content_sha256": "59a8a0371c11fc471383b03b3dab491ba759afc0",
+            "exists": true,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/raczben/wexpect/contents/setup.py?ref=1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+            "content_sha256": "1ba9170c5c0f8d657557214b01d740af1bd42487",
+            "exists": true,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/raczben/wexpect/contents/tox.ini?ref=1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+            "content_sha256": "c04c3cd01af1e76384a6c8bd4c166981817746ce",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/raczben/wexpect/contents/noxfile.py?ref=1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/raczben/wexpect/contents/pytest.ini?ref=1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/raczben/wexpect/contents/requirements.txt?ref=1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+            "content_sha256": "633ed610e89e1ee839ec094be30d7cb471dfd037",
+            "exists": true,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 8957,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    },
+    {
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "candidate_sha": "6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+      "dry_run_only": true,
+      "metadata_presence": {
+        "audit_status": "PASS",
+        "metadata_files": [
+          {
+            "api_url": "https://api.github.com/repos/spec-first/connexion/contents/pyproject.toml?ref=6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+            "content_sha256": "b1ab36041dd835cc9990c30a7eae4ee3e4c65169",
+            "exists": true,
+            "path": "pyproject.toml"
+          },
+          {
+            "api_url": "https://api.github.com/repos/spec-first/connexion/contents/setup.cfg?ref=6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.cfg"
+          },
+          {
+            "api_url": "https://api.github.com/repos/spec-first/connexion/contents/setup.py?ref=6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+            "content_sha256": null,
+            "exists": false,
+            "path": "setup.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/spec-first/connexion/contents/tox.ini?ref=6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+            "content_sha256": "6c036fa1ee6a5f740593ecbf44bbfdb44962aea3",
+            "exists": true,
+            "path": "tox.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/spec-first/connexion/contents/noxfile.py?ref=6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+            "content_sha256": null,
+            "exists": false,
+            "path": "noxfile.py"
+          },
+          {
+            "api_url": "https://api.github.com/repos/spec-first/connexion/contents/pytest.ini?ref=6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+            "content_sha256": null,
+            "exists": false,
+            "path": "pytest.ini"
+          },
+          {
+            "api_url": "https://api.github.com/repos/spec-first/connexion/contents/requirements.txt?ref=6e7dd39ee7fc8ce5f714442984672aa5a30623e7",
+            "content_sha256": null,
+            "exists": false,
+            "path": "requirements.txt"
+          }
+        ],
+        "patch_authority": false,
+        "raw_source_committed": false,
+        "source_bytes_read": 7663,
+        "status": "PASS",
+        "tests_executed": 0
+      },
+      "patch_generated": false,
+      "tests_executed": 0,
+      "tier3_blocker": "runner_target_harness_origin_and_provider_feasibility_not_established",
+      "tier3_promotion_allowed": false,
+      "tier_label": "Tier 2b decision-time epoch snapshot"
+    }
+  ],
+  "status": "PASS",
+  "tests_executed": 0
+}
