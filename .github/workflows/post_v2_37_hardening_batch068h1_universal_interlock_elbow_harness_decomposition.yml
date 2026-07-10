@@ -1,0 +1,26 @@
+name: post_v2_37_hardening_batch068h1_universal_interlock_elbow_harness_decomposition
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  interlock-elbow-harness-decomposition:
+    uses: ./.github/workflows/controllergate_reusable_lane.yml
+    with:
+      lane_id: post_v2_37_hardening_batch068h1_universal_interlock_elbow_harness_decomposition
+      runner_script: scripts/generate_batch068h1_universal_interlock_elbow_harness_decomposition.py
+      audit_script: scripts/audit_batch068h1_universal_interlock_elbow_harness_decomposition.py
+      artifact_name: post_v2_37_hardening_batch068h1_universal_interlock_elbow_harness_decomposition_artifacts
+      run_regressions: true
+      regression_level: full
+      run_core_tests: true
+      python_version: "3.11"
+      regression_registry_path: configs/controllergate_regression_audit_registry.json
+      core_test_scope: full
+      focused_test_targets: tests/core/test_batch068h1_interlock_elbow_runtime.py tests/runtime/test_batch068h1_log_custody_collection.py
+      artifact_output_directory: post_v2_37_hardening_batch068h1_universal_interlock_elbow_harness_decomposition
+      artifact_include_policy: frontier_minimal
+    secrets: inherit

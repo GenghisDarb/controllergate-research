@@ -37,7 +37,7 @@ def host_nonroot_user() -> str:
 
 def secure_container_create_command(
     *, image_digest: str, source: Path, wheelhouse: Path, command: list[str], name: str,
-    resource_policy: ResourcePolicy | None = None,
+    resource_policy: ResourcePolicy | None = None, environment: dict[str, str] | None = None,
 ) -> tuple[list[str], str]:
     policy = resource_policy or ResourcePolicy()
     user = host_nonroot_user()
@@ -53,17 +53,19 @@ def secure_container_create_command(
         "--env", "PYTHONDONTWRITEBYTECODE=1",
         "--env", "HOME=/tmp/home",
         "--env", "XDG_CACHE_HOME=/tmp/cache",
-        *policy.docker_args(), image_digest, *command,
     ]
+    for key, value in sorted((environment or {}).items()):
+        args.extend(["--env", f"{key}={value}"])
+    args.extend([*policy.docker_args(), image_digest, *command])
     return args, user
 
 
 def create_inspect_run_remove(
     *, image_digest: str, source: Path, wheelhouse: Path, shell_script: str, name: str,
-    resource_policy: ResourcePolicy | None = None,
+    resource_policy: ResourcePolicy | None = None, environment: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     policy = resource_policy or ResourcePolicy()
-    command, user = secure_container_create_command(image_digest=image_digest, source=source, wheelhouse=wheelhouse, command=["sh", "-lc", shell_script], name=name, resource_policy=policy)
+    command, user = secure_container_create_command(image_digest=image_digest, source=source, wheelhouse=wheelhouse, command=["sh", "-lc", shell_script], name=name, resource_policy=policy, environment=environment)
     create = subprocess.run(command, text=True, capture_output=True, check=False)
     if create.returncode != 0:
         return {"status": "BLOCK", "blocker": "secure_container_create_failed", "create_returncode": create.returncode, "output": (create.stdout + create.stderr)[-2000:], "command": command}

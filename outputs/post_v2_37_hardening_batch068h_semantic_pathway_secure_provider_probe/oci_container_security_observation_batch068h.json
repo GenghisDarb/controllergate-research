@@ -1,8 +1,37 @@
 {
-  "evidence_status": "NOT_ESTABLISHED",
-  "exact_blocker": "blocked_secure_execution_substrate_unavailable",
-  "gate_decision": "BLOCK",
-  "legacy_status": "deprecated_non_authoritative",
-  "next_allowed_action": "batch068h1_secure_execution_substrate_hardening",
-  "operation_status": "NOT_RUN"
+  "capabilities_dropped_verified": true,
+  "errors": [],
+  "ipc_mode": "private",
+  "memory_bytes": 2147483648,
+  "memory_swap_bytes": 2147483648,
+  "mounts": [
+    {
+      "Destination": "/source",
+      "Mode": "",
+      "RW": false
+    },
+    {
+      "Destination": "/wheelhouse",
+      "Mode": "",
+      "RW": false
+    }
+  ],
+  "nano_cpus": 2000000000,
+  "network_isolation_verified": true,
+  "network_mode": "none",
+  "no_new_privileges_verified": true,
+  "non_root_verified": true,
+  "observed_user": "1001:1001",
+  "pid_mode": "",
+  "pids_limit": 256,
+  "privileged": false,
+  "read_only_root_filesystem_verified": true,
+  "status": "PASS",
+  "ulimits": [
+    {
+      "Hard": 1024,
+      "Name": "nofile",
+      "Soft": 1024
+    }
+  ]
 }

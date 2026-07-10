@@ -2,9 +2,9 @@
 
 ## Validated protocol and static frontier
 
-The validated current protocol is `v2.15 semantic_frontier_planning_and_bounded_probe_lane`. Batch068h promotes the static planning interface after resolving 11 semantic handlers and 11 independent verifiers, reprocessing all 25 frozen candidates, preserving deterministic state hashes, and passing negative controls. `v2.14 capability_recovery_lane` remains directly selectable and audited.
+The validated current protocol is `v2.16 universal_interlock_elbow_runtime_decomposition_lane`. Batch068h1 preserves the 11-handler/11-verifier static pathway and binds its runtime continuation to 23 executable interlocks with independent verification. `v2.15 semantic_frontier_planning_and_bounded_probe_lane` and `v2.14 capability_recovery_lane` remain directly selectable and audited.
 
-The provider capability is separately gated. Its sole Tier-3 candidate can receive only an authorization-bound, collection-only OCI probe. An unavailable secure substrate or any failed runtime, provider, source-custody, collection, or immutability gate yields an explicit stopped state; it does not affect static protocol promotion.
+The official Batch068h workflow established exact Python 3.13.0b2 and a current provider lock but collected zero target nodes. Batch068h1 does not infer a cause from the missing Batch068h logs. It separates decision-time environment reconstruction from modern diagnostics, captures lossless output for new commands, and routes any unresolved historical environment boundary without patching.
 
 The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIER_STATE.json`; its rendered view is `docs/CURRENT_FRONTIER_STATUS.md`.
 

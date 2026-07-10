@@ -31,20 +31,22 @@ class FrontierEngine:
         }
 
     def plan(self, candidate_id: str) -> dict[str, Any]:
+        frontier = self.status()
         index = json.loads(self.index_path.read_text(encoding="utf-8"))
         record = next((item for item in index["records"] if item["candidate_id"] == candidate_id), None)
         if record is None:
             return {"status": "BLOCK", "blocker": "frontier_candidate_unknown", "candidate_id": candidate_id}
         path = self.repo_root / record["state_path"]
         state = json.loads(path.read_text(encoding="utf-8"))
+        interlock_runtime = str(frontier.get("validated_current_protocol", "")).startswith("v2.16")
         return {
             "status": "PASS",
             "candidate_id": candidate_id,
             "tier": state["tier_label"],
-            "terminal_state": state.get("terminal_state", state.get("candidate_state")),
-            "next_allowed_action": state["next_allowed_action"],
-            "provider_probe_authorized": state["tier_label"] == "Tier 3 static provider-command-probe authorization",
+            "terminal_state": frontier.get("provider_probe_classification") if interlock_runtime else state.get("terminal_state", state.get("candidate_state")),
+            "next_allowed_action": frontier.get("next_safe_action") if interlock_runtime else state["next_allowed_action"],
+            "provider_probe_authorized": False if interlock_runtime else state["tier_label"] == "Tier 3 static provider-command-probe authorization",
             "execution_authorized": False,
-            "execution_blocker": "frontier_execution_not_authorized_static_planning_only",
+            "execution_blocker": "interlock_runtime_requires_next_authorized_evidence_lane" if interlock_runtime else "frontier_execution_not_authorized_static_planning_only",
             "state_hash": state["state_hash"],
         }

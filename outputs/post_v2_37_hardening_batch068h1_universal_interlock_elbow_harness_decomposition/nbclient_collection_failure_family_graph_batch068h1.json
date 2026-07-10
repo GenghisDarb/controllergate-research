@@ -1,0 +1,111 @@
+{
+  "edges": [
+    {
+      "child_family_id": "FF-001",
+      "evidence_hash": "bd8e46018a43f5167de3dde04dbd5909f4096cbdc24787185edc0da1e44fe27d",
+      "parent_family_id": "FF-000"
+    },
+    {
+      "child_family_id": "FF-002",
+      "evidence_hash": "bd8e46018a43f5167de3dde04dbd5909f4096cbdc24787185edc0da1e44fe27d",
+      "parent_family_id": "FF-001"
+    }
+  ],
+  "maximum_depth": 2,
+  "nodes": [
+    {
+      "candidate_causal_classification": "evidence_gap",
+      "confidence": 1.0,
+      "depth": 0,
+      "environment_involvement": true,
+      "evidence_hashes": [
+        "bd8e46018a43f5167de3dde04dbd5909f4096cbdc24787185edc0da1e44fe27d"
+      ],
+      "family_id": "FF-000",
+      "harness_involvement": true,
+      "interpreter_involvement": true,
+      "intervention_authorized": false,
+      "isolated": false,
+      "known_confounders": [
+        "missing_raw_logs"
+      ],
+      "observed_evidence": [
+        "two_exit_code_2_zero_node_runs"
+      ],
+      "parent_family_id": null,
+      "phase": "official_batch068h_collection",
+      "provider_involvement": true,
+      "raw_log_references": [
+        "Batch068h raw logs absent"
+      ],
+      "reopen_conditions": [
+        "capture_raw_logs"
+      ],
+      "reproducible": true,
+      "source_involvement": false
+    },
+    {
+      "candidate_causal_classification": "target_origin_mode_conflict",
+      "confidence": 0.95,
+      "depth": 1,
+      "environment_involvement": true,
+      "evidence_hashes": [
+        "bd8e46018a43f5167de3dde04dbd5909f4096cbdc24787185edc0da1e44fe27d"
+      ],
+      "family_id": "FF-001",
+      "harness_involvement": true,
+      "interpreter_involvement": false,
+      "intervention_authorized": false,
+      "isolated": false,
+      "known_confounders": [
+        "source_mode_may_be_valid"
+      ],
+      "observed_evidence": [
+        "source_origin_with_installed_wheel"
+      ],
+      "parent_family_id": "FF-000",
+      "phase": "target_origin",
+      "provider_involvement": true,
+      "raw_log_references": [
+        "batch068h_target_import_origin"
+      ],
+      "reopen_conditions": [
+        "separate_origin_modes"
+      ],
+      "reproducible": true,
+      "source_involvement": true
+    },
+    {
+      "candidate_causal_classification": "diagnostic_logs_not_materialized",
+      "confidence": 0.7,
+      "depth": 2,
+      "environment_involvement": true,
+      "evidence_hashes": [
+        "bd8e46018a43f5167de3dde04dbd5909f4096cbdc24787185edc0da1e44fe27d"
+      ],
+      "family_id": "FF-002",
+      "harness_involvement": true,
+      "interpreter_involvement": true,
+      "intervention_authorized": false,
+      "isolated": false,
+      "known_confounders": [
+        "decision_time_lock_incomplete"
+      ],
+      "observed_evidence": [
+        "diagnostic_logs_not_materialized"
+      ],
+      "parent_family_id": "FF-001",
+      "phase": "environment_epoch",
+      "provider_involvement": true,
+      "raw_log_references": [
+        "Batch068h1 diagnostic logs"
+      ],
+      "reopen_conditions": [
+        "materialize_historical_environment"
+      ],
+      "reproducible": false,
+      "source_involvement": false
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,858 @@
+{
+  "interlock_count": 23,
+  "interlocks": [
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "artifact_custody_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_artifact_custody",
+      "interlock_id": "artifact_custody",
+      "reopen_conditions": [
+        "provide_verified_artifact_custody_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_artifact_custody"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "source_approval_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_source_approval",
+      "interlock_id": "source_approval",
+      "reopen_conditions": [
+        "provide_verified_source_approval_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_source_approval"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "candidate_seed_classification_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_candidate_seed_classification",
+      "interlock_id": "candidate_seed_classification",
+      "reopen_conditions": [
+        "provide_verified_candidate_seed_classification_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_candidate_seed_classification"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "seed_readiness_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_seed_readiness",
+      "interlock_id": "seed_readiness",
+      "reopen_conditions": [
+        "provide_verified_seed_readiness_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_seed_readiness"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "workspace_purity_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_workspace_purity",
+      "interlock_id": "workspace_purity",
+      "reopen_conditions": [
+        "provide_verified_workspace_purity_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_workspace_purity"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "candidate_isolated_runtime_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_candidate_isolated_runtime",
+      "interlock_id": "candidate_isolated_runtime",
+      "reopen_conditions": [
+        "provide_verified_candidate_isolated_runtime_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_candidate_isolated_runtime"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "provider_capsule_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_provider_capsule",
+      "interlock_id": "provider_capsule",
+      "reopen_conditions": [
+        "provide_verified_provider_capsule_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_provider_capsule"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "command_translation_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_command_translation",
+      "interlock_id": "command_translation",
+      "reopen_conditions": [
+        "provide_verified_command_translation_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_command_translation"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "harness_origin_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_harness_origin",
+      "interlock_id": "harness_origin",
+      "reopen_conditions": [
+        "provide_verified_harness_origin_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_harness_origin"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "version_origin_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_version_origin",
+      "interlock_id": "version_origin",
+      "reopen_conditions": [
+        "provide_verified_version_origin_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_version_origin"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "runner_target_split_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_runner_target_split",
+      "interlock_id": "runner_target_split",
+      "reopen_conditions": [
+        "provide_verified_runner_target_split_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_runner_target_split"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "cross_environment_orthology_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_cross_environment_orthology",
+      "interlock_id": "cross_environment_orthology",
+      "reopen_conditions": [
+        "provide_verified_cross_environment_orthology_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_cross_environment_orthology"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "ast_topology_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_ast_topology",
+      "interlock_id": "ast_topology",
+      "reopen_conditions": [
+        "provide_verified_ast_topology_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_ast_topology"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "elbow_topology_authorization_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_elbow_topology_authorization",
+      "interlock_id": "elbow_topology_authorization",
+      "reopen_conditions": [
+        "provide_verified_elbow_topology_authorization_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_elbow_topology_authorization"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "cognitive_state_prompt_lock_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_cognitive_state_prompt_lock",
+      "interlock_id": "cognitive_state_prompt_lock",
+      "reopen_conditions": [
+        "provide_verified_cognitive_state_prompt_lock_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_cognitive_state_prompt_lock"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "reward_signal_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_reward_signal",
+      "interlock_id": "reward_signal",
+      "reopen_conditions": [
+        "provide_verified_reward_signal_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_reward_signal"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "baseline_drift_precheck_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_baseline_drift_precheck",
+      "interlock_id": "baseline_drift_precheck",
+      "reopen_conditions": [
+        "provide_verified_baseline_drift_precheck_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_baseline_drift_precheck"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "failed_branch_closure_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_failed_branch_closure",
+      "interlock_id": "failed_branch_closure",
+      "reopen_conditions": [
+        "provide_verified_failed_branch_closure_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_failed_branch_closure"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "step_to_output_contract_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_step_to_output_contract",
+      "interlock_id": "step_to_output_contract",
+      "reopen_conditions": [
+        "provide_verified_step_to_output_contract_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_step_to_output_contract"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "public_summary_guard_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_public_summary_guard",
+      "interlock_id": "public_summary_guard",
+      "reopen_conditions": [
+        "provide_verified_public_summary_guard_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_public_summary_guard"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "duplicate_clean_replay_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_duplicate_clean_replay",
+      "interlock_id": "duplicate_clean_replay",
+      "reopen_conditions": [
+        "provide_verified_duplicate_clean_replay_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_duplicate_clean_replay"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "count_gate_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_count_gate",
+      "interlock_id": "count_gate",
+      "reopen_conditions": [
+        "provide_verified_count_gate_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_count_gate"
+    },
+    {
+      "allowed_next_states": [
+        "*"
+      ],
+      "allowed_prior_states": [
+        "*"
+      ],
+      "blocker_vocabulary": [
+        "runtime_activation_blocked",
+        "forbidden_transition",
+        "evidence_incomplete"
+      ],
+      "forbidden_evidence_classes": [
+        "fixed_commit_used",
+        "later_commit_used",
+        "gold_patch_used",
+        "future_test_used",
+        "hidden_benchmark_state_used"
+      ],
+      "forbidden_transitions": [
+        "patch_without_target_replay",
+        "count_without_duplicate_replay"
+      ],
+      "handler": "handle_runtime_activation",
+      "interlock_id": "runtime_activation",
+      "reopen_conditions": [
+        "provide_verified_runtime_activation_evidence"
+      ],
+      "required_evidence_classes": [
+        "candidate_id",
+        "decision_time_evidence"
+      ],
+      "terminal_state_behavior": "stop_and_close_branch",
+      "typed_input_schema": "controllergate.interlock_input.v2",
+      "typed_output_schema": "controllergate.interlock_output.v2",
+      "verifier": "verify_runtime_activation"
+    }
+  ],
+  "schema_version": "controllergate.universal_interlock_law.v2",
+  "status": "PASS"
+}

@@ -58,7 +58,7 @@ def load_current_config() -> dict[str, Any]:
 def select_protocol(protocol: str) -> dict[str, Any]:
     if protocol == "current":
         return load_current_config()
-    path = REPO_ROOT / "configs" / f"controllergate_{protocol.replace('.', '_')}.yaml"
+    path = REPO_ROOT / "configs" / ("controllergate_v2_16_current.yaml" if protocol == "v2.16" else f"controllergate_{protocol.replace('.', '_')}.yaml")
     if not path.is_file():
         raise ValueError(f"unsupported protocol {protocol!r}")
     global CURRENT_CONFIG
@@ -105,7 +105,7 @@ def dry_run(config: dict[str, Any], selected_protocol: str) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Inspect or run the configured ControllerGate protocol.")
     parser.add_argument("action", nargs="?", choices=["status", "validate", "plan", "probe"])
-    parser.add_argument("--protocol", choices=["current", "v2.14", "v2.15"], default="current")
+    parser.add_argument("--protocol", choices=["current", "v2.14", "v2.15", "v2.16"], default="current")
     parser.add_argument("--dry-run", action="store_true", help="Inspect configured runner without executing it.")
     parser.add_argument("--candidate")
     parser.add_argument("--authorization")
@@ -120,7 +120,7 @@ def main() -> int:
     if args.dry_run:
         return dry_run(config, args.protocol)
 
-    if str(config.get("protocol_version")) == "v2.15" and args.action:
+    if str(config.get("protocol_version")) in {"v2.15", "v2.16"} and args.action:
         from controllergate.engine import FrontierEngine
         engine = FrontierEngine(REPO_ROOT)
         if args.action == "status":

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .v2_15 import protocol
+from .v2_16 import protocol
 
 
 def current_protocol() -> dict[str, str]:

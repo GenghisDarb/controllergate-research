@@ -2,9 +2,17 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
-## Batch068h semantic frontier capabilities
+## Batch068h1 interlock-bound runtime capabilities
 
-- Validated current protocol: `v2.15 semantic_frontier_planning_and_bounded_probe_lane` (`PASS`).
+- Validated current protocol: `v2.16 universal_interlock_elbow_runtime_decomposition_lane` (`PASS`).
+- Prior protocols: v2.15 and v2.14 remain selectable and audited.
+- Universal interlocks: `23` executable handlers with `23` independent verifiers.
+- Runtime continuation: CG-RXN-012 through CG-RXN-024, all interlock-bound.
+- Failure-family graphs: arbitrary numeric depth with independently verified elbow decisions.
+- Environment identity: 16-dimension orthology vector; exact runtime identity does not imply complete environment identity.
+- Provider evidence: decision-time and current provider locks remain distinct.
+- Target-origin evidence: pinned-source and pinned-wheel modes are separate; mixed mode is rejected.
+- Raw diagnostic custody: exact command, stdout, stderr, combined output, normalization hash, and secret scan for each executed new probe.
 - Prior protocol: `v2.14 capability_recovery_lane` remains selectable and audited.
 - Static frontier planning engine: operational and protocol-promoted after semantic-runtime validation.
 - Step-specific semantic handlers and independent verifiers: `11` each.
@@ -25,7 +33,7 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 
 ## Current operational gate status
 
-- Current protocol is `v2.15 semantic_frontier_planning_and_bounded_probe_lane`.
+- Current protocol is `v2.16 universal_interlock_elbow_runtime_decomposition_lane`.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes are `4`.
 - Full scoring remains `NOT_RUN/disallowed`.

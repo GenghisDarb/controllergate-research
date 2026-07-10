@@ -1,0 +1,60 @@
+{
+  "phases": [
+    {
+      "command_template": "true",
+      "phase": 0,
+      "phase_id": "container_security_inspection",
+      "test_bodies_allowed": false
+    },
+    {
+      "command_template": "python --version",
+      "phase": 1,
+      "phase_id": "runtime_identity",
+      "test_bodies_allowed": false
+    },
+    {
+      "command_template": "{setup}; /venv/bin/python -c \"import pytest; print(pytest.__version__); print(pytest.__file__)\"",
+      "phase": 2,
+      "phase_id": "pytest_import",
+      "test_bodies_allowed": false
+    },
+    {
+      "command_template": "{setup}; /venv/bin/python -c \"import nbclient; print(nbclient.__version__); print(nbclient.__file__)\"",
+      "phase": 3,
+      "phase_id": "target_import",
+      "test_bodies_allowed": false
+    },
+    {
+      "command_template": "{setup}; /venv/bin/python -m pip list --format=json",
+      "phase": 4,
+      "phase_id": "provider_plugin_inventory",
+      "test_bodies_allowed": false
+    },
+    {
+      "command_template": "{setup}; /venv/bin/python -c \"from _pytest.config import get_config; c=get_config(); c.parse(['tests/test_cli.py']); print(c.inipath)\"",
+      "phase": 5,
+      "phase_id": "pytest_configuration_parse",
+      "test_bodies_allowed": false
+    },
+    {
+      "command_template": "{setup}; /venv/bin/python -c \"from pathlib import Path; compile(Path('tests/conftest.py').read_text(), 'tests/conftest.py', 'exec'); compile(Path('tests/test_cli.py').read_text(), 'tests/test_cli.py', 'exec'); print('bootstrap_compile_pass')\"",
+      "phase": 6,
+      "phase_id": "collection_bootstrap",
+      "test_bodies_allowed": false
+    },
+    {
+      "command_template": "{setup}; /venv/bin/python -m pytest --collect-only -q -p no:cacheprovider tests/test_cli.py",
+      "phase": 7,
+      "phase_id": "exact_target_collection",
+      "test_bodies_allowed": false
+    },
+    {
+      "command_template": "{setup}; /venv/bin/python -m pytest --collect-only -q -p no:cacheprovider tests/test_cli.py",
+      "phase": 8,
+      "phase_id": "node_set_validation",
+      "test_bodies_allowed": false
+    }
+  ],
+  "status": "PASS",
+  "stop_at_first_authoritative_failure": true
+}

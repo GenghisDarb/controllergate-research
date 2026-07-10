@@ -1,9 +1,59 @@
 {
-  "artifact": "immutable_source_identity_batch068h.json",
-  "evidence_status": "NOT_ESTABLISHED",
-  "exact_blocker": "blocked_secure_execution_substrate_unavailable",
-  "gate_decision": "BLOCK",
-  "legacy_status": "deprecated_non_authoritative",
-  "next_allowed_action": "batch068h1_secure_execution_substrate_hardening",
-  "operation_status": "NOT_RUN"
+  "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "init",
+        "/tmp/controllergate_batch068h_nng9hxzb/source_repo"
+      ],
+      "output_hash": "a7c93097d1110c8c3af7e069832e360143112778971fd809b51e92e700b0d7d3",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/tmp/controllergate_batch068h_nng9hxzb/source_repo",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/jupyter/nbclient.git"
+      ],
+      "output_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/tmp/controllergate_batch068h_nng9hxzb/source_repo",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "8514e919d8405eb832e80b9ea1925767e7431ee9"
+      ],
+      "output_hash": "f9faac337af6f567dd3cd56ab281ea3bc44047f9b91357f29752e7e017252d17",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/tmp/controllergate_batch068h_nng9hxzb/source_repo",
+        "checkout",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "output_hash": "92aca7606bdb6368dc5129017d15375a2ad30632cff89c35dd85bd3d045b3d1b",
+      "returncode": 0
+    }
+  ],
+  "git_object_type": "commit",
+  "immutable_reference_contains_git_directory": false,
+  "immutable_reference_tree_hash": "8180c0bb556fc82ad352bc3c6b5010e77bfff3ec957bf40fc3b1aa9bc907ce42",
+  "repo_url": "https://github.com/jupyter/nbclient",
+  "status": "PASS",
+  "tree_identity": "85a84426fb806764b8cfcad55e829fba307bed57"
 }

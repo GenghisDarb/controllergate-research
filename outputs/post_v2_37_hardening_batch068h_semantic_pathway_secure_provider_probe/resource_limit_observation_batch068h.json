@@ -1,9 +1,15 @@
 {
-  "observed_memory_bytes": null,
-  "observed_memory_swap_bytes": null,
-  "observed_nano_cpus": null,
-  "observed_pids_limit": null,
-  "observed_ulimits": null,
+  "observed_memory_bytes": 2147483648,
+  "observed_memory_swap_bytes": 2147483648,
+  "observed_nano_cpus": 2000000000,
+  "observed_pids_limit": 256,
+  "observed_ulimits": [
+    {
+      "Hard": 1024,
+      "Name": "nofile",
+      "Soft": 1024
+    }
+  ],
   "policy": {
     "cpus": "2",
     "memory": "2g",

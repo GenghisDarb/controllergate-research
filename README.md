@@ -8,9 +8,9 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 ## Validated protocol and static frontier
 
-The validated current protocol is `v2.15 semantic_frontier_planning_and_bounded_probe_lane`. Batch068h replaces generic planning passthroughs with 11 step-specific semantic handlers and 11 independent verifiers, then deterministically reprocesses the frozen 25-candidate inventory. The preceding `v2.14 capability_recovery_lane` remains directly selectable and audited.
+The validated current protocol is `v2.16 universal_interlock_elbow_runtime_decomposition_lane`. Batch068h1 integrates 23 universal interlocks, independent interlock verifiers, failure-family graphs, environment-orthology vectors, and elbow decisions into the executable semantic runtime. The preceding v2.15 and v2.14 protocols remain directly selectable and audited.
 
-Batch068h also defines an authorization-bound, collection-only OCI provider probe for the sole Tier-3 candidate. Static protocol promotion is independent of probe success. A substrate, exact-runtime, source-custody, provider, collection, or immutability block stops the probe without patch authority, target-test execution, or repair-count changes.
+The official Batch068h result is reconciled separately from its local pre-workflow placeholder. Batch068h1 preserves raw diagnostic command output for new probes, separates decision-time and current provider locks, and treats pinned-source and pinned-wheel execution as mutually exclusive modes. Architectural protocol promotion remains independent of candidate collection success and conveys no patch authority.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
