@@ -1,0 +1,730 @@
+{
+  "candidate_id": "jinja_1628_lexer_py311",
+  "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+  "command_argv": [],
+  "command_evidence_graph_hash": "2086c3febf5d6a7fb84905a3c5cdcc46c4c8ced7146c1e5602b8b032a897ddf3",
+  "compiled_system_dependency_indicators": [],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/lock.yaml",
+        "sha256": "5fc1d4f5675af21028d0991a4e4031a24b595bc752ec26f64e57a29baf6dd0ba"
+      },
+      {
+        "path": ".github/workflows/tests.yaml",
+        "sha256": "37ccab1bfeb907a3aa5ce82d8a666a06360a01c41423fc07aabd5be35b1783a6"
+      },
+      {
+        "path": "CONTRIBUTING.rst",
+        "sha256": "d769a2b3dd702026ca657f9228c72c4f713f6aba034c6409a2d77ee7bdeb4d3d"
+      },
+      {
+        "path": "setup.cfg",
+        "sha256": "44b9122447e9100d0d8b7590ed2da92a4712a4426effe44176c75649aa0771f4"
+      },
+      {
+        "path": "setup.py",
+        "sha256": "5d9b76fbc8b7adafb7a791fbc08ba6aefd8deeb3c2dbe34eac52665ee3a34c70"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975"
+      }
+    ],
+    "source_record_hash": "9e6fe00c6f17a20552ceb0f101ed1adf0a583a8b3314acbae29a5a4cf0c04f3c"
+  },
+  "declared_dependencies": [],
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "9e6fe00c6f17a20552ceb0f101ed1adf0a583a8b3314acbae29a5a4cf0c04f3c"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "b9dc8a170d621a12b8677b37298ae846a7939cfe54684dc6cb9af66b3f3a173b",
+      "post_state_hash": "f619d3df4175f3b5faea83fa38a8079a89964c66b215dea25cb775f72a21203f",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "e542e100027aaa131df73ad06b71ba9a4ee348c8"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "e232d35706afb5a1daaf366df0afcc92f26360b4e99c5f93e2eaf2fc73b1ee51",
+      "post_state_hash": "2510748984e02ef9a5f622b12a427c2993b5fd7814db9ed63ca14a222f106951",
+      "prior_state_hash": "f619d3df4175f3b5faea83fa38a8079a89964c66b215dea25cb775f72a21203f",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [
+        ".github/workflows/lock.yaml",
+        ".github/workflows/tests.yaml",
+        "CONTRIBUTING.rst",
+        "setup.cfg",
+        "setup.py",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "e7e252a19a1200b3f3aa79aa0c02a8762446a13ab3bd3ee19763fd33f0c1ff67",
+      "post_state_hash": "bf1cd4cf9f6519c21422f08420a6e3738c5cfe410cea08e1b46143f90d632b57",
+      "prior_state_hash": "2510748984e02ef9a5f622b12a427c2993b5fd7814db9ed63ca14a222f106951",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "ebe7b15ab6d400c192eda8b6f09deb1cdcb8b5c914553e0dcab612ee2b621a73",
+      "post_state_hash": "9f8251cc75e0ab090aaecd4dd95327bca6ef00fc053125bf977cf5e96d07ab24",
+      "prior_state_hash": "bf1cd4cf9f6519c21422f08420a6e3738c5cfe410cea08e1b46143f90d632b57",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "90363994cd23fcf1d4cf1b68d6c6c0f29a3ca9df72c338922f2050052af62e40",
+      "prior_state_hash": "9f8251cc75e0ab090aaecd4dd95327bca6ef00fc053125bf977cf5e96d07ab24",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "2dccaae8f7c9c3c09dd03e4b4893e27c78ae1b70e273fefd376e4f1046e4e368",
+      "prior_state_hash": "90363994cd23fcf1d4cf1b68d6c6c0f29a3ca9df72c338922f2050052af62e40",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "e64661cae731f42409faa63cf955bc4b05761ff193e2b64ea493a7076ef48efe",
+      "prior_state_hash": "2dccaae8f7c9c3c09dd03e4b4893e27c78ae1b70e273fefd376e4f1046e4e368",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "b9b123d85ae832623f594193d0325cf952defc3bce2cc8bd1661a6780a049bf4",
+      "prior_state_hash": "e64661cae731f42409faa63cf955bc4b05761ff193e2b64ea493a7076ef48efe",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "a3ff52a58d02ed294d5e5f817c6f85f54a9ed1b3a00e526836ca6d8acf5f2216",
+      "prior_state_hash": "b9b123d85ae832623f594193d0325cf952defc3bce2cc8bd1661a6780a049bf4",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "c2867d3cb27e2551a8736fee8b486b1bcb214a53d521464565eb6deff017235a",
+      "prior_state_hash": "a3ff52a58d02ed294d5e5f817c6f85f54a9ed1b3a00e526836ca6d8acf5f2216",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "jinja_1628_lexer_py311",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "1e887e60a5241ca9fb36225a07511bbc3672dcfea2645575283b54c5d9d0074f",
+      "prior_state_hash": "c2867d3cb27e2551a8736fee8b486b1bcb214a53d521464565eb6deff017235a",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2022-03-24T16:22:39Z",
+  "issue_identity": {
+    "issue_created_at": "2022-03-24T16:22:39Z",
+    "issue_url": "https://github.com/pallets/jinja/issues/1628",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 276,
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "path": ".github/workflows/lock.yaml",
+      "sha256": "5fc1d4f5675af21028d0991a4e4031a24b595bc752ec26f64e57a29baf6dd0ba",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1706,
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "path": ".github/workflows/tests.yaml",
+      "sha256": "37ccab1bfeb907a3aa5ce82d8a666a06360a01c41423fc07aabd5be35b1783a6",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 6586,
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "path": "CONTRIBUTING.rst",
+      "sha256": "d769a2b3dd702026ca657f9228c72c4f713f6aba034c6409a2d77ee7bdeb4d3d",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2802,
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "path": "setup.cfg",
+      "sha256": "44b9122447e9100d0d8b7590ed2da92a4712a4426effe44176c75649aa0771f4",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 221,
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "path": "setup.py",
+      "sha256": "5d9b76fbc8b7adafb7a791fbc08ba6aefd8deeb3c2dbe34eac52665ee3a34c70",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 533,
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "path": "tox.ini",
+      "sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [],
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [],
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "mypy"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "mypy"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pre-commit",
+        "run",
+        "--all-files",
+        "--show-diff-on-failure"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pre-commit",
+          "run",
+          "--all-files",
+          "--show-diff-on-failure"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "-v",
+        "--tb=short",
+        "--basetemp={envtmpdir}",
+        "{posargs}"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "-v",
+          "--tb=short",
+          "--basetemp={envtmpdir}",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "sphinx-build",
+        "-W",
+        "-b",
+        "html",
+        "-d",
+        "{envtmpdir}/doctrees",
+        "docs",
+        "{envtmpdir}/html"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "sphinx-build",
+          "-W",
+          "-b",
+          "html",
+          "-d",
+          "{envtmpdir}/doctrees",
+          "docs",
+          "{envtmpdir}/html"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 40,
+      "source_class": "setup.cfg",
+      "source_path": "setup.cfg",
+      "source_sha256": "44b9122447e9100d0d8b7590ed2da92a4712a4426effe44176c75649aa0771f4",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "This",
+        "runs",
+        "the",
+        "tests",
+        "for",
+        "the",
+        "current",
+        "environment,",
+        "which",
+        "is",
+        "usually"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "d769a2b3dd702026ca657f9228c72c4f713f6aba034c6409a2d77ee7bdeb4d3d",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "This",
+          "runs",
+          "the",
+          "tests",
+          "for",
+          "the",
+          "current",
+          "environment,",
+          "which",
+          "is",
+          "usually"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "Running",
+        "test",
+        "coverage"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "d769a2b3dd702026ca657f9228c72c4f713f6aba034c6409a2d77ee7bdeb4d3d",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "Running",
+          "test",
+          "coverage"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/pallets/jinja",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "jinja"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "mypy"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "mypy"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pre-commit",
+        "run",
+        "--all-files",
+        "--show-diff-on-failure"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pre-commit",
+          "run",
+          "--all-files",
+          "--show-diff-on-failure"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "-v",
+        "--tb=short",
+        "--basetemp={envtmpdir}",
+        "{posargs}"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "-v",
+          "--tb=short",
+          "--basetemp={envtmpdir}",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "sphinx-build",
+        "-W",
+        "-b",
+        "html",
+        "-d",
+        "{envtmpdir}/doctrees",
+        "docs",
+        "{envtmpdir}/html"
+      ],
+      "candidate_sha": "e542e100027aaa131df73ad06b71ba9a4ee348c8",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "43a326933d7d1963d7ae5910fda8b840b8b9b29828b79172f3e3ac12c13f7975",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "sphinx-build",
+          "-W",
+          "-b",
+          "html",
+          "-d",
+          "{envtmpdir}/doctrees",
+          "docs",
+          "{envtmpdir}/html"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "71641670d52168330a38e56f49fef7a8603126d93702fcf36893ff49a06ea57d",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "043c2cea1101426152f067ffc6b16b3d86f66cbf14da7a19262dcf1922ab4682",
+    "issue_created_at": "2022-03-24T16:22:39Z",
+    "issue_title_sha256": "edb6041e91f7d11b8339c620eb080b5d5cf0dd79e1fe23dad3244379606ea91f",
+    "issue_url": "https://github.com/pallets/jinja/issues/1628",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "6f4e0bfbad1437d759ad84a4b6cc5ea5113cd7fa7c14220c1c7a1493b8dffc91",
+    "test_paths": []
+  },
+  "target_package": "jinja",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_declared_by_decision_time_evidence",
+    "paths": [],
+    "proposed_paths": [],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

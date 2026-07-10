@@ -1,11 +1,17 @@
 from __future__ import annotations
 
+import json
 import re
+from pathlib import Path
 from typing import Any
 
 from .seed_source_approval import FORBIDDEN_DIRECT_REPAIR_SEED_CLASSES
 
-PARKED_PYTEST_CANDIDATE_ID = "pytest_13895_pytest9_skiptest_behavior"
+def load_parked_candidate_ids(repo_root: str | Path) -> list[str]:
+    """Load candidate-specific parked identities from configuration."""
+    path = Path(repo_root) / "configs" / "parked_candidate_registry.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return sorted(str(item["candidate_id"]) for item in data.get("parked_candidates", []))
 
 PROMOTION_STATUSES = [
     "approved_for_pre_repair_replay_attempt",

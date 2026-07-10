@@ -1,0 +1,697 @@
+{
+  "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+  "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+  "command_argv": [],
+  "command_evidence_graph_hash": "525fbd23f7ed174d10c29ec8e069ddf092534890c8393f98490c31c648254007",
+  "compiled_system_dependency_indicators": [
+    "numpy"
+  ],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/publish.yml",
+        "sha256": "f31509a16e14e85f8d98040b03343adc1ccd35020322c776d92d928b7140913b"
+      },
+      {
+        "path": ".github/workflows/test.yml",
+        "sha256": "3db425c3e0b157edc9f961ea804cdb9c484453bb37059d9ed04b9a75809203ad"
+      },
+      {
+        "path": "docs/dev/testing_installation.rst",
+        "sha256": "961a46fe9c2efbe118305b7a2a485b73a1d5330f0f3816bf05082abccfa7616f"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "e86fceca9ffb667c0c54d33fb86dd09a3c79668e0c3d8714872bcac24edc6bca"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6"
+      }
+    ],
+    "source_record_hash": "d80b15b7d2e8ceacafdedb831a1c73afcbd572901493112911502e8fc8e3600c"
+  },
+  "declared_dependencies": [
+    "model",
+    "numpy"
+  ],
+  "exact_blocker": "native_target_path_not_found_at_candidate_sha",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "d80b15b7d2e8ceacafdedb831a1c73afcbd572901493112911502e8fc8e3600c"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "a320c6af66afe62afbe931ec5d136afcb0275b90dafb4da9a495140c082e5352",
+      "post_state_hash": "4c7e8082bfa2d1206647c3a126f5dd55ed8afe33cc2a16255beca245259f8856",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "6b3c08818b387f5a27c4645531c13010d3c82527c6aa4d997f5e56c83a104037",
+      "post_state_hash": "3cd0ba1a89d215517d8d146d846d3e696346e3e47c10708cccbd2545507fd0c7",
+      "prior_state_hash": "4c7e8082bfa2d1206647c3a126f5dd55ed8afe33cc2a16255beca245259f8856",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [
+        ".github/workflows/publish.yml",
+        ".github/workflows/test.yml",
+        "docs/dev/testing_installation.rst",
+        "pyproject.toml",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "d3103f72dda76f1a86ec8c4fa9819474ae88e77aa9feabf2165b75aea2dc0327",
+      "post_state_hash": "3e19b37245fdae763c86e2816f2c90dc5061af21529842e8c9fc7a81a1fea5ec",
+      "prior_state_hash": "3cd0ba1a89d215517d8d146d846d3e696346e3e47c10708cccbd2545507fd0c7",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "647ad713e85f652bac30c13a4ed89c20f2f219c771613af02ab9599307391b14",
+      "post_state_hash": "91bdeeae580664eca7d1f26e55d64b76b1899312c138a5d17736385be472bdfb",
+      "prior_state_hash": "3e19b37245fdae763c86e2816f2c90dc5061af21529842e8c9fc7a81a1fea5ec",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "b025eb0706c75089c9170e41baf4b3d046ca4f8310c387c6cf676dbfc7b4c115",
+      "prior_state_hash": "91bdeeae580664eca7d1f26e55d64b76b1899312c138a5d17736385be472bdfb",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "9b1e3597888218fae9348618285e420c53cc6c8cdfdd3bb93d5ad30216d0665b",
+      "prior_state_hash": "b025eb0706c75089c9170e41baf4b3d046ca4f8310c387c6cf676dbfc7b4c115",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "831851187be890add9289188bceae6b6fe6a5a1f875fcebba3eeb2be62a4d4bb",
+      "prior_state_hash": "9b1e3597888218fae9348618285e420c53cc6c8cdfdd3bb93d5ad30216d0665b",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "087838374995b1d09dce480538522ee3594933cf18178142a3cfe5be62850aa6",
+      "prior_state_hash": "831851187be890add9289188bceae6b6fe6a5a1f875fcebba3eeb2be62a4d4bb",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "c31ea4b03c7de96c34cdabf09b12db4b8be99f0586881b4082aefb41b172e873",
+      "prior_state_hash": "087838374995b1d09dce480538522ee3594933cf18178142a3cfe5be62850aa6",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "8c97aae48d1df366138ea3e5c8c5a7924a50dd47ad9545f3bcfea2450e76b19c",
+      "prior_state_hash": "c31ea4b03c7de96c34cdabf09b12db4b8be99f0586881b4082aefb41b172e873",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_feder_observatory_stellarphot_issues_565",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "54163a2a082315d34e86f681c259129acd3fb952e9de3891da633394bbc4b28b",
+      "prior_state_hash": "8c97aae48d1df366138ea3e5c8c5a7924a50dd47ad9545f3bcfea2450e76b19c",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2026-06-15T17:13:59Z",
+  "issue_identity": {
+    "issue_created_at": "2026-06-15T17:13:59Z",
+    "issue_url": "https://github.com/feder-observatory/stellarphot/issues/565",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 1659,
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "path": ".github/workflows/publish.yml",
+      "sha256": "f31509a16e14e85f8d98040b03343adc1ccd35020322c776d92d928b7140913b",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 3514,
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "path": ".github/workflows/test.yml",
+      "sha256": "3db425c3e0b157edc9f961ea804cdb9c484453bb37059d9ed04b9a75809203ad",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 402,
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "path": "docs/dev/testing_installation.rst",
+      "sha256": "961a46fe9c2efbe118305b7a2a485b73a1d5330f0f3816bf05082abccfa7616f",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 7363,
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "path": "pyproject.toml",
+      "sha256": "e86fceca9ffb667c0c54d33fb86dd09a3c79668e0c3d8714872bcac24edc6bca",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1394,
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "path": "tox.ini",
+      "sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [
+    "model"
+  ],
+  "next_allowed_action": "correct_target_path_with_decision_time_repository_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [],
+  "provider_feasibility_class": "network_or_model_dependency_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "ruff",
+        "check",
+        "{toxinidir}"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "ruff",
+          "check",
+          "{toxinidir}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "test:",
+        "pytest",
+        "--pyargs",
+        "{[tox]package_name}",
+        "{toxinidir}/docs",
+        "{posargs}"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "test:",
+          "pytest",
+          "--pyargs",
+          "{[tox]package_name}",
+          "{toxinidir}/docs",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "e86fceca9ffb667c0c54d33fb86dd09a3c79668e0c3d8714872bcac24edc6bca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/test.yml",
+      "source_sha256": "3db425c3e0b157edc9f961ea804cdb9c484453bb37059d9ed04b9a75809203ad",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "-test",
+        "--"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/test.yml",
+      "source_sha256": "3db425c3e0b157edc9f961ea804cdb9c484453bb37059d9ed04b9a75809203ad",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "-test",
+          "--"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "build_docs"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/test.yml",
+      "source_sha256": "3db425c3e0b157edc9f961ea804cdb9c484453bb37059d9ed04b9a75809203ad",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "build_docs"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "coverage",
+        "--"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/test.yml",
+      "source_sha256": "3db425c3e0b157edc9f961ea804cdb9c484453bb37059d9ed04b9a75809203ad",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "coverage",
+          "--"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "lint"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/test.yml",
+      "source_sha256": "3db425c3e0b157edc9f961ea804cdb9c484453bb37059d9ed04b9a75809203ad",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "lint"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "table_rep"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/test.yml",
+      "source_sha256": "3db425c3e0b157edc9f961ea804cdb9c484453bb37059d9ed04b9a75809203ad",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "table_rep"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "correct_target_path_with_decision_time_repository_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/feder-observatory/stellarphot",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "stellarphot"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "ruff",
+        "check",
+        "{toxinidir}"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "ruff",
+          "check",
+          "{toxinidir}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "test:",
+        "pytest",
+        "--pyargs",
+        "{[tox]package_name}",
+        "{toxinidir}/docs",
+        "{posargs}"
+      ],
+      "candidate_sha": "d59d6af0ba0d4c299a71507e4bd7c95d7bb99ad9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "567375758b9748a6108dfc22ab7f8c9ad1a17a0e1590acdd3ea63898652582d6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "test:",
+          "pytest",
+          "--pyargs",
+          "{[tox]package_name}",
+          "{toxinidir}/docs",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "c7e392814125aaa83e404162d4c8981c25ef24f77df4c16890242c08bd00f695",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "2a80e5ecc6a940a4eae695082fba94078815969c9d7c0d5bab0aa2aa9fa92d85",
+    "issue_created_at": "2026-06-15T17:13:59Z",
+    "issue_title_sha256": "57edf5ed63c1dcd958d68cca919e2427b3f754dfe4c30615bbf4d106ff89ec94",
+    "issue_url": "https://github.com/feder-observatory/stellarphot/issues/565",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "b82c4cdb3eafc095aa2827fecee7a0f7b26be6555770c0eed0967ece57480e90",
+    "test_paths": [
+      "tests/test_detection.py"
+    ]
+  },
+  "target_package": "stellarphot",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_found_at_candidate_sha",
+    "paths": [],
+    "proposed_paths": [
+      "tests/test_detection.py"
+    ],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_found_at_candidate_sha",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

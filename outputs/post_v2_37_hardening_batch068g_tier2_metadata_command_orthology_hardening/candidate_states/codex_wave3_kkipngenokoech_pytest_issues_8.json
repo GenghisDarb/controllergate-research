@@ -1,0 +1,1877 @@
+{
+  "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+  "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+  "command_argv": [],
+  "command_evidence_graph_hash": "f2aae8edf04ee77ff0d5ae568659372818eeb8e468b6bc03af32d506bad86fec",
+  "compiled_system_dependency_indicators": [
+    "numpy"
+  ],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/main.yml",
+        "sha256": "8e8872bb54518a8421d8a29238795713576c325aa2eb448c0382efac4bf80e9a"
+      },
+      {
+        "path": ".github/workflows/prepare-release-pr.yml",
+        "sha256": "1acab83d5ba3ec328f76572641e4ff7f09e3a87edb95fcc618476af3d2f7c6b0"
+      },
+      {
+        "path": ".github/workflows/update-plugin-list.yml",
+        "sha256": "741e188665fe76157ebff1c885ddf78f0de650a3c05add55fff767f3574c203e"
+      },
+      {
+        "path": "CONTRIBUTING.rst",
+        "sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0"
+      },
+      {
+        "path": "doc/en/contributing.rst",
+        "sha256": "31ee1de724ec23b6c9a4a598a72b9e447c70f79cda9569c6c436b37a0adbe2a5"
+      },
+      {
+        "path": "doc/en/development_guide.rst",
+        "sha256": "392efa65dfaf314dbaf052334f0006caf34a47e598b676b69106fde293146abb"
+      },
+      {
+        "path": "doc/en/how-to/doctest.rst",
+        "sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca"
+      },
+      {
+        "path": "doc/en/how-to/existingtestsuite.rst",
+        "sha256": "2159ed014155daca045957bbaa9873ef9bcdcdd8c048e2cb5d5af4654f53fcfc"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "c23e48c5b17023012114b884ca27963a04aa9daf43eec00d81fba4160478ffca"
+      },
+      {
+        "path": "setup.cfg",
+        "sha256": "a953483b00b68ed735a0a098633966f875b3e35f1a6e61d1033df42e55a26bff"
+      },
+      {
+        "path": "setup.py",
+        "sha256": "ef7b23c3468c8130483cd7578c14e977b39b372fd088f0e163b47be196d1291e"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f"
+      }
+    ],
+    "source_record_hash": "9fdec6e9e9f73d38f99c048b87f9b65a3094aca018ec96771e47720d1844c3f9"
+  },
+  "declared_dependencies": [
+    "download",
+    "numpy"
+  ],
+  "exact_blocker": "native_target_path_not_found_at_candidate_sha",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "9fdec6e9e9f73d38f99c048b87f9b65a3094aca018ec96771e47720d1844c3f9"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "ab379af3c4d4d31071020266778383dedc372b47330ae60841cd6c0e2efde2e2",
+      "post_state_hash": "136bb446b413b5ef2ebaec3e18b7b4d161d4001e7a2ab755bdb0162802a59ec3",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "e2ee3144ed6e241dea8d96215fcdca18b3892551"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "96ed0a257350828a12ddf9289b194f9c16121113aea008b7a51c5ceca72850fb",
+      "post_state_hash": "0ed90fc7e18e4f47a6b6f916cac649048daf225ae9e291eef94c762909a71161",
+      "prior_state_hash": "136bb446b413b5ef2ebaec3e18b7b4d161d4001e7a2ab755bdb0162802a59ec3",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [
+        ".github/workflows/main.yml",
+        ".github/workflows/prepare-release-pr.yml",
+        ".github/workflows/update-plugin-list.yml",
+        "CONTRIBUTING.rst",
+        "doc/en/contributing.rst",
+        "doc/en/development_guide.rst",
+        "doc/en/how-to/doctest.rst",
+        "doc/en/how-to/existingtestsuite.rst",
+        "pyproject.toml",
+        "setup.cfg",
+        "setup.py",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "6759ea2e4a3d78d5fd283ff40c47604d7fdc4186686788624d35842643d1e978",
+      "post_state_hash": "cb2a6c3cd5deb6a5b1f295ce9c411dcfcb9ad490acb3b4c5ec48b4498f3577d6",
+      "prior_state_hash": "0ed90fc7e18e4f47a6b6f916cac649048daf225ae9e291eef94c762909a71161",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "647ad713e85f652bac30c13a4ed89c20f2f219c771613af02ab9599307391b14",
+      "post_state_hash": "14c86c58dc022b3f993a67e9ca3a5efb90e1406651b408d0141c5a1b84dc2937",
+      "prior_state_hash": "cb2a6c3cd5deb6a5b1f295ce9c411dcfcb9ad490acb3b4c5ec48b4498f3577d6",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "a04dbfae27f4fbaf5457621e40231f2a1f124b829b4ce2d4a10a65a74464679d",
+      "prior_state_hash": "14c86c58dc022b3f993a67e9ca3a5efb90e1406651b408d0141c5a1b84dc2937",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "da506c19a7b819f536d8d2fe36652d753f05e121c3b9797796a39b90abfff55f",
+      "prior_state_hash": "a04dbfae27f4fbaf5457621e40231f2a1f124b829b4ce2d4a10a65a74464679d",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "6152cb5bf128dc50df09404708f7f938cb9435bc3c9f29773cba749624905d58",
+      "prior_state_hash": "da506c19a7b819f536d8d2fe36652d753f05e121c3b9797796a39b90abfff55f",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "09425b1a35fd8316e34d9318ea49b880043ba40e3f85a5ff9103537fe4567d34",
+      "prior_state_hash": "6152cb5bf128dc50df09404708f7f938cb9435bc3c9f29773cba749624905d58",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "be9504b1fd89c110323b59e0dbf7096705ffcfc46e49f0b4f7d4b31f291dcc4c",
+      "prior_state_hash": "09425b1a35fd8316e34d9318ea49b880043ba40e3f85a5ff9103537fe4567d34",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "c14189fd19dcfb241906cd8e3c8f1594b748b1bab1cac95ad8c6d88eb2b8ba8b",
+      "prior_state_hash": "be9504b1fd89c110323b59e0dbf7096705ffcfc46e49f0b4f7d4b31f291dcc4c",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_kkipngenokoech_pytest_issues_8",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "c080831ae8b84ba7973d8ffb1d8a0c41952f05615752f83bf9a893e69ac932c8",
+      "prior_state_hash": "c14189fd19dcfb241906cd8e3c8f1594b748b1bab1cac95ad8c6d88eb2b8ba8b",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2026-04-08T03:45:23Z",
+  "issue_identity": {
+    "issue_created_at": "2026-04-08T03:45:23Z",
+    "issue_url": "https://github.com/kkipngenokoech/pytest/issues/8",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 5469,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": ".github/workflows/main.yml",
+      "sha256": "8e8872bb54518a8421d8a29238795713576c325aa2eb448c0382efac4bf80e9a",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1416,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": ".github/workflows/prepare-release-pr.yml",
+      "sha256": "1acab83d5ba3ec328f76572641e4ff7f09e3a87edb95fcc618476af3d2f7c6b0",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1257,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": ".github/workflows/update-plugin-list.yml",
+      "sha256": "741e188665fe76157ebff1c885ddf78f0de650a3c05add55fff767f3574c203e",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 19461,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": "CONTRIBUTING.rst",
+      "sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 55,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": "doc/en/contributing.rst",
+      "sha256": "31ee1de724ec23b6c9a4a598a72b9e447c70f79cda9569c6c436b37a0adbe2a5",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 251,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": "doc/en/development_guide.rst",
+      "sha256": "392efa65dfaf314dbaf052334f0006caf34a47e598b676b69106fde293146abb",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 9450,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": "doc/en/how-to/doctest.rst",
+      "sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1282,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": "doc/en/how-to/existingtestsuite.rst",
+      "sha256": "2159ed014155daca045957bbaa9873ef9bcdcdd8c048e2cb5d5af4654f53fcfc",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 3938,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": "pyproject.toml",
+      "sha256": "c23e48c5b17023012114b884ca27963a04aa9daf43eec00d81fba4160478ffca",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2614,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": "setup.cfg",
+      "sha256": "a953483b00b68ed735a0a098633966f875b3e35f1a6e61d1033df42e55a26bff",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 69,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": "setup.py",
+      "sha256": "ef7b23c3468c8130483cd7578c14e977b39b372fd088f0e163b47be196d1291e",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 5251,
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "path": "tox.ini",
+      "sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [
+    "download"
+  ],
+  "next_allowed_action": "correct_target_path_with_decision_time_repository_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [
+    "macos",
+    "win32",
+    "windows"
+  ],
+  "provider_feasibility_class": "network_or_model_dependency_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "make",
+        "regen"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "make",
+          "regen"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pip",
+        "check"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pip",
+          "check"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pre-commit",
+        "run",
+        "--all-files",
+        "--show-diff-on-failure",
+        "{posargs:}"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pre-commit",
+          "run",
+          "--all-files",
+          "--show-diff-on-failure",
+          "{posargs:}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/prepare-release-pr.py",
+        "{posargs}"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "scripts/prepare-release-pr.py",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/publish-gh-release-notes.py",
+        "{posargs}"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "scripts/publish-gh-release-notes.py",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/release.py",
+        "{posargs}"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "scripts/release.py",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/towncrier-draft-to-file.py"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "scripts/towncrier-draft-to-file.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "sphinx-build",
+        "-W",
+        "-q",
+        "--keep-going",
+        "-b",
+        "linkcheck",
+        ".",
+        "_build"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "sphinx-build",
+          "-W",
+          "-q",
+          "--keep-going",
+          "-b",
+          "linkcheck",
+          ".",
+          "_build"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "{env:_PYTEST_TOX_COVERAGE_RUN:}",
+        "pytest",
+        "{posargs:{env:_PYTEST_TOX_DEFAULT_POSARGS:}}"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "{env:_PYTEST_TOX_COVERAGE_RUN:}",
+          "pytest",
+          "{posargs:{env:_PYTEST_TOX_DEFAULT_POSARGS:}}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "{envpython}",
+        "create_executable.py"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "{envpython}",
+          "create_executable.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "c23e48c5b17023012114b884ca27963a04aa9daf43eec00d81fba4160478ffca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 40,
+      "source_class": "setup.cfg",
+      "source_path": "setup.cfg",
+      "source_sha256": "a953483b00b68ed735a0a098633966f875b3e35f1a6e61d1033df42e55a26bff",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "PYTEST"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/main.yml",
+      "source_sha256": "8e8872bb54518a8421d8a29238795713576c325aa2eb448c0382efac4bf80e9a",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "PYTEST"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/main.yml",
+      "source_sha256": "8e8872bb54518a8421d8a29238795713576c325aa2eb448c0382efac4bf80e9a",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "publish-gh-release-notes"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/main.yml",
+      "source_sha256": "8e8872bb54518a8421d8a29238795713576c325aa2eb448c0382efac4bf80e9a",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "publish-gh-release-notes"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "prepare-release-pr",
+        "--",
+        "--major",
+        "--prerelease="
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/prepare-release-pr.yml",
+      "source_sha256": "1acab83d5ba3ec328f76572641e4ff7f09e3a87edb95fcc618476af3d2f7c6b0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "prepare-release-pr",
+          "--",
+          "--major",
+          "--prerelease="
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "prepare-release-pr",
+        "--",
+        "--prerelease="
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/prepare-release-pr.yml",
+      "source_sha256": "1acab83d5ba3ec328f76572641e4ff7f09e3a87edb95fcc618476af3d2f7c6b0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "prepare-release-pr",
+          "--",
+          "--prerelease="
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "Pytest",
+        "could",
+        "always",
+        "use",
+        "more",
+        "documentation.",
+        "What",
+        "exactly",
+        "is",
+        "needed?"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "Pytest",
+          "could",
+          "always",
+          "use",
+          "more",
+          "documentation.",
+          "What",
+          "exactly",
+          "is",
+          "needed?"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "Pytest",
+        "development",
+        "of",
+        "the",
+        "core,",
+        "some",
+        "plugins",
+        "and",
+        "support",
+        "code",
+        "happens"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "Pytest",
+          "development",
+          "of",
+          "the",
+          "core,",
+          "some",
+          "plugins",
+          "and",
+          "support",
+          "code",
+          "happens"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "Pytest",
+        "has",
+        "an",
+        "API",
+        "reference",
+        "which",
+        "in",
+        "large",
+        "part",
+        "is"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "Pytest",
+          "has",
+          "an",
+          "API",
+          "reference",
+          "which",
+          "in",
+          "large",
+          "part",
+          "is"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "Pytest",
+        "makes",
+        "feature",
+        "release",
+        "every",
+        "few",
+        "weeks",
+        "or",
+        "months.",
+        "In",
+        "between,",
+        "patch",
+        "releases"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "Pytest",
+          "makes",
+          "feature",
+          "release",
+          "every",
+          "few",
+          "weeks",
+          "or",
+          "months.",
+          "In",
+          "between,",
+          "patch",
+          "releases"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "Tox",
+        "is",
+        "used",
+        "to",
+        "run",
+        "all",
+        "the",
+        "tests",
+        "and",
+        "will",
+        "automatically",
+        "setup",
+        "virtualenvs"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "Tox",
+          "is",
+          "used",
+          "to",
+          "run",
+          "all",
+          "the",
+          "tests",
+          "and",
+          "will",
+          "automatically",
+          "setup",
+          "virtualenvs"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "testing/test_config.py"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "testing/test_config.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "docs"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "docs"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "linting,py37"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "linting,py37"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "py37",
+        "--",
+        "--pdb"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "py37",
+          "--",
+          "--pdb"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "py37",
+        "--",
+        "testing/test_config.py"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.rst",
+      "source_sha256": "611c20416c3e46c0c6a440bce624ad21a00e830724c42433779a291e2832d4f0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "py37",
+          "--",
+          "testing/test_config.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "--doctest-glob=*.rst"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "--doctest-glob=*.rst"
+        ],
+        "blocker": "unsafe_command_tokens",
+        "status": "BLOCK",
+        "unsafe_tokens": [
+          "unbounded_globbing"
+        ]
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "--doctest-modules"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "--doctest-modules"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "--doctest-modules",
+        "--doctest-continue-on-failure"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "--doctest-modules",
+          "--doctest-continue-on-failure"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "--doctest-modules",
+        "--doctest-report",
+        "cdiff"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "--doctest-modules",
+          "--doctest-report",
+          "cdiff"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "--doctest-modules",
+        "--doctest-report",
+        "ndiff"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "--doctest-modules",
+          "--doctest-report",
+          "ndiff"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "--doctest-modules",
+        "--doctest-report",
+        "none"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "--doctest-modules",
+          "--doctest-report",
+          "none"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "--doctest-modules",
+        "--doctest-report",
+        "only_first_failure"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "--doctest-modules",
+          "--doctest-report",
+          "only_first_failure"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "--doctest-modules",
+        "--doctest-report",
+        "udiff"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "--doctest-modules",
+          "--doctest-report",
+          "udiff"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "===========================",
+        "test",
+        "session",
+        "starts",
+        "============================"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "===========================",
+          "test",
+          "session",
+          "starts",
+          "============================"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "also",
+        "allows",
+        "using",
+        "the",
+        "standard",
+        "pytest",
+        "functions",
+        ":func:`pytest.skip`",
+        "and"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "also",
+          "allows",
+          "using",
+          "the",
+          "standard",
+          "pytest",
+          "functions",
+          ":func:`pytest.skip`",
+          "and"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "also",
+        "introduces",
+        "new",
+        "options:"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/doctest.rst",
+      "source_sha256": "910467b34f42b87ea21cb05a33f4cfc69c11f226e7d0e25e1777fb28b64c7aca",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "also",
+          "introduces",
+          "new",
+          "options:"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "Pytest",
+        "can",
+        "be",
+        "used",
+        "with",
+        "most",
+        "existing",
+        "test",
+        "suites,",
+        "but",
+        "its"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/en/how-to/existingtestsuite.rst",
+      "source_sha256": "2159ed014155daca045957bbaa9873ef9bcdcdd8c048e2cb5d5af4654f53fcfc",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "Pytest",
+          "can",
+          "be",
+          "used",
+          "with",
+          "most",
+          "existing",
+          "test",
+          "suites,",
+          "but",
+          "its"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "correct_target_path_with_decision_time_repository_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/kkipngenokoech/pytest",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "pytest"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "make",
+        "regen"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "make",
+          "regen"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pip",
+        "check"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pip",
+          "check"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pre-commit",
+        "run",
+        "--all-files",
+        "--show-diff-on-failure",
+        "{posargs:}"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pre-commit",
+          "run",
+          "--all-files",
+          "--show-diff-on-failure",
+          "{posargs:}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/prepare-release-pr.py",
+        "{posargs}"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "scripts/prepare-release-pr.py",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/publish-gh-release-notes.py",
+        "{posargs}"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "scripts/publish-gh-release-notes.py",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/release.py",
+        "{posargs}"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "scripts/release.py",
+          "{posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/towncrier-draft-to-file.py"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "scripts/towncrier-draft-to-file.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "sphinx-build",
+        "-W",
+        "-q",
+        "--keep-going",
+        "-b",
+        "linkcheck",
+        ".",
+        "_build"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "sphinx-build",
+          "-W",
+          "-q",
+          "--keep-going",
+          "-b",
+          "linkcheck",
+          ".",
+          "_build"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "{env:_PYTEST_TOX_COVERAGE_RUN:}",
+        "pytest",
+        "{posargs:{env:_PYTEST_TOX_DEFAULT_POSARGS:}}"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "{env:_PYTEST_TOX_COVERAGE_RUN:}",
+          "pytest",
+          "{posargs:{env:_PYTEST_TOX_DEFAULT_POSARGS:}}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "{envpython}",
+        "create_executable.py"
+      ],
+      "candidate_sha": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9129aca8c0b7e301baea3f1f456e0cfcd10ecd7f322c9600fe3d7c66711e9a3f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "{envpython}",
+          "create_executable.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "c2b22981808e929156cee9612d2ddfa82d6d0292abfc8b08bc7223332e7db502",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "b25884835fa7b2785807c1ece751c700ec3f46071bd497e436c8d4d48f3c710d",
+    "issue_created_at": "2026-04-08T03:45:23Z",
+    "issue_title_sha256": "65b13f62c8248f5ef70de2549bb3912c126356b880e929926acf3e77269d4ded",
+    "issue_url": "https://github.com/kkipngenokoech/pytest/issues/8",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "2d1166454cea0db264eb8dfc5a3056ac588e3494fe284fffca160e3257246403",
+    "test_paths": [
+      "tests/my_test.py"
+    ]
+  },
+  "target_package": "pytest",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_found_at_candidate_sha",
+    "paths": [],
+    "proposed_paths": [
+      "tests/my_test.py"
+    ],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_found_at_candidate_sha",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

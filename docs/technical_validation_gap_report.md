@@ -4,15 +4,21 @@ ControllerGate remains a pre-alpha research archive. Batch015 improves runtime-s
 
 Remaining gaps include additional external repair episodes, prospective matched-null separation on fresh native candidates, broader repository diversity, and audited runtime fixture demonstrations.
 
+## Batch068g frontier validation boundary
+
+Batch068g hardens metadata command orthology and exposes a deterministic static planning interface without promoting it to the validated `v2.14` current protocol. Static Tier-3 authorization does not establish target replay, provider success, repair success, or production readiness.
+
+Remaining frontier gaps are candidate-specific target-path or command-authority evidence, bounded provider-command probes for any statically authorized candidates, prospective matched-null evidence, sandbox and rollback demonstrations, signed artifacts, canary evidence, and post-deployment health verification. Runtime connectors remain inactive. Full scoring remains `NOT_RUN/disallowed`; memory lift and self-maintaining software remain undemonstrated.
+
 Batch016 adds a useful negative result: unrelated pre-target failures are not accepted as issue-derived verification.
 
 Batch017 adds the next technical gap: historical dependency locks must be decision-time safe before issue-derived repair is authorized.
 
 ## Current operational gate status
 
-- Current protocol remains `v2.13`.
+- Current protocol is `v2.14 capability_recovery_lane`.
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0`.
+- Confirmed issue-derived repair episodes are `4`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
@@ -192,7 +198,7 @@ Batch017 adds the next technical gap: historical dependency locks must be decisi
 
 - Batch056d official ingest status: `PASS`.
 - Provider Materialization Capsule standard: `implemented_future_only`.
-- Reactome release-download-directory is recorded only as an infrastructure pattern, not as a repair seed or repair evidence.
+- External release-download-directory handling is recorded only as an infrastructure pattern, not as a repair seed or repair evidence.
 - Timeout candidates decomposed: `codex_wave2_nousresearch_hermes_agent_48986, codex_wave2_nousresearch_hermes_agent_60243, codex_wave2_nousresearch_hermes_agent_57197, codex_wave2_m0smith_genia_2026_518`.
 - Timeout split replay candidates: `codex_wave2_nousresearch_hermes_agent_48986, codex_wave2_nousresearch_hermes_agent_60243, codex_wave2_nousresearch_hermes_agent_57197, codex_wave2_m0smith_genia_2026_518`.
 - Provider capsule replay candidates: `none`.
@@ -205,7 +211,7 @@ Batch017 adds the next technical gap: historical dependency locks must be decisi
 
 - Batch056e official ingest: `PASS`.
 - Timeout split replay standard: `PASS`.
-- Reactome step-gating pattern: `infrastructure_pattern_only`.
+- External pipeline step-gating pattern: `infrastructure_pattern_only`.
 - Timeout candidates processed: `4`.
 - Target-code failure materialization count: `0`.
 - Provider/network/model blocked count: `3`.
@@ -220,7 +226,7 @@ Batch017 adds the next technical gap: historical dependency locks must be decisi
 
 - Batch056f official ingest: `PASS`.
 - Wave 2 timeout/provider paths remain closed without target-code failure materialization.
-- Reactome/provider-capsule lesson carried forward as infrastructure pattern only.
+- External provider-capsule lesson carried forward as infrastructure pattern only.
 - Wave 3 leads screened: `37`.
 - Codex-augmented leads count: `30`.
 - Commit-resolved candidates: `37`.

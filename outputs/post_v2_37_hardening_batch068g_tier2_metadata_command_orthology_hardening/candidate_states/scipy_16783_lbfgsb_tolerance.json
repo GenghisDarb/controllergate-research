@@ -1,0 +1,677 @@
+{
+  "candidate_id": "scipy_16783_lbfgsb_tolerance",
+  "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+  "command_argv": [],
+  "command_evidence_graph_hash": "13dfda23f9f96de7945f3b938764a263ce40538c5ad6410ea85d3d259bf18c28",
+  "compiled_system_dependency_indicators": [
+    "cython",
+    "gcc",
+    "meson",
+    "numpy",
+    "scipy"
+  ],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/circle_artifacts.yml",
+        "sha256": "a93080d6d858a8fb5ed8c66cd5ceaa9a81d82fb0166da2dd65f7b613c9a9c536"
+      },
+      {
+        "path": ".github/workflows/docker.yml",
+        "sha256": "e594da4f0102c3d72161a5517abf48e14da5a4d4b9fb905516b1dd378be87f06"
+      },
+      {
+        "path": ".github/workflows/gitpod.yml",
+        "sha256": "8cfe279b4cb7dd830a43293175d46ec8e38d6d4c92a3c9da8cc26e3a65227412"
+      },
+      {
+        "path": ".github/workflows/linux.yml",
+        "sha256": "6a464f46c54640a43bd53f2e45f01d1630949a3943b3566002a95ffd1e3258bd"
+      },
+      {
+        "path": ".github/workflows/linux_meson.yml",
+        "sha256": "f2223387b2f8158593a094c58c96f5ddde19312458af4f29be372a6bac8a5c88"
+      },
+      {
+        "path": ".github/workflows/macos.yml",
+        "sha256": "67db4406c7269653c9301698ca77d9b69a374b9783923503c4673bc19fb85a39"
+      },
+      {
+        "path": ".github/workflows/macos_meson.yml",
+        "sha256": "f2ed5206f39ae8779f6257092d42e7074814d1604928017a0a00cfd41b71b6df"
+      },
+      {
+        "path": ".github/workflows/windows.yml",
+        "sha256": "55af063c475f249f58c1092478dd377d69dc3cf95e05ba6231626ff84985465f"
+      },
+      {
+        "path": "CONTRIBUTING.rst",
+        "sha256": "9d1f675344eb924aa51a7ae465847f3ff97b8d6f5e41522847f8205ecfcf41d3"
+      },
+      {
+        "path": "doc/source/dev/contributor/adding_new.rst",
+        "sha256": "7602c34c53130c16227478ddc270a4d7476f81c25445bb806d46be0e185ff239"
+      },
+      {
+        "path": "doc/source/dev/contributor/benchmarking.rst",
+        "sha256": "102fb1190c0ae255ee4a7b03b74bc6759fae9a417d6706f1d42fdae18b78c1f2"
+      },
+      {
+        "path": "doc/source/dev/contributor/building.rst",
+        "sha256": "0105f7ea56b92a8e6742314ceece489a6ffb2e959b77a813791bef22c56718c5"
+      },
+      {
+        "path": "doc/source/dev/contributor/building_faq.rst",
+        "sha256": "02c5889b8c178f0cd1a18c645d7b56188bc677cb17f060ed96c6fe5ac2fa2685"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "b28392664305537a68722cb81ffd88d832d09148ad49ff969e650f8ea2b8054f"
+      },
+      {
+        "path": "pytest.ini",
+        "sha256": "454aabcf5a0391e5621b481fc3cd7dcbc49ae866f72666c54a8ab2b0e113667a"
+      },
+      {
+        "path": "setup.py",
+        "sha256": "c873401e5d9d200f475a13fe091e8c7cd73a7e25a0c95a2db6f3388d4dc88039"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "1c1a9cfc7cb42c8bb05c43eb9f2d2ab7f9fcf8eb64823cfa4f0123f0f063d27b"
+      }
+    ],
+    "source_record_hash": "ff67c28e294023faaf7cea71bff9b4efb74b6ceb8b1d403995428f53a27512ab"
+  },
+  "declared_dependencies": [
+    "cython",
+    "download",
+    "gcc",
+    "meson",
+    "numpy",
+    "scipy"
+  ],
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "ff67c28e294023faaf7cea71bff9b4efb74b6ceb8b1d403995428f53a27512ab"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "d1e1d9af9597f6a2c7d833fdf379fb1a311faf6381419871556c3b778e0ba969",
+      "post_state_hash": "fd82feb9a37b9a38763094fabbceba9ff3cd3861414bd9e4870f9b17887fa86c",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "c2abdf77b459de36d198edd8b8c8648aff19f429"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "51171a1088bd9dea27b2ae18f48db34d5677fbc8d05d65302849d4bb6f873af4",
+      "post_state_hash": "d6a6993eb7a2bf349c841fa80b3823f10c8890eb66344e1b9a12b24c6267dd28",
+      "prior_state_hash": "fd82feb9a37b9a38763094fabbceba9ff3cd3861414bd9e4870f9b17887fa86c",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [
+        ".github/workflows/circle_artifacts.yml",
+        ".github/workflows/docker.yml",
+        ".github/workflows/gitpod.yml",
+        ".github/workflows/linux.yml",
+        ".github/workflows/linux_meson.yml",
+        ".github/workflows/macos.yml",
+        ".github/workflows/macos_meson.yml",
+        ".github/workflows/windows.yml",
+        "CONTRIBUTING.rst",
+        "doc/source/dev/contributor/adding_new.rst",
+        "doc/source/dev/contributor/benchmarking.rst",
+        "doc/source/dev/contributor/building.rst",
+        "doc/source/dev/contributor/building_faq.rst",
+        "pyproject.toml",
+        "pytest.ini",
+        "setup.py",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "d1e5056a1ba714889c8f5f97861b605f0c664f7ff0eef47cdcf5371a57a446d1",
+      "post_state_hash": "6dbb4c4dae94065ac83725bd642ff075106a317053a1e98e489afc02cfb49190",
+      "prior_state_hash": "d6a6993eb7a2bf349c841fa80b3823f10c8890eb66344e1b9a12b24c6267dd28",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "ebe7b15ab6d400c192eda8b6f09deb1cdcb8b5c914553e0dcab612ee2b621a73",
+      "post_state_hash": "68c0921d554322cde285086a3577829134e5a10ed3552bdc45053b3f9f52d98f",
+      "prior_state_hash": "6dbb4c4dae94065ac83725bd642ff075106a317053a1e98e489afc02cfb49190",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "afd3e3d8609bb1a0189fc18253c5bd749badfce248701b923a021144e706204d",
+      "prior_state_hash": "68c0921d554322cde285086a3577829134e5a10ed3552bdc45053b3f9f52d98f",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "1910faae9939b531b3d47d0f1fb3291220c0fe42cc4e0f1f040ce2277471dccf",
+      "prior_state_hash": "afd3e3d8609bb1a0189fc18253c5bd749badfce248701b923a021144e706204d",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "9da493ba0672daf0b2f7d4760f831dbf62a623f33539230d791d6b15482fad90",
+      "prior_state_hash": "1910faae9939b531b3d47d0f1fb3291220c0fe42cc4e0f1f040ce2277471dccf",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "5dc317685eee1e2db5108598a6c313fb53e58c831dddddef4904534532fae02b",
+      "prior_state_hash": "9da493ba0672daf0b2f7d4760f831dbf62a623f33539230d791d6b15482fad90",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "00847a562606f7e5b213babd7c7556751811f2dc4127a1ff315146407a0b5ba3",
+      "prior_state_hash": "5dc317685eee1e2db5108598a6c313fb53e58c831dddddef4904534532fae02b",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "19bdfa05cb9bd6475018597241012a204ae11235fd9a00fb84d5948af025b8d6",
+      "prior_state_hash": "00847a562606f7e5b213babd7c7556751811f2dc4127a1ff315146407a0b5ba3",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "scipy_16783_lbfgsb_tolerance",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "3af9f8b26e4964e073f0dc9bdedbf3c7771a3022c4f0d20205fdf7b53e8a8183",
+      "prior_state_hash": "19bdfa05cb9bd6475018597241012a204ae11235fd9a00fb84d5948af025b8d6",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2022-08-05T14:57:44Z",
+  "issue_identity": {
+    "issue_created_at": "2022-08-05T14:57:44Z",
+    "issue_url": "https://github.com/scipy/scipy/issues/16783",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 431,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": ".github/workflows/circle_artifacts.yml",
+      "sha256": "a93080d6d858a8fb5ed8c66cd5ceaa9a81d82fb0166da2dd65f7b613c9a9c536",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2250,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": ".github/workflows/docker.yml",
+      "sha256": "e594da4f0102c3d72161a5517abf48e14da5a4d4b9fb905516b1dd378be87f06",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2148,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": ".github/workflows/gitpod.yml",
+      "sha256": "8cfe279b4cb7dd830a43293175d46ec8e38d6d4c92a3c9da8cc26e3a65227412",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 3658,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": ".github/workflows/linux.yml",
+      "sha256": "6a464f46c54640a43bd53f2e45f01d1630949a3943b3566002a95ffd1e3258bd",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4812,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": ".github/workflows/linux_meson.yml",
+      "sha256": "f2223387b2f8158593a094c58c96f5ddde19312458af4f29be372a6bac8a5c88",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 3220,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": ".github/workflows/macos.yml",
+      "sha256": "67db4406c7269653c9301698ca77d9b69a374b9783923503c4673bc19fb85a39",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4116,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": ".github/workflows/macos_meson.yml",
+      "sha256": "f2ed5206f39ae8779f6257092d42e7074814d1604928017a0a00cfd41b71b6df",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2885,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": ".github/workflows/windows.yml",
+      "sha256": "55af063c475f249f58c1092478dd377d69dc3cf95e05ba6231626ff84985465f",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1139,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": "CONTRIBUTING.rst",
+      "sha256": "9d1f675344eb924aa51a7ae465847f3ff97b8d6f5e41522847f8205ecfcf41d3",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 424,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": "doc/source/dev/contributor/adding_new.rst",
+      "sha256": "7602c34c53130c16227478ddc270a4d7476f81c25445bb806d46be0e185ff239",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 8443,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": "doc/source/dev/contributor/benchmarking.rst",
+      "sha256": "102fb1190c0ae255ee4a7b03b74bc6759fae9a417d6706f1d42fdae18b78c1f2",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 5250,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": "doc/source/dev/contributor/building.rst",
+      "sha256": "0105f7ea56b92a8e6742314ceece489a6ffb2e959b77a813791bef22c56718c5",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 5978,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": "doc/source/dev/contributor/building_faq.rst",
+      "sha256": "02c5889b8c178f0cd1a18c645d7b56188bc677cb17f060ed96c6fe5ac2fa2685",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 5082,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": "pyproject.toml",
+      "sha256": "b28392664305537a68722cb81ffd88d832d09148ad49ff969e650f8ea2b8054f",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 674,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": "pytest.ini",
+      "sha256": "454aabcf5a0391e5621b481fc3cd7dcbc49ae866f72666c54a8ab2b0e113667a",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 20349,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": "setup.py",
+      "sha256": "c873401e5d9d200f475a13fe091e8c7cd73a7e25a0c95a2db6f3388d4dc88039",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1633,
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "path": "tox.ini",
+      "sha256": "1c1a9cfc7cb42c8bb05c43eb9f2d2ab7f9fcf8eb64823cfa4f0123f0f063d27b",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [
+    "download"
+  ],
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [
+    "darwin",
+    "macos",
+    "windows"
+  ],
+  "provider_feasibility_class": "network_or_model_dependency_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "1c1a9cfc7cb42c8bb05c43eb9f2d2ab7f9fcf8eb64823cfa4f0123f0f063d27b",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "{envpython}",
+        "{toxinidir}/runtests.py",
+        "{posargs:",
+        "--mode",
+        "full}"
+      ],
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "1c1a9cfc7cb42c8bb05c43eb9f2d2ab7f9fcf8eb64823cfa4f0123f0f063d27b",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "{envpython}",
+          "{toxinidir}/runtests.py",
+          "{posargs:",
+          "--mode",
+          "full}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "b28392664305537a68722cb81ffd88d832d09148ad49ff969e650f8ea2b8054f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "precedence": 50,
+      "source_class": "pytest.ini",
+      "source_path": "pytest.ini",
+      "source_sha256": "454aabcf5a0391e5621b481fc3cd7dcbc49ae866f72666c54a8ab2b0e113667a",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/scipy/scipy",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "scipy"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "1c1a9cfc7cb42c8bb05c43eb9f2d2ab7f9fcf8eb64823cfa4f0123f0f063d27b",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "{envpython}",
+        "{toxinidir}/runtests.py",
+        "{posargs:",
+        "--mode",
+        "full}"
+      ],
+      "candidate_sha": "c2abdf77b459de36d198edd8b8c8648aff19f429",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "1c1a9cfc7cb42c8bb05c43eb9f2d2ab7f9fcf8eb64823cfa4f0123f0f063d27b",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "{envpython}",
+          "{toxinidir}/runtests.py",
+          "{posargs:",
+          "--mode",
+          "full}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "e1b2d5b8e84213fa0b19f9cc9dc151d6abf92e736ae307a9764d031ad30db7f0",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "e4fc6b319e5dd8e0f7ec28935f174582ef42de420dd7c40cc284a961ccc52144",
+    "issue_created_at": "2022-08-05T14:57:44Z",
+    "issue_title_sha256": "1699850801ac46381e29cbf299e2985fc282027ec53b25c2b9f5f0b962df0b89",
+    "issue_url": "https://github.com/scipy/scipy/issues/16783",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "dd1264210a2f9665c5067eb5282e3ee1205a0cd57fd0354d16ed1a5a504f5cf5",
+    "test_paths": []
+  },
+  "target_package": "scipy",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_declared_by_decision_time_evidence",
+    "paths": [],
+    "proposed_paths": [],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

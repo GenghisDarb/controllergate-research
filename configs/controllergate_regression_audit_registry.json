@@ -1,0 +1,78 @@
+{
+  "audits": [
+    {
+      "arguments": [],
+      "audit_id": "batch068f",
+      "dependency_order": 10,
+      "evidence_boundary_protected": "Batch068f candidate SHA resolution and claim boundary",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/audit_batch068f_candidate_sha_resolution_intake.py"
+    },
+    {
+      "arguments": [],
+      "audit_id": "batch068e",
+      "dependency_order": 20,
+      "evidence_boundary_protected": "Batch068e source identity",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/audit_batch068e_external_seed_source_identity_verification.py"
+    },
+    {
+      "arguments": [],
+      "audit_id": "batch068d",
+      "dependency_order": 30,
+      "evidence_boundary_protected": "Batch068d external source approval",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/audit_batch068d_deeper_source_expansion_and_external_source_approval.py"
+    },
+    {
+      "arguments": [],
+      "audit_id": "batch068c",
+      "dependency_order": 40,
+      "evidence_boundary_protected": "Batch068c source expansion registry",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/audit_batch068c_source_expansion_registry_buildout.py"
+    },
+    {
+      "arguments": [],
+      "audit_id": "batch068b",
+      "dependency_order": 50,
+      "evidence_boundary_protected": "Batch068b manual custody",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/audit_batch068b_manual_artifact_and_external_source_custody_intake.py"
+    },
+    {
+      "arguments": [],
+      "audit_id": "batch069b",
+      "dependency_order": 60,
+      "evidence_boundary_protected": "Batch069b provider command follow-up",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/audit_batch069b_recoverable_provider_command_followup.py"
+    },
+    {
+      "arguments": ["--protocol", "current"],
+      "audit_id": "validated_current_protocol",
+      "dependency_order": 90,
+      "evidence_boundary_protected": "validated current protocol remains v2.14",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/controllergate_audit.py"
+    },
+    {
+      "arguments": ["--protocol", "current", "--dry-run"],
+      "audit_id": "validated_current_protocol_dry_run",
+      "dependency_order": 100,
+      "evidence_boundary_protected": "current protocol dry-run boundary",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/controllergate_run.py"
+    }
+  ],
+  "schema_version": "controllergate.regression_audits.v1",
+  "status": "PASS"
+}

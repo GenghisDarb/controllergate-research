@@ -1,0 +1,720 @@
+{
+  "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+  "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+  "command_argv": [],
+  "command_evidence_graph_hash": "5cdd51fa8afee2a032ecb058e86ff23524774bf1233020287275bac4414168fc",
+  "compiled_system_dependency_indicators": [],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".agents/skills/testing/SKILL.md",
+        "sha256": "0f78deb799669ad36d007d14214b3fd87aa19caf76d9691a35d0cbe6f83f50bc"
+      },
+      {
+        "path": ".github/workflows/ci-tests.yaml",
+        "sha256": "19b1ff929ffae69c22cb8dc1b859c981b2c4ee7eca2f1783b66e5569018d64ed"
+      },
+      {
+        "path": ".github/workflows/release.yml",
+        "sha256": "142b053d83b335479d5b607ddab7afe7c31271338392a7885f60d9bdaf4492c5"
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "sha256": "891476e01ce0ce77f51f3d9ab6b7ec9f94f9cf7a7265a7690a223ddb64d38ccb"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "907d7cce4ce528a26201e53102d26a49fcc7afa54588e96716cc827a4535a45c"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706"
+      }
+    ],
+    "source_record_hash": "8ca879995c768147c6edb554fd4b4bf6ce852c5e502559cc4d13313c86c34b57"
+  },
+  "declared_dependencies": [
+    "docker"
+  ],
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "external_service_indicators": [
+    "docker"
+  ],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "8ca879995c768147c6edb554fd4b4bf6ce852c5e502559cc4d13313c86c34b57"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "188d3f26e52ae61ef064ecd9e2941c7b5b0ea4967636a4a4b8cadc8b927392fc",
+      "post_state_hash": "dbb9c26695f1d77b9bf1259f4f714cc1f6e996aa8bfc3ebff6b07aa0b94b7ce7",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "09c12ea65981e1357a9fad7a04e52439e6e052caf96f8559e90a1790c4ce518b",
+      "post_state_hash": "cf81581a90a7762b43c18db3eac7cc468b8f481cf9aa005883c7e809a67ee1c0",
+      "prior_state_hash": "dbb9c26695f1d77b9bf1259f4f714cc1f6e996aa8bfc3ebff6b07aa0b94b7ce7",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [
+        ".agents/skills/testing/SKILL.md",
+        ".github/workflows/ci-tests.yaml",
+        ".github/workflows/release.yml",
+        "CONTRIBUTING.md",
+        "pyproject.toml",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "e1a04eb2bf29a2fd88f5bb04447877b5a862189fb7dd728a9a26e214a30516a4",
+      "post_state_hash": "c4062324858374ebff8c514e72867cbc3026e8a169d818d18fff54253e8acb6e",
+      "prior_state_hash": "cf81581a90a7762b43c18db3eac7cc468b8f481cf9aa005883c7e809a67ee1c0",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "ebe7b15ab6d400c192eda8b6f09deb1cdcb8b5c914553e0dcab612ee2b621a73",
+      "post_state_hash": "01de774774dcb1b02cf11153915e3565f85bcb12d8d819cece50c735716cecd6",
+      "prior_state_hash": "c4062324858374ebff8c514e72867cbc3026e8a169d818d18fff54253e8acb6e",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "1991a8e045ce209f6f2361309f53f32f6686a82506930638f2b5aa55e1fbe544",
+      "prior_state_hash": "01de774774dcb1b02cf11153915e3565f85bcb12d8d819cece50c735716cecd6",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "4909f1cc9fd5c2ac5b4639ae6b3a5517725e7b861ba104e324135e2d5b15a109",
+      "prior_state_hash": "1991a8e045ce209f6f2361309f53f32f6686a82506930638f2b5aa55e1fbe544",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "4e736e62f8e52e635182561c1badda326c24171982de1cc8d77c6b9d46767b6c",
+      "prior_state_hash": "4909f1cc9fd5c2ac5b4639ae6b3a5517725e7b861ba104e324135e2d5b15a109",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "8e28d722cc7d49f5e18afc6fd1c7732b6ac9947b20c83e2c11ef365106c3bb40",
+      "prior_state_hash": "4e736e62f8e52e635182561c1badda326c24171982de1cc8d77c6b9d46767b6c",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "2f361676d07a64a90286b2075390dbc94135c8e09e6d0105ac3affa460827ee3",
+      "prior_state_hash": "8e28d722cc7d49f5e18afc6fd1c7732b6ac9947b20c83e2c11ef365106c3bb40",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "170cf6cf630f12607a838dbc68563a43e7a246e577a289f9cf25acbf9248e0a2",
+      "prior_state_hash": "2f361676d07a64a90286b2075390dbc94135c8e09e6d0105ac3affa460827ee3",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "96d47eec4abb5b5b100a56e91b9e861c049771b445aafb33d5cd9a82fd4f0789",
+      "prior_state_hash": "170cf6cf630f12607a838dbc68563a43e7a246e577a289f9cf25acbf9248e0a2",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2026-06-19T19:51:43Z",
+  "issue_identity": {
+    "issue_created_at": "2026-06-19T19:51:43Z",
+    "issue_url": "https://github.com/alpha-unito/streamflow/issues/1100",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 2350,
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "path": ".agents/skills/testing/SKILL.md",
+      "sha256": "0f78deb799669ad36d007d14214b3fd87aa19caf76d9691a35d0cbe6f83f50bc",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 13217,
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "path": ".github/workflows/ci-tests.yaml",
+      "sha256": "19b1ff929ffae69c22cb8dc1b859c981b2c4ee7eca2f1783b66e5569018d64ed",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4045,
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "path": ".github/workflows/release.yml",
+      "sha256": "142b053d83b335479d5b607ddab7afe7c31271338392a7885f60d9bdaf4492c5",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 6113,
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "path": "CONTRIBUTING.md",
+      "sha256": "891476e01ce0ce77f51f3d9ab6b7ec9f94f9cf7a7265a7690a223ddb64d38ccb",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4981,
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "path": "pyproject.toml",
+      "sha256": "907d7cce4ce528a26201e53102d26a49fcc7afa54588e96716cc827a4535a45c",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1087,
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "path": "tox.ini",
+      "sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [],
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [
+    "macos"
+  ],
+  "provider_feasibility_class": "external_service_required_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "bandit",
+        "-r",
+        "streamflow"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "bandit",
+          "-r",
+          "streamflow"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "make",
+        "format-check",
+        "codespell-check",
+        "pyupgrade"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "make",
+          "format-check",
+          "codespell-check",
+          "pyupgrade"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "make",
+        "typing"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "make",
+          "typing"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "py3.{10,11,12,13,14}-unit:",
+        "make",
+        "coverage-report",
+        "coverage.xml",
+        "PYTEST_EXTRA={posargs}"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "py3.{10,11,12,13,14}-unit:",
+          "make",
+          "coverage-report",
+          "coverage.xml",
+          "PYTEST_EXTRA={posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "907d7cce4ce528a26201e53102d26a49fcc7afa54588e96716cc827a4535a45c",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "TOX"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/ci-tests.yaml",
+      "source_sha256": "19b1ff929ffae69c22cb8dc1b859c981b2c4ee7eca2f1783b66e5569018d64ed",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "TOX"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-",
+        "name:",
+        "Upload test results"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/ci-tests.yaml",
+      "source_sha256": "19b1ff929ffae69c22cb8dc1b859c981b2c4ee7eca2f1783b66e5569018d64ed",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-",
+          "name:",
+          "Upload test results"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "unit-tests:"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/ci-tests.yaml",
+      "source_sha256": "19b1ff929ffae69c22cb8dc1b859c981b2c4ee7eca2f1783b66e5569018d64ed",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "unit-tests:"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/alpha-unito/streamflow",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "streamflow"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "bandit",
+        "-r",
+        "streamflow"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "bandit",
+          "-r",
+          "streamflow"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "make",
+        "format-check",
+        "codespell-check",
+        "pyupgrade"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "make",
+          "format-check",
+          "codespell-check",
+          "pyupgrade"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "make",
+        "typing"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "make",
+          "typing"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "py3.{10,11,12,13,14}-unit:",
+        "make",
+        "coverage-report",
+        "coverage.xml",
+        "PYTEST_EXTRA={posargs}"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "py3.{10,11,12,13,14}-unit:",
+          "make",
+          "coverage-report",
+          "coverage.xml",
+          "PYTEST_EXTRA={posargs}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "9325335ef333adb61ae6bde2b1f448ecbf4ee9130ef5787ecdb9645b4f80c706",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "97a84b6a3ea6b053062a31f15d2ca3d8be029e1edf326926fbaf8d2d8713fe7d",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "2882993edca1f7ea17700965dbec16afd454ac9f74a0b82d4a0cac3c56a8c8ca",
+    "issue_created_at": "2026-06-19T19:51:43Z",
+    "issue_title_sha256": "f41895741d8d9d335fae442b631cc3ea804ee459425ec3441b15d85bb04cf4c8",
+    "issue_url": "https://github.com/alpha-unito/streamflow/issues/1100",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "0e864dd121ff13264d9c4169df1a51947deb3dbd8113e172d2b95e3ea1f3a44c",
+    "test_paths": []
+  },
+  "target_package": "streamflow",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_declared_by_decision_time_evidence",
+    "paths": [],
+    "proposed_paths": [],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

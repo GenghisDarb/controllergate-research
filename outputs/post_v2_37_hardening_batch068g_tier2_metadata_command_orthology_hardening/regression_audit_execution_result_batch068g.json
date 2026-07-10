@@ -1,0 +1,86 @@
+{
+  "registry": "configs/controllergate_regression_audit_registry.json",
+  "results": [
+    {
+      "audit_id": "batch068f",
+      "evidence_boundary_protected": "Batch068f candidate SHA resolution and claim boundary",
+      "expected_exit_status": 0,
+      "required": true,
+      "returncode": 0,
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "Batch068f candidate SHA resolution intake audit PASS\n"
+    },
+    {
+      "audit_id": "batch068e",
+      "evidence_boundary_protected": "Batch068e source identity",
+      "expected_exit_status": 0,
+      "required": true,
+      "returncode": 0,
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "Batch068e external seed source identity verification audit PASS\n"
+    },
+    {
+      "audit_id": "batch068d",
+      "evidence_boundary_protected": "Batch068d external source approval",
+      "expected_exit_status": 0,
+      "required": true,
+      "returncode": 0,
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "Batch068d deeper source expansion and external source approval audit PASS\n"
+    },
+    {
+      "audit_id": "batch068c",
+      "evidence_boundary_protected": "Batch068c source expansion registry",
+      "expected_exit_status": 0,
+      "required": true,
+      "returncode": 0,
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "Batch068c source expansion registry buildout audit PASS\n"
+    },
+    {
+      "audit_id": "batch068b",
+      "evidence_boundary_protected": "Batch068b manual custody",
+      "expected_exit_status": 0,
+      "required": true,
+      "returncode": 0,
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "Batch068b manual artifact and external source custody intake audit PASS\n"
+    },
+    {
+      "audit_id": "batch069b",
+      "evidence_boundary_protected": "Batch069b provider command follow-up",
+      "expected_exit_status": 0,
+      "required": true,
+      "returncode": 0,
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "Batch069b recoverable provider-command follow-up audit PASS\n"
+    },
+    {
+      "audit_id": "validated_current_protocol",
+      "evidence_boundary_protected": "validated current protocol remains v2.14",
+      "expected_exit_status": 0,
+      "required": true,
+      "returncode": 0,
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "v2.14 capability recovery audit PASS\ncontrollergate audit summary\nselected_protocol: current\nprotocol_version: v2.14\nprotocol_name: capability_recovery_lane\naudit_script: scripts/audit_v2_14_capability_recovery_lane.py\noutput_directory: outputs/v2_14_capability_recovery_lane\naudit_status: PASS\nclaim_boundary_status: PASS\n"
+    },
+    {
+      "audit_id": "validated_current_protocol_dry_run",
+      "evidence_boundary_protected": "current protocol dry-run boundary",
+      "expected_exit_status": 0,
+      "required": true,
+      "returncode": 0,
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "controllergate run dry-run summary\nselected_protocol: current\nprotocol_version: v2.14\nprotocol_name: capability_recovery_lane\ncampaign_id: v2_14_capability_recovery_lane\nbased_on: v2.13\nimplementation_commit: 8a715b91\nofficial_ingest_commit: 8a715b91\nworkflow_run_id: not_recorded_in_committed_v2_14_artifact_evidence\nartifact_name: v2_14_capability_recovery_lane_artifacts\nrunner_script: scripts/v2_14_capability_recovery_lane_runner.py\naudit_script: scripts/audit_v2_14_capability_recovery_lane.py\noutput_directory: outputs/v2_14_capability_recovery_lane\ncurrent_output_directory: outputs/current\nfull_workflow_executed: false\ndry_run_status: PASS\n"
+    }
+  ],
+  "status": "PASS"
+}

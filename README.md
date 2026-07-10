@@ -6,6 +6,19 @@ It remains a provenance-first software repair research harness with a conservati
 
 It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-change candidates, blocking unverified patches before they can contaminate accepted software state.
 
+## Validated protocol and static frontier
+
+The validated current protocol is `v2.14 capability_recovery_lane` and remains evidence-locked. Batch068g adds a separate, unpromoted static frontier engine that converts 25 verified Tier-2 candidate identities and repository metadata into deterministic provider-command-probe plans. Tier 3 authorizes only a future bounded provider-command probe; it is not repair, replay, or patch authority.
+
+Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
+
+- Confirmed issue-derived repair episodes: `4`.
+- Confirmed native external repair episodes: `4`.
+- Runtime connectors and live-device repair: inactive.
+- Full scoring: `NOT_RUN/disallowed`.
+- Memory lift: `not_demonstrated`.
+- Self-maintaining software: `false/not_demonstrated`.
+
 ## Batch063e Pytest Runner-Target Split Evidence Intake
 
 Batch063e evaluates Pytest runner-target import origin after Batch063d normalized version-origin metadata. It tests whether Pytest can be run as a declared self-hosted test runner or through a proven external runner-target split. These are command-boundary controls and replay-readiness evidence, not repair proof. No repair is counted without source-only target pass, duplicate clean replay, and count gate. Full scoring remains NOT_RUN/disallowed. Memory lift remains not_demonstrated. Self-maintaining software remains false/not_demonstrated.

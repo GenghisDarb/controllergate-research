@@ -1,0 +1,391 @@
+{
+  "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+  "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+  "command_argv": [
+    "pytest",
+    "--cov"
+  ],
+  "command_evidence_graph_hash": "44f24231fd319cf9c8cb6f4fcf72c23e5a80be59e3ed252bad233681b04a32d9",
+  "compiled_system_dependency_indicators": [],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "sha256": "e77984ab794fc6606268a096d3a9e63397db8f39493136825848f9ebe952bb59"
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "sha256": "b39899c78ad7203dd575d6a2291a5d1811586a19f003b2c5ff991698928e4f34"
+      },
+      {
+        "path": "requirements.txt",
+        "sha256": "2d65943c2ed39a17e38201ce37027d5fd3a78c73b154e69add76ca586922dd52"
+      }
+    ],
+    "source_record_hash": "944357d894f536c8fc8005b0fbb6bae765d8b8f4349a18289691ed24cb2a45a9"
+  },
+  "declared_dependencies": [],
+  "exact_blocker": "native_target_path_not_found_at_candidate_sha",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "944357d894f536c8fc8005b0fbb6bae765d8b8f4349a18289691ed24cb2a45a9"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "97230bdad0f4c034927932bf76eb689cd98e210ef44db4b278b829ec0006fda9",
+      "post_state_hash": "5c2dd4e48157adc01d5580a428c92bf290169a21e4a502d4e07ec7b7f0dde689",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "f9d2173710502406e096bdc97573718b4bfc4d71"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "6fd98f8f1e80bf95527f3a419f3b2cdcd716b6100004708f58fd6e8bc12e7139",
+      "post_state_hash": "72504a8c0ac180a702b3784cf459959a3b3dc7c8f4164800831be78aece38bad",
+      "prior_state_hash": "5c2dd4e48157adc01d5580a428c92bf290169a21e4a502d4e07ec7b7f0dde689",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [
+        ".github/workflows/ci.yml",
+        "CONTRIBUTING.md",
+        "requirements.txt"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "450ae0c46083fd7facf1ee453316b221705e1fbc39c46deab2df0dd735f2c0e5",
+      "post_state_hash": "e7f00605331d2b4a445f1af01288c5e488a3e0a80477030404022d348a349fe4",
+      "prior_state_hash": "72504a8c0ac180a702b3784cf459959a3b3dc7c8f4164800831be78aece38bad",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "647ad713e85f652bac30c13a4ed89c20f2f219c771613af02ab9599307391b14",
+      "post_state_hash": "20abc2490a5d3610ef4b6f96dfdbd4d05628b015916f2a59cad1437c756d76fb",
+      "prior_state_hash": "e7f00605331d2b4a445f1af01288c5e488a3e0a80477030404022d348a349fe4",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "07332e775396e2ee9d040b6d99cfa06ea20d5052782b398f4cb717774bed70fb",
+      "prior_state_hash": "20abc2490a5d3610ef4b6f96dfdbd4d05628b015916f2a59cad1437c756d76fb",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "03270eb343764db070a83e7fb576997f3694aac470ebfc2438cb8a8824040ba3",
+      "prior_state_hash": "07332e775396e2ee9d040b6d99cfa06ea20d5052782b398f4cb717774bed70fb",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "2d549ad7189e66da01b4f9ccf99349d8e3917d1a6ae775e040f72e80ddc699cf",
+      "prior_state_hash": "03270eb343764db070a83e7fb576997f3694aac470ebfc2438cb8a8824040ba3",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "f51018a21b271e9e4f4799680dcc4ec0483a31952c9ba9a14341bfd42647e83c",
+      "prior_state_hash": "2d549ad7189e66da01b4f9ccf99349d8e3917d1a6ae775e040f72e80ddc699cf",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "cc9deb95ff94898012e8d20e8926630bcd2e60cd2bba9520ce3fffe9f331c906",
+      "prior_state_hash": "f51018a21b271e9e4f4799680dcc4ec0483a31952c9ba9a14341bfd42647e83c",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "99c016b34ae25ac44fd85fead13bb37ca158cc3255a247643442f2180fd2ebea",
+      "prior_state_hash": "cc9deb95ff94898012e8d20e8926630bcd2e60cd2bba9520ce3fffe9f331c906",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_david96182_ninjemail_issues_21",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "9d788ae45b8ed18b35f6069cc19bc13ef28ed26f22183a3b8e932e3e8859cafc",
+      "prior_state_hash": "99c016b34ae25ac44fd85fead13bb37ca158cc3255a247643442f2180fd2ebea",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2025-04-12T20:52:55Z",
+  "issue_identity": {
+    "issue_created_at": "2025-04-12T20:52:55Z",
+    "issue_url": "https://github.com/david96182/ninjemail/issues/21",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 768,
+      "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+      "path": ".github/workflows/ci.yml",
+      "sha256": "e77984ab794fc6606268a096d3a9e63397db8f39493136825848f9ebe952bb59",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2537,
+      "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+      "path": "CONTRIBUTING.md",
+      "sha256": "b39899c78ad7203dd575d6a2291a5d1811586a19f003b2c5ff991698928e4f34",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 127,
+      "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+      "path": "requirements.txt",
+      "sha256": "2d65943c2ed39a17e38201ce37027d5fd3a78c73b154e69add76ca586922dd52",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [],
+  "next_allowed_action": "correct_target_path_with_decision_time_repository_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [],
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "pytest",
+        "--cov"
+      ],
+      "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/ci.yml",
+      "source_sha256": "e77984ab794fc6606268a096d3a9e63397db8f39493136825848f9ebe952bb59",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "--cov"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "correct_target_path_with_decision_time_repository_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/david96182/ninjemail",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "pytest",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "pytest",
+    "status": "PASS",
+    "target_package": "ninjemail"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "pytest",
+      "--cov"
+    ],
+    "candidate_sha": "f9d2173710502406e096bdc97573718b4bfc4d71",
+    "precedence": 60,
+    "source_class": "ci_workflow",
+    "source_path": ".github/workflows/ci.yml",
+    "source_sha256": "e77984ab794fc6606268a096d3a9e63397db8f39493136825848f9ebe952bb59",
+    "target_path_corroborated": false,
+    "token_safety": {
+      "argv": [
+        "pytest",
+        "--cov"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "selection_confidence": "deterministic_source_precedence",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [],
+  "state_hash": "532be1d9c3b8dd55f58770591f3920bf6006b2cad5559613c2cd40751def488f",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "8c9781f8511b64cc309a126370d259462a5c710034603c833720549834a3cff2",
+    "issue_created_at": "2025-04-12T20:52:55Z",
+    "issue_title_sha256": "13f62789657581841f45bb072feed2d4bb9f06f5e38ba0054e127b56f8e26257",
+    "issue_url": "https://github.com/david96182/ninjemail/issues/21",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "f366538d64b203ef0b4b2fcd69bad4ada79362e4dd2339c700592c63a2809e2b",
+    "test_paths": [
+      "tests/test_email_gmail.py",
+      "tests/test_email_outlook.py",
+      "tests/test_email_yahoo.py"
+    ]
+  },
+  "target_package": "ninjemail",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_found_at_candidate_sha",
+    "paths": [],
+    "proposed_paths": [
+      "tests/test_email_gmail.py",
+      "tests/test_email_outlook.py",
+      "tests/test_email_yahoo.py"
+    ],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_found_at_candidate_sha",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": "."
+}

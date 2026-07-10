@@ -1,0 +1,677 @@
+{
+  "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+  "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+  "command_argv": [],
+  "command_evidence_graph_hash": "6ba2c40f99cd7e66bb29ab46377f226159f9b6d4eeac573ea5a0ec7c1a9bc4f2",
+  "compiled_system_dependency_indicators": [],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/auto-merge.yml",
+        "sha256": "ecd6a265ba2eacac1c7b4ae6dbe7216472ceb4267757baf7330495fd02841cac"
+      },
+      {
+        "path": ".github/workflows/ci-cd.yml",
+        "sha256": "f23514245cac8f277b6a0528e3753012f8aff54fc81642dc47dd37b9c6e49525"
+      },
+      {
+        "path": ".github/workflows/codeql.yml",
+        "sha256": "b629d1b49330b5394deb4e55c609af3611a7e28e2b3455fe5a94a39932ca2872"
+      },
+      {
+        "path": "aiosmtpd/docs/testing.rst",
+        "sha256": "0f9bae86098cba824557fb956e8fd4f4026cc0417714237cd5ed68122aa2cb64"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "09128e870a750c572026fc947a85a16985d44f78bddf83571a34dde986d539af"
+      },
+      {
+        "path": "pytest.ini",
+        "sha256": "68248a2a44dd19fff1b3bbfa20f88eadc4a7544bae5392a58db666e9554c3cb2"
+      },
+      {
+        "path": "requirements-dev.txt",
+        "sha256": "a4d4932cbe56520e62218a2832728a0d1036c0a7304282b150b2270cda6b343a"
+      },
+      {
+        "path": "requirements.txt",
+        "sha256": "a3bce1a59f5162a8b7e614fe58b714bdc7680779cd5400a3c9092efec761b71b"
+      },
+      {
+        "path": "setup.cfg",
+        "sha256": "40dc2a9481235b31b5636d6bc7eefa3f0b60eab5cab58e9af0902d780c399f69"
+      },
+      {
+        "path": "setup.py",
+        "sha256": "843ac26c38a41abae578250bc0f9419194b320a0f67327d941037a4268f6cfe7"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "7c885b694d0f6898d43762328ea54068df99013a08b629456d8c7c277ddeaab0"
+      }
+    ],
+    "source_record_hash": "3953a1adedb81433fad6b49ebf03647d343432947be133c2f824066577ee0e39"
+  },
+  "declared_dependencies": [],
+  "exact_blocker": "native_target_path_not_found_at_candidate_sha",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "3953a1adedb81433fad6b49ebf03647d343432947be133c2f824066577ee0e39"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "010ab047951a29efca570b2d1fe1ce9f5358c9628d7120907ec9e8bc34754161",
+      "post_state_hash": "b2cdc02cbdcc5848da851ec9850c20947ecc0f0adea388ab111f4738535413d0",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "94710d8fd280115cbd835ae969873cc424b4e57a"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "42f6437f353392d5713e63e2408053ebf87e3831432a260074d949c81d371bdc",
+      "post_state_hash": "a1a0b87992dfd8a94609085e0cfecde0878aafc2bc9359a345cdf28491613514",
+      "prior_state_hash": "b2cdc02cbdcc5848da851ec9850c20947ecc0f0adea388ab111f4738535413d0",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [
+        ".github/workflows/auto-merge.yml",
+        ".github/workflows/ci-cd.yml",
+        ".github/workflows/codeql.yml",
+        "aiosmtpd/docs/testing.rst",
+        "pyproject.toml",
+        "pytest.ini",
+        "requirements-dev.txt",
+        "requirements.txt",
+        "setup.cfg",
+        "setup.py",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "5dd6b1665539adee3abd6e911bc9b5d6c275822232c676c97cede4258c4e0e31",
+      "post_state_hash": "c501e857a2cd233703757bfda6fe550471f31b130a43e516d50664e7a30284fa",
+      "prior_state_hash": "a1a0b87992dfd8a94609085e0cfecde0878aafc2bc9359a345cdf28491613514",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "647ad713e85f652bac30c13a4ed89c20f2f219c771613af02ab9599307391b14",
+      "post_state_hash": "02b950ccb6a36a6d147e0a045c52f1d2604f72e5e421257d6b5a0ef876207032",
+      "prior_state_hash": "c501e857a2cd233703757bfda6fe550471f31b130a43e516d50664e7a30284fa",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "27ee1e7d2dffe9c8c469c7edaad0fdc67765858756c4776313631c78a7015bd7",
+      "prior_state_hash": "02b950ccb6a36a6d147e0a045c52f1d2604f72e5e421257d6b5a0ef876207032",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "ecac71e22a8c6e4c839d018a84746b77b7c6b6c06f1b0f930f6e2565ff234a25",
+      "prior_state_hash": "27ee1e7d2dffe9c8c469c7edaad0fdc67765858756c4776313631c78a7015bd7",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "e300ff645873401fe215413b51d6acc0e1602d5e16abfc809e6c69979fb9ac76",
+      "prior_state_hash": "ecac71e22a8c6e4c839d018a84746b77b7c6b6c06f1b0f930f6e2565ff234a25",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "04f07f0053c1a5306b3afd12133c4eecfd0d5d068a82b47e462fb1fef7363f59",
+      "prior_state_hash": "e300ff645873401fe215413b51d6acc0e1602d5e16abfc809e6c69979fb9ac76",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "a7c712b83a3fdcc483df2c77d61e16c019c1157d39c363f205b57a73c1ddf834",
+      "prior_state_hash": "04f07f0053c1a5306b3afd12133c4eecfd0d5d068a82b47e462fb1fef7363f59",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "0ad1be7a22268ebed63fe773135c4b15a0b46b93cde28fc1ea60f902cc516303",
+      "prior_state_hash": "a7c712b83a3fdcc483df2c77d61e16c019c1157d39c363f205b57a73c1ddf834",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_found_at_candidate_sha",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "fdd29e692acc42c9060cb101f05d447e2bceee92e325a79a0e890b9adf9c7159",
+      "post_state_hash": "e1856ae7e90c87b7b7e009145d8eb8019f5aa0e9910bc1f2e01b563a203fab99",
+      "prior_state_hash": "0ad1be7a22268ebed63fe773135c4b15a0b46b93cde28fc1ea60f902cc516303",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2024-02-06T16:41:05Z",
+  "issue_identity": {
+    "issue_created_at": "2024-02-06T16:41:05Z",
+    "issue_url": "https://github.com/aio-libs/aiosmtpd/issues/403",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 608,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": ".github/workflows/auto-merge.yml",
+      "sha256": "ecd6a265ba2eacac1c7b4ae6dbe7216472ceb4267757baf7330495fd02841cac",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4012,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": ".github/workflows/ci-cd.yml",
+      "sha256": "f23514245cac8f277b6a0528e3753012f8aff54fc81642dc47dd37b9c6e49525",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 838,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": ".github/workflows/codeql.yml",
+      "sha256": "b629d1b49330b5394deb4e55c609af3611a7e28e2b3455fe5a94a39932ca2872",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 5020,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": "aiosmtpd/docs/testing.rst",
+      "sha256": "0f9bae86098cba824557fb956e8fd4f4026cc0417714237cd5ed68122aa2cb64",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1860,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": "pyproject.toml",
+      "sha256": "09128e870a750c572026fc947a85a16985d44f78bddf83571a34dde986d539af",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 720,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": "pytest.ini",
+      "sha256": "68248a2a44dd19fff1b3bbfa20f88eadc4a7544bae5392a58db666e9554c3cb2",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 467,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": "requirements-dev.txt",
+      "sha256": "a4d4932cbe56520e62218a2832728a0d1036c0a7304282b150b2270cda6b343a",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 119,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": "requirements.txt",
+      "sha256": "a3bce1a59f5162a8b7e614fe58b714bdc7680779cd5400a3c9092efec761b71b",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4256,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": "setup.cfg",
+      "sha256": "40dc2a9481235b31b5636d6bc7eefa3f0b60eab5cab58e9af0902d780c399f69",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 38,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": "setup.py",
+      "sha256": "843ac26c38a41abae578250bc0f9419194b320a0f67327d941037a4268f6cfe7",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4421,
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "path": "tox.ini",
+      "sha256": "7c885b694d0f6898d43762328ea54068df99013a08b629456d8c7c277ddeaab0",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [],
+  "next_allowed_action": "correct_target_path_with_decision_time_repository_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [
+    "win32",
+    "windows"
+  ],
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "7c885b694d0f6898d43762328ea54068df99013a08b629456d8c7c277ddeaab0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "housekeep.py",
+        "prep"
+      ],
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "7c885b694d0f6898d43762328ea54068df99013a08b629456d8c7c277ddeaab0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "housekeep.py",
+          "prep"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "09128e870a750c572026fc947a85a16985d44f78bddf83571a34dde986d539af",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "precedence": 40,
+      "source_class": "setup.cfg",
+      "source_path": "setup.cfg",
+      "source_sha256": "40dc2a9481235b31b5636d6bc7eefa3f0b60eab5cab58e9af0902d780c399f69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "precedence": 50,
+      "source_class": "pytest.ini",
+      "source_path": "pytest.ini",
+      "source_sha256": "68248a2a44dd19fff1b3bbfa20f88eadc4a7544bae5392a58db666e9554c3cb2",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "-v",
+        "aiosmtpd/qa"
+      ],
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/ci-cd.yml",
+      "source_sha256": "f23514245cac8f277b6a0528e3753012f8aff54fc81642dc47dd37b9c6e49525",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "-v",
+          "aiosmtpd/qa"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "env:"
+      ],
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/ci-cd.yml",
+      "source_sha256": "f23514245cac8f277b6a0528e3753012f8aff54fc81642dc47dd37b9c6e49525",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "env:"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "runner."
+      ],
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "aiosmtpd/docs/testing.rst",
+      "source_sha256": "0f9bae86098cba824557fb956e8fd4f4026cc0417714237cd5ed68122aa2cb64",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "runner."
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "correct_target_path_with_decision_time_repository_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/aio-libs/aiosmtpd",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "aiosmtpd"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "7c885b694d0f6898d43762328ea54068df99013a08b629456d8c7c277ddeaab0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "housekeep.py",
+        "prep"
+      ],
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "7c885b694d0f6898d43762328ea54068df99013a08b629456d8c7c277ddeaab0",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "housekeep.py",
+          "prep"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "bfb046d53c93987d6aee03ec4830c7c55b39f3f9ba4517befc0a1c1c90fc6355",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "f437a213dd6293302dad8eff8487442df0ac62829fceaf23d17fa864b5b2307c",
+    "issue_created_at": "2024-02-06T16:41:05Z",
+    "issue_title_sha256": "d1e5e34a41a4a49a474ef089c637eea5c49de188073b8ccce038416e33a200a0",
+    "issue_url": "https://github.com/aio-libs/aiosmtpd/issues/403",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "969a430ac6a49e7e44e94b75d8611e9bd9933ab2e7fb875c9cc806c4dc6f4a99",
+    "test_paths": [
+      "tests/test_server.py"
+    ]
+  },
+  "target_package": "aiosmtpd",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_found_at_candidate_sha",
+    "paths": [],
+    "proposed_paths": [
+      "tests/test_server.py"
+    ],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_found_at_candidate_sha",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

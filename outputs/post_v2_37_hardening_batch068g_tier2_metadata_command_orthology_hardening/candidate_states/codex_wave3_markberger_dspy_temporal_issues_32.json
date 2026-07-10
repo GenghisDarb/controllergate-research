@@ -1,0 +1,376 @@
+{
+  "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+  "candidate_sha": "9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+  "command_argv": [
+    "python",
+    "-m",
+    "pytest"
+  ],
+  "command_evidence_graph_hash": "e83dc3a5d12b7d02ece243a6767aa3286b70739246c811fda3bd60a1d7c3ccfc",
+  "compiled_system_dependency_indicators": [],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/lint.yml",
+        "sha256": "ff5870ae6acf317e31a3064141e3f35302e68998e1e5418fb7bca3d927cbc71c"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "96f8142eb2f5137be1fa643bbda9ef84c224457aac2504be64d138dedb984836"
+      }
+    ],
+    "source_record_hash": "e6df12af329c91874c83bc75eb3f7903b375cea70a93c81b38e29f1e2c428d4c"
+  },
+  "declared_dependencies": [],
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "e6df12af329c91874c83bc75eb3f7903b375cea70a93c81b38e29f1e2c428d4c"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "81e3598e1c796b5aa2cf5a0aee080029966bd7b69a991e14798eb2693fb920b2",
+      "post_state_hash": "5fe831e55f7fa71b7ff583eafbd00d0ebe2b251bad7ac3da43d5ed1a4e98ba06",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "9ba3e7778fcbdc562b53e230e5e8ac7218788465"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "59bb64591d41a0a081a0946aab69177d353b68b169001e68afaf9be0c9bf2528",
+      "post_state_hash": "1ea53e650c99dcfb9c321d1beec9f49520bd860a64a61df55252bf4e3a4b8c1f",
+      "prior_state_hash": "5fe831e55f7fa71b7ff583eafbd00d0ebe2b251bad7ac3da43d5ed1a4e98ba06",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [
+        ".github/workflows/lint.yml",
+        "pyproject.toml"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "be411c0ac4ddd67dd3c05211167b0110cb4f530a7ffa4e447c581e4bb0bf8465",
+      "post_state_hash": "619bac5760e0d742ada438eff6a4bcb96650ec8a50b093beb0b77f1e9d150dc4",
+      "prior_state_hash": "1ea53e650c99dcfb9c321d1beec9f49520bd860a64a61df55252bf4e3a4b8c1f",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "ebe7b15ab6d400c192eda8b6f09deb1cdcb8b5c914553e0dcab612ee2b621a73",
+      "post_state_hash": "0b4345978d665a61393627db0d07fe13a12db5b18e896234004b45c246f3dd68",
+      "prior_state_hash": "619bac5760e0d742ada438eff6a4bcb96650ec8a50b093beb0b77f1e9d150dc4",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "77cdea537df33df3b0167e654ade2a7db2a97036742628188ec74a79ba294a25",
+      "prior_state_hash": "0b4345978d665a61393627db0d07fe13a12db5b18e896234004b45c246f3dd68",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "27001f095432e92c0763277ef8000e12df79ba9f5671032f4ebd98e99f14167a",
+      "prior_state_hash": "77cdea537df33df3b0167e654ade2a7db2a97036742628188ec74a79ba294a25",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "aa0b6dbee7a80b24bae9d7bc514703ab172cb1d94e68592d460eda43cb927448",
+      "prior_state_hash": "27001f095432e92c0763277ef8000e12df79ba9f5671032f4ebd98e99f14167a",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "91595deeb7ae1c2e68862991ee25ca854543c9a33791a600d7f302a385114485",
+      "prior_state_hash": "aa0b6dbee7a80b24bae9d7bc514703ab172cb1d94e68592d460eda43cb927448",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "1a2db5c1d7c1c263704e3e5ed66d576b51912a1b6095de36726fc81996055e4b",
+      "prior_state_hash": "91595deeb7ae1c2e68862991ee25ca854543c9a33791a600d7f302a385114485",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "cc89008e0befe57e13879d35a064faa1e8ecc967133b90acf5964ba76344d543",
+      "prior_state_hash": "1a2db5c1d7c1c263704e3e5ed66d576b51912a1b6095de36726fc81996055e4b",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_markberger_dspy_temporal_issues_32",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "59e0b0a58d4b8556efa16ce43610d169f3460bbbc86fb68cbd31f23550ee0a76",
+      "prior_state_hash": "cc89008e0befe57e13879d35a064faa1e8ecc967133b90acf5964ba76344d543",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2026-06-14T03:25:29Z",
+  "issue_identity": {
+    "issue_created_at": "2026-06-14T03:25:29Z",
+    "issue_url": "https://github.com/markberger/dspy_temporal/issues/32",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 1166,
+      "candidate_sha": "9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+      "path": ".github/workflows/lint.yml",
+      "sha256": "ff5870ae6acf317e31a3064141e3f35302e68998e1e5418fb7bca3d927cbc71c",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4061,
+      "candidate_sha": "9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+      "path": "pyproject.toml",
+      "sha256": "96f8142eb2f5137be1fa643bbda9ef84c224457aac2504be64d138dedb984836",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [],
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [],
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "96f8142eb2f5137be1fa643bbda9ef84c224457aac2504be64d138dedb984836",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/markberger/dspy_temporal",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "pytest",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "pytest",
+    "status": "PASS",
+    "target_package": "dspy_temporal"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "python",
+      "-m",
+      "pytest"
+    ],
+    "candidate_sha": "9ba3e7778fcbdc562b53e230e5e8ac7218788465",
+    "precedence": 30,
+    "source_class": "pyproject.toml",
+    "source_path": "pyproject.toml",
+    "source_sha256": "96f8142eb2f5137be1fa643bbda9ef84c224457aac2504be64d138dedb984836",
+    "target_path_corroborated": false,
+    "token_safety": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "selection_confidence": "deterministic_source_precedence",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [],
+  "state_hash": "52788d76d18b15ed5d352b2a71c9e4577ce7213ae50040e62f0733090cfd3cc9",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "5e2f143fb41e0f67225b4a845844bb5739676f1e18ac90b7302944f842357004",
+    "issue_created_at": "2026-06-14T03:25:29Z",
+    "issue_title_sha256": "e5cf6d18e1147829c086d6f583f2b9fc4da216253b7f5eb5a8c25100e738e93e",
+    "issue_url": "https://github.com/markberger/dspy_temporal/issues/32",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "2a9f324d5bed9143572c955af714b6b966843770a0eceb3dca4d402cd636ddca",
+    "test_paths": []
+  },
+  "target_package": "dspy_temporal",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_declared_by_decision_time_evidence",
+    "paths": [],
+    "proposed_paths": [],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": "."
+}

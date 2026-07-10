@@ -12,7 +12,9 @@ if str(ROOT) not in sys.path:
 
 from controllergate.core.manifests import verify_manifest
 from controllergate.core.public_summary import FORBIDDEN_PUBLIC_TERMS, audit_public_summary_text
-from controllergate.core.seed_harvest import PARKED_PYTEST_CANDIDATE_ID, REQUIRED_BATCH068_CANDIDATE_FIELDS
+from controllergate.core.seed_harvest import REQUIRED_BATCH068_CANDIDATE_FIELDS, load_parked_candidate_ids
+
+PARKED_PYTEST_CANDIDATE_ID = load_parked_candidate_ids(ROOT)[0]
 
 OUT_NAME = "post_v2_37_hardening_batch068_multi_seed_harvest_for_5th_issue_repair_with_batch067_063c_063d_063e_controls"
 OUT_DIR = ROOT / "outputs" / OUT_NAME

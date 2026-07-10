@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "steps": [
+    {
+      "handler": "passthrough_handler",
+      "name": "source_identity_verification",
+      "step_id": "CG-RXN-001",
+      "verifier": "nonempty_output_verifier"
+    },
+    {
+      "handler": "passthrough_handler",
+      "name": "candidate_sha_verification",
+      "step_id": "CG-RXN-002",
+      "verifier": "nonempty_output_verifier"
+    },
+    {
+      "handler": "passthrough_handler",
+      "name": "decision_time_metadata_acquisition",
+      "step_id": "CG-RXN-003",
+      "verifier": "nonempty_output_verifier"
+    },
+    {
+      "handler": "passthrough_handler",
+      "name": "native_target_path_verification",
+      "step_id": "CG-RXN-004",
+      "verifier": "nonempty_output_verifier"
+    },
+    {
+      "handler": "passthrough_handler",
+      "name": "command_source_extraction",
+      "step_id": "CG-RXN-005",
+      "verifier": "nonempty_output_verifier"
+    },
+    {
+      "handler": "passthrough_handler",
+      "name": "command_normalization_and_ranking",
+      "step_id": "CG-RXN-006",
+      "verifier": "nonempty_output_verifier"
+    },
+    {
+      "handler": "passthrough_handler",
+      "name": "runner_target_split_verification",
+      "step_id": "CG-RXN-007",
+      "verifier": "nonempty_output_verifier"
+    },
+    {
+      "handler": "passthrough_handler",
+      "name": "harness_origin_static_verification",
+      "step_id": "CG-RXN-008",
+      "verifier": "nonempty_output_verifier"
+    },
+    {
+      "handler": "passthrough_handler",
+      "name": "provider_feasibility_static_classification",
+      "step_id": "CG-RXN-009",
+      "verifier": "nonempty_output_verifier"
+    },
+    {
+      "handler": "passthrough_handler",
+      "name": "tier3_promotion_decision",
+      "step_id": "CG-RXN-010",
+      "verifier": "nonempty_output_verifier"
+    },
+    {
+      "handler": "passthrough_handler",
+      "name": "terminal_state_and_reopen_condition_emission",
+      "step_id": "CG-RXN-011",
+      "verifier": "nonempty_output_verifier"
+    }
+  ]
+}

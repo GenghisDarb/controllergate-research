@@ -1,0 +1,23 @@
+{
+  "activation_rule": "all_required_conditions_must_pass_in_a_separately_authorized_future_lane",
+  "issue_derived_repair_floor": 20,
+  "required_conditions": [
+    "issue_derived_repair_floor_met",
+    "minimum_repository_diversity_met",
+    "minimum_ecosystem_language_diversity_met",
+    "prospective_matched_null_evidence_pass",
+    "sandbox_replay_pass",
+    "rollback_target_available",
+    "signed_artifact_available",
+    "operator_policy_authorizes_live_change",
+    "zero_unresolved_custody_failures",
+    "zero_decision_time_outcome_leakage",
+    "zero_label_gold_patch_leakage",
+    "canary_deployment_evidence",
+    "post_deployment_health_verification",
+    "automatic_rollback_demonstration"
+  ],
+  "runtime_connectors_default": "inactive",
+  "schema_version": "controllergate.runtime_activation.v2",
+  "status": "PASS"
+}

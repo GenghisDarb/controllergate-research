@@ -17,11 +17,11 @@ from controllergate.core.artifacts import verify_artifact_zip
 from controllergate.core.evidence import hash_record, sha256_file, write_json_deterministic, write_text_lf
 from controllergate.core.manifests import write_sha256sums
 from controllergate.core.seed_harvest import (
-    PARKED_PYTEST_CANDIDATE_ID,
     REQUIRED_BATCH068_CANDIDATE_FIELDS,
     build_seed_record,
     is_active_repair_seed,
     is_placeholder_candidate_id,
+    load_parked_candidate_ids,
     normalize_candidate_id,
 )
 from controllergate.core.seed_ranking import candidate_seed_risk_score_schema, rank_seeds
@@ -29,6 +29,8 @@ from controllergate.core.seed_source_approval import (
     batch068_rejected_source_policy,
     batch068_source_policy,
 )
+
+PARKED_PYTEST_CANDIDATE_ID = load_parked_candidate_ids(ROOT)[0]
 
 OUT_NAME = "post_v2_37_hardening_batch068_multi_seed_harvest_for_5th_issue_repair_with_batch067_063c_063d_063e_controls"
 OUT_DIR = ROOT / "outputs" / OUT_NAME

@@ -1,0 +1,779 @@
+{
+  "candidate_id": "numpy_21994_ufunc_overflow",
+  "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+  "command_argv": [],
+  "command_evidence_graph_hash": "a68113350804c6dd4e15d4f476ce4430bef3e1fae655f7c6785b750757534f27",
+  "compiled_system_dependency_indicators": [
+    "clang",
+    "cython",
+    "gcc",
+    "numpy",
+    "scipy"
+  ],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/CONTRIBUTING.md",
+        "sha256": "4985eee4e35cdeac853bcf3b7a05352a884042f1a892d4f5d7ecc330d59a75bb"
+      },
+      {
+        "path": ".github/workflows/build_test.yml",
+        "sha256": "f9153e631edc9aa38409c39507a51982a7b218e5b4c43bf20ebdd235c7ffb86e"
+      },
+      {
+        "path": ".github/workflows/circleci.yml",
+        "sha256": "cc5d03d41d33dd4d56961fea976359bd076db853331547a2d0ee1e005472e395"
+      },
+      {
+        "path": ".github/workflows/cygwin.yml",
+        "sha256": "33e3b59a8aa9d87cdd9a54193aa5d85876036ce4562509ebf8c0052e3ba45e8d"
+      },
+      {
+        "path": ".github/workflows/docker.yml",
+        "sha256": "018d90a961ed0a9c3ead02730c6e6be6c53ffe267dc46995175c85542cd2c190"
+      },
+      {
+        "path": ".github/workflows/gitpod.yml",
+        "sha256": "060dc3bb7e6ae133ab7c4bb43e7ddd72cb83a6627455798b9a2d995df5b1c857"
+      },
+      {
+        "path": ".github/workflows/labeler.yml",
+        "sha256": "0c62eca12f3f1b75d2627702bdda235db26dafc0104eeda10c281fe13e57fc4a"
+      },
+      {
+        "path": ".github/workflows/wheels.yml",
+        "sha256": "787cd79630193b62c20d32629011cd5b4a4c7653e887d3a0efefe4c8f7e62673"
+      },
+      {
+        "path": "doc/TESTS.rst",
+        "sha256": "c0214a53acd14fb959afc210eb348c500c3053f15490e106b56f5dd2dbd6f8fe"
+      },
+      {
+        "path": "doc/source/dev/development_advanced_debugging.rst",
+        "sha256": "ce101418aa2561d3855d02dd2d2dbc17337c7ed143992aab463d776a59694048"
+      },
+      {
+        "path": "doc/source/dev/development_environment.rst",
+        "sha256": "451c52173b96f97c6cee22f51380e931176bcba486f398db279aa64d43dc0e75"
+      },
+      {
+        "path": "doc/source/dev/development_gitpod.rst",
+        "sha256": "903650f2eb3208bc9e9d4a23b0e95e29d46f7063d3e56b004e6d8ef39550b552"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "a1bedd5cde891001b9e7356f4a68f9bd6144dc9e5d7254496a5e9c8fc5ad1538"
+      },
+      {
+        "path": "pytest.ini",
+        "sha256": "03efe599801b18efbef57846f28ceb547e2ef8b423550050a4ddcae2691a6df2"
+      },
+      {
+        "path": "setup.cfg",
+        "sha256": "1791d92c32dc184125471d407e5eb401fac121b173c517609a6766667cde2fe1"
+      },
+      {
+        "path": "setup.py",
+        "sha256": "a5643e7361a9615602372bad52974bd88370edfa62da95f427116d75e6155ace"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "c3a8a79deba61786590961131d009ab0089851ca6552f5fa7a21f83950c064ee"
+      }
+    ],
+    "source_record_hash": "3ce524ba7c790009ea7ec064d4aac1673adbead01326edc1b3033329fcfac9b8"
+  },
+  "declared_dependencies": [
+    "clang",
+    "cython",
+    "download",
+    "gcc",
+    "numpy",
+    "scipy"
+  ],
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "3ce524ba7c790009ea7ec064d4aac1673adbead01326edc1b3033329fcfac9b8"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "ddd4426b6b00eb0a84725ccbc0049452e620ef4840a9fcbfe57daa189dcb6f89",
+      "post_state_hash": "526926dbad96d002e9266b28f8f9845aa3379873bde6dfe6965fd9b5517448a2",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "165633e67eed3601095ed93816d4dd12c37adadab3b9e3c237a940ec104a46de",
+      "post_state_hash": "e076fac2352bcd8b081a1c9b8d7a48de46b6555217c59cc79629655f59d53af9",
+      "prior_state_hash": "526926dbad96d002e9266b28f8f9845aa3379873bde6dfe6965fd9b5517448a2",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [
+        ".github/CONTRIBUTING.md",
+        ".github/workflows/build_test.yml",
+        ".github/workflows/circleci.yml",
+        ".github/workflows/cygwin.yml",
+        ".github/workflows/docker.yml",
+        ".github/workflows/gitpod.yml",
+        ".github/workflows/labeler.yml",
+        ".github/workflows/wheels.yml",
+        "doc/TESTS.rst",
+        "doc/source/dev/development_advanced_debugging.rst",
+        "doc/source/dev/development_environment.rst",
+        "doc/source/dev/development_gitpod.rst",
+        "pyproject.toml",
+        "pytest.ini",
+        "setup.cfg",
+        "setup.py",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2ed262ce25f5b4ebca6c02286026b26118f87bd8eb681fbb7e5950db0e245ac3",
+      "post_state_hash": "f5622a1eb1092a111469299a93a5c3b4c8b2505bc6d144079b7b49c151333a11",
+      "prior_state_hash": "e076fac2352bcd8b081a1c9b8d7a48de46b6555217c59cc79629655f59d53af9",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "ebe7b15ab6d400c192eda8b6f09deb1cdcb8b5c914553e0dcab612ee2b621a73",
+      "post_state_hash": "31f3bd1343ff80e7a593c42690c509535f1fd99c28791cb68f817871e1662e1d",
+      "prior_state_hash": "f5622a1eb1092a111469299a93a5c3b4c8b2505bc6d144079b7b49c151333a11",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "4fa86ff6280d56317be7276319c22b52ad9f39b5e38b209d5107231505a84943",
+      "prior_state_hash": "31f3bd1343ff80e7a593c42690c509535f1fd99c28791cb68f817871e1662e1d",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "b3a9e876c3465142f3d0bd823ec8d931377e89232b13c81bd5a44e29cd84305e",
+      "prior_state_hash": "4fa86ff6280d56317be7276319c22b52ad9f39b5e38b209d5107231505a84943",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "4d5ff667d62bbda0cf6d26f62518507d91008899c83c1be229023826ebd6f8f1",
+      "prior_state_hash": "b3a9e876c3465142f3d0bd823ec8d931377e89232b13c81bd5a44e29cd84305e",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "0503ab3e430f939b5cbb8e6465c77544ed56add54e9cf351a326385cea1953ba",
+      "prior_state_hash": "4d5ff667d62bbda0cf6d26f62518507d91008899c83c1be229023826ebd6f8f1",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "75d9e98d17c97415761b2fea759a49efe8363334ac2adccaf96f6a382552d279",
+      "prior_state_hash": "0503ab3e430f939b5cbb8e6465c77544ed56add54e9cf351a326385cea1953ba",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "64593326bcd1478be869dd0ea579e3cea4ba3110b37d16efaa096b8f96e3b184",
+      "prior_state_hash": "75d9e98d17c97415761b2fea759a49efe8363334ac2adccaf96f6a382552d279",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "numpy_21994_ufunc_overflow",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "ac5401d173103a071140827d7877d90d418c491aa680864c24956adb5934aa4d",
+      "prior_state_hash": "64593326bcd1478be869dd0ea579e3cea4ba3110b37d16efaa096b8f96e3b184",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2022-07-16T16:48:45Z",
+  "issue_identity": {
+    "issue_created_at": "2022-07-16T16:48:45Z",
+    "issue_url": "https://github.com/numpy/numpy/issues/21994",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 1660,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": ".github/CONTRIBUTING.md",
+      "sha256": "4985eee4e35cdeac853bcf3b7a05352a884042f1a892d4f5d7ecc330d59a75bb",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 10407,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": ".github/workflows/build_test.yml",
+      "sha256": "f9153e631edc9aa38409c39507a51982a7b218e5b4c43bf20ebdd235c7ffb86e",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 524,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": ".github/workflows/circleci.yml",
+      "sha256": "cc5d03d41d33dd4d56961fea976359bd076db853331547a2d0ee1e005472e395",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 3055,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": ".github/workflows/cygwin.yml",
+      "sha256": "33e3b59a8aa9d87cdd9a54193aa5d85876036ce4562509ebf8c0052e3ba45e8d",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2136,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": ".github/workflows/docker.yml",
+      "sha256": "018d90a961ed0a9c3ead02730c6e6be6c53ffe267dc46995175c85542cd2c190",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2156,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": ".github/workflows/gitpod.yml",
+      "sha256": "060dc3bb7e6ae133ab7c4bb43e7ddd72cb83a6627455798b9a2d995df5b1c857",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 297,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": ".github/workflows/labeler.yml",
+      "sha256": "0c62eca12f3f1b75d2627702bdda235db26dafc0104eeda10c281fe13e57fc4a",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 8382,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": ".github/workflows/wheels.yml",
+      "sha256": "787cd79630193b62c20d32629011cd5b4a4c7653e887d3a0efefe4c8f7e62673",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 13970,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": "doc/TESTS.rst",
+      "sha256": "c0214a53acd14fb959afc210eb348c500c3053f15490e106b56f5dd2dbd6f8fe",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 7150,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": "doc/source/dev/development_advanced_debugging.rst",
+      "sha256": "ce101418aa2561d3855d02dd2d2dbc17337c7ed143992aab463d776a59694048",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 12178,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": "doc/source/dev/development_environment.rst",
+      "sha256": "451c52173b96f97c6cee22f51380e931176bcba486f398db279aa64d43dc0e75",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 12153,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": "doc/source/dev/development_gitpod.rst",
+      "sha256": "903650f2eb3208bc9e9d4a23b0e95e29d46f7063d3e56b004e6d8ef39550b552",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 3404,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": "pyproject.toml",
+      "sha256": "a1bedd5cde891001b9e7356f4a68f9bd6144dc9e5d7254496a5e9c8fc5ad1538",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1173,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": "pytest.ini",
+      "sha256": "03efe599801b18efbef57846f28ceb547e2ef8b423550050a4ddcae2691a6df2",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 444,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": "setup.cfg",
+      "sha256": "1791d92c32dc184125471d407e5eb401fac121b173c517609a6766667cde2fe1",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 18608,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": "setup.py",
+      "sha256": "a5643e7361a9615602372bad52974bd88370edfa62da95f427116d75e6155ace",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1325,
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "path": "tox.ini",
+      "sha256": "c3a8a79deba61786590961131d009ab0089851ca6552f5fa7a21f83950c064ee",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [
+    "download"
+  ],
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [
+    "macos",
+    "win32",
+    "windows"
+  ],
+  "provider_feasibility_class": "network_or_model_dependency_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "gdb",
+        "--args",
+        "{envpython}",
+        "{toxinidir}/runtests.py",
+        "--mode=full",
+        "{posargs:}"
+      ],
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "c3a8a79deba61786590961131d009ab0089851ca6552f5fa7a21f83950c064ee",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "gdb",
+          "--args",
+          "{envpython}",
+          "{toxinidir}/runtests.py",
+          "--mode=full",
+          "{posargs:}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "c3a8a79deba61786590961131d009ab0089851ca6552f5fa7a21f83950c064ee",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "{envpython}",
+        "-b",
+        "{toxinidir}/runtests.py",
+        "--mode=full",
+        "{posargs:}"
+      ],
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "c3a8a79deba61786590961131d009ab0089851ca6552f5fa7a21f83950c064ee",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "{envpython}",
+          "-b",
+          "{toxinidir}/runtests.py",
+          "--mode=full",
+          "{posargs:}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "precedence": 50,
+      "source_class": "pytest.ini",
+      "source_path": "pytest.ini",
+      "source_sha256": "03efe599801b18efbef57846f28ceb547e2ef8b423550050a4ddcae2691a6df2",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "Pytest",
+        "examines",
+        "these",
+        "files",
+        "for",
+        "test",
+        "methods",
+        "(named",
+        "``test*``)",
+        "and",
+        "test"
+      ],
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/TESTS.rst",
+      "source_sha256": "c0214a53acd14fb959afc210eb348c500c3053f15490e106b56f5dd2dbd6f8fe",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "Pytest",
+          "examines",
+          "these",
+          "files",
+          "for",
+          "test",
+          "methods",
+          "(named",
+          "``test*``)",
+          "and",
+          "test"
+        ],
+        "blocker": "unsafe_command_tokens",
+        "status": "BLOCK",
+        "unsafe_tokens": [
+          "unbounded_globbing"
+        ]
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "py39"
+      ],
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "doc/source/dev/development_environment.rst",
+      "source_sha256": "451c52173b96f97c6cee22f51380e931176bcba486f398db279aa64d43dc0e75",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "py39"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/numpy/numpy",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "numpy"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "gdb",
+        "--args",
+        "{envpython}",
+        "{toxinidir}/runtests.py",
+        "--mode=full",
+        "{posargs:}"
+      ],
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "c3a8a79deba61786590961131d009ab0089851ca6552f5fa7a21f83950c064ee",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "gdb",
+          "--args",
+          "{envpython}",
+          "{toxinidir}/runtests.py",
+          "--mode=full",
+          "{posargs:}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "c3a8a79deba61786590961131d009ab0089851ca6552f5fa7a21f83950c064ee",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "{envpython}",
+        "-b",
+        "{toxinidir}/runtests.py",
+        "--mode=full",
+        "{posargs:}"
+      ],
+      "candidate_sha": "b8c6d09208ecb7f0d83a8b06ab9e15e720f03730",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "c3a8a79deba61786590961131d009ab0089851ca6552f5fa7a21f83950c064ee",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "{envpython}",
+          "-b",
+          "{toxinidir}/runtests.py",
+          "--mode=full",
+          "{posargs:}"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "d629cc3f5c4d73127ab35777debc3e22b557b0842c48fa9d9cd9bec84bd59f12",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "1577c08cda1c706125519b7419bd21cdf3b1fe9c8740de026fa111494f2a954f",
+    "issue_created_at": "2022-07-16T16:48:45Z",
+    "issue_title_sha256": "75b8c4df0b95bf85c59718300bf662a8dd222ed221b84de8d44d64b5babe4730",
+    "issue_url": "https://github.com/numpy/numpy/issues/21994",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "5bcd57a18950c23fdb813a30a254b8ac4b0e49963a0f49ad86b47281aee599aa",
+    "test_paths": []
+  },
+  "target_package": "numpy",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_declared_by_decision_time_evidence",
+    "paths": [],
+    "proposed_paths": [],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

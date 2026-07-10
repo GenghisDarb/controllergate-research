@@ -1,0 +1,462 @@
+{
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+  "command_argv": [],
+  "command_evidence_graph_hash": "f68a8e7887170eb03c3a9d793a628dd3e9beaa96fdb9e706188489a900c9ee6a",
+  "compiled_system_dependency_indicators": [],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/main.yml",
+        "sha256": "297ca39315c6b37110f1756fb99b5ebfb391368455a60772da2836b2d2615e5e"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "74456972b8647e65661a7341915401a6af7019006525f4fa1fcdd01d2e7de551"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "ab3c2e330d4eb47c1aafb5204a3147aa2becb68cfd9f82f9ce206967ff696efb"
+      }
+    ],
+    "source_record_hash": "0bb319c6ad38810db2a85c2312a5fc9000057c7c0cda7515ec69a509e385ba06"
+  },
+  "declared_dependencies": [],
+  "exact_blocker": "command_source_conflict_manual_review",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "0bb319c6ad38810db2a85c2312a5fc9000057c7c0cda7515ec69a509e385ba06"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "5a83a65b76a43f18413e7ed77eac5a38f2221daf8595eb0870fb248eb9d8ca32",
+      "post_state_hash": "7543b02c677272c8775c51b7d97defc06675d0795124d777759ee740751347c4",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "577f8e2cbe99f33dd7d236deb1626e372f4762e9"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "c3e9ce4afbbc63cdfa9d906a5dacd189cd07e045d4e47783bed2ba56d7d18432",
+      "post_state_hash": "81d1ac9b47bcb0f3d785e61254296e0081d10dfd474bb48ecdfaae9ee1cedd16",
+      "prior_state_hash": "7543b02c677272c8775c51b7d97defc06675d0795124d777759ee740751347c4",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [
+        ".github/workflows/main.yml",
+        "pyproject.toml",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "897464c0c6f07db51240fc4a18040fb8d5d32b962ae669a7a43d6335b88845fc",
+      "post_state_hash": "62d6439a6b6184c072739dba805f0718596692f8a7978cd0e81b2bd9cf5296f3",
+      "prior_state_hash": "81d1ac9b47bcb0f3d785e61254296e0081d10dfd474bb48ecdfaae9ee1cedd16",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [
+        "test/test_audioread.py"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "6ef0307ac0d622c09f7423dea9a5a521e45050596616062e3be92efd288a4f52",
+      "post_state_hash": "629004d942e4d88aa5bbd9ce0f1531a93d8e8037a0c167aadecbfd86874705d1",
+      "prior_state_hash": "62d6439a6b6184c072739dba805f0718596692f8a7978cd0e81b2bd9cf5296f3",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-004",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "9ef243f15a860673c7957edbaea9dc97dffbd6881ff34072f7c6f86c0bce399e",
+      "prior_state_hash": "629004d942e4d88aa5bbd9ce0f1531a93d8e8037a0c167aadecbfd86874705d1",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-005",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "7644febbc81855a299c85a41e90fe1da6216bc6362f0815c280744263a2d4fbc",
+      "post_state_hash": "54f8fffd1275e915168d0b200c5023d3bb1f7557526ef50d1c30560669c3a640",
+      "prior_state_hash": "9ef243f15a860673c7957edbaea9dc97dffbd6881ff34072f7c6f86c0bce399e",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-006",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "09a7ea47ba09da936175a6e08a7a41855416d7908890e9e20890446da42f60e6",
+      "prior_state_hash": "54f8fffd1275e915168d0b200c5023d3bb1f7557526ef50d1c30560669c3a640",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-007",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "harness_origin_static_unresolved",
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "27af30fa5cb404c2a2a5cb9f4a3fc39823b9e4cab538d58cb3466e1c1cc697d0",
+      "post_state_hash": "cc3bdbd568426416abb3fc0aa5ae90c34a02b8ad92ff386730fa879f263ffa4a",
+      "prior_state_hash": "09a7ea47ba09da936175a6e08a7a41855416d7908890e9e20890446da42f60e6",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "harness_origin_static_unresolved",
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "5e2930da51a1255f8606d8d00ec1ded7662214e23c370d814be21b1e06eef584",
+      "post_state_hash": "28fa876f2f3420e162079ced0b6ae090828688f763103b363306a54f479b7566",
+      "prior_state_hash": "cc3bdbd568426416abb3fc0aa5ae90c34a02b8ad92ff386730fa879f263ffa4a",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "harness_origin_static_unresolved",
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "5e2930da51a1255f8606d8d00ec1ded7662214e23c370d814be21b1e06eef584",
+      "post_state_hash": "6999432483455710c868fea52ec355b5046d78c90f8d3e590c058bd9faccb557",
+      "prior_state_hash": "28fa876f2f3420e162079ced0b6ae090828688f763103b363306a54f479b7566",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "harness_origin_static_unresolved",
+      "blocker_reason": null,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "5e2930da51a1255f8606d8d00ec1ded7662214e23c370d814be21b1e06eef584",
+      "post_state_hash": "a5e5c138a234d93055079d77dade811a79584f5e3315f36da7e97c0123129be1",
+      "prior_state_hash": "6999432483455710c868fea52ec355b5046d78c90f8d3e590c058bd9faccb557",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2024-06-13T15:58:05Z",
+  "issue_identity": {
+    "issue_created_at": "2024-06-13T15:58:05Z",
+    "issue_url": "https://github.com/beetbox/audioread/issues/144",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 594,
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "path": ".github/workflows/main.yml",
+      "sha256": "297ca39315c6b37110f1756fb99b5ebfb391368455a60772da2836b2d2615e5e",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 792,
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "path": "pyproject.toml",
+      "sha256": "74456972b8647e65661a7341915401a6af7019006525f4fa1fcdd01d2e7de551",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 117,
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "path": "tox.ini",
+      "sha256": "ab3c2e330d4eb47c1aafb5204a3147aa2becb68cfd9f82f9ce206967ff696efb",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": "test/test_audioread.py",
+  "network_model_indicators": [],
+  "next_allowed_action": "review_conflicting_authoritative_command_sources",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [],
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "pytest",
+        "{posargs}",
+        "test/test_audioread.py"
+      ],
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "ab3c2e330d4eb47c1aafb5204a3147aa2becb68cfd9f82f9ce206967ff696efb",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "{posargs}",
+          "test/test_audioread.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "test/test_audioread.py"
+      ],
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "ab3c2e330d4eb47c1aafb5204a3147aa2becb68cfd9f82f9ce206967ff696efb",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "test/test_audioread.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "py"
+      ],
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/main.yml",
+      "source_sha256": "297ca39315c6b37110f1756fb99b5ebfb391368455a60772da2836b2d2615e5e",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "review_conflicting_authoritative_command_sources",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/beetbox/audioread",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "audioread"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "pytest",
+        "{posargs}",
+        "test/test_audioread.py"
+      ],
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "ab3c2e330d4eb47c1aafb5204a3147aa2becb68cfd9f82f9ce206967ff696efb",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "{posargs}",
+          "test/test_audioread.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "test/test_audioread.py"
+      ],
+      "candidate_sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "ab3c2e330d4eb47c1aafb5204a3147aa2becb68cfd9f82f9ce206967ff696efb",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "test/test_audioread.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "0dde2b9fa47b796bd17db4eb16e0ff06ae9e1d76115b930bf989a7f4616872a4",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "784396db6c73da09c2a504a51dad2aca1b06ff8886a017a31df7945d0eda0ee7",
+    "issue_created_at": "2024-06-13T15:58:05Z",
+    "issue_title_sha256": "8b5ef2f5de110751916d21d2f516b9dd3d1f312668074d2fa4591c5263281daf",
+    "issue_url": "https://github.com/beetbox/audioread/issues/144",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "1524079dfce92b3e75c4b6431261234a74a451b85c08682f38eaad983fca7049",
+    "test_paths": [
+      "test/test_audioread.py"
+    ]
+  },
+  "target_package": "audioread",
+  "target_path_verification": {
+    "blocker": null,
+    "paths": [
+      "test/test_audioread.py"
+    ],
+    "proposed_paths": [
+      "test/test_audioread.py"
+    ],
+    "status": "PASS"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "command_source_conflict_manual_review",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

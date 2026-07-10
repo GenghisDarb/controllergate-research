@@ -1,8 +1,12 @@
 from __future__ import annotations
 
-from controllergate.core.seed_harvest import PARKED_PYTEST_CANDIDATE_ID, build_seed_record
+from pathlib import Path
+
+from controllergate.core.seed_harvest import build_seed_record, load_parked_candidate_ids
 from controllergate.core.seed_ranking import rank_seeds
 from controllergate.core.seed_source_approval import batch068_source_policy
+
+PARKED_PYTEST_CANDIDATE_ID = load_parked_candidate_ids(Path(__file__).resolve().parents[2])[0]
 
 
 def test_batch068_parks_pytest_without_reopen_evidence() -> None:

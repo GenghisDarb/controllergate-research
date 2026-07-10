@@ -1,0 +1,452 @@
+{
+  "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+  "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+  "command_argv": [
+    "python",
+    "-m",
+    "pytest"
+  ],
+  "command_evidence_graph_hash": "0203af691b16e18039ac10231937988b3981d435781908f36fe6446e949c4391",
+  "compiled_system_dependency_indicators": [
+    "numpy"
+  ],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/build_documentation.yml",
+        "sha256": "91e59ad236248e99b30e5c30a010371a2706128792cacd85fcb56f796a33bb46"
+      },
+      {
+        "path": ".github/workflows/build_pyodide.yml",
+        "sha256": "ca3b79145426fab2da3a7d8f918a6b64dd4295f2360b3043307f778e997ed941"
+      },
+      {
+        "path": ".github/workflows/build_wheels.yml",
+        "sha256": "44156b9966bebe48f9d886fad2bc2cae65106ca8881d2deded157764a1025e34"
+      },
+      {
+        "path": ".github/workflows/test_crosshair.yml",
+        "sha256": "f550739e284ea6789878cc92589b4984ab39918289b23c7c26168a078a9d28f5"
+      },
+      {
+        "path": ".github/workflows/test_hypothesis_integration.yml",
+        "sha256": "3e0548874b7d36c44838f8691928495fc5379cbc5d6d78d604e073a989203f91"
+      },
+      {
+        "path": "doc/contributing_to_docs.md",
+        "sha256": "95d7ae62190678416c987c749edafde2a57c8fde2d68c679a474566e99315ae1"
+      },
+      {
+        "path": "doc/source/contributing.rst",
+        "sha256": "17397489b1f0af331d40e095a63f37d7bf479f7ae2e44b5987aecf2baf0b73e5"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "d69634e3f82e89598b9559c0622db93548daad199e298fbb2c6af8f28d37f329"
+      }
+    ],
+    "source_record_hash": "170e52226859dcc419e4963d32109dde0109fc313ee1e1a13521a676be5b1296"
+  },
+  "declared_dependencies": [
+    "numpy"
+  ],
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "170e52226859dcc419e4963d32109dde0109fc313ee1e1a13521a676be5b1296"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "b5305f7e720d1bce9700a30bec2128c66638491da4853daaec08b772552f90bb",
+      "post_state_hash": "dbd7261952503a85ddf788723296567d7003dd56e26bf78010a57f9f80deb883",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "d7ac86f2087b781e298bca05ca581f799aef85a0"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "fb29056963a9d9a8175729797cec1714aa033594092972f887d9d4fd4b5c6be7",
+      "post_state_hash": "162ce0f39c81ecc2e0e7f5d4b0c71545c2c96754c1af1d081f11239eafbca8e4",
+      "prior_state_hash": "dbd7261952503a85ddf788723296567d7003dd56e26bf78010a57f9f80deb883",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [
+        ".github/workflows/build_documentation.yml",
+        ".github/workflows/build_pyodide.yml",
+        ".github/workflows/build_wheels.yml",
+        ".github/workflows/test_crosshair.yml",
+        ".github/workflows/test_hypothesis_integration.yml",
+        "doc/contributing_to_docs.md",
+        "doc/source/contributing.rst",
+        "pyproject.toml"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "b9dbaedcfee6119840f2c8df02dc433722e9dd451fae9c4f7c2b4d88e19dbba7",
+      "post_state_hash": "ad8268acba343a8f6ba5d5fa227696be958d4b0c08a5d624745efb41a11d3c14",
+      "prior_state_hash": "162ce0f39c81ecc2e0e7f5d4b0c71545c2c96754c1af1d081f11239eafbca8e4",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "ebe7b15ab6d400c192eda8b6f09deb1cdcb8b5c914553e0dcab612ee2b621a73",
+      "post_state_hash": "5d5d5ae2d4333454d03bb9965cf5d2227035b15c620a1b1500d5dc6103575b7f",
+      "prior_state_hash": "ad8268acba343a8f6ba5d5fa227696be958d4b0c08a5d624745efb41a11d3c14",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "681157a1a7e24e9057bea822b02653fb7af86fc703f8e2ff643798a0468bf235",
+      "prior_state_hash": "5d5d5ae2d4333454d03bb9965cf5d2227035b15c620a1b1500d5dc6103575b7f",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "33b2393feadb77ac0fe2899caf27976b95d9a97760e8d1c108ddc3e594b4b5f6",
+      "prior_state_hash": "681157a1a7e24e9057bea822b02653fb7af86fc703f8e2ff643798a0468bf235",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "e894b4da9a4d3ebe0fed7a3047d06c2cadc066aea7c1c98fe437503f8c4f9cd4",
+      "prior_state_hash": "33b2393feadb77ac0fe2899caf27976b95d9a97760e8d1c108ddc3e594b4b5f6",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "804363a2bed88102f9180dca05ef7f8d8f975b6eb86188ba0ae7a0e7dd7c1718",
+      "prior_state_hash": "e894b4da9a4d3ebe0fed7a3047d06c2cadc066aea7c1c98fe437503f8c4f9cd4",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "f5be098e92364acf74c7582f4c7aa0a50435399689dbccc8738d02aa6591bc1a",
+      "prior_state_hash": "804363a2bed88102f9180dca05ef7f8d8f975b6eb86188ba0ae7a0e7dd7c1718",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "4b0258128e2b330662dcc7c20ebbe26166251cb92a813304482b5b07cd254f51",
+      "prior_state_hash": "f5be098e92364acf74c7582f4c7aa0a50435399689dbccc8738d02aa6591bc1a",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_pschanely_crosshair_issues_437",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "ef5429e530507616795dbbb544365b8db98ad30d9e79b875f4099f86f259030c",
+      "prior_state_hash": "4b0258128e2b330662dcc7c20ebbe26166251cb92a813304482b5b07cd254f51",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2026-06-24T17:11:20Z",
+  "issue_identity": {
+    "issue_created_at": "2026-06-24T17:11:20Z",
+    "issue_url": "https://github.com/pschanely/CrossHair/issues/437",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 783,
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "path": ".github/workflows/build_documentation.yml",
+      "sha256": "91e59ad236248e99b30e5c30a010371a2706128792cacd85fcb56f796a33bb46",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1352,
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "path": ".github/workflows/build_pyodide.yml",
+      "sha256": "ca3b79145426fab2da3a7d8f918a6b64dd4295f2360b3043307f778e997ed941",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2772,
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "path": ".github/workflows/build_wheels.yml",
+      "sha256": "44156b9966bebe48f9d886fad2bc2cae65106ca8881d2deded157764a1025e34",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1632,
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "path": ".github/workflows/test_crosshair.yml",
+      "sha256": "f550739e284ea6789878cc92589b4984ab39918289b23c7c26168a078a9d28f5",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1600,
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "path": ".github/workflows/test_hypothesis_integration.yml",
+      "sha256": "3e0548874b7d36c44838f8691928495fc5379cbc5d6d78d604e073a989203f91",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1728,
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "path": "doc/contributing_to_docs.md",
+      "sha256": "95d7ae62190678416c987c749edafde2a57c8fde2d68c679a474566e99315ae1",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 3835,
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "path": "doc/source/contributing.rst",
+      "sha256": "17397489b1f0af331d40e095a63f37d7bf479f7ae2e44b5987aecf2baf0b73e5",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 3068,
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "path": "pyproject.toml",
+      "sha256": "d69634e3f82e89598b9559c0622db93548daad199e298fbb2c6af8f28d37f329",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [],
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [],
+  "provider_feasibility_class": "compiled_or_system_dependency_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "d69634e3f82e89598b9559c0622db93548daad199e298fbb2c6af8f28d37f329",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/pschanely/CrossHair",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "pytest",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "pytest",
+    "status": "PASS",
+    "target_package": "crosshair"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "python",
+      "-m",
+      "pytest"
+    ],
+    "candidate_sha": "d7ac86f2087b781e298bca05ca581f799aef85a0",
+    "precedence": 30,
+    "source_class": "pyproject.toml",
+    "source_path": "pyproject.toml",
+    "source_sha256": "d69634e3f82e89598b9559c0622db93548daad199e298fbb2c6af8f28d37f329",
+    "target_path_corroborated": false,
+    "token_safety": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "selection_confidence": "deterministic_source_precedence",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [],
+  "state_hash": "bfec2f703d6dc9924ea7beda69625f48929cbdae206cc078756f64fc22c98890",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "06d644a78c018a54e2274f2c1d0508af7e90bce9cd37c0f4e4f1cda71176b854",
+    "issue_created_at": "2026-06-24T17:11:20Z",
+    "issue_title_sha256": "5265edf9f78ba6ad612713ab45a0dfc7125b67d2089e6997c14665e4d5ce9ee8",
+    "issue_url": "https://github.com/pschanely/CrossHair/issues/437",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "dfe94935ade466dfe1f17d40f580fcfca8e59515927b3070b4b009df4b13adfd",
+    "test_paths": []
+  },
+  "target_package": "crosshair",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_declared_by_decision_time_evidence",
+    "paths": [],
+    "proposed_paths": [],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": "."
+}

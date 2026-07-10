@@ -1,5 +1,20 @@
 # Current status
 
+## Validated protocol and static frontier
+
+The validated current protocol is `v2.14 capability_recovery_lane`. Batch068g operates as a separate static planning frontier and is not protocol-promoted. It processes the frozen 25-candidate Tier-2 set through hash-pinned command-source, target-path, runner-target, harness-origin, and provider-feasibility gates. Any Tier-3 result authorizes only a future bounded provider-command probe.
+
+The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIER_STATE.json`; its rendered view is `docs/CURRENT_FRONTIER_STATUS.md`.
+
+- Issue-derived repair episodes: `4`.
+- Native external repair episodes: `4`.
+- Target tests executed by Batch068g: `0`.
+- Patches generated or applied by Batch068g: `0`.
+- Runtime activation: blocked by an incomplete conjunctive evidence vector.
+- Full scoring: `NOT_RUN/disallowed`.
+- Memory lift: `not_demonstrated`.
+- Self-maintaining software: `false/not_demonstrated`.
+
 ## Batch063e Pytest Runner-Target Split Evidence Intake
 
 Batch063e evaluates Pytest runner-target import origin after Batch063d normalized version-origin metadata. It tests whether Pytest can be run as a declared self-hosted test runner or through a proven external runner-target split. These are command-boundary controls and replay-readiness evidence, not repair proof. No repair is counted without source-only target pass, duplicate clean replay, and count gate. Full scoring remains NOT_RUN/disallowed. Memory lift remains not_demonstrated. Self-maintaining software remains false/not_demonstrated.

@@ -69,7 +69,7 @@ def _status_for(record: dict[str, Any]) -> str:
         return "probe_only_routing_memory"
     if state in MANUAL_ARTIFACT_STATUSES or _bool(record, "missing_manual_artifact"):
         return "approved_for_manual_artifact_request"
-    if state in RUNTIME_CONNECTOR_STATUSES or record.get("candidate_id") == "codex_wave3_aws_neuron_nki_library_issues_5":
+    if state in RUNTIME_CONNECTOR_STATUSES or _bool(record, "runtime_connector_required"):
         return "approved_for_runtime_connector_request"
     if state == "external_source_approval_required" or _bool(record, "missing_external_source_approval"):
         return "approved_for_external_source_approval"

@@ -1,0 +1,517 @@
+{
+  "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+  "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+  "command_argv": [],
+  "command_evidence_graph_hash": "dbcdc760112a4e1a20dd6887c62006e923bde65461468b7a740cc9f4dbc93d2b",
+  "compiled_system_dependency_indicators": [],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": "requirements.txt",
+        "sha256": "5377f2df3b417a67b2bacf812514563980dfebbcf64f41b00406c3a6a0f4c75d"
+      },
+      {
+        "path": "setup.cfg",
+        "sha256": "074a0df53eea17d14829f2c40b87b48df9d96b63261e47160a7850c22c787d90"
+      },
+      {
+        "path": "setup.py",
+        "sha256": "b2cac631136e8475bed25d458a391fa5e30d486cd8ea5972e5bc4b2a11ed18e1"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "52cbeb93b9d7f408c9c78fc19d574f9da15c86456d55297557167892a2e232ec"
+      }
+    ],
+    "source_record_hash": "956768d4e80e350a662d201c4bfc32c59a17c1ca738355457370733c31001010"
+  },
+  "declared_dependencies": [],
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "956768d4e80e350a662d201c4bfc32c59a17c1ca738355457370733c31001010"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "7017697b2b6b450c39da10af7b6747571918913d2f82072ec8b3f38765307953",
+      "post_state_hash": "667753c13b9ae3552b0950f47b409e7bd67c6f1edf3968a68d120b6c155f8576",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "3e52596cf48e634076bf009015b5aa3f6c3ed18297629dcd2497ba22b387b07c",
+      "post_state_hash": "1e88fc2c2190675d651e0f324515f0f98f2ffdb0ab189773294481bbae053aa8",
+      "prior_state_hash": "667753c13b9ae3552b0950f47b409e7bd67c6f1edf3968a68d120b6c155f8576",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [
+        "requirements.txt",
+        "setup.cfg",
+        "setup.py",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "ff6f7d40314db04dc3300b649c7491f8a2e48fb15b5ed1a0e77df043f2b96b77",
+      "post_state_hash": "cd8da5809f96d0b58ac2034c8c9a79bc09333b08f82c7e0a07b3b69bac1d270e",
+      "prior_state_hash": "1e88fc2c2190675d651e0f324515f0f98f2ffdb0ab189773294481bbae053aa8",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "ebe7b15ab6d400c192eda8b6f09deb1cdcb8b5c914553e0dcab612ee2b621a73",
+      "post_state_hash": "20b24d799fa3bb56ff0103bbfccc31d5dc3d14b37b6d537869167d0da62278f3",
+      "prior_state_hash": "cd8da5809f96d0b58ac2034c8c9a79bc09333b08f82c7e0a07b3b69bac1d270e",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "7d07374609cebc534b6ca256f4fbe4b072f10d2d135d8097a68b69db1511de52",
+      "prior_state_hash": "20b24d799fa3bb56ff0103bbfccc31d5dc3d14b37b6d537869167d0da62278f3",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "17a03f534b4427070019539a08697ad8b1bee179c003de1dcb026d7ef67564e8",
+      "prior_state_hash": "7d07374609cebc534b6ca256f4fbe4b072f10d2d135d8097a68b69db1511de52",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "b60a725ace6c17fad142e76c9f4677417ec4cc8436c2965ca37f4697c1e56add",
+      "prior_state_hash": "17a03f534b4427070019539a08697ad8b1bee179c003de1dcb026d7ef67564e8",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "0a1a937bef06fa471445a03185256886e6e7dfaa6ac881ebfec6f8d3bacf63ae",
+      "prior_state_hash": "b60a725ace6c17fad142e76c9f4677417ec4cc8436c2965ca37f4697c1e56add",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "e0a6caf3b1d7aa76fd8ad0159e984bd4d2dddcf6a839ad4472fe785dac7cf7f7",
+      "prior_state_hash": "0a1a937bef06fa471445a03185256886e6e7dfaa6ac881ebfec6f8d3bacf63ae",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "73389e473d650f8a57a7de146d8a7b4423e975a08449e01f3f31cc730634e79b",
+      "prior_state_hash": "e0a6caf3b1d7aa76fd8ad0159e984bd4d2dddcf6a839ad4472fe785dac7cf7f7",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_raczben_wexpect_issues_68",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "afb2c286549e66ddeed390308da6f58a6411fb828db5dc872c4db04d9d6c1a41",
+      "prior_state_hash": "73389e473d650f8a57a7de146d8a7b4423e975a08449e01f3f31cc730634e79b",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2024-10-11T18:32:35Z",
+  "issue_identity": {
+    "issue_created_at": "2024-10-11T18:32:35Z",
+    "issue_url": "https://github.com/raczben/wexpect/issues/68",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 27,
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "path": "requirements.txt",
+      "sha256": "5377f2df3b417a67b2bacf812514563980dfebbcf64f41b00406c3a6a0f4c75d",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1495,
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "path": "setup.cfg",
+      "sha256": "074a0df53eea17d14829f2c40b87b48df9d96b63261e47160a7850c22c787d90",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 167,
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "path": "setup.py",
+      "sha256": "b2cac631136e8475bed25d458a391fa5e30d486cd8ea5972e5bc4b2a11ed18e1",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2097,
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "path": "tox.ini",
+      "sha256": "52cbeb93b9d7f408c9c78fc19d574f9da15c86456d55297557167892a2e232ec",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [],
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [
+    "win32",
+    "windows"
+  ],
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "#",
+        "copy",
+        "all",
+        "testcase",
+        "into",
+        "working",
+        "dir"
+      ],
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "52cbeb93b9d7f408c9c78fc19d574f9da15c86456d55297557167892a2e232ec",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "#",
+          "copy",
+          "all",
+          "testcase",
+          "into",
+          "working",
+          "dir"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "#",
+        "install",
+        "the",
+        "dependencies:"
+      ],
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "52cbeb93b9d7f408c9c78fc19d574f9da15c86456d55297557167892a2e232ec",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "#",
+          "install",
+          "the",
+          "dependencies:"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "52cbeb93b9d7f408c9c78fc19d574f9da15c86456d55297557167892a2e232ec",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/raczben/wexpect",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "wexpect"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "#",
+        "copy",
+        "all",
+        "testcase",
+        "into",
+        "working",
+        "dir"
+      ],
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "52cbeb93b9d7f408c9c78fc19d574f9da15c86456d55297557167892a2e232ec",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "#",
+          "copy",
+          "all",
+          "testcase",
+          "into",
+          "working",
+          "dir"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "#",
+        "install",
+        "the",
+        "dependencies:"
+      ],
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "52cbeb93b9d7f408c9c78fc19d574f9da15c86456d55297557167892a2e232ec",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "#",
+          "install",
+          "the",
+          "dependencies:"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "1b7dd177b7c5374f5ef7d19e74d4eb8d29227fe9",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "52cbeb93b9d7f408c9c78fc19d574f9da15c86456d55297557167892a2e232ec",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "bdbea2ebc3bb19864c771caa2a971e38a4ff04cd545bab66f766f43c6f45b0b3",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "59fce6b5d97850874b10a9255c3f37a8e61f54dddfcc65efc0e42db4c6a186de",
+    "issue_created_at": "2024-10-11T18:32:35Z",
+    "issue_title_sha256": "25006418864a94e9eef8b4e5d194906e44ad1446b54c22f46e33b5e35cece28a",
+    "issue_url": "https://github.com/raczben/wexpect/issues/68",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "06aaf7aa114a7480ea59b3cf845db46adffec1321c08308cd338428ea3395681",
+    "test_paths": []
+  },
+  "target_package": "wexpect",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_declared_by_decision_time_evidence",
+    "paths": [],
+    "proposed_paths": [],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

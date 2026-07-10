@@ -2,6 +2,16 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
+## Batch068g frontier capabilities
+
+- Validated current protocol: `v2.14 capability_recovery_lane` (`PASS`).
+- Static frontier planning engine: operational and not protocol-promoted.
+- Command evidence graphs, structured argv safety, source precedence, runner-target classification, harness-origin checks, provider-feasibility classification, and deterministic candidate-state hashing: implemented in reusable core modules.
+- Frozen Tier-2 candidate inventory: `25`.
+- Tier 3, where present, means future bounded provider-command-probe authorization only.
+- Runtime activation requires a conjunctive future evidence vector; a repair-count floor alone is insufficient.
+- Full scoring remains `NOT_RUN/disallowed`; memory lift and self-maintaining software remain undemonstrated.
+
 - Artifact custody, registry-first provenance, source-commit environment locks, target command manifests, fresh workspace purity, baseline registry drift prechecks, and rollback ledger controls have reproduced repository evidence.
 - Runtime incident capture, execution boundary gateway, isolated repair sandbox, dependency drift chaperone, active AST excision probe, syntax micro-rollback, predictive degradation telemetry, compute budget safe-stop, simulated blue/green deployment, proof-to-action compiler, and lock-sequence registry are Batch015 scaffold capabilities.
 - Target intent signature alignment and dependency-era chaperone checks are Batch016 diagnostic capabilities; they block patch admission when observed failure does not match issue intent.
@@ -10,9 +20,9 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 
 ## Current operational gate status
 
-- Current protocol remains `v2.13`.
+- Current protocol is `v2.14 capability_recovery_lane`.
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `0`.
+- Confirmed issue-derived repair episodes are `4`.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
@@ -192,7 +202,7 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 
 - Batch056d official ingest status: `PASS`.
 - Provider Materialization Capsule standard: `implemented_future_only`.
-- Reactome release-download-directory is recorded only as an infrastructure pattern, not as a repair seed or repair evidence.
+- External release-download-directory handling is recorded only as an infrastructure pattern, not as a repair seed or repair evidence.
 - Timeout candidates decomposed: `codex_wave2_nousresearch_hermes_agent_48986, codex_wave2_nousresearch_hermes_agent_60243, codex_wave2_nousresearch_hermes_agent_57197, codex_wave2_m0smith_genia_2026_518`.
 - Timeout split replay candidates: `codex_wave2_nousresearch_hermes_agent_48986, codex_wave2_nousresearch_hermes_agent_60243, codex_wave2_nousresearch_hermes_agent_57197, codex_wave2_m0smith_genia_2026_518`.
 - Provider capsule replay candidates: `none`.
@@ -205,7 +215,7 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 
 - Batch056e official ingest: `PASS`.
 - Timeout split replay standard: `PASS`.
-- Reactome step-gating pattern: `infrastructure_pattern_only`.
+- External pipeline step-gating pattern: `infrastructure_pattern_only`.
 - Timeout candidates processed: `4`.
 - Target-code failure materialization count: `0`.
 - Provider/network/model blocked count: `3`.
@@ -220,7 +230,7 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 
 - Batch056f official ingest: `PASS`.
 - Wave 2 timeout/provider paths remain closed without target-code failure materialization.
-- Reactome/provider-capsule lesson carried forward as infrastructure pattern only.
+- External provider-capsule lesson carried forward as infrastructure pattern only.
 - Wave 3 leads screened: `37`.
 - Codex-augmented leads count: `30`.
 - Commit-resolved candidates: `37`.

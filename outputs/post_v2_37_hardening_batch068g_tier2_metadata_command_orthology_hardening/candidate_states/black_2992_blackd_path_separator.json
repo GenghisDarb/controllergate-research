@@ -1,0 +1,658 @@
+{
+  "candidate_id": "black_2992_blackd_path_separator",
+  "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+  "command_argv": [],
+  "command_evidence_graph_hash": "fb7556748f28dfcc5812b20da5ab00efdc4c47297ef18884397176006336a125",
+  "compiled_system_dependency_indicators": [
+    "rust"
+  ],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/changelog.yml",
+        "sha256": "1d14b2faf8d499adcf8b82bdf7ec7a4061cdb44d8b5081b6fa4b92ab548a1d07"
+      },
+      {
+        "path": ".github/workflows/diff_shades.yml",
+        "sha256": "05d1770040487bff848432bf7896bd65f652c25306d608f5923a393049985540"
+      },
+      {
+        "path": ".github/workflows/diff_shades_comment.yml",
+        "sha256": "66b2803b48c4b32bc727841faae0aac82b55c2a457ee1c424698045ee8e5edd1"
+      },
+      {
+        "path": ".github/workflows/doc.yml",
+        "sha256": "f3ef633124ed7a75ece43c12b1e49ce287361a153933cc1b78b0920278fb2c28"
+      },
+      {
+        "path": ".github/workflows/docker.yml",
+        "sha256": "01862684ba8db511aae12a235e4fffb2e442a56d6db0ffd3f6e6b501701659e3"
+      },
+      {
+        "path": ".github/workflows/fuzz.yml",
+        "sha256": "ba0988404e138513def9e6212e49f50e10dd2907aa95606ba7e2aa44b659fe53"
+      },
+      {
+        "path": ".github/workflows/lint.yml",
+        "sha256": "087aaf74e9b466e790e00701f05abd5f8fc06b5c65b7fd21d6495f27da3304a4"
+      },
+      {
+        "path": ".github/workflows/pypi_upload.yml",
+        "sha256": "240f33e33cae5391c4f9ef708dcf29ee7a731175cac53c598e6ab55a1eb9d1b2"
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "sha256": "294ea2b8480b6e876605b64febff43fd1721ea5bc1494b6cfee2bcc731047ae2"
+      },
+      {
+        "path": "docs/contributing/gauging_changes.md",
+        "sha256": "a485275228e2db42c6193acf376081c470018b86965d7796c10aef4e8923f297"
+      },
+      {
+        "path": "docs/contributing/index.md",
+        "sha256": "7659bc679062d5ba9441fd623828bd60445671fbe6565d706574ee388e308c21"
+      },
+      {
+        "path": "docs/contributing/issue_triage.md",
+        "sha256": "4da0700910712e7a635c325d38762342d435573777aa3fcaf2f918fb8009df28"
+      },
+      {
+        "path": "docs/contributing/reference/reference_classes.rst",
+        "sha256": "e3895ab9d4e659ee5b87fb810cadda91e3c82234879408a8c07ce6e99c7a42de"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "81f5a4eb6dfcb6cac486b23d7bbe72fb6ea028e4a3b91fa65f430ee7dacc193f"
+      },
+      {
+        "path": "setup.cfg",
+        "sha256": "4d1dc63b4a9059957f8936cf36725585a834e9df967d9b5a6377cbdf205d486a"
+      },
+      {
+        "path": "setup.py",
+        "sha256": "889fd16a5f9d6c3b8792808c3fa347e2e449ee6155de7a2f2b41f2f5c40dbd4d"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "d68e5790b90cfa58f3c7ae78585c4682fe0b181e40f463ce21777e7e582a955b"
+      }
+    ],
+    "source_record_hash": "a3b5ad009c3f7c9293d602adf90ee8cf2df76326da346770c0b84bdf865f096a"
+  },
+  "declared_dependencies": [
+    "rust"
+  ],
+  "exact_blocker": "native_target_path_not_declared_by_decision_time_evidence",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "a3b5ad009c3f7c9293d602adf90ee8cf2df76326da346770c0b84bdf865f096a"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "0547133484307581d656cd674e3e23ef0685b22743e0307513046bc8dbdf9b5b",
+      "post_state_hash": "12311f2c6b05246d783be079c0d5383fe5c9a11d9d9f8e8fdd8093f44434d9b7",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "24c708eb374a856372284fb1a4f021fec292f713"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "c112d91cf7dde77847723f561befd0f6bfbf3afb43664f6d2032267b45f1a20b",
+      "post_state_hash": "314d43eefda9058a7194be0aae610536dfa6daab5170251f4c4b58afeb0b4f84",
+      "prior_state_hash": "12311f2c6b05246d783be079c0d5383fe5c9a11d9d9f8e8fdd8093f44434d9b7",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [
+        ".github/workflows/changelog.yml",
+        ".github/workflows/diff_shades.yml",
+        ".github/workflows/diff_shades_comment.yml",
+        ".github/workflows/doc.yml",
+        ".github/workflows/docker.yml",
+        ".github/workflows/fuzz.yml",
+        ".github/workflows/lint.yml",
+        ".github/workflows/pypi_upload.yml",
+        "CONTRIBUTING.md",
+        "docs/contributing/gauging_changes.md",
+        "docs/contributing/index.md",
+        "docs/contributing/issue_triage.md",
+        "docs/contributing/reference/reference_classes.rst",
+        "pyproject.toml",
+        "setup.cfg",
+        "setup.py",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "04dba740b76c97837feedfee1b01e67bf1af71427e703f51a77702e26f36aea6",
+      "post_state_hash": "7df80b756b95b6e0fdaa8151ec331c0424460e31d5f3e413abdf808beb833f1d",
+      "prior_state_hash": "314d43eefda9058a7194be0aae610536dfa6daab5170251f4c4b58afeb0b4f84",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "ebe7b15ab6d400c192eda8b6f09deb1cdcb8b5c914553e0dcab612ee2b621a73",
+      "post_state_hash": "9d3f3f29d49df0b968b36796f55af64a0dc8ab26af5f2d2f86563052a82e9c30",
+      "prior_state_hash": "7df80b756b95b6e0fdaa8151ec331c0424460e31d5f3e413abdf808beb833f1d",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-004",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "63d974d36b392d532541fe20583135d968617b427df95ceecb9ce1bec9790ef0",
+      "prior_state_hash": "9d3f3f29d49df0b968b36796f55af64a0dc8ab26af5f2d2f86563052a82e9c30",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-005",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "bedb3ad864ee8de11517b635104b4957ad85e0294b8d3375cee510328ebe5a75",
+      "prior_state_hash": "63d974d36b392d532541fe20583135d968617b427df95ceecb9ce1bec9790ef0",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-006",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "9d714563e0f605bc34ed3b19e31c8ec7d510bc71bdeec03829f95d65fdd210aa",
+      "prior_state_hash": "bedb3ad864ee8de11517b635104b4957ad85e0294b8d3375cee510328ebe5a75",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-007",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "52bc0da0d9118734ea42dc102e52a07aaa2ab15c462e99846fb27fd0926678a4",
+      "prior_state_hash": "9d714563e0f605bc34ed3b19e31c8ec7d510bc71bdeec03829f95d65fdd210aa",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "ba3b69ff34a3dd24021945c18dbb47918220e9804895b533c5b12ecfa96a8969",
+      "prior_state_hash": "52bc0da0d9118734ea42dc102e52a07aaa2ab15c462e99846fb27fd0926678a4",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "7cc506212c8867fe09f6a2cc21e8dda998d22b892be7f08ddd5d68f17ac6ef8a",
+      "prior_state_hash": "ba3b69ff34a3dd24021945c18dbb47918220e9804895b533c5b12ecfa96a8969",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "native_target_path_not_declared_by_decision_time_evidence",
+      "blocker_reason": null,
+      "candidate_id": "black_2992_blackd_path_separator",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "2bbb6178de08978a2380dd4ef64ee55ff29d1c2ffbc7c7217ff74d5274ace721",
+      "post_state_hash": "3f7fe84a49e2132eb6abebb0cb422acff51d97e2805b52022bdef5eea1737803",
+      "prior_state_hash": "7cc506212c8867fe09f6a2cc21e8dda998d22b892be7f08ddd5d68f17ac6ef8a",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2022-04-04T14:09:14Z",
+  "issue_identity": {
+    "issue_created_at": "2022-04-04T14:09:14Z",
+    "issue_url": "https://github.com/psf/black/issues/2992",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 653,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": ".github/workflows/changelog.yml",
+      "sha256": "1d14b2faf8d499adcf8b82bdf7ec7a4061cdb44d8b5081b6fa4b92ab548a1d07",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 5485,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": ".github/workflows/diff_shades.yml",
+      "sha256": "05d1770040487bff848432bf7896bd65f652c25306d608f5923a393049985540",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1490,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": ".github/workflows/diff_shades_comment.yml",
+      "sha256": "66b2803b48c4b32bc727841faae0aac82b55c2a457ee1c424698045ee8e5edd1",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 989,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": ".github/workflows/doc.yml",
+      "sha256": "f3ef633124ed7a75ece43c12b1e49ce287361a153933cc1b78b0920278fb2c28",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1416,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": ".github/workflows/docker.yml",
+      "sha256": "01862684ba8db511aae12a235e4fffb2e442a56d6db0ffd3f6e6b501701659e3",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 968,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": ".github/workflows/fuzz.yml",
+      "sha256": "ba0988404e138513def9e6212e49f50e10dd2907aa95606ba7e2aa44b659fe53",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 746,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": ".github/workflows/lint.yml",
+      "sha256": "087aaf74e9b466e790e00701f05abd5f8fc06b5c65b7fd21d6495f27da3304a4",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 694,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": ".github/workflows/pypi_upload.yml",
+      "sha256": "240f33e33cae5391c4f9ef708dcf29ee7a731175cac53c598e6ab55a1eb9d1b2",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 422,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": "CONTRIBUTING.md",
+      "sha256": "294ea2b8480b6e876605b64febff43fd1721ea5bc1494b6cfee2bcc731047ae2",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2758,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": "docs/contributing/gauging_changes.md",
+      "sha256": "a485275228e2db42c6193acf376081c470018b86965d7796c10aef4e8923f297",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1528,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": "docs/contributing/index.md",
+      "sha256": "7659bc679062d5ba9441fd623828bd60445671fbe6565d706574ee388e308c21",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 9266,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": "docs/contributing/issue_triage.md",
+      "sha256": "4da0700910712e7a635c325d38762342d435573777aa3fcaf2f918fb8009df28",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1175,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": "docs/contributing/reference/reference_classes.rst",
+      "sha256": "e3895ab9d4e659ee5b87fb810cadda91e3c82234879408a8c07ce6e99c7a42de",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1171,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": "pyproject.toml",
+      "sha256": "81f5a4eb6dfcb6cac486b23d7bbe72fb6ea028e4a3b91fa65f430ee7dacc193f",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 57,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": "setup.cfg",
+      "sha256": "4d1dc63b4a9059957f8936cf36725585a834e9df967d9b5a6377cbdf205d486a",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4581,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": "setup.py",
+      "sha256": "889fd16a5f9d6c3b8792808c3fa347e2e449ee6155de7a2f2b41f2f5c40dbd4d",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1986,
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "path": "tox.ini",
+      "sha256": "d68e5790b90cfa58f3c7ae78585c4682fe0b181e40f463ce21777e7e582a955b",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": null,
+  "network_model_indicators": [],
+  "next_allowed_action": "supply_reviewed_native_target_path_evidence",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [],
+  "provider_feasibility_class": "compiled_or_system_dependency_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "pip",
+        "install",
+        "-e",
+        ".[d]"
+      ],
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "d68e5790b90cfa58f3c7ae78585c4682fe0b181e40f463ce21777e7e582a955b",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pip",
+          "install",
+          "-e",
+          ".[d]"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "d68e5790b90cfa58f3c7ae78585c4682fe0b181e40f463ce21777e7e582a955b",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "81f5a4eb6dfcb6cac486b23d7bbe72fb6ea028e4a3b91fa65f430ee7dacc193f",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "fuzz"
+      ],
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/fuzz.yml",
+      "source_sha256": "ba0988404e138513def9e6212e49f50e10dd2907aa95606ba7e2aa44b659fe53",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "fuzz"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "supply_reviewed_native_target_path_evidence",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/psf/black",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "black"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "pip",
+        "install",
+        "-e",
+        ".[d]"
+      ],
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "d68e5790b90cfa58f3c7ae78585c4682fe0b181e40f463ce21777e7e582a955b",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "pip",
+          "install",
+          "-e",
+          ".[d]"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "candidate_sha": "24c708eb374a856372284fb1a4f021fec292f713",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "d68e5790b90cfa58f3c7ae78585c4682fe0b181e40f463ce21777e7e582a955b",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "be9677c5fd9c4eadfc0d375854694bbacf0ca6aa3d71788a024874ede1fab25f",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "b92c77bf6ac230b49b6516725422f9c32430ad8e1852c4589c7b3956dfbc8950",
+    "issue_created_at": "2022-04-04T14:09:14Z",
+    "issue_title_sha256": "5fc377a6ca386562342c14e8ef3cb8e8b03a3bf2592456cb0b56cfcb720955d6",
+    "issue_url": "https://github.com/psf/black/issues/2992",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "9104f795aa033f68694e32bea3d2af9f4534426e8cdbd5177bac1d6c96a5951f",
+    "test_paths": []
+  },
+  "target_package": "black",
+  "target_path_verification": {
+    "blocker": "native_target_path_not_declared_by_decision_time_evidence",
+    "paths": [],
+    "proposed_paths": [],
+    "status": "BLOCK"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "native_target_path_not_declared_by_decision_time_evidence",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

@@ -1,0 +1,864 @@
+{
+  "candidate_id": "codex_wave3_biface_i18n_issues_86",
+  "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+  "command_argv": [],
+  "command_evidence_graph_hash": "5b2b962eae125a0d11b41bedb0e039f13343755943d81a304730182d7de329d6",
+  "compiled_system_dependency_indicators": [],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/python-ci.yaml",
+        "sha256": "1a37cc53bd40b0641f5cee6ff0676fdd7e3e8b61801a1e5cb6f5882a420b4992"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "a16aa854ae2895e686a8ac143b027b407af0555d5d84dea4daec1c6c6ab45eb0"
+      },
+      {
+        "path": "tox.ini",
+        "sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69"
+      }
+    ],
+    "source_record_hash": "8abbcd6805157687021ddb02a14c67cb1a38b60ec1acf8e5b214098c97bb470d"
+  },
+  "declared_dependencies": [],
+  "exact_blocker": "command_source_conflict_manual_review",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "8abbcd6805157687021ddb02a14c67cb1a38b60ec1acf8e5b214098c97bb470d"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "15b55f4b13bd1dac57089c32ed2270c67ba0440b3d47305b2915e37d64271627",
+      "post_state_hash": "e5a5d5d9a06d23081483dadb7f4b2485542eb9329c1596406d1b01931c690a00",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "e093e3f3d02d84043c5913531492aa78913aec5a"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "78f8634dd63233234b51298615d99f3bdf0bb70bfbafb2471c1cd42ad6b2c1ac",
+      "post_state_hash": "ae5bf2c2aa4d0295aeeffb59b589ddc8b2ae462d55560d90b28fb8b285370208",
+      "prior_state_hash": "e5a5d5d9a06d23081483dadb7f4b2485542eb9329c1596406d1b01931c690a00",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [
+        ".github/workflows/python-ci.yaml",
+        "pyproject.toml",
+        "tox.ini"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "5e0b91b9f199525f6be036977550cd99d0ed11e0270b483ecd23564d4819fc0b",
+      "post_state_hash": "c0e45bc51441ca0714788f94ecaca6e222b5319db261dff58c43504cb3165765",
+      "prior_state_hash": "ae5bf2c2aa4d0295aeeffb59b589ddc8b2ae462d55560d90b28fb8b285370208",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [
+        "tests/01_loader/test_02_loader.py"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "70bfa97b9ffce8266aa41a34059265e8c0b42e98e21d9124ff8297c0df096e05",
+      "post_state_hash": "87d99ef95b32859e32021bf41bb01878e334214dad0cef33e076855e56796ccd",
+      "prior_state_hash": "c0e45bc51441ca0714788f94ecaca6e222b5319db261dff58c43504cb3165765",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-004",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "eb39d791b0d1bdab64d01cedf67f85d5e224104a1deecd275b8ed906ab506d1e",
+      "prior_state_hash": "87d99ef95b32859e32021bf41bb01878e334214dad0cef33e076855e56796ccd",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-005",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "7644febbc81855a299c85a41e90fe1da6216bc6362f0815c280744263a2d4fbc",
+      "post_state_hash": "129a6a23e5842d1e27c4997330eb920bc4285e953fc8c32fa9a8619c217082ed",
+      "prior_state_hash": "eb39d791b0d1bdab64d01cedf67f85d5e224104a1deecd275b8ed906ab506d1e",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-006",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "468ea1fea45a52fad2b84bc25e29577996cee0f18b3fcc7fd2a0102575405064",
+      "prior_state_hash": "129a6a23e5842d1e27c4997330eb920bc4285e953fc8c32fa9a8619c217082ed",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-007",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "harness_origin_static_unresolved",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "27af30fa5cb404c2a2a5cb9f4a3fc39823b9e4cab538d58cb3466e1c1cc697d0",
+      "post_state_hash": "e768cb6b222367b55dbe3143012ecd9d60325eaea7e253397f6be2f6216ffbb2",
+      "prior_state_hash": "468ea1fea45a52fad2b84bc25e29577996cee0f18b3fcc7fd2a0102575405064",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-008",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "harness_origin_static_unresolved",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "5e2930da51a1255f8606d8d00ec1ded7662214e23c370d814be21b1e06eef584",
+      "post_state_hash": "dd43bb31904cf7e719fb59232f9d46d2be7d4323b48c380afb6d2e852b025d4d",
+      "prior_state_hash": "e768cb6b222367b55dbe3143012ecd9d60325eaea7e253397f6be2f6216ffbb2",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-009",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "harness_origin_static_unresolved",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "5e2930da51a1255f8606d8d00ec1ded7662214e23c370d814be21b1e06eef584",
+      "post_state_hash": "2a6bff38c8f4e0bfc9bff2002cc84fae67c525034ba2d2fc0db1499b459b5c51",
+      "prior_state_hash": "dd43bb31904cf7e719fb59232f9d46d2be7d4323b48c380afb6d2e852b025d4d",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "harness_origin_static_unresolved",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "5e2930da51a1255f8606d8d00ec1ded7662214e23c370d814be21b1e06eef584",
+      "post_state_hash": "becab3f2eccb7099a059fa68a9955fb10dcd0a60a1f68a3700592d7604ced49f",
+      "prior_state_hash": "2a6bff38c8f4e0bfc9bff2002cc84fae67c525034ba2d2fc0db1499b459b5c51",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": null,
+    "blocker": "harness_origin_static_unresolved",
+    "classification": "harness_origin_static_unresolved",
+    "self_referential_hash_detected": false,
+    "status": "BLOCK"
+  },
+  "issue_creation_epoch": "2026-07-01T06:20:23Z",
+  "issue_identity": {
+    "issue_created_at": "2026-07-01T06:20:23Z",
+    "issue_url": "https://github.com/biface/i18n/issues/86",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 1158,
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "path": ".github/workflows/python-ci.yaml",
+      "sha256": "1a37cc53bd40b0641f5cee6ff0676fdd7e3e8b61801a1e5cb6f5882a420b4992",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4579,
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "path": "pyproject.toml",
+      "sha256": "a16aa854ae2895e686a8ac143b027b407af0555d5d84dea4daec1c6c6ab45eb0",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 7474,
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "path": "tox.ini",
+      "sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": "tests/01_loader/test_02_loader.py",
+  "network_model_indicators": [],
+  "next_allowed_action": "review_conflicting_authoritative_command_sources",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [],
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "#",
+        "1.",
+        "Auto-formatting"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "#",
+          "1.",
+          "Auto-formatting"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "bandit",
+        "-r",
+        "src",
+        "-s",
+        "B202"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "bandit",
+          "-r",
+          "src",
+          "-s",
+          "B202"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "bash",
+        "-c",
+        "basedpyright src; code=$?; [ $code -le 1 ]"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "bash",
+          "-c",
+          "basedpyright src; code=$?; [ $code -le 1 ]"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "black",
+        "--check",
+        "--diff",
+        "--target-version",
+        "py310",
+        "src",
+        "tests"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "black",
+          "--check",
+          "--diff",
+          "--target-version",
+          "py310",
+          "src",
+          "tests"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "black",
+        "--target-version",
+        "py310",
+        "src",
+        "tests"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "black",
+          "--target-version",
+          "py310",
+          "src",
+          "tests"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "flake8",
+        "src",
+        "tests"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "flake8",
+          "src",
+          "tests"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "isort",
+        "--check-only",
+        "--diff",
+        "src",
+        "tests"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "isort",
+          "--check-only",
+          "--diff",
+          "src",
+          "tests"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "isort",
+        "src",
+        "tests"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "isort",
+          "src",
+          "tests"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/01_loader/test_02_loader.py"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "tests/01_loader/test_02_loader.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/01_loader/test_02_loader.py"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "a16aa854ae2895e686a8ac143b027b407af0555d5d84dea4daec1c6c6ab45eb0",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "tests/01_loader/test_02_loader.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "ci"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 60,
+      "source_class": "ci_workflow",
+      "source_path": ".github/workflows/python-ci.yaml",
+      "source_sha256": "1a37cc53bd40b0641f5cee6ff0676fdd7e3e8b61801a1e5cb6f5882a420b4992",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "ci"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "review_conflicting_authoritative_command_sources",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/biface/i18n",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "unknown",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "unknown",
+    "status": "PASS",
+    "target_package": "i18n"
+  },
+  "selected_command_candidate": null,
+  "selection_confidence": "manual_review_required",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [
+    {
+      "argv": [
+        "#",
+        "1.",
+        "Auto-formatting"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "#",
+          "1.",
+          "Auto-formatting"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "bandit",
+        "-r",
+        "src",
+        "-s",
+        "B202"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "bandit",
+          "-r",
+          "src",
+          "-s",
+          "B202"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "bash",
+        "-c",
+        "basedpyright src; code=$?; [ $code -le 1 ]"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "bash",
+          "-c",
+          "basedpyright src; code=$?; [ $code -le 1 ]"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "black",
+        "--check",
+        "--diff",
+        "--target-version",
+        "py310",
+        "src",
+        "tests"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "black",
+          "--check",
+          "--diff",
+          "--target-version",
+          "py310",
+          "src",
+          "tests"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "black",
+        "--target-version",
+        "py310",
+        "src",
+        "tests"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "black",
+          "--target-version",
+          "py310",
+          "src",
+          "tests"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "flake8",
+        "src",
+        "tests"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "flake8",
+          "src",
+          "tests"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "isort",
+        "--check-only",
+        "--diff",
+        "src",
+        "tests"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "isort",
+          "--check-only",
+          "--diff",
+          "src",
+          "tests"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "isort",
+        "src",
+        "tests"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "isort",
+          "src",
+          "tests"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/01_loader/test_02_loader.py"
+      ],
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "precedence": 10,
+      "source_class": "tox.ini",
+      "source_path": "tox.ini",
+      "source_sha256": "a3a509da14a8a87c92d4ccb9e261524d728e470159ea486a69d2bf9ec6d89b69",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "tests/01_loader/test_02_loader.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "state_hash": "04b120b56a511d324b649f43fd492c47bc3a3bb98e504d8f0e25a1e37d10e40c",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "c7e40a003969d1905816a8de578cd5a0e5dd3822a154221c0fe69ba272cbc511",
+    "issue_created_at": "2026-07-01T06:20:23Z",
+    "issue_title_sha256": "37ec2a54cbb4cf8473562680d0c7f09e0273584832056e5c3ed3dd622085f19f",
+    "issue_url": "https://github.com/biface/i18n/issues/86",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "d844821927be9bf676286cfaeff093d4cafb92291f7f5a017c735c04e301a80c",
+    "test_paths": [
+      "tests/01_loader/test_02_loader.py"
+    ]
+  },
+  "target_package": "i18n",
+  "target_path_verification": {
+    "blocker": null,
+    "paths": [
+      "tests/01_loader/test_02_loader.py"
+    ],
+    "proposed_paths": [
+      "tests/01_loader/test_02_loader.py"
+    ],
+    "status": "PASS"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "command_source_conflict_manual_review",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": null
+}

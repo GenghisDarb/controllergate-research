@@ -1,0 +1,511 @@
+{
+  "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+  "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+  "command_argv": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_cli.py"
+  ],
+  "command_evidence_graph_hash": "63e2134e4cb6da4cc099783d528faa15421e3d6147212373e954892ef45860c9",
+  "compiled_system_dependency_indicators": [],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "sha256": "2ae1947a71df12d765a69beabf5a8f0652ac03f23c1dabd045031cdc2494c594"
+      },
+      {
+        "path": ".github/workflows/deploy-docs.yml",
+        "sha256": "ffd0f7a0100d20e9dae01389e0ff0029d156d48d6a9d855c8f0f53780614c2cd"
+      },
+      {
+        "path": ".github/workflows/sync-upstream.yml",
+        "sha256": "59dcd23537e1ac805dce98ea8bb6c21592d735965a779993da8ff5800f8ce217"
+      },
+      {
+        "path": ".github/workflows/version-guard.yml",
+        "sha256": "ea1642eec900c489aeba4e917b3ee7aa93942809fab2e3b4c4471aef7a2221ef"
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "sha256": "fbd2df89a89beaf787e99ea00b862618742adab3ceb1fce4343dca28d10aa6d8"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "fc38a62e51ac2a1000cd877c6d59c917d62c47acd0541e7084d45754a59daf08"
+      },
+      {
+        "path": "tests/benchmarks/README.md",
+        "sha256": "d67af0941156eb276d7cc71b0a26aded1191f9d489e6176a5b96cb54904dc680"
+      },
+      {
+        "path": "website/reference/contributing.md",
+        "sha256": "902cbb692c7f95a95983a57e6f0a9e788f7f8154f92717c19037b2866de93e4b"
+      }
+    ],
+    "source_record_hash": "fb6667010e9d6b663cb0207a866e74cc73e5d712c19974bf622503e8cd39ff74"
+  },
+  "declared_dependencies": [
+    "model"
+  ],
+  "exact_blocker": "provider_probe_plan_not_bounded",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "fb6667010e9d6b663cb0207a866e74cc73e5d712c19974bf622503e8cd39ff74"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "eb4246483304b6d56164df2ab36c12451242301af4fbc7629cf57ce7cd3ed7ce",
+      "post_state_hash": "08563f268ba2f8de137a4bd6ce983de86b73c5415ff9ad51c43bbdb4b5b2a56f",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "f951388a1ed544368d6886b24d582a6426dcb1ce6412010bd2db097241b1558d",
+      "post_state_hash": "848d356ccc3eb0f74ed7c06958ec708a77f0e8382606799e738e36b683cec7fa",
+      "prior_state_hash": "08563f268ba2f8de137a4bd6ce983de86b73c5415ff9ad51c43bbdb4b5b2a56f",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/deploy-docs.yml",
+        ".github/workflows/sync-upstream.yml",
+        ".github/workflows/version-guard.yml",
+        "CONTRIBUTING.md",
+        "pyproject.toml",
+        "tests/benchmarks/README.md",
+        "website/reference/contributing.md"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "507607e8c5c08bcb2de1c47c256a34f5968cf353cc271c0c8370e65c4c5768e5",
+      "post_state_hash": "448aa66e5190f853684998def9521b5a16a8b57db3a46f7292203c5f2a58466d",
+      "prior_state_hash": "848d356ccc3eb0f74ed7c06958ec708a77f0e8382606799e738e36b683cec7fa",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [
+        "tests/test_cli.py"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "19c4ae2bf85de39823a785c3ecb0f95ae3ca36175749fc8f7e3ba8162feb9e84",
+      "post_state_hash": "98ce1bbc4e9e68dae971078f78c520c020ab97f430bf5d524e7ea38080eac9d2",
+      "prior_state_hash": "448aa66e5190f853684998def9521b5a16a8b57db3a46f7292203c5f2a58466d",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-004",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "8c021a1416ac50571ce479040de7e142d0ee5d181f01d5d94bc685fbb2b30f1a",
+      "prior_state_hash": "98ce1bbc4e9e68dae971078f78c520c020ab97f430bf5d524e7ea38080eac9d2",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-005",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "f1e1075f1a91e68edbe0f193be39ccb3c2473671299667194a8b096261efd9a1",
+      "prior_state_hash": "8c021a1416ac50571ce479040de7e142d0ee5d181f01d5d94bc685fbb2b30f1a",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-006",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "1dc8f3048a9cc1bde48c4efe5d1d70b6590bb12a4c33e89fdee116fdbb5ac0f6",
+      "prior_state_hash": "f1e1075f1a91e68edbe0f193be39ccb3c2473671299667194a8b096261efd9a1",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-007",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "f2b776276ea30ae3a756bd21b444ec13e10558db05070a0e526e663347bdffa1",
+      "prior_state_hash": "1dc8f3048a9cc1bde48c4efe5d1d70b6590bb12a4c33e89fdee116fdbb5ac0f6",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-008",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "43cd9af6aab09168ceb4040e68f3250a8e75e708822ae81759ded0d65358425e",
+      "post_state_hash": "49095046ace93af827db1e92c10faf4bb4306f84e9fb2488a3970faab66447ec",
+      "prior_state_hash": "f2b776276ea30ae3a756bd21b444ec13e10558db05070a0e526e663347bdffa1",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-009",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "provider_probe_plan_not_bounded",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_bounded_provider_capsule_plan",
+      "output_hash": "9abc000fc3df38764f11c0b246d0ee339a1bcc007ec45e8b4fb28001e033f9b9",
+      "post_state_hash": "11854f812b3a43f3941a13ab1e62744ed3ff56a5fe5058b60f2b134a5405ce6c",
+      "prior_state_hash": "49095046ace93af827db1e92c10faf4bb4306f84e9fb2488a3970faab66447ec",
+      "reopen_conditions": [
+        "supply_bounded_provider_capsule_plan",
+        "rerun_static_frontier_plan_with_hash_pinned_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "provider_probe_plan_not_bounded",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_imelki_mempalace_issues_15",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "e49ab603e3ec89a3ba7b137eb5296446a3468ff0671ec3f07c83a640cb64786b",
+      "post_state_hash": "712e58e64dc96935c772e19702e2d13094341d3bd6bbecbfbb0bca55d319477e",
+      "prior_state_hash": "11854f812b3a43f3941a13ab1e62744ed3ff56a5fe5058b60f2b134a5405ce6c",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": "immutable_public_repo_commit",
+    "blocker": null,
+    "classification": "project_native_static_non_circular",
+    "self_referential_hash_detected": false,
+    "status": "PASS"
+  },
+  "issue_creation_epoch": "2026-07-02T22:51:26Z",
+  "issue_identity": {
+    "issue_created_at": "2026-07-02T22:51:26Z",
+    "issue_url": "https://github.com/iMelki/mempalace/issues/15",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 1625,
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "path": ".github/workflows/ci.yml",
+      "sha256": "2ae1947a71df12d765a69beabf5a8f0652ac03f23c1dabd045031cdc2494c594",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1416,
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "path": ".github/workflows/deploy-docs.yml",
+      "sha256": "ffd0f7a0100d20e9dae01389e0ff0029d156d48d6a9d855c8f0f53780614c2cd",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1094,
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "path": ".github/workflows/sync-upstream.yml",
+      "sha256": "59dcd23537e1ac805dce98ea8bb6c21592d735965a779993da8ff5800f8ce217",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4289,
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "path": ".github/workflows/version-guard.yml",
+      "sha256": "ea1642eec900c489aeba4e917b3ee7aa93942809fab2e3b4c4471aef7a2221ef",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4552,
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "path": "CONTRIBUTING.md",
+      "sha256": "fbd2df89a89beaf787e99ea00b862618742adab3ceb1fce4343dca28d10aa6d8",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 3293,
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "path": "pyproject.toml",
+      "sha256": "fc38a62e51ac2a1000cd877c6d59c917d62c47acd0541e7084d45754a59daf08",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 5477,
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "path": "tests/benchmarks/README.md",
+      "sha256": "d67af0941156eb276d7cc71b0a26aded1191f9d489e6176a5b96cb54904dc680",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 3051,
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "path": "website/reference/contributing.md",
+      "sha256": "902cbb692c7f95a95983a57e6f0a9e788f7f8154f92717c19037b2866de93e4b",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": "tests/test_cli.py",
+  "network_model_indicators": [
+    "model"
+  ],
+  "next_allowed_action": "supply_bounded_provider_capsule_plan",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [
+    "macos",
+    "windows"
+  ],
+  "provider_feasibility_class": "network_or_model_dependency_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_cli.py"
+      ],
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "fc38a62e51ac2a1000cd877c6d59c917d62c47acd0541e7084d45754a59daf08",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "tests/test_cli.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "tests/",
+        "-v",
+        "tests/test_cli.py"
+      ],
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.md",
+      "source_sha256": "fbd2df89a89beaf787e99ea00b862618742adab3ceb1fce4343dca28d10aa6d8",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "tests/",
+          "-v",
+          "tests/test_cli.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "pytest",
+        "tests/",
+        "-v",
+        "tests/test_cli.py"
+      ],
+      "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "website/reference/contributing.md",
+      "source_sha256": "902cbb692c7f95a95983a57e6f0a9e788f7f8154f92717c19037b2866de93e4b",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "pytest",
+          "tests/",
+          "-v",
+          "tests/test_cli.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "supply_bounded_provider_capsule_plan",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/iMelki/mempalace",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "pytest",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "pytest",
+    "status": "PASS",
+    "target_package": "mempalace"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "python",
+      "-m",
+      "pytest",
+      "tests/test_cli.py"
+    ],
+    "candidate_sha": "3519e1ff4ee66327684649f7bb8d5cd2efa9a3f5",
+    "precedence": 30,
+    "source_class": "pyproject.toml",
+    "source_path": "pyproject.toml",
+    "source_sha256": "fc38a62e51ac2a1000cd877c6d59c917d62c47acd0541e7084d45754a59daf08",
+    "target_path_corroborated": true,
+    "token_safety": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_cli.py"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "selection_confidence": "deterministic_source_precedence",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [],
+  "state_hash": "40b34d6c2268c47027eb639781fc80a1513808b63932cd2597cbbca822cf749f",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "179d22898652c353d0b801968cb7a8a28cc915c09772a706adbebf6f0599c111",
+    "issue_created_at": "2026-07-02T22:51:26Z",
+    "issue_title_sha256": "f11afdc5e129ed2757faecb55467badf964a8b34cdd5a34efbeded7ef3cfcf62",
+    "issue_url": "https://github.com/iMelki/mempalace/issues/15",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "b2fc8e4698e5cd823025add86ff2c861ed1d90f66ea74b09aa7fb94146b79110",
+    "test_paths": [
+      "tests/test_cli.py",
+      "tests/test_status.py"
+    ]
+  },
+  "target_package": "mempalace",
+  "target_path_verification": {
+    "blocker": null,
+    "paths": [
+      "tests/test_cli.py"
+    ],
+    "proposed_paths": [
+      "tests/test_cli.py",
+      "tests/test_status.py"
+    ],
+    "status": "PASS"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "provider_probe_plan_not_bounded",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": "."
+}

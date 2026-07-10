@@ -1,0 +1,482 @@
+{
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+  "command_argv": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_cli.py"
+  ],
+  "command_evidence_graph_hash": "1b3b072d539cad5d3062da0970c405fb801f98b6524e972800f27abfc4b977c8",
+  "compiled_system_dependency_indicators": [],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": ".github/workflows/check-release.yml",
+        "sha256": "39499bb5a3c78584d202e932fec54a0cc26413b6cb4f2ed3ed4fd91ef1013cb4"
+      },
+      {
+        "path": ".github/workflows/main.yml",
+        "sha256": "195116620359ebac750a926f42be0230ca571da5c530b283a1038be41b909f9b"
+      },
+      {
+        "path": ".github/workflows/prep-release.yml",
+        "sha256": "db425f93e65423e8b79b75a688b1f8b306bc904e46ed258353a7b22e6379f00e"
+      },
+      {
+        "path": ".github/workflows/publish-changelog.yml",
+        "sha256": "231b300c2559cc18af89fcc94de125210021b0a2f8130e75b1565eac84289e8f"
+      },
+      {
+        "path": ".github/workflows/publish-release.yml",
+        "sha256": "df561be5edda83c689afb30025361677452610f7a12cf99659698b28a8f98f12"
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "sha256": "f2dd5601abb83c3efafeda484354dd27e84934c452daa6a9c7d47b0596ebc6a6"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "cfc911f54ea383d7cd7d53470e051b839ce7a2007f5ebd621c3d5af25206d0f3"
+      }
+    ],
+    "source_record_hash": "2fc58506f3ea29cdb6cfb2dfc6e384bc5a30a6a567ba471f9934ad19e57fd2de"
+  },
+  "declared_dependencies": [],
+  "exact_blocker": null,
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "2fc58506f3ea29cdb6cfb2dfc6e384bc5a30a6a567ba471f9934ad19e57fd2de"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "0e18c19c9248f38289fcf0a4881d9015e6824d7fbbc704c712978c7ff40bd6bd",
+      "post_state_hash": "673b93beae889d3c9eba415dfc316fa26cef18d8c5abba493c052cf161fcc00a",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "8514e919d8405eb832e80b9ea1925767e7431ee9"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "8003b24baac30d02ef5a34df8009e20bfcdd169e077bcde571bb5522409c42d8",
+      "post_state_hash": "751edd8f4e9b99f7ea936b469a0da46c1ca592e1a40b21f51ea32d1dcf8bf864",
+      "prior_state_hash": "673b93beae889d3c9eba415dfc316fa26cef18d8c5abba493c052cf161fcc00a",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [
+        ".github/workflows/check-release.yml",
+        ".github/workflows/main.yml",
+        ".github/workflows/prep-release.yml",
+        ".github/workflows/publish-changelog.yml",
+        ".github/workflows/publish-release.yml",
+        "CONTRIBUTING.md",
+        "pyproject.toml"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "537e2796572d10198f6b347e0c008946ca56b76a4db53d2533a9655723f59cd7",
+      "post_state_hash": "16b4bd6a8665d3eb4520f123ba3d6c053767a023143d452db045bc5638089173",
+      "prior_state_hash": "751edd8f4e9b99f7ea936b469a0da46c1ca592e1a40b21f51ea32d1dcf8bf864",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [
+        "tests/test_cli.py",
+        "tests/test_client.py"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "b5d8c9984236090864c3a476b88f4eb05ea4d3aab9130ab120da7f20f5fb652b",
+      "post_state_hash": "31254f73d85d9d8f3e4219f02b1dfabe862f84304a39607304876028c17eb55a",
+      "prior_state_hash": "16b4bd6a8665d3eb4520f123ba3d6c053767a023143d452db045bc5638089173",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-004",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "921d4fb44127d0806e7020b4459f979a65342779c353013ce5aee434ff47e1ed",
+      "prior_state_hash": "31254f73d85d9d8f3e4219f02b1dfabe862f84304a39607304876028c17eb55a",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-005",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "8333f9da402d752ca16feb79cf1da4bf99d2b79becfd065398d8245a1ea6a165",
+      "prior_state_hash": "921d4fb44127d0806e7020b4459f979a65342779c353013ce5aee434ff47e1ed",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-006",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "29afbe5fc417aeda74337223408b871d13dc98bc5e3de1821b956e685c386f67",
+      "prior_state_hash": "8333f9da402d752ca16feb79cf1da4bf99d2b79becfd065398d8245a1ea6a165",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-007",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "98666713a9734f4fad742281d0211b8f25ea0c4fcb27047bce78a3875cef235b",
+      "prior_state_hash": "29afbe5fc417aeda74337223408b871d13dc98bc5e3de1821b956e685c386f67",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-008",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "3c81b8637810d13188054b34c98f4e4e77e71c6d3d99fa29346a293547104570",
+      "prior_state_hash": "98666713a9734f4fad742281d0211b8f25ea0c4fcb27047bce78a3875cef235b",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-009",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "batch068h_bounded_provider_command_probe",
+      "output_hash": "be10f62aef3ec4d70a377a7cdee069424f0b1d62f9ad6733f24057da9b18999b",
+      "post_state_hash": "d5fc607cf1816184b08a190a1df008e9a22c24a59ac2dd155cc7322cb6ee677c",
+      "prior_state_hash": "3c81b8637810d13188054b34c98f4e4e77e71c6d3d99fa29346a293547104570",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-010",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "decision_time_evidence_used": [
+        "canonical candidate state"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "4456f7547714a8fdc0c72f20a8f827c6043d693f61db02e7bf53796a54955249",
+      "post_state_hash": "61013fbf82d9afae68d64c8fa8457e01b999593147e8927c14c8d09750402475",
+      "prior_state_hash": "d5fc607cf1816184b08a190a1df008e9a22c24a59ac2dd155cc7322cb6ee677c",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-011",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": "immutable_public_repo_commit",
+    "blocker": null,
+    "classification": "project_native_static_non_circular",
+    "self_referential_hash_detected": false,
+    "status": "PASS"
+  },
+  "issue_creation_epoch": "2024-07-03T12:05:28Z",
+  "issue_identity": {
+    "issue_created_at": "2024-07-03T12:05:28Z",
+    "issue_url": "https://github.com/jupyter/nbclient/issues/316",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 589,
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "path": ".github/workflows/check-release.yml",
+      "sha256": "39499bb5a3c78584d202e932fec54a0cc26413b6cb4f2ed3ed4fd91ef1013cb4",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 4265,
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "path": ".github/workflows/main.yml",
+      "sha256": "195116620359ebac750a926f42be0230ca571da5c530b283a1038be41b909f9b",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1689,
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "path": ".github/workflows/prep-release.yml",
+      "sha256": "db425f93e65423e8b79b75a688b1f8b306bc904e46ed258353a7b22e6379f00e",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 928,
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "path": ".github/workflows/publish-changelog.yml",
+      "sha256": "231b300c2559cc18af89fcc94de125210021b0a2f8130e75b1565eac84289e8f",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1798,
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "path": ".github/workflows/publish-release.yml",
+      "sha256": "df561be5edda83c689afb30025361677452610f7a12cf99659698b28a8f98f12",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 1277,
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "path": "CONTRIBUTING.md",
+      "sha256": "f2dd5601abb83c3efafeda484354dd27e84934c452daa6a9c7d47b0596ebc6a6",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 5135,
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "path": "pyproject.toml",
+      "sha256": "cfc911f54ea383d7cd7d53470e051b839ce7a2007f5ebd621c3d5af25206d0f3",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": "tests/test_cli.py",
+  "network_model_indicators": [],
+  "next_allowed_action": "batch068h_bounded_provider_command_probe",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [],
+  "provider_feasibility_class": "bounded_python_provider_surface_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_cli.py"
+      ],
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "cfc911f54ea383d7cd7d53470e051b839ce7a2007f5ebd621c3d5af25206d0f3",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "tests/test_cli.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-av"
+      ],
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.md",
+      "source_sha256": "f2dd5601abb83c3efafeda484354dd27e84934c452daa6a9c7d47b0596ebc6a6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-av"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    },
+    {
+      "argv": [
+        "tox",
+        "-e",
+        "py38"
+      ],
+      "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "precedence": 70,
+      "source_class": "project_local_testing_docs",
+      "source_path": "CONTRIBUTING.md",
+      "source_sha256": "f2dd5601abb83c3efafeda484354dd27e84934c452daa6a9c7d47b0596ebc6a6",
+      "target_path_corroborated": false,
+      "token_safety": {
+        "argv": [
+          "tox",
+          "-e",
+          "py38"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [],
+  "repo_identity": {
+    "repo_url": "https://github.com/jupyter/nbclient",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "pytest",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "pytest",
+    "status": "PASS",
+    "target_package": "nbclient"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "python",
+      "-m",
+      "pytest",
+      "tests/test_cli.py"
+    ],
+    "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+    "precedence": 30,
+    "source_class": "pyproject.toml",
+    "source_path": "pyproject.toml",
+    "source_sha256": "cfc911f54ea383d7cd7d53470e051b839ce7a2007f5ebd621c3d5af25206d0f3",
+    "target_path_corroborated": true,
+    "token_safety": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_cli.py"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "selection_confidence": "deterministic_source_precedence",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [],
+  "state_hash": "dde13f0ba0c9a4ca3f3f7d5f454de1926e003dac878b05c2c1b8d678dd27ea89",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "11b264a979bd1203375663e94cdbfc0096041d2c324f619db8607f937a48031d",
+    "issue_created_at": "2024-07-03T12:05:28Z",
+    "issue_title_sha256": "f8b7e5002824e4dbace32819f4bbb187f5f64ce8bb73c5393546d8df2d55dcbc",
+    "issue_url": "https://github.com/jupyter/nbclient/issues/316",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "cea61cfbd20c93dc24ff6a2297b3b30bb85032f591340be06560c34877a3d80e",
+    "test_paths": [
+      "tests/test_cli.py",
+      "tests/test_client.py"
+    ]
+  },
+  "target_package": "nbclient",
+  "target_path_verification": {
+    "blocker": null,
+    "paths": [
+      "tests/test_cli.py",
+      "tests/test_client.py"
+    ],
+    "proposed_paths": [
+      "tests/test_cli.py",
+      "tests/test_client.py"
+    ],
+    "status": "PASS"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "tier3_provider_probe_authorized",
+  "tier_label": "Tier 3 static provider-command-probe authorization",
+  "working_directory": "."
+}

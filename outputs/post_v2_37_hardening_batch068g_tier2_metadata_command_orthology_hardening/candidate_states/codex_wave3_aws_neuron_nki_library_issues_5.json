@@ -1,0 +1,425 @@
+{
+  "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+  "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+  "command_argv": [
+    "python",
+    "-m",
+    "pytest",
+    "test/utils/core_lock_client.py"
+  ],
+  "command_evidence_graph_hash": "318782763ca3bb930b094b11e492ebf9bc9a3668f9ca588df9c06f28ecaad894",
+  "compiled_system_dependency_indicators": [
+    "numpy"
+  ],
+  "decision_time_evidence_manifest": {
+    "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+    "forbidden_evidence_used": [],
+    "issue_text_command_authority": false,
+    "metadata_sha256s": [
+      {
+        "path": "CONTRIBUTING.md",
+        "sha256": "993e7639b93ea44d96be9813b63f5beada0deb2d4677d2e91ea96bc51e15b44b"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "dd03e9248d8b3f2eb8052937403d34544635e9e06a2684517c82b0e56d5d34fc"
+      },
+      {
+        "path": "test/README.md",
+        "sha256": "0d20a9ca620d682c3b1f0257e8ea6260cdbf48856c80319685bc3207aeea7f27"
+      },
+      {
+        "path": "test/integration/nkilib/experimental/transformer/attention_block_tkg_input_distributions_design_spec.md",
+        "sha256": "5e351a8348be7e8a984ff00820e4f0df610bfc2eaa8a8a54ebfea5698801ffe3"
+      }
+    ],
+    "source_record_hash": "f99d91429af860404fd045cf76d3590ffd631ace37f368ce3ea2482bef504225"
+  },
+  "declared_dependencies": [
+    "model",
+    "numpy",
+    "torch"
+  ],
+  "exact_blocker": "provider_probe_plan_not_bounded",
+  "external_service_indicators": [],
+  "gate_statuses": [
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [
+        "Batch068f verified source identity"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "f99d91429af860404fd045cf76d3590ffd631ace37f368ce3ea2482bef504225"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "106bafd9fdeb623acaf0c70cb4b3434fd48b2e9c0b2f963deb022b8bedca21c8",
+      "post_state_hash": "fe35c9ee5a07655d07c3762896e68f9832cd36836b87c291e49b700424254a1e",
+      "prior_state_hash": "GENESIS",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-001",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [
+        "verified commit object"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [
+        "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2"
+      ],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "09ec9405e1b7154fcef73ee35653d7f84f1d8ab4681be810671ab9b4ccaba4ed",
+      "post_state_hash": "dccf953d0014be264eaee914b0900ca419c0770d352d25aeedd6b13f095f93cd",
+      "prior_state_hash": "fe35c9ee5a07655d07c3762896e68f9832cd36836b87c291e49b700424254a1e",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-002",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [
+        "CONTRIBUTING.md",
+        "pyproject.toml",
+        "test/README.md",
+        "test/integration/nkilib/experimental/transformer/attention_block_tkg_input_distributions_design_spec.md"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "e5566c2c390c13d6c7b574e9d8121ec4df70bc23139f4d0b28c869b147ad6cc1",
+      "post_state_hash": "41bbf7113e91287fdb7c3a2c4ef88c1a69779da9e5098f77a1045a5519c058ab",
+      "prior_state_hash": "dccf953d0014be264eaee914b0900ca419c0770d352d25aeedd6b13f095f93cd",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-003",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [
+        "test/utils/core_lock_client.py",
+        "test/utils/host_management.py",
+        "test/utils/pytest_plugin.py",
+        "test/utils/test_orchestrator.py"
+      ],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "ebe4b022d2ce12e52559ed1f2c4232202d5bb3cd23c414c1a55e0c013a6046ac",
+      "post_state_hash": "fbbdd0ff08c358cfcd935108b6652eb31484502eabda36c1f0d4224f9f28d6ee",
+      "prior_state_hash": "41bbf7113e91287fdb7c3a2c4ef88c1a69779da9e5098f77a1045a5519c058ab",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-004",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "fe52d9f479e4dffe188f9e42f794be020721c960809b58858572ceddc519edb7",
+      "prior_state_hash": "fbbdd0ff08c358cfcd935108b6652eb31484502eabda36c1f0d4224f9f28d6ee",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-005",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "dd6334d3f17f500f456d978eeee8d40577fc1cd98468892044b0bbd36e1a8a00",
+      "prior_state_hash": "fe52d9f479e4dffe188f9e42f794be020721c960809b58858572ceddc519edb7",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-006",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "79e97c80facf0d51f5a663410c0675167e03ab3195dcf218a1e6edda87247ff8",
+      "prior_state_hash": "dd6334d3f17f500f456d978eeee8d40577fc1cd98468892044b0bbd36e1a8a00",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-007",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "2370050a2a3e3fce296f45bf102dd16453aa032d9f941b49337af728a217cc0f",
+      "post_state_hash": "0eb17580cb2d40950cc28c0f43f89257f4dfd7764bd634d3175621262d8e8c5b",
+      "prior_state_hash": "79e97c80facf0d51f5a663410c0675167e03ab3195dcf218a1e6edda87247ff8",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-008",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": null,
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "continue_static_frontier_graph",
+      "output_hash": "43cd9af6aab09168ceb4040e68f3250a8e75e708822ae81759ded0d65358425e",
+      "post_state_hash": "6d28cc23ebcb6eae0513df0b746c603aaac70f22a8b403dcf43b792cb66055ed",
+      "prior_state_hash": "0eb17580cb2d40950cc28c0f43f89257f4dfd7764bd634d3175621262d8e8c5b",
+      "reopen_conditions": [],
+      "stable_step_id": "CG-RXN-009",
+      "status": "pass",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "provider_probe_plan_not_bounded",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_bounded_provider_capsule_plan",
+      "output_hash": "9abc000fc3df38764f11c0b246d0ee339a1bcc007ec45e8b4fb28001e033f9b9",
+      "post_state_hash": "05e0d93e0dea20fc30ad8fb42fa4c4843dd7c3bb138626698adfe086014508a7",
+      "prior_state_hash": "6d28cc23ebcb6eae0513df0b746c603aaac70f22a8b403dcf43b792cb66055ed",
+      "reopen_conditions": [
+        "supply_bounded_provider_capsule_plan",
+        "rerun_static_frontier_plan_with_hash_pinned_evidence"
+      ],
+      "stable_step_id": "CG-RXN-010",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    },
+    {
+      "blocker_code": "provider_probe_plan_not_bounded",
+      "blocker_reason": null,
+      "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+      "decision_time_evidence_used": [],
+      "forbidden_evidence_checked": true,
+      "handler_name": "passthrough_handler",
+      "input_hashes": [],
+      "next_allowed_action": "supply_decision_time_safe_evidence",
+      "output_hash": "e49ab603e3ec89a3ba7b137eb5296446a3468ff0671ec3f07c83a640cb64786b",
+      "post_state_hash": "946916114eaa3c1744c3ed9093e5de38d0fce3280b6bd24e603bfff5081535ba",
+      "prior_state_hash": "05e0d93e0dea20fc30ad8fb42fa4c4843dd7c3bb138626698adfe086014508a7",
+      "reopen_conditions": [
+        "new_decision_time_safe_evidence"
+      ],
+      "stable_step_id": "CG-RXN-011",
+      "status": "block",
+      "verifier_name": "nonempty_output_verifier"
+    }
+  ],
+  "harness_origin_status": {
+    "authority_source": "immutable_public_repo_commit",
+    "blocker": null,
+    "classification": "project_native_static_non_circular",
+    "self_referential_hash_detected": false,
+    "status": "PASS"
+  },
+  "issue_creation_epoch": "2026-07-01T23:48:47Z",
+  "issue_identity": {
+    "issue_created_at": "2026-07-01T23:48:47Z",
+    "issue_url": "https://github.com/aws-neuron/nki-library/issues/5",
+    "status": "PASS"
+  },
+  "metadata_source_files": [
+    {
+      "byte_count": 3160,
+      "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+      "path": "CONTRIBUTING.md",
+      "sha256": "993e7639b93ea44d96be9813b63f5beada0deb2d4677d2e91ea96bc51e15b44b",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 2049,
+      "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+      "path": "pyproject.toml",
+      "sha256": "dd03e9248d8b3f2eb8052937403d34544635e9e06a2684517c82b0e56d5d34fc",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 14247,
+      "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+      "path": "test/README.md",
+      "sha256": "0d20a9ca620d682c3b1f0257e8ea6260cdbf48856c80319685bc3207aeea7f27",
+      "source_class": "decision_time_repository_metadata"
+    },
+    {
+      "byte_count": 14853,
+      "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+      "path": "test/integration/nkilib/experimental/transformer/attention_block_tkg_input_distributions_design_spec.md",
+      "sha256": "5e351a8348be7e8a984ff00820e4f0df610bfc2eaa8a8a54ebfea5698801ffe3",
+      "source_class": "decision_time_repository_metadata"
+    }
+  ],
+  "native_target_path": "test/utils/core_lock_client.py",
+  "network_model_indicators": [
+    "model",
+    "torch"
+  ],
+  "next_allowed_action": "supply_bounded_provider_capsule_plan",
+  "patch_applied": false,
+  "patch_generated": false,
+  "platform_restrictions": [],
+  "provider_feasibility_class": "network_or_model_dependency_static",
+  "provider_probe_executed": false,
+  "ranked_command_candidates": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "test/utils/core_lock_client.py"
+      ],
+      "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+      "precedence": 30,
+      "source_class": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "source_sha256": "dd03e9248d8b3f2eb8052937403d34544635e9e06a2684517c82b0e56d5d34fc",
+      "target_path_corroborated": true,
+      "token_safety": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "test/utils/core_lock_client.py"
+        ],
+        "blocker": null,
+        "status": "PASS",
+        "unsafe_tokens": []
+      },
+      "working_directory": "."
+    }
+  ],
+  "reopen_conditions": [
+    "supply_bounded_provider_capsule_plan",
+    "rerun_static_frontier_plan_with_hash_pinned_evidence"
+  ],
+  "repo_identity": {
+    "repo_url": "https://github.com/aws-neuron/nki-library",
+    "status": "verified_from_batch068f"
+  },
+  "runner_package": "pytest",
+  "runner_target_split_status": {
+    "blocker": null,
+    "classification": "runner_target_split_not_required",
+    "runner_package": "pytest",
+    "status": "PASS",
+    "target_package": "nki_library"
+  },
+  "selected_command_candidate": {
+    "argv": [
+      "python",
+      "-m",
+      "pytest",
+      "test/utils/core_lock_client.py"
+    ],
+    "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+    "precedence": 30,
+    "source_class": "pyproject.toml",
+    "source_path": "pyproject.toml",
+    "source_sha256": "dd03e9248d8b3f2eb8052937403d34544635e9e06a2684517c82b0e56d5d34fc",
+    "target_path_corroborated": true,
+    "token_safety": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "test/utils/core_lock_client.py"
+      ],
+      "blocker": null,
+      "status": "PASS",
+      "unsafe_tokens": []
+    },
+    "working_directory": "."
+  },
+  "selection_confidence": "deterministic_source_precedence",
+  "sha_confidence_class": "decision_time_epoch_snapshot_commit",
+  "source_conflicts": [],
+  "state_hash": "6a171a21a948746ce9edb14be28477b28e0c3cb3b58ac5d166f37bd5e08089d2",
+  "target_intent": {
+    "command_authority": false,
+    "issue_body_sha256": "a6543c13f2ae459b2a1afd6558bf79b70f8f5b6a60cc5e9238081e8dfa102361",
+    "issue_created_at": "2026-07-01T23:48:47Z",
+    "issue_title_sha256": "3096638448d3678a70d48957b24ece06da8f7c0c8ee83ef4d54e5a8ac7255db5",
+    "issue_url": "https://github.com/aws-neuron/nki-library/issues/5",
+    "raw_issue_text_committed": false,
+    "solution_or_remedy_text_used": false,
+    "status": "PASS",
+    "target_intent_sha256": "f3998eb37dae7960173d593e9f22b7b2ff5cf038bf2b38e4adbf57acd9f31a1c",
+    "test_paths": [
+      "test/utils/core_lock_client.py",
+      "test/utils/host_management.py",
+      "test/utils/perf_analysis_private.py",
+      "test/utils/pytest_plugin.py",
+      "test/utils/test_orchestrator.py"
+    ]
+  },
+  "target_package": "nki_library",
+  "target_path_verification": {
+    "blocker": null,
+    "paths": [
+      "test/utils/core_lock_client.py",
+      "test/utils/host_management.py",
+      "test/utils/pytest_plugin.py",
+      "test/utils/test_orchestrator.py"
+    ],
+    "proposed_paths": [
+      "test/utils/core_lock_client.py",
+      "test/utils/host_management.py",
+      "test/utils/perf_analysis_private.py",
+      "test/utils/pytest_plugin.py",
+      "test/utils/test_orchestrator.py"
+    ],
+    "status": "PASS"
+  },
+  "target_tests_executed": 0,
+  "terminal_state": "provider_probe_plan_not_bounded",
+  "tier_label": "Tier 2 static metadata verified",
+  "working_directory": "."
+}
