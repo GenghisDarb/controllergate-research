@@ -1,0 +1,58 @@
+{
+  "acceptable_artifact_examples": [
+    "native test command snapshot",
+    "CI log from candidate-era commit",
+    "tox/nox config from candidate-era release",
+    "reproduction script with hash and provenance",
+    "benchmark harness bundle with manifest"
+  ],
+  "approval_test": "manual artifact validates against native command artifact schema with no forbidden evidence",
+  "audit_status": "PASS",
+  "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+  "candidate_local_command_hints_already_observed": [
+    ".github/workflows/ci-tests.yaml",
+    "CONTRIBUTING.md",
+    "Makefile",
+    "pyproject",
+    "test tree"
+  ],
+  "candidate_local_test_tree_hints_already_observed": "{\n  \"records\": [\n    {\n      \"path\": \"docs/tests/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"docs/tests/test_examples.py\",\n      \"sha256\": \"4de1c5131566cd80850d3246c2ea01536931143eef8dfbc8578746b1c7ede574\",\n      \"size_bytes\": 2206\n    },\n    {\n      \"path\": \"tests/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/conftest.py\",\n      \"sha256\": \"989d3aac88b37e8fb2e605c8af0129cb1a640aa6cd09ed691f487563afef4818\",\n      \"size_bytes\": 8758\n    },\n    {\n      \"path\": \"tests/cwl-conformance/conftest.py\",\n      \"sha256\": \"1b8a2e56430e50a74b3577087a9ada127f0ac22fc1cbaa2783d95cd60e331f7e\",\n      \"size_bytes\": 969\n    },\n    {\n      \"path\": \"tests/test_aiotarstream.py\",\n      \"sha256\": \"d6f28166a5c28b92420175b6d5a38c8ecb467ffb4915c6e49c7cd77d82aeba57\",\n      \"size_bytes\": 3462\n    },\n    {\n      \"path\": \"tests/test_binding_filter.py\",\n      \"sha256\": \"23cc2274ae34569769ce1274274363b144a941fd54b5fe1af3d2979c5ee8c45c\",\n      \"size_bytes\": 8753\n    },\n    {\n      \"path\": \"tests/test_build_wf.py\",\n      \"sha256\": \"63328787dea0d48b6fc703aa0bf64b8c91cc15b2f9be1945dd5d240fea29b9d5\",\n      \"size_bytes\": 12152\n    },\n    {\n      \"path\": \"tests/test_connector.py\",\n      \"sha256\": \"08802f9915c4f077b71d31e6b71469636936284cd8f1f94d80155bfb21e69d14\",\n      \"size_bytes\": 10169\n    },\n    {\n      \"path\": \"tests/test_cwl_build_wf.py\",\n      \"sha256\": \"bf5b74b619e9ab08cf170e01acb34db93f2d299e3092cb543fb6d0ac2fcd528f\",\n      \"size_bytes\": 11691\n    },\n    {\n      \"path\": \"tests/test_cwl_execution.py\",\n      \"sha256\": \"4d31a302b3e19f7dfb159093277417fa6a923baab635079edf03e43dfb7b5706\",\n      \"size_bytes\": 10492\n    },\n    {\n      \"path\": \"tests/test_cwl_loop.py\",\n      \"sha256\": \"17231320b8d5f33c7137530a090362a85a570df08aeecf936d3611679f96fbc2\",\n      \"size_bytes\": 9419\n    },\n    {\n      \"path\": \"tests/test_cwl_persistence.py\",\n      \"sha256\": \"09066c12a06942b35065484a88649c8fd34061664ba1f2b35062cfcf06478c3b\",\n      \"size_bytes\": 29591\n    },\n    {\n      \"path\": \"tests/test_cwl_provenance.py\",\n      \"sha256\": \"419a22eef6988c4fd93c6d2c22aec26dde975bae1fa1e0d28b22f1f8ef13f63a\",\n      \"size_bytes\": 30461\n    },\n    {\n      \"path\": \"tests/test_data_manager.py\",\n      \"sha256\": \"50bd1aab4b06550b0da8ec10a7a812554ea87c6991643e5ffa92d032f3fa38aa\",\n      \"size_bytes\": 8078\n    },\n    {\n      \"path\": \"tests/test_database.py\",\n      \"sha256\": \"15a6229655132f47050b4f71e55bd2bee9186dbaa94ad20ee5a40a96b89046c6\",\n      \"size_bytes\": 1968\n    },\n    {\n      \"path\": \"tests/test_persistence.py\",\n      \"sha256\": \"534ba79feaa601db886c325caa9d7f5c7a719968bb43e370486bfbe863b7c815\",\n      \"size_bytes\": 12590\n    },\n    {\n      \"path\": \"tests/test_provenance.py\",\n      \"sha256\": \"c1dc821993c44b178bc2807f8729b37aaf4fd435cb464e9df9aae057cb66ecfa\",\n      \"size_bytes\": 14955\n    },\n    {\n      \"path\": \"tests/test_recovery.py\",\n      \"sha256\": \"0073b79b842e4b5521b2dc939159bc4e15b566ac4ff297c33826f04748d2b6b7\",\n      \"size_bytes\": 31173\n    },\n    {\n      \"path\": \"tests/test_recovery_utils.py\",\n      \"sha256\": \"52d280e60b3440f799a5588144080372ae7edd0e023f479c67a31790a50651cf\",\n      \"size_bytes\": 5030\n    },\n    {\n      \"path\": \"tests/test_remotepath.py\",\n      \"sha256\": \"ed6aec9eb4f941990219f69c62c64d80201ce3344536550a7610abf917436f0f\",\n      \"size_bytes\": 9747\n    },\n    {\n      \"path\": \"tests/test_report.py\",\n      \"sha256\": \"468ed8cfcf13c92e64a05f7e175c2d58af8d5d96f456a9b0b0fdaeefaf454dfc\",\n      \"size_bytes\": 4845\n    },\n    {\n      \"path\": \"tests/test_scheduler.py\",\n      \"sha256\": \"c47ee454843f580d8f62e6b21f7ceb3c59f7b7f69a1d40ab8f52096aeceafc2c\",\n      \"size_bytes\": 30515\n    },\n    {\n      \"path\": \"tests/test_schema.py\",\n      \"sha256\": \"13d0edcee5b066845ea522fe5c43383718d6511bfff747af1afb38baab742fb7\",\n      \"size_bytes\": 11474\n    },\n    {\n      \"path\": \"tests/test_transfer.py\",\n      \"sha256\": \"b644c5db335ae0aeacb52d25c85dbf17143df66b428172c6c917c83394fb5757\",\n      \"size_bytes\": 6869\n    },\n    {\n      \"path\": \"tests/test_translator.py\",\n      \"sha256\": \"156faf44ae0b62f8d9a1cb62ca0407526b99f935f70a2fbeef88c688ed8ee8b2\",\n      \"size_bytes\": 20247\n    },\n    {\n      \"path\": \"tests/utils/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/utils/connector.py\",\n      \"sha256\": \"06048117e4ac449b86215241f2226d9818cf99ef9e9966ebd4d16078222b6ec2\",\n      \"size_bytes\": 16273\n    },\n    {\n      \"path\": \"tests/utils/cwl.py\",\n      \"sha256\": \"5e1f2f99b38a8e443b07e0101329c48190b50c43f76ec3b5903d19f4e092b268\",\n      \"size_bytes\": 534\n    },\n    {\n      \"path\": \"tests/utils/data.py\",\n      \"sha256\": \"edaf8746d6a16da08e224f677ba8efa96f6798045f60b36fef1d3dd49e3027ea\",\n      \"size_bytes\": 2445\n    },\n    {\n      \"path\": \"tests/utils/deployment.py\",\n      \"sha256\": \"6326231307875941f3f4767711baa62f5c24617212055582f3b7914552f1a069\",\n      \"size_bytes\": 14487\n    },\n    {\n      \"path\": \"tests/utils/utils.py\",\n      \"sha256\": \"14c7a9adeb097b90683151669d7de10142f24058380a0447cab0c5c511b86379\",\n      \"size_bytes\": 15742\n    },\n    {\n      \"path\": \"tests/utils/workflow.py\",\n      \"sha256\": \"759d5cb8c0d21f9a9a45b11629caa59da10f7e13efee4801749dee132ad66203\",\n      \"size_bytes\": 47819\n    }\n  ],\n  \"status\": \"PASS\",\n  \"test_file_count\": 33\n}\n",
+  "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+  "candidate_specific_request_detail": "Request a verified candidate-era native command artifact identifying the correct target replay command for issue 1100 and any required fixture or profile.",
+  "exact_blocker": "streamflow_native_test_command_unrecoverable_without_manual_artifact",
+  "forbidden_artifact_contents": [
+    "future commit contents",
+    "fixed patch",
+    "gold patch",
+    "issue workaround fix text",
+    "test mutation",
+    "fixture injection"
+  ],
+  "hash_requirements": [
+    "artifact_sha256",
+    "command_source_sha256",
+    "source_snapshot_identity"
+  ],
+  "how_to_submit_safely": "place a JSON, Markdown, or text artifact under incoming_artifacts/ with candidate_id, source snapshot identity, SHA256, and provenance; do not include patch guidance",
+  "issue_url": "https://github.com/alpha-unito/streamflow/issues/1100",
+  "minimum_safe_artifact_needed": [
+    "verified_native_target_command",
+    "candidate_era_command_source_path",
+    "hash_of_command_source_artifact",
+    "source_snapshot_identity",
+    "provenance_note",
+    "statement_excluding_future_gold_fixed_patch_guidance"
+  ],
+  "next_action_after_approval": "batch069c_manual_artifact_command_replay_followup",
+  "provenance_requirements": [
+    "artifact_author",
+    "artifact_created_at_utc",
+    "artifact_source_url_or_local_path",
+    "provenance_note"
+  ],
+  "public_explanation": "This request seeks command-boundary evidence only; it is not repair proof and cannot authorize patches or count gates.",
+  "reopen_condition": "verified_native_target_command_artifact",
+  "repo_url": "https://github.com/alpha-unito/streamflow",
+  "status": "PASS",
+  "why_current_metadata_was_insufficient": "candidate-local metadata exposed broad runner hints but no exact native target command safely tied to the issue target"
+}

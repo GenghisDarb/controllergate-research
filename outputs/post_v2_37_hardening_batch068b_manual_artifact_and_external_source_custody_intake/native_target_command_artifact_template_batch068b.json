@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "template": {
+    "allowed_use": [
+      "command_boundary_recovery",
+      "harness_origin_planning",
+      "pre_repair_replay_gate_planning",
+      "manual_artifact_queue_resolution"
+    ],
+    "approval_condition": "hash_and_provenance_verified_without_forbidden_evidence",
+    "artifact_author": "<reviewer_or_source>",
+    "artifact_created_at_utc": "<ISO-8601-UTC>",
+    "artifact_sha256": "<sha256_of_this_artifact>",
+    "artifact_source_url_or_local_path": "<source_url_or_quarantine_path>",
+    "audit_status": "PASS",
+    "candidate_id": "<required>",
+    "candidate_sha": "<40_hex_candidate_sha>",
+    "command_source_path": "<candidate_era_path>",
+    "command_source_sha256": "<sha256_of_command_source>",
+    "command_source_type": "candidate_local_metadata_or_ci_log_or_verified_manual_snapshot",
+    "decision_time_safety_claim": "artifact is tied to the candidate-era source snapshot and excludes future/fixed/gold evidence",
+    "fixture_injection_exclusion": true,
+    "forbidden_evidence_exclusion": true,
+    "forbidden_use": [
+      "patch_guidance",
+      "repair_proof",
+      "count_gate_evidence",
+      "memory_lift_evidence",
+      "full_scoring_evidence",
+      "self_maintaining_claim_evidence",
+      "gold_fixed_future_substitute"
+    ],
+    "gold_fixed_future_exclusion": true,
+    "issue_comment_fix_text_exclusion": true,
+    "issue_url": "<required>",
+    "native_target_command": "<exact_candidate_era_command>",
+    "provenance_note": "<who_verified_what_and_when>",
+    "repo_url": "<required>",
+    "source_snapshot_identity": "<commit_sha_or_artifact_identity>",
+    "test_mutation_exclusion": true
+  }
+}

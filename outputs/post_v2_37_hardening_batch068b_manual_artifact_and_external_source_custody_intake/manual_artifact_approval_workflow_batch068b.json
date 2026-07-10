@@ -1,0 +1,14 @@
+{
+  "approval_without_hash_or_provenance_allowed": false,
+  "status": "PASS",
+  "steps": [
+    "quarantine",
+    "hash",
+    "structured_parse_if_safe",
+    "candidate_mapping",
+    "provenance_check",
+    "forbidden_evidence_scan",
+    "schema_validation",
+    "approval_or_rejection"
+  ]
+}

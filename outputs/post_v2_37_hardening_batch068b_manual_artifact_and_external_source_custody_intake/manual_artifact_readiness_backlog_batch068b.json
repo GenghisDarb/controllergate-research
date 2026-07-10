@@ -1,0 +1,184 @@
+{
+  "records": [
+    {
+      "acceptable_artifact_examples": [
+        "native test command snapshot",
+        "CI log from candidate-era commit",
+        "tox/nox config from candidate-era release",
+        "reproduction script with hash and provenance",
+        "benchmark harness bundle with manifest"
+      ],
+      "approval_test": "manual artifact validates against native command artifact schema with no forbidden evidence",
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_aio_libs_aiosmtpd_issues_403",
+      "candidate_local_command_hints_already_observed": [
+        ".github/workflows/ci-cd.yml",
+        "pytest",
+        "pytest -v aiosmtpd/qa",
+        "README",
+        "pyproject",
+        "requirements",
+        "aiosmtpd/qa test tree"
+      ],
+      "candidate_local_test_tree_hints_already_observed": "{\n  \"records\": [\n    {\n      \"path\": \"aiosmtpd/qa/test_0packaging.py\",\n      \"sha256\": \"20e4fe4905dbce32c88e6be42f0a5478920ab36fb8329f81a628d2a672940b46\",\n      \"size_bytes\": 3583\n    },\n    {\n      \"path\": \"aiosmtpd/qa/test_1testsuite.py\",\n      \"sha256\": \"c49be8421b47001464cc79c68b0a29e2394e43064bdbf158e9b8238ac7bcb325\",\n      \"size_bytes\": 3420\n    },\n    {\n      \"path\": \"aiosmtpd/testing/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"aiosmtpd/testing/helpers.py\",\n      \"sha256\": \"30e6d78c58410a98b365c4bb8ffcc4cb91f1587a0111e721c71cb9db346bf657\",\n      \"size_bytes\": 2240\n    },\n    {\n      \"path\": \"aiosmtpd/testing/statuscodes.py\",\n      \"sha256\": \"4ef340f061ab157a7eacaeb9f322dd24663484e16576d538cbd6c534659b4853\",\n      \"size_bytes\": 7625\n    },\n    {\n      \"path\": \"aiosmtpd/tests/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"aiosmtpd/tests/certs/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"aiosmtpd/tests/conftest.py\",\n      \"sha256\": \"ee8a7c2731c63fe84eb4b9275ccc5f36933e95a231b74418025e30160ff14236\",\n      \"size_bytes\": 11940\n    },\n    {\n      \"path\": \"aiosmtpd/tests/test_handlers.py\",\n      \"sha256\": \"04c9fffe1d0837070efe66390a10c4467aa8b5ff0561752838a85bd6447bc7b3\",\n      \"size_bytes\": 35066\n    },\n    {\n      \"path\": \"aiosmtpd/tests/test_lmtp.py\",\n      \"sha256\": \"c3482076c3517cd8bd4d683f128028db6d1afb04f889f56d9fa188c930f9a1a2\",\n      \"size_bytes\": 1561\n    },\n    {\n      \"path\": \"aiosmtpd/tests/test_main.py\",\n      \"sha256\": \"82427efe0fafe0851a290b3617cd45b8a8ef6a50476cd69538b98c726b63e107\",\n      \"size_bytes\": 12383\n    },\n    {\n      \"path\": \"aiosmtpd/tests/test_misc.py\",\n      \"sha256\": \"0357ebed972b9539a4ddc54e096e65e6725152a1a98b0dabcd9da63249979e7f\",\n      \"size_bytes\": 1588\n    },\n    {\n      \"path\": \"aiosmtpd/tests/test_proxyprotocol.py\",\n      \"sha256\": \"0e23ef726274b743dec5369e4abbb3e75269f6c4b3e936cb8217c296465ef996\",\n      \"size_bytes\": 42152\n    },\n    {\n      \"path\": \"aiosmtpd/tests/test_server.py\",\n      \"sha256\": \"4b021a445655e87a3caf537bddd152ef6cbc34840a7d939fd8a83d0b24012781\",\n      \"size_bytes\": 23919\n    },\n    {\n      \"path\": \"aiosmtpd/tests/test_smtp.py\",\n      \"sha256\": \"9fad568b75d9b230cc300cd6f8bce43bb5085d24d92aae7d4da4744de5e4a588\",\n      \"size_bytes\": 77156\n    },\n    {\n      \"path\": \"aiosmtpd/tests/test_smtps.py\",\n      \"sha256\": \"9c5ff2538079fcfe0071bf01f15f6a9202d04e5b36f8df7c798c2d143c992946\",\n      \"size_bytes\": 1611\n    },\n    {\n      \"path\": \"aiosmtpd/tests/test_starttls.py\",\n      \"sha256\": \"3b04d0ffea64fd9eebf03e1fdd200e93212627ceb0333715c1a9bba7409647af\",\n      \"size_bytes\": 13189\n    }\n  ],\n  \"status\": \"PASS\",\n  \"test_file_count\": 17\n}\n",
+      "candidate_sha": "94710d8fd280115cbd835ae969873cc424b4e57a",
+      "candidate_specific_request_detail": "Request a verified candidate-era native command artifact that identifies whether the valid target command is the full QA command, a focused test command for issue 403, or a tox/CI command.",
+      "exact_blocker": "aiosmtpd_native_test_command_unrecoverable_without_manual_artifact",
+      "forbidden_artifact_contents": [
+        "future commit contents",
+        "fixed patch",
+        "gold patch",
+        "issue workaround fix text",
+        "test mutation",
+        "fixture injection"
+      ],
+      "hash_requirements": [
+        "artifact_sha256",
+        "command_source_sha256",
+        "source_snapshot_identity"
+      ],
+      "how_to_submit_safely": "place a JSON, Markdown, or text artifact under incoming_artifacts/ with candidate_id, source snapshot identity, SHA256, and provenance; do not include patch guidance",
+      "issue_url": "https://github.com/aio-libs/aiosmtpd/issues/403",
+      "minimum_safe_artifact_needed": [
+        "verified_native_target_command",
+        "candidate_era_command_source_path",
+        "hash_of_command_source_artifact",
+        "source_snapshot_identity",
+        "provenance_note",
+        "statement_excluding_future_gold_fixed_patch_guidance"
+      ],
+      "next_action_after_approval": "batch069c_manual_artifact_command_replay_followup",
+      "provenance_requirements": [
+        "artifact_author",
+        "artifact_created_at_utc",
+        "artifact_source_url_or_local_path",
+        "provenance_note"
+      ],
+      "public_explanation": "This request seeks command-boundary evidence only; it is not repair proof and cannot authorize patches or count gates.",
+      "reopen_condition": "verified_native_target_command_artifact",
+      "repo_url": "https://github.com/aio-libs/aiosmtpd",
+      "status": "PASS",
+      "why_current_metadata_was_insufficient": "candidate-local metadata exposed broad runner hints but no exact native target command safely tied to the issue target"
+    },
+    {
+      "acceptable_artifact_examples": [
+        "native test command snapshot",
+        "CI log from candidate-era commit",
+        "tox/nox config from candidate-era release",
+        "reproduction script with hash and provenance",
+        "benchmark harness bundle with manifest"
+      ],
+      "approval_test": "manual artifact validates against native command artifact schema with no forbidden evidence",
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_alpha_unito_streamflow_issues_1100",
+      "candidate_local_command_hints_already_observed": [
+        ".github/workflows/ci-tests.yaml",
+        "CONTRIBUTING.md",
+        "Makefile",
+        "pyproject",
+        "test tree"
+      ],
+      "candidate_local_test_tree_hints_already_observed": "{\n  \"records\": [\n    {\n      \"path\": \"docs/tests/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"docs/tests/test_examples.py\",\n      \"sha256\": \"4de1c5131566cd80850d3246c2ea01536931143eef8dfbc8578746b1c7ede574\",\n      \"size_bytes\": 2206\n    },\n    {\n      \"path\": \"tests/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/conftest.py\",\n      \"sha256\": \"989d3aac88b37e8fb2e605c8af0129cb1a640aa6cd09ed691f487563afef4818\",\n      \"size_bytes\": 8758\n    },\n    {\n      \"path\": \"tests/cwl-conformance/conftest.py\",\n      \"sha256\": \"1b8a2e56430e50a74b3577087a9ada127f0ac22fc1cbaa2783d95cd60e331f7e\",\n      \"size_bytes\": 969\n    },\n    {\n      \"path\": \"tests/test_aiotarstream.py\",\n      \"sha256\": \"d6f28166a5c28b92420175b6d5a38c8ecb467ffb4915c6e49c7cd77d82aeba57\",\n      \"size_bytes\": 3462\n    },\n    {\n      \"path\": \"tests/test_binding_filter.py\",\n      \"sha256\": \"23cc2274ae34569769ce1274274363b144a941fd54b5fe1af3d2979c5ee8c45c\",\n      \"size_bytes\": 8753\n    },\n    {\n      \"path\": \"tests/test_build_wf.py\",\n      \"sha256\": \"63328787dea0d48b6fc703aa0bf64b8c91cc15b2f9be1945dd5d240fea29b9d5\",\n      \"size_bytes\": 12152\n    },\n    {\n      \"path\": \"tests/test_connector.py\",\n      \"sha256\": \"08802f9915c4f077b71d31e6b71469636936284cd8f1f94d80155bfb21e69d14\",\n      \"size_bytes\": 10169\n    },\n    {\n      \"path\": \"tests/test_cwl_build_wf.py\",\n      \"sha256\": \"bf5b74b619e9ab08cf170e01acb34db93f2d299e3092cb543fb6d0ac2fcd528f\",\n      \"size_bytes\": 11691\n    },\n    {\n      \"path\": \"tests/test_cwl_execution.py\",\n      \"sha256\": \"4d31a302b3e19f7dfb159093277417fa6a923baab635079edf03e43dfb7b5706\",\n      \"size_bytes\": 10492\n    },\n    {\n      \"path\": \"tests/test_cwl_loop.py\",\n      \"sha256\": \"17231320b8d5f33c7137530a090362a85a570df08aeecf936d3611679f96fbc2\",\n      \"size_bytes\": 9419\n    },\n    {\n      \"path\": \"tests/test_cwl_persistence.py\",\n      \"sha256\": \"09066c12a06942b35065484a88649c8fd34061664ba1f2b35062cfcf06478c3b\",\n      \"size_bytes\": 29591\n    },\n    {\n      \"path\": \"tests/test_cwl_provenance.py\",\n      \"sha256\": \"419a22eef6988c4fd93c6d2c22aec26dde975bae1fa1e0d28b22f1f8ef13f63a\",\n      \"size_bytes\": 30461\n    },\n    {\n      \"path\": \"tests/test_data_manager.py\",\n      \"sha256\": \"50bd1aab4b06550b0da8ec10a7a812554ea87c6991643e5ffa92d032f3fa38aa\",\n      \"size_bytes\": 8078\n    },\n    {\n      \"path\": \"tests/test_database.py\",\n      \"sha256\": \"15a6229655132f47050b4f71e55bd2bee9186dbaa94ad20ee5a40a96b89046c6\",\n      \"size_bytes\": 1968\n    },\n    {\n      \"path\": \"tests/test_persistence.py\",\n      \"sha256\": \"534ba79feaa601db886c325caa9d7f5c7a719968bb43e370486bfbe863b7c815\",\n      \"size_bytes\": 12590\n    },\n    {\n      \"path\": \"tests/test_provenance.py\",\n      \"sha256\": \"c1dc821993c44b178bc2807f8729b37aaf4fd435cb464e9df9aae057cb66ecfa\",\n      \"size_bytes\": 14955\n    },\n    {\n      \"path\": \"tests/test_recovery.py\",\n      \"sha256\": \"0073b79b842e4b5521b2dc939159bc4e15b566ac4ff297c33826f04748d2b6b7\",\n      \"size_bytes\": 31173\n    },\n    {\n      \"path\": \"tests/test_recovery_utils.py\",\n      \"sha256\": \"52d280e60b3440f799a5588144080372ae7edd0e023f479c67a31790a50651cf\",\n      \"size_bytes\": 5030\n    },\n    {\n      \"path\": \"tests/test_remotepath.py\",\n      \"sha256\": \"ed6aec9eb4f941990219f69c62c64d80201ce3344536550a7610abf917436f0f\",\n      \"size_bytes\": 9747\n    },\n    {\n      \"path\": \"tests/test_report.py\",\n      \"sha256\": \"468ed8cfcf13c92e64a05f7e175c2d58af8d5d96f456a9b0b0fdaeefaf454dfc\",\n      \"size_bytes\": 4845\n    },\n    {\n      \"path\": \"tests/test_scheduler.py\",\n      \"sha256\": \"c47ee454843f580d8f62e6b21f7ceb3c59f7b7f69a1d40ab8f52096aeceafc2c\",\n      \"size_bytes\": 30515\n    },\n    {\n      \"path\": \"tests/test_schema.py\",\n      \"sha256\": \"13d0edcee5b066845ea522fe5c43383718d6511bfff747af1afb38baab742fb7\",\n      \"size_bytes\": 11474\n    },\n    {\n      \"path\": \"tests/test_transfer.py\",\n      \"sha256\": \"b644c5db335ae0aeacb52d25c85dbf17143df66b428172c6c917c83394fb5757\",\n      \"size_bytes\": 6869\n    },\n    {\n      \"path\": \"tests/test_translator.py\",\n      \"sha256\": \"156faf44ae0b62f8d9a1cb62ca0407526b99f935f70a2fbeef88c688ed8ee8b2\",\n      \"size_bytes\": 20247\n    },\n    {\n      \"path\": \"tests/utils/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/utils/connector.py\",\n      \"sha256\": \"06048117e4ac449b86215241f2226d9818cf99ef9e9966ebd4d16078222b6ec2\",\n      \"size_bytes\": 16273\n    },\n    {\n      \"path\": \"tests/utils/cwl.py\",\n      \"sha256\": \"5e1f2f99b38a8e443b07e0101329c48190b50c43f76ec3b5903d19f4e092b268\",\n      \"size_bytes\": 534\n    },\n    {\n      \"path\": \"tests/utils/data.py\",\n      \"sha256\": \"edaf8746d6a16da08e224f677ba8efa96f6798045f60b36fef1d3dd49e3027ea\",\n      \"size_bytes\": 2445\n    },\n    {\n      \"path\": \"tests/utils/deployment.py\",\n      \"sha256\": \"6326231307875941f3f4767711baa62f5c24617212055582f3b7914552f1a069\",\n      \"size_bytes\": 14487\n    },\n    {\n      \"path\": \"tests/utils/utils.py\",\n      \"sha256\": \"14c7a9adeb097b90683151669d7de10142f24058380a0447cab0c5c511b86379\",\n      \"size_bytes\": 15742\n    },\n    {\n      \"path\": \"tests/utils/workflow.py\",\n      \"sha256\": \"759d5cb8c0d21f9a9a45b11629caa59da10f7e13efee4801749dee132ad66203\",\n      \"size_bytes\": 47819\n    }\n  ],\n  \"status\": \"PASS\",\n  \"test_file_count\": 33\n}\n",
+      "candidate_sha": "dfc0fd5eb6bf23be4da389f96dda7ff5c9d90bd5",
+      "candidate_specific_request_detail": "Request a verified candidate-era native command artifact identifying the correct target replay command for issue 1100 and any required fixture or profile.",
+      "exact_blocker": "streamflow_native_test_command_unrecoverable_without_manual_artifact",
+      "forbidden_artifact_contents": [
+        "future commit contents",
+        "fixed patch",
+        "gold patch",
+        "issue workaround fix text",
+        "test mutation",
+        "fixture injection"
+      ],
+      "hash_requirements": [
+        "artifact_sha256",
+        "command_source_sha256",
+        "source_snapshot_identity"
+      ],
+      "how_to_submit_safely": "place a JSON, Markdown, or text artifact under incoming_artifacts/ with candidate_id, source snapshot identity, SHA256, and provenance; do not include patch guidance",
+      "issue_url": "https://github.com/alpha-unito/streamflow/issues/1100",
+      "minimum_safe_artifact_needed": [
+        "verified_native_target_command",
+        "candidate_era_command_source_path",
+        "hash_of_command_source_artifact",
+        "source_snapshot_identity",
+        "provenance_note",
+        "statement_excluding_future_gold_fixed_patch_guidance"
+      ],
+      "next_action_after_approval": "batch069c_manual_artifact_command_replay_followup",
+      "provenance_requirements": [
+        "artifact_author",
+        "artifact_created_at_utc",
+        "artifact_source_url_or_local_path",
+        "provenance_note"
+      ],
+      "public_explanation": "This request seeks command-boundary evidence only; it is not repair proof and cannot authorize patches or count gates.",
+      "reopen_condition": "verified_native_target_command_artifact",
+      "repo_url": "https://github.com/alpha-unito/streamflow",
+      "status": "PASS",
+      "why_current_metadata_was_insufficient": "candidate-local metadata exposed broad runner hints but no exact native target command safely tied to the issue target"
+    },
+    {
+      "acceptable_artifact_examples": [
+        "native test command snapshot",
+        "CI log from candidate-era commit",
+        "tox/nox config from candidate-era release",
+        "reproduction script with hash and provenance",
+        "benchmark harness bundle with manifest"
+      ],
+      "approval_test": "manual artifact validates against native command artifact schema with no forbidden evidence",
+      "audit_status": "PASS",
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "candidate_local_command_hints_already_observed": [
+        ".github/workflows/python-ci.yaml",
+        "tox",
+        "tox -e ci",
+        "tox.ini",
+        "pyproject",
+        "README",
+        "tests/ tree"
+      ],
+      "candidate_local_test_tree_hints_already_observed": "{\n  \"records\": [\n    {\n      \"path\": \"tests/00_api/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/00_api/conftest.py\",\n      \"sha256\": \"2904b990248b47698bdee769dd6df3b75ec12f4d9d670ec058900ff311bb6c42\",\n      \"size_bytes\": 101\n    },\n    {\n      \"path\": \"tests/00_api/test_00_api.py\",\n      \"sha256\": \"2387aec14d489843c327d1317406b71279c6ef4c62bc3b2d7f11dbb0f12d0d7f\",\n      \"size_bytes\": 6933\n    },\n    {\n      \"path\": \"tests/00_locale/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/00_locale/test_00_locale.py\",\n      \"sha256\": \"aed7dd9157c2e5d0dd77c3bea573d6d1061df8c37f29be06b2c366a110e74ebc\",\n      \"size_bytes\": 4135\n    },\n    {\n      \"path\": \"tests/01_loader/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/01_loader/conftest.py\",\n      \"sha256\": \"f8d2bd85d87d6e17738c80ae45199cb710a285d3bc46d600bcb71394808bc3fc\",\n      \"size_bytes\": 1351\n    },\n    {\n      \"path\": \"tests/01_loader/test_00_loader.py\",\n      \"sha256\": \"d596ef41a4e5a0c270e14f619cd7ccad19ada04bf2becae3d5d69297e93c94c5\",\n      \"size_bytes\": 1644\n    },\n    {\n      \"path\": \"tests/01_loader/test_01_loader.py\",\n      \"sha256\": \"0e8a3e187dfbc1858629ca6bf3e4576072267cb17cd27fe24c351615a34c724a\",\n      \"size_bytes\": 20105\n    },\n    {\n      \"path\": \"tests/01_loader/test_02_loader.py\",\n      \"sha256\": \"3f178d0c31a45780430c09431669713538c00c866631b1b9d9fc6f2e5025b684\",\n      \"size_bytes\": 46205\n    },\n    {\n      \"path\": \"tests/01_loader/test_03_loader.py\",\n      \"sha256\": \"0fccff1f937020c173dfcc72346b71bd58da48debbeceb6fba199c69fcb6c339\",\n      \"size_bytes\": 7876\n    },\n    {\n      \"path\": \"tests/02_models/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/02_models/conftest.py\",\n      \"sha256\": \"76a1783ea28ca844e6c6dd00939c4a51d3a308927b5734b20eb59ae9051150cf\",\n      \"size_bytes\": 61750\n    },\n    {\n      \"path\": \"tests/02_models/test_00_message.py\",\n      \"sha256\": \"320b90e75d63bd55ee1338d3966f7a18974ce4f7d96f3b1fc3040a7c54e08158\",\n      \"size_bytes\": 138791\n    },\n    {\n      \"path\": \"tests/02_models/test_00_respository.py\",\n      \"sha256\": \"5a119e0bab3c74871d054416b79e8ce29755933b599acde2b14323a40ca4b874\",\n      \"size_bytes\": 79086\n    },\n    {\n      \"path\": \"tests/02_models/test_01_book.py\",\n      \"sha256\": \"2102aa63ec5ff33d7c034decd08bd0efdf883dad77bd15a2d1aaa167dd53b7b3\",\n      \"size_bytes\": 30742\n    },\n    {\n      \"path\": \"tests/02_models/test_02_corpus.py\",\n      \"sha256\": \"a2e28d70fa3896d129b0ea0c06d53bc8866592238e6cff154813ca4d35138465\",\n      \"size_bytes\": 12830\n    },\n    {\n      \"path\": \"tests/09_config/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/09_config/conftest.py\",\n      \"sha256\": \"3a8a49e5de9da61ee97d793fb5cb346af05d5419aa63e7a99b2ca77a9c0d6ff9\",\n      \"size_bytes\": 121\n    },\n    {\n      \"path\": \"tests/09_config/test_config.py\",\n      \"sha256\": \"330b223dc0e5c37e7b896b1e3cdd56c7f0dd1d18faad838cacc5b08eedfd39de\",\n      \"size_bytes\": 51792\n    },\n    {\n      \"path\": \"tests/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/conftest.py\",\n      \"sha256\": \"286157e212fe73b173e00c4f1df6522cb95fd4b8f82f0fb9ffa214b789d5f7a3\",\n      \"size_bytes\": 14152\n    },\n    {\n      \"path\": \"tests/helpers.py\",\n      \"sha256\": \"77231cc7cef5f9c373f410fff81b495d85ae2e7be1e0e692e5f8ed50ff153a2c\",\n      \"size_bytes\": 1011\n    },\n    {\n      \"path\": \"tests/test_04_sync.py\",\n      \"sha256\": \"428f529406107bb417b61d0eed6e0453307dabb31df545f16ab15644a5e992bd\",\n      \"size_bytes\": 2333\n    }\n  ],\n  \"status\": \"PASS\",\n  \"test_file_count\": 24\n}\n",
+      "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+      "candidate_specific_request_detail": "Request a verified candidate-era native command artifact identifying the correct target replay command for issue 86 and whether tox or pytest should be used.",
+      "exact_blocker": "biface_i18n_native_test_command_unrecoverable_without_manual_artifact",
+      "forbidden_artifact_contents": [
+        "future commit contents",
+        "fixed patch",
+        "gold patch",
+        "issue workaround fix text",
+        "test mutation",
+        "fixture injection"
+      ],
+      "hash_requirements": [
+        "artifact_sha256",
+        "command_source_sha256",
+        "source_snapshot_identity"
+      ],
+      "how_to_submit_safely": "place a JSON, Markdown, or text artifact under incoming_artifacts/ with candidate_id, source snapshot identity, SHA256, and provenance; do not include patch guidance",
+      "issue_url": "https://github.com/biface/i18n/issues/86",
+      "minimum_safe_artifact_needed": [
+        "verified_native_target_command",
+        "candidate_era_command_source_path",
+        "hash_of_command_source_artifact",
+        "source_snapshot_identity",
+        "provenance_note",
+        "statement_excluding_future_gold_fixed_patch_guidance"
+      ],
+      "next_action_after_approval": "batch069c_manual_artifact_command_replay_followup",
+      "provenance_requirements": [
+        "artifact_author",
+        "artifact_created_at_utc",
+        "artifact_source_url_or_local_path",
+        "provenance_note"
+      ],
+      "public_explanation": "This request seeks command-boundary evidence only; it is not repair proof and cannot authorize patches or count gates.",
+      "reopen_condition": "verified_native_target_command_artifact",
+      "repo_url": "https://github.com/biface/i18n",
+      "status": "PASS",
+      "why_current_metadata_was_insufficient": "candidate-local metadata exposed broad runner hints but no exact native target command safely tied to the issue target"
+    }
+  ],
+  "request_count": 3,
+  "status": "PASS"
+}

@@ -1,0 +1,45 @@
+{
+  "allowed_use": [
+    "command_boundary_recovery",
+    "harness_origin_planning",
+    "pre_repair_replay_gate_planning",
+    "manual_artifact_queue_resolution"
+  ],
+  "forbidden_use": [
+    "patch_guidance",
+    "repair_proof",
+    "count_gate_evidence",
+    "memory_lift_evidence",
+    "full_scoring_evidence",
+    "self_maintaining_claim_evidence",
+    "gold_fixed_future_substitute"
+  ],
+  "raw_artifact_commit_allowed": false,
+  "required_fields": [
+    "candidate_id",
+    "repo_url",
+    "issue_url",
+    "candidate_sha",
+    "native_target_command",
+    "command_source_path",
+    "command_source_sha256",
+    "command_source_type",
+    "source_snapshot_identity",
+    "provenance_note",
+    "artifact_author",
+    "artifact_created_at_utc",
+    "artifact_source_url_or_local_path",
+    "artifact_sha256",
+    "decision_time_safety_claim",
+    "forbidden_evidence_exclusion",
+    "gold_fixed_future_exclusion",
+    "issue_comment_fix_text_exclusion",
+    "test_mutation_exclusion",
+    "fixture_injection_exclusion",
+    "allowed_use",
+    "forbidden_use",
+    "approval_condition",
+    "audit_status"
+  ],
+  "status": "PASS"
+}

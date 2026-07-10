@@ -1,0 +1,25 @@
+{
+  "allowed_environment": "isolated provider runtime with no credentials committed and deterministic output hashes",
+  "approval_condition": "connector_identity_runtime_output_hashes_security_and_license_review_pass",
+  "candidate_id": "codex_wave3_aws_neuron_nki_library_issues_5",
+  "candidate_sha": "c38d790ea16032f7c7843e8e2d67aca2ae8bd5f2",
+  "connector_output_hashes_required": true,
+  "forbidden_credentials_handling": "no_credentials_tokens_or_account_material_committed",
+  "future_automation_hint": "bounded runtime connector with explicit no-credential transport and output hashing",
+  "issue_url": "https://github.com/aws-neuron/nki-library/issues/5",
+  "license_risk": "external_sdk_terms_must_be_reviewed",
+  "manual_setup_hint": "provide an approved runtime capsule or simulator evidence with hashes and license notes",
+  "reopen_condition": "approved_aws_neuron_nki_runtime_connector",
+  "repo_url": "https://github.com/aws-neuron/nki-library",
+  "required_connector": "aws_neuron_or_nki_runtime_connector",
+  "required_hardware_or_simulator_boundary": "approved Neuron hardware, simulator, or documented no-hardware boundary",
+  "required_sdk_runtime_identity": "exact SDK/runtime package identity, version, source, and hash",
+  "security_risk": "hardware_or_sdk_runtime_boundary",
+  "status": "PASS",
+  "validation": {
+    "errors": [],
+    "missing": [],
+    "status": "PASS"
+  },
+  "why_needed": "AWS Neuron/NKI candidate requires a verified runtime, hardware, simulator, or SDK boundary before target replay can be trusted."
+}

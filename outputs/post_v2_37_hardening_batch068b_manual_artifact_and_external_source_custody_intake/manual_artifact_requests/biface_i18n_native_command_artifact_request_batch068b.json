@@ -1,0 +1,60 @@
+{
+  "acceptable_artifact_examples": [
+    "native test command snapshot",
+    "CI log from candidate-era commit",
+    "tox/nox config from candidate-era release",
+    "reproduction script with hash and provenance",
+    "benchmark harness bundle with manifest"
+  ],
+  "approval_test": "manual artifact validates against native command artifact schema with no forbidden evidence",
+  "audit_status": "PASS",
+  "candidate_id": "codex_wave3_biface_i18n_issues_86",
+  "candidate_local_command_hints_already_observed": [
+    ".github/workflows/python-ci.yaml",
+    "tox",
+    "tox -e ci",
+    "tox.ini",
+    "pyproject",
+    "README",
+    "tests/ tree"
+  ],
+  "candidate_local_test_tree_hints_already_observed": "{\n  \"records\": [\n    {\n      \"path\": \"tests/00_api/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/00_api/conftest.py\",\n      \"sha256\": \"2904b990248b47698bdee769dd6df3b75ec12f4d9d670ec058900ff311bb6c42\",\n      \"size_bytes\": 101\n    },\n    {\n      \"path\": \"tests/00_api/test_00_api.py\",\n      \"sha256\": \"2387aec14d489843c327d1317406b71279c6ef4c62bc3b2d7f11dbb0f12d0d7f\",\n      \"size_bytes\": 6933\n    },\n    {\n      \"path\": \"tests/00_locale/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/00_locale/test_00_locale.py\",\n      \"sha256\": \"aed7dd9157c2e5d0dd77c3bea573d6d1061df8c37f29be06b2c366a110e74ebc\",\n      \"size_bytes\": 4135\n    },\n    {\n      \"path\": \"tests/01_loader/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/01_loader/conftest.py\",\n      \"sha256\": \"f8d2bd85d87d6e17738c80ae45199cb710a285d3bc46d600bcb71394808bc3fc\",\n      \"size_bytes\": 1351\n    },\n    {\n      \"path\": \"tests/01_loader/test_00_loader.py\",\n      \"sha256\": \"d596ef41a4e5a0c270e14f619cd7ccad19ada04bf2becae3d5d69297e93c94c5\",\n      \"size_bytes\": 1644\n    },\n    {\n      \"path\": \"tests/01_loader/test_01_loader.py\",\n      \"sha256\": \"0e8a3e187dfbc1858629ca6bf3e4576072267cb17cd27fe24c351615a34c724a\",\n      \"size_bytes\": 20105\n    },\n    {\n      \"path\": \"tests/01_loader/test_02_loader.py\",\n      \"sha256\": \"3f178d0c31a45780430c09431669713538c00c866631b1b9d9fc6f2e5025b684\",\n      \"size_bytes\": 46205\n    },\n    {\n      \"path\": \"tests/01_loader/test_03_loader.py\",\n      \"sha256\": \"0fccff1f937020c173dfcc72346b71bd58da48debbeceb6fba199c69fcb6c339\",\n      \"size_bytes\": 7876\n    },\n    {\n      \"path\": \"tests/02_models/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/02_models/conftest.py\",\n      \"sha256\": \"76a1783ea28ca844e6c6dd00939c4a51d3a308927b5734b20eb59ae9051150cf\",\n      \"size_bytes\": 61750\n    },\n    {\n      \"path\": \"tests/02_models/test_00_message.py\",\n      \"sha256\": \"320b90e75d63bd55ee1338d3966f7a18974ce4f7d96f3b1fc3040a7c54e08158\",\n      \"size_bytes\": 138791\n    },\n    {\n      \"path\": \"tests/02_models/test_00_respository.py\",\n      \"sha256\": \"5a119e0bab3c74871d054416b79e8ce29755933b599acde2b14323a40ca4b874\",\n      \"size_bytes\": 79086\n    },\n    {\n      \"path\": \"tests/02_models/test_01_book.py\",\n      \"sha256\": \"2102aa63ec5ff33d7c034decd08bd0efdf883dad77bd15a2d1aaa167dd53b7b3\",\n      \"size_bytes\": 30742\n    },\n    {\n      \"path\": \"tests/02_models/test_02_corpus.py\",\n      \"sha256\": \"a2e28d70fa3896d129b0ea0c06d53bc8866592238e6cff154813ca4d35138465\",\n      \"size_bytes\": 12830\n    },\n    {\n      \"path\": \"tests/09_config/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/09_config/conftest.py\",\n      \"sha256\": \"3a8a49e5de9da61ee97d793fb5cb346af05d5419aa63e7a99b2ca77a9c0d6ff9\",\n      \"size_bytes\": 121\n    },\n    {\n      \"path\": \"tests/09_config/test_config.py\",\n      \"sha256\": \"330b223dc0e5c37e7b896b1e3cdd56c7f0dd1d18faad838cacc5b08eedfd39de\",\n      \"size_bytes\": 51792\n    },\n    {\n      \"path\": \"tests/__init__.py\",\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"size_bytes\": 0\n    },\n    {\n      \"path\": \"tests/conftest.py\",\n      \"sha256\": \"286157e212fe73b173e00c4f1df6522cb95fd4b8f82f0fb9ffa214b789d5f7a3\",\n      \"size_bytes\": 14152\n    },\n    {\n      \"path\": \"tests/helpers.py\",\n      \"sha256\": \"77231cc7cef5f9c373f410fff81b495d85ae2e7be1e0e692e5f8ed50ff153a2c\",\n      \"size_bytes\": 1011\n    },\n    {\n      \"path\": \"tests/test_04_sync.py\",\n      \"sha256\": \"428f529406107bb417b61d0eed6e0453307dabb31df545f16ab15644a5e992bd\",\n      \"size_bytes\": 2333\n    }\n  ],\n  \"status\": \"PASS\",\n  \"test_file_count\": 24\n}\n",
+  "candidate_sha": "e093e3f3d02d84043c5913531492aa78913aec5a",
+  "candidate_specific_request_detail": "Request a verified candidate-era native command artifact identifying the correct target replay command for issue 86 and whether tox or pytest should be used.",
+  "exact_blocker": "biface_i18n_native_test_command_unrecoverable_without_manual_artifact",
+  "forbidden_artifact_contents": [
+    "future commit contents",
+    "fixed patch",
+    "gold patch",
+    "issue workaround fix text",
+    "test mutation",
+    "fixture injection"
+  ],
+  "hash_requirements": [
+    "artifact_sha256",
+    "command_source_sha256",
+    "source_snapshot_identity"
+  ],
+  "how_to_submit_safely": "place a JSON, Markdown, or text artifact under incoming_artifacts/ with candidate_id, source snapshot identity, SHA256, and provenance; do not include patch guidance",
+  "issue_url": "https://github.com/biface/i18n/issues/86",
+  "minimum_safe_artifact_needed": [
+    "verified_native_target_command",
+    "candidate_era_command_source_path",
+    "hash_of_command_source_artifact",
+    "source_snapshot_identity",
+    "provenance_note",
+    "statement_excluding_future_gold_fixed_patch_guidance"
+  ],
+  "next_action_after_approval": "batch069c_manual_artifact_command_replay_followup",
+  "provenance_requirements": [
+    "artifact_author",
+    "artifact_created_at_utc",
+    "artifact_source_url_or_local_path",
+    "provenance_note"
+  ],
+  "public_explanation": "This request seeks command-boundary evidence only; it is not repair proof and cannot authorize patches or count gates.",
+  "reopen_condition": "verified_native_target_command_artifact",
+  "repo_url": "https://github.com/biface/i18n",
+  "status": "PASS",
+  "why_current_metadata_was_insufficient": "candidate-local metadata exposed broad runner hints but no exact native target command safely tied to the issue target"
+}
