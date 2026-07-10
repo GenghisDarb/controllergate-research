@@ -36,6 +36,8 @@ def test_workspace_snapshots_diff_and_rollback(tmp_path: Path) -> None:
     source = tmp_path / "source"; source.mkdir(); (source / "a.py").write_text("x=1\n", encoding="utf-8")
     pre = snapshot_tree(source); post = snapshot_tree(source)
     assert diff_snapshots(pre, post)["status"] == "PASS"
+    recreated = tmp_path / "recreated"; recreated.mkdir(); (recreated / "a.py").write_text("x=1\n", encoding="utf-8")
+    assert snapshot_tree(recreated)["tree_content_hash"] == pre["tree_content_hash"]
     (source / "a.py").write_text("x=2\n", encoding="utf-8")
     changed = snapshot_tree(source)
     assert diff_snapshots(pre, changed)["mutation_count"] == 1

@@ -26,7 +26,10 @@ def snapshot_tree(root: str | Path) -> dict[str, Any]:
         else:
             record.update({"file_type": "other", "symlink_target": None, "sha256": None})
         files.append(record)
-    semantic = {"root_label": base.name, "files": files}
+    # The content identity must survive restoration into a differently named
+    # ephemeral directory. The observed root remains evidence, but is not part
+    # of the portable tree-content digest.
+    semantic = {"files": files}
     return {"operation_status": "COMPLETED", "evidence_status": "ESTABLISHED", "timestamp": datetime.now(timezone.utc).isoformat(), "root": str(base), "tree_content_hash": hash_record(semantic), "files": files}
 
 
