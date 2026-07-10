@@ -1,0 +1,48 @@
+{
+  "forbidden_shortcuts": [
+    "external_runner_chosen_without_metadata_authority",
+    "external_runner_chosen_only_because_self_runner_failed",
+    "self_hosted_runner_allowed_while_version_origin_unresolved",
+    "self_hosted_runner_allowed_without_project_local_command_evidence",
+    "pythonpath_injection_without_manifest_and_import_origin_proof",
+    "rootdir_override_without_project_metadata",
+    "minversion_suppression",
+    "pyproject_mutation",
+    "test_mutation",
+    "fixture_mutation",
+    "future_docs",
+    "modern_pytest_docs",
+    "issue_comment_workaround",
+    "fixed_gold_future_source"
+  ],
+  "model_ids": [
+    "blocked_unproven_runner_target_model",
+    "declared_self_hosted_runner_model",
+    "external_runner_target_split_model"
+  ],
+  "required_fields": [
+    "model_id",
+    "candidate_id",
+    "runner_identity",
+    "target_identity",
+    "runner_import_origin",
+    "target_import_origin",
+    "command_source",
+    "declared_by_buggy_checkout_metadata",
+    "requires_external_runner",
+    "requires_self_hosted_runner",
+    "version_origin_required",
+    "version_origin_status",
+    "working_directory",
+    "sys_path_policy",
+    "environment_policy",
+    "allowed_command_shape",
+    "forbidden_command_shape",
+    "decision_time_safe",
+    "expected_probe",
+    "success_criteria",
+    "failure_classification",
+    "audit_status"
+  ],
+  "status": "PASS"
+}

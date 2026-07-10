@@ -1,0 +1,146 @@
+{
+  "candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+  "checkout": {
+    "commands": {
+      "checkout": {
+        "command": [
+          "git",
+          "checkout",
+          "-q",
+          "--detach",
+          "FETCH_HEAD"
+        ],
+        "command_string": "git checkout -q --detach FETCH_HEAD",
+        "completed_at": "2026-07-10T02:27:50Z",
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source",
+        "returncode": 0,
+        "started_at": "2026-07-10T02:27:45Z",
+        "stderr": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      },
+      "fetch": {
+        "command": [
+          "git",
+          "fetch",
+          "--filter=blob:none",
+          "--no-tags",
+          "origin",
+          "041aacad506b6c6891f2898f2bd378e0896e8b86"
+        ],
+        "command_string": "git fetch --filter=blob:none --no-tags origin 041aacad506b6c6891f2898f2bd378e0896e8b86",
+        "completed_at": "2026-07-10T02:27:45Z",
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source",
+        "returncode": 0,
+        "started_at": "2026-07-10T02:27:40Z",
+        "stderr": "From https://github.com/pytest-dev/pytest\n * branch                041aacad506b6c6891f2898f2bd378e0896e8b86 -> FETCH_HEAD\n",
+        "stderr_sha256": "a778667aaa67f9f302297c7ba234a1287419a08773d7f1255788a642701b60f0",
+        "stdout": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      },
+      "init": {
+        "command": [
+          "git",
+          "init",
+          "-q"
+        ],
+        "command_string": "git init -q",
+        "completed_at": "2026-07-10T02:27:40Z",
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source",
+        "returncode": 0,
+        "started_at": "2026-07-10T02:27:40Z",
+        "stderr": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      },
+      "remote": {
+        "command": [
+          "git",
+          "remote",
+          "add",
+          "origin",
+          "https://github.com/pytest-dev/pytest.git"
+        ],
+        "command_string": "git remote add origin https://github.com/pytest-dev/pytest.git",
+        "completed_at": "2026-07-10T02:27:40Z",
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source",
+        "returncode": 0,
+        "started_at": "2026-07-10T02:27:40Z",
+        "stderr": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      },
+      "rev_parse": {
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command_string": "git rev-parse HEAD",
+        "completed_at": "2026-07-10T02:27:50Z",
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source",
+        "returncode": 0,
+        "started_at": "2026-07-10T02:27:50Z",
+        "stderr": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "041aacad506b6c6891f2898f2bd378e0896e8b86\n",
+        "stdout_sha256": "ca15d0d9cb0881030bf5e58f39576c2623a45b5e9a5edf0e09a64f9efa4ffb2e",
+        "timed_out": false
+      },
+      "status_short": {
+        "command": [
+          "git",
+          "status",
+          "--short"
+        ],
+        "command_string": "git status --short",
+        "completed_at": "2026-07-10T02:27:51Z",
+        "cwd": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source",
+        "returncode": 0,
+        "started_at": "2026-07-10T02:27:50Z",
+        "stderr": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": false
+      }
+    },
+    "source_path": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source",
+    "source_path_outside_live_repo": true,
+    "source_path_outside_onedrive": true,
+    "status": "PASS"
+  },
+  "evidence": {
+    "console_scripts": {
+      "py.test": "pytest:console_main",
+      "pytest": "pytest:console_main"
+    },
+    "project_name": "pytest",
+    "setuptools_scm_write_to": "src/_pytest/_version.py",
+    "src_layout_indicators": [
+      "src directory exists",
+      "testing directory exists",
+      "towncrier package_dir src"
+    ],
+    "tool_pytest_addopts": [
+      "-rfEX",
+      "-p",
+      "pytester"
+    ],
+    "tool_pytest_minversion": "2.0",
+    "tool_pytest_testpaths": [
+      "testing"
+    ],
+    "tox_commands_include_pytest_posargs": true,
+    "tox_external_runner_declared": false,
+    "tox_package_mode": "package = wheel"
+  },
+  "status": "PASS"
+}

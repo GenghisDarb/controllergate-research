@@ -1,0 +1,52 @@
+{
+  "allowed_by_project_local_metadata": true,
+  "candidate_id": "pytest_13895_pytest9_skiptest_behavior",
+  "classification": "declared_self_hosted_runner_unproven",
+  "command": [
+    "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+    "C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch063e_pytest_runner_target_split_evidence_intake\\pytest_self_hosted_runner_import_origin_probe_batch063e.py"
+  ],
+  "command_source_decision_time_safe": true,
+  "env_manifest": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source\\src"
+  },
+  "exact_blocker": "declared_self_hosted_runner_import_failed_without_source_generation",
+  "probe": {
+    "batch063d_normalized_version": "9.1.0.dev6+g041aacad5",
+    "candidate_checkout_path": "C:\\Dev\\ControllerGate_Runtime\\batch063e\\pytest_candidate_source",
+    "candidate_src_path": "C:\\Dev\\ControllerGate_Runtime\\batch063e\\pytest_candidate_source\\src",
+    "import_exception": "ModuleNotFoundError: No module named '_pytest._version'",
+    "import_succeeded": false,
+    "pytest_file": null,
+    "pytest_spec_origin": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source\\src\\pytest\\__init__.py",
+    "pytest_version": null,
+    "python_executable": "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+    "runner_import_origin_equals_candidate_checkout": true,
+    "sys_path": [
+      "C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch063e_pytest_runner_target_split_evidence_intake",
+      "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source\\src",
+      "C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\python313.zip",
+      "C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\DLLs",
+      "C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib",
+      "C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0",
+      "C:\\Users\\thisb\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python313\\site-packages",
+      "C:\\Users\\thisb\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python313\\site-packages\\win32",
+      "C:\\Users\\thisb\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python313\\site-packages\\win32\\lib",
+      "C:\\Users\\thisb\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python313\\site-packages\\Pythonwin",
+      "C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\site-packages"
+    ],
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch063e_pytest_runner_target_split_evidence_intake\\pytest_self_hosted_runner_import_origin_probe_batch063e.py\", line 30, in <module>\n    import pytest  # noqa: F401\n    ^^^^^^^^^^^^^\n  File \"C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source\\src\\pytest\\__init__.py\", line 9, in <module>\n    from _pytest.assertion import register_assert_rewrite\n  File \"C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source\\src\\_pytest\\assertion\\__init__.py\", line 12, in <module>\n    from _pytest.assertion import rewrite\n  File \"C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source\\src\\_pytest\\assertion\\rewrite.py\", line 43, in <module>\n    from _pytest._version import version\nModuleNotFoundError: No module named '_pytest._version'\n",
+    "working_directory": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source"
+  },
+  "probe_returncode": 0,
+  "probe_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "probe_stdout_sha256": "622225176b5985bca8a101306fd1537558819251f4012ee2b6fa7f7aea2e3367",
+  "python_executable": "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "runner_import_origin_equals_fixed_candidate_checkout": true,
+  "source_mutated": false,
+  "source_status_after_probe": "",
+  "status": "BLOCK",
+  "version_normalized_from_batch063d_authority": true,
+  "working_directory": "C:\\Dev\\ControllerGate_runtime\\batch063e\\pytest_candidate_source"
+}

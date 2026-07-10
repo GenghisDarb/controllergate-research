@@ -1,0 +1,1 @@
+Batch063e evaluates Pytest runner-target import origin after Batch063d normalized version-origin metadata. It tests self-hosted and external runner-target models without mutating source, tests, fixtures, or pyproject metadata. These are command-boundary controls and replay-readiness evidence, not repair proof.

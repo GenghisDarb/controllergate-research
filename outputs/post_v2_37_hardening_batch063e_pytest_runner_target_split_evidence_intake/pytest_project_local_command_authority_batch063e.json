@@ -1,0 +1,13 @@
+{
+  "decision_time_safe": true,
+  "declares_external_runner_requirement": false,
+  "declares_self_hosted_pytest_runner_pattern": true,
+  "equivalence_basis": [
+    "pyproject.toml [tool.pytest] testpaths includes testing",
+    "tox.ini commands run pytest with posargs",
+    "pyproject.toml project scripts expose pytest entry point"
+  ],
+  "minversion_normalized_by_batch063d": true,
+  "preserved_command": "python -m pytest testing -q --tb=no",
+  "status": "PASS"
+}

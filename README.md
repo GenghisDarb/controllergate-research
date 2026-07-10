@@ -6,6 +6,24 @@ It remains a provenance-first software repair research harness with a conservati
 
 It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-change candidates, blocking unverified patches before they can contaminate accepted software state.
 
+## Batch063e Pytest Runner-Target Split Evidence Intake
+
+Batch063e evaluates Pytest runner-target import origin after Batch063d normalized version-origin metadata. It tests whether Pytest can be run as a declared self-hosted test runner or through a proven external runner-target split. These are command-boundary controls and replay-readiness evidence, not repair proof. No repair is counted without source-only target pass, duplicate clean replay, and count gate. Full scoring remains NOT_RUN/disallowed. Memory lift remains not_demonstrated. Self-maintaining software remains false/not_demonstrated.
+
+Batch063e status:
+
+- Batch063d artifact ingest: `PASS`.
+- Batch063d tag authority preservation: `PASS`.
+- Self-hosted runner model: `declared_self_hosted_runner_unproven`.
+- External runner model: `external_runner_target_import_origin_unproven`.
+- Selected runner-target model: `blocked_unproven_runner_target_model`.
+- Pytest pre-repair replay: `pytest_runner_target_model_unproven`.
+- Pytest terminal state: `pytest_runner_target_split_unresolved_after_model_probe`.
+- Seed harvest authorization: `AUTHORIZED`.
+- Issue-derived repair count remains `4`.
+- Native external repair count remains `4`.
+- Next allowed action: `batch068_multi_seed_harvest_for_5th_issue_repair_with_batch067_063c_063d_063e_controls`.
+
 ## Batch063d Pytest Safe Tag Acquisition Hardening
 
 Batch063d adds a predeclared ancestor-tag authority lifecycle for Pytest version-origin recovery. It compares committed Batch063c evidence with the manually supplied Batch063c workflow artifact, records any committed-vs-workflow artifact divergence, and then attempts a bounded tag-authority path using remote tag metadata plus a blobless candidate commit graph. The tag manifest is allowed only for version-origin reconstruction, never as patch authority or count evidence.

@@ -1,0 +1,27 @@
+{
+  "blind_external_runner_forbidden": true,
+  "forbidden_shortcuts": [
+    "external_runner_chosen_without_metadata_authority",
+    "external_runner_chosen_only_because_self_runner_failed",
+    "self_hosted_runner_allowed_while_version_origin_unresolved",
+    "self_hosted_runner_allowed_without_project_local_command_evidence",
+    "pythonpath_injection_without_manifest_and_import_origin_proof",
+    "rootdir_override_without_project_metadata",
+    "minversion_suppression",
+    "pyproject_mutation",
+    "test_mutation",
+    "fixture_mutation",
+    "future_docs",
+    "modern_pytest_docs",
+    "issue_comment_workaround",
+    "fixed_gold_future_source"
+  ],
+  "pre_repair_replay_requires_proven_model": true,
+  "selection_priority": [
+    "declared_self_hosted_runner_model",
+    "external_runner_target_split_model",
+    "blocked_unproven_runner_target_model"
+  ],
+  "self_hosted_pytest_allowed_only_with_project_local_metadata_and_import_origin_proof": true,
+  "status": "PASS"
+}
