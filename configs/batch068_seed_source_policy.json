@@ -1,0 +1,37 @@
+{
+  "allowed_source_classes": [
+    "approved_external_benchmark_source",
+    "approved_external_issue_source",
+    "blocked_untrusted_source",
+    "diagnostic_only",
+    "manual_artifact_custody",
+    "orthology_transfer_routing_only",
+    "registry_derived_unused_candidate",
+    "rejected_lead"
+  ],
+  "count_gate_allowed": false,
+  "duplicate_replay_allowed": false,
+  "forbidden_direct_repair_seed_classes": [
+    "already_counted_repair",
+    "diagnostic_only",
+    "fixed_patch_derived",
+    "future_commit_derived",
+    "gold_patch_derived",
+    "issue_comment_fix_text_only",
+    "orthology_transfer_routing_only",
+    "parked_candidate_without_reopen_evidence",
+    "probe_only_environmental",
+    "untrusted_source"
+  ],
+  "full_scoring": "NOT_RUN/disallowed",
+  "memory_opportunity_is_routing_only": true,
+  "patch_application_allowed": false,
+  "patch_generation_allowed": false,
+  "promotable_future_repair_attempt_seed_classes": [
+    "approved_external_issue_source",
+    "approved_inferred_registry_derived",
+    "curated_manual_custody"
+  ],
+  "self_maintaining_software": "false/not_demonstrated",
+  "status": "PASS"
+}
