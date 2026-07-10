@@ -1,0 +1,431 @@
+{
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "contacts": [
+    {
+      "blocker": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "artifact_custody",
+      "confidence": 1.0,
+      "contact_id": "CG-C14-01",
+      "contact_state": "established",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "49aab8e59ef6fc9a28617e1a1d78493013b73c5f39e9a8655af8807a0f08e016"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "artifact_custody"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "gate_decision": "PASS",
+      "handler_result": "ESTABLISHED",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "1f0e8f20369b8c9e2b08d6be6ceddfb3408388f4c7fe346494b6b76dba742a7b",
+      "prior_state_hash": "c20c72e391b9c6109061cb26a11939a986df5e7b3b5567de2ce55a7bbdf54ab5",
+      "reopen_conditions": [],
+      "unresolved_dimensions": [],
+      "verifier_result": "PASS"
+    },
+    {
+      "blocker": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "candidate_identity",
+      "confidence": 1.0,
+      "contact_id": "CG-C14-02",
+      "contact_state": "established",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "6ca4bb87210fb74e8b6916c7a7c8e2e283923c6c80a2d1634af7a65a981baae6"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "candidate_identity"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "gate_decision": "PASS",
+      "handler_result": "ESTABLISHED",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "ce33c9dd93d8b0e96031a33d8a92a3f8d77bdf19def1ae9ecbd030103419857b",
+      "prior_state_hash": "1f0e8f20369b8c9e2b08d6be6ceddfb3408388f4c7fe346494b6b76dba742a7b",
+      "reopen_conditions": [],
+      "unresolved_dimensions": [],
+      "verifier_result": "PASS"
+    },
+    {
+      "blocker": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "source_revision",
+      "confidence": 1.0,
+      "contact_id": "CG-C14-03",
+      "contact_state": "established",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "8c837caf16423e541139a0459e96c3aa5eaeb4476a663d404865ee1269679762"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "source_revision"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "gate_decision": "PASS",
+      "handler_result": "ESTABLISHED",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "af141abd0b3051b7d1e04a6a08c2efb90a39ff70b55c5626163fe6bef5049103",
+      "prior_state_hash": "ce33c9dd93d8b0e96031a33d8a92a3f8d77bdf19def1ae9ecbd030103419857b",
+      "reopen_conditions": [],
+      "unresolved_dimensions": [],
+      "verifier_result": "PASS"
+    },
+    {
+      "blocker": "issue316_target_failure_not_reproduced",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "failure_signature",
+      "confidence": 0.75,
+      "contact_id": "CG-C14-04",
+      "contact_state": "partial",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "b32ad3011d74c64cbddb95ce99e2ab78a6faf623a0c331a9fe226ee435d1f4d3"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "failure_signature"
+      ],
+      "evidence_status": "PARTIAL",
+      "gate_decision": "BLOCK",
+      "handler_result": "PARTIAL",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "eb7b2175a773c66e004c89a322621999d0998390da497c7ae2e0ef633c9fb3d5",
+      "prior_state_hash": "af141abd0b3051b7d1e04a6a08c2efb90a39ff70b55c5626163fe6bef5049103",
+      "reopen_conditions": [
+        "provide_role_specific_decision_time_evidence"
+      ],
+      "unresolved_dimensions": [],
+      "verifier_result": "PARTIAL"
+    },
+    {
+      "blocker": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "target_test",
+      "confidence": 1.0,
+      "contact_id": "CG-C14-05",
+      "contact_state": "established",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "0e48bfcf9aa94b2d9c0d29a2960fd44e28f208693cea4080b8b5f6904fe589dc"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "target_test"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "gate_decision": "PASS",
+      "handler_result": "ESTABLISHED",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "1e4400bdc42f9308f4a7c470d496e5d801bb927518d612fcf0b50b12a878477a",
+      "prior_state_hash": "eb7b2175a773c66e004c89a322621999d0998390da497c7ae2e0ef633c9fb3d5",
+      "reopen_conditions": [],
+      "unresolved_dimensions": [],
+      "verifier_result": "PASS"
+    },
+    {
+      "blocker": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "command_authority",
+      "confidence": 1.0,
+      "contact_id": "CG-C14-06",
+      "contact_state": "established",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "821b3e32adf04e197a8d47a2defd1f4b8be3e23d4fd4c031aeb218a769775028"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "command_authority"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "gate_decision": "PASS",
+      "handler_result": "ESTABLISHED",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "58fe76b337ccfd811dcdec72cae1d424810d66b06920cd643ac8ea485ac2a7d2",
+      "prior_state_hash": "1e4400bdc42f9308f4a7c470d496e5d801bb927518d612fcf0b50b12a878477a",
+      "reopen_conditions": [],
+      "unresolved_dimensions": [],
+      "verifier_result": "PASS"
+    },
+    {
+      "blocker": "historical_harness_orthology_not_established",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "harness_origin",
+      "confidence": 0.75,
+      "contact_id": "CG-C14-07",
+      "contact_state": "partial",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "6aa240688fcc352640c596f30444c770c128154bafe5d5b85e20d5da893c64cb"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "harness_origin"
+      ],
+      "evidence_status": "PARTIAL",
+      "gate_decision": "BLOCK",
+      "handler_result": "PARTIAL",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "e3ea16ae91871e7a6d457c6c81b923f88a61fc57bc61143edf5da0a66cea7978",
+      "prior_state_hash": "58fe76b337ccfd811dcdec72cae1d424810d66b06920cd643ac8ea485ac2a7d2",
+      "reopen_conditions": [
+        "provide_role_specific_decision_time_evidence"
+      ],
+      "unresolved_dimensions": [],
+      "verifier_result": "PARTIAL"
+    },
+    {
+      "blocker": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "runner_origin",
+      "confidence": 1.0,
+      "contact_id": "CG-C14-08",
+      "contact_state": "established",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "44d4bfb6e5586d56a2b13ed2ccf13db272cedff9943970592c5ccf8abaff2d87"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "runner_origin"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "gate_decision": "PASS",
+      "handler_result": "ESTABLISHED",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "18671bc2bfc8db4a8295109124d3cc33ecb2299df0d797b82a3714ee33f49bec",
+      "prior_state_hash": "e3ea16ae91871e7a6d457c6c81b923f88a61fc57bc61143edf5da0a66cea7978",
+      "reopen_conditions": [],
+      "unresolved_dimensions": [],
+      "verifier_result": "PASS"
+    },
+    {
+      "blocker": "source_mode_established_wheel_mode_not_established",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "target_import_origin",
+      "confidence": 0.75,
+      "contact_id": "CG-C14-09",
+      "contact_state": "conflicted",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "391404bcb42dd02264b1ef0bd26e8bc93cca7844d6bbc1e9f4d4dafc7ac3407b"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "target_import_origin"
+      ],
+      "evidence_status": "CONFLICTED",
+      "gate_decision": "BLOCK",
+      "handler_result": "CONFLICTED",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "2fd0956041f294906df7f1b1bc1a209141d28393134515c8deb241d8718a530d",
+      "prior_state_hash": "18671bc2bfc8db4a8295109124d3cc33ecb2299df0d797b82a3714ee33f49bec",
+      "reopen_conditions": [
+        "provide_role_specific_decision_time_evidence"
+      ],
+      "unresolved_dimensions": [],
+      "verifier_result": "CONFLICTED"
+    },
+    {
+      "blocker": "decision_time_transitive_provider_lock_incomplete",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "provider_and_cofactor",
+      "confidence": 0.75,
+      "contact_id": "CG-C14-10",
+      "contact_state": "partial",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "4a6b6549ceb785158a540a89f1c9eead02d0544343f7e7ff23120fc30196899d"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "provider_and_cofactor"
+      ],
+      "evidence_status": "PARTIAL",
+      "gate_decision": "BLOCK",
+      "handler_result": "PARTIAL",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "b76c4cc4481ad65f0a960994e44653bc10251037f05a6bf2904cedef3c7b31e8",
+      "prior_state_hash": "2fd0956041f294906df7f1b1bc1a209141d28393134515c8deb241d8718a530d",
+      "reopen_conditions": [
+        "provide_role_specific_decision_time_evidence"
+      ],
+      "unresolved_dimensions": [],
+      "verifier_result": "PARTIAL"
+    },
+    {
+      "blocker": "historical_distribution_capsule_partial",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "environment_compartment",
+      "confidence": 0.75,
+      "contact_id": "CG-C14-11",
+      "contact_state": "partial",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "5771efef951db6d81563a6d7bad84ebf28a0343eb1a7710499e3f4e6c65349a2"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "environment_compartment"
+      ],
+      "evidence_status": "PARTIAL",
+      "gate_decision": "BLOCK",
+      "handler_result": "PARTIAL",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "d65ce50bce224d09826cc2386151b2e52ed099c5f31274fff22b46c72247512c",
+      "prior_state_hash": "b76c4cc4481ad65f0a960994e44653bc10251037f05a6bf2904cedef3c7b31e8",
+      "reopen_conditions": [
+        "provide_role_specific_decision_time_evidence"
+      ],
+      "unresolved_dimensions": [],
+      "verifier_result": "PARTIAL"
+    },
+    {
+      "blocker": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "workspace_and_execution_boundary",
+      "confidence": 1.0,
+      "contact_id": "CG-C14-12",
+      "contact_state": "established",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "5e917a9ca583a9ffa5dcd40e04be166a8a634aed41714d570eeb7682fc8d6b18"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "workspace_and_execution_boundary"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "gate_decision": "PASS",
+      "handler_result": "ESTABLISHED",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "f32012a3791d790f28ed95072eb36460a238aca15ce71354e0a479d9b2c36f83",
+      "prior_state_hash": "d65ce50bce224d09826cc2386151b2e52ed099c5f31274fff22b46c72247512c",
+      "reopen_conditions": [],
+      "unresolved_dimensions": [],
+      "verifier_result": "PASS"
+    },
+    {
+      "blocker": "diagnostic_warning_precedes_target_failure",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "source_and_failure_topology",
+      "confidence": 0.75,
+      "contact_id": "CG-C14-13",
+      "contact_state": "partial",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "202ddb30460a708e43c8d6d5c694a2aba1c5e73cb01c24d16d181e938d806a69"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "source_and_failure_topology"
+      ],
+      "evidence_status": "PARTIAL",
+      "gate_decision": "BLOCK",
+      "handler_result": "PARTIAL",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "6e97063be880946608c6887449c508022f87b7f6d4a937290bbe86e8c23bf370",
+      "prior_state_hash": "f32012a3791d790f28ed95072eb36460a238aca15ce71354e0a479d9b2c36f83",
+      "reopen_conditions": [
+        "provide_role_specific_decision_time_evidence"
+      ],
+      "unresolved_dimensions": [],
+      "verifier_result": "PARTIAL"
+    },
+    {
+      "blocker": null,
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "canonical_role": "rollback_and_proof_path",
+      "confidence": 1.0,
+      "contact_id": "CG-C14-14",
+      "contact_state": "established",
+      "evidence_hashes": [
+        "f60fcaee756f3dc262aef168c1ecb3075b6ab97970b43daff9c62dbcbd36e54e",
+        "9405fbb5a0465b8e690800c6df12ad170ab7697701c10243ea6b9759ad400244"
+      ],
+      "evidence_inputs": [
+        "outputs/post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe/candidate_states/codex_wave3_jupyter_nbclient_issues_316.json",
+        "rollback_and_proof_path"
+      ],
+      "evidence_status": "ESTABLISHED",
+      "gate_decision": "PASS",
+      "handler_result": "ESTABLISHED",
+      "interlocks": [
+        "decision_time_evidence",
+        "claim_boundary"
+      ],
+      "operation_status": "COMPLETED",
+      "post_state_hash": "6c53a0e861032fb662f4afcb3dccd31066cf4d4ff0f82d21609d44bd1cfc9f37",
+      "prior_state_hash": "6e97063be880946608c6887449c508022f87b7f6d4a937290bbe86e8c23bf370",
+      "reopen_conditions": [],
+      "unresolved_dimensions": [],
+      "verifier_result": "PASS"
+    }
+  ],
+  "independent_verification": {
+    "contact_count": 14,
+    "duplicate_count": 0,
+    "missing_count": 0,
+    "status": "PASS"
+  },
+  "ledger_hash": "36f689b4aaca34f908e625c74a827be609f98758343c0b9ae006c5ef3949b391",
+  "status": "PASS"
+}

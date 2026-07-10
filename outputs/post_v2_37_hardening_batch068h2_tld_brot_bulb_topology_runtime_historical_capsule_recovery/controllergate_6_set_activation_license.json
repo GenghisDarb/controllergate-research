@@ -1,0 +1,48 @@
+{
+  "gates": [
+    {
+      "conjunctive": true,
+      "gate_id": "CG-LIC-01",
+      "role": "identity_and_custody_complete",
+      "status": "PASS"
+    },
+    {
+      "conjunctive": true,
+      "gate_id": "CG-LIC-02",
+      "role": "fourteen_contact_topology_legible",
+      "status": "BLOCK"
+    },
+    {
+      "conjunctive": true,
+      "gate_id": "CG-LIC-03",
+      "role": "materialization_and_environment_bounded",
+      "status": "BLOCK"
+    },
+    {
+      "conjunctive": true,
+      "gate_id": "CG-LIC-04",
+      "role": "command_harness_and_oracle_integrity",
+      "status": "BLOCK"
+    },
+    {
+      "conjunctive": true,
+      "gate_id": "CG-LIC-05",
+      "role": "intervention_scope_and_rollback_bounded",
+      "status": "PASS"
+    },
+    {
+      "conjunctive": true,
+      "gate_id": "CG-LIC-06",
+      "role": "replay_and_proof_path_reachable",
+      "status": "BLOCK"
+    }
+  ],
+  "independent_verification": {
+    "gate_count": 6,
+    "license_result": "BLOCK",
+    "status": "PASS"
+  },
+  "license_result": "BLOCK",
+  "patch_authority": false,
+  "status": "PASS"
+}

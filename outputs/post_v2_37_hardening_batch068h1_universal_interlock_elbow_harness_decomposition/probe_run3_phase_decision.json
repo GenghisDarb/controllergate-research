@@ -1,0 +1,53 @@
+{
+  "authoritative": false,
+  "blocker": null,
+  "container_id": "8bf566949c8511a22b071f0fd5395940050599c5ad9ebc20c5ba9544f667513a",
+  "container_removed": true,
+  "gate_decision": "PASS",
+  "node_count": 0,
+  "node_ids": [],
+  "operation_status": "COMPLETED",
+  "phase": 3,
+  "phase_id": "target_import",
+  "raw_output_sha256": "5147b1a24472c8a1368d92b4a7ea1ce2a8d3c100566cfbe39dcb9f59c11927f8",
+  "returncode": 0,
+  "secret_scan_status": "PASS",
+  "security_observation": {
+    "capabilities_dropped_verified": true,
+    "errors": [],
+    "ipc_mode": "private",
+    "memory_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "mounts": [
+      {
+        "Destination": "/source",
+        "Mode": "",
+        "RW": false
+      },
+      {
+        "Destination": "/wheelhouse",
+        "Mode": "",
+        "RW": false
+      }
+    ],
+    "nano_cpus": 2000000000,
+    "network_isolation_verified": true,
+    "network_mode": "none",
+    "no_new_privileges_verified": true,
+    "non_root_verified": true,
+    "observed_user": "1001:1001",
+    "pid_mode": "",
+    "pids_limit": 256,
+    "privileged": false,
+    "read_only_root_filesystem_verified": true,
+    "status": "PASS",
+    "ulimits": [
+      {
+        "Hard": 1024,
+        "Name": "nofile",
+        "Soft": 1024
+      }
+    ]
+  },
+  "test_bodies_executed": 0
+}

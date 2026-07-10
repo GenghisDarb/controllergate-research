@@ -138,7 +138,7 @@ def test_v2_14_preserved_and_v2_15_promoted() -> None:
 def test_frontier_current_status_and_plan() -> None:
     engine = FrontierEngine(ROOT)
     assert engine.validate()["status"] == "PASS"
-    assert engine.status()["validated_current_protocol"].startswith(("v2.15", "v2.16"))
+    assert engine.status()["validated_current_protocol"].startswith(("v2.15", "v2.16", "v2.17"))
     assert engine.plan("codex_wave3_jupyter_nbclient_issues_316")["status"] == "PASS"
 
 

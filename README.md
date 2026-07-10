@@ -8,17 +8,17 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 ## Validated protocol and static frontier
 
-The validated current protocol is `v2.16 universal_interlock_elbow_runtime_decomposition_lane`. Batch068h1 integrates 23 universal interlocks, independent interlock verifiers, failure-family graphs, environment-orthology vectors, and elbow decisions into the executable semantic runtime. The preceding v2.15 and v2.14 protocols remain directly selectable and audited.
+The validated current protocol is `v2.17 canonical_topology_environment_volume_lane`. Batch068h2 adds a reusable five-role reference core, an exact fourteen-role maintenance topology ledger, a conjunctive six-gate activation license, a planned 196-cell contact-relation proof matrix, local candidate topology maps, typed cross-candidate coupling, targeted environment-boundary volumes, and retrospective shadow controls. The preceding v2.16, v2.15, and v2.14 protocols remain directly selectable and audited.
 
-The official Batch068h result is reconciled separately from its local pre-workflow placeholder. Batch068h1 preserves raw diagnostic command output for new probes, separates decision-time and current provider locks, and treats pinned-source and pinned-wheel execution as mutually exclusive modes. Architectural protocol promotion remains independent of candidate collection success and conveys no patch authority.
+The official Batch068h1 result is reconciled separately from its local pre-workflow placeholder. Batch068h2 separates observed-historical, cutoff-compatible, and current diagnostic provider evidence. The active Nbclient capsule remains partial because its decision-time transitive provider closure is incomplete; collection and target-test execution therefore remain blocked. Architectural protocol promotion remains independent of candidate success and conveys no patch authority.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
 - Confirmed issue-derived repair episodes: `4`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
-- Patches generated or applied by Batch068h: `0`.
-- Target-test bodies executed by Batch068h: `0`.
+- Patches generated or applied by Batch068h2: `0`.
+- Target-test bodies executed by Batch068h2: `0`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.
 - Self-maintaining software: `false/not_demonstrated`.

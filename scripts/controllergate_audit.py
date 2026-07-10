@@ -57,7 +57,13 @@ def load_current_config() -> dict[str, Any]:
 def select_protocol(protocol: str) -> dict[str, Any]:
     if protocol == "current":
         return load_current_config()
-    path = REPO_ROOT / "configs" / ("controllergate_v2_16_current.yaml" if protocol == "v2.16" else f"controllergate_{protocol.replace('.', '_')}.yaml")
+    if protocol == "v2.16":
+        filename = "controllergate_v2_16_current.yaml"
+    elif protocol == "v2.17":
+        filename = "controllergate_v2_17_topology_runtime.yaml"
+    else:
+        filename = f"controllergate_{protocol.replace('.', '_')}.yaml"
+    path = REPO_ROOT / "configs" / filename
     if not path.is_file():
         raise ValueError(f"unsupported protocol {protocol!r}")
     global CURRENT_CONFIG
@@ -93,18 +99,23 @@ def claim_boundary_status(config: dict[str, Any]) -> tuple[str, list[str]]:
             errors.append("config non-Ansible positive-memory boundary changed")
 
     protocol_version = str(config.get("protocol_version", ""))
-    if protocol_version in {"v2.15", "v2.16"}:
+    if protocol_version in {"v2.15", "v2.16", "v2.17"}:
         state_path = REPO_ROOT / "outputs/current/CURRENT_PROTOCOL_STATE.json"
         if not state_path.is_file():
             return "FAIL", [f"missing {protocol_version} current protocol state"]
         state = load_json(state_path)
         if state.get("protocol_version") != protocol_version:
             approved_successor = False
-            if protocol_version == "v2.15" and state.get("protocol_version") == "v2.16":
+            if protocol_version == "v2.15" and state.get("protocol_version") in {"v2.16", "v2.17"}:
                 promotion_path = REPO_ROOT / "outputs/post_v2_37_hardening_batch068h1_universal_interlock_elbow_harness_decomposition/v2_16_promotion_decision_batch068h1.json"
                 if promotion_path.is_file():
                     promotion = load_json(promotion_path)
                     approved_successor = promotion.get("status") == "PASS" and promotion.get("protocol_before") == "v2.15" and promotion.get("protocol_after") == "v2.16"
+            if protocol_version == "v2.16" and state.get("protocol_version") == "v2.17":
+                promotion_path = REPO_ROOT / "outputs/post_v2_37_hardening_batch068h2_tld_brot_bulb_topology_runtime_historical_capsule_recovery/v2_17_topology_promotion_decision.json"
+                if promotion_path.is_file():
+                    promotion = load_json(promotion_path)
+                    approved_successor = promotion.get("status") == "PASS" and promotion.get("protocol_before") == "v2.16" and promotion.get("protocol_after") == "v2.17"
             if not approved_successor:
                 errors.append(f"{protocol_version} protocol state version mismatch")
         if state.get("patch_authority") is not False: errors.append("v2.15 patch authority changed")
@@ -146,7 +157,7 @@ def claim_boundary_status(config: dict[str, Any]) -> tuple[str, list[str]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run the configured ControllerGate protocol audit.")
-    parser.add_argument("--protocol", choices=["current", "v2.14", "v2.15", "v2.16"], default="current")
+    parser.add_argument("--protocol", choices=["current", "v2.14", "v2.15", "v2.16", "v2.17"], default="current")
     args = parser.parse_args()
 
     try:
@@ -162,7 +173,7 @@ def main() -> int:
         print(f"controllergate audit setup FAIL: {exc}", file=sys.stderr)
         return 2
 
-    command = [sys.executable, str(audit_script)] if str(config.get("protocol_version")) in {"v2.15", "v2.16"} else [sys.executable, str(audit_script), "--artifact-root", str(output_dir)]
+    command = [sys.executable, str(audit_script)] if str(config.get("protocol_version")) in {"v2.15", "v2.16", "v2.17"} else [sys.executable, str(audit_script), "--artifact-root", str(output_dir)]
     result = subprocess.run(command, cwd=REPO_ROOT)
     audit_status = "PASS" if result.returncode == 0 else "FAIL"
 

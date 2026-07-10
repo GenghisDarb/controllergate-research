@@ -2,7 +2,7 @@
 
 This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 
-- Validated current protocol: v2.16 universal_interlock_elbow_runtime_decomposition_lane (PASS)
+- Validated current protocol: v2.17 canonical_topology_environment_volume_lane (PASS)
 - Frontier engine: interlock_bound_semantic_runtime_operational
 - Frontier protocol promoted: true
 - Tier-2 candidates: 25
@@ -13,4 +13,7 @@ This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 - Full scoring: NOT_RUN/disallowed
 - Memory lift: not_demonstrated
 - Self-maintaining software: false/not_demonstrated
-- Next safe action: batch068h2_historical_environment_capsule_recovery
+- Maintenance topology runtime: PASS
+- Historical provider capsule: PARTIAL
+- Target collection: NOT_RUN
+- Next safe action: batch068h3_historical_transitive_provider_closure

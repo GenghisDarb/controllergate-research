@@ -2,16 +2,16 @@
 
 ## Validated protocol and static frontier
 
-The validated current protocol is `v2.16 universal_interlock_elbow_runtime_decomposition_lane`. Batch068h1 preserves the 11-handler/11-verifier static pathway and binds its runtime continuation to 23 executable interlocks with independent verification. `v2.15 semantic_frontier_planning_and_bounded_probe_lane` and `v2.14 capability_recovery_lane` remain directly selectable and audited.
+The validated current protocol is `v2.17 canonical_topology_environment_volume_lane`. Batch068h2 binds the existing interlock runtime to an executable five-role reference core, exact fourteen-role maintenance ledger, six conjunctive licensing gates, a planned 196-cell proof matrix, local and coupled topology maps, targeted environment-boundary volumes, and retrospective shadow controls. `v2.16`, `v2.15`, and `v2.14` remain directly selectable and audited.
 
-The official Batch068h workflow established exact Python 3.13.0b2 and a current provider lock but collected zero target nodes. Batch068h1 does not infer a cause from the missing Batch068h logs. It separates decision-time environment reconstruction from modern diagnostics, captures lossless output for new commands, and routes any unresolved historical environment boundary without patching.
+The official Batch068h1 workflow established a diagnostic Python 3.13.0b2 warning boundary but not the issue-316 target failure. Batch068h2 keeps observed-historical, cutoff-compatible, and current diagnostic provider evidence separate. The decision-time transitive dependency closure remains incomplete, so collection is `NOT_RUN` and the next safe action is historical transitive-provider closure.
 
 The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIER_STATE.json`; its rendered view is `docs/CURRENT_FRONTIER_STATUS.md`.
 
 - Issue-derived repair episodes: `4`.
 - Native external repair episodes: `4`.
-- Target-test bodies executed by Batch068h: `0`.
-- Patches generated or applied by Batch068h: `0`.
+- Target-test bodies executed by Batch068h2: `0`.
+- Patches generated or applied by Batch068h2: `0`.
 - Runtime connectors and live-device repair: inactive.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

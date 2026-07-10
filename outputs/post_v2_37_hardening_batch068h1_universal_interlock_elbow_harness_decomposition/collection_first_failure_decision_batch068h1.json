@@ -1,11 +1,59 @@
 {
   "authoritative_first_failure": "decision_time_provider_lock_incomplete",
-  "cause_claim_authorized": false,
+  "cause_claim_authorized": true,
   "diagnostic_first_failure": {
-    "blocker": "secure_execution_substrate_unavailable",
-    "phase": 0,
-    "phase_id": "container_security_inspection"
+    "authoritative": false,
+    "blocker": "container_command_failed",
+    "container_id": "aed67794aebf40ae90c99a6d545de156374bbd78ab9c1b8c42caac184ca969a0",
+    "container_removed": true,
+    "gate_decision": "BLOCK",
+    "node_count": 0,
+    "node_ids": [],
+    "operation_status": "COMPLETED",
+    "phase": 7,
+    "phase_id": "exact_target_collection",
+    "raw_output_sha256": "0fddc6359a3b9f0f8a2f0af616dfc175026a81ede8b95ecfb77739eaca5fcb33",
+    "returncode": 2,
+    "secret_scan_status": "PASS",
+    "security_observation": {
+      "capabilities_dropped_verified": true,
+      "errors": [],
+      "ipc_mode": "private",
+      "memory_bytes": 2147483648,
+      "memory_swap_bytes": 2147483648,
+      "mounts": [
+        {
+          "Destination": "/source",
+          "Mode": "",
+          "RW": false
+        },
+        {
+          "Destination": "/wheelhouse",
+          "Mode": "",
+          "RW": false
+        }
+      ],
+      "nano_cpus": 2000000000,
+      "network_isolation_verified": true,
+      "network_mode": "none",
+      "no_new_privileges_verified": true,
+      "non_root_verified": true,
+      "observed_user": "1001:1001",
+      "pid_mode": "",
+      "pids_limit": 256,
+      "privileged": false,
+      "read_only_root_filesystem_verified": true,
+      "status": "PASS",
+      "ulimits": [
+        {
+          "Hard": 1024,
+          "Name": "nofile",
+          "Soft": 1024
+        }
+      ]
+    },
+    "test_bodies_executed": 0
   },
-  "raw_error_classification": "diagnostic_logs_not_materialized",
+  "raw_error_classification": "warning_promoted_to_error",
   "status": "PASS"
 }

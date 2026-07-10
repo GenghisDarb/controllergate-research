@@ -2,10 +2,18 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
-## Batch068h1 interlock-bound runtime capabilities
+## Batch068h2 topology-bound runtime capabilities
 
-- Validated current protocol: `v2.16 universal_interlock_elbow_runtime_decomposition_lane` (`PASS`).
-- Prior protocols: v2.15 and v2.14 remain selectable and audited.
+- Validated current protocol: `v2.17 canonical_topology_environment_volume_lane` (`PASS`).
+- Prior protocols: v2.16, v2.15, and v2.14 remain selectable and audited.
+- Preserved reference core: five immutable operational roles.
+- Maintenance topology: exactly fourteen independently verified contact roles per candidate.
+- Activation license: six conjunctive gates; currently blocked and unable to create missing evidence.
+- Proof obligations: one planned 14-by-14 contact-relation matrix with 196 cells.
+- Local candidate topology maps: 25 evidence-derived maps.
+- Coupled topology: typed, evidence-bearing cross-candidate edges with negative-transfer controls.
+- Environment-boundary volume: sparse evidence-selected inspection; blind claim-bearing sweeps rejected.
+- Structural metrology: retrospective shadow assay with parent-specific deterministic controls; effectiveness advantage remains not demonstrated.
 - Universal interlocks: `23` executable handlers with `23` independent verifiers.
 - Runtime continuation: CG-RXN-012 through CG-RXN-024, all interlock-bound.
 - Failure-family graphs: arbitrary numeric depth with independently verified elbow decisions.
@@ -33,7 +41,7 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 
 ## Current operational gate status
 
-- Current protocol is `v2.16 universal_interlock_elbow_runtime_decomposition_lane`.
+- Current protocol is `v2.17 canonical_topology_environment_volume_lane`.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes are `4`.
 - Full scoring remains `NOT_RUN/disallowed`.

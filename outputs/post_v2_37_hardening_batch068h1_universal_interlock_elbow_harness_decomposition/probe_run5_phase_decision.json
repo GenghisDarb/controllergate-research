@@ -1,0 +1,53 @@
+{
+  "authoritative": false,
+  "blocker": null,
+  "container_id": "bc7e56901f01d396edca274fc81f15852189f87236fce76f66e9ad96d60e36da",
+  "container_removed": true,
+  "gate_decision": "PASS",
+  "node_count": 0,
+  "node_ids": [],
+  "operation_status": "COMPLETED",
+  "phase": 5,
+  "phase_id": "pytest_configuration_parse",
+  "raw_output_sha256": "2b01a40a0c671ae29847ceffc316d6f476517391f869693b1e0a0cee82398f71",
+  "returncode": 0,
+  "secret_scan_status": "PASS",
+  "security_observation": {
+    "capabilities_dropped_verified": true,
+    "errors": [],
+    "ipc_mode": "private",
+    "memory_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "mounts": [
+      {
+        "Destination": "/source",
+        "Mode": "",
+        "RW": false
+      },
+      {
+        "Destination": "/wheelhouse",
+        "Mode": "",
+        "RW": false
+      }
+    ],
+    "nano_cpus": 2000000000,
+    "network_isolation_verified": true,
+    "network_mode": "none",
+    "no_new_privileges_verified": true,
+    "non_root_verified": true,
+    "observed_user": "1001:1001",
+    "pid_mode": "",
+    "pids_limit": 256,
+    "privileged": false,
+    "read_only_root_filesystem_verified": true,
+    "status": "PASS",
+    "ulimits": [
+      {
+        "Hard": 1024,
+        "Name": "nofile",
+        "Soft": 1024
+      }
+    ]
+  },
+  "test_bodies_executed": 0
+}

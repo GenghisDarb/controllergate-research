@@ -14,6 +14,11 @@ RUNTIME_STEPS = (
     "failed_branch_closure_canonical_state_update",
 )
 
+TOPOLOGY_META_GATES = (
+    "CG-ISO-005", "CG-ISO-014", "CG-ISO-MAT", "CG-ISO-BROT", "CG-ISO-TOTBROT",
+    "CG-ISO-BULB", "CG-ISO-TLD", "CG-ISO-006", "CG-ISO-196",
+)
+
 
 STEP_INTERLOCKS = {
     "probe_authorization": ["source_approval", "candidate_seed_classification", "seed_readiness", "cognitive_state_prompt_lock"],
@@ -32,7 +37,21 @@ STEP_INTERLOCKS = {
 }
 
 
-def execute_runtime_path(candidate_id: str, initial_hash: str, facts_by_step: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+def execute_runtime_path(
+    candidate_id: str,
+    initial_hash: str,
+    facts_by_step: dict[str, dict[str, Any]],
+    topology_context: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
+    topology = topology_context or {
+        "topology_gates_evaluated": list(TOPOLOGY_META_GATES),
+        "contact_ledger_hash": "NOT_ESTABLISHED",
+        "local_brot_hash": "NOT_ESTABLISHED",
+        "coupled_tot_brot_hash": "NOT_ESTABLISHED",
+        "tot_bulb_volume_hash": "NOT_ESTABLISHED",
+        "activation_license_hash": "NOT_ESTABLISHED",
+        "proof_matrix_hash": "NOT_ESTABLISHED",
+    }
     transitions = []
     prior_hash = initial_hash
     prior_state = "CG-RXN-011_PASS"
@@ -49,6 +68,7 @@ def execute_runtime_path(candidate_id: str, initial_hash: str, facts_by_step: di
             decision = "PASS" if evaluated["status"] == "PASS" and requested == "PASS" else "BLOCK"
             record = {"event_id": event_id, "candidate_id": candidate_id, "prior_state_hash": prior_hash, "raw_input_hashes": [evidence_hash], "interlocks_evaluated": STEP_INTERLOCKS[step_id], "interlock_decisions": evaluated["records"], "handler_result": {"status": requested}, "independent_verifier_result": {"status": evaluated["status"]}, "operation_status": facts.get("operation_status", "COMPLETED"), "evidence_status": facts.get("evidence_status", "ESTABLISHED" if decision == "PASS" else "PARTIAL"), "gate_decision": decision, "candidate_state": facts.get("candidate_state", f"{step_id}_{decision.lower()}"), "blocker": None if decision == "PASS" else facts.get("blocker", f"{step_id}_blocked"), "next_action": facts.get("next_action", RUNTIME_STEPS[offset - 11] if offset < 24 else "stop"), "reopen_conditions": [] if decision == "PASS" else facts.get("reopen_conditions", ["provide_missing_evidence"]), "post_state_hash": ""}
             record["interlock_runtime"] = evaluated
+        record.update(topology)
         record["post_state_hash"] = hash_record({key: value for key, value in record.items() if key != "post_state_hash"})
         transitions.append(record); prior_hash = record["post_state_hash"]
         if record["gate_decision"] == "BLOCK": blocked = True

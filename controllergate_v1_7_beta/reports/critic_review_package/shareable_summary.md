@@ -1,5 +1,20 @@
 # ControllerGate shareable summary
 
+## Batch068h2 topology-bound environment recovery
+
+The validated current protocol is `v2.17 canonical_topology_environment_volume_lane`. It adds a reusable five-role reference core, an exact fourteen-role maintenance ledger, six conjunctive activation gates, a planned 196-cell contact-relation proof matrix, local and coupled candidate topology maps, targeted environment-boundary inspection, and retrospective shadow controls.
+
+The active Nbclient historical provider capsule remains `PARTIAL`: language-runtime identity is established, but transitive package closure, operating-system/distribution identity, package epoch, build-system identity, target-origin mode, and harness identity remain incomplete or conflicted. Collection is therefore `NOT_RUN`; the diagnostic warning is not the issue-316 target failure.
+
+- Target-test bodies executed: `0`.
+- Patches generated or applied: `0`.
+- Issue-derived repair episodes: `4`.
+- Native external repair episodes: `4`.
+- Full scoring: `NOT_RUN/disallowed`.
+- Memory lift: `not_demonstrated`.
+- Self-maintaining software: `false/not_demonstrated`.
+- Next safe action: `batch068h3_historical_transitive_provider_closure`.
+
 ## Batch063e Pytest Runner-Target Split Evidence Intake
 
 Batch063e evaluates Pytest runner-target import origin after Batch063d normalized version-origin metadata. It tests whether Pytest can be run as a declared self-hosted test runner or through a proven external runner-target split. These are command-boundary controls and replay-readiness evidence, not repair proof. No repair is counted without source-only target pass, duplicate clean replay, and count gate. Full scoring remains NOT_RUN/disallowed. Memory lift remains not_demonstrated. Self-maintaining software remains false/not_demonstrated.

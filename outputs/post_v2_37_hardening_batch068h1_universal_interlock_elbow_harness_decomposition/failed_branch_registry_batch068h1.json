@@ -1,5 +1,54 @@
 {
-  "branch_count": 0,
-  "branches": [],
+  "branch_count": 2,
+  "branches": [
+    {
+      "branch_id": "BRANCH-PHASE-7",
+      "canonical_state_mutated": false,
+      "classification": "container_command_failed",
+      "command": "probe_run7_command_manifest.json",
+      "inputs": [
+        "exact_target_collection"
+      ],
+      "interlocks": [
+        "command_translation",
+        "step_to_output_contract"
+      ],
+      "parent_state_hash": "e84e34f6ba75a5bc55ed8fcb56e91d3ceb9b4bc02e0716ff6705c4b7f2ee7542",
+      "raw_output_hashes": [
+        "0fddc6359a3b9f0f8a2f0af616dfc175026a81ede8b95ecfb77739eaca5fcb33"
+      ],
+      "reopen_conditions": [
+        "resolve_isolated_failure_family"
+      ],
+      "repair_memory_allowed": false,
+      "rollback_proof": "PASS",
+      "routing_memory_allowed": true,
+      "terminal_reason": "container_command_failed"
+    },
+    {
+      "branch_id": "BRANCH-PHASE-8",
+      "canonical_state_mutated": false,
+      "classification": "upstream_phase_blocked",
+      "command": "probe_run8_command_manifest.json",
+      "inputs": [
+        "node_set_validation"
+      ],
+      "interlocks": [
+        "command_translation",
+        "step_to_output_contract"
+      ],
+      "parent_state_hash": "d9ce8a5a6b73be7bc565c6065f716b0ca3620500419feee1ac13856079c560a9",
+      "raw_output_hashes": [
+        null
+      ],
+      "reopen_conditions": [
+        "resolve_isolated_failure_family"
+      ],
+      "repair_memory_allowed": false,
+      "rollback_proof": "PASS",
+      "routing_memory_allowed": true,
+      "terminal_reason": "upstream_phase_blocked"
+    }
+  ],
   "status": "PASS"
 }

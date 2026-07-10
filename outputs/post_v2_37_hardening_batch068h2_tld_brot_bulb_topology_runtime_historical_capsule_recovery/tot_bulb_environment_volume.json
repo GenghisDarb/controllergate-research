@@ -1,0 +1,1844 @@
+{
+  "basins": [
+    {
+      "basin_id": "codex_wave3_jupyter_nbclient_issues_316:targeted-basin",
+      "dimensions": [
+        "runtime_build",
+        "OS",
+        "distribution",
+        "package_epoch",
+        "dependency_lock",
+        "build_system",
+        "runner",
+        "plugins",
+        "target_origin",
+        "test_harness",
+        "environment_variables"
+      ],
+      "seed_edge_hash": "38cf370d39b0e18f66f5be59d1361209f13bc69a675c5d96b22811ad8c58935a",
+      "selected_by_evidence": true
+    }
+  ],
+  "blind_sweep_count": 0,
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "candidate_mask": {
+    "OS": "PARTIAL",
+    "build_system": "PARTIAL",
+    "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+    "candidate_identity_established": true,
+    "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+    "dependency_lock": "PARTIAL",
+    "distribution": "PARTIAL",
+    "language_runtime": "ESTABLISHED",
+    "package_epoch": "NOT_ESTABLISHED",
+    "plugins": "PARTIAL",
+    "runner": "ESTABLISHED",
+    "runtime_build": "ESTABLISHED",
+    "status": "PARTIAL",
+    "target_origin": "CONFLICTED",
+    "test_harness": "NOT_ESTABLISHED"
+  },
+  "cells": [
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "runtime_build",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "a8e6dcd18564fd6fbcd73e3d46caadbcde39771063b149a678e89b4a4301ce4b",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "OS",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "198b6b21d05576e060b552e5dae6eb2b500a372282c5a78b36d7a137dbe499a9",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "distribution",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "96634989910d26ebe091c319e80726c13225ab1a41619fb342a00115561484d3",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "package_epoch",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "899dde3e8f22fe90dfab932f0698e3a10d19b6b88e734a449bccaab84d0db274",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "dependency_lock",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "450e724865b57209c68142de6639b6c20e0e69127776e2a32edc40b7ff534a06",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "build_system",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "a5e94ea763900350215aa7e21646d8212c5ee969fd4b3acf8bd6a9f926bbc8d4",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "runner",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "0a6f7e5d04458988200c18d4df71e58abf6df5c263eea75339bba3d67fc2efd3",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "plugins",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "3e0faf601e2b9fa4516a71e42e0178f2a0cc452644b3f31b097d1871e6d20757",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "target_origin",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "4789a13d8b6652163102e15268e0caf361c194f90f18a9864a81db5f55ffd385",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "CONFLICTED",
+      "orthology_status": "CONFLICTED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "test_harness",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "c73d900c8ee0162ce51c8855337efd7539d627d4946b1a1341fbbfbb4f1ab260",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-04"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-04",
+        "environment_dimension": "environment_variables",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "f9be58703c8e93c823d25c506ce15bb32e0b301799950f2f363cd61b3fdc4af6",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "runtime_build",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "adb74043dd18f72074b4535782dfe6908996fa2050bdafcdda8a3330a7a6be2a",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "OS",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "fe1cfe6d5b49679c0e968666655f66e5e830174b78ec4c1805469cbe9ede55f1",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "distribution",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "9e88abece13d33918b4535fd17cfd9135718a07eefb76bee23039c826acc44bb",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "package_epoch",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "fa22fe6200ed574584a2580805b30816f6691f6b99ad8ad2970486e5a25bf8c4",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "dependency_lock",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "c0a610b255f9bb43ac404cda86323db88bcd97bd227ad4836da0dade603666c6",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "build_system",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "c690a501139272e0458e4e5664221da4b5ae43e0b516891e2fb7ce4c08e74eab",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "runner",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "3839fda43cd90f45ba7d33f11a38b0d9ea1660236325b17e7fc74b84225547d1",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "plugins",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "65dd466aaeb1545559087b7f77ad3f8d6c48e049bd591094cc8ceefcd84b6e2d",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "target_origin",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "b829c4ccce94db9a06e4d11c7722faf5c5b615a1e8a5d667daad56e6e832e5d9",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "CONFLICTED",
+      "orthology_status": "CONFLICTED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "test_harness",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "b6cb1dbc71be0e5af044f3289ccecb459c9879bb068991f182ff768018c98f93",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-07"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-07",
+        "environment_dimension": "environment_variables",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "2454898163caa30598441974f3d9b49af55a6a899d77b9688c4976c69f2549fb",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "runtime_build",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "c93623914efab0b071ad968618caa0e84a7cf1d5747fcdf8ed6beb1492bdd1cb",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "OS",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "8a10d102b1c48c7c41bcc715642602567e128b6ec4b463cbe69dbc269d8fc96e",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "distribution",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "7946ff351df382cb3938e1181a154b1e5ed8ba35dac73971309704ca8c4df104",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "package_epoch",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "8acc868e2d2c59a3744d6ec01d560c2b94a5c03275e42015e9d98a6a66b5359a",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "dependency_lock",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "60dcc5bca147231b42684ab897a142fc4a673fd404d057f2cea2047bced86253",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "build_system",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "defb20927fdec452c17b8b16e3430b22f4416a1ef06c44324a16d512e0f242ab",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "runner",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "4d25245c2170111ee55fe7cefc5759920c90537914686d601e4bb23be345f685",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "plugins",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "4ddf61ef5ca1b25b43d153cbc1a613669895d3613a04bf4c63783ca2ccdc0092",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "target_origin",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "1f82d579c86d84218693bcf1ba8f27c0274d271f98d09ada1e4ee5a262d14711",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "CONFLICTED",
+      "orthology_status": "CONFLICTED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "test_harness",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "e465ace9af79d9aea2859dcdaf11aba3096a14279b4e4964f9f4e34d46d8c0f5",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-09"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-09",
+        "environment_dimension": "environment_variables",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "0a1dea2540561da730478d21237544977d9822ad7e99b840d4886a617b302e8f",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "runtime_build",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "74556c40801a67b1b0033d88e330cebebf7d94fb8c0efbed70959a9c3a5090b6",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "OS",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "6f8c63de6912bbcf3a4029182f39e798fda52607a405ba3493dd1a3a07a8892a",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "distribution",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "25af23e6f1c9cd9e000c643e0c8207d5e7f9638487d7a27fd0b15036f617c12d",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "package_epoch",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "ded50197d277732a035eccc63a6a21cf7e50140ce9dd6eecdb3d8c025e10b603",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "dependency_lock",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "95ef8405e77d86338eb00bcd938c490ee8e06465b0771b71e2a6dfd64cc4d2fb",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "build_system",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "c428a14be3e6eeb32864c5df8a4ba58e4f7cdad65768f0f0bd329a4c0c2223f6",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "runner",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "efabb7c369fb9de6a9c004fab5f3882b027e41abde7d802a86bd643ee9761842",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "plugins",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "adeec9de7da62a5a2525c43b217f3730baa5b26a97869bbdd1fc9adfa023b47c",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "target_origin",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "57ec9aa991ccf831c004c4004877131e593091ba116e7082d2ed1bebc3aa7bd0",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "CONFLICTED",
+      "orthology_status": "CONFLICTED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "test_harness",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "53e39508027192fbc48050503268f15b836c656eb0f86a04bbc8072b5ddc2d6b",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-10"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-10",
+        "environment_dimension": "environment_variables",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "f6d2dab74eb5d124e890746f1b6cfc4a715fd7b9bcf3c2be119a40f1cb36787e",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "runtime_build",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "c199480a7a2a65a55567bed855deeb5942f3a223123149233e765fbfb57ea80c",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "OS",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "0d3cd31d402a1fa95c2eacc834253b8e4adcb63a839092e7929401610b639e28",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "distribution",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "f1ee62bf92a166e8fb0069b695c7753a466bc8b8c088f1f6e9fac419b43f6e73",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "package_epoch",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "b20fad6b72ecba6d0214ad4ca90fc7afb26393dabf918b65b79cad6fd2d18b15",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "dependency_lock",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "416a5f74bdf20f6f70976eb5fe8d51f9f2710731aaec21bc269c91cec53aae6b",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "build_system",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "0820c46cbe6e55bbc956ff6791fb8c313bd3387e4f3f9372fbd5b4bf83bb1423",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "runner",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "08dfee1527e0f4dc867da0c87da5c2884821a70af07700d3d07d6e629ff20844",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "plugins",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "a5c0764afc5cc073525b783fe79e5ba0dd68b016c383e6ff6dd90a1d61a5430f",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "target_origin",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "f08f614d3c1d4ccfc8b11f9c08f88bc6110a89367f6554098b6a3da0f2230594",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "CONFLICTED",
+      "orthology_status": "CONFLICTED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "test_harness",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "51c8d3ad581c4aa1a75971ed85ef3131cd98301d4583f337b7f6ae1c4d58026c",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-11"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-11",
+        "environment_dimension": "environment_variables",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "7cf206867bec7652bc9d146a6f361b3bd90fff3e170d10b4f00dbdee794815e3",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "runtime_build",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "12d1b54afcfaf6740cf434e9ba1e6517003f19cd7b5953c36e0b8f2adb2a91eb",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "OS",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "461579a1f0d2d4ce3c711267c18e3d3eb69d04734893a98ccf2372bdbdbe7177",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "distribution",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "129bf4df9b82403724c25b9a03ebd8c58ab4bb19ba5e5dcbc4987b2c97d72055",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "package_epoch",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "a903abb6b1ed78febd684ed65be635ce90a4b2ef27427fbe23d66d7990fe063b",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "dependency_lock",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "d9119a1b4ab70901bf9a41fb1d8d689d12283f877a1f29203fa631bd0306af61",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "build_system",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "4c0346f2fcbbac4d05713db07b3985aee94f52c2d859e1bacfc7903dfdfde1ef",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "runner",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "00443c65459fa7aaa8fba4030f20e4f8e2b0d76695563d439680bf7a1cb13fe5",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "ESTABLISHED",
+      "orthology_status": "ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "plugins",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "7ae056b46cbf9c19e8aafddae71e907d157159c212440bfaf351eef303cd3d1f",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "PARTIAL",
+      "orthology_status": "PARTIAL",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "target_origin",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "636c532cc6b5987d75bede7dcfb177f880e99bcd19b03a113a9d5fbdc5e096a3",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "CONFLICTED",
+      "orthology_status": "CONFLICTED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "test_harness",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "82d19b3d56ed5cde85ce9533ac13646efe20a25bfd4f7a25718167192e50e569",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    },
+    {
+      "associated_contact_ids": [
+        "CG-C14-13"
+      ],
+      "associated_failure_family_ids": [
+        "FF-002"
+      ],
+      "boundary_classification": "environment_boundary",
+      "confidence": 0.5,
+      "coordinate": {
+        "contact_role": "CG-C14-13",
+        "environment_dimension": "environment_variables",
+        "evidence_epoch": "decision_time",
+        "runtime_phase": "materialization"
+      },
+      "evidence_hash": "f7359a0f39f74283bdad6e8ad95d6942b2acc73798fa5371868ca791b0b5eec2",
+      "interlocks": [
+        "environment_orthology",
+        "claim_boundary"
+      ],
+      "legal_next_probes": [
+        "historical_capsule_evidence_probe"
+      ],
+      "observed_state": "NOT_ESTABLISHED",
+      "orthology_status": "NOT_ESTABLISHED",
+      "requested_state": "ESTABLISHED"
+    }
+  ],
+  "claim_bearing": true,
+  "global_mask": {
+    "candidate_identity_required_for_candidate_mask": true,
+    "capabilities": {
+      "OCI": "available_in_workflow",
+      "historical_source_mechanisms": [
+        "cutoff_package_metadata",
+        "immutable_git_source"
+      ],
+      "host_runner": "ubuntu-latest",
+      "network": "metadata_only_bounded",
+      "package_managers": [
+        "pip"
+      ]
+    },
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "targeted_basin_count": 1
+}

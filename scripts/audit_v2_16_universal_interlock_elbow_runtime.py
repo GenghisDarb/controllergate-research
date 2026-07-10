@@ -18,9 +18,14 @@ def main() -> int:
     else:
         state = json.loads(state_path.read_text(encoding="utf-8"))
         if not verify_state_hash(state): errors.append("current_state_hash_invalid")
-        if state.get("protocol_version") != "v2.16": errors.append("protocol_not_v2_16")
-        if state.get("universal_interlock_runtime_status") != "PASS": errors.append("interlock_runtime_not_pass")
-        if state.get("elbow_runtime_status") != "PASS": errors.append("elbow_runtime_not_pass")
+        version = state.get("protocol_version")
+        if version == "v2.17":
+            promotion_path = ROOT / "outputs/post_v2_37_hardening_batch068h2_tld_brot_bulb_topology_runtime_historical_capsule_recovery/v2_17_topology_promotion_decision.json"
+            promotion = json.loads(promotion_path.read_text(encoding="utf-8")) if promotion_path.is_file() else {}
+            if promotion.get("status") != "PASS" or promotion.get("protocol_before") != "v2.16": errors.append("v2_17_successor_not_approved")
+        elif version != "v2.16": errors.append("protocol_not_v2_16_or_approved_successor")
+        if version == "v2.16" and state.get("universal_interlock_runtime_status") != "PASS": errors.append("interlock_runtime_not_pass")
+        if version == "v2.16" and state.get("elbow_runtime_status") != "PASS": errors.append("elbow_runtime_not_pass")
         if state.get("patch_authority") is not False or state.get("repair_execution_authority") is not False: errors.append("repair_authority_changed")
         if state.get("full_scoring") != "NOT_RUN/disallowed": errors.append("full_scoring_changed")
         if state.get("memory_lift") != "not_demonstrated": errors.append("memory_claim_changed")

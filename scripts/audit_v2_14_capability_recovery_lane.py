@@ -469,6 +469,15 @@ def audit_filesystem(root: Path, errors: list[str]) -> None:
         batch048_decision = REPO_ROOT / "outputs" / "clean_replication_batch_048" / "batch048_protocol_v2_14_promotion_decision.json"
         batch068h_decision = REPO_ROOT / "outputs" / "post_v2_37_hardening_batch068h_semantic_pathway_secure_provider_probe" / "static_planning_protocol_promotion_decision_batch068h.json"
         batch068h1_decision = REPO_ROOT / "outputs" / "post_v2_37_hardening_batch068h1_universal_interlock_elbow_harness_decomposition" / "v2_16_promotion_decision_batch068h1.json"
+        batch068h2_decision = REPO_ROOT / "outputs" / "post_v2_37_hardening_batch068h2_tld_brot_bulb_topology_runtime_historical_capsule_recovery" / "v2_17_topology_promotion_decision.json"
+        if "protocol_version: v2.17" in current_config and batch068h_decision.is_file() and batch068h1_decision.is_file() and batch068h2_decision.is_file():
+            v215 = load_json(batch068h_decision, errors)
+            v216 = load_json(batch068h1_decision, errors)
+            v217 = load_json(batch068h2_decision, errors)
+            if v215.get("status") != "PASS" or v215.get("protocol_before") != "v2.14" or v215.get("protocol_after") != "v2.15": errors.append("v2.14 to v2.15 promotion lineage invalid")
+            if v216.get("status") != "PASS" or v216.get("protocol_before") != "v2.15" or v216.get("protocol_after") != "v2.16": errors.append("v2.15 to v2.16 promotion lineage invalid")
+            if v217.get("status") != "PASS" or v217.get("protocol_before") != "v2.16" or v217.get("protocol_after") != "v2.17": errors.append("v2.16 to v2.17 promotion lineage invalid")
+            return
         if "protocol_version: v2.16" in current_config and batch068h_decision.is_file() and batch068h1_decision.is_file():
             v215 = load_json(batch068h_decision, errors)
             v216 = load_json(batch068h1_decision, errors)
