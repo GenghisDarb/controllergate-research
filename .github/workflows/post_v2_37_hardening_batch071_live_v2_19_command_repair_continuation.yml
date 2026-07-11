@@ -1,0 +1,95 @@
+name: post_v2_37_hardening_batch071_live_v2_19_command_repair_continuation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  batch071-live-v2-19-command-repair:
+    name: Batch071 live v2.19 command repair continuation
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+      - name: Verify workflow head
+        shell: bash
+        run: test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install ControllerGate test dependencies
+        run: python -m pip install pytest packaging
+      - name: Run byte custody preflight
+        run: python scripts/byte_custody_preflight.py
+      - name: Execute live Batch071 from committed verified Batch070 ingest
+        run: python scripts/generate_batch071_live_v2_19_command_repair_continuation.py
+      - name: Run focused Batch071 tests
+        run: python -m pytest tests/runtime/test_batch071_live_v2_19_command_repair.py -q
+      - name: Run complete core and runtime suites
+        run: python -m pytest tests/core tests/runtime -q
+      - name: Run registry and registered regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/run_controllergate_regression_audits.py --registry configs/controllergate_regression_audit_registry.json
+      - name: Audit Batch071 and v2.19
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_batch071_live_v2_19_command_repair_continuation.py
+          python scripts/audit_batch070_v2_19_amds_fifth_repair_sprint.py
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/controllergate_frontier.py validate
+      - name: Verify compact evidence and claim boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find outputs/post_v2_37_hardening_batch071_live_v2_19_command_repair_continuation -maxdepth 1 -type f | wc -l)" -le 40
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          out=Path('outputs/post_v2_37_hardening_batch071_live_v2_19_command_repair_continuation')
+          value=json.loads((out/'batch071_final_decision.json').read_text())
+          assert value['validated_protocol']=='v2.19'
+          assert value['issue_derived_repair_count']==5
+          assert value['full_scoring']=='NOT_RUN/disallowed'
+          assert value['memory_lift']=='not_demonstrated'
+          assert value['self_maintaining_software']=='false/not_demonstrated'
+          assert value['AMDS_PROSPECTIVE_EFFECTIVENESS']=='NOT_ESTABLISHED'
+          PY
+          if find outputs/post_v2_37_hardening_batch071_live_v2_19_command_repair_continuation -type f \( -name '*.pyc' -o -name '*.pyo' -o -name '*.whl' -o -name '*.zip' -o -name '*.tar' -o -name '*.tgz' \) | grep -q .; then exit 1; fi
+          git diff --check
+      - name: Stage compact artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/stage_controllergate_artifact.py \
+            --destination "$RUNNER_TEMP/controllergate_artifact" \
+            --source "outputs/post_v2_37_hardening_batch071_live_v2_19_command_repair_continuation" \
+            --source "outputs/post_v2_37_hardening_batch070_v2_19_amds_fifth_repair_sprint" \
+            --source "outputs/post_v2_37_hardening_batch068h9_cargo_vendor_nbclient_detour_closure" \
+            --source "outputs/post_v2_37_hardening_batch068h8_authorized_cargo_warning_candidate_routing" \
+            --source "outputs/current" \
+            --source "outputs/frontier" \
+            --source "README.md" \
+            --source "docs/current_status.md" \
+            --source "docs/CURRENT_FRONTIER_STATUS.md" \
+            --source "configs/controllergate_current.yaml"
+          if find "$RUNNER_TEMP/controllergate_artifact" -type f \( -name '*.pyc' -o -name '*.pyo' -o -name '*.whl' -o -name '*.zip' -o -name '*.tar' -o -name '*.tgz' \) | grep -q .; then exit 1; fi
+          if find "$RUNNER_TEMP/controllergate_artifact" -type d \( -name '__pycache__' -o -name '.venv' -o -name 'venv' \) | grep -q .; then exit 1; fi
+      - name: Upload Batch071 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch071_live_v2_19_command_repair_continuation_artifacts
+          path: ${{ runner.temp }}/controllergate_artifact/**
+          if-no-files-found: error

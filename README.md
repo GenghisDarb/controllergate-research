@@ -10,13 +10,13 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 The validated current protocol is `v2.19 authorized_amds_active_maintenance_lane`. Batch070 replaces batch-specific current bindings with 22 generic production bindings exposed through one candidate-manifest dispatcher. It also completes persistent diagnostic hypothesis state, bounded constraint backtracking, single-use probe authorization, separate custody and semantic verification, and dynamic information-gain probe planning. The v2.18, v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
 
-Batch070 officially verifies and ingests Batch068h9, preserving its 38-package Cargo vendor closure, 1,320 verified vendor files, four verified wheels, and Nbclient retirement. A frozen portfolio of three fresh candidates then executes through the canonical v2.19 dispatcher. Each candidate stops safely at command-authority manual review before collection, pre-repair replay, patch authorization, or count gating.
+Batch071 officially verifies and ingests Batch070, replaces manifest-assertion execution with live source, environment, command, replay, ownership, patch, validation, and duplicate-replay operations, and preserves v2.19 as the current interface. Its format-aware command resolver separates setup, formatting, cleanup, and test commands while supporting bounded native-target narrowing.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
-The nonblocking four-arm prospective diagnostic pilot is recorded as `PARTIAL`; its effectiveness remains `NOT_ESTABLISHED`. Workflow success and protocol implementation are not repair success. Batch071 should continue the frozen high-quality queue by resolving reviewed command authority and resuming from verified checkpoints.
+Hipo reproduces a test-helper failure and is safely excluded from source repair. Connexion reproduces a source-owned route-ordering defect, receives one source-only patch to `connexion/utils.py`, passes the exact target and target-file invariants, and passes a completely fresh duplicate replay and count gate. The nonblocking four-arm pilot remains `PARTIAL`; effectiveness remains `NOT_ESTABLISHED`.
 
-- Confirmed issue-derived repair episodes: `4`.
+- Confirmed issue-derived repair episodes: `5`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
 - Batch068h9 official artifact verification and ingest: `PASS`.
@@ -24,15 +24,16 @@ The nonblocking four-arm prospective diagnostic pilot is recorded as `PARTIAL`; 
 - Generic production bindings: `22`; current batch-specific bindings: `0`.
 - AMDS implementation and runtime integration: `PASS`.
 - Persistent posterior state, bounded backtracking, single-use authorization, and semantic verification: `PASS`.
-- Frozen candidate portfolio: `3`; all ended at `command_source_conflict_manual_review`.
-- Patches generated and count gates run: `0`.
+- Frozen candidate portfolio: `3`; live candidates executed: `2`.
+- Hipo ownership: `test_expectation_fragility`; no patch.
+- Connexion ownership: `source_owned_behavior_defect`; source-only patch, validation, duplicate replay, and count gate: `PASS`.
 - Batch068h9 Cargo provider closure: `PASS` via `direct_lock_vendor`.
 - Verified vendor contents: `38` packages, `1,320` files; actual offline metadata: `PASS`.
 - Historical builder v3 and four required wheel closures: `PASS`.
 - Offline capsule, SBOM, and origin checks: `PASS`.
 - Diagnostic collection: `33` equivalent nodes across two fresh runs.
 - Nbclient ownership: `interpreter_mock_behavior_change`; retired without a source patch.
-- Next major action: `Batch071` continuation of the frozen repair queue.
+- Next major action: `Batch072` prospective AMDS and memory validation on fresh unrelated candidates.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

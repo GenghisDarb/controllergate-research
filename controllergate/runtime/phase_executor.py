@@ -38,6 +38,8 @@ ALLOWED_BINDINGS = {
 def execute_binding(binding: str, phase_id: str, context: dict[str, Any], network_authorization: dict[str, Any] | None = None) -> dict[str, Any]:
     target = ALLOWED_BINDINGS.get(binding)
     if target is None: return {"status": "BLOCK", "blocker": "runtime_binding_not_allowlisted", "phase_id": phase_id}
+    if not binding.startswith("batch068h") and context.get("candidate_manifest", {}).get("execution_mode") == "live":
+        target = f"controllergate.runtime.live_authorized_maintenance:{binding if binding != 'run_amds_active_loop' else 'run_amds_active_loop_binding'}"
     module_name, function_name = target.split(":", 1)
     function = getattr(import_module(module_name), function_name)
     if binding == "batch068h8_phase": result = function(phase_id, context, network_authorization or {"phase_id": phase_id, "network_mode": "none"})

@@ -37,6 +37,10 @@ def main() -> int:
     if promotion.get("status") != "PASS" or promotion.get("protocol_before") != "v2.18" or promotion.get("protocol_after") != "v2.19": errors.append("promotion_record_invalid")
     batch = subprocess.run([sys.executable, str(ROOT / "scripts/audit_batch070_v2_19_amds_fifth_repair_sprint.py")], cwd=ROOT, capture_output=True, text=True)
     if batch.returncode != 0: errors.append("batch070_audit_failed:" + batch.stdout.strip().replace("\n", ";"))
+    batch071_path = ROOT / "outputs/post_v2_37_hardening_batch071_live_v2_19_command_repair_continuation/batch071_final_decision.json"
+    if batch071_path.is_file():
+        batch071 = subprocess.run([sys.executable, str(ROOT / "scripts/audit_batch071_live_v2_19_command_repair_continuation.py")], cwd=ROOT, capture_output=True, text=True)
+        if batch071.returncode != 0: errors.append("batch071_audit_failed:" + batch071.stdout.strip().replace("\n", ";"))
     prior = subprocess.run([sys.executable, str(ROOT / "scripts/audit_v2_18_evidence_derived_topology_historical_provider.py")], cwd=ROOT, capture_output=True, text=True)
     if prior.returncode != 0: errors.append("v2_18_preservation_failed:" + prior.stdout.strip().replace("\n", ";"))
     if errors:

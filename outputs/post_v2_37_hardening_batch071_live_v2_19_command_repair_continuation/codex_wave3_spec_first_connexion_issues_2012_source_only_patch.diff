@@ -1,0 +1,30 @@
+diff --git a/connexion/utils.py b/connexion/utils.py
+index 5458ca8..3566689 100644
+--- a/connexion/utils.py
++++ b/connexion/utils.py
+@@ -491,17 +491,16 @@ def sort_routes(routes, *, key=None):
+     :return: List of routes sorted from most specific to least specific
+     """
+ 
+-    class SortableRoute:
+-        def __init__(self, path: str) -> None:
+-            self.path = path.rstrip("/")
+-            if not self.path.endswith("/{path:path}"):
+-                self.path += "/{path:path}"
+-            self.path_regex, _, _ = compile_path(self.path)
+ 
+-        def __lt__(self, other: "SortableRoute") -> bool:
+-            return bool(other.path_regex.match(self.path))
++    def specificity(path: str):
++        components = [component for component in path.strip("/").split("/") if component]
++        ranked = tuple(
++            (1, "") if component.startswith("{") and component.endswith("}") else (0, component)
++            for component in components
++        )
++        return ranked + ((2, ""),)
+ 
+-    return sorted(routes, key=lambda r: SortableRoute(key(r) if key else r))
++    return sorted(routes, key=lambda route: specificity(key(route) if key else route))
+ 
+ 
+ def sort_apis_by_basepath(apis: t.List["API"]) -> t.List["API"]:

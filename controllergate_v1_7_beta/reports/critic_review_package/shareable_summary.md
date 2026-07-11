@@ -1,5 +1,13 @@
 # ControllerGate shareable summary
 
+## Batch071 live v2.19 execution and fifth issue-derived repair
+
+Batch071 verifies the official Batch070 artifact and preserves `v2.19 authorized_amds_active_maintenance_lane` as the current interface. Eleven previously shallow manifest-consumer functions now have live source acquisition, environment, provider, command, replay, ownership, patch, validation, duplicate-replay, and count-gate implementations with separate capability-depth reporting.
+
+Hipo’s corrected target reproduces twice but fails in a native test helper before candidate source executes, so no patch is licensed. Connexion’s exact `test_sort_routes` target reproduces twice as a source-owned behavior defect. A single source-only change to `connexion/utils.py` passes the exact target, the full target-file invariant set, and a fresh immutable duplicate replay. The count gate passes, increasing confirmed issue-derived repairs from 4 to 5; native external repairs remain 4.
+
+The four-arm prospective AMDS pilot remains nonblocking and `PARTIAL`; prospective effectiveness is still `NOT_ESTABLISHED`. Full scoring remains disabled, memory lift is not demonstrated, self-maintaining software is not demonstrated, and live connectors remain inactive.
+
 ## Batch070 v2.19 authorized maintenance consolidation
 
 ControllerGate now validates `v2.19 authorized_amds_active_maintenance_lane`. Batch070 verifies the official Batch068h9 artifact and replaces batch-specific current execution bindings with 22 reusable bindings behind one candidate-manifest dispatcher. Persistent diagnostic hypothesis state, bounded constraint backtracking, canonical single-use probe authorization, separate custody and semantic verification, and dynamic probe reranking all pass their implementation audits.

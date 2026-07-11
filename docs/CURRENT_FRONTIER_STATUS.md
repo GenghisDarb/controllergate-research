@@ -7,7 +7,7 @@ This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 - Frontier protocol promoted: true
 - Generic production bindings: 22
 - Batch-specific current bindings: 0
-- Issue-derived repair episodes: 4
+- Issue-derived repair episodes: 5
 - Native external repair episodes: 4
 - Runtime activation allowed: false
 - Full scoring: NOT_RUN/disallowed
@@ -15,5 +15,7 @@ This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 - Self-maintaining software: false/not_demonstrated
 - AMDS implementation complete: true
 - AMDS runtime integrated: true
+- v2.19 live execution: PASS
+- v2.19 end-to-end repair: PASS
 - AMDS prospective effectiveness: NOT_ESTABLISHED
-- Next safe action: batch071_continue_frozen_high_quality_repair_queue
+- Next safe action: batch072_prospective_amds_and_memory_validation

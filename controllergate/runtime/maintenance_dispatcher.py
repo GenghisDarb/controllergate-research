@@ -34,7 +34,8 @@ def dispatch_candidate_manifest(*, manifest: dict[str, Any], checkpoint_path: Pa
     for phase_id in GENERIC_MAINTENANCE_PHASES:
         if phase_id in completed: continue
         input_hash = hash_record({"phase": phase_id, "context": context, "chain": chain})
-        result = execute_binding(phase_id, phase_id, context, {"phase_id": phase_id, "network_mode": "none"})
+        network_mode = "bounded_read_only" if phase_id in {"acquire_source", "reconstruct_environment"} and manifest.get("execution_mode") == "live" else "none"
+        result = execute_binding(phase_id, phase_id, context, {"phase_id": phase_id, "network_mode": network_mode})
         event = append_event(event_ledger_path, RuntimeEvent(f"event-{len(completed)+1:03d}", phase_id, str(result["status"]), input_hash, hash_record(result), result.get("blocker"), chain)); chain = str(event["event_hash"]); executed.append(phase_id)
         context.update(result.get("context_updates", {}))
         if result["status"] == "PASS": completed.append(phase_id); continue
