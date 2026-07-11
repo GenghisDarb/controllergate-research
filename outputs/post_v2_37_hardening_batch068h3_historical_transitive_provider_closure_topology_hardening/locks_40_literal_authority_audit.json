@@ -1,0 +1,45 @@
+{
+  "absent_fields": [
+    "winner_N_elbow",
+    "log_RMS_epsilon",
+    "second_difference_formula",
+    "curvature_threshold",
+    "curvature_sign_convention",
+    "elbow_tie_policy"
+  ],
+  "literal": {
+    "BOOTSTRAP_REPS": 2000,
+    "FAMILIES_TO_TEST": [
+      "parent",
+      "phase_scramble",
+      "block_shuffle",
+      "stride_interleave",
+      "entropy_jitter"
+    ],
+    "MIN_DELTAS_STRICT": 10,
+    "NSS_THRESHOLD": 0.95,
+    "NULLS_PER_PARENT": 200,
+    "N_LIST": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "SEED_MASTER_40B": 40404040,
+    "STRENGTHS_TO_TEST": [
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "UI_THRESHOLD": 0.8,
+    "literal_sha256": "356f5b755fd5e3a151843126a6a550356c29ff519e635866489152a17822f34f"
+  },
+  "locks_40_elbow_authority": false,
+  "status": "PASS"
+}

@@ -38,6 +38,9 @@ class ContactRecord:
     reopen_conditions: tuple[str, ...] = ()
     prior_state_hash: str = ""
     post_state_hash: str = ""
+    authority_class: str = "decision_time_repository_evidence"
+    decision_time_status: str = "safe"
+    missing_evidence: tuple[str, ...] = ()
 
     def as_dict(self) -> dict[str, Any]:
         return asdict(self)

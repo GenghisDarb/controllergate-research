@@ -1,11 +1,11 @@
 # Current protocol
 
-The current ControllerGate protocol remains:
+The current ControllerGate protocol is:
 
-- version: `v2.13`
-- lane: `minimal_forensic_context_lane`
+- version: `v2.18`
+- lane: `evidence_derived_topology_historical_provider_lane`
 - config: `configs/controllergate_current.yaml`
 
-v2.37 adds a maintained clean replication adapter, but it does not promote v2.37 to current protocol.
+Batch068h3 promotes this architecture-only runtime interface after its callable provider and maintenance bindings pass. The promotion grants no target-test, patch, live-connector, full-scoring, memory-lift, or self-maintaining authority.
 
-Historical lanes from v2.12 through v2.36 remain preserved evidence. They can be audited by their versioned scripts, but new replication work should use the shared core package and clean replication protocol unless a new versioned lane is explicitly justified.
+Historical lanes remain preserved evidence and continue to be audited through their versioned interfaces.

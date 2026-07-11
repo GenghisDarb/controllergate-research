@@ -1,0 +1,31 @@
+{
+  "rule_families": {
+    "failure_oracle_integrity": [
+      "failure_signature",
+      "target_test",
+      "command_authority",
+      "harness_origin"
+    ],
+    "identity_preservation": [
+      "artifact_custody",
+      "candidate_identity",
+      "source_revision"
+    ],
+    "rollback_proof_custody": [
+      "rollback_and_proof_path"
+    ],
+    "runtime_origin_containment": [
+      "runner_origin",
+      "target_import_origin",
+      "provider_and_cofactor",
+      "environment_compartment"
+    ],
+    "source_topology_scope": [
+      "source_and_failure_topology"
+    ],
+    "workspace_nonmutation": [
+      "workspace_and_execution_boundary"
+    ]
+  },
+  "status": "PASS"
+}

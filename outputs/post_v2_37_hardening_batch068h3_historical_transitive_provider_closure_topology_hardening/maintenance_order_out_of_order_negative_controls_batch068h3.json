@@ -1,0 +1,84 @@
+{
+  "control_count": 7,
+  "records": [
+    {
+      "blocker": "maintenance_order_predecessor_missing",
+      "canonical_state_mutated": false,
+      "command_invoked": false,
+      "control_id": "ORDER-NEG-01",
+      "next_allowed_action": "reference_core",
+      "phase": "materialization",
+      "post_state_hash": "568b5e538eb68a5af996ad37cf5b847f6ab26f38801c8ac2022f98956857cb27",
+      "prior_state_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "maintenance_order_predecessor_missing",
+      "canonical_state_mutated": false,
+      "command_invoked": false,
+      "control_id": "ORDER-NEG-02",
+      "next_allowed_action": "contact_topology",
+      "phase": "activation_license",
+      "post_state_hash": "420a42e257e52c355e7a03299e2dad2c8337b27a6e0fcc346ba15b1429e044dc",
+      "prior_state_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "maintenance_order_predecessor_missing",
+      "canonical_state_mutated": false,
+      "command_invoked": false,
+      "control_id": "ORDER-NEG-03",
+      "next_allowed_action": "activation_license",
+      "phase": "bounded_action",
+      "post_state_hash": "0f9c9c1c10eb3d73748c38776151ccf226597cf95647199472420b1dbe49b441",
+      "prior_state_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "maintenance_order_predecessor_missing",
+      "canonical_state_mutated": false,
+      "command_invoked": false,
+      "control_id": "ORDER-NEG-04",
+      "next_allowed_action": "activation_license",
+      "phase": "bounded_action",
+      "post_state_hash": "0f9c9c1c10eb3d73748c38776151ccf226597cf95647199472420b1dbe49b441",
+      "prior_state_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "maintenance_order_predecessor_missing",
+      "canonical_state_mutated": false,
+      "command_invoked": false,
+      "control_id": "ORDER-NEG-05",
+      "next_allowed_action": "post_action_contact_audit",
+      "phase": "duplicate_clean_replay",
+      "post_state_hash": "f14e6d4e2dc837fcfb5f57a5f1ccd41ac86a9ee1e357a2f029f90073f0260960",
+      "prior_state_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "maintenance_order_predecessor_missing",
+      "canonical_state_mutated": false,
+      "command_invoked": false,
+      "control_id": "ORDER-NEG-06",
+      "next_allowed_action": "return_constraint",
+      "phase": "proof_lock",
+      "post_state_hash": "32cfaf28cb9e36853e7a44bf16aef79c0c6356f3d64f07d085d4d8eaab0f0c65",
+      "prior_state_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "BLOCK"
+    },
+    {
+      "blocker": "maintenance_order_predecessor_missing",
+      "canonical_state_mutated": false,
+      "command_invoked": false,
+      "control_id": "ORDER-NEG-07",
+      "next_allowed_action": "bounded_action",
+      "phase": "post_action_contact_audit",
+      "post_state_hash": "7138dc430fe1f5f0f33c954ae6ba8a7b1ea54b56dce2696814dfb59426f35236",
+      "prior_state_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "BLOCK"
+    }
+  ],
+  "status": "PASS",
+  "successfully_blocked": 7
+}

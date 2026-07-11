@@ -19,7 +19,11 @@ def main() -> int:
         state = json.loads(state_path.read_text(encoding="utf-8"))
         if not verify_state_hash(state): errors.append("current_state_hash_invalid")
         version = state.get("protocol_version")
-        if version == "v2.17":
+        if version == "v2.18":
+            promotion_path = ROOT / "outputs/post_v2_37_hardening_batch068h3_historical_transitive_provider_closure_topology_hardening/v2_18_promotion_decision_batch068h3.json"
+            promotion = json.loads(promotion_path.read_text(encoding="utf-8")) if promotion_path.is_file() else {}
+            if promotion.get("status") != "PASS" or promotion.get("protocol_before") != "v2.17": errors.append("v2_18_successor_not_approved")
+        elif version == "v2.17":
             promotion_path = ROOT / "outputs/post_v2_37_hardening_batch068h2_tld_brot_bulb_topology_runtime_historical_capsule_recovery/v2_17_topology_promotion_decision.json"
             promotion = json.loads(promotion_path.read_text(encoding="utf-8")) if promotion_path.is_file() else {}
             if promotion.get("status") != "PASS" or promotion.get("protocol_before") != "v2.16": errors.append("v2_17_successor_not_approved")

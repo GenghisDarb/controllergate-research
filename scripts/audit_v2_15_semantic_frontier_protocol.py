@@ -20,20 +20,26 @@ def main() -> int:
     else:
         state = json.loads(current.read_text(encoding="utf-8"))
         if not verify_state_hash(state): errors.append("current_protocol_state_hash_invalid")
-        if state.get("protocol_version") not in {"v2.15", "v2.16", "v2.17"}: errors.append("protocol_version_not_v2_15_or_approved_successor")
+        if state.get("protocol_version") not in {"v2.15", "v2.16", "v2.17", "v2.18"}: errors.append("protocol_version_not_v2_15_or_approved_successor")
         if state.get("protocol_version") == "v2.15" and state.get("static_semantic_planning_promoted") is not True: errors.append("static_semantic_planning_not_promoted")
-        if state.get("protocol_version") in {"v2.16", "v2.17"}:
+        if state.get("protocol_version") in {"v2.16", "v2.17", "v2.18"}:
             promotion = ROOT / "outputs/post_v2_37_hardening_batch068h1_universal_interlock_elbow_harness_decomposition/v2_16_promotion_decision_batch068h1.json"
             if not promotion.is_file(): errors.append("v2_16_promotion_evidence_missing")
             else:
                 record = json.loads(promotion.read_text(encoding="utf-8"))
                 if record.get("status") != "PASS" or record.get("protocol_before") != "v2.15" or record.get("protocol_after") != "v2.16": errors.append("v2_16_promotion_evidence_invalid")
-        if state.get("protocol_version") == "v2.17":
+        if state.get("protocol_version") in {"v2.17", "v2.18"}:
             promotion = ROOT / "outputs/post_v2_37_hardening_batch068h2_tld_brot_bulb_topology_runtime_historical_capsule_recovery/v2_17_topology_promotion_decision.json"
             if not promotion.is_file(): errors.append("v2_17_promotion_evidence_missing")
             else:
                 record = json.loads(promotion.read_text(encoding="utf-8"))
                 if record.get("status") != "PASS" or record.get("protocol_before") != "v2.16" or record.get("protocol_after") != "v2.17": errors.append("v2_17_promotion_evidence_invalid")
+        if state.get("protocol_version") == "v2.18":
+            promotion = ROOT / "outputs/post_v2_37_hardening_batch068h3_historical_transitive_provider_closure_topology_hardening/v2_18_promotion_decision_batch068h3.json"
+            if not promotion.is_file(): errors.append("v2_18_promotion_evidence_missing")
+            else:
+                record = json.loads(promotion.read_text(encoding="utf-8"))
+                if record.get("status") != "PASS" or record.get("protocol_before") != "v2.17" or record.get("protocol_after") != "v2.18": errors.append("v2_18_promotion_evidence_invalid")
         if state.get("patch_authority") is not False: errors.append("patch_authority_changed")
         if state.get("repair_execution_authority") is not False: errors.append("repair_execution_authority_changed")
         if state.get("live_runtime_connectors") != "inactive": errors.append("live_runtime_connectors_changed")

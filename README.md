@@ -6,19 +6,19 @@ It remains a provenance-first software repair research harness with a conservati
 
 It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-change candidates, blocking unverified patches before they can contaminate accepted software state.
 
-## Validated protocol and static frontier
+## Validated protocol and executable frontier
 
-The validated current protocol is `v2.17 canonical_topology_environment_volume_lane`. Batch068h2 adds a reusable five-role reference core, an exact fourteen-role maintenance topology ledger, a conjunctive six-gate activation license, a planned 196-cell contact-relation proof matrix, local candidate topology maps, typed cross-candidate coupling, targeted environment-boundary volumes, and retrospective shadow controls. The preceding v2.16, v2.15, and v2.14 protocols remain directly selectable and audited.
+The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. Batch068h3 adds a callable historical dependency resolver, explicit maintenance-order guards, evidence-derived candidate-contact resolution, source-context analysis, semantic proof obligations, and bounded diagnostic checks. Earlier v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
 
-The official Batch068h1 result is reconciled separately from its local pre-workflow placeholder. Batch068h2 separates observed-historical, cutoff-compatible, and current diagnostic provider evidence. The active Nbclient capsule remains partial because its decision-time transitive provider closure is incomplete; collection and target-test execution therefore remain blocked. Architectural protocol promotion remains independent of candidate success and conveys no patch authority.
+For the active Nbclient candidate, 15 direct historical distributions were verified without selecting post-cutoff artifacts. Their transitive dependency metadata is not yet available in verified evidence, so environment closure remains blocked and collection is `NOT_RUN`. This is a precise product blocker, not repair success: no target test or patch ran, and the next action is dynamic historical metadata recovery.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
 - Confirmed issue-derived repair episodes: `4`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
-- Patches generated or applied by Batch068h2: `0`.
-- Target-test bodies executed by Batch068h2: `0`.
+- Patches generated or applied by Batch068h3: `0`.
+- Target-test bodies executed by Batch068h3: `0`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.
 - Self-maintaining software: `false/not_demonstrated`.

@@ -4,9 +4,9 @@ ControllerGate remains a pre-alpha research archive. Batch015 improves runtime-s
 
 Remaining gaps include additional external repair episodes, prospective matched-null separation on fresh native candidates, broader repository diversity, and audited runtime fixture demonstrations.
 
-## Batch068h2 topology and historical-capsule boundary
+## Batch068h3 historical-provider and collection boundary
 
-Batch068h2 promotes the topology-bound environment-volume architecture to v2.17. Promotion establishes reusable maintenance topology, activation, proof-matrix, coupling, environment-boundary, and retrospective shadow-control interfaces only. It does not establish target replay, repair success, runtime deployment, memory lift, or production readiness. v2.16, v2.15, and v2.14 remain selectable for regression and historical continuity.
+Batch068h3 promotes the evidence-derived historical-provider architecture to v2.18. Promotion establishes callable provider resolution, evidence contacts, maintenance-order guards, source-context analysis, and semantic verification interfaces. It does not establish target replay, repair success, runtime deployment, memory lift, or production readiness. v2.17 through v2.14 remain selectable for regression and historical continuity.
 
 The principal candidate-specific gap is complete decision-time environment reconstruction. Language-runtime identity is established, while transitive package closure, operating-system/distribution identity, build-system identity, target-origin mode, and harness identity remain incomplete or conflicted. Collection is not authorized across that boundary, and the diagnostic warning is not the issue-316 target failure.
 
@@ -16,7 +16,7 @@ Batch017 adds the next technical gap: historical dependency locks must be decisi
 
 ## Current operational gate status
 
-- Current protocol is `v2.17 canonical_topology_environment_volume_lane`.
+- Current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes are `4`.
 - Full scoring remains `NOT_RUN/disallowed`.

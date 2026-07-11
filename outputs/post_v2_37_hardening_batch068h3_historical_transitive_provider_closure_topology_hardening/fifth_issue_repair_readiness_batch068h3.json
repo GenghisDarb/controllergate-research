@@ -1,0 +1,90 @@
+{
+  "gates": [
+    {
+      "exact_next_action": "preserve verified SHA and origin",
+      "gate": "source_identity",
+      "status": "PASS"
+    },
+    {
+      "exact_next_action": "batch068h4_dynamic_historical_metadata_recovery",
+      "gate": "environment_closure",
+      "status": "BLOCK"
+    },
+    {
+      "exact_next_action": "re-evaluate after closure",
+      "gate": "command_authority",
+      "status": "MANUAL_REVIEW"
+    },
+    {
+      "exact_next_action": "establish historical harness origin",
+      "gate": "harness_origin",
+      "status": "BLOCK"
+    },
+    {
+      "exact_next_action": "resolve installed-versus-source mode",
+      "gate": "target_origin",
+      "status": "BLOCK"
+    },
+    {
+      "exact_next_action": "run collection and target replay",
+      "gate": "prerepair_reproduction",
+      "status": "NOT_RUN"
+    },
+    {
+      "exact_next_action": "decompose reproduced failure",
+      "gate": "failure_family_isolation",
+      "status": "NOT_RUN"
+    },
+    {
+      "exact_next_action": "apply operational boundary authorization",
+      "gate": "elbow_authorization",
+      "status": "NOT_RUN"
+    },
+    {
+      "exact_next_action": "pass activation license",
+      "gate": "patch_authorization",
+      "status": "NOT_RUN"
+    },
+    {
+      "exact_next_action": "generate separately authorized patch",
+      "gate": "source_only_patch_generation",
+      "status": "NOT_RUN"
+    },
+    {
+      "exact_next_action": "run target validation",
+      "gate": "target_pass",
+      "status": "NOT_RUN"
+    },
+    {
+      "exact_next_action": "run semantic invariants",
+      "gate": "invariant_pass",
+      "status": "NOT_RUN"
+    },
+    {
+      "exact_next_action": "repeat clean replay",
+      "gate": "duplicate_replay",
+      "status": "NOT_RUN"
+    },
+    {
+      "exact_next_action": "apply after duplicate replay",
+      "gate": "count_gate",
+      "status": "NOT_RUN"
+    }
+  ],
+  "repair_count_increment": false,
+  "route_map_only": true,
+  "shortest_path": [
+    "dynamic historical metadata recovery",
+    "lock verification",
+    "authoritative collection",
+    "target-origin resolution",
+    "pre-repair reproduction",
+    "failure isolation",
+    "patch authorization",
+    "source-only patch",
+    "target and invariant validation",
+    "duplicate replay",
+    "count gate"
+  ],
+  "status": "BLOCK"
+}

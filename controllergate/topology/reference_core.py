@@ -19,3 +19,14 @@ def build_reference_core(evidence: dict[str, object]) -> tuple[ReferenceCoreStat
         ReferenceCoreState(role_id, role, source_hash, f"verify_{role}", hash_record({"role": role, "source": source_hash}))
         for role_id, role in REFERENCE_ROLES
     )
+
+
+def build_semantic_reference_core(role_manifests: dict[str, dict[str, object]]) -> tuple[ReferenceCoreState, ...]:
+    records = []
+    for role_id, role in REFERENCE_ROLES:
+        manifest = role_manifests.get(role_id)
+        if not manifest or not manifest.get("evidence_hashes"):
+            raise ValueError(f"role_specific_reference_evidence_missing:{role_id}")
+        evidence_hash = hash_record(manifest)
+        records.append(ReferenceCoreState(role_id, role, evidence_hash, f"verify_{role_id.lower().replace('-', '_')}", hash_record({"role_id": role_id, "evidence_hash": evidence_hash}), True, str(manifest.get("reopen_condition", "new_decision_time_safe_evidence"))))
+    return tuple(records)

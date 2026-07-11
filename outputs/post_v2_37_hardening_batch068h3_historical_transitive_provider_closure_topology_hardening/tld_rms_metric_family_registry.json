@@ -1,0 +1,35 @@
+{
+  "families": [
+    {
+      "formula_status": "PROVENANCE_RECORDED_FAMILY_FORMULA_NOT_IMPORTED_FOR_CONTROLLERGATE",
+      "lineage_version": "early_TLD",
+      "rms_metric_family": "chi_target_residual_RMS"
+    },
+    {
+      "formula_status": "PROVENANCE_RECORDED_FAMILY_FORMULA_NOT_IMPORTED_FOR_CONTROLLERGATE",
+      "lineage_version": "intermediate_TLD",
+      "rms_metric_family": "cyclic_window_residual_RMS"
+    },
+    {
+      "N_window": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "formula": "sqrt(mean((omega[N:]-omega[:-N])^2))",
+      "lineage_version": "TLD-XI-BYN-v1",
+      "minimum_deltas_policy": 10,
+      "rms_metric_family": "N_difference_RMS",
+      "source_sha256": "b1acea7c28493f04fc0f935b4945558d050a6f2b61e84feb30da686babba6199",
+      "tie_policy": "smallest_N"
+    }
+  ],
+  "status": "PASS",
+  "unversioned_mixing_forbidden": true
+}

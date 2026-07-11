@@ -2,10 +2,12 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
-## Batch068h2 topology-bound runtime capabilities
+## Batch068h3 evidence-derived historical-provider capabilities
 
-- Validated current protocol: `v2.17 canonical_topology_environment_volume_lane` (`PASS`).
-- Prior protocols: v2.16, v2.15, and v2.14 remain selectable and audited.
+- Validated current protocol: `v2.18 evidence_derived_topology_historical_provider_lane` (`PASS`).
+- Prior protocols: v2.17, v2.16, v2.15, and v2.14 remain selectable and audited.
+- Historical dependency resolver: callable; 15 direct artifacts verified, transitive closure blocked on missing static metadata.
+- Canonical runtime bindings: 18 callable mechanisms, zero unbound reusable mechanisms.
 - Preserved reference core: five immutable operational roles.
 - Maintenance topology: exactly fourteen independently verified contact roles per candidate.
 - Activation license: six conjunctive gates; currently blocked and unable to create missing evidence.

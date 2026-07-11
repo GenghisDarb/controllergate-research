@@ -1,0 +1,45 @@
+{
+  "batch_only_mechanisms": [
+    "scripts/generate_batch068h3_historical_transitive_provider_closure_topology_hardening.py"
+  ],
+  "canonical_runtime": "v2.18",
+  "new_reusable_modules": [
+    "controllergate.core.maintenance_order_runtime",
+    "controllergate.core.maintenance_transition_guard",
+    "controllergate.runtime.artifact_metadata_reader",
+    "controllergate.runtime.historical_lock_verifier",
+    "controllergate.runtime.historical_provider_resolver",
+    "controllergate.runtime.provider_constraint_solver",
+    "controllergate.topology.ast_extrusion",
+    "controllergate.topology.brot_local",
+    "controllergate.topology.contact_pair_obligation_resolver",
+    "controllergate.topology.contact_pair_verifiers",
+    "controllergate.topology.contact_resolvers",
+    "controllergate.topology.failure_source_trace",
+    "controllergate.topology.homology",
+    "controllergate.topology.patch_locality",
+    "controllergate.topology.source_ownership",
+    "controllergate.topology.tld_clean_track",
+    "controllergate.topology.tot_bulb_measurement"
+  ],
+  "new_runtime_entry_point": "controllergate.protocols.v2_18_evidence_derived_topology_historical_provider:invoke_binding",
+  "new_transition_bindings": {
+    "canary_deployment": "existing_runtime_inactive",
+    "candidate_patch_generation": "blocked_by_current_claim_boundary",
+    "command_recovery": "resolve_contacts",
+    "commit_or_rollback": "execute_maintenance_order",
+    "duplicate_clean_replay": "blocked_until_first_collection_pass",
+    "environment_materialization": "resolve_historical_provider_roots",
+    "failure_family_decomposition": "trace_failure_to_source",
+    "failure_reproduction": "guard_maintenance_transition",
+    "health_monitoring": "existing_runtime_inactive",
+    "incident_acquisition": "existing_runtime",
+    "proof_and_memory_update": "execute_maintenance_order",
+    "repair_authorization": "guard_maintenance_transition",
+    "source_identity": "resolve_contacts",
+    "target_and_invariant_validation": "resolve_contact_pair_obligations"
+  },
+  "status": "PASS",
+  "unbound_mechanisms": [],
+  "unbound_reusable_mechanism_count": 0
+}

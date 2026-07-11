@@ -1,10 +1,10 @@
 # ControllerGate shareable summary
 
-## Batch068h2 topology-bound environment recovery
+## Batch068h3 historical-provider closure hardening
 
-The validated current protocol is `v2.17 canonical_topology_environment_volume_lane`. It adds a reusable five-role reference core, an exact fourteen-role maintenance ledger, six conjunctive activation gates, a planned 196-cell contact-relation proof matrix, local and coupled candidate topology maps, targeted environment-boundary inspection, and retrospective shadow controls.
+The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. It adds a callable historical dependency resolver, evidence-derived contact resolution, explicit maintenance-order guards, source-context analysis, and semantic proof obligations.
 
-The active Nbclient historical provider capsule remains `PARTIAL`: language-runtime identity is established, but transitive package closure, operating-system/distribution identity, package epoch, build-system identity, target-origin mode, and harness identity remain incomplete or conflicted. Collection is therefore `NOT_RUN`; the diagnostic warning is not the issue-316 target failure.
+The active Nbclient provider record remains `PARTIAL`: 15 direct historical distributions are verified, but their transitive dependency metadata is not present in verified evidence. Collection is therefore `NOT_RUN`; no target test or patch ran.
 
 - Target-test bodies executed: `0`.
 - Patches generated or applied: `0`.
@@ -13,7 +13,7 @@ The active Nbclient historical provider capsule remains `PARTIAL`: language-runt
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.
 - Self-maintaining software: `false/not_demonstrated`.
-- Next safe action: `batch068h3_historical_transitive_provider_closure`.
+- Next safe action: `batch068h4_dynamic_historical_metadata_recovery`.
 
 ## Batch063e Pytest Runner-Target Split Evidence Intake
 

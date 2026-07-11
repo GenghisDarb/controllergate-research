@@ -2,7 +2,7 @@
 
 This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 
-- Validated current protocol: v2.17 canonical_topology_environment_volume_lane (PASS)
+- Validated current protocol: v2.18 evidence_derived_topology_historical_provider_lane (PASS)
 - Frontier engine: interlock_bound_semantic_runtime_operational
 - Frontier protocol promoted: true
 - Tier-2 candidates: 25
@@ -16,4 +16,4 @@ This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 - Maintenance topology runtime: PASS
 - Historical provider capsule: PARTIAL
 - Target collection: NOT_RUN
-- Next safe action: batch068h3_historical_transitive_provider_closure
+- Next safe action: batch068h4_dynamic_historical_metadata_recovery

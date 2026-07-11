@@ -38,7 +38,7 @@ class FrontierEngine:
             return {"status": "BLOCK", "blocker": "frontier_candidate_unknown", "candidate_id": candidate_id}
         path = self.repo_root / record["state_path"]
         state = json.loads(path.read_text(encoding="utf-8"))
-        interlock_runtime = str(frontier.get("validated_current_protocol", "")).startswith("v2.16")
+        interlock_runtime = str(frontier.get("validated_current_protocol", "")).startswith(("v2.16", "v2.17", "v2.18"))
         return {
             "status": "PASS",
             "candidate_id": candidate_id,

@@ -21,7 +21,11 @@ def main() -> int:
     errors: list[str] = []
     state = json.loads((ROOT / "outputs/current/CURRENT_PROTOCOL_STATE.json").read_text(encoding="utf-8"))
     if not verify_state_hash(state): errors.append("current_state_hash_invalid")
-    if state.get("protocol_version") != "v2.17": errors.append("protocol_not_v2_17")
+    if state.get("protocol_version") == "v2.18":
+        promotion_path = ROOT / "outputs/post_v2_37_hardening_batch068h3_historical_transitive_provider_closure_topology_hardening/v2_18_promotion_decision_batch068h3.json"
+        promotion = json.loads(promotion_path.read_text(encoding="utf-8")) if promotion_path.is_file() else {}
+        if promotion.get("status") != "PASS" or promotion.get("protocol_before") != "v2.17" or promotion.get("protocol_after") != "v2.18": errors.append("v2_18_successor_not_approved")
+    elif state.get("protocol_version") != "v2.17": errors.append("protocol_not_v2_17_or_approved_successor")
     if state.get("topology_runtime_status") != "PASS": errors.append("topology_runtime_not_pass")
     if state.get("patch_authority") is not False or state.get("repair_execution_authority") is not False: errors.append("repair_authority_changed")
     if state.get("target_test_execution_authority") is not False: errors.append("target_test_authority_changed")

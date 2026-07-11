@@ -1,0 +1,26 @@
+name: post_v2_37_hardening_batch068h3_historical_transitive_provider_closure_topology_hardening
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  historical-provider-topology-hardening:
+    uses: ./.github/workflows/controllergate_reusable_lane.yml
+    with:
+      lane_id: post_v2_37_hardening_batch068h3_historical_transitive_provider_closure_topology_hardening
+      runner_script: scripts/generate_batch068h3_historical_transitive_provider_closure_topology_hardening.py
+      audit_script: scripts/audit_batch068h3_historical_transitive_provider_closure_topology_hardening.py
+      artifact_name: post_v2_37_hardening_batch068h3_historical_transitive_provider_closure_topology_hardening_artifacts
+      run_regressions: true
+      regression_level: full
+      run_core_tests: true
+      python_version: "3.11"
+      regression_registry_path: configs/controllergate_regression_audit_registry.json
+      core_test_scope: full
+      focused_test_targets: tests/core/test_batch068h3_evidence_topology_runtime.py tests/runtime/test_batch068h3_historical_provider_resolver.py
+      artifact_output_directory: post_v2_37_hardening_batch068h3_historical_transitive_provider_closure_topology_hardening
+      artifact_include_policy: frontier_minimal
+    secrets: inherit
