@@ -29,6 +29,12 @@ RUNTIME_BINDINGS: dict[str, str] = {
     "verify_historical_lock": "controllergate.runtime.historical_lock_verifier:verify_historical_lock",
     "execute_maintenance_order": "controllergate.core.maintenance_order_runtime:execute_maintenance_order",
     "guard_maintenance_transition": "controllergate.core.maintenance_transition_guard:guard_transition",
+    "dispatch_authorized_maintenance": "controllergate.runtime.maintenance_dispatcher:dispatch",
+    "reconstruct_pinned_roots": "controllergate.runtime.root_requirements:reconstruct_roots",
+    "enumerate_historical_releases": "controllergate.runtime.release_catalog:enumerate_release_files",
+    "resolve_recursive_provider_closure": "controllergate.runtime.recursive_provider_resolver:resolve_recursive",
+    "inspect_dynamic_metadata_capsule": "controllergate.runtime.dynamic_metadata_capsule:dynamic_metadata_capability",
+    "execute_batch068h4_phase": "controllergate.runtime.batch068h4_pipeline:execute_phase",
 }
 
 PATHWAY_BINDINGS = {

@@ -138,6 +138,14 @@ jobs:
       - name: Checkout ControllerGate
         uses: actions/checkout@v4
 
+      - name: Verify workflow head identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "GITHUB_SHA=$GITHUB_SHA"
+          echo "HEAD=$(git rev-parse HEAD)"
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:

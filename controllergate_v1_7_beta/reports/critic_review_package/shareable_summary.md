@@ -15,6 +15,8 @@ The active Nbclient provider record remains `PARTIAL`: 15 direct historical dist
 - Self-maintaining software: `false/not_demonstrated`.
 - Next safe action: `batch068h4_dynamic_historical_metadata_recovery`.
 
+Batch068h4 activates the canonical authorization-bound CLI and reconstructs the pinned Nbclient dependency roots. Local resolution reaches a complete 71-package, 119-edge cutoff-compatible closure with verified metadata and no conflicts or post-cutoff artifacts. Offline capsule execution remains unverified locally because Docker is unavailable; the official workflow must establish that boundary before collection or prerepair execution can proceed. No patch or repair count change is authorized.
+
 ## Batch063e Pytest Runner-Target Split Evidence Intake
 
 Batch063e evaluates Pytest runner-target import origin after Batch063d normalized version-origin metadata. It tests whether Pytest can be run as a declared self-hosted test runner or through a proven external runner-target split. These are command-boundary controls and replay-readiness evidence, not repair proof. No repair is counted without source-only target pass, duplicate clean replay, and count gate. Full scoring remains NOT_RUN/disallowed. Memory lift remains not_demonstrated. Self-maintaining software remains false/not_demonstrated.

@@ -8,6 +8,8 @@ The active Nbclient record now has 15 verified direct historical distributions a
 
 The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIER_STATE.json`; its rendered view is `docs/CURRENT_FRONTIER_STATUS.md`.
 
+Batch068h4 adds hashed execution authorizations, single-use nonces, ordered phase plans, event-chain custody, tamper-evident checkpoints, and safe resume to the canonical CLI. Pinned-source dependency reconstruction currently establishes a complete 71-node cutoff-compatible lock locally. The local host lacks an active Docker daemon, so offline capsule and collection evidence remain conditional on the official Linux workflow. Repair authority remains false.
+
 - Issue-derived repair episodes: `4`.
 - Native external repair episodes: `4`.
 - Target-test bodies executed by Batch068h3: `0`.

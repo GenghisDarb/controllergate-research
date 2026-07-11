@@ -10,6 +10,8 @@ Batch068h3 promotes the evidence-derived historical-provider architecture to v2.
 
 The principal candidate-specific gap is complete decision-time environment reconstruction. Language-runtime identity is established, while transitive package closure, operating-system/distribution identity, build-system identity, target-origin mode, and harness identity remain incomplete or conflicted. Collection is not authorized across that boundary, and the diagnostic warning is not the issue-316 target failure.
 
+Batch068h4 closes the cutoff-compatible Python dependency graph locally: 71 packages and 119 edges resolve with complete static metadata and no post-cutoff selection. The remaining local boundary is OCI execution availability. Offline installation, authoritative collection, duplicate collection, and prerepair reproduction must still execute successfully in the official Linux workflow before any new protocol or repair authorization is considered.
+
 Batch016 adds a useful negative result: unrelated pre-target failures are not accepted as issue-derived verification.
 
 Batch017 adds the next technical gap: historical dependency locks must be decision-time safe before issue-derived repair is authorized.

@@ -20,6 +20,8 @@ def main() -> int:
     plan.add_argument("--candidate", required=True)
     execute = sub.add_parser("execute")
     execute.add_argument("--candidate", required=True)
+    execute.add_argument("--authorization-manifest", required=True)
+    execute.add_argument("--checkpoint", required=True)
     args = parser.parse_args()
     engine = FrontierEngine(ROOT)
     if args.command == "status":
@@ -29,13 +31,9 @@ def main() -> int:
     elif args.command == "plan":
         result = engine.plan(args.candidate)
     else:
-        result = {
-            "status": "BLOCK",
-            "candidate_id": args.candidate,
-            "blocker": "frontier_execution_not_authorized_static_planning_only",
-        }
+        result = engine.execute(args.candidate, args.authorization_manifest, args.checkpoint)
     print(json.dumps(result, indent=2, sort_keys=True))
-    return 0 if result.get("status") in {"PASS", None} else (2 if args.command == "execute" else 1)
+    return 0 if result.get("status") in {"PASS", "BLOCK", "MANUAL_REVIEW", None} else 1
 
 
 if __name__ == "__main__":

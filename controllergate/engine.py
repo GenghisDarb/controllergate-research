@@ -50,3 +50,15 @@ class FrontierEngine:
             "execution_blocker": "interlock_runtime_requires_next_authorized_evidence_lane" if interlock_runtime else "frontier_execution_not_authorized_static_planning_only",
             "state_hash": state["state_hash"],
         }
+
+    def execute(self, candidate_id: str, authorization_manifest: str | Path, checkpoint: str | Path) -> dict[str, Any]:
+        index = json.loads(self.index_path.read_text(encoding="utf-8"))
+        item = next((row for row in index["records"] if row["candidate_id"] == candidate_id), None)
+        if item is None: return {"status": "BLOCK", "blocker": "frontier_candidate_unknown"}
+        state = json.loads((self.repo_root / item["state_path"]).read_text(encoding="utf-8"))
+        auth_path = Path(authorization_manifest)
+        if not auth_path.is_file(): return {"status": "BLOCK", "blocker": "execution_authorization_manifest_required"}
+        auth = json.loads(auth_path.read_text(encoding="utf-8"))
+        from .runtime.maintenance_dispatcher import dispatch
+        current = json.loads(self.state_path.parent.parent.joinpath("current/CURRENT_PROTOCOL_STATE.json").read_text(encoding="utf-8"))
+        return dispatch(candidate_id=candidate_id, candidate_sha=str(state.get("candidate_sha")), current_state_hash=str(current.get("state_hash")), authorization_path=auth_path, plan_path=Path(auth.get("plan_path", "")), checkpoint_path=Path(checkpoint), event_ledger_path=Path(auth.get("event_ledger_path", "")))

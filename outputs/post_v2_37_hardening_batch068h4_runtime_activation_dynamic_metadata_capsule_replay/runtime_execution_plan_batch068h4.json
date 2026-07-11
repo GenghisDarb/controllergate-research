@@ -1,0 +1,140 @@
+{
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+  "context_path": "E:\\ControllerGate-Artifacts\\batch068h4_p014on69\\runtime_context.json",
+  "phases": [
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [],
+      "phase_id": "artifact_ingest",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [
+        "artifact_ingest"
+      ],
+      "phase_id": "source_acquisition",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [
+        "artifact_ingest",
+        "source_acquisition"
+      ],
+      "phase_id": "root_reconstruction",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [
+        "artifact_ingest",
+        "source_acquisition",
+        "root_reconstruction"
+      ],
+      "phase_id": "release_enumeration",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [
+        "artifact_ingest",
+        "source_acquisition",
+        "root_reconstruction",
+        "release_enumeration"
+      ],
+      "phase_id": "provider_resolution",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [
+        "artifact_ingest",
+        "source_acquisition",
+        "root_reconstruction",
+        "release_enumeration",
+        "provider_resolution"
+      ],
+      "phase_id": "dynamic_metadata_recovery",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [
+        "artifact_ingest",
+        "source_acquisition",
+        "root_reconstruction",
+        "release_enumeration",
+        "provider_resolution",
+        "dynamic_metadata_recovery"
+      ],
+      "phase_id": "historical_lock_verification",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [
+        "artifact_ingest",
+        "source_acquisition",
+        "root_reconstruction",
+        "release_enumeration",
+        "provider_resolution",
+        "dynamic_metadata_recovery",
+        "historical_lock_verification"
+      ],
+      "phase_id": "offline_capsule_materialization",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [
+        "artifact_ingest",
+        "source_acquisition",
+        "root_reconstruction",
+        "release_enumeration",
+        "provider_resolution",
+        "dynamic_metadata_recovery",
+        "historical_lock_verification",
+        "offline_capsule_materialization"
+      ],
+      "phase_id": "collection_run_1",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [
+        "artifact_ingest",
+        "source_acquisition",
+        "root_reconstruction",
+        "release_enumeration",
+        "provider_resolution",
+        "dynamic_metadata_recovery",
+        "historical_lock_verification",
+        "offline_capsule_materialization",
+        "collection_run_1"
+      ],
+      "phase_id": "collection_run_2",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h4_phase",
+      "depends_on": [
+        "artifact_ingest",
+        "source_acquisition",
+        "root_reconstruction",
+        "release_enumeration",
+        "provider_resolution",
+        "dynamic_metadata_recovery",
+        "historical_lock_verification",
+        "offline_capsule_materialization",
+        "collection_run_1",
+        "collection_run_2"
+      ],
+      "phase_id": "prerepair_replay",
+      "replay_authorized": false
+    }
+  ],
+  "plan_hash": "b3d3357831ee4c3e7d97e833ed31727a78714ffb80f14f2eb8fa109d023e2636",
+  "plan_id": "batch068h4-canonical-plan"
+}

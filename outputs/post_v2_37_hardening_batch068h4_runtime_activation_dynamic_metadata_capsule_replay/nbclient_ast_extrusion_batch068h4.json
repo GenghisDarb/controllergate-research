@@ -1,0 +1,8595 @@
+{
+  "analysis_hash": "5383ba1f259293cb51bfcac5788a8af809aafe60da994a0966ca609f25c779c4",
+  "call_contact_graph": [],
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "evidence_hashes": [
+    "08b55c9175c31d9c1e6ae0219b9bfe1b506426a2848a301f1921e29cca3f1aa1"
+  ],
+  "module_graph": [],
+  "parse_blocked_files": [],
+  "parse_status": "PASS",
+  "source_file_inventory": [
+    "docs/autogen_config.py",
+    "docs/conf.py",
+    "nbclient/__init__.py",
+    "nbclient/_version.py",
+    "nbclient/cli.py",
+    "nbclient/client.py",
+    "nbclient/exceptions.py",
+    "nbclient/jsonutil.py",
+    "nbclient/output_widget.py",
+    "nbclient/util.py"
+  ],
+  "status": "PASS",
+  "symbol_definition_index": [
+    {
+      "line": 189,
+      "path": "docs/conf.py",
+      "symbol": "setup"
+    },
+    {
+      "line": 48,
+      "path": "nbclient/cli.py",
+      "symbol": "NbClientApp"
+    },
+    {
+      "line": 135,
+      "path": "nbclient/cli.py",
+      "symbol": "_log_level_default"
+    },
+    {
+      "line": 139,
+      "path": "nbclient/cli.py",
+      "symbol": "initialize"
+    },
+    {
+      "line": 163,
+      "path": "nbclient/cli.py",
+      "symbol": "get_notebooks"
+    },
+    {
+      "line": 175,
+      "path": "nbclient/cli.py",
+      "symbol": "run_notebook"
+    },
+    {
+      "line": 40,
+      "path": "nbclient/client.py",
+      "symbol": "timestamp"
+    },
+    {
+      "line": 60,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookClient"
+    },
+    {
+      "line": 1289,
+      "path": "nbclient/client.py",
+      "symbol": "execute"
+    },
+    {
+      "line": 388,
+      "path": "nbclient/client.py",
+      "symbol": "_kernel_manager_class_default"
+    },
+    {
+      "line": 445,
+      "path": "nbclient/client.py",
+      "symbol": "__init__"
+    },
+    {
+      "line": 470,
+      "path": "nbclient/client.py",
+      "symbol": "reset_execution_trackers"
+    },
+    {
+      "line": 483,
+      "path": "nbclient/client.py",
+      "symbol": "create_kernel_manager"
+    },
+    {
+      "line": 503,
+      "path": "nbclient/client.py",
+      "symbol": "_async_cleanup_kernel"
+    },
+    {
+      "line": 524,
+      "path": "nbclient/client.py",
+      "symbol": "async_start_new_kernel"
+    },
+    {
+      "line": 554,
+      "path": "nbclient/client.py",
+      "symbol": "async_start_new_kernel_client"
+    },
+    {
+      "line": 582,
+      "path": "nbclient/client.py",
+      "symbol": "setup_kernel"
+    },
+    {
+      "line": 612,
+      "path": "nbclient/client.py",
+      "symbol": "async_setup_kernel"
+    },
+    {
+      "line": 669,
+      "path": "nbclient/client.py",
+      "symbol": "async_execute"
+    },
+    {
+      "line": 718,
+      "path": "nbclient/client.py",
+      "symbol": "set_widgets_metadata"
+    },
+    {
+      "line": 739,
+      "path": "nbclient/client.py",
+      "symbol": "_update_display_id"
+    },
+    {
+      "line": 761,
+      "path": "nbclient/client.py",
+      "symbol": "_async_poll_for_reply"
+    },
+    {
+      "line": 808,
+      "path": "nbclient/client.py",
+      "symbol": "_async_poll_output_msg"
+    },
+    {
+      "line": 821,
+      "path": "nbclient/client.py",
+      "symbol": "_async_poll_kernel_alive"
+    },
+    {
+      "line": 831,
+      "path": "nbclient/client.py",
+      "symbol": "_get_timeout"
+    },
+    {
+      "line": 842,
+      "path": "nbclient/client.py",
+      "symbol": "_async_handle_timeout"
+    },
+    {
+      "line": 860,
+      "path": "nbclient/client.py",
+      "symbol": "_async_check_alive"
+    },
+    {
+      "line": 866,
+      "path": "nbclient/client.py",
+      "symbol": "async_wait_for_reply"
+    },
+    {
+      "line": 894,
+      "path": "nbclient/client.py",
+      "symbol": "_passed_deadline"
+    },
+    {
+      "line": 899,
+      "path": "nbclient/client.py",
+      "symbol": "_check_raise_for_error"
+    },
+    {
+      "line": 920,
+      "path": "nbclient/client.py",
+      "symbol": "async_execute_cell"
+    },
+    {
+      "line": 1069,
+      "path": "nbclient/client.py",
+      "symbol": "process_message"
+    },
+    {
+      "line": 1133,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1173,
+      "path": "nbclient/client.py",
+      "symbol": "clear_output"
+    },
+    {
+      "line": 1195,
+      "path": "nbclient/client.py",
+      "symbol": "clear_display_id_mapping"
+    },
+    {
+      "line": 1201,
+      "path": "nbclient/client.py",
+      "symbol": "handle_comm_msg"
+    },
+    {
+      "line": 1236,
+      "path": "nbclient/client.py",
+      "symbol": "_serialize_widget_state"
+    },
+    {
+      "line": 1245,
+      "path": "nbclient/client.py",
+      "symbol": "_get_buffer_data"
+    },
+    {
+      "line": 1259,
+      "path": "nbclient/client.py",
+      "symbol": "register_output_hook"
+    },
+    {
+      "line": 1268,
+      "path": "nbclient/client.py",
+      "symbol": "remove_output_hook"
+    },
+    {
+      "line": 1275,
+      "path": "nbclient/client.py",
+      "symbol": "on_comm_open_jupyter_widget"
+    },
+    {
+      "line": 633,
+      "path": "nbclient/client.py",
+      "symbol": "on_signal"
+    },
+    {
+      "line": 9,
+      "path": "nbclient/exceptions.py",
+      "symbol": "CellControlSignal"
+    },
+    {
+      "line": 19,
+      "path": "nbclient/exceptions.py",
+      "symbol": "CellTimeoutError"
+    },
+    {
+      "line": 41,
+      "path": "nbclient/exceptions.py",
+      "symbol": "DeadKernelError"
+    },
+    {
+      "line": 47,
+      "path": "nbclient/exceptions.py",
+      "symbol": "CellExecutionComplete"
+    },
+    {
+      "line": 58,
+      "path": "nbclient/exceptions.py",
+      "symbol": "CellExecutionError"
+    },
+    {
+      "line": 25,
+      "path": "nbclient/exceptions.py",
+      "symbol": "error_from_timeout_and_cell"
+    },
+    {
+      "line": 66,
+      "path": "nbclient/exceptions.py",
+      "symbol": "__init__"
+    },
+    {
+      "line": 73,
+      "path": "nbclient/exceptions.py",
+      "symbol": "__reduce__"
+    },
+    {
+      "line": 77,
+      "path": "nbclient/exceptions.py",
+      "symbol": "__str__"
+    },
+    {
+      "line": 85,
+      "path": "nbclient/exceptions.py",
+      "symbol": "from_cell_and_msg"
+    },
+    {
+      "line": 50,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "encode_images"
+    },
+    {
+      "line": 73,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "json_clean"
+    },
+    {
+      "line": 13,
+      "path": "nbclient/output_widget.py",
+      "symbol": "OutputWidget"
+    },
+    {
+      "line": 16,
+      "path": "nbclient/output_widget.py",
+      "symbol": "__init__"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/output_widget.py",
+      "symbol": "clear_output"
+    },
+    {
+      "line": 42,
+      "path": "nbclient/output_widget.py",
+      "symbol": "sync_state"
+    },
+    {
+      "line": 48,
+      "path": "nbclient/output_widget.py",
+      "symbol": "_publish_msg"
+    },
+    {
+      "line": 65,
+      "path": "nbclient/output_widget.py",
+      "symbol": "send"
+    },
+    {
+      "line": 74,
+      "path": "nbclient/output_widget.py",
+      "symbol": "output"
+    },
+    {
+      "line": 102,
+      "path": "nbclient/output_widget.py",
+      "symbol": "set_state"
+    },
+    {
+      "line": 113,
+      "path": "nbclient/output_widget.py",
+      "symbol": "handle_msg"
+    },
+    {
+      "line": 15,
+      "path": "nbclient/util.py",
+      "symbol": "run_hook"
+    }
+  ],
+  "symbol_reference_index": [
+    {
+      "line": 15,
+      "path": "docs/autogen_config.py",
+      "symbol": "header"
+    },
+    {
+      "line": 44,
+      "path": "docs/autogen_config.py",
+      "symbol": "destination"
+    },
+    {
+      "line": 40,
+      "path": "docs/autogen_config.py",
+      "symbol": "indir"
+    },
+    {
+      "line": 41,
+      "path": "docs/autogen_config.py",
+      "symbol": "NameError"
+    },
+    {
+      "line": 44,
+      "path": "docs/autogen_config.py",
+      "symbol": "indir"
+    },
+    {
+      "line": 46,
+      "path": "docs/autogen_config.py",
+      "symbol": "f"
+    },
+    {
+      "line": 47,
+      "path": "docs/autogen_config.py",
+      "symbol": "app"
+    },
+    {
+      "line": 40,
+      "path": "docs/autogen_config.py",
+      "symbol": "__file__"
+    },
+    {
+      "line": 42,
+      "path": "docs/autogen_config.py",
+      "symbol": "indir"
+    },
+    {
+      "line": 46,
+      "path": "docs/autogen_config.py",
+      "symbol": "open"
+    },
+    {
+      "line": 46,
+      "path": "docs/autogen_config.py",
+      "symbol": "destination"
+    },
+    {
+      "line": 47,
+      "path": "docs/autogen_config.py",
+      "symbol": "NbClientApp"
+    },
+    {
+      "line": 48,
+      "path": "docs/autogen_config.py",
+      "symbol": "header"
+    },
+    {
+      "line": 44,
+      "path": "docs/autogen_config.py",
+      "symbol": "os"
+    },
+    {
+      "line": 48,
+      "path": "docs/autogen_config.py",
+      "symbol": "f"
+    },
+    {
+      "line": 49,
+      "path": "docs/autogen_config.py",
+      "symbol": "f"
+    },
+    {
+      "line": 40,
+      "path": "docs/autogen_config.py",
+      "symbol": "os"
+    },
+    {
+      "line": 42,
+      "path": "docs/autogen_config.py",
+      "symbol": "os"
+    },
+    {
+      "line": 49,
+      "path": "docs/autogen_config.py",
+      "symbol": "app"
+    },
+    {
+      "line": 36,
+      "path": "docs/conf.py",
+      "symbol": "extensions"
+    },
+    {
+      "line": 52,
+      "path": "docs/conf.py",
+      "symbol": "autodoc_mock_imports"
+    },
+    {
+      "line": 55,
+      "path": "docs/conf.py",
+      "symbol": "templates_path"
+    },
+    {
+      "line": 60,
+      "path": "docs/conf.py",
+      "symbol": "source_suffix"
+    },
+    {
+      "line": 63,
+      "path": "docs/conf.py",
+      "symbol": "master_doc"
+    },
+    {
+      "line": 66,
+      "path": "docs/conf.py",
+      "symbol": "project"
+    },
+    {
+      "line": 67,
+      "path": "docs/conf.py",
+      "symbol": "copyright"
+    },
+    {
+      "line": 68,
+      "path": "docs/conf.py",
+      "symbol": "author"
+    },
+    {
+      "line": 76,
+      "path": "docs/conf.py",
+      "symbol": "version"
+    },
+    {
+      "line": 79,
+      "path": "docs/conf.py",
+      "symbol": "release"
+    },
+    {
+      "line": 86,
+      "path": "docs/conf.py",
+      "symbol": "language"
+    },
+    {
+      "line": 91,
+      "path": "docs/conf.py",
+      "symbol": "exclude_patterns"
+    },
+    {
+      "line": 94,
+      "path": "docs/conf.py",
+      "symbol": "pygments_style"
+    },
+    {
+      "line": 97,
+      "path": "docs/conf.py",
+      "symbol": "todo_include_todos"
+    },
+    {
+      "line": 99,
+      "path": "docs/conf.py",
+      "symbol": "default_role"
+    },
+    {
+      "line": 106,
+      "path": "docs/conf.py",
+      "symbol": "html_theme"
+    },
+    {
+      "line": 113,
+      "path": "docs/conf.py",
+      "symbol": "html_theme_options"
+    },
+    {
+      "line": 124,
+      "path": "docs/conf.py",
+      "symbol": "html_static_path"
+    },
+    {
+      "line": 130,
+      "path": "docs/conf.py",
+      "symbol": "html_title"
+    },
+    {
+      "line": 135,
+      "path": "docs/conf.py",
+      "symbol": "htmlhelp_basename"
+    },
+    {
+      "line": 158,
+      "path": "docs/conf.py",
+      "symbol": "latex_documents"
+    },
+    {
+      "line": 165,
+      "path": "docs/conf.py",
+      "symbol": "man_pages"
+    },
+    {
+      "line": 173,
+      "path": "docs/conf.py",
+      "symbol": "texinfo_documents"
+    },
+    {
+      "line": 186,
+      "path": "docs/conf.py",
+      "symbol": "intersphinx_mapping"
+    },
+    {
+      "line": 48,
+      "path": "docs/conf.py",
+      "symbol": "extensions"
+    },
+    {
+      "line": 49,
+      "path": "docs/conf.py",
+      "symbol": "ImportError"
+    },
+    {
+      "line": 79,
+      "path": "docs/conf.py",
+      "symbol": "nbclient"
+    },
+    {
+      "line": 190,
+      "path": "docs/conf.py",
+      "symbol": "here"
+    },
+    {
+      "line": 191,
+      "path": "docs/conf.py",
+      "symbol": "dest"
+    },
+    {
+      "line": 194,
+      "path": "docs/conf.py",
+      "symbol": "autogen_config"
+    },
+    {
+      "line": 195,
+      "path": "docs/conf.py",
+      "symbol": "prev_dir"
+    },
+    {
+      "line": 158,
+      "path": "docs/conf.py",
+      "symbol": "master_doc"
+    },
+    {
+      "line": 165,
+      "path": "docs/conf.py",
+      "symbol": "master_doc"
+    },
+    {
+      "line": 175,
+      "path": "docs/conf.py",
+      "symbol": "master_doc"
+    },
+    {
+      "line": 178,
+      "path": "docs/conf.py",
+      "symbol": "author"
+    },
+    {
+      "line": 191,
+      "path": "docs/conf.py",
+      "symbol": "here"
+    },
+    {
+      "line": 192,
+      "path": "docs/conf.py",
+      "symbol": "dest"
+    },
+    {
+      "line": 194,
+      "path": "docs/conf.py",
+      "symbol": "here"
+    },
+    {
+      "line": 196,
+      "path": "docs/conf.py",
+      "symbol": "here"
+    },
+    {
+      "line": 197,
+      "path": "docs/conf.py",
+      "symbol": "f"
+    },
+    {
+      "line": 199,
+      "path": "docs/conf.py",
+      "symbol": "prev_dir"
+    },
+    {
+      "line": 25,
+      "path": "docs/conf.py",
+      "symbol": "sys"
+    },
+    {
+      "line": 165,
+      "path": "docs/conf.py",
+      "symbol": "author"
+    },
+    {
+      "line": 190,
+      "path": "docs/conf.py",
+      "symbol": "__file__"
+    },
+    {
+      "line": 192,
+      "path": "docs/conf.py",
+      "symbol": "shutil"
+    },
+    {
+      "line": 192,
+      "path": "docs/conf.py",
+      "symbol": "here"
+    },
+    {
+      "line": 195,
+      "path": "docs/conf.py",
+      "symbol": "os"
+    },
+    {
+      "line": 196,
+      "path": "docs/conf.py",
+      "symbol": "os"
+    },
+    {
+      "line": 197,
+      "path": "docs/conf.py",
+      "symbol": "open"
+    },
+    {
+      "line": 197,
+      "path": "docs/conf.py",
+      "symbol": "autogen_config"
+    },
+    {
+      "line": 198,
+      "path": "docs/conf.py",
+      "symbol": "exec"
+    },
+    {
+      "line": 199,
+      "path": "docs/conf.py",
+      "symbol": "os"
+    },
+    {
+      "line": 25,
+      "path": "docs/conf.py",
+      "symbol": "os"
+    },
+    {
+      "line": 190,
+      "path": "docs/conf.py",
+      "symbol": "os"
+    },
+    {
+      "line": 191,
+      "path": "docs/conf.py",
+      "symbol": "os"
+    },
+    {
+      "line": 194,
+      "path": "docs/conf.py",
+      "symbol": "os"
+    },
+    {
+      "line": 198,
+      "path": "docs/conf.py",
+      "symbol": "compile"
+    },
+    {
+      "line": 198,
+      "path": "docs/conf.py",
+      "symbol": "autogen_config"
+    },
+    {
+      "line": 76,
+      "path": "docs/conf.py",
+      "symbol": "nbclient"
+    },
+    {
+      "line": 190,
+      "path": "docs/conf.py",
+      "symbol": "os"
+    },
+    {
+      "line": 192,
+      "path": "docs/conf.py",
+      "symbol": "os"
+    },
+    {
+      "line": 198,
+      "path": "docs/conf.py",
+      "symbol": "f"
+    },
+    {
+      "line": 4,
+      "path": "nbclient/__init__.py",
+      "symbol": "__all__"
+    },
+    {
+      "line": 5,
+      "path": "nbclient/_version.py",
+      "symbol": "__version__"
+    },
+    {
+      "line": 8,
+      "path": "nbclient/_version.py",
+      "symbol": "pattern"
+    },
+    {
+      "line": 9,
+      "path": "nbclient/_version.py",
+      "symbol": "match"
+    },
+    {
+      "line": 10,
+      "path": "nbclient/_version.py",
+      "symbol": "match"
+    },
+    {
+      "line": 16,
+      "path": "nbclient/_version.py",
+      "symbol": "version_info"
+    },
+    {
+      "line": 9,
+      "path": "nbclient/_version.py",
+      "symbol": "pattern"
+    },
+    {
+      "line": 9,
+      "path": "nbclient/_version.py",
+      "symbol": "__version__"
+    },
+    {
+      "line": 11,
+      "path": "nbclient/_version.py",
+      "symbol": "parts"
+    },
+    {
+      "line": 15,
+      "path": "nbclient/_version.py",
+      "symbol": "parts"
+    },
+    {
+      "line": 16,
+      "path": "nbclient/_version.py",
+      "symbol": "tuple"
+    },
+    {
+      "line": 16,
+      "path": "nbclient/_version.py",
+      "symbol": "parts"
+    },
+    {
+      "line": 9,
+      "path": "nbclient/_version.py",
+      "symbol": "re"
+    },
+    {
+      "line": 11,
+      "path": "nbclient/_version.py",
+      "symbol": "List"
+    },
+    {
+      "line": 12,
+      "path": "nbclient/_version.py",
+      "symbol": "match"
+    },
+    {
+      "line": 11,
+      "path": "nbclient/_version.py",
+      "symbol": "Union"
+    },
+    {
+      "line": 11,
+      "path": "nbclient/_version.py",
+      "symbol": "int"
+    },
+    {
+      "line": 11,
+      "path": "nbclient/_version.py",
+      "symbol": "part"
+    },
+    {
+      "line": 11,
+      "path": "nbclient/_version.py",
+      "symbol": "int"
+    },
+    {
+      "line": 11,
+      "path": "nbclient/_version.py",
+      "symbol": "str"
+    },
+    {
+      "line": 11,
+      "path": "nbclient/_version.py",
+      "symbol": "match"
+    },
+    {
+      "line": 11,
+      "path": "nbclient/_version.py",
+      "symbol": "part"
+    },
+    {
+      "line": 13,
+      "path": "nbclient/_version.py",
+      "symbol": "parts"
+    },
+    {
+      "line": 13,
+      "path": "nbclient/_version.py",
+      "symbol": "match"
+    },
+    {
+      "line": 21,
+      "path": "nbclient/cli.py",
+      "symbol": "nbclient_aliases"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/cli.py",
+      "symbol": "nbclient_flags"
+    },
+    {
+      "line": 48,
+      "path": "nbclient/cli.py",
+      "symbol": "JupyterApp"
+    },
+    {
+      "line": 223,
+      "path": "nbclient/cli.py",
+      "symbol": "main"
+    },
+    {
+      "line": 21,
+      "path": "nbclient/cli.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/cli.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 53,
+      "path": "nbclient/cli.py",
+      "symbol": "version"
+    },
+    {
+      "line": 54,
+      "path": "nbclient/cli.py",
+      "symbol": "name"
+    },
+    {
+      "line": 55,
+      "path": "nbclient/cli.py",
+      "symbol": "aliases"
+    },
+    {
+      "line": 55,
+      "path": "nbclient/cli.py",
+      "symbol": "nbclient_aliases"
+    },
+    {
+      "line": 56,
+      "path": "nbclient/cli.py",
+      "symbol": "flags"
+    },
+    {
+      "line": 56,
+      "path": "nbclient/cli.py",
+      "symbol": "nbclient_flags"
+    },
+    {
+      "line": 58,
+      "path": "nbclient/cli.py",
+      "symbol": "description"
+    },
+    {
+      "line": 59,
+      "path": "nbclient/cli.py",
+      "symbol": "notebooks"
+    },
+    {
+      "line": 60,
+      "path": "nbclient/cli.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 71,
+      "path": "nbclient/cli.py",
+      "symbol": "startup_timeout"
+    },
+    {
+      "line": 81,
+      "path": "nbclient/cli.py",
+      "symbol": "allow_errors"
+    },
+    {
+      "line": 93,
+      "path": "nbclient/cli.py",
+      "symbol": "skip_cells_with_tag"
+    },
+    {
+      "line": 101,
+      "path": "nbclient/cli.py",
+      "symbol": "kernel_name"
+    },
+    {
+      "line": 110,
+      "path": "nbclient/cli.py",
+      "symbol": "inplace"
+    },
+    {
+      "line": 120,
+      "path": "nbclient/cli.py",
+      "symbol": "output_base"
+    },
+    {
+      "line": 135,
+      "path": "nbclient/cli.py",
+      "symbol": "int"
+    },
+    {
+      "line": 138,
+      "path": "nbclient/cli.py",
+      "symbol": "catch_config_error"
+    },
+    {
+      "line": 223,
+      "path": "nbclient/cli.py",
+      "symbol": "NbClientApp"
+    },
+    {
+      "line": 21,
+      "path": "nbclient/cli.py",
+      "symbol": "str"
+    },
+    {
+      "line": 21,
+      "path": "nbclient/cli.py",
+      "symbol": "str"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/cli.py",
+      "symbol": "str"
+    },
+    {
+      "line": 53,
+      "path": "nbclient/cli.py",
+      "symbol": "Unicode"
+    },
+    {
+      "line": 53,
+      "path": "nbclient/cli.py",
+      "symbol": "__version__"
+    },
+    {
+      "line": 134,
+      "path": "nbclient/cli.py",
+      "symbol": "default"
+    },
+    {
+      "line": 160,
+      "path": "nbclient/cli.py",
+      "symbol": "path"
+    },
+    {
+      "line": 173,
+      "path": "nbclient/cli.py",
+      "symbol": "notebooks"
+    },
+    {
+      "line": 163,
+      "path": "nbclient/cli.py",
+      "symbol": "list"
+    },
+    {
+      "line": 163,
+      "path": "nbclient/cli.py",
+      "symbol": "str"
+    },
+    {
+      "line": 180,
+      "path": "nbclient/cli.py",
+      "symbol": "input_path"
+    },
+    {
+      "line": 183,
+      "path": "nbclient/cli.py",
+      "symbol": "path"
+    },
+    {
+      "line": 204,
+      "path": "nbclient/cli.py",
+      "symbol": "client"
+    },
+    {
+      "line": 218,
+      "path": "nbclient/cli.py",
+      "symbol": "output_path"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/cli.py",
+      "symbol": "typing"
+    },
+    {
+      "line": 136,
+      "path": "nbclient/cli.py",
+      "symbol": "logging"
+    },
+    {
+      "line": 141,
+      "path": "nbclient/cli.py",
+      "symbol": "argv"
+    },
+    {
+      "line": 144,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 160,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 166,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 167,
+      "path": "nbclient/cli.py",
+      "symbol": "notebooks"
+    },
+    {
+      "line": 170,
+      "path": "nbclient/cli.py",
+      "symbol": "notebooks"
+    },
+    {
+      "line": 175,
+      "path": "nbclient/cli.py",
+      "symbol": "str"
+    },
+    {
+      "line": 186,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 187,
+      "path": "nbclient/cli.py",
+      "symbol": "output_path"
+    },
+    {
+      "line": 187,
+      "path": "nbclient/cli.py",
+      "symbol": "input_path"
+    },
+    {
+      "line": 195,
+      "path": "nbclient/cli.py",
+      "symbol": "output_path"
+    },
+    {
+      "line": 196,
+      "path": "nbclient/cli.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 200,
+      "path": "nbclient/cli.py",
+      "symbol": "f"
+    },
+    {
+      "line": 201,
+      "path": "nbclient/cli.py",
+      "symbol": "nb"
+    },
+    {
+      "line": 204,
+      "path": "nbclient/cli.py",
+      "symbol": "NotebookClient"
+    },
+    {
+      "line": 205,
+      "path": "nbclient/cli.py",
+      "symbol": "nb"
+    },
+    {
+      "line": 59,
+      "path": "nbclient/cli.py",
+      "symbol": "List"
+    },
+    {
+      "line": 60,
+      "path": "nbclient/cli.py",
+      "symbol": "Integer"
+    },
+    {
+      "line": 71,
+      "path": "nbclient/cli.py",
+      "symbol": "Integer"
+    },
+    {
+      "line": 81,
+      "path": "nbclient/cli.py",
+      "symbol": "Bool"
+    },
+    {
+      "line": 93,
+      "path": "nbclient/cli.py",
+      "symbol": "Unicode"
+    },
+    {
+      "line": 101,
+      "path": "nbclient/cli.py",
+      "symbol": "Unicode"
+    },
+    {
+      "line": 110,
+      "path": "nbclient/cli.py",
+      "symbol": "Bool"
+    },
+    {
+      "line": 120,
+      "path": "nbclient/cli.py",
+      "symbol": "Unicode"
+    },
+    {
+      "line": 144,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 147,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 153,
+      "path": "nbclient/cli.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 161,
+      "path": "nbclient/cli.py",
+      "symbol": "path"
+    },
+    {
+      "line": 167,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 170,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 188,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 189,
+      "path": "nbclient/cli.py",
+      "symbol": "output_path"
+    },
+    {
+      "line": 193,
+      "path": "nbclient/cli.py",
+      "symbol": "output_path"
+    },
+    {
+      "line": 197,
+      "path": "nbclient/cli.py",
+      "symbol": "ValueError"
+    },
+    {
+      "line": 197,
+      "path": "nbclient/cli.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 201,
+      "path": "nbclient/cli.py",
+      "symbol": "f"
+    },
+    {
+      "line": 215,
+      "path": "nbclient/cli.py",
+      "symbol": "client"
+    },
+    {
+      "line": 220,
+      "path": "nbclient/cli.py",
+      "symbol": "nb"
+    },
+    {
+      "line": 220,
+      "path": "nbclient/cli.py",
+      "symbol": "output_path"
+    },
+    {
+      "line": 59,
+      "path": "nbclient/cli.py",
+      "symbol": "Unicode"
+    },
+    {
+      "line": 139,
+      "path": "nbclient/cli.py",
+      "symbol": "list"
+    },
+    {
+      "line": 139,
+      "path": "nbclient/cli.py",
+      "symbol": "str"
+    },
+    {
+      "line": 141,
+      "path": "nbclient/cli.py",
+      "symbol": "super"
+    },
+    {
+      "line": 148,
+      "path": "nbclient/cli.py",
+      "symbol": "sys"
+    },
+    {
+      "line": 151,
+      "path": "nbclient/cli.py",
+      "symbol": "len"
+    },
+    {
+      "line": 151,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 152,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 157,
+      "path": "nbclient/cli.py",
+      "symbol": "ValueError"
+    },
+    {
+      "line": 157,
+      "path": "nbclient/cli.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 161,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 178,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 178,
+      "path": "nbclient/cli.py",
+      "symbol": "notebook_path"
+    },
+    {
+      "line": 180,
+      "path": "nbclient/cli.py",
+      "symbol": "Path"
+    },
+    {
+      "line": 180,
+      "path": "nbclient/cli.py",
+      "symbol": "notebook_path"
+    },
+    {
+      "line": 183,
+      "path": "nbclient/cli.py",
+      "symbol": "input_path"
+    },
+    {
+      "line": 200,
+      "path": "nbclient/cli.py",
+      "symbol": "input_path"
+    },
+    {
+      "line": 201,
+      "path": "nbclient/cli.py",
+      "symbol": "nbformat"
+    },
+    {
+      "line": 206,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 207,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 208,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 209,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 210,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 220,
+      "path": "nbclient/cli.py",
+      "symbol": "nbformat"
+    },
+    {
+      "line": 63,
+      "path": "nbclient/cli.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 73,
+      "path": "nbclient/cli.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 83,
+      "path": "nbclient/cli.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 95,
+      "path": "nbclient/cli.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 103,
+      "path": "nbclient/cli.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 112,
+      "path": "nbclient/cli.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 123,
+      "path": "nbclient/cli.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 151,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 196,
+      "path": "nbclient/cli.py",
+      "symbol": "output_path"
+    },
+    {
+      "line": 211,
+      "path": "nbclient/cli.py",
+      "symbol": "path"
+    },
+    {
+      "line": 219,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 219,
+      "path": "nbclient/cli.py",
+      "symbol": "output_path"
+    },
+    {
+      "line": 195,
+      "path": "nbclient/cli.py",
+      "symbol": "output_path"
+    },
+    {
+      "line": 189,
+      "path": "nbclient/cli.py",
+      "symbol": "input_path"
+    },
+    {
+      "line": 190,
+      "path": "nbclient/cli.py",
+      "symbol": "self"
+    },
+    {
+      "line": 190,
+      "path": "nbclient/cli.py",
+      "symbol": "input_path"
+    },
+    {
+      "line": 34,
+      "path": "nbclient/client.py",
+      "symbol": "_RGX_CARRIAGERETURN"
+    },
+    {
+      "line": 35,
+      "path": "nbclient/client.py",
+      "symbol": "_RGX_BACKSPACE"
+    },
+    {
+      "line": 40,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 60,
+      "path": "nbclient/client.py",
+      "symbol": "LoggingConfigurable"
+    },
+    {
+      "line": 1294,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 65,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 79,
+      "path": "nbclient/client.py",
+      "symbol": "timeout_func"
+    },
+    {
+      "line": 97,
+      "path": "nbclient/client.py",
+      "symbol": "interrupt_on_timeout"
+    },
+    {
+      "line": 108,
+      "path": "nbclient/client.py",
+      "symbol": "error_on_timeout"
+    },
+    {
+      "line": 127,
+      "path": "nbclient/client.py",
+      "symbol": "startup_timeout"
+    },
+    {
+      "line": 138,
+      "path": "nbclient/client.py",
+      "symbol": "allow_errors"
+    },
+    {
+      "line": 153,
+      "path": "nbclient/client.py",
+      "symbol": "allow_error_names"
+    },
+    {
+      "line": 164,
+      "path": "nbclient/client.py",
+      "symbol": "force_raise_errors"
+    },
+    {
+      "line": 182,
+      "path": "nbclient/client.py",
+      "symbol": "skip_cells_with_tag"
+    },
+    {
+      "line": 191,
+      "path": "nbclient/client.py",
+      "symbol": "extra_arguments"
+    },
+    {
+      "line": 193,
+      "path": "nbclient/client.py",
+      "symbol": "kernel_name"
+    },
+    {
+      "line": 203,
+      "path": "nbclient/client.py",
+      "symbol": "raise_on_iopub_timeout"
+    },
+    {
+      "line": 218,
+      "path": "nbclient/client.py",
+      "symbol": "store_widget_state"
+    },
+    {
+      "line": 228,
+      "path": "nbclient/client.py",
+      "symbol": "record_timing"
+    },
+    {
+      "line": 238,
+      "path": "nbclient/client.py",
+      "symbol": "iopub_timeout"
+    },
+    {
+      "line": 251,
+      "path": "nbclient/client.py",
+      "symbol": "shell_timeout_interval"
+    },
+    {
+      "line": 263,
+      "path": "nbclient/client.py",
+      "symbol": "shutdown_kernel"
+    },
+    {
+      "line": 276,
+      "path": "nbclient/client.py",
+      "symbol": "ipython_hist_file"
+    },
+    {
+      "line": 290,
+      "path": "nbclient/client.py",
+      "symbol": "kernel_manager_class"
+    },
+    {
+      "line": 294,
+      "path": "nbclient/client.py",
+      "symbol": "on_notebook_start"
+    },
+    {
+      "line": 306,
+      "path": "nbclient/client.py",
+      "symbol": "on_notebook_complete"
+    },
+    {
+      "line": 317,
+      "path": "nbclient/client.py",
+      "symbol": "on_notebook_error"
+    },
+    {
+      "line": 328,
+      "path": "nbclient/client.py",
+      "symbol": "on_cell_start"
+    },
+    {
+      "line": 340,
+      "path": "nbclient/client.py",
+      "symbol": "on_cell_execute"
+    },
+    {
+      "line": 351,
+      "path": "nbclient/client.py",
+      "symbol": "on_cell_complete"
+    },
+    {
+      "line": 363,
+      "path": "nbclient/client.py",
+      "symbol": "on_cell_executed"
+    },
+    {
+      "line": 375,
+      "path": "nbclient/client.py",
+      "symbol": "on_cell_error"
+    },
+    {
+      "line": 394,
+      "path": "nbclient/client.py",
+      "symbol": "_display_id_map"
+    },
+    {
+      "line": 409,
+      "path": "nbclient/client.py",
+      "symbol": "display_data_priority"
+    },
+    {
+      "line": 427,
+      "path": "nbclient/client.py",
+      "symbol": "resources"
+    },
+    {
+      "line": 437,
+      "path": "nbclient/client.py",
+      "symbol": "coalesce_streams"
+    },
+    {
+      "line": 483,
+      "path": "nbclient/client.py",
+      "symbol": "KernelManager"
+    },
+    {
+      "line": 522,
+      "path": "nbclient/client.py",
+      "symbol": "_cleanup_kernel"
+    },
+    {
+      "line": 552,
+      "path": "nbclient/client.py",
+      "symbol": "start_new_kernel"
+    },
+    {
+      "line": 554,
+      "path": "nbclient/client.py",
+      "symbol": "KernelClient"
+    },
+    {
+      "line": 579,
+      "path": "nbclient/client.py",
+      "symbol": "start_new_kernel_client"
+    },
+    {
+      "line": 581,
+      "path": "nbclient/client.py",
+      "symbol": "contextmanager"
+    },
+    {
+      "line": 611,
+      "path": "nbclient/client.py",
+      "symbol": "asynccontextmanager"
+    },
+    {
+      "line": 669,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 716,
+      "path": "nbclient/client.py",
+      "symbol": "execute"
+    },
+    {
+      "line": 890,
+      "path": "nbclient/client.py",
+      "symbol": "wait_for_reply"
+    },
+    {
+      "line": 892,
+      "path": "nbclient/client.py",
+      "symbol": "_wait_for_reply"
+    },
+    {
+      "line": 892,
+      "path": "nbclient/client.py",
+      "symbol": "wait_for_reply"
+    },
+    {
+      "line": 894,
+      "path": "nbclient/client.py",
+      "symbol": "bool"
+    },
+    {
+      "line": 926,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 1067,
+      "path": "nbclient/client.py",
+      "symbol": "execute_cell"
+    },
+    {
+      "line": 1311,
+      "path": "nbclient/client.py",
+      "symbol": "resources"
+    },
+    {
+      "line": 34,
+      "path": "nbclient/client.py",
+      "symbol": "re"
+    },
+    {
+      "line": 35,
+      "path": "nbclient/client.py",
+      "symbol": "re"
+    },
+    {
+      "line": 42,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 43,
+      "path": "nbclient/client.py",
+      "symbol": "msg_header"
+    },
+    {
+      "line": 290,
+      "path": "nbclient/client.py",
+      "symbol": "Type"
+    },
+    {
+      "line": 392,
+      "path": "nbclient/client.py",
+      "symbol": "AsyncKernelManager"
+    },
+    {
+      "line": 387,
+      "path": "nbclient/client.py",
+      "symbol": "default"
+    },
+    {
+      "line": 388,
+      "path": "nbclient/client.py",
+      "symbol": "type"
+    },
+    {
+      "line": 388,
+      "path": "nbclient/client.py",
+      "symbol": "KernelManager"
+    },
+    {
+      "line": 394,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 394,
+      "path": "nbclient/client.py",
+      "symbol": "Dict"
+    },
+    {
+      "line": 427,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 427,
+      "path": "nbclient/client.py",
+      "symbol": "Dict"
+    },
+    {
+      "line": 437,
+      "path": "nbclient/client.py",
+      "symbol": "Bool"
+    },
+    {
+      "line": 457,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 457,
+      "path": "nbclient/client.py",
+      "symbol": "nb"
+    },
+    {
+      "line": 458,
+      "path": "nbclient/client.py",
+      "symbol": "km"
+    },
+    {
+      "line": 459,
+      "path": "nbclient/client.py",
+      "symbol": "bool"
+    },
+    {
+      "line": 505,
+      "path": "nbclient/client.py",
+      "symbol": "now"
+    },
+    {
+      "line": 522,
+      "path": "nbclient/client.py",
+      "symbol": "run_sync"
+    },
+    {
+      "line": 522,
+      "path": "nbclient/client.py",
+      "symbol": "_async_cleanup_kernel"
+    },
+    {
+      "line": 535,
+      "path": "nbclient/client.py",
+      "symbol": "resource_path"
+    },
+    {
+      "line": 539,
+      "path": "nbclient/client.py",
+      "symbol": "has_history_manager_arg"
+    },
+    {
+      "line": 552,
+      "path": "nbclient/client.py",
+      "symbol": "run_sync"
+    },
+    {
+      "line": 552,
+      "path": "nbclient/client.py",
+      "symbol": "async_start_new_kernel"
+    },
+    {
+      "line": 579,
+      "path": "nbclient/client.py",
+      "symbol": "run_sync"
+    },
+    {
+      "line": 579,
+      "path": "nbclient/client.py",
+      "symbol": "async_start_new_kernel_client"
+    },
+    {
+      "line": 593,
+      "path": "nbclient/client.py",
+      "symbol": "cleanup_kc"
+    },
+    {
+      "line": 625,
+      "path": "nbclient/client.py",
+      "symbol": "cleanup_kc"
+    },
+    {
+      "line": 638,
+      "path": "nbclient/client.py",
+      "symbol": "loop"
+    },
+    {
+      "line": 716,
+      "path": "nbclient/client.py",
+      "symbol": "run_sync"
+    },
+    {
+      "line": 716,
+      "path": "nbclient/client.py",
+      "symbol": "async_execute"
+    },
+    {
+      "line": 769,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 771,
+      "path": "nbclient/client.py",
+      "symbol": "new_timeout"
+    },
+    {
+      "line": 775,
+      "path": "nbclient/client.py",
+      "symbol": "error_on_timeout_execute_reply"
+    },
+    {
+      "line": 768,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 840,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 831,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 872,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 873,
+      "path": "nbclient/client.py",
+      "symbol": "cummulative_time"
+    },
+    {
+      "line": 890,
+      "path": "nbclient/client.py",
+      "symbol": "run_sync"
+    },
+    {
+      "line": 890,
+      "path": "nbclient/client.py",
+      "symbol": "async_wait_for_reply"
+    },
+    {
+      "line": 905,
+      "path": "nbclient/client.py",
+      "symbol": "exec_reply_content"
+    },
+    {
+      "line": 909,
+      "path": "nbclient/client.py",
+      "symbol": "cell_allows_errors"
+    },
+    {
+      "line": 977,
+      "path": "nbclient/client.py",
+      "symbol": "cell_allows_errors"
+    },
+    {
+      "line": 982,
+      "path": "nbclient/client.py",
+      "symbol": "parent_msg_id"
+    },
+    {
+      "line": 990,
+      "path": "nbclient/client.py",
+      "symbol": "exec_timeout"
+    },
+    {
+      "line": 995,
+      "path": "nbclient/client.py",
+      "symbol": "task_poll_kernel_alive"
+    },
+    {
+      "line": 996,
+      "path": "nbclient/client.py",
+      "symbol": "task_poll_output_msg"
+    },
+    {
+      "line": 1019,
+      "path": "nbclient/client.py",
+      "symbol": "execution_count"
+    },
+    {
+      "line": 1064,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1065,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1067,
+      "path": "nbclient/client.py",
+      "symbol": "run_sync"
+    },
+    {
+      "line": 1067,
+      "path": "nbclient/client.py",
+      "symbol": "async_execute_cell"
+    },
+    {
+      "line": 1098,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1100,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1103,
+      "path": "nbclient/client.py",
+      "symbol": "display_id"
+    },
+    {
+      "line": 1071,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 1138,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1139,
+      "path": "nbclient/client.py",
+      "symbol": "out"
+    },
+    {
+      "line": 1141,
+      "path": "nbclient/client.py",
+      "symbol": "parent_msg_id"
+    },
+    {
+      "line": 1161,
+      "path": "nbclient/client.py",
+      "symbol": "display_id"
+    },
+    {
+      "line": 1168,
+      "path": "nbclient/client.py",
+      "symbol": "out"
+    },
+    {
+      "line": 1171,
+      "path": "nbclient/client.py",
+      "symbol": "out"
+    },
+    {
+      "line": 1135,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 1177,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1179,
+      "path": "nbclient/client.py",
+      "symbol": "parent_msg_id"
+    },
+    {
+      "line": 1205,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1206,
+      "path": "nbclient/client.py",
+      "symbol": "data"
+    },
+    {
+      "line": 1236,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1246,
+      "path": "nbclient/client.py",
+      "symbol": "encoded_buffers"
+    },
+    {
+      "line": 1247,
+      "path": "nbclient/client.py",
+      "symbol": "paths"
+    },
+    {
+      "line": 1248,
+      "path": "nbclient/client.py",
+      "symbol": "buffers"
+    },
+    {
+      "line": 1257,
+      "path": "nbclient/client.py",
+      "symbol": "encoded_buffers"
+    },
+    {
+      "line": 1245,
+      "path": "nbclient/client.py",
+      "symbol": "list"
+    },
+    {
+      "line": 1272,
+      "path": "nbclient/client.py",
+      "symbol": "removed_hook"
+    },
+    {
+      "line": 1277,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1278,
+      "path": "nbclient/client.py",
+      "symbol": "data"
+    },
+    {
+      "line": 1279,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 1280,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1281,
+      "path": "nbclient/client.py",
+      "symbol": "module"
+    },
+    {
+      "line": 1282,
+      "path": "nbclient/client.py",
+      "symbol": "module"
+    },
+    {
+      "line": 1290,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 1312,
+      "path": "nbclient/client.py",
+      "symbol": "cwd"
+    },
+    {
+      "line": 42,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 43,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 291,
+      "path": "nbclient/client.py",
+      "symbol": "KernelManager"
+    },
+    {
+      "line": 394,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 427,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 445,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 457,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 458,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 458,
+      "path": "nbclient/client.py",
+      "symbol": "KernelManager"
+    },
+    {
+      "line": 459,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 459,
+      "path": "nbclient/client.py",
+      "symbol": "km"
+    },
+    {
+      "line": 460,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 460,
+      "path": "nbclient/client.py",
+      "symbol": "KernelClient"
+    },
+    {
+      "line": 462,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 462,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 466,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 466,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 472,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 473,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 474,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 475,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 475,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 476,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 476,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 479,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 479,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 479,
+      "path": "nbclient/client.py",
+      "symbol": "list"
+    },
+    {
+      "line": 481,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 481,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 492,
+      "path": "nbclient/client.py",
+      "symbol": "kn"
+    },
+    {
+      "line": 501,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 510,
+      "path": "nbclient/client.py",
+      "symbol": "RuntimeError"
+    },
+    {
+      "line": 536,
+      "path": "nbclient/client.py",
+      "symbol": "resource_path"
+    },
+    {
+      "line": 537,
+      "path": "nbclient/client.py",
+      "symbol": "resource_path"
+    },
+    {
+      "line": 539,
+      "path": "nbclient/client.py",
+      "symbol": "any"
+    },
+    {
+      "line": 567,
+      "path": "nbclient/client.py",
+      "symbol": "Exception"
+    },
+    {
+      "line": 577,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 608,
+      "path": "nbclient/client.py",
+      "symbol": "cleanup_kc"
+    },
+    {
+      "line": 582,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 642,
+      "path": "nbclient/client.py",
+      "symbol": "RuntimeError"
+    },
+    {
+      "line": 655,
+      "path": "nbclient/client.py",
+      "symbol": "RuntimeError"
+    },
+    {
+      "line": 659,
+      "path": "nbclient/client.py",
+      "symbol": "cleanup_kc"
+    },
+    {
+      "line": 612,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 669,
+      "path": "nbclient/client.py",
+      "symbol": "bool"
+    },
+    {
+      "line": 689,
+      "path": "nbclient/client.py",
+      "symbol": "reset_kc"
+    },
+    {
+      "line": 696,
+      "path": "nbclient/client.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 697,
+      "path": "nbclient/client.py",
+      "symbol": "info_msg"
+    },
+    {
+      "line": 714,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 720,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 739,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 741,
+      "path": "nbclient/client.py",
+      "symbol": "display_id"
+    },
+    {
+      "line": 749,
+      "path": "nbclient/client.py",
+      "symbol": "out"
+    },
+    {
+      "line": 750,
+      "path": "nbclient/client.py",
+      "symbol": "ValueError"
+    },
+    {
+      "line": 754,
+      "path": "nbclient/client.py",
+      "symbol": "cell_idx"
+    },
+    {
+      "line": 754,
+      "path": "nbclient/client.py",
+      "symbol": "output_indices"
+    },
+    {
+      "line": 755,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 756,
+      "path": "nbclient/client.py",
+      "symbol": "outputs"
+    },
+    {
+      "line": 757,
+      "path": "nbclient/client.py",
+      "symbol": "output_idx"
+    },
+    {
+      "line": 757,
+      "path": "nbclient/client.py",
+      "symbol": "output_indices"
+    },
+    {
+      "line": 763,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 764,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 769,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 771,
+      "path": "nbclient/client.py",
+      "symbol": "float"
+    },
+    {
+      "line": 772,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 773,
+      "path": "nbclient/client.py",
+      "symbol": "deadline"
+    },
+    {
+      "line": 774,
+      "path": "nbclient/client.py",
+      "symbol": "new_timeout"
+    },
+    {
+      "line": 768,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 809,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 809,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 809,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 813,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 833,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 835,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 838,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 843,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 846,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 844,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 867,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 872,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 868,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 900,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 900,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 902,
+      "path": "nbclient/client.py",
+      "symbol": "exec_reply"
+    },
+    {
+      "line": 905,
+      "path": "nbclient/client.py",
+      "symbol": "exec_reply"
+    },
+    {
+      "line": 917,
+      "path": "nbclient/client.py",
+      "symbol": "cell_allows_errors"
+    },
+    {
+      "line": 922,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 923,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 925,
+      "path": "nbclient/client.py",
+      "symbol": "bool"
+    },
+    {
+      "line": 966,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 970,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 972,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 989,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 990,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 992,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 993,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 999,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1005,
+      "path": "nbclient/client.py",
+      "symbol": "exec_reply"
+    },
+    {
+      "line": 1010,
+      "path": "nbclient/client.py",
+      "symbol": "Exception"
+    },
+    {
+      "line": 1020,
+      "path": "nbclient/client.py",
+      "symbol": "execution_count"
+    },
+    {
+      "line": 1026,
+      "path": "nbclient/client.py",
+      "symbol": "new_outputs"
+    },
+    {
+      "line": 1027,
+      "path": "nbclient/client.py",
+      "symbol": "streams"
+    },
+    {
+      "line": 1028,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1039,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1060,
+      "path": "nbclient/client.py",
+      "symbol": "new_outputs"
+    },
+    {
+      "line": 1064,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1070,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 1070,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 1098,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1099,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1100,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1101,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1104,
+      "path": "nbclient/client.py",
+      "symbol": "display_id"
+    },
+    {
+      "line": 1108,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1111,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1120,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1134,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1134,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 1138,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1139,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 1142,
+      "path": "nbclient/client.py",
+      "symbol": "parent_msg_id"
+    },
+    {
+      "line": 1145,
+      "path": "nbclient/client.py",
+      "symbol": "hook"
+    },
+    {
+      "line": 1150,
+      "path": "nbclient/client.py",
+      "symbol": "out"
+    },
+    {
+      "line": 1151,
+      "path": "nbclient/client.py",
+      "symbol": "ValueError"
+    },
+    {
+      "line": 1155,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1164,
+      "path": "nbclient/client.py",
+      "symbol": "cell_map"
+    },
+    {
+      "line": 1165,
+      "path": "nbclient/client.py",
+      "symbol": "output_idx_list"
+    },
+    {
+      "line": 1174,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 1177,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1180,
+      "path": "nbclient/client.py",
+      "symbol": "parent_msg_id"
+    },
+    {
+      "line": 1183,
+      "path": "nbclient/client.py",
+      "symbol": "hook"
+    },
+    {
+      "line": 1195,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 1197,
+      "path": "nbclient/client.py",
+      "symbol": "_"
+    },
+    {
+      "line": 1197,
+      "path": "nbclient/client.py",
+      "symbol": "cell_map"
+    },
+    {
+      "line": 1202,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 1205,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1206,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1221,
+      "path": "nbclient/client.py",
+      "symbol": "target"
+    },
+    {
+      "line": 1222,
+      "path": "nbclient/client.py",
+      "symbol": "handler"
+    },
+    {
+      "line": 1223,
+      "path": "nbclient/client.py",
+      "symbol": "handler"
+    },
+    {
+      "line": 1242,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 1236,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1248,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1249,
+      "path": "nbclient/client.py",
+      "symbol": "path"
+    },
+    {
+      "line": 1249,
+      "path": "nbclient/client.py",
+      "symbol": "buffer"
+    },
+    {
+      "line": 1249,
+      "path": "nbclient/client.py",
+      "symbol": "zip"
+    },
+    {
+      "line": 1249,
+      "path": "nbclient/client.py",
+      "symbol": "paths"
+    },
+    {
+      "line": 1249,
+      "path": "nbclient/client.py",
+      "symbol": "buffers"
+    },
+    {
+      "line": 1245,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1259,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1259,
+      "path": "nbclient/client.py",
+      "symbol": "OutputWidget"
+    },
+    {
+      "line": 1266,
+      "path": "nbclient/client.py",
+      "symbol": "hook"
+    },
+    {
+      "line": 1268,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1268,
+      "path": "nbclient/client.py",
+      "symbol": "OutputWidget"
+    },
+    {
+      "line": 1273,
+      "path": "nbclient/client.py",
+      "symbol": "removed_hook"
+    },
+    {
+      "line": 1273,
+      "path": "nbclient/client.py",
+      "symbol": "hook"
+    },
+    {
+      "line": 1277,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1278,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1279,
+      "path": "nbclient/client.py",
+      "symbol": "data"
+    },
+    {
+      "line": 1283,
+      "path": "nbclient/client.py",
+      "symbol": "widget_class"
+    },
+    {
+      "line": 1284,
+      "path": "nbclient/client.py",
+      "symbol": "widget_class"
+    },
+    {
+      "line": 1275,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 1291,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1292,
+      "path": "nbclient/client.py",
+      "symbol": "KernelManager"
+    },
+    {
+      "line": 1293,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 1313,
+      "path": "nbclient/client.py",
+      "symbol": "resources"
+    },
+    {
+      "line": 1313,
+      "path": "nbclient/client.py",
+      "symbol": "cwd"
+    },
+    {
+      "line": 40,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 44,
+      "path": "nbclient/client.py",
+      "symbol": "msg_header"
+    },
+    {
+      "line": 44,
+      "path": "nbclient/client.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 47,
+      "path": "nbclient/client.py",
+      "symbol": "formatted_time"
+    },
+    {
+      "line": 51,
+      "path": "nbclient/client.py",
+      "symbol": "formatted_time"
+    },
+    {
+      "line": 54,
+      "path": "nbclient/client.py",
+      "symbol": "Exception"
+    },
+    {
+      "line": 65,
+      "path": "nbclient/client.py",
+      "symbol": "Integer"
+    },
+    {
+      "line": 79,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 79,
+      "path": "nbclient/client.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 97,
+      "path": "nbclient/client.py",
+      "symbol": "Bool"
+    },
+    {
+      "line": 108,
+      "path": "nbclient/client.py",
+      "symbol": "Dict"
+    },
+    {
+      "line": 127,
+      "path": "nbclient/client.py",
+      "symbol": "Integer"
+    },
+    {
+      "line": 138,
+      "path": "nbclient/client.py",
+      "symbol": "Bool"
+    },
+    {
+      "line": 153,
+      "path": "nbclient/client.py",
+      "symbol": "List"
+    },
+    {
+      "line": 164,
+      "path": "nbclient/client.py",
+      "symbol": "Bool"
+    },
+    {
+      "line": 182,
+      "path": "nbclient/client.py",
+      "symbol": "Unicode"
+    },
+    {
+      "line": 191,
+      "path": "nbclient/client.py",
+      "symbol": "List"
+    },
+    {
+      "line": 193,
+      "path": "nbclient/client.py",
+      "symbol": "Unicode"
+    },
+    {
+      "line": 203,
+      "path": "nbclient/client.py",
+      "symbol": "Bool"
+    },
+    {
+      "line": 218,
+      "path": "nbclient/client.py",
+      "symbol": "Bool"
+    },
+    {
+      "line": 228,
+      "path": "nbclient/client.py",
+      "symbol": "Bool"
+    },
+    {
+      "line": 238,
+      "path": "nbclient/client.py",
+      "symbol": "Integer"
+    },
+    {
+      "line": 251,
+      "path": "nbclient/client.py",
+      "symbol": "Integer"
+    },
+    {
+      "line": 263,
+      "path": "nbclient/client.py",
+      "symbol": "Enum"
+    },
+    {
+      "line": 276,
+      "path": "nbclient/client.py",
+      "symbol": "Unicode"
+    },
+    {
+      "line": 294,
+      "path": "nbclient/client.py",
+      "symbol": "Callable"
+    },
+    {
+      "line": 306,
+      "path": "nbclient/client.py",
+      "symbol": "Callable"
+    },
+    {
+      "line": 317,
+      "path": "nbclient/client.py",
+      "symbol": "Callable"
+    },
+    {
+      "line": 328,
+      "path": "nbclient/client.py",
+      "symbol": "Callable"
+    },
+    {
+      "line": 340,
+      "path": "nbclient/client.py",
+      "symbol": "Callable"
+    },
+    {
+      "line": 351,
+      "path": "nbclient/client.py",
+      "symbol": "Callable"
+    },
+    {
+      "line": 363,
+      "path": "nbclient/client.py",
+      "symbol": "Callable"
+    },
+    {
+      "line": 375,
+      "path": "nbclient/client.py",
+      "symbol": "Callable"
+    },
+    {
+      "line": 394,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 395,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 409,
+      "path": "nbclient/client.py",
+      "symbol": "List"
+    },
+    {
+      "line": 427,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 428,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 438,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 445,
+      "path": "nbclient/client.py",
+      "symbol": "KernelManager"
+    },
+    {
+      "line": 445,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 456,
+      "path": "nbclient/client.py",
+      "symbol": "kw"
+    },
+    {
+      "line": 461,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 462,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 463,
+      "path": "nbclient/client.py",
+      "symbol": "OutputWidget"
+    },
+    {
+      "line": 466,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 467,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 475,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 476,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 479,
+      "path": "nbclient/client.py",
+      "symbol": "collections"
+    },
+    {
+      "line": 481,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 491,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 493,
+      "path": "nbclient/client.py",
+      "symbol": "kn"
+    },
+    {
+      "line": 494,
+      "path": "nbclient/client.py",
+      "symbol": "kn"
+    },
+    {
+      "line": 496,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 497,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 499,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 500,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 504,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 505,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 524,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 534,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 536,
+      "path": "nbclient/client.py",
+      "symbol": "kwargs"
+    },
+    {
+      "line": 537,
+      "path": "nbclient/client.py",
+      "symbol": "kwargs"
+    },
+    {
+      "line": 543,
+      "path": "nbclient/client.py",
+      "symbol": "hasattr"
+    },
+    {
+      "line": 545,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 546,
+      "path": "nbclient/client.py",
+      "symbol": "has_history_manager_arg"
+    },
+    {
+      "line": 548,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 550,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 562,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 564,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 575,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 576,
+      "path": "nbclient/client.py",
+      "symbol": "run_hook"
+    },
+    {
+      "line": 582,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 593,
+      "path": "nbclient/client.py",
+      "symbol": "kwargs"
+    },
+    {
+      "line": 593,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 596,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 597,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 602,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 612,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 625,
+      "path": "nbclient/client.py",
+      "symbol": "kwargs"
+    },
+    {
+      "line": 625,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 626,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 627,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 631,
+      "path": "nbclient/client.py",
+      "symbol": "atexit"
+    },
+    {
+      "line": 631,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 635,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 638,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 640,
+      "path": "nbclient/client.py",
+      "symbol": "on_signal"
+    },
+    {
+      "line": 641,
+      "path": "nbclient/client.py",
+      "symbol": "on_signal"
+    },
+    {
+      "line": 650,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 657,
+      "path": "nbclient/client.py",
+      "symbol": "e"
+    },
+    {
+      "line": 666,
+      "path": "nbclient/client.py",
+      "symbol": "RuntimeError"
+    },
+    {
+      "line": 669,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 689,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 691,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 698,
+      "path": "nbclient/client.py",
+      "symbol": "info_msg"
+    },
+    {
+      "line": 706,
+      "path": "nbclient/client.py",
+      "symbol": "index"
+    },
+    {
+      "line": 706,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 706,
+      "path": "nbclient/client.py",
+      "symbol": "enumerate"
+    },
+    {
+      "line": 732,
+      "path": "nbclient/client.py",
+      "symbol": "key"
+    },
+    {
+      "line": 732,
+      "path": "nbclient/client.py",
+      "symbol": "widget"
+    },
+    {
+      "line": 735,
+      "path": "nbclient/client.py",
+      "symbol": "buffers"
+    },
+    {
+      "line": 736,
+      "path": "nbclient/client.py",
+      "symbol": "buffers"
+    },
+    {
+      "line": 739,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 741,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 742,
+      "path": "nbclient/client.py",
+      "symbol": "display_id"
+    },
+    {
+      "line": 749,
+      "path": "nbclient/client.py",
+      "symbol": "output_from_msg"
+    },
+    {
+      "line": 749,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 755,
+      "path": "nbclient/client.py",
+      "symbol": "cell_idx"
+    },
+    {
+      "line": 756,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 765,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 769,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 770,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 773,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 774,
+      "path": "nbclient/client.py",
+      "symbol": "float"
+    },
+    {
+      "line": 774,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 778,
+      "path": "nbclient/client.py",
+      "symbol": "error_on_timeout_execute_reply"
+    },
+    {
+      "line": 801,
+      "path": "nbclient/client.py",
+      "symbol": "Empty"
+    },
+    {
+      "line": 768,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 811,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 814,
+      "path": "nbclient/client.py",
+      "symbol": "parent_msg_id"
+    },
+    {
+      "line": 826,
+      "path": "nbclient/client.py",
+      "symbol": "DeadKernelError"
+    },
+    {
+      "line": 831,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 832,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 833,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 835,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 837,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 837,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 843,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 845,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 850,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 851,
+      "path": "nbclient/client.py",
+      "symbol": "execute_reply"
+    },
+    {
+      "line": 852,
+      "path": "nbclient/client.py",
+      "symbol": "execute_reply"
+    },
+    {
+      "line": 855,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 857,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 857,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 844,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 861,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 864,
+      "path": "nbclient/client.py",
+      "symbol": "DeadKernelError"
+    },
+    {
+      "line": 867,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 870,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 872,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 876,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 879,
+      "path": "nbclient/client.py",
+      "symbol": "Empty"
+    },
+    {
+      "line": 868,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 894,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 895,
+      "path": "nbclient/client.py",
+      "symbol": "deadline"
+    },
+    {
+      "line": 906,
+      "path": "nbclient/client.py",
+      "symbol": "exec_reply_content"
+    },
+    {
+      "line": 914,
+      "path": "nbclient/client.py",
+      "symbol": "run_hook"
+    },
+    {
+      "line": 918,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 918,
+      "path": "nbclient/client.py",
+      "symbol": "exec_reply_content"
+    },
+    {
+      "line": 924,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 960,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 962,
+      "path": "nbclient/client.py",
+      "symbol": "run_hook"
+    },
+    {
+      "line": 965,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 968,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 969,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 975,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 981,
+      "path": "nbclient/client.py",
+      "symbol": "run_hook"
+    },
+    {
+      "line": 982,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 987,
+      "path": "nbclient/client.py",
+      "symbol": "run_hook"
+    },
+    {
+      "line": 990,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 995,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 996,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 997,
+      "path": "nbclient/client.py",
+      "symbol": "parent_msg_id"
+    },
+    {
+      "line": 997,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 997,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 999,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 1001,
+      "path": "nbclient/client.py",
+      "symbol": "parent_msg_id"
+    },
+    {
+      "line": 1001,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1001,
+      "path": "nbclient/client.py",
+      "symbol": "exec_timeout"
+    },
+    {
+      "line": 1001,
+      "path": "nbclient/client.py",
+      "symbol": "task_poll_output_msg"
+    },
+    {
+      "line": 1001,
+      "path": "nbclient/client.py",
+      "symbol": "task_poll_kernel_alive"
+    },
+    {
+      "line": 1006,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 1020,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1021,
+      "path": "nbclient/client.py",
+      "symbol": "run_hook"
+    },
+    {
+      "line": 1025,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1025,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1027,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1028,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1040,
+      "path": "nbclient/client.py",
+      "symbol": "old"
+    },
+    {
+      "line": 1050,
+      "path": "nbclient/client.py",
+      "symbol": "i"
+    },
+    {
+      "line": 1050,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1050,
+      "path": "nbclient/client.py",
+      "symbol": "enumerate"
+    },
+    {
+      "line": 1050,
+      "path": "nbclient/client.py",
+      "symbol": "new_outputs"
+    },
+    {
+      "line": 1060,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1062,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1062,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1062,
+      "path": "nbclient/client.py",
+      "symbol": "exec_reply"
+    },
+    {
+      "line": 1070,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1104,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1105,
+      "path": "nbclient/client.py",
+      "symbol": "display_id"
+    },
+    {
+      "line": 1105,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1109,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1109,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1112,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1123,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1134,
+      "path": "nbclient/client.py",
+      "symbol": "list"
+    },
+    {
+      "line": 1134,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 1134,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1142,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1146,
+      "path": "nbclient/client.py",
+      "symbol": "outs"
+    },
+    {
+      "line": 1146,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1146,
+      "path": "nbclient/client.py",
+      "symbol": "display_id"
+    },
+    {
+      "line": 1146,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1150,
+      "path": "nbclient/client.py",
+      "symbol": "output_from_msg"
+    },
+    {
+      "line": 1150,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1157,
+      "path": "nbclient/client.py",
+      "symbol": "outs"
+    },
+    {
+      "line": 1158,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1159,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1164,
+      "path": "nbclient/client.py",
+      "symbol": "display_id"
+    },
+    {
+      "line": 1165,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1169,
+      "path": "nbclient/client.py",
+      "symbol": "out"
+    },
+    {
+      "line": 1174,
+      "path": "nbclient/client.py",
+      "symbol": "list"
+    },
+    {
+      "line": 1174,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 1174,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1180,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1184,
+      "path": "nbclient/client.py",
+      "symbol": "outs"
+    },
+    {
+      "line": 1184,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1184,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1187,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1189,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1192,
+      "path": "nbclient/client.py",
+      "symbol": "outs"
+    },
+    {
+      "line": 1193,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1198,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1198,
+      "path": "nbclient/client.py",
+      "symbol": "cell_map"
+    },
+    {
+      "line": 1202,
+      "path": "nbclient/client.py",
+      "symbol": "list"
+    },
+    {
+      "line": 1202,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 1202,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1207,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1207,
+      "path": "nbclient/client.py",
+      "symbol": "data"
+    },
+    {
+      "line": 1210,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1214,
+      "path": "nbclient/client.py",
+      "symbol": "new_buffers"
+    },
+    {
+      "line": 1220,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1222,
+      "path": "nbclient/client.py",
+      "symbol": "target"
+    },
+    {
+      "line": 1224,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1225,
+      "path": "nbclient/client.py",
+      "symbol": "comm_object"
+    },
+    {
+      "line": 1226,
+      "path": "nbclient/client.py",
+      "symbol": "comm_object"
+    },
+    {
+      "line": 1231,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1232,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1236,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1236,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 1245,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1245,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1245,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1275,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1280,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1281,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 1314,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookClient"
+    },
+    {
+      "line": 40,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 44,
+      "path": "nbclient/client.py",
+      "symbol": "msg_header"
+    },
+    {
+      "line": 44,
+      "path": "nbclient/client.py",
+      "symbol": "datetime"
+    },
+    {
+      "line": 53,
+      "path": "nbclient/client.py",
+      "symbol": "formatted_time"
+    },
+    {
+      "line": 79,
+      "path": "nbclient/client.py",
+      "symbol": "int"
+    },
+    {
+      "line": 154,
+      "path": "nbclient/client.py",
+      "symbol": "Unicode"
+    },
+    {
+      "line": 191,
+      "path": "nbclient/client.py",
+      "symbol": "Unicode"
+    },
+    {
+      "line": 456,
+      "path": "nbclient/client.py",
+      "symbol": "super"
+    },
+    {
+      "line": 462,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 466,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 472,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 472,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 475,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 476,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 481,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 494,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 497,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 499,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 508,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 516,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 517,
+      "path": "nbclient/client.py",
+      "symbol": "getattr"
+    },
+    {
+      "line": 517,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 519,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 520,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 540,
+      "path": "nbclient/client.py",
+      "symbol": "arg"
+    },
+    {
+      "line": 543,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 544,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 565,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 566,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 576,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 597,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 599,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 600,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 600,
+      "path": "nbclient/client.py",
+      "symbol": "kwargs"
+    },
+    {
+      "line": 603,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 627,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 635,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 636,
+      "path": "nbclient/client.py",
+      "symbol": "atexit"
+    },
+    {
+      "line": 636,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 640,
+      "path": "nbclient/client.py",
+      "symbol": "loop"
+    },
+    {
+      "line": 640,
+      "path": "nbclient/client.py",
+      "symbol": "signal"
+    },
+    {
+      "line": 641,
+      "path": "nbclient/client.py",
+      "symbol": "loop"
+    },
+    {
+      "line": 641,
+      "path": "nbclient/client.py",
+      "symbol": "signal"
+    },
+    {
+      "line": 647,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 661,
+      "path": "nbclient/client.py",
+      "symbol": "run_hook"
+    },
+    {
+      "line": 662,
+      "path": "nbclient/client.py",
+      "symbol": "atexit"
+    },
+    {
+      "line": 662,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 693,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 693,
+      "path": "nbclient/client.py",
+      "symbol": "kwargs"
+    },
+    {
+      "line": 694,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 696,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 697,
+      "path": "nbclient/client.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 712,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 735,
+      "path": "nbclient/client.py",
+      "symbol": "key"
+    },
+    {
+      "line": 739,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 742,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 745,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 746,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 754,
+      "path": "nbclient/client.py",
+      "symbol": "display_id"
+    },
+    {
+      "line": 758,
+      "path": "nbclient/client.py",
+      "symbol": "out"
+    },
+    {
+      "line": 759,
+      "path": "nbclient/client.py",
+      "symbol": "out"
+    },
+    {
+      "line": 766,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 766,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 767,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 767,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 769,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 773,
+      "path": "nbclient/client.py",
+      "symbol": "monotonic"
+    },
+    {
+      "line": 779,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 779,
+      "path": "nbclient/client.py",
+      "symbol": "error_on_timeout_execute_reply"
+    },
+    {
+      "line": 782,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 783,
+      "path": "nbclient/client.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 797,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 806,
+      "path": "nbclient/client.py",
+      "symbol": "error_on_timeout_execute_reply"
+    },
+    {
+      "line": 813,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 818,
+      "path": "nbclient/client.py",
+      "symbol": "CellExecutionComplete"
+    },
+    {
+      "line": 832,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 833,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 845,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 848,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 849,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 856,
+      "path": "nbclient/client.py",
+      "symbol": "CellTimeoutError"
+    },
+    {
+      "line": 844,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 862,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 876,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 881,
+      "path": "nbclient/client.py",
+      "symbol": "cummulative_time"
+    },
+    {
+      "line": 886,
+      "path": "nbclient/client.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 887,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 868,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 895,
+      "path": "nbclient/client.py",
+      "symbol": "deadline"
+    },
+    {
+      "line": 900,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 909,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 910,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 915,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 915,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 915,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 915,
+      "path": "nbclient/client.py",
+      "symbol": "exec_reply"
+    },
+    {
+      "line": 918,
+      "path": "nbclient/client.py",
+      "symbol": "CellExecutionError"
+    },
+    {
+      "line": 962,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 962,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 962,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 964,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 973,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 975,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 977,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 978,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 981,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 981,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 981,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 987,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 987,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 987,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 995,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 997,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1000,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1005,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1009,
+      "path": "nbclient/client.py",
+      "symbol": "DeadKernelError"
+    },
+    {
+      "line": 1022,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1022,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1022,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1022,
+      "path": "nbclient/client.py",
+      "symbol": "exec_reply"
+    },
+    {
+      "line": 1027,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1027,
+      "path": "nbclient/client.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 1039,
+      "path": "nbclient/client.py",
+      "symbol": "streams"
+    },
+    {
+      "line": 1040,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1042,
+      "path": "nbclient/client.py",
+      "symbol": "old"
+    },
+    {
+      "line": 1046,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1062,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1064,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1070,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1099,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1101,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1105,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1117,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1121,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1122,
+      "path": "nbclient/client.py",
+      "symbol": "CellExecutionComplete"
+    },
+    {
+      "line": 1124,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1124,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1134,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1141,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1145,
+      "path": "nbclient/client.py",
+      "symbol": "parent_msg_id"
+    },
+    {
+      "line": 1146,
+      "path": "nbclient/client.py",
+      "symbol": "hook"
+    },
+    {
+      "line": 1158,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1165,
+      "path": "nbclient/client.py",
+      "symbol": "cell_map"
+    },
+    {
+      "line": 1166,
+      "path": "nbclient/client.py",
+      "symbol": "output_idx_list"
+    },
+    {
+      "line": 1166,
+      "path": "nbclient/client.py",
+      "symbol": "len"
+    },
+    {
+      "line": 1166,
+      "path": "nbclient/client.py",
+      "symbol": "outs"
+    },
+    {
+      "line": 1169,
+      "path": "nbclient/client.py",
+      "symbol": "outs"
+    },
+    {
+      "line": 1174,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1179,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1183,
+      "path": "nbclient/client.py",
+      "symbol": "parent_msg_id"
+    },
+    {
+      "line": 1184,
+      "path": "nbclient/client.py",
+      "symbol": "hook"
+    },
+    {
+      "line": 1193,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1197,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1199,
+      "path": "nbclient/client.py",
+      "symbol": "cell_map"
+    },
+    {
+      "line": 1199,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1202,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1208,
+      "path": "nbclient/client.py",
+      "symbol": "data"
+    },
+    {
+      "line": 1209,
+      "path": "nbclient/client.py",
+      "symbol": "data"
+    },
+    {
+      "line": 1210,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1211,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1214,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1215,
+      "path": "nbclient/client.py",
+      "symbol": "k"
+    },
+    {
+      "line": 1217,
+      "path": "nbclient/client.py",
+      "symbol": "new_buffers"
+    },
+    {
+      "line": 1225,
+      "path": "nbclient/client.py",
+      "symbol": "handler"
+    },
+    {
+      "line": 1225,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1227,
+      "path": "nbclient/client.py",
+      "symbol": "comm_object"
+    },
+    {
+      "line": 1230,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1231,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1233,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1236,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1239,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 1240,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 1241,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 1245,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1247,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1250,
+      "path": "nbclient/client.py",
+      "symbol": "encoded_buffers"
+    },
+    {
+      "line": 1254,
+      "path": "nbclient/client.py",
+      "symbol": "path"
+    },
+    {
+      "line": 1266,
+      "path": "nbclient/client.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 1272,
+      "path": "nbclient/client.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 1275,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1281,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1283,
+      "path": "nbclient/client.py",
+      "symbol": "module"
+    },
+    {
+      "line": 1283,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 1285,
+      "path": "nbclient/client.py",
+      "symbol": "widget_class"
+    },
+    {
+      "line": 1285,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1285,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 1285,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1314,
+      "path": "nbclient/client.py",
+      "symbol": "nb"
+    },
+    {
+      "line": 1314,
+      "path": "nbclient/client.py",
+      "symbol": "resources"
+    },
+    {
+      "line": 1314,
+      "path": "nbclient/client.py",
+      "symbol": "km"
+    },
+    {
+      "line": 1314,
+      "path": "nbclient/client.py",
+      "symbol": "kwargs"
+    },
+    {
+      "line": 40,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 48,
+      "path": "nbclient/client.py",
+      "symbol": "msg_header"
+    },
+    {
+      "line": 68,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 82,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 99,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 111,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 129,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 140,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 155,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 166,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 184,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 195,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 205,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 220,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 230,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 241,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 254,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 266,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 297,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 309,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 320,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 331,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 343,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 354,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 366,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 378,
+      "path": "nbclient/client.py",
+      "symbol": "dedent"
+    },
+    {
+      "line": 462,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 475,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 497,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 499,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 499,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 509,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 512,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 512,
+      "path": "nbclient/client.py",
+      "symbol": "e"
+    },
+    {
+      "line": 517,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 518,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 540,
+      "path": "nbclient/client.py",
+      "symbol": "arg"
+    },
+    {
+      "line": 540,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 550,
+      "path": "nbclient/client.py",
+      "symbol": "kwargs"
+    },
+    {
+      "line": 564,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 576,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 609,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 635,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 648,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 648,
+      "path": "nbclient/client.py",
+      "symbol": "kwargs"
+    },
+    {
+      "line": 651,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 656,
+      "path": "nbclient/client.py",
+      "symbol": "run_hook"
+    },
+    {
+      "line": 661,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 664,
+      "path": "nbclient/client.py",
+      "symbol": "loop"
+    },
+    {
+      "line": 664,
+      "path": "nbclient/client.py",
+      "symbol": "signal"
+    },
+    {
+      "line": 665,
+      "path": "nbclient/client.py",
+      "symbol": "loop"
+    },
+    {
+      "line": 665,
+      "path": "nbclient/client.py",
+      "symbol": "signal"
+    },
+    {
+      "line": 690,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 695,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 695,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 697,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 699,
+      "path": "nbclient/client.py",
+      "symbol": "info_msg"
+    },
+    {
+      "line": 702,
+      "path": "nbclient/client.py",
+      "symbol": "RuntimeError"
+    },
+    {
+      "line": 706,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 710,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 710,
+      "path": "nbclient/client.py",
+      "symbol": "index"
+    },
+    {
+      "line": 721,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 724,
+      "path": "nbclient/client.py",
+      "symbol": "model_id"
+    },
+    {
+      "line": 737,
+      "path": "nbclient/client.py",
+      "symbol": "widget"
+    },
+    {
+      "line": 737,
+      "path": "nbclient/client.py",
+      "symbol": "list"
+    },
+    {
+      "line": 739,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 742,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 754,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 755,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 758,
+      "path": "nbclient/client.py",
+      "symbol": "outputs"
+    },
+    {
+      "line": 758,
+      "path": "nbclient/client.py",
+      "symbol": "output_idx"
+    },
+    {
+      "line": 759,
+      "path": "nbclient/client.py",
+      "symbol": "outputs"
+    },
+    {
+      "line": 759,
+      "path": "nbclient/client.py",
+      "symbol": "output_idx"
+    },
+    {
+      "line": 780,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 780,
+      "path": "nbclient/client.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 784,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 799,
+      "path": "nbclient/client.py",
+      "symbol": "new_timeout"
+    },
+    {
+      "line": 800,
+      "path": "nbclient/client.py",
+      "symbol": "new_timeout"
+    },
+    {
+      "line": 803,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 817,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 817,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 817,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 823,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 847,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 863,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 876,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 876,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 881,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 882,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 895,
+      "path": "nbclient/client.py",
+      "symbol": "monotonic"
+    },
+    {
+      "line": 900,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 911,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 965,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 968,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 969,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 984,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 984,
+      "path": "nbclient/client.py",
+      "symbol": "store_history"
+    },
+    {
+      "line": 1008,
+      "path": "nbclient/client.py",
+      "symbol": "task_poll_output_msg"
+    },
+    {
+      "line": 1029,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1030,
+      "path": "nbclient/client.py",
+      "symbol": "streams"
+    },
+    {
+      "line": 1034,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1036,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1041,
+      "path": "nbclient/client.py",
+      "symbol": "len"
+    },
+    {
+      "line": 1041,
+      "path": "nbclient/client.py",
+      "symbol": "len"
+    },
+    {
+      "line": 1041,
+      "path": "nbclient/client.py",
+      "symbol": "old"
+    },
+    {
+      "line": 1042,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1044,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1046,
+      "path": "nbclient/client.py",
+      "symbol": "_RGX_CARRIAGERETURN"
+    },
+    {
+      "line": 1046,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1057,
+      "path": "nbclient/client.py",
+      "symbol": "stdout"
+    },
+    {
+      "line": 1070,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 1103,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1113,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1114,
+      "path": "nbclient/client.py",
+      "symbol": "timestamp"
+    },
+    {
+      "line": 1114,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1118,
+      "path": "nbclient/client.py",
+      "symbol": "timestamp"
+    },
+    {
+      "line": 1118,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1124,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1124,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1125,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1126,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1126,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1128,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1134,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 1145,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1156,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1164,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1174,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 1183,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1188,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1191,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1202,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 1211,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1212,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1215,
+      "path": "nbclient/client.py",
+      "symbol": "tuple"
+    },
+    {
+      "line": 1215,
+      "path": "nbclient/client.py",
+      "symbol": "k"
+    },
+    {
+      "line": 1221,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1222,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1224,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1227,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1232,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1233,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1234,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1236,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 1245,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 1266,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1272,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1275,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 1285,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 47,
+      "path": "nbclient/client.py",
+      "symbol": "datetime"
+    },
+    {
+      "line": 57,
+      "path": "nbclient/client.py",
+      "symbol": "datetime"
+    },
+    {
+      "line": 462,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 475,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 476,
+      "path": "nbclient/client.py",
+      "symbol": "tuple"
+    },
+    {
+      "line": 476,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 548,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 550,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 550,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 568,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 570,
+      "path": "nbclient/client.py",
+      "symbol": "getattr"
+    },
+    {
+      "line": 570,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 570,
+      "path": "nbclient/client.py",
+      "symbol": "e"
+    },
+    {
+      "line": 573,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 656,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 660,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 661,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 700,
+      "path": "nbclient/client.py",
+      "symbol": "info_msg"
+    },
+    {
+      "line": 709,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 724,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 735,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 751,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 782,
+      "path": "nbclient/client.py",
+      "symbol": "ensure_async"
+    },
+    {
+      "line": 785,
+      "path": "nbclient/client.py",
+      "symbol": "timestamp"
+    },
+    {
+      "line": 785,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 788,
+      "path": "nbclient/client.py",
+      "symbol": "Empty"
+    },
+    {
+      "line": 796,
+      "path": "nbclient/client.py",
+      "symbol": "task_poll_kernel_alive"
+    },
+    {
+      "line": 800,
+      "path": "nbclient/client.py",
+      "symbol": "max"
+    },
+    {
+      "line": 804,
+      "path": "nbclient/client.py",
+      "symbol": "task_poll_kernel_alive"
+    },
+    {
+      "line": 806,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 806,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 814,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 817,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 825,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 827,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 851,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 876,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 882,
+      "path": "nbclient/client.py",
+      "symbol": "cummulative_time"
+    },
+    {
+      "line": 882,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 900,
+      "path": "nbclient/client.py",
+      "symbol": "t"
+    },
+    {
+      "line": 911,
+      "path": "nbclient/client.py",
+      "symbol": "exec_reply_content"
+    },
+    {
+      "line": 964,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 983,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 984,
+      "path": "nbclient/client.py",
+      "symbol": "cell_allows_errors"
+    },
+    {
+      "line": 1014,
+      "path": "nbclient/client.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 1014,
+      "path": "nbclient/client.py",
+      "symbol": "e"
+    },
+    {
+      "line": 1014,
+      "path": "nbclient/client.py",
+      "symbol": "CellControlSignal"
+    },
+    {
+      "line": 1030,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1031,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1033,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1034,
+      "path": "nbclient/client.py",
+      "symbol": "streams"
+    },
+    {
+      "line": 1036,
+      "path": "nbclient/client.py",
+      "symbol": "new_outputs"
+    },
+    {
+      "line": 1041,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1044,
+      "path": "nbclient/client.py",
+      "symbol": "_RGX_BACKSPACE"
+    },
+    {
+      "line": 1044,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1051,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1051,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1058,
+      "path": "nbclient/client.py",
+      "symbol": "i"
+    },
+    {
+      "line": 1058,
+      "path": "nbclient/client.py",
+      "symbol": "stdout"
+    },
+    {
+      "line": 1115,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1116,
+      "path": "nbclient/client.py",
+      "symbol": "timestamp"
+    },
+    {
+      "line": 1116,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1126,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1126,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1130,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1130,
+      "path": "nbclient/client.py",
+      "symbol": "display_id"
+    },
+    {
+      "line": 1130,
+      "path": "nbclient/client.py",
+      "symbol": "cell_index"
+    },
+    {
+      "line": 1152,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1152,
+      "path": "nbclient/client.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 1208,
+      "path": "nbclient/client.py",
+      "symbol": "content"
+    },
+    {
+      "line": 1212,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1214,
+      "path": "nbclient/client.py",
+      "symbol": "tuple"
+    },
+    {
+      "line": 1214,
+      "path": "nbclient/client.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 1215,
+      "path": "nbclient/client.py",
+      "symbol": "k"
+    },
+    {
+      "line": 1215,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 1217,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1227,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1229,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1229,
+      "path": "nbclient/client.py",
+      "symbol": "target"
+    },
+    {
+      "line": 476,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 476,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 476,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 508,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 509,
+      "path": "nbclient/client.py",
+      "symbol": "now"
+    },
+    {
+      "line": 516,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 535,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 565,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 566,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 566,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 570,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 656,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 696,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 700,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 704,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 724,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 725,
+      "path": "nbclient/client.py",
+      "symbol": "model_id"
+    },
+    {
+      "line": 725,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 726,
+      "path": "nbclient/client.py",
+      "symbol": "state"
+    },
+    {
+      "line": 737,
+      "path": "nbclient/client.py",
+      "symbol": "buffers"
+    },
+    {
+      "line": 751,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 783,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 787,
+      "path": "nbclient/client.py",
+      "symbol": "task_poll_output_msg"
+    },
+    {
+      "line": 788,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 789,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 800,
+      "path": "nbclient/client.py",
+      "symbol": "deadline"
+    },
+    {
+      "line": 805,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 806,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 828,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 849,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 862,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 880,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 883,
+      "path": "nbclient/client.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 883,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 886,
+      "path": "nbclient/client.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 912,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 978,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1015,
+      "path": "nbclient/client.py",
+      "symbol": "task_poll_output_msg"
+    },
+    {
+      "line": 1031,
+      "path": "nbclient/client.py",
+      "symbol": "streams"
+    },
+    {
+      "line": 1033,
+      "path": "nbclient/client.py",
+      "symbol": "new_outputs"
+    },
+    {
+      "line": 1034,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1053,
+      "path": "nbclient/client.py",
+      "symbol": "len"
+    },
+    {
+      "line": 1053,
+      "path": "nbclient/client.py",
+      "symbol": "new_outputs"
+    },
+    {
+      "line": 1053,
+      "path": "nbclient/client.py",
+      "symbol": "i"
+    },
+    {
+      "line": 1057,
+      "path": "nbclient/client.py",
+      "symbol": "new_outputs"
+    },
+    {
+      "line": 1057,
+      "path": "nbclient/client.py",
+      "symbol": "i"
+    },
+    {
+      "line": 1058,
+      "path": "nbclient/client.py",
+      "symbol": "new_outputs"
+    },
+    {
+      "line": 1114,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1118,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1130,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1130,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1208,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1214,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1214,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1214,
+      "path": "nbclient/client.py",
+      "symbol": "str"
+    },
+    {
+      "line": 1215,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1217,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1234,
+      "path": "nbclient/client.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 1252,
+      "path": "nbclient/client.py",
+      "symbol": "buffer"
+    },
+    {
+      "line": 492,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 509,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 518,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 704,
+      "path": "nbclient/client.py",
+      "symbol": "info_msg"
+    },
+    {
+      "line": 710,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 782,
+      "path": "nbclient/client.py",
+      "symbol": "new_timeout"
+    },
+    {
+      "line": 785,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 787,
+      "path": "nbclient/client.py",
+      "symbol": "asyncio"
+    },
+    {
+      "line": 787,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 792,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 800,
+      "path": "nbclient/client.py",
+      "symbol": "monotonic"
+    },
+    {
+      "line": 813,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 877,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 883,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1031,
+      "path": "nbclient/client.py",
+      "symbol": "output"
+    },
+    {
+      "line": 1054,
+      "path": "nbclient/client.py",
+      "symbol": "new_outputs"
+    },
+    {
+      "line": 1055,
+      "path": "nbclient/client.py",
+      "symbol": "new_outputs"
+    },
+    {
+      "line": 1116,
+      "path": "nbclient/client.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 1234,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1252,
+      "path": "nbclient/client.py",
+      "symbol": "base64"
+    },
+    {
+      "line": 725,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 732,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 790,
+      "path": "nbclient/client.py",
+      "symbol": "task_poll_kernel_alive"
+    },
+    {
+      "line": 791,
+      "path": "nbclient/client.py",
+      "symbol": "CellTimeoutError"
+    },
+    {
+      "line": 792,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 877,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 1054,
+      "path": "nbclient/client.py",
+      "symbol": "i"
+    },
+    {
+      "line": 1055,
+      "path": "nbclient/client.py",
+      "symbol": "i"
+    },
+    {
+      "line": 782,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 795,
+      "path": "nbclient/client.py",
+      "symbol": "self"
+    },
+    {
+      "line": 9,
+      "path": "nbclient/exceptions.py",
+      "symbol": "Exception"
+    },
+    {
+      "line": 19,
+      "path": "nbclient/exceptions.py",
+      "symbol": "TimeoutError"
+    },
+    {
+      "line": 19,
+      "path": "nbclient/exceptions.py",
+      "symbol": "CellControlSignal"
+    },
+    {
+      "line": 41,
+      "path": "nbclient/exceptions.py",
+      "symbol": "RuntimeError"
+    },
+    {
+      "line": 47,
+      "path": "nbclient/exceptions.py",
+      "symbol": "CellControlSignal"
+    },
+    {
+      "line": 58,
+      "path": "nbclient/exceptions.py",
+      "symbol": "CellControlSignal"
+    },
+    {
+      "line": 116,
+      "path": "nbclient/exceptions.py",
+      "symbol": "stream_output_msg"
+    },
+    {
+      "line": 116,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 120,
+      "path": "nbclient/exceptions.py",
+      "symbol": "exec_err_msg"
+    },
+    {
+      "line": 120,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 131,
+      "path": "nbclient/exceptions.py",
+      "symbol": "timeout_err_msg"
+    },
+    {
+      "line": 131,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 24,
+      "path": "nbclient/exceptions.py",
+      "symbol": "classmethod"
+    },
+    {
+      "line": 27,
+      "path": "nbclient/exceptions.py",
+      "symbol": "CellTimeoutError"
+    },
+    {
+      "line": 77,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 84,
+      "path": "nbclient/exceptions.py",
+      "symbol": "classmethod"
+    },
+    {
+      "line": 85,
+      "path": "nbclient/exceptions.py",
+      "symbol": "CellExecutionError"
+    },
+    {
+      "line": 69,
+      "path": "nbclient/exceptions.py",
+      "symbol": "traceback"
+    },
+    {
+      "line": 70,
+      "path": "nbclient/exceptions.py",
+      "symbol": "ename"
+    },
+    {
+      "line": 71,
+      "path": "nbclient/exceptions.py",
+      "symbol": "evalue"
+    },
+    {
+      "line": 73,
+      "path": "nbclient/exceptions.py",
+      "symbol": "tuple"
+    },
+    {
+      "line": 73,
+      "path": "nbclient/exceptions.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 91,
+      "path": "nbclient/exceptions.py",
+      "symbol": "stream_outputs"
+    },
+    {
+      "line": 92,
+      "path": "nbclient/exceptions.py",
+      "symbol": "output"
+    },
+    {
+      "line": 97,
+      "path": "nbclient/exceptions.py",
+      "symbol": "stream_outputs"
+    },
+    {
+      "line": 102,
+      "path": "nbclient/exceptions.py",
+      "symbol": "stream_output"
+    },
+    {
+      "line": 102,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 104,
+      "path": "nbclient/exceptions.py",
+      "symbol": "tb"
+    },
+    {
+      "line": 26,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 26,
+      "path": "nbclient/exceptions.py",
+      "symbol": "int"
+    },
+    {
+      "line": 26,
+      "path": "nbclient/exceptions.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 29,
+      "path": "nbclient/exceptions.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 30,
+      "path": "nbclient/exceptions.py",
+      "symbol": "src_by_lines"
+    },
+    {
+      "line": 31,
+      "path": "nbclient/exceptions.py",
+      "symbol": "src"
+    },
+    {
+      "line": 37,
+      "path": "nbclient/exceptions.py",
+      "symbol": "src"
+    },
+    {
+      "line": 38,
+      "path": "nbclient/exceptions.py",
+      "symbol": "cls"
+    },
+    {
+      "line": 66,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 66,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 66,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 68,
+      "path": "nbclient/exceptions.py",
+      "symbol": "traceback"
+    },
+    {
+      "line": 69,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 70,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 71,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 79,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 85,
+      "path": "nbclient/exceptions.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 91,
+      "path": "nbclient/exceptions.py",
+      "symbol": "list"
+    },
+    {
+      "line": 91,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 92,
+      "path": "nbclient/exceptions.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 102,
+      "path": "nbclient/exceptions.py",
+      "symbol": "stream_outputs"
+    },
+    {
+      "line": 105,
+      "path": "nbclient/exceptions.py",
+      "symbol": "cls"
+    },
+    {
+      "line": 29,
+      "path": "nbclient/exceptions.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/exceptions.py",
+      "symbol": "type"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 80,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 85,
+      "path": "nbclient/exceptions.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 32,
+      "path": "nbclient/exceptions.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 38,
+      "path": "nbclient/exceptions.py",
+      "symbol": "timeout_err_msg"
+    },
+    {
+      "line": 38,
+      "path": "nbclient/exceptions.py",
+      "symbol": "timeout"
+    },
+    {
+      "line": 38,
+      "path": "nbclient/exceptions.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 38,
+      "path": "nbclient/exceptions.py",
+      "symbol": "src"
+    },
+    {
+      "line": 68,
+      "path": "nbclient/exceptions.py",
+      "symbol": "super"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 85,
+      "path": "nbclient/exceptions.py",
+      "symbol": "str"
+    },
+    {
+      "line": 85,
+      "path": "nbclient/exceptions.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 93,
+      "path": "nbclient/exceptions.py",
+      "symbol": "output"
+    },
+    {
+      "line": 100,
+      "path": "nbclient/exceptions.py",
+      "symbol": "stream_outputs"
+    },
+    {
+      "line": 101,
+      "path": "nbclient/exceptions.py",
+      "symbol": "stream_outputs"
+    },
+    {
+      "line": 106,
+      "path": "nbclient/exceptions.py",
+      "symbol": "exec_err_msg"
+    },
+    {
+      "line": 107,
+      "path": "nbclient/exceptions.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 108,
+      "path": "nbclient/exceptions.py",
+      "symbol": "stream_output"
+    },
+    {
+      "line": 109,
+      "path": "nbclient/exceptions.py",
+      "symbol": "tb"
+    },
+    {
+      "line": 33,
+      "path": "nbclient/exceptions.py",
+      "symbol": "len"
+    },
+    {
+      "line": 33,
+      "path": "nbclient/exceptions.py",
+      "symbol": "src_by_lines"
+    },
+    {
+      "line": 82,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 82,
+      "path": "nbclient/exceptions.py",
+      "symbol": "self"
+    },
+    {
+      "line": 94,
+      "path": "nbclient/exceptions.py",
+      "symbol": "stream_outputs"
+    },
+    {
+      "line": 104,
+      "path": "nbclient/exceptions.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 111,
+      "path": "nbclient/exceptions.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 112,
+      "path": "nbclient/exceptions.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 34,
+      "path": "nbclient/exceptions.py",
+      "symbol": "src_by_lines"
+    },
+    {
+      "line": 34,
+      "path": "nbclient/exceptions.py",
+      "symbol": "src_by_lines"
+    },
+    {
+      "line": 95,
+      "path": "nbclient/exceptions.py",
+      "symbol": "stream_output_msg"
+    },
+    {
+      "line": 30,
+      "path": "nbclient/exceptions.py",
+      "symbol": "cell"
+    },
+    {
+      "line": 95,
+      "path": "nbclient/exceptions.py",
+      "symbol": "output"
+    },
+    {
+      "line": 95,
+      "path": "nbclient/exceptions.py",
+      "symbol": "output"
+    },
+    {
+      "line": 22,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "ISO8601"
+    },
+    {
+      "line": 23,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "ISO8601_PAT"
+    },
+    {
+      "line": 37,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "PNG"
+    },
+    {
+      "line": 39,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "PNG64"
+    },
+    {
+      "line": 40,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "JPEG"
+    },
+    {
+      "line": 42,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "JPEG64"
+    },
+    {
+      "line": 44,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "GIF_64"
+    },
+    {
+      "line": 45,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "GIF89_64"
+    },
+    {
+      "line": 47,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "PDF64"
+    },
+    {
+      "line": 73,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 70,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "format_dict"
+    },
+    {
+      "line": 50,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 97,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "atomic_ok"
+    },
+    {
+      "line": 100,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "container_to_list"
+    },
+    {
+      "line": 23,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "re"
+    },
+    {
+      "line": 29,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "datetime"
+    },
+    {
+      "line": 50,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "str"
+    },
+    {
+      "line": 50,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "str"
+    },
+    {
+      "line": 73,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 97,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "str"
+    },
+    {
+      "line": 100,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "tuple"
+    },
+    {
+      "line": 100,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "set"
+    },
+    {
+      "line": 105,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 105,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 105,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "bool"
+    },
+    {
+      "line": 106,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 108,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 108,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 112,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 112,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 118,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 118,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 118,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "atomic_ok"
+    },
+    {
+      "line": 119,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 121,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 121,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 121,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "bytes"
+    },
+    {
+      "line": 127,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 129,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 129,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 129,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "list"
+    },
+    {
+      "line": 132,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 132,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 132,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 136,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "nkeys"
+    },
+    {
+      "line": 137,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "nkeys_collapsed"
+    },
+    {
+      "line": 144,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "out"
+    },
+    {
+      "line": 147,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "out"
+    },
+    {
+      "line": 148,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 148,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 148,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "datetime"
+    },
+    {
+      "line": 152,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "ValueError"
+    },
+    {
+      "line": 50,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 97,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "type"
+    },
+    {
+      "line": 100,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "types"
+    },
+    {
+      "line": 108,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "numbers"
+    },
+    {
+      "line": 110,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "int"
+    },
+    {
+      "line": 110,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 112,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "numbers"
+    },
+    {
+      "line": 116,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "float"
+    },
+    {
+      "line": 116,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 124,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "isinstance"
+    },
+    {
+      "line": 124,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 124,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "container_to_list"
+    },
+    {
+      "line": 127,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "list"
+    },
+    {
+      "line": 127,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 136,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "len"
+    },
+    {
+      "line": 136,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 137,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "len"
+    },
+    {
+      "line": 138,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "nkeys"
+    },
+    {
+      "line": 138,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "nkeys_collapsed"
+    },
+    {
+      "line": 145,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "k"
+    },
+    {
+      "line": 145,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "v"
+    },
+    {
+      "line": 145,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "iter"
+    },
+    {
+      "line": 149,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "ISO8601"
+    },
+    {
+      "line": 152,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 50,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "str"
+    },
+    {
+      "line": 50,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "str"
+    },
+    {
+      "line": 114,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 114,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 115,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "repr"
+    },
+    {
+      "line": 115,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 125,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "hasattr"
+    },
+    {
+      "line": 125,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 125,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "hasattr"
+    },
+    {
+      "line": 125,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 130,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "json_clean"
+    },
+    {
+      "line": 130,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "x"
+    },
+    {
+      "line": 130,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "x"
+    },
+    {
+      "line": 130,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 137,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "set"
+    },
+    {
+      "line": 139,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "ValueError"
+    },
+    {
+      "line": 146,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "out"
+    },
+    {
+      "line": 146,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "json_clean"
+    },
+    {
+      "line": 146,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "v"
+    },
+    {
+      "line": 149,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 114,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "math"
+    },
+    {
+      "line": 114,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "math"
+    },
+    {
+      "line": 122,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "b2a_base64"
+    },
+    {
+      "line": 122,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 137,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "map"
+    },
+    {
+      "line": 137,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "str"
+    },
+    {
+      "line": 137,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 145,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "obj"
+    },
+    {
+      "line": 146,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "str"
+    },
+    {
+      "line": 146,
+      "path": "nbclient/jsonutil.py",
+      "symbol": "k"
+    },
+    {
+      "line": 20,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 20,
+      "path": "nbclient/output_widget.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 21,
+      "path": "nbclient/output_widget.py",
+      "symbol": "state"
+    },
+    {
+      "line": 22,
+      "path": "nbclient/output_widget.py",
+      "symbol": "KernelClient"
+    },
+    {
+      "line": 22,
+      "path": "nbclient/output_widget.py",
+      "symbol": "kernel_client"
+    },
+    {
+      "line": 23,
+      "path": "nbclient/output_widget.py",
+      "symbol": "executor"
+    },
+    {
+      "line": 24,
+      "path": "nbclient/output_widget.py",
+      "symbol": "bytes"
+    },
+    {
+      "line": 26,
+      "path": "nbclient/output_widget.py",
+      "symbol": "bool"
+    },
+    {
+      "line": 31,
+      "path": "nbclient/output_widget.py",
+      "symbol": "content"
+    },
+    {
+      "line": 44,
+      "path": "nbclient/output_widget.py",
+      "symbol": "state"
+    },
+    {
+      "line": 45,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 57,
+      "path": "nbclient/output_widget.py",
+      "symbol": "data"
+    },
+    {
+      "line": 58,
+      "path": "nbclient/output_widget.py",
+      "symbol": "metadata"
+    },
+    {
+      "line": 59,
+      "path": "nbclient/output_widget.py",
+      "symbol": "content"
+    },
+    {
+      "line": 60,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 82,
+      "path": "nbclient/output_widget.py",
+      "symbol": "output"
+    },
+    {
+      "line": 115,
+      "path": "nbclient/output_widget.py",
+      "symbol": "content"
+    },
+    {
+      "line": 116,
+      "path": "nbclient/output_widget.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 119,
+      "path": "nbclient/output_widget.py",
+      "symbol": "data"
+    },
+    {
+      "line": 17,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 17,
+      "path": "nbclient/output_widget.py",
+      "symbol": "KernelClient"
+    },
+    {
+      "line": 17,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 20,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 21,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 21,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 22,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 23,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 24,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 25,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 25,
+      "path": "nbclient/output_widget.py",
+      "symbol": "list"
+    },
+    {
+      "line": 25,
+      "path": "nbclient/output_widget.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 26,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/output_widget.py",
+      "symbol": "int"
+    },
+    {
+      "line": 30,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 30,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 31,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 45,
+      "path": "nbclient/output_widget.py",
+      "symbol": "state"
+    },
+    {
+      "line": 46,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 50,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 54,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 57,
+      "path": "nbclient/output_widget.py",
+      "symbol": "data"
+    },
+    {
+      "line": 58,
+      "path": "nbclient/output_widget.py",
+      "symbol": "metadata"
+    },
+    {
+      "line": 59,
+      "path": "nbclient/output_widget.py",
+      "symbol": "json_clean"
+    },
+    {
+      "line": 61,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg_type"
+    },
+    {
+      "line": 63,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/output_widget.py",
+      "symbol": "int"
+    },
+    {
+      "line": 78,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 81,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 81,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 82,
+      "path": "nbclient/output_widget.py",
+      "symbol": "output_from_msg"
+    },
+    {
+      "line": 82,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 84,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 86,
+      "path": "nbclient/output_widget.py",
+      "symbol": "last_output"
+    },
+    {
+      "line": 98,
+      "path": "nbclient/output_widget.py",
+      "symbol": "hasattr"
+    },
+    {
+      "line": 104,
+      "path": "nbclient/output_widget.py",
+      "symbol": "state"
+    },
+    {
+      "line": 105,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 106,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 115,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg"
+    },
+    {
+      "line": 116,
+      "path": "nbclient/output_widget.py",
+      "symbol": "content"
+    },
+    {
+      "line": 117,
+      "path": "nbclient/output_widget.py",
+      "symbol": "comm_id"
+    },
+    {
+      "line": 119,
+      "path": "nbclient/output_widget.py",
+      "symbol": "content"
+    },
+    {
+      "line": 120,
+      "path": "nbclient/output_widget.py",
+      "symbol": "data"
+    },
+    {
+      "line": 17,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 21,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 21,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 25,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/output_widget.py",
+      "symbol": "list"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/output_widget.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 32,
+      "path": "nbclient/output_widget.py",
+      "symbol": "content"
+    },
+    {
+      "line": 33,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 35,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 38,
+      "path": "nbclient/output_widget.py",
+      "symbol": "hasattr"
+    },
+    {
+      "line": 44,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 46,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 57,
+      "path": "nbclient/output_widget.py",
+      "symbol": "data"
+    },
+    {
+      "line": 58,
+      "path": "nbclient/output_widget.py",
+      "symbol": "metadata"
+    },
+    {
+      "line": 59,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 61,
+      "path": "nbclient/output_widget.py",
+      "symbol": "content"
+    },
+    {
+      "line": 61,
+      "path": "nbclient/output_widget.py",
+      "symbol": "metadata"
+    },
+    {
+      "line": 72,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 72,
+      "path": "nbclient/output_widget.py",
+      "symbol": "data"
+    },
+    {
+      "line": 72,
+      "path": "nbclient/output_widget.py",
+      "symbol": "metadata"
+    },
+    {
+      "line": 72,
+      "path": "nbclient/output_widget.py",
+      "symbol": "buffers"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/output_widget.py",
+      "symbol": "list"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/output_widget.py",
+      "symbol": "NotebookNode"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 79,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 80,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 96,
+      "path": "nbclient/output_widget.py",
+      "symbol": "output"
+    },
+    {
+      "line": 97,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 98,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 100,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 102,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 108,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 111,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 113,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 117,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 118,
+      "path": "nbclient/output_widget.py",
+      "symbol": "AssertionError"
+    },
+    {
+      "line": 17,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 17,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 28,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 37,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 38,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 40,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 51,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 52,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 53,
+      "path": "nbclient/output_widget.py",
+      "symbol": "list"
+    },
+    {
+      "line": 53,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 59,
+      "path": "nbclient/output_widget.py",
+      "symbol": "data"
+    },
+    {
+      "line": 59,
+      "path": "nbclient/output_widget.py",
+      "symbol": "keys"
+    },
+    {
+      "line": 61,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 67,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 68,
+      "path": "nbclient/output_widget.py",
+      "symbol": "dict"
+    },
+    {
+      "line": 69,
+      "path": "nbclient/output_widget.py",
+      "symbol": "list"
+    },
+    {
+      "line": 69,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 75,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 86,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 92,
+      "path": "nbclient/output_widget.py",
+      "symbol": "last_output"
+    },
+    {
+      "line": 92,
+      "path": "nbclient/output_widget.py",
+      "symbol": "output"
+    },
+    {
+      "line": 94,
+      "path": "nbclient/output_widget.py",
+      "symbol": "output"
+    },
+    {
+      "line": 102,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 102,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 105,
+      "path": "nbclient/output_widget.py",
+      "symbol": "state"
+    },
+    {
+      "line": 107,
+      "path": "nbclient/output_widget.py",
+      "symbol": "msg_id"
+    },
+    {
+      "line": 107,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 108,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 110,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 111,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 113,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 113,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 121,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 121,
+      "path": "nbclient/output_widget.py",
+      "symbol": "data"
+    },
+    {
+      "line": 24,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 51,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 51,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 52,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 52,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 59,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 60,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 63,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 67,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 67,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 68,
+      "path": "nbclient/output_widget.py",
+      "symbol": "str"
+    },
+    {
+      "line": 68,
+      "path": "nbclient/output_widget.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 88,
+      "path": "nbclient/output_widget.py",
+      "symbol": "last_output"
+    },
+    {
+      "line": 89,
+      "path": "nbclient/output_widget.py",
+      "symbol": "output"
+    },
+    {
+      "line": 90,
+      "path": "nbclient/output_widget.py",
+      "symbol": "last_output"
+    },
+    {
+      "line": 90,
+      "path": "nbclient/output_widget.py",
+      "symbol": "output"
+    },
+    {
+      "line": 96,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 100,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 110,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 40,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 94,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 100,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 107,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 110,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 40,
+      "path": "nbclient/output_widget.py",
+      "symbol": "self"
+    },
+    {
+      "line": 12,
+      "path": "nbclient/util.py",
+      "symbol": "__all__"
+    },
+    {
+      "line": 19,
+      "path": "nbclient/util.py",
+      "symbol": "res"
+    },
+    {
+      "line": 15,
+      "path": "nbclient/util.py",
+      "symbol": "Any"
+    },
+    {
+      "line": 17,
+      "path": "nbclient/util.py",
+      "symbol": "hook"
+    },
+    {
+      "line": 19,
+      "path": "nbclient/util.py",
+      "symbol": "hook"
+    },
+    {
+      "line": 20,
+      "path": "nbclient/util.py",
+      "symbol": "res"
+    },
+    {
+      "line": 19,
+      "path": "nbclient/util.py",
+      "symbol": "kwargs"
+    },
+    {
+      "line": 20,
+      "path": "nbclient/util.py",
+      "symbol": "inspect"
+    },
+    {
+      "line": 21,
+      "path": "nbclient/util.py",
+      "symbol": "res"
+    },
+    {
+      "line": 15,
+      "path": "nbclient/util.py",
+      "symbol": "Callable"
+    },
+    {
+      "line": 15,
+      "path": "nbclient/util.py",
+      "symbol": "Any"
+    }
+  ],
+  "tests_only_contact_accepted": false,
+  "unresolved_dynamic_dispatch_edges": []
+}

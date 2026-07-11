@@ -14,6 +14,8 @@ For the active Nbclient candidate, 15 direct historical distributions were verif
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
+Batch068h4 activates the authorization-bound canonical execution path. The pinned Nbclient source reconstructs 15 root requirements and reaches a 71-package, 119-edge cutoff-compatible dependency closure with no unresolved package metadata, dependency nodes, conflicts, cycles, or post-cutoff selections. Local execution stops before capsule materialization because the local Docker daemon is unavailable; the GitHub Linux workflow is responsible for exercising the implemented offline-build, collection, duplicate-collection, and conditional prerepair path. No patch is authorized.
+
 - Confirmed issue-derived repair episodes: `4`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.

@@ -18,6 +18,9 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 - Structural metrology: retrospective shadow assay with parent-specific deterministic controls; effectiveness advantage remains not demonstrated.
 - Universal interlocks: `23` executable handlers with `23` independent verifiers.
 - Runtime continuation: CG-RXN-012 through CG-RXN-024, all interlock-bound.
+- Authorization-bound execution: callable through `controllergate_frontier.py execute` with candidate/state/plan binding, expiry, single-use nonce, ordered phases, checkpoint validation, and safe resume.
+- Recursive historical provider closure: pinned-source roots, complete release-file enumeration, deterministic wheel preference, verified artifact metadata, recursive dependency expansion, and separate runtime/test/build graphs.
+- Offline capsule and duplicate collection: implemented and gated on an available pinned OCI runtime; not demonstrated by local execution.
 - Failure-family graphs: arbitrary numeric depth with independently verified elbow decisions.
 - Environment identity: 16-dimension orthology vector; exact runtime identity does not imply complete environment identity.
 - Provider evidence: decision-time and current provider locks remain distinct.
