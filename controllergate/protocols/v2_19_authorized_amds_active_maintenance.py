@@ -27,9 +27,9 @@ RUNTIME_BINDINGS: dict[str, str] = {
     "validate_target_and_invariants": "controllergate.runtime.live_authorized_maintenance:validate_target_and_invariants",
     "run_duplicate_clean_replay": "controllergate.runtime.live_authorized_maintenance:run_duplicate_clean_replay",
     "execute_count_gate": "controllergate.runtime.live_authorized_maintenance:execute_count_gate",
-    "rollback_candidate": "controllergate.runtime.authorized_maintenance:rollback_candidate",
-    "update_proof_ledger": "controllergate.runtime.authorized_maintenance:update_proof_ledger",
-    "update_routing_memory": "controllergate.runtime.authorized_maintenance:update_routing_memory",
+    "rollback_candidate": "controllergate.runtime.live_authorized_maintenance:rollback_candidate",
+    "update_proof_ledger": "controllergate.runtime.live_authorized_maintenance:update_proof_ledger",
+    "update_routing_memory": "controllergate.runtime.live_authorized_maintenance:update_routing_memory",
 }
 
 

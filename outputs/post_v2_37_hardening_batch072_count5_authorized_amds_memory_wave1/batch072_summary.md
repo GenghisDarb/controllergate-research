@@ -1,0 +1,5 @@
+# Batch072 summary
+
+The official Batch071 artifact passed byte-custody, path-safety, manifest, and patch-identity verification. The historical H71 issue-derived repair count of `5` is preserved. Independent count-five hardening is quarantined because Batch071 did not preserve the exact provider artifacts needed to recreate a hash-locked provider arm; the patch passed external metamorphic checks, but that diagnostic result is not a substitute for duplicate locked-provider replay.
+
+v2.19 now requires sealed candidate execution plans and single-use authorization, uses hash-locked non-editable provider materialization, implements live rollback/proof/routing-memory/count boundaries, and removes candidate-specific ownership and patch logic from production modules. Twenty prior weak leads were frozen for Wave 1, but none satisfied independent commit plus duplicate-failure admission, so the prospective wave is `PARTIAL` with an empty frozen cohort. AMDS effectiveness remains `NOT_ESTABLISHED`, memory lift remains `not_demonstrated`, full scoring remains disallowed, self-maintaining software remains not demonstrated, and live connectors remain inactive.

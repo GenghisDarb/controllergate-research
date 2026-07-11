@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "custom_key_behavior": true,
+    "idempotent": true,
+    "permutation_invariant": true,
+    "specific_longer_before_catchall": true,
+    "static_before_dynamic": true,
+    "total_order_without_cycles": true
+  },
+  "external_nonmutating": true,
+  "route_order": [
+    "/pets/search",
+    "/pets/{id}/owner",
+    "/pets/{id}",
+    "/pets",
+    "/{path:path}"
+  ],
+  "status": "PASS"
+}

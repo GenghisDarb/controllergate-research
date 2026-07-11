@@ -20,40 +20,37 @@ GENERIC_MAINTENANCE_PHASES = (
     "reproduce_prerepair_failure", "build_amds_board_from_evidence", "run_amds_active_loop",
     "classify_failure_ownership", "derive_patch_locality", "authorize_source_patch",
     "generate_bounded_source_patch", "validate_target_and_invariants",
-    "run_duplicate_clean_replay", "execute_count_gate", "update_proof_ledger",
-    "update_routing_memory",
+    "run_duplicate_clean_replay", "rollback_candidate", "update_proof_ledger",
+    "execute_count_gate", "update_routing_memory",
 )
 
 
-def dispatch_candidate_manifest(*, manifest: dict[str, Any], checkpoint_path: Path, event_ledger_path: Path, authorization_store: Path) -> dict[str, Any]:
-    manifest_hash = hash_record(manifest); candidate_id = str(manifest.get("candidate_id", "")); candidate_sha = str(manifest.get("candidate_sha", ""))
-    checkpoint = load_checkpoint(checkpoint_path)
-    if checkpoint.get("status") == "PASS" and (checkpoint.get("candidate_id") != candidate_id or checkpoint.get("plan_hash") != manifest_hash):
-        return {"status": "BLOCK", "blocker": "runtime_checkpoint_plan_or_candidate_mismatch"}
-    completed = list(checkpoint.get("completed_phases", [])); chain = str(checkpoint.get("event_chain_head", "0" * 64)); context = dict(checkpoint.get("context_state") or {"candidate_manifest": manifest, "authorization_store": str(authorization_store)}); executed = []
-    for phase_id in GENERIC_MAINTENANCE_PHASES:
-        if phase_id in completed: continue
-        input_hash = hash_record({"phase": phase_id, "context": context, "chain": chain})
-        network_mode = "bounded_read_only" if phase_id in {"acquire_source", "reconstruct_environment"} and manifest.get("execution_mode") == "live" else "none"
-        result = execute_binding(phase_id, phase_id, context, {"phase_id": phase_id, "network_mode": network_mode})
-        event = append_event(event_ledger_path, RuntimeEvent(f"event-{len(completed)+1:03d}", phase_id, str(result["status"]), input_hash, hash_record(result), result.get("blocker"), chain)); chain = str(event["event_hash"]); executed.append(phase_id)
-        context.update(result.get("context_updates", {}))
-        if result["status"] == "PASS": completed.append(phase_id); continue
-        terminal = result["status"] in {"BLOCK", "MANUAL_REVIEW"}
-        if terminal:
-            context["terminal_decision"] = {"phase_id": phase_id, "status": result["status"], "blocker": result.get("blocker")}
-            for cleanup_id in ("rollback_candidate", "update_proof_ledger", "update_routing_memory"):
-                if cleanup_id in completed:
-                    continue
-                cleanup_input = hash_record({"phase": cleanup_id, "context": context, "chain": chain})
-                cleanup = execute_binding(cleanup_id, cleanup_id, context, {"phase_id": cleanup_id, "network_mode": "none"})
-                cleanup_event = append_event(event_ledger_path, RuntimeEvent(f"event-{len(completed)+1:03d}", cleanup_id, str(cleanup["status"]), cleanup_input, hash_record(cleanup), cleanup.get("blocker"), chain))
-                chain = str(cleanup_event["event_hash"]); executed.append(cleanup_id); context.update(cleanup.get("context_updates", {}))
-                if cleanup["status"] == "PASS": completed.append(cleanup_id)
-        write_checkpoint(checkpoint_path, RuntimeCheckpoint(candidate_id, manifest_hash, tuple(completed), str(result["status"]), result.get("blocker"), (), chain, context_state=context))
-        return {"status": str(result["status"]), "blocker": result.get("blocker"), "terminal_prepatch": terminal, "phase_id": phase_id, "executed_phases": executed, "completed_phases": completed, "checkpoint_status": "PASS", "resume_status": "SAFE", "context": context}
-    write_checkpoint(checkpoint_path, RuntimeCheckpoint(candidate_id, manifest_hash, tuple(completed), "PASS", None, (), chain, context_state=context))
-    return {"status": "PASS", "blocker": None, "terminal_prepatch": False, "executed_phases": executed, "completed_phases": completed, "checkpoint_status": "PASS", "resume_status": "SAFE", "context": context}
+def dispatch_candidate_manifest(
+    *, manifest: dict[str, Any], checkpoint_path: Path, event_ledger_path: Path,
+    authorization_store: Path, authorization_path: Path | None = None,
+    plan_path: Path | None = None, current_state_hash: str | None = None,
+    network_ledger_path: Path | None = None,
+) -> dict[str, Any]:
+    """Compatibility entry point with the v2.19 authorization boundary enforced.
+
+    A candidate manifest is evidence, never authority.  Callers must provide the
+    sealed plan and single-use authorization consumed by :func:`dispatch`.
+    """
+    if authorization_path is None or plan_path is None or current_state_hash is None or network_ledger_path is None:
+        return {"status": "BLOCK", "blocker": "execution_authorization_manifest_required"}
+    if current_state_hash != hash_record(manifest):
+        return {"status": "BLOCK", "blocker": "authorization_state_hash_stale"}
+    network_ledger_path.parent.mkdir(parents=True, exist_ok=True)
+    authorization_store.parent.mkdir(parents=True, exist_ok=True)
+    return dispatch(
+        candidate_id=str(manifest.get("candidate_id", "")),
+        candidate_sha=str(manifest.get("candidate_sha", "")),
+        current_state_hash=current_state_hash,
+        authorization_path=authorization_path,
+        plan_path=plan_path,
+        checkpoint_path=checkpoint_path,
+        event_ledger_path=event_ledger_path,
+    )
 
 
 def dispatch(*, candidate_id: str, candidate_sha: str, current_state_hash: str, authorization_path: Path, plan_path: Path, checkpoint_path: Path, event_ledger_path: Path) -> dict[str, Any]:

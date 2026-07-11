@@ -10,11 +10,11 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 The validated current protocol is `v2.19 authorized_amds_active_maintenance_lane`. Batch070 replaces batch-specific current bindings with 22 generic production bindings exposed through one candidate-manifest dispatcher. It also completes persistent diagnostic hypothesis state, bounded constraint backtracking, single-use probe authorization, separate custody and semantic verification, and dynamic information-gain probe planning. The v2.18, v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
 
-Batch071 officially verifies and ingests Batch070, replaces manifest-assertion execution with live source, environment, command, replay, ownership, patch, validation, and duplicate-replay operations, and preserves v2.19 as the current interface. Its format-aware command resolver separates setup, formatting, cleanup, and test commands while supporting bounded native-target narrowing.
+Batch072 officially verifies and ingests Batch071 and hardens the v2.19 execution boundary. Candidate manifests are now evidence rather than authority: execution requires a sealed plan, current-state binding, single-use authorization, network allowlists and budgets, and an allowed output root. Provider materialization uses a hash-locked wheelhouse and non-editable source execution, while rollback, proof-ledger, routing-memory, and count transitions are live implementations. Candidate-specific ownership shortcuts and prewritten repair logic have been removed from production modules.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
-Hipo reproduces a test-helper failure and is safely excluded from source repair. Connexion reproduces a source-owned route-ordering defect, receives one source-only patch to `connexion/utils.py`, passes the exact target and target-file invariants, and passes a completely fresh duplicate replay and count gate. The nonblocking four-arm pilot remains `PARTIAL`; effectiveness remains `NOT_ESTABLISHED`.
+The historical Batch071 Connexion episode remains counted under H71 criteria, but independent count-five hardening is `QUARANTINED_PENDING_REVALIDATION`: the artifact did not preserve the exact provider artifacts required for a new hash-locked two-capsule replay. The exact patch identity is preserved and its external metamorphic invariants pass. Batch072 froze 20 weak leads for prospective Wave 1, but none met independent commit and duplicate-failure admission, so the cohort is `PARTIAL` and empty rather than adaptively replenished.
 
 - Confirmed issue-derived repair episodes: `5`.
 - Confirmed native external repair episodes: `4`.
@@ -33,7 +33,10 @@ Hipo reproduces a test-helper failure and is safely excluded from source repair.
 - Offline capsule, SBOM, and origin checks: `PASS`.
 - Diagnostic collection: `33` equivalent nodes across two fresh runs.
 - Nbclient ownership: `interpreter_mock_behavior_change`; retired without a source patch.
-- Next major action: `Batch072` prospective AMDS and memory validation on fresh unrelated candidates.
+- Count-five hardening: `QUARANTINED_PENDING_REVALIDATION`; historical H71 count remains `5`.
+- v2.19 authorization and deterministic-provider implementation: `PASS_IMPLEMENTED`.
+- Prospective Wave 1: `PARTIAL_EMPTY_FROZEN_COHORT`; no diagnostic or repair arm executed.
+- Next major action: complete the frozen Batch072 cohort without changing its preregistration.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

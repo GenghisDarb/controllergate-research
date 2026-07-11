@@ -39,18 +39,9 @@ def test_v2_19_generic_bindings_resolve_without_batch_targets() -> None:
     assert not any("batch068h" in target for target in RUNTIME_BINDINGS.values())
 
 
-def test_candidate_manifest_execution_and_checkpoint_resume(tmp_path: Path) -> None:
-    checkpoint = tmp_path / "checkpoint.json"
-    first = dispatch_candidate_manifest(manifest=manifest(), checkpoint_path=checkpoint, event_ledger_path=tmp_path / "events.jsonl", authorization_store=tmp_path / "nonces.json")
-    second = dispatch_candidate_manifest(manifest=manifest(), checkpoint_path=checkpoint, event_ledger_path=tmp_path / "events.jsonl", authorization_store=tmp_path / "nonces.json")
-    assert first["status"] == second["status"] == "MANUAL_REVIEW"
-    assert first["blocker"] == second["blocker"] == "command_source_conflict_manual_review"
-    assert len(first["completed_phases"]) == len(second["completed_phases"]) == 9
-    assert second["executed_phases"] == ["recover_authoritative_command"]
-    saved = json.loads(checkpoint.read_text(encoding="utf-8"))
-    assert saved["context_state"]["provider_closure"]["status"] == "PASS"
-    assert saved["context_state"]["rollback"]["status"] == "PASS"
-    assert saved["context_state"]["routing_memory_update"]["repair_patch_bytes_stored"] is False
+def test_candidate_manifest_requires_external_execution_authorization(tmp_path: Path) -> None:
+    result = dispatch_candidate_manifest(manifest=manifest(), checkpoint_path=tmp_path / "checkpoint.json", event_ledger_path=tmp_path / "events.jsonl", authorization_store=tmp_path / "nonces.json")
+    assert result == {"status": "BLOCK", "blocker": "execution_authorization_manifest_required"}
 
 
 def test_single_use_probe_authorization_and_spent_nonce_rejection(tmp_path: Path) -> None:

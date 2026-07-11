@@ -1,0 +1,26 @@
+{
+  "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+  "locked_provider_package_count": 0,
+  "provider_arms": [
+    {
+      "arm": "observed_H71_environment",
+      "exact_blocker": "h71_exact_provider_artifact_telemetry_not_preserved",
+      "nonconflated": true,
+      "status": "BLOCK"
+    },
+    {
+      "arm": "decision_time_cutoff_compatible_environment",
+      "exact_blocker": "cutoff_eligible_hash_locked_provider_store_not_materialized",
+      "nonconflated": true,
+      "status": "BLOCK"
+    },
+    {
+      "arm": "current_diagnostic_environment",
+      "count_authority": false,
+      "evidence": "Batch071 current-provider replay and validation",
+      "nonconflated": true,
+      "status": "PASS_DIAGNOSTIC"
+    }
+  ],
+  "status": "PASS"
+}
