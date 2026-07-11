@@ -1,0 +1,16 @@
+{
+  "maximum_attempts": 3,
+  "nonretryable": [
+    "download_checksum_mismatch",
+    "cargo_manifest_or_lock_error",
+    "network_destination_not_allowlisted",
+    "cargo_tls_verification_failed"
+  ],
+  "retryable": [
+    "cargo_dns_resolution_failed",
+    "cargo_http_rate_limited",
+    "cargo_http_server_error",
+    "cargo_transient_transport_failure"
+  ],
+  "status": "PASS"
+}

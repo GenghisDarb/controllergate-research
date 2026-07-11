@@ -9,14 +9,16 @@ ALLOWED_BINDINGS = {
     "batch068h5_phase": "controllergate.runtime.batch068h5_pipeline:execute_phase",
     "batch068h6_phase": "controllergate.runtime.batch068h6_pipeline:execute_phase",
     "batch068h7_phase": "controllergate.runtime.batch068h7_pipeline:execute_phase",
+    "batch068h8_phase": "controllergate.runtime.batch068h8_pipeline:execute_phase",
 }
 
 
-def execute_binding(binding: str, phase_id: str, context: dict[str, Any]) -> dict[str, Any]:
+def execute_binding(binding: str, phase_id: str, context: dict[str, Any], network_authorization: dict[str, Any] | None = None) -> dict[str, Any]:
     target = ALLOWED_BINDINGS.get(binding)
     if target is None: return {"status": "BLOCK", "blocker": "runtime_binding_not_allowlisted", "phase_id": phase_id}
     module_name, function_name = target.split(":", 1)
     function = getattr(import_module(module_name), function_name)
-    result = function(phase_id, context)
+    if binding == "batch068h8_phase": result = function(phase_id, context, network_authorization or {"phase_id": phase_id, "network_mode": "none"})
+    else: result = function(phase_id, context)
     if result.get("status") not in {"PASS", "BLOCK", "MANUAL_REVIEW"}: return {"status": "BLOCK", "blocker": "runtime_phase_invalid_status", "phase_id": phase_id}
     return result

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 from typing import Any, Callable
 
 from controllergate.core.evidence import hash_record
@@ -33,6 +34,17 @@ def _branch_key(board: dict[str,Any], probe: dict[str,Any]) -> str|None:
     for key,value in board.get("branches",{}).items():
         if value.get("branch_id")==cell_id:return key
     return None
+
+
+def observation_driven_posterior(probe: dict[str,Any], observation: dict[str,Any]) -> dict[str,Any]:
+    targeted=list(probe.get("targeted_hypotheses",[]));prior_values=dict(probe.get("prior_probabilities",{}))
+    prior={name:float(prior_values.get(name,1.0/len(targeted) if targeted else 0.0)) for name in targeted}
+    likelihoods=dict(observation.get("hypothesis_likelihoods",{}));supported=set(observation.get("supported_hypotheses",[]));refuted=set(observation.get("refuted_hypotheses",[]))
+    if not likelihoods and (supported or refuted): likelihoods={name:(1.0 if name in supported else 0.0 if name in refuted else None) for name in targeted}
+    weights={name:prior[name]*float(likelihoods[name]) for name in targeted if likelihoods.get(name) is not None}
+    denominator=sum(weights.values());posterior={name:(weights.get(name,0.0)/denominator if denominator else prior[name]) for name in targeted}
+    entropy=lambda values:-sum(value*math.log(value) for value in values if value>0)
+    return {"prior":prior,"likelihoods":{name:likelihoods.get(name,"NOT_ESTABLISHED") for name in targeted},"posterior":posterior,"supported_hypotheses":sorted(supported),"refuted_hypotheses":sorted(refuted),"unchanged_hypotheses":sorted(set(targeted)-supported-refuted),"entropy_before":entropy(prior.values()),"entropy_after":entropy(posterior.values()),"likelihood_basis":"observation" if likelihoods else "NOT_ESTABLISHED"}
 
 
 def run_amds_active_loop(
@@ -69,7 +81,7 @@ def run_amds_active_loop(
         verifier=PROBE_VERIFIERS.get(str(probe["probe_type"]));verification=verifier(observation) if verifier else {"status":"PASS" if observation.get("mutation_count",0)==0 else "BLOCK"}
         if verification.get("status")!="PASS":observation={**observation,"status":"BLOCK","blocker":"independent_observation_verification_failed"}
         semantic=(observation_classifier or classify_build_observation)(observation);observation={**observation,"semantic":semantic,"verification":verification,"registry_generation":generation};observations.append(observation)
-        targeted=list(probe.get("targeted_hypotheses",[]));posterior={name:(1.0/len(targeted) if targeted else 0.0) for name in targeted};posterior_updates.append({"observation":len(observations),"probe_id":probe["probe_id"],"prior_classification":probe.get("prior_classification","structural_uniform_uncalibrated"),"posterior":posterior,"posterior_hash":hash_record(posterior)})
+        posterior=observation_driven_posterior(probe,observation);posterior_updates.append({"observation":len(observations),"probe_id":probe["probe_id"],"prior_classification":probe.get("prior_classification","structural_uniform_uncalibrated"),**posterior,"posterior_hash":hash_record(posterior)})
         branch_key=_branch_key(board,probe);branches={key:dict(value) for key,value in board.get("branches",{}).items()};goal={"goal_passed":False,"status":"BLOCK"}
         if branch_key is not None:
             branch=branches[branch_key];goal=(goal_evaluator(branch,observation,probe) if goal_evaluator else build_branch_goal(observation.get("goal_evidence",{})))

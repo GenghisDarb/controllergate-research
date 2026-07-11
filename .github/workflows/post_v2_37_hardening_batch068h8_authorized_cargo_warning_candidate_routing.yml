@@ -1,0 +1,143 @@
+name: post_v2_37_hardening_batch068h8_authorized_cargo_warning_candidate_routing
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  authorized-cargo-warning-routing:
+    name: Batch068h8 authorized Cargo closure and warning routing
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Verify workflow head identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install test dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest packaging
+
+      - name: Run byte-custody preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Execute Batch068h8 from verified committed H7 evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/generate_batch068h8_authorized_cargo_warning_candidate_routing.py
+
+      - name: Run focused Batch068h8 tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/runtime/test_batch068h8_authorized_cargo_warning_routing.py -q
+
+      - name: Run complete core and runtime suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/core tests/runtime -q
+
+      - name: Run Batch068h8 and predecessor audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_batch068h8_authorized_cargo_warning_candidate_routing.py
+          python scripts/audit_batch068h7_amds_canonical_engine_cargo_runtime_completion.py
+          python scripts/audit_batch068h6_amds_semantic_dual_build_provider_recovery.py
+          python scripts/audit_batch068h5_amds_build_provider_recovery_fifth_repair.py
+
+      - name: Run registry-driven regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/run_controllergate_regression_audits.py --registry configs/controllergate_regression_audit_registry.json
+
+      - name: Preserve v2.18 and evaluate v2.19 eligibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/controllergate_frontier.py status
+          python scripts/controllergate_frontier.py validate
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path('outputs/post_v2_37_hardening_batch068h8_authorized_cargo_warning_candidate_routing/batch068h8_final_decision.json').read_text())
+          assert result['validated_protocol_after']=='v2.18'
+          assert result['v2_19_promotion'] in {'BLOCK','ELIGIBLE_NOT_PERFORMED'}
+          assert result['issue_derived_repair_count']==4
+          assert result['native_external_repair_count']==4
+          PY
+
+      - name: Preserve workflow-only evidence payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/batch068h8_full"
+          cp -a outputs/post_v2_37_hardening_batch068h8_authorized_cargo_warning_candidate_routing/. "$RUNNER_TEMP/batch068h8_full/"
+
+      - name: Compact and re-audit committed evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/generate_batch068h8_authorized_cargo_warning_candidate_routing.py --compact-committed
+          python scripts/audit_batch068h8_authorized_cargo_warning_candidate_routing.py
+          test "$(find outputs/post_v2_37_hardening_batch068h8_authorized_cargo_warning_candidate_routing -maxdepth 1 -type f | wc -l)" -le 42
+          git diff --check
+
+      - name: Stage compact allowlisted artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/stage_controllergate_artifact.py \
+            --destination "$RUNNER_TEMP/controllergate_artifact" \
+            --source "$RUNNER_TEMP/batch068h8_full" \
+            --source "outputs/post_v2_37_hardening_batch068h7_amds_canonical_engine_cargo_runtime_completion" \
+            --source "outputs/current" \
+            --source "outputs/frontier" \
+            --source "docs/CURRENT_FRONTIER_STATUS.md" \
+            --source "docs/current_status.md" \
+            --source "README.md" \
+            --source "configs/controllergate_current.yaml" \
+            --source "configs/controllergate_regression_audit_registry.json"
+          if find "$RUNNER_TEMP/controllergate_artifact" -type f \( -name '*.pyc' -o -name '*.pyo' -o -name '*.whl' -o -name '*.zip' -o -name '*.tar' -o -name '*.tgz' -o -name '*.crate' \) | grep -q .; then
+            echo "forbidden artifact payload detected" >&2
+            exit 1
+          fi
+          if find "$RUNNER_TEMP/controllergate_artifact" -type d \( -name '__pycache__' -o -name '.venv' -o -name 'venv' -o -name 'vendor' \) | grep -q .; then
+            echo "forbidden artifact directory detected" >&2
+            exit 1
+          fi
+
+      - name: Upload Batch068h8 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch068h8_authorized_cargo_warning_candidate_routing_artifacts
+          path: ${{ runner.temp }}/controllergate_artifact/**
+          if-no-files-found: error

@@ -55,6 +55,7 @@ RUNTIME_BINDINGS: dict[str, str] = {
     "recover_dynamic_build_requirements": "controllergate.runtime.dynamic_build_requirements:recover_from_pep517_log",
     "prepare_historical_toolchain": "controllergate.runtime.historical_toolchain_provider:prepare_historical_builder",
     "execute_batch068h7_phase": "controllergate.runtime.batch068h7_pipeline:execute_phase",
+    "execute_batch068h8_phase": "controllergate.runtime.batch068h8_pipeline:execute_phase",
     "inspect_rust_cargo_path": "controllergate.runtime.historical_toolchain_provider:inspect_rust_image",
 }
 

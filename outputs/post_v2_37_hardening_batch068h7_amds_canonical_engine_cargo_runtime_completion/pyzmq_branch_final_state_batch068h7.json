@@ -1,27 +1,14 @@
 {
   "branch": {
     "branch_id": "BUILD-CELL-PYZMQ",
-    "branch_state": "CLOSED",
+    "branch_state": "REMEDIATION_PENDING",
     "evidence_hashes": [
       "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
     ],
     "goal_predicate": "verified_wheel_runtime_install",
-    "goal_result": {
-      "checks": {
-        "fresh_runtime_install_pass": true,
-        "minimal_import_pass": true,
-        "record_verified": true,
-        "required_providers_resolved": true,
-        "wheel_identity_verified": true,
-        "wheel_metadata_verified": true,
-        "wheel_produced": true,
-        "wheel_tags_compatible": true
-      },
-      "goal_passed": true,
-      "status": "PASS"
-    },
-    "last_observation_hash": "25ba2ab7365802194b0d30d026322faa2460611a8f4769e50e89a81c191ed834",
-    "reopen_conditions": [],
+    "reopen_conditions": [
+      "new provider, wheel, or runtime evidence"
+    ],
     "state_hash": "6f10b334b1d12adc83ab9d1a13ef9ac395e35818e4e482ba39e216411d9fb2a0"
   },
   "status": "PASS"

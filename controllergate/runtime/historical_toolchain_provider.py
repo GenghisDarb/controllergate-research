@@ -7,6 +7,7 @@ import re
 import shutil
 import subprocess
 import tarfile
+import time
 import tomllib
 import zipfile
 
@@ -79,8 +80,9 @@ def _acquire_locked_rust_dependencies(workspace: Path, rust_identity: dict, rust
     inspection=inspect_rust_image(rust_identity['repo_digest'])
     if inspection['status']!='PASS':return {'status':'BLOCK','blocker':'cargo_binary_not_discovered_after_absolute_path_probe','rust_image_inspection':inspection}
     explicit_path='/usr/local/cargo/bin:/usr/local/rustup/bin:/usr/local/bin:/usr/bin:/bin'
-    command=['docker','run','--rm','--network','bridge','--entrypoint','/bin/sh','--cap-drop','ALL','--security-opt','no-new-privileges','--pids-limit','256','--memory','3g','--cpus','2','-v',f'{extracted.resolve()}:/src:ro','-v',f'{cache.resolve()}:/cargo-cache:rw','-e',f'PATH={explicit_path}','-e','CARGO_HOME=/cargo-cache','-e','RUSTUP_HOME=/usr/local/rustup',rust_identity['repo_digest'],'-c',f'/usr/local/cargo/bin/cargo fetch --locked --manifest-path /src/{relative}']
-    try:run=subprocess.run(command,capture_output=True,text=True,timeout=1200)
+    command=['docker','run','--rm','--network','bridge','--entrypoint','/bin/sh','--cap-drop','ALL','--security-opt','no-new-privileges','--pids-limit','256','--memory','3g','--cpus','2','-v',f'{extracted.resolve()}:/src:ro','-v',f'{cache.resolve()}:/cargo-cache:rw','-e',f'PATH={explicit_path}','-e','CARGO_HOME=/cargo-cache','-e','RUSTUP_HOME=/usr/local/rustup','-e','CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse',rust_identity['repo_digest'],'-c',f'/usr/local/cargo/bin/cargo fetch -vv --locked --manifest-path /src/{relative}']
+    started=time.monotonic()
+    try:run=subprocess.run(command,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=1200)
     except (FileNotFoundError,subprocess.TimeoutExpired) as exc:return {'status':'BLOCK','blocker':'rpds_locked_cargo_provider_acquisition_unavailable','error':type(exc).__name__}
     cache_transport='host_bind_mount'
     # Docker Desktop cannot always apply crate archive mtimes to an NTFS bind
@@ -93,7 +95,7 @@ def _acquire_locked_rust_dependencies(workspace: Path, rust_identity: dict, rust
         create=subprocess.run(['docker','volume','create',volume],capture_output=True,text=True,timeout=30)
         if create.returncode==0:
             volume_command=list(command);mount_index=volume_command.index('-v',volume_command.index('-v')+1)+1;volume_command[mount_index]=f'{volume}:/cargo-cache:rw'
-            retry=subprocess.run(volume_command,capture_output=True,text=True,timeout=1200)
+            retry=subprocess.run(volume_command,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=1200)
             export_archive=workspace/'cargo_provider_cache_export.tar'
             export=subprocess.run(['docker','run','--rm','--network','none','--entrypoint','/bin/tar','-v',f'{volume}:/cargo-cache:ro',rust_identity['repo_digest'],'-C','/cargo-cache','-cf','-','.'],capture_output=True,timeout=300)
             subprocess.run(['docker','volume','rm','-f',volume],capture_output=True,text=True,timeout=30)
@@ -118,7 +120,7 @@ def _acquire_locked_rust_dependencies(workspace: Path, rust_identity: dict, rust
     checksums_pass=all(item['status']=='PASS' for item in crate_verification) and bool(crate_verification)
     provider_hash=hashlib.sha256(json.dumps(manifest_rows,sort_keys=True).encode()).hexdigest()
     status='PASS' if run.returncode==0 and files and checksums_pass else 'BLOCK'
-    return {'status':status,'blocker':None if status=='PASS' else 'rpds_locked_cargo_provider_acquisition_failed','command':command,'cache_transport':cache_transport,'explicit_cargo_binary':'/usr/local/cargo/bin/cargo','explicit_path':explicit_path,'network_policy':'bounded_provider_acquisition_only','network_destinations':['https://index.crates.io',*[item['source'] for item in git_dependencies]],'cargo_lock_sha256':hashlib.sha256(lock_path.read_bytes()).hexdigest(),'cargo_toml_sha256':hashlib.sha256(manifest.read_bytes()).hexdigest(),'manifest_path':relative,'cache_path':str(cache),'provider_file_count':len(files),'provider_manifest':manifest_rows,'provider_manifest_hash':provider_hash,'package_catalog':package_catalog,'crate_verification':crate_verification,'git_dependency_verification':git_dependencies,'registry_index_identity':hashlib.sha256(''.join(row['sha256'] for row in manifest_rows if 'index' in row['path']).encode()).hexdigest(),'rust_image_inspection':inspection,'stdout':run.stdout[-4000:],'stderr':run.stderr[-4000:]}
+    return {'status':status,'blocker':None if status=='PASS' else 'rpds_locked_cargo_provider_acquisition_failed','command':command,'cache_transport':cache_transport,'explicit_cargo_binary':'/usr/local/cargo/bin/cargo','explicit_path':explicit_path,'network_policy':'bounded_provider_acquisition_only','network_destinations':['https://index.crates.io','https://static.crates.io','https://crates.io',*[item['source'] for item in git_dependencies]],'cargo_lock_sha256':hashlib.sha256(lock_path.read_bytes()).hexdigest(),'cargo_toml_sha256':hashlib.sha256(manifest.read_bytes()).hexdigest(),'manifest_path':relative,'cache_path':str(cache),'provider_file_count':len(files),'provider_manifest':manifest_rows,'provider_manifest_hash':provider_hash,'package_catalog':package_catalog,'crate_verification':crate_verification,'git_dependency_verification':git_dependencies,'registry_index_identity':hashlib.sha256(''.join(row['sha256'] for row in manifest_rows if 'index' in row['path']).encode()).hexdigest(),'rust_image_inspection':inspection,'returncode':run.returncode,'elapsed_seconds':round(time.monotonic()-started,3),'stdout':run.stdout,'stderr':run.stderr,'registry_protocol':'sparse'}
 
 
 def prepare_historical_builder(workspace: Path, python_digest: str, rust_sdist: Path | None = None) -> dict:

@@ -1,61 +1,33 @@
 {
-  "downstream_dispatch": {
-    "blocker": "historical_warning_policy_boundary_reproduced",
+  "downstream_dispatch": null,
+  "provider_dispatch": {
+    "blocker": "rpds_locked_cargo_provider_acquisition_failed",
     "canonical_cli_invoked": true,
     "checkpoint_status": "PASS",
     "command": [
-      "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
-      "C:\\Dev\\ControllerGate\\scripts\\controllergate_frontier.py",
+      "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+      "/home/runner/work/controllergate-research/controllergate-research/scripts/controllergate_frontier.py",
       "execute",
       "--candidate",
       "codex_wave3_jupyter_nbclient_issues_316",
       "--authorization-manifest",
-      "C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch068h7_amds_canonical_engine_cargo_runtime_completion\\runtime_execution_authorization_runtime_batch068h7.json",
+      "/home/runner/work/controllergate-research/controllergate-research/outputs/post_v2_37_hardening_batch068h7_amds_canonical_engine_cargo_runtime_completion/runtime_execution_authorization_provider_batch068h7.json",
       "--checkpoint",
-      "C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch068h7_amds_canonical_engine_cargo_runtime_completion\\runtime_checkpoint_runtime_batch068h7.json"
+      "/home/runner/work/controllergate-research/controllergate-research/outputs/post_v2_37_hardening_batch068h7_amds_canonical_engine_cargo_runtime_completion/runtime_checkpoint_provider_batch068h7.json"
     ],
     "completed_phases": [
-      "offline_capsule_materialization"
+      "amds_completion_reconciliation",
+      "amds_board_v3_migration"
     ],
     "executed_phases": [
-      "offline_capsule_materialization",
-      "collection_run_1"
+      "amds_completion_reconciliation",
+      "amds_board_v3_migration",
+      "cargo_provider_recovery_and_builder"
     ],
-    "phase_id": "collection_run_1",
+    "phase_id": "cargo_provider_recovery_and_builder",
     "resume_status": "SAFE",
     "returncode": 0,
     "status": "BLOCK"
-  },
-  "provider_dispatch": {
-    "blocker": null,
-    "canonical_cli_invoked": true,
-    "checkpoint_status": "PASS",
-    "command": [
-      "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
-      "C:\\Dev\\ControllerGate\\scripts\\controllergate_frontier.py",
-      "execute",
-      "--candidate",
-      "codex_wave3_jupyter_nbclient_issues_316",
-      "--authorization-manifest",
-      "C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch068h7_amds_canonical_engine_cargo_runtime_completion\\runtime_execution_authorization_provider_batch068h7.json",
-      "--checkpoint",
-      "C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch068h7_amds_canonical_engine_cargo_runtime_completion\\runtime_checkpoint_provider_batch068h7.json"
-    ],
-    "completed_phases": [
-      "amds_completion_reconciliation",
-      "amds_board_v3_migration",
-      "cargo_provider_recovery_and_builder",
-      "canonical_dual_build_recovery"
-    ],
-    "executed_phases": [
-      "amds_completion_reconciliation",
-      "amds_board_v3_migration",
-      "cargo_provider_recovery_and_builder",
-      "canonical_dual_build_recovery"
-    ],
-    "resume_status": "SAFE",
-    "returncode": 0,
-    "status": "PASS"
   },
   "status": "PASS"
 }

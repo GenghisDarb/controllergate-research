@@ -1,0 +1,3854 @@
+{
+  "board_hash": "663101931da16f9e12cffbbbacc8dd304633ab9a3f54b5f628fcd0e8d752feb2",
+  "board_id": "amds-codex_wave3_jupyter_nbclient_issues_316",
+  "branches": {
+    "coverage": {
+      "branch_id": "BUILD-CELL-COVERAGE",
+      "branch_state": "CLOSED",
+      "evidence_hashes": [
+        "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "reopen_conditions": [
+        "runtime import regression",
+        "wheel identity mismatch"
+      ],
+      "state_hash": "25d7d1563644292f6a7bee57e3571f143719d232b237475665c0c56010c65fe2"
+    },
+    "markupsafe": {
+      "branch_id": "BUILD-CELL-MARKUPSAFE",
+      "branch_state": "CLOSED",
+      "evidence_hashes": [
+        "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "reopen_conditions": [
+        "runtime import regression",
+        "wheel identity mismatch"
+      ],
+      "state_hash": "65f58ecfcd08cdd08a070a84b2283d5b4b92790c4c5dfd3c1f6b0a703e0701e5"
+    },
+    "pyzmq": {
+      "branch_id": "BUILD-CELL-PYZMQ",
+      "branch_state": "CLOSED",
+      "evidence_hashes": [
+        "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "goal_result": {
+        "checks": {
+          "fresh_runtime_install_pass": true,
+          "minimal_import_pass": true,
+          "record_verified": true,
+          "required_providers_resolved": true,
+          "wheel_identity_verified": true,
+          "wheel_metadata_verified": true,
+          "wheel_produced": true,
+          "wheel_tags_compatible": true
+        },
+        "goal_passed": true,
+        "status": "PASS"
+      },
+      "last_observation_hash": "40727d5bdf0f0ddc912c8a6d0d77a2edbee60fa8b67b7fb73b2f8aa4b9c56b95",
+      "reopen_conditions": [],
+      "state_hash": "6f10b334b1d12adc83ab9d1a13ef9ac395e35818e4e482ba39e216411d9fb2a0"
+    },
+    "rpds-py": {
+      "branch_id": "BUILD-CELL-RPDS_PY",
+      "branch_state": "CLOSED",
+      "evidence_hashes": [
+        "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "goal_result": {
+        "checks": {
+          "fresh_runtime_install_pass": true,
+          "minimal_import_pass": true,
+          "record_verified": true,
+          "required_providers_resolved": true,
+          "wheel_identity_verified": true,
+          "wheel_metadata_verified": true,
+          "wheel_produced": true,
+          "wheel_tags_compatible": true
+        },
+        "goal_passed": true,
+        "status": "PASS"
+      },
+      "last_observation_hash": "b09ce8c0a0c0f0affecd40f5857c5841ef3c6acc80cf66c7b8b01c6d11126d17",
+      "reopen_conditions": [],
+      "state_hash": "a08f964fadf0dacaf13c927a0a1477fb7a317404de20caafde746567d7f9981c"
+    }
+  },
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "cells": [
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_python_build_requirement",
+        "BUILD-CELL-PYZMQ:missing_C_compiler",
+        "BUILD-CELL-PYZMQ:missing_Cxx_compiler",
+        "BUILD-CELL-PYZMQ:missing_linker",
+        "BUILD-CELL-PYZMQ:missing_Python_headers",
+        "BUILD-CELL-PYZMQ:missing_Rust_toolchain",
+        "BUILD-CELL-PYZMQ:missing_Cargo",
+        "BUILD-CELL-PYZMQ:missing_CMake",
+        "BUILD-CELL-PYZMQ:missing_Ninja",
+        "BUILD-CELL-PYZMQ:missing_pkg_config",
+        "BUILD-CELL-PYZMQ:missing_system_library",
+        "BUILD-CELL-PYZMQ:missing_libzmq",
+        "BUILD-CELL-PYZMQ:vendored_dependency_failure",
+        "BUILD-CELL-PYZMQ:build_backend_import_failure",
+        "BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta",
+        "BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-PYZMQ:read_only_filesystem_violation",
+        "BUILD-CELL-PYZMQ:writable_path_missing",
+        "BUILD-CELL-PYZMQ:resource_limit",
+        "BUILD-CELL-PYZMQ:timeout",
+        "BUILD-CELL-PYZMQ:source_archive_problem",
+        "BUILD-CELL-PYZMQ:package_version_incompatibility"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ",
+      "cell_type": "build_provider",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch",
+        "test_mutation"
+      ],
+      "hypothesis_state": "CAUSAL_MINE",
+      "last_update_event": "observation-001",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new build-provider evidence"
+      ],
+      "semantic_state": "CAUSAL_MINE",
+      "state": "RESOLVED",
+      "state_hash": "43026d19f36bcc70f69d0e3f5a5ef33c5e291a33816f11b6975a992284be5bd2"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_python_build_requirement"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_python_build_requirement",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "f588a140ee5edb39c95411921e44bcf1efdcd29622d466e6bdf281e3c5d78b79"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_C_compiler"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_C_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "a2037c9c6a2787439835db6eccef6fcf9601b974e05dcc08bf5175e711a53ac2"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_Cxx_compiler"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_Cxx_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "2fd7eb1629c898fe7b2ddcda09d54cb8671b6248a7e800a52542fc4918d013b1"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_linker"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_linker",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "cbe91716111a0ff26fad93e8de3bb6512a76feef84d101e49aff1cd027f83717"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_Python_headers"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_Python_headers",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "d599ddac6fde43e700abc616e5ee92c7ac364a50a1b643fbd2519ea004a5f1e1"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_Rust_toolchain"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_Rust_toolchain",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "5757dbf8c8f56ed4cde087c23ddbbebc9488db429fbcdd4b5d4a9ec1932525e0"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_Cargo"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_Cargo",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "8013a81afe43ff0030322d30ffe7163a0845b0ca30aaeece99a0338ec563169e"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_CMake"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_CMake",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "3a3aa7bb054aa86e31d6e79b6fc377bf9fd89abfa0802d49823a0348c0d31d71"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_Ninja"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_Ninja",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "CAUSAL_MINE",
+      "state_hash": "ea263bcdec594fd89a9e02b20b4f1fc0d5994ef1dadcec0b2eeeb04ad7b883ce"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_pkg_config"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_pkg_config",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "664572a6a80a373162fe645e36397ae4106001e83869f6b06e0326079a2ea3d0"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_system_library"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_system_library",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "28113648c78301cfe7bbeb65161f08697a5429f477836a272429020b2fb5c7d3"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_libzmq"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_libzmq",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "8c9466502f0c296384258ec63cdadf3d78e71d10a25071d2b1b9cfaa0f814e01"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:vendored_dependency_failure"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:vendored_dependency_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "a6c73d7f436c29389b6f7017134857d7f0f22b90db8de79f738a7cc1e45ef4e1"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:build_backend_import_failure"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:build_backend_import_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "0444648e1c81b8ca48896fbde91776c9af5790c456ec5ff00c4b5a640a5c2478"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "3397d19971ce782cc3b66d228c7e68079e8808ac7ac606a05b2af0d4fcc801e9"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "2fd400f998e62e4af99767f5b09b3a9d2d15e20cd564d889632fba0d49131583"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:read_only_filesystem_violation"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:read_only_filesystem_violation",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "0458c6e6291420df623a5c6292c11f6fdb4294a72d7412ca45db37838ea45189"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:writable_path_missing"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:writable_path_missing",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "cac5dae7362c156a6ca12131b0f9716505fa57ba845d3d06291ab8951e972269"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:resource_limit"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:resource_limit",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "feed74008d457cc474aedbf04c6d7d235de0472a5aa1d07b14f50ea28f6102e6"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:timeout"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:timeout",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "5126a74062486d9a6e6fa2c8315b92823f9a20c395303ea466a2c3b5cb0606d1"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:source_archive_problem"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:source_archive_problem",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "18ea4fdb53e43c4828508479c618741d3a12d0d746017bf5ca8e4cbbddda32bd"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:package_version_incompatibility"
+      ],
+      "branch_membership": "pyzmq",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:package_version_incompatibility",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "52dd685b78a2910c9b3d3437e3fd6fed4bbb656c079b877f2dc3f297203148fd"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_python_build_requirement",
+        "BUILD-CELL-MARKUPSAFE:missing_C_compiler",
+        "BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler",
+        "BUILD-CELL-MARKUPSAFE:missing_linker",
+        "BUILD-CELL-MARKUPSAFE:missing_Python_headers",
+        "BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain",
+        "BUILD-CELL-MARKUPSAFE:missing_Cargo",
+        "BUILD-CELL-MARKUPSAFE:missing_CMake",
+        "BUILD-CELL-MARKUPSAFE:missing_Ninja",
+        "BUILD-CELL-MARKUPSAFE:missing_pkg_config",
+        "BUILD-CELL-MARKUPSAFE:missing_system_library",
+        "BUILD-CELL-MARKUPSAFE:missing_libzmq",
+        "BUILD-CELL-MARKUPSAFE:vendored_dependency_failure",
+        "BUILD-CELL-MARKUPSAFE:build_backend_import_failure",
+        "BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta",
+        "BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation",
+        "BUILD-CELL-MARKUPSAFE:writable_path_missing",
+        "BUILD-CELL-MARKUPSAFE:resource_limit",
+        "BUILD-CELL-MARKUPSAFE:timeout",
+        "BUILD-CELL-MARKUPSAFE:source_archive_problem",
+        "BUILD-CELL-MARKUPSAFE:package_version_incompatibility"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE",
+      "cell_type": "build_provider",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch",
+        "test_mutation"
+      ],
+      "hypothesis_state": "RESOLVED",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new build-provider evidence"
+      ],
+      "semantic_state": "RESOLVED",
+      "state": "RESOLVED",
+      "state_hash": "078c7e0fe7f9ac026d562d9b3c4acdf8a28b48f2316839f2cc38a8cae1b70e8d"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_python_build_requirement"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_python_build_requirement",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "0c4f9036dcc949295858bf0e91063ca22a8280e830afe0565f1430bb24ecbd89"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_C_compiler"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_C_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "e63e9d473560bbc5bde15b9390b4f38d897d1a0db51d968267a3f92ce38ff962"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "b524bdf6f4fe415c77af8e9cc42c8da6d089f889f382de59b4fece21fbdea2de"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_linker"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_linker",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "3eaf9c2c6ca070073693953b10315e5bd9386d354cd461bf2b0ea01beeb6bd93"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_Python_headers"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_Python_headers",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "e980bc81a2e0f5524dbdebd0ad478ca5d44aad250a1e30d99d249faae9b07560"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "NOT_APPLICABLE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "NOT_APPLICABLE",
+      "state": "NOT_APPLICABLE",
+      "state_hash": "2ca0bda6834b80eaebb8665e9daad8b142f8bc5e6b8dd4c585b7fb36f8edc91a"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_Cargo"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_Cargo",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "NOT_APPLICABLE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "NOT_APPLICABLE",
+      "state": "NOT_APPLICABLE",
+      "state_hash": "2ad0bd0560dbc8caceaaf5cc163f7d977182ce5418337229760b97770c356771"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_CMake"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_CMake",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "f8c1ca9c6bb80f2964df18cd38d7a3cc814e3d5116bf2a5910b05311baecd4a7"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_Ninja"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_Ninja",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "79a8429ebb137a2e2d5085fbdae51e87cf0a1dd0dd44e08a00a053830334e979"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_pkg_config"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_pkg_config",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "a1c568ea24d7f1d99a4605b0a4981a13bcf0b156f5210c1570a36a25a988a66a"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_system_library"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_system_library",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "dafa8a7fb20f1509430ee4e3c7b73996aa12fc2111565bae4536d3a79c9d2eaa"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_libzmq"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_libzmq",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "NOT_APPLICABLE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "NOT_APPLICABLE",
+      "state": "NOT_APPLICABLE",
+      "state_hash": "9d726ab94903995c0a7bdddc8fb7c624d1b3f46110456d2dd3b0290a7dc9214b"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:vendored_dependency_failure"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:vendored_dependency_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "25d0cbdca8320e20bf3a17d72a8939ee4fab4d0a2baae111fe50159ddb536597"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:build_backend_import_failure"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:build_backend_import_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "8769c316e4a3e2aca0b8c47601c6a85a6e7f06f2a423f8ac6dc52c3545e36e7b"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "bdb92aed3ca7d4d8d6f930773370a90f779fa5bddd60d78c87f3c9cdcf546c8d"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "ffb219a780151ec1725feb54cf53a600bba0d800392aae816fc6a0774fef112e"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "e588b1d210c80a953b3b7441576b2f60e8699ff84e479f2380367d9ed7315650"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:writable_path_missing"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:writable_path_missing",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "d52d62e571cd1110034622c0bcbb4c5b4adedad79fda09d15e7115f9a6394300"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:resource_limit"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:resource_limit",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "2944ef9740e5a23f2b72ff28fca52f7d307583bd154c0c4f930f74f40cebb019"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:timeout"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:timeout",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "ce125048be0e2653038f76be1dcad239d2ad5557921ae4dee1f04f33037a00a5"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:source_archive_problem"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:source_archive_problem",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "d052ff9a4d9a2f3466a3b68303f17f5b82cbfb6888e918676497e7f8eb42f5e4"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:package_version_incompatibility"
+      ],
+      "branch_membership": "markupsafe",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:package_version_incompatibility",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "4c6128933f555fed039385716568a1efe67fcd3c423039356d1cd8d6ebfb807e"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_python_build_requirement",
+        "BUILD-CELL-COVERAGE:missing_C_compiler",
+        "BUILD-CELL-COVERAGE:missing_Cxx_compiler",
+        "BUILD-CELL-COVERAGE:missing_linker",
+        "BUILD-CELL-COVERAGE:missing_Python_headers",
+        "BUILD-CELL-COVERAGE:missing_Rust_toolchain",
+        "BUILD-CELL-COVERAGE:missing_Cargo",
+        "BUILD-CELL-COVERAGE:missing_CMake",
+        "BUILD-CELL-COVERAGE:missing_Ninja",
+        "BUILD-CELL-COVERAGE:missing_pkg_config",
+        "BUILD-CELL-COVERAGE:missing_system_library",
+        "BUILD-CELL-COVERAGE:missing_libzmq",
+        "BUILD-CELL-COVERAGE:vendored_dependency_failure",
+        "BUILD-CELL-COVERAGE:build_backend_import_failure",
+        "BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta",
+        "BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-COVERAGE:read_only_filesystem_violation",
+        "BUILD-CELL-COVERAGE:writable_path_missing",
+        "BUILD-CELL-COVERAGE:resource_limit",
+        "BUILD-CELL-COVERAGE:timeout",
+        "BUILD-CELL-COVERAGE:source_archive_problem",
+        "BUILD-CELL-COVERAGE:package_version_incompatibility"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE",
+      "cell_type": "build_provider",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch",
+        "test_mutation"
+      ],
+      "hypothesis_state": "RESOLVED",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new build-provider evidence"
+      ],
+      "semantic_state": "RESOLVED",
+      "state": "RESOLVED",
+      "state_hash": "1f4f9b70179cc22bdff3c5419e780b5d154d33b601c03c32d7e17186ef64ab51"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_python_build_requirement"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_python_build_requirement",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "5045e05a6e91c1c6d3e2eff5d467cc1b359806c1f64dcf11bc2463066691d424"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_C_compiler"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_C_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "2b99295efcc71747b8e974753682c40949c254c15c784e946904853fbf3ed8f2"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_Cxx_compiler"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_Cxx_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "93576209b194cca37ec134f63d3c67088040d7683b6d4f8fe234d68a129b1346"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_linker"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_linker",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "5ad155845946a0c055251d66d6b578350e23e0bdd61175d458581e65a38dafb3"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_Python_headers"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_Python_headers",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "0e26b746c744f1ae62faeda6afcf83535d806a3ab8d767df5434d355cefa8f9c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_Rust_toolchain"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_Rust_toolchain",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "NOT_APPLICABLE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "NOT_APPLICABLE",
+      "state": "NOT_APPLICABLE",
+      "state_hash": "d6eec07599aeffc36b192bf2937aa2c8405e45d364fa440c3c59c2fcb39cd4ff"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_Cargo"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_Cargo",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "NOT_APPLICABLE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "NOT_APPLICABLE",
+      "state": "NOT_APPLICABLE",
+      "state_hash": "5934403ed8be3fe335e3b10e2501e6a1244da74994319c97291f22850b08d84d"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_CMake"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_CMake",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "1cd666fdf345baff08397cd071cf3ddbc3cd847236800894325b8b3db0fcc80d"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_Ninja"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_Ninja",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "005f544ffe57eb5f229dee19a5155b2353a13a3e8f4b6620659eb9bea9f3ad82"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_pkg_config"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_pkg_config",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "4be5e61dd7c088cfc503b8cb99b8337739d0e218d738536cf321764a1f1be02f"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_system_library"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_system_library",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "b03fd77aef16ea18eb8fb473f524dd22af36a910258b3575dcb3b8ffbc157b3f"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_libzmq"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_libzmq",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "NOT_APPLICABLE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "NOT_APPLICABLE",
+      "state": "NOT_APPLICABLE",
+      "state_hash": "8c019909385c0c422a19d5038c97a30a5303bed0b7d06135205b306243a75817"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:vendored_dependency_failure"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:vendored_dependency_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "32a26ce7611e7738b56c76ce4f1e8bd83c105d62ec5638a54632ba343041e67e"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:build_backend_import_failure"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:build_backend_import_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "c8597a8bc074d325c461602496a1b8a03ad33484af52bd46a95f0d5c4ca9d443"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "f6550d753cb5911d6dcff6bfdacae5fd4ce2271622aac564c65f76a06b13ca3c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "81df6c9b1e9d1457da67311e32915f92db26ecb0b5a7fe5fa48099456dd44447"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:read_only_filesystem_violation"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:read_only_filesystem_violation",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "fa7651f2b404f81b87fb5b631d85953e7529327d31936902e00bb7bfa15b1599"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:writable_path_missing"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:writable_path_missing",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "71148e8a850395b2d15d9344839e2e57647cbee0074c0dcca85852ac8bd9fb7b"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:resource_limit"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:resource_limit",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "5db4895c1286bf71b83844ba02387be7f10b1d4c539ed14256884fa2c4dc9afd"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:timeout"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:timeout",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "4623f41b4cd403abe39aa91457d3f8b22d20020c583a6f7f1624c38576775ef0"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:source_archive_problem"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:source_archive_problem",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "c08bc102ca5625bbdccc7a7df78f06214102fe693a4be920d80c1fcc8da209e9"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:package_version_incompatibility"
+      ],
+      "branch_membership": "coverage",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:package_version_incompatibility",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "4e4b981dec1914d9f2ad2f9fbff24409245aafc6b022d57b5285953b5078ea76"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_python_build_requirement",
+        "BUILD-CELL-RPDS_PY:missing_C_compiler",
+        "BUILD-CELL-RPDS_PY:missing_Cxx_compiler",
+        "BUILD-CELL-RPDS_PY:missing_linker",
+        "BUILD-CELL-RPDS_PY:missing_Python_headers",
+        "BUILD-CELL-RPDS_PY:missing_Rust_toolchain",
+        "BUILD-CELL-RPDS_PY:missing_Cargo",
+        "BUILD-CELL-RPDS_PY:missing_CMake",
+        "BUILD-CELL-RPDS_PY:missing_Ninja",
+        "BUILD-CELL-RPDS_PY:missing_pkg_config",
+        "BUILD-CELL-RPDS_PY:missing_system_library",
+        "BUILD-CELL-RPDS_PY:missing_libzmq",
+        "BUILD-CELL-RPDS_PY:vendored_dependency_failure",
+        "BUILD-CELL-RPDS_PY:build_backend_import_failure",
+        "BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta",
+        "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-RPDS_PY:read_only_filesystem_violation",
+        "BUILD-CELL-RPDS_PY:writable_path_missing",
+        "BUILD-CELL-RPDS_PY:resource_limit",
+        "BUILD-CELL-RPDS_PY:timeout",
+        "BUILD-CELL-RPDS_PY:source_archive_problem",
+        "BUILD-CELL-RPDS_PY:package_version_incompatibility"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY",
+      "cell_type": "build_provider",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch",
+        "test_mutation"
+      ],
+      "hypothesis_state": "CAUSAL_MINE",
+      "last_update_event": "observation-003",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new build-provider evidence"
+      ],
+      "semantic_state": "CAUSAL_MINE",
+      "state": "RESOLVED",
+      "state_hash": "1a68ec32514fac51fa62f2ac04594a1efe5ec789e6f090ec76e13eeaca7cdbfd"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_python_build_requirement"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_python_build_requirement",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "42f321b3547a43fb3616ff43ad42f03c9d7eee4dd1e174fa5fcf8d5cac389ec7"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_C_compiler"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_C_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "abcbdb201f35ffa8906931941510561b52de2e1d7ca5ed6ee93beef1cbdc95f3"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_Cxx_compiler"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_Cxx_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "c6504c471deabb6958f36f9039ee0335941180bdf64ced02eeb7fe3459f6d6f5"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_linker"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_linker",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "f91eddeccef4c8ab60e3609413f71af4e701d57cc2cdf1e3c46da543c2a28ad2"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_Python_headers"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_Python_headers",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "b7375c8a492f808b59dfbfd4a99760792b792441690949728460f5b96c896ec5"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_Rust_toolchain"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_Rust_toolchain",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "CAUSAL_MINE",
+      "state_hash": "408b9e847513ba49defab596a3e0f8bb5803806ed6be2d4371403989ccbd28d6"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_Cargo"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_Cargo",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "SAFE",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "SAFE",
+      "state": "SAFE",
+      "state_hash": "f1642f1568ad4bba2fe20690900b11e8ab47a42a4da204580d61b847f0bf66e5"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_CMake"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_CMake",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "40d010d68a07017e6d4461420047e088af621a05bb7d417b625a538f6097654e"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_Ninja"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_Ninja",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "d8d81ee27c4dff51c67b6e7bfce02e56f986dcc44139b9b70b83703170d90811"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_pkg_config"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_pkg_config",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "553f50fd08f98f89553989fd0cedf0198d696c7078a93872c8e099f3d000cfec"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_system_library"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_system_library",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "5efcd9ee9adb37c3256a609a3103e49170e34ecafe1a4e4e9dc6565d13bd6926"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_libzmq"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_libzmq",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "37cad66fef3a4829624384993d40e2bb67e31361fadbd5b785d461a86c58a592"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:vendored_dependency_failure"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:vendored_dependency_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "be7271ab57213e0ae208cc97c5528749ea5225c33bc03f6fe2fabc4c3cdbdc38"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:build_backend_import_failure"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:build_backend_import_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "e42a12ce827213be2a8d3bbe5ab87af9db2733306f73c13473d735322581c267"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "5777178eee52ed60a2f003ccb9b84d80786ce9c2ad9499a8d49a140da1de4ee6"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "CAUSAL_MINE",
+      "state_hash": "ae9bc407f4726fbfb42631adae923d69c9f0304f5b893b8be53740445506f3c8"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:read_only_filesystem_violation"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:read_only_filesystem_violation",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "f7b0600a5ef7dadf8a1a8b315e6acea0d5b117ac14ef9eb0bd530298ba83aee5"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:writable_path_missing"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:writable_path_missing",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "194ec80e4834d0a16de8e4f2920a78b7ff22b68a3e4ddb5a07cab558bea4bf33"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:resource_limit"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:resource_limit",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "0bd024fac9373d9344a7a3b97d641fa8bc16bad3f9ceabc2fc864f34305820b0"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:timeout"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:timeout",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "170760c81cf379160f0bef762f6139293a042cd94500c5dc4fe57b3ba99fbff0"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:source_archive_problem"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:source_archive_problem",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "3c258f08ef4e1ef98ceb8513d56db3eb7b417675623e58e95bd19f9fc32d62a8"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:package_version_incompatibility"
+      ],
+      "branch_membership": "rpds-py",
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:package_version_incompatibility",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "hypothesis_state": "UNKNOWN",
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "original_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "original_state_lineage": "board_initialized",
+      "reopen_conditions": [
+        "new evidence"
+      ],
+      "semantic_state": "UNKNOWN",
+      "state": "UNKNOWN",
+      "state_hash": "d71ec20d8953caa6c4a9bc699fb2b2f0526338661775bc961b2d68de8769268a"
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_id": "constraint:BUILD-CELL-PYZMQ:at-least-one",
+      "constraint_type": "at_least_one",
+      "members": [
+        "BUILD-CELL-PYZMQ:missing_python_build_requirement",
+        "BUILD-CELL-PYZMQ:missing_C_compiler",
+        "BUILD-CELL-PYZMQ:missing_Cxx_compiler",
+        "BUILD-CELL-PYZMQ:missing_linker",
+        "BUILD-CELL-PYZMQ:missing_Python_headers",
+        "BUILD-CELL-PYZMQ:missing_Rust_toolchain",
+        "BUILD-CELL-PYZMQ:missing_Cargo",
+        "BUILD-CELL-PYZMQ:missing_CMake",
+        "BUILD-CELL-PYZMQ:missing_Ninja",
+        "BUILD-CELL-PYZMQ:missing_pkg_config",
+        "BUILD-CELL-PYZMQ:missing_system_library",
+        "BUILD-CELL-PYZMQ:missing_libzmq",
+        "BUILD-CELL-PYZMQ:vendored_dependency_failure",
+        "BUILD-CELL-PYZMQ:build_backend_import_failure",
+        "BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta",
+        "BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-PYZMQ:read_only_filesystem_violation",
+        "BUILD-CELL-PYZMQ:writable_path_missing",
+        "BUILD-CELL-PYZMQ:resource_limit",
+        "BUILD-CELL-PYZMQ:timeout",
+        "BUILD-CELL-PYZMQ:source_archive_problem",
+        "BUILD-CELL-PYZMQ:package_version_incompatibility"
+      ],
+      "source_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ]
+    },
+    {
+      "constraint_id": "constraint:BUILD-CELL-RPDS_PY:at-least-one",
+      "constraint_type": "at_least_one",
+      "members": [
+        "BUILD-CELL-RPDS_PY:missing_python_build_requirement",
+        "BUILD-CELL-RPDS_PY:missing_C_compiler",
+        "BUILD-CELL-RPDS_PY:missing_Cxx_compiler",
+        "BUILD-CELL-RPDS_PY:missing_linker",
+        "BUILD-CELL-RPDS_PY:missing_Python_headers",
+        "BUILD-CELL-RPDS_PY:missing_Rust_toolchain",
+        "BUILD-CELL-RPDS_PY:missing_Cargo",
+        "BUILD-CELL-RPDS_PY:missing_CMake",
+        "BUILD-CELL-RPDS_PY:missing_Ninja",
+        "BUILD-CELL-RPDS_PY:missing_pkg_config",
+        "BUILD-CELL-RPDS_PY:missing_system_library",
+        "BUILD-CELL-RPDS_PY:missing_libzmq",
+        "BUILD-CELL-RPDS_PY:vendored_dependency_failure",
+        "BUILD-CELL-RPDS_PY:build_backend_import_failure",
+        "BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta",
+        "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-RPDS_PY:read_only_filesystem_violation",
+        "BUILD-CELL-RPDS_PY:writable_path_missing",
+        "BUILD-CELL-RPDS_PY:resource_limit",
+        "BUILD-CELL-RPDS_PY:timeout",
+        "BUILD-CELL-RPDS_PY:source_archive_problem",
+        "BUILD-CELL-RPDS_PY:package_version_incompatibility"
+      ],
+      "source_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ]
+    },
+    {
+      "constraint_id": "H8-RPDS-CARGO",
+      "constraint_type": "requires",
+      "description": "rpds build requires Cargo provider closure",
+      "members": [
+        "BUILD-CELL-RPDS_PY",
+        "BUILD-CELL-RPDS_PY:missing_Cargo"
+      ],
+      "source_evidence_hashes": [
+        "075ab13986290394c37707507b9c9b88e4243856437f59df27d6eae5fed8b37a"
+      ]
+    },
+    {
+      "constraint_id": "H8-RPDS-RUST",
+      "constraint_type": "requires",
+      "description": "rpds build requires Rust toolchain identity",
+      "members": [
+        "BUILD-CELL-RPDS_PY",
+        "BUILD-CELL-RPDS_PY:missing_Rust_toolchain"
+      ],
+      "source_evidence_hashes": [
+        "dfc5cc111ae75279b22d0ed7706de0e8ece02ca3a4579977ea3b02175606bd97"
+      ]
+    },
+    {
+      "constraint_id": "H8-PYZMQ-NINJA",
+      "constraint_type": "requires",
+      "description": "pyzmq build requires Ninja provider",
+      "members": [
+        "BUILD-CELL-PYZMQ",
+        "BUILD-CELL-PYZMQ:missing_Ninja"
+      ],
+      "source_evidence_hashes": [
+        "84502ec98f02a037a169c4b0d5d86075eaf6afc55e1879003d6cab51ced2ea4b"
+      ]
+    },
+    {
+      "constraint_id": "H8-BRANCH-GOAL",
+      "constraint_type": "requires",
+      "description": "branch closure requires verified wheel and runtime import",
+      "members": [
+        "BUILD-CELL-RPDS_PY",
+        "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch"
+      ],
+      "source_evidence_hashes": [
+        "a4c495472f109856dffcb38cac0fd24173d2674233576a12851da380ec10ced3"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_python_build_requirement",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_python_build_requirement"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_C_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_C_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_Cxx_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_Cxx_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_linker",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_linker"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_Python_headers",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_Python_headers"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_Rust_toolchain",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_Rust_toolchain"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_Cargo",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_Cargo"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_CMake",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_CMake"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_Ninja",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_Ninja"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_pkg_config",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_pkg_config"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_system_library",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_system_library"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_libzmq",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_libzmq"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:vendored_dependency_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:vendored_dependency_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:build_backend_import_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:build_backend_import_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:read_only_filesystem_violation",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:read_only_filesystem_violation"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:writable_path_missing",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:writable_path_missing"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:resource_limit",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:resource_limit"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:timeout",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:timeout"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:source_archive_problem",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:source_archive_problem"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:package_version_incompatibility",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:package_version_incompatibility"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_python_build_requirement",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_python_build_requirement"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_C_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_C_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_linker",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_linker"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_Python_headers",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_Python_headers"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_Cargo",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_Cargo"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_CMake",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_CMake"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_Ninja",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_Ninja"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_pkg_config",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_pkg_config"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_system_library",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_system_library"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_libzmq",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_libzmq"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:vendored_dependency_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:vendored_dependency_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:build_backend_import_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:build_backend_import_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:writable_path_missing",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:writable_path_missing"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:resource_limit",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:resource_limit"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:timeout",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:timeout"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:source_archive_problem",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:source_archive_problem"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:package_version_incompatibility",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:package_version_incompatibility"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_python_build_requirement",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_python_build_requirement"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_C_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_C_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_Cxx_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_Cxx_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_linker",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_linker"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_Python_headers",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_Python_headers"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_Rust_toolchain",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_Rust_toolchain"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_Cargo",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_Cargo"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_CMake",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_CMake"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_Ninja",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_Ninja"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_pkg_config",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_pkg_config"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_system_library",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_system_library"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_libzmq",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_libzmq"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:vendored_dependency_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:vendored_dependency_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:build_backend_import_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:build_backend_import_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:read_only_filesystem_violation",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:read_only_filesystem_violation"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:writable_path_missing",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:writable_path_missing"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:resource_limit",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:resource_limit"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:timeout",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:timeout"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:source_archive_problem",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:source_archive_problem"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:package_version_incompatibility",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:package_version_incompatibility"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_python_build_requirement",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_python_build_requirement"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_C_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_C_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_Cxx_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_Cxx_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_linker",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_linker"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_Python_headers",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_Python_headers"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_Rust_toolchain",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_Rust_toolchain"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_Cargo",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_Cargo"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_CMake",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_CMake"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_Ninja",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_Ninja"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_pkg_config",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_pkg_config"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_system_library",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_system_library"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_libzmq",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_libzmq"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:vendored_dependency_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:vendored_dependency_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:build_backend_import_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:build_backend_import_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:read_only_filesystem_violation",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:read_only_filesystem_violation"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:writable_path_missing",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:writable_path_missing"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:resource_limit",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:resource_limit"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:timeout",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:timeout"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:source_archive_problem",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:source_archive_problem"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:package_version_incompatibility",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:package_version_incompatibility"
+    }
+  ],
+  "evidence_topology_hashes": [],
+  "hypotheses_pruned": 8,
+  "schema_version": "amds.board.v4"
+}

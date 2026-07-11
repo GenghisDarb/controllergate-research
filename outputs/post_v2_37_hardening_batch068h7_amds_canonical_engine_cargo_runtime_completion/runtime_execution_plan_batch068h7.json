@@ -1,65 +1,42 @@
 {
   "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
   "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
-  "context_path": "E:\\ControllerGate-Artifacts\\batch068h7_0n9742rc\\context.json",
+  "context_path": "/home/runner/work/_temp/batch068h7_81okhqqw/context.json",
   "phases": [
     {
       "binding": "batch068h7_phase",
       "depends_on": [],
-      "phase_id": "offline_capsule_materialization",
+      "phase_id": "amds_completion_reconciliation",
       "replay_authorized": false
     },
     {
       "binding": "batch068h7_phase",
       "depends_on": [
-        "offline_capsule_materialization"
+        "amds_completion_reconciliation"
       ],
-      "phase_id": "collection_run_1",
+      "phase_id": "amds_board_v3_migration",
       "replay_authorized": false
     },
     {
       "binding": "batch068h7_phase",
       "depends_on": [
-        "offline_capsule_materialization",
-        "collection_run_1"
+        "amds_completion_reconciliation",
+        "amds_board_v3_migration"
       ],
-      "phase_id": "collection_run_2",
+      "phase_id": "cargo_provider_recovery_and_builder",
       "replay_authorized": false
     },
     {
       "binding": "batch068h7_phase",
       "depends_on": [
-        "offline_capsule_materialization",
-        "collection_run_1",
-        "collection_run_2"
+        "amds_completion_reconciliation",
+        "amds_board_v3_migration",
+        "cargo_provider_recovery_and_builder"
       ],
-      "phase_id": "prerepair_replay_1",
-      "replay_authorized": false
-    },
-    {
-      "binding": "batch068h7_phase",
-      "depends_on": [
-        "offline_capsule_materialization",
-        "collection_run_1",
-        "collection_run_2",
-        "prerepair_replay_1"
-      ],
-      "phase_id": "prerepair_replay_2",
-      "replay_authorized": false
-    },
-    {
-      "binding": "batch068h7_phase",
-      "depends_on": [
-        "offline_capsule_materialization",
-        "collection_run_1",
-        "collection_run_2",
-        "prerepair_replay_1",
-        "prerepair_replay_2"
-      ],
-      "phase_id": "patch_authorization",
+      "phase_id": "canonical_dual_build_recovery",
       "replay_authorized": false
     }
   ],
-  "plan_hash": "5ae350521155c2f081134b365b7e4dc8f6e2825f84c1ff94d54a3e1fbcf0dbb4",
-  "plan_id": "batch068h7-runtime"
+  "plan_hash": "7c132edff514e452b90ca2362447cf8c3cf8b7db2da3368bfb70cf1e53e693f6",
+  "plan_id": "batch068h7-provider"
 }

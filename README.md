@@ -10,19 +10,20 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. The Batch068h series adds a callable historical dependency resolver, authorization-bound execution, evidence-derived candidate-contact resolution, source-context analysis, semantic proof obligations, bounded diagnostic checks, and isolated build-provider recovery. Earlier v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
 
-For the active Nbclient candidate, Batch068h7 completes the canonical observation-driven AMDS engine and migrates the full 92-cell evidence board. It discovers Cargo at `/usr/local/cargo/bin/cargo`, verifies the locked Cargo provider, and builds verified Python 3.13 wheels for Coverage 7.5.4, MarkupSafe 2.1.5, pyzmq 26.0.3, and rpds-py 0.18.1. Both previously open native build branches now close only after wheel, tag, `RECORD`, runtime-import, native-extension, and shared-library checks pass.
+Batch068h8 officially ingests the Batch068h7 workflow result, which had stopped at Cargo provider acquisition, and keeps that evidence separate from the earlier local diagnostic. It adds phase-bound network authorization, captures complete Cargo telemetry, closes the locked provider, and reproducibly builds verified Python 3.13 wheels for Coverage 7.5.4, MarkupSafe 2.1.5, pyzmq 26.0.3, and rpds-py 0.18.1. The migrated AMDS v4 board executes a nonvacuous observation-driven update while preserving prospective effectiveness as `NOT_ESTABLISHED`.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
-Batch068h7 remains fail-closed. Offline installation and origin verification pass, but the exact collection command is blocked before node materialization because the historical dependency set turns a Python 3.13 date-parsing deprecation into collection errors. Duplicate collection, prerepair replay, patch authorization, and the fifth repair count therefore remain `NOT_RUN`.
+Batch068h8 preserves the default warning-policy failure and separately runs the project-declared `-W default` diagnostic twice, collecting the same 33 nodes. Duplicate issue-target replay reproduces the same 26 mock-call assertion failures and classifies them as `interpreter_mock_behavior_change`; Nbclient is therefore retired from the source-only repair queue without a patch. The one allowed replacement hop selects `anyio_1028_old_pytest_assertion` and stops because its command boundary is not authoritative.
 
 - Confirmed issue-derived repair episodes: `4`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
-- Batch068h6 official artifact verification: `PASS`.
-- Batch068h7 canonical AMDS engine and thirteen evidence adapters: `PASS`.
-- Batch068h7 dual native wheel closure: `PASS`.
-- Batch068h7 exact blocker: `historical_warning_policy_boundary_reproduced`.
+- Batch068h7 official artifact verification and ingest: `PASS`.
+- Batch068h8 network authorization and Cargo provider closure: `PASS`.
+- Batch068h8 AMDS v4 incident demonstration and dual native wheel reproducibility: `PASS`.
+- Batch068h8 Nbclient ownership: `interpreter_mock_behavior_change`; source repair not admissible.
+- Batch068h8 exact blocker: `replacement_candidate_command_not_authoritative`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

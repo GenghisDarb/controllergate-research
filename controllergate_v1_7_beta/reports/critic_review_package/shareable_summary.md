@@ -1,5 +1,13 @@
 # ControllerGate shareable summary
 
+## Batch068h8 authorized Cargo closure and warning-orthology routing
+
+ControllerGate remains on validated protocol `v2.18`. Batch068h8 verifies and ingests the official Batch068h7 workflow artifact, preserves its Cargo acquisition block separately from the earlier local diagnostic, and introduces two single-use execution authorizations: bounded read-only provider acquisition and network-free build/runtime execution.
+
+The authorized provider phase verifies 38 locked crates. Coverage, MarkupSafe, pyzmq, and rpds-py then build twice with exact-byte reproducibility, followed by offline installation and SBOM/origin checks. AMDS board v4 synchronizes branch and cell semantics and records one official probe, observation, posterior update, board update, and rerank; prospective effectiveness remains `NOT_ESTABLISHED`.
+
+The default warning-policy arm remains blocked. The separately labeled project-declared diagnostic arm collects 33 identical nodes twice. Two issue-target runs reproduce the same 26 mock-call assertion failures, yielding `interpreter_mock_behavior_change`; Nbclient is retired without patching source or tests. One bounded replacement hop selects AnyIO issue 1028, then stops at `replacement_candidate_command_not_authoritative`. Repair counts remain 4 issue-derived and 4 native; full scoring is disabled, memory lift is not demonstrated, and self-maintaining software is not demonstrated.
+
 ## Batch068h7 canonical AMDS and Cargo runtime completion
 
 ControllerGate remains on validated protocol `v2.18`. Batch068h7 verifies the official Batch068h6 artifact, replaces the stale operation-success closure behavior with an observation-driven canonical AMDS loop, preserves the full 92-cell evidence topology, and binds thirteen real evidence-producing probe adapters.

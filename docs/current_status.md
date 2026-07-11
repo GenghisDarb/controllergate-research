@@ -4,18 +4,19 @@
 
 The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. The Batch068h runtime makes historical dependency resolution, exact-runtime provider recovery, and its safety gates callable through the canonical runtime while preserving selectable v2.17, v2.16, v2.15, and v2.14 interfaces.
 
-The active Nbclient record has a verified stable-first 67-node, 113-edge lock. Batch068h7 preserves the 92-cell evidence topology, replaces operation-success auto-closure with explicit goal predicates, and executes thirteen evidence-producing probe adapters through the canonical runtime. Cargo is discovered at its absolute image path and its locked provider cache verifies before offline use.
+The active Nbclient record has a verified stable-first 67-node, 113-edge lock. Batch068h8 preserves the official Batch068h7 Cargo acquisition block separately from the local diagnostic, adds phase-bound network authorization, closes the Cargo provider with 38 verified crates, and migrates the 92-cell evidence topology to synchronized AMDS board v4 semantics.
 
 The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIER_STATE.json`; its rendered view is `docs/CURRENT_FRONTIER_STATUS.md`.
 
-Coverage, MarkupSafe, pyzmq, and rpds-py all produce verified Python 3.13 wheels and pass fresh runtime checks. Offline installation and runner/target/harness origin checks pass. Collection run 1 remains blocked with zero nodes because the historical warning policy elevates a Python 3.13 date-parsing deprecation to two collection errors. No second collection, prerepair replay, patch, duplicate clean replay, or count gate ran.
+Coverage, MarkupSafe, pyzmq, and rpds-py each build twice with identical bytes and verified normalized contents. Offline installation, SBOM, and runner/target/harness origin checks pass. The default warning policy still reproduces its historical boundary; the separately labeled project-declared diagnostic arm collects the same 33 nodes twice. Two issue-target runs reproduce 26 mock-call assertion failures and are classified as interpreter behavior rather than a source-owned defect. Nbclient is retired without a patch, and the one-hop AnyIO replacement stops at a missing authoritative command boundary.
 
 - Issue-derived repair episodes: `4`.
 - Native external repair episodes: `4`.
-- Batch068h6 artifact custody: `PASS`.
-- Canonical AMDS engine, full-board migration, and real probe adapters: `PASS`.
-- Pyzmq and rpds-py branch closure: `PASS`.
-- Exact next boundary: `historical_warning_policy_boundary_reproduced`.
+- Batch068h7 artifact custody and official/local reconciliation: `PASS`.
+- Batch068h8 network authorization, Cargo closure, AMDS v4, and wheel reproducibility: `PASS`.
+- Nbclient source-repair admissibility: `false` (`interpreter_mock_behavior_change`).
+- Replacement candidate: `anyio_1028_old_pytest_assertion`.
+- Exact next boundary: `replacement_candidate_command_not_authoritative`.
 - Reconciled historical false closures: `2`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Runtime connectors and live-device repair: inactive.

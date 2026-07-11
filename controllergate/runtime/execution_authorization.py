@@ -17,6 +17,7 @@ class ExecutionScope:
     patch_authority: bool = False
     source_mutation_authority: bool = False
     test_mutation_authority: bool = False
+    network_policies: tuple[dict[str, Any], ...] = ()
 
 
 @dataclass(frozen=True)
@@ -66,4 +67,9 @@ def verify_authorization(value: dict[str, Any], *, candidate_id: str, candidate_
     if expires <= now: errors.append("authorization_expired")
     if record.single_use and record.nonce in spent_nonces: errors.append("authorization_nonce_spent")
     if record.scope.patch_authority or record.scope.source_mutation_authority or record.scope.test_mutation_authority: errors.append("authorization_scope_overbroad")
-    return {"status": "PASS" if not errors else "BLOCK", "blocker": None if not errors else errors[0], "errors": errors, "authorization_id": record.authorization_id, "nonce": record.nonce, "allowed_phases": list(record.scope.allowed_phases)}
+    policies = list(record.scope.network_policies)
+    policy_ids = [str(item.get("phase_id")) for item in policies]
+    if len(policy_ids) != len(set(policy_ids)): errors.append("network_authorization_duplicate_phase")
+    if policies and set(policy_ids) != set(record.scope.allowed_phases): errors.append("network_authorization_policy_coverage_incomplete")
+    if set(record.scope.network_phases) != {str(item.get("phase_id")) for item in policies if item.get("network_mode") == "bounded_read_only"}: errors.append("network_authorization_phase_policy_mismatch")
+    return {"status": "PASS" if not errors else "BLOCK", "blocker": None if not errors else errors[0], "errors": errors, "authorization_id": record.authorization_id, "nonce": record.nonce, "allowed_phases": list(record.scope.allowed_phases), "network_phases": list(record.scope.network_phases), "network_policies": policies}

@@ -10,6 +10,7 @@ from .execution_authorization import verify_authorization
 from .execution_checkpoint import RuntimeCheckpoint, load_checkpoint, write_checkpoint
 from .execution_plan import plan_from_dict, verify_plan
 from .phase_executor import execute_binding
+from .network_policy import validate_network_policy
 
 
 def dispatch(*, candidate_id: str, candidate_sha: str, current_state_hash: str, authorization_path: Path, plan_path: Path, checkpoint_path: Path, event_ledger_path: Path) -> dict[str, Any]:
@@ -33,7 +34,12 @@ def dispatch(*, candidate_id: str, candidate_sha: str, current_state_hash: str, 
         if phase.phase_id not in allowed: return {"status": "BLOCK", "blocker": "phase_not_authorized", "phase_id": phase.phase_id}
         if any(parent not in completed for parent in phase.depends_on): return {"status": "BLOCK", "blocker": "runtime_phase_skip_rejected", "phase_id": phase.phase_id}
         input_hash = hash_record({"phase": phase.phase_id, "context": context, "chain": chain})
-        result = execute_binding(phase.binding, phase.phase_id, context); output_hash = hash_record(result)
+        policy = next((item for item in auth.get("network_policies", []) if item.get("phase_id") == phase.phase_id), {"phase_id": phase.phase_id, "network_mode": "none", "allowed_network_destinations": [], "allowed_protocols": [], "maximum_requests": 0, "maximum_download_bytes": 0})
+        policy_check = validate_network_policy(policy, phase_id=phase.phase_id)
+        if policy_check["status"] != "PASS": return {**policy_check, "phase_id": phase.phase_id}
+        if phase.phase_id in set(auth.get("network_phases", [])) and policy.get("network_mode") != "bounded_read_only": return {"status": "BLOCK", "blocker": "network_enabled_phase_policy_missing", "phase_id": phase.phase_id}
+        if phase.phase_id not in set(auth.get("network_phases", [])) and policy.get("network_mode") != "none": return {"status": "BLOCK", "blocker": "network_phase_absent_from_authorization", "phase_id": phase.phase_id}
+        result = execute_binding(phase.binding, phase.phase_id, context, policy); output_hash = hash_record(result)
         event = append_event(event_ledger_path, RuntimeEvent(f"event-{len(completed)+1:03d}", phase.phase_id, str(result["status"]), input_hash, output_hash, result.get("blocker"), chain))
         chain = str(event["event_hash"]); executed.append(phase.phase_id)
         context.update(result.get("context_updates", {})); Path(plan.context_path).write_text(json.dumps(context, indent=2, sort_keys=True) + "\n", encoding="utf-8")

@@ -1,5 +1,5 @@
 {
-  "board_hash": "2dca2964320050d796bb7399882a9478cd877b5e4e771a6fb0986cd7cbe2464b",
+  "board_hash": "ac4c718e573789d4f785c9a0c64d9e0c75721e6f2e42cf13a58ce0231a56530a",
   "board_id": "amds-codex_wave3_jupyter_nbclient_issues_316",
   "branches": {
     "coverage": {
@@ -30,52 +30,26 @@
     },
     "pyzmq": {
       "branch_id": "BUILD-CELL-PYZMQ",
-      "branch_state": "CLOSED",
+      "branch_state": "REMEDIATION_PENDING",
       "evidence_hashes": [
         "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
       ],
       "goal_predicate": "verified_wheel_runtime_install",
-      "goal_result": {
-        "checks": {
-          "fresh_runtime_install_pass": true,
-          "minimal_import_pass": true,
-          "record_verified": true,
-          "required_providers_resolved": true,
-          "wheel_identity_verified": true,
-          "wheel_metadata_verified": true,
-          "wheel_produced": true,
-          "wheel_tags_compatible": true
-        },
-        "goal_passed": true,
-        "status": "PASS"
-      },
-      "last_observation_hash": "25ba2ab7365802194b0d30d026322faa2460611a8f4769e50e89a81c191ed834",
-      "reopen_conditions": [],
+      "reopen_conditions": [
+        "new provider, wheel, or runtime evidence"
+      ],
       "state_hash": "6f10b334b1d12adc83ab9d1a13ef9ac395e35818e4e482ba39e216411d9fb2a0"
     },
     "rpds-py": {
       "branch_id": "BUILD-CELL-RPDS_PY",
-      "branch_state": "CLOSED",
+      "branch_state": "REMEDIATION_PENDING",
       "evidence_hashes": [
         "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
       ],
       "goal_predicate": "verified_wheel_runtime_install",
-      "goal_result": {
-        "checks": {
-          "fresh_runtime_install_pass": true,
-          "minimal_import_pass": true,
-          "record_verified": true,
-          "required_providers_resolved": true,
-          "wheel_identity_verified": true,
-          "wheel_metadata_verified": true,
-          "wheel_produced": true,
-          "wheel_tags_compatible": true
-        },
-        "goal_passed": true,
-        "status": "PASS"
-      },
-      "last_observation_hash": "259bacecf73e8e32ebb254e9aaa441b705a93ffdc051aa40f482602abbc46ec8",
-      "reopen_conditions": [],
+      "reopen_conditions": [
+        "new provider, wheel, or runtime evidence"
+      ],
       "state_hash": "a08f964fadf0dacaf13c927a0a1477fb7a317404de20caafde746567d7f9981c"
     }
   },
@@ -122,7 +96,7 @@
         "source_patch",
         "test_mutation"
       ],
-      "last_update_event": "observation-001",
+      "last_update_event": "board_initialized",
       "neighbors": [],
       "original_evidence_hashes": [
         "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
@@ -132,8 +106,8 @@
         "new build-provider evidence"
       ],
       "semantic_state": "REMEDIATION_PENDING",
-      "state": "RESOLVED",
-      "state_hash": "6719850d4bdfc9b8149f76342b158d033f6324307ddc77a15386ed18b6c9c8e1"
+      "state": "UNKNOWN",
+      "state_hash": "e382c372d9da80b1d9cb1d4c2f2bf306237c510d5a278527ba46eb6701536353"
     },
     {
       "allowed_probes": [
@@ -2396,7 +2370,7 @@
         "source_patch",
         "test_mutation"
       ],
-      "last_update_event": "observation-003",
+      "last_update_event": "board_initialized",
       "neighbors": [],
       "original_evidence_hashes": [
         "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
@@ -2406,8 +2380,8 @@
         "new build-provider evidence"
       ],
       "semantic_state": "REMEDIATION_PENDING",
-      "state": "RESOLVED",
-      "state_hash": "8add48b1359f84f3bf006338aa44e194dda28923771c728c423999790d10cea7"
+      "state": "UNKNOWN",
+      "state_hash": "022f63cc3ab5d1f2e6afedfc6d3e11a70a433162a80254f8d233b3e9e8fe464c"
     },
     {
       "allowed_probes": [
