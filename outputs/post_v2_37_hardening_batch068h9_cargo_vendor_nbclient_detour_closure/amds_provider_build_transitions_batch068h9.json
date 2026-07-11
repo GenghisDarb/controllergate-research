@@ -1,0 +1,91 @@
+{
+  "AMDS_PROSPECTIVE_EFFECTIVENESS": "NOT_ESTABLISHED",
+  "architecture_expanded": false,
+  "board_updates": 3,
+  "branch_states": {
+    "coverage": {
+      "branch_id": "BUILD-CELL-COVERAGE",
+      "branch_state": "CLOSED",
+      "evidence_hashes": [
+        "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "reopen_conditions": [
+        "runtime import regression",
+        "wheel identity mismatch"
+      ],
+      "state_hash": "25d7d1563644292f6a7bee57e3571f143719d232b237475665c0c56010c65fe2"
+    },
+    "markupsafe": {
+      "branch_id": "BUILD-CELL-MARKUPSAFE",
+      "branch_state": "CLOSED",
+      "evidence_hashes": [
+        "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "reopen_conditions": [
+        "runtime import regression",
+        "wheel identity mismatch"
+      ],
+      "state_hash": "65f58ecfcd08cdd08a070a84b2283d5b4b92790c4c5dfd3c1f6b0a703e0701e5"
+    },
+    "pyzmq": {
+      "branch_id": "BUILD-CELL-PYZMQ",
+      "branch_state": "CLOSED",
+      "evidence_hashes": [
+        "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "goal_result": {
+        "checks": {
+          "fresh_runtime_install_pass": true,
+          "minimal_import_pass": true,
+          "record_verified": true,
+          "required_providers_resolved": true,
+          "wheel_identity_verified": true,
+          "wheel_metadata_verified": true,
+          "wheel_produced": true,
+          "wheel_tags_compatible": true
+        },
+        "goal_passed": true,
+        "status": "PASS"
+      },
+      "last_observation_hash": "457f68aadf90d0fec1dc60b0e0706c87ad57531017ebd0d1e7010d50d903d652",
+      "reopen_conditions": [],
+      "state_hash": "6f10b334b1d12adc83ab9d1a13ef9ac395e35818e4e482ba39e216411d9fb2a0"
+    },
+    "rpds-py": {
+      "branch_id": "BUILD-CELL-RPDS_PY",
+      "branch_state": "CLOSED",
+      "evidence_hashes": [
+        "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "goal_result": {
+        "checks": {
+          "fresh_runtime_install_pass": true,
+          "minimal_import_pass": true,
+          "record_verified": true,
+          "required_providers_resolved": true,
+          "wheel_identity_verified": true,
+          "wheel_metadata_verified": true,
+          "wheel_produced": true,
+          "wheel_tags_compatible": true
+        },
+        "goal_passed": true,
+        "status": "PASS"
+      },
+      "last_observation_hash": "f8c477d7588487f0c2b0568fd01fb4185f1e525a522ad9b0c0af56d9677f092e",
+      "reopen_conditions": [],
+      "state_hash": "a08f964fadf0dacaf13c927a0a1477fb7a317404de20caafde746567d7f9981c"
+    }
+  },
+  "branches_closed": 2,
+  "posterior_updates": 3,
+  "provider_remediation_observation": {
+    "cause": "cargo_cache_not_writable",
+    "provider_status": "PASS",
+    "remediation": "direct_lock_vendor"
+  },
+  "status": "PASS"
+}

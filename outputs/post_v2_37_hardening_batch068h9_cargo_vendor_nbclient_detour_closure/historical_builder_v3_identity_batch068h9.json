@@ -1,0 +1,46 @@
+{
+  "blocker": null,
+  "build_stderr": "",
+  "builder_image": "controllergate-batch068h7-builder:local",
+  "builder_image_id": "sha256:e2c90f7132bb37dbd6787aef0b6f1f3039183253786a0c4d77befd26bd2979e0",
+  "cargo_provider_hash": "55348126a7198d6dfd799fcda57bc449b87eb14160e8b86e0d170a1c2ed38698",
+  "gcc": {
+    "image_id": "sha256:de5c5093e2ceb5c09901ed541ecab0660d1f01b7fd79587ad0294fa758a1690e",
+    "repo_digest": "gcc@sha256:de5c5093e2ceb5c09901ed541ecab0660d1f01b7fd79587ad0294fa758a1690e",
+    "status": "PASS",
+    "tag": "gcc:12.3.0-bookworm"
+  },
+  "network_during_build": "none",
+  "python": {
+    "image_id": "sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9",
+    "repo_digest": "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9",
+    "status": "PASS",
+    "tag": "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9"
+  },
+  "pyzmq_provider_sources": [
+    {
+      "path": "E:\\ControllerGate-Artifacts\\batch068h9_jbg00szk\\artifact_store\\provider_sources\\libsodium-1.0.19.tar.gz",
+      "provider": "libsodium",
+      "sha256": "018d79fe0a045cca07331d37bd0cb57b2e838c51bc48fd837a1472e50068bbea",
+      "status": "PASS",
+      "url": "https://github.com/jedisct1/libsodium/releases/download/1.0.19-RELEASE/libsodium-1.0.19.tar.gz",
+      "version": "1.0.19"
+    },
+    {
+      "path": "E:\\ControllerGate-Artifacts\\batch068h9_jbg00szk\\artifact_store\\provider_sources\\zeromq-4.3.5.tar.gz",
+      "provider": "libzmq",
+      "sha256": "6653ef5910f17954861fe72332e68b03ca6e4d9c7160eb3a8de5a5a913bfab43",
+      "status": "PASS",
+      "url": "https://github.com/zeromq/libzmq/releases/download/v4.3.5/zeromq-4.3.5.tar.gz",
+      "version": "4.3.5"
+    }
+  ],
+  "rust": {
+    "image_id": "sha256:073c8e7ae12d2637d1d541cb0f3f9d92bfa22c97e2e45db87a9fc6a90c9a7f22",
+    "repo_digest": "rust@sha256:073c8e7ae12d2637d1d541cb0f3f9d92bfa22c97e2e45db87a9fc6a90c9a7f22",
+    "status": "PASS",
+    "tag": "rust:1.79.0-slim-bookworm"
+  },
+  "selected_cargo_method": "direct_lock_vendor",
+  "status": "PASS"
+}

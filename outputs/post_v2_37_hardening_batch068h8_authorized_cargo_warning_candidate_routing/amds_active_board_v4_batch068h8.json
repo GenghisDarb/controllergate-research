@@ -1,5 +1,5 @@
 {
-  "board_hash": "663101931da16f9e12cffbbbacc8dd304633ab9a3f54b5f628fcd0e8d752feb2",
+  "board_hash": "ded8f4e6ee1e61d30b701029bc4e5a858f25ae93f186322accf4de2c5766f07b",
   "board_id": "amds-codex_wave3_jupyter_nbclient_issues_316",
   "branches": {
     "coverage": {
@@ -30,52 +30,32 @@
     },
     "pyzmq": {
       "branch_id": "BUILD-CELL-PYZMQ",
-      "branch_state": "CLOSED",
+      "branch_state": "REMEDIATION_PENDING",
       "evidence_hashes": [
         "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
       ],
       "goal_predicate": "verified_wheel_runtime_install",
-      "goal_result": {
-        "checks": {
-          "fresh_runtime_install_pass": true,
-          "minimal_import_pass": true,
-          "record_verified": true,
-          "required_providers_resolved": true,
-          "wheel_identity_verified": true,
-          "wheel_metadata_verified": true,
-          "wheel_produced": true,
-          "wheel_tags_compatible": true
-        },
-        "goal_passed": true,
-        "status": "PASS"
-      },
-      "last_observation_hash": "40727d5bdf0f0ddc912c8a6d0d77a2edbee60fa8b67b7fb73b2f8aa4b9c56b95",
-      "reopen_conditions": [],
+      "reopen_conditions": [
+        "new provider, wheel, or runtime evidence"
+      ],
       "state_hash": "6f10b334b1d12adc83ab9d1a13ef9ac395e35818e4e482ba39e216411d9fb2a0"
     },
     "rpds-py": {
       "branch_id": "BUILD-CELL-RPDS_PY",
-      "branch_state": "CLOSED",
+      "branch_state": "REMEDIATION_PENDING",
       "evidence_hashes": [
         "388c81ec6b0292121ee438cd1d031aa114df8f7e30df99d5f6b71f59694adcb2"
       ],
       "goal_predicate": "verified_wheel_runtime_install",
       "goal_result": {
-        "checks": {
-          "fresh_runtime_install_pass": true,
-          "minimal_import_pass": true,
-          "record_verified": true,
-          "required_providers_resolved": true,
-          "wheel_identity_verified": true,
-          "wheel_metadata_verified": true,
-          "wheel_produced": true,
-          "wheel_tags_compatible": true
-        },
-        "goal_passed": true,
-        "status": "PASS"
+        "goal_passed": false,
+        "reason": "wheel verification still required",
+        "status": "BLOCK"
       },
-      "last_observation_hash": "b09ce8c0a0c0f0affecd40f5857c5841ef3c6acc80cf66c7b8b01c6d11126d17",
-      "reopen_conditions": [],
+      "last_observation_hash": "c49766c585610f8c9f5caee1ee067d1dc733eb5c23ef46f3416a8c7ca7a2ebb6",
+      "reopen_conditions": [
+        "new provider, wheel, or runtime evidence"
+      ],
       "state_hash": "a08f964fadf0dacaf13c927a0a1477fb7a317404de20caafde746567d7f9981c"
     }
   },
@@ -123,7 +103,7 @@
         "test_mutation"
       ],
       "hypothesis_state": "CAUSAL_MINE",
-      "last_update_event": "observation-001",
+      "last_update_event": "board_initialized",
       "neighbors": [],
       "original_evidence_hashes": [
         "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
@@ -133,8 +113,8 @@
         "new build-provider evidence"
       ],
       "semantic_state": "CAUSAL_MINE",
-      "state": "RESOLVED",
-      "state_hash": "43026d19f36bcc70f69d0e3f5a5ef33c5e291a33816f11b6975a992284be5bd2"
+      "state": "CAUSAL_MINE",
+      "state_hash": "6a29af1be24d1e96784332e0f1df0e708ba0ff7a5ce60d4254405bef0d2e7aba"
     },
     {
       "allowed_probes": [
@@ -2466,7 +2446,7 @@
         "test_mutation"
       ],
       "hypothesis_state": "CAUSAL_MINE",
-      "last_update_event": "observation-003",
+      "last_update_event": "observation-001",
       "neighbors": [],
       "original_evidence_hashes": [
         "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
@@ -2476,8 +2456,8 @@
         "new build-provider evidence"
       ],
       "semantic_state": "CAUSAL_MINE",
-      "state": "RESOLVED",
-      "state_hash": "1a68ec32514fac51fa62f2ac04594a1efe5ec789e6f090ec76e13eeaca7cdbfd"
+      "state": "CAUSAL_MINE",
+      "state_hash": "79401846063ad55d81206a72edd21654919bd61acdb7b59fcc8fd84ed2981ef0"
     },
     {
       "allowed_probes": [
@@ -2696,7 +2676,7 @@
       "forbidden_actions": [
         "source_patch"
       ],
-      "hypothesis_state": "SAFE",
+      "hypothesis_state": "CAUSAL_MINE",
       "last_update_event": "board_initialized",
       "neighbors": [],
       "original_evidence_hashes": [
@@ -2706,9 +2686,9 @@
       "reopen_conditions": [
         "new evidence"
       ],
-      "semantic_state": "SAFE",
-      "state": "SAFE",
-      "state_hash": "f1642f1568ad4bba2fe20690900b11e8ab47a42a4da204580d61b847f0bf66e5"
+      "semantic_state": "CAUSAL_MINE",
+      "state": "CAUSAL_MINE",
+      "state_hash": "9b4c862b995b78e5711376faba0615dc35e8b5d78c94f9584f150aae6ab0ca4c"
     },
     {
       "allowed_probes": [
@@ -3278,7 +3258,7 @@
         "BUILD-CELL-RPDS_PY:missing_Cargo"
       ],
       "source_evidence_hashes": [
-        "075ab13986290394c37707507b9c9b88e4243856437f59df27d6eae5fed8b37a"
+        "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
       ]
     },
     {
@@ -3290,7 +3270,7 @@
         "BUILD-CELL-RPDS_PY:missing_Rust_toolchain"
       ],
       "source_evidence_hashes": [
-        "dfc5cc111ae75279b22d0ed7706de0e8ece02ca3a4579977ea3b02175606bd97"
+        "747273d400e72db7728f3d711fc4c2d1280252a78d788aa0e73e991d22702cb6"
       ]
     },
     {

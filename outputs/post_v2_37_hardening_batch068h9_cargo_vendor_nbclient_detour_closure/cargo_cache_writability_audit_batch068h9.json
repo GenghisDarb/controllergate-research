@@ -1,0 +1,36 @@
+{
+  "blocker": null,
+  "checks": {
+    "container_user": "65534:65534",
+    "database_file": true,
+    "delete": true,
+    "directory": true,
+    "rename": true,
+    "subdirectory": true,
+    "write": true
+  },
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--user",
+    "65534:65534",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "-v",
+    "E:\\ControllerGate-Artifacts\\batch068h9_jbg00szk\\cargo_cache_h9:/cargo-cache:rw",
+    "--entrypoint",
+    "python",
+    "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9",
+    "-c",
+    "import os,pathlib,sqlite3;p=pathlib.Path('/cargo-cache');p.mkdir(exist_ok=True);(p/'write.tmp').write_text('ok');(p/'write.tmp').rename(p/'rename.tmp');(p/'registry/cache/probe').mkdir(parents=True,exist_ok=True);c=sqlite3.connect(p/'.global-cache');c.execute('create table if not exists probe(v int)');c.commit();c.close();(p/'rename.tmp').unlink();(p/'.global-cache').unlink();print('cargo-cache-preflight-pass',os.getuid(),os.getgid())"
+  ],
+  "returncode": 0,
+  "status": "PASS",
+  "stderr": "",
+  "stdout": "cargo-cache-preflight-pass 65534 65534\n"
+}

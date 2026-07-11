@@ -10,20 +10,23 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. The Batch068h series adds a callable historical dependency resolver, authorization-bound execution, evidence-derived candidate-contact resolution, source-context analysis, semantic proof obligations, bounded diagnostic checks, and isolated build-provider recovery. Earlier v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
 
-Batch068h8 officially ingests the Batch068h7 workflow result, which had stopped at Cargo provider acquisition, and keeps that evidence separate from the earlier local diagnostic. It adds phase-bound network authorization, captures complete Cargo telemetry, and conditionally advances through locked provider closure and reproducible Python 3.13 wheel builds. The migrated AMDS v4 board executes a nonvacuous observation-driven update even when provider acquisition blocks, while preserving prospective effectiveness as `NOT_ESTABLISHED`.
+Batch068h9 verifies and ingests the official Batch068h8 artifact, corrects its Cargo cache-permission misclassification, and promotes a reusable lock-driven vendor strategy only after all 38 package checksums and an actual `cargo metadata --locked --offline` run pass. Historical builder v3 consumes that provider with network disabled and produces verified Python 3.13 wheels for Coverage, MarkupSafe, pyzmq, and rpds-py.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
-The local Batch068h8 diagnostic closes the provider and preserves the default warning-policy failure while separately collecting the same 33 nodes twice under the project-declared `-W default` diagnostic. Its two issue-target replays reproduce the same 26 mock-call assertion failures and classify them as `interpreter_mock_behavior_change`; these local downstream results do not override an official-runner Cargo block. No source patch or repair count is authorized when the official provider boundary remains blocked.
+The default Nbclient warning policy remains authoritative and blocked. A separately labeled project-declared `-W default` diagnostic collects the same 33 nodes twice without executing test bodies. Two fresh issue-target replays reproduce the same 26 mock-call assertion failures and classify the boundary as `interpreter_mock_behavior_change`. Nbclient is therefore retired from the source-only repair queue without changing tests, production code, or repair counts. The Batch068h detour is closed; the next major action is Batch070.
 
 - Confirmed issue-derived repair episodes: `4`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
-- Batch068h7 official artifact verification and ingest: `PASS`.
-- Batch068h8 network authorization and AMDS v4 incident demonstration: `PASS`.
-- Batch068h8 Cargo/wheel/Nbclient results: conditional; downstream gates remain `NOT_RUN` when official Cargo acquisition blocks.
-- Local diagnostic ownership: `interpreter_mock_behavior_change`; nonpromoting.
-- Official exact blocker is preserved from the fresh workflow evidence.
+- Batch068h8 official artifact verification and ingest: `PASS`.
+- Batch068h9 Cargo provider closure: `PASS` via `direct_lock_vendor`.
+- Verified vendor contents: `38` packages, `1,320` files; actual offline metadata: `PASS`.
+- Historical builder v3 and four required wheel closures: `PASS`.
+- Offline capsule, SBOM, and origin checks: `PASS`.
+- Diagnostic collection: `33` equivalent nodes across two fresh runs.
+- Nbclient ownership: `interpreter_mock_behavior_change`; retired without a source patch.
+- Next major action: `Batch070`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

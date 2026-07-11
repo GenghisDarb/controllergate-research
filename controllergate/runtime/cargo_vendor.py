@@ -38,7 +38,7 @@ def safe_extract_crate(archive: Path, destination: Path, *, package: str, versio
     return {"status":"PASS","file_count":len(files),"package_checksum":checksum,"tree_hash":hashlib.sha256(json.dumps(files,sort_keys=True).encode()).hexdigest()}
 
 
-def build_vendor_tree(*, lock_path: Path, vendor_root: Path, cutoff: str, phase_id: str, policy: dict[str,Any], ledger_path: Path) -> dict[str,Any]:
+def build_vendor_tree(*, lock_path: Path, vendor_root: Path, cutoff: str, phase_id: str, policy: dict[str,Any], ledger_path: Path, container_vendor_path: str = "/opt/cargo-vendor") -> dict[str,Any]:
     packages=parse_cargo_lock(lock_path);budget={"requests":0,"bytes":0};acquisitions=[]
     cutoff_dt=datetime.fromisoformat(cutoff.replace("Z","+00:00"))
     for item in packages:
@@ -56,6 +56,7 @@ def build_vendor_tree(*, lock_path: Path, vendor_root: Path, cutoff: str, phase_
         acquisitions.append({**item,"publication_timestamp":version_record["created_at"],"yanked":False,"crate_sha256":fetched["sha256"],"vendor":extracted})
         if extracted["status"]!="PASS":return {"status":"BLOCK","blocker":extracted.get("blocker"),"packages":packages,"acquisitions":acquisitions}
         meta_path.unlink(missing_ok=True);crate.unlink(missing_ok=True)
-    config=vendor_root.parent/".cargo"/"config.toml";config.parent.mkdir(parents=True,exist_ok=True);config.write_text('[source.crates-io]\nreplace-with = "vendored-sources"\n\n[source.vendored-sources]\ndirectory = "'+vendor_root.as_posix()+'"\n',encoding="utf-8",newline="\n")
-    manifest=[{"path":p.relative_to(vendor_root).as_posix(),"sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"size":p.stat().st_size} for p in sorted(vendor_root.rglob("*")) if p.is_file()]
+    config=vendor_root.parent/".cargo"/"config.toml";config.parent.mkdir(parents=True,exist_ok=True);config.write_text('[source.crates-io]\nreplace-with = "vendored-sources"\n\n[source.vendored-sources]\ndirectory = "'+container_vendor_path+'"\n',encoding="utf-8",newline="\n")
+    files=(path for path in vendor_root.rglob("*") if path.is_file())
+    manifest=[{"path":p.relative_to(vendor_root).as_posix(),"sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"size":p.stat().st_size} for p in sorted(files,key=lambda item:tuple(item.relative_to(vendor_root).parts))]
     return {"status":"PASS","packages":packages,"acquisitions":acquisitions,"vendor_root":str(vendor_root),"config_path":str(config),"vendor_file_count":len(manifest),"vendor_manifest":manifest,"vendor_hash":hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest(),"request_count":budget["requests"],"download_bytes":budget["bytes"]}

@@ -1,0 +1,65 @@
+{
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+  "context_path": "/home/runner/work/_temp/batch068h8_awa81c2m/context.json",
+  "phases": [
+    {
+      "binding": "batch068h8_phase",
+      "depends_on": [],
+      "phase_id": "board_v4_migration",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h8_phase",
+      "depends_on": [
+        "board_v4_migration"
+      ],
+      "phase_id": "official_amds_execution",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h8_phase",
+      "depends_on": [
+        "board_v4_migration",
+        "official_amds_execution"
+      ],
+      "phase_id": "dual_reproducible_wheel_build",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h8_phase",
+      "depends_on": [
+        "board_v4_migration",
+        "official_amds_execution",
+        "dual_reproducible_wheel_build"
+      ],
+      "phase_id": "offline_capsule_sbom",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h8_phase",
+      "depends_on": [
+        "board_v4_migration",
+        "official_amds_execution",
+        "dual_reproducible_wheel_build",
+        "offline_capsule_sbom"
+      ],
+      "phase_id": "warning_orthology",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h8_phase",
+      "depends_on": [
+        "board_v4_migration",
+        "official_amds_execution",
+        "dual_reproducible_wheel_build",
+        "offline_capsule_sbom",
+        "warning_orthology"
+      ],
+      "phase_id": "ownership_and_terminal_routing",
+      "replay_authorized": false
+    }
+  ],
+  "plan_hash": "7acefab0bd8a8afe0f9be0d0cdea5f659c21df9a1aa4353320b281ec0d3a74ec",
+  "plan_id": "batch068h8-offline"
+}

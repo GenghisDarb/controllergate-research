@@ -16,6 +16,7 @@ from .authorized_fetch import authorized_fetch
 from .batch068h5_pipeline import execute_phase as execute_h5_phase
 from .batch068h7_pipeline import canonical_dual_recovery
 from .cargo_vendor import build_vendor_tree, parse_cargo_lock
+from .cargo_provider_strategies import classify_cargo_failure as classify_cargo_failure_structured
 from .historical_toolchain_provider import prepare_historical_builder
 from .network_authorization import authorize_network_operation
 from .network_event_ledger import append_network_event
@@ -66,20 +67,7 @@ def hydrate_provider_inputs(context:dict[str,Any],policy:dict[str,Any])->dict[st
 
 
 def classify_cargo_failure(stderr:str,returncode:int|None)->str:
-    text=stderr.lower()
-    if returncode==0:return "cargo_fetch_pass"
-    if returncode is None and not text:return "cargo_fetch_pass"
-    if "could not resolve host" in text or "dns" in text:return "cargo_dns_resolution_failed"
-    if "certificate" in text or "tls" in text:return "cargo_tls_verification_failed"
-    if "429" in text or "too many requests" in text:return "cargo_http_rate_limited"
-    if any(code in text for code in ("500","502","503","504")):return "cargo_http_server_error"
-    if "failed to get successful http response" in text or "connection reset" in text:return "cargo_transient_transport_failure"
-    if "failed to download" in text:return "cargo_static_crate_download_failed"
-    if "failed to query replaced source registry" in text or "index" in text:return "cargo_registry_index_unreachable"
-    if "checksum" in text:return "cargo_manifest_or_lock_error"
-    if "lock file" in text or "manifest" in text:return "cargo_manifest_or_lock_error"
-    if "permission denied" in text or "read-only file system" in text:return "cargo_cache_not_writable"
-    return "cargo_failure_unclassified"
+    return classify_cargo_failure_structured(stderr,returncode)
 
 
 def migrate_board_v4(board:dict[str,Any],provider:dict[str,Any])->dict[str,Any]:

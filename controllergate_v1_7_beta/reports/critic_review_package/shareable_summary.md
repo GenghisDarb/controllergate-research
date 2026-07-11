@@ -1,5 +1,13 @@
 # ControllerGate shareable summary
 
+## Batch068h9 Cargo vendor handoff and Nbclient detour closure
+
+ControllerGate remains on validated protocol `v2.18`. Batch068h9 verifies and ingests the official Batch068h8 artifact, corrects the Cargo failure from an HTTP classification to `cargo_cache_not_writable`, and makes the successful lock-driven vendor fallback authoritative only after all 38 registry packages, 1,320 files, and an actual offline Cargo metadata command verify.
+
+Historical builder v3 consumes the verified vendor provider with network disabled. Coverage, MarkupSafe, pyzmq, and rpds-py produce verified Python 3.13 wheels and pass fresh runtime checks. The offline execution capsule, SBOM, origins, and source/test immutability checks pass.
+
+The default warning-policy arm remains blocked. The separately labeled project diagnostic collects the same 33 nodes twice without executing tests. Two target replays reproduce 26 equivalent mock-call assertion failures and classify Nbclient as `interpreter_mock_behavior_change`. ControllerGate retires the candidate without modifying tests or production source, does not run a count gate, and routes the next major action to Batch070. Repair counts remain 4 issue-derived and 4 native; full scoring is disabled, memory lift is not demonstrated, and self-maintaining software is not demonstrated.
+
 ## Batch068h8 authorized Cargo closure and warning-orthology routing
 
 ControllerGate remains on validated protocol `v2.18`. Batch068h8 verifies and ingests the official Batch068h7 workflow artifact, preserves its Cargo acquisition block separately from the earlier local diagnostic, and introduces two single-use execution authorizations: bounded read-only provider acquisition and network-free build/runtime execution.

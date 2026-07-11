@@ -1,0 +1,51 @@
+{
+  "classification": "interpreter_mock_behavior_change",
+  "failed_node_count": 26,
+  "future_pr_evidence_used": false,
+  "run_1_hash": "57e7cb9ab845f362931c2e56469b7d2a21e02984618a66f5ce550e888f806182",
+  "run_2_hash": "57e7cb9ab845f362931c2e56469b7d2a21e02984618a66f5ce550e888f806182",
+  "semantic_signature": {
+    "exception_types": [
+      "AssertionError",
+      "DeprecationWarning"
+    ],
+    "failed_node_ids": [
+      "tests/test_cli.py::test_mult[False-False-input_names0]",
+      "tests/test_cli.py::test_mult[False-False-input_names1]",
+      "tests/test_cli.py::test_mult[False-False-input_names2]",
+      "tests/test_cli.py::test_mult[False-True-input_names0]",
+      "tests/test_cli.py::test_mult[False-True-input_names1]",
+      "tests/test_cli.py::test_mult[False-True-input_names2]",
+      "tests/test_cli.py::test_mult[True-False-input_names0]",
+      "tests/test_cli.py::test_mult[True-False-input_names1]",
+      "tests/test_cli.py::test_mult[True-False-input_names2]",
+      "tests/test_cli.py::test_mult[True-True-input_names0]",
+      "tests/test_cli.py::test_mult[True-True-input_names1]",
+      "tests/test_cli.py::test_mult[True-True-input_names2]",
+      "tests/test_cli.py::test_output[thing-False-input_names0]",
+      "tests/test_cli.py::test_output[thing-False-input_names1]",
+      "tests/test_cli.py::test_output[thing-True-input_names0]",
+      "tests/test_cli.py::test_output[thing-True-input_names1]",
+      "tests/test_cli.py::test_output[thing.ipynb-False-input_names0]",
+      "tests/test_cli.py::test_output[thing.ipynb-False-input_names1]",
+      "tests/test_cli.py::test_output[thing.ipynb-True-input_names0]",
+      "tests/test_cli.py::test_output[thing.ipynb-True-input_names1]",
+      "tests/test_cli.py::test_output[{notebook_name}-new.ipynb-False-input_names0]",
+      "tests/test_cli.py::test_output[{notebook_name}-new.ipynb-False-input_names1]",
+      "tests/test_cli.py::test_output[{notebook_name}-new.ipynb-False-input_names2]",
+      "tests/test_cli.py::test_output[{notebook_name}-new.ipynb-True-input_names0]",
+      "tests/test_cli.py::test_output[{notebook_name}-new.ipynb-True-input_names1]",
+      "tests/test_cli.py::test_output[{notebook_name}-new.ipynb-True-input_names2]"
+    ],
+    "mock_call_mismatch": true,
+    "targets": [
+      "test_mult",
+      "test_output"
+    ]
+  },
+  "signature_equivalence": true,
+  "source_mutation": false,
+  "source_repair_admissible": false,
+  "status": "PASS",
+  "test_mutation": false
+}

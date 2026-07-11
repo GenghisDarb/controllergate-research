@@ -13,7 +13,7 @@ from controllergate.amds.runtime_adapter import run_amds_active_loop
 from controllergate.amds.semantics import BranchStatus
 from controllergate.core.evidence import hash_record
 from .batch068h5_pipeline import execute_phase as execute_h5_phase
-from .batch068h6_pipeline import _acquire_requirement
+from .batch068h6_pipeline import _acquire_requirement, _provider_available
 from .built_wheel_verifier import verify_built_wheel
 from .dynamic_build_requirements import probe_get_requires_for_build_wheel, recover_from_pep517_log
 from .historical_toolchain_provider import prepare_historical_builder
@@ -78,6 +78,7 @@ def canonical_dual_recovery(context:dict[str,Any])->dict[str,Any]:
         if meta['status']!='PASS':can_retry[package]=False
         provider_requirements[package]=list(dict.fromkeys([*meta.get('static_build_requirements',[]),*meta.get('dynamic_backend_requirements',[])]))
         for requirement in meta.get('dynamic_backend_requirements',[]):
+            if _provider_available(requirement,context['lock_v4']['selected_artifacts'],provider_records):continue
             item=_acquire_requirement(requirement,context);provider_records.append(item)
             if item['status']!='PASS':can_retry[package]=False
     try:
@@ -103,6 +104,8 @@ def canonical_dual_recovery(context:dict[str,Any])->dict[str,Any]:
             if record['status']=='PASS':wheels.append(record['wheel_path']);return record
             dynamic=recover_from_pep517_log(package,record.get('stdout',''),record.get('stderr',''));acquired=False
             for requirement in dynamic['dynamic_backend_requirements']:
+                if _provider_available(requirement,context['lock_v4']['selected_artifacts'],provider_records):
+                    acquired=True;continue
                 item=_acquire_requirement(requirement,context);provider_records.append(item);acquired=acquired or item['status']=='PASS'
             if package=='rpds-py' and 'PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1' in record.get('stderr',''):
                 build_environment[package]['PYO3_USE_ABI3_FORWARD_COMPATIBILITY']='1';provider_records.append({'status':'PASS','provider':'PYO3_USE_ABI3_FORWARD_COMPATIBILITY','value':'1','source_basis':'observed_pyo3_0.20.3_build_diagnostic','mutation_policy':'environment_only'});acquired=True

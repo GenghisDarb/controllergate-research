@@ -123,27 +123,48 @@ def _acquire_locked_rust_dependencies(workspace: Path, rust_identity: dict, rust
     return {'status':status,'blocker':None if status=='PASS' else 'rpds_locked_cargo_provider_acquisition_failed','command':command,'cache_transport':cache_transport,'explicit_cargo_binary':'/usr/local/cargo/bin/cargo','explicit_path':explicit_path,'network_policy':'bounded_provider_acquisition_only','network_destinations':['https://index.crates.io','https://static.crates.io','https://crates.io',*[item['source'] for item in git_dependencies]],'cargo_lock_sha256':hashlib.sha256(lock_path.read_bytes()).hexdigest(),'cargo_toml_sha256':hashlib.sha256(manifest.read_bytes()).hexdigest(),'manifest_path':relative,'cache_path':str(cache),'provider_file_count':len(files),'provider_manifest':manifest_rows,'provider_manifest_hash':provider_hash,'package_catalog':package_catalog,'crate_verification':crate_verification,'git_dependency_verification':git_dependencies,'registry_index_identity':hashlib.sha256(''.join(row['sha256'] for row in manifest_rows if 'index' in row['path']).encode()).hexdigest(),'rust_image_inspection':inspection,'returncode':run.returncode,'elapsed_seconds':round(time.monotonic()-started,3),'stdout':run.stdout,'stderr':run.stderr,'registry_protocol':'sparse'}
 
 
-def prepare_historical_builder(workspace: Path, python_digest: str, rust_sdist: Path | None = None) -> dict:
+def prepare_historical_builder(workspace: Path, python_digest: str, rust_sdist: Path | None = None, cargo_provider: dict | None = None) -> dict:
     python=_pull_identity(python_digest);rust=_pull_identity(RUST_TAG);gcc=_pull_identity(GCC_TAG)
     if python["status"]!="PASS" or rust["status"]!="PASS" or gcc["status"]!="PASS":return {"status":"BLOCK","blocker":"historical_toolchain_identity_unavailable","python":python,"rust":rust,"gcc":gcc}
-    cargo_provider=_acquire_locked_rust_dependencies(workspace,rust,rust_sdist)
+    if cargo_provider is None:
+        cargo_provider=_acquire_locked_rust_dependencies(workspace,rust,rust_sdist)
+    else:
+        cargo_provider=dict(cargo_provider)
+        if rust_sdist is None:return {"status":"BLOCK","blocker":"rpds_source_archive_missing_for_cargo_lock","python":python,"rust":rust,"gcc":gcc}
+        extracted=workspace/'rpds_rust_source'
+        if not extracted.exists():
+            try:manifest=_extract_verified_source(rust_sdist,extracted)
+            except Exception as exc:return {"status":"BLOCK","blocker":"rpds_cargo_lock_extraction_failed","error":type(exc).__name__,"python":python,"rust":rust,"gcc":gcc}
+        else:
+            manifests=sorted(extracted.rglob('Cargo.toml'));locks=sorted(extracted.rglob('Cargo.lock'))
+            if not manifests or not locks:return {"status":"BLOCK","blocker":"rpds_source_lock_or_manifest_missing","python":python,"rust":rust,"gcc":gcc}
+            manifest=next((item for item in manifests if item.parent==locks[0].parent),manifests[0])
+        cargo_provider['manifest_path']=manifest.relative_to(extracted).as_posix()
+        cargo_provider['cargo_lock_sha256']=hashlib.sha256(next(extracted.rglob('Cargo.lock')).read_bytes()).hexdigest()
     if cargo_provider['status']!='PASS':return {"status":"BLOCK","blocker":cargo_provider['blocker'],"python":python,"rust":rust,"gcc":gcc,"cargo_provider":cargo_provider}
     root=workspace/'historical_builder';root.mkdir(parents=True,exist_ok=True)
-    cache_source=Path(cargo_provider['cache_path'])
-    for folder in ('registry','git'):
-        source=cache_source/folder
-        if source.exists():
-            target=root/'cargo_provider'/folder
-            target.parent.mkdir(parents=True,exist_ok=True)
-            shutil.copytree(source,target,dirs_exist_ok=True)
-    dockerfile=root/'Dockerfile';dockerfile.write_text(f"FROM {python_digest} AS py\nFROM {rust['repo_digest']} AS rust\nFROM {gcc['repo_digest']}\nCOPY --from=py /usr/local /usr/local\nCOPY --from=rust /usr/local/cargo /usr/local/cargo\nCOPY --from=rust /usr/local/rustup /usr/local/rustup\nCOPY cargo_provider/ /opt/cargo-provider/\nENV PATH=/usr/local/cargo/bin:/usr/local/bin:/usr/bin:/bin\nENV RUSTUP_HOME=/usr/local/rustup\nENV CARGO_HOME=/tmp/cargo\nENV CARGO_NET_OFFLINE=true\n",encoding='utf-8',newline='\n')
+    selected_method=cargo_provider.get('selected_method','cargo_fetch_cache')
+    if selected_method in {'direct_lock_vendor','verified_vendor_capsule'}:
+        shutil.copytree(Path(cargo_provider['provider_path']),root/'cargo_vendor',dirs_exist_ok=True)
+        shutil.copy2(Path(cargo_provider['cargo_config_path']),root/'cargo-config.toml')
+        provider_copy="COPY cargo_vendor/ /opt/cargo-vendor/\nCOPY cargo-config.toml /opt/cargo-config.toml"
+    else:
+        cache_source=Path(cargo_provider.get('cache_path') or cargo_provider.get('provider_path'))
+        for folder in ('registry','git'):
+            source=cache_source/folder
+            if source.exists():
+                target=root/'cargo_provider'/folder
+                target.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copytree(source,target,dirs_exist_ok=True)
+        provider_copy="COPY cargo_provider/ /opt/cargo-provider/"
+    dockerfile=root/'Dockerfile';dockerfile.write_text(f"FROM {python_digest} AS py\nFROM {rust['repo_digest']} AS rust\nFROM {gcc['repo_digest']}\nCOPY --from=py /usr/local /usr/local\nCOPY --from=rust /usr/local/cargo /usr/local/cargo\nCOPY --from=rust /usr/local/rustup /usr/local/rustup\n{provider_copy}\nENV PATH=/usr/local/cargo/bin:/usr/local/bin:/usr/bin:/bin\nENV RUSTUP_HOME=/usr/local/rustup\nENV CARGO_HOME=/tmp/cargo\nENV CARGO_NET_OFFLINE=true\n",encoding='utf-8',newline='\n')
     tag='controllergate-batch068h7-builder:local'
     try:
-        build=subprocess.run(["docker","build","--network=none","-t",tag,str(root)],capture_output=True,text=True,timeout=900)
+        build=subprocess.run(["docker","build","--pull=false","--network=none","-t",tag,str(root)],capture_output=True,text=True,timeout=900)
     except (FileNotFoundError, subprocess.TimeoutExpired) as exc:
         return {"status":"BLOCK","blocker":"historical_builder_runtime_unavailable","rust":rust,"gcc":gcc,"error":type(exc).__name__}
     if build.returncode:return {"status":"BLOCK","blocker":"historical_builder_image_failed","rust":rust,"gcc":gcc,"stderr":build.stderr[-5000:]}
     identity=subprocess.run(["docker","image","inspect",tag,"--format","{{.Id}}"],capture_output=True,text=True).stdout.strip()
-    metadata_manifest=cargo_provider['manifest_path'];source_root=workspace/'rpds_rust_source';probe_script=f"mkdir -p /tmp/cargo && cp -a /opt/cargo-provider/. /tmp/cargo/; python --version; pip --version; cc --version | head -1; /usr/local/cargo/bin/rustc --version; /usr/local/cargo/bin/cargo --version; /usr/local/cargo/bin/cargo metadata --locked --offline --manifest-path /src/{metadata_manifest} --format-version 1 >/tmp/metadata.json"
+    metadata_manifest=cargo_provider['manifest_path'];source_root=workspace/'rpds_rust_source';provider_setup="cp /opt/cargo-config.toml /tmp/cargo/config.toml" if selected_method in {'direct_lock_vendor','verified_vendor_capsule'} else "cp -a /opt/cargo-provider/. /tmp/cargo/";probe_script=f"mkdir -p /tmp/cargo && {provider_setup}; python --version; pip --version; cc --version | head -1; /usr/local/cargo/bin/rustc --version; /usr/local/cargo/bin/cargo --version; /usr/local/cargo/bin/cargo metadata --locked --offline --manifest-path /src/{metadata_manifest} --format-version 1 >/tmp/metadata.json"
     probe=subprocess.run(["docker","run","--rm","--network","none","--read-only","--user","65534:65534","--cap-drop","ALL","--security-opt","no-new-privileges","--tmpfs","/tmp:rw,exec,nosuid,size=1g","-v",f"{source_root.resolve()}:/src:ro","-e","PATH=/usr/local/cargo/bin:/usr/local/rustup/bin:/usr/local/bin:/usr/bin:/bin","-e","CARGO_HOME=/tmp/cargo","-e","RUSTUP_HOME=/usr/local/rustup","-e","CARGO_NET_OFFLINE=true","--entrypoint","/bin/sh",tag,"-c",probe_script],capture_output=True,text=True,timeout=120)
     return {"status":"PASS" if probe.returncode==0 else "BLOCK","blocker":None if probe.returncode==0 else "historical_builder_identity_probe_failed","builder_image":tag,"builder_image_id":identity,"python":python,"rust":rust,"gcc":gcc,"cargo_provider":cargo_provider,"rust_publication_date":"2024-06-13T00:00:00Z","cutoff_compatible":True,"exact_historical_status":"cutoff_compatible_toolchain_current_container","signature_status":"container_registry_digest_verified_signature_not_established","probe_stdout":probe.stdout,"probe_stderr":probe.stderr[-4000:],"offline_cargo_metadata_pass":probe.returncode==0,"dockerfile_sha256":hashlib.sha256(dockerfile.read_bytes()).hexdigest()}

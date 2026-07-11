@@ -1,0 +1,104 @@
+{
+  "blocker": null,
+  "local_h7_h8_wheels_promoted": false,
+  "network": "none",
+  "packages": [
+    {
+      "attempt": 1,
+      "failure_classification": {
+        "matched_failure_families": [],
+        "returncode": 0,
+        "status": "PASS"
+      },
+      "native_extensions": [
+        "/tmp/e/lib/python3.13/site-packages/coverage/tracer.cpython-313-x86_64-linux-gnu.so"
+      ],
+      "network_policy": "none",
+      "package": "coverage",
+      "runtime_status": "PASS",
+      "source_artifact_sha256": "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353",
+      "status": "PASS",
+      "verification_status": "PASS",
+      "version": "7.5.4",
+      "wheel_sha256": "0260a12476b5aa76c733128a243bc4272f503e8fa73e0dc78bf591ad328f7411"
+    },
+    {
+      "attempt": 1,
+      "failure_classification": {
+        "matched_failure_families": [],
+        "returncode": 0,
+        "status": "PASS"
+      },
+      "native_extensions": [
+        "/tmp/e/lib/python3.13/site-packages/markupsafe/_speedups.cpython-313-x86_64-linux-gnu.so"
+      ],
+      "network_policy": "none",
+      "package": "markupsafe",
+      "runtime_status": "PASS",
+      "source_artifact_sha256": "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b",
+      "status": "PASS",
+      "verification_status": "PASS",
+      "version": "2.1.5",
+      "wheel_sha256": "8307c031d9c6b6f8b3a0f165b0562b1502aa6f6b9ea7ed0e06d04d15e0c17169"
+    },
+    {
+      "attempt": 1,
+      "failure_classification": {
+        "matched_failure_families": [],
+        "returncode": 0,
+        "status": "PASS"
+      },
+      "native_extensions": [
+        "/tmp/e/lib/python3.13/site-packages/zmq/backend/cython/_zmq.cpython-313-x86_64-linux-gnu.so"
+      ],
+      "network_policy": "none",
+      "package": "pyzmq",
+      "runtime_status": "PASS",
+      "source_artifact_sha256": "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a",
+      "status": "PASS",
+      "verification_status": "PASS",
+      "version": "26.0.3",
+      "wheel_sha256": "e5fcd108d326170228f9e624dc7b107b0b131cd668a674c576fcc7542caee2be"
+    },
+    {
+      "attempt": 1,
+      "failure_classification": {
+        "matched_failure_families": [
+          "rust",
+          "unsupported_Python_3_13_beta"
+        ],
+        "returncode": 1,
+        "status": "BLOCK"
+      },
+      "native_extensions": [],
+      "network_policy": "none",
+      "package": "rpds-py",
+      "runtime_status": null,
+      "source_artifact_sha256": "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f",
+      "status": "BLOCK",
+      "verification_status": null,
+      "version": "0.18.1",
+      "wheel_sha256": null
+    },
+    {
+      "attempt": 2,
+      "failure_classification": {
+        "matched_failure_families": [],
+        "returncode": 0,
+        "status": "PASS"
+      },
+      "native_extensions": [
+        "/tmp/e/lib/python3.13/site-packages/rpds/rpds.cpython-313-x86_64-linux-gnu.so"
+      ],
+      "network_policy": "none",
+      "package": "rpds-py",
+      "runtime_status": "PASS",
+      "source_artifact_sha256": "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f",
+      "status": "PASS",
+      "verification_status": "PASS",
+      "version": "0.18.1",
+      "wheel_sha256": "b75193b9d771697e6f1a63c8a320232d032f13aa251a896772116cf7c8695252"
+    }
+  ],
+  "status": "PASS"
+}
