@@ -4,6 +4,10 @@ ControllerGate remains a pre-alpha research archive. Batch015 improves runtime-s
 
 Remaining gaps include additional external repair episodes, prospective matched-null separation on fresh native candidates, broader repository diversity, and audited runtime fixture demonstrations.
 
+## Batch068h7 collection boundary
+
+Batch068h7 closes the two remaining native build-provider branches and demonstrates the corrected canonical AMDS loop on the current incident. The exact offline environment installs and its runner, target, and harness origins verify. The next unresolved boundary is collection, not compilation: the unmodified historical pytest policy elevates a Python 3.13 date-parsing deprecation in `jupyter_client` to two errors before any target nodes are materialized. Duplicate collection and all repair gates remain blocked. This result does not establish AMDS effectiveness, memory lift, a fifth repair, or release readiness.
+
 ## Batch068h3 historical-provider and collection boundary
 
 Batch068h3 promotes the evidence-derived historical-provider architecture to v2.18. Promotion establishes callable provider resolution, evidence contacts, maintenance-order guards, source-context analysis, and semantic verification interfaces. It does not establish target replay, repair success, runtime deployment, memory lift, or production readiness. v2.17 through v2.14 remain selectable for regression and historical continuity.

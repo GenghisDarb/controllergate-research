@@ -1,0 +1,40 @@
+{
+  "attempts": 1,
+  "final_outcome": "CLOSED",
+  "runtime_check": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--read-only",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--tmpfs",
+      "/tmp:rw,exec,nosuid,size=1g",
+      "-v",
+      "E:\\ControllerGate-Artifacts\\batch068h7_0n9742rc\\h7_built\\pyzmq\\pyzmq\\pyzmq-26.0.3-cp313-cp313-linux_x86_64.whl:/wheel/pyzmq-26.0.3-cp313-cp313-linux_x86_64.whl:ro",
+      "--entrypoint",
+      "/bin/sh",
+      "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9",
+      "-c",
+      "python -m venv /tmp/e && /tmp/e/bin/python -m pip install --no-index /wheel/pyzmq-26.0.3-cp313-cp313-linux_x86_64.whl && /tmp/e/bin/python -c \"import zmq; c=zmq.Context(); c.term()\" && find /tmp/e -type f \\( -name '*.so' -o -name '*.pyd' \\) -print -exec ldd {} \\;"
+    ],
+    "elf_dependencies_resolved": true,
+    "minimal_object_exercise": "import zmq; c=zmq.Context(); c.term()",
+    "native_extension_required": true,
+    "native_extensions": [
+      "/tmp/e/lib/python3.13/site-packages/zmq/backend/cython/_zmq.cpython-313-x86_64-linux-gnu.so"
+    ],
+    "network": "none",
+    "returncode": 0,
+    "status": "PASS",
+    "stderr": "",
+    "stdout": "Processing /wheel/pyzmq-26.0.3-cp313-cp313-linux_x86_64.whl\nInstalling collected packages: pyzmq\nSuccessfully installed pyzmq-26.0.3\n/tmp/e/lib/python3.13/site-packages/zmq/backend/cython/_zmq.cpython-313-x86_64-linux-gnu.so\n\tlinux-vdso.so.1 (0x00007ffc9ebe6000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007bd79d11b000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007bd79d03c000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007bd79d01c000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007bd79ce3b000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007bd79d4a2000)\n"
+  },
+  "status": "PASS",
+  "wheel_identity": "5aa03ea7e6cc0a211b79543693b73efb218bb9c738d6c938be0675493e746420"
+}

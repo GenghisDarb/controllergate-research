@@ -54,6 +54,8 @@ RUNTIME_BINDINGS: dict[str, str] = {
     "evaluate_amds_branch_goal": "controllergate.amds.goal_predicates:build_branch_goal",
     "recover_dynamic_build_requirements": "controllergate.runtime.dynamic_build_requirements:recover_from_pep517_log",
     "prepare_historical_toolchain": "controllergate.runtime.historical_toolchain_provider:prepare_historical_builder",
+    "execute_batch068h7_phase": "controllergate.runtime.batch068h7_pipeline:execute_phase",
+    "inspect_rust_cargo_path": "controllergate.runtime.historical_toolchain_provider:inspect_rust_image",
 }
 
 PATHWAY_BINDINGS = {

@@ -1,25 +1,64 @@
 {
-  "blocker": "historical_toolchain_identity_unavailable",
+  "blocker": "rpds_locked_cargo_provider_acquisition_failed",
   "build_results": [],
   "coverage_build_mode": "functionally_verified_pure_python_fallback",
   "historical_builder": {
-    "blocker": "historical_toolchain_identity_unavailable",
-    "gcc": {
-      "blocker": "toolchain_image_pull_failed",
+    "blocker": "rpds_locked_cargo_provider_acquisition_failed",
+    "cargo_provider": {
+      "blocker": "rpds_locked_cargo_provider_acquisition_failed",
+      "cache_path": "/home/runner/work/_temp/batch068h6_7d15h9k0/cargo_provider_cache",
+      "cargo_lock_sha256": "4888a61fbba54a345696a3c1f26b23b1e6b901ddedd336a2b5f31210bed8cef0",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "bridge",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "256",
+        "--memory",
+        "3g",
+        "--cpus",
+        "2",
+        "-v",
+        "/home/runner/work/_temp/batch068h6_7d15h9k0/rpds_rust_source:/src:ro",
+        "-v",
+        "/home/runner/work/_temp/batch068h6_7d15h9k0/cargo_provider_cache:/cargo:rw",
+        "-e",
+        "CARGO_HOME=/cargo",
+        "rust@sha256:073c8e7ae12d2637d1d541cb0f3f9d92bfa22c97e2e45db87a9fc6a90c9a7f22",
+        "sh",
+        "-lc",
+        "cargo fetch --locked --manifest-path /src/rpds_py-0.18.1/Cargo.toml"
+      ],
+      "manifest_path": "rpds_py-0.18.1/Cargo.toml",
+      "network_policy": "bounded_provider_acquisition_only",
+      "provider_file_count": 0,
+      "provider_manifest_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
       "status": "BLOCK",
-      "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+      "stderr": "sh: 1: cargo: not found\n",
+      "stdout": ""
+    },
+    "gcc": {
+      "image_id": "sha256:3e26f982fa1f257bd3e6c471f8497be9b751d584a1847619f87955c439bbae7e",
+      "repo_digest": "gcc@sha256:de5c5093e2ceb5c09901ed541ecab0660d1f01b7fd79587ad0294fa758a1690e",
+      "status": "PASS",
       "tag": "gcc:12.3.0-bookworm"
     },
     "python": {
-      "blocker": "toolchain_image_pull_failed",
-      "status": "BLOCK",
-      "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+      "image_id": "sha256:3288af3fc4ad6cf9e69aed2029a50ef3a17575a614d96a1fad7dfa23fb9bf62d",
+      "repo_digest": "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9",
+      "status": "PASS",
       "tag": "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9"
     },
     "rust": {
-      "blocker": "toolchain_image_pull_failed",
-      "status": "BLOCK",
-      "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+      "image_id": "sha256:32a819c95ec70dddf89af1b9bd7ce747ccb9e121142e1f155712080f5d4daaf2",
+      "repo_digest": "rust@sha256:073c8e7ae12d2637d1d541cb0f3f9d92bfa22c97e2e45db87a9fc6a90c9a7f22",
+      "status": "PASS",
       "tag": "rust:1.79.0-slim-bookworm"
     },
     "status": "BLOCK"
@@ -31,7 +70,7 @@
   "provider_records": [
     {
       "artifact_file_url": "https://files.pythonhosted.org/packages/6d/92/8d7aebd4430ab5ff65df2bfee6d5745f95c004284db2d8ca76dcbfd9de47/ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
-      "artifact_path": "E:\\ControllerGate-Artifacts\\batch068h6_gz2bkem1\\artifact_store\\ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+      "artifact_path": "/home/runner/work/_temp/batch068h6_7d15h9k0/artifact_store/ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
       "filename": "ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
       "package": "ninja",
       "parent_requirement": "ninja>=1.5",

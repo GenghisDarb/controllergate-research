@@ -2,6 +2,16 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
+## Batch068h7 canonical AMDS and Cargo-provider capabilities
+
+- Canonical active loop: iterative constraint propagation, dynamic registry regeneration, single-probe authorization, independent verification, posterior update, reranking, and explicit goal-predicate closure.
+- Evidence board: all 92 Batch068h5 cells retained with lineage, evidence hashes, branch membership, and reopen conditions.
+- Probe adapters: thirteen independently verified evidence-producing subsystem adapters; presence-only payload checks are insufficient.
+- Rust/Cargo identity: absolute Cargo discovery, login-shell comparison, locked crate acquisition, checksum verification, and offline metadata replay.
+- Native wheel closure: pyzmq and rpds-py build in network-disabled capsules and pass metadata, tag, `RECORD`, import, extension, and shared-library checks.
+- Runtime continuation: offline environment and origin verification pass; duplicate collection remains blocked on the preserved historical warning-policy boundary.
+- Claim boundary: AMDS prospective effectiveness remains `NOT_ESTABLISHED`; no repair or count claim follows from provider closure alone.
+
 ## Batch068h3 evidence-derived historical-provider capabilities
 
 - Validated current protocol: `v2.18 evidence_derived_topology_historical_provider_lane` (`PASS`).

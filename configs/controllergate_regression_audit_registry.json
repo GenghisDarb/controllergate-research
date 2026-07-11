@@ -73,9 +73,18 @@
       "script_path": "scripts/audit_batch068h6_amds_semantic_dual_build_provider_recovery.py"
     },
     {
+      "arguments": [],
+      "audit_id": "batch068h7",
+      "dependency_order": 90,
+      "evidence_boundary_protected": "Batch068h7 canonical AMDS engine, Cargo provider, and dual wheel closure",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/audit_batch068h7_amds_canonical_engine_cargo_runtime_completion.py"
+    },
+    {
       "arguments": ["--protocol", "current"],
       "audit_id": "validated_current_protocol",
-      "dependency_order": 90,
+      "dependency_order": 100,
       "evidence_boundary_protected": "validated current protocol compatibility and claim boundaries",
       "expected_exit_status": 0,
       "required": true,
@@ -84,7 +93,7 @@
     {
       "arguments": ["--protocol", "current", "--dry-run"],
       "audit_id": "validated_current_protocol_dry_run",
-      "dependency_order": 100,
+      "dependency_order": 110,
       "evidence_boundary_protected": "current protocol dry-run boundary",
       "expected_exit_status": 0,
       "required": true,

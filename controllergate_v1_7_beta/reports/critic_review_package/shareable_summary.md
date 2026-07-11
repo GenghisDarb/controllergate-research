@@ -1,5 +1,19 @@
 # ControllerGate shareable summary
 
+## Batch068h7 canonical AMDS and Cargo runtime completion
+
+ControllerGate remains on validated protocol `v2.18`. Batch068h7 verifies the official Batch068h6 artifact, replaces the stale operation-success closure behavior with an observation-driven canonical AMDS loop, preserves the full 92-cell evidence topology, and binds thirteen real evidence-producing probe adapters.
+
+Cargo is discovered at `/usr/local/cargo/bin/cargo`; the locked crate provider and offline builder verify. Coverage, MarkupSafe, pyzmq, and rpds-py produce verified Python 3.13 wheels and pass fresh runtime import/native-library checks. Offline installation and origin verification also pass. The exact collection command then stops with `historical_warning_policy_boundary_reproduced`: zero nodes materialize because the preserved warning policy turns a Python 3.13 deprecation into collection errors. No patch or repair count increment is authorized.
+
+- Issue-derived repair episodes remain `4`.
+- Native external repair episodes remain `4`.
+- Validated protocol remains `v2.18`; v2.19 promotion is blocked on duplicate nonzero collection.
+- Full scoring remains `NOT_RUN/disallowed`.
+- AMDS prospective effectiveness remains `NOT_ESTABLISHED`.
+- Memory lift remains `not_demonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+
 ## Batch068h6 AMDS semantic integrity and dual provider recovery
 
 ControllerGate remains on validated protocol `v2.18`. The verified Batch068h5 artifact established a stable-first 67-node, 113-edge historical provider lock. Coverage and MarkupSafe built successfully, while pyzmq stopped on a missing Ninja backend provider and rpds-py stopped on missing Rust/Cargo.

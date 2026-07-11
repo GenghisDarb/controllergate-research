@@ -4,15 +4,18 @@
 
 The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. The Batch068h runtime makes historical dependency resolution, exact-runtime provider recovery, and its safety gates callable through the canonical runtime while preserving selectable v2.17, v2.16, v2.15, and v2.14 interfaces.
 
-The active Nbclient record has a verified stable-first 67-node, 113-edge lock. Batch068h5 produced verified Coverage and MarkupSafe wheels and isolated the remaining pyzmq Ninja and rpds-py Rust/Cargo provider branches. Batch068h6 preserves those results, corrects two false AMDS closure records through explicit reconciliation, and runs iterative provider recovery with branch goal predicates.
+The active Nbclient record has a verified stable-first 67-node, 113-edge lock. Batch068h7 preserves the 92-cell evidence topology, replaces operation-success auto-closure with explicit goal predicates, and executes thirteen evidence-producing probe adapters through the canonical runtime. Cargo is discovered at its absolute image path and its locked provider cache verifies before offline use.
 
 The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIER_STATE.json`; its rendered view is `docs/CURRENT_FRONTIER_STATUS.md`.
 
-Batch068h6 distinguishes probe operation status, observation classification, hypothesis state, and branch state. A build branch can close only after wheel identity, metadata, tags, `RECORD`, exact-runtime installation, import, and provider closure all pass. Offline capsule execution, duplicate collection, prerepair replay, and source-only repair remain conditional and cannot be bypassed by a diagnostic success.
+Coverage, MarkupSafe, pyzmq, and rpds-py all produce verified Python 3.13 wheels and pass fresh runtime checks. Offline installation and runner/target/harness origin checks pass. Collection run 1 remains blocked with zero nodes because the historical warning policy elevates a Python 3.13 date-parsing deprecation to two collection errors. No second collection, prerepair replay, patch, duplicate clean replay, or count gate ran.
 
 - Issue-derived repair episodes: `4`.
 - Native external repair episodes: `4`.
-- Batch068h5 artifact custody: `PASS`.
+- Batch068h6 artifact custody: `PASS`.
+- Canonical AMDS engine, full-board migration, and real probe adapters: `PASS`.
+- Pyzmq and rpds-py branch closure: `PASS`.
+- Exact next boundary: `historical_warning_policy_boundary_reproduced`.
 - Reconciled historical false closures: `2`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Runtime connectors and live-device repair: inactive.

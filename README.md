@@ -10,17 +10,19 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. The Batch068h series adds a callable historical dependency resolver, authorization-bound execution, evidence-derived candidate-contact resolution, source-context analysis, semantic proof obligations, bounded diagnostic checks, and isolated build-provider recovery. Earlier v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
 
-For the active Nbclient candidate, Batch068h5 established a stable-first 67-node, 113-edge historical lock and 1,059 exact-runtime wheel tags. Coverage 7.5.4 and MarkupSafe 2.1.5 produced verified wheels; pyzmq 26.0.3 remained blocked on Ninja and rpds-py 0.18.1 remained blocked on Rust/Cargo. Batch068h6 explicitly reconciles an AMDS false-closure reporting defect, separates probe operation from causal and branch state, and attempts both provider branches before any offline replay or repair authorization.
+For the active Nbclient candidate, Batch068h7 completes the canonical observation-driven AMDS engine and migrates the full 92-cell evidence board. It discovers Cargo at `/usr/local/cargo/bin/cargo`, verifies the locked Cargo provider, and builds verified Python 3.13 wheels for Coverage 7.5.4, MarkupSafe 2.1.5, pyzmq 26.0.3, and rpds-py 0.18.1. Both previously open native build branches now close only after wheel, tag, `RECORD`, runtime-import, native-extension, and shared-library checks pass.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
-Batch068h6 is fail-closed: a successful diagnostic probe cannot close a build branch. Closure requires a verified wheel, compatible tags, verified `RECORD`, a fresh exact-runtime installation, a minimal import check, and no unresolved provider. The workflow continues to offline installation, duplicate collection, duplicate prerepair replay, and conditional source-only repair only when every preceding goal predicate passes.
+Batch068h7 remains fail-closed. Offline installation and origin verification pass, but the exact collection command is blocked before node materialization because the historical dependency set turns a Python 3.13 date-parsing deprecation into collection errors. Duplicate collection, prerepair replay, patch authorization, and the fifth repair count therefore remain `NOT_RUN`.
 
 - Confirmed issue-derived repair episodes: `4`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
-- Batch068h5 official artifact verification: `PASS`.
-- Batch068h5 historical AMDS false closures reconciled: `2`.
+- Batch068h6 official artifact verification: `PASS`.
+- Batch068h7 canonical AMDS engine and thirteen evidence adapters: `PASS`.
+- Batch068h7 dual native wheel closure: `PASS`.
+- Batch068h7 exact blocker: `historical_warning_policy_boundary_reproduced`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

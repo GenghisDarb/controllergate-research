@@ -1,0 +1,40 @@
+{
+  "attempts": 2,
+  "final_outcome": "CLOSED",
+  "runtime_check": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--read-only",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--tmpfs",
+      "/tmp:rw,exec,nosuid,size=1g",
+      "-v",
+      "E:\\ControllerGate-Artifacts\\batch068h7_0n9742rc\\h7_built\\rpds-py\\rpds_py\\rpds_py-0.18.1-cp313-cp313-linux_x86_64.whl:/wheel/rpds_py-0.18.1-cp313-cp313-linux_x86_64.whl:ro",
+      "--entrypoint",
+      "/bin/sh",
+      "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9",
+      "-c",
+      "python -m venv /tmp/e && /tmp/e/bin/python -m pip install --no-index /wheel/rpds_py-0.18.1-cp313-cp313-linux_x86_64.whl && /tmp/e/bin/python -c \"import rpds; rpds.HashTrieMap()\" && find /tmp/e -type f \\( -name '*.so' -o -name '*.pyd' \\) -print -exec ldd {} \\;"
+    ],
+    "elf_dependencies_resolved": true,
+    "minimal_object_exercise": "import rpds; rpds.HashTrieMap()",
+    "native_extension_required": true,
+    "native_extensions": [
+      "/tmp/e/lib/python3.13/site-packages/rpds/rpds.cpython-313-x86_64-linux-gnu.so"
+    ],
+    "network": "none",
+    "returncode": 0,
+    "status": "PASS",
+    "stderr": "",
+    "stdout": "Processing /wheel/rpds_py-0.18.1-cp313-cp313-linux_x86_64.whl\nInstalling collected packages: rpds-py\nSuccessfully installed rpds-py-0.18.1\n/tmp/e/lib/python3.13/site-packages/rpds/rpds.cpython-313-x86_64-linux-gnu.so\n\tlinux-vdso.so.1 (0x00007ffe95fde000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x000070e25d260000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000070e25d07f000)\n\t/lib64/ld-linux-x86-64.so.2 (0x000070e25d333000)\n"
+  },
+  "status": "PASS",
+  "wheel_identity": "42a0c61652e83f6bf5ba47454cab619c6492b93f9c4d28589266af674cccf60b"
+}

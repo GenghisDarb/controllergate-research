@@ -8,6 +8,7 @@ ALLOWED_BINDINGS = {
     "batch068h4_phase": "controllergate.runtime.batch068h4_pipeline:execute_phase",
     "batch068h5_phase": "controllergate.runtime.batch068h5_pipeline:execute_phase",
     "batch068h6_phase": "controllergate.runtime.batch068h6_pipeline:execute_phase",
+    "batch068h7_phase": "controllergate.runtime.batch068h7_pipeline:execute_phase",
 }
 
 

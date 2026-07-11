@@ -34,7 +34,8 @@ def _extract_source(archive: Path, destination: Path) -> Path:
             source.extractall(destination)
     else:raise ValueError('unsupported_sdist')
     projects=sorted(path.parent for path in destination.rglob('pyproject.toml'))
-    if not projects:raise ValueError('pyproject_missing')
+    if not projects:projects=sorted(path.parent for path in destination.rglob('setup.py'))
+    if not projects:raise ValueError('build_metadata_missing')
     return projects[0]
 
 
@@ -44,14 +45,17 @@ def probe_get_requires_for_build_wheel(*, package: str, artifact: Path, artifact
     except Exception as exc:return {'status':'BLOCK','blocker':'pep517_source_extraction_failed','package':package,'error':type(exc).__name__}
     try:
         import tomllib
-        pyproject=tomllib.loads((project/'pyproject.toml').read_text(encoding='utf-8'))
-        build=pyproject['build-system'];static=list(build.get('requires',[]));backend=str(build['build-backend']);backend_path=list(build.get('backend-path',[]))
+        if (project/'pyproject.toml').is_file():
+            pyproject=tomllib.loads((project/'pyproject.toml').read_text(encoding='utf-8'))
+            build=pyproject['build-system'];static=list(build.get('requires',[]));backend=str(build['build-backend']);backend_path=list(build.get('backend-path',[]))
+        else:
+            static=['setuptools'];backend='setuptools.build_meta:__legacy__';backend_path=[]
     except Exception as exc:return {'status':'BLOCK','blocker':'pep517_build_system_parse_failed','package':package,'error':type(exc).__name__}
     script=workspace/f'pep517_probe_{package}.py'
-    script.write_text("import json\nfrom pip._vendor.pyproject_hooks import BuildBackendHookCaller\ncaller=BuildBackendHookCaller('/src',"+repr(backend)+",backend_path="+repr(backend_path)+")\nprint('CONTROLLERGATE_GET_REQUIRES='+json.dumps(caller.get_requires_for_build_wheel({})))\n",encoding='utf-8',newline='\n')
+    script.write_text("import json\nfrom pip._vendor.pyproject_hooks import BuildBackendHookCaller\ncaller=BuildBackendHookCaller('/tmp/project',"+repr(backend)+",backend_path="+repr(backend_path)+")\nprint('CONTROLLERGATE_GET_REQUIRES='+json.dumps(caller.get_requires_for_build_wheel({})))\n",encoding='utf-8',newline='\n')
     install=' '.join(shlex.quote(item) for item in static)
-    shell=f"python -m venv /tmp/meta && /tmp/meta/bin/python -m pip install --no-index --find-links=/artifacts {install} && /tmp/meta/bin/python /probe.py"
-    command=['docker','run','--rm','--network','none','--read-only','--user','65534:65534','--cap-drop','ALL','--security-opt','no-new-privileges','--pids-limit','128','--memory','2g','--cpus','1','--tmpfs','/tmp:rw,nosuid,size=1g','-v',f'{artifact_store.resolve()}:/artifacts:ro','-v',f'{project.resolve()}:/src:ro','-v',f'{script.resolve()}:/probe.py:ro','-e','HOME=/tmp',builder_image,'sh','-lc',shell]
+    shell=f"cp -a /src /tmp/project && chmod -R u+w /tmp/project && python -m venv /tmp/meta && /tmp/meta/bin/python -m pip install --no-index --find-links=/artifacts {install} && /tmp/meta/bin/python /probe.py"
+    command=['docker','run','--rm','--network','none','--read-only','--user','65534:65534','--cap-drop','ALL','--security-opt','no-new-privileges','--pids-limit','128','--memory','2g','--cpus','1','--tmpfs','/tmp:rw,exec,nosuid,size=1g','-v',f'{artifact_store.resolve()}:/artifacts:ro','-v',f'{project.resolve()}:/src:ro','-v',f'{script.resolve()}:/probe.py:ro','-e','HOME=/tmp','--entrypoint','/bin/sh',builder_image,'-c',shell]
     try:run=subprocess.run(command,capture_output=True,text=True,timeout=600)
     except (FileNotFoundError,subprocess.TimeoutExpired) as exc:return {'status':'BLOCK','blocker':'pep517_get_requires_probe_unavailable','package':package,'error':type(exc).__name__}
     marker='CONTROLLERGATE_GET_REQUIRES=';line=next((item for item in run.stdout.splitlines() if item.startswith(marker)),None)
