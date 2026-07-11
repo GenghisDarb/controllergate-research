@@ -1,0 +1,37 @@
+{
+  "at_least_one_contradiction": true,
+  "at_most_one_safe_deductions": true,
+  "bounded_backtracking": {
+    "assignments": [
+      {
+        "a": true,
+        "b": false
+      },
+      {
+        "a": false,
+        "b": true
+      }
+    ],
+    "components": 1,
+    "status": "PASS",
+    "termination_proven": true
+  },
+  "implemented_families": [
+    "requires",
+    "excludes",
+    "implies",
+    "mutually_exclusive",
+    "exactly_one",
+    "at_least_one",
+    "at_most_one",
+    "provider_dependency",
+    "environment_dependency",
+    "source_ownership",
+    "provenance_boundary",
+    "interlock_boundary",
+    "authorization_boundary",
+    "rollback_boundary"
+  ],
+  "status": "PASS",
+  "termination_proven": true
+}

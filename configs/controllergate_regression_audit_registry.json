@@ -55,6 +55,24 @@
       "script_path": "scripts/audit_batch069b_recoverable_provider_command_followup.py"
     },
     {
+      "arguments": [],
+      "audit_id": "batch068h5",
+      "dependency_order": 70,
+      "evidence_boundary_protected": "Batch068h5 historical lock and build-provider evidence",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/audit_batch068h5_amds_build_provider_recovery_fifth_repair.py"
+    },
+    {
+      "arguments": [],
+      "audit_id": "batch068h6",
+      "dependency_order": 80,
+      "evidence_boundary_protected": "Batch068h6 AMDS semantic integrity and dual provider recovery",
+      "expected_exit_status": 0,
+      "required": true,
+      "script_path": "scripts/audit_batch068h6_amds_semantic_dual_build_provider_recovery.py"
+    },
+    {
       "arguments": ["--protocol", "current"],
       "audit_id": "validated_current_protocol",
       "dependency_order": 90,

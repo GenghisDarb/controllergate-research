@@ -1,0 +1,65 @@
+{
+  "branches": {
+    "coverage": {
+      "branch_id": "BUILD-CELL-COVERAGE",
+      "branch_state": "CLOSED",
+      "evidence_hashes": [
+        "341924b72ecc65bc9321a3dd4fbd15a4a40ef302ed04cdcf483d6bd8dff287e8"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "reopen_conditions": [
+        "runtime import regression",
+        "wheel identity mismatch"
+      ],
+      "state_hash": "605ba4b5ad8fed5bb01bc507452ae5652e17344df8753b81aafee60ac9ddbd97"
+    },
+    "markupsafe": {
+      "branch_id": "BUILD-CELL-MARKUPSAFE",
+      "branch_state": "CLOSED",
+      "evidence_hashes": [
+        "341924b72ecc65bc9321a3dd4fbd15a4a40ef302ed04cdcf483d6bd8dff287e8"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "reopen_conditions": [
+        "runtime import regression",
+        "wheel identity mismatch"
+      ],
+      "state_hash": "74e8a60f03bae1e45a51ae80ae536d76edbd94ddfa1ed5c13e2d77f4e3980aa6"
+    },
+    "pyzmq": {
+      "branch_id": "BUILD-CELL-PYZMQ",
+      "branch_state": "REMEDIATION_PENDING",
+      "evidence_hashes": [
+        "341924b72ecc65bc9321a3dd4fbd15a4a40ef302ed04cdcf483d6bd8dff287e8"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "reopen_conditions": [
+        "ninja provider unavailable",
+        "later build-provider failure"
+      ],
+      "state_hash": "80d411efd7f7da1bed51c2efbdb68e5dfe87ee2aaff979371f47430b53935b6a"
+    },
+    "rpds-py": {
+      "branch_id": "BUILD-CELL-RPDS_PY",
+      "branch_state": "REMEDIATION_PENDING",
+      "evidence_hashes": [
+        "341924b72ecc65bc9321a3dd4fbd15a4a40ef302ed04cdcf483d6bd8dff287e8"
+      ],
+      "goal_predicate": "verified_wheel_runtime_install",
+      "reopen_conditions": [
+        "cutoff-compatible Rust/Cargo unavailable",
+        "later build-provider failure"
+      ],
+      "state_hash": "c3ad19676e2fb44d3b3584dff22eadc27a2d4b31af7355cf2a64edb206c51574"
+    }
+  },
+  "closed": [
+    "coverage",
+    "markupsafe"
+  ],
+  "status": "PASS",
+  "unresolved": [
+    "pyzmq",
+    "rpds-py"
+  ]
+}

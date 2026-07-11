@@ -1,0 +1,53 @@
+{
+  "blocker": "historical_toolchain_identity_unavailable",
+  "build_results": [],
+  "coverage_build_mode": "functionally_verified_pure_python_fallback",
+  "historical_builder": {
+    "blocker": "historical_toolchain_identity_unavailable",
+    "gcc": {
+      "blocker": "toolchain_image_pull_failed",
+      "status": "BLOCK",
+      "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+      "tag": "gcc:12.3.0-bookworm"
+    },
+    "python": {
+      "blocker": "toolchain_image_pull_failed",
+      "status": "BLOCK",
+      "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+      "tag": "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9"
+    },
+    "rust": {
+      "blocker": "toolchain_image_pull_failed",
+      "status": "BLOCK",
+      "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+      "tag": "rust:1.79.0-slim-bookworm"
+    },
+    "status": "BLOCK"
+  },
+  "markupsafe_build_mode": "functionally_verified_pure_python_fallback",
+  "metadata_results": [],
+  "native_equivalent_claimed_for_fallbacks": false,
+  "network_none_actual_builds": true,
+  "provider_records": [
+    {
+      "artifact_file_url": "https://files.pythonhosted.org/packages/6d/92/8d7aebd4430ab5ff65df2bfee6d5745f95c004284db2d8ca76dcbfd9de47/ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+      "artifact_path": "E:\\ControllerGate-Artifacts\\batch068h6_gz2bkem1\\artifact_store\\ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+      "filename": "ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+      "package": "ninja",
+      "parent_requirement": "ninja>=1.5",
+      "requirement": "ninja>=1.5",
+      "requires_python": null,
+      "selection_reason": "stable_cutoff_eligible_exact_runtime_compatible",
+      "sha256": "84502ec98f02a037a169c4b0d5d86075eaf6afc55e1879003d6cab51ced2ea4b",
+      "status": "PASS",
+      "upload_timestamp": "2023-10-09T17:59:52.869933Z",
+      "version": "1.11.1.1"
+    }
+  ],
+  "status": "BLOCK",
+  "unresolved_packages": [
+    "pyzmq",
+    "rpds-py"
+  ],
+  "wheel_verification": []
+}

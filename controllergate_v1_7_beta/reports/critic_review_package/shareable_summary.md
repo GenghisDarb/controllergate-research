@@ -1,5 +1,18 @@
 # ControllerGate shareable summary
 
+## Batch068h6 AMDS semantic integrity and dual provider recovery
+
+ControllerGate remains on validated protocol `v2.18`. The verified Batch068h5 artifact established a stable-first 67-node, 113-edge historical provider lock. Coverage and MarkupSafe built successfully, while pyzmq stopped on a missing Ninja backend provider and rpds-py stopped on missing Rust/Cargo.
+
+Batch068h6 preserves the original Batch068h5 records and explicitly reconciles two false branch-closure labels. It separates successful probe execution from causal observation and build-branch closure. The dual provider workflow can proceed to offline installation and duplicate replay only after both unresolved packages produce fully verified wheels and pass fresh exact-runtime import checks.
+
+- Issue-derived repair episodes remain `4` unless duplicate clean replay and the count gate prove a fifth.
+- Native external repair episodes remain `4`.
+- Full scoring remains `NOT_RUN/disallowed`.
+- AMDS prospective effectiveness remains `NOT_ESTABLISHED`.
+- Memory lift remains `not_demonstrated`.
+- Self-maintaining software remains `false/not_demonstrated`.
+
 ## Batch068h3 historical-provider closure hardening
 
 The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. It adds a callable historical dependency resolver, evidence-derived contact resolution, explicit maintenance-order guards, source-context analysis, and semantic proof obligations.

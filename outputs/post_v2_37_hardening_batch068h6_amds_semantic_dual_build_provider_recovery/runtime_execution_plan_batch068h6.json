@@ -1,0 +1,123 @@
+{
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "candidate_sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+  "context_path": "E:\\ControllerGate-Artifacts\\batch068h6_gz2bkem1\\batch068h6_context.json",
+  "phases": [
+    {
+      "binding": "batch068h6_phase",
+      "depends_on": [],
+      "phase_id": "amds_semantic_reconciliation",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h6_phase",
+      "depends_on": [
+        "amds_semantic_reconciliation"
+      ],
+      "phase_id": "amds_corrected_board",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h6_phase",
+      "depends_on": [
+        "amds_semantic_reconciliation",
+        "amds_corrected_board"
+      ],
+      "phase_id": "dynamic_build_requirement_closure",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h6_phase",
+      "depends_on": [
+        "amds_semantic_reconciliation",
+        "amds_corrected_board",
+        "dynamic_build_requirement_closure"
+      ],
+      "phase_id": "dual_build_provider_recovery",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h6_phase",
+      "depends_on": [
+        "amds_semantic_reconciliation",
+        "amds_corrected_board",
+        "dynamic_build_requirement_closure",
+        "dual_build_provider_recovery"
+      ],
+      "phase_id": "offline_capsule_materialization",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h6_phase",
+      "depends_on": [
+        "amds_semantic_reconciliation",
+        "amds_corrected_board",
+        "dynamic_build_requirement_closure",
+        "dual_build_provider_recovery",
+        "offline_capsule_materialization"
+      ],
+      "phase_id": "collection_run_1",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h6_phase",
+      "depends_on": [
+        "amds_semantic_reconciliation",
+        "amds_corrected_board",
+        "dynamic_build_requirement_closure",
+        "dual_build_provider_recovery",
+        "offline_capsule_materialization",
+        "collection_run_1"
+      ],
+      "phase_id": "collection_run_2",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h6_phase",
+      "depends_on": [
+        "amds_semantic_reconciliation",
+        "amds_corrected_board",
+        "dynamic_build_requirement_closure",
+        "dual_build_provider_recovery",
+        "offline_capsule_materialization",
+        "collection_run_1",
+        "collection_run_2"
+      ],
+      "phase_id": "prerepair_replay_1",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h6_phase",
+      "depends_on": [
+        "amds_semantic_reconciliation",
+        "amds_corrected_board",
+        "dynamic_build_requirement_closure",
+        "dual_build_provider_recovery",
+        "offline_capsule_materialization",
+        "collection_run_1",
+        "collection_run_2",
+        "prerepair_replay_1"
+      ],
+      "phase_id": "prerepair_replay_2",
+      "replay_authorized": false
+    },
+    {
+      "binding": "batch068h6_phase",
+      "depends_on": [
+        "amds_semantic_reconciliation",
+        "amds_corrected_board",
+        "dynamic_build_requirement_closure",
+        "dual_build_provider_recovery",
+        "offline_capsule_materialization",
+        "collection_run_1",
+        "collection_run_2",
+        "prerepair_replay_1",
+        "prerepair_replay_2"
+      ],
+      "phase_id": "patch_authorization",
+      "replay_authorized": false
+    }
+  ],
+  "plan_hash": "a9249cf9e3441d9fbca5e8b3f2030e6194c212ccbceaf729a24656b9e9aff838",
+  "plan_id": "batch068h6-canonical-plan"
+}

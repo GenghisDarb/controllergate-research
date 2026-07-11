@@ -8,19 +8,20 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 ## Validated protocol and executable frontier
 
-The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. Batch068h3 adds a callable historical dependency resolver, explicit maintenance-order guards, evidence-derived candidate-contact resolution, source-context analysis, semantic proof obligations, and bounded diagnostic checks. Earlier v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
+The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. The Batch068h series adds a callable historical dependency resolver, authorization-bound execution, evidence-derived candidate-contact resolution, source-context analysis, semantic proof obligations, bounded diagnostic checks, and isolated build-provider recovery. Earlier v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
 
-For the active Nbclient candidate, 15 direct historical distributions were verified without selecting post-cutoff artifacts. Their transitive dependency metadata is not yet available in verified evidence, so environment closure remains blocked and collection is `NOT_RUN`. This is a precise product blocker, not repair success: no target test or patch ran, and the next action is dynamic historical metadata recovery.
+For the active Nbclient candidate, Batch068h5 established a stable-first 67-node, 113-edge historical lock and 1,059 exact-runtime wheel tags. Coverage 7.5.4 and MarkupSafe 2.1.5 produced verified wheels; pyzmq 26.0.3 remained blocked on Ninja and rpds-py 0.18.1 remained blocked on Rust/Cargo. Batch068h6 explicitly reconciles an AMDS false-closure reporting defect, separates probe operation from causal and branch state, and attempts both provider branches before any offline replay or repair authorization.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
-Batch068h4 activates the authorization-bound canonical execution path. The pinned Nbclient source reconstructs 15 root requirements and reaches a 71-package, 119-edge cutoff-compatible dependency closure with no unresolved package metadata, dependency nodes, conflicts, cycles, or post-cutoff selections. Local execution stops before capsule materialization because the local Docker daemon is unavailable; the GitHub Linux workflow is responsible for exercising the implemented offline-build, collection, duplicate-collection, and conditional prerepair path. No patch is authorized.
+Batch068h6 is fail-closed: a successful diagnostic probe cannot close a build branch. Closure requires a verified wheel, compatible tags, verified `RECORD`, a fresh exact-runtime installation, a minimal import check, and no unresolved provider. The workflow continues to offline installation, duplicate collection, duplicate prerepair replay, and conditional source-only repair only when every preceding goal predicate passes.
 
 - Confirmed issue-derived repair episodes: `4`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
-- Patches generated or applied by Batch068h3: `0`.
-- Target-test bodies executed by Batch068h3: `0`.
+- Batch068h5 official artifact verification: `PASS`.
+- Batch068h5 historical AMDS false closures reconciled: `2`.
+- AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.
 - Self-maintaining software: `false/not_demonstrated`.

@@ -1,28 +1,30 @@
 {
-  "blocker": "system_toolchain_inventory_failed",
+  "blocker": "build_provider_branch_unresolved",
   "canonical_cli_invoked": true,
   "checkpoint_status": "PASS",
   "command": [
-    "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
-    "C:\\Dev\\ControllerGate\\scripts\\controllergate_frontier.py",
+    "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+    "/home/runner/work/controllergate-research/controllergate-research/scripts/controllergate_frontier.py",
     "execute",
     "--candidate",
     "codex_wave3_jupyter_nbclient_issues_316",
     "--authorization-manifest",
-    "C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch068h5_amds_build_provider_recovery_fifth_repair\\runtime_execution_authorization_batch068h5.json",
+    "/home/runner/work/controllergate-research/controllergate-research/outputs/post_v2_37_hardening_batch068h5_amds_build_provider_recovery_fifth_repair/runtime_execution_authorization_batch068h5.json",
     "--checkpoint",
-    "C:\\Dev\\ControllerGate\\outputs\\post_v2_37_hardening_batch068h5_amds_build_provider_recovery_fifth_repair\\runtime_checkpoint_batch068h5.json"
+    "/home/runner/work/controllergate-research/controllergate-research/outputs/post_v2_37_hardening_batch068h5_amds_build_provider_recovery_fifth_repair/runtime_checkpoint_batch068h5.json"
   ],
   "completed_phases": [
-    "amds_build_board",
-    "amds_propagate_constraints"
-  ],
-  "executed_phases": [
     "amds_build_board",
     "amds_propagate_constraints",
     "amds_execute_probe"
   ],
-  "phase_id": "amds_execute_probe",
+  "executed_phases": [
+    "amds_build_board",
+    "amds_propagate_constraints",
+    "amds_execute_probe",
+    "build_provider_recovery"
+  ],
+  "phase_id": "build_provider_recovery",
   "resume_status": "SAFE",
   "returncode": 0,
   "status": "BLOCK"

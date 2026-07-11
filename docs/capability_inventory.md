@@ -46,7 +46,7 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 
 ## Current operational gate status
 
-- Current protocol is `v2.17 canonical_topology_environment_volume_lane`.
+- Current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`.
 - Confirmed external native repair episodes remain `4`.
 - Confirmed issue-derived repair episodes are `4`.
 - Full scoring remains `NOT_RUN/disallowed`.
@@ -73,6 +73,18 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 - Stable-first historical lock-v3 and exact-runtime wheel-tag compatibility: implemented conditionally on the pinned image.
 - Per-package, network-disabled sdist build cells and built-wheel validation: implemented.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
+
+## Batch068h6 semantic-integrity and provider-recovery capabilities
+
+- Probe operation, causal observation, hypothesis, and branch state: separate typed layers.
+- Build-branch goal predicates: wheel identity, metadata, tags, `RECORD`, exact-runtime install, import, and provider closure are conjunctive.
+- Historical Batch068h5 false closures: preserved and explicitly reconciled; history is not rewritten.
+- Package-specific causal boards: pyzmq begins from verified `ninja>=1.5` evidence; rpds-py begins from verified Rust/Cargo absence.
+- Dynamic PEP 517 backend-requirement capture and lock-v4 provider edges: implemented.
+- Historical toolchain provider: exact Python image plus pinned Rust 1.79.0 and GCC image identities, with network-disabled wheel builds.
+- Iterative AMDS probe-registry regeneration, posterior update, and re-ranking: implemented with unknown information gain retained as `NOT_ESTABLISHED`.
+- Constraint propagation: at-least-one contradiction handling, at-most-one safe deductions, requires chains, and bounded finite backtracking.
+- AMDS prospective effectiveness remains `NOT_ESTABLISHED`; this implementation status is not a repair-success claim.
 
 ### Batch052 Lemon Reader source-only patch candidate gate
 

@@ -48,6 +48,12 @@ RUNTIME_BINDINGS: dict[str, str] = {
     "evaluate_amds_stop": "controllergate.amds.stop_policy:evaluate_stop",
     "run_amds_active_loop": "controllergate.amds.runtime_adapter:run_amds_active_loop",
     "execute_batch068h5_phase": "controllergate.runtime.batch068h5_pipeline:execute_phase",
+    "execute_batch068h6_phase": "controllergate.runtime.batch068h6_pipeline:execute_phase",
+    "classify_amds_observation": "controllergate.amds.observation_classifier:classify_build_observation",
+    "validate_amds_state_transition": "controllergate.amds.state_transition_validator:validate_semantic_transition",
+    "evaluate_amds_branch_goal": "controllergate.amds.goal_predicates:build_branch_goal",
+    "recover_dynamic_build_requirements": "controllergate.runtime.dynamic_build_requirements:recover_from_pep517_log",
+    "prepare_historical_toolchain": "controllergate.runtime.historical_toolchain_provider:prepare_historical_builder",
 }
 
 PATHWAY_BINDINGS = {
