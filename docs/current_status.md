@@ -4,19 +4,19 @@
 
 The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. The Batch068h runtime makes historical dependency resolution, exact-runtime provider recovery, and its safety gates callable through the canonical runtime while preserving selectable v2.17, v2.16, v2.15, and v2.14 interfaces.
 
-The active Nbclient record has a verified stable-first 67-node, 113-edge lock. Batch068h8 preserves the official Batch068h7 Cargo acquisition block separately from the local diagnostic, adds phase-bound network authorization, closes the Cargo provider with 38 verified crates, and migrates the 92-cell evidence topology to synchronized AMDS board v4 semantics.
+The active Nbclient record has a verified stable-first 67-node, 113-edge lock. Batch068h8 preserves the official Batch068h7 Cargo acquisition block separately from the local diagnostic, adds phase-bound network authorization, and migrates the 92-cell evidence topology to synchronized AMDS board v4 semantics. Cargo closure and every downstream gate remain conditional on fresh official-runner evidence.
 
 The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIER_STATE.json`; its rendered view is `docs/CURRENT_FRONTIER_STATUS.md`.
 
-Coverage, MarkupSafe, pyzmq, and rpds-py each build twice with identical bytes and verified normalized contents. Offline installation, SBOM, and runner/target/harness origin checks pass. The default warning policy still reproduces its historical boundary; the separately labeled project-declared diagnostic arm collects the same 33 nodes twice. Two issue-target runs reproduce 26 mock-call assertion failures and are classified as interpreter behavior rather than a source-owned defect. Nbclient is retired without a patch, and the one-hop AnyIO replacement stops at a missing authoritative command boundary.
+In the local nonpromoting diagnostic, Coverage, MarkupSafe, pyzmq, and rpds-py each build twice with identical bytes, the project-declared diagnostic arm collects the same 33 nodes twice, and two issue-target runs reproduce 26 mock-call assertion failures. Those results classify the local Nbclient trace as interpreter behavior rather than a source-owned defect. An official Cargo acquisition block stops wheel, capsule, collection, ownership, replacement, and patch gates as `NOT_RUN` without changing repair counts.
 
 - Issue-derived repair episodes: `4`.
 - Native external repair episodes: `4`.
 - Batch068h7 artifact custody and official/local reconciliation: `PASS`.
-- Batch068h8 network authorization, Cargo closure, AMDS v4, and wheel reproducibility: `PASS`.
-- Nbclient source-repair admissibility: `false` (`interpreter_mock_behavior_change`).
-- Replacement candidate: `anyio_1028_old_pytest_assertion`.
-- Exact next boundary: `replacement_candidate_command_not_authoritative`.
+- Batch068h8 network authorization and AMDS v4: `PASS`.
+- Cargo closure and downstream gates: conditional on official-runner provider acquisition.
+- Local Nbclient ownership diagnostic: `interpreter_mock_behavior_change`; nonpromoting.
+- Exact next boundary: the first official-runner Cargo/provider blocker when acquisition does not close.
 - Reconciled historical false closures: `2`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Runtime connectors and live-device repair: inactive.
