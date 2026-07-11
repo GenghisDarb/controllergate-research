@@ -1,0 +1,138 @@
+name: post_v2_37_hardening_batch070_v2_19_amds_fifth_repair_sprint
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  batch070-v2-19-amds-fifth-repair-sprint:
+    name: Batch070 v2.19 AMDS consolidation and fifth-repair sprint
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+
+      - name: Verify workflow head identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install test dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest packaging
+
+      - name: Run byte-custody preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/byte_custody_preflight.py
+
+      - name: Rebuild Batch070 from verified committed H9 evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/generate_batch070_v2_19_amds_fifth_repair_sprint.py
+
+      - name: Run focused Batch070 tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/runtime/test_batch070_v2_19_amds_runtime.py -q
+
+      - name: Run complete core and runtime suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/core tests/runtime -q
+
+      - name: Run registry validation and registered regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/run_controllergate_regression_audits.py --registry configs/controllergate_regression_audit_registry.json
+
+      - name: Audit Batch070 and protocol preservation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_batch070_v2_19_amds_fifth_repair_sprint.py
+          python scripts/audit_batch068h9_cargo_vendor_nbclient_detour_closure.py
+          python scripts/audit_batch068h8_authorized_cargo_warning_candidate_routing.py
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/controllergate_frontier.py status
+          python scripts/controllergate_frontier.py validate
+
+      - name: Verify compact evidence and public claim boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find outputs/post_v2_37_hardening_batch070_v2_19_amds_fifth_repair_sprint -maxdepth 1 -type f | wc -l)" -le 40
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          out=Path('outputs/post_v2_37_hardening_batch070_v2_19_amds_fifth_repair_sprint')
+          final=json.loads((out/'batch070_final_decision.json').read_text())
+          assert final['validated_protocol_after']=='v2.19'
+          assert final['issue_derived_repair_count'] in {4,5}
+          assert final['full_scoring']=='NOT_RUN/disallowed'
+          assert final['memory_lift']=='not_demonstrated'
+          assert final['self_maintaining_software']=='false/not_demonstrated'
+          assert final['AMDS_PROSPECTIVE_EFFECTIVENESS']=='NOT_ESTABLISHED'
+          PY
+          if find outputs/post_v2_37_hardening_batch070_v2_19_amds_fifth_repair_sprint -type f \( -name '*.pyc' -o -name '*.pyo' -o -name '*.whl' -o -name '*.zip' -o -name '*.tar' -o -name '*.tgz' -o -name '*.crate' \) | grep -q .; then
+            echo "forbidden Batch070 evidence payload detected" >&2
+            exit 1
+          fi
+          git diff --check
+
+      - name: Stage compact allowlisted artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/stage_controllergate_artifact.py \
+            --destination "$RUNNER_TEMP/controllergate_artifact" \
+            --source "outputs/post_v2_37_hardening_batch070_v2_19_amds_fifth_repair_sprint" \
+            --source "outputs/post_v2_37_hardening_batch068h9_cargo_vendor_nbclient_detour_closure" \
+            --source "outputs/post_v2_37_hardening_batch068h8_authorized_cargo_warning_candidate_routing" \
+            --source "outputs/current" \
+            --source "outputs/frontier" \
+            --source "docs/CURRENT_FRONTIER_STATUS.md" \
+            --source "docs/current_status.md" \
+            --source "README.md" \
+            --source "configs/controllergate_current.yaml" \
+            --source "configs/controllergate_v2_19_authorized_amds_active_maintenance.yaml" \
+            --source "configs/controllergate_regression_audit_registry.json"
+          if find "$RUNNER_TEMP/controllergate_artifact" -type f \( -name '*.pyc' -o -name '*.pyo' -o -name '*.whl' -o -name '*.zip' -o -name '*.tar' -o -name '*.tgz' -o -name '*.crate' \) | grep -q .; then
+            echo "forbidden staged artifact payload detected" >&2
+            exit 1
+          fi
+          if find "$RUNNER_TEMP/controllergate_artifact" -type d \( -name '__pycache__' -o -name '.venv' -o -name 'venv' -o -name 'vendor' \) | grep -q .; then
+            echo "forbidden staged artifact directory detected" >&2
+            exit 1
+          fi
+
+      - name: Upload Batch070 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch070_v2_19_amds_fifth_repair_sprint_artifacts
+          path: ${{ runner.temp }}/controllergate_artifact/**
+          if-no-files-found: error

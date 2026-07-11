@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 import json
 from pathlib import Path
 from typing import Any
@@ -18,6 +18,7 @@ class RuntimeCheckpoint:
     spent_nonces: tuple[str, ...]
     event_chain_head: str
     checkpoint_hash: str = ""
+    context_state: dict[str, Any] = field(default_factory=dict)
 
 
 def seal_checkpoint(checkpoint: RuntimeCheckpoint) -> dict[str, Any]:

@@ -1,0 +1,20 @@
+{
+  "all_declared_constraint_families_executable": true,
+  "semantics": {
+    "at_least_one": "one or more members must be active",
+    "at_most_one": "zero or one member may be active",
+    "authorization_boundary": "action blocked unless authorization prerequisite resolves",
+    "environment_dependency": "action cannot activate until environment prerequisite resolves",
+    "exactly_one": "exactly one member must be active",
+    "excludes": "no more than one member may be active",
+    "implies": "active antecedent activates consequent",
+    "interlock_boundary": "action blocked unless interlock prerequisites resolve",
+    "mutually_exclusive": "no more than one member may be active",
+    "provenance_boundary": "action blocked unless provenance prerequisites resolve",
+    "provider_dependency": "action cannot activate until provider prerequisite resolves",
+    "requires": "active antecedent requires active or resolved consequent",
+    "rollback_boundary": "action blocked unless rollback and proof prerequisites resolve",
+    "source_ownership": "patch action requires source-owned classification"
+  },
+  "status": "PASS"
+}

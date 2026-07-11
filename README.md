@@ -8,25 +8,31 @@ It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-ch
 
 ## Validated protocol and executable frontier
 
-The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. The Batch068h series adds a callable historical dependency resolver, authorization-bound execution, evidence-derived candidate-contact resolution, source-context analysis, semantic proof obligations, bounded diagnostic checks, and isolated build-provider recovery. Earlier v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
+The validated current protocol is `v2.19 authorized_amds_active_maintenance_lane`. Batch070 replaces batch-specific current bindings with 22 generic production bindings exposed through one candidate-manifest dispatcher. It also completes persistent diagnostic hypothesis state, bounded constraint backtracking, single-use probe authorization, separate custody and semantic verification, and dynamic information-gain probe planning. The v2.18, v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
 
-Batch068h9 verifies and ingests the official Batch068h8 artifact, corrects its Cargo cache-permission misclassification, and promotes a reusable lock-driven vendor strategy only after all 38 package checksums and an actual `cargo metadata --locked --offline` run pass. Historical builder v3 consumes that provider with network disabled and produces verified Python 3.13 wheels for Coverage, MarkupSafe, pyzmq, and rpds-py.
+Batch070 officially verifies and ingests Batch068h9, preserving its 38-package Cargo vendor closure, 1,320 verified vendor files, four verified wheels, and Nbclient retirement. A frozen portfolio of three fresh candidates then executes through the canonical v2.19 dispatcher. Each candidate stops safely at command-authority manual review before collection, pre-repair replay, patch authorization, or count gating.
 
 Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURRENT_FRONTIER_STATUS.md).
 
-The default Nbclient warning policy remains authoritative and blocked. A separately labeled project-declared `-W default` diagnostic collects the same 33 nodes twice without executing test bodies. Two fresh issue-target replays reproduce the same 26 mock-call assertion failures and classify the boundary as `interpreter_mock_behavior_change`. Nbclient is therefore retired from the source-only repair queue without changing tests, production code, or repair counts. The Batch068h detour is closed; the next major action is Batch070.
+The nonblocking four-arm prospective diagnostic pilot is recorded as `PARTIAL`; its effectiveness remains `NOT_ESTABLISHED`. Workflow success and protocol implementation are not repair success. Batch071 should continue the frozen high-quality queue by resolving reviewed command authority and resuming from verified checkpoints.
 
 - Confirmed issue-derived repair episodes: `4`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
-- Batch068h8 official artifact verification and ingest: `PASS`.
+- Batch068h9 official artifact verification and ingest: `PASS`.
+- Validated protocol promotion: `v2.18` to `v2.19`, `PASS`.
+- Generic production bindings: `22`; current batch-specific bindings: `0`.
+- AMDS implementation and runtime integration: `PASS`.
+- Persistent posterior state, bounded backtracking, single-use authorization, and semantic verification: `PASS`.
+- Frozen candidate portfolio: `3`; all ended at `command_source_conflict_manual_review`.
+- Patches generated and count gates run: `0`.
 - Batch068h9 Cargo provider closure: `PASS` via `direct_lock_vendor`.
 - Verified vendor contents: `38` packages, `1,320` files; actual offline metadata: `PASS`.
 - Historical builder v3 and four required wheel closures: `PASS`.
 - Offline capsule, SBOM, and origin checks: `PASS`.
 - Diagnostic collection: `33` equivalent nodes across two fresh runs.
 - Nbclient ownership: `interpreter_mock_behavior_change`; retired without a source patch.
-- Next major action: `Batch070`.
+- Next major action: `Batch071` continuation of the frozen repair queue.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

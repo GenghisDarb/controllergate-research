@@ -2,18 +2,18 @@
 
 This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 
-- Validated current protocol: v2.18 evidence_derived_topology_historical_provider_lane (PASS)
-- Frontier engine: interlock_bound_semantic_runtime_operational
+- Validated current protocol: v2.19 authorized_amds_active_maintenance_lane (PASS)
+- Frontier engine: authorized_amds_runtime_operational
 - Frontier protocol promoted: true
-- Tier-2 candidates: 25
-- Tier-3 static probe authorizations: 1
+- Generic production bindings: 22
+- Batch-specific current bindings: 0
 - Issue-derived repair episodes: 4
 - Native external repair episodes: 4
 - Runtime activation allowed: false
 - Full scoring: NOT_RUN/disallowed
 - Memory lift: not_demonstrated
 - Self-maintaining software: false/not_demonstrated
-- Maintenance topology runtime: PASS
-- Historical provider capsule: PARTIAL
-- Target collection: NOT_RUN
-- Next safe action: batch068h4_dynamic_historical_metadata_recovery
+- AMDS implementation complete: true
+- AMDS runtime integrated: true
+- AMDS prospective effectiveness: NOT_ESTABLISHED
+- Next safe action: batch071_continue_frozen_high_quality_repair_queue

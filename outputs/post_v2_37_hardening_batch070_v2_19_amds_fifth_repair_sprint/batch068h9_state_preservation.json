@@ -1,0 +1,35 @@
+{
+  "candidate_retired": true,
+  "cargo_provider": {
+    "blocker": null,
+    "cargo_lock_sha256": "4888a61fbba54a345696a3c1f26b23b1e6b901ddedd336a2b5f31210bed8cef0",
+    "file_count": 1320,
+    "network_acquisition_status": "PASS",
+    "offline_metadata_status": "PASS",
+    "package_count": 38,
+    "provider_hash": "55348126a7198d6dfd799fcda57bc449b87eb14160e8b86e0d170a1c2ed38698",
+    "provider_path": "/home/runner/work/_temp/batch068h9_qie5zlid/cargo_vendor",
+    "reopen_conditions": [],
+    "selected_method": "direct_lock_vendor",
+    "status": "PASS",
+    "strategy_attempts": [
+      {
+        "blocker": "cargo_cache_not_writable",
+        "classification": "cargo_cache_not_writable",
+        "method": "cargo_fetch_cache",
+        "status": "BLOCK"
+      },
+      {
+        "blocker": null,
+        "method": "direct_lock_vendor",
+        "status": "PASS"
+      }
+    ]
+  },
+  "next_major_action": "batch070",
+  "offline_capsule": "PASS",
+  "ownership": "interpreter_mock_behavior_change",
+  "repair_count": 4,
+  "status": "PASS",
+  "wheel_status": "PASS"
+}

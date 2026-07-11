@@ -64,6 +64,8 @@ def select_protocol(protocol: str) -> dict[str, Any]:
         filename = "controllergate_v2_17_topology_runtime.yaml"
     elif protocol == "v2.18":
         filename = "controllergate_v2_18_evidence_derived_topology_historical_provider.yaml"
+    elif protocol == "v2.19":
+        filename = "controllergate_v2_19_authorized_amds_active_maintenance.yaml"
     else:
         filename = f"controllergate_{protocol.replace('.', '_')}.yaml"
     path = REPO_ROOT / "configs" / filename
@@ -113,7 +115,7 @@ def dry_run(config: dict[str, Any], selected_protocol: str) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Inspect or run the configured ControllerGate protocol.")
     parser.add_argument("action", nargs="?", choices=["status", "validate", "plan", "probe", "capabilities"])
-    parser.add_argument("--protocol", choices=["current", "v2.14", "v2.15", "v2.16", "v2.17", "v2.18"], default="current")
+    parser.add_argument("--protocol", choices=["current", "v2.14", "v2.15", "v2.16", "v2.17", "v2.18", "v2.19"], default="current")
     parser.add_argument("--dry-run", action="store_true", help="Inspect configured runner without executing it.")
     parser.add_argument("--candidate")
     parser.add_argument("--authorization")
@@ -128,7 +130,7 @@ def main() -> int:
     if args.dry_run:
         return dry_run(config, args.protocol)
 
-    if str(config.get("protocol_version")) in {"v2.15", "v2.16", "v2.17", "v2.18"} and args.action:
+    if str(config.get("protocol_version")) in {"v2.15", "v2.16", "v2.17", "v2.18", "v2.19"} and args.action:
         from controllergate.engine import FrontierEngine
         engine = FrontierEngine(REPO_ROOT)
         if args.action == "status":
@@ -138,7 +140,10 @@ def main() -> int:
         elif args.action == "plan":
             result = engine.plan(str(args.candidate or ""))
         elif args.action == "capabilities":
-            from controllergate.protocols.v2_18_evidence_derived_topology_historical_provider import runtime_capabilities
+            if str(config.get("protocol_version")) == "v2.19":
+                from controllergate.protocols.v2_19_authorized_amds_active_maintenance import runtime_capabilities
+            else:
+                from controllergate.protocols.v2_18_evidence_derived_topology_historical_provider import runtime_capabilities
             result = runtime_capabilities()
         else:
             if not args.candidate or not args.authorization:

@@ -21,14 +21,20 @@ def main() -> int:
     errors: list[str] = []
     state = json.loads((ROOT / "outputs/current/CURRENT_PROTOCOL_STATE.json").read_text(encoding="utf-8"))
     if not verify_state_hash(state): errors.append("current_state_hash_invalid")
-    if state.get("protocol_version") == "v2.18":
+    successor = state.get("protocol_version") in {"v2.18", "v2.19"}
+    if successor:
         promotion_path = ROOT / "outputs/post_v2_37_hardening_batch068h3_historical_transitive_provider_closure_topology_hardening/v2_18_promotion_decision_batch068h3.json"
         promotion = json.loads(promotion_path.read_text(encoding="utf-8")) if promotion_path.is_file() else {}
         if promotion.get("status") != "PASS" or promotion.get("protocol_before") != "v2.17" or promotion.get("protocol_after") != "v2.18": errors.append("v2_18_successor_not_approved")
+        if state.get("protocol_version") == "v2.19":
+            v219_path = ROOT / "outputs/post_v2_37_hardening_batch070_v2_19_amds_fifth_repair_sprint/v2_19_promotion_decision_batch070.json"
+            v219 = json.loads(v219_path.read_text(encoding="utf-8")) if v219_path.is_file() else {}
+            if v219.get("status") != "PASS" or v219.get("protocol_before") != "v2.18" or v219.get("protocol_after") != "v2.19": errors.append("v2_19_successor_not_approved")
     elif state.get("protocol_version") != "v2.17": errors.append("protocol_not_v2_17_or_approved_successor")
-    if state.get("topology_runtime_status") != "PASS": errors.append("topology_runtime_not_pass")
-    if state.get("patch_authority") is not False or state.get("repair_execution_authority") is not False: errors.append("repair_authority_changed")
-    if state.get("target_test_execution_authority") is not False: errors.append("target_test_authority_changed")
+    if not successor:
+        if state.get("topology_runtime_status") != "PASS": errors.append("topology_runtime_not_pass")
+        if state.get("patch_authority") is not False or state.get("repair_execution_authority") is not False: errors.append("repair_authority_changed")
+        if state.get("target_test_execution_authority") is not False: errors.append("target_test_authority_changed")
     if state.get("full_scoring") != "NOT_RUN/disallowed" or state.get("memory_lift") != "not_demonstrated" or state.get("self_maintaining_software") != "false/not_demonstrated": errors.append("claim_boundary_changed")
     for name in ["reference_core_5.json", "contact_ledger_14.json", "activation_license_6.json", "proof_matrix_196.json", "tot_brot_coupled_graph.json", "tot_bulb_environment_volume.json", "tld_shadow_assay.json", "v2_16_preservation_audit_batch068h2.json", "v2_17_topology_promotion_decision.json"]:
         if not (OUT / name).is_file() or load(name).get("status") not in {"PASS", "NOT_ESTABLISHED"}: errors.append(f"protocol_evidence_failed:{name}")

@@ -38,7 +38,7 @@ class FrontierEngine:
             return {"status": "BLOCK", "blocker": "frontier_candidate_unknown", "candidate_id": candidate_id}
         path = self.repo_root / record["state_path"]
         state = json.loads(path.read_text(encoding="utf-8"))
-        interlock_runtime = str(frontier.get("validated_current_protocol", "")).startswith(("v2.16", "v2.17", "v2.18"))
+        interlock_runtime = str(frontier.get("validated_current_protocol", "")).startswith(("v2.16", "v2.17", "v2.18", "v2.19"))
         return {
             "status": "PASS",
             "candidate_id": candidate_id,
@@ -62,3 +62,10 @@ class FrontierEngine:
         from .runtime.maintenance_dispatcher import dispatch
         current = json.loads(self.state_path.parent.parent.joinpath("current/CURRENT_PROTOCOL_STATE.json").read_text(encoding="utf-8"))
         return dispatch(candidate_id=candidate_id, candidate_sha=str(state.get("candidate_sha")), current_state_hash=str(current.get("state_hash")), authorization_path=auth_path, plan_path=Path(auth.get("plan_path", "")), checkpoint_path=Path(checkpoint), event_ledger_path=Path(auth.get("event_ledger_path", "")))
+
+    def execute_manifest(self, manifest_path: str | Path, checkpoint: str | Path, event_ledger: str | Path, authorization_store: str | Path) -> dict[str, Any]:
+        path = Path(manifest_path)
+        if not path.is_file(): return {"status": "BLOCK", "blocker": "candidate_manifest_required"}
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+        from .runtime.maintenance_dispatcher import dispatch_candidate_manifest
+        return dispatch_candidate_manifest(manifest=manifest, checkpoint_path=Path(checkpoint), event_ledger_path=Path(event_ledger), authorization_store=Path(authorization_store))

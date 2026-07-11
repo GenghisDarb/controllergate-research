@@ -22,7 +22,7 @@
     "--security-opt",
     "no-new-privileges",
     "-v",
-    "E:\\ControllerGate-Artifacts\\batch068h9_jbg00szk\\cargo_cache_h9:/cargo-cache:rw",
+    "/home/runner/work/_temp/batch068h9_qie5zlid/cargo_cache_h9:/cargo-cache:rw",
     "--entrypoint",
     "python",
     "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9",
@@ -31,6 +31,6 @@
   ],
   "returncode": 0,
   "status": "PASS",
-  "stderr": "",
+  "stderr": "Unable to find image 'python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9' locally\ndocker.io/library/python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9: Pulling from library/python\nf11c1adaa26e: Pulling fs layer\n627c6ce83d4e: Pulling fs layer\n6cc427df0269: Pulling fs layer\nf7ac91d4c5c8: Pulling fs layer\n9702f4f231f0: Pulling fs layer\nf7ac91d4c5c8: Waiting\n9702f4f231f0: Waiting\n627c6ce83d4e: Verifying Checksum\n627c6ce83d4e: Download complete\nf11c1adaa26e: Verifying Checksum\nf11c1adaa26e: Download complete\nf7ac91d4c5c8: Download complete\n9702f4f231f0: Verifying Checksum\n9702f4f231f0: Download complete\n6cc427df0269: Verifying Checksum\n6cc427df0269: Download complete\nf11c1adaa26e: Pull complete\n627c6ce83d4e: Pull complete\n6cc427df0269: Pull complete\nf7ac91d4c5c8: Pull complete\n9702f4f231f0: Pull complete\nDigest: sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9\nStatus: Downloaded newer image for python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9\n",
   "stdout": "cargo-cache-preflight-pass 65534 65534\n"
 }

@@ -1,5 +1,11 @@
 # ControllerGate shareable summary
 
+## Batch070 v2.19 authorized maintenance consolidation
+
+ControllerGate now validates `v2.19 authorized_amds_active_maintenance_lane`. Batch070 verifies the official Batch068h9 artifact and replaces batch-specific current execution bindings with 22 reusable bindings behind one candidate-manifest dispatcher. Persistent diagnostic hypothesis state, bounded constraint backtracking, canonical single-use probe authorization, separate custody and semantic verification, and dynamic probe reranking all pass their implementation audits.
+
+Three fresh candidates were frozen before execution and processed sequentially. Each stopped at command-authority manual review before collection or pre-repair replay. No patch was authorized or generated, no duplicate replay or count gate ran, and repair counts remain 4 issue-derived and 4 native. The nonblocking four-arm prospective pilot is `PARTIAL`, and AMDS prospective effectiveness remains `NOT_ESTABLISHED`. Full scoring is disabled, memory lift is not demonstrated, and self-maintaining software is not demonstrated. Batch071 should continue the same frozen queue after reviewed command-authority resolution.
+
 ## Batch068h9 Cargo vendor handoff and Nbclient detour closure
 
 ControllerGate remains on validated protocol `v2.18`. Batch068h9 verifies and ingests the official Batch068h8 artifact, corrects the Cargo failure from an HTTP classification to `cargo_cache_not_writable`, and makes the successful lock-driven vendor fallback authoritative only after all 38 registry packages, 1,320 files, and an actual offline Cargo metadata command verify.

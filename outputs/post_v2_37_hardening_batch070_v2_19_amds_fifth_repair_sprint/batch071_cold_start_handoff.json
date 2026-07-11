@@ -1,0 +1,68 @@
+{
+  "claim_boundaries": {
+    "full_scoring": "NOT_RUN/disallowed",
+    "memory_lift": "not_demonstrated",
+    "self_maintaining_software": "false/not_demonstrated"
+  },
+  "issue_derived_repair_count": 4,
+  "native_external_repair_count": 4,
+  "portfolio": [
+    "codex_wave3_biface_i18n_issues_86",
+    "codex_wave3_hipo_drf_extra_fields_issues_210",
+    "codex_wave3_spec_first_connexion_issues_2012"
+  ],
+  "primary_objective": "continue the frozen high-quality repair queue using the completed v2.19 runtime",
+  "source_batch": "Batch070",
+  "status": "PASS",
+  "terminal_states": [
+    {
+      "blocker": "command_source_conflict_manual_review",
+      "candidate_id": "codex_wave3_biface_i18n_issues_86",
+      "canonical_cli_returncode": 0,
+      "checkpoint_status": "PASS",
+      "completed_phase_count": 9,
+      "count_gate": "NOT_RUN",
+      "patch_generated": false,
+      "proof_ledger_status": "PASS",
+      "rollback_status": "PASS",
+      "routing_memory_status": "PASS",
+      "sequence": 1,
+      "status": "MANUAL_REVIEW",
+      "terminal_phase": "recover_authoritative_command",
+      "terminal_prepatch": true
+    },
+    {
+      "blocker": "command_source_conflict_manual_review",
+      "candidate_id": "codex_wave3_hipo_drf_extra_fields_issues_210",
+      "canonical_cli_returncode": 0,
+      "checkpoint_status": "PASS",
+      "completed_phase_count": 9,
+      "count_gate": "NOT_RUN",
+      "patch_generated": false,
+      "proof_ledger_status": "PASS",
+      "rollback_status": "PASS",
+      "routing_memory_status": "PASS",
+      "sequence": 2,
+      "status": "MANUAL_REVIEW",
+      "terminal_phase": "recover_authoritative_command",
+      "terminal_prepatch": true
+    },
+    {
+      "blocker": "command_source_conflict_manual_review",
+      "candidate_id": "codex_wave3_spec_first_connexion_issues_2012",
+      "canonical_cli_returncode": 0,
+      "checkpoint_status": "PASS",
+      "completed_phase_count": 9,
+      "count_gate": "NOT_RUN",
+      "patch_generated": false,
+      "proof_ledger_status": "PASS",
+      "rollback_status": "PASS",
+      "routing_memory_status": "PASS",
+      "sequence": 3,
+      "status": "MANUAL_REVIEW",
+      "terminal_phase": "recover_authoritative_command",
+      "terminal_prepatch": true
+    }
+  ],
+  "validated_protocol": "v2.19"
+}

@@ -22,6 +22,11 @@ def main() -> int:
     execute.add_argument("--candidate", required=True)
     execute.add_argument("--authorization-manifest", required=True)
     execute.add_argument("--checkpoint", required=True)
+    execute_manifest = sub.add_parser("execute-manifest")
+    execute_manifest.add_argument("--manifest", required=True)
+    execute_manifest.add_argument("--checkpoint", required=True)
+    execute_manifest.add_argument("--event-ledger", required=True)
+    execute_manifest.add_argument("--authorization-store", required=True)
     args = parser.parse_args()
     engine = FrontierEngine(ROOT)
     if args.command == "status":
@@ -30,8 +35,10 @@ def main() -> int:
         result = engine.validate()
     elif args.command == "plan":
         result = engine.plan(args.candidate)
-    else:
+    elif args.command == "execute":
         result = engine.execute(args.candidate, args.authorization_manifest, args.checkpoint)
+    else:
+        result = engine.execute_manifest(args.manifest, args.checkpoint, args.event_ledger, args.authorization_store)
     print(json.dumps(result, indent=2, sort_keys=True))
     return 0 if result.get("status") in {"PASS", "BLOCK", "MANUAL_REVIEW", None} else 1
 

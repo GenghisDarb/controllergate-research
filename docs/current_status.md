@@ -2,22 +2,27 @@
 
 ## Validated protocol and executable frontier
 
-The validated current protocol is `v2.18 evidence_derived_topology_historical_provider_lane`. The Batch068h runtime makes historical dependency resolution, exact-runtime provider recovery, and its safety gates callable through the canonical runtime while preserving selectable v2.17, v2.16, v2.15, and v2.14 interfaces.
+The validated current protocol is `v2.19 authorized_amds_active_maintenance_lane`. Its canonical candidate-manifest dispatcher exposes 22 reusable maintenance bindings and no batch-specific current bindings. Earlier v2.18, v2.17, v2.16, v2.15, and v2.14 interfaces remain selectable and audited.
 
-The active Nbclient record has a verified stable-first 67-node, 113-edge lock. Batch068h9 preserves the official Batch068h8 provider failure, corrects it to `cargo_cache_not_writable`, and independently closes a reusable direct-vendor provider with 38 checksum-verified packages, 1,320 files, and an actual network-free Cargo metadata run. Historical builder v3 then produces and verifies all four required Python 3.13 wheels.
+Batch070 verifies and ingests the official Batch068h9 artifact, preserving the reusable direct-vendor provider, its 38 checksum-verified packages, 1,320 files, four verified Python 3.13 wheels, and Nbclient retirement. It completes persistent diagnostic hypothesis state, bounded constraint backtracking, canonical single-use probe authorization, independent semantic verification, and dynamic probe reranking.
 
 The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIER_STATE.json`; its rendered view is `docs/CURRENT_FRONTIER_STATUS.md`.
 
-The offline capsule, SBOM, source/test immutability, and runtime origins pass. The preserved default warning policy remains blocked; the project-declared diagnostic arm collects the same 33 nodes twice with no test bodies. Two issue-target runs reproduce 26 equivalent mock-call assertion failures, classify Nbclient as `interpreter_mock_behavior_change`, and retire it from source-only repair without a source or test mutation. Repair counts do not change.
+A frozen three-candidate portfolio executes sequentially through the canonical dispatcher. All three candidates terminate safely at command-authority manual review, so no collection, pre-repair reproduction, source patch, duplicate replay, or count gate runs. The issue-derived and native repair counts therefore remain unchanged. The four-arm prospective pilot is nonblocking and does not establish AMDS effectiveness.
 
 - Issue-derived repair episodes: `4`.
 - Native external repair episodes: `4`.
-- Batch068h8 artifact custody and official state preservation: `PASS`.
+- Batch068h9 artifact custody and official state preservation: `PASS`.
+- Protocol promotion from v2.18 to v2.19: `PASS`.
+- Generic production bindings: `22`; current batch-specific bindings: `0`.
+- AMDS implementation complete and runtime integrated: `PASS`.
+- Frozen candidates executed: `3`; terminal state: command-authority manual review.
+- Patches and count gates: `0`.
 - Batch068h9 Cargo classification correction and provider closure: `PASS`.
 - Historical builder v3 and required wheels: `PASS`.
 - Offline capsule, SBOM, and origin checks: `PASS`.
 - Nbclient ownership: `interpreter_mock_behavior_change`; retired without patch or count gate.
-- Exact next major action: `Batch070`.
+- Exact next major action: `Batch071`, continue the frozen queue after reviewed command-authority resolution.
 - Reconciled historical false closures: `2`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Runtime connectors and live-device repair: inactive.
