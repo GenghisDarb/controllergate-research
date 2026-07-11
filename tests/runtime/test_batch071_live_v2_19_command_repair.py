@@ -9,6 +9,7 @@ from controllergate.core.command_role_classifier import classify_command
 from controllergate.core.command_sources.tox_parser import parse_tox
 from controllergate.core.command_target_alignment import narrow_to_target
 from controllergate.core.patch_synthesis import synthesize_ordering_patch
+from scripts.generate_batch071_live_v2_19_command_repair_continuation import summarize
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "outputs/post_v2_37_hardening_batch071_live_v2_19_command_repair_continuation"
@@ -110,3 +111,10 @@ def test_v2_19_depth_and_batch072_handoff() -> None:
     assert all(row["generalization_demonstrated"] is False for row in depth["records"])
     assert handoff["issue_derived_repair_count"] == 5
     assert handoff["primary_objective"] == "prospective AMDS and memory validation with fresh unrelated candidates"
+
+
+def test_terminal_summary_tolerates_unresolved_optional_records() -> None:
+    value = {"status": "BLOCK", "context": {"source_acquisition": None, "environment": None, "provider_closure": None, "command_authority": {"selected": None}, "rollback": None, "proof_ledger_update": None}}
+    result = summarize(value)
+    assert result["status"] == "BLOCK"
+    assert result["command_authority_source"] is None
