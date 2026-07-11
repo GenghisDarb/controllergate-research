@@ -573,6 +573,15 @@ python scripts/controllergate_run.py --protocol current --dry-run
 - Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
 
+## Batch068h5 AMDS and historical build-provider recovery
+
+- The official Batch068h4 artifact is byte-verified and ingested; its canonical runtime stopped honestly at independent offline wheel construction.
+- AMDS v2 is now a typed, stateful subsystem bound to the canonical v2.18 dispatcher. It provides evidence-derived boards, executable constraints, information-gain probe selection, candidate-scoped probe authorization, checkpointed observations, branch closure, and explicit stop decisions.
+- Lock-v3 replaces global prerelease acceptance with stable-first PEP 440 selection and uses the exact runtime tag inventory when the pinned execution image is available.
+- Each remaining sdist is isolated in its own network-disabled build cell. Environment or build-provider failures cannot authorize source patching.
+- The validated protocol remains v2.18 unless duplicate nonzero collection succeeds. Issue-derived and native repair counts remain 4 and 4 unless all validation and duplicate-replay count gates pass.
+- Full scoring remains `NOT_RUN/disallowed`; AMDS prospective effectiveness remains `NOT_ESTABLISHED`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`; live connectors remain inactive.
+
 ### Batch052 Lemon Reader source-only patch candidate gate
 
 - Batch052 status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`.

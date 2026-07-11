@@ -1,0 +1,29 @@
+{
+  "blocker": "exact_runtime_tag_capsule_failed",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9",
+    "python",
+    "-c",
+    "import json,platform,sys; from pip._vendor.packaging.tags import sys_tags; print(json.dumps({'tags':[str(t) for t in sys_tags()],'python':sys.version,'platform':platform.platform(),'machine':platform.machine()}))"
+  ],
+  "image_digest": "python@sha256:6bca612d0eb9a6a9a77b564e9f70be3e6faaade7145d7e7154553762492010d9",
+  "status": "BLOCK",
+  "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+  "tags": []
+}

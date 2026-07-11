@@ -488,6 +488,10 @@ Batch060c candidate classifications:
 - Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
 
+## Batch068h5 evidence boundary
+
+The official Batch068h4 evidence is verified. ControllerGate now exposes AMDS v2 through the canonical v2.18 authorization/checkpoint runtime and reconstructs historical provider lock-v3 using stable-first release selection. Independent build cells preserve package-specific evidence and prevent toolchain failures from being misclassified as source defects. AMDS prospective effectiveness is not established, repair counts remain gated, full scoring is disabled, and live connectors remain inactive.
+
 ### Batch052 Lemon Reader source-only patch candidate gate
 
 - Batch052 status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`.

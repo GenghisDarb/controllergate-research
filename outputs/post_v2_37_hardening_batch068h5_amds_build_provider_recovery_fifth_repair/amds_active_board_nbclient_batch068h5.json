@@ -1,0 +1,2967 @@
+{
+  "board_hash": "07654aaea18687b988928e50735d2e34de8637456d173085fcf605005d05fd54",
+  "board_id": "amds-codex_wave3_jupyter_nbclient_issues_316",
+  "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+  "cells": [
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_python_build_requirement",
+        "BUILD-CELL-PYZMQ:missing_C_compiler",
+        "BUILD-CELL-PYZMQ:missing_Cxx_compiler",
+        "BUILD-CELL-PYZMQ:missing_linker",
+        "BUILD-CELL-PYZMQ:missing_Python_headers",
+        "BUILD-CELL-PYZMQ:missing_Rust_toolchain",
+        "BUILD-CELL-PYZMQ:missing_Cargo",
+        "BUILD-CELL-PYZMQ:missing_CMake",
+        "BUILD-CELL-PYZMQ:missing_Ninja",
+        "BUILD-CELL-PYZMQ:missing_pkg_config",
+        "BUILD-CELL-PYZMQ:missing_system_library",
+        "BUILD-CELL-PYZMQ:missing_libzmq",
+        "BUILD-CELL-PYZMQ:vendored_dependency_failure",
+        "BUILD-CELL-PYZMQ:build_backend_import_failure",
+        "BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta",
+        "BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-PYZMQ:read_only_filesystem_violation",
+        "BUILD-CELL-PYZMQ:writable_path_missing",
+        "BUILD-CELL-PYZMQ:resource_limit",
+        "BUILD-CELL-PYZMQ:timeout",
+        "BUILD-CELL-PYZMQ:source_archive_problem",
+        "BUILD-CELL-PYZMQ:package_version_incompatibility"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ",
+      "cell_type": "build_provider",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch",
+        "test_mutation"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [
+        "new build-provider evidence"
+      ],
+      "state": "UNKNOWN",
+      "state_hash": "23ab0e332fb49bff7f6309b75248c649f4454e4d7ca7c15df33b11d060516214"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_python_build_requirement"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_python_build_requirement",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "55ee85d184aa96800ec0e285627e177954c072e79f1fcb963ef7818a5a2ef598"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_C_compiler"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_C_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "61981a4ae0332455a02b85bd6037d668bd56df9695e6c208163fb99f7a989a5b"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_Cxx_compiler"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_Cxx_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "29977b8bae20a57dbcb6a7aa318835599c808a2d6f941854c728bbb549381dbc"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_linker"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_linker",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "6fb704db924c6234ec6283ef5305784eeb098786d7fef0bd576d966e1ad4f1de"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_Python_headers"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_Python_headers",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "67c877df5060e14903f8fcdf267f19e056d819915ed8186f6f1fd8c5995aa5fb"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_Rust_toolchain"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_Rust_toolchain",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "cbdaae81da0d4da336018ef4b19ad671f8792756b3fc837ba73ea465977df6a1"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_Cargo"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_Cargo",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "bdfc4b25a2b8d02eaf5cfc9bc7fea93176b27c9a4cac373848b6e26f5136122d"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_CMake"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_CMake",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "7b4bd2903ac5ceae854882f3c396021502187b968ad8552c082ce2c956f47b79"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_Ninja"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_Ninja",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "19aaa6434527eff696aacaff1efc12789b5392225a07dd6cf40eef65ee52383c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_pkg_config"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_pkg_config",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "ffc8aeb86868aea15c0abdd1704c68f9dced1b2dfb45138a571e296e7f4e0b14"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_system_library"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_system_library",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "59d36b2d4fd1a8a74d24f2ae69cafaca96ea767984058d706ded52dbad3ceba5"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:missing_libzmq"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:missing_libzmq",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "38d613711d92525c1efe556179c011a0a19e0d0bc849f222ab97b4c0b994a80d"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:vendored_dependency_failure"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:vendored_dependency_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "22b33f74667c55faa7ffe57757ff62eddb960ab9f73c169c8de7c8d269f82d12"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:build_backend_import_failure"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:build_backend_import_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "9273dc954936bf1ffed45945547e81e8c2bdfe1745a48812474564da06da2cb8"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "c60b9ec62c5a8655eadb8c5a39c2da397cc30c69fb285edd7f7de4a8b266a450"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "5776845d4f61541265f27820bd9955dfd385396062d93023577bc7df60d194f7"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:read_only_filesystem_violation"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:read_only_filesystem_violation",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "6aa3d6421810ee97f9b98530237d91ebd63f22a5b407a4aff3636ac63582c6f3"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:writable_path_missing"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:writable_path_missing",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "82502ce261cef7cc0af4c1c1bb457fa67626b557da599009e5a132c30b333554"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:resource_limit"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:resource_limit",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "63741baa8d83a6c44d693a7e643fb1347537875f84bb0b8eb5a996edbc96db5d"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:timeout"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:timeout",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "d99849299b3421c0983faa92fdc4bcef855a4baa7d91e1d89a5ad3d6e559ca9c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:source_archive_problem"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:source_archive_problem",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "d1a2adf33e031cc7dbb010d02be76ab2c7c2b39633dc0343b042a95906cbcf75"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-PYZMQ:package_version_incompatibility"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-PYZMQ:package_version_incompatibility",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "8c3ea2046bc9c69e1cc7f6711265b154dc7100fb6fd29e90d43131cff7427e2f"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_python_build_requirement",
+        "BUILD-CELL-MARKUPSAFE:missing_C_compiler",
+        "BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler",
+        "BUILD-CELL-MARKUPSAFE:missing_linker",
+        "BUILD-CELL-MARKUPSAFE:missing_Python_headers",
+        "BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain",
+        "BUILD-CELL-MARKUPSAFE:missing_Cargo",
+        "BUILD-CELL-MARKUPSAFE:missing_CMake",
+        "BUILD-CELL-MARKUPSAFE:missing_Ninja",
+        "BUILD-CELL-MARKUPSAFE:missing_pkg_config",
+        "BUILD-CELL-MARKUPSAFE:missing_system_library",
+        "BUILD-CELL-MARKUPSAFE:missing_libzmq",
+        "BUILD-CELL-MARKUPSAFE:vendored_dependency_failure",
+        "BUILD-CELL-MARKUPSAFE:build_backend_import_failure",
+        "BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta",
+        "BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation",
+        "BUILD-CELL-MARKUPSAFE:writable_path_missing",
+        "BUILD-CELL-MARKUPSAFE:resource_limit",
+        "BUILD-CELL-MARKUPSAFE:timeout",
+        "BUILD-CELL-MARKUPSAFE:source_archive_problem",
+        "BUILD-CELL-MARKUPSAFE:package_version_incompatibility"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE",
+      "cell_type": "build_provider",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch",
+        "test_mutation"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [
+        "new build-provider evidence"
+      ],
+      "state": "UNKNOWN",
+      "state_hash": "8b10aedc1c41686f73b261e8a5df2fa5f1ed229e9551e721aed9d5d29190e682"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_python_build_requirement"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_python_build_requirement",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "c467fafc2c4bce6a9796e8862fec3dac68502d05c457794f46351ef272804997"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_C_compiler"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_C_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "d197b570a205f8e87b64355db51c52edf1180cb75e9206cba1b9e228db02df3c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "ce703f45ae7a3bfc392971876cae88b04904e1513991f0d5e178acbd951b3d2a"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_linker"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_linker",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "52596cc84abfa5a3924e2813b74b02b37c27f49ae64c0213f9a3218d27698d0e"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_Python_headers"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_Python_headers",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "96211d2c0ccd0f2b324e6e3c5598bec648182c129898a0e176849624064e7ee6"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "70120a1a7c3abb4d134f68dd763397b07a0163124a3a4ee39adff95c8212976d"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_Cargo"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_Cargo",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "63fba070390aa5eb2815411cf6919c03a3f1e2ab129330fe9e1595ff32a18042"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_CMake"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_CMake",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "59a570ff84407d97ce26c55ba9259dfedac10706d1d527045ac72f4556df9abc"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_Ninja"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_Ninja",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "f46cc054f27bf98140c10e9dd1ab8ea31d1e90e1f37ba227c6605098ab42ac97"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_pkg_config"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_pkg_config",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "82bd87ba8b9c7d5b54f22c7e3d9b1259af5aff975763c2da9d58b95eda3fd82b"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_system_library"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_system_library",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "41caf7ceec6bdfdb4ba59c10ef238df2e4cbdb9743d302750edad5d8bbf27b0c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:missing_libzmq"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:missing_libzmq",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "cc6ed81b17ca64923b4483f1ab894c3cdff8329f93719e7eadc1a53b512641e0"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:vendored_dependency_failure"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:vendored_dependency_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "521eb6b567fed4061919e6303d0f4039a9981463457ae3501cdc0453aba96010"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:build_backend_import_failure"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:build_backend_import_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "fe817227e1532d81c80c3841e18c96bd104a342af641748384e68c935be83122"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "58c3db9de57086f6d1324fbe7b83f165df74cbadbf6cd1c44f0ffcc8723da884"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "6f7c8b687ebaa005cb93791e524874bc248f60a3212a4264969dfd7f8e2c2f33"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "4649f13f212174aaf254407a9b3ed0e4b3927019201be132c73369b68c6669b8"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:writable_path_missing"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:writable_path_missing",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "fb03f2c44c51894efa65f225ff8cec9ff65cc20e11058985a9bf718a59dcd8df"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:resource_limit"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:resource_limit",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "3396275e487b0e2a5abe6fe9b5e6987fd6a89d9a6ff7ae3bd1fc47b26a0c2018"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:timeout"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:timeout",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "99337b87a6cee3034a76909dd95ead8217fe4de7bb249911e5eec8d6051dd45c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:source_archive_problem"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:source_archive_problem",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "e09beb8cb31cff1da21157f98775215de6adc65d507d6a7ba50763faf80771d6"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-MARKUPSAFE:package_version_incompatibility"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-MARKUPSAFE:package_version_incompatibility",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "9d541f21ca856c516801fde5b43e583cf4a4914c6f986fecd0fc0c9a67d92d9a"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_python_build_requirement",
+        "BUILD-CELL-COVERAGE:missing_C_compiler",
+        "BUILD-CELL-COVERAGE:missing_Cxx_compiler",
+        "BUILD-CELL-COVERAGE:missing_linker",
+        "BUILD-CELL-COVERAGE:missing_Python_headers",
+        "BUILD-CELL-COVERAGE:missing_Rust_toolchain",
+        "BUILD-CELL-COVERAGE:missing_Cargo",
+        "BUILD-CELL-COVERAGE:missing_CMake",
+        "BUILD-CELL-COVERAGE:missing_Ninja",
+        "BUILD-CELL-COVERAGE:missing_pkg_config",
+        "BUILD-CELL-COVERAGE:missing_system_library",
+        "BUILD-CELL-COVERAGE:missing_libzmq",
+        "BUILD-CELL-COVERAGE:vendored_dependency_failure",
+        "BUILD-CELL-COVERAGE:build_backend_import_failure",
+        "BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta",
+        "BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-COVERAGE:read_only_filesystem_violation",
+        "BUILD-CELL-COVERAGE:writable_path_missing",
+        "BUILD-CELL-COVERAGE:resource_limit",
+        "BUILD-CELL-COVERAGE:timeout",
+        "BUILD-CELL-COVERAGE:source_archive_problem",
+        "BUILD-CELL-COVERAGE:package_version_incompatibility"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE",
+      "cell_type": "build_provider",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch",
+        "test_mutation"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [
+        "new build-provider evidence"
+      ],
+      "state": "UNKNOWN",
+      "state_hash": "2212303649d2cf41958bd14d57d5f35092d572a7cc3bc8a83ac9fde91681f8b2"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_python_build_requirement"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_python_build_requirement",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "9ef95bbef3887130596e0cd281482c2ccadb37304a50cdc1b038f5891f409283"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_C_compiler"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_C_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "9bde603f911b42b9ccca6401d43651134c5dcfd240fadc00784336328693bc4b"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_Cxx_compiler"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_Cxx_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "54747208d62e0a24d823378e45d5363139b79d06ebf7a21f07c9f7dc2b3ea1b2"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_linker"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_linker",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "52175693f1775f70740ad9d14ddabc5716fda1522d566af05fe2bb465d67a264"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_Python_headers"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_Python_headers",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "b589080f88b966fdb3209e024fb5741eb95d5a04d8f3d6f36051fece5fe5784e"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_Rust_toolchain"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_Rust_toolchain",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "ec4296fae9faf9a7868d1ac78c9e97245cf6d71061dc4f0d28b9e939eef266e7"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_Cargo"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_Cargo",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "587f50fae2f7b11acd27f6e349546d3fa34a3ad3d95e500b5906add65e43c925"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_CMake"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_CMake",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "714ece7eefecffe860741bcd6eae620f0353a7170b77cb21847e823ffd1d19c2"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_Ninja"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_Ninja",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "fd3e17499d35ec237b57465bbfb9badfd6378212c0f6105da1c9e8d2e195a434"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_pkg_config"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_pkg_config",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "ec1c6ca53645bbd9a767512df4a775f39c6f85ca057ea9e7240b3cc91e549ea1"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_system_library"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_system_library",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "b319ffbca0cf3a098e2b1f3eeac2efbfdd581b1287ea37359298232de869c547"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:missing_libzmq"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:missing_libzmq",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "a229cbe08271745ab345fd8e3fc6ac6be79c2e295ab042672f94aed38539d97d"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:vendored_dependency_failure"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:vendored_dependency_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "3872a87dd544330cb16f337f4e60f5450799630a9e1c60502e1cd92bfb9f878d"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:build_backend_import_failure"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:build_backend_import_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "e59fd363b549bab91ce4df059864c9635f3e55f613f2bf8b8cb1d3ecaec4c08c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "aef9e50aea3c5102ec4459f8e21725807b1db8c78029def1039b3fa854b4a904"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "ad31548d898d45d870ecd20c061a459dbf74940e52b4dbec2424a942183a97e3"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:read_only_filesystem_violation"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:read_only_filesystem_violation",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "3109214504c678f8179ab8cb8cd8dd71b022cbbcd1612dea164f138db0f545f7"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:writable_path_missing"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:writable_path_missing",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "a2f89357be0ca0399e48107aeea09343f976e6634c490b09a3f9a3d8883771ba"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:resource_limit"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:resource_limit",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "46c3b17be32ff066cc0a8ed8b5be38759af732d61c93c742fe0594ab509fc510"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:timeout"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:timeout",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "5197879171891a1dcd78ff83c253948e60842b58d0a8410406e5d1d3a04499fb"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:source_archive_problem"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:source_archive_problem",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "6f3cba5c22c8a19bbcb0fa4b93538de27bb4bc7941a2d8307f881088254ce6c8"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-COVERAGE:package_version_incompatibility"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-COVERAGE:package_version_incompatibility",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "a2a1e8e2048fbca0b3f50baeb01eecc7e29f7444cebe0cf129a71a6972e20272"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_python_build_requirement",
+        "BUILD-CELL-RPDS_PY:missing_C_compiler",
+        "BUILD-CELL-RPDS_PY:missing_Cxx_compiler",
+        "BUILD-CELL-RPDS_PY:missing_linker",
+        "BUILD-CELL-RPDS_PY:missing_Python_headers",
+        "BUILD-CELL-RPDS_PY:missing_Rust_toolchain",
+        "BUILD-CELL-RPDS_PY:missing_Cargo",
+        "BUILD-CELL-RPDS_PY:missing_CMake",
+        "BUILD-CELL-RPDS_PY:missing_Ninja",
+        "BUILD-CELL-RPDS_PY:missing_pkg_config",
+        "BUILD-CELL-RPDS_PY:missing_system_library",
+        "BUILD-CELL-RPDS_PY:missing_libzmq",
+        "BUILD-CELL-RPDS_PY:vendored_dependency_failure",
+        "BUILD-CELL-RPDS_PY:build_backend_import_failure",
+        "BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta",
+        "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-RPDS_PY:read_only_filesystem_violation",
+        "BUILD-CELL-RPDS_PY:writable_path_missing",
+        "BUILD-CELL-RPDS_PY:resource_limit",
+        "BUILD-CELL-RPDS_PY:timeout",
+        "BUILD-CELL-RPDS_PY:source_archive_problem",
+        "BUILD-CELL-RPDS_PY:package_version_incompatibility"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY",
+      "cell_type": "build_provider",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch",
+        "test_mutation"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [
+        "new build-provider evidence"
+      ],
+      "state": "UNKNOWN",
+      "state_hash": "b5d975b41c7548d594cfd840f8bce689e417e447d79f750fbef4c5a03df0cde0"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_python_build_requirement"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_python_build_requirement",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "331f5faa05f4aa65b6b75007887b07fe52114285e573460348cea98c72454e9a"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_C_compiler"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_C_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "7b2b59ba52c41c0c8ba972453d7ef483a5b0f714e0fab963882627c73c1335bd"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_Cxx_compiler"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_Cxx_compiler",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "119a028b7dd29f68e59df5bcffe38d3ad7e9e5137d152b53859dbeacaeba2189"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_linker"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_linker",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "3cdb17b8bba40c81b3c97dce0eba83ee9a96946004221fc8eba1f66ae5d6753f"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_Python_headers"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_Python_headers",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "e6633f05ee4232bc5110d9c976b16e9c71b1b847e90173dba2ef2057e704373c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_Rust_toolchain"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_Rust_toolchain",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "8538418c72225c8d4e329e7c2134ba12d5337781ae2eb8e06a550e7db443150c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_Cargo"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_Cargo",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "7e5b1d15b2951e7ff2be3ff4c81bc1dfc5f9f2a7dcfffde3a591f9970b5a6959"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_CMake"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_CMake",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "6d29616354367190ab3021a4b886c1639baa2dbb6aca29b4622cb243bbd52455"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_Ninja"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_Ninja",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "13feeae3dc23238418490299053b635ff4dbaa855b99ff0659894913ba70a291"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_pkg_config"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_pkg_config",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "a4b824f2306720f7ad18d3fba715cc9c6a6f3f9076ed34d011c79381848369bc"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_system_library"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_system_library",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "db00bbdd4531b8bbf90f191d328f3840c76f85e4286ca30d9265f9617b89370f"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:missing_libzmq"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:missing_libzmq",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "5b17bab5b4c3a38b2bcd4aca63f269e2f9b8ebacc209540493d41f069166e94a"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:vendored_dependency_failure"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:vendored_dependency_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "2f204f515867a2a0b8da1fe393c25c458ea4420f1dd119d6cfc94cf6a7391322"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:build_backend_import_failure"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:build_backend_import_failure",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "fd30f9e2465819c9b38ded8631214bb01439c0e97591f05c6f1ff21290faa2ed"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "e579de9ad02e0fc49e76209ac49b31bde612eb9bfed5e4a0246a6ccfaf0d67fa"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "6b8404201e0b5cf038eb74dba4c7ea57e7221320f27c133cd16077282e5b1a61"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:read_only_filesystem_violation"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:read_only_filesystem_violation",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "fd580977354f1e2bac3cfddf89bb21f99eaa22e81bc8917bcb3a6f0ebd61cf68"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:writable_path_missing"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:writable_path_missing",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "1b8d9c17971b52e5a1151a1e6a1cbbc8d510ececbcdfebc909e2f2fab3c3fb2c"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:resource_limit"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:resource_limit",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "ee28c034ae8e6b20c040bdca221e873e05252bfd84d37768396bd87f86426907"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:timeout"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:timeout",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "b0e8800708a31e7b2828ed5bf022aba090158e578c1715080b0a537fd3649746"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:source_archive_problem"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:source_archive_problem",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "59ed1a99538f7dc62b44ed49e1257733b620f498ec7bed616db8d9e0347d6710"
+    },
+    {
+      "allowed_probes": [
+        "runtime_incident_probe"
+      ],
+      "associated_hypotheses": [
+        "BUILD-CELL-RPDS_PY:package_version_incompatibility"
+      ],
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "cell_id": "BUILD-CELL-RPDS_PY:package_version_incompatibility",
+      "cell_type": "failure_hypothesis",
+      "confidence_classification": "structural_uniform_uncalibrated",
+      "constraints": [],
+      "evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ],
+      "forbidden_actions": [
+        "source_patch"
+      ],
+      "last_update_event": "board_initialized",
+      "neighbors": [],
+      "reopen_conditions": [],
+      "state": "UNKNOWN",
+      "state_hash": "94759505619687ac31a345fdbd148829aa136fb20fd6b7b3637c7a93ac341f4f"
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_id": "constraint:BUILD-CELL-PYZMQ:at-least-one",
+      "constraint_type": "at_least_one",
+      "members": [
+        "BUILD-CELL-PYZMQ:missing_python_build_requirement",
+        "BUILD-CELL-PYZMQ:missing_C_compiler",
+        "BUILD-CELL-PYZMQ:missing_Cxx_compiler",
+        "BUILD-CELL-PYZMQ:missing_linker",
+        "BUILD-CELL-PYZMQ:missing_Python_headers",
+        "BUILD-CELL-PYZMQ:missing_Rust_toolchain",
+        "BUILD-CELL-PYZMQ:missing_Cargo",
+        "BUILD-CELL-PYZMQ:missing_CMake",
+        "BUILD-CELL-PYZMQ:missing_Ninja",
+        "BUILD-CELL-PYZMQ:missing_pkg_config",
+        "BUILD-CELL-PYZMQ:missing_system_library",
+        "BUILD-CELL-PYZMQ:missing_libzmq",
+        "BUILD-CELL-PYZMQ:vendored_dependency_failure",
+        "BUILD-CELL-PYZMQ:build_backend_import_failure",
+        "BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta",
+        "BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-PYZMQ:read_only_filesystem_violation",
+        "BUILD-CELL-PYZMQ:writable_path_missing",
+        "BUILD-CELL-PYZMQ:resource_limit",
+        "BUILD-CELL-PYZMQ:timeout",
+        "BUILD-CELL-PYZMQ:source_archive_problem",
+        "BUILD-CELL-PYZMQ:package_version_incompatibility"
+      ],
+      "source_evidence_hashes": [
+        "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+      ]
+    },
+    {
+      "constraint_id": "constraint:BUILD-CELL-MARKUPSAFE:at-least-one",
+      "constraint_type": "at_least_one",
+      "members": [
+        "BUILD-CELL-MARKUPSAFE:missing_python_build_requirement",
+        "BUILD-CELL-MARKUPSAFE:missing_C_compiler",
+        "BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler",
+        "BUILD-CELL-MARKUPSAFE:missing_linker",
+        "BUILD-CELL-MARKUPSAFE:missing_Python_headers",
+        "BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain",
+        "BUILD-CELL-MARKUPSAFE:missing_Cargo",
+        "BUILD-CELL-MARKUPSAFE:missing_CMake",
+        "BUILD-CELL-MARKUPSAFE:missing_Ninja",
+        "BUILD-CELL-MARKUPSAFE:missing_pkg_config",
+        "BUILD-CELL-MARKUPSAFE:missing_system_library",
+        "BUILD-CELL-MARKUPSAFE:missing_libzmq",
+        "BUILD-CELL-MARKUPSAFE:vendored_dependency_failure",
+        "BUILD-CELL-MARKUPSAFE:build_backend_import_failure",
+        "BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta",
+        "BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation",
+        "BUILD-CELL-MARKUPSAFE:writable_path_missing",
+        "BUILD-CELL-MARKUPSAFE:resource_limit",
+        "BUILD-CELL-MARKUPSAFE:timeout",
+        "BUILD-CELL-MARKUPSAFE:source_archive_problem",
+        "BUILD-CELL-MARKUPSAFE:package_version_incompatibility"
+      ],
+      "source_evidence_hashes": [
+        "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+      ]
+    },
+    {
+      "constraint_id": "constraint:BUILD-CELL-COVERAGE:at-least-one",
+      "constraint_type": "at_least_one",
+      "members": [
+        "BUILD-CELL-COVERAGE:missing_python_build_requirement",
+        "BUILD-CELL-COVERAGE:missing_C_compiler",
+        "BUILD-CELL-COVERAGE:missing_Cxx_compiler",
+        "BUILD-CELL-COVERAGE:missing_linker",
+        "BUILD-CELL-COVERAGE:missing_Python_headers",
+        "BUILD-CELL-COVERAGE:missing_Rust_toolchain",
+        "BUILD-CELL-COVERAGE:missing_Cargo",
+        "BUILD-CELL-COVERAGE:missing_CMake",
+        "BUILD-CELL-COVERAGE:missing_Ninja",
+        "BUILD-CELL-COVERAGE:missing_pkg_config",
+        "BUILD-CELL-COVERAGE:missing_system_library",
+        "BUILD-CELL-COVERAGE:missing_libzmq",
+        "BUILD-CELL-COVERAGE:vendored_dependency_failure",
+        "BUILD-CELL-COVERAGE:build_backend_import_failure",
+        "BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta",
+        "BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-COVERAGE:read_only_filesystem_violation",
+        "BUILD-CELL-COVERAGE:writable_path_missing",
+        "BUILD-CELL-COVERAGE:resource_limit",
+        "BUILD-CELL-COVERAGE:timeout",
+        "BUILD-CELL-COVERAGE:source_archive_problem",
+        "BUILD-CELL-COVERAGE:package_version_incompatibility"
+      ],
+      "source_evidence_hashes": [
+        "a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"
+      ]
+    },
+    {
+      "constraint_id": "constraint:BUILD-CELL-RPDS_PY:at-least-one",
+      "constraint_type": "at_least_one",
+      "members": [
+        "BUILD-CELL-RPDS_PY:missing_python_build_requirement",
+        "BUILD-CELL-RPDS_PY:missing_C_compiler",
+        "BUILD-CELL-RPDS_PY:missing_Cxx_compiler",
+        "BUILD-CELL-RPDS_PY:missing_linker",
+        "BUILD-CELL-RPDS_PY:missing_Python_headers",
+        "BUILD-CELL-RPDS_PY:missing_Rust_toolchain",
+        "BUILD-CELL-RPDS_PY:missing_Cargo",
+        "BUILD-CELL-RPDS_PY:missing_CMake",
+        "BUILD-CELL-RPDS_PY:missing_Ninja",
+        "BUILD-CELL-RPDS_PY:missing_pkg_config",
+        "BUILD-CELL-RPDS_PY:missing_system_library",
+        "BUILD-CELL-RPDS_PY:missing_libzmq",
+        "BUILD-CELL-RPDS_PY:vendored_dependency_failure",
+        "BUILD-CELL-RPDS_PY:build_backend_import_failure",
+        "BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta",
+        "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch",
+        "BUILD-CELL-RPDS_PY:read_only_filesystem_violation",
+        "BUILD-CELL-RPDS_PY:writable_path_missing",
+        "BUILD-CELL-RPDS_PY:resource_limit",
+        "BUILD-CELL-RPDS_PY:timeout",
+        "BUILD-CELL-RPDS_PY:source_archive_problem",
+        "BUILD-CELL-RPDS_PY:package_version_incompatibility"
+      ],
+      "source_evidence_hashes": [
+        "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_python_build_requirement",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_python_build_requirement"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_C_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_C_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_Cxx_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_Cxx_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_linker",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_linker"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_Python_headers",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_Python_headers"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_Rust_toolchain",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_Rust_toolchain"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_Cargo",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_Cargo"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_CMake",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_CMake"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_Ninja",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_Ninja"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_pkg_config",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_pkg_config"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_system_library",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_system_library"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:missing_libzmq",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:missing_libzmq"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:vendored_dependency_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:vendored_dependency_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:build_backend_import_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:build_backend_import_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:unsupported_Python_3_13_beta"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:wheel_tag_or_ABI_mismatch"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:read_only_filesystem_violation",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:read_only_filesystem_violation"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:writable_path_missing",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:writable_path_missing"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:resource_limit",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:resource_limit"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:timeout",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:timeout"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:source_archive_problem",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:source_archive_problem"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-PYZMQ:BUILD-CELL-PYZMQ:package_version_incompatibility",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-PYZMQ",
+      "target": "BUILD-CELL-PYZMQ:package_version_incompatibility"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_python_build_requirement",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_python_build_requirement"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_C_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_C_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_Cxx_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_linker",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_linker"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_Python_headers",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_Python_headers"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_Rust_toolchain"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_Cargo",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_Cargo"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_CMake",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_CMake"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_Ninja",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_Ninja"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_pkg_config",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_pkg_config"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_system_library",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_system_library"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:missing_libzmq",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:missing_libzmq"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:vendored_dependency_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:vendored_dependency_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:build_backend_import_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:build_backend_import_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:unsupported_Python_3_13_beta"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:wheel_tag_or_ABI_mismatch"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:read_only_filesystem_violation"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:writable_path_missing",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:writable_path_missing"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:resource_limit",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:resource_limit"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:timeout",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:timeout"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:source_archive_problem",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:source_archive_problem"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-MARKUPSAFE:BUILD-CELL-MARKUPSAFE:package_version_incompatibility",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-MARKUPSAFE",
+      "target": "BUILD-CELL-MARKUPSAFE:package_version_incompatibility"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_python_build_requirement",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_python_build_requirement"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_C_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_C_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_Cxx_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_Cxx_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_linker",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_linker"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_Python_headers",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_Python_headers"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_Rust_toolchain",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_Rust_toolchain"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_Cargo",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_Cargo"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_CMake",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_CMake"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_Ninja",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_Ninja"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_pkg_config",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_pkg_config"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_system_library",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_system_library"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:missing_libzmq",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:missing_libzmq"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:vendored_dependency_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:vendored_dependency_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:build_backend_import_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:build_backend_import_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:unsupported_Python_3_13_beta"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:wheel_tag_or_ABI_mismatch"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:read_only_filesystem_violation",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:read_only_filesystem_violation"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:writable_path_missing",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:writable_path_missing"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:resource_limit",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:resource_limit"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:timeout",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:timeout"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:source_archive_problem",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:source_archive_problem"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-COVERAGE:BUILD-CELL-COVERAGE:package_version_incompatibility",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-COVERAGE",
+      "target": "BUILD-CELL-COVERAGE:package_version_incompatibility"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_python_build_requirement",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_python_build_requirement"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_C_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_C_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_Cxx_compiler",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_Cxx_compiler"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_linker",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_linker"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_Python_headers",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_Python_headers"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_Rust_toolchain",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_Rust_toolchain"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_Cargo",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_Cargo"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_CMake",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_CMake"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_Ninja",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_Ninja"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_pkg_config",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_pkg_config"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_system_library",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_system_library"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:missing_libzmq",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:missing_libzmq"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:vendored_dependency_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:vendored_dependency_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:build_backend_import_failure",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:build_backend_import_failure"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:unsupported_Python_3_13_beta"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:wheel_tag_or_ABI_mismatch"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:read_only_filesystem_violation",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:read_only_filesystem_violation"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:writable_path_missing",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:writable_path_missing"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:resource_limit",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:resource_limit"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:timeout",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:timeout"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:source_archive_problem",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:source_archive_problem"
+    },
+    {
+      "edge_id": "edge:BUILD-CELL-RPDS_PY:BUILD-CELL-RPDS_PY:package_version_incompatibility",
+      "edge_type": "provider_dependency",
+      "source": "BUILD-CELL-RPDS_PY",
+      "target": "BUILD-CELL-RPDS_PY:package_version_incompatibility"
+    }
+  ]
+}

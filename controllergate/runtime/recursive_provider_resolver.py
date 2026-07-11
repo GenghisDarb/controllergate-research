@@ -12,7 +12,7 @@ from .requirement_expander import applicable_requirement
 from .resolution_state import ResolutionState
 
 
-def resolve_recursive(root_records: list[dict[str, Any]], *, cutoff: str, store: Path, max_packages: int = 120) -> dict[str, Any]:
+def resolve_recursive(root_records: list[dict[str, Any]], *, cutoff: str, store: Path, max_packages: int = 120, ordered_tags: list[str] | None = None) -> dict[str, Any]:
     state = ResolutionState(); queue: list[tuple[str, str, str, str]] = []
     for root in root_records:
         req = Requirement(str(root["normalized_requirement"])); name = canonicalize_name(req.name); dependency_class = str(root["dependency_class"])
@@ -23,7 +23,7 @@ def resolve_recursive(root_records: list[dict[str, Any]], *, cutoff: str, store:
     while queue and len(state.selected) + len(state.unresolved) < max_packages:
         name, parent, dependency_class, raw = queue.pop(0); signature = tuple(sorted(item["raw"] for item in state.requirements[name]))
         if processed_signatures.get(name) == signature: continue
-        previous = state.selected.get(name); catalog = catalogs.get(name) or enumerate_release_files(name, cutoff, store / "pypi_json"); catalogs[name] = catalog
+        previous = state.selected.get(name); catalog = catalogs.get(name) or enumerate_release_files(name, cutoff, store / "pypi_json", ordered_tags); catalogs[name] = catalog
         selection = select_release_file(catalog, [item["specifier"] for item in state.requirements[name]], "3.13.0b2")
         if selection is None:
             conflict = {"package": name, "requirements": list(state.requirements[name]), "minimal_unsatisfied_constraint_set": list(signature)}; state.conflicts.append(conflict); state.trace.append({"package": name, "decision": "BLOCK", "reason": "no_cutoff_compatible_artifact"}); break

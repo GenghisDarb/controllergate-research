@@ -36,6 +36,10 @@ Batch017 adds the next technical gap: historical dependency locks must be decisi
 - Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
 
+## Batch068h5 remaining validation gaps
+
+AMDS implementation and runtime integration do not establish prospective effectiveness. That claim still requires a separate preregistered fresh-candidate comparison. The active Nbclient path must also complete exact-image provider recovery, offline installation, two identical nonzero collection runs, duplicate prerepair reproduction, source-locality licensing, target/invariant validation, and duplicate clean replay before a fifth repair can be counted. No production or live-connector claim is authorized.
+
 ### Batch052 Lemon Reader source-only patch candidate gate
 
 - Batch052 status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`.

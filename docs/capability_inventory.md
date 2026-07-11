@@ -64,6 +64,16 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 - Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
 
+## Batch068h5 reusable capabilities
+
+- AMDS typed board, constraint, hypothesis, probe, posterior, branch-closure, and stop-decision models: implemented.
+- Deterministic fixed-point propagation and contradiction detection: implemented.
+- Natural-log information-gain probe ranking with explicitly uncalibrated structural priors: implemented.
+- Thirteen candidate-scoped probe executor contracts and canonical dispatcher integration: implemented.
+- Stable-first historical lock-v3 and exact-runtime wheel-tag compatibility: implemented conditionally on the pinned image.
+- Per-package, network-disabled sdist build cells and built-wheel validation: implemented.
+- AMDS prospective effectiveness: `NOT_ESTABLISHED`.
+
 ### Batch052 Lemon Reader source-only patch candidate gate
 
 - Batch052 status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`.

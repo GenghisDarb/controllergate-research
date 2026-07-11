@@ -488,6 +488,10 @@ Batch060c candidate classifications:
 - Confirmed native repair episodes remain `4`; confirmed issue-derived repair episodes remain `0`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
 
+## Batch068h5 current boundary
+
+Batch068h4 is officially verified and ingested. Batch068h5 activates reusable AMDS board construction, fixed-point constraint propagation, expected-information-gain probe planning, authorized probe execution, board updates, and branch closure through the canonical runtime. Provider lock-v3 is rebuilt from pinned roots under stable-first PEP 440 rules. Offline wheel work is isolated by package, and no environment failure may enter patch generation. The validated protocol remains v2.18 pending duplicate deterministic collection.
+
 ### Batch052 Lemon Reader source-only patch candidate gate
 
 - Batch052 status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`.
