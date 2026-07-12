@@ -14,7 +14,6 @@ jobs:
     timeout-minutes: 120
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-      CONTROLLERGATE_RUNTIME_ROOT: ${{ runner.temp }}/controllergate-batch073-runtime
       GH_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout ControllerGate
@@ -31,6 +30,8 @@ jobs:
       - name: Run byte custody preflight
         run: python scripts/byte_custody_preflight.py
       - name: Execute Batch073 in declared phase order
+        env:
+          CONTROLLERGATE_RUNTIME_ROOT: ${{ runner.temp }}/controllergate-batch073-runtime
         run: python scripts/generate_batch073_count5_revalidation_frozen_wave1.py
       - name: Run focused Batch073 tests
         run: python -m pytest tests/runtime/test_batch073_count5_revalidation_frozen_wave1.py -q
