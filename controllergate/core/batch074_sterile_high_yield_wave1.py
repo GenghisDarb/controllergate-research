@@ -27,6 +27,7 @@ from controllergate.runtime.authorized_candidate_dispatcher import dispatch_auth
 from controllergate.runtime.candidate_execution_authorization import CandidateExecutionAuthorization, seal_candidate_authorization
 from controllergate.runtime.candidate_execution_plan import CandidateExecutionPlan, CandidatePhase, seal_candidate_plan
 from controllergate.runtime.execution_checkpoint import RuntimeCheckpoint, write_checkpoint
+from controllergate.runtime.provider_workspace import candidate_key
 
 BATCH = "post_v2_37_hardening_batch074_sterile_high_yield_amds_memory_wave1"
 H72 = "post_v2_37_hardening_batch072_count5_authorized_amds_memory_wave1"
@@ -140,15 +141,15 @@ def static_screen(discovery: dict[str, Any], runtime: Path, prior_repos: set[str
     return public, eligible
 
 
-def _authorization(runtime: Path, candidate: dict[str, Any], frame_hash: str) -> dict[str, Any]:
-    candidate_id = candidate["candidate_id"]; base = runtime / "execution" / candidate_id; base.mkdir(parents=True, exist_ok=True)
+def _authorization(runtime: Path, candidate: dict[str, Any], frame_hash: str, *, batch_label: str = "batch074") -> dict[str, Any]:
+    candidate_id = candidate["candidate_id"]; base = runtime / "execution" / candidate_key(candidate_id, candidate["candidate_sha"]); base.mkdir(parents=True, exist_ok=True)
     phases = [CandidatePhase("intake", "intake_candidate_manifest"), CandidatePhase("source", "intake_source_acquisition", ("intake",), network_mode="bounded_read_only"), CandidatePhase("provider", "intake_provider_materialization", ("source",), network_mode="bounded_read_only"), CandidatePhase("command", "intake_command_authority", ("provider",)), CandidatePhase("harness", "intake_harness_verification", ("command",)), CandidatePhase("runner", "intake_runner_origin", ("harness",)), CandidatePhase("duplicate_replay", "intake_duplicate_replay", ("runner",)), CandidatePhase("amds_board", "intake_amds_board", ("duplicate_replay",))]
     phases = phases[:-1]
-    manifest = {"candidate_id": candidate_id, "candidate_sha": candidate["candidate_sha"], "repo_url": candidate["repo_url"], "native_target_paths": [candidate["target"]["target"]], "workspace_root": str(base), "allowed_output_root": str(base), "frame_hash": frame_hash, "execution_mode": "prospective_batch074", "network_destinations": {"source": candidate["repo_url"], "provider": "https://pypi.org/simple"}, "projected_requests": {"source": 2, "provider": 200}, "projected_bytes": {"source": 200_000_000, "provider": 1_000_000_000}, "projected_resources": {"seconds": 7200, "memory_mb": 4096}}
+    manifest = {"candidate_id": candidate_id, "candidate_sha": candidate["candidate_sha"], "repo_url": candidate["repo_url"], "native_target_paths": [candidate["target"]["target"]], "workspace_root": str(base.parent), "allowed_output_root": str(base), "frame_hash": frame_hash, "execution_mode": f"prospective_{batch_label}", "network_destinations": {"source": candidate["repo_url"], "provider": "https://pypi.org/simple"}, "projected_requests": {"source": 2, "provider": 200}, "projected_bytes": {"source": 200_000_000, "provider": 1_000_000_000}, "projected_resources": {"seconds": 7200, "memory_mb": 4096}}
     manifest_path = base / "manifest.json"; write_json_deterministic(manifest_path, manifest)
-    plan = seal_candidate_plan(CandidateExecutionPlan(f"batch074:{candidate_id}", candidate_id, candidate["candidate_sha"], hash_record(manifest), str(base), tuple(phases), str(base / "context.json"))); plan_path = base / "plan.json"; write_json_deterministic(plan_path, plan)
+    plan = seal_candidate_plan(CandidateExecutionPlan(f"{batch_label}:{candidate_id}", candidate_id, candidate["candidate_sha"], hash_record(manifest), str(base), tuple(phases), str(base / "context.json"))); plan_path = base / "plan.json"; write_json_deterministic(plan_path, plan)
     now = datetime.now(timezone.utc); network_phases = ("source", "provider")
-    auth_obj = CandidateExecutionAuthorization(f"batch074-auth:{candidate_id}", candidate_id, candidate["candidate_sha"], hash_record(manifest), plan["plan_hash"], tuple(item.phase_id for item in phases), network_phases, {"source": (str(urlparse(candidate["repo_url"]).hostname),), "provider": ("pypi.org", "files.pythonhosted.org")}, {"source": 4, "provider": 300}, {"source": 300_000_000, "provider": 1_500_000_000}, {"source": False, "tests": False}, {"seconds": 7500, "memory_mb": 4096}, str(base), now.isoformat(), (now + timedelta(hours=4)).isoformat(), f"batch074:{candidate_id}:nonce")
+    auth_obj = CandidateExecutionAuthorization(f"{batch_label}-auth:{candidate_id}", candidate_id, candidate["candidate_sha"], hash_record(manifest), plan["plan_hash"], tuple(item.phase_id for item in phases), network_phases, {"source": (str(urlparse(candidate["repo_url"]).hostname),), "provider": ("pypi.org", "files.pythonhosted.org")}, {"source": 4, "provider": 300}, {"source": 300_000_000, "provider": 1_500_000_000}, {"source": False, "tests": False}, {"seconds": 7500, "memory_mb": 4096}, str(base), now.isoformat(), (now + timedelta(hours=4)).isoformat(), f"{batch_label}:{candidate_id}:nonce")
     auth = seal_candidate_authorization(auth_obj); auth_path = base / "authorization.json"; write_json_deterministic(auth_path, auth)
     result = dispatch_authorized_candidate(manifest_path=manifest_path, authorization_path=auth_path, plan_path=plan_path, checkpoint_path=base / "checkpoint.json", event_ledger_path=base / "events.jsonl", network_ledger_path=base / "network.jsonl", authorization_store=base / "nonces.json")
     context = result.get("context", {})
@@ -156,14 +157,14 @@ def _authorization(runtime: Path, candidate: dict[str, Any], frame_hash: str) ->
     return summary
 
 
-def _dispatch_preloaded(*, run_root: Path, candidate: dict[str, Any], frame_hash: str, initial_context: dict[str, Any], phases: list[CandidatePhase], run_id: str) -> dict[str, Any]:
+def _dispatch_preloaded(*, run_root: Path, candidate: dict[str, Any], frame_hash: str, initial_context: dict[str, Any], phases: list[CandidatePhase], run_id: str, batch_label: str = "batch074") -> dict[str, Any]:
     run_root.mkdir(parents=True, exist_ok=True)
-    manifest = {"candidate_id": candidate["candidate_id"], "candidate_sha": candidate["candidate_sha"], "repo_url": candidate["repo_url"], "native_target_paths": [candidate["target"]["target"]], "workspace_root": str(run_root.parent.parent), "allowed_output_root": str(run_root), "arm_output_root": str(run_root), "frame_hash": frame_hash, "execution_mode": "prospective_batch074", "projected_resources": {"seconds": 900, "memory_mb": 4096}}
+    manifest = {"candidate_id": candidate["candidate_id"], "candidate_sha": candidate["candidate_sha"], "repo_url": candidate["repo_url"], "native_target_paths": [candidate["target"]["target"]], "workspace_root": str(run_root.parent.parent), "allowed_output_root": str(run_root), "arm_output_root": str(run_root), "frame_hash": frame_hash, "execution_mode": f"prospective_{batch_label}", "projected_resources": {"seconds": 900, "memory_mb": 4096}}
     manifest_path = run_root / "manifest.json"; write_json_deterministic(manifest_path, manifest)
-    plan = seal_candidate_plan(CandidateExecutionPlan(f"batch074:{candidate['candidate_id']}:{run_id}", candidate["candidate_id"], candidate["candidate_sha"], hash_record(manifest), str(run_root), tuple(phases), str(run_root / "context.json")))
+    plan = seal_candidate_plan(CandidateExecutionPlan(f"{batch_label}:{candidate['candidate_id']}:{run_id}", candidate["candidate_id"], candidate["candidate_sha"], hash_record(manifest), str(run_root), tuple(phases), str(run_root / "context.json")))
     plan_path = run_root / "plan.json"; write_json_deterministic(plan_path, plan)
     now = datetime.now(timezone.utc)
-    auth = seal_candidate_authorization(CandidateExecutionAuthorization(f"batch074-auth:{candidate['candidate_id']}:{run_id}", candidate["candidate_id"], candidate["candidate_sha"], hash_record(manifest), plan["plan_hash"], tuple(item.phase_id for item in phases), (), {}, {}, {}, {"source": False, "tests": False}, {"seconds": 1200, "memory_mb": 4096}, str(run_root), now.isoformat(), (now + timedelta(hours=1)).isoformat(), f"batch074:{candidate['candidate_id']}:{run_id}:nonce"))
+    auth = seal_candidate_authorization(CandidateExecutionAuthorization(f"{batch_label}-auth:{candidate['candidate_id']}:{run_id}", candidate["candidate_id"], candidate["candidate_sha"], hash_record(manifest), plan["plan_hash"], tuple(item.phase_id for item in phases), (), {}, {}, {}, {"source": False, "tests": False}, {"seconds": 1200, "memory_mb": 4096}, str(run_root), now.isoformat(), (now + timedelta(hours=1)).isoformat(), f"{batch_label}:{candidate['candidate_id']}:{run_id}:nonce"))
     auth_path = run_root / "authorization.json"; write_json_deterministic(auth_path, auth)
     context = {key: value for key, value in initial_context.items() if key != "diagnostic_arms"}; context["candidate_manifest"] = manifest
     checkpoint_path = run_root / "checkpoint.json"
@@ -173,18 +174,18 @@ def _dispatch_preloaded(*, run_root: Path, candidate: dict[str, Any], frame_hash
     return {"result": result, "plan_hash": plan["plan_hash"], "authorization_hash": auth["authorization_hash"], "authorization_store_path": str(run_root / "nonces.json"), "event_ledger_path": str(event_path), "network_ledger_path": str(network_path), "event_ledger_hash": sha256_file(event_path) if event_path.is_file() else None, "network_ledger_hash": sha256_file(network_path) if network_path.is_file() else None, "checkpoint_path": str(checkpoint_path)}
 
 
-def _diagnostics(candidate: dict[str, Any], admission: dict[str, Any], frame_hash: str) -> dict[str, Any]:
+def _diagnostics(candidate: dict[str, Any], admission: dict[str, Any], frame_hash: str, *, arms: tuple[str, ...] = ARMS, batch_label: str = "batch074") -> dict[str, Any]:
     base = Path(admission["_base"]); initial = dict(admission["_context"]); arm_records: dict[str, Any] = {}
-    for arm in ARMS:
+    for arm in arms:
         phases = [CandidatePhase("amds_board", "intake_amds_board"), CandidatePhase("arm_" + arm, "intake_amds_arm", ("amds_board",))]
-        dispatched = _dispatch_preloaded(run_root=base / "diagnostics" / arm, candidate=candidate, frame_hash=frame_hash, initial_context=initial, phases=phases, run_id="diagnostic:" + arm)
+        dispatched = _dispatch_preloaded(run_root=base / "diagnostics" / arm, candidate=candidate, frame_hash=frame_hash, initial_context=initial, phases=phases, run_id="diagnostic:" + arm, batch_label=batch_label)
         result = dispatched.pop("result"); record = result.get("context", {}).get("diagnostic_arms", {}).get(arm, {})
         arm_records[arm] = {**record, **dispatched, "dispatcher_status": result.get("status"), "completed_phases": result.get("completed_phases", [])}
-    arm_bundle = [{"arm": arm, "output_hash": arm_records[arm].get("arm_output_hash"), "authorization_hash": arm_records[arm].get("authorization_hash")} for arm in ARMS]
+    arm_bundle = [{"arm": arm, "output_hash": arm_records[arm].get("arm_output_hash"), "authorization_hash": arm_records[arm].get("authorization_hash")} for arm in arms]
     sealed_arm_bundle_hash = hash_record(arm_bundle); ground_context = {key: value for key, value in initial.items() if key != "diagnostic_arms"}
-    ground_context.update({"sealed_arm_bundle_hash": sealed_arm_bundle_hash, "arm_outputs_sealed": all(arm_records[arm].get("dispatcher_status") == "PASS" for arm in ARMS)})
+    ground_context.update({"sealed_arm_bundle_hash": sealed_arm_bundle_hash, "arm_outputs_sealed": all(arm_records[arm].get("dispatcher_status") == "PASS" for arm in arms)})
     ground_phases = [CandidatePhase("ground_truth", "intake_ground_truth"), CandidatePhase("rollback", "intake_rollback", ("ground_truth",)), CandidatePhase("proof", "intake_proof_update", ("rollback",)), CandidatePhase("routing_memory", "intake_routing_memory_update", ("proof",))]
-    ground_dispatch = _dispatch_preloaded(run_root=base / "ground_truth", candidate=candidate, frame_hash=frame_hash, initial_context=ground_context, phases=ground_phases, run_id="ground-truth")
+    ground_dispatch = _dispatch_preloaded(run_root=base / "ground_truth", candidate=candidate, frame_hash=frame_hash, initial_context=ground_context, phases=ground_phases, run_id="ground-truth", batch_label=batch_label)
     ground_result = ground_dispatch.pop("result"); ground_output = ground_result.get("context", {})
     passed = all(value.get("dispatcher_status") == "PASS" for value in arm_records.values()) and ground_result.get("status") == "PASS"
     return {"candidate_id": candidate["candidate_id"], "status": "PASS" if passed else "PARTIAL", "arm_outputs": arm_records, "arm_bundle_hash": sealed_arm_bundle_hash, "arm_outputs_sealed": ground_context["arm_outputs_sealed"], "ground_truth": ground_output.get("ground_truth"), "rollback": ground_output.get("rollback"), "proof": ground_output.get("proof_ledger_update"), "routing_memory": ground_output.get("routing_memory_update"), "ground_truth_dispatch": {**ground_dispatch, "status": ground_result.get("status"), "completed_phases": ground_result.get("completed_phases", [])}}

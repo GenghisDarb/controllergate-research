@@ -3,14 +3,22 @@ from __future__ import annotations
 import ast
 import hashlib
 import re
+import shlex
 import shutil
 import subprocess
 from pathlib import Path
 from typing import Any
 
 from controllergate.amds.generic_board import CONTACTS, build_board_from_evidence
+from controllergate.amds.runtime_adapter import run_amds_active_loop
 from controllergate.core.command_authority_resolver import resolve_command_authority
 from controllergate.core.evidence import hash_record, sha256_file, write_json_deterministic
+from controllergate.runtime.duplicate_environment_factory import duplicate_environment_specs
+from controllergate.runtime.provider_build_copy import create_writable_build_copy, tree_identity
+from controllergate.runtime.provider_store_verifier import build_provider_lock, seal_and_verify_provider_store
+from controllergate.runtime.provider_workspace import plan_provider_workspace
+from controllergate.runtime.python_provider_strategy import provider_strategy
+from controllergate.runtime.target_dependency_analysis import analyze_target_dependencies
 
 IMAGE = "python@sha256:eb43ff125d8d58d7449dcba7d336c23bcac412f526d861db493b9994d8010280"
 
@@ -49,7 +57,7 @@ def _tree_hash(root: Path, tests_only: bool = False) -> str:
 
 def _workspace(context: dict[str, Any]) -> Path:
     manifest = context["candidate_manifest"]
-    return Path(manifest["workspace_root"]) / manifest["candidate_id"]
+    return Path(plan_provider_workspace(Path(manifest["workspace_root"]), manifest["candidate_id"], manifest["candidate_sha"]).candidate_root)
 
 
 def intake_candidate_manifest(context: dict[str, Any], **_: Any) -> dict[str, Any]:
@@ -60,21 +68,40 @@ def intake_candidate_manifest(context: dict[str, Any], **_: Any) -> dict[str, An
 
 
 def intake_source_acquisition(context: dict[str, Any], **_: Any) -> dict[str, Any]:
-    manifest = context["candidate_manifest"]; workspace = _workspace(context); source = workspace / "source"
+    manifest = context["candidate_manifest"]; workspace_plan = plan_provider_workspace(Path(manifest["workspace_root"]), manifest["candidate_id"], manifest["candidate_sha"]); workspace = Path(workspace_plan.candidate_root); source = Path(workspace_plan.source_root)
     shutil.rmtree(workspace, ignore_errors=True); source.mkdir(parents=True)
     runs = [_run(["git", "init", "-q"], source), _run(["git", "remote", "add", "origin", manifest["repo_url"]], source), _run(["git", "fetch", "-q", "--depth", "1", "origin", manifest["candidate_sha"]], source), _run(["git", "checkout", "-q", "--detach", "FETCH_HEAD"], source)]
     head = _run(["git", "rev-parse", "HEAD"], source); obj = _run(["git", "cat-file", "-t", manifest["candidate_sha"]], source); tree = _run(["git", "rev-parse", "HEAD^{tree}"], source)
     passed = all(item["returncode"] == 0 for item in runs) and head["stdout"].strip() == manifest["candidate_sha"] and obj["stdout"].strip() == "commit"
-    record = {"status": "PASS" if passed else "BLOCK", "head": head["stdout"].strip(), "object_type": obj["stdout"].strip(), "tree_hash": tree["stdout"].strip(), "source_tree_hash": _tree_hash(source), "test_tree_hash": _tree_hash(source, True), "outside_live_repo": not str(source.resolve()).lower().startswith(str(Path.cwd().resolve()).lower()), "network_mode": "bounded_read_only", "runs": [_compact(item) for item in runs]}
-    return _result(record["status"], {"source_root": str(source), "source_acquisition": record}, None if passed else "frozen_source_acquisition_failed")
+    record = {"status": "PASS" if passed else "BLOCK", "head": head["stdout"].strip(), "object_type": obj["stdout"].strip(), "tree_hash": tree["stdout"].strip(), "source_tree_hash": _tree_hash(source), "test_tree_hash": _tree_hash(source, True), "outside_live_repo": not str(source.resolve()).lower().startswith(str(Path.cwd().resolve()).lower()), "network_mode": "bounded_read_only", "workspace_path_audit": workspace_plan.record(), "runs": [_compact(item) for item in runs]}
+    return _result(record["status"], {"source_root": str(source), "provider_workspace": workspace_plan.record(), "source_acquisition": record}, None if passed else "frozen_source_acquisition_failed")
 
 
 def intake_provider_materialization(context: dict[str, Any], **_: Any) -> dict[str, Any]:
-    source = Path(context["source_root"]); workspace = _workspace(context); wheelhouse = workspace / "wheelhouse"; wheelhouse.mkdir(parents=True, exist_ok=True)
-    build = _run(["docker", "run", "--rm", "-v", f"{source.resolve()}:/source:ro", "-v", f"{wheelhouse.resolve()}:/wheelhouse:rw", IMAGE, "sh", "-lc", "python -m pip wheel --disable-pip-version-check --wheel-dir /wheelhouse /source pytest"], timeout=1800)
-    artifacts = [{"filename": path.name, "sha256": sha256_file(path), "size_bytes": path.stat().st_size} for path in sorted(wheelhouse.glob("*.whl"))]
-    passed = build["returncode"] == 0 and bool(artifacts)
-    record = {"status": "PASS" if passed else "BLOCK", "provider_class": "hash_lockable_python_provider", "runtime_image": IMAGE, "wheelhouse": str(wheelhouse), "artifacts": artifacts, "provider_lock_hash": hash_record(artifacts), "expected_hashes_recorded_before_execution": passed, "editable_install": False, "build": _compact(build), "resolution_network_mode": "bounded_read_only", "execution_network_mode": "none"}
+    source = Path(context["source_root"]); workspace_plan = plan_provider_workspace(Path(context["candidate_manifest"]["workspace_root"]), context["candidate_manifest"]["candidate_id"], context["candidate_manifest"]["candidate_sha"])
+    wheelhouse = Path(workspace_plan.wheelhouse); build_copy = Path(workspace_plan.build_root)
+    shutil.rmtree(wheelhouse, ignore_errors=True); wheelhouse.mkdir(parents=True, exist_ok=True)
+    target = context["candidate_manifest"]["native_target_paths"][0]
+    dependency_analysis = analyze_target_dependencies(source, target)
+    strategy = provider_strategy(source, target, dependency_analysis)
+    copy_record = create_writable_build_copy(source, build_copy)
+    requirements = " ".join(f"-r {shlex.quote(name)}" for name in dependency_analysis["requirement_files"])
+    extras = dependency_analysis["selected_extras"]
+    project_requirement = ".[" + ",".join(extras) + "]" if extras else "."
+    if strategy["strategy"] == "build_project_wheel":
+        requested = " ".join(value for value in (requirements, shlex.quote(project_requirement), "pytest") if value)
+    elif strategy["strategy"] == "source_on_pythonpath":
+        requested = " ".join(value for value in (requirements, "pytest") if value)
+    else:
+        requested = ""
+    build_command = f"cd /build && python -m pip wheel --disable-pip-version-check --wheel-dir /wheelhouse {requested}" if requested else "exit 86"
+    build = _run(["docker", "run", "--rm", "-v", f"{build_copy.resolve()}:/build:rw", "-v", f"{wheelhouse.resolve()}:/wheelhouse:rw", IMAGE, "sh", "-lc", build_command], timeout=1800)
+    source_unchanged = copy_record["source_identity_before"] == tree_identity(source)
+    lock = build_provider_lock(wheelhouse, version=1, dependency_analysis=dependency_analysis, strategy=strategy)
+    verification = seal_and_verify_provider_store(wheelhouse, lock)
+    artifacts = [{**item, "sha256": item["expected_sha256"]} for item in lock["artifacts"]]
+    passed = build["returncode"] == 0 and verification["status"] == "PASS" and source_unchanged and copy_record["status"] == "PASS"
+    record = {"status": "PASS" if passed else "BLOCK", "provider_class": "hash_lockable_python_provider_v2", "runtime_image": IMAGE, "wheelhouse": str(wheelhouse), "artifacts": artifacts, "provider_lock": lock, "provider_lock_hash": lock["provider_lock_hash"], "provider_lock_version": 1, "provider_lock_verification": verification, "expected_hashes_recorded_before_execution": verification["expected_hashes_recorded_before_execution"], "editable_install": False, "workspace": workspace_plan.record(), "source_layout": strategy, "target_dependency_analysis": dependency_analysis, "build_copy": copy_record, "source_immutable_after_build": source_unchanged, "selected_optional_extras": extras, "selected_requirement_files": dependency_analysis["requirement_files"], "target_imports": dependency_analysis["normalized_imports"], "build": _compact(build), "resolution_network_mode": "bounded_read_only", "execution_network_mode": "none"}
     return _result(record["status"], {"provider_closure": record, "environment": record}, None if passed else "hash_locked_provider_materialization_failed")
 
 
@@ -111,7 +138,11 @@ def _parse_capsule(text: str) -> dict[str, Any]:
 def intake_duplicate_replay(context: dict[str, Any], **_: Any) -> dict[str, Any]:
     source = Path(context["source_root"]); wheelhouse = Path(context["provider_closure"]["wheelhouse"]); target = context["candidate_manifest"]["native_target_paths"][0]
     before_source = _tree_hash(source); before_tests = _tree_hash(source, True)
+    strategy = context["provider_closure"]["source_layout"]
+    environment_specs = duplicate_environment_specs(source, wheelhouse, target, context["provider_closure"]["provider_lock_hash"], strategy)
+    pythonpath = "export PYTHONPATH=/source${PYTHONPATH:+:$PYTHONPATH}\n" if strategy["strategy"] == "source_on_pythonpath" else ""
     command = ("python -m venv /tmp/venv && /tmp/venv/bin/python -m pip install --disable-pip-version-check --no-index --find-links /wheelhouse /wheelhouse/*.whl >/tmp/install.log 2>&1 || exit 90\n"
+               + pythonpath +
                "cd /source\n"
                f"/tmp/venv/bin/python -m pytest {target} --collect-only -q >/tmp/collect.log 2>&1; c=$?\n"
                f"/tmp/venv/bin/python -m pytest {target} -q --tb=short >/tmp/replay.log 2>&1; r=$?\n"
@@ -127,7 +158,7 @@ def intake_duplicate_replay(context: dict[str, Any], **_: Any) -> dict[str, Any]
     failed = all(item["replay_returncode"] != 0 for item in capsules) and capsules[0]["semantic_failure_signature"] == capsules[1]["semantic_failure_signature"]
     status = "PASS" if collected and failed and source_immutable and tests_immutable else "BLOCK"
     blocker = None if status == "PASS" else "duplicate_collection_failed" if not collected else "duplicate_failure_not_reproduced" if not failed else "source_or_test_mutation_detected"
-    record = {"status": status, "blocker": blocker, "capsules": capsules, "duplicate_collection": collected, "duplicate_failure": failed, "source_immutable": source_immutable, "tests_immutable": tests_immutable, "network": "none"}
+    record = {"status": status, "blocker": blocker, "capsules": capsules, "duplicate_collection": collected, "duplicate_failure": failed, "source_immutable": source_immutable, "tests_immutable": tests_immutable, "network": "none", "environment_specs": environment_specs, "same_provider_store": len({item["provider_lock_hash"] for item in environment_specs}) == 1, "source_import_path_explicit": strategy["strategy"] != "source_on_pythonpath" or all(item["PYTHONPATH"] == "/source" for item in environment_specs)}
     return _result(status, {"duplicate_replay": record, "prerepair_replay": record, "failure_topology": {"status": "PASS" if failed else "BLOCK", "semantic_signature": capsules[0]["semantic_failure_signature"]}}, blocker)
 
 
@@ -144,25 +175,56 @@ def intake_amds_board(context: dict[str, Any], **_: Any) -> dict[str, Any]:
 def intake_amds_arm(context: dict[str, Any], phase_id: str, **_: Any) -> dict[str, Any]:
     manifest = context["candidate_manifest"]; source = Path(context["source_root"]); target = source / manifest["native_target_paths"][0].split("::", 1)[0]
     arm = phase_id.removeprefix("arm_"); memory_enabled = arm.endswith("memory_enabled")
-    probes = ["provider_hash_recheck", "target_ast_recheck", "failure_signature_recheck"]
-    if arm.startswith("seeded_random"): order = [probes[1], probes[0], probes[2]]
-    elif arm.startswith("fixed"): order = [probes[2], probes[1], probes[0]]
-    elif arm.startswith("amds") and memory_enabled: order = [probes[1], probes[2], probes[0]]
-    else: order = probes
-    observations = []
-    for probe in order:
-        if probe == "provider_hash_recheck":
-            wheelhouse = Path(context["provider_closure"]["wheelhouse"]); fact = all((wheelhouse / item["filename"]).is_file() and sha256_file(wheelhouse / item["filename"]) == item["sha256"] for item in context["provider_closure"]["artifacts"])
-        elif probe == "target_ast_recheck": fact = target.is_file() and bool(ast.parse(target.read_text(encoding="utf-8", errors="replace")))
-        else: fact = context["duplicate_replay"]["duplicate_failure"]
-        observations.append({"probe": probe, "semantic_fact": fact, "evidence_hash": hash_record({"probe": probe, "fact": fact, "candidate_sha": manifest["candidate_sha"]})})
-    facts = {item["probe"]: item["semantic_fact"] for item in observations}
+    probe_ids = ["provider_hash_recheck", "target_ast_recheck", "failure_signature_recheck"]
+    if arm.startswith("fixed"): order = [probe_ids[2], probe_ids[1], probe_ids[0]]
+    elif arm.startswith("amds") and memory_enabled: order = [probe_ids[1], probe_ids[2], probe_ids[0]]
+    else: order = probe_ids
+    disabled_baseline = [probe_ids[2], probe_ids[1], probe_ids[0]] if arm.startswith("fixed") else probe_ids
+    memory_influence = "MEMORY_CHANGED_PROBE_ORDER" if memory_enabled and order != disabled_baseline else "NO_OBSERVED_MEMORY_INFLUENCE"
+    wheelhouse = Path(context["provider_closure"]["wheelhouse"])
+    facts = {
+        "provider_hash_recheck": all((wheelhouse / item["filename"]).is_file() and sha256_file(wheelhouse / item["filename"]) == item["sha256"] for item in context["provider_closure"]["artifacts"]),
+        "target_ast_recheck": target.is_file() and bool(ast.parse(target.read_text(encoding="utf-8", errors="replace"))),
+        "failure_signature_recheck": context["duplicate_replay"]["duplicate_failure"],
+    }
+    probes = [{"probe_id": probe, "probe_type": probe, "allowed_executor": probe, "deterministic_necessity": True, "execution_cost": 1.0, "security_risk": 0.0} for probe in probe_ids]
+    probe_by_id = {item["probe_id"]: item for item in probes}
+    def execute(probe: dict[str, Any]) -> dict[str, Any]:
+        fact = facts[str(probe["probe_id"])]
+        evidence = {"probe": probe["probe_id"], "fact": fact, "candidate_sha": manifest["candidate_sha"]}
+        return {"status": "PASS" if fact else "BLOCK", "operation_status": "PASS", "probe_id": probe["probe_id"], "observation": "DETERMINISTIC_FACT_RECOMPUTED", "semantic_claim": str(fact), "evidence": evidence, "evidence_hash": hash_record(evidence), "mutation_count": 0}
+    arm_root = Path(manifest.get("arm_output_root") or (_workspace(context) / "arms" / arm)); arm_root.mkdir(parents=True, exist_ok=True)
+    if arm.startswith("amds"):
+        def registry(_board: dict[str, Any], history: list[dict[str, Any]]) -> list[dict[str, Any]]:
+            executed = {item.get("probe_id") for item in history}
+            remaining = [probe_by_id[value] for value in order if value not in executed]
+            return remaining[:1]
+        def semantic(probe: dict[str, Any], _observation: dict[str, Any]):
+            return lambda: {"status": "PASS", "semantic_claim": str(facts[str(probe["probe_id"])]), "evidence_hash": hash_record({"probe": probe["probe_id"], "fact": facts[str(probe["probe_id"])], "candidate_sha": manifest["candidate_sha"]})}
+        run = run_amds_active_loop(context["amds_board"], probes, lambda probe: lambda: execute(probe), budget=len(probes), registry_factory=registry, candidate_sha=manifest["candidate_sha"], authorization_store=arm_root / "probe_nonces.json", semantic_verifier_factory=semantic)
+        observations = [{"probe": item.get("probe_id"), "semantic_fact": facts.get(str(item.get("probe_id"))), "evidence_hash": item.get("evidence_hash")} for item in run.get("observations", [])]
+        posterior_updates = run.get("posterior_updates", [])
+        registry_versions = run.get("registry_versions", [])
+        entropy_changes = [{"probe_id": item.get("probe_id"), "before": item.get("entropy_before"), "after": item.get("entropy_after")} for item in posterior_updates]
+        backtracking_trace = run.get("backtracking_trace", [])
+        stop_decision = run.get("stop_decision")
+        canonical_invocation = True
+    else:
+        observations = []
+        for probe_id in order:
+            observation = execute(probe_by_id[probe_id])
+            observations.append({"probe": probe_id, "semantic_fact": facts[probe_id], "evidence_hash": observation["evidence_hash"], "semantic_verification": "PASS"})
+        posterior_updates = [{"probe_id": item["probe"], "likelihood_basis": "DETERMINISTIC_CONTRACT", "entropy_before": 0.0, "entropy_after": 0.0} for item in observations]
+        registry_versions = [{"generation": index + 1, "selected": probe_id, "policy": "FIXED_LEGAL_ORDER"} for index, probe_id in enumerate(order)]
+        entropy_changes = [{"probe_id": item["probe"], "before": 0.0, "after": 0.0} for item in observations]
+        backtracking_trace = []
+        stop_decision = {"stop": True, "reason": "fixed legal probe order exhausted"}
+        canonical_invocation = False
     posterior = {"hypotheses": {"provider_identity": facts["provider_hash_recheck"], "target_topology": facts["target_ast_recheck"], "failure_reproduced": facts["failure_signature_recheck"]}, "observation_hashes": [item["evidence_hash"] for item in observations]}
     replay_text = "\n".join(item.get("stdout_tail", "") for item in context["duplicate_replay"].get("capsules", []))
     terminal_classification = "source_owned_behavior_defect" if re.search(r"(?:/source/|\\source\\)(?!tests?/).*\.py", replay_text) else "insufficient_evidence"
-    arm_root = Path(manifest.get("arm_output_root") or (_workspace(context) / "arms" / arm)); arm_root.mkdir(parents=True, exist_ok=True)
     posterior_path = arm_root / "posterior.json"; write_json_deterministic(posterior_path, posterior)
-    record = {"status": "PASS", "arm": arm, "memory_enabled": memory_enabled, "probe_order": order, "observations": observations, "probe_count": len(observations), "posterior_updates": len(observations), "semantic_verifications": len(observations), "backtracking_components": 1, "terminal_classification": terminal_classification, "safe_abstention": terminal_classification == "insufficient_evidence", "isolated_state_id": hash_record({"candidate": manifest["candidate_id"], "arm": arm, "frame": manifest["frame_hash"]}), "posterior_store_hash": sha256_file(posterior_path), "posterior_store": str(posterior_path), "authorization_store_isolated": True, "event_ledger_isolated": True, "observation_sharing": False, "patch_authority": False}
+    record = {"status": "PASS" if len(observations) == len(probes) else "BLOCK", "arm": arm, "strategy": "AMDS_ACTIVE" if arm.startswith("amds") else "FIXED_LEGAL_ORDER", "canonical_run_amds_active_loop": canonical_invocation, "memory_enabled": memory_enabled, "probe_order": order, "selection_rationale": "DETERMINISTIC_NECESSITY", "unknown_likelihoods": "NOT_ESTABLISHED", "memory_influence": memory_influence, "observations": observations, "probe_count": len(observations), "registry_versions": registry_versions, "posterior_update_records": posterior_updates, "posterior_updates": len(posterior_updates), "entropy_changes": entropy_changes, "semantic_verifications": len(observations), "backtracking_trace": backtracking_trace, "backtracking_components": len(backtracking_trace), "stop_decision": stop_decision, "terminal_classification": terminal_classification, "safe_abstention": terminal_classification == "insufficient_evidence", "isolated_state_id": hash_record({"candidate": manifest["candidate_id"], "arm": arm, "frame": manifest["frame_hash"]}), "posterior_store_hash": sha256_file(posterior_path), "posterior_store": str(posterior_path), "authorization_store_isolated": True, "event_ledger_isolated": True, "observation_sharing": False, "patch_authority": False}
     record["arm_output_hash"] = hash_record(record)
     path = arm_root / "arm_output.json"; write_json_deterministic(path, record)
     arms = dict(context.get("diagnostic_arms", {})); arms[arm] = record
