@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import time
 from typing import Any
 
 from controllergate.core.evidence import hash_record
@@ -50,6 +51,11 @@ def dispatch_authorized_candidate(
     if auth_check["status"] != "PASS":
         return auth_check
     auth = authorization
+    requested_resources = manifest.get("projected_resources", {})
+    for resource, requested in requested_resources.items():
+        if int(requested) > int(auth.get("resource_budget", {}).get(resource, 0)):
+            return {"status": "BLOCK", "blocker": "candidate_execution_resource_budget_exceeded", "resource": resource}
+    started = time.monotonic()
     completed = list(checkpoint.get("completed_phases", []))
     if checkpoint.get("status") == "PASS" and checkpoint.get("candidate_id") not in {None, plan.candidate_id}:
         return {"status": "BLOCK", "blocker": "runtime_checkpoint_plan_or_candidate_mismatch"}
@@ -59,6 +65,8 @@ def dispatch_authorized_candidate(
     context = dict(checkpoint.get("context_state") or {"candidate_manifest": manifest})
     executed: list[str] = []
     for phase in plan.phases:
+        if time.monotonic() - started > int(auth.get("resource_budget", {}).get("seconds", 0)):
+            return {"status": "BLOCK", "blocker": "candidate_execution_resource_budget_exceeded", "resource": "seconds"}
         if phase.phase_id in completed:
             continue
         if phase.phase_id not in set(auth["allowed_phases"]):

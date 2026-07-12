@@ -16,6 +16,8 @@ Canonical generated frontier status: [docs/CURRENT_FRONTIER_STATUS.md](docs/CURR
 
 The historical Batch071 Connexion episode is independently hardened without recounting. A 63-package cutoff-compatible provider lock reproduced the exact failure in two fresh network-disabled capsules; the preserved source-only patch passed the exact target and target-file tests in two fresh patched capsules, with 800 full-suite passes and one explicitly remote-network test excluded. Batch073 then completed all 20 frozen lead dispositions without replacement. The resulting prospective cohort is `EXECUTED_EMPTY_COHORT`, so no diagnostic arms, repair attempts, or count gates ran.
 
+Batch074 completes local recovery of the reusable intake engine with synthetic fixtures only. It verifies the manually supplied Batch073 artifact, separates admission from diagnostic execution, and validates eight isolated diagnostic authorization, nonce, checkpoint, posterior, event, and network-ledger stores. It does not claim an external prospective wave. External execution is deferred to a manually reviewed Batch075 static allowlist of at most three public repositories, one repository at a time.
+
 - Confirmed issue-derived repair episodes: `5`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
@@ -36,7 +38,8 @@ The historical Batch071 Connexion episode is independently hardened without reco
 - Count-five hardening: `PASS`; historical issue-derived count remains `5` with no recount.
 - v2.19 live authorization and deterministic-provider demonstration: `PASS`.
 - Prospective Wave 1: `EXECUTED_EMPTY_COHORT`; all 20 frozen leads received terminal dispositions and no diagnostic or repair arm executed.
-- Next safe action: manually ingest the official Batch073 artifact, then separately preregister any Batch074 lead frame.
+- Batch074 recovery: `LOCAL_IMPLEMENTATION_RECOVERY_COMPLETE`; external execution: `DEFERRED_TO_MANUALLY_REVIEWED_BATCH075`.
+- Next safe action: manually review the frozen Batch075 static allowlist before dispatching one public software-test repository.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

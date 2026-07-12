@@ -20,6 +20,8 @@ This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 - v2.19 authorization complete: PASS
 - v2.19 deterministic provider: PASS
 - Count-five hardening: PASS
-- AMDS prospective Wave 1: EXECUTED_EMPTY_COHORT
+- Batch073 prospective Wave 1: EXECUTED_EMPTY_COHORT
+- Batch074 status: LOCAL_IMPLEMENTATION_RECOVERY_COMPLETE
+- Batch074 external execution: DEFERRED_TO_MANUALLY_REVIEWED_BATCH075
 - AMDS prospective effectiveness: NOT_ESTABLISHED
-- Next safe action: batch074_new_preregistered_lead_frame_after_manual_batch073_ingest
+- Next safe action: manual_batch075_static_allowlist_review

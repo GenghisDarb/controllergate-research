@@ -1,0 +1,68 @@
+{
+  "base_head": "36ff7cac28535a608c2eb68b468cce2072aaec32",
+  "incoming_artifacts_staged": false,
+  "initial_tracked_modified_paths": [
+    "controllergate/core/command_authority_resolver.py",
+    "controllergate/runtime/authorized_candidate_dispatcher.py",
+    "controllergate/runtime/phase_executor.py",
+    "outputs/current/CURRENT_PROTOCOL_STATE.json",
+    "outputs/frontier/CURRENT_FRONTIER_STATE.json",
+    "outputs/post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1/SHA256SUMS.txt",
+    "outputs/post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1/connexion_exact_patch_challenge.json",
+    "outputs/post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1/connexion_hardened_root_requirements.json",
+    "outputs/post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1/connexion_two_capsule_pre_repair_challenge.json",
+    "outputs/post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1/connexion_two_capsule_registry_batch073.json",
+    "outputs/post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1/terminal_count_hardening_proof_event.json",
+    "outputs/post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1/v2_19_authorization_live_demonstration_batch073.json"
+  ],
+  "initial_untracked_implementation_paths": [
+    ".github/workflows/post_v2_37_hardening_batch074_sterile_high_yield_amds_memory_wave1.yml",
+    "controllergate/core/batch074_sterile_high_yield_wave1.py",
+    "controllergate/intake/__init__.py",
+    "controllergate/intake/admission_executor.py",
+    "controllergate/intake/contamination_classifier.py",
+    "controllergate/intake/discovery_queries.py",
+    "controllergate/intake/frame_freezer.py",
+    "controllergate/intake/issue_snapshot.py",
+    "controllergate/intake/static_candidate_ranker.py",
+    "controllergate/intake/target_resolver.py",
+    "scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py",
+    "scripts/generate_batch074_sterile_high_yield_amds_memory_wave1.py",
+    "tests/runtime/test_batch074_sterile_high_yield_amds_memory_wave1.py"
+  ],
+  "preexisting_untracked_user_paths_excluded_from_scope": [
+    "incoming_artifacts/manual_seed_intake/manual_seed_manifest.json",
+    "incoming_artifacts/manual_seed_intake/manual_seed_manifest_lemon24_reader_355.json",
+    "incoming_artifacts/post_v2_37_hardening_batch018_manual_dependency_lock_thin_artifacts.zip"
+  ],
+  "preliminary_batch074_external_evidence_set": {
+    "path": "outputs/post_v2_37_hardening_batch074_sterile_high_yield_amds_memory_wave1/",
+    "retained": false,
+    "corrected": true,
+    "reverted": true,
+    "reason": "replaced with compact local-recovery evidence because the interrupted external wave is non-claim-bearing and execution is deferred to Batch075"
+  },
+  "preservation_commands_used": [
+    "git status --short --branch",
+    "git diff --stat",
+    "git diff",
+    "git ls-files --others --exclude-standard"
+  ],
+  "prohibited_destructive_git_commands_used": false,
+  "records": [
+    {"path": "controllergate/core/command_authority_resolver.py", "status": "tracked_modified", "diff_added": 34, "diff_deleted": 3, "purpose": "semantic target-corroborated command authority", "retained": true, "corrected": true, "reverted": false},
+    {"path": "controllergate/runtime/authorized_candidate_dispatcher.py", "status": "tracked_modified", "diff_added": 8, "diff_deleted": 0, "purpose": "candidate resource-budget enforcement", "retained": true, "corrected": false, "reverted": false},
+    {"path": "controllergate/runtime/phase_executor.py", "status": "tracked_modified", "diff_added": 13, "diff_deleted": 0, "purpose": "allowlisted local intake bindings", "retained": true, "corrected": false, "reverted": false},
+    {"path": "controllergate/core/batch074_sterile_high_yield_wave1.py", "status": "untracked", "line_count_at_inventory": 237, "purpose": "Batch073 custody and Batch074 local recovery orchestration", "retained": true, "corrected": true, "reverted": false},
+    {"path": "controllergate/intake/admission_executor.py", "status": "untracked", "line_count_at_inventory": 154, "purpose": "separate authorization-bound admission and diagnostic fixtures", "retained": true, "corrected": true, "reverted": false},
+    {"path": "controllergate/intake/contamination_classifier.py", "status": "untracked", "line_count_at_inventory": 48, "purpose": "typed contamination and sanitized evidence", "retained": true, "corrected": true, "reverted": false},
+    {"path": "controllergate/intake/discovery_queries.py", "status": "untracked", "line_count_at_inventory": 35, "purpose": "deferred discovery definitions; not executed by Batch074 recovery", "retained": true, "corrected": true, "reverted": false},
+    {"path": "controllergate/intake/frame_freezer.py", "status": "untracked", "line_count_at_inventory": 10, "purpose": "ordered non-replenished cohort freeze", "retained": true, "corrected": false, "reverted": false},
+    {"path": "controllergate/intake/issue_snapshot.py", "status": "untracked", "line_count_at_inventory": 15, "purpose": "isolated issue snapshot helper for deferred workflow", "retained": true, "corrected": false, "reverted": false},
+    {"path": "controllergate/intake/static_candidate_ranker.py", "status": "untracked", "line_count_at_inventory": 13, "purpose": "pre-outcome static ranking", "retained": true, "corrected": false, "reverted": false},
+    {"path": "controllergate/intake/target_resolver.py", "status": "untracked", "line_count_at_inventory": 73, "purpose": "source-verified multi-route target resolution", "retained": true, "corrected": true, "reverted": false},
+    {"path": ".github/workflows/post_v2_37_hardening_batch074_sterile_high_yield_amds_memory_wave1.yml", "status": "untracked", "line_count_at_inventory": 89, "purpose": "Batch074 artifact workflow", "retained": true, "corrected": true, "reverted": false},
+    {"path": "tests/runtime/test_batch074_sterile_high_yield_amds_memory_wave1.py", "status": "untracked", "line_count_at_inventory": 80, "purpose": "local synthetic recovery validation", "retained": true, "corrected": true, "reverted": false}
+  ],
+  "status": "PASS"
+}

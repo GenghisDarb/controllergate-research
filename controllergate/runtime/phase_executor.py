@@ -32,6 +32,19 @@ ALLOWED_BINDINGS = {
     "rollback_candidate": "controllergate.runtime.authorized_maintenance:rollback_candidate",
     "update_proof_ledger": "controllergate.runtime.authorized_maintenance:update_proof_ledger",
     "update_routing_memory": "controllergate.runtime.authorized_maintenance:update_routing_memory",
+    "intake_candidate_manifest": "controllergate.intake.admission_executor:intake_candidate_manifest",
+    "intake_source_acquisition": "controllergate.intake.admission_executor:intake_source_acquisition",
+    "intake_provider_materialization": "controllergate.intake.admission_executor:intake_provider_materialization",
+    "intake_command_authority": "controllergate.intake.admission_executor:intake_command_authority",
+    "intake_harness_verification": "controllergate.intake.admission_executor:intake_harness_verification",
+    "intake_runner_origin": "controllergate.intake.admission_executor:intake_runner_origin",
+    "intake_duplicate_replay": "controllergate.intake.admission_executor:intake_duplicate_replay",
+    "intake_amds_board": "controllergate.intake.admission_executor:intake_amds_board",
+    "intake_amds_arm": "controllergate.intake.admission_executor:intake_amds_arm",
+    "intake_ground_truth": "controllergate.intake.admission_executor:intake_ground_truth",
+    "intake_rollback": "controllergate.intake.admission_executor:intake_rollback",
+    "intake_proof_update": "controllergate.intake.admission_executor:intake_proof_update",
+    "intake_routing_memory_update": "controllergate.intake.admission_executor:intake_routing_memory_update",
 }
 
 

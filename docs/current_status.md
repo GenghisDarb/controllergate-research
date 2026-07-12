@@ -10,6 +10,8 @@ The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIE
 
 The Connexion episode now passes independent existing-count hardening without recount. A complete 63-package cutoff-compatible lock supports duplicate network-disabled pre-repair reproduction and duplicate patched validation. Batch073 executed terminal dispositions for all 20 frozen leads without replacement; the resulting cohort is `EXECUTED_EMPTY_COHORT`, so no diagnostic arms, repair attempts, or new count gates ran.
 
+Batch074 is a local implementation recovery only. Reusable contamination, target, command, admission, and diagnostic-isolation controls pass synthetic validation, while the external prospective cohort is explicitly deferred to a manually reviewed Batch075 static allowlist. Batch074 creates no prospective AMDS evidence and does not alter the hardened count.
+
 - Issue-derived repair episodes: `5`.
 - Native external repair episodes: `4`.
 - Batch068h9 artifact custody and official state preservation: `PASS`.
@@ -25,7 +27,8 @@ The Connexion episode now passes independent existing-count hardening without re
 - Count-five hardening: `PASS`; the existing episode was not recounted.
 - v2.19 authorization and deterministic-provider live demonstrations: `PASS`.
 - Prospective Wave 1: `EXECUTED_EMPTY_COHORT` after 20 completed dispositions.
-- Exact next safe action: manually ingest Batch073, then preregister a separate Batch074 lead frame if authorized.
+- Batch074 recovery: `LOCAL_IMPLEMENTATION_RECOVERY_COMPLETE`; external execution: `DEFERRED_TO_MANUALLY_REVIEWED_BATCH075`.
+- Exact next safe action: manually review the frozen Batch075 static allowlist, then dispatch at most one approved public software-test repository.
 - Reconciled historical false closures: `2`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Runtime connectors and live-device repair: inactive.
