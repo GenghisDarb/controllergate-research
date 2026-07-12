@@ -1,5 +1,11 @@
 # ControllerGate shareable summary
 
+## Batch073 count-five revalidation and frozen prospective Wave 1
+
+Batch073 independently verifies the official Batch072 evidence and hardens the existing fifth issue-derived Connexion repair without recounting it. A 63-package cutoff-compatible provider lock is hash verified before use. Two fresh network-disabled capsules reproduce the same target failure, and two fresh patched capsules pass the exact target and all `tests/test_utils.py` checks. Full-suite feasibility reaches 800 passes; the single remaining failure is an explicitly remote-network test excluded by the execution policy.
+
+All 20 frozen prospective leads receive terminal dispositions in their original order without replacement. None reaches duplicate-failure admission, producing an `EXECUTED_EMPTY_COHORT`; therefore no diagnostic arm, new repair attempt, or new count gate runs. The validated protocol remains v2.19, issue-derived repairs remain 5, native external repairs remain 4, prospective AMDS effectiveness remains `NOT_ESTABLISHED`, full scoring remains disabled, memory lift is not demonstrated, self-maintaining software is not demonstrated, and live connectors remain inactive.
+
 ## Batch071 live v2.19 execution and fifth issue-derived repair
 
 Batch071 verifies the official Batch070 artifact and preserves `v2.19 authorized_amds_active_maintenance_lane` as the current interface. Eleven previously shallow manifest-consumer functions now have live source acquisition, environment, provider, command, replay, ownership, patch, validation, duplicate-replay, and count-gate implementations with separate capability-depth reporting.

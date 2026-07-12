@@ -4,11 +4,11 @@
 
 The validated current protocol is `v2.19 authorized_amds_active_maintenance_lane`. Its canonical candidate-manifest dispatcher exposes 22 reusable maintenance bindings and no batch-specific current bindings. Earlier v2.18, v2.17, v2.16, v2.15, and v2.14 interfaces remain selectable and audited.
 
-Batch072 verifies and ingests the official Batch071 artifact and hardens the current v2.19 interface. Candidate manifests no longer self-authorize execution. Sealed plans, state-bound single-use authorization, network allowlists and budgets, immutable output roots, hash-locked non-editable provider materialization, live rollback, content-addressed proof events, structural-only routing memory, and strict count prerequisites are now production boundaries.
+Batch073 verifies and ingests the official Batch072 artifact and completes count-five revalidation under the current v2.19 interface. Sealed plans, state-bound single-use authorization, network allowlists and budgets, immutable output roots, hash-locked provider materialization, content-addressed proof events, and strict count uniqueness are active production boundaries.
 
 The machine source for the generated status is `outputs/frontier/CURRENT_FRONTIER_STATE.json`; its rendered view is `docs/CURRENT_FRONTIER_STATUS.md`.
 
-The historical H71 issue-derived count of five is preserved, but its Connexion episode is quarantined for high-confidence prospective use until a cutoff-eligible hash-locked provider store can reproduce the two-capsule challenge. The preserved patch passes external metamorphic invariants. Twenty weak leads were frozen for Wave 1; none met independent commit plus duplicate-failure admission, so no diagnostic arms, repair attempts, or count gates ran.
+The Connexion episode now passes independent existing-count hardening without recount. A complete 63-package cutoff-compatible lock supports duplicate network-disabled pre-repair reproduction and duplicate patched validation. Batch073 executed terminal dispositions for all 20 frozen leads without replacement; the resulting cohort is `EXECUTED_EMPTY_COHORT`, so no diagnostic arms, repair attempts, or new count gates ran.
 
 - Issue-derived repair episodes: `5`.
 - Native external repair episodes: `4`.
@@ -22,10 +22,10 @@ The historical H71 issue-derived count of five is preserved, but its Connexion e
 - Historical builder v3 and required wheels: `PASS`.
 - Offline capsule, SBOM, and origin checks: `PASS`.
 - Nbclient ownership: `interpreter_mock_behavior_change`; retired without patch or count gate.
-- Count-five hardening: `QUARANTINED_PENDING_REVALIDATION`.
-- v2.19 authorization and deterministic-provider implementation: `PASS_IMPLEMENTED`.
-- Prospective Wave 1: `PARTIAL_EMPTY_FROZEN_COHORT`.
-- Exact next major action: complete the frozen cohort without changing the preregistration.
+- Count-five hardening: `PASS`; the existing episode was not recounted.
+- v2.19 authorization and deterministic-provider live demonstrations: `PASS`.
+- Prospective Wave 1: `EXECUTED_EMPTY_COHORT` after 20 completed dispositions.
+- Exact next safe action: manually ingest Batch073, then preregister a separate Batch074 lead frame if authorized.
 - Reconciled historical false closures: `2`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Runtime connectors and live-device repair: inactive.

@@ -155,25 +155,56 @@ def reproduce_prerepair_failure(context: dict[str, Any], **_: Any) -> dict[str, 
 def build_amds_board_from_evidence(context: dict[str, Any], **_: Any) -> dict[str, Any]:
     if not _live(context): return legacy.build_amds_board_from_evidence(context)
     manifest = context["candidate_manifest"]
-    contacts = {
-        "artifact_custody": bool(manifest.get("artifact_custody_hash") or manifest.get("source_custody")),
-        "candidate_identity": context.get("candidate_identity", {}).get("status") == "PASS",
-        "source_revision": context.get("source_acquisition", {}).get("head") == manifest.get("candidate_sha"),
-        "failure_signature": bool(context.get("prerepair_replay", {}).get("failure_signature_hash")),
-        "target_test": context.get("harness_origin", {}).get("status") == "PASS",
-        "command_authority": context.get("command_authority", {}).get("status") == "PASS",
-        "harness_origin": context.get("harness_origin", {}).get("status") == "PASS",
-        "runner_origin": bool(context.get("runner_target_origin", {}).get("runner_origin")),
-        "target_import_origin": context.get("runner_target_origin", {}).get("status") == "PASS",
-        "provider_and_cofactor": context.get("provider_closure", {}).get("status") == "PASS",
-        "environment_compartment": context.get("environment", {}).get("status") == "PASS",
-        "workspace_and_execution_boundary": context.get("source_acquisition", {}).get("outside_live_repo") is True,
-        "source_and_failure_topology": bool(context.get("prerepair_replay", {}).get("failure_log")),
-        "rollback_and_proof_path": bool(manifest.get("workspace_root")),
+    evidence_records = {
+        "artifact_custody": manifest.get("artifact_custody"),
+        "candidate_identity": context.get("candidate_identity"),
+        "source_revision": context.get("source_acquisition"),
+        "failure_signature": context.get("prerepair_replay"),
+        "target_test": context.get("harness_origin"),
+        "command_authority": context.get("command_authority"),
+        "harness_origin": context.get("harness_origin"),
+        "runner_origin": context.get("runner_target_origin"),
+        "target_import_origin": context.get("runner_target_origin"),
+        "provider_and_cofactor": context.get("provider_closure"),
+        "environment_compartment": context.get("environment"),
+        "workspace_and_execution_boundary": context.get("source_acquisition"),
+        "source_and_failure_topology": context.get("failure_topology"),
+        "rollback_and_proof_path": {"rollback": context.get("rollback"), "proof": context.get("proof_ledger_update")},
     }
+    contacts = {name: bool(record) for name, record in evidence_records.items()}
+    contacts["candidate_identity"] = context.get("candidate_identity", {}).get("status") == "PASS"
+    contacts["source_revision"] = context.get("source_acquisition", {}).get("head") == manifest.get("candidate_sha")
+    contacts["failure_signature"] = bool(context.get("prerepair_replay", {}).get("failure_signature_hash"))
+    contacts["target_test"] = contacts["harness_origin"] = context.get("harness_origin", {}).get("status") == "PASS"
+    contacts["command_authority"] = context.get("command_authority", {}).get("status") == "PASS"
+    contacts["runner_origin"] = contacts["target_import_origin"] = context.get("runner_target_origin", {}).get("status") == "PASS"
+    contacts["provider_and_cofactor"] = context.get("provider_closure", {}).get("status") == "PASS"
+    contacts["environment_compartment"] = context.get("environment", {}).get("status") == "PASS"
+    contacts["workspace_and_execution_boundary"] = context.get("source_acquisition", {}).get("outside_live_repo") is True
+    contacts["source_and_failure_topology"] = context.get("failure_topology", {}).get("status") == "PASS"
+    contacts["rollback_and_proof_path"] = context.get("rollback", {}).get("status") == "PASS" and context.get("proof_ledger_update", {}).get("status") == "PASS"
     board = build_board_from_evidence({"candidate_id": manifest["candidate_id"], "candidate_sha": manifest["candidate_sha"], "contacts": contacts, "activation_gates": manifest.get("activation_gates", {})})
-    evidence = {name: {"established": bool(value), "basis_hash": hash_record({"contact": name, "value": value, "candidate": manifest["candidate_id"]})} for name, value in contacts.items()}
+    evidence = {name: {"established": bool(value), "evidence_record_hash": hash_record(evidence_records.get(name)), "evidence_record_present": evidence_records.get(name) is not None} for name, value in contacts.items()}
     return _result("PASS", {"amds_board": board, "live_contact_resolution": contacts, "live_contact_evidence": evidence})
+
+
+def recompute_dependency_lock_evidence(context: dict[str, Any]) -> dict[str, Any]:
+    closure = context.get("provider_closure", {})
+    wheelhouse = Path(context.get("environment", {}).get("wheelhouse", ""))
+    artifacts = closure.get("selected_artifacts", [])
+    verified = bool(artifacts) and wheelhouse.is_dir() and all(
+        (wheelhouse / item["filename"]).is_file()
+        and sha256_file(wheelhouse / item["filename"]) == item["sha256"]
+        for item in artifacts
+    )
+    return {"status": "PASS" if verified else "BLOCK", "checked": len(artifacts), "provider_lock_hash": closure.get("dependency_graph_hash")}
+
+
+def recompute_target_ast_evidence(context: dict[str, Any]) -> dict[str, Any]:
+    source = Path(context["source_root"])
+    target = source / context["candidate_manifest"]["native_target_paths"][0].split("::", 1)[0]
+    topology = ast.dump(ast.parse(target.read_text(encoding="utf-8")), include_attributes=False)
+    return {"failure": context["prerepair_replay"]["failure_signature_hash"], "target_ast_hash": hash_record(topology), "target_path": target.relative_to(source).as_posix()}
 
 
 def run_amds_active_loop_binding(context: dict[str, Any], **_: Any) -> dict[str, Any]:
@@ -189,12 +220,20 @@ def run_amds_active_loop_binding(context: dict[str, Any], **_: Any) -> dict[str,
         if _probe["probe_type"] == "source_commit_window_probe":
             return lambda: {**source_commit_window_probe_handler({"source_root": context["source_root"], "candidate_sha": manifest["candidate_sha"], "cutoff": manifest["decision_time_cutoff"]}), "semantic_claim": "source_identity_verified", "supported_hypotheses": ["source_owned", "environment_owned", "test_or_interpreter_owned"]}
         if _probe["probe_type"] == "dependency_lock_probe":
-            evidence = context.get("provider_closure", {})
+            evidence = recompute_dependency_lock_evidence(context)
             return lambda: {"status": "PASS", "operation_status": "PASS", "observation": "DEPENDENCY_LOCK_OBSERVED", "evidence": evidence, "evidence_hash": hash_record(evidence), "semantic_claim": "provider_lock_recomputed", "supported_hypotheses": ["environment_owned"] if evidence.get("status") != "PASS" else ["source_owned"]}
-        evidence = {"failure": replay["failure_signature_hash"], "source": context.get("source_root")}
+        evidence = recompute_target_ast_evidence(context)
         return lambda: {"status": "PASS", "operation_status": "PASS", "observation": "AST_REGION_OBSERVED", "evidence": evidence, "evidence_hash": hash_record(evidence), "semantic_claim": "failure_topology_recomputed", "supported_hypotheses": ["source_owned", "test_or_interpreter_owned"]}
     def semantic(_probe: dict[str, Any], _observation: dict[str, Any]):
-        return lambda: {"status": "PASS", "semantic_claim": _observation.get("semantic_claim"), "evidence_hash": hash_record({"probe": _probe["probe_id"], "head": _run(["git", "rev-parse", "HEAD"], Path(context["source_root"]))["stdout"].strip(), "failure_signature": replay["failure_signature_hash"]})}
+        def recompute() -> dict[str, Any]:
+            if _probe["probe_type"] == "source_commit_window_probe":
+                fact = _run(["git", "rev-parse", "HEAD"], Path(context["source_root"]))["stdout"].strip() == manifest["candidate_sha"]
+            elif _probe["probe_type"] == "dependency_lock_probe":
+                fact = recompute_dependency_lock_evidence(context).get("status") == "PASS"
+            else:
+                fact = bool(recompute_target_ast_evidence(context).get("target_ast_hash"))
+            return {"status": "PASS" if fact else "BLOCK", "semantic_claim": _observation.get("semantic_claim"), "evidence_hash": hash_record({"probe": _probe["probe_id"], "fact": fact})}
+        return recompute
     run = run_amds_active_loop(board, probes, factory, budget=3, candidate_sha=manifest["candidate_sha"], authorization_store=Path(manifest["workspace_root"]) / manifest["candidate_id"] / "amds_nonces.json", semantic_verifier_factory=semantic)
     passed = run.get("probes_executed", 0) > 1 or run.get("stop_reason") == "all branches resolved"
     return _result("PASS" if passed else "BLOCK", {"amds_run": run, "amds_board": run.get("board", board)}, None if passed else "live_amds_multi_probe_requirement_not_met")
@@ -296,9 +335,10 @@ def execute_count_gate(context: dict[str, Any], **_: Any) -> dict[str, Any]:
         "fresh_duplicate_replay": context.get("duplicate_clean_replay", {}).get("status") == "PASS",
         "rollback_proof": context.get("rollback", {}).get("status") == "PASS",
         "proof_ledger_append": context.get("proof_ledger_update", {}).get("status") == "PASS",
+        "count_uniqueness": context["candidate_manifest"]["candidate_id"] not in set(context.get("counted_candidate_ids", [])),
     }
     passed = all(required.values())
-    value = {"status": "PASS" if passed else "NOT_RUN", "issue_derived_repair_count": 5 if passed else 4, "early_execution_prevented": not passed, "prerequisites": required, "count_uniqueness": context["candidate_manifest"]["candidate_id"] not in set(context.get("counted_candidate_ids", []))}
+    value = {"status": "PASS" if passed else "NOT_RUN", "issue_derived_repair_count": 5 if passed else 4, "early_execution_prevented": not passed, "prerequisites": required, "count_uniqueness": required["count_uniqueness"]}
     return _result("PASS" if passed else "BLOCK", {"count_gate": value}, None if passed else "count_gate_prerequisites_missing")
 
 
