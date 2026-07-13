@@ -45,7 +45,9 @@ jobs:
           assert value["observed_sha256"] == "0ec3b1da7452e21662275b97ca804d486965805e9efa1e09663425101c2c3c2a"
           PY
       - name: Execute Batch076 causal calibration
-        run: python scripts/generate_batch076_amds_causal_memory_calibration.py
+        run: |
+          mkdir -p "$CONTROLLERGATE_RUNTIME_ROOT" "$CONTROLLERGATE_SHORT_RUNTIME_ROOT"
+          python scripts/generate_batch076_amds_causal_memory_calibration.py
       - name: Run focused Batch076 tests
         run: python -m pytest tests/runtime/test_batch076_failure_amds_contracts.py tests/runtime/test_batch076_causal_memory_calibration.py -q
       - name: Run complete core and runtime suites
