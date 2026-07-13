@@ -1,0 +1,11 @@
+from __future__ import annotations
+
+from enum import Enum
+
+
+class EvidenceKind(str, Enum):
+    EXECUTED_COMMAND = "EXECUTED_COMMAND"
+    EXECUTED_CALLABLE = "EXECUTED_CALLABLE"
+    DERIVED_VERIFICATION = "DERIVED_VERIFICATION"
+    PRESERVED_PRIOR_EVIDENCE = "PRESERVED_PRIOR_EVIDENCE"
+    NOT_RUN = "NOT_RUN"

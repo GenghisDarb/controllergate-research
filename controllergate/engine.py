@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 
 from .core.frontier_state import verify_state_hash
+from .current_pathway import current_pathway
 
 
 class FrontierEngine:
@@ -69,3 +70,23 @@ class FrontierEngine:
         manifest = json.loads(path.read_text(encoding="utf-8"))
         from .runtime.maintenance_dispatcher import dispatch_candidate_manifest
         return dispatch_candidate_manifest(manifest=manifest, checkpoint_path=Path(checkpoint), event_ledger_path=Path(event_ledger), authorization_store=Path(authorization_store))
+
+
+def run_manifest(manifest_path: str | Path) -> dict[str, Any]:
+    """Canonical manifest admission boundary.
+
+    External execution remains delegated to the pathway executor after a
+    runtime-root attestation and explicit authorization are attached.
+    """
+    path = Path(manifest_path)
+    if not path.is_file():
+        return {"status": "BLOCK", "exact_blocker": "manifest_missing"}
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    required = {"candidate_id", "authorization_id", "runtime_root", "steps"}
+    missing = sorted(required - set(manifest))
+    return {
+        "status": "ADMITTED_FOR_CANONICAL_DISPATCH" if not missing else "BLOCK",
+        "missing": missing,
+        "candidate_id": manifest.get("candidate_id"),
+        **current_pathway(),
+    }
