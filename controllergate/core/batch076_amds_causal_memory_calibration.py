@@ -253,7 +253,9 @@ def generate(root: Path, artifact: Path | None = None) -> dict[str, Any]:
     write_json_deterministic(output / "batch076_real_memory_snapshot.json", {"status": "PASS", "condition": "REAL_MEMORY", "record_count": len(memory_records), "corpus_hash": hash_record(memory_records), "patch_content": False})
     write_json_deterministic(output / "batch076_shuffled_memory_snapshot.json", {"status": "PASS", "condition": "SHUFFLED_MEMORY_CONTROL", "record_count": len(shuffled), "random_seed": 76017, "snapshot_hash": hash_record(shuffled), "feature_distribution_preserved": True})
 
-    runtime = Path(tempfile.mkdtemp(prefix="b76_", dir=os.environ.get("CONTROLLERGATE_RUNTIME_ROOT") or tempfile.gettempdir()))
+    runtime_parent = Path(os.environ.get("CONTROLLERGATE_RUNTIME_ROOT") or tempfile.gettempdir())
+    runtime_parent.mkdir(parents=True, exist_ok=True)
+    runtime = Path(tempfile.mkdtemp(prefix="b76_", dir=runtime_parent))
     frame_hash = hash_record({"batch": BATCH, "candidates": [item["candidate_id"] for item in REVIEW]})
     admissions = []; contexts = {}; causals = {}; corrected = {}
     for candidate in REVIEW:
