@@ -1,0 +1,32 @@
+{
+  "snapshot_version": 1,
+  "comments_included": false,
+  "fix_prs_included": false,
+  "later_commits_included": false,
+  "candidates": [
+    {
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "issue_url": "https://github.com/OpenBB-finance/OpenBB/issues/7585",
+      "opened_at": "2026-07-13T00:00:00Z",
+      "title": "Silent failure when parsing modular OpenAPI 3.1.0 specs",
+      "reproduction_commands": [
+        "python3 -m http.server 8000",
+        "openbb --generate-spec --server http://localhost:8000 --openapi-path /openapi.yaml --output eodhd.spec",
+        "openbb --generate-extension --spec eodhd.spec --provider-name eodhd --output ./openbb-eodhd"
+      ],
+      "observed_behavior": "The process reports success and writes zero commands, one provider, one router, and zero GET fetchers.",
+      "expected_behavior": "Map modular YAML references into commands or emit an explicit bounded parsing or validation error.",
+      "environment": {"operating_system": "Debian 12", "python": "3.11"}
+    },
+    {
+      "candidate_id": "incident_poetry_10974_windows_name_normalization",
+      "issue_url": "https://github.com/python-poetry/poetry/issues/10974",
+      "opened_at": "2026-07-08T00:00:00Z",
+      "title": "init generates project with spaces in name",
+      "reproduction_commands": ["poetry init -n"],
+      "observed_behavior": "A directory named my project with spaces produces project.name equal to my project with spaces.",
+      "expected_behavior": "The generated project name is my-project-with-spaces.",
+      "environment": {"operating_system": "Windows", "python": "3.13", "poetry": "2.4.1"}
+    }
+  ]
+}

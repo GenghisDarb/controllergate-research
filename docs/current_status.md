@@ -1,5 +1,11 @@
 # Current status
 
+## Batch082 CI-native implementation boundary
+
+Batch081 has been officially verified and ingested. Its Constitution schema, registry, generic record validation, anti-stub fixtures, and test/audit workflow pass, while independent enforcement of all 40 laws, external-operation integration, CI-native scientific generation, and independent critic recomputation remain not established for Batch081 itself.
+
+Batch082 adds law-specific positive and negative controls, runtime-calculated law status, fresh-checkout output custody, separate Linux and Windows runtime attestations, an executable maintenance-state graph, and distinct builder and critic implementations. The frozen candidate frame is limited to OpenBB issue 7585 and Poetry issue 10974; it does not adaptively replace blocked candidates. The official workflow, not the committed tree, must create the final Batch082 results. Provider and secondary-input bytes are uploaded separately and cannot enter the main evidence artifact. This implementation does not change the current v2.19 protocol, repair counts, scoring boundary, memory-lift claim, connector state, or production-readiness assessment.
+
 ## Batch081 execution constitution and corrected Batch080 boundary
 
 The validated current protocol remains `v2.19 authorized_amds_active_maintenance_lane`. Batch081 preserves the official Batch080 workflow bytes and corrects four evidence-depth errors alongside them. Pluggy issue 681 is hard-rejected for solution contamination. The pytest-asyncio record with return code 3 and `INTERNALERROR` is not a collection pass, and its generic `test_sync` symbol cannot establish native-target provenance. HordeForge has a provider plan but no verified provider bytes or execution-ready capsule. The corrected Batch080 clean eligible frame count is zero.

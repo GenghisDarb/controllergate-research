@@ -1,5 +1,7 @@
 # Public release readiness
 
+Batch082 strengthens CI-native evidence generation, law-specific governance proof, dual-platform provider custody, and independent evaluation. Those are infrastructure capabilities, not release validation. The official Batch082 workflow may honestly end with zero admitted candidates if provider, command-authority, network-isolation, or duplicate-reproduction gates block. Such an outcome cannot authorize a patch, increase a repair count, establish AMDS effectiveness, or demonstrate memory lift.
+
 Batch080 adds a small credential-free quick-start and an explicit capability/claim matrix. Those are onboarding improvements, not release evidence. The executed 20-lead static preflight reached only one complete terminal against a frozen minimum frame of two, so no prospective target execution, comparative experiment, or repair ran.
 
 ControllerGate remains a pre-alpha research archive and is not production-ready. Confirmed issue-derived repairs are 6 and confirmed native external repairs are 4. AMDS prospective effectiveness is not established, memory lift is not demonstrated, full scoring is disallowed, live connectors are inactive, and self-maintaining software is not demonstrated.

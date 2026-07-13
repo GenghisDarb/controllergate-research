@@ -2,6 +2,16 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
+## Batch082 CI-native proof and provider boundary
+
+- Batch081 artifact custody: officially verified and ingested with 453 safe entries, a 452-file outer manifest, and nine passing internal manifests.
+- Constitution v2: 40 preserved law identities with runtime-calculated status, distinct positive and negative test identities, distinct proof artifacts, required evidence, independent verification, and named reopen conditions.
+- CI-native output custody: rejects any precommitted Batch082 result directory and binds generated evidence to workflow, engine, manifest, runtime, and checkout identities.
+- Maintenance graph: nine ordered public software states prevent repair licensing before topology and provider materialization and prevent counting before duplicate replay and rollback.
+- Evaluation separation: builder and critic are separate modules; agreement requires independently recomputed coordinates and distinct source hashes.
+- Frozen provider/reproducer frame: OpenBB issue 7585 on Linux/Python 3.11 and Poetry issue 10974 on Windows/Python 3.13, with no adaptive replacement.
+- Claim boundary: current protocol v2.19, six issue-derived repairs, four native external repairs, full scoring disallowed, prospective AMDS effectiveness not established, memory lift not demonstrated, live connectors inactive, and self-maintaining software not demonstrated.
+
 ## Batch080 executed preflight and provider-capsule boundary
 
 - Official Batch079 custody: exact outer identity, path safety, duplicate safety, forbidden-payload checks, the artifact manifest, and all seven internal manifests pass.
