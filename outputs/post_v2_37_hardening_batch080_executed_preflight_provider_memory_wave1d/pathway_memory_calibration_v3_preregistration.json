@@ -1,0 +1,24 @@
+{
+  "evaluation": "leave_one_independence_group_out",
+  "excluded_dimensions": [
+    "same_candidate",
+    "same_repository",
+    "same_issue",
+    "same_proof_group",
+    "same_patch_episode",
+    "direct_proof_derivative",
+    "prospective_candidate"
+  ],
+  "frequency_policy": "training_fold_terminal_class_prevalence_only",
+  "frozen_before_Wave1D": true,
+  "no_memory_policy": "proof_hash_ascending_no_pathway_features",
+  "real_memory_similarity": {
+    "compartment_transition_jaccard": 0.4,
+    "event_sequence_jaccard": 0.6
+  },
+  "seeded_random_seed": 8003,
+  "shuffled_policy": "persisted permutation of terminal labels",
+  "status": "PASS",
+  "uniform_expected_mrr_formula": "H_n/n descriptive_only",
+  "uniform_policy": "exact permutations when n<=7 else fixed_seeded_permutations"
+}

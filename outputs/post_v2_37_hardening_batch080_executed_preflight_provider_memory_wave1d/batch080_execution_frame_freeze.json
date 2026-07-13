@@ -1,0 +1,143 @@
+{
+  "adaptive_replenishment": false,
+  "budget": {
+    "maximum_repairs": 2,
+    "minimum_unique_nulls": 19
+  },
+  "calibration_weights_hash": "0d20d535baecef522f076e610da50a52602ecea14ca83c6ffde1c1d2d30ac18e",
+  "candidate_count": 1,
+  "candidate_ids": [
+    "incident_pluggy_681"
+  ],
+  "candidate_source_identities": {
+    "incident_pluggy_681": "71137409e4b1d48ceaea83d32e30b65f4d712b34"
+  },
+  "closure_contract": "minimal_causal_closure_v2",
+  "commands": {
+    "incident_pluggy_681": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "authority_score": 116,
+      "canonical": {
+        "inner": [
+          "pytest",
+          "testing/test_tracer.py"
+        ],
+        "semantic_family": [
+          "pytest",
+          "testing/test_tracer.py"
+        ],
+        "wrapper": []
+      },
+      "declared_base_command": [
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "environment": "project_native_pytest",
+      "exact_target": "testing/test_tracer.py",
+      "forbidden_flags_added": false,
+      "nonmutating": true,
+      "raw": "python -m pytest",
+      "role": "test_runner",
+      "source": "pyproject.toml+tox.ini",
+      "target_corroborated": true,
+      "transformation": "bounded_native_target_narrowing",
+      "transformation_hash": "b7916caf028b847143fa347e903c8fd0b5927932885354c869dd352b8cd28e3f",
+      "transformed_command": [
+        "python",
+        "-m",
+        "pytest",
+        "testing/test_tracer.py"
+      ],
+      "working_directory": "."
+    }
+  },
+  "comparative_arms": [
+    "AMDS_REAL",
+    "AMDS_NO_MEMORY",
+    "AMDS_SHUFFLED",
+    "FIXED_REAL",
+    "FIXED_NO_MEMORY",
+    "FIXED_SHUFFLED"
+  ],
+  "frame_hash": "bba5c076e81d0c68b5f8e1a58df113350d081fb301a6383f4fe97efa70e3c7b2",
+  "frozen_before_target_execution": true,
+  "initial_pool_count": 20,
+  "maximum_frozen_frame": 4,
+  "memory_corpus_hash": "931aa12403e7a71686f296b10f47690e8c2ea1f60381a96837a9c8e3f1ff7b80",
+  "metrics": [
+    "ownership_accuracy",
+    "safe_abstention",
+    "wrong_patch_authorization",
+    "closure_cost",
+    "closure_time",
+    "probe_count"
+  ],
+  "minimum_partial_frame": 2,
+  "null_seed_root": 8080,
+  "platforms": {
+    "incident_pluggy_681": {
+      "architecture": "amd64",
+      "identity_hash": "329adf7184fa1fd66ed76f3da0bfcd0e93dea68b170c8e166b4e323b615ac7e4",
+      "operating_system": "windows",
+      "outcome_used_for_selection": false,
+      "python_abi": "cp313",
+      "python_implementation": "cpython",
+      "python_version": "3.13.14",
+      "requested_arch": null,
+      "requested_os": null,
+      "status": "PASS"
+    }
+  },
+  "probe_costs": {
+    "collection": 2,
+    "command": 1,
+    "provider": 2,
+    "replay": 3,
+    "source": 1,
+    "target": 1
+  },
+  "provider_dry_locks": {
+    "incident_pluggy_681": "d0d29867e4b557b2cb3ce3ee3f5599471d6e264508a63be44fae66b4c907ff90"
+  },
+  "runtimes": {
+    "incident_pluggy_681": {
+      "eligible_runtimes": [
+        "3.8",
+        "3.9",
+        "3.10",
+        "3.11",
+        "3.12",
+        "3.13"
+      ],
+      "excluded_runtimes": [],
+      "fallback_policy": "newest eligible declared runtime; commit date is weak fallback only",
+      "outcome_used_for_selection": false,
+      "runtime_selection_hash": "17061cfcbe6de9dae6a7d105d6387ef740a0dd28c6a5aac4edeb8893f17bb686",
+      "selected_before_test_execution": true,
+      "selected_image": {
+        "image": "python:3.13-slim",
+        "image_digest_policy": "resolve_and_freeze_before_execution",
+        "registry_record_hash": "3cb3caf9680ece2ad317b176b5f18278c0daa2efc5bc5126d1c9cf0b9406e300",
+        "version": "3.13"
+      },
+      "selected_runtime": "3.13",
+      "selection_evidence": {},
+      "selection_source": "weak_commit_date_fallback",
+      "status": "PASS"
+    }
+  },
+  "status": "BLOCK_MINIMUM_PARTIAL_FRAME_NOT_MET",
+  "target_execution_count_at_freeze": 0,
+  "target_initial_pool": [
+    18,
+    24
+  ],
+  "targets": {
+    "incident_pluggy_681": "testing/test_tracer.py"
+  }
+}

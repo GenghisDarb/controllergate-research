@@ -1,5 +1,9 @@
 # Public release readiness
 
+Batch080 adds a small credential-free quick-start and an explicit capability/claim matrix. Those are onboarding improvements, not release evidence. The executed 20-lead static preflight reached only one complete terminal against a frozen minimum frame of two, so no prospective target execution, comparative experiment, or repair ran.
+
+ControllerGate remains a pre-alpha research archive and is not production-ready. Confirmed issue-derived repairs are 6 and confirmed native external repairs are 4. AMDS prospective effectiveness is not established, memory lift is not demonstrated, full scoring is disallowed, live connectors are inactive, and self-maintaining software is not demonstrated.
+
 Batch079 improves semantic verification, runtime compatibility, and statistical-control definitions but does not establish release readiness. The fresh incident wave stopped before execution, full scoring remains disallowed, and self-maintaining software is not demonstrated.
 
 ControllerGate remains a pre-alpha research archive and is not production-ready.

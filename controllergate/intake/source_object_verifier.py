@@ -9,9 +9,10 @@ from controllergate.core.evidence import hash_record
 
 
 def _run(argv: list[str], cwd: Path, timeout: int = 180) -> dict[str, Any]:
+    effective = ["git", "-c", "safe.directory=*"] + argv[1:] if argv and argv[0] == "git" else argv
     try:
         completed = subprocess.run(
-            argv,
+            effective,
             cwd=cwd,
             capture_output=True,
             text=True,
@@ -21,7 +22,7 @@ def _run(argv: list[str], cwd: Path, timeout: int = 180) -> dict[str, Any]:
             check=False,
         )
         return {
-            "argv": argv,
+            "argv": effective,
             "returncode": completed.returncode,
             "stdout_sha256": hashlib.sha256(completed.stdout.encode()).hexdigest(),
             "stderr_sha256": hashlib.sha256(completed.stderr.encode()).hexdigest(),
@@ -32,7 +33,7 @@ def _run(argv: list[str], cwd: Path, timeout: int = 180) -> dict[str, Any]:
         stdout = str(exc.stdout or "")
         stderr = str(exc.stderr or "")
         return {
-            "argv": argv,
+            "argv": effective,
             "returncode": 124,
             "timed_out": True,
             "stdout_sha256": hashlib.sha256(stdout.encode()).hexdigest(),

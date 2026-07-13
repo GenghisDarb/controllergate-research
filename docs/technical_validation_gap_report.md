@@ -1,5 +1,11 @@
 # Technical validation gap report
 
+## Batch080 remaining gap
+
+Batch080 closes the earlier constant-preflight evidence gap by executing all static stages for a frozen pool of 20 public leads. Only one lead satisfied the complete static-preflight terminal, below the preregistered minimum partial frame of two. No target failure was therefore executed after frame freeze, no provider capsule bytes were materialized and verified, and no prospective comparative or matched-null evidence was produced.
+
+The next technical boundary is candidate-specific provider artifact materialization for leads that already have verified source, target, command, and collection evidence. Broader AMDS effectiveness, prospective memory lift, full scoring, production readiness, live connector authority, and self-maintaining software remain unestablished.
+
 ## Batch079 remaining gap
 
 The count-six verifier and runtime-admission contracts are implemented and audited, but the fresh incident Wave-1C frame did not meet its minimum size. Therefore actual comparative arms, candidate-matched randomization nulls, blinded ground truth, and no-memory repair lanes remain unexecuted for this wave. Production threshold transfer, prospective AMDS effectiveness, and memory lift remain unestablished.

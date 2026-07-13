@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "path": "tests/test_demo_app.py",
+      "replace": "assert normalize_project_name('My Demo Project') == 'my-demo-project'",
+      "with": "assert normalize_project_name('My Demo Project') == 'my_demo_project'"
+    }
+  ],
+  "patch_id": "unsafe-test-expectation-edit"
+}

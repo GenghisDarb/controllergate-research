@@ -8,11 +8,8 @@ def test_readme_contains_current_status_and_limits():
 
     assert "provenance-first software repair research harness" in text
     assert "py_bugger_issue_65" in text
-    assert (
-        "Current protocol remains `v2.14`" in text
-        or "Current protocol remains: `v2.14`" in text
-        or "Current protocol interface: `v2.14`" in text
-    )
+    assert "v2.19 authorized_amds_active_maintenance_lane" in text
+    assert "Protocol at that historical checkpoint: `v2.14` (superseded by current v2.19)" in text
     assert "PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED" in text
     assert "manual_seed_artifact_absent" in text
     assert "Full scoring remains `NOT_RUN/disallowed`" in text

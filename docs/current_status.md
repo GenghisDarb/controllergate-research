@@ -1,5 +1,11 @@
 # Current status
 
+## Batch080 executed preflight boundary
+
+The validated current protocol remains `v2.19 authorized_amds_active_maintenance_lane`. Batch080 processed a frozen 20-lead public incident pool with executed source-object, target, command, provider dry-lock, collection, contamination, and terminal records. Source verification passed 20 of 20; target and command resolution passed for two leads; one lead reached the complete static-preflight terminal. The preregistered minimum partial frame was two, so the lane stopped at `wave1d_minimum_partial_frame_not_met_after_executed_static_preflight` before target execution or provider-capsule materialization.
+
+No Batch080 comparative arm, matched null, patch attempt, duplicate replay, or count gate ran. Confirmed issue-derived repair episodes remain 6 and confirmed native external repair episodes remain 4. AMDS prospective effectiveness is not established, historical routing-memory signal is observed but prospective lift is not demonstrated, full scoring is disallowed, live connectors are inactive, and self-maintaining software is not demonstrated.
+
 ## Validated protocol and executable frontier
 
 The validated current protocol is `v2.19 authorized_amds_active_maintenance_lane`. Its canonical candidate-manifest dispatcher exposes 22 reusable maintenance bindings and no batch-specific current bindings. Earlier v2.18, v2.17, v2.16, v2.15, and v2.14 interfaces remain selectable and audited.
@@ -461,7 +467,7 @@ Batch061 status:
 - Issue-derived repair count: `2` -> `3`.
 - Native external repair count preserved at `4`.
 - Project health grade: `B`; traffic-light status `yellow`.
-- Current protocol remains `v2.14`.
+- Protocol at that historical checkpoint: `v2.14` (superseded by current v2.19).
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
@@ -493,7 +499,7 @@ Batch060d status:
 - Self-maintaining software remains `false/not_demonstrated`.
 - Next allowed action: `batch061_duplicate_clean_replay_and_issue_repair_count_gate_wave_3`.
 
-ControllerGate is currently an evidence-bound repair validation kernel and runtime-wrapper scaffold. The current protocol remains `v2.14`.
+At that historical checkpoint ControllerGate was an evidence-bound repair validation kernel and runtime-wrapper scaffold using protocol `v2.14`; the current validated protocol is v2.19.
 
 Batch060c is the latest validation-path boundary. It officially ingests Batch060b, executes Cloudpickle provider/runtime recovery, and adds reusable provider/runtime routing plus maintenance-memory ledgers.
 
@@ -514,9 +520,9 @@ Batch060c candidate classifications:
 
 ## Current operational gate status
 
-- Current protocol remains `v2.14`.
+- Protocol at that historical checkpoint: `v2.14` (superseded by current v2.19).
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `2`.
+- Historical issue-derived total at that checkpoint: 2; current confirmed total: 6.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
@@ -541,7 +547,7 @@ Batch068h4 is officially verified and ingested. Batch068h5 activates reusable AM
 ### Batch052 Lemon Reader source-only patch candidate gate
 
 - Batch052 status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`.
-- Current protocol remains: `v2.14`.
+- Protocol at the Batch052 checkpoint: `v2.14` (superseded by current v2.19).
 - Source-only suitability: `source_repair_suitable`.
 - Patch generation status: `PASS`.
 - Patch apply status: `PASS`.
@@ -555,7 +561,7 @@ Batch068h4 is officially verified and ingested. Batch068h5 activates reusable AM
 ### Batch053 duplicate clean replay and evidence contract hardening
 
 - Batch053 status: `PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED`.
-- Current protocol remains: `v2.14`.
+- Protocol at the Batch053 checkpoint: `v2.14` (superseded by current v2.19).
 - Duplicate clean replay status: `PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED`.
 - Duplicate clean replay return code: `None`.
 - Issue-derived repair validated candidate: `false`.
@@ -567,7 +573,7 @@ Batch068h4 is officially verified and ingested. Batch068h5 activates reusable AM
 ### Batch054 issue-derived repair count gate and next patch preparation
 
 - Batch054 status: `PASS_WITH_BATCH054_ISSUE_DERIVED_REPAIR_COUNT_LOCKED`.
-- Current protocol remains: `v2.14`.
+- Protocol at the Batch054 checkpoint: `v2.14` (superseded by current v2.19).
 - Issue-derived repair episodes after Batch054: `2`.
 - External native repair episodes remain `4`.
 - Exact blocker: `None`.
@@ -578,7 +584,7 @@ Batch068h4 is officially verified and ingested. Batch068h5 activates reusable AM
 ### Batch050 manual fresh-seed intake fast lane
 
 - Batch050 status: `PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED`.
-- Current protocol remains: `v2.14`.
+- Protocol at the Batch050 checkpoint: `v2.14` (superseded by current v2.19).
 - Manual seed package found: `false`.
 - Approved unused issue seed count: `0`.
 - Exact blocker: `manual_seed_artifact_absent`.

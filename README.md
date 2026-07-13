@@ -6,9 +6,15 @@ It remains a provenance-first software repair research harness with a conservati
 
 It turns AI-generated fixes into auditable, sandboxed, rollback-safe software-change candidates, blocking unverified patches before they can contaminate accepted software state.
 
+The validated protocol is `v2.19 authorized_amds_active_maintenance_lane`. The evidence boundary contains 6 confirmed issue-derived repair episodes and 4 confirmed native external repair episodes. AMDS prospective effectiveness is not established, memory lift is not demonstrated, full scoring is disallowed, live connectors are inactive, and self-maintaining software is not demonstrated. ControllerGate is not production-ready.
+
+For a credential-free local demonstration, start with [docs/QUICKSTART.md](docs/QUICKSTART.md). The [capability and claim matrix](docs/CAPABILITY_AND_CLAIM_MATRIX.md) separates implemented controls from claims that remain unestablished.
+
 ## Validated protocol and executable frontier
 
 The validated current protocol is `v2.19 authorized_amds_active_maintenance_lane`. Batch070 replaces batch-specific current bindings with 22 generic production bindings exposed through one candidate-manifest dispatcher. It also completes persistent diagnostic hypothesis state, bounded constraint backtracking, single-use probe authorization, separate custody and semantic verification, and dynamic information-gain probe planning. The v2.18, v2.17, v2.16, v2.15, and v2.14 protocols remain selectable and audited.
+
+Batch080 independently verifies and ingests the official Batch079 artifact, preserves the hardened count-six episode without rerun or recount, and corrects the depth labels for Batch079 incident preflight, historical recovery, HordeForge execution, and memory calibration. It executes real source-object, target, command, provider-plan, collection, contamination, and terminal stages across a frozen pool of 20 public incident leads. All 20 source objects verify, two targets and commands resolve, and one candidate reaches the complete static-preflight terminal. Because the preregistered minimum partial frame is two, Wave 1D stops before target execution, provider materialization, comparative arms, nulls, patches, or count gates. Historical routing-memory calibration v3 is suitable for experimental routing only; prospective lift remains unestablished.
 
 Batch073 officially verifies and ingests Batch072, then revalidates the fifth issue-derived repair under a complete cutoff-compatible provider lock. Candidate manifests remain evidence rather than authority: execution requires a sealed plan, current-state binding, single-use authorization, network allowlists and budgets, and an allowed output root. Count uniqueness is now a mandatory new-count prerequisite, while existing-count hardening requires exact candidate, source, and patch identity and cannot create a second count record.
 
@@ -494,7 +500,7 @@ Batch061 status:
 - Issue-derived repair count: `2` -> `3`.
 - Native external repair count preserved at `4`.
 - Project health grade: `B`; traffic-light status `yellow`.
-- Current protocol remains `v2.14`.
+- Protocol at that historical checkpoint: `v2.14` (superseded by current v2.19).
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
@@ -530,7 +536,7 @@ Batch060c is the latest validation-path boundary. It officially ingests Batch060
 
 Cloudpickle's `distutils` importability family is resolved by provider/runtime materialization: declared dev requirements alone left `distutils` unavailable in a fresh Python 3.13 venv, while `setuptools` materialization, justified by the buggy `setup.py`, made both `distutils` nodes pass. The full target remains failing only on the Python 3.13 `__firstlineno__` class-dictionary family.
 
-Batch060c generates no patches, applies no patches, runs no duplicate replay, runs no count gate, and does not increment repair counts. Confirmed external native repair episodes remain `4`. Confirmed issue-derived repair episodes remain `2`. Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+Batch060c generated no patches, applied no patches, ran no duplicate replay, ran no count gate, and did not increment repair counts. At that historical checkpoint the native and issue-derived totals were 4 and 2; the current totals are 4 and 6. Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
 
 Batch060c also adds a reusable Provider/Runtime Recovery Pattern Library, an Autonomic Bottleneck Routing Layer, and maintenance-memory ledgers. These are reusable subsystem improvements and future-routing recommendations, not repair success and not a self-maintaining software claim.
 
@@ -591,9 +597,9 @@ Future work may compile agent intentions into evidence-bound audited action mani
 
 ## Current operational gate status
 
-- Current protocol remains `v2.14`.
+- Protocol at that historical checkpoint: `v2.14` (superseded by current v2.19).
 - Confirmed external native repair episodes remain `4`.
-- Confirmed issue-derived repair episodes remain `2`.
+- Historical issue-derived total at that checkpoint: 2; current confirmed total: 6.
 - Full scoring remains `NOT_RUN/disallowed`.
 - Memory lift remains `not_demonstrated`.
 - Self-maintaining software remains `false/not_demonstrated`.
@@ -637,7 +643,7 @@ python scripts/controllergate_run.py --protocol current --dry-run
 ### Batch052 Lemon Reader source-only patch candidate gate
 
 - Batch052 status: `PASS_WITH_BATCH052_TARGET_REPLAY_PASSED`.
-- Current protocol remains: `v2.14`.
+- Protocol at the Batch052 checkpoint: `v2.14` (superseded by current v2.19).
 - Source-only suitability: `source_repair_suitable`.
 - Patch generation status: `PASS`.
 - Patch apply status: `PASS`.
@@ -651,7 +657,7 @@ python scripts/controllergate_run.py --protocol current --dry-run
 ### Batch053 duplicate clean replay and evidence contract hardening
 
 - Batch053 status: `PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED`.
-- Current protocol remains: `v2.14`.
+- Protocol at the Batch053 checkpoint: `v2.14` (superseded by current v2.19).
 - Duplicate clean replay status: `PASS_WITH_BATCH053_SECONDARY_BLOCKER_OBSERVED`.
 - Duplicate clean replay return code: `None`.
 - Issue-derived repair validated candidate: `false`.
@@ -663,7 +669,7 @@ python scripts/controllergate_run.py --protocol current --dry-run
 ### Batch054 issue-derived repair count gate and next patch preparation
 
 - Batch054 status: `PASS_WITH_BATCH054_ISSUE_DERIVED_REPAIR_COUNT_LOCKED`.
-- Current protocol remains: `v2.14`.
+- Protocol at the Batch054 checkpoint: `v2.14` (superseded by current v2.19).
 - Issue-derived repair episodes after Batch054: `2`.
 - External native repair episodes remain `4`.
 - Exact blocker: `None`.
@@ -674,7 +680,7 @@ python scripts/controllergate_run.py --protocol current --dry-run
 ### Batch050 manual fresh-seed intake fast lane
 
 - Batch050 status: `PASS_WITH_BATCH050_MANUAL_SEED_PACKAGE_REQUIRED`.
-- Current protocol remains: `v2.14`.
+- Protocol at the Batch050 checkpoint: `v2.14` (superseded by current v2.19).
 - Manual seed package found: `false`.
 - Approved unused issue seed count: `0`.
 - Exact blocker: `manual_seed_artifact_absent`.

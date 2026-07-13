@@ -1,0 +1,1319 @@
+{
+  "adaptive_replenishment": false,
+  "candidate_commit_cutoffs_frozen": true,
+  "frozen_at": "2026-07-13T23:59:00Z",
+  "lead_count": 20,
+  "leads": [
+    {
+      "candidate_id": "incident_httpie_cli_1898",
+      "candidate_sha": "5b604c37c6c67e18e7c3e9aee6c88a8c22b98345",
+      "issue_created_at": "2026-07-13T14:34:11Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "python_reproducer"
+          ]
+        },
+        "created_at": "2026-07-13T14:34:11Z",
+        "issue_id": 4874656394,
+        "issue_number": 1898,
+        "issue_url": "https://github.com/httpie/cli/issues/1898",
+        "raw_body_sha256": "765241f106ae978197b4222f0ec62734486d2c1e2eec47f0c37090471469e147",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "765241f106ae978197b4222f0ec62734486d2c1e2eec47f0c37090471469e147",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] On Windows the `if NO_MAN_PAGES or os.system == 'nt':` branch is dead code. The function does not short-circuit; instead it falls through to `subprocess.run(['man', '1', program])`. On a typical Windows install `man` is absent, so `FileNotFoundError` is raised and swallowed by the `except Exception: return False`, yielding the same observable result \u2014 but only by accident. If a `man` executable happens to be on `PATH` (e.g. Git Bash / WSL), HTTPie will attempt to render man pages on Windows, contrary to the intent of the guard. Also, relying on a swallowed exception for control flow is fragile.\n[body] ## Affected version",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "3a5b2056f4075e73107108825580d87707bf2495612638486ec0f60affe6c1cd",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "python_reproducer"
+          ],
+          "title": "Bug: Windows guard in is_available() compares os.system (a function) to 'nt' \u2014 always False"
+        },
+        "sanitized_text": "[body] On Windows the `if NO_MAN_PAGES or os.system == 'nt':` branch is dead code. The function does not short-circuit; instead it falls through to `subprocess.run(['man', '1', program])`. On a typical Windows install `man` is absent, so `FileNotFoundError` is raised and swallowed by the `except Exception: return False`, yielding the same observable result \u2014 but only by accident. If a `man` executable happens to be on `PATH` (e.g. Git Bash / WSL), HTTPie will attempt to render man pages on Windows, contrary to the intent of the guard. Also, relying on a swallowed exception for control flow is fragile.\n[body] ## Affected version",
+        "status": "PASS",
+        "title": "Bug: Windows guard in is_available() compares os.system (a function) to 'nt' \u2014 always False",
+        "updated_at": "2026-07-13T14:34:11Z"
+      },
+      "issue_url": "https://github.com/httpie/cli/issues/1898",
+      "pool_position": 0,
+      "pool_source": "Batch079 corrected review",
+      "repo_url": "https://github.com/httpie/cli",
+      "source_selection": {
+        "candidate_sha": "5b604c37c6c67e18e7c3e9aee6c88a8c22b98345",
+        "selection_method": "Batch079 frozen candidate cutoff",
+        "status": "PASS"
+      },
+      "title": "Bug: Windows guard in is_available() compares os.system (a function) to 'nt' \u2014 always False"
+    },
+    {
+      "candidate_id": "incident_marshmallow_2985",
+      "candidate_sha": "3265c13945a9533f9a3ade8d47eb9b32412c4c27",
+      "issue_created_at": "2026-06-22T14:19:41Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "CLEAN",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": []
+        },
+        "created_at": "2026-06-22T14:19:41Z",
+        "issue_id": 4717503378,
+        "issue_number": 2985,
+        "issue_url": "https://github.com/marshmallow-code/marshmallow/issues/2985",
+        "raw_body_sha256": "e9e8d6d1588eb10ccb042920f5584e666ba6d059ae105f60db82037f7fc34c64",
+        "raw_comments_sha256": "030018ea5eb852fa6116a966ce9631877d4718ac925f65116defa557f697c158",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "e9e8d6d1588eb10ccb042920f5584e666ba6d059ae105f60db82037f7fc34c64",
+          "classification": "CLEAN",
+          "comments_sha256": "030018ea5eb852fa6116a966ce9631877d4718ac925f65116defa557f697c158",
+          "comments_snapshot_hash": "030018ea5eb852fa6116a966ce9631877d4718ac925f65116defa557f697c158",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] Currently, the execution of this example raises: `ValidationError: {'sentinel': ['Field may not be null.']}`.\n[body] However, in Python, enum members can have `None` as values. From that perspective, it might be expected that `None` would be treated as part of the field's value domain when using `by_value=True`. According to the documentation, if this parameter is set to `True`, it delegates deserialization to `fields.Raw`, which has its own mechanism to deal with None values before the enum value resolution occurs.\n[body] This observation was raised by an automated testing tool currently being developed by our research team. Before submitting this issue, we tested the example in the last development version of marshmallow and reviewed the related documentation. \n[comment] Should explicitly setting `allow_none` to `False` still produce the error? Setting a `by_value` field errors when an otherwise valid value doesn't match the type.\n[comment:code] # marshmallow.exceptions.ValidationError: {'sentinel': ['Not a valid string.']}\n[comment] i think explicitly setting `allow_none=False` should be allowed and produce an error when `None` is loaded.",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "c4e63931bbeb260990613c5ba8e2154cad66591149746c3ef36caf5317b787f6",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [],
+          "title": "Question: Should `fields.Enum()` accept `None` when an enum member has value `None`?"
+        },
+        "sanitized_text": "[body] Currently, the execution of this example raises: `ValidationError: {'sentinel': ['Field may not be null.']}`.\n[body] However, in Python, enum members can have `None` as values. From that perspective, it might be expected that `None` would be treated as part of the field's value domain when using `by_value=True`. According to the documentation, if this parameter is set to `True`, it delegates deserialization to `fields.Raw`, which has its own mechanism to deal with None values before the enum value resolution occurs.\n[body] This observation was raised by an automated testing tool currently being developed by our research team. Before submitting this issue, we tested the example in the last development version of marshmallow and reviewed the related documentation. \n[comment] Should explicitly setting `allow_none` to `False` still produce the error? Setting a `by_value` field errors when an otherwise valid value doesn't match the type.\n[comment:code] # marshmallow.exceptions.ValidationError: {'sentinel': ['Not a valid string.']}\n[comment] i think explicitly setting `allow_none=False` should be allowed and produce an error when `None` is loaded.",
+        "status": "PASS",
+        "title": "Question: Should `fields.Enum()` accept `None` when an enum member has value `None`?",
+        "updated_at": "2026-06-23T15:49:25Z"
+      },
+      "issue_url": "https://github.com/marshmallow-code/marshmallow/issues/2985",
+      "pool_position": 1,
+      "pool_source": "Batch079 corrected review",
+      "repo_url": "https://github.com/marshmallow-code/marshmallow",
+      "source_selection": {
+        "candidate_sha": "3265c13945a9533f9a3ade8d47eb9b32412c4c27",
+        "selection_method": "Batch079 frozen candidate cutoff",
+        "status": "PASS"
+      },
+      "title": "Question: Should `fields.Enum()` accept `None` when an enum member has value `None`?"
+    },
+    {
+      "candidate_id": "incident_poetry_10974",
+      "candidate_sha": "f46702336862f30050d5c641d5ed6f7568ded793",
+      "issue_created_at": "2026-07-08T23:23:39Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "failed_workaround"
+          ]
+        },
+        "created_at": "2026-07-08T23:23:39Z",
+        "issue_id": 4841835861,
+        "issue_number": 10974,
+        "issue_url": "https://github.com/python-poetry/poetry/issues/10974",
+        "raw_body_sha256": "9dd49c63b7d043d617038455c62796a1c8775263fdff53291048e571787e2606",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "9dd49c63b7d043d617038455c62796a1c8775263fdff53291048e571787e2606",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] https://packaging.python.org/en/latest/specifications/name-normalization/#name-format\n[body] ### Poetry Version\n[body:code] virtualenvs.prompt = \"{project_name}-py{python_version}\"\n[body:code] Python version: \"3.13\"\n[body:code]         VERSION = \"313\"\n[body:code]         py_version = \"3.13.14\"\n[body:code]         py_version_nodot = \"313\"\n[body:code]         py_version_nodot_plat = \"313\"\n[body:code]         py_version_short = \"3.13\"\n[body] ### Poetry Runtime Logs\n[body]   <summary>poetry-runtime.log</summary>",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "42299c51b2fe810051345487f521eef4e4cafc6cd2f269c2e06e18f4c1a66374",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "failed_workaround"
+          ],
+          "title": "`init` generates project with spaces in name"
+        },
+        "sanitized_text": "[body] https://packaging.python.org/en/latest/specifications/name-normalization/#name-format\n[body] ### Poetry Version\n[body:code] virtualenvs.prompt = \"{project_name}-py{python_version}\"\n[body:code] Python version: \"3.13\"\n[body:code]         VERSION = \"313\"\n[body:code]         py_version = \"3.13.14\"\n[body:code]         py_version_nodot = \"313\"\n[body:code]         py_version_nodot_plat = \"313\"\n[body:code]         py_version_short = \"3.13\"\n[body] ### Poetry Runtime Logs\n[body]   <summary>poetry-runtime.log</summary>",
+        "status": "PASS",
+        "title": "`init` generates project with spaces in name",
+        "updated_at": "2026-07-08T23:24:02Z"
+      },
+      "issue_url": "https://github.com/python-poetry/poetry/issues/10974",
+      "pool_position": 2,
+      "pool_source": "Batch079 corrected review",
+      "repo_url": "https://github.com/python-poetry/poetry",
+      "source_selection": {
+        "candidate_sha": "f46702336862f30050d5c641d5ed6f7568ded793",
+        "selection_method": "Batch079 frozen candidate cutoff",
+        "status": "PASS"
+      },
+      "title": "`init` generates project with spaces in name"
+    },
+    {
+      "candidate_id": "incident_pluggy_681",
+      "candidate_sha": "71137409e4b1d48ceaea83d32e30b65f4d712b34",
+      "issue_created_at": "2026-05-27T09:39:23Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "descriptive_solution_word",
+            "python_reproducer"
+          ]
+        },
+        "created_at": "2026-05-27T09:39:23Z",
+        "issue_id": 4531287121,
+        "issue_number": 681,
+        "issue_url": "https://github.com/pytest-dev/pluggy/issues/681",
+        "raw_body_sha256": "2828b84b1e87641ef3925c227530ed517ba7f1b567d5c5959bd6bac0ae21a11c",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "2828b84b1e87641ef3925c227530ed517ba7f1b567d5c5959bd6bac0ae21a11c",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] When pluggy tracing is enabled (e.g. pytest's `--debug` flag), hook arguments or return values containing surrogate escape characters (like `\\ud800`) cause a `UnicodeEncodeError` crash. This is because `_format_message` in `_tracing.py` uses `str()` to format values, and the resulting string with literal surrogates cannot be written to most output targets.\n[body] Reported originally as pytest-dev/pytest#13750.\n[body:code]   finish pytest_runtest_call --> '\\ud800' [hook]\n[body] Rather than the over-quoted version that blanket `repr()` in `_format_message` would produce:\n[body:code]   'finish' 'pytest_runtest_call' '-->' \"'\\\\ ud800'\" [hook]\n[body] - pytest-dev/pytest#13750",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "38eb36839c21cb0007f3da042304894fb8375e4a7642cfc58b335d9cd15150a8",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "descriptive_solution_word",
+            "python_reproducer"
+          ],
+          "title": "Tracing crashes with UnicodeEncodeError on surrogate escapes in hook arguments/results"
+        },
+        "sanitized_text": "[body] When pluggy tracing is enabled (e.g. pytest's `--debug` flag), hook arguments or return values containing surrogate escape characters (like `\\ud800`) cause a `UnicodeEncodeError` crash. This is because `_format_message` in `_tracing.py` uses `str()` to format values, and the resulting string with literal surrogates cannot be written to most output targets.\n[body] Reported originally as pytest-dev/pytest#13750.\n[body:code]   finish pytest_runtest_call --> '\\ud800' [hook]\n[body] Rather than the over-quoted version that blanket `repr()` in `_format_message` would produce:\n[body:code]   'finish' 'pytest_runtest_call' '-->' \"'\\\\ ud800'\" [hook]\n[body] - pytest-dev/pytest#13750",
+        "status": "PASS",
+        "title": "Tracing crashes with UnicodeEncodeError on surrogate escapes in hook arguments/results",
+        "updated_at": "2026-05-27T09:39:23Z"
+      },
+      "issue_url": "https://github.com/pytest-dev/pluggy/issues/681",
+      "pool_position": 3,
+      "pool_source": "Batch079 corrected review",
+      "repo_url": "https://github.com/pytest-dev/pluggy",
+      "source_selection": {
+        "candidate_sha": "71137409e4b1d48ceaea83d32e30b65f4d712b34",
+        "selection_method": "Batch079 frozen candidate cutoff",
+        "status": "PASS"
+      },
+      "title": "Tracing crashes with UnicodeEncodeError on surrogate escapes in hook arguments/results"
+    },
+    {
+      "candidate_id": "incident_ruff_26768",
+      "candidate_sha": "6fd508aa62401d6196971b6f218d2d2b38e206f9",
+      "issue_created_at": "2026-07-13T13:00:03Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "python_reproducer"
+          ]
+        },
+        "created_at": "2026-07-13T13:00:03Z",
+        "issue_id": 4873855520,
+        "issue_number": 26768,
+        "issue_url": "https://github.com/astral-sh/ruff/issues/26768",
+        "raw_body_sha256": "878e6a3dd48e32e62d1b23433be4e32bd8480b3160bcf679f3930c0f365ced54",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "878e6a3dd48e32e62d1b23433be4e32bd8480b3160bcf679f3930c0f365ced54",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body:code]     \"version\": 2\n[body:code]     \"version\": 2\n[body] ## Expected behavior\n[body] The server should reject invalid ranges, keep the previous document contents and version, and continue running.",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "c4f9fd9bd677097988adf0e7ef29c0053d49d83ebc378add7a171ab1a26d0d3a",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "python_reproducer"
+          ],
+          "title": "Avoid panics for invalid incremental LSP ranges"
+        },
+        "sanitized_text": "[body:code]     \"version\": 2\n[body:code]     \"version\": 2\n[body] ## Expected behavior\n[body] The server should reject invalid ranges, keep the previous document contents and version, and continue running.",
+        "status": "PASS",
+        "title": "Avoid panics for invalid incremental LSP ranges",
+        "updated_at": "2026-07-13T13:01:54Z"
+      },
+      "issue_url": "https://github.com/astral-sh/ruff/issues/26768",
+      "pool_position": 4,
+      "pool_source": "Batch079 corrected review",
+      "repo_url": "https://github.com/astral-sh/ruff",
+      "source_selection": {
+        "candidate_sha": "6fd508aa62401d6196971b6f218d2d2b38e206f9",
+        "selection_method": "Batch079 frozen candidate cutoff",
+        "status": "PASS"
+      },
+      "title": "Avoid panics for invalid incremental LSP ranges"
+    },
+    {
+      "candidate_id": "incident_pytest_asyncio_1501",
+      "candidate_sha": "66253978d8518925d3f5d2c12615fd7005b63080",
+      "issue_created_at": "2026-07-07T20:48:42Z",
+      "issue_snapshot": {
+        "blocker": "solution_contamination_detected",
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "HARD_REJECT",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [
+            "explicit_suggested_repair_direction"
+          ],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "python_reproducer"
+          ]
+        },
+        "created_at": "2026-07-07T20:48:42Z",
+        "issue_id": 4832122969,
+        "issue_number": 1501,
+        "issue_url": "https://github.com/pytest-dev/pytest-asyncio/issues/1501",
+        "raw_body_sha256": "c3c3c7efe116e693d54374d0bf0246789eaaf8210d24748aca4f0e13ccecb0bc",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "c3c3c7efe116e693d54374d0bf0246789eaaf8210d24748aca4f0e13ccecb0bc",
+          "classification": "HARD_REJECT",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] I encountered an issue with defining `pytest_asyncio_loop_factories` in test suites where non-async tests use async fixtures in shared loop scopes.\n[body:code] import pytest\n[body:code] def pytest_asyncio_loop_factories(\n[body:code]     config: pytest.Config,\n[body:code]     item: pytest.Item,\n[body:code] # test_mre.py\n[body:code] import pytest\n[body:code] import pytest_asyncio\n[body:code] @pytest_asyncio.fixture(scope=\"session\")\n[body:code] @pytest_asyncio.fixture(scope=\"session\")\n[body:code] @pytest.mark.asyncio(loop_scope=\"session\")\n[body:code] async def test_async(parent) -> None:\n[body:code]     assert parent == \"parent\"\n[body:code] def test_sync(child: str) -> None:\n[body:code]     assert child == \"child\"\n[body] Running `test_mre.py` on the above using pytest-asyncio 1.4.0 and pytest 9.1.1 shows one pass and one failure with the following errror:\n[body:code] AssertionError: The fixture value for \"parent\" is not available.  This can happen when the fixture has already been torn down.\n[body] If `pytest_asyncio_loop_factories` is not defined in the conftest file, both tests pass. \n[body] If `test_async` is after `test_sync`, both tests pass.\n[body] The expected behaviour is that both tests pass regardless of order and `pytest_asyncio_loop_factories` hook implementation.\n[body] I think the fix would involve handling the loop factory for any test item that uses a pytest-asyncio-managed async fixture, not just async tests themselves.",
+          "hard_contamination_hits": [
+            "explicit_suggested_repair_direction"
+          ],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "16a1c601318b96943e9d84124404a2d3e82b1b26555e116180f65da19198a9f9",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "python_reproducer"
+          ],
+          "title": "Loop factory parametrization tears down async fixtures used by sync tests"
+        },
+        "sanitized_text": "[body] I encountered an issue with defining `pytest_asyncio_loop_factories` in test suites where non-async tests use async fixtures in shared loop scopes.\n[body:code] import pytest\n[body:code] def pytest_asyncio_loop_factories(\n[body:code]     config: pytest.Config,\n[body:code]     item: pytest.Item,\n[body:code] # test_mre.py\n[body:code] import pytest\n[body:code] import pytest_asyncio\n[body:code] @pytest_asyncio.fixture(scope=\"session\")\n[body:code] @pytest_asyncio.fixture(scope=\"session\")\n[body:code] @pytest.mark.asyncio(loop_scope=\"session\")\n[body:code] async def test_async(parent) -> None:\n[body:code]     assert parent == \"parent\"\n[body:code] def test_sync(child: str) -> None:\n[body:code]     assert child == \"child\"\n[body] Running `test_mre.py` on the above using pytest-asyncio 1.4.0 and pytest 9.1.1 shows one pass and one failure with the following errror:\n[body:code] AssertionError: The fixture value for \"parent\" is not available.  This can happen when the fixture has already been torn down.\n[body] If `pytest_asyncio_loop_factories` is not defined in the conftest file, both tests pass. \n[body] If `test_async` is after `test_sync`, both tests pass.\n[body] The expected behaviour is that both tests pass regardless of order and `pytest_asyncio_loop_factories` hook implementation.\n[body] I think the fix would involve handling the loop factory for any test item that uses a pytest-asyncio-managed async fixture, not just async tests themselves.",
+        "status": "BLOCK",
+        "title": "Loop factory parametrization tears down async fixtures used by sync tests",
+        "updated_at": "2026-07-13T15:39:30Z"
+      },
+      "issue_url": "https://github.com/pytest-dev/pytest-asyncio/issues/1501",
+      "pool_position": 5,
+      "pool_source": "Batch079 corrected review",
+      "repo_url": "https://github.com/pytest-dev/pytest-asyncio",
+      "source_selection": {
+        "candidate_sha": "66253978d8518925d3f5d2c12615fd7005b63080",
+        "selection_method": "Batch079 frozen candidate cutoff",
+        "status": "PASS"
+      },
+      "title": "Loop factory parametrization tears down async fixtures used by sync tests"
+    },
+    {
+      "candidate_id": "wave1d_dannyvfilms_Yamtrack_341",
+      "candidate_sha": "0bef5b921a6eeef1cbd50a76fabc6dacd10199cf",
+      "issue_created_at": "2026-07-13T19:02:20Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "stack_trace"
+          ]
+        },
+        "created_at": "2026-07-13T19:02:20Z",
+        "issue_id": 4876734262,
+        "issue_number": 341,
+        "issue_url": "https://github.com/dannyvfilms/Yamtrack/issues/341",
+        "raw_body_sha256": "6603812989a61e75d7f9906e142b7128aef23b4518db6ca15811d0b076dfe2b7",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "6603812989a61e75d7f9906e142b7128aef23b4518db6ca15811d0b076dfe2b7",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] Since 26.7.2 (and also 26.7.9) I find that the Yamtrack instance simply stops responding after a few hours of use with an nginx/1.26.3 504 Gateway Time-out error.. However as no one else seems to be reporting this issue I'm wondering if it's somehow just me. Rolling back to 26.6.25 fixes it.\n[body] yamtrack           | 2026/07/13 19:49:56 [error] 40#40: *1343 upstream timed out (110: Operation timed out) while reading response header from upstream, client: 172.19.0.1, server: _, request: \"GET /serviceworker.js HTTP/1.1\", upstream: \"http://127.0.0.1:8001/serviceworker.js\", host: \"[OMITED]\", referrer: \"https://[OMITED]/serviceworker.js\"\n[body] yamtrack           | [2026-07-13 19:52:23 +0100] [71] [ERROR] Error handling request GET /\n[body] yamtrack           | Traceback (most recent call last):\n[body] yamtrack           | The above exception was the direct cause of the following exception:",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "356c50101950730e10c205c2921ae77f640fbd1507df98f81654f7fdb26a486f",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "stack_trace"
+          ],
+          "title": "[BUG] Goes unresponsive after a few hours since 26.7.2"
+        },
+        "sanitized_text": "[body] Since 26.7.2 (and also 26.7.9) I find that the Yamtrack instance simply stops responding after a few hours of use with an nginx/1.26.3 504 Gateway Time-out error.. However as no one else seems to be reporting this issue I'm wondering if it's somehow just me. Rolling back to 26.6.25 fixes it.\n[body] yamtrack           | 2026/07/13 19:49:56 [error] 40#40: *1343 upstream timed out (110: Operation timed out) while reading response header from upstream, client: 172.19.0.1, server: _, request: \"GET /serviceworker.js HTTP/1.1\", upstream: \"http://127.0.0.1:8001/serviceworker.js\", host: \"[OMITED]\", referrer: \"https://[OMITED]/serviceworker.js\"\n[body] yamtrack           | [2026-07-13 19:52:23 +0100] [71] [ERROR] Error handling request GET /\n[body] yamtrack           | Traceback (most recent call last):\n[body] yamtrack           | The above exception was the direct cause of the following exception:",
+        "status": "PASS",
+        "title": "[BUG] Goes unresponsive after a few hours since 26.7.2",
+        "updated_at": "2026-07-13T19:02:20Z"
+      },
+      "issue_url": "https://github.com/dannyvfilms/Yamtrack/issues/341",
+      "pool_position": 6,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/dannyvfilms/Yamtrack",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T19:02:20Z",
+        "candidate_sha": "0bef5b921a6eeef1cbd50a76fabc6dacd10199cf",
+        "default_branch": "latest",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 995626872,
+        "repo_full_name": "dannyvfilms/Yamtrack",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "[BUG] Goes unresponsive after a few hours since 26.7.2"
+    },
+    {
+      "candidate_id": "wave1d_Comfy-Org_ComfyUI_14926",
+      "candidate_sha": "5658a68a875e4c1210d72c71d61eca95740adaf0",
+      "issue_created_at": "2026-07-13T19:01:07Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "stack_trace"
+          ]
+        },
+        "created_at": "2026-07-13T19:01:07Z",
+        "issue_id": 4876724732,
+        "issue_number": 14926,
+        "issue_url": "https://github.com/Comfy-Org/ComfyUI/issues/14926",
+        "raw_body_sha256": "311abb59d90c9a399d96f38cdd1832e39d4e0c9b40e3c6a3fb57bb87c72b1d05",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "311abb59d90c9a399d96f38cdd1832e39d4e0c9b40e3c6a3fb57bb87c72b1d05",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] - **ComfyUI version:** 0.27.1 (latest)\n[body:code] [INFO] Found quantization metadata version 1\n[body:code] [INFO] Found quantization metadata version 1\n[body:code] [ERROR] !!! Exception during processing !!! Allocation on device\n[body:code] [ERROR] Traceback (most recent call last):\n[body:code] torch.OutOfMemoryError: Allocation on device\n[body:code] [ERROR] Got an OOM, unloading all loaded models.",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "706745ab06fd2fa5bb0b9fcf43e2f2bcf629c62ab4b98bad03ee76793b1f8bf6",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "stack_trace"
+          ],
+          "title": "FP8 quantized Krea2 model triggers OOM when applying any LoRA \u2014 forced dequant/re-quant path doubles peak VRAM"
+        },
+        "sanitized_text": "[body] - **ComfyUI version:** 0.27.1 (latest)\n[body:code] [INFO] Found quantization metadata version 1\n[body:code] [INFO] Found quantization metadata version 1\n[body:code] [ERROR] !!! Exception during processing !!! Allocation on device\n[body:code] [ERROR] Traceback (most recent call last):\n[body:code] torch.OutOfMemoryError: Allocation on device\n[body:code] [ERROR] Got an OOM, unloading all loaded models.",
+        "status": "PASS",
+        "title": "FP8 quantized Krea2 model triggers OOM when applying any LoRA \u2014 forced dequant/re-quant path doubles peak VRAM",
+        "updated_at": "2026-07-13T19:03:03Z"
+      },
+      "issue_url": "https://github.com/Comfy-Org/ComfyUI/issues/14926",
+      "pool_position": 7,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/Comfy-Org/ComfyUI",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T19:01:07Z",
+        "candidate_sha": "5658a68a875e4c1210d72c71d61eca95740adaf0",
+        "default_branch": "master",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 589831718,
+        "repo_full_name": "Comfy-Org/ComfyUI",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "FP8 quantized Krea2 model triggers OOM when applying any LoRA \u2014 forced dequant/re-quant path doubles peak VRAM"
+    },
+    {
+      "candidate_id": "wave1d_bluhayz_EVE-Alert_180",
+      "candidate_sha": "b8c02ee77d64d1d5d3a1717028382d3040bf9736",
+      "issue_created_at": "2026-07-13T18:59:24Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "CLEAN",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": []
+        },
+        "created_at": "2026-07-13T18:59:24Z",
+        "issue_id": 4876712508,
+        "issue_number": 180,
+        "issue_url": "https://github.com/bluhayz/EVE-Alert/issues/180",
+        "raw_body_sha256": "05faa34d33ff42ee9eb6f7355aee64c3ea5eb4851e8c713d7eabaf22cf5377a5",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "05faa34d33ff42ee9eb6f7355aee64c3ea5eb4851e8c713d7eabaf22cf5377a5",
+          "classification": "CLEAN",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] - Global exception capture: `sys.excepthook` + `threading.excepthook` + a Qt message handler + asyncio loop exception handler, all funneling to `evealert/tools/crash_reporter.py`. Write a crash bundle to `%APPDATA%/evealert/crashes/<ts>/`: traceback, app version, OS, the last 200 log-buffer lines, and a **redacted** settings snapshot (drop tokens: `push.*`, `esi_oauth.client_id`, webhook URLs \u2014 keep booleans/numbers).\n[body] - On next launch (or immediately for non-fatal): dialog \"EVE Alert hit an error \u2014 [View report] [Open GitHub issue] [Dismiss]\". \"Open GitHub issue\" opens the browser to `https://github.com/bluhayz/EVE-Alert/issues/new?title=...&body=...` with the redacted report in the body (URL-encoded, truncated to fit; full bundle path shown for manual attach).",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "33c175f08b4ee0ab3aa626d562193ed20a7d7af72ffb3385937bd9614844a7eb",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [],
+          "title": "Opt-in crash and error reporting with GitHub-issue prefill"
+        },
+        "sanitized_text": "[body] - Global exception capture: `sys.excepthook` + `threading.excepthook` + a Qt message handler + asyncio loop exception handler, all funneling to `evealert/tools/crash_reporter.py`. Write a crash bundle to `%APPDATA%/evealert/crashes/<ts>/`: traceback, app version, OS, the last 200 log-buffer lines, and a **redacted** settings snapshot (drop tokens: `push.*`, `esi_oauth.client_id`, webhook URLs \u2014 keep booleans/numbers).\n[body] - On next launch (or immediately for non-fatal): dialog \"EVE Alert hit an error \u2014 [View report] [Open GitHub issue] [Dismiss]\". \"Open GitHub issue\" opens the browser to `https://github.com/bluhayz/EVE-Alert/issues/new?title=...&body=...` with the redacted report in the body (URL-encoded, truncated to fit; full bundle path shown for manual attach).",
+        "status": "PASS",
+        "title": "Opt-in crash and error reporting with GitHub-issue prefill",
+        "updated_at": "2026-07-13T18:59:25Z"
+      },
+      "issue_url": "https://github.com/bluhayz/EVE-Alert/issues/180",
+      "pool_position": 8,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/bluhayz/EVE-Alert",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:59:24Z",
+        "candidate_sha": "b8c02ee77d64d1d5d3a1717028382d3040bf9736",
+        "default_branch": "master",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 1297501332,
+        "repo_full_name": "bluhayz/EVE-Alert",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "Opt-in crash and error reporting with GitHub-issue prefill"
+    },
+    {
+      "candidate_id": "wave1d_pytorch_helion_3044",
+      "candidate_sha": "bdfb596223879e728c4653bc9ef89b7494ed7cfe",
+      "issue_created_at": "2026-07-13T18:58:33Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "descriptive_solution_word",
+            "stack_trace"
+          ]
+        },
+        "created_at": "2026-07-13T18:58:33Z",
+        "issue_id": 4876706285,
+        "issue_number": 3044,
+        "issue_url": "https://github.com/pytorch/helion/issues/3044",
+        "raw_body_sha256": "8fe169dc248937db26522fb7819c04080540043ca4ab9801324dd8366c3404d7",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "8fe169dc248937db26522fb7819c04080540043ca4ab9801324dd8366c3404d7",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body:code] triton.compiler.errors.CompilationError: at 36:8:\n[body:code] AssertionError(\"Mismatched type for acc between then block (<['32', '16'], fp32>) and else block (<['16', '32'], fp32>)\u201d)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] Failed to autotune config '{\"K\":5120,\"M\":4,\"N\":10240}': Tensor mismatch in control flow for variable 'acc': size torch.Size([u19, u18]) != torch.Size([u18, u19])\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] Hint: ensure the same tensor rank/shape/dtype/device for this variable across branches/iterations.\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] While processing:\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/vllm/kernels/helion/ops/scaled_mm.py\", line 242, in scaled_mm\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     if swap_ab:\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] Traceback (most recent call last):\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/scripts/autotune_helion_kernels.py\", line 183, in autotune_kernel\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     config = kernel_wrapper.run_autotune(inputs, autotune_effort)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/vllm/kernels/helion/register.py\", line 336, in run_autotune\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     return autotune_kernel.autotune(inputs)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/runtime/kernel.py\", line 428, in autotune\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     return self.bind(args).autotune(args, force=force, **options)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]            ^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/runtime/kernel.py\", line 305, in bind\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     bound_kernel = BoundKernel(self, args)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]                    ^^^^^^^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/runtime/kernel.py\", line 556, in __init__\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     self.host_function: HostFunction = compiler.compile(\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]                                        ^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/kernel_compiler.py\", line 78, in compile\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     self.propagate_types(hf)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/kernel_compiler.py\", line 141, in propagate_types\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     propagate_types(hf)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 1168, in propagate_types\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     prop.visit(stmt)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 249, in visit\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     type_info = visitor(node)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]                 ^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 912, in visit_For\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     body = self._loop_body(node.body)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]            ^^^^^^^^^^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 867, in _loop_body\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     self.visit(stmt)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 249, in visit\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     type_info = visitor(node)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]                 ^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 852, in visit_If\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     self.scope.merge(self._body(node.body if truth_val else node.orelse))\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 142, in merge\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     merged = existing.merge(v, var_name=k)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_info.py\", line 487, in merge\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     raise exc.ControlFlowTensorMismatch(\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] helion.exc.ControlFlowTensorMismatch: Tensor mismatch in control flow for variable 'acc': size torch.Size([u19, u18]) != torch.Size([u18, u19])\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] Hint: ensure the same tensor rank/shape/dtype/device for this variable across branches/iterations.\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] While processing:\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/vllm/kernels/helion/ops/scaled_mm.py\", line 242, in scaled_mm\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     if swap_ab:",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "500b1de17e7580c8fe62e68447533031ab2cb3b2d83a97d317d6fd64b66a4573",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "descriptive_solution_word",
+            "stack_trace"
+          ],
+          "title": "Support mismatched Tensor in control flow based on constexpr"
+        },
+        "sanitized_text": "[body:code] triton.compiler.errors.CompilationError: at 36:8:\n[body:code] AssertionError(\"Mismatched type for acc between then block (<['32', '16'], fp32>) and else block (<['16', '32'], fp32>)\u201d)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] Failed to autotune config '{\"K\":5120,\"M\":4,\"N\":10240}': Tensor mismatch in control flow for variable 'acc': size torch.Size([u19, u18]) != torch.Size([u18, u19])\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] Hint: ensure the same tensor rank/shape/dtype/device for this variable across branches/iterations.\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] While processing:\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/vllm/kernels/helion/ops/scaled_mm.py\", line 242, in scaled_mm\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     if swap_ab:\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] Traceback (most recent call last):\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/scripts/autotune_helion_kernels.py\", line 183, in autotune_kernel\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     config = kernel_wrapper.run_autotune(inputs, autotune_effort)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/vllm/kernels/helion/register.py\", line 336, in run_autotune\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     return autotune_kernel.autotune(inputs)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/runtime/kernel.py\", line 428, in autotune\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     return self.bind(args).autotune(args, force=force, **options)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]            ^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/runtime/kernel.py\", line 305, in bind\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     bound_kernel = BoundKernel(self, args)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]                    ^^^^^^^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/runtime/kernel.py\", line 556, in __init__\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     self.host_function: HostFunction = compiler.compile(\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]                                        ^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/kernel_compiler.py\", line 78, in compile\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     self.propagate_types(hf)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/kernel_compiler.py\", line 141, in propagate_types\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     propagate_types(hf)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 1168, in propagate_types\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     prop.visit(stmt)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 249, in visit\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     type_info = visitor(node)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]                 ^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 912, in visit_For\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     body = self._loop_body(node.body)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]            ^^^^^^^^^^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 867, in _loop_body\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     self.visit(stmt)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 249, in visit\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     type_info = visitor(node)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]                 ^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 852, in visit_If\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     self.scope.merge(self._body(node.body if truth_val else node.orelse))\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_propagation.py\", line 142, in merge\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     merged = existing.merge(v, var_name=k)\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/.venv/lib/python3.12/site-packages/helion/_compiler/type_info.py\", line 487, in merge\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     raise exc.ControlFlowTensorMismatch(\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] helion.exc.ControlFlowTensorMismatch: Tensor mismatch in control flow for variable 'acc': size torch.Size([u19, u18]) != torch.Size([u18, u19])\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] Hint: ensure the same tensor rank/shape/dtype/device for this variable across branches/iterations.\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199] While processing:\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]   File \"/home/sean/workplace/vllm/vllm/kernels/helion/ops/scaled_mm.py\", line 242, in scaled_mm\n[body:code] ERROR 07-13 14:35:35 [autotune_helion_kernels.py:199]     if swap_ab:",
+        "status": "PASS",
+        "title": "Support mismatched Tensor in control flow based on constexpr",
+        "updated_at": "2026-07-13T18:58:33Z"
+      },
+      "issue_url": "https://github.com/pytorch/helion/issues/3044",
+      "pool_position": 9,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/pytorch/helion",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:58:33Z",
+        "candidate_sha": "bdfb596223879e728c4653bc9ef89b7494ed7cfe",
+        "default_branch": "main",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 970899748,
+        "repo_full_name": "pytorch/helion",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "Support mismatched Tensor in control flow based on constexpr"
+    },
+    {
+      "candidate_id": "wave1d_cbcoutinho_nextcloud-mcp-server_1068",
+      "candidate_sha": "514f1821bc806eeb4eb9f888461710803b066e2d",
+      "issue_created_at": "2026-07-13T18:58:07Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "python_reproducer",
+            "stack_trace"
+          ]
+        },
+        "created_at": "2026-07-13T18:58:07Z",
+        "issue_id": 4876703398,
+        "issue_number": 1068,
+        "issue_url": "https://github.com/cbcoutinho/nextcloud-mcp-server/issues/1068",
+        "raw_body_sha256": "0683496e96fe64129d2649d362f7102591f790e706771f8288681c16dab24b1d",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "0683496e96fe64129d2649d362f7102591f790e706771f8288681c16dab24b1d",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] ## Traceback\n[body:code] AttributeError: 'NoneType' object has no attribute 'store_oauth_session'",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "07ffa8b56dca55225aa4d5bf4ab1f657a04b96d6cf35421848ce9165a9ce3b38",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "python_reproducer",
+            "stack_trace"
+          ],
+          "title": "Login Flow v2: oauth_context[\"storage\"] is None \u2014 browser login 500s and app-password provisioning fails (store_oauth_session on NoneType)"
+        },
+        "sanitized_text": "[body] ## Traceback\n[body:code] AttributeError: 'NoneType' object has no attribute 'store_oauth_session'",
+        "status": "PASS",
+        "title": "Login Flow v2: oauth_context[\"storage\"] is None \u2014 browser login 500s and app-password provisioning fails (store_oauth_session on NoneType)",
+        "updated_at": "2026-07-13T18:58:07Z"
+      },
+      "issue_url": "https://github.com/cbcoutinho/nextcloud-mcp-server/issues/1068",
+      "pool_position": 10,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/cbcoutinho/nextcloud-mcp-server",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:58:07Z",
+        "candidate_sha": "514f1821bc806eeb4eb9f888461710803b066e2d",
+        "default_branch": "master",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 977737334,
+        "repo_full_name": "cbcoutinho/nextcloud-mcp-server",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "Login Flow v2: oauth_context[\"storage\"] is None \u2014 browser login 500s and app-password provisioning fails (store_oauth_session on NoneType)"
+    },
+    {
+      "candidate_id": "wave1d_rec_tuney_97",
+      "candidate_sha": "3271c382245c31d7f37546add719b343f423b491",
+      "issue_created_at": "2026-07-13T18:55:18Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "stack_trace"
+          ]
+        },
+        "created_at": "2026-07-13T18:55:18Z",
+        "issue_id": 4876682516,
+        "issue_number": 97,
+        "issue_url": "https://github.com/rec/tuney/issues/97",
+        "raw_body_sha256": "10a9d636188d4aedee4087877c42b87b989b7c76b2f4046acc46d17317de97ac",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "10a9d636188d4aedee4087877c42b87b989b7c76b2f4046acc46d17317de97ac",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] ## Error\n[body] ValueError: Multiple output devices found for 'Speakers (Realtek(R) Audio)':\n[body] ## Traceback\n[body:code] Traceback (most recent call last):\n[body:code] ValueError: Multiple output devices found for 'Speakers (Realtek(R) Audio)':",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "e084f4765dbfb1c61ce9b29a2a7312541d77c8aea069020b6c91e9af0211c95c",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "stack_trace"
+          ],
+          "title": "ValueError: Multiple output devices found for 'Speakers (Realtek(R) Audio)':"
+        },
+        "sanitized_text": "[body] ## Error\n[body] ValueError: Multiple output devices found for 'Speakers (Realtek(R) Audio)':\n[body] ## Traceback\n[body:code] Traceback (most recent call last):\n[body:code] ValueError: Multiple output devices found for 'Speakers (Realtek(R) Audio)':",
+        "status": "PASS",
+        "title": "ValueError: Multiple output devices found for 'Speakers (Realtek(R) Audio)':",
+        "updated_at": "2026-07-13T18:55:18Z"
+      },
+      "issue_url": "https://github.com/rec/tuney/issues/97",
+      "pool_position": 11,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/rec/tuney",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:55:18Z",
+        "candidate_sha": "3271c382245c31d7f37546add719b343f423b491",
+        "default_branch": "main",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 1120682684,
+        "repo_full_name": "rec/tuney",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "ValueError: Multiple output devices found for 'Speakers (Realtek(R) Audio)':"
+    },
+    {
+      "candidate_id": "wave1d_cyber-arena-ai_challenge-warehouse_34",
+      "candidate_sha": "24c90475dc5fa7b9b85ea878b33c071a956414d7",
+      "issue_created_at": "2026-07-13T18:47:17Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "CLEAN",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": []
+        },
+        "created_at": "2026-07-13T18:47:17Z",
+        "issue_id": 4876627588,
+        "issue_number": 34,
+        "issue_url": "https://github.com/cyber-arena-ai/challenge-warehouse/issues/34",
+        "raw_body_sha256": "b890a4be6c3f7aa245ef46edcf0eca7d2326469695160acbfaa646cd6ece84bb",
+        "raw_comments_sha256": "c94ba6ad03e066216a65ffbbc7e9d37f60708ef797866b2c27ae58630410ec2d",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "b890a4be6c3f7aa245ef46edcf0eca7d2326469695160acbfaa646cd6ece84bb",
+          "classification": "CLEAN",
+          "comments_sha256": "c94ba6ad03e066216a65ffbbc7e9d37f60708ef797866b2c27ae58630410ec2d",
+          "comments_snapshot_hash": "c94ba6ad03e066216a65ffbbc7e9d37f60708ef797866b2c27ae58630410ec2d",
+          "excluded_text_hashes": [],
+          "failure_description": "[body:code] FLAG_PLANT_FAILED: notes plant_flag failed on teamN_prod: rc=1, out=''\n[body] The plant retries the full round-0 budget (~68s) and still fails (observed FLAG_PLANT_FAILED at +74s).\n[body] `flag_handler.plant()` (YueyangPan/notes/flag_handler.py) does a `exec_in_container` into prod and runs a python snippet that `socket.connect(('127.0.0.1', 5000))` then `PUT <flag>`. `rc=1, out=''` is the tell: the `s.connect(...)` raised `ConnectionRefusedError` (nothing listening on 5000), the traceback went to **stderr** (not captured), stdout stayed empty, and Python exited 1.\n[body] Ran `cyberarena/chal-notes:v1` standalone: the daemon comes up within ~6s and the exact plant snippet succeeds (`PUT FLAG{test}` \u2192 `OK 0`). So the code is correct; the failure is a **startup/readiness issue in the real deploy** \u2014 the daemon either starts much slower under deploy conditions, crashes, or isn't reachable on 127.0.0.1:5000 from the plant's exec context, for the whole 74s window. (Needs a live-deploy repro to pin which.)\n[body] 2. Investigate why the daemon is unreachable for 74s+ in the real deploy while it binds within ~6s standalone \u2014 e.g., confirm the entrypoint's `nohup ... server.py 5000 &` actually runs (not overridden by the orchestrator's container command), check `/var/log/notes.stdout` for a crash, and confirm the bind address is reachable from the exec context.",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "1830e37ffbafdf622e48e6b9d6226f0e28299b5ef331dc29d580c871abf0c4c7",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [],
+          "title": "notes: flag-plant fails 100% \u2014 daemon unreachable at plant time (rc=1, out='' = ConnectionRefused); no initial_start readiness guard"
+        },
+        "sanitized_text": "[body:code] FLAG_PLANT_FAILED: notes plant_flag failed on teamN_prod: rc=1, out=''\n[body] The plant retries the full round-0 budget (~68s) and still fails (observed FLAG_PLANT_FAILED at +74s).\n[body] `flag_handler.plant()` (YueyangPan/notes/flag_handler.py) does a `exec_in_container` into prod and runs a python snippet that `socket.connect(('127.0.0.1', 5000))` then `PUT <flag>`. `rc=1, out=''` is the tell: the `s.connect(...)` raised `ConnectionRefusedError` (nothing listening on 5000), the traceback went to **stderr** (not captured), stdout stayed empty, and Python exited 1.\n[body] Ran `cyberarena/chal-notes:v1` standalone: the daemon comes up within ~6s and the exact plant snippet succeeds (`PUT FLAG{test}` \u2192 `OK 0`). So the code is correct; the failure is a **startup/readiness issue in the real deploy** \u2014 the daemon either starts much slower under deploy conditions, crashes, or isn't reachable on 127.0.0.1:5000 from the plant's exec context, for the whole 74s window. (Needs a live-deploy repro to pin which.)\n[body] 2. Investigate why the daemon is unreachable for 74s+ in the real deploy while it binds within ~6s standalone \u2014 e.g., confirm the entrypoint's `nohup ... server.py 5000 &` actually runs (not overridden by the orchestrator's container command), check `/var/log/notes.stdout` for a crash, and confirm the bind address is reachable from the exec context.",
+        "status": "PASS",
+        "title": "notes: flag-plant fails 100% \u2014 daemon unreachable at plant time (rc=1, out='' = ConnectionRefused); no initial_start readiness guard",
+        "updated_at": "2026-07-13T18:57:04Z"
+      },
+      "issue_url": "https://github.com/cyber-arena-ai/challenge-warehouse/issues/34",
+      "pool_position": 12,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/cyber-arena-ai/challenge-warehouse",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:47:17Z",
+        "candidate_sha": "24c90475dc5fa7b9b85ea878b33c071a956414d7",
+        "default_branch": "main",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 1271670770,
+        "repo_full_name": "cyber-arena-ai/challenge-warehouse",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "notes: flag-plant fails 100% \u2014 daemon unreachable at plant time (rc=1, out='' = ConnectionRefused); no initial_start readiness guard"
+    },
+    {
+      "candidate_id": "wave1d_vergil-project_vergil-tooling_2319",
+      "candidate_sha": "4949e52a1a4ebb938ae84e5738de903d2b0c3064",
+      "issue_created_at": "2026-07-13T18:45:57Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "CLEAN",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": []
+        },
+        "created_at": "2026-07-13T18:45:57Z",
+        "issue_id": 4876617472,
+        "issue_number": 2319,
+        "issue_url": "https://github.com/vergil-project/vergil-tooling/issues/2319",
+        "raw_body_sha256": "0872d1f0d4ab1b63d65b5fa872c8fc79e3442da5f2b3f12e1936ef74be2784bc",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "0872d1f0d4ab1b63d65b5fa872c8fc79e3442da5f2b3f12e1936ef74be2784bc",
+          "classification": "CLEAN",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] - Optional: emit a clean \"`GH_TOKEN` required for evidence linking\" error instead\n[body]   of a raw traceback when `gh` is unavailable (still failing loudly).",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "3f549aa1b1eb17fd2f80a2e11f938c7cde629286b96600894091d78e0bda784c",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [],
+          "title": "perf: batch CI-evidence asset lookups into a single releases API call"
+        },
+        "sanitized_text": "[body] - Optional: emit a clean \"`GH_TOKEN` required for evidence linking\" error instead\n[body]   of a raw traceback when `gh` is unavailable (still failing loudly).",
+        "status": "PASS",
+        "title": "perf: batch CI-evidence asset lookups into a single releases API call",
+        "updated_at": "2026-07-13T18:45:57Z"
+      },
+      "issue_url": "https://github.com/vergil-project/vergil-tooling/issues/2319",
+      "pool_position": 13,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/vergil-project/vergil-tooling",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:45:57Z",
+        "candidate_sha": "4949e52a1a4ebb938ae84e5738de903d2b0c3064",
+        "default_branch": "develop",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 1160212029,
+        "repo_full_name": "vergil-project/vergil-tooling",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "perf: batch CI-evidence asset lookups into a single releases API call"
+    },
+    {
+      "candidate_id": "wave1d_AstrBotDevs_AstrBot_9269",
+      "candidate_sha": "a298c7bf4941c0ea47cc6a5f7d480afc9457260c",
+      "issue_created_at": "2026-07-13T18:38:57Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "python_reproducer"
+          ]
+        },
+        "created_at": "2026-07-13T18:38:57Z",
+        "issue_id": 4876568544,
+        "issue_number": 9269,
+        "issue_url": "https://github.com/AstrBotDevs/AstrBot/issues/9269",
+        "raw_body_sha256": "ab8023bbbce95ac5934b256a73228102115e59dae634eb1aaf143537f3ffd9b1",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "ab8023bbbce95ac5934b256a73228102115e59dae634eb1aaf143537f3ffd9b1",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] Dashboard API \u4e2d\u672a\u5904\u7406\u7684\u5f02\u5e38\uff08\u5982 `TypeError`\u3001`AttributeError`\u3001`RuntimeError`\uff09\u88ab Starlette \u7684 `ServerErrorMiddleware` \u6355\u83b7\u540e\uff0c\u8fd4\u56de\u7eaf\u6587\u672c `Internal Server Error`\uff0c\u5bfc\u81f4\uff1a\n[body] 1. \u89e6\u53d1\u4e00\u4e2a\u4f1a\u4ea7\u751f\u672a\u5904\u7406\u5f02\u5e38\u7684\u64cd\u4f5c\uff08\u4f8b\u5982\uff0c\u4e0b\u8f7d\u4e00\u4e2a\u5e26\u7248\u672c\u53f7\u547d\u540d\u7684 skill\uff0c\u89e6\u53d1 #9268  \u4e2d\u7684 `RuntimeError`\uff09\n[body] ### AstrBot version, deployment method (e.g., Windows Docker Desktop deployment), provider used, and messaging platform used. / AstrBot \u7248\u672c\u3001\u90e8\u7f72\u65b9\u5f0f\uff08\u5982 Windows Docker Desktop \u90e8\u7f72\uff09\u3001\u4f7f\u7528\u7684\u63d0\u4f9b\u5546\u3001\u4f7f\u7528\u7684\u6d88\u606f\u5e73\u53f0\u9002\u914d\u5668\n[body:code] @app.exception_handler(ApiError)      # \u4e1a\u52a1\u5f02\u5e38\n[body:code] @app.exception_handler(ValueError)    # \u53c2\u6570\u6821\u9a8c\n[body:code] @app.exception_handler(HTTPException) # HTTP \u6807\u51c6\u5f02\u5e38\n[body] \u6240\u6709\u5176\u4ed6\u5f02\u5e38\uff08`TypeError`\u3001`AttributeError`\u3001`RuntimeError` \u7b49\uff09\u843d\u5165 Starlette \u7684 `ServerErrorMiddleware`\uff0c\u8be5\u4e2d\u95f4\u4ef6\u8fd4\u56de\u7eaf\u6587\u672c `Internal Server Error`\uff08`text/plain`\uff09\uff0c\u800c\u975e JSON\u3002\n[body] \u524d\u7aef\u4ee3\u7801\u671f\u5f85 `{\"status\": \"error\", \"message\": \"...\"}` \u683c\u5f0f\u7684 JSON \u54cd\u5e94\u3002\u7eaf\u6587\u672c\u54cd\u5e94\u5bfc\u81f4\uff1a\n[body] | Skills \u4e0b\u8f7d\uff08 #9268  \uff09 | `RuntimeError`\uff08\u6587\u4ef6\u4e0d\u5b58\u5728\uff09 | \u300c\u4e0b\u8f7d\u5931\u8d25\u300d |\n[body] | \u4efb\u4f55\u5176\u4ed6\u672a\u5904\u7406\u7684 bug | `TypeError` / `AttributeError` / ... | \u6a21\u7cca\u7684\u901a\u7528\u9519\u8bef |\n[body] \u5728 `api/app.py` \u4e2d\u6dfb\u52a0 `Exception` \u7684 catch-all \u5904\u7406\u5668\uff0c\u786e\u4fdd\uff1a\n[body] 1. \u8fd4\u56de\u7ed3\u6784\u5316 JSON\uff08\u590d\u7528\u73b0\u6709 `error()` \u8f85\u52a9\u51fd\u6570\uff09\n[body] 2. \u670d\u52a1\u7aef\u8bb0\u5f55\u5b8c\u6574 traceback\uff08\u4fbf\u4e8e\u8c03\u8bd5\uff09\n[body:code] @app.exception_handler(Exception)\n[body:code] async def catch_all_handler(_request: Request, exc: Exception):\n[body:code]     import traceback\n[body:code]         logging.getLogger(\"astrbot.dashboard\").error(\n[body:code]             \"Unhandled exception in dashboard API\", exc_info=True,\n[body:code]     except Exception:\n[body:code]         traceback.print_exc()\n[body:code]         error(f\"Internal error: {type(exc).__name__}: {exc}\"),\n[body] - \u8be5\u5904\u7406\u5668\u6ce8\u518c\u5728 `ApiError`\u3001`ValueError`\u3001`HTTPException` \u4e4b\u540e\uff0cFastAPI \u6309 MRO \u5339\u914d\uff0c\u7279\u5b9a\u5904\u7406\u5668\u4f18\u5148\n[body] - `BaseException` \u7684\u5b50\u7c7b\uff08`SystemExit`\u3001`KeyboardInterrupt`\u3001`asyncio.CancelledError`\uff09\u4e0d\u662f `Exception` \u7684\u5b50\u7c7b\uff0c\u4e0d\u53d7\u5f71\u54cd",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "014fe24fc1c95dad7d4f3b69eb5965a59f31822df53227236f93068e4b5bcdb4",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "python_reproducer"
+          ],
+          "title": "[Bug] dashboard\u672a\u5904\u7406\u5f02\u5e38\u8fd4\u56de\u7eaf\u6587\u672c\u65e0\u6cd5\u8c03\u8bd5"
+        },
+        "sanitized_text": "[body] Dashboard API \u4e2d\u672a\u5904\u7406\u7684\u5f02\u5e38\uff08\u5982 `TypeError`\u3001`AttributeError`\u3001`RuntimeError`\uff09\u88ab Starlette \u7684 `ServerErrorMiddleware` \u6355\u83b7\u540e\uff0c\u8fd4\u56de\u7eaf\u6587\u672c `Internal Server Error`\uff0c\u5bfc\u81f4\uff1a\n[body] 1. \u89e6\u53d1\u4e00\u4e2a\u4f1a\u4ea7\u751f\u672a\u5904\u7406\u5f02\u5e38\u7684\u64cd\u4f5c\uff08\u4f8b\u5982\uff0c\u4e0b\u8f7d\u4e00\u4e2a\u5e26\u7248\u672c\u53f7\u547d\u540d\u7684 skill\uff0c\u89e6\u53d1 #9268  \u4e2d\u7684 `RuntimeError`\uff09\n[body] ### AstrBot version, deployment method (e.g., Windows Docker Desktop deployment), provider used, and messaging platform used. / AstrBot \u7248\u672c\u3001\u90e8\u7f72\u65b9\u5f0f\uff08\u5982 Windows Docker Desktop \u90e8\u7f72\uff09\u3001\u4f7f\u7528\u7684\u63d0\u4f9b\u5546\u3001\u4f7f\u7528\u7684\u6d88\u606f\u5e73\u53f0\u9002\u914d\u5668\n[body:code] @app.exception_handler(ApiError)      # \u4e1a\u52a1\u5f02\u5e38\n[body:code] @app.exception_handler(ValueError)    # \u53c2\u6570\u6821\u9a8c\n[body:code] @app.exception_handler(HTTPException) # HTTP \u6807\u51c6\u5f02\u5e38\n[body] \u6240\u6709\u5176\u4ed6\u5f02\u5e38\uff08`TypeError`\u3001`AttributeError`\u3001`RuntimeError` \u7b49\uff09\u843d\u5165 Starlette \u7684 `ServerErrorMiddleware`\uff0c\u8be5\u4e2d\u95f4\u4ef6\u8fd4\u56de\u7eaf\u6587\u672c `Internal Server Error`\uff08`text/plain`\uff09\uff0c\u800c\u975e JSON\u3002\n[body] \u524d\u7aef\u4ee3\u7801\u671f\u5f85 `{\"status\": \"error\", \"message\": \"...\"}` \u683c\u5f0f\u7684 JSON \u54cd\u5e94\u3002\u7eaf\u6587\u672c\u54cd\u5e94\u5bfc\u81f4\uff1a\n[body] | Skills \u4e0b\u8f7d\uff08 #9268  \uff09 | `RuntimeError`\uff08\u6587\u4ef6\u4e0d\u5b58\u5728\uff09 | \u300c\u4e0b\u8f7d\u5931\u8d25\u300d |\n[body] | \u4efb\u4f55\u5176\u4ed6\u672a\u5904\u7406\u7684 bug | `TypeError` / `AttributeError` / ... | \u6a21\u7cca\u7684\u901a\u7528\u9519\u8bef |\n[body] \u5728 `api/app.py` \u4e2d\u6dfb\u52a0 `Exception` \u7684 catch-all \u5904\u7406\u5668\uff0c\u786e\u4fdd\uff1a\n[body] 1. \u8fd4\u56de\u7ed3\u6784\u5316 JSON\uff08\u590d\u7528\u73b0\u6709 `error()` \u8f85\u52a9\u51fd\u6570\uff09\n[body] 2. \u670d\u52a1\u7aef\u8bb0\u5f55\u5b8c\u6574 traceback\uff08\u4fbf\u4e8e\u8c03\u8bd5\uff09\n[body:code] @app.exception_handler(Exception)\n[body:code] async def catch_all_handler(_request: Request, exc: Exception):\n[body:code]     import traceback\n[body:code]         logging.getLogger(\"astrbot.dashboard\").error(\n[body:code]             \"Unhandled exception in dashboard API\", exc_info=True,\n[body:code]     except Exception:\n[body:code]         traceback.print_exc()\n[body:code]         error(f\"Internal error: {type(exc).__name__}: {exc}\"),\n[body] - \u8be5\u5904\u7406\u5668\u6ce8\u518c\u5728 `ApiError`\u3001`ValueError`\u3001`HTTPException` \u4e4b\u540e\uff0cFastAPI \u6309 MRO \u5339\u914d\uff0c\u7279\u5b9a\u5904\u7406\u5668\u4f18\u5148\n[body] - `BaseException` \u7684\u5b50\u7c7b\uff08`SystemExit`\u3001`KeyboardInterrupt`\u3001`asyncio.CancelledError`\uff09\u4e0d\u662f `Exception` \u7684\u5b50\u7c7b\uff0c\u4e0d\u53d7\u5f71\u54cd",
+        "status": "PASS",
+        "title": "[Bug] dashboard\u672a\u5904\u7406\u5f02\u5e38\u8fd4\u56de\u7eaf\u6587\u672c\u65e0\u6cd5\u8c03\u8bd5",
+        "updated_at": "2026-07-13T18:43:52Z"
+      },
+      "issue_url": "https://github.com/AstrBotDevs/AstrBot/issues/9269",
+      "pool_position": 14,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/AstrBotDevs/AstrBot",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:38:57Z",
+        "candidate_sha": "a298c7bf4941c0ea47cc6a5f7d480afc9457260c",
+        "default_branch": "master",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 575865240,
+        "repo_full_name": "AstrBotDevs/AstrBot",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "[Bug] dashboard\u672a\u5904\u7406\u5f02\u5e38\u8fd4\u56de\u7eaf\u6587\u672c\u65e0\u6cd5\u8c03\u8bd5"
+    },
+    {
+      "candidate_id": "wave1d_OpenBB-finance_OpenBB_7585",
+      "candidate_sha": "1c74893140292944e71ff5cdd9536edf12f05483",
+      "issue_created_at": "2026-07-13T18:15:59Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "CLEAN",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": []
+        },
+        "created_at": "2026-07-13T18:15:59Z",
+        "issue_id": 4876400622,
+        "issue_number": 7585,
+        "issue_url": "https://github.com/OpenBB-finance/OpenBB/issues/7585",
+        "raw_body_sha256": "cbf75a3ef02458c3c30a2dc6ea8c85615b2c13015bbc603d48e33e52a3c76489",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "cbf75a3ef02458c3c30a2dc6ea8c85615b2c13015bbc603d48e33e52a3c76489",
+          "classification": "CLEAN",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] ### Expected Behavior\n[body] The codegen parser should either successfully map the modular YAML `$ref` tags into OpenBB's internal command schema, or it should throw a clear `ValidationError`/`ParseError` to warn the user that the spec format is incompatible.\n[body] ### Actual Behavior\n[body] The tool completes without throwing a traceback, but outputs a skeleton package with zero commands, as shown here:\n[body] - Python version: 3.11",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "5ee437661aa19e867d62f8fbd84c43a7658cf496ec14d2d4fe54cc6325721f68",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [],
+          "title": "[Bug] Silent failure when parsing modular OpenAPI 3.1.0 specs"
+        },
+        "sanitized_text": "[body] ### Expected Behavior\n[body] The codegen parser should either successfully map the modular YAML `$ref` tags into OpenBB's internal command schema, or it should throw a clear `ValidationError`/`ParseError` to warn the user that the spec format is incompatible.\n[body] ### Actual Behavior\n[body] The tool completes without throwing a traceback, but outputs a skeleton package with zero commands, as shown here:\n[body] - Python version: 3.11",
+        "status": "PASS",
+        "title": "[Bug] Silent failure when parsing modular OpenAPI 3.1.0 specs",
+        "updated_at": "2026-07-13T18:15:59Z"
+      },
+      "issue_url": "https://github.com/OpenBB-finance/OpenBB/issues/7585",
+      "pool_position": 15,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/OpenBB-finance/OpenBB",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:15:59Z",
+        "candidate_sha": "1c74893140292944e71ff5cdd9536edf12f05483",
+        "default_branch": "develop",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 323048702,
+        "repo_full_name": "OpenBB-finance/OpenBB",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "[Bug] Silent failure when parsing modular OpenAPI 3.1.0 specs"
+    },
+    {
+      "candidate_id": "wave1d_ansible_ansible-dev-environment_444",
+      "candidate_sha": "5efae0c74f0ceb873961b2f0582d4341b2f02b11",
+      "issue_created_at": "2026-07-13T18:15:51Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "failed_workaround",
+            "stack_trace"
+          ]
+        },
+        "created_at": "2026-07-13T18:15:51Z",
+        "issue_id": 4876399487,
+        "issue_number": 444,
+        "issue_url": "https://github.com/ansible/ansible-dev-environment/issues/444",
+        "raw_body_sha256": "ee3890866405185e11d393da9638e99ad583ac2c7263bb7d1b7d48344459a54c",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "ee3890866405185e11d393da9638e99ad583ac2c7263bb7d1b7d48344459a54c",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] `ade install . -e` builds the local collection by copying paths from `git ls-files`. If the working tree has deleted or moved tracked files without updating the index (e.g. after `ansible-creator migrate molecule` relocates `tests/integration/targets/` \u2192 `extensions/molecule/`), ADE raises an **uncaught** `FileNotFoundError` instead of a clear user-facing error.\n[body] It should not dump a traceback for this case \u2014 detect missing paths and fail with a helpful message (list missing files / suggest staging or restoring them).\n[body]    - e.g. migrate integration targets so `tests/integration/targets/...` is gone on disk but still listed by `git ls-files`\n[body] ### Actual behavior\n[body:code] Traceback (most recent call last):\n[body:code] FileNotFoundError: [Errno 2] No such file or directory: '.../tests/integration/targets/utils_cli_parse/files/nxos_show_interface.txt'\n[body] ### Expected behavior\n[body] - No raw traceback for missing tracked files.\n[body] - Clear error naming the missing path(s) and that ADE copies from `git ls-files` (index), so unstaged deletes/moves will break install until staged/committed or restored.\n[body] `_copy_repo_files` in `subcommands/installer.py` iterates `git ls-files` and calls `shutil.copy2`. `FileNotFoundError` is not handled (existing `except shutil.Error` does not catch it). New untracked paths (the move destination) are also omitted from the copy set until staged.",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "2f7f56ac6196401adf00b4cf2871290b3f32f356053753d29beaccf4ae5a5954",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "failed_workaround",
+            "stack_trace"
+          ],
+          "title": "ade install -e: uncaught FileNotFoundError when git-tracked files are missing from the working tree"
+        },
+        "sanitized_text": "[body] `ade install . -e` builds the local collection by copying paths from `git ls-files`. If the working tree has deleted or moved tracked files without updating the index (e.g. after `ansible-creator migrate molecule` relocates `tests/integration/targets/` \u2192 `extensions/molecule/`), ADE raises an **uncaught** `FileNotFoundError` instead of a clear user-facing error.\n[body] It should not dump a traceback for this case \u2014 detect missing paths and fail with a helpful message (list missing files / suggest staging or restoring them).\n[body]    - e.g. migrate integration targets so `tests/integration/targets/...` is gone on disk but still listed by `git ls-files`\n[body] ### Actual behavior\n[body:code] Traceback (most recent call last):\n[body:code] FileNotFoundError: [Errno 2] No such file or directory: '.../tests/integration/targets/utils_cli_parse/files/nxos_show_interface.txt'\n[body] ### Expected behavior\n[body] - No raw traceback for missing tracked files.\n[body] - Clear error naming the missing path(s) and that ADE copies from `git ls-files` (index), so unstaged deletes/moves will break install until staged/committed or restored.\n[body] `_copy_repo_files` in `subcommands/installer.py` iterates `git ls-files` and calls `shutil.copy2`. `FileNotFoundError` is not handled (existing `except shutil.Error` does not catch it). New untracked paths (the move destination) are also omitted from the copy set until staged.",
+        "status": "PASS",
+        "title": "ade install -e: uncaught FileNotFoundError when git-tracked files are missing from the working tree",
+        "updated_at": "2026-07-13T18:15:51Z"
+      },
+      "issue_url": "https://github.com/ansible/ansible-dev-environment/issues/444",
+      "pool_position": 16,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/ansible/ansible-dev-environment",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:15:51Z",
+        "candidate_sha": "5efae0c74f0ceb873961b2f0582d4341b2f02b11",
+        "default_branch": "main",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 679451112,
+        "repo_full_name": "ansible/ansible-dev-environment",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "ade install -e: uncaught FileNotFoundError when git-tracked files are missing from the working tree"
+    },
+    {
+      "candidate_id": "wave1d_noorbagus_aria-ai_21",
+      "candidate_sha": "6d501670282b4cebc0f225ee4c668f7dc410fbe4",
+      "issue_created_at": "2026-07-13T18:15:42Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "CLEAN",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": []
+        },
+        "created_at": "2026-07-13T18:15:42Z",
+        "issue_id": 4876398443,
+        "issue_number": 21,
+        "issue_url": "https://github.com/noorbagus/aria-ai/issues/21",
+        "raw_body_sha256": "f1356070fa5624748e0c63110f2a475ff216c1ac23e7a5661acda55f86a6a36e",
+        "raw_comments_sha256": "7d22ebf8176e847b73af0b8d71593e9ddfe92ba85a223cf253cb32a7f3e2eefa",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "f1356070fa5624748e0c63110f2a475ff216c1ac23e7a5661acda55f86a6a36e",
+          "classification": "CLEAN",
+          "comments_sha256": "7d22ebf8176e847b73af0b8d71593e9ddfe92ba85a223cf253cb32a7f3e2eefa",
+          "comments_snapshot_hash": "7d22ebf8176e847b73af0b8d71593e9ddfe92ba85a223cf253cb32a7f3e2eefa",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] - [ ] Update `/tmp/test_full_flow.py` \u2014 simulasi full conversational flow\n[comment] - Phase 4: Update test_full_flow.py\n[comment] - **Logs**: Clean \u2014 no Python tracebacks or import failures\n[comment] - Updated `/tmp/test_full_flow.py` to use orchestrator path",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "3c2ad5433f33e1c846172c00aa97c398f450d9e4d151b5fc4f90f130a9a0f451",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [],
+          "title": "P3: AI Orchestrator \u2014 Conversation Routine Pattern (History-Based)"
+        },
+        "sanitized_text": "[body] - [ ] Update `/tmp/test_full_flow.py` \u2014 simulasi full conversational flow\n[comment] - Phase 4: Update test_full_flow.py\n[comment] - **Logs**: Clean \u2014 no Python tracebacks or import failures\n[comment] - Updated `/tmp/test_full_flow.py` to use orchestrator path",
+        "status": "PASS",
+        "title": "P3: AI Orchestrator \u2014 Conversation Routine Pattern (History-Based)",
+        "updated_at": "2026-07-13T19:00:46Z"
+      },
+      "issue_url": "https://github.com/noorbagus/aria-ai/issues/21",
+      "pool_position": 17,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/noorbagus/aria-ai",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:15:42Z",
+        "candidate_sha": "6d501670282b4cebc0f225ee4c668f7dc410fbe4",
+        "default_branch": "main",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 1263079297,
+        "repo_full_name": "noorbagus/aria-ai",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "P3: AI Orchestrator \u2014 Conversation Routine Pattern (History-Based)"
+    },
+    {
+      "candidate_id": "wave1d_RLinf_RLinf_1378",
+      "candidate_sha": "ed71c6868e29772c15d001511865ef5831e469ca",
+      "issue_created_at": "2026-07-13T18:08:06Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "SOFT_RISK",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": [
+            "descriptive_solution_word",
+            "failed_workaround",
+            "python_reproducer",
+            "stack_trace"
+          ]
+        },
+        "created_at": "2026-07-13T18:08:06Z",
+        "issue_id": 4876342922,
+        "issue_number": 1378,
+        "issue_url": "https://github.com/RLinf/RLinf/issues/1378",
+        "raw_body_sha256": "e8bf0b52ffbe50a0f4f24eb6e4df01df678a11f2f504d87d16ef6f4ac5f496fc",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "e8bf0b52ffbe50a0f4f24eb6e4df01df678a11f2f504d87d16ef6f4ac5f496fc",
+          "classification": "SOFT_RISK",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] `MultiChannelProcessGroup._broadcast` catches Gloo broadcast failures and logs them without re-raising. Callers (`send`, `recv` in the same file, and `CollectiveGroup._atomic_recv` / `_recv_tensor_list` in `collective_group.py`) don't check the return value, so on the receive side the caller's `torch.empty(...)` tensor is returned still holding uninitialized memory. Any subsequent operation on the channel is out of sync with the sender.\n[body] - `ValueError: Unsupported object type: <random 32-bit integer>` (uninitialized bytes reinterpreted as an object-type enum), or\n[body] - `_pickle.UnpicklingError: invalid load key, '\\x00'.` (uninitialized bytes reinterpreted as a pickle stream).\n[body] The exception is thrown in a worker thread (`_run_queue`), so the driver process stays alive and the job deadlocks silently until Gloo's per-pair TCP watchdog fires \u2014 3 hours by default.\n[body:code]     except Exception as error:\n[body:code]         msg = (f\"Broadcast failed on ProcessGroup {pg_name} rank \"\n[body:code]                f\"{self._cur_rank} with error: {error}. ...\")\n[body:code]         self._logger.error(msg)\n[body] Both [`MultiChannelProcessGroup.send`](https://github.com/RLinf/RLinf/blob/649e7579775997ade74efff33a7c23e90c61e60a/rlinf/scheduler/collective/multi_channel_pg.py#L314) and [`MultiChannelProcessGroup.recv`](https://github.com/RLinf/RLinf/blob/649e7579775997ade74efff33a7c23e90c61e60a/rlinf/scheduler/collective/multi_channel_pg.py#L348) call `_broadcast` for the actual transport. Neither checks the return value on the sync path.\n[body:code]     raise ValueError(f\"Unsupported object type: {object_type}\")\n[body] If either `_recv` silently failed, the follow-up read consumes whatever was in the uninitialized `torch.empty(...)` buffer.\n[body] We ruled out the obvious infra-level alternatives at the moment of each failure:\n[body] 2. **No Kubernetes pod events** at the failure time (`kubectl describe pod` Events: `<none>`).\n[body] 4. **No errors on the sender side.** We grepped every rollout worker's logs for ERROR/Traceback in the 4 hours preceding the failure \u2014 clean. Senders completed their broadcasts; only the receiver-side Gloo pair reported \"Connection closed by peer.\"\n[body] 7. **The catch-and-log pattern in `_broadcast` is explicit in the source.** The downstream code reads the tensor as if it had been filled, so a silent broadcast failure will always corrupt the channel.\n[body] 2. **Return a validity-tagged result.** Have `_broadcast` return a tagged result (success/failure) and update `_atomic_recv` / `_recv_tensor_list` to check it before reading the tensor. More invasive but avoids changing exception semantics for any consumer relying on the swallow-and-log behavior.\n[body] so the failure surface is a clear error rather than a downstream `UnpicklingError`.\n[body:code]          except Exception as error:\n[body:code]              msg = f\"Broadcast failed on ProcessGroup {pg_name} rank {self._cur_rank} with error: {error}. ...\"\n[body:code]              self._logger.error(msg)\n[body] Combined with an out-of-band recovery harness that watches for the collective error pattern in head-pod logs, kills the driver, and restarts pods from the latest checkpoint. With this in place the failure surfaces in <10 min instead of 3 hours, and iter-boundary crashes recover automatically. We still lose the in-flight iter's rollout work.\n[body]   - `Broadcast failed on ProcessGroup ... Connection closed by peer`\n[body]   - `ValueError: Unsupported object type: <random integer>`\n[body]   - `_pickle.UnpicklingError: invalid load key, '\\x00'.`\n[body] Runtime overrides (Hydra CLI overrides applied at launch \u2014 these reshape the `cluster` block for our heterogeneous 9-node topology):\n[body:code] [ERROR 10:03:07 Actor-Rank-0][multi_channel_pg.py:429] Broadcast failed on ProcessGroup cg-Actor:0-ActorGroup:7gloo_send_0 rank 0 with error: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:544] Connection closed by peer [<head-pod-IP>]:<port>. Args - tensor: tensor([[[False]... \u2014 repeats for ~2.5 seconds across ProcessGroups 4, 5, 6, 7, each carrying a different tensor payload.\n[body:code] (EmbodiedFSDPActor pid=22636) Exception in thread Thread-6 (_run_queue):\n[body:code] Traceback (most recent call last):\n[body:code]     raise ValueError(f\"Unsupported object type: {object_type}\")\n[body:code] ValueError: Unsupported object type: 1163947680\n[body:code] (EmbodiedFSDPActor pid=22638) Exception in thread Thread-6 (_run_queue):\n[body:code] Traceback (most recent call last):\n[body:code] _pickle.UnpicklingError: invalid load key, '\\x00'.\n[body:code] (EmbodiedFSDPActor pid=22638) [ERROR 10:03:04 ActorGroup-Rank-7][multi_channel_pg.py:429] Broadcast failed on ProcessGroup cg-Actor:0-ActorGroup:7gloo_send_0 rank 1 with error: Application timeout caused pair closure.\n[body] Full head pod log (~1.7 MB) with the entire failure cascade + preceding hours of context is available on request.\n[body] python -V: Python 3.11 (via Isaac Sim's bundled interpreter at /isaac-sim/kit/python/bin/python3)\n[body] RLinf version: commit 649e7579775997ade74efff33a7c23e90c61e60a (from https://github.com/RLinf/RLinf, checked out to FSx-mounted /mnt/fsx/third_party/RLinf)\n[body] Megatron version: not used (running FSDP training backend, not Megatron)\n[body] - **Run A** (started 2026-06-18 22:47 UTC): hung at iter 3\u21924 gather. Failure log at 2026-06-19 10:02:38 UTC. Detected 3 hours later when Gloo's default watchdog fired.\n[body] - **Run B** (started 2026-06-19 20:34 UTC, resumed from `global_step_2`): hung at iter 3\u21924 gather. Failure log at 2026-06-20 03:44:31 UTC. Detected in 30 min after we lowered `GLOO_TIMEOUT_SECONDS`.\n[body] Same logical failure point across independent runs, different starting states, different pod IPs. Suggests the trigger is structural (something about the end-of-iter collective sequence) rather than a transient network blip.\n[body] - Full head pod log (~1.7 MB) for Run B including the failure cascade and 6 hours of preceding context\n[body] - Full RayCluster CR YAML at moment of failure\n[body] - [x] Have you checked relevant issues, FAQs (https://rlinf.readthedocs.io/en/latest/rst_source/resources/faq.html), or asked the chatbot at the top right corner of the [documentation page](https://rlinf.readthedocs.io).",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "289e412b8168d7b2ce46d77d29e2c16f451cf82af8ae9badb95991595eb2ffe8",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [
+            "descriptive_solution_word",
+            "failed_workaround",
+            "python_reproducer",
+            "stack_trace"
+          ],
+          "title": "[Bug]: Collective channel silently desyncs after Gloo broadcast failure - _broadcast catches and logs without re-raising, receiver reads uninitialized memory"
+        },
+        "sanitized_text": "[body] `MultiChannelProcessGroup._broadcast` catches Gloo broadcast failures and logs them without re-raising. Callers (`send`, `recv` in the same file, and `CollectiveGroup._atomic_recv` / `_recv_tensor_list` in `collective_group.py`) don't check the return value, so on the receive side the caller's `torch.empty(...)` tensor is returned still holding uninitialized memory. Any subsequent operation on the channel is out of sync with the sender.\n[body] - `ValueError: Unsupported object type: <random 32-bit integer>` (uninitialized bytes reinterpreted as an object-type enum), or\n[body] - `_pickle.UnpicklingError: invalid load key, '\\x00'.` (uninitialized bytes reinterpreted as a pickle stream).\n[body] The exception is thrown in a worker thread (`_run_queue`), so the driver process stays alive and the job deadlocks silently until Gloo's per-pair TCP watchdog fires \u2014 3 hours by default.\n[body:code]     except Exception as error:\n[body:code]         msg = (f\"Broadcast failed on ProcessGroup {pg_name} rank \"\n[body:code]                f\"{self._cur_rank} with error: {error}. ...\")\n[body:code]         self._logger.error(msg)\n[body] Both [`MultiChannelProcessGroup.send`](https://github.com/RLinf/RLinf/blob/649e7579775997ade74efff33a7c23e90c61e60a/rlinf/scheduler/collective/multi_channel_pg.py#L314) and [`MultiChannelProcessGroup.recv`](https://github.com/RLinf/RLinf/blob/649e7579775997ade74efff33a7c23e90c61e60a/rlinf/scheduler/collective/multi_channel_pg.py#L348) call `_broadcast` for the actual transport. Neither checks the return value on the sync path.\n[body:code]     raise ValueError(f\"Unsupported object type: {object_type}\")\n[body] If either `_recv` silently failed, the follow-up read consumes whatever was in the uninitialized `torch.empty(...)` buffer.\n[body] We ruled out the obvious infra-level alternatives at the moment of each failure:\n[body] 2. **No Kubernetes pod events** at the failure time (`kubectl describe pod` Events: `<none>`).\n[body] 4. **No errors on the sender side.** We grepped every rollout worker's logs for ERROR/Traceback in the 4 hours preceding the failure \u2014 clean. Senders completed their broadcasts; only the receiver-side Gloo pair reported \"Connection closed by peer.\"\n[body] 7. **The catch-and-log pattern in `_broadcast` is explicit in the source.** The downstream code reads the tensor as if it had been filled, so a silent broadcast failure will always corrupt the channel.\n[body] 2. **Return a validity-tagged result.** Have `_broadcast` return a tagged result (success/failure) and update `_atomic_recv` / `_recv_tensor_list` to check it before reading the tensor. More invasive but avoids changing exception semantics for any consumer relying on the swallow-and-log behavior.\n[body] so the failure surface is a clear error rather than a downstream `UnpicklingError`.\n[body:code]          except Exception as error:\n[body:code]              msg = f\"Broadcast failed on ProcessGroup {pg_name} rank {self._cur_rank} with error: {error}. ...\"\n[body:code]              self._logger.error(msg)\n[body] Combined with an out-of-band recovery harness that watches for the collective error pattern in head-pod logs, kills the driver, and restarts pods from the latest checkpoint. With this in place the failure surfaces in <10 min instead of 3 hours, and iter-boundary crashes recover automatically. We still lose the in-flight iter's rollout work.\n[body]   - `Broadcast failed on ProcessGroup ... Connection closed by peer`\n[body]   - `ValueError: Unsupported object type: <random integer>`\n[body]   - `_pickle.UnpicklingError: invalid load key, '\\x00'.`\n[body] Runtime overrides (Hydra CLI overrides applied at launch \u2014 these reshape the `cluster` block for our heterogeneous 9-node topology):\n[body:code] [ERROR 10:03:07 Actor-Rank-0][multi_channel_pg.py:429] Broadcast failed on ProcessGroup cg-Actor:0-ActorGroup:7gloo_send_0 rank 0 with error: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:544] Connection closed by peer [<head-pod-IP>]:<port>. Args - tensor: tensor([[[False]... \u2014 repeats for ~2.5 seconds across ProcessGroups 4, 5, 6, 7, each carrying a different tensor payload.\n[body:code] (EmbodiedFSDPActor pid=22636) Exception in thread Thread-6 (_run_queue):\n[body:code] Traceback (most recent call last):\n[body:code]     raise ValueError(f\"Unsupported object type: {object_type}\")\n[body:code] ValueError: Unsupported object type: 1163947680\n[body:code] (EmbodiedFSDPActor pid=22638) Exception in thread Thread-6 (_run_queue):\n[body:code] Traceback (most recent call last):\n[body:code] _pickle.UnpicklingError: invalid load key, '\\x00'.\n[body:code] (EmbodiedFSDPActor pid=22638) [ERROR 10:03:04 ActorGroup-Rank-7][multi_channel_pg.py:429] Broadcast failed on ProcessGroup cg-Actor:0-ActorGroup:7gloo_send_0 rank 1 with error: Application timeout caused pair closure.\n[body] Full head pod log (~1.7 MB) with the entire failure cascade + preceding hours of context is available on request.\n[body] python -V: Python 3.11 (via Isaac Sim's bundled interpreter at /isaac-sim/kit/python/bin/python3)\n[body] RLinf version: commit 649e7579775997ade74efff33a7c23e90c61e60a (from https://github.com/RLinf/RLinf, checked out to FSx-mounted /mnt/fsx/third_party/RLinf)\n[body] Megatron version: not used (running FSDP training backend, not Megatron)\n[body] - **Run A** (started 2026-06-18 22:47 UTC): hung at iter 3\u21924 gather. Failure log at 2026-06-19 10:02:38 UTC. Detected 3 hours later when Gloo's default watchdog fired.\n[body] - **Run B** (started 2026-06-19 20:34 UTC, resumed from `global_step_2`): hung at iter 3\u21924 gather. Failure log at 2026-06-20 03:44:31 UTC. Detected in 30 min after we lowered `GLOO_TIMEOUT_SECONDS`.\n[body] Same logical failure point across independent runs, different starting states, different pod IPs. Suggests the trigger is structural (something about the end-of-iter collective sequence) rather than a transient network blip.\n[body] - Full head pod log (~1.7 MB) for Run B including the failure cascade and 6 hours of preceding context\n[body] - Full RayCluster CR YAML at moment of failure\n[body] - [x] Have you checked relevant issues, FAQs (https://rlinf.readthedocs.io/en/latest/rst_source/resources/faq.html), or asked the chatbot at the top right corner of the [documentation page](https://rlinf.readthedocs.io).",
+        "status": "PASS",
+        "title": "[Bug]: Collective channel silently desyncs after Gloo broadcast failure - _broadcast catches and logs without re-raising, receiver reads uninitialized memory",
+        "updated_at": "2026-07-13T18:08:06Z"
+      },
+      "issue_url": "https://github.com/RLinf/RLinf/issues/1378",
+      "pool_position": 18,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/RLinf/RLinf",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T18:08:06Z",
+        "candidate_sha": "ed71c6868e29772c15d001511865ef5831e469ca",
+        "default_branch": "main",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 1037741738,
+        "repo_full_name": "RLinf/RLinf",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "[Bug]: Collective channel silently desyncs after Gloo broadcast failure - _broadcast catches and logs without re-raising, receiver reads uninitialized memory"
+    },
+    {
+      "candidate_id": "wave1d_mila-iqia_cluv_130",
+      "candidate_sha": "89bf82ecb25b106318050b1ff60d07c979a2a39d",
+      "issue_created_at": "2026-07-13T17:59:23Z",
+      "issue_snapshot": {
+        "blocker": null,
+        "contamination": {
+          "broad_words_alone_hard_reject": false,
+          "classification": "CLEAN",
+          "excluded_text_hashes": [],
+          "hard_contamination_hits": [],
+          "python_code_fence_alone_hard_reject": false,
+          "soft_risk_hits": []
+        },
+        "created_at": "2026-07-13T17:59:23Z",
+        "issue_id": 4876281532,
+        "issue_number": 130,
+        "issue_url": "https://github.com/mila-iqia/cluv/issues/130",
+        "raw_body_sha256": "b1ba7cc9c84dc88b6a8eba35bc77859d95d2a703ff3a0e7a95854045a2e88ddf",
+        "raw_comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_text_committed": false,
+        "sanitized_snapshot": {
+          "body_sha256": "b1ba7cc9c84dc88b6a8eba35bc77859d95d2a703ff3a0e7a95854045a2e88ddf",
+          "classification": "CLEAN",
+          "comments_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "comments_snapshot_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "excluded_text_hashes": [],
+          "failure_description": "[body] <!-- A clear and concise description of what the bug is. If there is an error traceback, please paste it here. -->",
+          "hard_contamination_hits": [],
+          "independent_contamination_verifier": "PASS",
+          "issue_snapshot_hash": "3b0dcdade7a0aaa18e0cdd7e4b865d6d4fd5e674b3dea1e9a30183d9f6a551b4",
+          "raw_issue_body_isolated": true,
+          "repair_instructions_excluded": true,
+          "sanitized_fields": [
+            "title",
+            "failure_description"
+          ],
+          "soft_risk_hits": [],
+          "title": "[BUG]: cluv projects share the same `results_path` with the default config"
+        },
+        "sanitized_text": "[body] <!-- A clear and concise description of what the bug is. If there is an error traceback, please paste it here. -->",
+        "status": "PASS",
+        "title": "[BUG]: cluv projects share the same `results_path` with the default config",
+        "updated_at": "2026-07-13T17:59:23Z"
+      },
+      "issue_url": "https://github.com/mila-iqia/cluv/issues/130",
+      "pool_position": 19,
+      "pool_source": "fixed_query_public_incident",
+      "repo_url": "https://github.com/mila-iqia/cluv",
+      "source_selection": {
+        "candidate_commit_cutoff": "2026-07-13T17:59:23Z",
+        "candidate_sha": "89bf82ecb25b106318050b1ff60d07c979a2a39d",
+        "default_branch": "master",
+        "outcome_used_for_selection": false,
+        "repo_api_id": 1155864322,
+        "repo_full_name": "mila-iqia/cluv",
+        "selection_method": "default_branch_latest_commit_at_or_before_issue_created_at",
+        "status": "PASS"
+      },
+      "title": "[BUG]: cluv projects share the same `results_path` with the default config"
+    }
+  ],
+  "one_issue_per_repository": true,
+  "order": "desc",
+  "pages": [
+    1
+  ],
+  "query": "is:issue is:open language:Python (\"tests/\" OR \"test_\") traceback created:>=2025-01-01",
+  "query_result_hash": "be7ebf03994efe9b7ad0a98f0643b3fcbf850aaa1a41c2436bad76f5a4d2a392",
+  "query_result_ids": [
+    4876734262,
+    4876724732,
+    4876712508,
+    4876706285,
+    4876703398,
+    4876682516,
+    4876627588,
+    4876617472,
+    4876568544,
+    4876400622,
+    4876399487,
+    4876398443,
+    4876342922,
+    4876281532,
+    4876279360,
+    4876272414,
+    4876188412,
+    4876187994,
+    4876178718,
+    4876172728,
+    4876170383,
+    4876073513,
+    4876066255,
+    4876062548,
+    4876046736,
+    4875978041,
+    4875942983,
+    4875921930,
+    4875898663,
+    4875864184,
+    4875847454,
+    4875790485,
+    4875744460,
+    4875688721,
+    4875673524,
+    4875670709,
+    4875663012,
+    4875661004,
+    4875656803,
+    4875602547
+  ],
+  "sort": "created",
+  "status": "PASS"
+}

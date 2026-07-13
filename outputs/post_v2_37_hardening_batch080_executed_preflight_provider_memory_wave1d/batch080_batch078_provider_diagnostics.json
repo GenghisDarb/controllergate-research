@@ -1,0 +1,438 @@
+{
+  "records": [
+    {
+      "artifacts": [
+        {
+          "filename": "flask-1.1.2-py2.py3-none-any.whl",
+          "sha256": "3a7f8214a082fbec0f1caa0d751d8b174a22abdcc561ad19cea7fa497c4eaccf"
+        }
+      ],
+      "build": {
+        "argv": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-m",
+          "pip",
+          "wheel",
+          "--disable-pip-version-check",
+          "--no-deps",
+          "--wheel-dir",
+          "C:\\Dev\\ControllerGate_Runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_pallets_flask_1_1_2_runtime_probe\\provider-bytes",
+          "."
+        ],
+        "returncode": 0,
+        "stderr": "  DEPRECATION: Building 'Flask' using the legacy setup.py bdist_wheel mechanism, which will be removed in a future version. pip 25.3 will enforce this behaviour change. A possible replacement is to use the standardized build interface by setting the `--use-pep517` option, (possibly combined with `--no-build-isolation`), or adding a `pyproject.toml` file to the source tree of 'Flask'. Discussion can be found at https://github.com/pypa/pip/issues/6334\n",
+        "stderr_sha256": "29e9d182b01c4f7a17c06f26391fe970a883932614f34a4ab58ab1c9b7ef3c54",
+        "stdout": "Processing c:\\dev\\controllergate_runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_pallets_flask_1_1_2_runtime_probe\\build-copy\n  Preparing metadata (setup.py): started\n  Preparing metadata (setup.py): finished with status 'done'\nBuilding wheels for collected packages: Flask\n  Building wheel for Flask (setup.py): started\n  Building wheel for Flask (setup.py): finished with status 'done'\n  Created wheel for Flask: filename=flask-1.1.2-py2.py3-none-any.whl size=95286 sha256=3a7f8214a082fbec0f1caa0d751d8b174a22abdcc561ad19cea7fa497c4eaccf\n  Stored in directory: c:\\users\\thisb\\appdata\\local\\pip\\cache\\wheels\\45\\14\\cd\\0f5ec70f92e1662dd8be98f60e6e8e2abf83f5d90c8ccd123f\nSuccessfully built Flask\n",
+        "stdout_sha256": "feb3976c4335613acd927c3a7f406482dde0db6c31811399f30cb15d46f4c989",
+        "timed_out": false
+      },
+      "candidate_id": "prospective_pallets_flask_1_1_2_runtime_probe",
+      "dry_lock": {
+        "build_backend": "legacy_setuptools",
+        "build_roots": [
+          {
+            "kind": "build",
+            "path": "setup.cfg",
+            "sha256": "ebbb1ca82ab5313cd304a7f0ffab2470c164d08cab3376b5d5e1fb9c78fcf83d"
+          },
+          {
+            "kind": "build",
+            "path": "setup.py",
+            "sha256": "622e9df7ab5267dc591025e60862add193cb6c1c30970f4ccb971e91e3d986ba"
+          }
+        ],
+        "dependency_roots": [
+          {
+            "kind": "build",
+            "path": "setup.cfg",
+            "sha256": "ebbb1ca82ab5313cd304a7f0ffab2470c164d08cab3376b5d5e1fb9c78fcf83d"
+          },
+          {
+            "kind": "build",
+            "path": "setup.py",
+            "sha256": "622e9df7ab5267dc591025e60862add193cb6c1c30970f4ccb971e91e3d986ba"
+          },
+          {
+            "kind": "dependency",
+            "path": "tox.ini",
+            "sha256": "9ef03b801b9ba58c98f6b03450d86a030b01b7d5f3674aa8a55dd98d55a50528"
+          }
+        ],
+        "exact_blocker_known_before_capsule": false,
+        "executed_provider_lock_mutable": false,
+        "platform_identity": {
+          "architecture": "amd64",
+          "identity_hash": "329adf7184fa1fd66ed76f3da0bfcd0e93dea68b170c8e166b4e323b615ac7e4",
+          "operating_system": "windows",
+          "outcome_used_for_selection": false,
+          "python_abi": "cp313",
+          "python_implementation": "cpython",
+          "python_version": "3.13.14",
+          "requested_arch": null,
+          "requested_os": null,
+          "status": "PASS"
+        },
+        "provider_bytes_acquired": false,
+        "provider_dry_lock_hash": "7ddf6c4bb9ce61444172aa7d86247908380deb8c8c5d4a82eeaa97b86f0b3bb1",
+        "provider_lock_version": 3,
+        "runtime_identity": {
+          "eligible_runtimes": [
+            "3.8",
+            "3.9",
+            "3.10",
+            "3.11",
+            "3.12",
+            "3.13"
+          ],
+          "excluded_runtimes": [],
+          "fallback_policy": "newest eligible declared runtime; commit date is weak fallback only",
+          "outcome_used_for_selection": false,
+          "runtime_selection_hash": "8719b7160d7f781b6318f3018fa9f4af5d7eaa4f95a56a6742dc57664b7f357c",
+          "selected_before_test_execution": true,
+          "selected_image": {
+            "image": "python:3.9-slim",
+            "image_digest_policy": "resolve_and_freeze_before_execution",
+            "registry_record_hash": "83b4da687c411f1d489daa2646a71c564ccbacc5e02cb81ac9ad1d891465860d",
+            "version": "3.9"
+          },
+          "selected_runtime": "3.9",
+          "selection_evidence": {
+            "requires_python": ">=3.6"
+          },
+          "selection_source": "declared_versions",
+          "status": "PASS"
+        },
+        "status": "PASS"
+      },
+      "executed_lock_mutated": false,
+      "provider_bytes_retained": false
+    },
+    {
+      "artifacts": [
+        {
+          "filename": "httpx-0.18.0-py3-none-any.whl",
+          "sha256": "eb6b14aaad4b2cf5782efa3c2402509d24821a02a3da7438418dfac7c9b3e31b"
+        }
+      ],
+      "build": {
+        "argv": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-m",
+          "pip",
+          "wheel",
+          "--disable-pip-version-check",
+          "--no-deps",
+          "--wheel-dir",
+          "C:\\Dev\\ControllerGate_Runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_encode_httpx_0_18_0_runtime_probe\\provider-bytes",
+          "."
+        ],
+        "returncode": 0,
+        "stderr": "  DEPRECATION: Building 'httpx' using the legacy setup.py bdist_wheel mechanism, which will be removed in a future version. pip 25.3 will enforce this behaviour change. A possible replacement is to use the standardized build interface by setting the `--use-pep517` option, (possibly combined with `--no-build-isolation`), or adding a `pyproject.toml` file to the source tree of 'httpx'. Discussion can be found at https://github.com/pypa/pip/issues/6334\n",
+        "stderr_sha256": "f4575b50f922f04c27da1d37da953e08fd4495b6b33843473443217da59be9cf",
+        "stdout": "Processing c:\\dev\\controllergate_runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_encode_httpx_0_18_0_runtime_probe\\build-copy\n  Preparing metadata (setup.py): started\n  Preparing metadata (setup.py): finished with status 'done'\nBuilding wheels for collected packages: httpx\n  Building wheel for httpx (setup.py): started\n  Building wheel for httpx (setup.py): finished with status 'done'\n  Created wheel for httpx: filename=httpx-0.18.0-py3-none-any.whl size=76226 sha256=eb6b14aaad4b2cf5782efa3c2402509d24821a02a3da7438418dfac7c9b3e31b\n  Stored in directory: c:\\users\\thisb\\appdata\\local\\pip\\cache\\wheels\\14\\0d\\f1\\43adf11118b791ccdf4d7ec14e8a8e8cea08c41f4e30467aed\nSuccessfully built httpx\n",
+        "stdout_sha256": "d0784ea941805baa98f16699c16b679c9460562fa35a95eba992aa215f9512be",
+        "timed_out": false
+      },
+      "candidate_id": "prospective_encode_httpx_0_18_0_runtime_probe",
+      "dry_lock": {
+        "build_backend": "legacy_setuptools",
+        "build_roots": [
+          {
+            "kind": "build",
+            "path": "setup.cfg",
+            "sha256": "dd2cc4c26c1fd080ce2ab17d711d752e24c043a819726155f48bfdbb89e51d9a"
+          },
+          {
+            "kind": "build",
+            "path": "setup.py",
+            "sha256": "dcb99f42a1f1a3d63b1067ce960a41ac4be2839c4409562efd6e4d02640c42f0"
+          }
+        ],
+        "dependency_roots": [
+          {
+            "kind": "build",
+            "path": "setup.cfg",
+            "sha256": "dd2cc4c26c1fd080ce2ab17d711d752e24c043a819726155f48bfdbb89e51d9a"
+          },
+          {
+            "kind": "build",
+            "path": "setup.py",
+            "sha256": "dcb99f42a1f1a3d63b1067ce960a41ac4be2839c4409562efd6e4d02640c42f0"
+          },
+          {
+            "kind": "dependency",
+            "path": "requirements.txt",
+            "sha256": "80815ec8d6dda2c3563eabb7dfa799c88399fd3672b74c2be0d2d51ccbb67e65"
+          }
+        ],
+        "exact_blocker_known_before_capsule": false,
+        "executed_provider_lock_mutable": false,
+        "platform_identity": {
+          "architecture": "amd64",
+          "identity_hash": "329adf7184fa1fd66ed76f3da0bfcd0e93dea68b170c8e166b4e323b615ac7e4",
+          "operating_system": "windows",
+          "outcome_used_for_selection": false,
+          "python_abi": "cp313",
+          "python_implementation": "cpython",
+          "python_version": "3.13.14",
+          "requested_arch": null,
+          "requested_os": null,
+          "status": "PASS"
+        },
+        "provider_bytes_acquired": false,
+        "provider_dry_lock_hash": "3f3a6609947905383c35a0e0fad9dbe0424f8f12fa2ad4b77fcc63df06fd7a27",
+        "provider_lock_version": 3,
+        "runtime_identity": {
+          "eligible_runtimes": [
+            "3.8",
+            "3.9",
+            "3.10",
+            "3.11",
+            "3.12",
+            "3.13"
+          ],
+          "excluded_runtimes": [],
+          "fallback_policy": "newest eligible declared runtime; commit date is weak fallback only",
+          "outcome_used_for_selection": false,
+          "runtime_selection_hash": "8719b7160d7f781b6318f3018fa9f4af5d7eaa4f95a56a6742dc57664b7f357c",
+          "selected_before_test_execution": true,
+          "selected_image": {
+            "image": "python:3.9-slim",
+            "image_digest_policy": "resolve_and_freeze_before_execution",
+            "registry_record_hash": "83b4da687c411f1d489daa2646a71c564ccbacc5e02cb81ac9ad1d891465860d",
+            "version": "3.9"
+          },
+          "selected_runtime": "3.9",
+          "selection_evidence": {
+            "requires_python": ">=3.6"
+          },
+          "selection_source": "declared_versions",
+          "status": "PASS"
+        },
+        "status": "PASS"
+      },
+      "executed_lock_mutated": false,
+      "provider_bytes_retained": false
+    },
+    {
+      "artifacts": [
+        {
+          "filename": "attrs-21.2.0-py2.py3-none-any.whl",
+          "sha256": "3bf85734813a0be2ec0c1dbea129b01255d02d56dc36302d48810dcec348c75d"
+        }
+      ],
+      "build": {
+        "argv": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-m",
+          "pip",
+          "wheel",
+          "--disable-pip-version-check",
+          "--no-deps",
+          "--wheel-dir",
+          "C:\\Dev\\ControllerGate_Runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_python_attrs_21_2_0_runtime_probe\\provider-bytes",
+          "."
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "Processing c:\\dev\\controllergate_runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_python_attrs_21_2_0_runtime_probe\\build-copy\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'done'\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: attrs\n  Building wheel for attrs (pyproject.toml): started\n  Building wheel for attrs (pyproject.toml): finished with status 'done'\n  Created wheel for attrs: filename=attrs-21.2.0-py2.py3-none-any.whl size=54338 sha256=3bf85734813a0be2ec0c1dbea129b01255d02d56dc36302d48810dcec348c75d\n  Stored in directory: c:\\users\\thisb\\appdata\\local\\pip\\cache\\wheels\\45\\49\\74\\1e05024988b230240490dfea3630dac58cd77bffe446421734\nSuccessfully built attrs\n",
+        "stdout_sha256": "43d86a571d775ef6bbe762867df8954346df430747c07cfcbdf45c7b4409928d",
+        "timed_out": false
+      },
+      "candidate_id": "prospective_python_attrs_21_2_0_runtime_probe",
+      "dry_lock": {
+        "build_backend": "setuptools.build_meta",
+        "build_roots": [
+          {
+            "kind": "build",
+            "path": "pyproject.toml",
+            "sha256": "896aeb0b77801a8933e244307a2f022986710becf00ddfefaa986ddaaabff830"
+          },
+          {
+            "kind": "build",
+            "path": "setup.py",
+            "sha256": "13f8e020e43e4d510aec7d271456b178230058a312e8a53133e56ab7b8227228"
+          }
+        ],
+        "dependency_roots": [
+          {
+            "kind": "build",
+            "path": "pyproject.toml",
+            "sha256": "896aeb0b77801a8933e244307a2f022986710becf00ddfefaa986ddaaabff830"
+          },
+          {
+            "kind": "build",
+            "path": "setup.py",
+            "sha256": "13f8e020e43e4d510aec7d271456b178230058a312e8a53133e56ab7b8227228"
+          },
+          {
+            "kind": "dependency",
+            "path": "tox.ini",
+            "sha256": "23712460ace1f8e346b465be4c47b01e6425ea7c9678fb339d236b7ade29982f"
+          }
+        ],
+        "exact_blocker_known_before_capsule": false,
+        "executed_provider_lock_mutable": false,
+        "platform_identity": {
+          "architecture": "amd64",
+          "identity_hash": "329adf7184fa1fd66ed76f3da0bfcd0e93dea68b170c8e166b4e323b615ac7e4",
+          "operating_system": "windows",
+          "outcome_used_for_selection": false,
+          "python_abi": "cp313",
+          "python_implementation": "cpython",
+          "python_version": "3.13.14",
+          "requested_arch": null,
+          "requested_os": null,
+          "status": "PASS"
+        },
+        "provider_bytes_acquired": false,
+        "provider_dry_lock_hash": "619bddbc46c29d7279389fe10072d3a7af80b8a148c18e7f295624a6a3467822",
+        "provider_lock_version": 3,
+        "runtime_identity": {
+          "eligible_runtimes": [
+            "3.8",
+            "3.9",
+            "3.10",
+            "3.11",
+            "3.12",
+            "3.13"
+          ],
+          "excluded_runtimes": [],
+          "fallback_policy": "newest eligible declared runtime; commit date is weak fallback only",
+          "outcome_used_for_selection": false,
+          "runtime_selection_hash": "8719b7160d7f781b6318f3018fa9f4af5d7eaa4f95a56a6742dc57664b7f357c",
+          "selected_before_test_execution": true,
+          "selected_image": {
+            "image": "python:3.9-slim",
+            "image_digest_policy": "resolve_and_freeze_before_execution",
+            "registry_record_hash": "83b4da687c411f1d489daa2646a71c564ccbacc5e02cb81ac9ad1d891465860d",
+            "version": "3.9"
+          },
+          "selected_runtime": "3.9",
+          "selection_evidence": {
+            "requires_python": ">=3.6"
+          },
+          "selection_source": "declared_versions",
+          "status": "PASS"
+        },
+        "status": "PASS"
+      },
+      "executed_lock_mutated": false,
+      "provider_bytes_retained": false
+    },
+    {
+      "artifacts": [],
+      "build": {
+        "argv": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-m",
+          "pip",
+          "wheel",
+          "--disable-pip-version-check",
+          "--no-deps",
+          "--wheel-dir",
+          "C:\\Dev\\ControllerGate_Runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_tox_dev_tox_3_20_1_runtime_probe\\provider-bytes",
+          "."
+        ],
+        "returncode": 1,
+        "stderr": "  error: subprocess-exited-with-error\n  \n  Getting requirements to build wheel did not run successfully.\n  exit code: 1\n  \n  [89 lines of output]\n  C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\dist.py:599: SetuptoolsDeprecationWarning: Invalid dash-separated key 'maintainer-email' in 'metadata' (setup.cfg), please use the underscore name 'maintainer_email' instead.\n  !!\n  \n          ********************************************************************************\n          Usage of dash-separated 'maintainer-email' will not be supported in future\n          versions. Please use the underscore name 'maintainer_email' instead.\n  \n  \n          Available configuration options are listed in:\n          https://setuptools.pypa.io/en/latest/userguide/declarative_config.html\n  \n          This deprecation is overdue, please update your project and remove deprecated\n          calls to avoid build errors in the future.\n  \n          See https://github.com/pypa/setuptools/discussions/5011 for details.\n          ********************************************************************************\n  \n  !!\n    opt = self._enforce_underscore(opt, section)\n  C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.\n  !!\n  \n          ********************************************************************************\n          Please consider removing the following classifiers in favor of a SPDX license expression:\n  \n          License :: OSI Approved :: MIT License\n  \n          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n          ********************************************************************************\n  \n  !!\n    self._finalize_license_expression()\n  Traceback (most recent call last):\n    File \"C:\\Users\\thisb\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python313\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py\", line 389, in <module>\n      main()\n      ~~~~^^\n    File \"C:\\Users\\thisb\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python313\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py\", line 373, in main\n      json_out[\"return_val\"] = hook(**hook_input[\"kwargs\"])\n                               ~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n    File \"C:\\Users\\thisb\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python313\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py\", line 143, in get_requires_for_build_wheel\n      return hook(config_settings)\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py\", line 333, in get_requires_for_build_wheel\n      return self._get_build_requires(config_settings, requirements=[])\n             ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py\", line 301, in _get_build_requires\n      self.run_setup()\n      ~~~~~~~~~~~~~~^^\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py\", line 317, in run_setup\n      exec(code, locals())\n      ~~~~^^^^^^^^^^^^^^^^\n    File \"<string>\", line 6, in <module>\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\__init__.py\", line 117, in setup\n      return distutils.core.setup(**attrs)  # type: ignore[return-value]\n             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\_distutils\\core.py\", line 148, in setup\n      _setup_distribution = dist = klass(attrs)\n                                   ~~~~~^^^^^^^\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\dist.py\", line 321, in __init__\n      _Distribution.__init__(self, dist_attrs)\n      ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\_distutils\\dist.py\", line 308, in __init__\n      self.finalize_options()\n      ~~~~~~~~~~~~~~~~~~~~~^^\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\dist.py\", line 789, in finalize_options\n      for ep in sorted(loaded, key=by_order):\n                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools\\dist.py\", line 788, in <lambda>\n      loaded = map(lambda e: e.load(), filtered)\n                             ~~~~~~^^\n    File \"C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\importlib\\metadata\\__init__.py\", line 179, in load\n      module = import_module(match.group('module'))\n    File \"C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\importlib\\__init__.py\", line 88, in import_module\n      return _bootstrap._gcd_import(name[level:], package, level)\n             ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    File \"<frozen importlib._bootstrap>\", line 1395, in _gcd_import\n    File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n    File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n    File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n    File \"<frozen importlib._bootstrap>\", line 1395, in _gcd_import\n    File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n    File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n    File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n    File \"<frozen importlib._bootstrap_external>\", line 1023, in exec_module\n    File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools_scm\\__init__.py\", line 15, in <module>\n      from .version import format_version, meta\n    File \"C:\\Users\\thisb\\AppData\\Local\\Temp\\pip-build-env-_ffem4re\\overlay\\Lib\\site-packages\\setuptools_scm\\version.py\", line 10, in <module>\n      from pkg_resources import iter_entry_points\n  ModuleNotFoundError: No module named 'pkg_resources'\n  [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: subprocess-exited-with-error\n\nGetting requirements to build wheel did not run successfully.\nexit code: 1\n\nSee above for output.\n\nnote: This error originates from a subprocess, and is likely not a problem with pip.\n",
+        "stderr_sha256": "a21516a2f5438280b88563d0b506de05d3e7fdff2ad52f97a1144c6107a8120d",
+        "stdout": "Processing c:\\dev\\controllergate_runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_tox_dev_tox_3_20_1_runtime_probe\\build-copy\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'error'\n",
+        "stdout_sha256": "a8526fcc1da8c3b72b2b8f15dae88d2aa8a57310e38ecccf4d14232e52a4162a",
+        "timed_out": false
+      },
+      "candidate_id": "prospective_tox_dev_tox_3_20_1_runtime_probe",
+      "dry_lock": {
+        "build_backend": "setuptools.build_meta",
+        "build_roots": [
+          {
+            "kind": "build",
+            "path": "pyproject.toml",
+            "sha256": "18fe22828906f94fe726d0d9a581a191b28378e6343b9e9755b132232bd35fe5"
+          },
+          {
+            "kind": "build",
+            "path": "setup.cfg",
+            "sha256": "92e3f8f769e9f1597835da07d3e3a32fd31ae0f3116bef0a7b9c9991d24b7115"
+          },
+          {
+            "kind": "build",
+            "path": "setup.py",
+            "sha256": "06d6e8756ba39bc66d43781e0139048e306e126b046665c28ba7d83514f3fbfd"
+          }
+        ],
+        "dependency_roots": [
+          {
+            "kind": "build",
+            "path": "pyproject.toml",
+            "sha256": "18fe22828906f94fe726d0d9a581a191b28378e6343b9e9755b132232bd35fe5"
+          },
+          {
+            "kind": "build",
+            "path": "setup.cfg",
+            "sha256": "92e3f8f769e9f1597835da07d3e3a32fd31ae0f3116bef0a7b9c9991d24b7115"
+          },
+          {
+            "kind": "build",
+            "path": "setup.py",
+            "sha256": "06d6e8756ba39bc66d43781e0139048e306e126b046665c28ba7d83514f3fbfd"
+          },
+          {
+            "kind": "dependency",
+            "path": "tox.ini",
+            "sha256": "f75cdaf4cfa4964673f3c5c697d4f80f1422f3bc03643faeddb76e8df3b23de1"
+          }
+        ],
+        "exact_blocker_known_before_capsule": false,
+        "executed_provider_lock_mutable": false,
+        "platform_identity": {
+          "architecture": "amd64",
+          "identity_hash": "329adf7184fa1fd66ed76f3da0bfcd0e93dea68b170c8e166b4e323b615ac7e4",
+          "operating_system": "windows",
+          "outcome_used_for_selection": false,
+          "python_abi": "cp313",
+          "python_implementation": "cpython",
+          "python_version": "3.13.14",
+          "requested_arch": null,
+          "requested_os": null,
+          "status": "PASS"
+        },
+        "provider_bytes_acquired": false,
+        "provider_dry_lock_hash": "1011ab3c7d0cba5e6d06d3619bf03ad9284dc2528448c09969854987557a4d7c",
+        "provider_lock_version": 3,
+        "runtime_identity": {
+          "eligible_runtimes": [
+            "3.8",
+            "3.9",
+            "3.10",
+            "3.11",
+            "3.12",
+            "3.13"
+          ],
+          "excluded_runtimes": [],
+          "fallback_policy": "newest eligible declared runtime; commit date is weak fallback only",
+          "outcome_used_for_selection": false,
+          "runtime_selection_hash": "8719b7160d7f781b6318f3018fa9f4af5d7eaa4f95a56a6742dc57664b7f357c",
+          "selected_before_test_execution": true,
+          "selected_image": {
+            "image": "python:3.9-slim",
+            "image_digest_policy": "resolve_and_freeze_before_execution",
+            "registry_record_hash": "83b4da687c411f1d489daa2646a71c564ccbacc5e02cb81ac9ad1d891465860d",
+            "version": "3.9"
+          },
+          "selected_runtime": "3.9",
+          "selection_evidence": {
+            "requires_python": ">=3.6"
+          },
+          "selection_source": "declared_versions",
+          "status": "PASS"
+        },
+        "status": "PASS"
+      },
+      "executed_lock_mutated": false,
+      "provider_bytes_retained": false
+    }
+  ],
+  "status": "PASS"
+}

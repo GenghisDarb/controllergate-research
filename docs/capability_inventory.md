@@ -2,6 +2,19 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
+## Batch080 executed preflight and provider-capsule boundary
+
+- Official Batch079 custody: exact outer identity, path safety, duplicate safety, forbidden-payload checks, the artifact manifest, and all seven internal manifests pass.
+- Evidence-depth reconciliation: Batch079's registered incident leads are no longer described as executed admission failures; historical recovery, HordeForge, and memory results retain their actual evidence depth.
+- Executed static preflight v2: 20 frozen public leads receive real source-object, runtime/platform, target, command, provider-plan, collection, contamination, and terminal records.
+- Separate reproducer lanes: native targets and issue-derived reproducers retain distinct evidence classes; the unsanitized pytest-asyncio issue 1501 is rejected for solution contamination.
+- Provider capsule v3: identities bind platform, runtime, ABI, source, build backend, and dependency roots; provider bytes remain outside Git and the main evidence artifact.
+- Historical diagnostics: Flask, HTTPX, attrs, and tox retain stage-specific bounded logs; HordeForge cannot close without target-start and target-completion proof.
+- Routing-memory calibration v3: real repository identities, leave-one-independence-group-out exclusions, executed control rankings, a persisted shuffled corpus, macro/micro/per-class metrics, bootstrap uncertainty, and a permutation result are recorded.
+- Prospective Wave 1D: one lead reaches static-preflight terminal pass, below the frozen minimum frame of two; target execution and every downstream experimental or repair stage remain unrun.
+- Public onboarding: the local manifest demo shows blocking, bounded authorization, validation, rollback, and proof output without credentials or network access.
+- Claim boundary: the current protocol remains v2.19, issue-derived repairs remain 6, native external repairs remain 4, AMDS effectiveness is not established, and memory lift is not demonstrated.
+
 ## Batch079 verifier, runtime admission, and shadow metrology
 
 - Unified-diff semantic verifier v2: parses declared file headers and complete hunk headers; rejects malformed, binary, rename, multi-file, test, route, script, CSS, schema, and extra-change controls.

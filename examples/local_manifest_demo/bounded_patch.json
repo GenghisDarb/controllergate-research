@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "path": "demo_app.py",
+      "replace": "return value.strip().lower().replace(\" \", \"_\")",
+      "with": "return value.strip().lower().replace(\" \", \"-\")"
+    }
+  ],
+  "patch_id": "bounded-source-only-normalization"
+}

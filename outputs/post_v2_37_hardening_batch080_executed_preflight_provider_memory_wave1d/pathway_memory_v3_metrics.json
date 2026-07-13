@@ -1,0 +1,209 @@
+{
+  "analytical_uniform_expectation_used_as_executed_control": false,
+  "chance_intervals": {
+    "bootstrap_real_minus_no_memory_95pct": [
+      -0.09696969696969697,
+      0.5454545454545454
+    ]
+  },
+  "class_prevalence": {
+    "harness_owned": 0.09090909090909091,
+    "insufficient_evidence": 0.36363636363636365,
+    "source_owned_behavior_defect": 0.5454545454545454
+  },
+  "harmful_ranking_rate": 0.09090909090909091,
+  "methods": {
+    "frequency_only": {
+      "macro_mrr": 0.3764880952380952,
+      "macro_top1": 0.3333333333333333,
+      "macro_top3": 0.3333333333333333,
+      "micro_mrr": 0.5925324675324676,
+      "micro_top1": 0.5454545454545454,
+      "micro_top3": 0.5454545454545454,
+      "per_class": {
+        "harness_owned": {
+          "count": 1,
+          "mrr": 0.0,
+          "top1": 0.0,
+          "top3": 0.0,
+          "unretrieved_rate": 1.0
+        },
+        "insufficient_evidence": {
+          "count": 4,
+          "mrr": 0.1294642857142857,
+          "top1": 0.0,
+          "top3": 0.0,
+          "unretrieved_rate": 0.0
+        },
+        "source_owned_behavior_defect": {
+          "count": 6,
+          "mrr": 1.0,
+          "top1": 1.0,
+          "top3": 1.0,
+          "unretrieved_rate": 0.0
+        }
+      }
+    },
+    "no_memory": {
+      "macro_mrr": 0.39999999999999997,
+      "macro_top1": 0.3333333333333333,
+      "macro_top3": 0.3333333333333333,
+      "micro_mrr": 0.6181818181818182,
+      "micro_top1": 0.5454545454545454,
+      "micro_top3": 0.5454545454545454,
+      "per_class": {
+        "harness_owned": {
+          "count": 1,
+          "mrr": 0.0,
+          "top1": 0.0,
+          "top3": 0.0,
+          "unretrieved_rate": 1.0
+        },
+        "insufficient_evidence": {
+          "count": 4,
+          "mrr": 0.2,
+          "top1": 0.0,
+          "top3": 0.0,
+          "unretrieved_rate": 0.0
+        },
+        "source_owned_behavior_defect": {
+          "count": 6,
+          "mrr": 1.0,
+          "top1": 1.0,
+          "top3": 1.0,
+          "unretrieved_rate": 0.0
+        }
+      }
+    },
+    "real_memory": {
+      "macro_mrr": 0.6296296296296297,
+      "macro_top1": 0.6111111111111112,
+      "macro_top3": 0.6666666666666666,
+      "micro_mrr": 0.8484848484848485,
+      "micro_top1": 0.8181818181818182,
+      "micro_top3": 0.9090909090909091,
+      "per_class": {
+        "harness_owned": {
+          "count": 1,
+          "mrr": 0.0,
+          "top1": 0.0,
+          "top3": 0.0,
+          "unretrieved_rate": 1.0
+        },
+        "insufficient_evidence": {
+          "count": 4,
+          "mrr": 1.0,
+          "top1": 1.0,
+          "top3": 1.0,
+          "unretrieved_rate": 0.0
+        },
+        "source_owned_behavior_defect": {
+          "count": 6,
+          "mrr": 0.8888888888888888,
+          "top1": 0.8333333333333334,
+          "top3": 1.0,
+          "unretrieved_rate": 0.0
+        }
+      }
+    },
+    "seeded_random": {
+      "macro_mrr": 0.287962962962963,
+      "macro_top1": 0.1111111111111111,
+      "macro_top3": 0.3333333333333333,
+      "micro_mrr": 0.4303030303030303,
+      "micro_top1": 0.18181818181818182,
+      "micro_top3": 0.5454545454545454,
+      "per_class": {
+        "harness_owned": {
+          "count": 1,
+          "mrr": 0.0,
+          "top1": 0.0,
+          "top3": 0.0,
+          "unretrieved_rate": 1.0
+        },
+        "insufficient_evidence": {
+          "count": 4,
+          "mrr": 0.225,
+          "top1": 0.0,
+          "top3": 0.0,
+          "unretrieved_rate": 0.0
+        },
+        "source_owned_behavior_defect": {
+          "count": 6,
+          "mrr": 0.638888888888889,
+          "top1": 0.3333333333333333,
+          "top3": 1.0,
+          "unretrieved_rate": 0.0
+        }
+      }
+    },
+    "shuffled_memory": {
+      "macro_mrr": 0.32222222222222224,
+      "macro_top1": 0.05555555555555555,
+      "macro_top3": 0.47222222222222215,
+      "micro_mrr": 0.40833333333333327,
+      "micro_top1": 0.09090909090909091,
+      "micro_top3": 0.6363636363636364,
+      "per_class": {
+        "harness_owned": {
+          "count": 1,
+          "mrr": 0.125,
+          "top1": 0.0,
+          "top3": 0.0,
+          "unretrieved_rate": 0.0
+        },
+        "insufficient_evidence": {
+          "count": 4,
+          "mrr": 0.3416666666666667,
+          "top1": 0.0,
+          "top3": 0.75,
+          "unretrieved_rate": 0.0
+        },
+        "source_owned_behavior_defect": {
+          "count": 6,
+          "mrr": 0.5,
+          "top1": 0.16666666666666666,
+          "top3": 0.6666666666666666,
+          "unretrieved_rate": 0.0
+        }
+      }
+    },
+    "uniform_random": {
+      "macro_mrr": 0.3534722222222222,
+      "macro_top1": 0.2222222222222222,
+      "macro_top3": 0.36111111111111116,
+      "micro_mrr": 0.5295454545454545,
+      "micro_top1": 0.36363636363636365,
+      "micro_top3": 0.5454545454545454,
+      "per_class": {
+        "harness_owned": {
+          "count": 1,
+          "mrr": 0.0,
+          "top1": 0.0,
+          "top3": 0.0,
+          "unretrieved_rate": 1.0
+        },
+        "insufficient_evidence": {
+          "count": 4,
+          "mrr": 0.26875,
+          "top1": 0.0,
+          "top3": 0.25,
+          "unretrieved_rate": 0.0
+        },
+        "source_owned_behavior_defect": {
+          "count": 6,
+          "mrr": 0.7916666666666666,
+          "top1": 0.6666666666666666,
+          "top3": 0.8333333333333334,
+          "unretrieved_rate": 0.0
+        }
+      }
+    }
+  },
+  "permutation_test": {
+    "observed_real_minus_no_memory_mrr": 0.23030303030303034,
+    "two_sided_p": 0.059940059940059943
+  },
+  "status": "PASS",
+  "unretrieved_class_rate": 0.09090909090909091
+}

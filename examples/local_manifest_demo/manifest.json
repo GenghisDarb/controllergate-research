@@ -1,0 +1,16 @@
+{
+  "allowed_source_paths": [
+    "demo_app.py"
+  ],
+  "forbidden_path_prefixes": [
+    "tests/",
+    ".github/",
+    "configs/"
+  ],
+  "required_validation": {
+    "function": "normalize_project_name",
+    "input": "My Demo Project",
+    "expected": "my-demo-project"
+  },
+  "schema_version": "controllergate.local_manifest_demo.v1"
+}

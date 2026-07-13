@@ -1,0 +1,214 @@
+{
+  "marshmallow_2985": "DESIGN_OR_BEHAVIOR_QUESTION_UNLESS_PINNED_POLICY_PROVES_DEFECT",
+  "poetry_10974": "ISSUE_DERIVED_REPRODUCER_LANE_PREFLIGHT_ELIGIBLE",
+  "pytest_asyncio_1501": "SOLUTION_CONTAMINATED_UNSANITIZED_NOT_ADMITTED",
+  "records": [
+    {
+      "candidate_id": "incident_httpie_cli_1898",
+      "contamination": {
+        "broad_words_alone_hard_reject": false,
+        "classification": "SOFT_RISK",
+        "excluded_text_hashes": [],
+        "hard_contamination_hits": [],
+        "python_code_fence_alone_hard_reject": false,
+        "soft_risk_hits": [
+          "python_reproducer"
+        ],
+        "status": "CLEAN"
+      },
+      "native_target": "BLOCK",
+      "terminal": {
+        "admitted_to_execution_frame": false,
+        "candidate_id": "incident_httpie_cli_1898",
+        "execution_frame_frozen": false,
+        "stage_statuses": {
+          "collection": "NOT_RUN",
+          "command": "NOT_RUN",
+          "contamination": "CLEAN",
+          "issue_snapshot": "PASS",
+          "provider_dry_lock": "PASS",
+          "runtime": "PASS",
+          "source": "PASS",
+          "target": "BLOCK"
+        },
+        "status": "PREFLIGHT_BLOCK",
+        "target_execution_count": 0,
+        "terminal_blocker": "source_verified_native_target_unresolved",
+        "terminal_hash": "4806468c447f8808fbf6897fa97d3b62147328bcecab4953b6e0c1b2ff4e23ad"
+      }
+    },
+    {
+      "candidate_id": "incident_marshmallow_2985",
+      "contamination": {
+        "broad_words_alone_hard_reject": false,
+        "classification": "CLEAN",
+        "excluded_text_hashes": [],
+        "hard_contamination_hits": [],
+        "python_code_fence_alone_hard_reject": false,
+        "soft_risk_hits": [],
+        "status": "CLEAN"
+      },
+      "native_target": "BLOCK",
+      "terminal": {
+        "admitted_to_execution_frame": false,
+        "candidate_id": "incident_marshmallow_2985",
+        "execution_frame_frozen": false,
+        "stage_statuses": {
+          "collection": "NOT_RUN",
+          "command": "NOT_RUN",
+          "contamination": "CLEAN",
+          "issue_snapshot": "PASS",
+          "provider_dry_lock": "PASS",
+          "runtime": "PASS",
+          "source": "PASS",
+          "target": "BLOCK"
+        },
+        "status": "PREFLIGHT_BLOCK",
+        "target_execution_count": 0,
+        "terminal_blocker": "source_verified_native_target_unresolved",
+        "terminal_hash": "30aac7fdec4a6b40cccee2ba03c8c18266b4637172cbc677a8f8c1384b7c1cdc"
+      }
+    },
+    {
+      "candidate_id": "incident_poetry_10974",
+      "contamination": {
+        "broad_words_alone_hard_reject": false,
+        "classification": "SOFT_RISK",
+        "excluded_text_hashes": [],
+        "hard_contamination_hits": [],
+        "python_code_fence_alone_hard_reject": false,
+        "soft_risk_hits": [
+          "failed_workaround"
+        ],
+        "status": "CLEAN"
+      },
+      "native_target": "BLOCK",
+      "terminal": {
+        "admitted_to_execution_frame": false,
+        "candidate_id": "incident_poetry_10974",
+        "execution_frame_frozen": false,
+        "stage_statuses": {
+          "collection": "NOT_RUN",
+          "command": "NOT_RUN",
+          "contamination": "CLEAN",
+          "issue_snapshot": "PASS",
+          "provider_dry_lock": "PASS",
+          "runtime": "PASS",
+          "source": "PASS",
+          "target": "BLOCK"
+        },
+        "status": "PREFLIGHT_BLOCK",
+        "target_execution_count": 0,
+        "terminal_blocker": "source_verified_native_target_unresolved",
+        "terminal_hash": "97526435e95892bcc52ea56ff35ae4b9e75fc4468d9050c345961ccfb0b14b6f"
+      }
+    },
+    {
+      "candidate_id": "incident_pluggy_681",
+      "contamination": {
+        "broad_words_alone_hard_reject": false,
+        "classification": "SOFT_RISK",
+        "excluded_text_hashes": [],
+        "hard_contamination_hits": [],
+        "python_code_fence_alone_hard_reject": false,
+        "soft_risk_hits": [
+          "descriptive_solution_word",
+          "python_reproducer"
+        ],
+        "status": "CLEAN"
+      },
+      "native_target": "PASS",
+      "terminal": {
+        "admitted_to_execution_frame": true,
+        "candidate_id": "incident_pluggy_681",
+        "execution_frame_frozen": false,
+        "stage_statuses": {
+          "collection": "PASS",
+          "command": "PASS",
+          "contamination": "CLEAN",
+          "issue_snapshot": "PASS",
+          "provider_dry_lock": "PASS",
+          "runtime": "PASS",
+          "source": "PASS",
+          "target": "PASS"
+        },
+        "status": "PREFLIGHT_PASS",
+        "target_execution_count": 0,
+        "terminal_blocker": null,
+        "terminal_hash": "281f600969409190149189318491bd7ee642abce832254d1d6c8ef6c66d44327"
+      }
+    },
+    {
+      "candidate_id": "incident_ruff_26768",
+      "contamination": {
+        "broad_words_alone_hard_reject": false,
+        "classification": "SOFT_RISK",
+        "excluded_text_hashes": [],
+        "hard_contamination_hits": [],
+        "python_code_fence_alone_hard_reject": false,
+        "soft_risk_hits": [
+          "python_reproducer"
+        ],
+        "status": "CLEAN"
+      },
+      "native_target": "BLOCK",
+      "terminal": {
+        "admitted_to_execution_frame": false,
+        "candidate_id": "incident_ruff_26768",
+        "execution_frame_frozen": false,
+        "stage_statuses": {
+          "collection": "NOT_RUN",
+          "command": "NOT_RUN",
+          "contamination": "CLEAN",
+          "issue_snapshot": "PASS",
+          "provider_dry_lock": "PASS",
+          "runtime": "PASS",
+          "source": "PASS",
+          "target": "BLOCK"
+        },
+        "status": "PREFLIGHT_BLOCK",
+        "target_execution_count": 0,
+        "terminal_blocker": "source_verified_native_target_unresolved",
+        "terminal_hash": "22353777128162234ce60ca4c13fb550a01f5f00d91e5fc353a17c18e20165b1"
+      }
+    },
+    {
+      "candidate_id": "incident_pytest_asyncio_1501",
+      "contamination": {
+        "blocker": "solution_contamination_detected",
+        "broad_words_alone_hard_reject": false,
+        "classification": "HARD_REJECT",
+        "excluded_text_hashes": [],
+        "hard_contamination_hits": [
+          "explicit_suggested_repair_direction"
+        ],
+        "python_code_fence_alone_hard_reject": false,
+        "soft_risk_hits": [
+          "python_reproducer"
+        ],
+        "status": "BLOCK"
+      },
+      "native_target": "PASS",
+      "terminal": {
+        "admitted_to_execution_frame": false,
+        "candidate_id": "incident_pytest_asyncio_1501",
+        "execution_frame_frozen": false,
+        "stage_statuses": {
+          "collection": "BLOCK",
+          "command": "PASS",
+          "contamination": "BLOCK",
+          "issue_snapshot": "PASS",
+          "provider_dry_lock": "PASS",
+          "runtime": "PASS",
+          "source": "PASS",
+          "target": "PASS"
+        },
+        "status": "PREFLIGHT_BLOCK",
+        "target_execution_count": 0,
+        "terminal_blocker": "static_collection_not_established",
+        "terminal_hash": "b106b56103230cf91f675a862e3c34357e2623c75499d0426fdf4afe8a631236"
+      }
+    }
+  ],
+  "status": "PASS"
+}

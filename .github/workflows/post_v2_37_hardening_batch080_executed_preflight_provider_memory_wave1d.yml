@@ -1,0 +1,158 @@
+name: post_v2_37_hardening_batch080_executed_preflight_provider_memory_wave1d
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  batch080:
+    name: Batch080 executed preflight, provider capsules, and prospective Wave 1D
+    runs-on: ubuntu-latest
+    timeout-minutes: 480
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: .
+      CONTROLLERGATE_RUNTIME_ROOT: /tmp/controllergate-batch080-runtime
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+      - name: Verify workflow head and checkpoint ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git merge-base --is-ancestor fec6362da239f6d24d1a481d7af1be7c1bad82c8 HEAD
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install ControllerGate test dependencies
+        run: python -m pip install pytest packaging
+      - name: Run byte custody preflight
+        run: python scripts/byte_custody_preflight.py
+      - name: Verify committed Batch079 official ingest boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_batch079_count6_runtime_incident_memory_wave1c.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("outputs/post_v2_37_hardening_batch080_executed_preflight_provider_memory_wave1d/batch079_artifact_ingest.json")
+          value = json.loads(path.read_text(encoding="utf-8"))
+          assert value["status"] == "PASS"
+          assert value["observed_size_bytes"] == 998670
+          assert value["observed_sha256"] == "f6a883915e31e91dceb601e5728d338f9b072cfc10acf75cb1e6223ae2c7a4ff"
+          assert value["file_count"] == 383
+          PY
+      - name: Execute frozen Batch080 preflight and diagnostic lane
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$CONTROLLERGATE_RUNTIME_ROOT"
+          python -B scripts/generate_batch080_executed_preflight_provider_memory_wave1d.py --execute-external
+      - name: Run focused Batch080 tests
+        run: >-
+          python -m pytest
+          tests/core/test_batch080_preflight_provider_infrastructure.py
+          tests/core/test_batch080_reproducer_and_memory_contracts.py
+          tests/core/test_batch080_generated_evidence.py
+          tests/core/test_batch080_public_quickstart.py -q
+      - name: Run complete core and runtime suites
+        run: python -m pytest tests/core tests/runtime -q
+      - name: Run Batch080 audit
+        run: python scripts/audit_batch080_executed_preflight_provider_memory_wave1d.py
+      - name: Run registry and registered regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/run_controllergate_regression_audits.py --registry configs/controllergate_regression_audit_registry.json
+      - name: Run preservation and protocol audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_batch079_count6_runtime_incident_memory_wave1c.py
+          python scripts/audit_batch078_count6_minimal_closure_memory_wave1b.py
+          python scripts/audit_batch077_typed_event_pathway_memory_v2.py
+          python scripts/audit_batch076_amds_causal_memory_calibration.py
+          python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
+          python scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py
+          python scripts/audit_batch073_count5_revalidation_frozen_wave1.py
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/controllergate_frontier.py validate
+          python scripts/audit_public_language.py
+          python scripts/audit_public_frontier_sync.py
+      - name: Run credential-free quick-start demonstration
+        run: python scripts/run_local_controllergate_demo.py --output "$RUNNER_TEMP/controllergate-local-demo-proof.json"
+      - name: Report Batch080 workflow result
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          out = Path("outputs/post_v2_37_hardening_batch080_executed_preflight_provider_memory_wave1d")
+          for name in (
+              "batch080_preflight_funnel.json",
+              "batch080_execution_frame_freeze.json",
+              "batch080_batch078_recovery_decision.json",
+              "batch080_hordeforge_execution_decision.json",
+              "pathway_memory_v3_decision.json",
+              "batch080_final_decision.json",
+          ):
+              print(f"::group::{name}")
+              print(json.dumps(json.loads((out / name).read_text(encoding="utf-8")), sort_keys=True))
+              print("::endgroup::")
+          PY
+      - name: Verify compact evidence and byte custody
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find outputs/post_v2_37_hardening_batch080_executed_preflight_provider_memory_wave1d -type f | wc -l)" -le 100
+          python scripts/byte_custody_preflight.py
+          git diff --check
+      - name: Stage compact artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/stage_controllergate_artifact.py \
+            --destination "$RUNNER_TEMP/controllergate_artifact" \
+            --source "outputs/post_v2_37_hardening_batch080_executed_preflight_provider_memory_wave1d" \
+            --source "outputs/post_v2_37_hardening_batch079_count6_runtime_incident_memory_wave1c" \
+            --source "outputs/post_v2_37_hardening_batch078_count6_minimal_closure_memory_wave1b" \
+            --source "outputs/post_v2_37_hardening_batch077_typed_event_pathway_memory_v2" \
+            --source "outputs/post_v2_37_hardening_batch076_amds_causal_memory_calibration" \
+            --source "outputs/post_v2_37_hardening_batch075_provider_harness_amds_memory_wave1a" \
+            --source "outputs/post_v2_37_hardening_batch074_sterile_high_yield_amds_memory_wave1" \
+            --source "outputs/post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1" \
+            --source "outputs/current" \
+            --source "outputs/frontier" \
+            --source "README.md" \
+            --source "docs/QUICKSTART.md" \
+            --source "docs/CAPABILITY_AND_CLAIM_MATRIX.md" \
+            --source "docs/current_status.md" \
+            --source "docs/CURRENT_FRONTIER_STATUS.md" \
+            --source "docs/capability_inventory.md" \
+            --source "docs/memory_lift_definition.md" \
+            --source "docs/technical_validation_gap_report.md" \
+            --source "docs/public_release_readiness.md" \
+            --source "docs/replication_protocol.md" \
+            --source "examples/local_manifest_demo" \
+            --source "scripts/run_local_controllergate_demo.py" \
+            --source "controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md" \
+            --source "configs/controllergate_current.yaml"
+          if find "$RUNNER_TEMP/controllergate_artifact" -type f \( -name '*.pyc' -o -name '*.pyo' -o -name '*.whl' -o -name '*.zip' -o -name '*.tar' -o -name '*.tgz' \) | grep -q .; then exit 1; fi
+          if find "$RUNNER_TEMP/controllergate_artifact" -type d \( -name '__pycache__' -o -name '.venv' -o -name 'venv' \) | grep -q .; then exit 1; fi
+          test -f "$RUNNER_TEMP/controllergate_artifact/ARTIFACT_SHA256SUMS.txt"
+      - name: Upload Batch080 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch080_executed_preflight_provider_memory_wave1d_artifacts
+          path: ${{ runner.temp }}/controllergate_artifact/**
+          if-no-files-found: error

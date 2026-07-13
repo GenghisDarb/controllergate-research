@@ -1,0 +1,1702 @@
+{
+  "records": [
+    {
+      "candidate_id": "prospective_pallets_flask_1_1_2_runtime_probe",
+      "collection": {
+        "blocker": "static_collection_not_established",
+        "collection_hash": "31634df10fa3e71891c124ca4352840f08fbef7d135cbfd47d7ae36a97e263d3",
+        "collection_only": true,
+        "command": "python -m pytest tests/test_basic.py::test_provide_automatic_options_attr --collect-only -q",
+        "file_collection_pass": false,
+        "network": "none",
+        "node_collection_pass": false,
+        "nodes": [],
+        "returncode": 4,
+        "status": "BLOCK",
+        "stderr": "ImportError while loading conftest 'C:\\Dev\\ControllerGate_Runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_pallets_flask_1_1_2_runtime_probe\\source\\tests\\conftest.py'.\ntests\\conftest.py:17: in <module>\n    import flask\nE   ModuleNotFoundError: No module named 'flask'\n",
+        "stderr_sha256": "48f0db19ef334e1de5e90b7ed88ac0fe0c1cab07e1fac60014e8cf1a4ad84270",
+        "stdout": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "target_executed": false,
+        "timed_out": false
+      },
+      "command": {
+        "candidates": [
+          {
+            "argv": [
+              "pip",
+              "install",
+              "-q",
+              "-e",
+              "examples/tutorial[test]"
+            ],
+            "condition": null,
+            "environment": "default",
+            "raw": "pip install -q -e examples/tutorial[test]",
+            "role": "environment_setup",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "pip",
+              "install",
+              "-q",
+              "-e",
+              "examples/javascript[test]"
+            ],
+            "condition": null,
+            "environment": "default",
+            "raw": "pip install -q -e examples/javascript[test]",
+            "role": "environment_setup",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "run",
+              "-p",
+              "-m",
+              "pytest",
+              "--tb=short",
+              "-Werror",
+              "{posargs:tests",
+              "examples}"
+            ],
+            "condition": null,
+            "environment": "default",
+            "raw": "coverage run -p -m pytest --tb=short -Werror {posargs:tests examples}",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "run",
+              "-p",
+              "-m",
+              "pytest",
+              "--tb=short",
+              "-Werror",
+              "--junitxml=test-results.xml",
+              "tests"
+            ],
+            "condition": null,
+            "environment": "nightly",
+            "raw": "coverage run -p -m pytest --tb=short -Werror --junitxml=test-results.xml tests",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "pre-commit",
+              "run",
+              "--all-files",
+              "--show-diff-on-failure"
+            ],
+            "condition": null,
+            "environment": "style",
+            "raw": "pre-commit run --all-files --show-diff-on-failure",
+            "role": "formatter_mutating",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "sphinx-build",
+              "-W",
+              "-b",
+              "html",
+              "-d",
+              "{envtmpdir}/doctrees",
+              "docs",
+              "{envtmpdir}/html"
+            ],
+            "condition": null,
+            "environment": "docs",
+            "raw": "sphinx-build -W -b html -d {envtmpdir}/doctrees docs {envtmpdir}/html",
+            "role": "documentation",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "combine"
+            ],
+            "condition": null,
+            "environment": "coverage",
+            "raw": "coverage combine",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "html"
+            ],
+            "condition": null,
+            "environment": "coverage",
+            "raw": "coverage html",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "report"
+            ],
+            "condition": null,
+            "environment": "coverage",
+            "raw": "coverage report",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "combine"
+            ],
+            "condition": null,
+            "environment": "coverage-ci",
+            "raw": "coverage combine",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "xml"
+            ],
+            "condition": null,
+            "environment": "coverage-ci",
+            "raw": "coverage xml",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "report"
+            ],
+            "condition": null,
+            "environment": "coverage-ci",
+            "raw": "coverage report",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "environment": "project_native_pytest",
+            "raw": "python -m pytest",
+            "role": "test_runner",
+            "source": "setup.cfg+tox.ini",
+            "working_directory": "."
+          }
+        ],
+        "command_authority": "project_local_metadata",
+        "eligible_candidates": [
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "authority_score": 116,
+            "canonical": {
+              "inner": [
+                "pytest",
+                "tests/test_basic.py::test_provide_automatic_options_attr"
+              ],
+              "semantic_family": [
+                "pytest",
+                "tests/test_basic.py::test_provide_automatic_options_attr"
+              ],
+              "wrapper": []
+            },
+            "declared_base_command": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "environment": "project_native_pytest",
+            "exact_target": "tests/test_basic.py::test_provide_automatic_options_attr",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "python -m pytest",
+            "role": "test_runner",
+            "source": "setup.cfg+tox.ini",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "0b1c134363a259793406a7ea9c3e01c3ae0d7ac75310b7bfbcc80cf04bb2eb4e",
+            "transformed_command": [
+              "python",
+              "-m",
+              "pytest",
+              "tests/test_basic.py::test_provide_automatic_options_attr"
+            ],
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "run",
+              "-p",
+              "-m",
+              "pytest",
+              "--tb=short",
+              "-Werror",
+              "--junitxml=test-results.xml",
+              "tests"
+            ],
+            "authority_score": 111,
+            "canonical": {
+              "inner": [
+                "coverage",
+                "run",
+                "-p",
+                "-m",
+                "pytest",
+                "--tb=short",
+                "-Werror",
+                "--junitxml=test-results.xml",
+                "tests/test_basic.py::test_provide_automatic_options_attr"
+              ],
+              "semantic_family": [
+                "coverage",
+                "run",
+                "-p",
+                "-m",
+                "pytest",
+                "--tb=short",
+                "-Werror",
+                "--junitxml=test-results.xml",
+                "tests/test_basic.py::test_provide_automatic_options_attr"
+              ],
+              "wrapper": []
+            },
+            "condition": null,
+            "declared_base_command": [
+              "coverage",
+              "run",
+              "-p",
+              "-m",
+              "pytest",
+              "--tb=short",
+              "-Werror",
+              "--junitxml=test-results.xml",
+              "tests"
+            ],
+            "environment": "nightly",
+            "exact_target": "tests/test_basic.py::test_provide_automatic_options_attr",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "coverage run -p -m pytest --tb=short -Werror --junitxml=test-results.xml tests",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "5e6e382a2e2c86e2a667146491428c59b5185a1b9b1320ac587fdfbf36c7e0a4",
+            "transformed_command": [
+              "coverage",
+              "run",
+              "-p",
+              "-m",
+              "pytest",
+              "--tb=short",
+              "-Werror",
+              "--junitxml=test-results.xml",
+              "tests/test_basic.py::test_provide_automatic_options_attr"
+            ],
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "run",
+              "-p",
+              "-m",
+              "pytest",
+              "--tb=short",
+              "-Werror",
+              "{posargs:tests",
+              "examples}"
+            ],
+            "authority_score": 110,
+            "canonical": {
+              "inner": [
+                "coverage",
+                "run",
+                "-p",
+                "-m",
+                "pytest",
+                "--tb=short",
+                "-Werror",
+                "{posargs:tests",
+                "examples}",
+                "tests/test_basic.py::test_provide_automatic_options_attr"
+              ],
+              "semantic_family": [
+                "coverage",
+                "run",
+                "-p",
+                "-m",
+                "pytest",
+                "--tb=short",
+                "-Werror",
+                "{posargs:tests",
+                "examples}",
+                "tests/test_basic.py::test_provide_automatic_options_attr"
+              ],
+              "wrapper": []
+            },
+            "condition": null,
+            "declared_base_command": [
+              "coverage",
+              "run",
+              "-p",
+              "-m",
+              "pytest",
+              "--tb=short",
+              "-Werror",
+              "{posargs:tests",
+              "examples}"
+            ],
+            "environment": "default",
+            "exact_target": "tests/test_basic.py::test_provide_automatic_options_attr",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "coverage run -p -m pytest --tb=short -Werror {posargs:tests examples}",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "01226f52fb66222500602426880bb0043adc899f21908442785eef0e84c1ab17",
+            "transformed_command": [
+              "coverage",
+              "run",
+              "-p",
+              "-m",
+              "pytest",
+              "--tb=short",
+              "-Werror",
+              "{posargs:tests",
+              "examples}",
+              "tests/test_basic.py::test_provide_automatic_options_attr"
+            ],
+            "working_directory": "."
+          }
+        ],
+        "false_conflicts_eliminated": 10,
+        "manual_review_policy_satisfied": true,
+        "native_target_command_dominates_broad_wrappers": true,
+        "project_metadata_inspected": [
+          "tox.ini",
+          "setup.cfg",
+          "setup.py"
+        ],
+        "resolution_hash": "e4869c68b3d5af2a5c0d3e8984f7e6138b22ff0dd431e7188457957f492c3fb2",
+        "resolver_executed_against_project_metadata": true,
+        "selected": {
+          "argv": [
+            "python",
+            "-m",
+            "pytest"
+          ],
+          "authority_score": 116,
+          "canonical": {
+            "inner": [
+              "pytest",
+              "tests/test_basic.py::test_provide_automatic_options_attr"
+            ],
+            "semantic_family": [
+              "pytest",
+              "tests/test_basic.py::test_provide_automatic_options_attr"
+            ],
+            "wrapper": []
+          },
+          "declared_base_command": [
+            "python",
+            "-m",
+            "pytest"
+          ],
+          "environment": "project_native_pytest",
+          "exact_target": "tests/test_basic.py::test_provide_automatic_options_attr",
+          "forbidden_flags_added": false,
+          "nonmutating": true,
+          "raw": "python -m pytest",
+          "role": "test_runner",
+          "source": "setup.cfg+tox.ini",
+          "target_corroborated": true,
+          "transformation": "bounded_native_target_narrowing",
+          "transformation_hash": "0b1c134363a259793406a7ea9c3e01c3ae0d7ac75310b7bfbcc80cf04bb2eb4e",
+          "transformed_command": [
+            "python",
+            "-m",
+            "pytest",
+            "tests/test_basic.py::test_provide_automatic_options_attr"
+          ],
+          "working_directory": "."
+        },
+        "status": "PASS",
+        "true_conflict_count": 0
+      },
+      "complete_bounded_collection_output": true,
+      "target": {
+        "status": "PASS",
+        "target": "tests/test_basic.py::test_provide_automatic_options_attr",
+        "target_file_present": true,
+        "target_sha256": "f9d22beba32dc4243f21eabdd763bdcd344c38bdcad72cc0a72372d6acfec0dc"
+      }
+    },
+    {
+      "candidate_id": "prospective_encode_httpx_0_18_0_runtime_probe",
+      "collection": {
+        "blocker": "static_collection_not_established",
+        "collection_hash": "77348a8b278e66266239177a9651e608ccb1831c788023285be5813181757425",
+        "collection_only": true,
+        "command": "python -m pytest tests/test_config.py::test_limits_repr --collect-only -q",
+        "file_collection_pass": false,
+        "network": "none",
+        "node_collection_pass": false,
+        "nodes": [],
+        "returncode": 4,
+        "status": "BLOCK",
+        "stderr": "ImportError while loading conftest 'C:\\Dev\\ControllerGate_Runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_encode_httpx_0_18_0_runtime_probe\\source\\tests\\conftest.py'.\ntests\\conftest.py:9: in <module>\n    import trustme\nE   ModuleNotFoundError: No module named 'trustme'\n",
+        "stderr_sha256": "b4f83402d6f709b5d685a1679a73a649b83f0719f4c3eade1d67d0518471f05f",
+        "stdout": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "target_executed": false,
+        "timed_out": false
+      },
+      "command": {
+        "candidates": [
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "environment": "project_native_pytest",
+            "raw": "python -m pytest",
+            "role": "test_runner",
+            "source": "setup.cfg",
+            "working_directory": "."
+          }
+        ],
+        "command_authority": "project_local_metadata",
+        "eligible_candidates": [
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "authority_score": 116,
+            "canonical": {
+              "inner": [
+                "pytest",
+                "tests/test_config.py::test_limits_repr"
+              ],
+              "semantic_family": [
+                "pytest",
+                "tests/test_config.py::test_limits_repr"
+              ],
+              "wrapper": []
+            },
+            "declared_base_command": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "environment": "project_native_pytest",
+            "exact_target": "tests/test_config.py::test_limits_repr",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "python -m pytest",
+            "role": "test_runner",
+            "source": "setup.cfg",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "4c8a8674139371a5ec345023c2c4abc490086259f14a6bb6bd52532d132e2eb0",
+            "transformed_command": [
+              "python",
+              "-m",
+              "pytest",
+              "tests/test_config.py::test_limits_repr"
+            ],
+            "working_directory": "."
+          }
+        ],
+        "false_conflicts_eliminated": 0,
+        "manual_review_policy_satisfied": true,
+        "native_target_command_dominates_broad_wrappers": true,
+        "project_metadata_inspected": [
+          "setup.cfg",
+          "setup.py"
+        ],
+        "resolution_hash": "a8a3d07b04b53a44d660c5c09d8da9b9af7500c7d9e6f5348f8a6fbec1f1ae5f",
+        "resolver_executed_against_project_metadata": true,
+        "selected": {
+          "argv": [
+            "python",
+            "-m",
+            "pytest"
+          ],
+          "authority_score": 116,
+          "canonical": {
+            "inner": [
+              "pytest",
+              "tests/test_config.py::test_limits_repr"
+            ],
+            "semantic_family": [
+              "pytest",
+              "tests/test_config.py::test_limits_repr"
+            ],
+            "wrapper": []
+          },
+          "declared_base_command": [
+            "python",
+            "-m",
+            "pytest"
+          ],
+          "environment": "project_native_pytest",
+          "exact_target": "tests/test_config.py::test_limits_repr",
+          "forbidden_flags_added": false,
+          "nonmutating": true,
+          "raw": "python -m pytest",
+          "role": "test_runner",
+          "source": "setup.cfg",
+          "target_corroborated": true,
+          "transformation": "bounded_native_target_narrowing",
+          "transformation_hash": "4c8a8674139371a5ec345023c2c4abc490086259f14a6bb6bd52532d132e2eb0",
+          "transformed_command": [
+            "python",
+            "-m",
+            "pytest",
+            "tests/test_config.py::test_limits_repr"
+          ],
+          "working_directory": "."
+        },
+        "status": "PASS",
+        "true_conflict_count": 0
+      },
+      "complete_bounded_collection_output": true,
+      "target": {
+        "status": "PASS",
+        "target": "tests/test_config.py::test_limits_repr",
+        "target_file_present": true,
+        "target_sha256": "86443443472a298021a0551bb6277d90087e55d700e57afd4a0bf12424805413"
+      }
+    },
+    {
+      "candidate_id": "prospective_python_attrs_21_2_0_runtime_probe",
+      "collection": {
+        "blocker": "static_collection_not_established",
+        "collection_hash": "b7146be6898e510dcfc0e61a0d9619bf51c5f2406cb296aeba819b19ea0f1906",
+        "collection_only": true,
+        "command": "python -m pytest tests/test_slots.py::test_slots_being_used --collect-only -q",
+        "file_collection_pass": false,
+        "network": "none",
+        "node_collection_pass": false,
+        "nodes": [],
+        "returncode": 4,
+        "status": "BLOCK",
+        "stderr": "ImportError while loading conftest 'C:\\Dev\\ControllerGate_Runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_python_attrs_21_2_0_runtime_probe\\source\\conftest.py'.\nconftest.py:5: in <module>\n    from hypothesis import HealthCheck, settings\nE   ModuleNotFoundError: No module named 'hypothesis'\n",
+        "stderr_sha256": "6f25b3f4bb6647385c01110163691226845f9ab36de8df5a6712ca89f5ff21fd",
+        "stdout": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "target_executed": false,
+        "timed_out": false
+      },
+      "command": {
+        "candidates": [
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "condition": null,
+            "environment": "default",
+            "raw": "python -m pytest {posargs}",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "condition": null,
+            "environment": "py27",
+            "raw": "coverage run -m pytest {posargs}",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "condition": null,
+            "environment": "py37",
+            "raw": "coverage run -m pytest {posargs}",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "condition": null,
+            "environment": "py38",
+            "raw": "coverage run -m pytest {posargs}",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "combine"
+            ],
+            "condition": null,
+            "environment": "coverage-report",
+            "raw": "coverage combine",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "report"
+            ],
+            "condition": null,
+            "environment": "coverage-report",
+            "raw": "coverage report",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "pre-commit",
+              "run",
+              "--all-files"
+            ],
+            "condition": null,
+            "environment": "lint",
+            "raw": "pre-commit run --all-files",
+            "role": "formatter_mutating",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "sphinx-build",
+              "-n",
+              "-T",
+              "-W",
+              "-b",
+              "html",
+              "-d",
+              "{envtmpdir}/doctrees",
+              "docs",
+              "docs/_build/html"
+            ],
+            "condition": null,
+            "environment": "docs",
+            "raw": "sphinx-build -n -T -W -b html -d {envtmpdir}/doctrees docs docs/_build/html",
+            "role": "documentation",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "sphinx-build",
+              "-n",
+              "-T",
+              "-W",
+              "-b",
+              "doctest",
+              "-d",
+              "{envtmpdir}/doctrees",
+              "docs",
+              "docs/_build/html"
+            ],
+            "condition": null,
+            "environment": "docs",
+            "raw": "sphinx-build -n -T -W -b doctest -d {envtmpdir}/doctrees docs docs/_build/html",
+            "role": "documentation",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "-m",
+              "doctest",
+              "README.rst"
+            ],
+            "condition": null,
+            "environment": "docs",
+            "raw": "python -m doctest README.rst",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "check-manifest"
+            ],
+            "condition": null,
+            "environment": "manifest",
+            "raw": "check-manifest",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "pip",
+              "wheel",
+              "-w",
+              "{envtmpdir}/build",
+              "--no-deps",
+              "."
+            ],
+            "condition": null,
+            "environment": "pypi-description",
+            "raw": "pip wheel -w {envtmpdir}/build --no-deps .",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "twine",
+              "check",
+              "{envtmpdir}/build/*"
+            ],
+            "condition": null,
+            "environment": "pypi-description",
+            "raw": "twine check {envtmpdir}/build/*",
+            "role": "packaging",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "towncrier",
+              "--draft"
+            ],
+            "condition": null,
+            "environment": "changelog",
+            "raw": "towncrier --draft",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "mypy",
+              "src/attr/__init__.pyi",
+              "src/attr/_version_info.pyi",
+              "src/attr/converters.pyi",
+              "src/attr/exceptions.pyi",
+              "src/attr/filters.pyi",
+              "src/attr/setters.pyi",
+              "src/attr/validators.pyi"
+            ],
+            "condition": null,
+            "environment": "typing",
+            "raw": "mypy src/attr/__init__.pyi src/attr/_version_info.pyi src/attr/converters.pyi src/attr/exceptions.pyi src/attr/filters.pyi src/attr/setters.pyi src/attr/validators.pyi",
+            "role": "type_checker",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "mypy",
+              "tests/typing_example.py"
+            ],
+            "condition": null,
+            "environment": "typing",
+            "raw": "mypy tests/typing_example.py",
+            "role": "type_checker",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "nodeenv",
+              "--prebuilt",
+              "--node=lts",
+              "--force",
+              "{envdir}"
+            ],
+            "condition": null,
+            "environment": "pyright",
+            "raw": "nodeenv --prebuilt --node=lts --force {envdir}",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "npm",
+              "install",
+              "-g",
+              "--no-package-lock",
+              "--no-save",
+              "pyright"
+            ],
+            "condition": null,
+            "environment": "pyright",
+            "raw": "npm install -g --no-package-lock --no-save pyright",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "pytest",
+              "tests/test_pyright.py",
+              "-vv"
+            ],
+            "condition": null,
+            "environment": "pyright",
+            "raw": "pytest tests/test_pyright.py -vv",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "environment": "project_native_pytest",
+            "raw": "python -m pytest",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "working_directory": "."
+          }
+        ],
+        "command_authority": "project_local_metadata",
+        "eligible_candidates": [
+          {
+            "argv": [
+              "pytest",
+              "tests/test_pyright.py",
+              "-vv"
+            ],
+            "authority_score": 117,
+            "canonical": {
+              "inner": [
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used",
+                "-vv"
+              ],
+              "semantic_family": [
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "wrapper": []
+            },
+            "condition": null,
+            "declared_base_command": [
+              "pytest",
+              "tests/test_pyright.py",
+              "-vv"
+            ],
+            "environment": "pyright",
+            "exact_target": "tests/test_slots.py::test_slots_being_used",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "pytest tests/test_pyright.py -vv",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "fa4cd4188bfb554cf8999fa9c54643e769a2175d4c21d88ababbd912647cec9e",
+            "transformed_command": [
+              "pytest",
+              "tests/test_slots.py::test_slots_being_used",
+              "-vv"
+            ],
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "authority_score": 116,
+            "canonical": {
+              "inner": [
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "semantic_family": [
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "wrapper": []
+            },
+            "condition": null,
+            "declared_base_command": [
+              "python",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "environment": "default",
+            "exact_target": "tests/test_slots.py::test_slots_being_used",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "python -m pytest {posargs}",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "5c2f9f8d7d1ef8bcd8d2b77c5bc4dc547eb9d05769d1920caf83625af3c0afdc",
+            "transformed_command": [
+              "python",
+              "-m",
+              "pytest",
+              "tests/test_slots.py::test_slots_being_used"
+            ],
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "authority_score": 116,
+            "canonical": {
+              "inner": [
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "semantic_family": [
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "wrapper": []
+            },
+            "declared_base_command": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "environment": "project_native_pytest",
+            "exact_target": "tests/test_slots.py::test_slots_being_used",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "python -m pytest",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "4375ae6e7369dc2770e5ab9af234e974574bdf9a7dae93f92de4101610392760",
+            "transformed_command": [
+              "python",
+              "-m",
+              "pytest",
+              "tests/test_slots.py::test_slots_being_used"
+            ],
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "authority_score": 115,
+            "canonical": {
+              "inner": [
+                "coverage",
+                "run",
+                "-m",
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "semantic_family": [
+                "coverage",
+                "run",
+                "-m",
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "wrapper": []
+            },
+            "condition": null,
+            "declared_base_command": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "environment": "py27",
+            "exact_target": "tests/test_slots.py::test_slots_being_used",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "coverage run -m pytest {posargs}",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "9471a4d8e8519b919f317f9b57ad93e424ea791c245333a628fc1a74218de5cf",
+            "transformed_command": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "tests/test_slots.py::test_slots_being_used"
+            ],
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "authority_score": 115,
+            "canonical": {
+              "inner": [
+                "coverage",
+                "run",
+                "-m",
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "semantic_family": [
+                "coverage",
+                "run",
+                "-m",
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "wrapper": []
+            },
+            "condition": null,
+            "declared_base_command": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "environment": "py37",
+            "exact_target": "tests/test_slots.py::test_slots_being_used",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "coverage run -m pytest {posargs}",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "9471a4d8e8519b919f317f9b57ad93e424ea791c245333a628fc1a74218de5cf",
+            "transformed_command": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "tests/test_slots.py::test_slots_being_used"
+            ],
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "authority_score": 115,
+            "canonical": {
+              "inner": [
+                "coverage",
+                "run",
+                "-m",
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "semantic_family": [
+                "coverage",
+                "run",
+                "-m",
+                "pytest",
+                "tests/test_slots.py::test_slots_being_used"
+              ],
+              "wrapper": []
+            },
+            "condition": null,
+            "declared_base_command": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "{posargs}"
+            ],
+            "environment": "py38",
+            "exact_target": "tests/test_slots.py::test_slots_being_used",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "coverage run -m pytest {posargs}",
+            "role": "test_runner",
+            "source": "tox.ini",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "9471a4d8e8519b919f317f9b57ad93e424ea791c245333a628fc1a74218de5cf",
+            "transformed_command": [
+              "coverage",
+              "run",
+              "-m",
+              "pytest",
+              "tests/test_slots.py::test_slots_being_used"
+            ],
+            "working_directory": "."
+          }
+        ],
+        "false_conflicts_eliminated": 14,
+        "manual_review_policy_satisfied": true,
+        "native_target_command_dominates_broad_wrappers": true,
+        "project_metadata_inspected": [
+          "pyproject.toml",
+          "tox.ini",
+          "setup.py"
+        ],
+        "resolution_hash": "d519a82c3f515d2743d2739e24db2e35b40db90b046984d692f451b3e6ea8e2b",
+        "resolver_executed_against_project_metadata": true,
+        "selected": {
+          "argv": [
+            "python",
+            "-m",
+            "pytest"
+          ],
+          "authority_score": 116,
+          "canonical": {
+            "inner": [
+              "pytest",
+              "tests/test_slots.py::test_slots_being_used"
+            ],
+            "semantic_family": [
+              "pytest",
+              "tests/test_slots.py::test_slots_being_used"
+            ],
+            "wrapper": []
+          },
+          "declared_base_command": [
+            "python",
+            "-m",
+            "pytest"
+          ],
+          "environment": "project_native_pytest",
+          "exact_target": "tests/test_slots.py::test_slots_being_used",
+          "forbidden_flags_added": false,
+          "nonmutating": true,
+          "raw": "python -m pytest",
+          "role": "test_runner",
+          "source": "tox.ini",
+          "target_corroborated": true,
+          "transformation": "bounded_native_target_narrowing",
+          "transformation_hash": "4375ae6e7369dc2770e5ab9af234e974574bdf9a7dae93f92de4101610392760",
+          "transformed_command": [
+            "python",
+            "-m",
+            "pytest",
+            "tests/test_slots.py::test_slots_being_used"
+          ],
+          "working_directory": "."
+        },
+        "status": "PASS",
+        "true_conflict_count": 0
+      },
+      "complete_bounded_collection_output": true,
+      "target": {
+        "status": "PASS",
+        "target": "tests/test_slots.py::test_slots_being_used",
+        "target_file_present": true,
+        "target_sha256": "f741ceff424fd57eb6039c899ad5b5c00a2e7549ca6b3c98467729d635dcc6f9"
+      }
+    },
+    {
+      "candidate_id": "prospective_tox_dev_tox_3_20_1_runtime_probe",
+      "collection": {
+        "blocker": "static_collection_not_established",
+        "collection_hash": "be2911d64187f05d01c8ec83d6d02f0831330bd4c581dc488379cfa2047f5270",
+        "collection_only": true,
+        "command": "python -m pytest tests/unit/util/test_graph.py::test_topological_order --collect-only -q",
+        "file_collection_pass": false,
+        "network": "none",
+        "node_collection_pass": false,
+        "nodes": [],
+        "returncode": 4,
+        "status": "BLOCK",
+        "stderr": "ImportError while loading conftest 'C:\\Dev\\ControllerGate_Runtime\\batch080_dz65xhkk\\batch078-forensics\\prospective_tox_dev_tox_3_20_1_runtime_probe\\source\\tests\\conftest.py'.\ntests\\conftest.py:5: in <module>\n    from tox._pytestplugin import *  # noqa\nE   ModuleNotFoundError: No module named 'tox'\n",
+        "stderr_sha256": "5b75668cf60c249355b5eb50a4f486a4caa8a4fe42a4145b9529c49d100ff4af",
+        "stdout": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "target_executed": false,
+        "timed_out": false
+      },
+      "command": {
+        "candidates": [
+          {
+            "argv": [],
+            "condition": null,
+            "environment": "default",
+            "raw": "pytest \\",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [],
+            "condition": null,
+            "environment": "default",
+            "raw": "--cov \"{envsitepackagesdir}/tox\" \\",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [],
+            "condition": null,
+            "environment": "default",
+            "raw": "--cov-config \"{toxinidir}/tox.ini\" \\",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [],
+            "condition": null,
+            "environment": "default",
+            "raw": "--junitxml {toxworkdir}/junit.{envname}.xml \\",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [],
+            "condition": null,
+            "environment": "default",
+            "raw": "-n={env:PYTEST_XDIST_PROC_NR:auto} \\",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "{posargs:.}"
+            ],
+            "condition": null,
+            "environment": "default",
+            "raw": "{posargs:.}",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "sphinx-build",
+              "-d",
+              "{toxworkdir}/docs_doctree",
+              "docs",
+              "{toxworkdir}/docs_out",
+              "--color",
+              "-W",
+              "-bhtml",
+              "{posargs}"
+            ],
+            "condition": null,
+            "environment": "docs",
+            "raw": "sphinx-build -d \"{toxworkdir}/docs_doctree\" docs \"{toxworkdir}/docs_out\" --color -W -bhtml {posargs}",
+            "role": "documentation",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "-c",
+              "import pathlib; print(\"documentation available under file://\\{0\\}\".format(pathlib.Path(r\"{toxworkdir}\") / \"docs_out\" / \"index.html\"))"
+            ],
+            "condition": null,
+            "environment": "docs",
+            "raw": "python -c 'import pathlib; print(\"documentation available under file://\\{0\\}\".format(pathlib.Path(r\"{toxworkdir}\") / \"docs_out\" / \"index.html\"))'",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "pip",
+              "wheel",
+              "-w",
+              "{envtmpdir}/build",
+              "--no-deps",
+              "."
+            ],
+            "condition": null,
+            "environment": "package_description",
+            "raw": "pip wheel -w {envtmpdir}/build --no-deps .",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "twine",
+              "check",
+              "{envtmpdir}/build/*"
+            ],
+            "condition": null,
+            "environment": "package_description",
+            "raw": "twine check {envtmpdir}/build/*",
+            "role": "packaging",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "pre-commit",
+              "run",
+              "--all-files",
+              "--show-diff-on-failure",
+              "{posargs}"
+            ],
+            "condition": null,
+            "environment": "fix_lint",
+            "raw": "pre-commit run --all-files --show-diff-on-failure {posargs}",
+            "role": "formatter_mutating",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "-c",
+              "import pathlib; print(\"hint: run \\{\\} install to add checks as pre-commit hook\".format(pathlib.Path(r\"{envdir}\") / \"bin\" / \"pre-commit\"))"
+            ],
+            "condition": null,
+            "environment": "fix_lint",
+            "raw": "python -c 'import pathlib; print(\"hint: run \\{\\} install to add checks as pre-commit hook\".format(pathlib.Path(r\"{envdir}\") / \"bin\" / \"pre-commit\"))'",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "combine"
+            ],
+            "condition": null,
+            "environment": "coverage",
+            "raw": "coverage combine",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "report",
+              "-m"
+            ],
+            "condition": null,
+            "environment": "coverage",
+            "raw": "coverage report -m",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "xml",
+              "-o",
+              "{toxworkdir}/coverage.xml"
+            ],
+            "condition": null,
+            "environment": "coverage",
+            "raw": "coverage xml -o {toxworkdir}/coverage.xml",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "coverage",
+              "html",
+              "-d",
+              "{toxworkdir}/htmlcov"
+            ],
+            "condition": null,
+            "environment": "coverage",
+            "raw": "coverage html -d {toxworkdir}/htmlcov",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "diff-cover",
+              "--compare-branch",
+              "{env:DIFF_AGAINST:origin/master}",
+              "{toxworkdir}/coverage.xml"
+            ],
+            "condition": null,
+            "environment": "coverage",
+            "raw": "diff-cover --compare-branch {env:DIFF_AGAINST:origin/master} {toxworkdir}/coverage.xml",
+            "role": "coverage_wrapper",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python3.8",
+              "-c",
+              "import sys; sys.exit(139)"
+            ],
+            "condition": null,
+            "environment": "exit_code",
+            "raw": "python3.8 -c \"import sys; sys.exit(139)\"",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "echo",
+              "{posargs}"
+            ],
+            "condition": null,
+            "environment": "X",
+            "raw": "echo {posargs}",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "{toxinidir}/tasks/release.py",
+              "--version",
+              "{posargs}"
+            ],
+            "condition": null,
+            "environment": "release",
+            "raw": "python {toxinidir}/tasks/release.py --version {posargs}",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "{toxinidir}/tasks/notify.py"
+            ],
+            "condition": null,
+            "environment": "notify",
+            "raw": "python {toxinidir}/tasks/notify.py",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pip",
+              "list",
+              "--format=columns"
+            ],
+            "condition": null,
+            "environment": "dev",
+            "raw": "python -m pip list --format=columns",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "-c",
+              "print(r'{envpython}')"
+            ],
+            "condition": null,
+            "environment": "dev",
+            "raw": "python -c \"print(r'{envpython}')\"",
+            "role": "unknown",
+            "source": "tox.ini",
+            "working_directory": "."
+          },
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "environment": "project_native_pytest",
+            "raw": "python -m pytest",
+            "role": "test_runner",
+            "source": "setup.cfg+tox.ini",
+            "working_directory": "."
+          }
+        ],
+        "command_authority": "project_local_metadata",
+        "eligible_candidates": [
+          {
+            "argv": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "authority_score": 116,
+            "canonical": {
+              "inner": [
+                "pytest",
+                "tests/unit/util/test_graph.py::test_topological_order"
+              ],
+              "semantic_family": [
+                "pytest",
+                "tests/unit/util/test_graph.py::test_topological_order"
+              ],
+              "wrapper": []
+            },
+            "declared_base_command": [
+              "python",
+              "-m",
+              "pytest"
+            ],
+            "environment": "project_native_pytest",
+            "exact_target": "tests/unit/util/test_graph.py::test_topological_order",
+            "forbidden_flags_added": false,
+            "nonmutating": true,
+            "raw": "python -m pytest",
+            "role": "test_runner",
+            "source": "setup.cfg+tox.ini",
+            "target_corroborated": true,
+            "transformation": "bounded_native_target_narrowing",
+            "transformation_hash": "ea8047350d5920d3c55fb7414476c94cd6fd6688412eb8b2cef78ba0b1b01a8d",
+            "transformed_command": [
+              "python",
+              "-m",
+              "pytest",
+              "tests/unit/util/test_graph.py::test_topological_order"
+            ],
+            "working_directory": "."
+          }
+        ],
+        "false_conflicts_eliminated": 23,
+        "manual_review_policy_satisfied": true,
+        "native_target_command_dominates_broad_wrappers": true,
+        "project_metadata_inspected": [
+          "pyproject.toml",
+          "tox.ini",
+          "setup.cfg",
+          "setup.py"
+        ],
+        "resolution_hash": "357ec21401c4930549fef4d4b38a86be2cc9b6dd93a2754925d1f04523a430e7",
+        "resolver_executed_against_project_metadata": true,
+        "selected": {
+          "argv": [
+            "python",
+            "-m",
+            "pytest"
+          ],
+          "authority_score": 116,
+          "canonical": {
+            "inner": [
+              "pytest",
+              "tests/unit/util/test_graph.py::test_topological_order"
+            ],
+            "semantic_family": [
+              "pytest",
+              "tests/unit/util/test_graph.py::test_topological_order"
+            ],
+            "wrapper": []
+          },
+          "declared_base_command": [
+            "python",
+            "-m",
+            "pytest"
+          ],
+          "environment": "project_native_pytest",
+          "exact_target": "tests/unit/util/test_graph.py::test_topological_order",
+          "forbidden_flags_added": false,
+          "nonmutating": true,
+          "raw": "python -m pytest",
+          "role": "test_runner",
+          "source": "setup.cfg+tox.ini",
+          "target_corroborated": true,
+          "transformation": "bounded_native_target_narrowing",
+          "transformation_hash": "ea8047350d5920d3c55fb7414476c94cd6fd6688412eb8b2cef78ba0b1b01a8d",
+          "transformed_command": [
+            "python",
+            "-m",
+            "pytest",
+            "tests/unit/util/test_graph.py::test_topological_order"
+          ],
+          "working_directory": "."
+        },
+        "status": "PASS",
+        "true_conflict_count": 0
+      },
+      "complete_bounded_collection_output": true,
+      "target": {
+        "status": "PASS",
+        "target": "tests/unit/util/test_graph.py::test_topological_order",
+        "target_file_present": true,
+        "target_sha256": "c387cc0aaba1ea789811c448b2df4fb81bcb67d51bbf4cf7899a307c06e6f6d3"
+      }
+    }
+  ],
+  "status": "PASS"
+}
