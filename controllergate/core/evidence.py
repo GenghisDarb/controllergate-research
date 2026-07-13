@@ -56,6 +56,8 @@ def verify_internal_sha256sums(zip_path: str | Path, manifest_path: str, base_pr
                 continue
             expected, rel = parts
             rel = rel.strip().lstrip("*")
+            while rel.startswith("./"):
+                rel = rel[2:]
             target = f"{base_prefix.rstrip('/')}/{rel}" if base_prefix else rel
             if len(expected) != 64 or _unsafe_zip_name(rel):
                 malformed += 1

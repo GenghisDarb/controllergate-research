@@ -42,6 +42,8 @@ def verify_zip_manifest(
             continue
         expected, rel = parts
         rel = rel.strip().lstrip("*")
+        while rel.startswith("./"):
+            rel = rel[2:]
         target = f"{base_prefix.rstrip('/')}/{rel}" if base_prefix else rel
         if len(expected) != 64 or not is_safe_zip_member(rel):
             malformed.append(rel)
@@ -94,6 +96,11 @@ def verify_official_zip(
         duplicates = len(names) - len(set(names))
         pycache_entries = [name for name in names if "__pycache__" in PurePosixPath(name).parts]
         pyc_entries = [name for name in names if name.endswith((".pyc", ".pyo"))]
+        nested_archives = [name for name in names if name.lower().endswith((".zip", ".tar", ".tar.gz", ".tgz", ".7z"))]
+        wheel_entries = [name for name in names if name.lower().endswith(".whl")]
+        compiled_python_entries = [name for name in names if name.lower().endswith((".pyc", ".pyo", ".so", ".pyd", ".dll", ".dylib"))]
+        cache_entries = [name for name in names if any(part in {"__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache"} for part in PurePosixPath(name).parts)]
+        virtualenv_entries = [name for name in names if any(part in {".venv", "venv", "virtualenv"} for part in PurePosixPath(name).parts)]
         artifact_manifest = verify_zip_manifest(archive, "ARTIFACT_SHA256SUMS.txt")
         output_manifest_records = {
             key: verify_zip_manifest(archive, manifest, base_prefix=key)
@@ -117,6 +124,11 @@ def verify_official_zip(
         and duplicates == 0
         and not pycache_entries
         and not pyc_entries
+        and not nested_archives
+        and not wheel_entries
+        and not compiled_python_entries
+        and not cache_entries
+        and not virtualenv_entries
         and manifest_counts_pass
         else "BLOCK"
     )
@@ -137,6 +149,11 @@ def verify_official_zip(
         "duplicate_path_count": duplicates,
         "zip_pycache_entries": len(pycache_entries),
         "zip_pyc_entries": len(pyc_entries),
+        "nested_archive_count": len(nested_archives),
+        "wheel_payload_count": len(wheel_entries),
+        "compiled_python_payload_count": len(compiled_python_entries),
+        "cache_payload_count": len(cache_entries),
+        "virtualenv_payload_count": len(virtualenv_entries),
         "artifact_manifest": artifact_manifest,
         "output_manifests": output_manifest_records,
         "raw_zip_bytes_ingested": False,

@@ -1,0 +1,1008 @@
+{
+  "constitution_version": 2,
+  "fixed_index_status_assignment_forbidden": true,
+  "law_count": 40,
+  "laws": [
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "a41b2f152fcff9934ac97225532c1acbcf94febf9d4eca82ece32ced12c3d011",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "builder/critic false-win prevention",
+      "negative_test_ids": [
+        "CG-LAW-001-NEG"
+      ],
+      "owner_module": "controllergate.governance.builder_critic_gate",
+      "positive_test_ids": [
+        "CG-LAW-001-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-001.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-001"
+      ],
+      "requirement_id": "CG-LAW-001",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "0efa32cd62e94286c1914fdacd154202c51c45fff820d98b3a1b8275bad230b0",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "execution authenticity",
+      "negative_test_ids": [
+        "CG-LAW-002-NEG"
+      ],
+      "owner_module": "controllergate.execution.execution_claim_verifier",
+      "positive_test_ids": [
+        "CG-LAW-002-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-002.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-002"
+      ],
+      "requirement_id": "CG-LAW-002",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "06b1a605b602edebcd198d011dc904b27a9fd36600d64861df4f272826a8eeb0",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "explicit runtime-root policy",
+      "negative_test_ids": [
+        "CG-LAW-003-NEG"
+      ],
+      "owner_module": "controllergate.runtime.runtime_root_policy",
+      "positive_test_ids": [
+        "CG-LAW-003-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-003.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-003"
+      ],
+      "requirement_id": "CG-LAW-003",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "c4bfdb19fc1d4e3207058cff8e4ad89181a286f9bd28173b3d8b9a2c27057181",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "workspace purity",
+      "negative_test_ids": [
+        "CG-LAW-004-NEG"
+      ],
+      "owner_module": "controllergate.runtime.runtime_root_attestation",
+      "positive_test_ids": [
+        "CG-LAW-004-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-004.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-004"
+      ],
+      "requirement_id": "CG-LAW-004",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "a1e359de8c8a603b3f21201111d149dfd187baf3c03aa5841e8ec4594b2e6455",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "candidate-isolated runtime",
+      "negative_test_ids": [
+        "CG-LAW-005-NEG"
+      ],
+      "owner_module": "controllergate.runtime.runtime_root_policy",
+      "positive_test_ids": [
+        "CG-LAW-005-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-005.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-005"
+      ],
+      "requirement_id": "CG-LAW-005",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "66ca2f04096fcea4f0c6160b6aa9679e6969f62a7eec024ba71d0d484d198b39",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "provider/cofactor locking",
+      "negative_test_ids": [
+        "CG-LAW-006-NEG"
+      ],
+      "owner_module": "controllergate.runtime.provider_capsule_v3",
+      "positive_test_ids": [
+        "CG-LAW-006-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-006.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-006"
+      ],
+      "requirement_id": "CG-LAW-006",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "3eb2cb0d5ed2ddf8d64be6fafb7f3b3538d5ece1c1ab52c4dfec84fb7839b304",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "provider build-copy immutability",
+      "negative_test_ids": [
+        "CG-LAW-007-NEG"
+      ],
+      "owner_module": "controllergate.runtime.provider_build_copy",
+      "positive_test_ids": [
+        "CG-LAW-007-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-007.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-007"
+      ],
+      "requirement_id": "CG-LAW-007",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "4eca6b9ca19a9e649aa44e8c743e5ed3043f43acc840dd50641e1817aa7f97de",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "command translation and authority",
+      "negative_test_ids": [
+        "CG-LAW-008-NEG"
+      ],
+      "owner_module": "controllergate.pathways.executor",
+      "positive_test_ids": [
+        "CG-LAW-008-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-008.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-008"
+      ],
+      "requirement_id": "CG-LAW-008",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "d83bb48714d4c858ebc3b1ea800bf3442eddf24728d1105ae5e2e48ae9c58b9d",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "non-circular harness origin",
+      "negative_test_ids": [
+        "CG-LAW-009-NEG"
+      ],
+      "owner_module": "controllergate.reproducers.contract",
+      "positive_test_ids": [
+        "CG-LAW-009-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-009.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-009"
+      ],
+      "requirement_id": "CG-LAW-009",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "23f11fd9f799e9b4f7f09100ff0605bbfe8b31151c0cd10897df74399711f580",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "target-test provenance",
+      "negative_test_ids": [
+        "CG-LAW-010-NEG"
+      ],
+      "owner_module": "controllergate.intake.target_provenance",
+      "positive_test_ids": [
+        "CG-LAW-010-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-010.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-010"
+      ],
+      "requirement_id": "CG-LAW-010",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "17d1193737714a2b3a58f40ad99980a5b9ca1c12c67798a71b52588ed9f2bd0f",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "solution-contamination exclusion",
+      "negative_test_ids": [
+        "CG-LAW-011-NEG"
+      ],
+      "owner_module": "controllergate.intake.contamination_classifier_v2",
+      "positive_test_ids": [
+        "CG-LAW-011-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-011.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-011"
+      ],
+      "requirement_id": "CG-LAW-011",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "162f83df0f3219fccd2a63dece74d16fd11661b2e912ce92405b5b7e05cfe0d0",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "decision-time label blindness",
+      "negative_test_ids": [
+        "CG-LAW-012-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-012-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-012.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-012"
+      ],
+      "requirement_id": "CG-LAW-012",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "7258cac0e4ddd6b711d51debb34074ec65913b59a56ccbb4209e80b61b9e539b",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "AST/source topology before patch authority",
+      "negative_test_ids": [
+        "CG-LAW-013-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-013-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-013.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-013"
+      ],
+      "requirement_id": "CG-LAW-013",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "ac008ca553e15915aaf8eabd3584de60b812d3d7d78e836c293caf0e533713ae",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "safe abstention and loop prevention",
+      "negative_test_ids": [
+        "CG-LAW-014-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-014-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-014.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-014"
+      ],
+      "requirement_id": "CG-LAW-014",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "fe9e1a4d2ce05443ef4abd87e09ecddc2909f6f42ca8f643657d448755ba1e92",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "terminal-state and reopen-condition registry",
+      "negative_test_ids": [
+        "CG-LAW-015-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-015-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-015.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-015"
+      ],
+      "requirement_id": "CG-LAW-015",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "63f516250a6b98613c543f08edfcf4892e153e9e28c0e84c547d6d82b30936e9",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "proof-ledger fork point and rollback",
+      "negative_test_ids": [
+        "CG-LAW-016-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-016-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-016.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-016"
+      ],
+      "requirement_id": "CG-LAW-016",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "d065a2b276750bfc7806ff25437fbefaa93beb64a014fcafad01180c536dddb2",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "deterministic replay readiness",
+      "negative_test_ids": [
+        "CG-LAW-017-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-017-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-017.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-017"
+      ],
+      "requirement_id": "CG-LAW-017",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "a971a5c2e5e096b889ab14235999c203069517f61029c1598353a18b6db59983",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "external evidence-bundle schema",
+      "negative_test_ids": [
+        "CG-LAW-018-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-018-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-018.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-018"
+      ],
+      "requirement_id": "CG-LAW-018",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "81664d9f58a7f4be193b051347765b1216b082277b0e8f8fca5f9b948062ca97",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "matched baseline and executed-null requirement",
+      "negative_test_ids": [
+        "CG-LAW-019-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-019-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-019.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-019"
+      ],
+      "requirement_id": "CG-LAW-019",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "8782357917e45df1bd6f3e9a27d5118833a40ce712b5d9b1edb07189bbaede8f",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "workflow ancestry and stale-SHA protection",
+      "negative_test_ids": [
+        "CG-LAW-020-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-020-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-020.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-020"
+      ],
+      "requirement_id": "CG-LAW-020",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "24203eb58250e07f155eb2fc0ecd7f55e43ccdeb11bb2e6872ce67764930f0b6",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "artifact byte custody",
+      "negative_test_ids": [
+        "CG-LAW-021-NEG"
+      ],
+      "owner_module": "controllergate.core.official_ingest",
+      "positive_test_ids": [
+        "CG-LAW-021-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-021.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-021"
+      ],
+      "requirement_id": "CG-LAW-021",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "b7f20ed57e045a1905fea39b8dba069137f98bcf4b28211a07e885ba00beba2d",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "operation/evidence/gate/candidate status separation",
+      "negative_test_ids": [
+        "CG-LAW-022-NEG"
+      ],
+      "owner_module": "controllergate.execution.status_model",
+      "positive_test_ids": [
+        "CG-LAW-022-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-022.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-022"
+      ],
+      "requirement_id": "CG-LAW-022",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "0c96cb5e517c26ca10b01dfae030ed6b47df8aeabef75ee181f6c559da9e16b2",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "executable step graph",
+      "negative_test_ids": [
+        "CG-LAW-023-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-023-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-023.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-023"
+      ],
+      "requirement_id": "CG-LAW-023",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "2a8dbc823e093a5df5e5ed3435e26badea559006f89190312c6c5ab3238d6802",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "internal-governance boundary",
+      "negative_test_ids": [
+        "CG-LAW-024-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-024-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-024.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-024"
+      ],
+      "requirement_id": "CG-LAW-024",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "f04a759e15d084ae18b5f52cd3a818a449dfa95d700ccc46350232ffda2af71e",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "cross-family structural routing memory",
+      "negative_test_ids": [
+        "CG-LAW-025-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-025-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-025.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-025"
+      ],
+      "requirement_id": "CG-LAW-025",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "82aa49f3b9761f5bcc36e972ac6562d98a52eec858b06f26f97d68dde0482f22",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "environment/provider versus source ownership separation",
+      "negative_test_ids": [
+        "CG-LAW-026-NEG"
+      ],
+      "owner_module": "controllergate.runtime.provider_builder",
+      "positive_test_ids": [
+        "CG-LAW-026-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-026.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-026"
+      ],
+      "requirement_id": "CG-LAW-026",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "1117d3b4cd12c7ba2a63ba1c8b3183140923f40b18f7de00a5de8ae363dcf0ac",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "no candidate-specific logic in generic production modules",
+      "negative_test_ids": [
+        "CG-LAW-027-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-027-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-027.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-027"
+      ],
+      "requirement_id": "CG-LAW-027",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "5424108af19e3663cb24ff856114e474850e7f06f99044a6c86576b91feba69e",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "no direct external operations in batch orchestrators",
+      "negative_test_ids": [
+        "CG-LAW-028-NEG"
+      ],
+      "owner_module": "controllergate.execution.execution_broker",
+      "positive_test_ids": [
+        "CG-LAW-028-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-028.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-028"
+      ],
+      "requirement_id": "CG-LAW-028",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "da285af937b95efbfc7b80869f460006bcadce1366b1d173212c5921a8737733",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "platform/runtime/ABI-bound provider identity",
+      "negative_test_ids": [
+        "CG-LAW-029-NEG"
+      ],
+      "owner_module": "controllergate.runtime.runtime_resolver_v2",
+      "positive_test_ids": [
+        "CG-LAW-029-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-029.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-029"
+      ],
+      "requirement_id": "CG-LAW-029",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "1a4f995f2fd373588453028c99ce19cfef936e879c02f9b2a9a6b83ca63a770b",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "native-target versus issue-reproducer lane separation",
+      "negative_test_ids": [
+        "CG-LAW-030-NEG"
+      ],
+      "owner_module": "controllergate.intake.target_resolver_v3",
+      "positive_test_ids": [
+        "CG-LAW-030-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-030.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-030"
+      ],
+      "requirement_id": "CG-LAW-030",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "e9293197a862b498d6e496beca164faec8c9bb1b3d8e7735bbe591f949c77206",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "single-candidate engineering-pilot fallback",
+      "negative_test_ids": [
+        "CG-LAW-031-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-031-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-031.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-031"
+      ],
+      "requirement_id": "CG-LAW-031",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "fffea4cc6a7c48a8b2180aa5acd287c228d0d913684256c7c7cc86466c60540f",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "no repair count without duplicate replay and count gate",
+      "negative_test_ids": [
+        "CG-LAW-032-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-032-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-032.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-032"
+      ],
+      "requirement_id": "CG-LAW-032",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "1fdd895dae414ce110821b88a74684fea66e959cba1e03fa110b64542a42db8f",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "public claim synchronization",
+      "negative_test_ids": [
+        "CG-LAW-033-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-033-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-033.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-033"
+      ],
+      "requirement_id": "CG-LAW-033",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "7247133df6692b5eeaeb8bbdab5282713be44389b9f0b800ee3f85776cb78608",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "persistent historical requirement recovery",
+      "negative_test_ids": [
+        "CG-LAW-034-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-034-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-034.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-034"
+      ],
+      "requirement_id": "CG-LAW-034",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "72cbeef0b90f8ae9a774a23a9a8c59945aa4d34881dc7aaa7a0b4969161ba22e",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "no synthetic execution evidence",
+      "negative_test_ids": [
+        "CG-LAW-035-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-035-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-035.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-035"
+      ],
+      "requirement_id": "CG-LAW-035",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "7352276af02f61c606a73841f0d77bd666d06cb28871940463571fc76cf47a40",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "no unverified timestamp or fabricated execution state",
+      "negative_test_ids": [
+        "CG-LAW-036-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-036-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-036.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-036"
+      ],
+      "requirement_id": "CG-LAW-036",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "37e1e2074d41ffcfab4626803d404519adffac5a3c79c13801f381c8167f00fe",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "no repeated blocker without new evidence",
+      "negative_test_ids": [
+        "CG-LAW-037-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-037-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-037.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-037"
+      ],
+      "requirement_id": "CG-LAW-037",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "b0d282fdae5094a1fda6fb27e7b18e26289a3840530a56a607213c4023163f68",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "provider setup is not repair success",
+      "negative_test_ids": [
+        "CG-LAW-038-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-038-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-038.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-038"
+      ],
+      "requirement_id": "CG-LAW-038",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": false,
+      "definition_hash": "530f3109fd1100378d6a7a08a7f200429976937390251abc198d90ac1b0a6742",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "target pass is not counted repair success",
+      "negative_test_ids": [
+        "CG-LAW-039-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-039-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-039.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-039"
+      ],
+      "requirement_id": "CG-LAW-039",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    },
+    {
+      "claim_affected": "The related admission or public claim remains blocked when proof is incomplete.",
+      "critical_runtime_proof_required": true,
+      "definition_hash": "5cdd1746038a1cd23d40aaf3e6c3a6956cd01eeff01af625d5c4cf23f6e0cff8",
+      "enforcement_callable": "controllergate.governance.constitution_v2:enforce_law",
+      "name": "failed-branch preservation without count inflation",
+      "negative_test_ids": [
+        "CG-LAW-040-NEG"
+      ],
+      "owner_module": "controllergate.engine",
+      "positive_test_ids": [
+        "CG-LAW-040-POS"
+      ],
+      "proof_artifact": "batch082_constitution_v2_law_proofs/CG-LAW-040.json",
+      "reopen_conditions": [
+        "law-specific positive and negative controls execute",
+        "required runtime evidence is verified",
+        "independent verifier passes"
+      ],
+      "required_runtime_evidence": [
+        "law_evidence:CG-LAW-040"
+      ],
+      "requirement_id": "CG-LAW-040",
+      "shared_enforcer_justification": "The shared dispatcher validates a distinct law identity, owner, test pair, evidence key, proof path, and claim boundary for each invocation."
+    }
+  ],
+  "status_is_runtime_calculated": true
+}

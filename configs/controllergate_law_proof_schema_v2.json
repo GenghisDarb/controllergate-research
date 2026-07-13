@@ -1,0 +1,31 @@
+{
+  "allowed_statuses": [
+    "ALREADY_IMPLEMENTED_ENFORCED",
+    "BLOCKED_EXACT",
+    "DEFERRED_NAMED_BATCH",
+    "DEPRECATED_WITH_REASON",
+    "IMPLEMENTED_ENFORCED",
+    "PARTIAL_EXECUTABLE_BLOCKED"
+  ],
+  "fixed_index_status_assignment_forbidden": true,
+  "required_fields": [
+    "law_id",
+    "law_definition_hash",
+    "owner_module",
+    "enforcement_callable",
+    "owner_import_result",
+    "enforcer_execution_result",
+    "positive_test_id",
+    "positive_test_execution",
+    "negative_test_id",
+    "negative_test_execution",
+    "required_evidence_verification",
+    "ci_invocation_record",
+    "proof_artifact",
+    "proof_hash",
+    "independent_verifier_result",
+    "calculated_status",
+    "exact_blocker"
+  ],
+  "schema_version": 2
+}
