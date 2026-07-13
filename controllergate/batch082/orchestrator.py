@@ -173,6 +173,7 @@ def finalize(repo_root: Path, prepared: Path, evidence_root: Path, output: Path)
     if linux_attestation.is_file(): shutil.copy2(linux_attestation, output / "batch082_linux_ci_runtime_attestation.json")
     if windows_attestation.is_file(): shutil.copy2(windows_attestation, output / "batch082_windows_ci_runtime_attestation.json")
     cohort_dir = evidence_root / "cohort"
+    shutil.copy2(cohort_dir / "batch082_admitted_cohort_freeze.json", output / "batch082_admitted_cohort_freeze.json")
     builder = read_json(cohort_dir / "batch082_builder_report.json")
     critic_report = read_json(evidence_root / "critic" / "batch082_critic_report.json")
     agreement = adjudicate(builder, critic_report,

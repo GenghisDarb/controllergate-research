@@ -17,3 +17,13 @@ def test_same_source_or_hardcoded_coordinates_are_rejected() -> None:
     critic = {"evaluator": "critic", "coordinates": [], "hardcoded_all_pass": False, "report_hash": "y"}
     assert adjudicate(builder, critic, builder_source_hash="same", critic_source_hash="same")["status"] == "BLOCK"
 
+
+def test_critic_does_not_conflate_reproduction_with_admission() -> None:
+    critic = recompute_from_raw([{
+        "candidate_id": "c",
+        "provider_manifest": {"verification_status": "PASS"},
+        "duplicate_replay": {"status": "CANDIDATE_FAILURE_REPRODUCED", "network_denial_verified": False},
+        "count_gate": {"status": "NOT_RUN"},
+        "exact_blocker": "network_boundary_not_verified",
+    }])
+    assert critic["coordinates"][0]["duplicate_failure_admitted"] is False
