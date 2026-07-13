@@ -1,0 +1,1115 @@
+{
+  "blockers": [],
+  "branch_points": [],
+  "compartment_transition_sequence": [
+    "artifact",
+    "source",
+    "provider",
+    "authorization",
+    "test",
+    "harness",
+    "runtime",
+    "diagnostic",
+    "diagnostic"
+  ],
+  "episode_id": "cognicore-incident",
+  "event_type_sequence": [
+    "candidate_intake",
+    "source_identity",
+    "provider_closure",
+    "command_authority",
+    "target_identity",
+    "harness_origin",
+    "failure_reproduction",
+    "causal_diagnosis",
+    "ownership_decision"
+  ],
+  "events": [
+    {
+      "author_record": "batch077_pathway_compiler",
+      "catalyst_or_executor": {
+        "compartment": "authorization",
+        "entity_id": "context:v1:31a11dc3be6050ef44b3950f",
+        "entity_type": "authorized_executor",
+        "historical_aliases": [],
+        "identity_version": 1,
+        "label": "controllergate",
+        "object_identity": "48e29e6348b94bdc21bb45ef1dc9e0cdf17880d754f9d38ce5c6281182b2e323",
+        "payload_hash": "e362cbb1c2290ebf025501c31ae12aa5e1c63dba068085ab0f85c14993bdefa0",
+        "release_membership": "batch077",
+        "replacement_identity": null,
+        "role": "catalyst",
+        "stable_public_identity": "entity:v1:6c072b60563963cef9fcbfda",
+        "state_hash": "76867319952e1eaafbc952ff59bf054a2c265138a105ebc3e119c332b8fbd361",
+        "underlying_identity": "entity-payload:v1:3b9b03ebaeb2df256a1885c2"
+      },
+      "compartment": "artifact",
+      "created_timestamp": "1970-01-01T00:00:00Z",
+      "event_id": "event:v1:144285cae5ca4bf7b0f7034c",
+      "event_type": "candidate_intake",
+      "event_version": 1,
+      "evidence_references": [
+        "cognicore/studio.py"
+      ],
+      "expected_output": "PASS",
+      "historical_aliases": [],
+      "identity_version": 1,
+      "incident_variant_event": null,
+      "inferred_from_links": [],
+      "input_entities": [
+        {
+          "compartment": "artifact",
+          "entity_id": "context:v1:ee5567f48dea5e55850e31fe",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "32158d5fa917f4815998a255d74181f7ddab23fe65854c02fed1cd6004a5311a",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:71d4965f1182ff790d3a0a3d",
+          "state_hash": "0ce9d3464353c02592f0cffa6f81372d2778d16839d6ce10adc9af901e44f336",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "knowledge_status": "DIRECTLY_OBSERVED",
+      "modified_timestamp": "1970-01-01T00:00:00Z",
+      "negative_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "forbidden_evidence_firewall",
+          "polarity": "negative",
+          "regulator_id": "regulator:v1:ede1705d12d26e1521bd7fd7",
+          "state_hash": "630470c851215d6bddfcccfeb347d1e498c4d571b35c83be93ee9c2231d0c6b8",
+          "status": "PASS"
+        }
+      ],
+      "normal_reference_event": null,
+      "object_identity": "ce3a6acad150f5690f5d4b0792ab8795b78f4d5ce6bae74fdcabf55a52773736",
+      "observed_output": "PASS",
+      "output_entities": [
+        {
+          "compartment": "artifact",
+          "entity_id": "context:v1:650cf8ef980983b59b34921e",
+          "entity_type": "event_output",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "candidate_intake",
+          "object_identity": "bec73c1cf9d315207a26e34e1ad5370dc19cc1a96370f0866bd63920c5bdd51e",
+          "payload_hash": "a117b77bbf49ad5f09c62385d13bd94341004c5a186844af3f3ef24d41d3b0e0",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "output",
+          "stable_public_identity": "entity:v1:102a2b7276112b85aa69f93f",
+          "state_hash": "1863265b46b21a30816d2fb861bef88e2ccbfc90414c48b2b29f39a8b7d87d3c",
+          "underlying_identity": "entity-payload:v1:a71efac648723cdb094c2ad1"
+        }
+      ],
+      "positive_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "evidence_custody",
+          "polarity": "positive",
+          "regulator_id": "regulator:v1:08671af506aeb51c0be56352",
+          "state_hash": "e46c8e7316a82f81895f707a49528d285fb5a7367199d7ce76cb34e6ef88bbfc",
+          "status": "PASS"
+        }
+      ],
+      "release_membership": "batch077",
+      "replacement_identity": null,
+      "required_input_entities": [
+        {
+          "compartment": "artifact",
+          "entity_id": "context:v1:ee5567f48dea5e55850e31fe",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "32158d5fa917f4815998a255d74181f7ddab23fe65854c02fed1cd6004a5311a",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:71d4965f1182ff790d3a0a3d",
+          "state_hash": "0ce9d3464353c02592f0cffa6f81372d2778d16839d6ce10adc9af901e44f336",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "reviewer_record": "batch077_independent_audit",
+      "revision_record": "v2",
+      "schema_type": "maintenance_event_v2",
+      "stable_public_identity": "event:v1:ac71847b3701439ee211de11",
+      "state_hash": "695fb8f0a5587b43261c31f9ea02733ae12928202d9f1a475fce8ba949afeeba"
+    },
+    {
+      "author_record": "batch077_pathway_compiler",
+      "catalyst_or_executor": {
+        "compartment": "authorization",
+        "entity_id": "context:v1:006ca3df4c823a175a8ec360",
+        "entity_type": "authorized_executor",
+        "historical_aliases": [],
+        "identity_version": 1,
+        "label": "controllergate",
+        "object_identity": "7964771d5341ad9ef4081a22ff7331a821d6a8b1b7e86bbe3afc43bf041f3436",
+        "payload_hash": "9bbc482f323065f40e78831191e7e8c32e6532875a5286ca92a3efa7ff271055",
+        "release_membership": "batch077",
+        "replacement_identity": null,
+        "role": "catalyst",
+        "stable_public_identity": "entity:v1:e605f016b40da2cf58c78b84",
+        "state_hash": "a6fba41abce9d56772612e7c347425755d0454592614f516d2fc6b9d7f4fec9f",
+        "underlying_identity": "entity-payload:v1:acd69baa7e34199da4e5487b"
+      },
+      "compartment": "source",
+      "created_timestamp": "1970-01-01T00:00:00Z",
+      "event_id": "event:v1:80e361676efd92cd3ab66edb",
+      "event_type": "source_identity",
+      "event_version": 1,
+      "evidence_references": [
+        "cognicore/studio.py"
+      ],
+      "expected_output": "PASS",
+      "historical_aliases": [],
+      "identity_version": 1,
+      "incident_variant_event": null,
+      "inferred_from_links": [],
+      "input_entities": [
+        {
+          "compartment": "source",
+          "entity_id": "context:v1:0333d48c3ae971c0645de658",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "320ed49f95398926f5ccc1827528e7144f47f75af075c063319a843d2656ec0b",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:162fd2df05f76d5774b498ea",
+          "state_hash": "ce7e32a18a89beae5afacc67971a76db8bc036811bb806d87d55be7c560d1a68",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "knowledge_status": "DIRECTLY_OBSERVED",
+      "modified_timestamp": "1970-01-01T00:00:00Z",
+      "negative_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "forbidden_evidence_firewall",
+          "polarity": "negative",
+          "regulator_id": "regulator:v1:ede1705d12d26e1521bd7fd7",
+          "state_hash": "630470c851215d6bddfcccfeb347d1e498c4d571b35c83be93ee9c2231d0c6b8",
+          "status": "PASS"
+        }
+      ],
+      "normal_reference_event": null,
+      "object_identity": "52471359185028ffe1c46dd03923ba97851cd3987a24bf15f61fbec13e7e8782",
+      "observed_output": "PASS",
+      "output_entities": [
+        {
+          "compartment": "source",
+          "entity_id": "context:v1:6b630287e1fb6410f266426e",
+          "entity_type": "event_output",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "source_identity",
+          "object_identity": "a27d2de0499c58094d3f6678e1081822b442db0786942150fad770557530f8e2",
+          "payload_hash": "6f2d89292be0dcf9efe118e86df7e999ee65c328a016e47fb09d990ef2797edb",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "output",
+          "stable_public_identity": "entity:v1:dc47338187458a64cb9dfae4",
+          "state_hash": "838aae4891b66daca494d654b288e82343d0e71c802446ec55c4472eef457ddc",
+          "underlying_identity": "entity-payload:v1:cc52d797ec3e4a43aba142c2"
+        }
+      ],
+      "positive_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "evidence_custody",
+          "polarity": "positive",
+          "regulator_id": "regulator:v1:08671af506aeb51c0be56352",
+          "state_hash": "e46c8e7316a82f81895f707a49528d285fb5a7367199d7ce76cb34e6ef88bbfc",
+          "status": "PASS"
+        }
+      ],
+      "release_membership": "batch077",
+      "replacement_identity": null,
+      "required_input_entities": [
+        {
+          "compartment": "source",
+          "entity_id": "context:v1:0333d48c3ae971c0645de658",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "320ed49f95398926f5ccc1827528e7144f47f75af075c063319a843d2656ec0b",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:162fd2df05f76d5774b498ea",
+          "state_hash": "ce7e32a18a89beae5afacc67971a76db8bc036811bb806d87d55be7c560d1a68",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "reviewer_record": "batch077_independent_audit",
+      "revision_record": "v2",
+      "schema_type": "maintenance_event_v2",
+      "stable_public_identity": "event:v1:4ae966b60754f7084dd73ee7",
+      "state_hash": "e960b4101aea7bc921c6cdc9658d305f3edc69049c4e48f105add7f6047335a6"
+    },
+    {
+      "author_record": "batch077_pathway_compiler",
+      "catalyst_or_executor": {
+        "compartment": "authorization",
+        "entity_id": "context:v1:ae7ba8716558efc27d8a3a3f",
+        "entity_type": "authorized_executor",
+        "historical_aliases": [],
+        "identity_version": 1,
+        "label": "controllergate",
+        "object_identity": "5385f67723c4932cf8debb80935a41e70027e309dabd951117ab92b4f1b7a1d7",
+        "payload_hash": "97983b5c04e76ae4aab4312fc90ed305a9a2308accec6020f85bd49d73434ca4",
+        "release_membership": "batch077",
+        "replacement_identity": null,
+        "role": "catalyst",
+        "stable_public_identity": "entity:v1:8e012bfb20a12df4504d10dd",
+        "state_hash": "2e92c3bd622431ae6415ac1350ba36d84bd84cbd54b2bd01898b50226bcdc76d",
+        "underlying_identity": "entity-payload:v1:ff3b78461c897313bbc0c966"
+      },
+      "compartment": "provider",
+      "created_timestamp": "1970-01-01T00:00:00Z",
+      "event_id": "event:v1:026b898cc39773b5f3d499f5",
+      "event_type": "provider_closure",
+      "event_version": 1,
+      "evidence_references": [
+        "cognicore/studio.py"
+      ],
+      "expected_output": "PASS",
+      "historical_aliases": [],
+      "identity_version": 1,
+      "incident_variant_event": null,
+      "inferred_from_links": [],
+      "input_entities": [
+        {
+          "compartment": "provider",
+          "entity_id": "context:v1:dee860ef31a6cc400c962f0c",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "559ef6907ec3b6c73b9bd19dc8e6032e041946cfd3b601a97cfd14d28a147d53",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:7cb275d861bb2e5aafd76416",
+          "state_hash": "b7c9956f263084752c22ba24705f48f2ccbef2169ce1b7d1c30029312f1967b6",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "knowledge_status": "DIRECTLY_OBSERVED",
+      "modified_timestamp": "1970-01-01T00:00:00Z",
+      "negative_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "forbidden_evidence_firewall",
+          "polarity": "negative",
+          "regulator_id": "regulator:v1:ede1705d12d26e1521bd7fd7",
+          "state_hash": "630470c851215d6bddfcccfeb347d1e498c4d571b35c83be93ee9c2231d0c6b8",
+          "status": "PASS"
+        }
+      ],
+      "normal_reference_event": null,
+      "object_identity": "2b4957bb8175a384461fa73a987f5d20319cc4ed3ac05fd86c6b44e60fbdd001",
+      "observed_output": "PASS",
+      "output_entities": [
+        {
+          "compartment": "provider",
+          "entity_id": "context:v1:77fe96409a0a375409f2f90c",
+          "entity_type": "event_output",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "provider_closure",
+          "object_identity": "11366b8bddfbd416ba94509d8f78656a0b6882bb431f1975cc794b11da36dfe3",
+          "payload_hash": "2e81673ef22008ac718485dbbdfd6e9a5000b9b338a1611ad021dcc91ecff8ef",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "output",
+          "stable_public_identity": "entity:v1:7e261cdd95f0ca98e2040939",
+          "state_hash": "226476ea32d6a157757d0742aec9419dcbf5a3ecb1623b59ecb22d7f81da5354",
+          "underlying_identity": "entity-payload:v1:00cfadfdd3907b2258a70140"
+        }
+      ],
+      "positive_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "evidence_custody",
+          "polarity": "positive",
+          "regulator_id": "regulator:v1:08671af506aeb51c0be56352",
+          "state_hash": "e46c8e7316a82f81895f707a49528d285fb5a7367199d7ce76cb34e6ef88bbfc",
+          "status": "PASS"
+        }
+      ],
+      "release_membership": "batch077",
+      "replacement_identity": null,
+      "required_input_entities": [
+        {
+          "compartment": "provider",
+          "entity_id": "context:v1:dee860ef31a6cc400c962f0c",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "559ef6907ec3b6c73b9bd19dc8e6032e041946cfd3b601a97cfd14d28a147d53",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:7cb275d861bb2e5aafd76416",
+          "state_hash": "b7c9956f263084752c22ba24705f48f2ccbef2169ce1b7d1c30029312f1967b6",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "reviewer_record": "batch077_independent_audit",
+      "revision_record": "v2",
+      "schema_type": "maintenance_event_v2",
+      "stable_public_identity": "event:v1:b556314e0eb8394a24e7af16",
+      "state_hash": "50fa54b6349740e8704d87003041179a8e36e10abb561bf4c5b6bfdf5b0f3ac8"
+    },
+    {
+      "author_record": "batch077_pathway_compiler",
+      "catalyst_or_executor": {
+        "compartment": "authorization",
+        "entity_id": "context:v1:e8cbd5617b800695ec015d95",
+        "entity_type": "authorized_executor",
+        "historical_aliases": [],
+        "identity_version": 1,
+        "label": "controllergate",
+        "object_identity": "8c803c5e64e9bf6c68b07955d1bb7a7c76dcafffcb3d5c97ffbc1a0c7c010ffb",
+        "payload_hash": "3bfedb52126f8938363b3784a697217176f45670448b7710bc497029fdda9ab8",
+        "release_membership": "batch077",
+        "replacement_identity": null,
+        "role": "catalyst",
+        "stable_public_identity": "entity:v1:49ee7e64b65c8821a9ef5a71",
+        "state_hash": "95da6d0bdf3f730a8c509ddcdcc615aea24c54740f17a0fc770019cdc5d2a356",
+        "underlying_identity": "entity-payload:v1:76860ab04e08d7c887545d49"
+      },
+      "compartment": "authorization",
+      "created_timestamp": "1970-01-01T00:00:00Z",
+      "event_id": "event:v1:f7a10916659fe356bfe6d05e",
+      "event_type": "command_authority",
+      "event_version": 1,
+      "evidence_references": [
+        "cognicore/studio.py"
+      ],
+      "expected_output": "PASS",
+      "historical_aliases": [],
+      "identity_version": 1,
+      "incident_variant_event": null,
+      "inferred_from_links": [],
+      "input_entities": [
+        {
+          "compartment": "authorization",
+          "entity_id": "context:v1:072c3f8d08d0d9486cc9dded",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "3837477ee65500578394b5977016e41c707b538f9b96fc5a1d679952a0aec848",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:e58c00d6a451aaa15ce7c657",
+          "state_hash": "2e3a3c8f3bc409ec2d5254833fd3e75be3d3f85c2f1166052e374f5beaabf859",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "knowledge_status": "DIRECTLY_OBSERVED",
+      "modified_timestamp": "1970-01-01T00:00:00Z",
+      "negative_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "forbidden_evidence_firewall",
+          "polarity": "negative",
+          "regulator_id": "regulator:v1:ede1705d12d26e1521bd7fd7",
+          "state_hash": "630470c851215d6bddfcccfeb347d1e498c4d571b35c83be93ee9c2231d0c6b8",
+          "status": "PASS"
+        }
+      ],
+      "normal_reference_event": null,
+      "object_identity": "5e9d8beef739357e6b563e72c981c7250605ae91e4e4149a89f25cadd0981100",
+      "observed_output": "PASS",
+      "output_entities": [
+        {
+          "compartment": "authorization",
+          "entity_id": "context:v1:e1646bc55d13b057af907e8b",
+          "entity_type": "event_output",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "command_authority",
+          "object_identity": "771b7f9083a0139ffadf93a830e0b9e660875e292d543d3cc6c7a3032b7a6b9e",
+          "payload_hash": "bb9864befebfbf27ff52de1cc9e8cafe3728a34fa7b86bfa2eff8468a5fd8f37",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "output",
+          "stable_public_identity": "entity:v1:9566aca90f68c8026cd73c90",
+          "state_hash": "0b79695ebb68ad6264ad5c867773d397b94244de631b6147dc87faa88c58279b",
+          "underlying_identity": "entity-payload:v1:e0ea78b2acef2a206f6bd78a"
+        }
+      ],
+      "positive_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "evidence_custody",
+          "polarity": "positive",
+          "regulator_id": "regulator:v1:08671af506aeb51c0be56352",
+          "state_hash": "e46c8e7316a82f81895f707a49528d285fb5a7367199d7ce76cb34e6ef88bbfc",
+          "status": "PASS"
+        }
+      ],
+      "release_membership": "batch077",
+      "replacement_identity": null,
+      "required_input_entities": [
+        {
+          "compartment": "authorization",
+          "entity_id": "context:v1:072c3f8d08d0d9486cc9dded",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "3837477ee65500578394b5977016e41c707b538f9b96fc5a1d679952a0aec848",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:e58c00d6a451aaa15ce7c657",
+          "state_hash": "2e3a3c8f3bc409ec2d5254833fd3e75be3d3f85c2f1166052e374f5beaabf859",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "reviewer_record": "batch077_independent_audit",
+      "revision_record": "v2",
+      "schema_type": "maintenance_event_v2",
+      "stable_public_identity": "event:v1:559fef3e829fb7b912a42c13",
+      "state_hash": "87ec77b38aed178c23513feeb415bdc8606f910d9957ddddb1073e87a7c364ee"
+    },
+    {
+      "author_record": "batch077_pathway_compiler",
+      "catalyst_or_executor": {
+        "compartment": "authorization",
+        "entity_id": "context:v1:29af8747351201184fabe65b",
+        "entity_type": "authorized_executor",
+        "historical_aliases": [],
+        "identity_version": 1,
+        "label": "controllergate",
+        "object_identity": "a6038974755dd68f3396a42898fcd7846d6f83361315a16579d6ee203309f1e3",
+        "payload_hash": "5e7f8d38cb4b6c3f507257402c9a44ca2c45d5e84f77c9ae17c512c218f66c3d",
+        "release_membership": "batch077",
+        "replacement_identity": null,
+        "role": "catalyst",
+        "stable_public_identity": "entity:v1:d4a485ec8a13f532d0e335f4",
+        "state_hash": "ecda3cef020103f38956e78f671e39e15aa6cba98669f1d0742ce2199003e504",
+        "underlying_identity": "entity-payload:v1:f1d2ae2c6deaa6fc3dce80f0"
+      },
+      "compartment": "test",
+      "created_timestamp": "1970-01-01T00:00:00Z",
+      "event_id": "event:v1:0cb9b1319acb4a76fa93dafe",
+      "event_type": "target_identity",
+      "event_version": 1,
+      "evidence_references": [
+        "cognicore/studio.py"
+      ],
+      "expected_output": "PASS",
+      "historical_aliases": [],
+      "identity_version": 1,
+      "incident_variant_event": null,
+      "inferred_from_links": [],
+      "input_entities": [
+        {
+          "compartment": "test",
+          "entity_id": "context:v1:a7b2bd2237ca563cd343a167",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "0cb2522e7166a901660cc9b1c3a5b1a766164c65b7786c506894468f42fbdb2a",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:a6139e7eb8d6cf58ad2e523f",
+          "state_hash": "03ce50ed0bfc77839290a6611ff9a9abd71a0a8a2801812ceb127c21f417a6b7",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "knowledge_status": "DIRECTLY_OBSERVED",
+      "modified_timestamp": "1970-01-01T00:00:00Z",
+      "negative_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "forbidden_evidence_firewall",
+          "polarity": "negative",
+          "regulator_id": "regulator:v1:ede1705d12d26e1521bd7fd7",
+          "state_hash": "630470c851215d6bddfcccfeb347d1e498c4d571b35c83be93ee9c2231d0c6b8",
+          "status": "PASS"
+        }
+      ],
+      "normal_reference_event": null,
+      "object_identity": "442a5c271e3ee358d7149abd75070dd4e4c69e4f45e21996090cc189fa45e50c",
+      "observed_output": "PASS",
+      "output_entities": [
+        {
+          "compartment": "test",
+          "entity_id": "context:v1:4fd847247110e866e05b85d6",
+          "entity_type": "event_output",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "target_identity",
+          "object_identity": "15f1d4b436b492bc87cd242b56941573bb7cb99f20079781174667d2afc34210",
+          "payload_hash": "2f8ba58c39b1160dd9908f3b2a91d28eb33d1ef1863f041139ecdf9b9fe41c8e",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "output",
+          "stable_public_identity": "entity:v1:fd577b80045f8f70f0851fbd",
+          "state_hash": "e34674a1e36ec0d0069b01fa264f71926a6cba36ea48e3db1ac596a8e6daab22",
+          "underlying_identity": "entity-payload:v1:fb192c829c7cbf10c4323eb9"
+        }
+      ],
+      "positive_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "evidence_custody",
+          "polarity": "positive",
+          "regulator_id": "regulator:v1:08671af506aeb51c0be56352",
+          "state_hash": "e46c8e7316a82f81895f707a49528d285fb5a7367199d7ce76cb34e6ef88bbfc",
+          "status": "PASS"
+        }
+      ],
+      "release_membership": "batch077",
+      "replacement_identity": null,
+      "required_input_entities": [
+        {
+          "compartment": "test",
+          "entity_id": "context:v1:a7b2bd2237ca563cd343a167",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "0cb2522e7166a901660cc9b1c3a5b1a766164c65b7786c506894468f42fbdb2a",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:a6139e7eb8d6cf58ad2e523f",
+          "state_hash": "03ce50ed0bfc77839290a6611ff9a9abd71a0a8a2801812ceb127c21f417a6b7",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "reviewer_record": "batch077_independent_audit",
+      "revision_record": "v2",
+      "schema_type": "maintenance_event_v2",
+      "stable_public_identity": "event:v1:0969a1aaaf81a5926b6b037e",
+      "state_hash": "8d06e8f5bf2910a1054970731911ebec00b38b548a99469dfa48c8bcbbaf0a84"
+    },
+    {
+      "author_record": "batch077_pathway_compiler",
+      "catalyst_or_executor": {
+        "compartment": "authorization",
+        "entity_id": "context:v1:7ff54bd30a2e934ec934cad3",
+        "entity_type": "authorized_executor",
+        "historical_aliases": [],
+        "identity_version": 1,
+        "label": "controllergate",
+        "object_identity": "eec87814d88aa42f83e9b079408489b826b5cdbb16b88518e2755f0f0fb7e680",
+        "payload_hash": "60566eb27a93f5a82bd52acdb02b31adef55464ab1e56b4d6e684bcb14fa17a1",
+        "release_membership": "batch077",
+        "replacement_identity": null,
+        "role": "catalyst",
+        "stable_public_identity": "entity:v1:24700dda20bebcf5506e3c80",
+        "state_hash": "093f58de7313b015598af833cc4e98f474c1b058ef14aa6ce04e88d6517408c1",
+        "underlying_identity": "entity-payload:v1:15ac975d25057e0783381e9b"
+      },
+      "compartment": "harness",
+      "created_timestamp": "1970-01-01T00:00:00Z",
+      "event_id": "event:v1:1b0b871c3eafc81bdbcb6fcb",
+      "event_type": "harness_origin",
+      "event_version": 1,
+      "evidence_references": [
+        "cognicore/studio.py"
+      ],
+      "expected_output": "PASS",
+      "historical_aliases": [],
+      "identity_version": 1,
+      "incident_variant_event": null,
+      "inferred_from_links": [],
+      "input_entities": [
+        {
+          "compartment": "harness",
+          "entity_id": "context:v1:2406c98b341b27918833c130",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "6e76d51621b89412c181feae76742fc43c2f5de451f117cd4df3caa361ce8176",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:8f5e5d5dd7eeee9c3ada199d",
+          "state_hash": "38cfe1e7799fa206c9289d092572678ee459deb2c9e420c7aad7cdd0061f91fb",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "knowledge_status": "DIRECTLY_OBSERVED",
+      "modified_timestamp": "1970-01-01T00:00:00Z",
+      "negative_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "forbidden_evidence_firewall",
+          "polarity": "negative",
+          "regulator_id": "regulator:v1:ede1705d12d26e1521bd7fd7",
+          "state_hash": "630470c851215d6bddfcccfeb347d1e498c4d571b35c83be93ee9c2231d0c6b8",
+          "status": "PASS"
+        }
+      ],
+      "normal_reference_event": null,
+      "object_identity": "4ca341fc882003ac81bc1ed8977cda6c480932f56999ec0217327d42ae22a5b1",
+      "observed_output": "PASS",
+      "output_entities": [
+        {
+          "compartment": "harness",
+          "entity_id": "context:v1:e9cc11ffb1484fe4296fbd24",
+          "entity_type": "event_output",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "harness_origin",
+          "object_identity": "6397b8c5b7dfb029414db95cadcba6353e4f291bbdb9fcb2f55857260c9e97ae",
+          "payload_hash": "27c7c7a62f44f45a64c14d7f4a27cb3506e745a43c093d343de699bb734331a4",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "output",
+          "stable_public_identity": "entity:v1:3350bcab03df8ef648a4c72a",
+          "state_hash": "6771bc948a72dd7407b6fa0f677440a0b4e0a372d273b862fc2989841a03be4d",
+          "underlying_identity": "entity-payload:v1:5ca36556a2b9d3d4ade455c5"
+        }
+      ],
+      "positive_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "evidence_custody",
+          "polarity": "positive",
+          "regulator_id": "regulator:v1:08671af506aeb51c0be56352",
+          "state_hash": "e46c8e7316a82f81895f707a49528d285fb5a7367199d7ce76cb34e6ef88bbfc",
+          "status": "PASS"
+        }
+      ],
+      "release_membership": "batch077",
+      "replacement_identity": null,
+      "required_input_entities": [
+        {
+          "compartment": "harness",
+          "entity_id": "context:v1:2406c98b341b27918833c130",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "6e76d51621b89412c181feae76742fc43c2f5de451f117cd4df3caa361ce8176",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:8f5e5d5dd7eeee9c3ada199d",
+          "state_hash": "38cfe1e7799fa206c9289d092572678ee459deb2c9e420c7aad7cdd0061f91fb",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "reviewer_record": "batch077_independent_audit",
+      "revision_record": "v2",
+      "schema_type": "maintenance_event_v2",
+      "stable_public_identity": "event:v1:a6f74bf68a34530edaf677f2",
+      "state_hash": "c13060da542a14b1b2c0fc22a9b603f6b5fb223f743320550d4c9699d7fd03c4"
+    },
+    {
+      "author_record": "batch077_pathway_compiler",
+      "catalyst_or_executor": {
+        "compartment": "authorization",
+        "entity_id": "context:v1:7f6cf3c90b9ed6335d109d96",
+        "entity_type": "authorized_executor",
+        "historical_aliases": [],
+        "identity_version": 1,
+        "label": "controllergate",
+        "object_identity": "8d2338197707b703f058177dc8111a21c01251e0b0ac7f466e90eee4b44e24ad",
+        "payload_hash": "75050aebbdbdbe5fa53a62a56d0f1255b5978129940535bfc827739c6e8d8c43",
+        "release_membership": "batch077",
+        "replacement_identity": null,
+        "role": "catalyst",
+        "stable_public_identity": "entity:v1:f956f39e3748579360826d54",
+        "state_hash": "ea839df5ed2db67e045050688b98c6595820c9e8d447d109e641631db9892762",
+        "underlying_identity": "entity-payload:v1:32eee6331bd6b389484c5564"
+      },
+      "compartment": "runtime",
+      "created_timestamp": "1970-01-01T00:00:00Z",
+      "event_id": "event:v1:08a0a85a147859637e364795",
+      "event_type": "failure_reproduction",
+      "event_version": 1,
+      "evidence_references": [
+        "cognicore/studio.py"
+      ],
+      "expected_output": {
+        "html_contains": "CogniCore Observability",
+        "root_request": 200
+      },
+      "historical_aliases": [],
+      "identity_version": 1,
+      "incident_variant_event": null,
+      "inferred_from_links": [],
+      "input_entities": [
+        {
+          "compartment": "runtime",
+          "entity_id": "context:v1:054c34697701c7a50509847c",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "83f6910d9a7b606293b53cb80e225442ef3a1f5ec35dd4a9442a0132938bb68a",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:a85693e41ee08ef46e0ee065",
+          "state_hash": "d2f77d977645546957db36ba69db433cbd486cafbf3890c3e079ba28c6ae4370",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "knowledge_status": "DIRECTLY_OBSERVED",
+      "modified_timestamp": "1970-01-01T00:00:00Z",
+      "negative_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "forbidden_evidence_firewall",
+          "polarity": "negative",
+          "regulator_id": "regulator:v1:ede1705d12d26e1521bd7fd7",
+          "state_hash": "630470c851215d6bddfcccfeb347d1e498c4d571b35c83be93ee9c2231d0c6b8",
+          "status": "PASS"
+        }
+      ],
+      "normal_reference_event": null,
+      "object_identity": "08dc982dd8793c3f95294991130fa4a82edb31fe6ebc5eb151d61d0bb94a5ea9",
+      "observed_output": {
+        "html_contains": "CogniCore Observability",
+        "root_request": 200
+      },
+      "output_entities": [
+        {
+          "compartment": "runtime",
+          "entity_id": "context:v1:85824f5a87d292e0e3662d0d",
+          "entity_type": "event_output",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "failure_reproduction",
+          "object_identity": "382129cf92edad50c4796a7feee8ab9285ac99669ff829a7e8c0fe2b52e71d73",
+          "payload_hash": "b07acf6e3d2bdaef541010d17d9b8edf09aaa54956ae12ceb5adc0b59deb81e5",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "output",
+          "stable_public_identity": "entity:v1:dd92f59582865a00db026527",
+          "state_hash": "75536f0fab08f9d669e90df63bb7aeec258c68ce9921af6492694b587dcb7976",
+          "underlying_identity": "entity-payload:v1:80d5ab013cc13e506287a241"
+        }
+      ],
+      "positive_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "evidence_custody",
+          "polarity": "positive",
+          "regulator_id": "regulator:v1:08671af506aeb51c0be56352",
+          "state_hash": "e46c8e7316a82f81895f707a49528d285fb5a7367199d7ce76cb34e6ef88bbfc",
+          "status": "PASS"
+        }
+      ],
+      "release_membership": "batch077",
+      "replacement_identity": null,
+      "required_input_entities": [
+        {
+          "compartment": "runtime",
+          "entity_id": "context:v1:054c34697701c7a50509847c",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "83f6910d9a7b606293b53cb80e225442ef3a1f5ec35dd4a9442a0132938bb68a",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:a85693e41ee08ef46e0ee065",
+          "state_hash": "d2f77d977645546957db36ba69db433cbd486cafbf3890c3e079ba28c6ae4370",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "reviewer_record": "batch077_independent_audit",
+      "revision_record": "v2",
+      "schema_type": "maintenance_event_v2",
+      "stable_public_identity": "event:v1:f8f08cfef3d7a37359611d3d",
+      "state_hash": "57888aec2e03be6a853a4cf19a04e274657aa9f93eddb2501e23f92e8cc5d33e"
+    },
+    {
+      "author_record": "batch077_pathway_compiler",
+      "catalyst_or_executor": {
+        "compartment": "authorization",
+        "entity_id": "context:v1:6e9d4006dac1f2de8b2caa0a",
+        "entity_type": "authorized_executor",
+        "historical_aliases": [],
+        "identity_version": 1,
+        "label": "controllergate",
+        "object_identity": "ff1b56e79c2d4e52770db07c5a1630c0c8ea28d76dfe51c4e37042fa2c1c3652",
+        "payload_hash": "7bee0dd12cce588087959a8208745fdc76079237e5c8231c2ac771bbc11b0f8b",
+        "release_membership": "batch077",
+        "replacement_identity": null,
+        "role": "catalyst",
+        "stable_public_identity": "entity:v1:02a131243face9eb1c779a91",
+        "state_hash": "b08701e2b1de89b73fe4cef8a8271b9d46e509cca6d566713133353d616df204",
+        "underlying_identity": "entity-payload:v1:042622a3ef21f74ee767c792"
+      },
+      "compartment": "diagnostic",
+      "created_timestamp": "1970-01-01T00:00:00Z",
+      "event_id": "event:v1:d9201af6460f7b3b4e695e93",
+      "event_type": "causal_diagnosis",
+      "event_version": 1,
+      "evidence_references": [
+        "cognicore/studio.py"
+      ],
+      "expected_output": "<title>CogniCore Observability</title>",
+      "historical_aliases": [],
+      "identity_version": 1,
+      "incident_variant_event": null,
+      "inferred_from_links": [],
+      "input_entities": [
+        {
+          "compartment": "diagnostic",
+          "entity_id": "context:v1:8cec2c1de86b2d80b760876e",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "4067a04937949406266e18d8fe72aa9b7af4d7776627fa1c1a4b6f129e4d0d95",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:21186c6273545bdd3a24af74",
+          "state_hash": "7e5e871f48fefa8481c2266b69decc49893a4bc789d4932805c8918dea36c65a",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "knowledge_status": "DIRECTLY_OBSERVED",
+      "modified_timestamp": "1970-01-01T00:00:00Z",
+      "negative_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "forbidden_evidence_firewall",
+          "polarity": "negative",
+          "regulator_id": "regulator:v1:ede1705d12d26e1521bd7fd7",
+          "state_hash": "630470c851215d6bddfcccfeb347d1e498c4d571b35c83be93ee9c2231d0c6b8",
+          "status": "PASS"
+        }
+      ],
+      "normal_reference_event": "event:v1:4d053e8e2189e91df2e56de4",
+      "object_identity": "1e677b7188e6be6b4f1f43a6c3b3c78846e3a41df5817fcf5f6b3af3b4a938c6",
+      "observed_output": "<title>CogniCore Observability</title>",
+      "output_entities": [
+        {
+          "compartment": "diagnostic",
+          "entity_id": "context:v1:154e6de4408e5f4c8fa5a3e7",
+          "entity_type": "event_output",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "causal_diagnosis",
+          "object_identity": "d070c91669e9e44429e511a8500037565e4f7348e5d3ccc714b0b1361f7bd2e1",
+          "payload_hash": "0ea9308b2d0537a7f9d15c6230c5b170c5f3cec7972fd3ac44dfb1735a7b4263",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "output",
+          "stable_public_identity": "entity:v1:ed61692e8b151173b1869d35",
+          "state_hash": "b6ee4eda8b7008c830df713533fe782308bcf66c2001e27407bce23e571b7e23",
+          "underlying_identity": "entity-payload:v1:49bdde957c7b38315d89db38"
+        }
+      ],
+      "positive_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "evidence_custody",
+          "polarity": "positive",
+          "regulator_id": "regulator:v1:08671af506aeb51c0be56352",
+          "state_hash": "e46c8e7316a82f81895f707a49528d285fb5a7367199d7ce76cb34e6ef88bbfc",
+          "status": "PASS"
+        }
+      ],
+      "release_membership": "batch077",
+      "replacement_identity": null,
+      "required_input_entities": [
+        {
+          "compartment": "diagnostic",
+          "entity_id": "context:v1:8cec2c1de86b2d80b760876e",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "4067a04937949406266e18d8fe72aa9b7af4d7776627fa1c1a4b6f129e4d0d95",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:21186c6273545bdd3a24af74",
+          "state_hash": "7e5e871f48fefa8481c2266b69decc49893a4bc789d4932805c8918dea36c65a",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "reviewer_record": "batch077_independent_audit",
+      "revision_record": "v2",
+      "schema_type": "maintenance_event_v2",
+      "stable_public_identity": "event:v1:cb8c72e2947f0f765b7f417f",
+      "state_hash": "ce69de3fe3099ec1364f618ba2c5d28438a707ae5cb3b34088216dacb516c695"
+    },
+    {
+      "author_record": "batch077_pathway_compiler",
+      "catalyst_or_executor": {
+        "compartment": "authorization",
+        "entity_id": "context:v1:a342425638240b30fd7ec269",
+        "entity_type": "authorized_executor",
+        "historical_aliases": [],
+        "identity_version": 1,
+        "label": "controllergate",
+        "object_identity": "fa2e31a635bb784f27d9431744cfd6545ea32a88f70a8ea16a5232a8f70fb532",
+        "payload_hash": "03eafdcf45abfb910fbccfc3a9a28193e44b467f3611da28a1fd35a664f11c4b",
+        "release_membership": "batch077",
+        "replacement_identity": null,
+        "role": "catalyst",
+        "stable_public_identity": "entity:v1:37f8607644233d3f520dcfaa",
+        "state_hash": "c0e28677ddb500a729b1dc0b123a5b77f0ec9aa432dde2532f5971866f172352",
+        "underlying_identity": "entity-payload:v1:08d7edef263ef8d9649b342c"
+      },
+      "compartment": "diagnostic",
+      "created_timestamp": "1970-01-01T00:00:00Z",
+      "event_id": "event:v1:7298c1a6b68e2243d98ba280",
+      "event_type": "ownership_decision",
+      "event_version": 1,
+      "evidence_references": [
+        "cognicore/studio.py"
+      ],
+      "expected_output": "source_output_lacks_native_test_branding",
+      "historical_aliases": [],
+      "identity_version": 1,
+      "incident_variant_event": "event:v1:4d053e8e2189e91df2e56de4",
+      "inferred_from_links": [],
+      "input_entities": [
+        {
+          "compartment": "diagnostic",
+          "entity_id": "context:v1:8cec2c1de86b2d80b760876e",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "4067a04937949406266e18d8fe72aa9b7af4d7776627fa1c1a4b6f129e4d0d95",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:21186c6273545bdd3a24af74",
+          "state_hash": "7e5e871f48fefa8481c2266b69decc49893a4bc789d4932805c8918dea36c65a",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "knowledge_status": "DIRECTLY_OBSERVED",
+      "modified_timestamp": "1970-01-01T00:00:00Z",
+      "negative_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "forbidden_evidence_firewall",
+          "polarity": "negative",
+          "regulator_id": "regulator:v1:ede1705d12d26e1521bd7fd7",
+          "state_hash": "630470c851215d6bddfcccfeb347d1e498c4d571b35c83be93ee9c2231d0c6b8",
+          "status": "PASS"
+        }
+      ],
+      "normal_reference_event": null,
+      "object_identity": "480c98a0d926804f73b8247e3f07b3a83bd14a28fc7ac9df2671b1806a3bbfe0",
+      "observed_output": "source_output_lacks_native_test_branding",
+      "output_entities": [
+        {
+          "compartment": "diagnostic",
+          "entity_id": "context:v1:26ea5317dae27c1b2543d7eb",
+          "entity_type": "event_output",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "ownership_decision",
+          "object_identity": "4e4e4537dc19f7523f563beb08e9e82a0ddcb2823d8bb5024644b88ef6665ba9",
+          "payload_hash": "6e4c5eb99a9e52bbcbe053a7e71c06829df64c06cd940882a1a39ca330741cee",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "output",
+          "stable_public_identity": "entity:v1:c079e5ef9c72e72fb71a6280",
+          "state_hash": "a6b1282678642eea90f9c18e025ac56a698a51cd21b78d91e64f88a531779fed",
+          "underlying_identity": "entity-payload:v1:a2107adcc39dcb1999f01a7d"
+        }
+      ],
+      "positive_regulators": [
+        {
+          "evidence_reference": "cognicore/studio.py",
+          "name": "evidence_custody",
+          "polarity": "positive",
+          "regulator_id": "regulator:v1:08671af506aeb51c0be56352",
+          "state_hash": "e46c8e7316a82f81895f707a49528d285fb5a7367199d7ce76cb34e6ef88bbfc",
+          "status": "PASS"
+        }
+      ],
+      "release_membership": "batch077",
+      "replacement_identity": null,
+      "required_input_entities": [
+        {
+          "compartment": "diagnostic",
+          "entity_id": "context:v1:8cec2c1de86b2d80b760876e",
+          "entity_type": "proof_evidence",
+          "historical_aliases": [],
+          "identity_version": 1,
+          "label": "cognicore/studio.py",
+          "object_identity": "4067a04937949406266e18d8fe72aa9b7af4d7776627fa1c1a4b6f129e4d0d95",
+          "payload_hash": "d76b02d68ea7c9aec4d24df0eb65ee1a61a44a934f17174d6891a9f728f8d251",
+          "release_membership": "batch077",
+          "replacement_identity": null,
+          "role": "required_input",
+          "stable_public_identity": "entity:v1:21186c6273545bdd3a24af74",
+          "state_hash": "7e5e871f48fefa8481c2266b69decc49893a4bc789d4932805c8918dea36c65a",
+          "underlying_identity": "entity-payload:v1:296a050edcc289fb12444598"
+        }
+      ],
+      "reviewer_record": "batch077_independent_audit",
+      "revision_record": "v2",
+      "schema_type": "maintenance_event_v2",
+      "stable_public_identity": "event:v1:6a4f79f773d4fb00c95e43b7",
+      "state_hash": "b379f4e8e62dc45830862defde5aa3690be2f61290a2c0e02a989275b85a2502"
+    }
+  ],
+  "historical_aliases": [],
+  "identity_version": 2,
+  "incident_variant_pathway": null,
+  "normal_reference_pathway": "pathway:v1:a9f5bbf5ee8c955a17b0939e",
+  "object_identity": "7962b28b0447a3855ccc03771797e2b921ef1080b62395bbec23b19410797872",
+  "pathway_hash": "974315ec63eeb833356f5bc4fdcc1e53c5b9ddf84a7722e8a4aebf370193199c",
+  "pathway_id": "pathway:v1:5b03c1754601db3050af80f7",
+  "pathway_version": 2,
+  "probe_cost": 9,
+  "proof_references": [
+    "cognicore/studio.py"
+  ],
+  "release_membership": "batch077",
+  "replacement_identity": null,
+  "safe_abstention": false,
+  "stable_public_identity": "pathway:v2:4bd7e363ebf7da1929a17778",
+  "terminal_ownership": "source_owned_behavior_defect",
+  "terminal_state": "INCIDENT_OUTPUT"
+}

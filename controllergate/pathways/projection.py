@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Literal
 
-from .stable_identity import stable_identity, state_hash
+from .stable_identity import stable_identity, state_hash, versioned_identity_record
 
 
 @dataclass(frozen=True)
@@ -49,5 +49,6 @@ class Projection:
             "allowed_influences": ["probe_ranking", "probe_selection", "safe_abstention_recommendation"],
             "forbidden_influences": ["ground_truth", "patch_content", "patch_authorization", "count_gate"],
         }
+        record.update(versioned_identity_record("projection", {"projection_id": self.projection_id, "source": self.source_pathway_id, "target": self.target_pathway_id}, version=1))
         record["state_hash"] = state_hash(record)
         return record

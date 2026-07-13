@@ -1,5 +1,11 @@
 # ControllerGate shareable summary
 
+## Batch077 typed event pathways and structural memory v2
+
+Batch077 independently verifies and ingests the official Batch076 evidence. It measures the nine-record flat memory corpus as structurally degenerate, then compiles each eligible historical episode into a proof-bound typed event pathway. Events distinguish required evidence, executors, regulators, compartments, outputs, direct observations, projected relationships, versioned identities, and cycle-safe composition. The complete real and shuffled pathway corpora are persisted under distinct identities.
+
+CogniCore's pinned native test expects `CogniCore Studio`, while the returned source constant contains `CogniCore Observability`; the same source module independently uses the expected Studio branding for its API and logger. The first mismatch is therefore localized as `SOURCE_OWNED_OUTPUT_DIVERGENCE`. HordeForge remains byte-identical and read-only while a separate harness view supplies a writable scratch mountpoint. This removes the previous temp-directory failure and reproduces the original assertion with a nonempty signature. Twelve isolated pathway-memory arms execute 96 gap-driven probes with matching event and posterior records. No local patch runs because official-provider byte equivalence is not established on the local platform. Prospective effectiveness and memory lift remain unestablished.
+
 ## Batch076 AMDS causal evidence and routing-memory calibration
 
 Batch076 independently verifies the official Batch075 artifact and preserves its raw records while applying stricter evidence contracts. Fourteen of 24 historical observations satisfy the new complete-observation contract, ten null observations are rejected, and all 24 historical posterior maps are non-informative. Official workflow provider hashes remain authoritative over different local reconstructions.

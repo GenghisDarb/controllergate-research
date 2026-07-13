@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from .compartment import require_compartment
-from .stable_identity import contextual_identity, stable_identity, state_hash
+from .stable_identity import contextual_identity, stable_identity, state_hash, versioned_identity_record
 
 
 @dataclass(frozen=True)
@@ -33,5 +33,6 @@ class Entity:
             "role": self.role,
             "label": self.label,
         }
+        record.update(versioned_identity_record("entity", {"underlying": self.underlying_identity, "context": self.entity_id}, version=1))
         record["state_hash"] = state_hash(record)
         return record

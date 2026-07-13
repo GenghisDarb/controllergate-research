@@ -2,6 +2,19 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
+## Batch077 typed event pathways and structural memory v2
+
+- Typed events: versioned stable identity, required inputs, authorized executor, positive and negative regulators, compartment, captured outputs, evidence references, and state hash.
+- Compartment-specific contextual identity: the same payload in different execution compartments has distinct entity identity while retaining one underlying payload identity.
+- Typed pathways: proof-bound event order, branch points, blockers, terminal state, normal/incident pairing, and explicit cycle-safe composition.
+- Structural memory v2: nine historical pathways compiled from their original proof records; structurally sparse records remain disclosed rather than padded with invented events.
+- Negative control: complete shuffled pathway corpus with permuted outcome bindings and preserved declared marginals; real and shuffled identities are distinct.
+- Projection firewall: projected relationships may rank probes but cannot establish ground truth, patch content, patch authority, or count evidence.
+- CogniCore localization: direct native-test and source evidence identifies `SOURCE_OWNED_OUTPUT_DIVERGENCE` at the HTML rendering event.
+- HordeForge compartment correction: byte-identical read-only source view plus writable scratch mount removes the prior temp-directory blocker and reproduces the original assertion.
+- Pathway-gap planner: 96 accepted probes across 12 isolated arms, each paired with an event, state transition, semantic verification, and posterior update.
+- Claim boundary: AMDS prospective effectiveness remains `NOT_ESTABLISHED`; routing-memory remains `DEMONSTRATED_NO_EFFECT`; memory lift remains `not_demonstrated`.
+
 ## Batch076 causal evidence and routing-memory calibration
 
 - Official Batch075 artifact custody: exact size, SHA256, path safety, duplicate-path safety, and all nested manifests independently verified.

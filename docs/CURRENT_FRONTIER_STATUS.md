@@ -33,6 +33,16 @@ This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 - Batch076 accepted probes/events/nonces: 48/48/48
 - HordeForge corrected admission: QUARANTINED_RESOURCE_TIMEOUT
 - Batch076 authoritative repair: NOT_RUN_NO_SAFE_GENERIC_PATCH_PLAN
+- Batch077 typed event pathways: 9
+- Batch077 unique pathway hashes: 9
+- Batch077 real/shuffled pathway identities distinct: true
+- Batch077 CogniCore ground truth: SOURCE_OWNED_OUTPUT_DIVERGENCE
+- Batch077 HordeForge runtime correction: PASS
+- Batch077 HordeForge causal result: ORIGINAL_ASSERTION_REPRODUCED
+- Batch077 HordeForge corrected admission: ADMITTED_CANDIDATE_FAILURE
+- Batch077 pathway-gap probes/events/posterior updates: 96/96/96
+- Batch077 bounded backtracking decisions: 12
+- Batch077 local authoritative repair: NOT_RUN
 - Routing-memory mechanism: DEMONSTRATED_NO_EFFECT
 - AMDS prospective effectiveness: NOT_ESTABLISHED
-- Next safe action: manual_batch075_artifact_verification
+- Next safe action: manual_batch077_artifact_verification

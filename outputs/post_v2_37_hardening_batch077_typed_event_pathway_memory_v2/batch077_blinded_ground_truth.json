@@ -1,0 +1,39 @@
+{
+  "arm_labels_available": false,
+  "arm_terminal_results_available": false,
+  "arms_sealed_before_adjudication": true,
+  "memory_conditions_available": false,
+  "probe_order_available": false,
+  "records": [
+    {
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "classification": "SOURCE_OWNED_OUTPUT_DIVERGENCE",
+      "direct_evidence": [
+        "cognicore/studio.py",
+        "tests/test_studio.py"
+      ],
+      "manual_review_required": true,
+      "projected_evidence": [],
+      "rejected_evidence": [
+        "memory projections",
+        "arm labels",
+        "patch outcome"
+      ]
+    },
+    {
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "classification": "ORIGINAL_ASSERTION_REPRODUCED",
+      "direct_evidence": [
+        "hordeforge_runtime_compartment_correction.json"
+      ],
+      "manual_review_required": true,
+      "projected_evidence": [],
+      "rejected_evidence": [
+        "empty output",
+        "memory projections",
+        "arm labels"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,71 @@
+{
+  "claim_promotion_requires_independent_validation": true,
+  "materialization_compartment": "staging",
+  "source_records": [
+    {
+      "class_or_role": "MapOldStableIds",
+      "commit": "1b3257dbf9829c5e322bcfba1d7256e0e6ef4faa",
+      "exists": true,
+      "path": "src/main/java/org/reactome/release/downloaddirectory/StableIdMapper/MapOldStableIds.java",
+      "repository": "reactome/release-download-directory",
+      "sha256": "5a46027bad6f3a2f923d414fad7a9862a6b3687daec040ec8fee82778fccfd49",
+      "verification_status": "PASS"
+    },
+    {
+      "class_or_role": "HumanPathwaysWithDiagrams",
+      "commit": "1b3257dbf9829c5e322bcfba1d7256e0e6ef4faa",
+      "exists": true,
+      "path": "src/main/java/org/reactome/release/downloaddirectory/HumanPathwaysWithDiagrams.java",
+      "repository": "reactome/release-download-directory",
+      "sha256": "3e65823b41f1b43d91151f7b5359ab81c413a66c16fddf12eedaff092015df55",
+      "verification_status": "PASS"
+    },
+    {
+      "class_or_role": "DownloadDirectoryVerifier",
+      "commit": "1b3257dbf9829c5e322bcfba1d7256e0e6ef4faa",
+      "exists": true,
+      "path": "src/main/java/org/reactome/release/downloaddirectory/verifier/DownloadDirectoryVerifier.java",
+      "repository": "reactome/release-download-directory",
+      "sha256": "caa2df1dd545efaed15e7e5361a66be0add370aaed91a5ae5925d7d803f45b38",
+      "verification_status": "PASS"
+    },
+    {
+      "class_or_role": "authorized step configuration",
+      "commit": "1b3257dbf9829c5e322bcfba1d7256e0e6ef4faa",
+      "exists": true,
+      "path": "src/main/resources/stepsToRun.config",
+      "repository": "reactome/release-download-directory",
+      "sha256": "b580c8a87be734be6b2377575bcc050be963fbc3a526a0a54b20068b8bdfd336",
+      "verification_status": "PASS"
+    },
+    {
+      "class_or_role": "HumanPathwaysWithDiagrams",
+      "commit": "d0ff92e1bc79a90a9c96bd818f0e69f3e742a152",
+      "exists": true,
+      "path": "src/main/java/org/reactome/server/export/tasks/HumanPathwaysWithDiagrams.java",
+      "repository": "reactome/data-export",
+      "sha256": "8c5f3031194a731d372ebfe82b9235226812041994b922bdea707be5f55e8187",
+      "verification_status": "PASS"
+    },
+    {
+      "class_or_role": "post-generation validation",
+      "commit": "ed1ccad4204665719f5d128dd927dde91366e5da",
+      "exists": true,
+      "path": "src/main/java/org/reactome/release/qa/check/NewEventConsistencyCheck.java",
+      "repository": "reactome/release-qa",
+      "sha256": "a9fc122629ae51621641795732a5aaa62df3e164d9c05d02b01052ddbfd9e3af",
+      "verification_status": "PASS"
+    },
+    {
+      "class_or_role": "release comparison support",
+      "commit": "ed1ccad4204665719f5d128dd927dde91366e5da",
+      "exists": true,
+      "path": "src/main/java/org/reactome/release/qa/common/QACheckerHelper.java",
+      "repository": "reactome/release-qa",
+      "sha256": "bd7842702a8d66f9f025fdaa3097f4c027d237705b6f8ff5041e6b2160ed0cfd",
+      "verification_status": "PASS"
+    }
+  ],
+  "staging_success_is_validation_success": false,
+  "status": "PASS"
+}

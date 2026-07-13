@@ -3,7 +3,7 @@ from __future__ import annotations
 from controllergate.pathways.compartment import ALL_COMPARTMENTS
 from controllergate.pathways.entity import Entity
 from controllergate.pathways.event import Event
-from controllergate.pathways.pathway import Pathway
+from controllergate.pathways.pathway import Pathway, cycle_safe_composition
 from controllergate.pathways.projection import Projection
 from controllergate.pathways.regulation import Regulator
 from controllergate.pathways.validator import validate_event, validate_pathway, validate_transition
@@ -110,6 +110,27 @@ def test_pathway_validation_and_proof_binding() -> None:
     assert validate_pathway(pathway)["status"] == "PASS"
     pathway["proof_references"] = []
     assert "proof_lineage_missing" in validate_pathway(pathway)["errors"]
+
+
+def test_pathway_identity_version_and_normal_incident_pairing() -> None:
+    normal = Pathway("normal", 2, (valid_event(),), proof_references=("proof.json",))
+    incident = Pathway("incident", 2, (valid_event(),), proof_references=("proof.json",), normal_reference_pathway=normal.pathway_id)
+    record = incident.to_record()
+    assert record["normal_reference_pathway"] == normal.pathway_id
+    assert record["object_identity"] != record["stable_public_identity"]
+    assert record["identity_version"] == 2
+
+
+def test_cycle_safe_composition_preserves_excluded_reference() -> None:
+    graph = {
+        "a": [{"target": "b", "edge_type": "has_event"}],
+        "b": [{"target": "a", "edge_type": "encapsulated_event"}],
+    }
+    result = cycle_safe_composition(graph, "a", max_depth=8)
+    assert result["status"] == "PASS"
+    assert result["excluded_edges"][0]["reason"] == "cycle_detected"
+    assert result["excluded_edges"][0]["available_as_non_composition_reference"] is True
+    assert result["silent_edge_deletion"] is False
 
 
 def test_transition_requires_authorization_verification_and_ledger() -> None:

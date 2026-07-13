@@ -16,6 +16,8 @@ Batch075 crosses that reviewed boundary without broad discovery. The manually su
 
 Batch076 verifies and ingests the successful Batch075 artifact and separates preserved historical records from current admissible evidence. Observation contract v2 accepts 14 of the 24 raw Batch075 records and rejects 10 null records; posterior state v3 finds no informative historical update. The official workflow provider hashes remain the scientific authority. HordeForge's empty-output timeout is reclassified as `QUARANTINED_RESOURCE_TIMEOUT`, so it cannot enter patch generation. The corrected CogniCore cohort runs six isolated strategy/memory arms with 48 complete observations, matching event records and single-use nonces, and non-empty posterior state. A nine-record proof-bound routing-memory corpus changes order but produces no measured advantage over no-memory or shuffled controls.
 
+Batch077 verifies the official Batch076 artifact and replaces flat categorical memory matching with proof-bound typed event pathways. Nine historical pathways are compiled with explicit event roles, compartment transitions, versioned identity, direct-versus-projected knowledge labels, and cycle-safe composition. The real and shuffled corpora are fully persisted under distinct identities. Direct CogniCore evidence localizes the first normal/incident mismatch to returned source HTML. HordeForge's pinned files remain byte-identical and read-only while a separate harness view provides a writable runtime mountpoint; the original assertion then reproduces. Twelve isolated comparison arms generate probes only from unresolved pathway edges and append one verified event and posterior update per accepted probe.
+
 - Issue-derived repair episodes: `5`.
 - Native external repair episodes: `4`.
 - Batch068h9 artifact custody and official state preservation: `PASS`.
@@ -36,7 +38,12 @@ Batch076 verifies and ingests the successful Batch075 artifact and separates pre
 - Batch076 corrected evidence depth: `14/24` accepted, `10/24` null records rejected, `0` informative historical updates.
 - Batch076 causal calibration: `6` arms and `48` accepted probes with complete event/nonce custody.
 - Routing-memory mechanism: `DEMONSTRATED_NO_EFFECT`; generalized AMDS effectiveness remains `NOT_ESTABLISHED`.
-- Exact next safe action: manually verify and ingest the successful Batch076 workflow artifact.
+- Batch077 pathway memory v2: `9` proof-bound pathways; complete real/no-memory/shuffled controls: `PASS`.
+- Batch077 CogniCore divergence: `SOURCE_OWNED_OUTPUT_DIVERGENCE`.
+- Batch077 HordeForge runtime correction: `PASS`; causal result: `ORIGINAL_ASSERTION_REPRODUCED`.
+- Batch077 gap-driven comparison: `12` arms, `96` accepted probes/events/posterior updates, `12` bounded backtracking decisions.
+- Batch077 local repair: `NOT_RUN` because official-provider byte equivalence is not established locally.
+- Exact next safe action: manually verify and ingest the successful Batch077 workflow artifact.
 - Reconciled historical false closures: `2`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Runtime connectors and live-device repair: inactive.

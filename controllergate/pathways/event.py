@@ -6,7 +6,7 @@ from typing import Any, Literal
 from .compartment import require_compartment
 from .entity import Entity
 from .regulation import Regulator
-from .stable_identity import stable_identity, state_hash
+from .stable_identity import stable_identity, state_hash, versioned_identity_record
 
 DEFAULT_TIMESTAMP = "1970-01-01T00:00:00Z"
 
@@ -75,5 +75,6 @@ class Event:
             "created_timestamp": self.created_timestamp,
             "modified_timestamp": self.modified_timestamp,
         }
+        record.update(versioned_identity_record("event", {"event_id": self.event_id, "schema_type": self.schema_type}, version=self.event_version))
         record["state_hash"] = state_hash(record)
         return record

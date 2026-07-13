@@ -22,6 +22,8 @@ Batch075 verifies and ingests the manually supplied Batch074 workflow artifact, 
 
 Batch076 independently verifies and ingests the official Batch075 artifact, then hardens its evidence contracts without rewriting Batch075 history. Under observation contract v2, 14 of Batch075's 24 raw probe records are valid and 10 null records are rejected; all 24 historical posterior maps are non-informative. The official workflow provider hashes remain authoritative over differing local reconstructions. CogniCore retains bounded candidate-failure evidence, while HordeForge's empty-output timeout is quarantined as a resource boundary and cannot authorize a patch. A proof-bound nine-record routing-memory corpus is evaluated across six isolated real-memory, no-memory, and shuffled-memory arms with 48 accepted probes, 48 events, and 48 single-use nonces. The measured result is `DEMONSTRATED_NO_EFFECT`: AMDS causal evidence is hardened, prospective effectiveness remains `NOT_ESTABLISHED`, and no repair is licensed.
 
+Batch077 verifies and ingests the official Batch076 artifact, measures the flat memory-v1 corpus as structurally degenerate, and compiles nine proof-bound typed event pathways with explicit inputs, executors, regulators, compartments, outputs, versioned identities, and cycle-safe composition. A complete shuffled pathway corpus is persisted as an independently identifiable negative control. CogniCore's native test and pinned source localize the first mismatch to the returned HTML branding, producing `SOURCE_OWNED_OUTPUT_DIVERGENCE`. HordeForge now runs through a byte-identical read-only harness view with a separate writable scratch compartment; the old read-only temp failure is removed and the original assertion reproduces with a nonempty signature. Twelve isolated pathway-memory comparison arms execute 96 gap-driven probes and matching event/posterior updates. No local repair is attempted because the local CogniCore provider reconstruction is not byte-equivalent to the official workflow store.
+
 - Confirmed issue-derived repair episodes: `5`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
@@ -48,7 +50,12 @@ Batch076 independently verifies and ingests the official Batch075 artifact, then
 - Batch076 causal calibration: `6` isolated arms, `48` accepted probes, `48` events, and `48` spent nonces.
 - HordeForge corrected admission: `QUARANTINED_RESOURCE_TIMEOUT`; patch authority: `false`.
 - Batch076 authoritative repair: `NOT_RUN_NO_SAFE_GENERIC_PATCH_PLAN`.
-- Next safe action: manually verify and ingest the successful Batch076 workflow artifact.
+- Batch077 typed pathway corpus: `9` proof-bound pathways with distinct persisted real/no-memory/shuffled identities.
+- Batch077 CogniCore ground truth: `SOURCE_OWNED_OUTPUT_DIVERGENCE`.
+- Batch077 HordeForge correction: old scratch blocker removed; `ORIGINAL_ASSERTION_REPRODUCED`; admitted for diagnosis with patch authority still `false`.
+- Batch077 pathway-gap execution: `12` isolated arms, `96` probes, `96` event records, `96` posterior updates, and `12` bounded backtracking decisions.
+- Batch077 local repair: `NOT_RUN`; official-provider byte equivalence remains mandatory.
+- Next safe action: manually verify and ingest the successful Batch077 workflow artifact.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.
