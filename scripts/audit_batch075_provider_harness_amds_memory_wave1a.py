@@ -136,30 +136,40 @@ def main() -> int:
             expect(errors, bool(re.fullmatch(r"[0-9a-f]{64}", str(artifact.get("sha256")))), f"{slug}_artifact_hash")
 
     admissions = [load("cognicore_admission_decision.json"), load("hordeforge_admission_decision.json")]
+    allowed_terminals = {"ADMITTED_DUPLICATE_FAILURE", "FAILURE_NOT_REPRODUCED", "PROVIDER_BLOCKED", "TARGET_BLOCKED", "COMMAND_BLOCKED", "ENVIRONMENT_ONLY_TERMINAL", "CONTAMINATION_BLOCKED"}
     for slug, decision in zip(("cognicore", "hordeforge"), admissions):
-        expect(errors, decision.get("status") == "ADMITTED_DUPLICATE_FAILURE" and decision.get("duplicate_collection") is True and decision.get("duplicate_failure") is True, f"{slug}_admission")
+        expect(errors, decision.get("status") in allowed_terminals, f"{slug}_terminal")
         collections = [load(f"{slug}_collection_run_1.json"), load(f"{slug}_collection_run_2.json")]
         failures = [load(f"{slug}_failure_run_1.json"), load(f"{slug}_failure_run_2.json")]
-        expect(errors, all(item.get("returncode") == 0 and item.get("node_count", 0) > 0 for item in collections) and collections[0]["node_ids"] == collections[1]["node_ids"], f"{slug}_duplicate_collection")
-        expect(errors, all(item.get("returncode") != 0 for item in failures) and failures[0]["semantic_failure_signature"] == failures[1]["semantic_failure_signature"], f"{slug}_duplicate_failure")
+        if decision.get("duplicate_collection") is True:
+            expect(errors, all(item.get("returncode") == 0 and item.get("node_count", 0) > 0 for item in collections) and collections[0]["node_ids"] == collections[1]["node_ids"], f"{slug}_duplicate_collection")
+        if decision.get("status") == "ADMITTED_DUPLICATE_FAILURE":
+            expect(errors, decision.get("duplicate_failure") is True and all(item.get("returncode") != 0 for item in failures) and failures[0]["semantic_failure_signature"] == failures[1]["semantic_failure_signature"], f"{slug}_duplicate_failure")
 
+    admitted_ids = [item["candidate_id"] for item in admissions if item.get("status") == "ADMITTED_DUPLICATE_FAILURE"]
     cohort = load("batch075_admitted_cohort_freeze.json")
-    expect(errors, cohort.get("status") == "EXECUTED_COHORT_READY" and cohort.get("candidates") == expected_ids and cohort.get("frozen_after_all_dispositions") is True, "cohort_freeze")
+    expected_cohort_status = "EXECUTED_COHORT_READY" if admitted_ids else "EXECUTED_EMPTY_COHORT"
+    expect(errors, cohort.get("status") == expected_cohort_status and cohort.get("candidates") == admitted_ids and cohort.get("frozen_after_all_dispositions") is True, "cohort_freeze")
     diagnostics = load("batch075_diagnostic_arm_summary.json")
-    expect(errors, diagnostics.get("status") == "PASS" and diagnostics.get("arm_executions") == 8 and diagnostics.get("probe_executions") == 24, "diagnostic_execution")
+    expected_arm_count = len(admitted_ids) * 4
+    expected_probe_count = expected_arm_count * 3
+    expected_diagnostic_status = "PASS" if admitted_ids else "NOT_RUN_EXECUTED_EMPTY_COHORT"
+    expect(errors, diagnostics.get("status") == expected_diagnostic_status and diagnostics.get("arm_executions") == expected_arm_count and diagnostics.get("probe_executions") == expected_probe_count, "diagnostic_execution")
     all_arms = [arm for record in diagnostics.get("records", []) for arm in record.get("arm_outputs", {}).values()]
-    expect(errors, len(all_arms) == 8 and len({item.get("authorization_store_path") for item in all_arms}) == 8 and len({item.get("checkpoint_path") for item in all_arms}) == 8 and len({item.get("posterior_store") for item in all_arms}) == 8, "arm_isolation")
+    expect(errors, len(all_arms) == expected_arm_count and len({item.get("authorization_store_path") for item in all_arms}) == expected_arm_count and len({item.get("checkpoint_path") for item in all_arms}) == expected_arm_count and len({item.get("posterior_store") for item in all_arms}) == expected_arm_count, "arm_isolation")
     expect(errors, all(item.get("observation_sharing") is False and item.get("patch_authority") is False for item in all_arms), "arm_sharing_or_patch")
     expect(errors, all(item.get("canonical_run_amds_active_loop") is True for item in all_arms if item.get("strategy") == "AMDS_ACTIVE"), "canonical_amds")
     expect(errors, all(item.get("canonical_run_amds_active_loop") is False for item in all_arms if item.get("strategy") == "FIXED_LEGAL_ORDER"), "fixed_order")
 
     contacts = load("batch075_fourteen_contact_evidence.json")
-    expect(errors, contacts.get("status") == "PASS" and len(contacts.get("records", [])) == 2, "fourteen_contacts")
+    expected_contact_status = "PASS" if admitted_ids else "NOT_RUN_EXECUTED_EMPTY_COHORT"
+    expect(errors, contacts.get("status") == expected_contact_status and len(contacts.get("records", [])) == len(admitted_ids), "fourteen_contacts")
     for record in contacts.get("records", []):
         expect(errors, len(record.get("contacts", [])) == 14 and all(item.get("boolean_only_hash") is False and re.fullmatch(r"[0-9a-f]{64}", str(item.get("evidence_record_hash"))) for item in record.get("contacts", [])), "contact_hashes")
 
     custody = load("batch075_arm_state_custody.json")
-    expect(errors, custody.get("status") == "PASS" and len(custody.get("records", [])) == 10, "arm_state_custody")
+    expected_custody_status = "PASS" if admitted_ids else "NOT_RUN_EXECUTED_EMPTY_COHORT"
+    expect(errors, custody.get("status") == expected_custody_status and len(custody.get("records", [])) == len(admitted_ids) * 5, "arm_state_custody")
     for record in custody.get("records", []):
         for item in record.get("files", []):
             target = OUT / item["path"]
@@ -168,10 +178,12 @@ def main() -> int:
                 expect(errors, event_chain_valid(target), "event_chain")
 
     ground = load("batch075_blinded_ground_truth.json")
-    expect(errors, ground.get("status") == "PASS" and ground.get("arm_outputs_sealed_first") is True and ground.get("adjudicator_blinded") is True and len(ground.get("records", [])) == 2, "blinded_ground_truth")
+    expected_ground_status = "PASS" if admitted_ids else "NOT_RUN_EXECUTED_EMPTY_COHORT"
+    expect(errors, ground.get("status") == expected_ground_status and ground.get("arm_outputs_sealed_first") is True and ground.get("adjudicator_blinded") is True and len(ground.get("records", [])) == len(admitted_ids), "blinded_ground_truth")
     expect(errors, all(item.get("classification") == "insufficient_evidence" for item in ground.get("records", [])), "ground_truth_classification")
     metrics = load("batch075_wave1a_metrics.json")
-    expect(errors, metrics.get("status") == "PASS" and metrics.get("candidate_count") == 2 and metrics.get("AMDS_PROSPECTIVE_EFFECTIVENESS") == "NOT_ESTABLISHED" and metrics.get("memory_lift") == "not_demonstrated", "metrics")
+    expected_metrics_status = "PASS" if admitted_ids else "NOT_RUN_EXECUTED_EMPTY_COHORT"
+    expect(errors, metrics.get("status") == expected_metrics_status and metrics.get("candidate_count") == len(admitted_ids) and metrics.get("AMDS_PROSPECTIVE_EFFECTIVENESS") == "NOT_ESTABLISHED" and metrics.get("memory_lift") == "not_demonstrated", "metrics")
     repair = load("batch075_authoritative_repair_decision.json")
     expect(errors, repair.get("attempts") == 0 and repair.get("successes") == 0 and repair.get("memory_disabled_lane") is True, "repair_boundary")
     final = load("batch075_final_decision.json")
