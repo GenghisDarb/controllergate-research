@@ -7,7 +7,7 @@ This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 - Frontier protocol promoted: true
 - Generic production bindings: 22
 - Batch-specific current bindings: 0
-- Issue-derived repair episodes: 5
+- Issue-derived repair episodes: 6
 - Native external repair episodes: 4
 - Runtime activation allowed: false
 - Full scoring: NOT_RUN/disallowed
@@ -43,6 +43,11 @@ This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 - Batch077 pathway-gap probes/events/posterior updates: 96/96/96
 - Batch077 bounded backtracking decisions: 12
 - Batch077 local authoritative repair: NOT_RUN
+- Batch078 official Batch077 artifact ingest: PASS
+- Batch078 count-six hardening: workflow-revalidated existing count only; no recount permitted
+- Batch078 minimal causal closure and mandatory invariant interlock: PASS
+- Batch078 HordeForge causal ownership: fixture_or_harness_owned
+- Batch078 historical shadow metrology: nonblocking; no production threshold promoted
 - Routing-memory mechanism: DEMONSTRATED_NO_EFFECT
 - AMDS prospective effectiveness: NOT_ESTABLISHED
 - Next safe action: manual_batch077_artifact_verification

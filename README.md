@@ -24,7 +24,9 @@ Batch076 independently verifies and ingests the official Batch075 artifact, then
 
 Batch077 verifies and ingests the official Batch076 artifact, measures the flat memory-v1 corpus as structurally degenerate, and compiles nine proof-bound typed event pathways with explicit inputs, executors, regulators, compartments, outputs, versioned identities, and cycle-safe composition. A complete shuffled pathway corpus is persisted as an independently identifiable negative control. CogniCore's native test and pinned source localize the first mismatch to the returned HTML branding, producing `SOURCE_OWNED_OUTPUT_DIVERGENCE`. HordeForge now runs through a byte-identical read-only harness view with a separate writable scratch compartment; the old read-only temp failure is removed and the original assertion reproduces with a nonempty signature. Twelve isolated pathway-memory comparison arms execute 96 gap-driven probes and matching event/posterior updates. No local repair is attempted because the local CogniCore provider reconstruction is not byte-equivalent to the official workflow store.
 
-- Confirmed issue-derived repair episodes: `5`.
+Batch078 verifies and ingests the official Batch077 artifact, preserving the sixth issue-derived CogniCore repair and its exact patch identity. It adds independent existing-count hardening without recounting, a shared ownership-specific minimal causal-closure contract, mandatory invariant enforcement, cost-sensitive probe selection, independent early-stop verification, and neutral pre/post/rollback transition auditing. The Batch077 eight-probe design is explicitly classified as unable to identify efficiency gains because every arm completed the full traversal. HordeForge reproduction remains preserved while causal ownership is separately classified as harness-owned; no source patch is authorized. Historical typed pathways are evaluated with leave-one-episode-out real-versus-shuffled calibration and a proof-independent v2.1 corpus. Wave 1B uses a frozen four-repository frame and six isolated strategy/memory conditions per admitted candidate. The historical metric compatibility and null-separation study is shadow-only, uses a separately named software metric, and cannot affect admission, patching, counting, or public effectiveness claims.
+
+- Confirmed issue-derived repair episodes: `6`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
 - Batch068h9 official artifact verification and ingest: `PASS`.
@@ -55,7 +57,11 @@ Batch077 verifies and ingests the official Batch076 artifact, measures the flat 
 - Batch077 HordeForge correction: old scratch blocker removed; `ORIGINAL_ASSERTION_REPRODUCED`; admitted for diagnosis with patch authority still `false`.
 - Batch077 pathway-gap execution: `12` isolated arms, `96` probes, `96` event records, `96` posterior updates, and `12` bounded backtracking decisions.
 - Batch077 local repair: `NOT_RUN`; official-provider byte equivalence remains mandatory.
-- Next safe action: manually verify and ingest the successful Batch077 workflow artifact.
+- Batch078 artifact custody of Batch077: `PASS`; the raw ZIP is excluded from Git.
+- Batch078 minimal causal closure and cost-sensitive routing: implemented and independently audited.
+- Batch078 HordeForge ownership: `fixture_or_harness_owned`; patch authority: `false`.
+- Batch078 historical metric compatibility view: shadow-only and nonblocking.
+- Next safe action: execute and manually verify the Batch078 workflow artifact.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

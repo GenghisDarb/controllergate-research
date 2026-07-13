@@ -1,5 +1,13 @@
 # ControllerGate shareable summary
 
+## Batch078 count-six hardening and minimal-closure Wave 1B
+
+Batch078 independently verifies the official Batch077 artifact and preserves the sixth issue-derived CogniCore repair without creating a duplicate count. It adds repeatable count hardening, ownership-specific minimal causal closure, mandatory cross-pathway invariants, cost-sensitive probe routing, independent early-stop verification, and rollback-checked transition closure. The full eight-probe Batch077 design is retained as historical evidence but is explicitly unsuitable for estimating efficiency gains because no arm could stop early.
+
+HordeForge's original failure reproduction remains recorded, while direct call-path evidence attributes the captured exception to relative-resource harness context before any pipeline result exists. Source patch authority therefore remains false. Historical typed pathways are evaluated under leave-one-episode-out real-versus-shuffled calibration, and the v2.1 corpus groups records by proof identity to prevent duplicate-proof inflation. Wave 1B freezes a four-repository frame and requires six isolated strategy/memory conditions for every admitted candidate. The separate historical metric compatibility and ControllerGate null-separation study is shadow-only and cannot affect repair authority, counts, current protocol state, or effectiveness claims.
+
+The validated protocol remains v2.19. Confirmed issue-derived and native external repair counts are six and four. AMDS prospective effectiveness remains `NOT_ESTABLISHED`; full scoring is disabled; memory lift and self-maintaining software remain undemonstrated; live connectors remain inactive.
+
 ## Batch077 typed event pathways and structural memory v2
 
 Batch077 independently verifies and ingests the official Batch076 evidence. It measures the nine-record flat memory corpus as structurally degenerate, then compiles each eligible historical episode into a proof-bound typed event pathway. Events distinguish required evidence, executors, regulators, compartments, outputs, direct observations, projected relationships, versioned identities, and cycle-safe composition. The complete real and shuffled pathway corpora are persisted under distinct identities.

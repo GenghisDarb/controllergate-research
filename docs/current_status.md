@@ -18,7 +18,9 @@ Batch076 verifies and ingests the successful Batch075 artifact and separates pre
 
 Batch077 verifies the official Batch076 artifact and replaces flat categorical memory matching with proof-bound typed event pathways. Nine historical pathways are compiled with explicit event roles, compartment transitions, versioned identity, direct-versus-projected knowledge labels, and cycle-safe composition. The real and shuffled corpora are fully persisted under distinct identities. Direct CogniCore evidence localizes the first normal/incident mismatch to returned source HTML. HordeForge's pinned files remain byte-identical and read-only while a separate harness view provides a writable runtime mountpoint; the original assertion then reproduces. Twelve isolated comparison arms generate probes only from unresolved pathway edges and append one verified event and posterior update per accepted probe.
 
-- Issue-derived repair episodes: `5`.
+Batch078 ingests the official Batch077 result and preserves six issue-derived repairs without recounting CogniCore. It independently reconstructs the count-six proof boundary, separates HordeForge failure reproduction from harness-owned causal attribution, and replaces forced complete traversal with one shared minimal causal-closure contract. Mandatory identity, custody, authorization, rollback, and proof invariants cannot be waived by a strategy or memory condition. Probe ranking uses a frozen evidence-gain-per-cost model and all early stops require an independent verifier. Historical pathway calibration is leave-one-episode-out and excludes same-candidate and same-repository evidence. The prospective Wave-1B frame is frozen before outcomes and never adaptively replenished. Shadow historical metrology and `CG_NSI_v1` remain nonblocking research diagnostics, not production gates.
+
+- Issue-derived repair episodes: `6`.
 - Native external repair episodes: `4`.
 - Batch068h9 artifact custody and official state preservation: `PASS`.
 - Protocol promotion from v2.18 to v2.19: `PASS`.
@@ -43,7 +45,11 @@ Batch077 verifies the official Batch076 artifact and replaces flat categorical m
 - Batch077 HordeForge runtime correction: `PASS`; causal result: `ORIGINAL_ASSERTION_REPRODUCED`.
 - Batch077 gap-driven comparison: `12` arms, `96` accepted probes/events/posterior updates, `12` bounded backtracking decisions.
 - Batch077 local repair: `NOT_RUN` because official-provider byte equivalence is not established locally.
-- Exact next safe action: manually verify and ingest the successful Batch077 workflow artifact.
+- Batch078 official Batch077 custody: `PASS`.
+- Batch078 minimal causal closure: `PASS`; memory cannot waive mandatory invariants.
+- Batch078 HordeForge ownership: `fixture_or_harness_owned`; patch authority remains false.
+- Batch078 shadow metrology: nonblocking; no threshold is promoted.
+- Exact next safe action: complete the Batch078 workflow and manually verify its artifact.
 - Reconciled historical false closures: `2`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Runtime connectors and live-device repair: inactive.

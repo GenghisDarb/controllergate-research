@@ -2,6 +2,19 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
+## Batch078 count-six hardening and minimal causal closure
+
+- Official evidence custody: Batch077 outer identity, path safety, duplicate safety, artifact manifest, five internal manifests, and exact CogniCore patch identity are independently verified.
+- Existing-count hardening: reconstructs two prepatch and two patched capsules with one official provider identity and prohibits recounting the same CogniCore proof.
+- Minimal causal closure: terminal-specific evidence requirements replace mandatory complete traversal while preserving twelve non-waivable identity, authorization, immutability, rollback, and proof invariants.
+- Early stopping: allowed only after direct terminal evidence, alternative exclusion, optional-edge classification, and independent closure verification.
+- Cost-aware routing: frozen cost dimensions rank expected causal-closure gain per unit cost; probe count alone is not the objective.
+- Ownership correction: HordeForge's historical reproduction label is retained, while the captured failure is attributed to relative-resource harness context and source patch authority remains false.
+- Memory calibration: leave-one-episode-out real-versus-shuffled retrieval with same-candidate and same-repository exclusion; prospective outcomes cannot tune the weights.
+- Prospective Wave 1B: frozen four-repository intake frame, minimum partial cohort of two, six isolated strategy/memory conditions, blinded adjudication, no adaptive replacement, and at most one no-memory repair.
+- Shadow metrology: historical metric lineage is source-bound; `CG_NSI_v1` is separately named and candidate matched. Threshold and change-point studies cannot control admission, patching, counting, or effectiveness claims.
+- Claim boundary: issue-derived repairs are six and native external repairs are four; generalized AMDS effectiveness remains `NOT_ESTABLISHED`, full scoring remains disabled, memory lift is not demonstrated, and self-maintaining software is not demonstrated.
+
 ## Batch077 typed event pathways and structural memory v2
 
 - Typed events: versioned stable identity, required inputs, authorized executor, positive and negative regulators, compartment, captured outputs, evidence references, and state hash.
