@@ -10,7 +10,7 @@ if str(ROOT) not in sys.path:
 
 
 FORBIDDEN_IMPORTS = {"subprocess", "requests", "urllib.request", "docker"}
-SCOPED_PREFIXES = ("generate_batch081", "audit_batch081")
+SCOPED_PREFIXES = ("generate_batch081", "audit_batch081", "finalize_batch081")
 
 
 def violations(root: Path) -> list[str]:

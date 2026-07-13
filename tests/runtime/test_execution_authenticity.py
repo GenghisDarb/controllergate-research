@@ -44,3 +44,18 @@ def test_generic_copied_blocker_rejected():
     one = base(); one.update(candidate_id="a", exact_blocker="same")
     two = base(); two.update(candidate_id="b", exact_blocker="same")
     assert verify_execution_claims([one, two])["status"] == "BLOCK"
+
+
+def test_provider_recovered_without_artifacts_rejected():
+    row = {"stage_id": "provider", "evidence_kind": "DERIVED_VERIFICATION", "operation_status": "RECOVERED", "gate_decision": "PASS"}
+    assert verify_execution_claims([row])["failures"][0]["reason"] == "provider_recovered_without_artifacts"
+
+
+def test_internalerror_collection_pass_rejected():
+    row = {"stage_id": "collection", "evidence_kind": "EXECUTED_COMMAND", "operation_status": "PASS", "gate_decision": "PASS", "argv": ["python"], "return_code": 0, "internal_error": True}
+    assert verify_execution_claims([row])["status"] == "BLOCK"
+
+
+def test_preserved_evidence_cannot_be_fresh():
+    row = {"evidence_kind": "PRESERVED_PRIOR_EVIDENCE", "operation_status": "PRESERVED", "gate_decision": "PASS", "fresh_execution_claim": True}
+    assert verify_execution_claims([row])["status"] == "BLOCK"

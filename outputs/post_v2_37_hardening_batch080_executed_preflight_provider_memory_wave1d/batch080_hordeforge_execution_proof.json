@@ -15,17 +15,17 @@
       "run",
       "--rm",
       "-v",
-      "C:\\Dev\\ControllerGate_Runtime\\batch080_dz65xhkk\\hordeforge\\build-copy:/build:ro",
+      "/tmp/controllergate-batch080-runtime/batch080_9tg299n9/hordeforge/build-copy:/build:ro",
       "-v",
-      "C:\\Dev\\ControllerGate_Runtime\\batch080_dz65xhkk\\hordeforge\\provider-bytes:/wheelhouse:rw",
+      "/tmp/controllergate-batch080-runtime/batch080_9tg299n9/hordeforge/provider-bytes:/wheelhouse:rw",
       "python:3.13-slim",
       "sh",
       "-lc",
       "python -m pip wheel --disable-pip-version-check --wheel-dir /wheelhouse /build pytest"
     ],
     "returncode": 1,
-    "stderr": "  error: subprocess-exited-with-error\n  \n  \u00d7 Getting requirements to build wheel did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500> [3 lines of output]\n      running egg_info\n      creating HordeForge.egg-info\n      error: could not create 'HordeForge.egg-info': Read-only file system\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nERROR: Failed to build 'file:///build' when getting requirements to build wheel\n",
-    "stderr_sha256": "d359d67da3e5640afc7a51071d6a1399563feac8f9a583b9cc6790b775d1239a",
+    "stderr": "Unable to find image 'python:3.13-slim' locally\n3.13-slim: Pulling from library/python\ne95a6c7ea7d4: Pulling fs layer\na61b58932a64: Pulling fs layer\nd52729f33c0e: Pulling fs layer\na31b57aa9776: Pulling fs layer\na31b57aa9776: Waiting\na61b58932a64: Verifying Checksum\na61b58932a64: Download complete\nd52729f33c0e: Verifying Checksum\nd52729f33c0e: Download complete\ne95a6c7ea7d4: Verifying Checksum\ne95a6c7ea7d4: Download complete\na31b57aa9776: Verifying Checksum\na31b57aa9776: Download complete\ne95a6c7ea7d4: Pull complete\na61b58932a64: Pull complete\nd52729f33c0e: Pull complete\na31b57aa9776: Pull complete\nDigest: sha256:eb43ff125d8d58d7449dcba7d336c23bcac412f526d861db493b9994d8010280\nStatus: Downloaded newer image for python:3.13-slim\n  error: subprocess-exited-with-error\n  \n  \u00d7 Getting requirements to build wheel did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500> [3 lines of output]\n      running egg_info\n      creating HordeForge.egg-info\n      error: could not create 'HordeForge.egg-info': Read-only file system\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nERROR: Failed to build 'file:///build' when getting requirements to build wheel\n",
+    "stderr_sha256": "ed1b2db105cabccb6361d41f9d8da001d53b08f6deabfe982aabb95c4a03cd35",
     "stdout": "Processing ./build\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'error'\n",
     "stdout_sha256": "2ad4bc9d2913c1d4f93c19b033659968f860d14e72b80f876647d8495d2e2cdb",
     "timed_out": false
@@ -50,6 +50,6 @@
   "stderr": "provider closure did not pass; execution correctly withheld",
   "stdout": "",
   "target_return_code": null,
-  "test_tree_hash": "d6341b62e4504c231421b2c0fea892bb31e19d11ea8597a5002fa78b319ee80b",
+  "test_tree_hash": "37726faf7802518ff660c75e9e7a74d3db7102e72dfe9009dc3bb76c4f9840a3",
   "working_directory": "/source"
 }

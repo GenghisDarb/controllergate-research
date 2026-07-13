@@ -39,7 +39,7 @@ def main() -> int:
         "batch080_count6_preservation.json", "batch080_public_surface_preservation.json", "batch080_pluggy_contamination_reconciliation.json",
         "batch080_corrected_execution_frame.json", "batch080_collection_depth_reconciliation.json", "batch080_target_identity_reconciliation.json",
         "batch080_hordeforge_provider_regression.json", "batch080_provider_depth_reconciliation.json", "batch081_engineering_constitution_proof.json",
-        "batch081_execution_authenticity_contract.json", "batch081_execution_authenticity_audit.json", "batch081_runtime_root_attestation.json",
+        "batch081_execution_authenticity_contract.json", "batch081_execution_authenticity_audit.json", "batch081_execution_authenticity_negative_tests.json", "batch081_runtime_root_attestation.json",
         "batch081_contamination_v2_regression.json", "batch081_collection_contract_v2_regression.json", "batch081_target_resolver_v3_regression.json",
         "batch081_provider_builder_v3_status.json", "batch081_hordeforge_provider_closure.json", "batch081_incident_preflight.json",
         "batch081_execution_frame.json", "batch081_final_decisions.json", "batch081_builder_critic_agreement.json", "campaign_summary.md", "SHA256SUMS.txt",
@@ -68,6 +68,8 @@ def main() -> int:
     rows = [json.loads(line) for line in (out / "batch081_execution_ledger.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
     authenticity = verify_execution_claims(rows, claimed_executed_stages=1)
     if authenticity["status"] != "PASS": failures.append("execution_authenticity")
+    negative = load(out / "batch081_execution_authenticity_negative_tests.json")
+    if negative.get("status") != "PASS" or negative.get("rejected_fake_records") != 14: failures.append("anti_stub_negative_tests")
     if validate_runtime_root(LOCAL_ROOT, repo_root=root)["status"] != "PASS": failures.append("c_runtime_root")
     if validate_runtime_root(r"E:\ControllerGate_Runtime", repo_root=root)["status"] != "BLOCK": failures.append("e_runtime_not_rejected")
     incident = load(out / "batch081_incident_preflight.json")

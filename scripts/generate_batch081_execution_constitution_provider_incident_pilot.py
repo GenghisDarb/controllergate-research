@@ -32,7 +32,7 @@ BATCH = "post_v2_37_hardening_batch081_execution_constitution_provider_incident_
 B80 = "post_v2_37_hardening_batch080_executed_preflight_provider_memory_wave1d"
 PREFIXES = (
     "post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1",
-    "post_v2_37_hardening_batch074_count5_runtime_custody_reconciliation",
+    "post_v2_37_hardening_batch074_sterile_high_yield_amds_memory_wave1",
     "post_v2_37_hardening_batch075_provider_harness_amds_memory_wave1a",
     "post_v2_37_hardening_batch076_amds_causal_memory_calibration",
     "post_v2_37_hardening_batch077_typed_event_pathway_memory_v2",
@@ -40,7 +40,7 @@ PREFIXES = (
     "post_v2_37_hardening_batch079_count6_runtime_incident_memory_wave1c",
     B80,
 )
-MANIFESTS = {prefix: ("SHA256SUMS.txt", count) for prefix, count in zip(PREFIXES, (41, 16, 106, 32, 47, 61, 58, 45))}
+MANIFESTS = {prefix: (f"{prefix}/SHA256SUMS.txt", count) for prefix, count in zip(PREFIXES, (41, 16, 106, 32, 47, 61, 58, 45))}
 
 
 def record(stage: str, kind: EvidenceKind, operation: str, gate: str, blocker: str | None = None) -> ExecutionRecord:
@@ -155,6 +155,25 @@ def main() -> int:
     rows = ledger.records()
     authenticity = verify_execution_claims(rows, claimed_executed_stages=1)
     write_json_deterministic(output / "batch081_execution_authenticity_audit.json", authenticity)
+    future = (datetime.now(timezone.utc).replace(year=datetime.now(timezone.utc).year + 1)).isoformat()
+    negative_cases = {
+        "hardcoded_source_object_verified": [{"evidence_kind": "NOT_RUN", "operation_status": "VERIFIED", "gate_decision": "PASS"}],
+        "hardcoded_target_resolution_pass": [{"evidence_kind": "NOT_RUN", "operation_status": "PASS", "gate_decision": "PASS"}],
+        "generic_blocker_copied": [{"candidate_id": "a", "evidence_kind": "NOT_RUN", "operation_status": "NOT_RUN", "gate_decision": "BLOCK", "exact_blocker": "copied"}, {"candidate_id": "b", "evidence_kind": "NOT_RUN", "operation_status": "NOT_RUN", "gate_decision": "BLOCK", "exact_blocker": "copied"}],
+        "collection_nonzero_pass": [{"stage_id": "collection", "evidence_kind": "EXECUTED_COMMAND", "operation_status": "PASS", "gate_decision": "PASS", "argv": ["python"], "return_code": 3}],
+        "collection_internalerror_node_pass": [{"stage_id": "collection", "evidence_kind": "EXECUTED_COMMAND", "operation_status": "PASS", "gate_decision": "PASS", "argv": ["python"], "return_code": 0, "internal_error": True}],
+        "provider_recovered_zero_artifacts": [{"stage_id": "provider", "evidence_kind": "DERIVED_VERIFICATION", "operation_status": "RECOVERED", "gate_decision": "PASS"}],
+        "target_fixed_never_started": [{"stage_id": "target", "evidence_kind": "DERIVED_VERIFICATION", "operation_status": "FIXED", "gate_decision": "PASS", "observed_sentinels": []}],
+        "adapter_fixed_from_pull_text": [{"stage_id": "adapter", "evidence_kind": "NOT_RUN", "operation_status": "FIXED", "gate_decision": "PASS"}],
+        "null_without_execution_event": [{"stage_id": "matched_null", "evidence_kind": "EXECUTED_COMMAND", "operation_status": "EXECUTED", "gate_decision": "PASS", "argv": ["python"], "return_code": 0}],
+        "policy_file_only_pass": [{"evidence_kind": "DERIVED_VERIFICATION", "operation_status": "PASS", "gate_decision": "PASS", "policy_file_only": True}],
+        "reused_prior_as_fresh": [{"evidence_kind": "PRESERVED_PRIOR_EVIDENCE", "operation_status": "PRESERVED", "gate_decision": "PASS", "fresh_execution_claim": True}],
+        "future_timestamp": [{"evidence_kind": "NOT_RUN", "operation_status": "NOT_RUN", "gate_decision": "BLOCK", "start_timestamp": future}],
+        "callable_missing_hash": [{"evidence_kind": "EXECUTED_CALLABLE", "operation_status": "EXECUTED", "gate_decision": "PASS"}],
+        "command_missing_argv": [{"evidence_kind": "EXECUTED_COMMAND", "operation_status": "EXECUTED", "gate_decision": "PASS", "argv": []}],
+    }
+    negative_results = {name: verify_execution_claims(case)["status"] for name, case in negative_cases.items()}
+    write_json_deterministic(output / "batch081_execution_authenticity_negative_tests.json", {"status": "PASS" if all(value == "BLOCK" for value in negative_results.values()) else "FAIL", "case_count": len(negative_results), "rejected_fake_records": sum(value == "BLOCK" for value in negative_results.values()), "results": negative_results})
     decisions = {
         "BATCH080_INGEST": "PASS", "BATCH080_EVIDENCE_RECONCILIATION": "PASS", "ENGINEERING_CONSTITUTION": "PASS",
         "EXECUTION_AUTHENTICITY": authenticity["status"], "RUNTIME_ROOT_ATTESTATION": attestation["status"], "CANONICAL_BOUNDARY_ENFORCEMENT": "PASS",

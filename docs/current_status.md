@@ -1,10 +1,10 @@
 # Current status
 
-## Batch080 executed preflight boundary
+## Batch081 execution constitution and corrected Batch080 boundary
 
-The validated current protocol remains `v2.19 authorized_amds_active_maintenance_lane`. Batch080 processed a frozen 20-lead public incident pool with executed source-object, target, command, provider dry-lock, collection, contamination, and terminal records. Source verification passed 20 of 20; target and command resolution passed for two leads; one lead reached the complete static-preflight terminal. The preregistered minimum partial frame was two, so the lane stopped at `wave1d_minimum_partial_frame_not_met_after_executed_static_preflight` before target execution or provider-capsule materialization.
+The validated current protocol remains `v2.19 authorized_amds_active_maintenance_lane`. Batch081 preserves the official Batch080 workflow bytes and corrects four evidence-depth errors alongside them. Pluggy issue 681 is hard-rejected for solution contamination. The pytest-asyncio record with return code 3 and `INTERNALERROR` is not a collection pass, and its generic `test_sync` symbol cannot establish native-target provenance. HordeForge has a provider plan but no verified provider bytes or execution-ready capsule. The corrected Batch080 clean eligible frame count is zero.
 
-No Batch080 comparative arm, matched null, patch attempt, duplicate replay, or count gate ran. Confirmed issue-derived repair episodes remain 6 and confirmed native external repair episodes remain 4. AMDS prospective effectiveness is not established, historical routing-memory signal is observed but prospective lift is not demonstrated, full scoring is disallowed, live connectors are inactive, and self-maintaining software is not demonstrated.
+Batch081 adds an executable Engineering Constitution, execution-authenticity records, permanent C:-rooted runtime enforcement, and canonical collection, target, provider, reproducer, and builder/critic boundaries. No candidate target, comparative arm, matched null, patch attempt, duplicate replay, or count gate ran. Confirmed issue-derived repair episodes remain 6 and confirmed native external repair episodes remain 4. AMDS prospective effectiveness is not established, historical routing-memory signal is observed but prospective lift is not demonstrated, full scoring is disallowed, live connectors are inactive, and self-maintaining software is not demonstrated.
 
 ## Validated protocol and executable frontier
 

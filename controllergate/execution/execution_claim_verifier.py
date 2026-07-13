@@ -35,8 +35,22 @@ def verify_execution_claims(records: list[dict[str, Any]], *, claimed_executed_s
             failures.append({"index": index, "reason": "verified_without_independent_verifier"})
         if operation == "MATERIALIZED" and not row.get("output_paths_and_hashes"):
             failures.append({"index": index, "reason": "materialized_without_provider_bytes"})
+        if operation == "RECOVERED" and "provider" in str(row.get("stage_id", "")).lower() and not row.get("output_paths_and_hashes"):
+            failures.append({"index": index, "reason": "provider_recovered_without_artifacts"})
         if operation == "TARGET_EXECUTED" and sentinel_coverage(["TARGET_STARTED", "TARGET_COMPLETED"], row.get("observed_sentinels", []))["status"] != "PASS":
             failures.append({"index": index, "reason": "target_sentinel_gap"})
+        if operation == "FIXED" and sentinel_coverage(["TARGET_STARTED", "TARGET_COMPLETED"], row.get("observed_sentinels", []))["status"] != "PASS":
+            failures.append({"index": index, "reason": "fixed_without_target_execution"})
+        if successful and "collection" in str(row.get("stage_id", "")).lower() and row.get("return_code") != 0:
+            failures.append({"index": index, "reason": "collection_pass_nonzero_return"})
+        if successful and "collection" in str(row.get("stage_id", "")).lower() and row.get("internal_error"):
+            failures.append({"index": index, "reason": "collection_pass_internalerror"})
+        if operation in {"EXECUTED", "PASS"} and "null" in str(row.get("stage_id", "")).lower() and not row.get("execution_events"):
+            failures.append({"index": index, "reason": "null_executed_without_events"})
+        if successful and row.get("policy_file_only"):
+            failures.append({"index": index, "reason": "policy_file_alone_cannot_pass"})
+        if row.get("fresh_execution_claim") and kind == "PRESERVED_PRIOR_EVIDENCE":
+            failures.append({"index": index, "reason": "preserved_evidence_mislabeled_fresh"})
         start, end = _timestamp(row.get("start_timestamp")), _timestamp(row.get("end_timestamp"))
         if start and (start > now or (end and end < start)): failures.append({"index": index, "reason": "timestamp_order_invalid"})
         claimed_hash = row.get("record_hash")

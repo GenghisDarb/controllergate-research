@@ -13,6 +13,7 @@ jobs:
     timeout-minutes: 480
     env:
       CONTROLLERGATE_RUNTIME_ROOT: ${{ runner.temp }}/controllergate-runtime
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - name: Checkout exact workflow head
         uses: actions/checkout@v4
@@ -31,7 +32,7 @@ jobs:
         shell: bash
         run: |
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
-          git merge-base --is-ancestor "${{ vars.BATCH081_CHECKPOINT_SHA || 'd1883c20a01e498c34deddafdad76ccba0d3e810' }}" HEAD
+          git merge-base --is-ancestor "581da09e08ee6aa01e53b0931c784a0b9509bd91" HEAD
 
       - name: Attest authoritative runtime root
         run: python scripts/preflight_controllergate_runtime_root.py --runtime-root "$CONTROLLERGATE_RUNTIME_ROOT"
@@ -45,6 +46,9 @@ jobs:
       - name: Run focused Batch081 tests
         run: python -m pytest tests/governance tests/runtime/test_runtime_root_policy.py tests/runtime/test_execution_authenticity.py tests/runtime/test_collection_contract_v2.py tests/runtime/test_provider_builder_v3.py tests/core/test_contamination_classifier_v2.py tests/core/test_target_resolver_v3.py -q
 
+      - name: Run complete core runtime and governance suite
+        run: python -m pytest tests/core tests/runtime tests/governance -q
+
       - name: Run preservation and protocol audits
         run: |
           python scripts/audit_batch080_executed_preflight_provider_memory_wave1d.py
@@ -55,41 +59,29 @@ jobs:
           python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
           python scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py
           python scripts/audit_batch073_count5_revalidation_frozen_wave1.py
+          python scripts/audit_v2_18_origin_licensing_source_acquisition.py
           python scripts/audit_v2_19_authorized_amds_active_maintenance.py
           python scripts/controllergate_audit.py --protocol current
           python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/controllergate_frontier.py validate
 
       - name: Run Batch081 independent audits
         run: |
-          python scripts/audit_batch081_execution_constitution_provider_incident_pilot.py
-          python scripts/audit_builder_critic_agreement.py
           python scripts/audit_public_frontier_sync.py
           python scripts/audit_public_language.py
           python scripts/run_local_controllergate_demo.py
 
-      - name: Record workflow execution identity
+      - name: Record workflow execution identity and finalize critic evidence
         shell: bash
         run: |
-          python - <<'PY'
-          import hashlib, json, os, pathlib, subprocess
-          root = pathlib.Path.cwd()
-          files = {
-              "workflow": ".github/workflows/post_v2_37_hardening_batch081_execution_constitution_provider_incident_pilot.yml",
-              "generator": "scripts/generate_batch081_execution_constitution_provider_incident_pilot.py",
-              "audit": "scripts/audit_batch081_execution_constitution_provider_incident_pilot.py",
-              "engine": "controllergate/engine.py",
-              "constitution": "configs/controllergate_engineering_constitution_v1.json",
-          }
-          record = {
-              "GITHUB_SHA": os.environ["GITHUB_SHA"],
-              "checked_out_head": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
-              "branch": os.environ.get("GITHUB_REF_NAME"),
-              "runtime_root": os.environ["CONTROLLERGATE_RUNTIME_ROOT"],
-              "source_hashes": {k: hashlib.sha256((root / v).read_bytes()).hexdigest() for k, v in files.items()},
-          }
-          target = root / "outputs/post_v2_37_hardening_batch081_execution_constitution_provider_incident_pilot/batch081_workflow_execution_identity.json"
-          target.write_text(json.dumps(record, indent=2, sort_keys=True) + "\n")
-          PY
+          echo "CHECKED_OUT_HEAD=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+          export CHECKED_OUT_HEAD="$(git rev-parse HEAD)"
+          python scripts/finalize_batch081_workflow_evidence.py
+
+      - name: Run finalized Batch081 and builder-critic audits
+        run: |
+          python scripts/audit_batch081_execution_constitution_provider_incident_pilot.py
+          python scripts/audit_builder_critic_agreement.py
 
       - name: Stage clean evidence payload
         shell: bash
@@ -97,7 +89,7 @@ jobs:
           rm -rf "$RUNNER_TEMP/batch081-artifact"
           mkdir -p "$RUNNER_TEMP/batch081-artifact"
           cp -R outputs/post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1 "$RUNNER_TEMP/batch081-artifact/"
-          cp -R outputs/post_v2_37_hardening_batch074_count5_runtime_custody_reconciliation "$RUNNER_TEMP/batch081-artifact/"
+          cp -R outputs/post_v2_37_hardening_batch074_sterile_high_yield_amds_memory_wave1 "$RUNNER_TEMP/batch081-artifact/"
           cp -R outputs/post_v2_37_hardening_batch075_provider_harness_amds_memory_wave1a "$RUNNER_TEMP/batch081-artifact/"
           cp -R outputs/post_v2_37_hardening_batch076_amds_causal_memory_calibration "$RUNNER_TEMP/batch081-artifact/"
           cp -R outputs/post_v2_37_hardening_batch077_typed_event_pathway_memory_v2 "$RUNNER_TEMP/batch081-artifact/"
