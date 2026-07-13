@@ -1,7 +1,7 @@
 # Batch078 count-six hardening and minimal-closure Wave 1B
 
 - Batch077 artifact ingest: PASS (12cfd454a9614100a10acf26600a4b99aae1f26f61dae5d05ac7b90648f98c2a)
-- Count-six hardening: NOT_RUN (no recount)
+- Count-six hardening: QUARANTINED_PENDING_REVALIDATION (no recount)
 - HordeForge causal ownership: fixture_or_harness_owned
 - Pathway-memory calibration: CALIBRATED_FOR_EXPERIMENTAL_ROUTING
 - Wave-1B admission: WAVE1B_ADMISSION_BLOCKED_MINIMUM_NOT_MET

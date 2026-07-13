@@ -1,0 +1,48 @@
+{
+  "records": [
+    {
+      "batch078_blocker": "duplicate_collection_failed",
+      "candidate_failure_evidence": false,
+      "candidate_id": "prospective_pallets_flask_1_1_2_runtime_probe",
+      "classification": "UNRESOLVED_EXACT_BLOCKER",
+      "exact_target_node_present": true,
+      "replay": {
+        "blocker": "duplicate_collection_failed",
+        "command_status": "PASS",
+        "duplicate_replay": {
+          "blocker": "duplicate_collection_failed",
+          "duplicate_collection": false,
+          "duplicate_failure": true,
+          "status": "BLOCK"
+        },
+        "status": "BLOCK"
+      },
+      "selected_runtime": "3.9",
+      "target_file_present": true
+    },
+    {
+      "batch078_blocker": "duplicate_collection_failed",
+      "candidate_failure_evidence": false,
+      "candidate_id": "prospective_python_attrs_21_2_0_runtime_probe",
+      "classification": "UNRESOLVED_EXACT_BLOCKER",
+      "exact_target_node_present": true,
+      "replay": {
+        "blocker": "duplicate_collection_failed",
+        "command_status": "PASS",
+        "duplicate_replay": {
+          "blocker": "duplicate_collection_failed",
+          "duplicate_collection": false,
+          "duplicate_failure": true,
+          "network": "none",
+          "source_immutable": true,
+          "status": "BLOCK",
+          "tests_immutable": true
+        },
+        "status": "BLOCK"
+      },
+      "selected_runtime": "3.9",
+      "target_file_present": true
+    }
+  ],
+  "status": "PASS"
+}

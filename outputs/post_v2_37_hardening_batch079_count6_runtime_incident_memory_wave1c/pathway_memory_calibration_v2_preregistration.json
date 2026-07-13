@@ -1,0 +1,30 @@
+{
+  "evaluation": "leave_one_independence_group_out",
+  "excluded_dimensions": [
+    "same_candidate",
+    "same_repository",
+    "same_issue",
+    "same_proof_group",
+    "same_patch_episode",
+    "direct_proof_derivative"
+  ],
+  "query_feature_allowlist": [
+    "event_sequence",
+    "compartment_transitions",
+    "provider_structure",
+    "harness_structure",
+    "command_structure"
+  ],
+  "query_feature_denylist": [
+    "causal_ownership",
+    "terminal_action",
+    "repair_outcome",
+    "count_result",
+    "future_result",
+    "episode_id",
+    "repository_identity"
+  ],
+  "record_count": 11,
+  "status": "PASS",
+  "weights_frozen_before_wave1c": true
+}

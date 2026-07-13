@@ -1,0 +1,97 @@
+{
+  "actual_changed_files": [
+    "cognicore/studio.py"
+  ],
+  "diff_contract": {
+    "added_lines": [
+      "<title>CogniCore Studio \u2014 Observability</title>"
+    ],
+    "binary_patch": false,
+    "changed_files": [
+      "cognicore/studio.py"
+    ],
+    "context_lines": [
+      "<head>",
+      "<meta charset=\"UTF-8\">",
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "<link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap\" rel=\"stylesheet\">",
+      "<style>",
+      "  * { margin: 0; padding: 0; box-sizing: border-box; }"
+    ],
+    "declared_headers_match": true,
+    "file_count": 1,
+    "file_headers": [
+      {
+        "new_declared": null,
+        "new_header": "cognicore/studio.py",
+        "old_declared": null,
+        "old_header": "cognicore/studio.py"
+      }
+    ],
+    "hunk_count": 1,
+    "hunks": [
+      {
+        "header": "@@ -21,7 +21,7 @@",
+        "new_range": [
+          21,
+          7
+        ],
+        "old_range": [
+          21,
+          7
+        ]
+      }
+    ],
+    "malformed_hunk_headers": [],
+    "removed_lines": [
+      "<title>CogniCore Observability</title>"
+    ],
+    "rename": false,
+    "status": "PASS"
+  },
+  "exact_file_match": true,
+  "expected_file": "cognicore/studio.py",
+  "independent_recomputation_result": "PASS",
+  "patch_file_sha256": "8e350fcf880f31975f21fd6f493d634b4b9aebe18e7441eefc1990a689e5d6a0",
+  "patch_hash": "8e350fcf880f31975f21fd6f493d634b4b9aebe18e7441eefc1990a689e5d6a0",
+  "postimage_hash": "e6611c2b675627a640a2137a1a160d06459d7d6cfbaac710f85e03578fb9bf1c",
+  "preimage_hash": "6b16f9790494576703fcb01c1c518a462ca96718910e094c637128c7ba74c6ec",
+  "semantic_witness": {
+    "changed_node_path": "html/head/title/text()",
+    "new_value": "CogniCore Studio \u2014 Observability",
+    "old_value": "CogniCore Observability",
+    "status": "PASS",
+    "title_only_change": true,
+    "unchanged_node_hashes": {
+      "api_paths": {
+        "after": "7dc9d92114ea0eecfbcb4e2b44d7b1272c04e2878104895c08b81f19c787a53f",
+        "before": "7dc9d92114ea0eecfbcb4e2b44d7b1272c04e2878104895c08b81f19c787a53f"
+      },
+      "css": {
+        "after": "36d209d08a57b8e592d9e78ce8563702b11e23984c92b1c5e9291ce52f364db6",
+        "before": "36d209d08a57b8e592d9e78ce8563702b11e23984c92b1c5e9291ce52f364db6"
+      },
+      "html_outside_title": {
+        "after": "fc896971028e2fc6a869476c2b4ea190787a56dd1ac54529111a0444bb7a463c",
+        "before": "fc896971028e2fc6a869476c2b4ea190787a56dd1ac54529111a0444bb7a463c"
+      },
+      "route_registrations": {
+        "after": "d7ad3e30b8d8e37853d4c5dda5a5b2bc9daf8ae3f81babedfc6e892c1093ebd1",
+        "before": "d7ad3e30b8d8e37853d4c5dda5a5b2bc9daf8ae3f81babedfc6e892c1093ebd1"
+      },
+      "scripts": {
+        "after": "d357adb0091ba7f2a16be90e6abdf86adf0d7538d68abbd85a5243acd57f563f",
+        "before": "d357adb0091ba7f2a16be90e6abdf86adf0d7538d68abbd85a5243acd57f563f"
+      }
+    },
+    "unchanged_nodes": {
+      "api_paths": true,
+      "css": true,
+      "html_outside_title": true,
+      "route_registrations": true,
+      "scripts": true
+    }
+  },
+  "status": "PASS",
+  "verifier_hash": "bb49df6ccf9252a7a1e90349bed4709c6c730e0d7a5b01c25fca758139fa189b"
+}

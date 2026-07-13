@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+from collections.abc import Iterable, Mapping
 from typing import Any
+
+from controllergate.core.evidence import hash_record
 
 from .dependency_graph import DependencyGraph
 from .historical_lock_verifier import verify_historical_lock
@@ -20,3 +23,25 @@ def resolve_from_verified_roots(root_records: list[dict[str, Any]], cutoff: str)
     lock = {"status": "BLOCK", "cutoff": cutoff, "target_environment": TARGET_ENVIRONMENT, "selected_artifacts": selected, "unresolved_nodes": unresolved, "unsatisfied_constraints": [], "runtime_dependency_closure": "NOT_ESTABLISHED", "build_dependency_closure": "NOT_ESTABLISHED", "post_cutoff_selected_artifact_count": 0}
     verification = verify_historical_lock(lock, cutoff)
     return {"graph": graph.as_dict(), "trace": trace, "lock": lock, "verification": verification, "next_allowed_action": "batch068h4_dynamic_historical_metadata_recovery"}
+
+
+def resolve_historical_provider(
+    artifacts: Iterable[Mapping[str, Any]], *, runtime: str, cutoff: str
+) -> dict[str, Any]:
+    """Select only hash-identified artifacts compatible with a frozen runtime and cutoff."""
+    compatible = [
+        dict(item) for item in artifacts
+        if runtime in item.get("compatible_runtimes", []) and str(item.get("released_at", "")) <= cutoff
+    ]
+    passed = bool(compatible) and all(item.get("sha256") for item in compatible)
+    result = {
+        "status": "PASS" if passed else "BLOCK",
+        "runtime": runtime,
+        "cutoff": cutoff,
+        "artifacts": compatible,
+        "current_unrestricted_resolution_used": False,
+        "executed_lock_mutated": False,
+        "lock_versioning_required_for_change": True,
+    }
+    result["provider_lock_hash"] = hash_record(result)
+    return result

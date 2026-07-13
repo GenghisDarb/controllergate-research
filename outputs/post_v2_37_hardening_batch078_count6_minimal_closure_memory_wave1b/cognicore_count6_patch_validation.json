@@ -1,5 +1,49 @@
 {
-  "external_execution_required": true,
+  "modified_files_by_capsule": [
+    [
+      "cognicore/studio.py"
+    ],
+    [
+      "cognicore/studio.py"
+    ]
+  ],
   "patch_sha256": "8e350fcf880f31975f21fd6f493d634b4b9aebe18e7441eefc1990a689e5d6a0",
-  "status": "NOT_RUN_LOCAL_EVIDENCE_ONLY"
+  "preserved_patch_exact": true,
+  "source_hash_before": "6b16f9790494576703fcb01c1c518a462ca96718910e094c637128c7ba74c6ec",
+  "status": "PASS",
+  "test_hash_before": "39ddb5bf0bae59d1258e6455ef1eeffbc32fcac63395cf1fe1f1262bf9636ff2",
+  "validations": [
+    {
+      "container_returncode": 0,
+      "install_returncode": 0,
+      "invariant_returncode": 0,
+      "invariants_pass": true,
+      "network": "none",
+      "output_sha256": "7ae477c8155bd93bdcfc11b7ec8f15923bcf3b32ef0408740d8a33c03842f1c5",
+      "output_tail": "__INSTALL__=0\n__TARGET__=0\n__INVARIANT__=0\n.                                                                        [100%]\n=============================== warnings summary ===============================\n../tmp/venv/lib/python3.13/site-packages/fastapi/testclient.py:1\n  /tmp/venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 passed, 1 warning in 0.62s\n...                                                                      [100%]\n=============================== warnings summary ===============================\n../tmp/venv/lib/python3.13/site-packages/fastapi/testclient.py:1\n  /tmp/venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n3 passed, 1 warning in 0.62s\n",
+      "patch_apply_returncode": 0,
+      "patched_source_sha256": "e6611c2b675627a640a2137a1a160d06459d7d6cfbaac710f85e03578fb9bf1c",
+      "source_only": true,
+      "target_pass": true,
+      "target_returncode": 0,
+      "target_tree_sha256": "39ddb5bf0bae59d1258e6455ef1eeffbc32fcac63395cf1fe1f1262bf9636ff2",
+      "workspace": "primary"
+    },
+    {
+      "container_returncode": 0,
+      "install_returncode": 0,
+      "invariant_returncode": 0,
+      "invariants_pass": true,
+      "network": "none",
+      "output_sha256": "60a8cdc1a3978142b1f6418c859bc3cd801b2c0dfbb9d4294f7c89d0a48e9969",
+      "output_tail": "__INSTALL__=0\n__TARGET__=0\n__INVARIANT__=0\n.                                                                        [100%]\n=============================== warnings summary ===============================\n../tmp/venv/lib/python3.13/site-packages/fastapi/testclient.py:1\n  /tmp/venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 passed, 1 warning in 0.61s\n...                                                                      [100%]\n=============================== warnings summary ===============================\n../tmp/venv/lib/python3.13/site-packages/fastapi/testclient.py:1\n  /tmp/venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n3 passed, 1 warning in 0.63s\n",
+      "patch_apply_returncode": 0,
+      "patched_source_sha256": "e6611c2b675627a640a2137a1a160d06459d7d6cfbaac710f85e03578fb9bf1c",
+      "source_only": true,
+      "target_pass": true,
+      "target_returncode": 0,
+      "target_tree_sha256": "39ddb5bf0bae59d1258e6455ef1eeffbc32fcac63395cf1fe1f1262bf9636ff2",
+      "workspace": "duplicate"
+    }
+  ]
 }
