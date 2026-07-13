@@ -1,0 +1,34 @@
+{
+  "TLD_NSS_LINEAGE_RECOVERED": "PASS",
+  "formula": "NSS = 1 - P_bootstrap(UI_null >= UI_observed)",
+  "generic_software_score": false,
+  "source_contracts": {
+    "contracts": [
+      {
+        "NSS": "1 - P(null_UI >= observed_UI)",
+        "UI": "fraction of eligible parents agreeing with consensus N*",
+        "consensus": "modal eligible non-null parent winner_N; smallest-N mode ties",
+        "metric_contract_id": "TLD-IX-CONSENSUS-v1",
+        "source_sha256": "e134338197d796688615733a4773d7a7891dab44e93e4c4a88594faa916a1731",
+        "status": "PASS",
+        "winner": "eligible finite RMS argmin; smallest-N ties"
+      },
+      {
+        "NSS": "1 - P(UI_null(N) >= UI(N))",
+        "RMS": "sqrt(mean((omega[N:]-omega[:-N])^2))",
+        "SEP": "UI(N)>=0.8 and NSS(N)>=0.95",
+        "S_e": "registered survival/persistence aggregate",
+        "T_e": "first preregistered N with SEP true",
+        "UI": "fraction of ladders with rms(N) <= median(matched-null rms(N))",
+        "metric_contract_id": "TLD-XI-BYN-v1",
+        "source_sha256": "b1acea7c28493f04fc0f935b4945558d050a6f2b61e84feb30da686babba6199",
+        "status": "PASS"
+      }
+    ],
+    "endpoint_definitions_merged": false,
+    "status": "PASS"
+  },
+  "source_sha256": "af0eae3fda8b277dc68fcc0c1f68a93dba3568f29a491242e5b5e9bbc8b606c6",
+  "status": "PASS",
+  "unit_of_analysis": "TLD ladder/eligible parent"
+}

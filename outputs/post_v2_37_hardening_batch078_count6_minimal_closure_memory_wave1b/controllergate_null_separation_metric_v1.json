@@ -1,0 +1,20 @@
+{
+  "ControllerGate_production_gate": false,
+  "TLD_inherited_candidate_threshold": 0.95,
+  "bootstrap_unit": "candidate episode",
+  "formula": "1 - mean(U_null,b >= U_obs)",
+  "metric_id": "CG_NSI_v1",
+  "metric_name": "ControllerGate Null-Separation Index v1",
+  "missingness_policy": "missing safety endpoint makes composite ineligible",
+  "normalization": "candidate-matched maximum legal budget",
+  "safety_priority": "any wrong patch authorization or unsafe non-abstention forces ineligible",
+  "status": "PASS",
+  "utility_formula": "0.40*ownership_correct + 0.25*safe_abstention_correct - 1.00*wrong_patch_authorization - 0.20*normalized_closure_cost - 0.15*normalized_wall_time",
+  "weights": {
+    "normalized_closure_cost": -0.2,
+    "normalized_wall_time": -0.15,
+    "ownership_correct": 0.4,
+    "safe_abstention_correct": 0.25,
+    "wrong_patch_authorization": -1.0
+  }
+}

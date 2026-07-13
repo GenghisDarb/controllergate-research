@@ -1,0 +1,15 @@
+{
+  "agent_result_status": "NOT_CREATED",
+  "exception_before_pipeline_result": false,
+  "first_blocked_transition": "agent_registry_registration",
+  "fixture_lifecycle": "engine_constructor",
+  "last_successful_step": "registry_contract_autoload",
+  "pipeline_step_transition_trace": [],
+  "result_status_became_BLOCKED": false,
+  "retry_state": "NOT_REACHED",
+  "source_call_graph": [
+    "test -> OrchestratorEngine.__init__ -> init_registries -> register_agents -> AgentRegistry.register"
+  ],
+  "status": "PASS",
+  "test_runner_state": "NOT_REACHED"
+}

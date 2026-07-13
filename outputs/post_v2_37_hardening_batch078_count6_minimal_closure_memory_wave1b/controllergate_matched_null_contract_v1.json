@@ -1,0 +1,34 @@
+{
+  "budget_matched": true,
+  "candidate_matched": true,
+  "deterministically_seeded": true,
+  "generated_before_outcome_evaluation": true,
+  "isolated_by_episode": true,
+  "marginal_preserving": true,
+  "observed_strategies": [
+    "AMDS_ACTIVE_REAL_MEMORY",
+    "AMDS_ACTIVE_NO_MEMORY",
+    "FIXED_ORDER_NO_MEMORY"
+  ],
+  "observed_unit": "one frozen candidate episode",
+  "preserved": [
+    "candidate",
+    "source",
+    "provider",
+    "target",
+    "command",
+    "legal_probe_universe",
+    "budgets",
+    "closure_contract",
+    "ground_truth_process"
+  ],
+  "randomized_only": [
+    "probe_ranking",
+    "memory_to_pathway_outcome_bindings",
+    "pathway_labels",
+    "strategy_selection_order"
+  ],
+  "status": "PASS",
+  "unrelated_candidates_pooled": false,
+  "version": 1
+}

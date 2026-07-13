@@ -1,0 +1,33 @@
+{
+  "arm_conditions": [
+    "AMDS_ACTIVE_REAL_MEMORY",
+    "AMDS_ACTIVE_NO_MEMORY",
+    "AMDS_ACTIVE_SHUFFLED_MEMORY",
+    "FIXED_ORDER_REAL_MEMORY",
+    "FIXED_ORDER_NO_MEMORY",
+    "FIXED_ORDER_SHUFFLED_MEMORY"
+  ],
+  "candidate_order_frozen": true,
+  "frame_hash": "5aee36f97e40c6393b0bde9b20959cad56dfeebaf4b855b7922613d20b89d07b",
+  "frozen_before_admission": true,
+  "frozen_before_outcomes": true,
+  "memory_conditions": [
+    "REAL_MEMORY",
+    "NO_MEMORY",
+    "SHUFFLED_MEMORY"
+  ],
+  "no_adaptive_replenishment": true,
+  "planner": "cost_sensitive_minimal_causal_closure_v1",
+  "planner_hash": "6fdb640ab5ea02c001cd60b8b2f9b57c2e827d4ec6214fcd7db080e48a63a0ce",
+  "probe_cost_weights": {
+    "compute": 0.8,
+    "environment_rebuild_requirement": 2.5,
+    "manual_review_burden": 2.0,
+    "mutation_risk": 4.0,
+    "provider_rebuild_requirement": 3.0,
+    "subprocess_requirement": 0.7,
+    "wall_time": 1.0
+  },
+  "same_closure_contract_all_arms": true,
+  "status": "PASS"
+}

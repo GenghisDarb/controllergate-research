@@ -1,0 +1,18 @@
+{
+  "comparison_methods": [
+    "argmin",
+    "argmin_plus_margin",
+    "second_difference_elbow",
+    "piecewise_linear_change_point",
+    "flatline_rejection_only",
+    "null_calibrated_elbow"
+  ],
+  "formula": "d2_i = y_(i+1) - 2*y_i + y_(i-1)",
+  "normalized_formulas": [
+    "d2/max(range(y),epsilon)",
+    "d2/max(abs(y_i),epsilon)",
+    "matched-null prominence"
+  ],
+  "production_gate": false,
+  "status": "PASS"
+}
