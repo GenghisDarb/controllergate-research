@@ -7,11 +7,11 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_c_root_accepted():
-    assert validate_runtime_root(LOCAL_ROOT, repo_root=ROOT)["status"] == "PASS"
+    assert validate_runtime_root(LOCAL_ROOT, repo_root=ROOT, env={})["status"] == "PASS"
 
 
 def test_e_root_rejected():
-    assert validate_runtime_root(r"E:\ControllerGate_Runtime", repo_root=ROOT)["status"] == "BLOCK"
+    assert validate_runtime_root(r"E:\ControllerGate_Runtime", repo_root=ROOT, env={})["status"] == "BLOCK"
 
 
 def test_repo_and_incoming_rejected():
@@ -20,7 +20,7 @@ def test_repo_and_incoming_rejected():
 
 
 def test_synced_folder_rejected():
-    assert validate_runtime_root(r"C:\Users\x\OneDrive\ControllerGate_Runtime", repo_root=ROOT)["status"] == "BLOCK"
+    assert validate_runtime_root(r"C:\Users\x\OneDrive\ControllerGate_Runtime", repo_root=ROOT, env={})["status"] == "BLOCK"
 
 
 def test_ci_root():

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -70,8 +71,11 @@ def main() -> int:
     if authenticity["status"] != "PASS": failures.append("execution_authenticity")
     negative = load(out / "batch081_execution_authenticity_negative_tests.json")
     if negative.get("status") != "PASS" or negative.get("rejected_fake_records") != 14: failures.append("anti_stub_negative_tests")
-    if validate_runtime_root(LOCAL_ROOT, repo_root=root)["status"] != "PASS": failures.append("c_runtime_root")
-    if validate_runtime_root(r"E:\ControllerGate_Runtime", repo_root=root)["status"] != "BLOCK": failures.append("e_runtime_not_rejected")
+    if validate_runtime_root(LOCAL_ROOT, repo_root=root, env={})["status"] != "PASS": failures.append("c_runtime_root")
+    if validate_runtime_root(r"E:\ControllerGate_Runtime", repo_root=root, env={})["status"] != "BLOCK": failures.append("e_runtime_not_rejected")
+    if os.environ.get("GITHUB_ACTIONS", "").lower() == "true":
+        ci_root = Path(os.environ["RUNNER_TEMP"]) / "controllergate-runtime"
+        if validate_runtime_root(ci_root, repo_root=root)["status"] != "PASS": failures.append("ci_runtime_root")
     incident = load(out / "batch081_incident_preflight.json")
     if incident.get("clean_eligible_candidate_count") != 0 or incident.get("adaptive_replenishment") is not False: failures.append("incident_frame")
     decisions = load(out / "batch081_final_decisions.json")
