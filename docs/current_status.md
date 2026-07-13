@@ -20,6 +20,10 @@ Batch077 verifies the official Batch076 artifact and replaces flat categorical m
 
 Batch078 ingests the official Batch077 result and preserves six issue-derived repairs without recounting CogniCore. It independently reconstructs the count-six proof boundary, separates HordeForge failure reproduction from harness-owned causal attribution, and replaces forced complete traversal with one shared minimal causal-closure contract. Mandatory identity, custody, authorization, rollback, and proof invariants cannot be waived by a strategy or memory condition. Probe ranking uses a frozen evidence-gain-per-cost model and all early stops require an independent verifier. Historical pathway calibration is leave-one-episode-out and excludes same-candidate and same-repository evidence. The prospective Wave-1B frame is frozen before outcomes and never adaptively replenished. Shadow historical metrology and `CG_NSI_v1` remain nonblocking research diagnostics, not production gates.
 
+Batch079 independently verifies the Batch078 artifact and corrects the only count-six hardening blocker: the old implementation counted raw `@@` substrings rather than unified-diff hunk headers. A one-hunk parser, HTML-aware semantic witness, and negative controls now pass while preserving the exact patch and provider identities. The episode remains one existing count record with zero increment. Runtime and failure-contract components now separate compatibility, provider, collection, timeout, harness, environment, and candidate-code evidence. The fresh incident intake stopped at static preflight with zero target executions because no lead had a complete target-command-provider bundle; no post-outcome replenishment occurred.
+
+The Batch079 shadow study distinguishes statistical nulls from competent software baselines and uses finite-sample add-one tail estimates. A 16-replicate ensemble is explicitly insufficient for a 0.95 threshold decision; at least 19 unique executed randomization nulls are required. No candidate-level threshold result was produced because no candidate was admitted.
+
 - Issue-derived repair episodes: `6`.
 - Native external repair episodes: `4`.
 - Batch068h9 artifact custody and official state preservation: `PASS`.
@@ -49,7 +53,11 @@ Batch078 ingests the official Batch077 result and preserves six issue-derived re
 - Batch078 minimal causal closure: `PASS`; memory cannot waive mandatory invariants.
 - Batch078 HordeForge ownership: `fixture_or_harness_owned`; patch authority remains false.
 - Batch078 shadow metrology: nonblocking; no threshold is promoted.
-- Exact next safe action: complete the Batch078 workflow and manually verify its artifact.
+- Batch079 Batch078 artifact ingest and manifest verification: `PASS`.
+- Count-six verifier closure: `COUNT_6_HARDENING_PASS`; no recount.
+- Wave-1C static intake: six leads, zero admissions, zero target executions.
+- Batch079 matched-null and repair execution: `NOT_RUN_NO_ADMITTED_CANDIDATE`.
+- Exact next safe action: curate at least two complete incident candidates before a separately frozen execution rerun.
 - Reconciled historical false closures: `2`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Runtime connectors and live-device repair: inactive.

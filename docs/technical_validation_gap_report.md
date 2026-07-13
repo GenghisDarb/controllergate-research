@@ -1,5 +1,9 @@
 # Technical validation gap report
 
+## Batch079 remaining gap
+
+The count-six verifier and runtime-admission contracts are implemented and audited, but the fresh incident Wave-1C frame did not meet its minimum size. Therefore actual comparative arms, candidate-matched randomization nulls, blinded ground truth, and no-memory repair lanes remain unexecuted for this wave. Production threshold transfer, prospective AMDS effectiveness, and memory lift remain unestablished.
+
 ControllerGate remains a pre-alpha research archive. Batch015 improves runtime-scaffold and claim-tier organization, but does not make a technical validation release.
 
 Remaining gaps include additional external repair episodes, prospective matched-null separation on fresh native candidates, broader repository diversity, and audited runtime fixture demonstrations.

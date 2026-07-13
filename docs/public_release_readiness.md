@@ -1,5 +1,7 @@
 # Public release readiness
 
+Batch079 improves semantic verification, runtime compatibility, and statistical-control definitions but does not establish release readiness. The fresh incident wave stopped before execution, full scoring remains disallowed, and self-maintaining software is not demonstrated.
+
 ControllerGate remains a pre-alpha research archive and is not production-ready.
 
 ## Current operational gate status

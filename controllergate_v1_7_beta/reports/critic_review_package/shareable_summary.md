@@ -1,5 +1,7 @@
 # ControllerGate shareable summary
 
+Batch079 independently closes the count-six semantic-verifier defect without recounting the repair. It adds evidence-selected Python runtime support, strict failure-stage classification, and a corrected candidate-root execution adapter. A fresh incident intake stopped before target execution because its leads lacked complete target-command-provider evidence, so no comparative, null, or repair result was manufactured. Issue-derived repairs remain 6 and native external repairs remain 4; generalized AMDS effectiveness, memory lift, full scoring, and self-maintaining operation remain unestablished.
+
 ## Batch078 count-six hardening and minimal-closure Wave 1B
 
 Batch078 independently verifies the official Batch077 artifact and preserves the sixth issue-derived CogniCore repair without creating a duplicate count. It adds repeatable count hardening, ownership-specific minimal causal closure, mandatory cross-pathway invariants, cost-sensitive probe routing, independent early-stop verification, and rollback-checked transition closure. The full eight-probe Batch077 design is retained as historical evidence but is explicitly unsuitable for estimating efficiency gains because no arm could stop early.

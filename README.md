@@ -26,6 +26,10 @@ Batch077 verifies and ingests the official Batch076 artifact, measures the flat 
 
 Batch078 verifies and ingests the official Batch077 artifact, preserving the sixth issue-derived CogniCore repair and its exact patch identity. It adds independent existing-count hardening without recounting, a shared ownership-specific minimal causal-closure contract, mandatory invariant enforcement, cost-sensitive probe selection, independent early-stop verification, and neutral pre/post/rollback transition auditing. The Batch077 eight-probe design is explicitly classified as unable to identify efficiency gains because every arm completed the full traversal. HordeForge reproduction remains preserved while causal ownership is separately classified as harness-owned; no source patch is authorized. Historical typed pathways are evaluated with leave-one-episode-out real-versus-shuffled calibration and a proof-independent v2.1 corpus. Wave 1B uses a frozen four-repository frame and six isolated strategy/memory conditions per admitted candidate. The historical metric compatibility and null-separation study is shadow-only, uses a separately named software metric, and cannot affect admission, patching, counting, or public effectiveness claims.
 
+Batch079 officially ingests Batch078 and closes its sole count-six verifier defect with a real unified-diff parser and an independently recomputed HTML title-only semantic witness. The existing CogniCore episode is hardened without recounting. Failure-contract v2 now keeps provider, collection, timeout, harness, environment, and candidate-code outcomes separate; runtime selection is frozen from decision-time compatibility evidence across Python 3.8–3.13. The four Batch078 candidates remain recovery diagnostics and do not become prospective evidence. A fresh six-incident intake was stopped before target execution because none satisfied the complete native-target, authoritative-command, and bounded-provider static preflight. Consequently no Wave-1C arms, matched nulls, ground truth, patch attempt, replay, or count gate ran.
+
+Batch079 also corrects shadow metrology custody. Randomization nulls, negative controls, memory ablations, strong software baselines, and treatment are distinct roles. Candidate-level tail estimates use the conservative add-one estimator; 8 or 16 replicates are smoke-test depth only, while threshold evaluation requires at least 19 unique executed randomization-null sequences. No Batch079 metrology result influences admission, authorization, repair, counting, or the current protocol.
+
 - Confirmed issue-derived repair episodes: `6`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
@@ -61,7 +65,13 @@ Batch078 verifies and ingests the official Batch077 artifact, preserving the six
 - Batch078 minimal causal closure and cost-sensitive routing: implemented and independently audited.
 - Batch078 HordeForge ownership: `fixture_or_harness_owned`; patch authority: `false`.
 - Batch078 historical metric compatibility view: shadow-only and nonblocking.
-- Next safe action: execute and manually verify the Batch078 workflow artifact.
+- Batch079 official Batch078 custody: `PASS`.
+- Count-six independent hardening: `PASS`; existing count records `1`, count increment `0`.
+- HordeForge ControllerGate adapter correction: `PASS`; candidate source and tests unchanged.
+- Fresh Wave-1C static preflight: `BLOCK_MINIMUM_PARTIAL_WAVE_NOT_MET`; target executions `0`.
+- Batch079 comparative arms, matched nulls, and repairs: `NOT_RUN_NO_ADMITTED_CANDIDATE`.
+- Domain-relative threshold transfer: `NOT_ESTABLISHED_FOR_PRODUCTION`.
+- Next safe action: curate at least two incident leads with exact native targets, authoritative commands, and bounded provider locks before a separately frozen execution rerun.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

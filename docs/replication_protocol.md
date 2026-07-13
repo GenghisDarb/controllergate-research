@@ -1,5 +1,9 @@
 # Replication protocol
 
+## Batch079 replication boundary
+
+Replications must verify the official Batch078 bytes, preserve the exact CogniCore patch/provider identities, and independently parse the unified diff. Incident candidates must pass source, target, command, runtime, provider, and collection preflight before the frame is frozen. Randomization-null sequences must be unique, executed, and preregistered; 19 is the minimum candidate-level resolution for a 0.95 shadow threshold, and strong software baselines must be reported separately.
+
 Replication requires manual artifact custody, registry validation, runtime-provider verification, dependency-lock installation, Provider Workspace Bridge checks, materialization, replay, validation, duplicate replay, no-overreach validation, and claim-boundary review.
 
 ## Current operational gate status

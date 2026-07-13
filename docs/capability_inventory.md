@@ -2,6 +2,18 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
+## Batch079 verifier, runtime admission, and shadow metrology
+
+- Unified-diff semantic verifier v2: parses declared file headers and complete hunk headers; rejects malformed, binary, rename, multi-file, test, route, script, CSS, schema, and extra-change controls.
+- Count-six closure: exact CogniCore patch and provider identities independently revalidated; one historical count record preserved with no increment.
+- Failure-contract v2 admission: provider, collection, target resolution, fixture, execution, timeout, signal, candidate, harness, and environment evidence remain separately persisted.
+- Runtime resolver: Python 3.8–3.13 compatibility is selected and frozen from decision-time declarations, never from preferred outcomes.
+- HordeForge adapter: native candidate working directory is separated from runtime scratch, home, and cache; candidate source/tests remain read-only.
+- Memory calibration v2: leave-one-proof-group-out retrieval with independently counted repository and proof exclusions and real uniform, random, shuffled, and frequency-only baselines.
+- Incident Wave 1C: six public leads received source-bound static dispositions; zero candidates passed the complete preflight, so no target outcome or adaptive replacement entered the frame.
+- Shadow metrology: randomization null, negative control, memory ablation, strong baseline, and treatment are nonconflated; add-one tails and minimum finite-sample resolution are enforced.
+- Claim boundary: issue-derived repairs remain six and native external repairs remain four; prospective AMDS effectiveness and memory lift remain unestablished.
+
 ## Batch078 count-six hardening and minimal causal closure
 
 - Official evidence custody: Batch077 outer identity, path safety, duplicate safety, artifact manifest, five internal manifests, and exact CogniCore patch identity are independently verified.
