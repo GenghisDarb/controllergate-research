@@ -48,7 +48,13 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 0}
+        with:
+          fetch-depth: 0
+          sparse-checkout: |
+            controllergate
+            scripts
+            configs
+          sparse-checkout-cone-mode: true
       - uses: actions/setup-python@v5
         with: {python-version: "3.13"}
       - shell: pwsh
@@ -81,7 +87,13 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 0}
+        with:
+          fetch-depth: 0
+          sparse-checkout: |
+            controllergate
+            scripts
+            configs
+          sparse-checkout-cone-mode: true
       - uses: actions/setup-python@v5
         with: {python-version: "3.13"}
       - uses: actions/download-artifact@v4
