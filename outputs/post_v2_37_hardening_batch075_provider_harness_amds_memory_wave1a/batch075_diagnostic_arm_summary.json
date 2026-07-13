@@ -1,0 +1,1454 @@
+{
+  "arm_executions": 8,
+  "backtracking_components": 4,
+  "candidate_count": 2,
+  "observation_sharing": false,
+  "posterior_updates": 24,
+  "probe_executions": 24,
+  "records": [
+    {
+      "arm_bundle_hash": "ec1b2973fb19d1f9d19a7a06a4adbe0e380ab3d8bcdd89b390baa0e4ca41c649",
+      "arm_outputs": {
+        "amds_active_memory_disabled": {
+          "arm": "amds_active_memory_disabled",
+          "arm_output_hash": "2706be43d68d70f0da580f31b9c8e613e8023aaf317a54d865df29a743062352",
+          "authorization_hash": "c40374ebf7e3ac578cfd936ba688cad6bb9b6eff536beca243c2b27ddc4fcf47",
+          "authorization_store_isolated": true,
+          "authorization_store_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\amds_active_memory_disabled\\nonces.json",
+          "backtracking_components": 1,
+          "backtracking_trace": [
+            {
+              "assignments": [
+                {
+                  "hypothesis:environment_owned": false,
+                  "hypothesis:source_owned": false,
+                  "hypothesis:test_or_interpreter_owned": true
+                }
+              ],
+              "cell_ids": [
+                "hypothesis:environment_owned",
+                "hypothesis:source_owned",
+                "hypothesis:test_or_interpreter_owned"
+              ],
+              "components": 1,
+              "state_count": 8,
+              "status": "PASS",
+              "termination_proven": true
+            }
+          ],
+          "canonical_run_amds_active_loop": true,
+          "checkpoint_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\amds_active_memory_disabled\\checkpoint.json",
+          "completed_phases": [
+            "amds_board",
+            "arm_amds_active_memory_disabled"
+          ],
+          "dispatcher_status": "PASS",
+          "entropy_changes": [
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "provider_hash_recheck"
+            },
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "target_ast_recheck"
+            }
+          ],
+          "event_ledger_hash": "28fe2da1642d31a8c81d57ef424fa9b9e977f96f016b328bb24c8715b9d31355",
+          "event_ledger_isolated": true,
+          "event_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\amds_active_memory_disabled\\events.jsonl",
+          "isolated_state_id": "f3f78eeced6ccbaea228442eab6bf2b4f7726d7b3fe751a5dbfcce78adf93f08",
+          "memory_enabled": false,
+          "memory_influence": "NO_OBSERVED_MEMORY_INFLUENCE",
+          "network_ledger_hash": "632d586be883c81ab7242cdff73a0406ee1eeefde97d80afc7d54864fe19cc7b",
+          "network_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\amds_active_memory_disabled\\network.jsonl",
+          "observation_sharing": false,
+          "observations": [
+            {
+              "evidence_hash": "c85d15a9533f5423fd19564bbc4aa53afec90b8e89e6acf953b9fb92855a342b",
+              "probe": "provider_hash_recheck",
+              "semantic_fact": true
+            },
+            {
+              "evidence_hash": null,
+              "probe": null,
+              "semantic_fact": null
+            },
+            {
+              "evidence_hash": null,
+              "probe": null,
+              "semantic_fact": null
+            }
+          ],
+          "patch_authority": false,
+          "plan_hash": "70ba001f887c8ad490c7df96bde10c8fdd2f59db5b7f410b69921e50af785207",
+          "posterior_store": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\amds_active_memory_disabled\\posterior.json",
+          "posterior_store_hash": "456ca8efedce479dacfc316ef685588d7f9fe40ab26ad49a95bbbda0f7a3a258",
+          "posterior_update_records": [
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 1,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "provider_hash_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            },
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 2,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "target_ast_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            },
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 3,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "target_ast_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            }
+          ],
+          "posterior_updates": 3,
+          "probe_count": 3,
+          "probe_order": [
+            "provider_hash_recheck",
+            "target_ast_recheck",
+            "failure_signature_recheck"
+          ],
+          "registry_versions": [
+            {
+              "board_hash": "11ba960460a07c4694a0d0056ede072190f64dcda57dd879034ad4c040162c54",
+              "generation": 1,
+              "observation_count": 0,
+              "probes": [
+                {
+                  "allowed_executor": "provider_hash_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "provider_hash_recheck",
+                  "probe_type": "provider_hash_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "006b9b39df689a8d791d2d79ce2d23dc488e9a0994046fb8bf8f781231ac4032"
+            },
+            {
+              "board_hash": "4a0ed22bf48f40a53108226e4ba2a991152d967c9f8a4a2607e5bd1bc300e107",
+              "generation": 2,
+              "observation_count": 1,
+              "probes": [
+                {
+                  "allowed_executor": "target_ast_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "target_ast_recheck",
+                  "probe_type": "target_ast_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "f07c8968ddd9fcce4d92ac12659e506f2f202b72b62399f06bcef0c16873282d"
+            },
+            {
+              "board_hash": "7008878a64821eb5e111c10310d63d92bf8a12240d359cd7b9548aca9ac72e3d",
+              "generation": 3,
+              "observation_count": 2,
+              "probes": [
+                {
+                  "allowed_executor": "target_ast_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "target_ast_recheck",
+                  "probe_type": "target_ast_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "f07c8968ddd9fcce4d92ac12659e506f2f202b72b62399f06bcef0c16873282d"
+            }
+          ],
+          "safe_abstention": true,
+          "selection_rationale": "DETERMINISTIC_NECESSITY",
+          "semantic_verifications": 3,
+          "status": "PASS",
+          "stop_decision": {
+            "legal_probe_count": 0,
+            "reason": "probe budget exhausted",
+            "stop": true
+          },
+          "strategy": "AMDS_ACTIVE",
+          "terminal_classification": "insufficient_evidence",
+          "unknown_likelihoods": "NOT_ESTABLISHED"
+        },
+        "amds_active_memory_enabled": {
+          "arm": "amds_active_memory_enabled",
+          "arm_output_hash": "cb8e1b703781864cffacd9009f17518881c45cc17ad470e1c2e34a626c2355b5",
+          "authorization_hash": "f8394cffbd41096126de6bf507d05a4fbbf6a41d1061f80cb00fbce1699f8f89",
+          "authorization_store_isolated": true,
+          "authorization_store_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\amds_active_memory_enabled\\nonces.json",
+          "backtracking_components": 1,
+          "backtracking_trace": [
+            {
+              "assignments": [
+                {
+                  "hypothesis:environment_owned": false,
+                  "hypothesis:source_owned": false,
+                  "hypothesis:test_or_interpreter_owned": true
+                }
+              ],
+              "cell_ids": [
+                "hypothesis:environment_owned",
+                "hypothesis:source_owned",
+                "hypothesis:test_or_interpreter_owned"
+              ],
+              "components": 1,
+              "state_count": 8,
+              "status": "PASS",
+              "termination_proven": true
+            }
+          ],
+          "canonical_run_amds_active_loop": true,
+          "checkpoint_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\amds_active_memory_enabled\\checkpoint.json",
+          "completed_phases": [
+            "amds_board",
+            "arm_amds_active_memory_enabled"
+          ],
+          "dispatcher_status": "PASS",
+          "entropy_changes": [
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "target_ast_recheck"
+            }
+          ],
+          "event_ledger_hash": "5cfe3e54e578e050a439da43315fcaea0d54e9ef0738a370261d24388d66fa90",
+          "event_ledger_isolated": true,
+          "event_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\amds_active_memory_enabled\\events.jsonl",
+          "isolated_state_id": "9a30b0547952f623506b03ccb9c21d8797de8ca3c0a5c9aedfee387b86c79e9f",
+          "memory_enabled": true,
+          "memory_influence": "MEMORY_CHANGED_PROBE_ORDER",
+          "network_ledger_hash": "ba0866e860c0cccfaef5b42a3852d7bdf73c456c16a454fa4ff7051fd5e9ee07",
+          "network_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\amds_active_memory_enabled\\network.jsonl",
+          "observation_sharing": false,
+          "observations": [
+            {
+              "evidence_hash": null,
+              "probe": null,
+              "semantic_fact": null
+            },
+            {
+              "evidence_hash": null,
+              "probe": null,
+              "semantic_fact": null
+            },
+            {
+              "evidence_hash": null,
+              "probe": null,
+              "semantic_fact": null
+            }
+          ],
+          "patch_authority": false,
+          "plan_hash": "c7c33f675300576056e0eec4e0f890699b95e2227e06283ff4ce7b48cd1d26b3",
+          "posterior_store": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\amds_active_memory_enabled\\posterior.json",
+          "posterior_store_hash": "a122389c9a515834ab238a45b83d0ddc9591a7224ee0e594b1a844537fcf515a",
+          "posterior_update_records": [
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 1,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "target_ast_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            },
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 2,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "target_ast_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            },
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 3,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "target_ast_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            }
+          ],
+          "posterior_updates": 3,
+          "probe_count": 3,
+          "probe_order": [
+            "target_ast_recheck",
+            "failure_signature_recheck",
+            "provider_hash_recheck"
+          ],
+          "registry_versions": [
+            {
+              "board_hash": "11ba960460a07c4694a0d0056ede072190f64dcda57dd879034ad4c040162c54",
+              "generation": 1,
+              "observation_count": 0,
+              "probes": [
+                {
+                  "allowed_executor": "target_ast_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "target_ast_recheck",
+                  "probe_type": "target_ast_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "f07c8968ddd9fcce4d92ac12659e506f2f202b72b62399f06bcef0c16873282d"
+            },
+            {
+              "board_hash": "8a4e42344a221400139a6db6878b29ee7ac7a9fca199a405c0cc84767e6e8c4b",
+              "generation": 2,
+              "observation_count": 1,
+              "probes": [
+                {
+                  "allowed_executor": "target_ast_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "target_ast_recheck",
+                  "probe_type": "target_ast_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "f07c8968ddd9fcce4d92ac12659e506f2f202b72b62399f06bcef0c16873282d"
+            },
+            {
+              "board_hash": "05752392bbff706dbc9bc10fff86377f5ba3df207955725fb6818db24d002763",
+              "generation": 3,
+              "observation_count": 2,
+              "probes": [
+                {
+                  "allowed_executor": "target_ast_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "target_ast_recheck",
+                  "probe_type": "target_ast_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "f07c8968ddd9fcce4d92ac12659e506f2f202b72b62399f06bcef0c16873282d"
+            }
+          ],
+          "safe_abstention": true,
+          "selection_rationale": "DETERMINISTIC_NECESSITY",
+          "semantic_verifications": 3,
+          "status": "PASS",
+          "stop_decision": {
+            "legal_probe_count": 0,
+            "reason": "probe budget exhausted",
+            "stop": true
+          },
+          "strategy": "AMDS_ACTIVE",
+          "terminal_classification": "insufficient_evidence",
+          "unknown_likelihoods": "NOT_ESTABLISHED"
+        },
+        "fixed_legal_order_memory_disabled": {
+          "arm": "fixed_legal_order_memory_disabled",
+          "arm_output_hash": "c4ac07ab6de362f661dbf08262d6eafefb0432685656df0a86edd387abc21bd7",
+          "authorization_hash": "2970a360f9a516aebe88192a359abd9f795fcbec3433b5ed6f29b56caa41f290",
+          "authorization_store_isolated": true,
+          "authorization_store_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\fixed_legal_order_memory_disabled\\nonces.json",
+          "backtracking_components": 0,
+          "backtracking_trace": [],
+          "canonical_run_amds_active_loop": false,
+          "checkpoint_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\fixed_legal_order_memory_disabled\\checkpoint.json",
+          "completed_phases": [
+            "amds_board",
+            "arm_fixed_legal_order_memory_disabled"
+          ],
+          "dispatcher_status": "PASS",
+          "entropy_changes": [
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "failure_signature_recheck"
+            },
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "provider_hash_recheck"
+            }
+          ],
+          "event_ledger_hash": "f1e0e4cfeab4d7057e3042aecc861339f91c88869e515fd9e288785347912cdf",
+          "event_ledger_isolated": true,
+          "event_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\fixed_legal_order_memory_disabled\\events.jsonl",
+          "isolated_state_id": "4222f5f6203b210c8be56e0c03a939c36c36c893343741f223ea5332e71dd21f",
+          "memory_enabled": false,
+          "memory_influence": "NO_OBSERVED_MEMORY_INFLUENCE",
+          "network_ledger_hash": "2dd23baa27d004a68cb8faf1a0c8a7eedeac2edec492612bdf6e9506c7f40903",
+          "network_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\fixed_legal_order_memory_disabled\\network.jsonl",
+          "observation_sharing": false,
+          "observations": [
+            {
+              "evidence_hash": "e66234e4788eb0c986b307b63b5a131b853d7da81e3a4115a0d4cc256f1c03e5",
+              "probe": "failure_signature_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            },
+            {
+              "evidence_hash": "80a46aa2d4a5826b6b4d65c674a4c1c6a139ad577f846cac5bf501c3d0575ade",
+              "probe": "target_ast_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            },
+            {
+              "evidence_hash": "c85d15a9533f5423fd19564bbc4aa53afec90b8e89e6acf953b9fb92855a342b",
+              "probe": "provider_hash_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            }
+          ],
+          "patch_authority": false,
+          "plan_hash": "b73d6ddd3fc4a1214c312597e6da2da7ef934fb11bcfc67731868de80bf6be56",
+          "posterior_store": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\fixed_legal_order_memory_disabled\\posterior.json",
+          "posterior_store_hash": "3d328fc9ba5439de09efd4661870ac33568a1379be5e3ae1a4e57a773226d0ec",
+          "posterior_update_records": [
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "failure_signature_recheck"
+            },
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "provider_hash_recheck"
+            }
+          ],
+          "posterior_updates": 3,
+          "probe_count": 3,
+          "probe_order": [
+            "failure_signature_recheck",
+            "target_ast_recheck",
+            "provider_hash_recheck"
+          ],
+          "registry_versions": [
+            {
+              "generation": 1,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "failure_signature_recheck"
+            },
+            {
+              "generation": 2,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "target_ast_recheck"
+            },
+            {
+              "generation": 3,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "provider_hash_recheck"
+            }
+          ],
+          "safe_abstention": true,
+          "selection_rationale": "DETERMINISTIC_NECESSITY",
+          "semantic_verifications": 3,
+          "status": "PASS",
+          "stop_decision": {
+            "reason": "fixed legal probe order exhausted",
+            "stop": true
+          },
+          "strategy": "FIXED_LEGAL_ORDER",
+          "terminal_classification": "insufficient_evidence",
+          "unknown_likelihoods": "NOT_ESTABLISHED"
+        },
+        "fixed_legal_order_memory_enabled": {
+          "arm": "fixed_legal_order_memory_enabled",
+          "arm_output_hash": "4fb99b4b75433b4bc74c5afa7eef290529016e8e42b0204d6f26a88b1500a304",
+          "authorization_hash": "f51c44458713bc9b7392d182578c7b43f9d4f1a6718fcbb32898e660e249d5ed",
+          "authorization_store_isolated": true,
+          "authorization_store_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\fixed_legal_order_memory_enabled\\nonces.json",
+          "backtracking_components": 0,
+          "backtracking_trace": [],
+          "canonical_run_amds_active_loop": false,
+          "checkpoint_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\fixed_legal_order_memory_enabled\\checkpoint.json",
+          "completed_phases": [
+            "amds_board",
+            "arm_fixed_legal_order_memory_enabled"
+          ],
+          "dispatcher_status": "PASS",
+          "entropy_changes": [
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "failure_signature_recheck"
+            },
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "provider_hash_recheck"
+            }
+          ],
+          "event_ledger_hash": "e7bb5a2e076daeae459a09f35010cdb73d3d3953623ba42323e3ffa071f49e3c",
+          "event_ledger_isolated": true,
+          "event_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\fixed_legal_order_memory_enabled\\events.jsonl",
+          "isolated_state_id": "980ef6fd2406bcb90d55743dd86ce7909baddb7c602588b0b0012d3e6667d71d",
+          "memory_enabled": true,
+          "memory_influence": "NO_OBSERVED_MEMORY_INFLUENCE",
+          "network_ledger_hash": "762f4213189765112bd1bbc3d1de978fa8ea4b38f8fd0be94b2b0142304f0396",
+          "network_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\fixed_legal_order_memory_enabled\\network.jsonl",
+          "observation_sharing": false,
+          "observations": [
+            {
+              "evidence_hash": "e66234e4788eb0c986b307b63b5a131b853d7da81e3a4115a0d4cc256f1c03e5",
+              "probe": "failure_signature_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            },
+            {
+              "evidence_hash": "80a46aa2d4a5826b6b4d65c674a4c1c6a139ad577f846cac5bf501c3d0575ade",
+              "probe": "target_ast_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            },
+            {
+              "evidence_hash": "c85d15a9533f5423fd19564bbc4aa53afec90b8e89e6acf953b9fb92855a342b",
+              "probe": "provider_hash_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            }
+          ],
+          "patch_authority": false,
+          "plan_hash": "807f7ad5885fa4bda8948a40270ba018c8f392dfb2adf05ad6e68516ef6b2781",
+          "posterior_store": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\diagnostics\\fixed_legal_order_memory_enabled\\posterior.json",
+          "posterior_store_hash": "3d328fc9ba5439de09efd4661870ac33568a1379be5e3ae1a4e57a773226d0ec",
+          "posterior_update_records": [
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "failure_signature_recheck"
+            },
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "provider_hash_recheck"
+            }
+          ],
+          "posterior_updates": 3,
+          "probe_count": 3,
+          "probe_order": [
+            "failure_signature_recheck",
+            "target_ast_recheck",
+            "provider_hash_recheck"
+          ],
+          "registry_versions": [
+            {
+              "generation": 1,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "failure_signature_recheck"
+            },
+            {
+              "generation": 2,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "target_ast_recheck"
+            },
+            {
+              "generation": 3,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "provider_hash_recheck"
+            }
+          ],
+          "safe_abstention": true,
+          "selection_rationale": "DETERMINISTIC_NECESSITY",
+          "semantic_verifications": 3,
+          "status": "PASS",
+          "stop_decision": {
+            "reason": "fixed legal probe order exhausted",
+            "stop": true
+          },
+          "strategy": "FIXED_LEGAL_ORDER",
+          "terminal_classification": "insufficient_evidence",
+          "unknown_likelihoods": "NOT_ESTABLISHED"
+        }
+      },
+      "arm_outputs_sealed": true,
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "ground_truth": {
+        "adjudicator_blinded_to_arm_labels": true,
+        "arm_performance_available": false,
+        "classification": "insufficient_evidence",
+        "confidence_classification": "bounded_evidence",
+        "ground_truth_hash": "30c533b3a4cb8b4616f9a442c909865fea50a8d4258169efdb47dc2488445d59",
+        "inputs": {
+          "duplicate_failure_hash": "20c7b9f883c32617017eef18ba1381ebbf77f899e5512b788ccd525cb39da115",
+          "provider_hash": "8198b6c3dc83179aa747f43f14aeafc83994bcf05d9fefbaa6c319eed006e60e",
+          "sealed_arm_bundle_hash": "ec1b2973fb19d1f9d19a7a06a4adbe0e380ab3d8bcdd89b390baa0e4ca41c649",
+          "target_hash": "b48eb12f444b9d90ffc4e93a572ce35a9275fe077ddce2192e1d67fe6f6452e2"
+        },
+        "manual_review": true,
+        "memory_state_available": false,
+        "probe_order_label_available": false,
+        "status": "PASS",
+        "strategy_identity_available": false
+      },
+      "ground_truth_dispatch": {
+        "authorization_hash": "816c4acfc3c44b4049697dc3b5196ef78598fe25ff37a262e9b45d746dda7e9b",
+        "authorization_store_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\ground_truth\\nonces.json",
+        "checkpoint_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\ground_truth\\checkpoint.json",
+        "completed_phases": [
+          "ground_truth",
+          "rollback",
+          "proof",
+          "routing_memory"
+        ],
+        "event_ledger_hash": "edfb1e103a5276f2198a56e913bb471f68f4a4cb87214488b654566638bb11a5",
+        "event_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\ground_truth\\events.jsonl",
+        "network_ledger_hash": "157fe4e313c1d4d49668bddac10ecfb0275650e760270939cc8b775c36e9d18e",
+        "network_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\132fb2690aa8\\ground_truth\\network.jsonl",
+        "plan_hash": "3ca95a3bf8ef049e45a8efa28e5ee3f67a7b934eeb9948d4189a5e0bc696e22d",
+        "status": "PASS"
+      },
+      "proof": {
+        "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+        "ground_truth_hash": "30c533b3a4cb8b4616f9a442c909865fea50a8d4258169efdb47dc2488445d59",
+        "parent_count": 1,
+        "proof_event_hash": "0fed340c4657b4e03eaee7697bd7a19eafff1a9973d92ba8be801ab387d93d1a",
+        "rollback_hash": "162cf84a9bcd9d852b5d2341fa2d6cc853cdc208efe311eeba5251c5342fbef6",
+        "status": "PASS"
+      },
+      "rollback": {
+        "clean": true,
+        "head": "9a507e8361056c81a9c1919b39c982f497e4cee0",
+        "patch_applied": false,
+        "status": "PASS"
+      },
+      "routing_memory": {
+        "classification": "insufficient_evidence",
+        "patch_text_present": false,
+        "probe_costs": {},
+        "source_snippets_present": false,
+        "status": "PASS",
+        "structural_only": true
+      },
+      "status": "PASS"
+    },
+    {
+      "arm_bundle_hash": "5a05201394714c9cb086474c86ed842ce297c04ddd41cc145adc3ccf69af04f7",
+      "arm_outputs": {
+        "amds_active_memory_disabled": {
+          "arm": "amds_active_memory_disabled",
+          "arm_output_hash": "11d2b2029ddca43bdb81d48e212a29a5303e2c952b8d299f44cc7b502c0d116e",
+          "authorization_hash": "40838348bccf9ab066d5edad1510f57fcfe57d66ee92339bc1f872f2a5131b0d",
+          "authorization_store_isolated": true,
+          "authorization_store_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\amds_active_memory_disabled\\nonces.json",
+          "backtracking_components": 1,
+          "backtracking_trace": [
+            {
+              "assignments": [
+                {
+                  "hypothesis:environment_owned": false,
+                  "hypothesis:source_owned": false,
+                  "hypothesis:test_or_interpreter_owned": true
+                }
+              ],
+              "cell_ids": [
+                "hypothesis:environment_owned",
+                "hypothesis:source_owned",
+                "hypothesis:test_or_interpreter_owned"
+              ],
+              "components": 1,
+              "state_count": 8,
+              "status": "PASS",
+              "termination_proven": true
+            }
+          ],
+          "canonical_run_amds_active_loop": true,
+          "checkpoint_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\amds_active_memory_disabled\\checkpoint.json",
+          "completed_phases": [
+            "amds_board",
+            "arm_amds_active_memory_disabled"
+          ],
+          "dispatcher_status": "PASS",
+          "entropy_changes": [
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "provider_hash_recheck"
+            },
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "target_ast_recheck"
+            }
+          ],
+          "event_ledger_hash": "2efb5bcf965e59c80155ebe18dc4454f921b280467aa2c41acf4e5e65c55a795",
+          "event_ledger_isolated": true,
+          "event_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\amds_active_memory_disabled\\events.jsonl",
+          "isolated_state_id": "81c574f4a34d7d3b7e05a0962f079c87164a5c599be7b93e36314b9669a87b23",
+          "memory_enabled": false,
+          "memory_influence": "NO_OBSERVED_MEMORY_INFLUENCE",
+          "network_ledger_hash": "632d586be883c81ab7242cdff73a0406ee1eeefde97d80afc7d54864fe19cc7b",
+          "network_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\amds_active_memory_disabled\\network.jsonl",
+          "observation_sharing": false,
+          "observations": [
+            {
+              "evidence_hash": "d262d4f3c4d3506b54ff7bc561e24702fb6619fc5f94c362431b75c3cc6770d0",
+              "probe": "provider_hash_recheck",
+              "semantic_fact": true
+            },
+            {
+              "evidence_hash": null,
+              "probe": null,
+              "semantic_fact": null
+            },
+            {
+              "evidence_hash": null,
+              "probe": null,
+              "semantic_fact": null
+            }
+          ],
+          "patch_authority": false,
+          "plan_hash": "e208125ca7b852bed58e383a6a529b6f875cdca4f64aae1b42371894865f629b",
+          "posterior_store": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\amds_active_memory_disabled\\posterior.json",
+          "posterior_store_hash": "7e3a70b47eeb4937a30b1d0396544c5aa2ef5500859cc56f84dd2ebada7aab17",
+          "posterior_update_records": [
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 1,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "provider_hash_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            },
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 2,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "target_ast_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            },
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 3,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "target_ast_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            }
+          ],
+          "posterior_updates": 3,
+          "probe_count": 3,
+          "probe_order": [
+            "provider_hash_recheck",
+            "target_ast_recheck",
+            "failure_signature_recheck"
+          ],
+          "registry_versions": [
+            {
+              "board_hash": "fe1e91b64a0ee8a1715a6cd23567e239ca6a9b6016fca743ab878bfb6b61b85f",
+              "generation": 1,
+              "observation_count": 0,
+              "probes": [
+                {
+                  "allowed_executor": "provider_hash_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "provider_hash_recheck",
+                  "probe_type": "provider_hash_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "006b9b39df689a8d791d2d79ce2d23dc488e9a0994046fb8bf8f781231ac4032"
+            },
+            {
+              "board_hash": "40957de415ff99f5977238c4a1577ac20186d11f5a55ae485a7732d14f44c512",
+              "generation": 2,
+              "observation_count": 1,
+              "probes": [
+                {
+                  "allowed_executor": "target_ast_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "target_ast_recheck",
+                  "probe_type": "target_ast_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "f07c8968ddd9fcce4d92ac12659e506f2f202b72b62399f06bcef0c16873282d"
+            },
+            {
+              "board_hash": "c2eb8494d1f91b1190ff0b0ae57e6d41b8d4a3d5369a4d62177ff24ca9a8d38b",
+              "generation": 3,
+              "observation_count": 2,
+              "probes": [
+                {
+                  "allowed_executor": "target_ast_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "target_ast_recheck",
+                  "probe_type": "target_ast_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "f07c8968ddd9fcce4d92ac12659e506f2f202b72b62399f06bcef0c16873282d"
+            }
+          ],
+          "safe_abstention": true,
+          "selection_rationale": "DETERMINISTIC_NECESSITY",
+          "semantic_verifications": 3,
+          "status": "PASS",
+          "stop_decision": {
+            "legal_probe_count": 0,
+            "reason": "probe budget exhausted",
+            "stop": true
+          },
+          "strategy": "AMDS_ACTIVE",
+          "terminal_classification": "insufficient_evidence",
+          "unknown_likelihoods": "NOT_ESTABLISHED"
+        },
+        "amds_active_memory_enabled": {
+          "arm": "amds_active_memory_enabled",
+          "arm_output_hash": "7188146feb89340d8f86b7270178f83876f79423f3217f35a9fd52e29a1d2ac0",
+          "authorization_hash": "b2d75741dad19f7cee020099eab8d6cc3bf6cc548dd6de0aeaa6475dedc396cf",
+          "authorization_store_isolated": true,
+          "authorization_store_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\amds_active_memory_enabled\\nonces.json",
+          "backtracking_components": 1,
+          "backtracking_trace": [
+            {
+              "assignments": [
+                {
+                  "hypothesis:environment_owned": false,
+                  "hypothesis:source_owned": false,
+                  "hypothesis:test_or_interpreter_owned": true
+                }
+              ],
+              "cell_ids": [
+                "hypothesis:environment_owned",
+                "hypothesis:source_owned",
+                "hypothesis:test_or_interpreter_owned"
+              ],
+              "components": 1,
+              "state_count": 8,
+              "status": "PASS",
+              "termination_proven": true
+            }
+          ],
+          "canonical_run_amds_active_loop": true,
+          "checkpoint_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\amds_active_memory_enabled\\checkpoint.json",
+          "completed_phases": [
+            "amds_board",
+            "arm_amds_active_memory_enabled"
+          ],
+          "dispatcher_status": "PASS",
+          "entropy_changes": [
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "after": 0,
+              "before": 0,
+              "probe_id": "target_ast_recheck"
+            }
+          ],
+          "event_ledger_hash": "3e1d0e982f9adf34e58deca4508715edfaacffda66423855aa21d767e43f8275",
+          "event_ledger_isolated": true,
+          "event_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\amds_active_memory_enabled\\events.jsonl",
+          "isolated_state_id": "1a9694e81a4a8fcb88b2df3521c7f700e8f8b9bb111a3c24b56cda269325750f",
+          "memory_enabled": true,
+          "memory_influence": "MEMORY_CHANGED_PROBE_ORDER",
+          "network_ledger_hash": "ba0866e860c0cccfaef5b42a3852d7bdf73c456c16a454fa4ff7051fd5e9ee07",
+          "network_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\amds_active_memory_enabled\\network.jsonl",
+          "observation_sharing": false,
+          "observations": [
+            {
+              "evidence_hash": null,
+              "probe": null,
+              "semantic_fact": null
+            },
+            {
+              "evidence_hash": null,
+              "probe": null,
+              "semantic_fact": null
+            },
+            {
+              "evidence_hash": null,
+              "probe": null,
+              "semantic_fact": null
+            }
+          ],
+          "patch_authority": false,
+          "plan_hash": "60803f4eefed525eadff709ccf0f8ed0d905d1dc30c72eb903337cae74c0afbc",
+          "posterior_store": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\amds_active_memory_enabled\\posterior.json",
+          "posterior_store_hash": "a122389c9a515834ab238a45b83d0ddc9591a7224ee0e594b1a844537fcf515a",
+          "posterior_update_records": [
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 1,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "target_ast_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            },
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 2,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "target_ast_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            },
+            {
+              "entropy_after": 0,
+              "entropy_before": 0,
+              "likelihood_basis": "NOT_ESTABLISHED",
+              "likelihoods": {},
+              "observation": 3,
+              "posterior": {},
+              "posterior_hash": "5b3350477e3df6db806569020c79b215586e2cbbaea0823cdd51cc6326861cab",
+              "prior": {},
+              "prior_classification": "structural_uniform_uncalibrated",
+              "probe_id": "target_ast_recheck",
+              "refuted_hypotheses": [],
+              "supported_hypotheses": [],
+              "unchanged_hypotheses": []
+            }
+          ],
+          "posterior_updates": 3,
+          "probe_count": 3,
+          "probe_order": [
+            "target_ast_recheck",
+            "failure_signature_recheck",
+            "provider_hash_recheck"
+          ],
+          "registry_versions": [
+            {
+              "board_hash": "fe1e91b64a0ee8a1715a6cd23567e239ca6a9b6016fca743ab878bfb6b61b85f",
+              "generation": 1,
+              "observation_count": 0,
+              "probes": [
+                {
+                  "allowed_executor": "target_ast_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "target_ast_recheck",
+                  "probe_type": "target_ast_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "f07c8968ddd9fcce4d92ac12659e506f2f202b72b62399f06bcef0c16873282d"
+            },
+            {
+              "board_hash": "e65c24ab3e43279694df2a6aed406544d02140cdee9e600082b7ef0cb2b6d432",
+              "generation": 2,
+              "observation_count": 1,
+              "probes": [
+                {
+                  "allowed_executor": "target_ast_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "target_ast_recheck",
+                  "probe_type": "target_ast_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "f07c8968ddd9fcce4d92ac12659e506f2f202b72b62399f06bcef0c16873282d"
+            },
+            {
+              "board_hash": "3a8a3dc9e86567f92482a4ac29f9590e6c4b81dfe6fde255ea552a66df681a2a",
+              "generation": 3,
+              "observation_count": 2,
+              "probes": [
+                {
+                  "allowed_executor": "target_ast_recheck",
+                  "deterministic_necessity": true,
+                  "execution_cost": 1.0,
+                  "expected_information_gain_nats": "NOT_ESTABLISHED",
+                  "probe_id": "target_ast_recheck",
+                  "probe_type": "target_ast_recheck",
+                  "security_risk": 0.0,
+                  "selection_rule": "deterministic_necessity",
+                  "utility": 0.0
+                }
+              ],
+              "registry_hash": "f07c8968ddd9fcce4d92ac12659e506f2f202b72b62399f06bcef0c16873282d"
+            }
+          ],
+          "safe_abstention": true,
+          "selection_rationale": "DETERMINISTIC_NECESSITY",
+          "semantic_verifications": 3,
+          "status": "PASS",
+          "stop_decision": {
+            "legal_probe_count": 0,
+            "reason": "probe budget exhausted",
+            "stop": true
+          },
+          "strategy": "AMDS_ACTIVE",
+          "terminal_classification": "insufficient_evidence",
+          "unknown_likelihoods": "NOT_ESTABLISHED"
+        },
+        "fixed_legal_order_memory_disabled": {
+          "arm": "fixed_legal_order_memory_disabled",
+          "arm_output_hash": "3de2f63bc740ae5ebae771460351f10cf76e192031a6c0b88354059c16d72edd",
+          "authorization_hash": "bbb085aa035663a3094d8735773c1bdb62e7ea0994f2f9778de22a03050b773e",
+          "authorization_store_isolated": true,
+          "authorization_store_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\fixed_legal_order_memory_disabled\\nonces.json",
+          "backtracking_components": 0,
+          "backtracking_trace": [],
+          "canonical_run_amds_active_loop": false,
+          "checkpoint_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\fixed_legal_order_memory_disabled\\checkpoint.json",
+          "completed_phases": [
+            "amds_board",
+            "arm_fixed_legal_order_memory_disabled"
+          ],
+          "dispatcher_status": "PASS",
+          "entropy_changes": [
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "failure_signature_recheck"
+            },
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "provider_hash_recheck"
+            }
+          ],
+          "event_ledger_hash": "855e6f61350946a098243f85c3e401f29c75815ba0caa32b50007685722c347d",
+          "event_ledger_isolated": true,
+          "event_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\fixed_legal_order_memory_disabled\\events.jsonl",
+          "isolated_state_id": "fbbe9ae4cb29ad330b6ed22e85875d1801115a8742e98f83ba1a1ac2a456db9c",
+          "memory_enabled": false,
+          "memory_influence": "NO_OBSERVED_MEMORY_INFLUENCE",
+          "network_ledger_hash": "2dd23baa27d004a68cb8faf1a0c8a7eedeac2edec492612bdf6e9506c7f40903",
+          "network_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\fixed_legal_order_memory_disabled\\network.jsonl",
+          "observation_sharing": false,
+          "observations": [
+            {
+              "evidence_hash": "3f3bf41b9131331d666e24e01e0b0b0862a6dc1f08965d5dccfe258b49233464",
+              "probe": "failure_signature_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            },
+            {
+              "evidence_hash": "197b516f606410a1ec7020f2c084487b64f5b2c2f00981ae5b7acbdc3677d53f",
+              "probe": "target_ast_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            },
+            {
+              "evidence_hash": "d262d4f3c4d3506b54ff7bc561e24702fb6619fc5f94c362431b75c3cc6770d0",
+              "probe": "provider_hash_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            }
+          ],
+          "patch_authority": false,
+          "plan_hash": "ecc3707da2f6fcf37eeaf6022931d567ecf39dab154edd5685aaddb34050495e",
+          "posterior_store": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\fixed_legal_order_memory_disabled\\posterior.json",
+          "posterior_store_hash": "53fe9bce12da3f769299e0c903729eb53a65aaaeb8f13244bfa0e1b3aa47bdd9",
+          "posterior_update_records": [
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "failure_signature_recheck"
+            },
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "provider_hash_recheck"
+            }
+          ],
+          "posterior_updates": 3,
+          "probe_count": 3,
+          "probe_order": [
+            "failure_signature_recheck",
+            "target_ast_recheck",
+            "provider_hash_recheck"
+          ],
+          "registry_versions": [
+            {
+              "generation": 1,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "failure_signature_recheck"
+            },
+            {
+              "generation": 2,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "target_ast_recheck"
+            },
+            {
+              "generation": 3,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "provider_hash_recheck"
+            }
+          ],
+          "safe_abstention": true,
+          "selection_rationale": "DETERMINISTIC_NECESSITY",
+          "semantic_verifications": 3,
+          "status": "PASS",
+          "stop_decision": {
+            "reason": "fixed legal probe order exhausted",
+            "stop": true
+          },
+          "strategy": "FIXED_LEGAL_ORDER",
+          "terminal_classification": "insufficient_evidence",
+          "unknown_likelihoods": "NOT_ESTABLISHED"
+        },
+        "fixed_legal_order_memory_enabled": {
+          "arm": "fixed_legal_order_memory_enabled",
+          "arm_output_hash": "f15da1b53a557d2fa5277448d778ea60fa8f6cb87ca0fb0307f7a2a79c4b2342",
+          "authorization_hash": "bb691968ee4fac86e95b8a2234d24b6063f094477c28437e9697d3ec4ad0731d",
+          "authorization_store_isolated": true,
+          "authorization_store_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\fixed_legal_order_memory_enabled\\nonces.json",
+          "backtracking_components": 0,
+          "backtracking_trace": [],
+          "canonical_run_amds_active_loop": false,
+          "checkpoint_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\fixed_legal_order_memory_enabled\\checkpoint.json",
+          "completed_phases": [
+            "amds_board",
+            "arm_fixed_legal_order_memory_enabled"
+          ],
+          "dispatcher_status": "PASS",
+          "entropy_changes": [
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "failure_signature_recheck"
+            },
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "after": 0.0,
+              "before": 0.0,
+              "probe_id": "provider_hash_recheck"
+            }
+          ],
+          "event_ledger_hash": "1813df012359e0f2ab0bce98434b33487bc8efbca669b1a09babef17e95b6771",
+          "event_ledger_isolated": true,
+          "event_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\fixed_legal_order_memory_enabled\\events.jsonl",
+          "isolated_state_id": "6485d529980d79431a3ae02531ece7573820af58fc98a35b6da0ffc7c01c55b3",
+          "memory_enabled": true,
+          "memory_influence": "NO_OBSERVED_MEMORY_INFLUENCE",
+          "network_ledger_hash": "762f4213189765112bd1bbc3d1de978fa8ea4b38f8fd0be94b2b0142304f0396",
+          "network_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\fixed_legal_order_memory_enabled\\network.jsonl",
+          "observation_sharing": false,
+          "observations": [
+            {
+              "evidence_hash": "3f3bf41b9131331d666e24e01e0b0b0862a6dc1f08965d5dccfe258b49233464",
+              "probe": "failure_signature_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            },
+            {
+              "evidence_hash": "197b516f606410a1ec7020f2c084487b64f5b2c2f00981ae5b7acbdc3677d53f",
+              "probe": "target_ast_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            },
+            {
+              "evidence_hash": "d262d4f3c4d3506b54ff7bc561e24702fb6619fc5f94c362431b75c3cc6770d0",
+              "probe": "provider_hash_recheck",
+              "semantic_fact": true,
+              "semantic_verification": "PASS"
+            }
+          ],
+          "patch_authority": false,
+          "plan_hash": "cbfee530bb96ec810d2e1a7ee8570832540613d81dae90331a1e839f7ac5606f",
+          "posterior_store": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\diagnostics\\fixed_legal_order_memory_enabled\\posterior.json",
+          "posterior_store_hash": "53fe9bce12da3f769299e0c903729eb53a65aaaeb8f13244bfa0e1b3aa47bdd9",
+          "posterior_update_records": [
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "failure_signature_recheck"
+            },
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "target_ast_recheck"
+            },
+            {
+              "entropy_after": 0.0,
+              "entropy_before": 0.0,
+              "likelihood_basis": "DETERMINISTIC_CONTRACT",
+              "probe_id": "provider_hash_recheck"
+            }
+          ],
+          "posterior_updates": 3,
+          "probe_count": 3,
+          "probe_order": [
+            "failure_signature_recheck",
+            "target_ast_recheck",
+            "provider_hash_recheck"
+          ],
+          "registry_versions": [
+            {
+              "generation": 1,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "failure_signature_recheck"
+            },
+            {
+              "generation": 2,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "target_ast_recheck"
+            },
+            {
+              "generation": 3,
+              "policy": "FIXED_LEGAL_ORDER",
+              "selected": "provider_hash_recheck"
+            }
+          ],
+          "safe_abstention": true,
+          "selection_rationale": "DETERMINISTIC_NECESSITY",
+          "semantic_verifications": 3,
+          "status": "PASS",
+          "stop_decision": {
+            "reason": "fixed legal probe order exhausted",
+            "stop": true
+          },
+          "strategy": "FIXED_LEGAL_ORDER",
+          "terminal_classification": "insufficient_evidence",
+          "unknown_likelihoods": "NOT_ESTABLISHED"
+        }
+      },
+      "arm_outputs_sealed": true,
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "ground_truth": {
+        "adjudicator_blinded_to_arm_labels": true,
+        "arm_performance_available": false,
+        "classification": "insufficient_evidence",
+        "confidence_classification": "bounded_evidence",
+        "ground_truth_hash": "82a04c50a2f83dff648eba348c9aec1099f66b0c5524843512eca0a7e1163f7e",
+        "inputs": {
+          "duplicate_failure_hash": "a1a48e203ccbbb3bc8248455a374fca6ada0c5cc3a368a1315d0513618a424cd",
+          "provider_hash": "f956c180cde1a0685a16edb6c156ff4b4f4a5ee42bcdd11b006d41399fecf327",
+          "sealed_arm_bundle_hash": "5a05201394714c9cb086474c86ed842ce297c04ddd41cc145adc3ccf69af04f7",
+          "target_hash": "a4679ffb044af0396ce01501619aca6bc7ebba92f5528e585d89d60cb351d44a"
+        },
+        "manual_review": true,
+        "memory_state_available": false,
+        "probe_order_label_available": false,
+        "status": "PASS",
+        "strategy_identity_available": false
+      },
+      "ground_truth_dispatch": {
+        "authorization_hash": "e87fc40d20afbeded84c59b32cac2f1151747051508e54d6b50b63f16a742355",
+        "authorization_store_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\ground_truth\\nonces.json",
+        "checkpoint_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\ground_truth\\checkpoint.json",
+        "completed_phases": [
+          "ground_truth",
+          "rollback",
+          "proof",
+          "routing_memory"
+        ],
+        "event_ledger_hash": "946941e1bedc1e2637e4bd10148fe237790f110c728a42a7b93ea1e06b0f0cf3",
+        "event_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\ground_truth\\events.jsonl",
+        "network_ledger_hash": "157fe4e313c1d4d49668bddac10ecfb0275650e760270939cc8b775c36e9d18e",
+        "network_ledger_path": "C:\\Users\\thisb\\AppData\\Local\\Temp\\b75_dvj1rhe0\\execution\\5cde15d250f8\\ground_truth\\network.jsonl",
+        "plan_hash": "73ef6dedb03c08f5f9f50fef5912ef334a4ba8cf8b2314d387d889a3ac60ddca",
+        "status": "PASS"
+      },
+      "proof": {
+        "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+        "ground_truth_hash": "82a04c50a2f83dff648eba348c9aec1099f66b0c5524843512eca0a7e1163f7e",
+        "parent_count": 1,
+        "proof_event_hash": "7495324bde4b778424222586c79cd7de3e1e380a5ecf80f355dd165f3b7b147c",
+        "rollback_hash": "9daebe35764ae80fe111d1a20a39f204455913b78a2e49948d9f6ce3bd5a53d9",
+        "status": "PASS"
+      },
+      "rollback": {
+        "clean": true,
+        "head": "89977490c8daad668ade06847d3a6d33ab2209de",
+        "patch_applied": false,
+        "status": "PASS"
+      },
+      "routing_memory": {
+        "classification": "insufficient_evidence",
+        "patch_text_present": false,
+        "probe_costs": {},
+        "source_snippets_present": false,
+        "status": "PASS",
+        "structural_only": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "semantic_verifications": 24,
+  "status": "PASS"
+}

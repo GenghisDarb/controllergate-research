@@ -2,6 +2,17 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
+## Batch075 provider-harness and prospective diagnostic capabilities
+
+- Short content-addressed workspaces, Windows path-length preflight, isolated writable build copies, and immutable execution views: implemented and unit-tested.
+- Target-informed optional dependency selection: executed for CogniCore with `dev` and `server` extras.
+- Source-layout classification and provider-store reuse: executed across CogniCore and HordeForge with two fresh network-disabled environments per candidate.
+- Duplicate exact-target admission: demonstrated across two candidates with one identical node and equivalent nonzero replay results per environment.
+- Canonical AMDS and fixed-order comparison: executed prospectively across two candidates, eight isolated arms, and 24 verified probes.
+- Structural routing-memory influence: observed only as a probe-order change; no patch content or same-episode outcome was supplied.
+- Blinded ownership adjudication: `insufficient_evidence` for both candidates; no repair licensed.
+- Evidence maturity: implemented, unit-tested, executed across two environments and two candidates, and prospectively compared. Generalized effectiveness and memory-lift claims remain unestablished.
+
 ## Batch068h7 canonical AMDS and Cargo-provider capabilities
 
 - Canonical active loop: iterative constraint propagation, dynamic registry regeneration, single-probe authorization, independent verification, posterior update, reranking, and explicit goal-predicate closure.

@@ -12,6 +12,8 @@ The Connexion episode now passes independent existing-count hardening without re
 
 Batch074 is a local implementation recovery only. Reusable contamination, target, command, admission, and diagnostic-isolation controls pass synthetic validation, while the external prospective cohort is explicitly deferred to a manually reviewed Batch075 static allowlist. Batch074 creates no prospective AMDS evidence and does not alter the hardened count.
 
+Batch075 crosses that reviewed boundary without broad discovery. The manually supplied Batch074 artifact passes exact identity, path-safety, and manifest verification. CogniCore and HordeForge are processed sequentially from pinned commits; each exact target collects once in two fresh environments and produces equivalent nonzero replay results with source and tests unchanged. The admitted cohort is frozen before eight isolated arms execute 24 probes. Blinded ground truth remains `insufficient_evidence` for both candidates, so the memory-disabled repair lane is not entered.
+
 - Issue-derived repair episodes: `5`.
 - Native external repair episodes: `4`.
 - Batch068h9 artifact custody and official state preservation: `PASS`.
@@ -28,7 +30,10 @@ Batch074 is a local implementation recovery only. Reusable contamination, target
 - v2.19 authorization and deterministic-provider live demonstrations: `PASS`.
 - Prospective Wave 1: `EXECUTED_EMPTY_COHORT` after 20 completed dispositions.
 - Batch074 recovery: `LOCAL_IMPLEMENTATION_RECOVERY_COMPLETE`; external execution: `DEFERRED_TO_MANUALLY_REVIEWED_BATCH075`.
-- Exact next safe action: manually review the frozen Batch075 static allowlist, then dispatch at most one approved public software-test repository.
+- Batch075 provider harness v2 and artifact ingest: `PASS`.
+- Batch075 admitted cohort: `2`; diagnostic arms: `8`; probes: `24`.
+- Prospective Wave-1A evidence: accumulated descriptively; generalized AMDS effectiveness remains `NOT_ESTABLISHED`.
+- Exact next safe action: manually verify and ingest the successful Batch075 workflow artifact.
 - Reconciled historical false closures: `2`.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Runtime connectors and live-device repair: inactive.

@@ -47,6 +47,7 @@ class ProviderWorkspace:
     candidate_root: str
     source_root: str
     build_root: str
+    execution_source_root: str
     wheelhouse: str
     environment_one: str
     environment_two: str
@@ -86,6 +87,7 @@ def plan_provider_workspace(
         candidate_root=str(root),
         source_root=str(root / "src"),
         build_root=str(root / "build"),
+        execution_source_root=str(root / "run"),
         wheelhouse=str(root / "whl"),
         environment_one=str(root / "env1"),
         environment_two=str(root / "env2"),
@@ -101,6 +103,7 @@ def materialize_provider_workspace(plan: ProviderWorkspace) -> ProviderWorkspace
     for value in (
         plan.source_root,
         plan.build_root,
+        plan.execution_source_root,
         plan.wheelhouse,
         plan.environment_one,
         plan.environment_two,

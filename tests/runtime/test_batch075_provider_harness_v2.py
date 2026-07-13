@@ -6,7 +6,7 @@ from pathlib import Path
 from controllergate.core.evidence import hash_record, sha256_file
 from controllergate.intake import admission_executor
 from controllergate.runtime.duplicate_environment_factory import duplicate_environment_specs
-from controllergate.runtime.provider_build_copy import create_writable_build_copy, tree_identity
+from controllergate.runtime.provider_build_copy import create_read_only_execution_view, create_writable_build_copy, tree_identity
 from controllergate.runtime.provider_store_verifier import build_provider_lock, next_provider_lock_version, seal_and_verify_provider_store
 from controllergate.runtime.provider_workspace import candidate_key, plan_provider_workspace
 from controllergate.runtime.python_provider_strategy import classify_python_source_layout, provider_strategy
@@ -74,6 +74,14 @@ def test_writable_build_copy_preserves_read_only_source_identity(tmp_path: Path)
     assert not (source / "sample.egg-info").exists()
 
 
+def test_read_only_execution_view_preserves_content_and_supplies_overlay_mountpoint(tmp_path: Path) -> None:
+    source = _project(tmp_path)
+    record = create_read_only_execution_view(source, tmp_path / "run")
+    assert record["status"] == "PASS" and record["source_immutable"]
+    assert Path(record["ephemeral_mountpoints"][0]).is_dir()
+    assert tree_identity(source) == tree_identity(Path(record["execution_view"]))
+
+
 def test_provider_lock_is_sealed_before_execution_and_versioned(tmp_path: Path) -> None:
     wheelhouse = tmp_path / "whl"
     wheelhouse.mkdir()
@@ -92,6 +100,8 @@ def test_duplicate_environments_share_exact_store_and_source_mode(tmp_path: Path
     assert [item["environment"] for item in specs] == ["env1", "env2"]
     assert len({item["provider_store"] for item in specs}) == len({item["provider_lock_hash"] for item in specs}) == 1
     assert all(item["PYTHONPATH"] == "/source" and item["network"] == "none" for item in specs)
+    assert all(item["HOME"] == "/tmp/home" and "/source/.pytest_tmp_runtime" in item["ephemeral_write_overlays"] for item in specs)
+    assert admission_executor.TARGET_REPLAY_TIMEOUT_SECONDS == 180
 
 
 def test_amds_arm_invokes_canonical_loop_and_fixed_arm_uses_same_facts(tmp_path: Path, monkeypatch) -> None:

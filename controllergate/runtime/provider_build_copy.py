@@ -39,3 +39,22 @@ def create_writable_build_copy(source: Path, destination: Path) -> dict[str, Any
         "metadata_outside_source": not str(destination.resolve()).startswith(str(source.resolve())),
         "writable": marker.is_file(),
     }
+
+
+def create_read_only_execution_view(source: Path, destination: Path) -> dict[str, Any]:
+    before = tree_identity(source)
+    if destination.exists():
+        shutil.rmtree(destination)
+    shutil.copytree(source, destination, ignore=shutil.ignore_patterns(".git", "__pycache__", ".pytest_cache", "*.pyc", "*.pyo"))
+    (destination / ".pytest_tmp_runtime").mkdir(exist_ok=True)
+    view_identity = tree_identity(destination)
+    source_after = tree_identity(source)
+    return {
+        "status": "PASS" if before == source_after == view_identity else "BLOCK",
+        "source_identity": before,
+        "execution_view_identity": view_identity,
+        "source_immutable": before == source_after,
+        "execution_view": str(destination),
+        "ephemeral_mountpoints": [str(destination / ".pytest_tmp_runtime")],
+        "execution_mount_mode": "read_only",
+    }

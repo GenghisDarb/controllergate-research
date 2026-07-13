@@ -1,0 +1,80 @@
+{
+  "records": [
+    {
+      "build_backend": "hatchling.build",
+      "build_system_declared": true,
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "candidate_import_mode": "installed_wheel",
+      "candidate_source_mount": "read_only",
+      "classification": "hybrid_project",
+      "immutable_source_preserved": true,
+      "legacy_build_method": false,
+      "package_roots": [
+        "cognicore",
+        "cognicore_benchmarks",
+        "env"
+      ],
+      "project_metadata_present": true,
+      "project_wheel_allowed": true,
+      "pyproject_present": true,
+      "requirement_files": [
+        "requirements.txt"
+      ],
+      "selected_extras": [
+        "dev",
+        "server"
+      ],
+      "selected_optional_extras": [
+        "dev",
+        "server"
+      ],
+      "selected_requirement_files": [
+        "requirements.txt"
+      ],
+      "source_on_pythonpath": false,
+      "strategy": "build_project_wheel",
+      "target": "tests/test_studio.py::test_studio_health_endpoint",
+      "writable_build_copy": true
+    },
+    {
+      "build_backend": null,
+      "build_system_declared": false,
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "candidate_import_mode": "installed_wheel",
+      "candidate_source_mount": "read_only",
+      "classification": "hybrid_project",
+      "immutable_source_preserved": true,
+      "legacy_build_method": true,
+      "package_roots": [
+        "agents",
+        "api",
+        "cli",
+        "observability",
+        "orchestrator",
+        "rag",
+        "rules",
+        "scheduler",
+        "storage",
+        "tests"
+      ],
+      "project_metadata_present": false,
+      "project_wheel_allowed": true,
+      "pyproject_present": true,
+      "requirement_files": [
+        "requirements.txt",
+        "requirements-dev.txt"
+      ],
+      "selected_extras": [],
+      "selected_optional_extras": [],
+      "selected_requirement_files": [
+        "requirements.txt",
+        "requirements-dev.txt"
+      ],
+      "source_on_pythonpath": false,
+      "strategy": "build_project_wheel",
+      "target": "tests/unit/orchestrator/test_orchestrator_engine.py::test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests",
+      "writable_build_copy": true
+    }
+  ],
+  "status": "PASS"
+}

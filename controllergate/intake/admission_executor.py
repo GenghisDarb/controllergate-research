@@ -14,13 +14,14 @@ from controllergate.amds.runtime_adapter import run_amds_active_loop
 from controllergate.core.command_authority_resolver import resolve_command_authority
 from controllergate.core.evidence import hash_record, sha256_file, write_json_deterministic
 from controllergate.runtime.duplicate_environment_factory import duplicate_environment_specs
-from controllergate.runtime.provider_build_copy import create_writable_build_copy, tree_identity
+from controllergate.runtime.provider_build_copy import create_read_only_execution_view, create_writable_build_copy, tree_identity
 from controllergate.runtime.provider_store_verifier import build_provider_lock, seal_and_verify_provider_store
 from controllergate.runtime.provider_workspace import plan_provider_workspace
 from controllergate.runtime.python_provider_strategy import provider_strategy
 from controllergate.runtime.target_dependency_analysis import analyze_target_dependencies
 
 IMAGE = "python@sha256:eb43ff125d8d58d7449dcba7d336c23bcac412f526d861db493b9994d8010280"
+TARGET_REPLAY_TIMEOUT_SECONDS = 180
 
 
 def _result(status: str, updates: dict[str, Any] | None = None, blocker: str | None = None, **facts: Any) -> dict[str, Any]:
@@ -136,29 +137,29 @@ def _parse_capsule(text: str) -> dict[str, Any]:
 
 
 def intake_duplicate_replay(context: dict[str, Any], **_: Any) -> dict[str, Any]:
-    source = Path(context["source_root"]); wheelhouse = Path(context["provider_closure"]["wheelhouse"]); target = context["candidate_manifest"]["native_target_paths"][0]
+    source = Path(context["source_root"]); workspace_plan = plan_provider_workspace(Path(context["candidate_manifest"]["workspace_root"]), context["candidate_manifest"]["candidate_id"], context["candidate_manifest"]["candidate_sha"]); execution_source = Path(workspace_plan.execution_source_root); execution_view = create_read_only_execution_view(source, execution_source); wheelhouse = Path(context["provider_closure"]["wheelhouse"]); target = context["candidate_manifest"]["native_target_paths"][0]
     before_source = _tree_hash(source); before_tests = _tree_hash(source, True)
     strategy = context["provider_closure"]["source_layout"]
     environment_specs = duplicate_environment_specs(source, wheelhouse, target, context["provider_closure"]["provider_lock_hash"], strategy)
     pythonpath = "export PYTHONPATH=/source${PYTHONPATH:+:$PYTHONPATH}\n" if strategy["strategy"] == "source_on_pythonpath" else ""
-    command = ("python -m venv /tmp/venv && /tmp/venv/bin/python -m pip install --disable-pip-version-check --no-index --find-links /wheelhouse /wheelhouse/*.whl >/tmp/install.log 2>&1 || exit 90\n"
+    command = ("mkdir -p /tmp/home /tmp/cache && python -m venv /tmp/venv && /tmp/venv/bin/python -m pip install --disable-pip-version-check --no-index --find-links /wheelhouse /wheelhouse/*.whl >/tmp/install.log 2>&1 || exit 90\n"
                + pythonpath +
                "cd /source\n"
-               f"/tmp/venv/bin/python -m pytest {target} --collect-only -q >/tmp/collect.log 2>&1; c=$?\n"
-               f"/tmp/venv/bin/python -m pytest {target} -q --tb=short >/tmp/replay.log 2>&1; r=$?\n"
+               f"/tmp/venv/bin/python -m pytest -p no:cacheprovider -o addopts='' {target} --collect-only -q >/tmp/collect.log 2>&1; c=$?\n"
+               f"timeout --signal=TERM {TARGET_REPLAY_TIMEOUT_SECONDS}s /tmp/venv/bin/python -m pytest -p no:cacheprovider {target} -q --tb=short >/tmp/replay.log 2>&1; r=$?\n"
                "echo __CG_COLLECT_BEGIN__; cat /tmp/collect.log; echo __CG_COLLECT_END__; echo __CG_COLLECT_RC__=$c\n"
                "echo __CG_REPLAY_BEGIN__; cat /tmp/replay.log; echo __CG_REPLAY_END__; echo __CG_REPLAY_RC__=$r\n"
                "/tmp/venv/bin/python -c \"import pytest; print('PYTEST_ORIGIN='+pytest.__file__)\"\nexit 0")
     capsules = []
     for index in range(2):
-        run = _run(["docker", "run", "--rm", "--network", "none", "--read-only", "--tmpfs", "/tmp:rw,exec,nosuid,size=2048m", "-e", "PYTHONDONTWRITEBYTECODE=1", "-v", f"{source.resolve()}:/source:ro", "-v", f"{wheelhouse.resolve()}:/wheelhouse:ro", IMAGE, "sh", "-lc", command], timeout=1200)
+        run = _run(["docker", "run", "--rm", "--network", "none", "--read-only", "--tmpfs", "/tmp:rw,exec,nosuid,size=2048m", "--tmpfs", "/source/.pytest_tmp_runtime:rw,exec,nosuid,size=512m", "-e", "PYTHONDONTWRITEBYTECODE=1", "-e", "HOME=/tmp/home", "-e", "XDG_CACHE_HOME=/tmp/cache", "-v", f"{execution_source.resolve()}:/source:ro", "-v", f"{wheelhouse.resolve()}:/wheelhouse:ro", IMAGE, "sh", "-lc", command], timeout=1200)
         capsules.append({"capsule": index + 1, **_parse_capsule(run["stdout"] + run["stderr"]), "container_returncode": run["returncode"], "runtime_identity": IMAGE, "source_sha": context["candidate_manifest"]["candidate_sha"], "provider_lock_hash": context["provider_closure"]["provider_lock_hash"], "network": "none"})
     source_immutable = before_source == _tree_hash(source); tests_immutable = before_tests == _tree_hash(source, True)
     collected = all(item["collect_returncode"] == 0 and item["nodes"] for item in capsules) and capsules[0]["nodes"] == capsules[1]["nodes"]
     failed = all(item["replay_returncode"] != 0 for item in capsules) and capsules[0]["semantic_failure_signature"] == capsules[1]["semantic_failure_signature"]
     status = "PASS" if collected and failed and source_immutable and tests_immutable else "BLOCK"
     blocker = None if status == "PASS" else "duplicate_collection_failed" if not collected else "duplicate_failure_not_reproduced" if not failed else "source_or_test_mutation_detected"
-    record = {"status": status, "blocker": blocker, "capsules": capsules, "duplicate_collection": collected, "duplicate_failure": failed, "source_immutable": source_immutable, "tests_immutable": tests_immutable, "network": "none", "environment_specs": environment_specs, "same_provider_store": len({item["provider_lock_hash"] for item in environment_specs}) == 1, "source_import_path_explicit": strategy["strategy"] != "source_on_pythonpath" or all(item["PYTHONPATH"] == "/source" for item in environment_specs)}
+    record = {"status": status, "blocker": blocker, "capsules": capsules, "duplicate_collection": collected, "duplicate_failure": failed, "source_immutable": source_immutable, "tests_immutable": tests_immutable, "execution_source_view": execution_view, "target_replay_timeout_seconds": TARGET_REPLAY_TIMEOUT_SECONDS, "timeout_is_failure_evidence": True, "network": "none", "environment_specs": environment_specs, "same_provider_store": len({item["provider_lock_hash"] for item in environment_specs}) == 1, "source_import_path_explicit": strategy["strategy"] != "source_on_pythonpath" or all(item["PYTHONPATH"] == "/source" for item in environment_specs)}
     return _result(status, {"duplicate_replay": record, "prerepair_replay": record, "failure_topology": {"status": "PASS" if failed else "BLOCK", "semantic_signature": capsules[0]["semantic_failure_signature"]}}, blocker)
 
 

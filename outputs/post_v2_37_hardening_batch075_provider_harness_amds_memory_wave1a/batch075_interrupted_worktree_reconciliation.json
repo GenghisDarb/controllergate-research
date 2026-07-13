@@ -1,0 +1,58 @@
+{
+  "checkpoint_commit": "33cae84112da60fc83aff58a1e03d4ffa96af912",
+  "incoming_artifacts_staged": false,
+  "records": [
+    {
+      "corrected": true,
+      "path": "controllergate/intake/admission_executor.py",
+      "purpose": "network-disabled duplicate collection and replay against an immutable execution view",
+      "retained": true,
+      "reverted": false,
+      "tests": [
+        "tests/runtime/test_batch075_provider_harness_v2.py"
+      ]
+    },
+    {
+      "corrected": true,
+      "path": "controllergate/runtime/duplicate_environment_factory.py",
+      "purpose": "fresh environment specifications with explicit writable overlays",
+      "retained": true,
+      "reverted": false,
+      "tests": [
+        "tests/runtime/test_batch075_provider_harness_v2.py"
+      ]
+    },
+    {
+      "corrected": true,
+      "path": "controllergate/runtime/provider_build_copy.py",
+      "purpose": "separate writable build copy and immutable execution view",
+      "retained": true,
+      "reverted": false,
+      "tests": [
+        "tests/runtime/test_batch075_provider_harness_v2.py"
+      ]
+    },
+    {
+      "corrected": true,
+      "path": "controllergate/runtime/provider_workspace.py",
+      "purpose": "short content-addressed source, build, execution, provider, environment, and arm paths",
+      "retained": true,
+      "reverted": false,
+      "tests": [
+        "tests/runtime/test_batch075_provider_harness_v2.py"
+      ]
+    },
+    {
+      "corrected": true,
+      "path": "tests/runtime/test_batch075_provider_harness_v2.py",
+      "purpose": "focused regression coverage for the interrupted provider defects",
+      "retained": true,
+      "reverted": false,
+      "tests": [
+        "self"
+      ]
+    }
+  ],
+  "stale_generated_output_reused_as_authority": false,
+  "status": "PASS"
+}

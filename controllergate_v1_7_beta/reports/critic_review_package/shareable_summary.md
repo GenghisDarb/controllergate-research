@@ -1,5 +1,13 @@
 # ControllerGate shareable summary
 
+## Batch075 provider harness and prospective Wave 1A
+
+Batch075 verifies the manually supplied Batch074 artifact and preserves the validated v2.19/count-five boundary. Its generic provider harness uses short content-addressed workspaces, isolated writable package-build copies, immutable execution views, target-informed extras, and hash-locked provider stores reused across fresh network-disabled environments.
+
+CogniCore and HordeForge are processed sequentially from pinned commits. Both exact targets collect one identical node and reproduce equivalent nonzero results twice without source or test mutation. The cohort is frozen before eight isolated AMDS/fixed-order and memory-enabled/memory-disabled arms execute 24 independently verified probes. Routing memory changes AMDS probe order but produces no candidate-level accuracy or probe-count advantage. Blinded adjudication remains `insufficient_evidence` for both candidates, so no patch is licensed.
+
+This is bounded descriptive evidence, not a generalized effectiveness result. AMDS prospective effectiveness remains `NOT_ESTABLISHED`; memory lift remains `not_demonstrated`; issue-derived repairs remain 5; native external repairs remain 4; full scoring remains disabled; self-maintaining software remains undemonstrated; live connectors remain inactive.
+
 ## Batch073 count-five revalidation and frozen prospective Wave 1
 
 Batch073 independently verifies the official Batch072 evidence and hardens the existing fifth issue-derived Connexion repair without recounting it. A 63-package cutoff-compatible provider lock is hash verified before use. Two fresh network-disabled capsules reproduce the same target failure, and two fresh patched capsules pass the exact target and all `tests/test_utils.py` checks. Full-suite feasibility reaches 800 passes; the single remaining failure is an explicitly remote-network test excluded by the execution policy.

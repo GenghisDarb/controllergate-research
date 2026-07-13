@@ -21,6 +21,8 @@ def duplicate_environment_specs(
         "target": target,
         "network": "none",
         "PYTHONPATH": pythonpath,
+        "HOME": "/tmp/home",
+        "ephemeral_write_overlays": ["/tmp", "/source/.pytest_tmp_runtime"],
         "install_mode": "--no-index --find-links /wheelhouse",
     }
     return [{**base, "environment": "env1"}, {**base, "environment": "env2"}]

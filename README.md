@@ -18,6 +18,8 @@ The historical Batch071 Connexion episode is independently hardened without reco
 
 Batch074 completes local recovery of the reusable intake engine with synthetic fixtures only. It verifies the manually supplied Batch073 artifact, separates admission from diagnostic execution, and validates eight isolated diagnostic authorization, nonce, checkpoint, posterior, event, and network-ledger stores. It does not claim an external prospective wave. External execution is deferred to a manually reviewed Batch075 static allowlist of at most three public repositories, one repository at a time.
 
+Batch075 verifies and ingests the manually supplied Batch074 workflow artifact, completes the generic provider harness, and executes the two manually reviewed public candidates sequentially. CogniCore and HordeForge each collect one exact node and reproduce an equivalent nonzero result in two fresh network-disabled environments using the same hash-locked provider store. Eight isolated diagnostic arms then execute 24 independently verified probes. Blinded adjudication remains `insufficient_evidence` for both candidates, so no patch is licensed and no repair count changes. This is descriptive Wave-1A evidence only; it does not establish generalized AMDS effectiveness or memory lift.
+
 - Confirmed issue-derived repair episodes: `5`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
@@ -39,7 +41,10 @@ Batch074 completes local recovery of the reusable intake engine with synthetic f
 - v2.19 live authorization and deterministic-provider demonstration: `PASS`.
 - Prospective Wave 1: `EXECUTED_EMPTY_COHORT`; all 20 frozen leads received terminal dispositions and no diagnostic or repair arm executed.
 - Batch074 recovery: `LOCAL_IMPLEMENTATION_RECOVERY_COMPLETE`; external execution: `DEFERRED_TO_MANUALLY_REVIEWED_BATCH075`.
-- Next safe action: manually review the frozen Batch075 static allowlist before dispatching one public software-test repository.
+- Batch075 provider harness: `PASS`; admitted duplicate-failure candidates: `2`.
+- Batch075 diagnostic execution: `8` isolated arms and `24` verified probes; blinded classifications: `insufficient_evidence` for both candidates.
+- Batch075 authoritative repair: `NOT_RUN_NO_SOURCE_OWNED_CANDIDATE`.
+- Next safe action: manually verify and ingest the official Batch075 workflow artifact after its successful run.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

@@ -1,0 +1,18 @@
+{
+  "bounded_provider_retry": true,
+  "executed_store_mutation": false,
+  "execution_source": "immutable_read_only_view",
+  "package_build_location": "isolated_writable_build_copy",
+  "provider_install": "--no-index --find-links verified_provider_store",
+  "provider_store_reuse": "exact_same_store_for_both_environments",
+  "short_workspace_key": "sha256(candidate_id + candidate_sha)[:12]",
+  "source_layouts": [
+    "buildable_python_package",
+    "source_on_pythonpath",
+    "hybrid_project",
+    "unsupported_layout"
+  ],
+  "status": "PASS",
+  "target_informed_extras": true,
+  "windows_safe_path_limit": 240
+}

@@ -1,0 +1,35 @@
+{
+  "records": [
+    {
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "candidate_sha": "9a507e8361056c81a9c1919b39c982f497e4cee0",
+      "decision": "APPROVED_FOR_PROSPECTIVE_ADMISSION",
+      "declared_command": [
+        "pytest",
+        "tests/",
+        "-v",
+        "--tb=short"
+      ],
+      "issue_url": "https://github.com/cognicore-dev/cognicore-my-openenv/issues/75",
+      "repo_url": "https://github.com/cognicore-dev/cognicore-my-openenv",
+      "slug": "cognicore",
+      "target": "tests/test_studio.py::test_studio_health_endpoint"
+    },
+    {
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "candidate_sha": "89977490c8daad668ade06847d3a6d33ab2209de",
+      "decision": "APPROVED_FOR_DIAGNOSTIC_ADMISSION_WITH_SANITIZED_ISSUE_BODY",
+      "declared_command": [
+        "pytest",
+        "tests/unit",
+        "-v",
+        "--tb=short"
+      ],
+      "issue_url": "https://github.com/yxyxy/HordeForge/issues/39",
+      "repo_url": "https://github.com/yxyxy/HordeForge",
+      "slug": "hordeforge",
+      "target": "tests/unit/orchestrator/test_orchestrator_engine.py::test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests"
+    }
+  ],
+  "status": "PASS"
+}
