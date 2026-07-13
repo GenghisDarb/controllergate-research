@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 480
     env:
-      CONTROLLERGATE_RUNTIME_ROOT: ${{ runner.temp }}/controllergate-runtime
       PYTHONPATH: ${{ github.workspace }}
     steps:
       - name: Checkout exact workflow head
@@ -35,7 +34,7 @@ jobs:
           git merge-base --is-ancestor "581da09e08ee6aa01e53b0931c784a0b9509bd91" HEAD
 
       - name: Attest authoritative runtime root
-        run: python scripts/preflight_controllergate_runtime_root.py --runtime-root "$CONTROLLERGATE_RUNTIME_ROOT"
+        run: python scripts/preflight_controllergate_runtime_root.py --runtime-root "$RUNNER_TEMP/controllergate-runtime"
 
       - name: Run engineering constitution and canonical boundary audits
         run: |
@@ -76,6 +75,7 @@ jobs:
         run: |
           echo "CHECKED_OUT_HEAD=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
           export CHECKED_OUT_HEAD="$(git rev-parse HEAD)"
+          export CONTROLLERGATE_RUNTIME_ROOT="$RUNNER_TEMP/controllergate-runtime"
           python scripts/finalize_batch081_workflow_evidence.py
 
       - name: Run finalized Batch081 and builder-critic audits
