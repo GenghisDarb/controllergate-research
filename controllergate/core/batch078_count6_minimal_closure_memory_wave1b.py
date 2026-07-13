@@ -381,6 +381,16 @@ def _run_cognicore_hardening(root: Path, runtime: Path) -> tuple[dict[str, dict[
     semantic["status"] = "PASS" if all(value is True for key, value in semantic.items() if key != "status") else "BLOCK"
     patched_ok = all(item["target_pass"] and item["invariants_pass"] and item["source_only"] and item["patch_apply_returncode"] == 0 for item in validations)
     hardened = prepatch_ok and patched_ok and semantic["status"] == "PASS" and patch_hash == EXPECTED_PATCH_SHA
+    hardening_failures = [
+        name
+        for name, passed in (
+            ("source_provider_or_prepatch_reconstruction", prepatch_ok),
+            ("duplicate_patched_validation", patched_ok),
+            ("semantic_invariants", semantic["status"] == "PASS"),
+            ("preserved_patch_identity", patch_hash == EXPECTED_PATCH_SHA),
+        )
+        if not passed
+    ]
     count_record = _load(root / "outputs" / H77 / "batch077_repair_proof_ledger.json")
     count_gate = {
         "status": "PASS" if count_record.get("count_gate") == "PASS" and count_record.get("patch_sha256") == EXPECTED_PATCH_SHA else "BLOCK",
@@ -397,7 +407,15 @@ def _run_cognicore_hardening(root: Path, runtime: Path) -> tuple[dict[str, dict[
         "duplicate": {"status": "PASS" if patched_ok else "BLOCK", "capsule_count": len(validations), "same_provider": True, "exact_target_passes": [item["target_pass"] for item in validations], "studio_file_passes": [item["invariants_pass"] for item in validations]},
         "count": count_gate,
         "terminal": {"status": "PASS" if hardened else "BLOCK", "event": "existing_count_hardened", "parent_proof": count_gate["canonical_proof_identity"], "count_increment": 0},
-        "decision": {"status": "PASS" if hardened else "BLOCK", "COUNT_6_HARDENING": "COUNT_6_HARDENING_PASS" if hardened else "QUARANTINED_PENDING_REVALIDATION", "historical_count_under_B77_criteria": 6, "count_increment": 0},
+        "decision": {
+            "status": "PASS" if hardened else "BLOCK",
+            "COUNT_6_HARDENING": "COUNT_6_HARDENING_PASS" if hardened else "QUARANTINED_PENDING_REVALIDATION",
+            "hardened_count_six_status": "COUNT_6_HARDENING_PASS" if hardened else "QUARANTINED_PENDING_REVALIDATION",
+            "historical_count_under_B77_criteria": 6,
+            "count_increment": 0,
+            "exact_blocker": None if hardened else "count6_independent_hardening_failed:" + ",".join(hardening_failures),
+            "failed_gates": hardening_failures,
+        },
     }
     return records, context
 

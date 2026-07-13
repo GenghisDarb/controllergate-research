@@ -110,8 +110,20 @@ def main() -> int:
         expect(errors, patch.get("status") == "PASS" and patch.get("patch_sha256") == EXPECTED_PATCH_SHA and patch.get("preserved_patch_exact") is True, "count6_patch")
         expect(errors, semantic.get("status") == "PASS" and semantic.get("only_intended_title_branding_changed") is True, "count6_semantic")
         expect(errors, duplicate.get("status") == "PASS" and duplicate.get("capsule_count") == 2, "count6_duplicate")
-    else:
+    elif count_decision.get("status") == "NOT_RUN_LOCAL_EVIDENCE_ONLY":
         expect(errors, count_decision.get("status") == "NOT_RUN_LOCAL_EVIDENCE_ONLY", "local_count6_boundary")
+    else:
+        expect(
+            errors,
+            count_decision.get("status") == "BLOCK"
+            and count_decision.get("COUNT_6_HARDENING") == "QUARANTINED_PENDING_REVALIDATION"
+            and count_decision.get("hardened_count_six_status") == "QUARANTINED_PENDING_REVALIDATION"
+            and count_decision.get("historical_count_under_B77_criteria") == 6
+            and count_decision.get("count_increment") == 0
+            and str(count_decision.get("exact_blocker", "")).startswith("count6_independent_hardening_failed:")
+            and bool(count_decision.get("failed_gates")),
+            "count6_quarantine_boundary",
+        )
 
     horde = load("hordeforge_causal_ownership_decision.json")
     origin = load("hordeforge_blocked_state_origin.json")
