@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout ControllerGate
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Verify workflow head and checkpoint ancestry
         shell: bash
         run: |
