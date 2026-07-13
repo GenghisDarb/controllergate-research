@@ -1,0 +1,3603 @@
+{
+  "accepted_probes": 48,
+  "arm_count": 6,
+  "candidate_count": 1,
+  "informative_updates": 30,
+  "noninformative_preservations": 18,
+  "probe_events": 48,
+  "records": [
+    {
+      "accepted_observation_count": 8,
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "executed_probe_sequence": [
+        "failure_contract",
+        "ast_call_graph",
+        "provider_lock_integrity",
+        "source_identity",
+        "target_identity",
+        "command_authority",
+        "harness_origin",
+        "rollback_and_proof"
+      ],
+      "informative_update_count": 5,
+      "memory_condition": "REAL_MEMORY",
+      "memory_influence": "PROBE_ORDER_CHANGED",
+      "memory_matches": [
+        "49d120e503fde8f4",
+        "e834e69b0eee02c3",
+        "5bff3bf04bf758d9"
+      ],
+      "noninformative_preservation_count": 3,
+      "observation_sharing": false,
+      "observations": [
+        {
+          "authorization_id": "b673174b5b637c58c37ce657e785d5565c0529b2f1dcd92ca3f657dae08404b1",
+          "board_state_hash": "8372a4fea27593e9f0e57b318b13cffba4e5b4ff8cd63b0fcb8a85120a9fbc31",
+          "custody_verification": "PASS",
+          "event_hash": "91d4b8bf27f35ab5e01193af1fba9acb6dcc9a48bc6c8ea7bb4219aee23428cf",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "0f5f995999e56bef2e7bfe8e9edf8dc0339b951b5c7a5af574f46a398fc15a6e",
+          "prior_state_hash": "4a703e49e1871b7260f64f572c547c60757477df75184a0fb2c7b55af7d76cca",
+          "probe_id": "failure_contract",
+          "probe_type": "failure_contract",
+          "refuted_hypotheses": [],
+          "registry_generation": 1,
+          "semantic_evidence_hash": "c50bedac81b8ada374b993a3ccc625276bd3065b82cf0333dea9349e42b20f17",
+          "semantic_fact": false,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "ae00e49b51924f7c5fd706a2d012a2998138186ef99225cbbeb42fc9344ff4ec",
+          "board_state_hash": "a2d7d0388e8738b321e2cd563dd094bef8b936718711c43ca4c01d49afd686c7",
+          "custody_verification": "PASS",
+          "event_hash": "a8b8a2d50bf6c87a15756f0e704b8a441f6a650aae4d73e50ae58261120a35f0",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "3dbeb9bd40b6dceb36d07b98b1c0a98ea909434762d9166831de255993d364d7",
+          "prior_state_hash": "0f5f995999e56bef2e7bfe8e9edf8dc0339b951b5c7a5af574f46a398fc15a6e",
+          "probe_id": "ast_call_graph",
+          "probe_type": "ast_call_graph",
+          "refuted_hypotheses": [],
+          "registry_generation": 2,
+          "semantic_evidence_hash": "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "3316eca12cfc2976b81a38bee128fc04fd55ee7c734dd13c4fcb2958e48dac24",
+          "board_state_hash": "317359b0cfc4d7f5c134de2a401dcd7ab5574bf2757e9c0785647a978a475fee",
+          "custody_verification": "PASS",
+          "event_hash": "2cc55547667d0cf6501121541636548cbccdd25b0bf57f90766065656b5e4f9b",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "b764e1e66edeb37cab6471211fbb3bd7845699c9b5628f5f01ec5e8eb2761405",
+          "prior_state_hash": "3dbeb9bd40b6dceb36d07b98b1c0a98ea909434762d9166831de255993d364d7",
+          "probe_id": "provider_lock_integrity",
+          "probe_type": "provider_lock_integrity",
+          "refuted_hypotheses": [
+            "environment_owned"
+          ],
+          "registry_generation": 3,
+          "semantic_evidence_hash": "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "2d963106d0e164af89bc3e8d5119f6f76acea334ec291bc390f80f389de07d98",
+          "board_state_hash": "f8b26db7d194689c71255f5342e28197256dd419fba62a4b005931dc9c7cb930",
+          "custody_verification": "PASS",
+          "event_hash": "de6863f19f531c8bdda56869e12974b4c4abfcb2b0ee66f2e44c742f60f05489",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "3914bc8104736be680eed05bd4872a09756925f1ae7a75a6387614ae1fb54871",
+          "prior_state_hash": "b764e1e66edeb37cab6471211fbb3bd7845699c9b5628f5f01ec5e8eb2761405",
+          "probe_id": "source_identity",
+          "probe_type": "source_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 4,
+          "semantic_evidence_hash": "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "9b424bd1b125cbef523e5f572ffbd89133a12ae3263f6b0b97e01ec67a78e1fa",
+          "board_state_hash": "6591ae6ae386c08de14d3ad2556ffb8961a46b91558f1aa76d2643679af6e7b0",
+          "custody_verification": "PASS",
+          "event_hash": "ccb764cf78ce0f6215ef1a22b3e955847ee6568de7a1be23e3e7fba1c7441a2a",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "9a1188629676bb9bcf102223e3aee483fe7e86108e7d99128aaa36a2f6488a36",
+          "prior_state_hash": "3914bc8104736be680eed05bd4872a09756925f1ae7a75a6387614ae1fb54871",
+          "probe_id": "target_identity",
+          "probe_type": "target_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 5,
+          "semantic_evidence_hash": "25d22e51a718b932c1158fc91a75450148648da5de59360c470ee637ea6abd56",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "9f29acddb166aede341f94eb61c66c8e447b034298e603e142abbd5ddacb15e4",
+          "board_state_hash": "9cf9836eae660cee93f6646845c3a5de5d785ef6eb7b8e3058dfaa227ad7847d",
+          "custody_verification": "PASS",
+          "event_hash": "68171d3b2df2985b175639117326c0f8c05e78a5fd7aa699121e5ef541a47aa1",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "bf70143a2fe05044a8a1334aacfaafe50d93131099996149d148fa05d008450b",
+          "prior_state_hash": "9a1188629676bb9bcf102223e3aee483fe7e86108e7d99128aaa36a2f6488a36",
+          "probe_id": "command_authority",
+          "probe_type": "command_authority",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 6,
+          "semantic_evidence_hash": "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "73ece74c50e5370139dd8c7596550b4292e60ab7a9abf442a55b722672bee396",
+          "board_state_hash": "b5bcf35772ee64fec82da28d1396dee12172dd94780c56edd9b8ee1cb1c9d0bf",
+          "custody_verification": "PASS",
+          "event_hash": "ce8498046aec04b92f7dfd91744c8e841472e4abf95954bbd5f15ffd074d79b1",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "be7b225403a353cd26e2d4b1728db29c48433da8f3089e0ec8ac948352923e8d",
+          "prior_state_hash": "bf70143a2fe05044a8a1334aacfaafe50d93131099996149d148fa05d008450b",
+          "probe_id": "harness_origin",
+          "probe_type": "harness_origin",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 7,
+          "semantic_evidence_hash": "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "caf37cba28eda883226b8bcef1a1b0156ecbb7dbbddfb23ccd6038eab5e6f20e",
+          "board_state_hash": "3f05f8c1909e0473122f4b4debf537e4422e23e282b15d24db592fbf02246325",
+          "custody_verification": "PASS",
+          "event_hash": "2102a4df82bdc5247713afc6570391c858f6ef38727006ff4981d21a0c9fad37",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "ad5cdee0cbe4d31a8b87cf3dab6d4033fdca38938a77ea9bb6ee6076beeab7bb",
+          "prior_state_hash": "be7b225403a353cd26e2d4b1728db29c48433da8f3089e0ec8ac948352923e8d",
+          "probe_id": "rollback_and_proof",
+          "probe_type": "rollback_and_proof",
+          "refuted_hypotheses": [],
+          "registry_generation": 8,
+          "semantic_evidence_hash": "e38a3ea092a70cf4d729baf649dd096b75435d8d23a235b6707e95849770a28b",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        }
+      ],
+      "patch_authority": false,
+      "posterior": {
+        "hypotheses": {
+          "environment_owned": {
+            "evidence_refutation": [
+              "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "harness_owned": {
+            "evidence_refutation": [
+              "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+              "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "insufficient_evidence": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.11111111111111112,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.08695652173913045,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "interpreter_behavior_change": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1388888888888889,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "mixed_failure": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1388888888888889,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "resource_timeout": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1388888888888889,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "source_owned_behavior_defect": {
+            "evidence_refutation": [],
+            "evidence_support": [
+              "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea",
+              "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef"
+            ],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.3333333333333333,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.2608695652173913,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "SUPPORTED"
+          },
+          "test_expectation_fragility": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1388888888888889,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          }
+        },
+        "memory_condition": "REAL_MEMORY",
+        "state_hash": "ad5cdee0cbe4d31a8b87cf3dab6d4033fdca38938a77ea9bb6ee6076beeab7bb"
+      },
+      "posterior_updates": [
+        {
+          "entropy_after": 2.9001403722466925,
+          "entropy_before": 2.9001403722466925,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "0f5f995999e56bef2e7bfe8e9edf8dc0339b951b5c7a5af574f46a398fc15a6e",
+          "probe_id": "failure_contract"
+        },
+        {
+          "entropy_after": 2.9001403722466925,
+          "entropy_before": 2.9001403722466925,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "3dbeb9bd40b6dceb36d07b98b1c0a98ea909434762d9166831de255993d364d7",
+          "probe_id": "ast_call_graph"
+        },
+        {
+          "entropy_after": 2.6973629221586215,
+          "entropy_before": 2.9001403722466925,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "b764e1e66edeb37cab6471211fbb3bd7845699c9b5628f5f01ec5e8eb2761405",
+          "probe_id": "provider_lock_integrity"
+        },
+        {
+          "entropy_after": 2.6973629221586215,
+          "entropy_before": 2.6973629221586215,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "3914bc8104736be680eed05bd4872a09756925f1ae7a75a6387614ae1fb54871",
+          "probe_id": "source_identity"
+        },
+        {
+          "entropy_after": 2.6973629221586215,
+          "entropy_before": 2.6973629221586215,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "9a1188629676bb9bcf102223e3aee483fe7e86108e7d99128aaa36a2f6488a36",
+          "probe_id": "target_identity"
+        },
+        {
+          "entropy_after": 2.4627552262645036,
+          "entropy_before": 2.6973629221586215,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "bf70143a2fe05044a8a1334aacfaafe50d93131099996149d148fa05d008450b",
+          "probe_id": "command_authority"
+        },
+        {
+          "entropy_after": 2.4627552262645036,
+          "entropy_before": 2.4627552262645036,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "be7b225403a353cd26e2d4b1728db29c48433da8f3089e0ec8ac948352923e8d",
+          "probe_id": "harness_origin"
+        },
+        {
+          "entropy_after": 2.4627552262645036,
+          "entropy_before": 2.4627552262645036,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "ad5cdee0cbe4d31a8b87cf3dab6d4033fdca38938a77ea9bb6ee6076beeab7bb",
+          "probe_id": "rollback_and_proof"
+        }
+      ],
+      "probe_events": [
+        {
+          "authorization_hash": "b673174b5b637c58c37ce657e785d5565c0529b2f1dcd92ca3f657dae08404b1",
+          "board_hash": "8372a4fea27593e9f0e57b318b13cffba4e5b4ff8cd63b0fcb8a85120a9fbc31",
+          "event_hash": "91d4b8bf27f35ab5e01193af1fba9acb6dcc9a48bc6c8ea7bb4219aee23428cf",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "17111e59018a2a9fb189b70f1b266ce021c07a66b2dbd92bdfc67b6ccd294189",
+          "parent_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "probe_id": "failure_contract",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.079585+00:00"
+        },
+        {
+          "authorization_hash": "ae00e49b51924f7c5fd706a2d012a2998138186ef99225cbbeb42fc9344ff4ec",
+          "board_hash": "a2d7d0388e8738b321e2cd563dd094bef8b936718711c43ca4c01d49afd686c7",
+          "event_hash": "a8b8a2d50bf6c87a15756f0e704b8a441f6a650aae4d73e50ae58261120a35f0",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "195d5efd1964cb34a93ad690a0068257016659731e88fd8ec98fbccc13bff8ec",
+          "parent_event_hash": "91d4b8bf27f35ab5e01193af1fba9acb6dcc9a48bc6c8ea7bb4219aee23428cf",
+          "probe_id": "ast_call_graph",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.080037+00:00"
+        },
+        {
+          "authorization_hash": "3316eca12cfc2976b81a38bee128fc04fd55ee7c734dd13c4fcb2958e48dac24",
+          "board_hash": "317359b0cfc4d7f5c134de2a401dcd7ab5574bf2757e9c0785647a978a475fee",
+          "event_hash": "2cc55547667d0cf6501121541636548cbccdd25b0bf57f90766065656b5e4f9b",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "a6debfe67a3e96796f401aeeffb5b1612099605e66030862ac71f2047157b26d",
+          "parent_event_hash": "a8b8a2d50bf6c87a15756f0e704b8a441f6a650aae4d73e50ae58261120a35f0",
+          "probe_id": "provider_lock_integrity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.081383+00:00"
+        },
+        {
+          "authorization_hash": "2d963106d0e164af89bc3e8d5119f6f76acea334ec291bc390f80f389de07d98",
+          "board_hash": "f8b26db7d194689c71255f5342e28197256dd419fba62a4b005931dc9c7cb930",
+          "event_hash": "de6863f19f531c8bdda56869e12974b4c4abfcb2b0ee66f2e44c742f60f05489",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "4d8a30b65304432ca6cb07baa176cfb82b97856413fd4968592a423e29089fc9",
+          "parent_event_hash": "2cc55547667d0cf6501121541636548cbccdd25b0bf57f90766065656b5e4f9b",
+          "probe_id": "source_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.081959+00:00"
+        },
+        {
+          "authorization_hash": "9b424bd1b125cbef523e5f572ffbd89133a12ae3263f6b0b97e01ec67a78e1fa",
+          "board_hash": "6591ae6ae386c08de14d3ad2556ffb8961a46b91558f1aa76d2643679af6e7b0",
+          "event_hash": "ccb764cf78ce0f6215ef1a22b3e955847ee6568de7a1be23e3e7fba1c7441a2a",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "13e7768f18d20c7fb37713a79032a3468849faf5ce807439508f6d156fbff71d",
+          "parent_event_hash": "de6863f19f531c8bdda56869e12974b4c4abfcb2b0ee66f2e44c742f60f05489",
+          "probe_id": "target_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.082578+00:00"
+        },
+        {
+          "authorization_hash": "9f29acddb166aede341f94eb61c66c8e447b034298e603e142abbd5ddacb15e4",
+          "board_hash": "9cf9836eae660cee93f6646845c3a5de5d785ef6eb7b8e3058dfaa227ad7847d",
+          "event_hash": "68171d3b2df2985b175639117326c0f8c05e78a5fd7aa699121e5ef541a47aa1",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "0c4aeec84796b9437a9aba58d5156e5a7531b4d80cc300e447bf78592f62e999",
+          "parent_event_hash": "ccb764cf78ce0f6215ef1a22b3e955847ee6568de7a1be23e3e7fba1c7441a2a",
+          "probe_id": "command_authority",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.083027+00:00"
+        },
+        {
+          "authorization_hash": "73ece74c50e5370139dd8c7596550b4292e60ab7a9abf442a55b722672bee396",
+          "board_hash": "b5bcf35772ee64fec82da28d1396dee12172dd94780c56edd9b8ee1cb1c9d0bf",
+          "event_hash": "ce8498046aec04b92f7dfd91744c8e841472e4abf95954bbd5f15ffd074d79b1",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "bab17cb07654288c0aef19492eb27d35d83727ebdd293c48b8a8fb9077164ced",
+          "parent_event_hash": "68171d3b2df2985b175639117326c0f8c05e78a5fd7aa699121e5ef541a47aa1",
+          "probe_id": "harness_origin",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.083422+00:00"
+        },
+        {
+          "authorization_hash": "caf37cba28eda883226b8bcef1a1b0156ecbb7dbbddfb23ccd6038eab5e6f20e",
+          "board_hash": "3f05f8c1909e0473122f4b4debf537e4422e23e282b15d24db592fbf02246325",
+          "event_hash": "2102a4df82bdc5247713afc6570391c858f6ef38727006ff4981d21a0c9fad37",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "7d58db8a959c16666a3eb8395dc20db2ca9f295e4cbb3ed6040a6ad3e63cb537",
+          "parent_event_hash": "ce8498046aec04b92f7dfd91744c8e841472e4abf95954bbd5f15ffd074d79b1",
+          "probe_id": "rollback_and_proof",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.083760+00:00"
+        }
+      ],
+      "raw_observation_count": 8,
+      "registry_sequence": [
+        "failure_contract",
+        "ast_call_graph",
+        "provider_lock_integrity",
+        "source_identity",
+        "target_identity",
+        "command_authority",
+        "harness_origin",
+        "rollback_and_proof"
+      ],
+      "rejected_observation_count": 0,
+      "repeated_probe_rejections": 0,
+      "spent_nonces": [
+        "0c4aeec84796b9437a9aba58d5156e5a7531b4d80cc300e447bf78592f62e999",
+        "13e7768f18d20c7fb37713a79032a3468849faf5ce807439508f6d156fbff71d",
+        "17111e59018a2a9fb189b70f1b266ce021c07a66b2dbd92bdfc67b6ccd294189",
+        "195d5efd1964cb34a93ad690a0068257016659731e88fd8ec98fbccc13bff8ec",
+        "4d8a30b65304432ca6cb07baa176cfb82b97856413fd4968592a423e29089fc9",
+        "7d58db8a959c16666a3eb8395dc20db2ca9f295e4cbb3ed6040a6ad3e63cb537",
+        "a6debfe67a3e96796f401aeeffb5b1612099605e66030862ac71f2047157b26d",
+        "bab17cb07654288c0aef19492eb27d35d83727ebdd293c48b8a8fb9077164ced"
+      ],
+      "status": "PASS",
+      "strategy": "AMDS_ACTIVE",
+      "unique_probe_ratio": 1.0
+    },
+    {
+      "accepted_observation_count": 8,
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "executed_probe_sequence": [
+        "source_identity",
+        "provider_lock_integrity",
+        "command_authority",
+        "target_identity",
+        "harness_origin",
+        "failure_contract",
+        "ast_call_graph",
+        "rollback_and_proof"
+      ],
+      "informative_update_count": 5,
+      "memory_condition": "NO_MEMORY",
+      "memory_influence": "NO_EFFECT",
+      "memory_matches": [],
+      "noninformative_preservation_count": 3,
+      "observation_sharing": false,
+      "observations": [
+        {
+          "authorization_id": "3fe490318b749099d20e9507fe825a3e2ebc0d33bb8375e1891733a4cbfc19fd",
+          "board_state_hash": "07fe7a758db0a77f18d27dc04d4fde2a2e861e9b501684fe08b37b4aab886250",
+          "custody_verification": "PASS",
+          "event_hash": "7e8f0565f9896c20adb2d3f8e8b376fcd311b4ecbb8a9a21ab8352d479972d84",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "ff072fe441d058b7c07c0a8c24dbdff491662aea2b9d6896e4139dda5cc5a91b",
+          "prior_state_hash": "8a0c97cb5bc4898b525c2be29982fcd27dec2d3e4943a6a300a470d1c560417b",
+          "probe_id": "source_identity",
+          "probe_type": "source_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 1,
+          "semantic_evidence_hash": "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "7029e93519db8097df50ad272c8fb359d7b07c683a15a80a1b6d712a230203a2",
+          "board_state_hash": "44349b4433c92b9ce3022137b3aee61185baf0795777141c6accd45e5dec0977",
+          "custody_verification": "PASS",
+          "event_hash": "b9008dc7d08351098cea7070a0981b120aee2fc37a4b791423b6130bb32c7121",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "efa2b18d4101e1885aa32d99c8f7edb561b3a23677f002084cf87e983f2174ef",
+          "prior_state_hash": "ff072fe441d058b7c07c0a8c24dbdff491662aea2b9d6896e4139dda5cc5a91b",
+          "probe_id": "provider_lock_integrity",
+          "probe_type": "provider_lock_integrity",
+          "refuted_hypotheses": [
+            "environment_owned"
+          ],
+          "registry_generation": 2,
+          "semantic_evidence_hash": "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "283dee83a4f601ebfe6acd8a39871701d5c670b95a27d114d1c89bf53733d87f",
+          "board_state_hash": "c02a223b04e1c9e6bec849935dcd39db82525902986d20a02f0acaae17a8a6b2",
+          "custody_verification": "PASS",
+          "event_hash": "b7881bf2475a6dd25cd8210bfda02e7d702d41bc54c94fed9b1e19e33dc3b08e",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "5937248286668a11bab5033546184a598061d4644477413f9573b9699c389983",
+          "prior_state_hash": "efa2b18d4101e1885aa32d99c8f7edb561b3a23677f002084cf87e983f2174ef",
+          "probe_id": "command_authority",
+          "probe_type": "command_authority",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 3,
+          "semantic_evidence_hash": "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "34fd8e0a1f9d9f40cea7a08512845416593ceab53a6e8548a847997f6fd8e542",
+          "board_state_hash": "e535b9feccd7461853a1c0fc1b4458887ed02e3e68fe6873130858804ec4721c",
+          "custody_verification": "PASS",
+          "event_hash": "36e70dcfee0d22637e71cba53b74061b8380f260eef8b6bf51f1e45628b7bb4c",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "ba16abbeb591e77e5bd51abcbe219cddcb33f4422aea8d38c3b1c1c56c456bc0",
+          "prior_state_hash": "5937248286668a11bab5033546184a598061d4644477413f9573b9699c389983",
+          "probe_id": "target_identity",
+          "probe_type": "target_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 4,
+          "semantic_evidence_hash": "25d22e51a718b932c1158fc91a75450148648da5de59360c470ee637ea6abd56",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "0b38e067bd086857ba0c38ece7ac1aa7a36565c4f4fef91acc123d37c76fceb1",
+          "board_state_hash": "8ae417e280e9486e08e6db3d0b20ba3bfb72ddcf420e80b99ecd00f2ed627d25",
+          "custody_verification": "PASS",
+          "event_hash": "31c500b21e322e68799d9151e1b221cd990b86618c94dbccc4ba74dc6179ad19",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "f91eca675f0eded1ef3b0057015e51ed8324cb0a8975712f596ef6b07593a4b7",
+          "prior_state_hash": "ba16abbeb591e77e5bd51abcbe219cddcb33f4422aea8d38c3b1c1c56c456bc0",
+          "probe_id": "harness_origin",
+          "probe_type": "harness_origin",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 5,
+          "semantic_evidence_hash": "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "5d6b2fb92bfc650060219208151c681e62af2d29852fd419f4d20d1d90943ae4",
+          "board_state_hash": "18fcedfecb285f6e25c1e8839b8edfe12db07ce33d4fa49311afa0d549e0ab24",
+          "custody_verification": "PASS",
+          "event_hash": "5e5eede1e2014ebe5551aa8b7acc5dfac0348feb1f5a4efbc662f8c5b7adff83",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "fd3dee217bae1f40be1283cf52dff4cb25f1e138c71ca356e535e10ea14ef161",
+          "prior_state_hash": "f91eca675f0eded1ef3b0057015e51ed8324cb0a8975712f596ef6b07593a4b7",
+          "probe_id": "failure_contract",
+          "probe_type": "failure_contract",
+          "refuted_hypotheses": [],
+          "registry_generation": 6,
+          "semantic_evidence_hash": "c50bedac81b8ada374b993a3ccc625276bd3065b82cf0333dea9349e42b20f17",
+          "semantic_fact": false,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "a43ac589f3ffdeb14996acb49701013b0dc010a9d39e21766f7fc7b599c96f54",
+          "board_state_hash": "a8febdc4431b2c754708f829d04d99133c25a247e6567630deba5f12327a894e",
+          "custody_verification": "PASS",
+          "event_hash": "eb7ae2808e24ee5fdf0a39f1d28ccacac14562985439582646fefe1495f676b3",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "82e48b98b513efc6357e2a3e7fabb397419f6edc3870aa7e36badb89f8439511",
+          "prior_state_hash": "fd3dee217bae1f40be1283cf52dff4cb25f1e138c71ca356e535e10ea14ef161",
+          "probe_id": "ast_call_graph",
+          "probe_type": "ast_call_graph",
+          "refuted_hypotheses": [],
+          "registry_generation": 7,
+          "semantic_evidence_hash": "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "51df330f673c94493f52ec804633f58db244c6f85d8eaf22002b51fe35ad5889",
+          "board_state_hash": "2930755e525ce3efa5d07e482abd2f6990fcc4e7696380da9254ae1f04771a22",
+          "custody_verification": "PASS",
+          "event_hash": "f496d601b07d3a14b7d3737846ebf8ee7261817e80807c557651136e546c7b51",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "1e3f169f4f0ba266959910fbc5f312e728008d4f5ab03a15bf3ed3d964d6917d",
+          "prior_state_hash": "82e48b98b513efc6357e2a3e7fabb397419f6edc3870aa7e36badb89f8439511",
+          "probe_id": "rollback_and_proof",
+          "probe_type": "rollback_and_proof",
+          "refuted_hypotheses": [],
+          "registry_generation": 8,
+          "semantic_evidence_hash": "e38a3ea092a70cf4d729baf649dd096b75435d8d23a235b6707e95849770a28b",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        }
+      ],
+      "patch_authority": false,
+      "posterior": {
+        "hypotheses": {
+          "environment_owned": {
+            "evidence_refutation": [
+              "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "harness_owned": {
+            "evidence_refutation": [
+              "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+              "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "insufficient_evidence": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "interpreter_behavior_change": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "mixed_failure": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "resource_timeout": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "source_owned_behavior_defect": {
+            "evidence_refutation": [],
+            "evidence_support": [
+              "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef",
+              "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea"
+            ],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "SUPPORTED"
+          },
+          "test_expectation_fragility": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          }
+        },
+        "memory_condition": "NO_MEMORY",
+        "state_hash": "1e3f169f4f0ba266959910fbc5f312e728008d4f5ab03a15bf3ed3d964d6917d"
+      },
+      "posterior_updates": [
+        {
+          "entropy_after": 3.0,
+          "entropy_before": 3.0,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "ff072fe441d058b7c07c0a8c24dbdff491662aea2b9d6896e4139dda5cc5a91b",
+          "probe_id": "source_identity"
+        },
+        {
+          "entropy_after": 2.8073549220576037,
+          "entropy_before": 3.0,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "efa2b18d4101e1885aa32d99c8f7edb561b3a23677f002084cf87e983f2174ef",
+          "probe_id": "provider_lock_integrity"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.8073549220576037,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "5937248286668a11bab5033546184a598061d4644477413f9573b9699c389983",
+          "probe_id": "command_authority"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.584962500721156,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "ba16abbeb591e77e5bd51abcbe219cddcb33f4422aea8d38c3b1c1c56c456bc0",
+          "probe_id": "target_identity"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.584962500721156,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "f91eca675f0eded1ef3b0057015e51ed8324cb0a8975712f596ef6b07593a4b7",
+          "probe_id": "harness_origin"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.584962500721156,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "fd3dee217bae1f40be1283cf52dff4cb25f1e138c71ca356e535e10ea14ef161",
+          "probe_id": "failure_contract"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.584962500721156,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "82e48b98b513efc6357e2a3e7fabb397419f6edc3870aa7e36badb89f8439511",
+          "probe_id": "ast_call_graph"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.584962500721156,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "1e3f169f4f0ba266959910fbc5f312e728008d4f5ab03a15bf3ed3d964d6917d",
+          "probe_id": "rollback_and_proof"
+        }
+      ],
+      "probe_events": [
+        {
+          "authorization_hash": "3fe490318b749099d20e9507fe825a3e2ebc0d33bb8375e1891733a4cbfc19fd",
+          "board_hash": "07fe7a758db0a77f18d27dc04d4fde2a2e861e9b501684fe08b37b4aab886250",
+          "event_hash": "7e8f0565f9896c20adb2d3f8e8b376fcd311b4ecbb8a9a21ab8352d479972d84",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "fd40315161997a0b694f48c5b2428f2344f7200e87a3b4e75d362851a7551f6b",
+          "parent_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "probe_id": "source_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.084394+00:00"
+        },
+        {
+          "authorization_hash": "7029e93519db8097df50ad272c8fb359d7b07c683a15a80a1b6d712a230203a2",
+          "board_hash": "44349b4433c92b9ce3022137b3aee61185baf0795777141c6accd45e5dec0977",
+          "event_hash": "b9008dc7d08351098cea7070a0981b120aee2fc37a4b791423b6130bb32c7121",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "309854743b142b703939a25abc77ff4359eeece5cb77ac51e847d6a3b811bff1",
+          "parent_event_hash": "7e8f0565f9896c20adb2d3f8e8b376fcd311b4ecbb8a9a21ab8352d479972d84",
+          "probe_id": "provider_lock_integrity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.084822+00:00"
+        },
+        {
+          "authorization_hash": "283dee83a4f601ebfe6acd8a39871701d5c670b95a27d114d1c89bf53733d87f",
+          "board_hash": "c02a223b04e1c9e6bec849935dcd39db82525902986d20a02f0acaae17a8a6b2",
+          "event_hash": "b7881bf2475a6dd25cd8210bfda02e7d702d41bc54c94fed9b1e19e33dc3b08e",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "66c6904ea69af21e286b1252dbd5673b656b068e3c42b22f795ac8c7147cefec",
+          "parent_event_hash": "b9008dc7d08351098cea7070a0981b120aee2fc37a4b791423b6130bb32c7121",
+          "probe_id": "command_authority",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.085178+00:00"
+        },
+        {
+          "authorization_hash": "34fd8e0a1f9d9f40cea7a08512845416593ceab53a6e8548a847997f6fd8e542",
+          "board_hash": "e535b9feccd7461853a1c0fc1b4458887ed02e3e68fe6873130858804ec4721c",
+          "event_hash": "36e70dcfee0d22637e71cba53b74061b8380f260eef8b6bf51f1e45628b7bb4c",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "deb1123bc22dfa840a8626e7fe288e4e95fb9a1e24e1a9fd037a3040efdaf764",
+          "parent_event_hash": "b7881bf2475a6dd25cd8210bfda02e7d702d41bc54c94fed9b1e19e33dc3b08e",
+          "probe_id": "target_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.085505+00:00"
+        },
+        {
+          "authorization_hash": "0b38e067bd086857ba0c38ece7ac1aa7a36565c4f4fef91acc123d37c76fceb1",
+          "board_hash": "8ae417e280e9486e08e6db3d0b20ba3bfb72ddcf420e80b99ecd00f2ed627d25",
+          "event_hash": "31c500b21e322e68799d9151e1b221cd990b86618c94dbccc4ba74dc6179ad19",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "a4fd7a10da2bd8feb43cad4310af166c46b3de095f66593fde3a4508d12e3865",
+          "parent_event_hash": "36e70dcfee0d22637e71cba53b74061b8380f260eef8b6bf51f1e45628b7bb4c",
+          "probe_id": "harness_origin",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.085825+00:00"
+        },
+        {
+          "authorization_hash": "5d6b2fb92bfc650060219208151c681e62af2d29852fd419f4d20d1d90943ae4",
+          "board_hash": "18fcedfecb285f6e25c1e8839b8edfe12db07ce33d4fa49311afa0d549e0ab24",
+          "event_hash": "5e5eede1e2014ebe5551aa8b7acc5dfac0348feb1f5a4efbc662f8c5b7adff83",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "db62ffe7bf6f9c507690a30456169e18e4f7fdb41d816bc107220598c3aa6958",
+          "parent_event_hash": "31c500b21e322e68799d9151e1b221cd990b86618c94dbccc4ba74dc6179ad19",
+          "probe_id": "failure_contract",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.086215+00:00"
+        },
+        {
+          "authorization_hash": "a43ac589f3ffdeb14996acb49701013b0dc010a9d39e21766f7fc7b599c96f54",
+          "board_hash": "a8febdc4431b2c754708f829d04d99133c25a247e6567630deba5f12327a894e",
+          "event_hash": "eb7ae2808e24ee5fdf0a39f1d28ccacac14562985439582646fefe1495f676b3",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "81a62f5711dbf2cb6ce7b2404ff45ffb57b31aaef3107c8e9f8d33069369975e",
+          "parent_event_hash": "5e5eede1e2014ebe5551aa8b7acc5dfac0348feb1f5a4efbc662f8c5b7adff83",
+          "probe_id": "ast_call_graph",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.086543+00:00"
+        },
+        {
+          "authorization_hash": "51df330f673c94493f52ec804633f58db244c6f85d8eaf22002b51fe35ad5889",
+          "board_hash": "2930755e525ce3efa5d07e482abd2f6990fcc4e7696380da9254ae1f04771a22",
+          "event_hash": "f496d601b07d3a14b7d3737846ebf8ee7261817e80807c557651136e546c7b51",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "75d832b67bac4721d941a4b0fbe7744ee6401943057eb81567949084d5f0b66c",
+          "parent_event_hash": "eb7ae2808e24ee5fdf0a39f1d28ccacac14562985439582646fefe1495f676b3",
+          "probe_id": "rollback_and_proof",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.086863+00:00"
+        }
+      ],
+      "raw_observation_count": 8,
+      "registry_sequence": [
+        "source_identity",
+        "provider_lock_integrity",
+        "command_authority",
+        "target_identity",
+        "harness_origin",
+        "failure_contract",
+        "ast_call_graph",
+        "rollback_and_proof"
+      ],
+      "rejected_observation_count": 0,
+      "repeated_probe_rejections": 0,
+      "spent_nonces": [
+        "309854743b142b703939a25abc77ff4359eeece5cb77ac51e847d6a3b811bff1",
+        "66c6904ea69af21e286b1252dbd5673b656b068e3c42b22f795ac8c7147cefec",
+        "75d832b67bac4721d941a4b0fbe7744ee6401943057eb81567949084d5f0b66c",
+        "81a62f5711dbf2cb6ce7b2404ff45ffb57b31aaef3107c8e9f8d33069369975e",
+        "a4fd7a10da2bd8feb43cad4310af166c46b3de095f66593fde3a4508d12e3865",
+        "db62ffe7bf6f9c507690a30456169e18e4f7fdb41d816bc107220598c3aa6958",
+        "deb1123bc22dfa840a8626e7fe288e4e95fb9a1e24e1a9fd037a3040efdaf764",
+        "fd40315161997a0b694f48c5b2428f2344f7200e87a3b4e75d362851a7551f6b"
+      ],
+      "status": "PASS",
+      "strategy": "AMDS_ACTIVE",
+      "unique_probe_ratio": 1.0
+    },
+    {
+      "accepted_observation_count": 8,
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "executed_probe_sequence": [
+        "provider_lock_integrity",
+        "command_authority",
+        "failure_contract",
+        "ast_call_graph",
+        "source_identity",
+        "target_identity",
+        "harness_origin",
+        "rollback_and_proof"
+      ],
+      "informative_update_count": 5,
+      "memory_condition": "SHUFFLED_MEMORY_CONTROL",
+      "memory_influence": "PROBE_ORDER_CHANGED",
+      "memory_matches": [],
+      "noninformative_preservation_count": 3,
+      "observation_sharing": false,
+      "observations": [
+        {
+          "authorization_id": "487067b40cfd9c8ead88ee01dafb6db904509ed1a2eb208fdad3b34a16a19fa6",
+          "board_state_hash": "9494928c3c3def7dbb1082da2b39cf5c91036b347a4c487a5bc8e6999b547a2c",
+          "custody_verification": "PASS",
+          "event_hash": "35df6a7bd414f854e2fa6116f7e76d1775ee8c6e59879e8d869dd01576f96734",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "705ba94f998f35aebbcaa3c172c93fafab571e7b99c2061d2fe74b9cfadeaa3d",
+          "prior_state_hash": "75893993c68b365f0f8cba2ef8521491123e024f4e716b687e5feb8ed338dbdf",
+          "probe_id": "provider_lock_integrity",
+          "probe_type": "provider_lock_integrity",
+          "refuted_hypotheses": [
+            "environment_owned"
+          ],
+          "registry_generation": 1,
+          "semantic_evidence_hash": "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "f2d201839704b0b35f3de8cb4fbd6fa2df7311029a12efbd076ba58b336c76e8",
+          "board_state_hash": "3a1bac8e3dbca72ddb4ac4fa87bcbb50583891bd47148530a2a69efbc7b01b1a",
+          "custody_verification": "PASS",
+          "event_hash": "11917787933afb39c55877a01886bef8c26148b118764d2fbb226ceb38d19800",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "7676cbc7dde0b2b11db1dd1f6cc1f4289213518909bfdfff2ee974b4a920b8fb",
+          "prior_state_hash": "705ba94f998f35aebbcaa3c172c93fafab571e7b99c2061d2fe74b9cfadeaa3d",
+          "probe_id": "command_authority",
+          "probe_type": "command_authority",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 2,
+          "semantic_evidence_hash": "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "c19c829ae3fde2d561bc9f60a4955b2e436009c1b43b70dc389c1aa63333d538",
+          "board_state_hash": "e6ba81ef993ca4a29f143e83189d163b97a67a340b15f6894520f99cd347b45d",
+          "custody_verification": "PASS",
+          "event_hash": "47fda2bd2a05bb3cd70129ef93676be19bddc59308c72a09c8cc699bad43acb6",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "ab13b155d9d74c4a06d2c1d29a0daf4e9ba6f2dc74a7efb767924ff6cfbf96c0",
+          "prior_state_hash": "7676cbc7dde0b2b11db1dd1f6cc1f4289213518909bfdfff2ee974b4a920b8fb",
+          "probe_id": "failure_contract",
+          "probe_type": "failure_contract",
+          "refuted_hypotheses": [],
+          "registry_generation": 3,
+          "semantic_evidence_hash": "c50bedac81b8ada374b993a3ccc625276bd3065b82cf0333dea9349e42b20f17",
+          "semantic_fact": false,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "0c231ab721a7e6b35a296335b40d5084f1002f9d5cf72c5192df7232ef7d81f2",
+          "board_state_hash": "abd84f1defe25c4b17e59bd132f48467013eddc170796d7e79a943a14f85172a",
+          "custody_verification": "PASS",
+          "event_hash": "f4f638469b718bf0388548339c0fbee87e24a8a008c4c14e12268153ac57d9ea",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "c33009b8ae32532192be447212553e024d00a23f3c64a4a3f86aaa0396def573",
+          "prior_state_hash": "ab13b155d9d74c4a06d2c1d29a0daf4e9ba6f2dc74a7efb767924ff6cfbf96c0",
+          "probe_id": "ast_call_graph",
+          "probe_type": "ast_call_graph",
+          "refuted_hypotheses": [],
+          "registry_generation": 4,
+          "semantic_evidence_hash": "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "959bf165ad77c3d96ca55ad96b496078ad9a22974622f2cc8bdab24fedb7b44a",
+          "board_state_hash": "1863959e576b03ee4d5cdd713e71d4746c02a24aa9f33d04cf8abef9404a69ff",
+          "custody_verification": "PASS",
+          "event_hash": "a1a9fba0db739c7685f08aa3cfa8511bd46314e315b62f592c7983d26133bf29",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "f8b4cdda16f880ad259a3c4f9ca5b9178241c613ccd3ca26506baa162e0fac9a",
+          "prior_state_hash": "c33009b8ae32532192be447212553e024d00a23f3c64a4a3f86aaa0396def573",
+          "probe_id": "source_identity",
+          "probe_type": "source_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 5,
+          "semantic_evidence_hash": "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "3413eb3f79d6741c62b869a149faf31b762368e9a1dc172f8d95c562d4d0fd0b",
+          "board_state_hash": "d3652c3c58a0aaab12a4bbd6266d342b3060e20ca27650342021ff5b7b2bc596",
+          "custody_verification": "PASS",
+          "event_hash": "210e6302658f22112c3086678942ced9f6a6210dde527436c82be44785a24592",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "2947b3773ed24f9528c274c11493dabefaac2af17ee500bd3da290a840e840f4",
+          "prior_state_hash": "f8b4cdda16f880ad259a3c4f9ca5b9178241c613ccd3ca26506baa162e0fac9a",
+          "probe_id": "target_identity",
+          "probe_type": "target_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 6,
+          "semantic_evidence_hash": "25d22e51a718b932c1158fc91a75450148648da5de59360c470ee637ea6abd56",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "28aed3283aeeb48e518cb75e56a90316a95029cebe10d600345d7b5fd76c0881",
+          "board_state_hash": "035e1aac0b1ee3b9527295eacfe0a286beaa2ec7e6559cdfe46ad36a01de88e8",
+          "custody_verification": "PASS",
+          "event_hash": "c51b997750efadf51ecf56da88eee50d6551433c664c975fae98b4298590e285",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "7851315c51ad226e563636165f0776b3941e2a3a49c6f5210291dfa99bf767e0",
+          "prior_state_hash": "2947b3773ed24f9528c274c11493dabefaac2af17ee500bd3da290a840e840f4",
+          "probe_id": "harness_origin",
+          "probe_type": "harness_origin",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 7,
+          "semantic_evidence_hash": "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "e6ff08bea787cfc5ece6597ba148c64013d30c53a63484fc1550cec79093ee18",
+          "board_state_hash": "fabda7dd31e1ae505889cd56c75541e8455fdeb14dc62105d8907c9f96819db6",
+          "custody_verification": "PASS",
+          "event_hash": "470c888d2d6913adcd20b7fabe29353db7ea23fc86606b1ad9ecc16e5d54a772",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "b3938e9d601ce776877e967e91e80a77e608b8c76f1e73ceaa5784897984c73c",
+          "prior_state_hash": "7851315c51ad226e563636165f0776b3941e2a3a49c6f5210291dfa99bf767e0",
+          "probe_id": "rollback_and_proof",
+          "probe_type": "rollback_and_proof",
+          "refuted_hypotheses": [],
+          "registry_generation": 8,
+          "semantic_evidence_hash": "e38a3ea092a70cf4d729baf649dd096b75435d8d23a235b6707e95849770a28b",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        }
+      ],
+      "patch_authority": false,
+      "posterior": {
+        "hypotheses": {
+          "environment_owned": {
+            "evidence_refutation": [
+              "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.2608695652173913,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "harness_owned": {
+            "evidence_refutation": [
+              "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+              "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "insufficient_evidence": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.13793103448275865,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.08695652173913045,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "interpreter_behavior_change": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1724137931034483,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "mixed_failure": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1724137931034483,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "resource_timeout": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1724137931034483,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "source_owned_behavior_defect": {
+            "evidence_refutation": [],
+            "evidence_support": [
+              "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea",
+              "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef"
+            ],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1724137931034483,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "SUPPORTED"
+          },
+          "test_expectation_fragility": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1724137931034483,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          }
+        },
+        "memory_condition": "SHUFFLED_MEMORY_CONTROL",
+        "state_hash": "b3938e9d601ce776877e967e91e80a77e608b8c76f1e73ceaa5784897984c73c"
+      },
+      "posterior_updates": [
+        {
+          "entropy_after": 2.8034086398791374,
+          "entropy_before": 2.9001403722466925,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "705ba94f998f35aebbcaa3c172c93fafab571e7b99c2061d2fe74b9cfadeaa3d",
+          "probe_id": "provider_lock_integrity"
+        },
+        {
+          "entropy_after": 2.5804567753970877,
+          "entropy_before": 2.8034086398791374,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "7676cbc7dde0b2b11db1dd1f6cc1f4289213518909bfdfff2ee974b4a920b8fb",
+          "probe_id": "command_authority"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970877,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "ab13b155d9d74c4a06d2c1d29a0daf4e9ba6f2dc74a7efb767924ff6cfbf96c0",
+          "probe_id": "failure_contract"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970873,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "c33009b8ae32532192be447212553e024d00a23f3c64a4a3f86aaa0396def573",
+          "probe_id": "ast_call_graph"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970873,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "f8b4cdda16f880ad259a3c4f9ca5b9178241c613ccd3ca26506baa162e0fac9a",
+          "probe_id": "source_identity"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970873,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "2947b3773ed24f9528c274c11493dabefaac2af17ee500bd3da290a840e840f4",
+          "probe_id": "target_identity"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970873,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "7851315c51ad226e563636165f0776b3941e2a3a49c6f5210291dfa99bf767e0",
+          "probe_id": "harness_origin"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970873,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "b3938e9d601ce776877e967e91e80a77e608b8c76f1e73ceaa5784897984c73c",
+          "probe_id": "rollback_and_proof"
+        }
+      ],
+      "probe_events": [
+        {
+          "authorization_hash": "487067b40cfd9c8ead88ee01dafb6db904509ed1a2eb208fdad3b34a16a19fa6",
+          "board_hash": "9494928c3c3def7dbb1082da2b39cf5c91036b347a4c487a5bc8e6999b547a2c",
+          "event_hash": "35df6a7bd414f854e2fa6116f7e76d1775ee8c6e59879e8d869dd01576f96734",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "c20db60a43b154ebdd20e7312826b94012a9b35adae1e473803ecb30356ced02",
+          "parent_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "probe_id": "provider_lock_integrity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.087364+00:00"
+        },
+        {
+          "authorization_hash": "f2d201839704b0b35f3de8cb4fbd6fa2df7311029a12efbd076ba58b336c76e8",
+          "board_hash": "3a1bac8e3dbca72ddb4ac4fa87bcbb50583891bd47148530a2a69efbc7b01b1a",
+          "event_hash": "11917787933afb39c55877a01886bef8c26148b118764d2fbb226ceb38d19800",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "75528f9f60f455d86457e7fcf9c346bb1217de9b5ae12b44e6fd12eaf8e596bc",
+          "parent_event_hash": "35df6a7bd414f854e2fa6116f7e76d1775ee8c6e59879e8d869dd01576f96734",
+          "probe_id": "command_authority",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.087694+00:00"
+        },
+        {
+          "authorization_hash": "c19c829ae3fde2d561bc9f60a4955b2e436009c1b43b70dc389c1aa63333d538",
+          "board_hash": "e6ba81ef993ca4a29f143e83189d163b97a67a340b15f6894520f99cd347b45d",
+          "event_hash": "47fda2bd2a05bb3cd70129ef93676be19bddc59308c72a09c8cc699bad43acb6",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "92613e1f8a8208ca4591486b5802ac40c9a738fa95938a50b02618a025e2fefd",
+          "parent_event_hash": "11917787933afb39c55877a01886bef8c26148b118764d2fbb226ceb38d19800",
+          "probe_id": "failure_contract",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.088054+00:00"
+        },
+        {
+          "authorization_hash": "0c231ab721a7e6b35a296335b40d5084f1002f9d5cf72c5192df7232ef7d81f2",
+          "board_hash": "abd84f1defe25c4b17e59bd132f48467013eddc170796d7e79a943a14f85172a",
+          "event_hash": "f4f638469b718bf0388548339c0fbee87e24a8a008c4c14e12268153ac57d9ea",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "200f789f2e8f25afd7164d2397d8759ad34f874de39985e7750674e16cf0812e",
+          "parent_event_hash": "47fda2bd2a05bb3cd70129ef93676be19bddc59308c72a09c8cc699bad43acb6",
+          "probe_id": "ast_call_graph",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.088382+00:00"
+        },
+        {
+          "authorization_hash": "959bf165ad77c3d96ca55ad96b496078ad9a22974622f2cc8bdab24fedb7b44a",
+          "board_hash": "1863959e576b03ee4d5cdd713e71d4746c02a24aa9f33d04cf8abef9404a69ff",
+          "event_hash": "a1a9fba0db739c7685f08aa3cfa8511bd46314e315b62f592c7983d26133bf29",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "39efe2c461f579b0d93dcf6682ab6f7963b451a600dcac37a63e70db3e458c14",
+          "parent_event_hash": "f4f638469b718bf0388548339c0fbee87e24a8a008c4c14e12268153ac57d9ea",
+          "probe_id": "source_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.088715+00:00"
+        },
+        {
+          "authorization_hash": "3413eb3f79d6741c62b869a149faf31b762368e9a1dc172f8d95c562d4d0fd0b",
+          "board_hash": "d3652c3c58a0aaab12a4bbd6266d342b3060e20ca27650342021ff5b7b2bc596",
+          "event_hash": "210e6302658f22112c3086678942ced9f6a6210dde527436c82be44785a24592",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "212c304a36bc11091e4ad8e2449bb9a77c6f0f6c407d7127bc9b736f80cafbf6",
+          "parent_event_hash": "a1a9fba0db739c7685f08aa3cfa8511bd46314e315b62f592c7983d26133bf29",
+          "probe_id": "target_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.089042+00:00"
+        },
+        {
+          "authorization_hash": "28aed3283aeeb48e518cb75e56a90316a95029cebe10d600345d7b5fd76c0881",
+          "board_hash": "035e1aac0b1ee3b9527295eacfe0a286beaa2ec7e6559cdfe46ad36a01de88e8",
+          "event_hash": "c51b997750efadf51ecf56da88eee50d6551433c664c975fae98b4298590e285",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "bde69cba69c94acb582b773f6180735f89a741a6dd3dbb6a7d571432717f69c1",
+          "parent_event_hash": "210e6302658f22112c3086678942ced9f6a6210dde527436c82be44785a24592",
+          "probe_id": "harness_origin",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.089365+00:00"
+        },
+        {
+          "authorization_hash": "e6ff08bea787cfc5ece6597ba148c64013d30c53a63484fc1550cec79093ee18",
+          "board_hash": "fabda7dd31e1ae505889cd56c75541e8455fdeb14dc62105d8907c9f96819db6",
+          "event_hash": "470c888d2d6913adcd20b7fabe29353db7ea23fc86606b1ad9ecc16e5d54a772",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "8885bb1192354f3ebecd47f7fa920bdd0c69aa6f60e2168862da46c32f83fd94",
+          "parent_event_hash": "c51b997750efadf51ecf56da88eee50d6551433c664c975fae98b4298590e285",
+          "probe_id": "rollback_and_proof",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.089693+00:00"
+        }
+      ],
+      "raw_observation_count": 8,
+      "registry_sequence": [
+        "provider_lock_integrity",
+        "command_authority",
+        "failure_contract",
+        "ast_call_graph",
+        "source_identity",
+        "target_identity",
+        "harness_origin",
+        "rollback_and_proof"
+      ],
+      "rejected_observation_count": 0,
+      "repeated_probe_rejections": 0,
+      "spent_nonces": [
+        "200f789f2e8f25afd7164d2397d8759ad34f874de39985e7750674e16cf0812e",
+        "212c304a36bc11091e4ad8e2449bb9a77c6f0f6c407d7127bc9b736f80cafbf6",
+        "39efe2c461f579b0d93dcf6682ab6f7963b451a600dcac37a63e70db3e458c14",
+        "75528f9f60f455d86457e7fcf9c346bb1217de9b5ae12b44e6fd12eaf8e596bc",
+        "8885bb1192354f3ebecd47f7fa920bdd0c69aa6f60e2168862da46c32f83fd94",
+        "92613e1f8a8208ca4591486b5802ac40c9a738fa95938a50b02618a025e2fefd",
+        "bde69cba69c94acb582b773f6180735f89a741a6dd3dbb6a7d571432717f69c1",
+        "c20db60a43b154ebdd20e7312826b94012a9b35adae1e473803ecb30356ced02"
+      ],
+      "status": "PASS",
+      "strategy": "AMDS_ACTIVE",
+      "unique_probe_ratio": 1.0
+    },
+    {
+      "accepted_observation_count": 8,
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "executed_probe_sequence": [
+        "source_identity",
+        "provider_lock_integrity",
+        "command_authority",
+        "target_identity",
+        "harness_origin",
+        "failure_contract",
+        "ast_call_graph",
+        "rollback_and_proof"
+      ],
+      "informative_update_count": 5,
+      "memory_condition": "REAL_MEMORY",
+      "memory_influence": "NO_EFFECT",
+      "memory_matches": [
+        "49d120e503fde8f4",
+        "e834e69b0eee02c3",
+        "5bff3bf04bf758d9"
+      ],
+      "noninformative_preservation_count": 3,
+      "observation_sharing": false,
+      "observations": [
+        {
+          "authorization_id": "b6dacb4c9754886aaa982098fe887d1927eb8762065a0e698de8e003a4c2d064",
+          "board_state_hash": "865e0cc6ac11a7f6c9fcc19077214250d3021fb4d2bb0a3f171ae05db8c61cb1",
+          "custody_verification": "PASS",
+          "event_hash": "aa73ce87f6f978ad84a3488d88c45c2aaed176428c7d7716509174616d004e6e",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "7f9207943c51bf4bd4e931709ca4b8ef16beef91a69aac58b2fda9b2232c674d",
+          "prior_state_hash": "4a703e49e1871b7260f64f572c547c60757477df75184a0fb2c7b55af7d76cca",
+          "probe_id": "source_identity",
+          "probe_type": "source_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 1,
+          "semantic_evidence_hash": "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "17bf2e6c6cfe30692d34d8c0b9adbc372635367899dece8547ea981ead59dc1e",
+          "board_state_hash": "5b1603c23cafad2fcc1c366b0a71f44e60150268788711c98ec2d9c1c99813a4",
+          "custody_verification": "PASS",
+          "event_hash": "9bdb7653b084a950289ddc778f1e78592513e3f127b5fab57cc19294df79ebc1",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "c62938570f9c493c50d1bcac575dc0139f3dc163ef16abfebce2e6cf8c7477ec",
+          "prior_state_hash": "7f9207943c51bf4bd4e931709ca4b8ef16beef91a69aac58b2fda9b2232c674d",
+          "probe_id": "provider_lock_integrity",
+          "probe_type": "provider_lock_integrity",
+          "refuted_hypotheses": [
+            "environment_owned"
+          ],
+          "registry_generation": 2,
+          "semantic_evidence_hash": "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "eae2e95733ecf594ffe8ee9e42bf3ee91a888f7b7abc02a3c08e1a8c197d3947",
+          "board_state_hash": "058be21e5e803f338c1f84f980588c84472640620bee90c4c2eff39ee97715e6",
+          "custody_verification": "PASS",
+          "event_hash": "b569d9eca73c6e1a42d8eaf58a0589c70523ded7cf9a20206e042a675c0336ec",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "93b94b4b6c80b9cdd8796db665d062312d5c831936104297c5c8ce9b37d0e860",
+          "prior_state_hash": "c62938570f9c493c50d1bcac575dc0139f3dc163ef16abfebce2e6cf8c7477ec",
+          "probe_id": "command_authority",
+          "probe_type": "command_authority",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 3,
+          "semantic_evidence_hash": "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "f3bc3d8d0f87344345664c796308d9d5c707f95c0ea66e25bf81b44d67056dcb",
+          "board_state_hash": "3312d0fb32dbe7c40a93ccfb7471bf128faf6df9161191ef77d39c44825d3e9b",
+          "custody_verification": "PASS",
+          "event_hash": "3708f59b0d5f97b39ccc89e1d52d0ff71aca180c860d23ce4d8e7031cd04f2fc",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "bebb72d408e72857fd6d6e1a0bc0ecd92d02791f13e47a38d793c93647edac63",
+          "prior_state_hash": "93b94b4b6c80b9cdd8796db665d062312d5c831936104297c5c8ce9b37d0e860",
+          "probe_id": "target_identity",
+          "probe_type": "target_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 4,
+          "semantic_evidence_hash": "25d22e51a718b932c1158fc91a75450148648da5de59360c470ee637ea6abd56",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "008852b21dc899fad194be36a72b9a8614d3d511114b1478253af387ceb5b014",
+          "board_state_hash": "a2960187751993cecf8afee09903ae2de08f89f43dbc001f772c52781606569c",
+          "custody_verification": "PASS",
+          "event_hash": "94a0b8476e715e0f2c61a6f707dcf191b2652b73f9ab4c36a4395d0588d20b1a",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "802b20101d71beb93f41fa6691f058b9708d8c1c06258b7dc3d245c102ac71a9",
+          "prior_state_hash": "bebb72d408e72857fd6d6e1a0bc0ecd92d02791f13e47a38d793c93647edac63",
+          "probe_id": "harness_origin",
+          "probe_type": "harness_origin",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 5,
+          "semantic_evidence_hash": "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "913f17e04e466ec7339e1b3f926240f76bc5789f032626b4203db659b1c2d63a",
+          "board_state_hash": "a02abd3fe18e6ccc9f0976be7f4b0902d80da62e82d4f9b5f13462bc722ece24",
+          "custody_verification": "PASS",
+          "event_hash": "28aa0a84ffb75ce0910da38255d4c2134f85a46a64ac90c6d62e96158027d207",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "f1bfa88ada6369c54f44204291c7e1e3df1baa88120765f7e6a2b27d587a09c7",
+          "prior_state_hash": "802b20101d71beb93f41fa6691f058b9708d8c1c06258b7dc3d245c102ac71a9",
+          "probe_id": "failure_contract",
+          "probe_type": "failure_contract",
+          "refuted_hypotheses": [],
+          "registry_generation": 6,
+          "semantic_evidence_hash": "c50bedac81b8ada374b993a3ccc625276bd3065b82cf0333dea9349e42b20f17",
+          "semantic_fact": false,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "fb51d33592119fcff818f8078b384e048241d5a5713abd10307278c03205c58c",
+          "board_state_hash": "5240d0802b9fc2f80913a462a2d4454e641a0fee67cad613a2a1661f6c2fd70c",
+          "custody_verification": "PASS",
+          "event_hash": "3b7f0497c18992f8b7bdfcdaa322ff3e52074b13d2bfcaec2de4278847ae7bd4",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "7067a04cc8fc345f6ac7342cb64e54c061c03711a896f18f3ca84941a3c42f8d",
+          "prior_state_hash": "f1bfa88ada6369c54f44204291c7e1e3df1baa88120765f7e6a2b27d587a09c7",
+          "probe_id": "ast_call_graph",
+          "probe_type": "ast_call_graph",
+          "refuted_hypotheses": [],
+          "registry_generation": 7,
+          "semantic_evidence_hash": "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "b5f52aad63038633222522e1829644264c1db3da3684c4589bba7adc86267f36",
+          "board_state_hash": "128ebb63583e1a34198a1027cf913b412153ee74b7531659c39ee5d8ae31ebca",
+          "custody_verification": "PASS",
+          "event_hash": "2256d05a21ec6ff9032fe2800e5bfe1cc7d0285b95e5defc0fdd7bc2ca575429",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "5d4690f0ce195ef1845ebbd251c1b9849f7f2b566396699a8d193c8f21c2d5de",
+          "prior_state_hash": "7067a04cc8fc345f6ac7342cb64e54c061c03711a896f18f3ca84941a3c42f8d",
+          "probe_id": "rollback_and_proof",
+          "probe_type": "rollback_and_proof",
+          "refuted_hypotheses": [],
+          "registry_generation": 8,
+          "semantic_evidence_hash": "e38a3ea092a70cf4d729baf649dd096b75435d8d23a235b6707e95849770a28b",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        }
+      ],
+      "patch_authority": false,
+      "posterior": {
+        "hypotheses": {
+          "environment_owned": {
+            "evidence_refutation": [
+              "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "harness_owned": {
+            "evidence_refutation": [
+              "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+              "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "insufficient_evidence": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.11111111111111112,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.08695652173913045,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "interpreter_behavior_change": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1388888888888889,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "mixed_failure": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1388888888888889,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "resource_timeout": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1388888888888889,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "source_owned_behavior_defect": {
+            "evidence_refutation": [],
+            "evidence_support": [
+              "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef",
+              "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea"
+            ],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.3333333333333333,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.2608695652173913,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "SUPPORTED"
+          },
+          "test_expectation_fragility": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1388888888888889,
+            "prior_classification": "REAL_MEMORY",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          }
+        },
+        "memory_condition": "REAL_MEMORY",
+        "state_hash": "5d4690f0ce195ef1845ebbd251c1b9849f7f2b566396699a8d193c8f21c2d5de"
+      },
+      "posterior_updates": [
+        {
+          "entropy_after": 2.9001403722466925,
+          "entropy_before": 2.9001403722466925,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "7f9207943c51bf4bd4e931709ca4b8ef16beef91a69aac58b2fda9b2232c674d",
+          "probe_id": "source_identity"
+        },
+        {
+          "entropy_after": 2.6973629221586215,
+          "entropy_before": 2.9001403722466925,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "c62938570f9c493c50d1bcac575dc0139f3dc163ef16abfebce2e6cf8c7477ec",
+          "probe_id": "provider_lock_integrity"
+        },
+        {
+          "entropy_after": 2.4627552262645036,
+          "entropy_before": 2.6973629221586215,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "93b94b4b6c80b9cdd8796db665d062312d5c831936104297c5c8ce9b37d0e860",
+          "probe_id": "command_authority"
+        },
+        {
+          "entropy_after": 2.4627552262645036,
+          "entropy_before": 2.4627552262645036,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "bebb72d408e72857fd6d6e1a0bc0ecd92d02791f13e47a38d793c93647edac63",
+          "probe_id": "target_identity"
+        },
+        {
+          "entropy_after": 2.4627552262645036,
+          "entropy_before": 2.4627552262645036,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "802b20101d71beb93f41fa6691f058b9708d8c1c06258b7dc3d245c102ac71a9",
+          "probe_id": "harness_origin"
+        },
+        {
+          "entropy_after": 2.4627552262645036,
+          "entropy_before": 2.4627552262645036,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "f1bfa88ada6369c54f44204291c7e1e3df1baa88120765f7e6a2b27d587a09c7",
+          "probe_id": "failure_contract"
+        },
+        {
+          "entropy_after": 2.4627552262645036,
+          "entropy_before": 2.4627552262645036,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "7067a04cc8fc345f6ac7342cb64e54c061c03711a896f18f3ca84941a3c42f8d",
+          "probe_id": "ast_call_graph"
+        },
+        {
+          "entropy_after": 2.4627552262645036,
+          "entropy_before": 2.4627552262645036,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "5d4690f0ce195ef1845ebbd251c1b9849f7f2b566396699a8d193c8f21c2d5de",
+          "probe_id": "rollback_and_proof"
+        }
+      ],
+      "probe_events": [
+        {
+          "authorization_hash": "b6dacb4c9754886aaa982098fe887d1927eb8762065a0e698de8e003a4c2d064",
+          "board_hash": "865e0cc6ac11a7f6c9fcc19077214250d3021fb4d2bb0a3f171ae05db8c61cb1",
+          "event_hash": "aa73ce87f6f978ad84a3488d88c45c2aaed176428c7d7716509174616d004e6e",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "fa3e09c11f22398e5a18336b0836046352115200071b975cfcabb0a7750f4e44",
+          "parent_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "probe_id": "source_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.090233+00:00"
+        },
+        {
+          "authorization_hash": "17bf2e6c6cfe30692d34d8c0b9adbc372635367899dece8547ea981ead59dc1e",
+          "board_hash": "5b1603c23cafad2fcc1c366b0a71f44e60150268788711c98ec2d9c1c99813a4",
+          "event_hash": "9bdb7653b084a950289ddc778f1e78592513e3f127b5fab57cc19294df79ebc1",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "0cf4097e59d5dc390d179551689e6bd6f25934d4d9ebf76f08a949a8064f1a47",
+          "parent_event_hash": "aa73ce87f6f978ad84a3488d88c45c2aaed176428c7d7716509174616d004e6e",
+          "probe_id": "provider_lock_integrity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.090579+00:00"
+        },
+        {
+          "authorization_hash": "eae2e95733ecf594ffe8ee9e42bf3ee91a888f7b7abc02a3c08e1a8c197d3947",
+          "board_hash": "058be21e5e803f338c1f84f980588c84472640620bee90c4c2eff39ee97715e6",
+          "event_hash": "b569d9eca73c6e1a42d8eaf58a0589c70523ded7cf9a20206e042a675c0336ec",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "5d7e06117459e288c0b8121bb1d6ecf48fbc46aa92375d15ac65cd01e30dce5e",
+          "parent_event_hash": "9bdb7653b084a950289ddc778f1e78592513e3f127b5fab57cc19294df79ebc1",
+          "probe_id": "command_authority",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.090929+00:00"
+        },
+        {
+          "authorization_hash": "f3bc3d8d0f87344345664c796308d9d5c707f95c0ea66e25bf81b44d67056dcb",
+          "board_hash": "3312d0fb32dbe7c40a93ccfb7471bf128faf6df9161191ef77d39c44825d3e9b",
+          "event_hash": "3708f59b0d5f97b39ccc89e1d52d0ff71aca180c860d23ce4d8e7031cd04f2fc",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "1607824844d6773ec31f018bacca50395b956353242f4cb0a7934ac3459a86cf",
+          "parent_event_hash": "b569d9eca73c6e1a42d8eaf58a0589c70523ded7cf9a20206e042a675c0336ec",
+          "probe_id": "target_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.091255+00:00"
+        },
+        {
+          "authorization_hash": "008852b21dc899fad194be36a72b9a8614d3d511114b1478253af387ceb5b014",
+          "board_hash": "a2960187751993cecf8afee09903ae2de08f89f43dbc001f772c52781606569c",
+          "event_hash": "94a0b8476e715e0f2c61a6f707dcf191b2652b73f9ab4c36a4395d0588d20b1a",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "e4654c3789577ce0d56a26acf1529d20713b6132fa0732e275d139b6fd6dbe36",
+          "parent_event_hash": "3708f59b0d5f97b39ccc89e1d52d0ff71aca180c860d23ce4d8e7031cd04f2fc",
+          "probe_id": "harness_origin",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.091572+00:00"
+        },
+        {
+          "authorization_hash": "913f17e04e466ec7339e1b3f926240f76bc5789f032626b4203db659b1c2d63a",
+          "board_hash": "a02abd3fe18e6ccc9f0976be7f4b0902d80da62e82d4f9b5f13462bc722ece24",
+          "event_hash": "28aa0a84ffb75ce0910da38255d4c2134f85a46a64ac90c6d62e96158027d207",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "bfd2a546212d85c5e3831dc95579371e193a449f8014353065bd2de2c40371d6",
+          "parent_event_hash": "94a0b8476e715e0f2c61a6f707dcf191b2652b73f9ab4c36a4395d0588d20b1a",
+          "probe_id": "failure_contract",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.091895+00:00"
+        },
+        {
+          "authorization_hash": "fb51d33592119fcff818f8078b384e048241d5a5713abd10307278c03205c58c",
+          "board_hash": "5240d0802b9fc2f80913a462a2d4454e641a0fee67cad613a2a1661f6c2fd70c",
+          "event_hash": "3b7f0497c18992f8b7bdfcdaa322ff3e52074b13d2bfcaec2de4278847ae7bd4",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "eb7f79270365255661369d1dcc27dc32fb4df59e4dc059a633d73e57eb050c70",
+          "parent_event_hash": "28aa0a84ffb75ce0910da38255d4c2134f85a46a64ac90c6d62e96158027d207",
+          "probe_id": "ast_call_graph",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.092244+00:00"
+        },
+        {
+          "authorization_hash": "b5f52aad63038633222522e1829644264c1db3da3684c4589bba7adc86267f36",
+          "board_hash": "128ebb63583e1a34198a1027cf913b412153ee74b7531659c39ee5d8ae31ebca",
+          "event_hash": "2256d05a21ec6ff9032fe2800e5bfe1cc7d0285b95e5defc0fdd7bc2ca575429",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "fbed557b06d461d0bae9f6ddf1b14be0103f9f0138ab2a906b0727dc64c8680f",
+          "parent_event_hash": "3b7f0497c18992f8b7bdfcdaa322ff3e52074b13d2bfcaec2de4278847ae7bd4",
+          "probe_id": "rollback_and_proof",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.092569+00:00"
+        }
+      ],
+      "raw_observation_count": 8,
+      "registry_sequence": [
+        "source_identity",
+        "provider_lock_integrity",
+        "command_authority",
+        "target_identity",
+        "harness_origin",
+        "failure_contract",
+        "ast_call_graph",
+        "rollback_and_proof"
+      ],
+      "rejected_observation_count": 0,
+      "repeated_probe_rejections": 0,
+      "spent_nonces": [
+        "0cf4097e59d5dc390d179551689e6bd6f25934d4d9ebf76f08a949a8064f1a47",
+        "1607824844d6773ec31f018bacca50395b956353242f4cb0a7934ac3459a86cf",
+        "5d7e06117459e288c0b8121bb1d6ecf48fbc46aa92375d15ac65cd01e30dce5e",
+        "bfd2a546212d85c5e3831dc95579371e193a449f8014353065bd2de2c40371d6",
+        "e4654c3789577ce0d56a26acf1529d20713b6132fa0732e275d139b6fd6dbe36",
+        "eb7f79270365255661369d1dcc27dc32fb4df59e4dc059a633d73e57eb050c70",
+        "fa3e09c11f22398e5a18336b0836046352115200071b975cfcabb0a7750f4e44",
+        "fbed557b06d461d0bae9f6ddf1b14be0103f9f0138ab2a906b0727dc64c8680f"
+      ],
+      "status": "PASS",
+      "strategy": "FIXED_LEGAL_ORDER",
+      "unique_probe_ratio": 1.0
+    },
+    {
+      "accepted_observation_count": 8,
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "executed_probe_sequence": [
+        "source_identity",
+        "provider_lock_integrity",
+        "command_authority",
+        "target_identity",
+        "harness_origin",
+        "failure_contract",
+        "ast_call_graph",
+        "rollback_and_proof"
+      ],
+      "informative_update_count": 5,
+      "memory_condition": "NO_MEMORY",
+      "memory_influence": "NO_EFFECT",
+      "memory_matches": [],
+      "noninformative_preservation_count": 3,
+      "observation_sharing": false,
+      "observations": [
+        {
+          "authorization_id": "badc08b5cc535090749661b4fe421baa59791c9436c14b7ac26912e055783c7b",
+          "board_state_hash": "9cfb40dc623c314b1a2e50bc5ef80ea9350afa44a3a9d02e287dc83d7f8fe499",
+          "custody_verification": "PASS",
+          "event_hash": "f07512cd92c898ccc6551b9f2646c5c863d8c06b646d3df8eb424ecd0595d349",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "ff072fe441d058b7c07c0a8c24dbdff491662aea2b9d6896e4139dda5cc5a91b",
+          "prior_state_hash": "8a0c97cb5bc4898b525c2be29982fcd27dec2d3e4943a6a300a470d1c560417b",
+          "probe_id": "source_identity",
+          "probe_type": "source_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 1,
+          "semantic_evidence_hash": "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "dcedd416d5618411c20d627b79b014350350435d094712bf404f0af8a65d5c3b",
+          "board_state_hash": "01bf024b45a2dd0af5457921315341b52aeda5e2b9ffea741d9d1d439dc0628d",
+          "custody_verification": "PASS",
+          "event_hash": "bafbbec21bff73b3843b49ef7f36f91354d557e95321ff32ce392712d30a9397",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "efa2b18d4101e1885aa32d99c8f7edb561b3a23677f002084cf87e983f2174ef",
+          "prior_state_hash": "ff072fe441d058b7c07c0a8c24dbdff491662aea2b9d6896e4139dda5cc5a91b",
+          "probe_id": "provider_lock_integrity",
+          "probe_type": "provider_lock_integrity",
+          "refuted_hypotheses": [
+            "environment_owned"
+          ],
+          "registry_generation": 2,
+          "semantic_evidence_hash": "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "494c442fcb14195613c9f188899c8bcde15736f8aba27bc4d663b2114a32e21d",
+          "board_state_hash": "832f9f5bb50c17efc473a3acc05987c41c3cbbd2e35b5b3d47f38da18386ac6f",
+          "custody_verification": "PASS",
+          "event_hash": "5865eccf9d53254e5e67e58f78ede6fa38a85648d38fbaa1173a38db3bcc6379",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "5937248286668a11bab5033546184a598061d4644477413f9573b9699c389983",
+          "prior_state_hash": "efa2b18d4101e1885aa32d99c8f7edb561b3a23677f002084cf87e983f2174ef",
+          "probe_id": "command_authority",
+          "probe_type": "command_authority",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 3,
+          "semantic_evidence_hash": "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "4df1e50543beffa4be147ab2e7c39c9f1ec1fe80c08570c6ec49bf7a230ead87",
+          "board_state_hash": "391064a2f3ff91f6551ca89a3e6608fb6d82d789e230f5100cc53a6332e80208",
+          "custody_verification": "PASS",
+          "event_hash": "fea5d127d23eb94747f7a5fc0e6a48e696c0d8c451300858f7f839190ec3a2e5",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "ba16abbeb591e77e5bd51abcbe219cddcb33f4422aea8d38c3b1c1c56c456bc0",
+          "prior_state_hash": "5937248286668a11bab5033546184a598061d4644477413f9573b9699c389983",
+          "probe_id": "target_identity",
+          "probe_type": "target_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 4,
+          "semantic_evidence_hash": "25d22e51a718b932c1158fc91a75450148648da5de59360c470ee637ea6abd56",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "e60d7521566e331d9e00c625fb43843fa3802d0b435a42137faf7da365e11812",
+          "board_state_hash": "98b654727d874f296ebdcf88bc03ebb3a92ecf3157ca6e4c9567ba8eecfd75dd",
+          "custody_verification": "PASS",
+          "event_hash": "316f0af329c74d6655d5f43346dfc1be75935c5da3a385f13826f70c3ef6291d",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "f91eca675f0eded1ef3b0057015e51ed8324cb0a8975712f596ef6b07593a4b7",
+          "prior_state_hash": "ba16abbeb591e77e5bd51abcbe219cddcb33f4422aea8d38c3b1c1c56c456bc0",
+          "probe_id": "harness_origin",
+          "probe_type": "harness_origin",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 5,
+          "semantic_evidence_hash": "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "6de9bb56e804efde9f8bcddf6480cfdd5e58bdb40b76e08f702c97faa914fe51",
+          "board_state_hash": "b3aebf5779e684173f4ef0fee5934a48d6592c55440195c97918d7f126cc1f99",
+          "custody_verification": "PASS",
+          "event_hash": "95dc60284d6ed128eeb9bf1efb1cba31807e0f39aab196ad3ab95f42fff2b8a0",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "fd3dee217bae1f40be1283cf52dff4cb25f1e138c71ca356e535e10ea14ef161",
+          "prior_state_hash": "f91eca675f0eded1ef3b0057015e51ed8324cb0a8975712f596ef6b07593a4b7",
+          "probe_id": "failure_contract",
+          "probe_type": "failure_contract",
+          "refuted_hypotheses": [],
+          "registry_generation": 6,
+          "semantic_evidence_hash": "c50bedac81b8ada374b993a3ccc625276bd3065b82cf0333dea9349e42b20f17",
+          "semantic_fact": false,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "17d272315f80c1c8f8e7f981c0cb32d4e7deea76e6c3b0694d3adebe72517408",
+          "board_state_hash": "be44e4365bfacd3a08700ff9f8ef1333fa540e05f7d7d83766dafdf0bd744326",
+          "custody_verification": "PASS",
+          "event_hash": "ef005c6b5ae081b6e3a916f17e0e78ce88f2e5e839ec05c2d18845061bab40dc",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "82e48b98b513efc6357e2a3e7fabb397419f6edc3870aa7e36badb89f8439511",
+          "prior_state_hash": "fd3dee217bae1f40be1283cf52dff4cb25f1e138c71ca356e535e10ea14ef161",
+          "probe_id": "ast_call_graph",
+          "probe_type": "ast_call_graph",
+          "refuted_hypotheses": [],
+          "registry_generation": 7,
+          "semantic_evidence_hash": "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "ddb4163ea3d1db0b7c92d8d595123e6de263fee8ddb364703f3d67987f14e6b5",
+          "board_state_hash": "56a6ceab702f816a93f97112dee8a831028fcc10dab582f3f97524770b24b7f2",
+          "custody_verification": "PASS",
+          "event_hash": "a6a82ae789e6cf256e92e321836c1c52450e6f5e3de88b2f3690e413977b9ba4",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "1e3f169f4f0ba266959910fbc5f312e728008d4f5ab03a15bf3ed3d964d6917d",
+          "prior_state_hash": "82e48b98b513efc6357e2a3e7fabb397419f6edc3870aa7e36badb89f8439511",
+          "probe_id": "rollback_and_proof",
+          "probe_type": "rollback_and_proof",
+          "refuted_hypotheses": [],
+          "registry_generation": 8,
+          "semantic_evidence_hash": "e38a3ea092a70cf4d729baf649dd096b75435d8d23a235b6707e95849770a28b",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        }
+      ],
+      "patch_authority": false,
+      "posterior": {
+        "hypotheses": {
+          "environment_owned": {
+            "evidence_refutation": [
+              "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "harness_owned": {
+            "evidence_refutation": [
+              "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+              "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "insufficient_evidence": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "interpreter_behavior_change": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "mixed_failure": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "resource_timeout": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "source_owned_behavior_defect": {
+            "evidence_refutation": [],
+            "evidence_support": [
+              "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef",
+              "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea"
+            ],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "SUPPORTED"
+          },
+          "test_expectation_fragility": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.16666666666666666,
+            "prior_classification": "NO_MEMORY",
+            "prior_value": 0.125,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          }
+        },
+        "memory_condition": "NO_MEMORY",
+        "state_hash": "1e3f169f4f0ba266959910fbc5f312e728008d4f5ab03a15bf3ed3d964d6917d"
+      },
+      "posterior_updates": [
+        {
+          "entropy_after": 3.0,
+          "entropy_before": 3.0,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "ff072fe441d058b7c07c0a8c24dbdff491662aea2b9d6896e4139dda5cc5a91b",
+          "probe_id": "source_identity"
+        },
+        {
+          "entropy_after": 2.8073549220576037,
+          "entropy_before": 3.0,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "efa2b18d4101e1885aa32d99c8f7edb561b3a23677f002084cf87e983f2174ef",
+          "probe_id": "provider_lock_integrity"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.8073549220576037,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "5937248286668a11bab5033546184a598061d4644477413f9573b9699c389983",
+          "probe_id": "command_authority"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.584962500721156,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "ba16abbeb591e77e5bd51abcbe219cddcb33f4422aea8d38c3b1c1c56c456bc0",
+          "probe_id": "target_identity"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.584962500721156,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "f91eca675f0eded1ef3b0057015e51ed8324cb0a8975712f596ef6b07593a4b7",
+          "probe_id": "harness_origin"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.584962500721156,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "fd3dee217bae1f40be1283cf52dff4cb25f1e138c71ca356e535e10ea14ef161",
+          "probe_id": "failure_contract"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.584962500721156,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "82e48b98b513efc6357e2a3e7fabb397419f6edc3870aa7e36badb89f8439511",
+          "probe_id": "ast_call_graph"
+        },
+        {
+          "entropy_after": 2.584962500721156,
+          "entropy_before": 2.584962500721156,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "1e3f169f4f0ba266959910fbc5f312e728008d4f5ab03a15bf3ed3d964d6917d",
+          "probe_id": "rollback_and_proof"
+        }
+      ],
+      "probe_events": [
+        {
+          "authorization_hash": "badc08b5cc535090749661b4fe421baa59791c9436c14b7ac26912e055783c7b",
+          "board_hash": "9cfb40dc623c314b1a2e50bc5ef80ea9350afa44a3a9d02e287dc83d7f8fe499",
+          "event_hash": "f07512cd92c898ccc6551b9f2646c5c863d8c06b646d3df8eb424ecd0595d349",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "400fef6395a3a6a1c527e6051bee6628c7ef7fb6267e7eeaba0de0231384b018",
+          "parent_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "probe_id": "source_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.093063+00:00"
+        },
+        {
+          "authorization_hash": "dcedd416d5618411c20d627b79b014350350435d094712bf404f0af8a65d5c3b",
+          "board_hash": "01bf024b45a2dd0af5457921315341b52aeda5e2b9ffea741d9d1d439dc0628d",
+          "event_hash": "bafbbec21bff73b3843b49ef7f36f91354d557e95321ff32ce392712d30a9397",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "856ababda29b0bb661dd838664b4d132b06ee7ee2e9227dda8f8d0d19a441ee8",
+          "parent_event_hash": "f07512cd92c898ccc6551b9f2646c5c863d8c06b646d3df8eb424ecd0595d349",
+          "probe_id": "provider_lock_integrity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.093377+00:00"
+        },
+        {
+          "authorization_hash": "494c442fcb14195613c9f188899c8bcde15736f8aba27bc4d663b2114a32e21d",
+          "board_hash": "832f9f5bb50c17efc473a3acc05987c41c3cbbd2e35b5b3d47f38da18386ac6f",
+          "event_hash": "5865eccf9d53254e5e67e58f78ede6fa38a85648d38fbaa1173a38db3bcc6379",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "9a69dd70e1e9903c1b4ddc2c45202c1e6ff85a323c8f8f14c21ac4baab8c4f91",
+          "parent_event_hash": "bafbbec21bff73b3843b49ef7f36f91354d557e95321ff32ce392712d30a9397",
+          "probe_id": "command_authority",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.093714+00:00"
+        },
+        {
+          "authorization_hash": "4df1e50543beffa4be147ab2e7c39c9f1ec1fe80c08570c6ec49bf7a230ead87",
+          "board_hash": "391064a2f3ff91f6551ca89a3e6608fb6d82d789e230f5100cc53a6332e80208",
+          "event_hash": "fea5d127d23eb94747f7a5fc0e6a48e696c0d8c451300858f7f839190ec3a2e5",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "660c40d4d759ce100f8df1bbd91f0c2a198f3c0675fede4d377ec4e71c251c51",
+          "parent_event_hash": "5865eccf9d53254e5e67e58f78ede6fa38a85648d38fbaa1173a38db3bcc6379",
+          "probe_id": "target_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.094072+00:00"
+        },
+        {
+          "authorization_hash": "e60d7521566e331d9e00c625fb43843fa3802d0b435a42137faf7da365e11812",
+          "board_hash": "98b654727d874f296ebdcf88bc03ebb3a92ecf3157ca6e4c9567ba8eecfd75dd",
+          "event_hash": "316f0af329c74d6655d5f43346dfc1be75935c5da3a385f13826f70c3ef6291d",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "9fd4caea9e552199bb984c51d2cce207a06b98cfaedb4f2c4993ab13a7379f46",
+          "parent_event_hash": "fea5d127d23eb94747f7a5fc0e6a48e696c0d8c451300858f7f839190ec3a2e5",
+          "probe_id": "harness_origin",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.094406+00:00"
+        },
+        {
+          "authorization_hash": "6de9bb56e804efde9f8bcddf6480cfdd5e58bdb40b76e08f702c97faa914fe51",
+          "board_hash": "b3aebf5779e684173f4ef0fee5934a48d6592c55440195c97918d7f126cc1f99",
+          "event_hash": "95dc60284d6ed128eeb9bf1efb1cba31807e0f39aab196ad3ab95f42fff2b8a0",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "22bda54e914859a3d3bf7ce2a4ee8c5332a2242b8359859c35ff0151198ff8e8",
+          "parent_event_hash": "316f0af329c74d6655d5f43346dfc1be75935c5da3a385f13826f70c3ef6291d",
+          "probe_id": "failure_contract",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.094724+00:00"
+        },
+        {
+          "authorization_hash": "17d272315f80c1c8f8e7f981c0cb32d4e7deea76e6c3b0694d3adebe72517408",
+          "board_hash": "be44e4365bfacd3a08700ff9f8ef1333fa540e05f7d7d83766dafdf0bd744326",
+          "event_hash": "ef005c6b5ae081b6e3a916f17e0e78ce88f2e5e839ec05c2d18845061bab40dc",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "c996f30f8cb6345ab228a37b6444e9c3fdcea818643c585b2a2488866cd11ee3",
+          "parent_event_hash": "95dc60284d6ed128eeb9bf1efb1cba31807e0f39aab196ad3ab95f42fff2b8a0",
+          "probe_id": "ast_call_graph",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.095045+00:00"
+        },
+        {
+          "authorization_hash": "ddb4163ea3d1db0b7c92d8d595123e6de263fee8ddb364703f3d67987f14e6b5",
+          "board_hash": "56a6ceab702f816a93f97112dee8a831028fcc10dab582f3f97524770b24b7f2",
+          "event_hash": "a6a82ae789e6cf256e92e321836c1c52450e6f5e3de88b2f3690e413977b9ba4",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "c9a226362024e5f2fe52dd65db609887c8af620588bcebe5e7189d80b93103e4",
+          "parent_event_hash": "ef005c6b5ae081b6e3a916f17e0e78ce88f2e5e839ec05c2d18845061bab40dc",
+          "probe_id": "rollback_and_proof",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.095365+00:00"
+        }
+      ],
+      "raw_observation_count": 8,
+      "registry_sequence": [
+        "source_identity",
+        "provider_lock_integrity",
+        "command_authority",
+        "target_identity",
+        "harness_origin",
+        "failure_contract",
+        "ast_call_graph",
+        "rollback_and_proof"
+      ],
+      "rejected_observation_count": 0,
+      "repeated_probe_rejections": 0,
+      "spent_nonces": [
+        "22bda54e914859a3d3bf7ce2a4ee8c5332a2242b8359859c35ff0151198ff8e8",
+        "400fef6395a3a6a1c527e6051bee6628c7ef7fb6267e7eeaba0de0231384b018",
+        "660c40d4d759ce100f8df1bbd91f0c2a198f3c0675fede4d377ec4e71c251c51",
+        "856ababda29b0bb661dd838664b4d132b06ee7ee2e9227dda8f8d0d19a441ee8",
+        "9a69dd70e1e9903c1b4ddc2c45202c1e6ff85a323c8f8f14c21ac4baab8c4f91",
+        "9fd4caea9e552199bb984c51d2cce207a06b98cfaedb4f2c4993ab13a7379f46",
+        "c996f30f8cb6345ab228a37b6444e9c3fdcea818643c585b2a2488866cd11ee3",
+        "c9a226362024e5f2fe52dd65db609887c8af620588bcebe5e7189d80b93103e4"
+      ],
+      "status": "PASS",
+      "strategy": "FIXED_LEGAL_ORDER",
+      "unique_probe_ratio": 1.0
+    },
+    {
+      "accepted_observation_count": 8,
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "executed_probe_sequence": [
+        "source_identity",
+        "provider_lock_integrity",
+        "command_authority",
+        "target_identity",
+        "harness_origin",
+        "failure_contract",
+        "ast_call_graph",
+        "rollback_and_proof"
+      ],
+      "informative_update_count": 5,
+      "memory_condition": "SHUFFLED_MEMORY_CONTROL",
+      "memory_influence": "NO_EFFECT",
+      "memory_matches": [],
+      "noninformative_preservation_count": 3,
+      "observation_sharing": false,
+      "observations": [
+        {
+          "authorization_id": "bca95722d56b66b11e7cd4bc8ab0927e5d61b9854fd8fc7ffd82fc18114db8f9",
+          "board_state_hash": "62dbf9152d89c7e7cb44f32bbea8e6dd0fb17426579956755ee4fffdc3a6c5c7",
+          "custody_verification": "PASS",
+          "event_hash": "3c1110c68b877b9392c20fd5e359ddb63d77568be79c9e40126170264e72bd9a",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "94af95dde966dd67ca806899c66f19e326627f9f84c13e20e6c92fabe671297c",
+          "prior_state_hash": "75893993c68b365f0f8cba2ef8521491123e024f4e716b687e5feb8ed338dbdf",
+          "probe_id": "source_identity",
+          "probe_type": "source_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 1,
+          "semantic_evidence_hash": "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "4709d1d7889ab1f8c46c8df024cf9fcef778b2cc9a109d17427f0f22f67686bf",
+          "board_state_hash": "e9bf7bcf7461638bf90388179bc19007be410626d61abc9cdcceed5cb393e8b5",
+          "custody_verification": "PASS",
+          "event_hash": "cd82c78889308e27c86662ab1ac765a0dc7236c83756d6d2a1ae77efe0173e4d",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "c818822c3074b28e9c0d6f11873ccd4e51fd60cd8af839a52a9595a619cfe02e",
+          "prior_state_hash": "94af95dde966dd67ca806899c66f19e326627f9f84c13e20e6c92fabe671297c",
+          "probe_id": "provider_lock_integrity",
+          "probe_type": "provider_lock_integrity",
+          "refuted_hypotheses": [
+            "environment_owned"
+          ],
+          "registry_generation": 2,
+          "semantic_evidence_hash": "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "9166053ee6f07429599a0c9d39e0244d733c79960cbfa6fc75eb1e4a22546095",
+          "board_state_hash": "155bc0550bcb9885b9a8230a6f1aeb10352f9a00ebe322361bfc0ba549a2caaf",
+          "custody_verification": "PASS",
+          "event_hash": "160781ece1b9a94f3f679a829c96da882c0053fa0a4f185eb31585fb45dc2af6",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "85e32c811409d2eb9e847a680dba11e32c890b1d9ee90c37d4822ade29a40cf8",
+          "prior_state_hash": "c818822c3074b28e9c0d6f11873ccd4e51fd60cd8af839a52a9595a619cfe02e",
+          "probe_id": "command_authority",
+          "probe_type": "command_authority",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 3,
+          "semantic_evidence_hash": "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "74bc36d052c5ca31b51fb787c235b038a8b0e0ad8cff6ecb30013c8f090eff84",
+          "board_state_hash": "10b89da46a3451307709da4c281f84a012b37cbff3c365a47248a6f1fe93bc70",
+          "custody_verification": "PASS",
+          "event_hash": "c93621ae9ae2b4637cec44dd793ed99047c161b2368084aed3f2afce77a76431",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "9b28f313157bec8863d6e7f3c4cb6421a5862c5bd765358a2866f3e3315693a5",
+          "prior_state_hash": "85e32c811409d2eb9e847a680dba11e32c890b1d9ee90c37d4822ade29a40cf8",
+          "probe_id": "target_identity",
+          "probe_type": "target_identity",
+          "refuted_hypotheses": [],
+          "registry_generation": 4,
+          "semantic_evidence_hash": "25d22e51a718b932c1158fc91a75450148648da5de59360c470ee637ea6abd56",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "0bbeaf274135da7080286b76800bbd670e594f887a57ed1089e268799435c956",
+          "board_state_hash": "026387022926757599bf7fabc4d6f51114e3277c158ea0778b3ffc0b9c2b0bfa",
+          "custody_verification": "PASS",
+          "event_hash": "27bfa9de88be1642024c4bd36e7b67b573eb6dab7028eb61adb8e0e316185115",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "68f895e3994563b94cc9a5c86481679fa8fbf9fb286862ca5006e284d2325053",
+          "prior_state_hash": "9b28f313157bec8863d6e7f3c4cb6421a5862c5bd765358a2866f3e3315693a5",
+          "probe_id": "harness_origin",
+          "probe_type": "harness_origin",
+          "refuted_hypotheses": [
+            "harness_owned"
+          ],
+          "registry_generation": 5,
+          "semantic_evidence_hash": "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "12187fa7fb10166a288485d7988f9db7581eb26fe53da9075eb1e41f509c74c4",
+          "board_state_hash": "d79163a14e0c046ca0e42441127d488afbd749e8e83c5a24c95f4f9efa239bae",
+          "custody_verification": "PASS",
+          "event_hash": "785032ee1ea48d20c4e5299195ea9e86f693f127738a2060baf7a3ea9a11db7d",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "ccdeb355d52fab7055b727bd8dd1b3f266acd1aeec2f39e00d40b25394174c3b",
+          "prior_state_hash": "68f895e3994563b94cc9a5c86481679fa8fbf9fb286862ca5006e284d2325053",
+          "probe_id": "failure_contract",
+          "probe_type": "failure_contract",
+          "refuted_hypotheses": [],
+          "registry_generation": 6,
+          "semantic_evidence_hash": "c50bedac81b8ada374b993a3ccc625276bd3065b82cf0333dea9349e42b20f17",
+          "semantic_fact": false,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "9f9e8f7b980044a3056970978b867a6863c851340245d9dc19d6ad667c5ac2e2",
+          "board_state_hash": "d2989d0b6025646d4a4ba06711c47bff19be56fae56ce469959de8500840bb8f",
+          "custody_verification": "PASS",
+          "event_hash": "cb529783db998082e26c256778eb15a6f9572c5e06e396a43b39eb2f4319d7d5",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "02ca83fc1ecd3bcdc99b40bcc37ebcca95f919ba04128187f8eb5d46dd87e9ff",
+          "prior_state_hash": "ccdeb355d52fab7055b727bd8dd1b3f266acd1aeec2f39e00d40b25394174c3b",
+          "probe_id": "ast_call_graph",
+          "probe_type": "ast_call_graph",
+          "refuted_hypotheses": [],
+          "registry_generation": 7,
+          "semantic_evidence_hash": "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [
+            "source_owned_behavior_defect"
+          ],
+          "unchanged_hypotheses": [
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        },
+        {
+          "authorization_id": "dfa582563d2a418cdef22dc745030fb32749f974930e7500a2163e266d619010",
+          "board_state_hash": "f83d9b2f695ee055d4d970b6a1481afb312daafd4a5f485daba9a04f69f3a73e",
+          "custody_verification": "PASS",
+          "event_hash": "b606acec3dffffd26483d0487ad7eaaf6f4cff689f89bfbe26732be603d62098",
+          "executor_id": "batch076_generic_causal_probe",
+          "input_evidence_hashes": [
+            "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047",
+            "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59"
+          ],
+          "likelihood_basis": "DETERMINISTIC_CONTRACT",
+          "observation_class": "DETERMINISTIC_CAUSAL_FACT",
+          "operation_status": "PASS",
+          "posterior_state_hash": "6e7da01f6427575bfa54719b9105ac1fd52404e4c327b6dd39cf3ccde184760b",
+          "prior_state_hash": "02ca83fc1ecd3bcdc99b40bcc37ebcca95f919ba04128187f8eb5d46dd87e9ff",
+          "probe_id": "rollback_and_proof",
+          "probe_type": "rollback_and_proof",
+          "refuted_hypotheses": [],
+          "registry_generation": 8,
+          "semantic_evidence_hash": "e38a3ea092a70cf4d729baf649dd096b75435d8d23a235b6707e95849770a28b",
+          "semantic_fact": true,
+          "semantic_verification": "PASS",
+          "supported_hypotheses": [],
+          "unchanged_hypotheses": [
+            "source_owned_behavior_defect",
+            "environment_owned",
+            "test_expectation_fragility",
+            "interpreter_behavior_change",
+            "harness_owned",
+            "resource_timeout",
+            "mixed_failure",
+            "insufficient_evidence"
+          ]
+        }
+      ],
+      "patch_authority": false,
+      "posterior": {
+        "hypotheses": {
+          "environment_owned": {
+            "evidence_refutation": [
+              "76241c09f0b14d8366fb997a9e6838b106fb9a4430264363537a9979035d6688"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.2608695652173913,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "harness_owned": {
+            "evidence_refutation": [
+              "a35476500b84ca5b468cb164b21bd31f04c943908dbbd93c51fbd510b31097bc",
+              "ac82345824cfef4572be17a5686e3a6110d4f24b8027f72d7f8829da9c46dc12"
+            ],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.0,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "REFUTED"
+          },
+          "insufficient_evidence": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.13793103448275865,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.08695652173913045,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "interpreter_behavior_change": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1724137931034483,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "mixed_failure": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1724137931034483,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "resource_timeout": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1724137931034483,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          },
+          "source_owned_behavior_defect": {
+            "evidence_refutation": [],
+            "evidence_support": [
+              "d318e0d613821f64d4f7db917e179617f066bcb532286ad4b612221ebb45b4ef",
+              "38f9d1a91b3e901c6c177ee6dbf80c04fc03e64febab0d43cb83a5fafb06abea"
+            ],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1724137931034483,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "SUPPORTED"
+          },
+          "test_expectation_fragility": {
+            "evidence_refutation": [],
+            "evidence_support": [],
+            "last_update": "PRESERVED_WITHOUT_APPLICABLE_EVIDENCE",
+            "posterior_value": 0.1724137931034483,
+            "prior_classification": "SHUFFLED_MEMORY_CONTROL",
+            "prior_value": 0.10869565217391305,
+            "reopen_conditions": [
+              "new_verified_evidence"
+            ],
+            "state": "OPEN"
+          }
+        },
+        "memory_condition": "SHUFFLED_MEMORY_CONTROL",
+        "state_hash": "6e7da01f6427575bfa54719b9105ac1fd52404e4c327b6dd39cf3ccde184760b"
+      },
+      "posterior_updates": [
+        {
+          "entropy_after": 2.9001403722466925,
+          "entropy_before": 2.9001403722466925,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "94af95dde966dd67ca806899c66f19e326627f9f84c13e20e6c92fabe671297c",
+          "probe_id": "source_identity"
+        },
+        {
+          "entropy_after": 2.8034086398791374,
+          "entropy_before": 2.9001403722466925,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "c818822c3074b28e9c0d6f11873ccd4e51fd60cd8af839a52a9595a619cfe02e",
+          "probe_id": "provider_lock_integrity"
+        },
+        {
+          "entropy_after": 2.5804567753970877,
+          "entropy_before": 2.8034086398791374,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "85e32c811409d2eb9e847a680dba11e32c890b1d9ee90c37d4822ade29a40cf8",
+          "probe_id": "command_authority"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970877,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "9b28f313157bec8863d6e7f3c4cb6421a5862c5bd765358a2866f3e3315693a5",
+          "probe_id": "target_identity"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970873,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "68f895e3994563b94cc9a5c86481679fa8fbf9fb286862ca5006e284d2325053",
+          "probe_id": "harness_origin"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970873,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "ccdeb355d52fab7055b727bd8dd1b3f266acd1aeec2f39e00d40b25394174c3b",
+          "probe_id": "failure_contract"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970873,
+          "informative": true,
+          "noninformative_preservation": false,
+          "posterior_state_hash": "02ca83fc1ecd3bcdc99b40bcc37ebcca95f919ba04128187f8eb5d46dd87e9ff",
+          "probe_id": "ast_call_graph"
+        },
+        {
+          "entropy_after": 2.5804567753970873,
+          "entropy_before": 2.5804567753970873,
+          "informative": false,
+          "noninformative_preservation": true,
+          "posterior_state_hash": "6e7da01f6427575bfa54719b9105ac1fd52404e4c327b6dd39cf3ccde184760b",
+          "probe_id": "rollback_and_proof"
+        }
+      ],
+      "probe_events": [
+        {
+          "authorization_hash": "bca95722d56b66b11e7cd4bc8ab0927e5d61b9854fd8fc7ffd82fc18114db8f9",
+          "board_hash": "62dbf9152d89c7e7cb44f32bbea8e6dd0fb17426579956755ee4fffdc3a6c5c7",
+          "event_hash": "3c1110c68b877b9392c20fd5e359ddb63d77568be79c9e40126170264e72bd9a",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "511bbe399e9b18a2573719a18f342616abd6b16778c2cc0367bcffcdff7c30ad",
+          "parent_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "probe_id": "source_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.096087+00:00"
+        },
+        {
+          "authorization_hash": "4709d1d7889ab1f8c46c8df024cf9fcef778b2cc9a109d17427f0f22f67686bf",
+          "board_hash": "e9bf7bcf7461638bf90388179bc19007be410626d61abc9cdcceed5cb393e8b5",
+          "event_hash": "cd82c78889308e27c86662ab1ac765a0dc7236c83756d6d2a1ae77efe0173e4d",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "73553fee70956a4b7d5912207b1471874ab5c257441995a0e1d11222b6b974a4",
+          "parent_event_hash": "3c1110c68b877b9392c20fd5e359ddb63d77568be79c9e40126170264e72bd9a",
+          "probe_id": "provider_lock_integrity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.096435+00:00"
+        },
+        {
+          "authorization_hash": "9166053ee6f07429599a0c9d39e0244d733c79960cbfa6fc75eb1e4a22546095",
+          "board_hash": "155bc0550bcb9885b9a8230a6f1aeb10352f9a00ebe322361bfc0ba549a2caaf",
+          "event_hash": "160781ece1b9a94f3f679a829c96da882c0053fa0a4f185eb31585fb45dc2af6",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "033203133bafc28c160225c672b0ba88ed11ec1f9b61cd50c1c466af31bb09e3",
+          "parent_event_hash": "cd82c78889308e27c86662ab1ac765a0dc7236c83756d6d2a1ae77efe0173e4d",
+          "probe_id": "command_authority",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.096763+00:00"
+        },
+        {
+          "authorization_hash": "74bc36d052c5ca31b51fb787c235b038a8b0e0ad8cff6ecb30013c8f090eff84",
+          "board_hash": "10b89da46a3451307709da4c281f84a012b37cbff3c365a47248a6f1fe93bc70",
+          "event_hash": "c93621ae9ae2b4637cec44dd793ed99047c161b2368084aed3f2afce77a76431",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "2947cf222e7d072ace25dd36c849a6a2f78dfa27712cbcdf0785c28c1c791fa8",
+          "parent_event_hash": "160781ece1b9a94f3f679a829c96da882c0053fa0a4f185eb31585fb45dc2af6",
+          "probe_id": "target_identity",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.097279+00:00"
+        },
+        {
+          "authorization_hash": "0bbeaf274135da7080286b76800bbd670e594f887a57ed1089e268799435c956",
+          "board_hash": "026387022926757599bf7fabc4d6f51114e3277c158ea0778b3ffc0b9c2b0bfa",
+          "event_hash": "27bfa9de88be1642024c4bd36e7b67b573eb6dab7028eb61adb8e0e316185115",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "ddea35d5aebbebc292e632e24a646ef9c58094e39e6834236af459207cda11ee",
+          "parent_event_hash": "c93621ae9ae2b4637cec44dd793ed99047c161b2368084aed3f2afce77a76431",
+          "probe_id": "harness_origin",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.097779+00:00"
+        },
+        {
+          "authorization_hash": "12187fa7fb10166a288485d7988f9db7581eb26fe53da9075eb1e41f509c74c4",
+          "board_hash": "d79163a14e0c046ca0e42441127d488afbd749e8e83c5a24c95f4f9efa239bae",
+          "event_hash": "785032ee1ea48d20c4e5299195ea9e86f693f127738a2060baf7a3ea9a11db7d",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "fe7ae835de8910ce825852eadfd3b1813870b3f770b33a93aa1d5c8fd3f70135",
+          "parent_event_hash": "27bfa9de88be1642024c4bd36e7b67b573eb6dab7028eb61adb8e0e316185115",
+          "probe_id": "failure_contract",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.098244+00:00"
+        },
+        {
+          "authorization_hash": "9f9e8f7b980044a3056970978b867a6863c851340245d9dc19d6ad667c5ac2e2",
+          "board_hash": "d2989d0b6025646d4a4ba06711c47bff19be56fae56ce469959de8500840bb8f",
+          "event_hash": "cb529783db998082e26c256778eb15a6f9572c5e06e396a43b39eb2f4319d7d5",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "21496458579ae081bece06c32d3d94d200c3f31ac5f178fdcf7f4e681938382d",
+          "parent_event_hash": "785032ee1ea48d20c4e5299195ea9e86f693f127738a2060baf7a3ea9a11db7d",
+          "probe_id": "ast_call_graph",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.098763+00:00"
+        },
+        {
+          "authorization_hash": "dfa582563d2a418cdef22dc745030fb32749f974930e7500a2163e266d619010",
+          "board_hash": "f83d9b2f695ee055d4d970b6a1481afb312daafd4a5f485daba9a04f69f3a73e",
+          "event_hash": "b606acec3dffffd26483d0487ad7eaaf6f4cff689f89bfbe26732be603d62098",
+          "event_type": "probe_execution",
+          "executor_id": "batch076_generic_causal_probe",
+          "nonce": "6a4e9d4bae3bb5eeeb12524a44a6d91f8765ed2d0b35fcbb46704b22ff9f81ff",
+          "parent_event_hash": "cb529783db998082e26c256778eb15a6f9572c5e06e396a43b39eb2f4319d7d5",
+          "probe_id": "rollback_and_proof",
+          "replay_reason": null,
+          "timestamp": "2026-07-13T02:22:17.099108+00:00"
+        }
+      ],
+      "raw_observation_count": 8,
+      "registry_sequence": [
+        "source_identity",
+        "provider_lock_integrity",
+        "command_authority",
+        "target_identity",
+        "harness_origin",
+        "failure_contract",
+        "ast_call_graph",
+        "rollback_and_proof"
+      ],
+      "rejected_observation_count": 0,
+      "repeated_probe_rejections": 0,
+      "spent_nonces": [
+        "033203133bafc28c160225c672b0ba88ed11ec1f9b61cd50c1c466af31bb09e3",
+        "21496458579ae081bece06c32d3d94d200c3f31ac5f178fdcf7f4e681938382d",
+        "2947cf222e7d072ace25dd36c849a6a2f78dfa27712cbcdf0785c28c1c791fa8",
+        "511bbe399e9b18a2573719a18f342616abd6b16778c2cc0367bcffcdff7c30ad",
+        "6a4e9d4bae3bb5eeeb12524a44a6d91f8765ed2d0b35fcbb46704b22ff9f81ff",
+        "73553fee70956a4b7d5912207b1471874ab5c257441995a0e1d11222b6b974a4",
+        "ddea35d5aebbebc292e632e24a646ef9c58094e39e6834236af459207cda11ee",
+        "fe7ae835de8910ce825852eadfd3b1813870b3f770b33a93aa1d5c8fd3f70135"
+      ],
+      "status": "PASS",
+      "strategy": "FIXED_LEGAL_ORDER",
+      "unique_probe_ratio": 1.0
+    }
+  ],
+  "rejected_observations": 0,
+  "spent_nonces": 48,
+  "status": "PASS"
+}

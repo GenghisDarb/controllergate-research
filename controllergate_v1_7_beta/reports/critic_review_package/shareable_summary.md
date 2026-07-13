@@ -1,5 +1,11 @@
 # ControllerGate shareable summary
 
+## Batch076 AMDS causal evidence and routing-memory calibration
+
+Batch076 independently verifies the official Batch075 artifact and preserves its raw records while applying stricter evidence contracts. Fourteen of 24 historical observations satisfy the new complete-observation contract, ten null observations are rejected, and all 24 historical posterior maps are non-informative. Official workflow provider hashes remain authoritative over different local reconstructions.
+
+HordeForge's empty-output timeout is quarantined as a resource boundary and cannot authorize source repair. CogniCore alone enters a corrected six-arm comparison spanning AMDS/fixed-order strategies and real/no/shuffled memory conditions. All 48 probes have complete observations, event records, and single-use nonces. The nine-record proof-bound routing-memory corpus changes probe order but produces no measured accuracy or probe-count benefit. No patch is licensed; issue-derived and native repair counts remain 5 and 4. AMDS causal evidence is hardened, prospective effectiveness remains `NOT_ESTABLISHED`, memory lift remains `not_demonstrated`, full scoring remains disallowed, and self-maintaining software remains undemonstrated.
+
 ## Batch075 provider harness and prospective Wave 1A
 
 Batch075 verifies the manually supplied Batch074 artifact and preserves the validated v2.19/count-five boundary. Its generic provider harness uses short content-addressed workspaces, isolated writable package-build copies, immutable execution views, target-informed extras, and hash-locked provider stores reused across fresh network-disabled environments.

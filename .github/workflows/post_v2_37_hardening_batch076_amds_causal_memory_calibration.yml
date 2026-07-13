@@ -1,0 +1,105 @@
+name: post_v2_37_hardening_batch076_amds_causal_memory_calibration
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  batch076:
+    name: Batch076 AMDS causal evidence and routing-memory calibration
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+      GH_TOKEN: ${{ github.token }}
+      CONTROLLERGATE_RUNTIME_ROOT: /tmp/controllergate-batch076-runtime
+      CONTROLLERGATE_SHORT_RUNTIME_ROOT: /tmp/cgr
+    steps:
+      - name: Checkout ControllerGate
+        uses: actions/checkout@v4
+      - name: Verify workflow head
+        shell: bash
+        run: test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install ControllerGate test dependencies
+        run: python -m pip install pytest packaging
+      - name: Run byte custody preflight
+        run: python scripts/byte_custody_preflight.py
+      - name: Verify committed Batch075 ingest boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("outputs/post_v2_37_hardening_batch076_amds_causal_memory_calibration/batch075_artifact_ingest.json")
+          value = json.loads(p.read_text(encoding="utf-8"))
+          assert value["status"] == "PASS"
+          assert value["observed_sha256"] == "0ec3b1da7452e21662275b97ca804d486965805e9efa1e09663425101c2c3c2a"
+          PY
+      - name: Execute Batch076 causal calibration
+        run: python scripts/generate_batch076_amds_causal_memory_calibration.py
+      - name: Run focused Batch076 tests
+        run: python -m pytest tests/runtime/test_batch076_failure_amds_contracts.py tests/runtime/test_batch076_causal_memory_calibration.py -q
+      - name: Run complete core and runtime suites
+        run: python -m pytest tests/core tests/runtime -q
+      - name: Run registry and registered regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_external_candidate_registry.py
+          python scripts/run_controllergate_regression_audits.py --registry configs/controllergate_regression_audit_registry.json
+      - name: Run Batch076 and protocol audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_batch076_amds_causal_memory_calibration.py
+          python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
+          python scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py
+          python scripts/audit_batch073_count5_revalidation_frozen_wave1.py
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/controllergate_frontier.py validate
+      - name: Verify public language and compact evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/audit_public_language.py
+          test "$(find outputs/post_v2_37_hardening_batch076_amds_causal_memory_calibration -type f | wc -l)" -le 80
+          git diff --check
+      - name: Stage compact artifact payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/stage_controllergate_artifact.py \
+            --destination "$RUNNER_TEMP/controllergate_artifact" \
+            --source "outputs/post_v2_37_hardening_batch076_amds_causal_memory_calibration" \
+            --source "outputs/post_v2_37_hardening_batch075_provider_harness_amds_memory_wave1a" \
+            --source "outputs/post_v2_37_hardening_batch074_sterile_high_yield_amds_memory_wave1" \
+            --source "outputs/post_v2_37_hardening_batch073_count5_revalidation_frozen_wave1" \
+            --source "outputs/current" \
+            --source "outputs/frontier" \
+            --source "README.md" \
+            --source "docs/current_status.md" \
+            --source "docs/CURRENT_FRONTIER_STATUS.md" \
+            --source "docs/capability_inventory.md" \
+            --source "controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md" \
+            --source "configs/controllergate_current.yaml"
+          if find "$RUNNER_TEMP/controllergate_artifact" -type f \( -name '*.pyc' -o -name '*.pyo' -o -name '*.whl' -o -name '*.zip' -o -name '*.tar' -o -name '*.tgz' \) | grep -q .; then exit 1; fi
+          if find "$RUNNER_TEMP/controllergate_artifact" -type d \( -name '__pycache__' -o -name '.venv' -o -name 'venv' \) | grep -q .; then exit 1; fi
+          test -f "$RUNNER_TEMP/controllergate_artifact/ARTIFACT_SHA256SUMS.txt"
+      - name: Upload Batch076 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch076_amds_causal_memory_calibration_artifacts
+          path: ${{ runner.temp }}/controllergate_artifact/**
+          if-no-files-found: error

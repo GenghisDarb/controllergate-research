@@ -1,0 +1,68 @@
+{
+  "arms_sealed_before_adjudication": true,
+  "memory_labels_available": false,
+  "records": [
+    {
+      "accepted_evidence": [
+        "duplicate_nonempty_candidate_failure",
+        "candidate_source_import_interlock",
+        "provider_integrity"
+      ],
+      "adjudicator_blinded": true,
+      "candidate_id": "prospective_cognicore_dev_cognicore_my_openenv_issue_75",
+      "causal_chain": [
+        "native target",
+        "candidate source import",
+        "observed assertion"
+      ],
+      "classification": "insufficient_evidence",
+      "confidence_class": "bounded_moderate",
+      "conflicting_evidence": [],
+      "evidence_hashes": [
+        "8d9e19f7e4a645d7c7c28083f4b97040086f2972e71441b070c23e4a47f47a59",
+        "25bd79d2cf2c19edf0753ef4349d44b013afc1f93b80fee0497e43aebe4d8047"
+      ],
+      "manual_review_required": true,
+      "rejected_evidence": [
+        "arm_strategy_labels",
+        "memory_labels",
+        "patch_outcomes"
+      ],
+      "reopen_conditions": [
+        "independent source-level replay"
+      ]
+    },
+    {
+      "accepted_evidence": [
+        "timeout_stage_registry",
+        "thread_and_process_capture"
+      ],
+      "adjudicator_blinded": true,
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "causal_chain": [
+        "native target",
+        "bounded timeout",
+        "INSUFFICIENT_EVIDENCE"
+      ],
+      "classification": "resource_timeout",
+      "confidence_class": "bounded_low",
+      "conflicting_evidence": [
+        "direct invocation fixture inputs unavailable"
+      ],
+      "evidence_hashes": [
+        "3623d2685c02b698c339487c354c0e08438bd44d5aea0255bb56c3e5b860c22c",
+        "a7580ad7208e155fef9054a68436c73f68acdbcc492845f078f34f5f077bcd51"
+      ],
+      "manual_review_required": true,
+      "rejected_evidence": [
+        "empty_output_hash_as_candidate_signature",
+        "arm_labels"
+      ],
+      "reopen_conditions": [
+        "official provider-store direct invocation with fixture-derived inputs"
+      ]
+    }
+  ],
+  "status": "PASS",
+  "strategy_labels_available": false
+}

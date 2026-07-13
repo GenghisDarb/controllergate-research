@@ -20,6 +20,8 @@ Batch074 completes local recovery of the reusable intake engine with synthetic f
 
 Batch075 verifies and ingests the manually supplied Batch074 workflow artifact, completes the generic provider harness, and executes the two manually reviewed public candidates sequentially. CogniCore and HordeForge each collect one exact node and reproduce an equivalent nonzero result in two fresh network-disabled environments using the same hash-locked provider store. Eight isolated diagnostic arms then execute 24 independently verified probes. Blinded adjudication remains `insufficient_evidence` for both candidates, so no patch is licensed and no repair count changes. This is descriptive Wave-1A evidence only; it does not establish generalized AMDS effectiveness or memory lift.
 
+Batch076 independently verifies and ingests the official Batch075 artifact, then hardens its evidence contracts without rewriting Batch075 history. Under observation contract v2, 14 of Batch075's 24 raw probe records are valid and 10 null records are rejected; all 24 historical posterior maps are non-informative. The official workflow provider hashes remain authoritative over differing local reconstructions. CogniCore retains bounded candidate-failure evidence, while HordeForge's empty-output timeout is quarantined as a resource boundary and cannot authorize a patch. A proof-bound nine-record routing-memory corpus is evaluated across six isolated real-memory, no-memory, and shuffled-memory arms with 48 accepted probes, 48 events, and 48 single-use nonces. The measured result is `DEMONSTRATED_NO_EFFECT`: AMDS causal evidence is hardened, prospective effectiveness remains `NOT_ESTABLISHED`, and no repair is licensed.
+
 - Confirmed issue-derived repair episodes: `5`.
 - Confirmed native external repair episodes: `4`.
 - Runtime connectors and live-device repair: inactive.
@@ -41,10 +43,12 @@ Batch075 verifies and ingests the manually supplied Batch074 workflow artifact, 
 - v2.19 live authorization and deterministic-provider demonstration: `PASS`.
 - Prospective Wave 1: `EXECUTED_EMPTY_COHORT`; all 20 frozen leads received terminal dispositions and no diagnostic or repair arm executed.
 - Batch074 recovery: `LOCAL_IMPLEMENTATION_RECOVERY_COMPLETE`; external execution: `DEFERRED_TO_MANUALLY_REVIEWED_BATCH075`.
-- Batch075 provider harness: `PASS`; admitted duplicate-failure candidates: `2`.
-- Batch075 diagnostic execution: `8` isolated arms and `24` verified probes; blinded classifications: `insufficient_evidence` for both candidates.
-- Batch075 authoritative repair: `NOT_RUN_NO_SOURCE_OWNED_CANDIDATE`.
-- Next safe action: manually verify and ingest the official Batch075 workflow artifact after its successful run.
+- Batch075 artifact custody: `PASS`; raw historical evidence preserved.
+- Batch076 corrected Batch075 depth: `14` accepted observations, `10` rejected null observations, and `0` informative historical posterior updates.
+- Batch076 causal calibration: `6` isolated arms, `48` accepted probes, `48` events, and `48` spent nonces.
+- HordeForge corrected admission: `QUARANTINED_RESOURCE_TIMEOUT`; patch authority: `false`.
+- Batch076 authoritative repair: `NOT_RUN_NO_SAFE_GENERIC_PATCH_PLAN`.
+- Next safe action: manually verify and ingest the successful Batch076 workflow artifact.
 - AMDS prospective effectiveness: `NOT_ESTABLISHED`.
 - Full scoring: `NOT_RUN/disallowed`.
 - Memory lift: `not_demonstrated`.

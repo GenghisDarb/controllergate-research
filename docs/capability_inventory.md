@@ -2,6 +2,18 @@
 
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
+## Batch076 causal evidence and routing-memory calibration
+
+- Official Batch075 artifact custody: exact size, SHA256, path safety, duplicate-path safety, and all nested manifests independently verified.
+- Failure contract v2: distinguishes candidate-code failure, environment or harness boundary, timeout, signal, empty output, and non-reproduction.
+- Observation contract v2: rejects null and custody-incomplete observations; Batch075 reconciliation accepts 14 of 24 raw records.
+- Posterior state v3: initializes explicit hypotheses, preserves non-informative observations, and prevents empty maps from being treated as updates.
+- Probe execution ledger: enforces one authorization, one execution event, and one spent nonce per accepted probe.
+- Routing-memory corpus v1: nine anonymized, proof-bound topology records with patch content and outcome leakage excluded.
+- Causal comparison: six isolated real-memory, no-memory, and shuffled-memory arms; 48 accepted observations; measured effect `DEMONSTRATED_NO_EFFECT`.
+- HordeForge timeout handling: `QUARANTINED_RESOURCE_TIMEOUT`; no source-patch authority.
+- Claim boundary: AMDS prospective effectiveness `NOT_ESTABLISHED`, memory lift `not_demonstrated`, full scoring `NOT_RUN/disallowed`, self-maintaining software `false/not_demonstrated`.
+
 ## Batch075 provider-harness and prospective diagnostic capabilities
 
 - Short content-addressed workspaces, Windows path-length preflight, isolated writable build copies, and immutable execution views: implemented and unit-tested.
