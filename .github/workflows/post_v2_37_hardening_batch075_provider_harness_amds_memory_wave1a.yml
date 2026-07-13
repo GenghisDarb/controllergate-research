@@ -15,8 +15,8 @@ jobs:
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
       GH_TOKEN: ${{ github.token }}
-      CONTROLLERGATE_RUNTIME_ROOT: ${{ runner.temp }}/controllergate-batch075-runtime
-      CONTROLLERGATE_SHORT_RUNTIME_ROOT: ${{ runner.temp }}/cgr
+      CONTROLLERGATE_RUNTIME_ROOT: /tmp/controllergate-batch075-runtime
+      CONTROLLERGATE_SHORT_RUNTIME_ROOT: /tmp/cgr
     steps:
       - name: Checkout ControllerGate
         uses: actions/checkout@v4
