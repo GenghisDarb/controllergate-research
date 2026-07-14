@@ -1,0 +1,106 @@
+{
+  "no_patch_substitution": true,
+  "records": [
+    {
+      "byte_bound_historical_provider_artifact_available": false,
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "expected_patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+      "expected_source_sha": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+      "historical_duplicate_outcome_verified": true,
+      "observed_patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+      "patch_identity_matches": true,
+      "patch_path": "outputs/post_v2_37_hardening_batch060d_cloudpickle_class_dict_patch_gate_with_amds_health_review/cloudpickle_class_dict_source_only_patch_candidate.diff",
+      "provider_record": "outputs/post_v2_37_hardening_batch061_duplicate_clean_replay_count_gate_cloudpickle_wave_3/duplicate_provider_runtime_result.json",
+      "provider_record_present": true,
+      "provider_record_sha256": "3ac502c8443fa4c2019d2021d37e2eb4b78100623210af09c26771774c40280a",
+      "repo_url": "https://github.com/cloudpipe/cloudpickle",
+      "source_acquisition": {
+        "checkout": {
+          "command": [
+            "git",
+            "checkout",
+            "--detach",
+            "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6"
+          ],
+          "cwd": "/home/runner/work/_temp/controllergate-runtime/cloudpickle_507_py313_typevar_distutils/source",
+          "log_sha256": "58acd96da615c42abf481b68f8023223ab64a608197ac0af7a3e2d206a5f0b00",
+          "log_tail": "HEAD is now at a76f081 use SPDX license identifier in setup.py (#503)\n",
+          "returncode": 0
+        },
+        "clone": {
+          "command": [
+            "git",
+            "clone",
+            "--filter=blob:none",
+            "--no-checkout",
+            "https://github.com/cloudpipe/cloudpickle",
+            "/home/runner/work/_temp/controllergate-runtime/cloudpickle_507_py313_typevar_distutils/source"
+          ],
+          "cwd": null,
+          "log_sha256": "3b0a09d1721111c573a154e48e26090325f99ccf5086ee012a5baf02dc0a6c34",
+          "log_tail": "Cloning into '/home/runner/work/_temp/controllergate-runtime/cloudpickle_507_py313_typevar_distutils/source'...\n",
+          "returncode": 0
+        },
+        "exact_blocker": null,
+        "head": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+        "status": "PASS",
+        "workspace": "/home/runner/work/_temp/controllergate-runtime/cloudpickle_507_py313_typevar_distutils/source"
+      },
+      "source_record": "outputs/post_v2_37_hardening_batch061_duplicate_clean_replay_count_gate_cloudpickle_wave_3/duplicate_commit_verification.json",
+      "source_record_matches": true,
+      "source_record_sha256": "54926544339e1fe5aa8e5a2071c7aa5dbde57887de97ebe6bbdab96cbb497caa",
+      "status": "PASS"
+    },
+    {
+      "byte_bound_historical_provider_artifact_available": false,
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "expected_patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
+      "expected_source_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "historical_duplicate_outcome_verified": true,
+      "observed_patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
+      "patch_identity_matches": true,
+      "patch_path": "outputs/post_v2_37_hardening_batch064_freezegun_source_only_patch_gate/freezegun_source_only_patch_candidate.diff",
+      "provider_record": "outputs/post_v2_37_hardening_batch065_duplicate_clean_replay_count_gate_freezegun/duplicate_provider_runtime_result.json",
+      "provider_record_present": true,
+      "provider_record_sha256": "86f890d1bbf0907db7aaa64358518d50d3e58748f7243ac5e85fa27ceeddf4e3",
+      "repo_url": "https://github.com/spulec/freezegun",
+      "source_acquisition": {
+        "checkout": {
+          "command": [
+            "git",
+            "checkout",
+            "--detach",
+            "df263dcec48f43154a5873eb0dff2d4ba94374da"
+          ],
+          "cwd": "/home/runner/work/_temp/controllergate-runtime/freezegun_547_py313_datetimes_assertion/source",
+          "log_sha256": "b22cf52024c02c66a650b97ea921ed5b2d3048a3e17d676162112125f560aa97",
+          "log_tail": "HEAD is now at df263dc Extend type checking\n",
+          "returncode": 0
+        },
+        "clone": {
+          "command": [
+            "git",
+            "clone",
+            "--filter=blob:none",
+            "--no-checkout",
+            "https://github.com/spulec/freezegun",
+            "/home/runner/work/_temp/controllergate-runtime/freezegun_547_py313_datetimes_assertion/source"
+          ],
+          "cwd": null,
+          "log_sha256": "97f4146d8373b8108ed1588aead86e8eef3d03bf6930b03bd0963e3345a5dd5a",
+          "log_tail": "Cloning into '/home/runner/work/_temp/controllergate-runtime/freezegun_547_py313_datetimes_assertion/source'...\n",
+          "returncode": 0
+        },
+        "exact_blocker": null,
+        "head": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+        "status": "PASS",
+        "workspace": "/home/runner/work/_temp/controllergate-runtime/freezegun_547_py313_datetimes_assertion/source"
+      },
+      "source_record": "outputs/post_v2_37_hardening_batch065_duplicate_clean_replay_count_gate_freezegun/duplicate_commit_verification.json",
+      "source_record_matches": true,
+      "source_record_sha256": "5b7f8f212375e19bdabd9c64c9ac510d49bace96c7b4629015724cb3d368a7ba",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

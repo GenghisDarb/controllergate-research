@@ -1,0 +1,45 @@
+{
+  "non_source_divergence_cannot_license_patch": true,
+  "records": [
+    {
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "direct_frames": {
+        "environment": [],
+        "harness": [
+          "same-container output did not independently localize source ownership"
+        ],
+        "provider": [],
+        "source": []
+      },
+      "divergence_index": 3,
+      "first_divergent_event": {
+        "incident": "BLOCKED_EXACT_WITH_NEW_EVIDENCE",
+        "normal": "expected-output"
+      },
+      "last_shared_valid_event": "target",
+      "patch_authorized": false,
+      "terminal_divergence_class": "HARNESS_OWNED_OUTPUT_DIVERGENCE"
+    },
+    {
+      "candidate_id": "incident_poetry_10974_init_duplicate_name",
+      "direct_frames": {
+        "environment": [
+          "paired differential remained environment-sensitive or incomplete"
+        ],
+        "harness": [],
+        "provider": [],
+        "source": []
+      },
+      "divergence_index": 3,
+      "first_divergent_event": {
+        "incident": "SINGLE_ENVIRONMENT_FACTOR_IDENTIFIED",
+        "normal": "expected-output"
+      },
+      "last_shared_valid_event": "target",
+      "patch_authorized": false,
+      "terminal_divergence_class": "ENVIRONMENT_OWNED_OUTPUT_DIVERGENCE"
+    }
+  ],
+  "source_owned_authorizations": 0,
+  "status": "PASS"
+}

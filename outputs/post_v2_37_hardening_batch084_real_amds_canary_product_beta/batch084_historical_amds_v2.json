@@ -1,0 +1,183 @@
+{
+  "episodes": [
+    {
+      "accepted_probes_per_arm": 6,
+      "candidate_id": "darker_issue_112_relative_git_dir",
+      "distinct_evidence_sources_per_arm": 6,
+      "episode_kind": "successful_repair",
+      "predictions": {
+        "FIXED_ORDER_BASELINE": "source_owned_behavior_defect",
+        "NO_MEMORY_AMDS": "source_owned_behavior_defect",
+        "REAL_MEMORY_AMDS": "source_owned_behavior_defect",
+        "SHUFFLED_MEMORY_AMDS": "source_owned_behavior_defect",
+        "STATELESS_NULL_WRAPPER": "source_owned_behavior_defect"
+      },
+      "repository_family": "akaihola/darker",
+      "safe_abstention": false,
+      "terminal_truth": "source_owned_behavior_defect",
+      "truth_revealed_after_all_arm_seals": true
+    },
+    {
+      "accepted_probes_per_arm": 6,
+      "candidate_id": "py_bugger_issue_65",
+      "distinct_evidence_sources_per_arm": 6,
+      "episode_kind": "successful_repair",
+      "predictions": {
+        "FIXED_ORDER_BASELINE": "source_owned_behavior_defect",
+        "NO_MEMORY_AMDS": "source_owned_behavior_defect",
+        "REAL_MEMORY_AMDS": "source_owned_behavior_defect",
+        "SHUFFLED_MEMORY_AMDS": "source_owned_behavior_defect",
+        "STATELESS_NULL_WRAPPER": "source_owned_behavior_defect"
+      },
+      "repository_family": "py-bugger/py-bugger",
+      "safe_abstention": false,
+      "terminal_truth": "source_owned_behavior_defect",
+      "truth_revealed_after_all_arm_seals": true
+    },
+    {
+      "accepted_probes_per_arm": 6,
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "distinct_evidence_sources_per_arm": 6,
+      "episode_kind": "successful_repair",
+      "predictions": {
+        "FIXED_ORDER_BASELINE": "source_owned_behavior_defect",
+        "NO_MEMORY_AMDS": "source_owned_behavior_defect",
+        "REAL_MEMORY_AMDS": "source_owned_behavior_defect",
+        "SHUFFLED_MEMORY_AMDS": "source_owned_behavior_defect",
+        "STATELESS_NULL_WRAPPER": "source_owned_behavior_defect"
+      },
+      "repository_family": "cloudpipe/cloudpickle",
+      "safe_abstention": false,
+      "terminal_truth": "source_owned_behavior_defect",
+      "truth_revealed_after_all_arm_seals": true
+    },
+    {
+      "accepted_probes_per_arm": 6,
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "distinct_evidence_sources_per_arm": 6,
+      "episode_kind": "successful_repair",
+      "predictions": {
+        "FIXED_ORDER_BASELINE": "source_owned_behavior_defect",
+        "NO_MEMORY_AMDS": "source_owned_behavior_defect",
+        "REAL_MEMORY_AMDS": "source_owned_behavior_defect",
+        "SHUFFLED_MEMORY_AMDS": "source_owned_behavior_defect",
+        "STATELESS_NULL_WRAPPER": "source_owned_behavior_defect"
+      },
+      "repository_family": "spulec/freezegun",
+      "safe_abstention": false,
+      "terminal_truth": "source_owned_behavior_defect",
+      "truth_revealed_after_all_arm_seals": true
+    },
+    {
+      "accepted_probes_per_arm": 6,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "distinct_evidence_sources_per_arm": 6,
+      "episode_kind": "safe_abstention",
+      "predictions": {
+        "FIXED_ORDER_BASELINE": "source_owned_behavior_defect",
+        "NO_MEMORY_AMDS": "source_owned_behavior_defect",
+        "REAL_MEMORY_AMDS": "source_owned_behavior_defect",
+        "SHUFFLED_MEMORY_AMDS": "source_owned_behavior_defect",
+        "STATELESS_NULL_WRAPPER": "source_owned_behavior_defect"
+      },
+      "repository_family": "beetbox/audioread",
+      "safe_abstention": true,
+      "terminal_truth": "provider_owned",
+      "truth_revealed_after_all_arm_seals": true
+    },
+    {
+      "accepted_probes_per_arm": 6,
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "distinct_evidence_sources_per_arm": 6,
+      "episode_kind": "safe_abstention",
+      "predictions": {
+        "FIXED_ORDER_BASELINE": "source_owned_behavior_defect",
+        "NO_MEMORY_AMDS": "source_owned_behavior_defect",
+        "REAL_MEMORY_AMDS": "source_owned_behavior_defect",
+        "SHUFFLED_MEMORY_AMDS": "source_owned_behavior_defect",
+        "STATELESS_NULL_WRAPPER": "source_owned_behavior_defect"
+      },
+      "repository_family": "pytest-dev/pytest",
+      "safe_abstention": true,
+      "terminal_truth": "environment_owned",
+      "truth_revealed_after_all_arm_seals": true
+    },
+    {
+      "accepted_probes_per_arm": 6,
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "distinct_evidence_sources_per_arm": 6,
+      "episode_kind": "safe_abstention",
+      "predictions": {
+        "FIXED_ORDER_BASELINE": "source_owned_behavior_defect",
+        "NO_MEMORY_AMDS": "source_owned_behavior_defect",
+        "REAL_MEMORY_AMDS": "source_owned_behavior_defect",
+        "SHUFFLED_MEMORY_AMDS": "source_owned_behavior_defect",
+        "STATELESS_NULL_WRAPPER": "source_owned_behavior_defect"
+      },
+      "repository_family": "OpenBB-finance/OpenBB",
+      "safe_abstention": true,
+      "terminal_truth": "harness_owned",
+      "truth_revealed_after_all_arm_seals": true
+    },
+    {
+      "accepted_probes_per_arm": 6,
+      "candidate_id": "incident_poetry_10974_init_duplicate_name",
+      "distinct_evidence_sources_per_arm": 6,
+      "episode_kind": "safe_abstention",
+      "predictions": {
+        "FIXED_ORDER_BASELINE": "source_owned_behavior_defect",
+        "NO_MEMORY_AMDS": "source_owned_behavior_defect",
+        "REAL_MEMORY_AMDS": "source_owned_behavior_defect",
+        "SHUFFLED_MEMORY_AMDS": "source_owned_behavior_defect",
+        "STATELESS_NULL_WRAPPER": "source_owned_behavior_defect"
+      },
+      "repository_family": "python-poetry/poetry",
+      "safe_abstention": true,
+      "terminal_truth": "network_or_transport_owned",
+      "truth_revealed_after_all_arm_seals": true
+    }
+  ],
+  "likelihood_status": "LIKELIHOOD_NOT_CALIBRATED",
+  "metrics": {
+    "FIXED_ORDER_BASELINE": {
+      "macro_ownership_accuracy": 0.5,
+      "micro_ownership_accuracy": 0.5,
+      "probe_count": 48
+    },
+    "NO_MEMORY_AMDS": {
+      "macro_ownership_accuracy": 0.5,
+      "micro_ownership_accuracy": 0.5,
+      "probe_count": 48
+    },
+    "REAL_MEMORY_AMDS": {
+      "macro_ownership_accuracy": 0.5,
+      "micro_ownership_accuracy": 0.5,
+      "probe_count": 48
+    },
+    "SHUFFLED_MEMORY_AMDS": {
+      "macro_ownership_accuracy": 0.5,
+      "micro_ownership_accuracy": 0.5,
+      "probe_count": 48
+    },
+    "STATELESS_NULL_WRAPPER": {
+      "macro_ownership_accuracy": 0.5,
+      "micro_ownership_accuracy": 0.5,
+      "probe_count": 48
+    },
+    "episode_count": 8,
+    "per_class_accuracy": {
+      "environment_owned": 0.0,
+      "harness_owned": 0.0,
+      "network_or_transport_owned": 0.0,
+      "provider_owned": 0.0,
+      "source_owned_behavior_defect": 1.0
+    },
+    "repository_family_count": 8,
+    "safe_abstention_accuracy": 0.0,
+    "terminal_class_count": 5,
+    "wrong_authorization_rate": 0.5
+  },
+  "retrospective_only": true,
+  "selection_method": "deterministic constraint elimination",
+  "status": "EXECUTED"
+}

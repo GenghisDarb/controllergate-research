@@ -1,0 +1,61 @@
+{
+  "candidate_id": "freezegun_547_py313_datetimes_assertion",
+  "diagnostic_targets": [],
+  "exact_blocker": "historical_canary_exact_provider_artifact_unavailable",
+  "execution_steps": {
+    "canary_slot": "NOT_RUN",
+    "duplicate_clean_replay": "NOT_RUN",
+    "health_window": "NOT_RUN",
+    "native_invariants": "NOT_RUN",
+    "patch_apply": "NOT_RUN",
+    "post_rollback_prepatch_replay": "NOT_RUN",
+    "prepatch_failure": "NOT_RUN",
+    "rollback": "NOT_RUN",
+    "target_validation": "NOT_RUN",
+    "workspace_disposal": "PASS"
+  },
+  "patch_identity": {
+    "matches": true,
+    "sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
+  },
+  "prepatch_target": "python -m pytest tests/test_datetimes.py -q --tb=no",
+  "provider_identity": {
+    "byte_artifact_available": false,
+    "record_present": true,
+    "record_sha256": "86f890d1bbf0907db7aaa64358518d50d3e58748f7243ac5e85fa27ceeddf4e3"
+  },
+  "repair_count_changed": false,
+  "source_identity": {
+    "checkout": {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "df263dcec48f43154a5873eb0dff2d4ba94374da"
+      ],
+      "cwd": "/home/runner/work/_temp/controllergate-runtime/freezegun_547_py313_datetimes_assertion/source",
+      "log_sha256": "b22cf52024c02c66a650b97ea921ed5b2d3048a3e17d676162112125f560aa97",
+      "log_tail": "HEAD is now at df263dc Extend type checking\n",
+      "returncode": 0
+    },
+    "clone": {
+      "command": [
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--no-checkout",
+        "https://github.com/spulec/freezegun",
+        "/home/runner/work/_temp/controllergate-runtime/freezegun_547_py313_datetimes_assertion/source"
+      ],
+      "cwd": null,
+      "log_sha256": "97f4146d8373b8108ed1588aead86e8eef3d03bf6930b03bd0963e3345a5dd5a",
+      "log_tail": "Cloning into '/home/runner/work/_temp/controllergate-runtime/freezegun_547_py313_datetimes_assertion/source'...\n",
+      "returncode": 0
+    },
+    "exact_blocker": null,
+    "head": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+    "status": "PASS",
+    "workspace": "/home/runner/work/_temp/controllergate-runtime/freezegun_547_py313_datetimes_assertion/source"
+  },
+  "status": "BLOCKED_EXACT_WITH_NEW_EVIDENCE"
+}

@@ -1,0 +1,47 @@
+{
+  "credentials_used": false,
+  "live_write_connector_active": false,
+  "operations": [
+    {
+      "operation": "create_local_bare_repository",
+      "returncode": 0
+    },
+    {
+      "operation": "create_isolated_branch",
+      "status": "PASS"
+    },
+    {
+      "operation": "apply_bounded_fixture_patch",
+      "status": "PASS"
+    },
+    {
+      "commit": "6fe5a1816cfa136d40e22b41d77088cc85450bc2",
+      "operation": "create_local_commit",
+      "returncode": 0
+    },
+    {
+      "operation": "verify_commit",
+      "status": "PASS"
+    },
+    {
+      "operation": "reject_unauthorized_branch",
+      "rejected": "main",
+      "status": "PASS"
+    },
+    {
+      "operation": "reject_unapproved_path",
+      "rejected": "outside/allowed.txt",
+      "status": "PASS"
+    },
+    {
+      "operation": "rollback_branch",
+      "status": "PASS"
+    },
+    {
+      "operation": "delete_sandbox",
+      "status": "PASS"
+    }
+  ],
+  "public_remote_mutation": false,
+  "status": "CONTROLLED_WRITE_CONNECTOR_FIXTURE_PASS"
+}

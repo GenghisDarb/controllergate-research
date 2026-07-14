@@ -1,0 +1,40 @@
+{
+  "first_single_factor_changing_reproduction": "powershell_versus_direct_process",
+  "provider_create": {
+    "command": [
+      "C:\\hostedtoolcache\\windows\\Python\\3.13.14\\x64\\python.exe",
+      "-m",
+      "venv",
+      "D:\\a\\_temp\\controllergate-runtime\\poetry\\poetry-provider"
+    ],
+    "cwd": null,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_tail": "",
+    "returncode": 0
+  },
+  "provider_install": {
+    "command": [
+      "D:\\a\\_temp\\controllergate-runtime\\poetry\\poetry-provider\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--no-index",
+      "--find-links",
+      "D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse",
+      "poetry==2.4.1"
+    ],
+    "cwd": null,
+    "log_sha256": "19f8c7c7f9fcf25e612643245d44838c27cb404c46b4e79cde7f5653c84df5ee",
+    "log_tail": ".19-py3-none-any.whl (from poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\virtualenv-21.6.1-py3-none-any.whl (from poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\colorama-0.4.6-py2.py3-none-any.whl (from build<2.0.0,>=1.2.1->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\msgpack-1.2.1-cp313-cp313-win_amd64.whl (from cachecontrol<0.15.0,>=0.14.0->cachecontrol[filecache]<0.15.0,>=0.14.0->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\filelock-3.29.7-py3-none-any.whl (from cachecontrol[filecache]<0.15.0,>=0.14.0->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\crashtest-0.4.1-py3-none-any.whl (from cleo<3.0.0,>=2.1.0->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\rapidfuzz-3.14.5-cp313-cp313-win_amd64.whl (from cleo<3.0.0,>=2.1.0->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\urllib3-2.7.0-py3-none-any.whl (from dulwich<2,>=0.25.0->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\pywin32_ctypes-0.2.3-py3-none-any.whl (from keyring<26.0.0,>=25.1.0->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\jaraco.classes-3.4.0-py3-none-any.whl (from keyring<26.0.0,>=25.1.0->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\jaraco_functools-4.5.0-py3-none-any.whl (from keyring<26.0.0,>=25.1.0->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\jaraco_context-6.1.2-py3-none-any.whl (from keyring<26.0.0,>=25.1.0->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\charset_normalizer-3.4.9-cp313-cp313-win_amd64.whl (from requests<3.0,>=2.26->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\idna-3.18-py3-none-any.whl (from requests<3.0,>=2.26->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\certifi-2026.6.17-py3-none-any.whl (from requests<3.0,>=2.26->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\httpx-0.28.1-py3-none-any.whl (from pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\backports_zstd-1.6.0-cp313-cp313-win_amd64.whl (from pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\anyio-4.14.2-py3-none-any.whl (from httpx<1,>=0.27.0->pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\httpcore-1.0.9-py3-none-any.whl (from httpx<1,>=0.27.0->pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\h11-0.16.0-py3-none-any.whl (from httpcore==1.*->httpx<1,>=0.27.0->pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\distlib-0.4.3-py2.py3-none-any.whl (from virtualenv>=20.26.6->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\python_discovery-1.4.4-py3-none-any.whl (from virtualenv>=20.26.6->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\verified\\8299757219\\wheelhouse\\more_itertools-11.1.0-py3-none-any.whl (from jaraco.classes->keyring<26.0.0,>=25.1.0->poetry==2.4.1)\nInstalling collected packages: trove-classifiers, fastjsonschema, distlib, urllib3, tomlkit, shellingham, rapidfuzz, pywin32-ctypes, pyproject-hooks, poetry-core, platformdirs, pkginfo, pbs-installer, packaging, msgpack, more-itertools, jaraco.context, installer, idna, h11, filelock, crashtest, colorama, charset_normalizer, certifi, backports.zstd, requests, python-discovery, jaraco.functools, jaraco.classes, httpcore, findpython, dulwich, cleo, build, anyio, virtualenv, requests-toolbelt, keyring, httpx, cachecontrol, poetry\n\nSuccessfully installed anyio-4.14.2 backports.zstd-1.6.0 build-1.5.1 cachecontrol-0.14.4 certifi-2026.6.17 charset_normalizer-3.4.9 cleo-2.1.0 colorama-0.4.6 crashtest-0.4.1 distlib-0.4.3 dulwich-1.2.10 fastjsonschema-2.21.2 filelock-3.29.7 findpython-0.8.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.18 installer-1.0.1 jaraco.classes-3.4.0 jaraco.context-6.1.2 jaraco.functools-4.5.0 keyring-25.7.0 more-itertools-11.1.0 msgpack-1.2.1 packaging-26.2 pbs-installer-2026.6.10 pkginfo-1.12.1.2 platformdirs-4.10.0 poetry-2.4.1 poetry-core-2.4.0 pyproject-hooks-1.2.0 python-discovery-1.4.4 pywin32-ctypes-0.2.3 rapidfuzz-3.14.5 requests-2.34.2 requests-toolbelt-1.0.0 shellingham-1.5.4 tomlkit-0.15.0 trove-classifiers-2026.6.1.19 urllib3-2.7.0 virtualenv-21.6.1\n",
+    "returncode": 0
+  },
+  "provider_seal": "08025a00f31901b6db4859c6a1716a7fb3d1d7695e8bfee5e31c46cb93d7caca",
+  "source_ownership": "NOT_ESTABLISHED",
+  "source_repair_authorized": false,
+  "stable_incident_under_admissible_isolation": false,
+  "stage_one_arm_count": 26,
+  "stage_one_executed_count": 20,
+  "stage_two_arm_count": 4,
+  "status": "SINGLE_ENVIRONMENT_FACTOR_IDENTIFIED",
+  "unrestricted_combinatorial_search": false
+}

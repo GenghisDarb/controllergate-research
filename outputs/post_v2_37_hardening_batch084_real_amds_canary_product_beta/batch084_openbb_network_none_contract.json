@@ -1,0 +1,59 @@
+{
+  "batch083_namespace_failure": {
+    "behavior_reproduction_status_separate": true,
+    "candidate_admission_separate": true,
+    "linux_namespace": {
+      "exact_blocker": "linux_network_namespace_not_enforceable_in_runner",
+      "external_dns_blocked": false,
+      "returncode": 1,
+      "status": "BLOCKED_EXACT_WITH_NEW_EVIDENCE"
+    },
+    "loopback": {
+      "payload_hash": "7771ed1f2772cea43f7f607be13fe1f9725609858639a740e567115ae28608f1",
+      "same_process_namespace": true,
+      "server_address": "127.0.0.1",
+      "status": "PASS"
+    },
+    "provider_status_separate": true,
+    "repair_license_separate": true,
+    "status": "EXECUTED_WITH_RESULT",
+    "windows_process_guard": {
+      "platform": "posix",
+      "status": "NOT_APPLICABLE"
+    }
+  },
+  "fallback_outcome_adaptive": false,
+  "image_tag_resolution_before_candidate": "python:3.11-slim",
+  "input_mount": "read-only",
+  "network": "none",
+  "pinned_image_digest": "python@sha256:90edbeb8e4efce8dfe102f24c5ea1c8a1d770ff3d99c9c565d89ec97145f0fea",
+  "preferred_strategy": "docker_network_none_same_container",
+  "provider_mount": "read-only",
+  "read_only_root": true,
+  "required_sentinels": [
+    "CONTAINER_STARTED",
+    "PROVIDER_VERIFIED",
+    "LOOPBACK_INTERFACE_VERIFIED",
+    "LOCAL_SERVER_STARTED",
+    "LOCAL_SERVER_READY",
+    "EXTERNAL_DNS_BLOCKED",
+    "EXTERNAL_IP_BLOCKED",
+    "GENERATE_SPEC_STARTED",
+    "GENERATE_SPEC_COMPLETED",
+    "GENERATE_EXTENSION_STARTED",
+    "GENERATE_EXTENSION_COMPLETED",
+    "LOCAL_SERVER_STOPPED",
+    "CONTAINER_COMPLETED"
+  ],
+  "server_and_client_same_container": true,
+  "status": "PREREGISTERED",
+  "strategy_order": [
+    "docker_network_none_same_container",
+    "unprivileged_network_namespace_only_if_docker_unavailable_or_contract_cannot_start"
+  ],
+  "tmpfs_paths": [
+    "/runtime",
+    "/tmp",
+    "/root"
+  ]
+}

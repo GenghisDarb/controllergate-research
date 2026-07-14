@@ -1,0 +1,55 @@
+{
+  "blockers": [
+    {
+      "artifact_hash": "3ac502c8443fa4c2019d2021d37e2eb4b78100623210af09c26771774c40280a",
+      "artifact_source": "outputs/post_v2_37_hardening_batch061_duplicate_clean_replay_count_gate_cloudpickle_wave_3/duplicate_provider_runtime_result.json",
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "consumer_stages": [
+        "prepatch_replay",
+        "target_validation",
+        "duplicate_replay",
+        "canary",
+        "rollback"
+      ],
+      "declaring_source": "outputs/post_v2_37_hardening_batch061_duplicate_clean_replay_count_gate_cloudpickle_wave_3/duplicate_provider_runtime_result.json",
+      "dependency_name": "exact historical provider closure",
+      "failure_classification": "declared_secondary_cofactor_unpinned_lock_required",
+      "lock_status": "DECLARED_PINNED_MISSING",
+      "materialization_state": "RECORD_ONLY",
+      "platform_constraint": null,
+      "precondition_id": "batch084-cloudpickle-historical-provider",
+      "reopen_condition": "reviewed pinned provider lock",
+      "requirement_class": "required",
+      "runtime_constraint": "Python 3.13",
+      "verification_state": "BYTE_ARTIFACT_NOT_AVAILABLE",
+      "version_constraint": "historical-byte-exact"
+    },
+    {
+      "artifact_hash": "86f890d1bbf0907db7aaa64358518d50d3e58748f7243ac5e85fa27ceeddf4e3",
+      "artifact_source": "outputs/post_v2_37_hardening_batch065_duplicate_clean_replay_count_gate_freezegun/duplicate_provider_runtime_result.json",
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "consumer_stages": [
+        "prepatch_replay",
+        "target_validation",
+        "duplicate_replay",
+        "canary",
+        "rollback"
+      ],
+      "declaring_source": "outputs/post_v2_37_hardening_batch065_duplicate_clean_replay_count_gate_freezegun/duplicate_provider_runtime_result.json",
+      "dependency_name": "exact historical provider closure",
+      "failure_classification": "declared_secondary_cofactor_unpinned_lock_required",
+      "lock_status": "DECLARED_PINNED_MISSING",
+      "materialization_state": "RECORD_ONLY",
+      "platform_constraint": null,
+      "precondition_id": "batch084-freezegun-historical-provider",
+      "reopen_condition": "reviewed pinned provider lock",
+      "requirement_class": "required",
+      "runtime_constraint": "Python 3.13",
+      "verification_state": "BYTE_ARTIFACT_NOT_AVAILABLE",
+      "version_constraint": "historical-byte-exact"
+    }
+  ],
+  "provider_drift": [],
+  "source_code_evidence_inferred_from_provider_drift": false,
+  "status": "BLOCK"
+}

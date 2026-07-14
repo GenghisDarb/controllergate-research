@@ -1,0 +1,275 @@
+{
+  "canonical_cli_used": true,
+  "counted_repair_episode_pass": false,
+  "episodes": [
+    {
+      "canonical_cli_commands": [
+        "controllergate run --manifest /home/runner/work/_temp/controllergate-runtime/batch084-product-beta-counted_repair.json",
+        "controllergate resume --run-id batch084-product-beta-counted_repair --manifest /home/runner/work/_temp/controllergate-runtime/batch084-product-beta-counted_repair.json",
+        "controllergate status --run-id batch084-product-beta-counted_repair --runtime-root /home/runner/work/_temp/controllergate-runtime/product-beta-runtime",
+        "controllergate verify --run-id batch084-product-beta-counted_repair --manifest /home/runner/work/_temp/controllergate-runtime/batch084-product-beta-counted_repair.json",
+        "controllergate canary --proof /home/runner/work/_temp/controllergate-runtime/batch084-product-beta-counted_repair-canary-proof.json"
+      ],
+      "checkpoint_resume_attempted": true,
+      "episode_id": "cloudpickle_507_py313_typevar_distutils",
+      "episode_kind": "counted_repair",
+      "exact_blocker": "historical_admission_blocked:provider",
+      "executions": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "from controllergate.cli import main; raise SystemExit(main())",
+            "run",
+            "--manifest",
+            "/home/runner/work/_temp/controllergate-runtime/batch084-product-beta-counted_repair.json"
+          ],
+          "cwd": "/home/runner/work/controllergate-research/controllergate-research",
+          "log_sha256": "e7853688e2249c111d8dc2893b77a1f1b326427ec4877fdf28c622e588f67b4a",
+          "log_tail": "{\"completed_stages\": [], \"exact_blocker\": \"historical_admission_blocked:provider\", \"repair_count_increment\": false, \"run_id\": \"batch084-product-beta-counted_repair\", \"state_hash\": \"7d9b1c20380be479f05632bde5fe9966c4a637dc64609945cbdacf478a7929f8\", \"status\": \"SAFE_ABSTENTION\"}\n",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "from controllergate.cli import main; raise SystemExit(main())",
+            "resume",
+            "--run-id",
+            "batch084-product-beta-counted_repair",
+            "--manifest",
+            "/home/runner/work/_temp/controllergate-runtime/batch084-product-beta-counted_repair.json"
+          ],
+          "cwd": "/home/runner/work/controllergate-research/controllergate-research",
+          "log_sha256": "a3119352abf5fb8aac351c74a492994fe5b8979cf6cfbcbe0bc56f4103d43d7b",
+          "log_tail": "{\"blocker\": \"historical_admission_blocked:provider\", \"completed_stages\": [], \"repair_count_increment\": false, \"run_id\": \"batch084-product-beta-counted_repair\", \"state_hash\": \"7d9b1c20380be479f05632bde5fe9966c4a637dc64609945cbdacf478a7929f8\", \"status\": \"SAFE_ABSTENTION\"}\n",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "from controllergate.cli import main; raise SystemExit(main())",
+            "status",
+            "--run-id",
+            "batch084-product-beta-counted_repair",
+            "--runtime-root",
+            "/home/runner/work/_temp/controllergate-runtime/product-beta-runtime"
+          ],
+          "cwd": "/home/runner/work/controllergate-research/controllergate-research",
+          "log_sha256": "5ee81d4a0e50bb984af1e95756f61b87b614ec363bd822788d09877bab31ff88",
+          "log_tail": "{\"blocker\": \"historical_admission_blocked:provider\", \"completed_stages\": [], \"next_stage_index\": 0, \"run_id\": \"batch084-product-beta-counted_repair\", \"status\": \"SAFE_ABSTENTION\"}\n",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "from controllergate.cli import main; raise SystemExit(main())",
+            "verify",
+            "--run-id",
+            "batch084-product-beta-counted_repair",
+            "--manifest",
+            "/home/runner/work/_temp/controllergate-runtime/batch084-product-beta-counted_repair.json"
+          ],
+          "cwd": "/home/runner/work/controllergate-research/controllergate-research",
+          "log_sha256": "9d474cec7fb38bfc1b9163ae77ba690842079f5706b43e8d9eb10047ca2dc84f",
+          "log_tail": "{\"idempotent\": true, \"manifest_hash\": \"8fb852c41293e8c1ca1039115f8a878b5874b2151cbd9363cd0c5ba4e841197a\", \"run_id\": \"batch084-product-beta-counted_repair\", \"state_hash\": \"7d9b1c20380be479f05632bde5fe9966c4a637dc64609945cbdacf478a7929f8\", \"status\": \"PASS\"}\n",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "from controllergate.cli import main; raise SystemExit(main())",
+            "canary",
+            "--proof",
+            "/home/runner/work/_temp/controllergate-runtime/batch084-product-beta-counted_repair-canary-proof.json"
+          ],
+          "cwd": "/home/runner/work/controllergate-research/controllergate-research",
+          "log_sha256": "3f05a7b487a2f4655e0c81ed2b5fc17a0320fac8a268090622593cce3f7ed3a8",
+          "log_tail": "{\"production_deployment\": false, \"proof_hash\": \"0b95a3f028dd2db5b094aa3349896f4c4638f22d31c5ac97ca168ff1b123f0e3\", \"records\": [], \"status\": \"CANARY_REJECTED\"}\n",
+          "returncode": 0
+        }
+      ],
+      "idempotent_verification": true,
+      "real_historical_cycle_complete": false,
+      "repair_count_increment": 0,
+      "results": [
+        {
+          "completed_stages": [],
+          "exact_blocker": "historical_admission_blocked:provider",
+          "repair_count_increment": false,
+          "run_id": "batch084-product-beta-counted_repair",
+          "state_hash": "7d9b1c20380be479f05632bde5fe9966c4a637dc64609945cbdacf478a7929f8",
+          "status": "SAFE_ABSTENTION"
+        },
+        {
+          "blocker": "historical_admission_blocked:provider",
+          "completed_stages": [],
+          "repair_count_increment": false,
+          "run_id": "batch084-product-beta-counted_repair",
+          "state_hash": "7d9b1c20380be479f05632bde5fe9966c4a637dc64609945cbdacf478a7929f8",
+          "status": "SAFE_ABSTENTION"
+        },
+        {
+          "blocker": "historical_admission_blocked:provider",
+          "completed_stages": [],
+          "next_stage_index": 0,
+          "run_id": "batch084-product-beta-counted_repair",
+          "status": "SAFE_ABSTENTION"
+        },
+        {
+          "idempotent": true,
+          "manifest_hash": "8fb852c41293e8c1ca1039115f8a878b5874b2151cbd9363cd0c5ba4e841197a",
+          "run_id": "batch084-product-beta-counted_repair",
+          "state_hash": "7d9b1c20380be479f05632bde5fe9966c4a637dc64609945cbdacf478a7929f8",
+          "status": "PASS"
+        },
+        {
+          "production_deployment": false,
+          "proof_hash": "0b95a3f028dd2db5b094aa3349896f4c4638f22d31c5ac97ca168ff1b123f0e3",
+          "records": [],
+          "status": "CANARY_REJECTED"
+        }
+      ],
+      "status": "SAFE_ABSTENTION"
+    },
+    {
+      "canonical_cli_commands": [
+        "controllergate run --manifest /home/runner/work/_temp/controllergate-runtime/batch084-product-beta-safe_abstention.json",
+        "controllergate resume --run-id batch084-product-beta-safe_abstention --manifest /home/runner/work/_temp/controllergate-runtime/batch084-product-beta-safe_abstention.json",
+        "controllergate status --run-id batch084-product-beta-safe_abstention --runtime-root /home/runner/work/_temp/controllergate-runtime/product-beta-runtime",
+        "controllergate verify --run-id batch084-product-beta-safe_abstention --manifest /home/runner/work/_temp/controllergate-runtime/batch084-product-beta-safe_abstention.json",
+        "controllergate canary --proof /home/runner/work/_temp/controllergate-runtime/batch084-product-beta-safe_abstention-canary-proof.json"
+      ],
+      "checkpoint_resume_attempted": true,
+      "episode_id": "audioread_144_py313_aifc_removed",
+      "episode_kind": "safe_abstention",
+      "exact_blocker": "historical_admission_blocked:provider",
+      "executions": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "from controllergate.cli import main; raise SystemExit(main())",
+            "run",
+            "--manifest",
+            "/home/runner/work/_temp/controllergate-runtime/batch084-product-beta-safe_abstention.json"
+          ],
+          "cwd": "/home/runner/work/controllergate-research/controllergate-research",
+          "log_sha256": "c37d9280083f71dfd970c2a1b084d2292a9ca728d57f72b6551b8fffde7e082f",
+          "log_tail": "{\"completed_stages\": [], \"exact_blocker\": \"historical_admission_blocked:provider\", \"repair_count_increment\": false, \"run_id\": \"batch084-product-beta-safe_abstention\", \"state_hash\": \"ae6927b10670cb03f02c62284141e4a1400e497886d0cdb8fc545a9a5656363c\", \"status\": \"SAFE_ABSTENTION\"}\n",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "from controllergate.cli import main; raise SystemExit(main())",
+            "resume",
+            "--run-id",
+            "batch084-product-beta-safe_abstention",
+            "--manifest",
+            "/home/runner/work/_temp/controllergate-runtime/batch084-product-beta-safe_abstention.json"
+          ],
+          "cwd": "/home/runner/work/controllergate-research/controllergate-research",
+          "log_sha256": "3343af8cdc36c0f039ce973104a6c263cfe8048499b4dfbb695ccdd4cf2c921b",
+          "log_tail": "{\"blocker\": \"historical_admission_blocked:provider\", \"completed_stages\": [], \"repair_count_increment\": false, \"run_id\": \"batch084-product-beta-safe_abstention\", \"state_hash\": \"ae6927b10670cb03f02c62284141e4a1400e497886d0cdb8fc545a9a5656363c\", \"status\": \"SAFE_ABSTENTION\"}\n",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "from controllergate.cli import main; raise SystemExit(main())",
+            "status",
+            "--run-id",
+            "batch084-product-beta-safe_abstention",
+            "--runtime-root",
+            "/home/runner/work/_temp/controllergate-runtime/product-beta-runtime"
+          ],
+          "cwd": "/home/runner/work/controllergate-research/controllergate-research",
+          "log_sha256": "faa5bb8915c9c0a1e6fdee1fa6984cc4013f3cdaf9a64371099644feab5dbd3a",
+          "log_tail": "{\"blocker\": \"historical_admission_blocked:provider\", \"completed_stages\": [], \"next_stage_index\": 0, \"run_id\": \"batch084-product-beta-safe_abstention\", \"status\": \"SAFE_ABSTENTION\"}\n",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "from controllergate.cli import main; raise SystemExit(main())",
+            "verify",
+            "--run-id",
+            "batch084-product-beta-safe_abstention",
+            "--manifest",
+            "/home/runner/work/_temp/controllergate-runtime/batch084-product-beta-safe_abstention.json"
+          ],
+          "cwd": "/home/runner/work/controllergate-research/controllergate-research",
+          "log_sha256": "741b748a38e3f030f6863dca5cc75f416b84eaf6adb72aa83c59ffac5b7674c6",
+          "log_tail": "{\"idempotent\": true, \"manifest_hash\": \"2de2c597a426320b78ffe150febc15657155367de68a242f6a9fa169ef21231a\", \"run_id\": \"batch084-product-beta-safe_abstention\", \"state_hash\": \"ae6927b10670cb03f02c62284141e4a1400e497886d0cdb8fc545a9a5656363c\", \"status\": \"PASS\"}\n",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "from controllergate.cli import main; raise SystemExit(main())",
+            "canary",
+            "--proof",
+            "/home/runner/work/_temp/controllergate-runtime/batch084-product-beta-safe_abstention-canary-proof.json"
+          ],
+          "cwd": "/home/runner/work/controllergate-research/controllergate-research",
+          "log_sha256": "3f05a7b487a2f4655e0c81ed2b5fc17a0320fac8a268090622593cce3f7ed3a8",
+          "log_tail": "{\"production_deployment\": false, \"proof_hash\": \"0b95a3f028dd2db5b094aa3349896f4c4638f22d31c5ac97ca168ff1b123f0e3\", \"records\": [], \"status\": \"CANARY_REJECTED\"}\n",
+          "returncode": 0
+        }
+      ],
+      "idempotent_verification": true,
+      "real_historical_cycle_complete": false,
+      "repair_count_increment": 0,
+      "results": [
+        {
+          "completed_stages": [],
+          "exact_blocker": "historical_admission_blocked:provider",
+          "repair_count_increment": false,
+          "run_id": "batch084-product-beta-safe_abstention",
+          "state_hash": "ae6927b10670cb03f02c62284141e4a1400e497886d0cdb8fc545a9a5656363c",
+          "status": "SAFE_ABSTENTION"
+        },
+        {
+          "blocker": "historical_admission_blocked:provider",
+          "completed_stages": [],
+          "repair_count_increment": false,
+          "run_id": "batch084-product-beta-safe_abstention",
+          "state_hash": "ae6927b10670cb03f02c62284141e4a1400e497886d0cdb8fc545a9a5656363c",
+          "status": "SAFE_ABSTENTION"
+        },
+        {
+          "blocker": "historical_admission_blocked:provider",
+          "completed_stages": [],
+          "next_stage_index": 0,
+          "run_id": "batch084-product-beta-safe_abstention",
+          "status": "SAFE_ABSTENTION"
+        },
+        {
+          "idempotent": true,
+          "manifest_hash": "2de2c597a426320b78ffe150febc15657155367de68a242f6a9fa169ef21231a",
+          "run_id": "batch084-product-beta-safe_abstention",
+          "state_hash": "ae6927b10670cb03f02c62284141e4a1400e497886d0cdb8fc545a9a5656363c",
+          "status": "PASS"
+        },
+        {
+          "production_deployment": false,
+          "proof_hash": "0b95a3f028dd2db5b094aa3349896f4c4638f22d31c5ac97ca168ff1b123f0e3",
+          "records": [],
+          "status": "CANARY_REJECTED"
+        }
+      ],
+      "status": "SAFE_ABSTENTION"
+    }
+  ],
+  "historical_count_increment": 0,
+  "safe_abstention_episode_pass": true,
+  "status": "HISTORICAL_PRODUCT_BETA_REPLAY_BLOCKED_EXACT"
+}

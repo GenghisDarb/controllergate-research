@@ -1,0 +1,32 @@
+{
+  "candidate_id": "incident_poetry_10974_init_duplicate_name",
+  "frozen_before_execution": true,
+  "preregistered_pairwise_hypotheses": [
+    [
+      "absolute_versus_relative_working_path",
+      "powershell_versus_direct_process"
+    ],
+    [
+      "HOME",
+      "cache_directory"
+    ]
+  ],
+  "repetitions_per_arm": 2,
+  "source_repair_forbidden_until_twice_reproduced_under_admissible_isolation": true,
+  "stage_one_factors": [
+    "network_policy",
+    "poetry_provider_artifact",
+    "poetry_source_identity",
+    "python_patch_version",
+    "powershell_versus_direct_process",
+    "locale",
+    "code_page",
+    "HOME",
+    "cache_directory",
+    "absolute_versus_relative_working_path",
+    "workspace_parent_path",
+    "application_socket_guard",
+    "process_firewall"
+  ],
+  "unrestricted_combinatorial_search": false
+}
