@@ -1,5 +1,9 @@
 # Replication protocol
 
+## Batch085 canonical replication boundary
+
+A Batch085 replication must use the canonical engine, SQLite ControllerState, typed reaction tokens, proof-derived count records, physically separated routing/truth/patch stores, and the read-only watch policy. Historical provider reconstruction must be explicitly labeled equivalent rather than exact. Scientific blockers are valid outcomes; no repair, canary, count, or release claim may be inferred from a plan or missing provider. The controlled self-maintenance drill is a fixture result and cannot change public repair counts.
+
 ## Batch080 replication boundary
 
 A Batch080 replication must start from the verified Batch079 evidence bytes and the frozen 20-lead pool. It must execute independent Git commit/HEAD/tree verification, target resolution, project-local command resolution, provider dry-lock construction, collection-only probes, contamination review, and one terminal record per lead. Target execution is forbidden until the execution frame is frozen; post-outcome replenishment is forbidden.

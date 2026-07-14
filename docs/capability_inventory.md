@@ -1,5 +1,11 @@
 # Capability inventory
 
+<!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
+## Current operational gate status
+
+Implemented: canonical component registry, typed reaction tokens, SQLite durable state, proof-derived counts, separated routing memory, structured collection, provider lifecycle gates, controlled self-maintenance fixture, read-only watch loop, and local write levels 1–2. Blocked at exact evidence boundaries: historical Product Beta and Product Beta RC. Disabled: public remote writes, full scoring, automatic merge, and autonomous live maintenance.
+<!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
+
 ## Batch084 depth-calibrated capabilities
 
 - Multi-probe diagnosis v2: implemented for retrospective proof-independent episodes with distinct hashed evidence contacts. Selection uses calibrated information gain only when non-holdout likelihood evidence is sufficient; otherwise it records `LIKELIHOOD_NOT_CALIBRATED` and uses deterministic constraint elimination.

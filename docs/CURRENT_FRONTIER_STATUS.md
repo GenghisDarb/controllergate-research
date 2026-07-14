@@ -1,5 +1,11 @@
 # ControllerGate Frontier Status
 
+<!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
+## Batch085 canonical frontier
+
+The next evidence-bearing action is to recover or reconstruct a complete historical provider and execute one counted-repair plus two non-source historical terminals through the canonical engine, including real canary, health, and rollback.
+<!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
+
 This file is generated from `outputs/frontier/CURRENT_FRONTIER_STATE.json`.
 
 - Validated current protocol: v2.19 authorized_amds_active_maintenance_lane (PASS)

@@ -13,7 +13,8 @@ def synthesize(source: str, path: str, mutation_family: str) -> list[RepairCandi
         raise ValueError("mutation family not preregistered")
     ast.parse(source)
     proposals: list[RepairCandidate] = []
-    replacements = ((" is False", " is True"), ("== False", "== True"), ("return False", "return True"), ('"FAIL"', '"PASS"'))
+    replacements = ((" is False", " is True"), ("== False", "== True"), ("return False", "return True"),
+                    (" != 0", " == 0"), (" <= 0", " > 0"), ('"FAIL"', '"PASS"'))
     for before, after in replacements:
         if before in source:
             proposals.append(RepairCandidate(path, before, after, f"bounded reversal for {mutation_family}"))

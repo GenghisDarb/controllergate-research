@@ -8,11 +8,11 @@ from controllergate.state.integrity import canonical_hash
 from .service import repair_proof_complete
 
 
-COUNT_BASELINE = {"issue_derived": 6, "native_external": 4}
+REPAIR_CLASSES = {"issue_derived", "native_external"}
 
 
 def decide_count(connection: sqlite3.Connection, *, candidate_id: str, repair_class: str, proof_hash: str, historical_non_counting: bool = False) -> dict[str, object]:
-    if repair_class not in COUNT_BASELINE:
+    if repair_class not in REPAIR_CLASSES:
         return {"status": "BLOCK", "blocker": "unknown_repair_class"}
     if historical_non_counting:
         return {"status": "PASS", "decision": "NON_COUNTING_HISTORICAL", "candidate_id": candidate_id}
@@ -29,7 +29,7 @@ def decide_count(connection: sqlite3.Connection, *, candidate_id: str, repair_cl
 
 
 def public_counts(connection: sqlite3.Connection) -> dict[str, int]:
-    values = dict(COUNT_BASELINE)
+    values = {name: 0 for name in REPAIR_CLASSES}
     for row in connection.execute("SELECT repair_class,COUNT(*) AS n FROM count_records WHERE decision='COUNT' GROUP BY repair_class"):
-        values[str(row["repair_class"])] += int(row["n"])
+        values[str(row["repair_class"])] = int(row["n"])
     return values

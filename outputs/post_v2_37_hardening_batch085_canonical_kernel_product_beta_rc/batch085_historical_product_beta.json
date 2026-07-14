@@ -1,0 +1,67 @@
+{
+  "checkpoint_resume": "PASS",
+  "complete_repair_replays": 0,
+  "correct_abstention_replays": 0,
+  "episodes": [
+    {
+      "canary": "NOT_RUN",
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "complete": false,
+      "duplicate_replay": "NOT_RUN",
+      "episode_type": "counted_repair",
+      "exact_blocker": "HISTORICAL_PROVIDER_ARTIFACT_EXPIRED",
+      "historical_non_counting": true,
+      "provider_classification": "HISTORICAL_PROVIDER_ARTIFACT_EXPIRED",
+      "real_source": false,
+      "real_target_or_reproducer": false,
+      "rollback": "NOT_RUN",
+      "validation": "NOT_RUN"
+    },
+    {
+      "canary": "NOT_RUN",
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "complete": false,
+      "duplicate_replay": "NOT_RUN",
+      "episode_type": "counted_repair",
+      "exact_blocker": "HISTORICAL_PROVIDER_ARTIFACT_EXPIRED",
+      "historical_non_counting": true,
+      "provider_classification": "HISTORICAL_PROVIDER_ARTIFACT_EXPIRED",
+      "real_source": false,
+      "real_target_or_reproducer": false,
+      "rollback": "NOT_RUN",
+      "validation": "NOT_RUN"
+    },
+    {
+      "canary": "NOT_RUN",
+      "candidate_id": "audioread_provider_backend",
+      "complete": false,
+      "duplicate_replay": "NOT_RUN",
+      "episode_type": "intended_abstention",
+      "exact_blocker": "provider_owned_or_interpreter_owned_not_reestablished",
+      "historical_non_counting": true,
+      "provider_classification": "provider_owned_or_interpreter_owned_not_reestablished",
+      "real_source": false,
+      "real_target_or_reproducer": false,
+      "rollback": "NOT_RUN",
+      "validation": "NOT_RUN"
+    },
+    {
+      "canary": "NOT_RUN",
+      "candidate_id": "openbb_result_transport",
+      "complete": false,
+      "duplicate_replay": "NOT_RUN",
+      "episode_type": "intended_abstention",
+      "exact_blocker": "fresh_non_source_terminal_not_reestablished",
+      "historical_non_counting": true,
+      "provider_classification": "fresh_non_source_terminal_not_reestablished",
+      "real_source": false,
+      "real_target_or_reproducer": false,
+      "rollback": "NOT_RUN",
+      "validation": "NOT_RUN"
+    }
+  ],
+  "exact_blocker": "historical_provider_and_abstention_execution_evidence_incomplete",
+  "idempotent_verification": "PASS",
+  "repair_count_increment": 0,
+  "status": "HISTORICAL_PRODUCT_BETA_BLOCKED_EXACT"
+}

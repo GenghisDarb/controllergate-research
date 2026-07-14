@@ -1,5 +1,9 @@
 # Technical validation gap report
 
+## Batch085 exact remaining gap
+
+The architecture, durable state, typed tokens, proof-derived counts, memory isolation, controlled self-maintenance fixture, and read-only watch loop are implemented. The decisive technical gap is execution evidence: one complete real historical counted-repair replay and two correctly classified historical non-source replays have not completed through the canonical engine with canary, health, and rollback. Package validation alone cannot close that gap.
+
 ## Batch080 remaining gap
 
 Batch080 closes the earlier constant-preflight evidence gap by executing all static stages for a frozen pool of 20 public leads. Only one lead satisfied the complete static-preflight terminal, below the preregistered minimum partial frame of two. No target failure was therefore executed after frame freeze, no provider capsule bytes were materialized and verified, and no prospective comparative or matched-null evidence was produced.

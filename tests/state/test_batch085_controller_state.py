@@ -10,6 +10,7 @@ from controllergate.state.lease import acquire, release
 from controllergate.state.recovery import recover_run
 from controllergate.state.repository import ControllerStateRepository
 from controllergate.state.schema import SCHEMA_VERSION, TABLES
+from controllergate.reactions.token_kernel import ReactionToken
 
 
 def test_schema_wal_foreign_keys_and_migration(tmp_path):
@@ -29,6 +30,9 @@ def test_atomic_run_stage_idempotency_recovery_and_integrity(tmp_path):
     assert first["event_hash"] == second["event_hash"]
     assert recover_run(repo.connection, "run-1")["stage"] == "SOURCE_ACQUIRED"
     assert repo.load_run("run-1")["integrity"]["status"] == "PASS"
+    token = ReactionToken.mint(token_type="SOURCE_ACQUIRED_TOKEN", candidate_id="candidate", run_id="run-1", producer_event="source", input_tokens=(), payload={"tree": "sealed"}, independent_verifier="test")
+    repo.record_reaction_token(token.record())
+    assert repo.connection.execute("SELECT COUNT(*) FROM reaction_tokens").fetchone()[0] == 1
 
 
 def test_transaction_rolls_back_and_foreign_key_enforces(tmp_path):

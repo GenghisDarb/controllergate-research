@@ -58,6 +58,14 @@ class ControllerStateRepository:
             raise RuntimeError("controller state tamper detected")
         return {**dict(row), "integrity": integrity}
 
+    def record_reaction_token(self, token: dict[str, Any]) -> None:
+        if token.get("run_id") is None or token.get("token_hash") is None:
+            raise ValueError("complete reaction token required")
+        self.connection.execute(
+            "INSERT OR IGNORE INTO reaction_tokens(token_hash,token_type,candidate_id,run_id,producer_event,input_token_hashes,payload_identity,independent_verifier,created_at) VALUES (?,?,?,?,?,?,?,?,?)",
+            (token["token_hash"], token["token_type"], token["candidate_id"], token["run_id"], token["producer_event"], json.dumps(token.get("input_token_hashes", [])), token["payload_identity"], token["independent_verifier"], token.get("created_time", token.get("created_at"))),
+        )
+
     def counts(self) -> dict[str, int]:
         rows = self.connection.execute("SELECT repair_class, COUNT(*) AS n FROM count_records WHERE decision='COUNT' GROUP BY repair_class").fetchall()
         values = {str(row["repair_class"]): int(row["n"]) for row in rows}

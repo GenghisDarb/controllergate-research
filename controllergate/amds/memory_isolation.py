@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sqlite3
 from pathlib import Path
 from typing import Any
 
@@ -39,3 +40,40 @@ class IsolatedMemoryStore:
         with self.truth_path.open("a", encoding="utf-8", newline="\n") as stream:
             stream.write(json.dumps(value, sort_keys=True) + "\n")
         return value
+
+
+class SqliteIsolationStores:
+    """Four physically separate databases with role-specific connections."""
+
+    def __init__(self, root: str | Path):
+        root = Path(root)
+        root.mkdir(parents=True, exist_ok=True)
+        self.paths = {
+            "routing": root / "routing-memory.sqlite",
+            "truth": root / "sealed-truth.sqlite",
+            "patch": root / "repair-proof.sqlite",
+            "claims": root / "public-claims.sqlite",
+        }
+        if len({path.resolve() for path in self.paths.values()}) != 4:
+            raise ValueError("memory stores must be physically separate")
+        for role, path in self.paths.items():
+            connection = sqlite3.connect(path)
+            connection.execute("CREATE TABLE IF NOT EXISTS records(record_hash TEXT PRIMARY KEY, record_json TEXT NOT NULL)")
+            connection.commit(); connection.close()
+
+    def append_routing(self, record: dict[str, Any]) -> str:
+        if FORBIDDEN_ROUTING_FIELDS & set(record) or {"candidate_id", "repository_id"} & set(record):
+            raise ValueError("routing record contains forbidden retrieval feature")
+        digest = canonical_hash(record)
+        connection = sqlite3.connect(self.paths["routing"])
+        connection.execute("INSERT INTO records VALUES (?,?)", (digest, json.dumps(record, sort_keys=True)))
+        connection.commit(); connection.close()
+        return digest
+
+    def diagnostic_connection(self) -> sqlite3.Connection:
+        return sqlite3.connect(f"file:{self.paths['routing'].as_posix()}?mode=ro", uri=True)
+
+    def forbidden_diagnostic_path(self, role: str) -> Path:
+        if role != "routing":
+            raise PermissionError("diagnostic process may read routing memory only")
+        return self.paths[role]

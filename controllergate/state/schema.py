@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 TABLES = (
     "runs", "run_manifests", "events", "reaction_tokens", "failed_reactions",
     "blockers", "reopen_conditions", "authorizations", "spent_nonces", "checkpoints",
     "worker_leases", "provider_identities", "candidate_identities", "proof_events",
     "count_records", "routing_memory_records", "truth_records", "patch_records",
-    "connector_cursors", "notifications", "schema_migrations",
+    "connector_cursors", "candidate_queue", "notifications", "schema_migrations",
 )
 
 DDL = """
@@ -45,5 +45,6 @@ CREATE TABLE IF NOT EXISTS routing_memory_records(memory_hash TEXT PRIMARY KEY, 
 CREATE TABLE IF NOT EXISTS truth_records(truth_hash TEXT PRIMARY KEY, candidate_id TEXT NOT NULL, sealed_json TEXT NOT NULL, created_at TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS patch_records(patch_hash TEXT PRIMARY KEY, run_id TEXT NOT NULL REFERENCES runs(run_id), candidate_id TEXT NOT NULL, path TEXT NOT NULL, created_at TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS connector_cursors(connector_id TEXT PRIMARY KEY, cursor TEXT, last_successful_read TEXT, retry_count INTEGER NOT NULL DEFAULT 0, next_retry_time REAL, circuit_state TEXT NOT NULL DEFAULT 'CLOSED');
+CREATE TABLE IF NOT EXISTS candidate_queue(event_hash TEXT PRIMARY KEY, connector_id TEXT NOT NULL, event_json TEXT NOT NULL, state TEXT NOT NULL, created_at TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS notifications(notification_id TEXT PRIMARY KEY, connector_id TEXT NOT NULL, payload_hash TEXT NOT NULL, created_at TEXT NOT NULL, delivered INTEGER NOT NULL DEFAULT 0);
 """

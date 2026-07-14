@@ -18,6 +18,19 @@ SENTINELS = [
     "GENERATE_SPEC_COMPLETED", "GENERATE_EXTENSION_STARTED", "GENERATE_EXTENSION_COMPLETED",
     "LOCAL_SERVER_STOPPED", "CONTAINER_COMPLETED",
 ]
+RESULT_BEGIN = "__CG_RESULT_JSON_BEGIN__"
+RESULT_END = "__CG_RESULT_JSON_END__"
+
+
+def encode_stdout_result(result: dict[str, Any]) -> str:
+    return f"{RESULT_BEGIN}\n{json.dumps(result, sort_keys=True)}\n{RESULT_END}\n"
+
+
+def parse_stdout_result(stdout: str) -> dict[str, Any]:
+    if RESULT_BEGIN not in stdout or RESULT_END not in stdout:
+        raise ValueError("structured result sentinels missing")
+    payload = stdout.split(RESULT_BEGIN, 1)[1].split(RESULT_END, 1)[0].strip()
+    return json.loads(payload)
 
 
 def _run(command: list[str], cwd: Path) -> dict[str, Any]:
@@ -105,9 +118,11 @@ def execute(executable: Path, snapshot: Path, workspace: Path) -> dict[str, Any]
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(); parser.add_argument("--executable", required=True); parser.add_argument("--snapshot", required=True); parser.add_argument("--workspace", required=True); parser.add_argument("--result", required=True)
+    parser = argparse.ArgumentParser(); parser.add_argument("--executable", required=True); parser.add_argument("--snapshot", required=True); parser.add_argument("--workspace", required=True); parser.add_argument("--result")
     args = parser.parse_args(); result = execute(Path(args.executable), Path(args.snapshot), Path(args.workspace))
-    Path(args.result).write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+    print(encode_stdout_result(result), end="")
+    if args.result:
+        Path(args.result).write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     return 0
 
 

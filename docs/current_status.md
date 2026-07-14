@@ -1,5 +1,11 @@
 # Current status
 
+<!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
+## Current operational gate status
+
+ControllerGate's current protocol remains v2.19. The canonical SQLite state and proof/count services preserve six issue-derived and four native external repairs. Batch085 converges the runtime architecture, but Product Beta RC remains blocked until complete historical provider-backed repair and abstention replays execute. Full scoring remains disallowed, public write connectors remain inactive, and self-maintaining software is not demonstrated.
+<!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
+
 ## Batch084 operational-depth implementation boundary
 
 The official Batch083 workflow artifact is ingested and verified. Batch084 preserves its raw evidence while adding companion records that distinguish the Batch083 keyword-based historical classifier and log-integrity canary drill from real multi-probe diagnosis and repaired-software execution.

@@ -1,5 +1,13 @@
 # ControllerGate
 
+<!-- CONTROLLERGATE_CURRENT_STATUS_BEGIN -->
+## Current validated boundary
+
+ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority records 6 issue-derived and 4 native external repairs. Batch085 converges the product runtime while retaining an exact Product Beta RC block pending complete historical execution.
+
+AMDS prospective effectiveness and memory lift remain unestablished, full scoring is disallowed, public write connectors are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+<!-- CONTROLLERGATE_CURRENT_STATUS_END -->
+
 ControllerGate is a proof-gated runtime and compiler layer for safe AI software repair.
 
 It remains a provenance-first software repair research harness with a conservative pre-alpha research archive boundary.

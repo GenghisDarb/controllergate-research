@@ -802,3 +802,8 @@ The official Batch068h4 evidence is verified. ControllerGate now exposes AMDS v2
 - Next allowed action: `batch059_pre_repair_replay_wave_3_limited`.
 - Issue-derived repair count remains `2`; native external repair count remains `4`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+# Batch085 canonical convergence update
+
+ControllerGate now has a registered canonical maintenance engine, typed reaction-token dispatcher, SQLite durable state, proof-derived count service, isolated routing memory, a controlled source-only self-maintenance drill, and a persistent read-only observation loop. The current protocol remains v2.19, with six issue-derived and four native external repairs.
+
+The Product Beta Release Candidate remains exactly blocked. Complete historical provider-backed execution of one counted repair and two correctly classified non-source terminals, including real canary, health, and rollback, has not been established. AMDS prospective effectiveness and memory lift remain unestablished, full scoring remains disallowed, public write connectors remain inactive, production readiness is false, and self-maintaining software is not demonstrated.

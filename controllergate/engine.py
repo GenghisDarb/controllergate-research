@@ -123,8 +123,18 @@ def verify_run(manifest_path: str | Path, run_id: str) -> dict[str, Any]:
     manifest, validation = load_manifest(manifest_path)
     store = StateStore(Path(manifest["runtime_root"]) / "state")
     state = store.load(run_id); record = state.record()
-    verified_abstention = state.status == "SAFE_ABSTENTION" and state.evidence.get("abstention_verified") is True
-    return {"status": "PASS" if state.status == "CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS" or verified_abstention else "BLOCK",
+    contract = manifest.get("expected_terminal_contract", {})
+    contract_type = contract.get("type")
+    terminal_matches = (
+        contract_type == "expected_repair_completion" and state.status == "CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS"
+        or contract_type == "expected_safe_abstention" and state.status == "SAFE_ABSTENTION" and state.evidence.get("abstention_verified") is True
+        or contract_type == "expected_exact_blocker" and state.blocker == contract.get("blocker")
+        or contract_type == "expected_historical_terminal" and state.status == contract.get("terminal")
+    )
+    if contract_type is None:
+        terminal_matches = state.status == "CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS"
+    return {"status": "PASS" if terminal_matches else "BLOCK",
             "run_id": run_id, "idempotent": record == state.record(), "state_hash": record["state_hash"],
             "manifest_hash": validation.get("manifest_hash"),
-            "exact_blocker": None if state.status == "CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS" or verified_abstention else "generic_safe_abstention_not_verified"}
+            "expected_terminal_contract": contract_type,
+            "exact_blocker": None if terminal_matches else "expected_terminal_contract_not_satisfied"}
