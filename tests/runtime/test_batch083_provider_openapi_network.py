@@ -23,6 +23,15 @@ def test_provider_graph_requires_transitive_closure(tmp_path: Path) -> None:
     assert graph_from_wheels(tmp_path)["state"]=="PROVIDER_DEPENDENCY_GRAPH_CLOSED"
 
 
+def test_provider_graph_excludes_inactive_markers_and_preserves_versions(tmp_path: Path) -> None:
+    wheel(tmp_path/"root-1-py3-none-any.whl","root",["dependency>=2", "platform-only; sys_platform == 'plan9'", "test-only; extra == 'test'"])
+    wheel(tmp_path/"dependency-2-py3-none-any.whl","dependency",[])
+    result = graph_from_wheels(tmp_path)
+    assert result["state"] == "PROVIDER_DEPENDENCY_GRAPH_CLOSED"
+    assert result["nodes"]["root"]["requires"] == ["dependency"]
+    assert len(result["nodes"]["root"]["requirements_skipped_by_environment_marker"]) == 2
+
+
 def test_openapi_rooted_reachable_closure(tmp_path: Path) -> None:
     (tmp_path/"parts").mkdir();(tmp_path/"openapi.yaml").write_text("openapi: 3.0.0\ncomponents:\n  $ref: parts/a.yaml#/A\n",encoding="utf-8")
     (tmp_path/"parts/a.yaml").write_text("A:\n  type: string\n",encoding="utf-8");(tmp_path/"unused.yaml").write_text("unused: true\n",encoding="utf-8")
