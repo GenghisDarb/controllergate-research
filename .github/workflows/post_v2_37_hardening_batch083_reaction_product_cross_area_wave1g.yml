@@ -360,6 +360,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - run: python -m pip install pytest pyyaml
+      - run: python -m pytest tests -q
       - uses: actions/download-artifact@v4
         with: {name: batch083-critic-complete-evidence, path: "outputs/${{ env.RESULT }}"}
       - run: python scripts/batch083_ci_stage.py finalize --out "outputs/$RESULT" --runtime "$RUNNER_TEMP/controllergate-runtime"
@@ -369,7 +370,6 @@ jobs:
       - run: python scripts/audit_loose_end_registry.py
       - run: python scripts/audit_engineering_constitution_v3.py --proof-dir "outputs/$RESULT/batch083_constitution_v3_law_proofs"
       - run: python scripts/audit_capability_maturity.py --report "outputs/$RESULT/batch083_capability_maturity_after.json"
-      - run: python -m pytest tests -q
       - name: Preservation and current-boundary audits
         run: |
           python scripts/audit_batch082_ci_native_maintenance_order_provider_wave1f.py --output outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f
