@@ -175,7 +175,7 @@ def manifests(output: Path) -> None:
 
 def run(output: Path) -> dict[str, Any]:
     output.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="controllergate-batch087-runtime-", dir=str(Path(os.environ.get("TEMP", "C:/Temp")))) as temporary:
+    with tempfile.TemporaryDirectory(prefix="controllergate-batch087-runtime-", dir=tempfile.gettempdir()) as temporary:
         runtime = Path(temporary)
         canonical, manifest, repository = synthetic_execution(output, runtime)
         static = scan_reachability(); write_json(output / "canonical_installed_execution_graph.json", static)

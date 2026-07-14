@@ -85,3 +85,10 @@ def test_tld_registry_is_shadow_only_and_complete():
     records = [json.loads(line) for line in (root / "configs/notebooklm_tld_requirements_registry.jsonl").read_text(encoding="utf-8").splitlines()]
     assert len(records) == 44
     assert all(item["may_authorize"] is False for item in records)
+
+
+def test_batch087_runner_uses_platform_temp_directory():
+    root = Path(__file__).resolve().parents[1]
+    source = (root / "scripts/run_batch087_canonical_execution_blind_dpp14_product_beta_revalidation.py").read_text(encoding="utf-8")
+    assert "tempfile.gettempdir()" in source
+    assert 'os.environ.get("TEMP", "C:/Temp")' not in source
