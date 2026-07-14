@@ -15,7 +15,9 @@ def _remove_tree(path: Path) -> None:
         Path(target).chmod(stat.S_IWRITE)
         function(target)
 
-    shutil.rmtree(path, onexc=make_writable)
+    # ``onerror`` is available on every Python runtime supported by the
+    # workflow; ``onexc`` was added later and breaks the Python 3.11 job.
+    shutil.rmtree(path, onerror=make_writable)
 
 
 def execute_local_write_sandbox(runtime_root: Path) -> dict[str, object]:
