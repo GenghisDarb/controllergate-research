@@ -1,0 +1,17 @@
+from __future__ import annotations
+
+import sqlite3
+
+from .schema import SCHEMA_VERSION
+
+
+def current_version(connection: sqlite3.Connection) -> int:
+    row = connection.execute("SELECT COALESCE(MAX(version), 0) AS version FROM schema_migrations").fetchone()
+    return int(row["version"])
+
+
+def migrate(connection: sqlite3.Connection) -> int:
+    version = current_version(connection)
+    if version > SCHEMA_VERSION:
+        raise RuntimeError("state schema is newer than this ControllerGate build")
+    return version

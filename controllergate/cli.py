@@ -40,4 +40,5 @@ def main(argv: list[str] | None = None) -> int:
         events = [read_frozen_resource(value["resource"])] if contract.validate()["status"] == "CONNECTOR_SCHEMA_VALIDATED" else []
         result = {"contract": contract.validate(), "events": events, "audit": audit_events(events)}
     print(json.dumps(result, sort_keys=True))
-    return 0 if result.get("status", result.get("audit", {}).get("status")) not in {"BLOCK", "FAIL"} else 1
+    terminal = result.get("status", result.get("audit", {}).get("status"))
+    return 0 if terminal not in {"BLOCK", "FAIL", "CANARY_REJECTED"} else 1

@@ -11,6 +11,7 @@ from .execution_checkpoint import RuntimeCheckpoint, load_checkpoint, write_chec
 from .execution_plan import plan_from_dict, verify_plan
 from .phase_executor import execute_binding
 from .network_policy import validate_network_policy
+from controllergate.reactions.token_kernel import ReactionToken, require_tokens
 
 
 GENERIC_MAINTENANCE_PHASES = (
@@ -23,6 +24,37 @@ GENERIC_MAINTENANCE_PHASES = (
     "run_duplicate_clean_replay", "rollback_candidate", "update_proof_ledger",
     "execute_count_gate", "update_routing_memory",
 )
+
+
+TYPED_STAGE_REQUIREMENTS = {
+    "provider_execution_ready": ("SOURCE_ACQUIRED_TOKEN",),
+    "target_verified": ("PROVIDER_EXECUTION_READY_TOKEN",),
+    "failure_reproduced": ("TARGET_OR_REPRODUCER_VERIFIED_TOKEN", "COMMAND_AUTHORITY_VERIFIED_TOKEN"),
+    "repair_licensed": ("DUPLICATE_FAILURE_REPRODUCED_TOKEN", "CAUSAL_OWNERSHIP_TOKEN", "AST_CONTACT_DOMAIN_TOKEN"),
+    "patch_applied": ("REPAIR_LICENSE_TOKEN",),
+    "validation_passed": ("PATCH_APPLIED_TOKEN",),
+    "duplicate_replay_passed": ("VALIDATION_PASSED_TOKEN",),
+    "proof_appended": ("DUPLICATE_CLEAN_REPLAY_TOKEN", "ROLLBACK_READY_TOKEN"),
+    "count_decided": ("PROOF_APPENDED_TOKEN",),
+    "canary_healthy": ("DUPLICATE_CLEAN_REPLAY_TOKEN", "ROLLBACK_READY_TOKEN", "PROOF_APPENDED_TOKEN"),
+}
+
+
+def dispatch_typed_stage(*, stage: str, candidate_id: str, run_id: str,
+                         input_tokens: list[ReactionToken], output_token_type: str,
+                         payload: dict[str, Any], reaction_status: str,
+                         independent_verifier: str) -> ReactionToken:
+    """Canonical typed-token stage boundary.
+
+    Manifests and PASS fields are not authority.  A stage advances only when
+    every prerequisite token for the same candidate and run is present.
+    """
+    require_tokens(input_tokens, TYPED_STAGE_REQUIREMENTS.get(stage, ()), candidate_id=candidate_id, run_id=run_id)
+    return ReactionToken.mint(
+        token_type=output_token_type, candidate_id=candidate_id, run_id=run_id,
+        producer_event=stage, input_tokens=input_tokens, payload=payload,
+        independent_verifier=independent_verifier, reaction_status=reaction_status,
+    )
 
 
 def dispatch_candidate_manifest(

@@ -1,6 +1,5 @@
-"""Durable state for canonical ControllerGate runs."""
+"""Transactional ControllerGate state authority."""
 
-from .run_state import RunState
-from .state_store import StateStore
+from .repository import ControllerStateRepository
 
-__all__ = ["RunState", "StateStore"]
+__all__ = ["ControllerStateRepository"]
