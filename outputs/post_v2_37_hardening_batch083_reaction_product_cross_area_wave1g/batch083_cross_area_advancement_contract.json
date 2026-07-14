@@ -1,0 +1,16 @@
+{
+  "allowed_outcomes": [
+    "EXECUTED_WITH_RESULT",
+    "BLOCKED_EXACT_WITH_NEW_EVIDENCE",
+    "INTEGRITY_FAILURE"
+  ],
+  "not_run_allowed_only_for_upstream_cryptographic_identity_failure": true,
+  "required_lanes": [
+    "historical_amds",
+    "memory_counterfactual",
+    "historical_canary",
+    "offline_connector",
+    "public_connector",
+    "product_alpha"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "batch": "post_v2_37_hardening_batch083_reaction_product_cross_area_wave1g",
+  "batch082_rerun": false,
+  "canonical_engine_invoked": true,
+  "lanes": [
+    {
+      "evidence": "batch083_historical_amds_blind_challenge.json",
+      "evidence_hash": "a7b8c17141f524f087f360eee260f8258664b484f5b09e0a13d953c913353e80",
+      "lane": "historical_amds",
+      "result": "EXECUTED_WITH_RESULT"
+    },
+    {
+      "evidence": "batch083_routing_memory_counterfactual.json",
+      "evidence_hash": "ecf0dd93f0cb1bc977db342756fb7f0f651c6cbda9fc4ef0e12893688e91b7de",
+      "lane": "memory_counterfactual",
+      "result": "EXECUTED_WITH_RESULT"
+    },
+    {
+      "evidence": "batch083_historical_canary_health_rollback.json",
+      "evidence_hash": "405fbca41682744da0a690ad4d0b9a98c1cc03cdf328fe7ee09b5882ff06c1c0",
+      "lane": "historical_canary",
+      "result": "EXECUTED_WITH_RESULT"
+    },
+    {
+      "evidence": "batch083_offline_connector_canary.json",
+      "evidence_hash": "0c542c1cfc62aeb35c487a7aa7645fb26161a8cb3d40af0c656c45c1effcc55e",
+      "lane": "offline_connector",
+      "result": "EXECUTED_WITH_RESULT"
+    },
+    {
+      "evidence": "batch083_public_readonly_connector_pilot.json",
+      "evidence_hash": "b9f6a6b620fcac8681a246d76bd2bc7b18d4697bb5eedef9a000d92e358aac57",
+      "lane": "public_connector",
+      "result": "EXECUTED_WITH_RESULT"
+    },
+    {
+      "evidence": "batch083_product_alpha_cycle.json",
+      "evidence_hash": "cbc2ba56e30832ea925a97120acb6d51021553e80dfea8524b090951a07d9c64",
+      "lane": "product_alpha",
+      "result": "EXECUTED_WITH_RESULT"
+    }
+  ],
+  "prompt_id": "CG-BATCH083-INTEGRATED-REACTION-PRODUCT-ADVANCEMENT-2026-07-14-V1",
+  "prompt_sentinel": "BEGIN_BATCH083_INTEGRATED_CONTINUATION",
+  "result_directory_preexisted_official_workflow": false,
+  "status": "PASS"
+}

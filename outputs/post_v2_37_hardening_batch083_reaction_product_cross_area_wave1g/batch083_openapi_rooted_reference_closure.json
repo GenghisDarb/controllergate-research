@@ -1,0 +1,1412 @@
+{
+  "closure": {
+    "cycles": [],
+    "duplicate_canonical_paths": [],
+    "external_references": [],
+    "fragments": [
+      "components/index.yaml#/DateFrom",
+      "components/index.yaml#/DateTo",
+      "components/index.yaml#/Error",
+      "components/index.yaml#/FinancialStatementRow",
+      "components/index.yaml#/FmtCsvJson",
+      "components/index.yaml#/FmtJsonXml",
+      "components/index.yaml#/ForbiddenHtml",
+      "components/index.yaml#/HistoricalComponentItem",
+      "components/index.yaml#/HistoricalComponentsMap",
+      "components/index.yaml#/HistoricalIndexComponent",
+      "components/index.yaml#/IndexComponent",
+      "components/index.yaml#/IndexComponentItem",
+      "components/index.yaml#/IndexComponentsMap",
+      "components/index.yaml#/IndexComponentsResponse",
+      "components/index.yaml#/IndexGeneral",
+      "components/index.yaml#/IndexListItem",
+      "components/index.yaml#/IndexListResponse",
+      "components/index.yaml#/InternalUser",
+      "components/index.yaml#/Links",
+      "components/index.yaml#/MetaPagination",
+      "components/index.yaml#/NotFoundHtml",
+      "components/index.yaml#/OptionsCommonAttributes",
+      "components/index.yaml#/OptionsContractsItem",
+      "components/index.yaml#/OptionsContractsResponse",
+      "components/index.yaml#/OptionsEODCompactResponse",
+      "components/index.yaml#/OptionsEODItem",
+      "components/index.yaml#/OptionsEODResponse",
+      "components/index.yaml#/Resp_GetBulkEODData_200_application_json",
+      "components/index.yaml#/Resp_GetCdsMarketAggregates_200_application_json",
+      "components/index.yaml#/Resp_GetCorporateCmdi_200_application_json",
+      "components/index.yaml#/Resp_GetCorporateHqmYields_200_application_json",
+      "components/index.yaml#/Resp_GetEODDataByTicker_200_application_json",
+      "components/index.yaml#/Resp_GetEarningsTrends_200_application_json",
+      "components/index.yaml#/Resp_GetEconomicEventsData_200_application_json",
+      "components/index.yaml#/Resp_GetExchangeDetails_200_application_json",
+      "components/index.yaml#/Resp_GetExchangeSymbolList_200_application_json",
+      "components/index.yaml#/Resp_GetFinancialNews_200_application_json",
+      "components/index.yaml#/Resp_GetFundamentalData_200_application_json",
+      "components/index.yaml#/Resp_GetFundingStressSpreads_200_application_json",
+      "components/index.yaml#/Resp_GetHistoricalDividends_200_application_json",
+      "components/index.yaml#/Resp_GetHistoricalMarketCap_200_application_json",
+      "components/index.yaml#/Resp_GetHistoricalSplits_200_application_json",
+      "components/index.yaml#/Resp_GetInsiderTransactions_200_application_json",
+      "components/index.yaml#/Resp_GetIntradayHistoricalData_200_application_json",
+      "components/index.yaml#/Resp_GetListOfExchanges_200_application_json",
+      "components/index.yaml#/Resp_GetLiveDelayedStockPrices_200_application_json",
+      "components/index.yaml#/Resp_GetMacroIndicatorData_200_application_json",
+      "components/index.yaml#/Resp_GetPolicyRates_200_application_json",
+      "components/index.yaml#/Resp_GetReferenceRates_200_application_json",
+      "components/index.yaml#/Resp_GetSanctionsEntities_200_application_json",
+      "components/index.yaml#/Resp_GetSanctionsPrograms_200_application_json",
+      "components/index.yaml#/Resp_GetSanctionsSources_200_application_json",
+      "components/index.yaml#/Resp_GetSanctionsVessels_200_application_json",
+      "components/index.yaml#/Resp_GetSentimentData_200_application_json",
+      "components/index.yaml#/Resp_GetSovereignCdsSpreads_200_application_json",
+      "components/index.yaml#/Resp_GetSovereignCreditRatings_200_application_json",
+      "components/index.yaml#/Resp_GetSovereignDefaultSpreads_200_application_json",
+      "components/index.yaml#/Resp_GetSovereignRiskPremium_200_application_json",
+      "components/index.yaml#/Resp_GetStockScreenerData_200_application_json",
+      "components/index.yaml#/Resp_GetSymbolChangeHistory_200_application_json",
+      "components/index.yaml#/Resp_GetTechnicalIndicatorData_200_application_json",
+      "components/index.yaml#/Resp_GetTickData_200_application_json",
+      "components/index.yaml#/Resp_GetTickerLogo_200_image_png",
+      "components/index.yaml#/Resp_GetUpcomingEarnings_200_application_json",
+      "components/index.yaml#/Resp_GetUpcomingIPOs_200_application_json",
+      "components/index.yaml#/Resp_GetUpcomingSplits_200_application_json",
+      "components/index.yaml#/Resp_SearchStocksByQuery_200_application_json",
+      "components/index.yaml#/Resp_getIndexComponents_401_text_html",
+      "components/index.yaml#/Resp_getIndexComponents_403_text_html",
+      "components/index.yaml#/Resp_getIndexComponents_404_text_html",
+      "components/index.yaml#/Resp_getIndexComponents_429_text_html",
+      "components/index.yaml#/Resp_getOptionsEOD_200_application_json",
+      "components/index.yaml#/Resp_listIndicesWithDetails_401_text_html",
+      "components/index.yaml#/Resp_listIndicesWithDetails_403_text_html",
+      "components/index.yaml#/Resp_listIndicesWithDetails_429_text_html",
+      "components/index.yaml#/SearchResult",
+      "components/index.yaml#/TooManyHtml",
+      "components/index.yaml#/UnauthorizedHtml",
+      "components/index.yaml#/UnderlyingSymbolsResponse",
+      "components/index.yaml#/WordWeightsResponse",
+      "components/schemas/HistoricalComponentsMap.yaml#/HistoricalComponentItem",
+      "components/schemas/IndexComponentsMap.yaml#/IndexComponentItem",
+      "components/schemas/IndexComponentsResponse.yaml#/HistoricalComponentsMap",
+      "components/schemas/IndexComponentsResponse.yaml#/IndexComponentsMap",
+      "components/schemas/IndexComponentsResponse.yaml#/IndexGeneral",
+      "components/schemas/IndexListResponse.yaml#/IndexListItem",
+      "components/schemas/OptionsContractsItem.yaml#/OptionsCommonAttributes",
+      "components/schemas/OptionsContractsResponse.yaml#/Links",
+      "components/schemas/OptionsContractsResponse.yaml#/MetaPagination",
+      "components/schemas/OptionsContractsResponse.yaml#/OptionsContractsItem",
+      "components/schemas/OptionsEODCompactResponse.yaml#/Links",
+      "components/schemas/OptionsEODCompactResponse.yaml#/MetaPagination",
+      "components/schemas/OptionsEODItem.yaml#/OptionsCommonAttributes",
+      "components/schemas/OptionsEODResponse.yaml#/Links",
+      "components/schemas/OptionsEODResponse.yaml#/MetaPagination",
+      "components/schemas/OptionsEODResponse.yaml#/OptionsEODItem",
+      "components/schemas/Resp_GetCdsMarketAggregates_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetCdsMarketAggregates_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetCorporateCmdi_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetCorporateCmdi_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetCorporateHqmYields_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetCorporateHqmYields_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetFundamentalData_200_application_json.yaml#/FinancialStatementRow",
+      "components/schemas/Resp_GetFundamentalData_200_application_json.yaml#/FinancialStatementRow",
+      "components/schemas/Resp_GetFundamentalData_200_application_json.yaml#/FinancialStatementRow",
+      "components/schemas/Resp_GetFundamentalData_200_application_json.yaml#/FinancialStatementRow",
+      "components/schemas/Resp_GetFundamentalData_200_application_json.yaml#/FinancialStatementRow",
+      "components/schemas/Resp_GetFundamentalData_200_application_json.yaml#/FinancialStatementRow",
+      "components/schemas/Resp_GetFundingStressSpreads_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetFundingStressSpreads_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetPolicyRates_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetPolicyRates_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetReferenceRates_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetReferenceRates_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetSanctionsEntities_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetSanctionsEntities_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetSanctionsPrograms_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetSanctionsPrograms_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetSanctionsSources_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetSanctionsSources_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetSanctionsVessels_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetSanctionsVessels_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetSovereignCdsSpreads_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetSovereignCdsSpreads_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetSovereignCreditRatings_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetSovereignCreditRatings_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetSovereignDefaultSpreads_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetSovereignDefaultSpreads_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_GetSovereignRiskPremium_200_application_json.yaml#/Links",
+      "components/schemas/Resp_GetSovereignRiskPremium_200_application_json.yaml#/MetaPagination",
+      "components/schemas/Resp_getOptionsEOD_200_application_json.yaml#/OptionsEODCompactResponse",
+      "components/schemas/Resp_getOptionsEOD_200_application_json.yaml#/OptionsEODResponse",
+      "components/schemas/UnderlyingSymbolsResponse.yaml#/Links",
+      "components/schemas/UnderlyingSymbolsResponse.yaml#/MetaPagination",
+      "openapi.yaml#/~1bulk-fundamentals~1{EXCHANGE",
+      "openapi.yaml#/~1calendar~1dividends",
+      "openapi.yaml#/~1calendar~1earnings",
+      "openapi.yaml#/~1calendar~1ipos",
+      "openapi.yaml#/~1calendar~1splits",
+      "openapi.yaml#/~1calendar~1trends",
+      "openapi.yaml#/~1cboe~1index",
+      "openapi.yaml#/~1cboe~1indices",
+      "openapi.yaml#/~1commodities~1historical~1{code",
+      "openapi.yaml#/~1credit-risk~1cds-market~1aggregates",
+      "openapi.yaml#/~1credit-risk~1corporate~1cmdi",
+      "openapi.yaml#/~1credit-risk~1corporate~1hqm-yields",
+      "openapi.yaml#/~1credit-risk~1sovereign~1cds-spreads",
+      "openapi.yaml#/~1credit-risk~1sovereign~1credit-ratings",
+      "openapi.yaml#/~1credit-risk~1sovereign~1default-spreads",
+      "openapi.yaml#/~1credit-risk~1sovereign~1risk-premium",
+      "openapi.yaml#/~1div~1{ticker",
+      "openapi.yaml#/~1economic-events",
+      "openapi.yaml#/~1eod-bulk-last-day~1{exchange",
+      "openapi.yaml#/~1eod~1{ticker",
+      "openapi.yaml#/~1exchange-details~1{EXCHANGE_CODE",
+      "openapi.yaml#/~1exchange-symbol-list~1{exchangeCode",
+      "openapi.yaml#/~1exchanges-list",
+      "openapi.yaml#/~1fundamentals~1{ticker",
+      "openapi.yaml#/~1historical-market-cap~1{ticker",
+      "openapi.yaml#/~1id-mapping",
+      "openapi.yaml#/~1insider-transactions",
+      "openapi.yaml#/~1internal-user",
+      "openapi.yaml#/~1intraday~1{ticker",
+      "openapi.yaml#/~1logo-svg~1{symbol",
+      "openapi.yaml#/~1logo~1{symbol",
+      "openapi.yaml#/~1macro-indicator~1{country",
+      "openapi.yaml#/~1mp~1investverte~1companies",
+      "openapi.yaml#/~1mp~1investverte~1countries",
+      "openapi.yaml#/~1mp~1investverte~1country~1{symbol",
+      "openapi.yaml#/~1mp~1investverte~1esg~1{symbol",
+      "openapi.yaml#/~1mp~1investverte~1sectors",
+      "openapi.yaml#/~1mp~1investverte~1sector~1{symbol",
+      "openapi.yaml#/~1mp~1praams~1analyse~1bond~1{isin",
+      "openapi.yaml#/~1mp~1praams~1analyse~1equity~1isin~1{isin",
+      "openapi.yaml#/~1mp~1praams~1analyse~1equity~1ticker~1{ticker",
+      "openapi.yaml#/~1mp~1praams~1bank~1balance_sheet~1isin~1{isin",
+      "openapi.yaml#/~1mp~1praams~1bank~1balance_sheet~1ticker~1{ticker",
+      "openapi.yaml#/~1mp~1praams~1bank~1income_statement~1isin~1{isin",
+      "openapi.yaml#/~1mp~1praams~1bank~1income_statement~1ticker~1{ticker",
+      "openapi.yaml#/~1mp~1praams~1explore~1bond",
+      "openapi.yaml#/~1mp~1praams~1explore~1equity",
+      "openapi.yaml#/~1mp~1praams~1reports~1bond~1{isin",
+      "openapi.yaml#/~1mp~1praams~1reports~1equity~1isin~1{isin",
+      "openapi.yaml#/~1mp~1praams~1reports~1equity~1ticker~1{ticker",
+      "openapi.yaml#/~1mp~1unicornbay~1options~1contracts",
+      "openapi.yaml#/~1mp~1unicornbay~1options~1eod",
+      "openapi.yaml#/~1mp~1unicornbay~1options~1underlying-symbols",
+      "openapi.yaml#/~1mp~1unicornbay~1spglobal~1comp~1{symbol",
+      "openapi.yaml#/~1mp~1unicornbay~1spglobal~1list",
+      "openapi.yaml#/~1mp~1unicornbay~1tickdata~1ticks",
+      "openapi.yaml#/~1news",
+      "openapi.yaml#/~1news-word-weights",
+      "openapi.yaml#/~1rates~1policy-rates",
+      "openapi.yaml#/~1rates~1reference-rates",
+      "openapi.yaml#/~1real-time~1{ticker",
+      "openapi.yaml#/~1sanctions~1entities",
+      "openapi.yaml#/~1sanctions~1programs",
+      "openapi.yaml#/~1sanctions~1sources",
+      "openapi.yaml#/~1sanctions~1vessels",
+      "openapi.yaml#/~1screener",
+      "openapi.yaml#/~1search~1{query",
+      "openapi.yaml#/~1sentiments",
+      "openapi.yaml#/~1splits~1{ticker",
+      "openapi.yaml#/~1spreads~1funding-stress",
+      "openapi.yaml#/~1symbol-change-history",
+      "openapi.yaml#/~1technical~1{ticker",
+      "openapi.yaml#/~1ticks",
+      "openapi.yaml#/~1us-quote-delayed",
+      "openapi.yaml#/~1user",
+      "openapi.yaml#/~1ust~1bill-rates",
+      "openapi.yaml#/~1ust~1long-term-rates",
+      "openapi.yaml#/~1ust~1real-yield-rates",
+      "openapi.yaml#/~1ust~1yield-rates",
+      "openapi.yaml#/~1v1.1~1bulk-fundamentals~1{EXCHANGE",
+      "openapi.yaml#/~1v1.1~1fundamentals~1{ticker",
+      "openapi.yaml#/~1v2~1exchange-details",
+      "openapi.yaml#/~1v2~1exchange-details~1{code",
+      "paths/../components/schemas/HistoricalComponentsMap.yaml#/HistoricalComponentItem",
+      "paths/../components/schemas/IndexComponentsMap.yaml#/IndexComponentItem",
+      "paths/../components/schemas/IndexComponentsResponse.yaml#/HistoricalComponentsMap",
+      "paths/../components/schemas/IndexComponentsResponse.yaml#/IndexComponentsMap",
+      "paths/../components/schemas/IndexComponentsResponse.yaml#/IndexGeneral",
+      "paths/../components/schemas/IndexListResponse.yaml#/IndexListItem",
+      "paths/../components/schemas/OptionsContractsItem.yaml#/OptionsCommonAttributes",
+      "paths/../components/schemas/OptionsContractsResponse.yaml#/Links",
+      "paths/../components/schemas/OptionsContractsResponse.yaml#/MetaPagination",
+      "paths/../components/schemas/OptionsContractsResponse.yaml#/OptionsContractsItem",
+      "paths/../components/schemas/OptionsEODCompactResponse.yaml#/Links",
+      "paths/../components/schemas/OptionsEODCompactResponse.yaml#/MetaPagination",
+      "paths/../components/schemas/OptionsEODItem.yaml#/OptionsCommonAttributes",
+      "paths/../components/schemas/OptionsEODResponse.yaml#/Links",
+      "paths/../components/schemas/OptionsEODResponse.yaml#/MetaPagination",
+      "paths/../components/schemas/OptionsEODResponse.yaml#/OptionsEODItem",
+      "paths/../components/schemas/Resp_GetCdsMarketAggregates_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetCdsMarketAggregates_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetCorporateCmdi_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetCorporateCmdi_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetCorporateHqmYields_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetCorporateHqmYields_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetFundingStressSpreads_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetFundingStressSpreads_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetPolicyRates_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetPolicyRates_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetReferenceRates_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetReferenceRates_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetSanctionsEntities_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetSanctionsEntities_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetSanctionsPrograms_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetSanctionsPrograms_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetSanctionsSources_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetSanctionsSources_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetSanctionsVessels_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetSanctionsVessels_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetSovereignCdsSpreads_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetSovereignCdsSpreads_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetSovereignCreditRatings_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetSovereignCreditRatings_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetSovereignDefaultSpreads_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetSovereignDefaultSpreads_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/Resp_GetSovereignRiskPremium_200_application_json.yaml#/Links",
+      "paths/../components/schemas/Resp_GetSovereignRiskPremium_200_application_json.yaml#/MetaPagination",
+      "paths/../components/schemas/UnderlyingSymbolsResponse.yaml#/Links",
+      "paths/../components/schemas/UnderlyingSymbolsResponse.yaml#/MetaPagination",
+      "paths/credit-risk_cds-market_aggregates.yaml#/Error",
+      "paths/credit-risk_cds-market_aggregates.yaml#/Error",
+      "paths/credit-risk_cds-market_aggregates.yaml#/Error",
+      "paths/credit-risk_cds-market_aggregates.yaml#/Error",
+      "paths/credit-risk_cds-market_aggregates.yaml#/Resp_GetCdsMarketAggregates_200_application_json",
+      "paths/credit-risk_corporate_cmdi.yaml#/Error",
+      "paths/credit-risk_corporate_cmdi.yaml#/Error",
+      "paths/credit-risk_corporate_cmdi.yaml#/Error",
+      "paths/credit-risk_corporate_cmdi.yaml#/Error",
+      "paths/credit-risk_corporate_cmdi.yaml#/Resp_GetCorporateCmdi_200_application_json",
+      "paths/credit-risk_corporate_hqm-yields.yaml#/Error",
+      "paths/credit-risk_corporate_hqm-yields.yaml#/Error",
+      "paths/credit-risk_corporate_hqm-yields.yaml#/Error",
+      "paths/credit-risk_corporate_hqm-yields.yaml#/Error",
+      "paths/credit-risk_corporate_hqm-yields.yaml#/Resp_GetCorporateHqmYields_200_application_json",
+      "paths/credit-risk_sovereign_cds-spreads.yaml#/Error",
+      "paths/credit-risk_sovereign_cds-spreads.yaml#/Error",
+      "paths/credit-risk_sovereign_cds-spreads.yaml#/Error",
+      "paths/credit-risk_sovereign_cds-spreads.yaml#/Error",
+      "paths/credit-risk_sovereign_cds-spreads.yaml#/Resp_GetSovereignCdsSpreads_200_application_json",
+      "paths/credit-risk_sovereign_credit-ratings.yaml#/Error",
+      "paths/credit-risk_sovereign_credit-ratings.yaml#/Error",
+      "paths/credit-risk_sovereign_credit-ratings.yaml#/Error",
+      "paths/credit-risk_sovereign_credit-ratings.yaml#/Error",
+      "paths/credit-risk_sovereign_credit-ratings.yaml#/Resp_GetSovereignCreditRatings_200_application_json",
+      "paths/credit-risk_sovereign_default-spreads.yaml#/Error",
+      "paths/credit-risk_sovereign_default-spreads.yaml#/Error",
+      "paths/credit-risk_sovereign_default-spreads.yaml#/Error",
+      "paths/credit-risk_sovereign_default-spreads.yaml#/Error",
+      "paths/credit-risk_sovereign_default-spreads.yaml#/Resp_GetSovereignDefaultSpreads_200_application_json",
+      "paths/credit-risk_sovereign_risk-premium.yaml#/Error",
+      "paths/credit-risk_sovereign_risk-premium.yaml#/Error",
+      "paths/credit-risk_sovereign_risk-premium.yaml#/Error",
+      "paths/credit-risk_sovereign_risk-premium.yaml#/Error",
+      "paths/credit-risk_sovereign_risk-premium.yaml#/Resp_GetSovereignRiskPremium_200_application_json",
+      "paths/insider-transactions.yaml#/Resp_GetInsiderTransactions_200_application_json",
+      "paths/logo-svg_symbol.yaml#/Error",
+      "paths/logo-svg_symbol.yaml#/Error",
+      "paths/logo-svg_symbol.yaml#/Error",
+      "paths/logo-svg_symbol.yaml#/Error",
+      "paths/logo_symbol.yaml#/Error",
+      "paths/logo_symbol.yaml#/Error",
+      "paths/logo_symbol.yaml#/Error",
+      "paths/logo_symbol.yaml#/Error",
+      "paths/mp_unicornbay_options_contracts.yaml#/Error",
+      "paths/mp_unicornbay_options_contracts.yaml#/Error",
+      "paths/mp_unicornbay_options_contracts.yaml#/Error",
+      "paths/mp_unicornbay_options_contracts.yaml#/Error",
+      "paths/mp_unicornbay_options_contracts.yaml#/Error",
+      "paths/mp_unicornbay_options_contracts.yaml#/OptionsContractsResponse",
+      "paths/mp_unicornbay_options_eod.yaml#/Error",
+      "paths/mp_unicornbay_options_eod.yaml#/Error",
+      "paths/mp_unicornbay_options_eod.yaml#/Error",
+      "paths/mp_unicornbay_options_eod.yaml#/Error",
+      "paths/mp_unicornbay_options_eod.yaml#/Error",
+      "paths/mp_unicornbay_options_eod.yaml#/OptionsEODCompactResponse",
+      "paths/mp_unicornbay_options_eod.yaml#/OptionsEODResponse",
+      "paths/mp_unicornbay_options_underlying-symbols.yaml#/Error",
+      "paths/mp_unicornbay_options_underlying-symbols.yaml#/Error",
+      "paths/mp_unicornbay_options_underlying-symbols.yaml#/Error",
+      "paths/mp_unicornbay_options_underlying-symbols.yaml#/Error",
+      "paths/mp_unicornbay_options_underlying-symbols.yaml#/Error",
+      "paths/mp_unicornbay_options_underlying-symbols.yaml#/UnderlyingSymbolsResponse",
+      "paths/mp_unicornbay_spglobal_comp_symbol.yaml#/Error",
+      "paths/mp_unicornbay_spglobal_comp_symbol.yaml#/Error",
+      "paths/mp_unicornbay_spglobal_comp_symbol.yaml#/Error",
+      "paths/mp_unicornbay_spglobal_comp_symbol.yaml#/Error",
+      "paths/mp_unicornbay_spglobal_comp_symbol.yaml#/IndexComponentsResponse",
+      "paths/mp_unicornbay_spglobal_list.yaml#/Error",
+      "paths/mp_unicornbay_spglobal_list.yaml#/Error",
+      "paths/mp_unicornbay_spglobal_list.yaml#/Error",
+      "paths/mp_unicornbay_spglobal_list.yaml#/IndexListResponse",
+      "paths/news-word-weights.yaml#/Error",
+      "paths/news-word-weights.yaml#/Error",
+      "paths/news-word-weights.yaml#/Error",
+      "paths/news-word-weights.yaml#/Error",
+      "paths/news-word-weights.yaml#/Error",
+      "paths/news-word-weights.yaml#/WordWeightsResponse",
+      "paths/rates_policy-rates.yaml#/Error",
+      "paths/rates_policy-rates.yaml#/Error",
+      "paths/rates_policy-rates.yaml#/Error",
+      "paths/rates_policy-rates.yaml#/Error",
+      "paths/rates_policy-rates.yaml#/Resp_GetPolicyRates_200_application_json",
+      "paths/rates_reference-rates.yaml#/Error",
+      "paths/rates_reference-rates.yaml#/Error",
+      "paths/rates_reference-rates.yaml#/Error",
+      "paths/rates_reference-rates.yaml#/Error",
+      "paths/rates_reference-rates.yaml#/Resp_GetReferenceRates_200_application_json",
+      "paths/sanctions_entities.yaml#/Error",
+      "paths/sanctions_entities.yaml#/Error",
+      "paths/sanctions_entities.yaml#/Error",
+      "paths/sanctions_entities.yaml#/Error",
+      "paths/sanctions_entities.yaml#/Resp_GetSanctionsEntities_200_application_json",
+      "paths/sanctions_programs.yaml#/Error",
+      "paths/sanctions_programs.yaml#/Error",
+      "paths/sanctions_programs.yaml#/Error",
+      "paths/sanctions_programs.yaml#/Error",
+      "paths/sanctions_programs.yaml#/Resp_GetSanctionsPrograms_200_application_json",
+      "paths/sanctions_sources.yaml#/Error",
+      "paths/sanctions_sources.yaml#/Error",
+      "paths/sanctions_sources.yaml#/Error",
+      "paths/sanctions_sources.yaml#/Error",
+      "paths/sanctions_sources.yaml#/Resp_GetSanctionsSources_200_application_json",
+      "paths/sanctions_vessels.yaml#/Error",
+      "paths/sanctions_vessels.yaml#/Error",
+      "paths/sanctions_vessels.yaml#/Error",
+      "paths/sanctions_vessels.yaml#/Error",
+      "paths/sanctions_vessels.yaml#/Resp_GetSanctionsVessels_200_application_json",
+      "paths/spreads_funding-stress.yaml#/Error",
+      "paths/spreads_funding-stress.yaml#/Error",
+      "paths/spreads_funding-stress.yaml#/Error",
+      "paths/spreads_funding-stress.yaml#/Error",
+      "paths/spreads_funding-stress.yaml#/Resp_GetFundingStressSpreads_200_application_json"
+    ],
+    "missing_references": [],
+    "path_traversal": [],
+    "reachable_files": [
+      "components/index.yaml",
+      "components/parameters/DateFrom.yaml",
+      "components/parameters/DateTo.yaml",
+      "components/parameters/FmtCsvJson.yaml",
+      "components/parameters/FmtJsonXml.yaml",
+      "components/responses/ForbiddenHtml.yaml",
+      "components/responses/NotFoundHtml.yaml",
+      "components/responses/TooManyHtml.yaml",
+      "components/responses/UnauthorizedHtml.yaml",
+      "components/schemas/Error.yaml",
+      "components/schemas/FinancialStatementRow.yaml",
+      "components/schemas/HistoricalComponentItem.yaml",
+      "components/schemas/HistoricalComponentsMap.yaml",
+      "components/schemas/HistoricalIndexComponent.yaml",
+      "components/schemas/IndexComponent.yaml",
+      "components/schemas/IndexComponentItem.yaml",
+      "components/schemas/IndexComponentsMap.yaml",
+      "components/schemas/IndexComponentsResponse.yaml",
+      "components/schemas/IndexGeneral.yaml",
+      "components/schemas/IndexListItem.yaml",
+      "components/schemas/IndexListResponse.yaml",
+      "components/schemas/InternalUser.yaml",
+      "components/schemas/Links.yaml",
+      "components/schemas/MetaPagination.yaml",
+      "components/schemas/OptionsCommonAttributes.yaml",
+      "components/schemas/OptionsContractsItem.yaml",
+      "components/schemas/OptionsContractsResponse.yaml",
+      "components/schemas/OptionsEODCompactResponse.yaml",
+      "components/schemas/OptionsEODItem.yaml",
+      "components/schemas/OptionsEODResponse.yaml",
+      "components/schemas/Resp_GetBulkEODData_200_application_json.yaml",
+      "components/schemas/Resp_GetCdsMarketAggregates_200_application_json.yaml",
+      "components/schemas/Resp_GetCorporateCmdi_200_application_json.yaml",
+      "components/schemas/Resp_GetCorporateHqmYields_200_application_json.yaml",
+      "components/schemas/Resp_GetEODDataByTicker_200_application_json.yaml",
+      "components/schemas/Resp_GetEarningsTrends_200_application_json.yaml",
+      "components/schemas/Resp_GetEconomicEventsData_200_application_json.yaml",
+      "components/schemas/Resp_GetExchangeDetails_200_application_json.yaml",
+      "components/schemas/Resp_GetExchangeSymbolList_200_application_json.yaml",
+      "components/schemas/Resp_GetFinancialNews_200_application_json.yaml",
+      "components/schemas/Resp_GetFundamentalData_200_application_json.yaml",
+      "components/schemas/Resp_GetFundingStressSpreads_200_application_json.yaml",
+      "components/schemas/Resp_GetHistoricalDividends_200_application_json.yaml",
+      "components/schemas/Resp_GetHistoricalMarketCap_200_application_json.yaml",
+      "components/schemas/Resp_GetHistoricalSplits_200_application_json.yaml",
+      "components/schemas/Resp_GetInsiderTransactions_200_application_json.yaml",
+      "components/schemas/Resp_GetIntradayHistoricalData_200_application_json.yaml",
+      "components/schemas/Resp_GetListOfExchanges_200_application_json.yaml",
+      "components/schemas/Resp_GetLiveDelayedStockPrices_200_application_json.yaml",
+      "components/schemas/Resp_GetMacroIndicatorData_200_application_json.yaml",
+      "components/schemas/Resp_GetPolicyRates_200_application_json.yaml",
+      "components/schemas/Resp_GetReferenceRates_200_application_json.yaml",
+      "components/schemas/Resp_GetSanctionsEntities_200_application_json.yaml",
+      "components/schemas/Resp_GetSanctionsPrograms_200_application_json.yaml",
+      "components/schemas/Resp_GetSanctionsSources_200_application_json.yaml",
+      "components/schemas/Resp_GetSanctionsVessels_200_application_json.yaml",
+      "components/schemas/Resp_GetSentimentData_200_application_json.yaml",
+      "components/schemas/Resp_GetSovereignCdsSpreads_200_application_json.yaml",
+      "components/schemas/Resp_GetSovereignCreditRatings_200_application_json.yaml",
+      "components/schemas/Resp_GetSovereignDefaultSpreads_200_application_json.yaml",
+      "components/schemas/Resp_GetSovereignRiskPremium_200_application_json.yaml",
+      "components/schemas/Resp_GetStockScreenerData_200_application_json.yaml",
+      "components/schemas/Resp_GetSymbolChangeHistory_200_application_json.yaml",
+      "components/schemas/Resp_GetTechnicalIndicatorData_200_application_json.yaml",
+      "components/schemas/Resp_GetTickData_200_application_json.yaml",
+      "components/schemas/Resp_GetTickerLogo_200_image_png.yaml",
+      "components/schemas/Resp_GetUpcomingEarnings_200_application_json.yaml",
+      "components/schemas/Resp_GetUpcomingIPOs_200_application_json.yaml",
+      "components/schemas/Resp_GetUpcomingSplits_200_application_json.yaml",
+      "components/schemas/Resp_SearchStocksByQuery_200_application_json.yaml",
+      "components/schemas/Resp_getIndexComponents_401_text_html.yaml",
+      "components/schemas/Resp_getIndexComponents_403_text_html.yaml",
+      "components/schemas/Resp_getIndexComponents_404_text_html.yaml",
+      "components/schemas/Resp_getIndexComponents_429_text_html.yaml",
+      "components/schemas/Resp_getOptionsEOD_200_application_json.yaml",
+      "components/schemas/Resp_listIndicesWithDetails_401_text_html.yaml",
+      "components/schemas/Resp_listIndicesWithDetails_403_text_html.yaml",
+      "components/schemas/Resp_listIndicesWithDetails_429_text_html.yaml",
+      "components/schemas/SearchResult.yaml",
+      "components/schemas/UnderlyingSymbolsResponse.yaml",
+      "components/schemas/WordWeightsResponse.yaml",
+      "openapi.yaml",
+      "paths/../components/schemas/Error.yaml",
+      "paths/../components/schemas/HistoricalComponentItem.yaml",
+      "paths/../components/schemas/HistoricalComponentsMap.yaml",
+      "paths/../components/schemas/IndexComponentItem.yaml",
+      "paths/../components/schemas/IndexComponentsMap.yaml",
+      "paths/../components/schemas/IndexComponentsResponse.yaml",
+      "paths/../components/schemas/IndexGeneral.yaml",
+      "paths/../components/schemas/IndexListItem.yaml",
+      "paths/../components/schemas/IndexListResponse.yaml",
+      "paths/../components/schemas/Links.yaml",
+      "paths/../components/schemas/MetaPagination.yaml",
+      "paths/../components/schemas/OptionsCommonAttributes.yaml",
+      "paths/../components/schemas/OptionsContractsItem.yaml",
+      "paths/../components/schemas/OptionsContractsResponse.yaml",
+      "paths/../components/schemas/OptionsEODCompactResponse.yaml",
+      "paths/../components/schemas/OptionsEODItem.yaml",
+      "paths/../components/schemas/OptionsEODResponse.yaml",
+      "paths/../components/schemas/Resp_GetCdsMarketAggregates_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetCorporateCmdi_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetCorporateHqmYields_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetFundingStressSpreads_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetInsiderTransactions_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetPolicyRates_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetReferenceRates_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetSanctionsEntities_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetSanctionsPrograms_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetSanctionsSources_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetSanctionsVessels_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetSovereignCdsSpreads_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetSovereignCreditRatings_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetSovereignDefaultSpreads_200_application_json.yaml",
+      "paths/../components/schemas/Resp_GetSovereignRiskPremium_200_application_json.yaml",
+      "paths/../components/schemas/UnderlyingSymbolsResponse.yaml",
+      "paths/../components/schemas/WordWeightsResponse.yaml",
+      "paths/bulk-fundamentals_EXCHANGE.yaml",
+      "paths/calendar_dividends.yaml",
+      "paths/calendar_earnings.yaml",
+      "paths/calendar_ipos.yaml",
+      "paths/calendar_splits.yaml",
+      "paths/calendar_trends.yaml",
+      "paths/cboe_index.yaml",
+      "paths/cboe_indices.yaml",
+      "paths/commodities_historical_code.yaml",
+      "paths/credit-risk_cds-market_aggregates.yaml",
+      "paths/credit-risk_corporate_cmdi.yaml",
+      "paths/credit-risk_corporate_hqm-yields.yaml",
+      "paths/credit-risk_sovereign_cds-spreads.yaml",
+      "paths/credit-risk_sovereign_credit-ratings.yaml",
+      "paths/credit-risk_sovereign_default-spreads.yaml",
+      "paths/credit-risk_sovereign_risk-premium.yaml",
+      "paths/div_ticker.yaml",
+      "paths/economic-events.yaml",
+      "paths/eod-bulk-last-day_exchange.yaml",
+      "paths/eod_ticker.yaml",
+      "paths/exchange-details_EXCHANGE_CODE.yaml",
+      "paths/exchange-symbol-list_exchangeCode.yaml",
+      "paths/exchanges-list.yaml",
+      "paths/fundamentals_ticker.yaml",
+      "paths/historical-market-cap_ticker.yaml",
+      "paths/id-mapping.yaml",
+      "paths/insider-transactions.yaml",
+      "paths/internal-user.yaml",
+      "paths/intraday_ticker.yaml",
+      "paths/logo-svg_symbol.yaml",
+      "paths/logo_symbol.yaml",
+      "paths/macro-indicator_country.yaml",
+      "paths/mp_investverte_companies.yaml",
+      "paths/mp_investverte_countries.yaml",
+      "paths/mp_investverte_country_symbol.yaml",
+      "paths/mp_investverte_esg_symbol.yaml",
+      "paths/mp_investverte_sector_symbol.yaml",
+      "paths/mp_investverte_sectors.yaml",
+      "paths/mp_praams_analyse_bond_isin.yaml",
+      "paths/mp_praams_analyse_equity_isin_isin.yaml",
+      "paths/mp_praams_analyse_equity_ticker_ticker.yaml",
+      "paths/mp_praams_bank_balance_sheet_isin_isin.yaml",
+      "paths/mp_praams_bank_balance_sheet_ticker_ticker.yaml",
+      "paths/mp_praams_bank_income_statement_isin_isin.yaml",
+      "paths/mp_praams_bank_income_statement_ticker_ticker.yaml",
+      "paths/mp_praams_explore_bond.yaml",
+      "paths/mp_praams_explore_equity.yaml",
+      "paths/mp_praams_reports_bond_isin.yaml",
+      "paths/mp_praams_reports_equity_isin_isin.yaml",
+      "paths/mp_praams_reports_equity_ticker_ticker.yaml",
+      "paths/mp_unicornbay_options_contracts.yaml",
+      "paths/mp_unicornbay_options_eod.yaml",
+      "paths/mp_unicornbay_options_underlying-symbols.yaml",
+      "paths/mp_unicornbay_spglobal_comp_symbol.yaml",
+      "paths/mp_unicornbay_spglobal_list.yaml",
+      "paths/mp_unicornbay_tickdata_ticks.yaml",
+      "paths/news-word-weights.yaml",
+      "paths/news.yaml",
+      "paths/rates_policy-rates.yaml",
+      "paths/rates_reference-rates.yaml",
+      "paths/real-time_ticker.yaml",
+      "paths/sanctions_entities.yaml",
+      "paths/sanctions_programs.yaml",
+      "paths/sanctions_sources.yaml",
+      "paths/sanctions_vessels.yaml",
+      "paths/screener.yaml",
+      "paths/search_query.yaml",
+      "paths/sentiments.yaml",
+      "paths/splits_ticker.yaml",
+      "paths/spreads_funding-stress.yaml",
+      "paths/symbol-change-history.yaml",
+      "paths/technical_ticker.yaml",
+      "paths/ticks.yaml",
+      "paths/us-quote-delayed.yaml",
+      "paths/user.yaml",
+      "paths/ust_bill-rates.yaml",
+      "paths/ust_long-term-rates.yaml",
+      "paths/ust_real-yield-rates.yaml",
+      "paths/ust_yield-rates.yaml",
+      "paths/v1.1_bulk-fundamentals_EXCHANGE.yaml",
+      "paths/v1.1_fundamentals_ticker.yaml",
+      "paths/v2_exchange-details.yaml",
+      "paths/v2_exchange-details_code.yaml"
+    ],
+    "reference_edges": 377,
+    "reference_nodes": 199,
+    "resolved_hashes": {
+      "components/index.yaml": "ca735b7279da67b500bd985ebeeac2a239b6e258b91875eed643785b8b2811ec",
+      "components/parameters/DateFrom.yaml": "7ae8a0a66a7cb443a9c5444e3cb020e4602793a378ae8c2927b07f871af9726b",
+      "components/parameters/DateTo.yaml": "4f78ef4548bab1a77817301622c584929e85d3b6c41f6e1a6506b3e061428062",
+      "components/parameters/FmtCsvJson.yaml": "1b35f44b00e7663d81665b2b52f8a7f774b46aeb01335aea077b3ee35d31a031",
+      "components/parameters/FmtJsonXml.yaml": "b6ad31d2a9d9a83039545e143fb4ba716dc782df7b0ebe337348238271734c46",
+      "components/responses/ForbiddenHtml.yaml": "ebf120bda1a46bb5a7ced3031eece8f371b4232e7b36c80f8fb4982e1dee687f",
+      "components/responses/NotFoundHtml.yaml": "85856d855926248db55f9aa26ec38851872a6c224cce2b3037505d692d61ffec",
+      "components/responses/TooManyHtml.yaml": "62f075dab9e009803431ce12cc2ac3e474584aba6f0abc869e96def925038c8d",
+      "components/responses/UnauthorizedHtml.yaml": "289ba13883e75621d7fe8c6eec25ab8adc1ee1ae23a947edb7ec7f09bf799ad4",
+      "components/schemas/Error.yaml": "e4bae63628ce755bbb5b5d9ec0dea7d76e9fae3f07f16f9d8e0b602f5c23f481",
+      "components/schemas/FinancialStatementRow.yaml": "589e8dda0bdebf24f9ec999e745804e68d6b72c2d414614f6acacc5c9ed1cfe9",
+      "components/schemas/HistoricalComponentItem.yaml": "37329e3535cfe3855a0b23243fb3387458e6f0f632caad0ab91bb5c4644b21f0",
+      "components/schemas/HistoricalComponentsMap.yaml": "5fee84f629eb603b6ae441975a76996f5bc4a9284c85a497ed62e5e8573070b6",
+      "components/schemas/HistoricalIndexComponent.yaml": "9cf18b6ecdde389ba388e592e5418facd1a52d06ac476e82891eb8ad5c344f0d",
+      "components/schemas/IndexComponent.yaml": "e567e17e7898ca8ef6bbbfffc0d3562fc758ec7d2697b0e68c8a3a72726946bb",
+      "components/schemas/IndexComponentItem.yaml": "1ef734a14adbebe3580c4772ff5a44f54435e4f2042af5623730fb800d5c19e2",
+      "components/schemas/IndexComponentsMap.yaml": "df96c9f24162ee322e666a54108dfe8b639e8359006728ae12aa9446e774ed03",
+      "components/schemas/IndexComponentsResponse.yaml": "414dd6f44fda1b706ee468b2cb0c9d38e4517e9656a54019ba46c9798422aa8b",
+      "components/schemas/IndexGeneral.yaml": "d590a3dbb888cb1783c9fe64e36262c306607f4532c863519eb2ff4d48635de9",
+      "components/schemas/IndexListItem.yaml": "550c472a438cb5b27104b72b8b281757db6ec0eb8f3a3baeeffccd626952e50a",
+      "components/schemas/IndexListResponse.yaml": "289d915c78318a324e12d5b572595191ef589048dd943b838c4c29cf2b2f6ce0",
+      "components/schemas/InternalUser.yaml": "140ce08726400f3c0b9661f9136cc219fabf5e6c31ff47f93b26b0d324bbe97e",
+      "components/schemas/Links.yaml": "2d536c5ad6cbbbf02e11b4b493ce68c4cfe3cae69156dabb8e886b33ca26eb02",
+      "components/schemas/MetaPagination.yaml": "4404a91fe8fc898138f4d18f97a770d3e9faf148fe65fa4cc43c06d5f9129a86",
+      "components/schemas/OptionsCommonAttributes.yaml": "5b8ef3e34cd96f1e37a4218e70cd6db67cf88b7ea76fb2cbc06d568da1393650",
+      "components/schemas/OptionsContractsItem.yaml": "db0e2189bc2290b412410db170de27675f2a7c11539b13c28401a42d2bc2d2be",
+      "components/schemas/OptionsContractsResponse.yaml": "0d4583e69a9e0b58560be748cf6de736596ec8262faa35e9a59f69963b51fc9c",
+      "components/schemas/OptionsEODCompactResponse.yaml": "bc6cd77f188213520913fd8b7bcac28c9293d905bb0e16875505ca734c70478f",
+      "components/schemas/OptionsEODItem.yaml": "a915f34c63d718b7c377d973a9296e5f760346b03be77c2f36c9127e860a5178",
+      "components/schemas/OptionsEODResponse.yaml": "67017c45bd7fd687cab442c153f22d7bc124cb65aef39e99c29bcc85ef944c06",
+      "components/schemas/Resp_GetBulkEODData_200_application_json.yaml": "59507a2a5b58a335f0543489b42fa80a4f5bd9fc71f90d4b2350fda33491a7e6",
+      "components/schemas/Resp_GetCdsMarketAggregates_200_application_json.yaml": "2afc4789cf207e0770168f31c10f500b7c4918a7bf599d3b26acdd04736e31cc",
+      "components/schemas/Resp_GetCorporateCmdi_200_application_json.yaml": "16ce2a1627adee0bb7690a8e4a8dae4c31aa89bb57a8d96747289342bf91b325",
+      "components/schemas/Resp_GetCorporateHqmYields_200_application_json.yaml": "262d7eb4d2815f28711a22c1da3b3e239f337effd74dece14791a41dde4d9e67",
+      "components/schemas/Resp_GetEODDataByTicker_200_application_json.yaml": "22f7a79eaf2b215162f6a79c10d6aceea75eb1d01e070c11dc56d04e67f32f38",
+      "components/schemas/Resp_GetEarningsTrends_200_application_json.yaml": "a7b2d1fbf6ebb6077f12f324e11d657473906950739d4d9da3b94b6632306e0d",
+      "components/schemas/Resp_GetEconomicEventsData_200_application_json.yaml": "d34da39e8229f478405651918281217ee0b64aba899de6c2217f5c17b9c696fb",
+      "components/schemas/Resp_GetExchangeDetails_200_application_json.yaml": "dae67e8cdf5365a795a18b52935236293f2f4b32a4559d75baffab6f9f96bfbf",
+      "components/schemas/Resp_GetExchangeSymbolList_200_application_json.yaml": "a42f904c603e50ebdd4f494254f4ec78fb57f30f3867e9d877dd62a73279f89e",
+      "components/schemas/Resp_GetFinancialNews_200_application_json.yaml": "1ca445aefc14574ff640444744aaaf217d48b69c9f45170afce8072193da49b9",
+      "components/schemas/Resp_GetFundamentalData_200_application_json.yaml": "786612a64d4b748aa152ab70a57565d575f50695baab376460ece335b577c873",
+      "components/schemas/Resp_GetFundingStressSpreads_200_application_json.yaml": "bde476fdae422edd603740bfa7ff37a9f5ae1435f3850bc25f270d61312c4a43",
+      "components/schemas/Resp_GetHistoricalDividends_200_application_json.yaml": "2164dcc6e4ecb10fd217763d006b2c63e382891a52d2f934fc9b9798b7b4a0ed",
+      "components/schemas/Resp_GetHistoricalMarketCap_200_application_json.yaml": "7f31b67afbe4b7c053ba99a3786f6c400fb98003f19b22b2ae113b41f1012c77",
+      "components/schemas/Resp_GetHistoricalSplits_200_application_json.yaml": "8dece2a0413d8b2b6c1c1f7fcef786e5caf3211e9458b6d5634d018a1ef268cc",
+      "components/schemas/Resp_GetInsiderTransactions_200_application_json.yaml": "0b3bf4aec40e242458f9cb38a2a7b3120802ae8ce43d5cc4f0a2e97529de7030",
+      "components/schemas/Resp_GetIntradayHistoricalData_200_application_json.yaml": "1155ad8d91c3f076ff0571cf6449b647b173aec54ab2f44d846209f7b6f30b8e",
+      "components/schemas/Resp_GetListOfExchanges_200_application_json.yaml": "aab0690e9139b241dc4ca656b81e0b6e893888364ee8ec73b370c106416db539",
+      "components/schemas/Resp_GetLiveDelayedStockPrices_200_application_json.yaml": "9c8ea843f31b55f443f9aedd95b9cd969966a6b6f48f002a5a37188ec68321b0",
+      "components/schemas/Resp_GetMacroIndicatorData_200_application_json.yaml": "ff86921f5dd0e8a6968f226277f9f61ed2fa4a1af773802456fdfc7e4a4b516c",
+      "components/schemas/Resp_GetPolicyRates_200_application_json.yaml": "5f8e40e8a10b981291e6417f0e8746b7398f56fb21abedf8204f3f35f2776470",
+      "components/schemas/Resp_GetReferenceRates_200_application_json.yaml": "5da7e217c6900039192d1cd7b31a7253c9fc6c3c5dca9cd71673571427b492b8",
+      "components/schemas/Resp_GetSanctionsEntities_200_application_json.yaml": "d0581b17d7fa1344b8a39adfa9ebd2c57f51c1f05aba985b4b76e380347d1c6b",
+      "components/schemas/Resp_GetSanctionsPrograms_200_application_json.yaml": "c07519f95ff5872a4e50093dfb47d03d7fc04c7a3dba617cbd82c3eb0e57a1e0",
+      "components/schemas/Resp_GetSanctionsSources_200_application_json.yaml": "92c24a63f5ca93b6656f69601fba558d58fd89b3c13013e56bea72ee5ae724d3",
+      "components/schemas/Resp_GetSanctionsVessels_200_application_json.yaml": "0d84622c42fd138b15fbf2b05febed5f74efcb0503e725b2f70f2730758fd38e",
+      "components/schemas/Resp_GetSentimentData_200_application_json.yaml": "fdc8a43cd5958392238be06097eef21b5045336b69d9e6c1dc93b784ac77f455",
+      "components/schemas/Resp_GetSovereignCdsSpreads_200_application_json.yaml": "e31de4177d5a9b8ee0d922a7978518896fb9c0e7c52b5bdb111b324ed206d7fd",
+      "components/schemas/Resp_GetSovereignCreditRatings_200_application_json.yaml": "ebd42d3a16b8574b1d90d281edcaaa91d527a46f9d1c3d7a05f9c5486348c654",
+      "components/schemas/Resp_GetSovereignDefaultSpreads_200_application_json.yaml": "cb89465161013715d79bfea2913bbd824e3cdcacef7a1c99ef282b5726582127",
+      "components/schemas/Resp_GetSovereignRiskPremium_200_application_json.yaml": "f5b912cee9c43939179b8a335f097735631adf4d00a6b0d3a97061316990fcf1",
+      "components/schemas/Resp_GetStockScreenerData_200_application_json.yaml": "50e60de0bc3f1663f6efe8a2220f89209120d50711c3b1b9a9283e345fb1a2ac",
+      "components/schemas/Resp_GetSymbolChangeHistory_200_application_json.yaml": "6df0802cca0fe6b4eecae257ff65e27b05b3c0203d9d6b29202abd5cc19346b9",
+      "components/schemas/Resp_GetTechnicalIndicatorData_200_application_json.yaml": "9d57d6db981fe922fa56bee77c2b1d4cefb796ef0cf967b06168fc728c20379e",
+      "components/schemas/Resp_GetTickData_200_application_json.yaml": "e10e3d5ddcdeba0fd83fcc8bfd8913d573e480bd0d70e890e2f8b2aaf8d8d671",
+      "components/schemas/Resp_GetTickerLogo_200_image_png.yaml": "89c3e4e62c27f46cf3aa57dfae91dca2f11d8778891b965e9e31cb5f06ffa710",
+      "components/schemas/Resp_GetUpcomingEarnings_200_application_json.yaml": "8e10e553bbd850031ce076402438c241f3b73892be906655680eb8c96683d980",
+      "components/schemas/Resp_GetUpcomingIPOs_200_application_json.yaml": "6adcd9d210053fd8ce4090dbea77b75160d59aca1f3e4b6c04c2c921d44cb842",
+      "components/schemas/Resp_GetUpcomingSplits_200_application_json.yaml": "2584a6d6f3424df739c7bab6d7de9d3f174c24b8895582af29c9687472f4440c",
+      "components/schemas/Resp_SearchStocksByQuery_200_application_json.yaml": "14ee7953d385af26b017a8ec8a345a9484810da49cb0149efc87048dd99a986b",
+      "components/schemas/Resp_getIndexComponents_401_text_html.yaml": "5f3fb1849572cc195b8880102e7456239172226447c9418ba493d28b24c43147",
+      "components/schemas/Resp_getIndexComponents_403_text_html.yaml": "a9db71bc994252948a90800688b7bdcb016b7a5d9962685ff0f5eb06ce2b5026",
+      "components/schemas/Resp_getIndexComponents_404_text_html.yaml": "abc039ad7095faa3658a44f5acd7a6cea71d62206112f060874fe6f1a200782f",
+      "components/schemas/Resp_getIndexComponents_429_text_html.yaml": "74347441fc62578c5773bfcccaeaf078c3a1ee8a4e7bcbced9c59ea2d22d77dd",
+      "components/schemas/Resp_getOptionsEOD_200_application_json.yaml": "8df845ba915268a21bcc2d44268701f5ba061a9a4ec2bbcdcf853464de1cd9b7",
+      "components/schemas/Resp_listIndicesWithDetails_401_text_html.yaml": "f71d451c169fca7a1d337e494b818ab54ed88c9d62c3a9b982efd858e2d9df38",
+      "components/schemas/Resp_listIndicesWithDetails_403_text_html.yaml": "a84a141a40035c15bb3b32b6fbbfed8a586518ea831b7b9272d4952cf9fd6ab2",
+      "components/schemas/Resp_listIndicesWithDetails_429_text_html.yaml": "29ae874eaabb7a5920a0bf093e16c29ed2bb1083b57f37dba7379917943ea5ac",
+      "components/schemas/SearchResult.yaml": "e1027bdf7f3ec1e12b7b8e6fd2508750c1399112e51efa0dd663e694a46361df",
+      "components/schemas/UnderlyingSymbolsResponse.yaml": "25bdc881274d7076bc2a092de27eef27b70284802396ec06efdfd769bf85cdfd",
+      "components/schemas/WordWeightsResponse.yaml": "5e8675f2135ba5506615f9505b6d394aae5075f95c692f4370642562a6b2f91f",
+      "openapi.yaml": "4524f05c2d274e9d3943fbd51b08d49fa82fdb2de6b94c70c4249ee0344fddb2",
+      "paths/../components/schemas/Error.yaml": "e4bae63628ce755bbb5b5d9ec0dea7d76e9fae3f07f16f9d8e0b602f5c23f481",
+      "paths/../components/schemas/HistoricalComponentItem.yaml": "37329e3535cfe3855a0b23243fb3387458e6f0f632caad0ab91bb5c4644b21f0",
+      "paths/../components/schemas/HistoricalComponentsMap.yaml": "5fee84f629eb603b6ae441975a76996f5bc4a9284c85a497ed62e5e8573070b6",
+      "paths/../components/schemas/IndexComponentItem.yaml": "1ef734a14adbebe3580c4772ff5a44f54435e4f2042af5623730fb800d5c19e2",
+      "paths/../components/schemas/IndexComponentsMap.yaml": "df96c9f24162ee322e666a54108dfe8b639e8359006728ae12aa9446e774ed03",
+      "paths/../components/schemas/IndexComponentsResponse.yaml": "414dd6f44fda1b706ee468b2cb0c9d38e4517e9656a54019ba46c9798422aa8b",
+      "paths/../components/schemas/IndexGeneral.yaml": "d590a3dbb888cb1783c9fe64e36262c306607f4532c863519eb2ff4d48635de9",
+      "paths/../components/schemas/IndexListItem.yaml": "550c472a438cb5b27104b72b8b281757db6ec0eb8f3a3baeeffccd626952e50a",
+      "paths/../components/schemas/IndexListResponse.yaml": "289d915c78318a324e12d5b572595191ef589048dd943b838c4c29cf2b2f6ce0",
+      "paths/../components/schemas/Links.yaml": "2d536c5ad6cbbbf02e11b4b493ce68c4cfe3cae69156dabb8e886b33ca26eb02",
+      "paths/../components/schemas/MetaPagination.yaml": "4404a91fe8fc898138f4d18f97a770d3e9faf148fe65fa4cc43c06d5f9129a86",
+      "paths/../components/schemas/OptionsCommonAttributes.yaml": "5b8ef3e34cd96f1e37a4218e70cd6db67cf88b7ea76fb2cbc06d568da1393650",
+      "paths/../components/schemas/OptionsContractsItem.yaml": "db0e2189bc2290b412410db170de27675f2a7c11539b13c28401a42d2bc2d2be",
+      "paths/../components/schemas/OptionsContractsResponse.yaml": "0d4583e69a9e0b58560be748cf6de736596ec8262faa35e9a59f69963b51fc9c",
+      "paths/../components/schemas/OptionsEODCompactResponse.yaml": "bc6cd77f188213520913fd8b7bcac28c9293d905bb0e16875505ca734c70478f",
+      "paths/../components/schemas/OptionsEODItem.yaml": "a915f34c63d718b7c377d973a9296e5f760346b03be77c2f36c9127e860a5178",
+      "paths/../components/schemas/OptionsEODResponse.yaml": "67017c45bd7fd687cab442c153f22d7bc124cb65aef39e99c29bcc85ef944c06",
+      "paths/../components/schemas/Resp_GetCdsMarketAggregates_200_application_json.yaml": "2afc4789cf207e0770168f31c10f500b7c4918a7bf599d3b26acdd04736e31cc",
+      "paths/../components/schemas/Resp_GetCorporateCmdi_200_application_json.yaml": "16ce2a1627adee0bb7690a8e4a8dae4c31aa89bb57a8d96747289342bf91b325",
+      "paths/../components/schemas/Resp_GetCorporateHqmYields_200_application_json.yaml": "262d7eb4d2815f28711a22c1da3b3e239f337effd74dece14791a41dde4d9e67",
+      "paths/../components/schemas/Resp_GetFundingStressSpreads_200_application_json.yaml": "bde476fdae422edd603740bfa7ff37a9f5ae1435f3850bc25f270d61312c4a43",
+      "paths/../components/schemas/Resp_GetInsiderTransactions_200_application_json.yaml": "0b3bf4aec40e242458f9cb38a2a7b3120802ae8ce43d5cc4f0a2e97529de7030",
+      "paths/../components/schemas/Resp_GetPolicyRates_200_application_json.yaml": "5f8e40e8a10b981291e6417f0e8746b7398f56fb21abedf8204f3f35f2776470",
+      "paths/../components/schemas/Resp_GetReferenceRates_200_application_json.yaml": "5da7e217c6900039192d1cd7b31a7253c9fc6c3c5dca9cd71673571427b492b8",
+      "paths/../components/schemas/Resp_GetSanctionsEntities_200_application_json.yaml": "d0581b17d7fa1344b8a39adfa9ebd2c57f51c1f05aba985b4b76e380347d1c6b",
+      "paths/../components/schemas/Resp_GetSanctionsPrograms_200_application_json.yaml": "c07519f95ff5872a4e50093dfb47d03d7fc04c7a3dba617cbd82c3eb0e57a1e0",
+      "paths/../components/schemas/Resp_GetSanctionsSources_200_application_json.yaml": "92c24a63f5ca93b6656f69601fba558d58fd89b3c13013e56bea72ee5ae724d3",
+      "paths/../components/schemas/Resp_GetSanctionsVessels_200_application_json.yaml": "0d84622c42fd138b15fbf2b05febed5f74efcb0503e725b2f70f2730758fd38e",
+      "paths/../components/schemas/Resp_GetSovereignCdsSpreads_200_application_json.yaml": "e31de4177d5a9b8ee0d922a7978518896fb9c0e7c52b5bdb111b324ed206d7fd",
+      "paths/../components/schemas/Resp_GetSovereignCreditRatings_200_application_json.yaml": "ebd42d3a16b8574b1d90d281edcaaa91d527a46f9d1c3d7a05f9c5486348c654",
+      "paths/../components/schemas/Resp_GetSovereignDefaultSpreads_200_application_json.yaml": "cb89465161013715d79bfea2913bbd824e3cdcacef7a1c99ef282b5726582127",
+      "paths/../components/schemas/Resp_GetSovereignRiskPremium_200_application_json.yaml": "f5b912cee9c43939179b8a335f097735631adf4d00a6b0d3a97061316990fcf1",
+      "paths/../components/schemas/UnderlyingSymbolsResponse.yaml": "25bdc881274d7076bc2a092de27eef27b70284802396ec06efdfd769bf85cdfd",
+      "paths/../components/schemas/WordWeightsResponse.yaml": "5e8675f2135ba5506615f9505b6d394aae5075f95c692f4370642562a6b2f91f",
+      "paths/bulk-fundamentals_EXCHANGE.yaml": "c1f6cdc0725759ae3968e4a52f6c5ec46dfba02440ee2c78f46bc04842868658",
+      "paths/calendar_dividends.yaml": "f61bba2f3980af578c5b62bc6b569b9a4a04fabee76a685ef08687b96824433c",
+      "paths/calendar_earnings.yaml": "a28b8ada075c3e2b34ad932256b6ffc605bc73e490540a539e7494c43511d8c9",
+      "paths/calendar_ipos.yaml": "9c0a4e008df14da5b73d55d8e4447b05512d11f7915851715dc493cb26a123eb",
+      "paths/calendar_splits.yaml": "c21b0b674097b30048ff57840400a566a07ece473ddbf5928bc39551dd8344fa",
+      "paths/calendar_trends.yaml": "f10817c825924ff59f2f9cac360749a7decc53a5f3fbe89a66123c8b1c0d5d69",
+      "paths/cboe_index.yaml": "750395c87e8dfde710de7efa8dd896c25decd0773e6d60d8215d8c0929350874",
+      "paths/cboe_indices.yaml": "c186a5af287aeb1d9bc8e1bd06c35fcae14fcb525127b27ffe6af3ede8f4ac8b",
+      "paths/commodities_historical_code.yaml": "d91fe521e3bdf06f35f33669dae7855f6ba183f415e86c402327ef523366054d",
+      "paths/credit-risk_cds-market_aggregates.yaml": "db0e996c745406b8a25197808afdf2da65370d8d51b10552d9a43394a650af00",
+      "paths/credit-risk_corporate_cmdi.yaml": "460d797b47f27bc834115030080f9e95e3e56475d4ad9ddde3ded6ff97dc0502",
+      "paths/credit-risk_corporate_hqm-yields.yaml": "bf4df9534d854724354583ea35f42e2675a464ecbd6762e8abc1137661a3d038",
+      "paths/credit-risk_sovereign_cds-spreads.yaml": "015d30ead9a56658531391488e8bc118a3f39c4af354e3a61052d793d820d7fe",
+      "paths/credit-risk_sovereign_credit-ratings.yaml": "0a1fe8fc6f9419b52593f4d4506688f07cd0e794c43c07b6f4837633b87f47b9",
+      "paths/credit-risk_sovereign_default-spreads.yaml": "677286e67fa8286702286b4d078e0201831552864c2385ece4d3c7036c9b8fd3",
+      "paths/credit-risk_sovereign_risk-premium.yaml": "bada39e302acc1a911078de62d5ae19c359a08a33806288df6519e47e8e3047e",
+      "paths/div_ticker.yaml": "3ba9e918aae567b1fccea770c74ef97a1f07e5582b9003828abf97a91329315d",
+      "paths/economic-events.yaml": "a70be3b64be80bcf7688d256e6d562a6a07940f89980d6462943b0620d747dac",
+      "paths/eod-bulk-last-day_exchange.yaml": "3b6550c8f65917060eb6e330058146c6f69aeb40d9cc0bc5f501c712d23a3e5a",
+      "paths/eod_ticker.yaml": "b7ca3e41a32b6acd1e67dddd0fbf2d42c554a97376221d6909102b67abbab920",
+      "paths/exchange-details_EXCHANGE_CODE.yaml": "3b42772cd108e74256c0f2837740a18ec800ad74ad9679edfdf91b5956b35618",
+      "paths/exchange-symbol-list_exchangeCode.yaml": "e40363182bfb3936e7b110a76b08cc9394eda6275b4cad058d2f6166047efe9e",
+      "paths/exchanges-list.yaml": "4242b797a4c7e40b7092b6a3854c18b7921c8e7614d42857e3287404986148da",
+      "paths/fundamentals_ticker.yaml": "0d1d1d5ef6c99cc75e240489f2d091f39e2ba87d01a8d4ec05c97c4fae6729fa",
+      "paths/historical-market-cap_ticker.yaml": "8e989208ca575cf1b4755c4377c38bc0f38ab5e4e28f9778c1033adc80df6453",
+      "paths/id-mapping.yaml": "4191477e99c35f3129538e9528580c541af56478ae0ac6768050c00de1f2d7ee",
+      "paths/insider-transactions.yaml": "b80018a3286103fa28a083a817127e533e5667b39e97d8a82e8cff701407b8c7",
+      "paths/internal-user.yaml": "d866f25f48346f7d8cbbe621c698f78119a57198b0c2bb1e499f37c3c53195e4",
+      "paths/intraday_ticker.yaml": "5eb5bba1c37190a2f33713c53337c4d480517f8c19f3bb79551790423a78445f",
+      "paths/logo-svg_symbol.yaml": "17c2194b5a3c7aeef162356bbf534e36d518b85c5436522ad70b4d8dda37a676",
+      "paths/logo_symbol.yaml": "51cda3f2093e6568c3ec9bb3ba929a30d1f1c15bf28641043ccc571d1c53ad78",
+      "paths/macro-indicator_country.yaml": "426c1167b3fb58cd18f4c6d33b9adaabed8113ea1b5df45895c9e173fc28e2ac",
+      "paths/mp_investverte_companies.yaml": "62c91315f5f90fa5900bf4c889ad257918974d3475604fb1eb6cf59b537d873d",
+      "paths/mp_investverte_countries.yaml": "92eea6f285e22ecaaf3ed3e31fe8e51f9f176ab27b8ceb189f2f3e76fe43e757",
+      "paths/mp_investverte_country_symbol.yaml": "f8cfdea0072b5a207581f106657cfb24f3315850daa6af87aba7a0839cd74fc9",
+      "paths/mp_investverte_esg_symbol.yaml": "d79610861b295f9d426aa78cb7d5b47ebb77061d7b166db0d0c95a2d7a910d34",
+      "paths/mp_investverte_sector_symbol.yaml": "4aa02b931fcaf6e7387921146d175ed978b38d440e7ba32e2945809659472340",
+      "paths/mp_investverte_sectors.yaml": "8abb66dadecab746b7277ebebca88cd31a2edc89f21ec67acfa135a3e375b124",
+      "paths/mp_praams_analyse_bond_isin.yaml": "02b435bc4709dc9c28d01cd87e3a25d90bfc608026e0b8aa6382af5a4fde7ce2",
+      "paths/mp_praams_analyse_equity_isin_isin.yaml": "5f9f8f52b42b58d3f5ded2ce17dc03166022c610a429ae07947396fbd643b7fb",
+      "paths/mp_praams_analyse_equity_ticker_ticker.yaml": "482a42ae9c6526f48fe3a8e6180f3cefaca90616ce9aaef3b6d8bb7df9190c0f",
+      "paths/mp_praams_bank_balance_sheet_isin_isin.yaml": "6725b9e062f171170d9296b8e4d4c9cac484c404ff5106fa040f1da37036b822",
+      "paths/mp_praams_bank_balance_sheet_ticker_ticker.yaml": "2b872967c7079b814629fffcb40f1bf9ce70451a197dd3de10f20d0cf103d4e6",
+      "paths/mp_praams_bank_income_statement_isin_isin.yaml": "3e2dd78701751fb8d86f184464643e225eaf85f64a17f61bc249b45e7805d18b",
+      "paths/mp_praams_bank_income_statement_ticker_ticker.yaml": "493b6987cf4a3872430b283771ab0ee84836f255e53af79d75316332ea22ac48",
+      "paths/mp_praams_explore_bond.yaml": "01e974f4b8de575bcb40d73294f7470d0201bbd9b50ff33c4e6431329f15607c",
+      "paths/mp_praams_explore_equity.yaml": "e0fe8bd9f02115b6efd639a3cd6ae4eb8e06770895c7fbd73c2c5c2de7eff8e5",
+      "paths/mp_praams_reports_bond_isin.yaml": "df090abef0b5b3a67050233f0fb4bef0e841e84108f5c327618ace6784b7bdfe",
+      "paths/mp_praams_reports_equity_isin_isin.yaml": "9f0902089aa5001f314c1262bf97bf2f0e689664cd8ba455ccb56b0937555573",
+      "paths/mp_praams_reports_equity_ticker_ticker.yaml": "a6960f5e32051e5b0688b15e5e8e839f0ba1f633b86af11384264df1891019da",
+      "paths/mp_unicornbay_options_contracts.yaml": "6d1806effda5fb54f1242143d49cf3c7767b231edf51f5d45bd236f130887298",
+      "paths/mp_unicornbay_options_eod.yaml": "6386ffc949be86e74f7fb08d0c7c8675673bd5a159306b0f19662965a3d1c721",
+      "paths/mp_unicornbay_options_underlying-symbols.yaml": "29dbe7691927940419ad3caa5101a51ef31e379364f98b74c5ffbe43ef116509",
+      "paths/mp_unicornbay_spglobal_comp_symbol.yaml": "837af17a5d62bc7f465066b12856738e333798a670c70f56808f77e4fe4704e1",
+      "paths/mp_unicornbay_spglobal_list.yaml": "c234a4cd1bcc15c4b2cd667d40d56afa07638c85f1e5e2b0df3488044707594d",
+      "paths/mp_unicornbay_tickdata_ticks.yaml": "eaa3357568d85f258b5ea58ba6b84f7da998357cfc975631a19ad64dbd69bc73",
+      "paths/news-word-weights.yaml": "d042ca4c7862ab49b9eaaedfd23f1aba1c65322f430386c3d86ec69944b42c22",
+      "paths/news.yaml": "b5dd7a25943b3872ed952860ed13f63c73b47705d0c3fc32ac1ea0c94f16a30a",
+      "paths/rates_policy-rates.yaml": "a1f4def3c6cbae9bded50c414a14321577f84dffe5a6d32fb236d90bff647bcc",
+      "paths/rates_reference-rates.yaml": "bfffc21c1a6dc6d2e04e3f8ad80d71165fd0bcb66538569d8c05991994a52d72",
+      "paths/real-time_ticker.yaml": "b4720d399427fbf12fe737f8967857f80db130b096ea80820e7feb8e48485349",
+      "paths/sanctions_entities.yaml": "57e314a578aac48af5f5b8ab6ca464f30653b2bc3c2189e7fa7ed372770dda3b",
+      "paths/sanctions_programs.yaml": "79886994e91944d646d5e55bd68f02644add6b70992bd8c90472fa6827ca3597",
+      "paths/sanctions_sources.yaml": "02f19dc964486d4d38cccabbe5390600d4f183ed5c450e8b73b353706d728aa6",
+      "paths/sanctions_vessels.yaml": "ec250e0ed814ca7734bf026c7be57a6b7a4948e94db7ef11453433f797a26a33",
+      "paths/screener.yaml": "b48f2f16d73c128c8901df1b139f2016b64345cc1f8bfd4fd27d87356929f577",
+      "paths/search_query.yaml": "708d3c22f55d5d242f9151974292a30cacf27752af2b6dcc459172895cb05d8a",
+      "paths/sentiments.yaml": "96a836e2286119c814a238e11a948bb6c77b0a8863cd2efc4ebf293b380ff15c",
+      "paths/splits_ticker.yaml": "79a3ad1e447a0414927c8338f63f85d8e985d7ab5196b8a821d9b55b9d24c7dc",
+      "paths/spreads_funding-stress.yaml": "a2d1be20a318f8855f8284b09f29d4573097850d63a0a4c43eb6f8aaab028ca3",
+      "paths/symbol-change-history.yaml": "4eea07883a7ffb8fc5c1f888ffd27a4b4b41283fd87193aa4eb97b15eb45dfd6",
+      "paths/technical_ticker.yaml": "fc2654799c5c377e21270f0c07fc44f754f33431d77cc708de88e5eff41e73db",
+      "paths/ticks.yaml": "a19e90d25c2570efc010079835fdb9434fb70085de61515ba429675454b072d1",
+      "paths/us-quote-delayed.yaml": "abc7bf03297436b3752f2dd06bd3995251248f1f5cd148d81769d9b3d6cafa1d",
+      "paths/user.yaml": "f9ba715b4f3f4a903ee1f868166b0ad258574c92155859011c7bde81c583074a",
+      "paths/ust_bill-rates.yaml": "9436377dc6c692fcbdf98d52799be201547867581a34e67ddffc3960235e3527",
+      "paths/ust_long-term-rates.yaml": "7910dbe654a4931516c404c613794b5a8b88b74ae8b559f02a1dd43a0a49284c",
+      "paths/ust_real-yield-rates.yaml": "670ec21aecba757fa8830e436f8d47f94087954ea1345242ebf71c1f4bbaee67",
+      "paths/ust_yield-rates.yaml": "8ca3600bf72bc00fb44f1d119dbc91edfe78802ce49c463c15e38b54f80cc522",
+      "paths/v1.1_bulk-fundamentals_EXCHANGE.yaml": "ad2c5db23cd85d66feb9935329ac0ac43db5e3a52cc1013eacc49afe39b77d97",
+      "paths/v1.1_fundamentals_ticker.yaml": "b4cd4ceaf70c789ecdf01d9064147a3d85bd61a8a682fea663107e373988522b",
+      "paths/v2_exchange-details.yaml": "be0b9e3ef46a3aea842c6b80f6e84b67aaefa0ebe278e5c495c4f3d4bf9cd033",
+      "paths/v2_exchange-details_code.yaml": "598611b7bd9acd5e911ce5387e7aaee0324fa5a4a9634ae0dd4aa84c60e86d4a"
+    },
+    "root": "openapi.yaml",
+    "status": "PASS",
+    "strongly_connected_components": [
+      [
+        "components/parameters/FmtCsvJson.yaml"
+      ],
+      [
+        "components/parameters/FmtJsonXml.yaml"
+      ],
+      [
+        "components/parameters/DateFrom.yaml"
+      ],
+      [
+        "components/parameters/DateTo.yaml"
+      ],
+      [
+        "components/responses/UnauthorizedHtml.yaml"
+      ],
+      [
+        "components/responses/ForbiddenHtml.yaml"
+      ],
+      [
+        "components/responses/NotFoundHtml.yaml"
+      ],
+      [
+        "components/responses/TooManyHtml.yaml"
+      ],
+      [
+        "components/schemas/Error.yaml"
+      ],
+      [
+        "components/schemas/InternalUser.yaml"
+      ],
+      [
+        "components/schemas/SearchResult.yaml"
+      ],
+      [
+        "components/schemas/WordWeightsResponse.yaml"
+      ],
+      [
+        "components/schemas/Links.yaml"
+      ],
+      [
+        "components/schemas/MetaPagination.yaml"
+      ],
+      [
+        "components/schemas/OptionsCommonAttributes.yaml"
+      ],
+      [
+        "components/schemas/OptionsContractsItem.yaml"
+      ],
+      [
+        "components/schemas/OptionsEODItem.yaml"
+      ],
+      [
+        "components/schemas/OptionsContractsResponse.yaml"
+      ],
+      [
+        "components/schemas/OptionsEODResponse.yaml"
+      ],
+      [
+        "components/schemas/OptionsEODCompactResponse.yaml"
+      ],
+      [
+        "components/schemas/UnderlyingSymbolsResponse.yaml"
+      ],
+      [
+        "components/schemas/IndexListItem.yaml"
+      ],
+      [
+        "components/schemas/IndexListResponse.yaml"
+      ],
+      [
+        "components/schemas/IndexGeneral.yaml"
+      ],
+      [
+        "components/schemas/IndexComponentItem.yaml"
+      ],
+      [
+        "components/schemas/IndexComponentsMap.yaml"
+      ],
+      [
+        "components/schemas/HistoricalComponentItem.yaml"
+      ],
+      [
+        "components/schemas/HistoricalComponentsMap.yaml"
+      ],
+      [
+        "components/schemas/IndexComponentsResponse.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetTickerLogo_200_image_png.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetUpcomingEarnings_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetUpcomingIPOs_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetUpcomingSplits_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetEarningsTrends_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetHistoricalDividends_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetEconomicEventsData_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetEODDataByTicker_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetBulkEODData_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetExchangeDetails_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetListOfExchanges_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetExchangeSymbolList_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/FinancialStatementRow.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetFundamentalData_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetHistoricalMarketCap_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetInsiderTransactions_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetIntradayHistoricalData_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetMacroIndicatorData_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_getOptionsEOD_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_getIndexComponents_401_text_html.yaml"
+      ],
+      [
+        "components/schemas/Resp_getIndexComponents_403_text_html.yaml"
+      ],
+      [
+        "components/schemas/Resp_getIndexComponents_404_text_html.yaml"
+      ],
+      [
+        "components/schemas/Resp_getIndexComponents_429_text_html.yaml"
+      ],
+      [
+        "components/schemas/Resp_listIndicesWithDetails_401_text_html.yaml"
+      ],
+      [
+        "components/schemas/Resp_listIndicesWithDetails_403_text_html.yaml"
+      ],
+      [
+        "components/schemas/Resp_listIndicesWithDetails_429_text_html.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetFinancialNews_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetLiveDelayedStockPrices_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetStockScreenerData_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_SearchStocksByQuery_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetSentimentData_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetHistoricalSplits_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetSymbolChangeHistory_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetTechnicalIndicatorData_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetTickData_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/IndexComponent.yaml"
+      ],
+      [
+        "components/schemas/HistoricalIndexComponent.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetSovereignRiskPremium_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetSovereignCreditRatings_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetSovereignCdsSpreads_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetSovereignDefaultSpreads_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetCorporateCmdi_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetCorporateHqmYields_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetCdsMarketAggregates_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetSanctionsEntities_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetSanctionsVessels_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetSanctionsPrograms_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetSanctionsSources_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetReferenceRates_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetPolicyRates_200_application_json.yaml"
+      ],
+      [
+        "components/schemas/Resp_GetFundingStressSpreads_200_application_json.yaml"
+      ],
+      [
+        "components/index.yaml"
+      ],
+      [
+        "paths/bulk-fundamentals_EXCHANGE.yaml"
+      ],
+      [
+        "paths/calendar_dividends.yaml"
+      ],
+      [
+        "paths/calendar_earnings.yaml"
+      ],
+      [
+        "paths/calendar_ipos.yaml"
+      ],
+      [
+        "paths/calendar_splits.yaml"
+      ],
+      [
+        "paths/calendar_trends.yaml"
+      ],
+      [
+        "paths/commodities_historical_code.yaml"
+      ],
+      [
+        "paths/../components/schemas/MetaPagination.yaml"
+      ],
+      [
+        "paths/../components/schemas/Links.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetSovereignRiskPremium_200_application_json.yaml"
+      ],
+      [
+        "paths/../components/schemas/Error.yaml"
+      ],
+      [
+        "paths/credit-risk_sovereign_risk-premium.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetSovereignCreditRatings_200_application_json.yaml"
+      ],
+      [
+        "paths/credit-risk_sovereign_credit-ratings.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetSovereignCdsSpreads_200_application_json.yaml"
+      ],
+      [
+        "paths/credit-risk_sovereign_cds-spreads.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetSovereignDefaultSpreads_200_application_json.yaml"
+      ],
+      [
+        "paths/credit-risk_sovereign_default-spreads.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetCorporateCmdi_200_application_json.yaml"
+      ],
+      [
+        "paths/credit-risk_corporate_cmdi.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetCorporateHqmYields_200_application_json.yaml"
+      ],
+      [
+        "paths/credit-risk_corporate_hqm-yields.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetCdsMarketAggregates_200_application_json.yaml"
+      ],
+      [
+        "paths/credit-risk_cds-market_aggregates.yaml"
+      ],
+      [
+        "paths/cboe_index.yaml"
+      ],
+      [
+        "paths/cboe_indices.yaml"
+      ],
+      [
+        "paths/div_ticker.yaml"
+      ],
+      [
+        "paths/economic-events.yaml"
+      ],
+      [
+        "paths/eod_ticker.yaml"
+      ],
+      [
+        "paths/eod-bulk-last-day_exchange.yaml"
+      ],
+      [
+        "paths/exchange-details_EXCHANGE_CODE.yaml"
+      ],
+      [
+        "paths/exchange-symbol-list_exchangeCode.yaml"
+      ],
+      [
+        "paths/exchanges-list.yaml"
+      ],
+      [
+        "paths/fundamentals_ticker.yaml"
+      ],
+      [
+        "paths/id-mapping.yaml"
+      ],
+      [
+        "paths/historical-market-cap_ticker.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetInsiderTransactions_200_application_json.yaml"
+      ],
+      [
+        "paths/insider-transactions.yaml"
+      ],
+      [
+        "paths/internal-user.yaml"
+      ],
+      [
+        "paths/intraday_ticker.yaml"
+      ],
+      [
+        "paths/logo_symbol.yaml"
+      ],
+      [
+        "paths/logo-svg_symbol.yaml"
+      ],
+      [
+        "paths/macro-indicator_country.yaml"
+      ],
+      [
+        "paths/mp_investverte_companies.yaml"
+      ],
+      [
+        "paths/mp_investverte_countries.yaml"
+      ],
+      [
+        "paths/mp_investverte_country_symbol.yaml"
+      ],
+      [
+        "paths/mp_investverte_esg_symbol.yaml"
+      ],
+      [
+        "paths/mp_investverte_sector_symbol.yaml"
+      ],
+      [
+        "paths/mp_investverte_sectors.yaml"
+      ],
+      [
+        "paths/mp_praams_analyse_bond_isin.yaml"
+      ],
+      [
+        "paths/mp_praams_analyse_equity_isin_isin.yaml"
+      ],
+      [
+        "paths/mp_praams_analyse_equity_ticker_ticker.yaml"
+      ],
+      [
+        "paths/mp_praams_bank_balance_sheet_isin_isin.yaml"
+      ],
+      [
+        "paths/mp_praams_bank_balance_sheet_ticker_ticker.yaml"
+      ],
+      [
+        "paths/mp_praams_bank_income_statement_isin_isin.yaml"
+      ],
+      [
+        "paths/mp_praams_bank_income_statement_ticker_ticker.yaml"
+      ],
+      [
+        "paths/mp_praams_explore_bond.yaml"
+      ],
+      [
+        "paths/mp_praams_explore_equity.yaml"
+      ],
+      [
+        "paths/mp_praams_reports_bond_isin.yaml"
+      ],
+      [
+        "paths/mp_praams_reports_equity_isin_isin.yaml"
+      ],
+      [
+        "paths/mp_praams_reports_equity_ticker_ticker.yaml"
+      ],
+      [
+        "paths/../components/schemas/OptionsCommonAttributes.yaml"
+      ],
+      [
+        "paths/../components/schemas/OptionsContractsItem.yaml"
+      ],
+      [
+        "paths/../components/schemas/OptionsContractsResponse.yaml"
+      ],
+      [
+        "paths/mp_unicornbay_options_contracts.yaml"
+      ],
+      [
+        "paths/../components/schemas/OptionsEODItem.yaml"
+      ],
+      [
+        "paths/../components/schemas/OptionsEODResponse.yaml"
+      ],
+      [
+        "paths/../components/schemas/OptionsEODCompactResponse.yaml"
+      ],
+      [
+        "paths/mp_unicornbay_options_eod.yaml"
+      ],
+      [
+        "paths/../components/schemas/UnderlyingSymbolsResponse.yaml"
+      ],
+      [
+        "paths/mp_unicornbay_options_underlying-symbols.yaml"
+      ],
+      [
+        "paths/../components/schemas/IndexGeneral.yaml"
+      ],
+      [
+        "paths/../components/schemas/IndexComponentItem.yaml"
+      ],
+      [
+        "paths/../components/schemas/IndexComponentsMap.yaml"
+      ],
+      [
+        "paths/../components/schemas/HistoricalComponentItem.yaml"
+      ],
+      [
+        "paths/../components/schemas/HistoricalComponentsMap.yaml"
+      ],
+      [
+        "paths/../components/schemas/IndexComponentsResponse.yaml"
+      ],
+      [
+        "paths/mp_unicornbay_spglobal_comp_symbol.yaml"
+      ],
+      [
+        "paths/../components/schemas/IndexListItem.yaml"
+      ],
+      [
+        "paths/../components/schemas/IndexListResponse.yaml"
+      ],
+      [
+        "paths/mp_unicornbay_spglobal_list.yaml"
+      ],
+      [
+        "paths/mp_unicornbay_tickdata_ticks.yaml"
+      ],
+      [
+        "paths/news.yaml"
+      ],
+      [
+        "paths/../components/schemas/WordWeightsResponse.yaml"
+      ],
+      [
+        "paths/news-word-weights.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetReferenceRates_200_application_json.yaml"
+      ],
+      [
+        "paths/rates_reference-rates.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetPolicyRates_200_application_json.yaml"
+      ],
+      [
+        "paths/rates_policy-rates.yaml"
+      ],
+      [
+        "paths/real-time_ticker.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetSanctionsEntities_200_application_json.yaml"
+      ],
+      [
+        "paths/sanctions_entities.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetSanctionsVessels_200_application_json.yaml"
+      ],
+      [
+        "paths/sanctions_vessels.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetSanctionsPrograms_200_application_json.yaml"
+      ],
+      [
+        "paths/sanctions_programs.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetSanctionsSources_200_application_json.yaml"
+      ],
+      [
+        "paths/sanctions_sources.yaml"
+      ],
+      [
+        "paths/../components/schemas/Resp_GetFundingStressSpreads_200_application_json.yaml"
+      ],
+      [
+        "paths/spreads_funding-stress.yaml"
+      ],
+      [
+        "paths/screener.yaml"
+      ],
+      [
+        "paths/search_query.yaml"
+      ],
+      [
+        "paths/sentiments.yaml"
+      ],
+      [
+        "paths/splits_ticker.yaml"
+      ],
+      [
+        "paths/symbol-change-history.yaml"
+      ],
+      [
+        "paths/technical_ticker.yaml"
+      ],
+      [
+        "paths/ticks.yaml"
+      ],
+      [
+        "paths/user.yaml"
+      ],
+      [
+        "paths/us-quote-delayed.yaml"
+      ],
+      [
+        "paths/ust_bill-rates.yaml"
+      ],
+      [
+        "paths/ust_long-term-rates.yaml"
+      ],
+      [
+        "paths/ust_real-yield-rates.yaml"
+      ],
+      [
+        "paths/ust_yield-rates.yaml"
+      ],
+      [
+        "paths/v1.1_bulk-fundamentals_EXCHANGE.yaml"
+      ],
+      [
+        "paths/v1.1_fundamentals_ticker.yaml"
+      ],
+      [
+        "paths/v2_exchange-details.yaml"
+      ],
+      [
+        "paths/v2_exchange-details_code.yaml"
+      ],
+      [
+        "openapi.yaml"
+      ]
+    ],
+    "unreachable_yaml_files": [
+      "components/schemas/PraamsBankBalanceSheetItem.yaml",
+      "components/schemas/PraamsBankIncomeStatementItem.yaml",
+      "components/schemas/PraamsEnvelope.yaml",
+      "components/schemas/PraamsExploreBondRequest.yaml",
+      "components/schemas/PraamsExploreBondResponse.yaml",
+      "components/schemas/PraamsExploreEquityRequest.yaml",
+      "components/schemas/PraamsExploreEquityResponse.yaml",
+      "components/schemas/TradingHoursMarketItem.yaml",
+      "components/securitySchemes.yaml",
+      "scripts/postman-config.yaml"
+    ]
+  },
+  "read_only_snapshot": "/home/runner/work/_temp/controllergate-runtime/openapi-reachable",
+  "snapshot_file_count": 199,
+  "state": "PASS",
+  "verification": {
+    "mismatches": [],
+    "status": "PASS",
+    "verified_file_count": 199
+  }
+}

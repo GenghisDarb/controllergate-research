@@ -1,0 +1,127 @@
+{
+  "candidate_id": "incident_poetry_10974_windows_name_normalization",
+  "duplicate_failure_admitted": false,
+  "exact_blocker": "poetry_incident_not_reproduced_twice_under_verified_isolation",
+  "external_denial_probes": [
+    {
+      "command": [
+        "D:\\a\\_temp\\controllergate-runtime\\poetry-reproducer\\fresh-one\\Scripts\\python.exe",
+        "-c",
+        "import socket; socket.create_connection(('1.1.1.1',443),2)"
+      ],
+      "log_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_tail": "",
+      "returncode": 0,
+      "stderr_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "D:\\a\\_temp\\controllergate-runtime\\poetry-reproducer\\fresh-two\\Scripts\\python.exe",
+        "-c",
+        "import socket; socket.create_connection(('1.1.1.1',443),2)"
+      ],
+      "log_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_tail": "",
+      "returncode": 0,
+      "stderr_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "failure_signatures_equivalent": false,
+  "fresh_environment_installs": [
+    {
+      "command": [
+        "D:\\a\\_temp\\controllergate-runtime\\poetry-reproducer\\fresh-one\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--find-links",
+        "D:\\a\\_temp\\provider\\wheelhouse",
+        "poetry==2.4.1"
+      ],
+      "environment": "D:\\a\\_temp\\controllergate-runtime\\poetry-reproducer\\fresh-one",
+      "log_hash": "c45abb4c34f083495b659da1c1483a4ea5257e97a234e259a301f71cddf9a295",
+      "log_tail": "ng D:\\a\\_temp\\provider\\wheelhouse\\httpcore-1.0.9-py3-none-any.whl (from httpx<1,>=0.27.0->pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\provider\\wheelhouse\\h11-0.16.0-py3-none-any.whl (from httpcore==1.*->httpx<1,>=0.27.0->pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\provider\\wheelhouse\\distlib-0.4.3-py2.py3-none-any.whl (from virtualenv>=20.26.6->poetry==2.4.1)\nProcessing D:\\a\\_temp\\provider\\wheelhouse\\python_discovery-1.4.4-py3-none-any.whl (from virtualenv>=20.26.6->poetry==2.4.1)\nProcessing D:\\a\\_temp\\provider\\wheelhouse\\more_itertools-11.1.0-py3-none-any.whl (from jaraco.classes->keyring<26.0.0,>=25.1.0->poetry==2.4.1)\nInstalling collected packages: trove-classifiers, fastjsonschema, distlib, urllib3, tomlkit, shellingham, rapidfuzz, pywin32-ctypes, pyproject-hooks, poetry-core, platformdirs, pkginfo, pbs-installer, packaging, msgpack, more-itertools, jaraco.context, installer, idna, h11, filelock, crashtest, colorama, charset_normalizer, certifi, backports.zstd, requests, python-discovery, jaraco.functools, jaraco.classes, httpcore, findpython, dulwich, cleo, build, anyio, virtualenv, requests-toolbelt, keyring, httpx, cachecontrol, poetry\n\nSuccessfully installed anyio-4.14.2 backports.zstd-1.6.0 build-1.5.1 cachecontrol-0.14.4 certifi-2026.6.17 charset_normalizer-3.4.9 cleo-2.1.0 colorama-0.4.6 crashtest-0.4.1 distlib-0.4.3 dulwich-1.2.10 fastjsonschema-2.21.2 filelock-3.29.7 findpython-0.8.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.18 installer-1.0.1 jaraco.classes-3.4.0 jaraco.context-6.1.2 jaraco.functools-4.5.0 keyring-25.7.0 more-itertools-11.1.0 msgpack-1.2.1 packaging-26.2 pbs-installer-2026.6.10 pkginfo-1.12.1.2 platformdirs-4.10.0 poetry-2.4.1 poetry-core-2.4.0 pyproject-hooks-1.2.0 python-discovery-1.4.4 pywin32-ctypes-0.2.3 rapidfuzz-3.14.5 requests-2.34.2 requests-toolbelt-1.0.0 shellingham-1.5.4 tomlkit-0.15.0 trove-classifiers-2026.6.1.19 urllib3-2.7.0 virtualenv-21.6.1\n",
+      "returncode": 0,
+      "state": "PROVIDER_OFFLINE_INSTALL_PASSED"
+    },
+    {
+      "command": [
+        "D:\\a\\_temp\\controllergate-runtime\\poetry-reproducer\\fresh-two\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--find-links",
+        "D:\\a\\_temp\\provider\\wheelhouse",
+        "poetry==2.4.1"
+      ],
+      "environment": "D:\\a\\_temp\\controllergate-runtime\\poetry-reproducer\\fresh-two",
+      "log_hash": "c45abb4c34f083495b659da1c1483a4ea5257e97a234e259a301f71cddf9a295",
+      "log_tail": "ng D:\\a\\_temp\\provider\\wheelhouse\\httpcore-1.0.9-py3-none-any.whl (from httpx<1,>=0.27.0->pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\provider\\wheelhouse\\h11-0.16.0-py3-none-any.whl (from httpcore==1.*->httpx<1,>=0.27.0->pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\provider\\wheelhouse\\distlib-0.4.3-py2.py3-none-any.whl (from virtualenv>=20.26.6->poetry==2.4.1)\nProcessing D:\\a\\_temp\\provider\\wheelhouse\\python_discovery-1.4.4-py3-none-any.whl (from virtualenv>=20.26.6->poetry==2.4.1)\nProcessing D:\\a\\_temp\\provider\\wheelhouse\\more_itertools-11.1.0-py3-none-any.whl (from jaraco.classes->keyring<26.0.0,>=25.1.0->poetry==2.4.1)\nInstalling collected packages: trove-classifiers, fastjsonschema, distlib, urllib3, tomlkit, shellingham, rapidfuzz, pywin32-ctypes, pyproject-hooks, poetry-core, platformdirs, pkginfo, pbs-installer, packaging, msgpack, more-itertools, jaraco.context, installer, idna, h11, filelock, crashtest, colorama, charset_normalizer, certifi, backports.zstd, requests, python-discovery, jaraco.functools, jaraco.classes, httpcore, findpython, dulwich, cleo, build, anyio, virtualenv, requests-toolbelt, keyring, httpx, cachecontrol, poetry\n\nSuccessfully installed anyio-4.14.2 backports.zstd-1.6.0 build-1.5.1 cachecontrol-0.14.4 certifi-2026.6.17 charset_normalizer-3.4.9 cleo-2.1.0 colorama-0.4.6 crashtest-0.4.1 distlib-0.4.3 dulwich-1.2.10 fastjsonschema-2.21.2 filelock-3.29.7 findpython-0.8.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.18 installer-1.0.1 jaraco.classes-3.4.0 jaraco.context-6.1.2 jaraco.functools-4.5.0 keyring-25.7.0 more-itertools-11.1.0 msgpack-1.2.1 packaging-26.2 pbs-installer-2026.6.10 pkginfo-1.12.1.2 platformdirs-4.10.0 poetry-2.4.1 poetry-core-2.4.0 pyproject-hooks-1.2.0 python-discovery-1.4.4 pywin32-ctypes-0.2.3 rapidfuzz-3.14.5 requests-2.34.2 requests-toolbelt-1.0.0 shellingham-1.5.4 tomlkit-0.15.0 trove-classifiers-2026.6.1.19 urllib3-2.7.0 virtualenv-21.6.1\n",
+      "returncode": 0,
+      "state": "PROVIDER_OFFLINE_INSTALL_PASSED"
+    }
+  ],
+  "network_guard": {
+    "exact_blocker": null,
+    "rules": [
+      {
+        "executable": "D:\\a\\_temp\\controllergate-runtime\\poetry-reproducer\\fresh-one\\Scripts\\python.exe",
+        "log_hash": "ce14e398e8001eeac2c1fa5d699f08d1b4b37ed9f8908930b955242f494b4dc2",
+        "name": "ControllerGate-Batch083-Poetry-29185cb89b11",
+        "returncode": 0
+      },
+      {
+        "executable": "D:\\a\\_temp\\controllergate-runtime\\poetry-reproducer\\fresh-one\\Scripts\\poetry.exe",
+        "log_hash": "ce14e398e8001eeac2c1fa5d699f08d1b4b37ed9f8908930b955242f494b4dc2",
+        "name": "ControllerGate-Batch083-Poetry-a915ba9dacd7",
+        "returncode": 0
+      },
+      {
+        "executable": "D:\\a\\_temp\\controllergate-runtime\\poetry-reproducer\\fresh-two\\Scripts\\python.exe",
+        "log_hash": "ce14e398e8001eeac2c1fa5d699f08d1b4b37ed9f8908930b955242f494b4dc2",
+        "name": "ControllerGate-Batch083-Poetry-1fab37fb9e6d",
+        "returncode": 0
+      },
+      {
+        "executable": "D:\\a\\_temp\\controllergate-runtime\\poetry-reproducer\\fresh-two\\Scripts\\poetry.exe",
+        "log_hash": "ce14e398e8001eeac2c1fa5d699f08d1b4b37ed9f8908930b955242f494b4dc2",
+        "name": "ControllerGate-Batch083-Poetry-1d8de7204dec",
+        "returncode": 0
+      }
+    ],
+    "status": "PASS"
+  },
+  "network_guard_cleanup": {
+    "records": [
+      {
+        "log_hash": "79844499ffefbf5fedd4a843e5854bdbe548c3f7f4c446dc3f923e5562956bb6",
+        "name": "ControllerGate-Batch083-Poetry-29185cb89b11",
+        "returncode": 0
+      },
+      {
+        "log_hash": "79844499ffefbf5fedd4a843e5854bdbe548c3f7f4c446dc3f923e5562956bb6",
+        "name": "ControllerGate-Batch083-Poetry-a915ba9dacd7",
+        "returncode": 0
+      },
+      {
+        "log_hash": "79844499ffefbf5fedd4a843e5854bdbe548c3f7f4c446dc3f923e5562956bb6",
+        "name": "ControllerGate-Batch083-Poetry-1fab37fb9e6d",
+        "returncode": 0
+      },
+      {
+        "log_hash": "79844499ffefbf5fedd4a843e5854bdbe548c3f7f4c446dc3f923e5562956bb6",
+        "name": "ControllerGate-Batch083-Poetry-1d8de7204dec",
+        "returncode": 0
+      }
+    ],
+    "status": "PASS"
+  },
+  "network_isolation_verified": false,
+  "provider_execution_ready": true,
+  "replays": [],
+  "status": "BLOCKED_EXACT_WITH_NEW_EVIDENCE"
+}

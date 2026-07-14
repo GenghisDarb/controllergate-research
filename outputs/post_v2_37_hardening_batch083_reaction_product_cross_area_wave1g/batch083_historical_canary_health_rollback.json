@@ -1,0 +1,202 @@
+{
+  "episode_count": 2,
+  "episodes": [
+    {
+      "canary": {
+        "file_identities": {
+          "duplicate_postpatch_full_target_log_raw.txt": "35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857"
+        },
+        "slot": "/home/runner/work/_temp/controllergate-runtime/historical-canary/cloudpickle/canary",
+        "status": "CANARY_SLOT_MATERIALIZED"
+      },
+      "comparison": {
+        "file_identities": {
+          "duplicate_postpatch_full_target_log_raw.txt": "35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857"
+        },
+        "slot": "/home/runner/work/_temp/controllergate-runtime/historical-canary/cloudpickle/comparison",
+        "status": "CANARY_SLOT_MATERIALIZED"
+      },
+      "credentials_used": false,
+      "deployment_proof": {
+        "production_deployment": false,
+        "proof_hash": "9f41af138a60bb71c7c2310d867bbb034cdb88fb26b5d9165fdf563166c48cca",
+        "records": [
+          {
+            "command": [
+              "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+              "-c",
+              "import hashlib,pathlib,sys; p=pathlib.Path('duplicate_postpatch_full_target_log_raw.txt'); sys.exit(0 if hashlib.sha256(p.read_bytes()).hexdigest()=='35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857' else 1)"
+            ],
+            "output_bytes": 0,
+            "output_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "returncode": 0,
+            "status": "CANARY_TRAFFIC_REPLAYED"
+          },
+          {
+            "command": [
+              "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+              "-c",
+              "import hashlib,pathlib,sys; p=pathlib.Path('duplicate_postpatch_full_target_log_raw.txt'); sys.exit(0 if hashlib.sha256(p.read_bytes()).hexdigest()=='35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857' else 1)"
+            ],
+            "output_bytes": 0,
+            "output_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "returncode": 0,
+            "status": "CANARY_TRAFFIC_REPLAYED"
+          },
+          {
+            "event_count": 2,
+            "observed_at": "2026-07-14T03:52:21.718705+00:00",
+            "skip_count": 0,
+            "status": "CANARY_HEALTH_WINDOW_PASSED"
+          },
+          {
+            "expected_source_hash": "35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857",
+            "restored_source_hash": "35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857",
+            "status": "ROLLBACK_DRILL_PASSED"
+          }
+        ],
+        "status": "DEPLOYMENT_READINESS_RECORDED"
+      },
+      "episode_id": "cloudpickle",
+      "health": {
+        "event_count": 2,
+        "observed_at": "2026-07-14T03:52:21.718705+00:00",
+        "skip_count": 0,
+        "status": "CANARY_HEALTH_WINDOW_PASSED"
+      },
+      "production_traffic": false,
+      "repair_count_changed": false,
+      "replays": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "import hashlib,pathlib,sys; p=pathlib.Path('duplicate_postpatch_full_target_log_raw.txt'); sys.exit(0 if hashlib.sha256(p.read_bytes()).hexdigest()=='35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857' else 1)"
+          ],
+          "output_bytes": 0,
+          "output_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "returncode": 0,
+          "status": "CANARY_TRAFFIC_REPLAYED"
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "import hashlib,pathlib,sys; p=pathlib.Path('duplicate_postpatch_full_target_log_raw.txt'); sys.exit(0 if hashlib.sha256(p.read_bytes()).hexdigest()=='35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857' else 1)"
+          ],
+          "output_bytes": 0,
+          "output_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "returncode": 0,
+          "status": "CANARY_TRAFFIC_REPLAYED"
+        }
+      ],
+      "rollback": {
+        "expected_source_hash": "35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857",
+        "restored_source_hash": "35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857",
+        "status": "ROLLBACK_DRILL_PASSED"
+      },
+      "slots_disposed": true,
+      "source_identity": "35310bb61ea0616388b64b8332c63e8ec22661155c81641e3d490901ab548857"
+    },
+    {
+      "canary": {
+        "file_identities": {
+          "duplicate_postpatch_full_target_log_raw.txt": "36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0"
+        },
+        "slot": "/home/runner/work/_temp/controllergate-runtime/historical-canary/freezegun/canary",
+        "status": "CANARY_SLOT_MATERIALIZED"
+      },
+      "comparison": {
+        "file_identities": {
+          "duplicate_postpatch_full_target_log_raw.txt": "36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0"
+        },
+        "slot": "/home/runner/work/_temp/controllergate-runtime/historical-canary/freezegun/comparison",
+        "status": "CANARY_SLOT_MATERIALIZED"
+      },
+      "credentials_used": false,
+      "deployment_proof": {
+        "production_deployment": false,
+        "proof_hash": "1dc0293126c71fb925c8a6b3da5e96a9be886c7443488e06815795592897bac3",
+        "records": [
+          {
+            "command": [
+              "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+              "-c",
+              "import hashlib,pathlib,sys; p=pathlib.Path('duplicate_postpatch_full_target_log_raw.txt'); sys.exit(0 if hashlib.sha256(p.read_bytes()).hexdigest()=='36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0' else 1)"
+            ],
+            "output_bytes": 0,
+            "output_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "returncode": 0,
+            "status": "CANARY_TRAFFIC_REPLAYED"
+          },
+          {
+            "command": [
+              "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+              "-c",
+              "import hashlib,pathlib,sys; p=pathlib.Path('duplicate_postpatch_full_target_log_raw.txt'); sys.exit(0 if hashlib.sha256(p.read_bytes()).hexdigest()=='36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0' else 1)"
+            ],
+            "output_bytes": 0,
+            "output_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "returncode": 0,
+            "status": "CANARY_TRAFFIC_REPLAYED"
+          },
+          {
+            "event_count": 2,
+            "observed_at": "2026-07-14T03:52:21.769264+00:00",
+            "skip_count": 0,
+            "status": "CANARY_HEALTH_WINDOW_PASSED"
+          },
+          {
+            "expected_source_hash": "36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0",
+            "restored_source_hash": "36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0",
+            "status": "ROLLBACK_DRILL_PASSED"
+          }
+        ],
+        "status": "DEPLOYMENT_READINESS_RECORDED"
+      },
+      "episode_id": "freezegun",
+      "health": {
+        "event_count": 2,
+        "observed_at": "2026-07-14T03:52:21.769264+00:00",
+        "skip_count": 0,
+        "status": "CANARY_HEALTH_WINDOW_PASSED"
+      },
+      "production_traffic": false,
+      "repair_count_changed": false,
+      "replays": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "import hashlib,pathlib,sys; p=pathlib.Path('duplicate_postpatch_full_target_log_raw.txt'); sys.exit(0 if hashlib.sha256(p.read_bytes()).hexdigest()=='36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0' else 1)"
+          ],
+          "output_bytes": 0,
+          "output_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "returncode": 0,
+          "status": "CANARY_TRAFFIC_REPLAYED"
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+            "-c",
+            "import hashlib,pathlib,sys; p=pathlib.Path('duplicate_postpatch_full_target_log_raw.txt'); sys.exit(0 if hashlib.sha256(p.read_bytes()).hexdigest()=='36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0' else 1)"
+          ],
+          "output_bytes": 0,
+          "output_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "returncode": 0,
+          "status": "CANARY_TRAFFIC_REPLAYED"
+        }
+      ],
+      "rollback": {
+        "expected_source_hash": "36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0",
+        "restored_source_hash": "36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0",
+        "status": "ROLLBACK_DRILL_PASSED"
+      },
+      "slots_disposed": true,
+      "source_identity": "36059018d516eb28f03ce07ffa8aa49f7c6fd03cfc1f92513b779e090a83c2c0"
+    }
+  ],
+  "health_windows": 2,
+  "rollback_drills": 2,
+  "status": "EXECUTED_WITH_RESULT"
+}

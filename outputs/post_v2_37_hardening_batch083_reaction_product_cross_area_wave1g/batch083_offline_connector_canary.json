@@ -1,0 +1,50 @@
+{
+  "circuit_breaker_states": [
+    "CLOSED",
+    "OPEN",
+    "CLOSED"
+  ],
+  "circuit_breaker_tested": true,
+  "events": [
+    {
+      "case": "success",
+      "code": 200,
+      "status": "SUCCESS"
+    },
+    {
+      "case": "timeout",
+      "error": "TimeoutError",
+      "status": "TIMEOUT"
+    },
+    {
+      "case": "rate_limit",
+      "code": 429,
+      "status": "RATE_LIMIT"
+    },
+    {
+      "case": "malformed",
+      "error": "JSONDecodeError",
+      "status": "MALFORMED"
+    },
+    {
+      "attempts": 2,
+      "case": "retry",
+      "executed": true
+    },
+    {
+      "case": "write",
+      "executed": false,
+      "resource": "http://127.0.0.1:32817",
+      "status": "CONNECTOR_WRITE_AUTHORITY_DISABLED"
+    },
+    {
+      "case": "redaction",
+      "redacted": true,
+      "value": "authorization=[REDACTED]"
+    }
+  ],
+  "request_count": 4,
+  "secret_redaction_passed": true,
+  "status": "EXECUTED_WITH_RESULT",
+  "write_authority": false
+}

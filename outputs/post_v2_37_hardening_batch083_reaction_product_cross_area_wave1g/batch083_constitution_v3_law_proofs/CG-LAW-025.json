@@ -1,0 +1,32 @@
+{
+  "ci_job_identity": "final-audit-and-package",
+  "evidence_state": "RUNTIME_EXERCISED_BLOCK",
+  "execution_record_ids": [
+    "batch083:law:CG-LAW-025"
+  ],
+  "law_id": "CG-LAW-025",
+  "outputs": [
+    {
+      "bytes": 1468,
+      "path": "batch083_cross_area_advancement_results.json",
+      "sha256": "e1093f2f6a6afe0e386ccc2fd8c824791beb5048217f3fe2e4e9b5a1700c7d3b"
+    }
+  ],
+  "owner_import_only": false,
+  "placeholder_execution": false,
+  "proof_hash": "da3ec48097371f831b9f24396b7840ad603ef7d6e47bf08584be068bca5d256a",
+  "raw_logs": [
+    {
+      "bytes": 621,
+      "path": "batch083_constitution_raw_execution.log",
+      "sha256": "da67cfcdbc0e1b35d1e8acdd84939c540371010a5927c688099f540859d0df1f"
+    }
+  ],
+  "synthetic_boolean_evidence": false,
+  "verifier_record": {
+    "false_pass_prevented": true,
+    "reason": "law-specific positive and negative controls were not both independently executed in this lane",
+    "status": "BLOCK",
+    "verifier": "batch083-independent-critic"
+  }
+}

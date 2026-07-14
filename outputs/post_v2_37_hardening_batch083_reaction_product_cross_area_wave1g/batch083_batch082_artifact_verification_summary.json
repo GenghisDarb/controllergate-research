@@ -1,0 +1,103 @@
+{
+  "archive_byte_binding": "PASS",
+  "artifact_count": 3,
+  "embedded_manifest_coverage": "BLOCKED_EXACT_WITH_NEW_EVIDENCE",
+  "records": [
+    {
+      "artifact_id": 8295240189,
+      "byte_binding_status": "PASS",
+      "duplicate_paths": [],
+      "embedded_manifest_coverage_status": "PASS",
+      "embedded_manifests": [
+        {
+          "checked": 1,
+          "failures": [],
+          "manifest": "provider_manifest.json",
+          "seal": "24789a0a92aee88f5b7284fe9c51f080dc9f9e0810550025c6383a23f4f714e4",
+          "status": "PASS"
+        }
+      ],
+      "exact_blocker": null,
+      "observed_archive_sha256": "e5d9f5370c4903707ea5ee042ec334415426f0530148075a23ace3436f7fd59c",
+      "observed_archive_size": 276477,
+      "reported_archive_size": 276477,
+      "reported_digest": "e5d9f5370c4903707ea5ee042ec334415426f0530148075a23ace3436f7fd59c",
+      "reported_name": "batch082_openbb_v5_linux_py311_provider",
+      "status": "PASS",
+      "translocation": {
+        "destination": "/home/runner/work/_temp/controllergate-runtime/verified/8295240189",
+        "destination_archive_hash": "e5d9f5370c4903707ea5ee042ec334415426f0530148075a23ace3436f7fd59c",
+        "source": "github_actions_artifact",
+        "source_hash": "e5d9f5370c4903707ea5ee042ec334415426f0530148075a23ace3436f7fd59c",
+        "verifier": "sha256"
+      },
+      "unsafe_paths": [],
+      "zip_entry_count": 3
+    },
+    {
+      "artifact_id": 8295240545,
+      "byte_binding_status": "PASS",
+      "duplicate_paths": [],
+      "embedded_manifest_coverage_status": "BLOCKED_EXACT_WITH_NEW_EVIDENCE",
+      "embedded_manifests": [
+        {
+          "checked": 176,
+          "failures": [
+            "snapshot/.github/workflows/pages.yml"
+          ],
+          "manifest": "input_manifest.json",
+          "seal": "9e576b781cbab13ab43fa4e84f39d300032dbe798914fc705bea7ed7f3253be6",
+          "status": "FAIL"
+        }
+      ],
+      "exact_blocker": "batch082_embedded_manifest_member_absent_from_exact_archive",
+      "observed_archive_sha256": "a86e77a355fdd4a99f8449bc03151f8a683f58a6772dc121c07d03118719ee3c",
+      "observed_archive_size": 175749,
+      "reported_archive_size": 175749,
+      "reported_digest": "a86e77a355fdd4a99f8449bc03151f8a683f58a6772dc121c07d03118719ee3c",
+      "reported_name": "batch082_openbb_eodhd_openapi_input_snapshot",
+      "status": "PASS_WITH_EXACT_STAGE_EVIDENCE",
+      "translocation": {
+        "destination": "/home/runner/work/_temp/controllergate-runtime/verified/8295240545",
+        "destination_archive_hash": "a86e77a355fdd4a99f8449bc03151f8a683f58a6772dc121c07d03118719ee3c",
+        "source": "github_actions_artifact",
+        "source_hash": "a86e77a355fdd4a99f8449bc03151f8a683f58a6772dc121c07d03118719ee3c",
+        "verifier": "sha256"
+      },
+      "unsafe_paths": [],
+      "zip_entry_count": 189
+    },
+    {
+      "artifact_id": 8295255269,
+      "byte_binding_status": "PASS",
+      "duplicate_paths": [],
+      "embedded_manifest_coverage_status": "PASS",
+      "embedded_manifests": [
+        {
+          "checked": 42,
+          "failures": [],
+          "manifest": "provider_manifest.json",
+          "seal": "0947c752f3a3b5038860d9883553d3caa7a5d8b6c225736d21b6e67fa5bff6e0",
+          "status": "PASS"
+        }
+      ],
+      "exact_blocker": null,
+      "observed_archive_sha256": "ca646ecd731e73eca2ec78b7b8dddfe138aa988ac89d90329ec9594cae4610d8",
+      "observed_archive_size": 11681563,
+      "reported_archive_size": 11681563,
+      "reported_digest": "ca646ecd731e73eca2ec78b7b8dddfe138aa988ac89d90329ec9594cae4610d8",
+      "reported_name": "batch082_poetry_241_windows_py313_provider",
+      "status": "PASS",
+      "translocation": {
+        "destination": "/home/runner/work/_temp/controllergate-runtime/verified/8295255269",
+        "destination_archive_hash": "ca646ecd731e73eca2ec78b7b8dddfe138aa988ac89d90329ec9594cae4610d8",
+        "source": "github_actions_artifact",
+        "source_hash": "ca646ecd731e73eca2ec78b7b8dddfe138aa988ac89d90329ec9594cae4610d8",
+        "verifier": "sha256"
+      },
+      "unsafe_paths": [],
+      "zip_entry_count": 44
+    }
+  ],
+  "status": "PASS_WITH_EXACT_STAGE_EVIDENCE"
+}

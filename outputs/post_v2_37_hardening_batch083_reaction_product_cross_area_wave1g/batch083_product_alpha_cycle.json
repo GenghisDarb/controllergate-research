@@ -1,0 +1,74 @@
+{
+  "commands": [
+    "controllergate doctor --runtime-root <root>",
+    "controllergate run --manifest <manifest>",
+    "controllergate resume --run-id <id> --manifest <manifest>",
+    "controllergate status --run-id <id> --runtime-root <root>",
+    "controllergate verify --run-id <id> --manifest <manifest>",
+    "controllergate canary --proof <proof.json>",
+    "controllergate connectors verify --manifest <manifest>"
+  ],
+  "idempotent_final_verification": true,
+  "interruption": {
+    "checkpoint_stage": "failure_reproduction",
+    "run_id": "batch083-product-alpha",
+    "status": "INTERRUPTED_AT_CHECKPOINT"
+  },
+  "production_readiness": false,
+  "repair_count_changed": false,
+  "resume": {
+    "blocker": null,
+    "completed_stages": [
+      "source_identity",
+      "incident_intake",
+      "provider_materialization",
+      "failure_reproduction",
+      "amds_diagnosis",
+      "source_ownership",
+      "repair_licensing",
+      "bounded_patch",
+      "validation",
+      "duplicate_replay",
+      "proof_append",
+      "canary",
+      "health_monitoring",
+      "rollback_drill",
+      "maintenance_memory_update"
+    ],
+    "run_id": "batch083-product-alpha",
+    "state_hash": "064d468aa718cbe9c03a5166be13d9e28c9d7b565378fa1d144ea9b8bac007b3",
+    "status": "CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS"
+  },
+  "self_maintaining_software": "false/not demonstrated",
+  "status": "EXECUTED_WITH_RESULT",
+  "unsafe_repair": {
+    "blocker": "unsafe_repair_blocked",
+    "completed_stages": [
+      "source_identity",
+      "incident_intake",
+      "provider_materialization",
+      "failure_reproduction",
+      "amds_diagnosis",
+      "source_ownership",
+      "repair_licensing",
+      "bounded_patch"
+    ],
+    "run_id": "batch083-product-alpha-unsafe",
+    "state_hash": "ad559d6c4fb5133c5b4c0046784e3530305c97968d9170664fbd79f08d8b7dd2",
+    "status": "SAFE_ABSTENTION"
+  },
+  "verification_one": {
+    "idempotent": true,
+    "manifest_hash": "3f02e6b7b3c0551c04623460be5619cbb24326a2d3098ce927033a6d4f8335d9",
+    "run_id": "batch083-product-alpha",
+    "state_hash": "064d468aa718cbe9c03a5166be13d9e28c9d7b565378fa1d144ea9b8bac007b3",
+    "status": "PASS"
+  },
+  "verification_two": {
+    "idempotent": true,
+    "manifest_hash": "3f02e6b7b3c0551c04623460be5619cbb24326a2d3098ce927033a6d4f8335d9",
+    "run_id": "batch083-product-alpha",
+    "state_hash": "064d468aa718cbe9c03a5166be13d9e28c9d7b565378fa1d144ea9b8bac007b3",
+    "status": "PASS"
+  }
+}

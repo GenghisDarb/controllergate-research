@@ -1,0 +1,890 @@
+{
+  "acquisition": {
+    "attempted": false,
+    "log_hash": null,
+    "returncode": null
+  },
+  "candidate": "poetry",
+  "capsule_verification": {
+    "provider_seal": "08025a00f31901b6db4859c6a1716a7fb3d1d7695e8bfee5e31c46cb93d7caca",
+    "status": "PASS",
+    "wheel_count": 42
+  },
+  "dependency_checks": [
+    {
+      "log_hash": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "returncode": 0,
+      "state": "PROVIDER_DEPENDENCY_CHECK_PASSED"
+    },
+    {
+      "log_hash": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "returncode": 0,
+      "state": "PROVIDER_DEPENDENCY_CHECK_PASSED"
+    }
+  ],
+  "dependency_graph": {
+    "graph_hash": "574a66c4f7c2002d5351b6c374d6ee1af2d1335b6a3b890d03946343309234b0",
+    "invalid_requirement_count": 0,
+    "missing_runtime_dependencies": [],
+    "nodes": {
+      "anyio": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "exceptiongroup>=1.0.2; python_version < \"3.11\"",
+          "typing_extensions>=4.5; python_version < \"3.13\"",
+          "trio>=0.32.0; extra == \"trio\""
+        ],
+        "requires": [
+          "idna"
+        ],
+        "version": "4.14.2",
+        "wheel": "anyio-4.14.2-py3-none-any.whl"
+      },
+      "backports-zstd": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "1.6.0",
+        "wheel": "backports_zstd-1.6.0-cp313-cp313-win_amd64.whl"
+      },
+      "build": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "importlib-metadata >= 4.6; python_full_version < \"3.10.2\"",
+          "tomli >= 1.1.0; python_version < \"3.11\"",
+          "keyring ; extra == \"keyring\"",
+          "uv >= 0.1.18 ; extra == \"uv\"",
+          "virtualenv >= 20.36.1 ; extra == \"virtualenv\""
+        ],
+        "requires": [
+          "colorama",
+          "packaging",
+          "pyproject-hooks"
+        ],
+        "version": "1.5.1",
+        "wheel": "build-1.5.1-py3-none-any.whl"
+      },
+      "cachecontrol": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "cachecontrol[filecache,redis] ; extra == 'dev'",
+          "cherrypy ; extra == 'dev'",
+          "cheroot>=11.1.2 ; extra == 'dev'",
+          "codespell ; extra == 'dev'",
+          "furo ; extra == 'dev'",
+          "mypy ; extra == 'dev'",
+          "pytest ; extra == 'dev'",
+          "pytest-cov ; extra == 'dev'",
+          "ruff ; extra == 'dev'",
+          "sphinx ; extra == 'dev'",
+          "sphinx-copybutton ; extra == 'dev'",
+          "types-redis ; extra == 'dev'",
+          "types-requests ; extra == 'dev'",
+          "filelock>=3.8.0 ; extra == 'filecache'",
+          "redis>=2.10.5 ; extra == 'redis'"
+        ],
+        "requires": [
+          "msgpack",
+          "requests"
+        ],
+        "version": "0.14.4",
+        "wheel": "cachecontrol-0.14.4-py3-none-any.whl"
+      },
+      "certifi": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "2026.6.17",
+        "wheel": "certifi-2026.6.17-py3-none-any.whl"
+      },
+      "charset-normalizer": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "3.4.9",
+        "wheel": "charset_normalizer-3.4.9-cp313-cp313-win_amd64.whl"
+      },
+      "cleo": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [
+          "crashtest",
+          "rapidfuzz"
+        ],
+        "version": "2.1.0",
+        "wheel": "cleo-2.1.0-py3-none-any.whl"
+      },
+      "colorama": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "0.4.6",
+        "wheel": "colorama-0.4.6-py2.py3-none-any.whl"
+      },
+      "crashtest": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "0.4.1",
+        "wheel": "crashtest-0.4.1-py3-none-any.whl"
+      },
+      "distlib": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "0.4.3",
+        "wheel": "distlib-0.4.3-py2.py3-none-any.whl"
+      },
+      "dulwich": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "typing_extensions>=4.6.0; python_version < \"3.12\"",
+          "fastimport; extra == \"fastimport\"",
+          "urllib3>=2.2.2; extra == \"https\"",
+          "gpg; extra == \"pgp\"",
+          "paramiko; extra == \"paramiko\"",
+          "rich; extra == \"colordiff\"",
+          "ruff==0.15.20; extra == \"dev\"",
+          "mypy==2.1.0; extra == \"dev\"",
+          "dissolve>=0.1.1; extra == \"dev\"",
+          "codespell==2.4.2; extra == \"dev\"",
+          "hypothesis>=6; extra == \"hypothesis\"",
+          "merge3; extra == \"merge\"",
+          "atheris; extra == \"fuzzing\"",
+          "patiencediff; extra == \"patiencediff\"",
+          "munkres; extra == \"range-diff\"",
+          "aiohttp; extra == \"aiohttp\""
+        ],
+        "requires": [
+          "urllib3"
+        ],
+        "version": "1.2.10",
+        "wheel": "dulwich-1.2.10-cp313-cp313-win_amd64.whl"
+      },
+      "fastjsonschema": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "colorama; extra == \"devel\"",
+          "jsonschema; extra == \"devel\"",
+          "json-spec; extra == \"devel\"",
+          "pylint; extra == \"devel\"",
+          "pytest; extra == \"devel\"",
+          "pytest-benchmark; extra == \"devel\"",
+          "pytest-cache; extra == \"devel\"",
+          "validictory; extra == \"devel\""
+        ],
+        "requires": [],
+        "version": "2.21.2",
+        "wheel": "fastjsonschema-2.21.2-py3-none-any.whl"
+      },
+      "filelock": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "3.29.7",
+        "wheel": "filelock-3.29.7-py3-none-any.whl"
+      },
+      "findpython": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [
+          "packaging",
+          "platformdirs"
+        ],
+        "version": "0.8.0",
+        "wheel": "findpython-0.8.0-py3-none-any.whl"
+      },
+      "h11": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "0.16.0",
+        "wheel": "h11-0.16.0-py3-none-any.whl"
+      },
+      "httpcore": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "anyio<5.0,>=4.0; extra == 'asyncio'",
+          "h2<5,>=3; extra == 'http2'",
+          "socksio==1.*; extra == 'socks'",
+          "trio<1.0,>=0.22.0; extra == 'trio'"
+        ],
+        "requires": [
+          "certifi",
+          "h11"
+        ],
+        "version": "1.0.9",
+        "wheel": "httpcore-1.0.9-py3-none-any.whl"
+      },
+      "httpx": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "brotli; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+          "brotlicffi; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+          "click==8.*; extra == 'cli'",
+          "pygments==2.*; extra == 'cli'",
+          "rich<14,>=10; extra == 'cli'",
+          "h2<5,>=3; extra == 'http2'",
+          "socksio==1.*; extra == 'socks'",
+          "zstandard>=0.18.0; extra == 'zstd'"
+        ],
+        "requires": [
+          "anyio",
+          "certifi",
+          "httpcore",
+          "idna"
+        ],
+        "version": "0.28.1",
+        "wheel": "httpx-0.28.1-py3-none-any.whl"
+      },
+      "idna": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "ruff >= 0.6.2 ; extra == \"all\"",
+          "mypy >= 1.11.2 ; extra == \"all\"",
+          "pytest >= 8.3.2 ; extra == \"all\""
+        ],
+        "requires": [],
+        "version": "3.18",
+        "wheel": "idna-3.18-py3-none-any.whl"
+      },
+      "installer": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "1.0.1",
+        "wheel": "installer-1.0.1-py3-none-any.whl"
+      },
+      "jaraco-classes": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "sphinx >=3.5 ; extra == 'docs'",
+          "jaraco.packaging >=9.3 ; extra == 'docs'",
+          "rst.linker >=1.9 ; extra == 'docs'",
+          "furo ; extra == 'docs'",
+          "sphinx-lint ; extra == 'docs'",
+          "jaraco.tidelift >=1.4 ; extra == 'docs'",
+          "pytest >=6 ; extra == 'testing'",
+          "pytest-checkdocs >=2.4 ; extra == 'testing'",
+          "pytest-cov ; extra == 'testing'",
+          "pytest-mypy ; extra == 'testing'",
+          "pytest-enabler >=2.2 ; extra == 'testing'",
+          "pytest-ruff >=0.2.1 ; extra == 'testing'"
+        ],
+        "requires": [
+          "more-itertools"
+        ],
+        "version": "3.4.0",
+        "wheel": "jaraco.classes-3.4.0-py3-none-any.whl"
+      },
+      "jaraco-context": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "backports.tarfile; python_version < \"3.12\"",
+          "pytest!=8.1.*,>=6; extra == \"test\"",
+          "jaraco.test>=5.6.0; extra == \"test\"",
+          "portend; extra == \"test\"",
+          "sphinx>=3.5; extra == \"doc\"",
+          "jaraco.packaging>=9.3; extra == \"doc\"",
+          "rst.linker>=1.9; extra == \"doc\"",
+          "furo; extra == \"doc\"",
+          "sphinx-lint; extra == \"doc\"",
+          "jaraco.tidelift>=1.4; extra == \"doc\"",
+          "pytest-checkdocs>=2.14; extra == \"check\"",
+          "pytest-ruff>=0.2.1; sys_platform != \"cygwin\" and extra == \"check\"",
+          "pytest-cov; extra == \"cover\"",
+          "pytest-enabler>=3.4; extra == \"enabler\"",
+          "pytest-mypy>=1.0.1; platform_python_implementation != \"PyPy\" and extra == \"type\""
+        ],
+        "requires": [],
+        "version": "6.1.2",
+        "wheel": "jaraco_context-6.1.2-py3-none-any.whl"
+      },
+      "jaraco-functools": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "pytest!=8.1.*,>=6; extra == \"test\"",
+          "jaraco.classes; extra == \"test\"",
+          "sphinx>=3.5; extra == \"doc\"",
+          "jaraco.packaging>=9.3; extra == \"doc\"",
+          "rst.linker>=1.9; extra == \"doc\"",
+          "furo; extra == \"doc\"",
+          "sphinx-lint; extra == \"doc\"",
+          "jaraco.tidelift>=1.4; extra == \"doc\"",
+          "pytest-checkdocs>=2.14; extra == \"check\"",
+          "pytest-ruff>=0.2.1; sys_platform != \"cygwin\" and extra == \"check\"",
+          "pytest-cov; extra == \"cover\"",
+          "pytest-enabler>=3.4; extra == \"enabler\"",
+          "pytest-mypy>=1.0.1; platform_python_implementation != \"PyPy\" and extra == \"type\""
+        ],
+        "requires": [
+          "more-itertools"
+        ],
+        "version": "4.5.0",
+        "wheel": "jaraco_functools-4.5.0-py3-none-any.whl"
+      },
+      "keyring": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "SecretStorage>=3.2; sys_platform == \"linux\"",
+          "jeepney>=0.4.2; sys_platform == \"linux\"",
+          "importlib_metadata>=4.11.4; python_version < \"3.12\"",
+          "pytest!=8.1.*,>=6; extra == \"test\"",
+          "pyfakefs; extra == \"test\"",
+          "sphinx>=3.5; extra == \"doc\"",
+          "jaraco.packaging>=9.3; extra == \"doc\"",
+          "rst.linker>=1.9; extra == \"doc\"",
+          "furo; extra == \"doc\"",
+          "sphinx-lint; extra == \"doc\"",
+          "jaraco.tidelift>=1.4; extra == \"doc\"",
+          "pytest-checkdocs>=2.4; extra == \"check\"",
+          "pytest-ruff>=0.2.1; sys_platform != \"cygwin\" and extra == \"check\"",
+          "pytest-cov; extra == \"cover\"",
+          "pytest-enabler>=3.4; extra == \"enabler\"",
+          "pytest-mypy>=1.0.1; extra == \"type\"",
+          "pygobject-stubs; extra == \"type\"",
+          "shtab; extra == \"type\"",
+          "types-pywin32; extra == \"type\"",
+          "shtab>=1.1.0; extra == \"completion\""
+        ],
+        "requires": [
+          "jaraco-classes",
+          "jaraco-context",
+          "jaraco-functools",
+          "pywin32-ctypes"
+        ],
+        "version": "25.7.0",
+        "wheel": "keyring-25.7.0-py3-none-any.whl"
+      },
+      "more-itertools": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "11.1.0",
+        "wheel": "more_itertools-11.1.0-py3-none-any.whl"
+      },
+      "msgpack": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "1.2.1",
+        "wheel": "msgpack-1.2.1-cp313-cp313-win_amd64.whl"
+      },
+      "packaging": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "26.2",
+        "wheel": "packaging-26.2-py3-none-any.whl"
+      },
+      "pbs-installer": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "httpx<1,>=0.27.0; extra == \"download\"",
+          "backports.zstd>=1.0.0; python_version < \"3.14\" and extra == \"install\"",
+          "pbs-installer[download,install]; extra == \"all\""
+        ],
+        "requires": [],
+        "version": "2026.6.10",
+        "wheel": "pbs_installer-2026.6.10-py3-none-any.whl"
+      },
+      "pkginfo": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "pytest; extra == \"testing\"",
+          "pytest-cov; extra == \"testing\"",
+          "wheel; extra == \"testing\""
+        ],
+        "requires": [],
+        "version": "1.12.1.2",
+        "wheel": "pkginfo-1.12.1.2-py3-none-any.whl"
+      },
+      "platformdirs": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "4.10.0",
+        "wheel": "platformdirs-4.10.0-py3-none-any.whl"
+      },
+      "poetry": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "tomli (>=2.0.1,<3.0.0) ; python_version < \"3.11\"",
+          "xattr (>=1.0.0,<2.0.0) ; sys_platform == \"darwin\""
+        ],
+        "requires": [
+          "build",
+          "cachecontrol",
+          "cleo",
+          "dulwich",
+          "fastjsonschema",
+          "findpython",
+          "installer",
+          "keyring",
+          "packaging",
+          "pbs-installer",
+          "pkginfo",
+          "platformdirs",
+          "poetry-core",
+          "pyproject-hooks",
+          "requests",
+          "requests-toolbelt",
+          "shellingham",
+          "tomlkit",
+          "trove-classifiers",
+          "virtualenv"
+        ],
+        "version": "2.4.1",
+        "wheel": "poetry-2.4.1-py3-none-any.whl"
+      },
+      "poetry-core": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "2.4.0",
+        "wheel": "poetry_core-2.4.0-py3-none-any.whl"
+      },
+      "pyproject-hooks": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "1.2.0",
+        "wheel": "pyproject_hooks-1.2.0-py3-none-any.whl"
+      },
+      "python-discovery": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "furo>=2025.12.19; extra == 'docs'",
+          "sphinx-autodoc-typehints>=3.6.3; extra == 'docs'",
+          "sphinx>=9.1; extra == 'docs'",
+          "sphinxcontrib-mermaid>=2; extra == 'docs'",
+          "sphinxcontrib-towncrier>=0.4; extra == 'docs'",
+          "towncrier>=25.8; extra == 'docs'",
+          "covdefaults>=2.3; extra == 'testing'",
+          "coverage>=7.5.4; extra == 'testing'",
+          "pytest-mock>=3.14; extra == 'testing'",
+          "pytest>=8.3.5; extra == 'testing'",
+          "setuptools>=75.1; extra == 'testing'"
+        ],
+        "requires": [
+          "filelock",
+          "platformdirs"
+        ],
+        "version": "1.4.4",
+        "wheel": "python_discovery-1.4.4-py3-none-any.whl"
+      },
+      "pywin32-ctypes": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "0.2.3",
+        "wheel": "pywin32_ctypes-0.2.3-py3-none-any.whl"
+      },
+      "rapidfuzz": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "numpy; extra == \"all\""
+        ],
+        "requires": [],
+        "version": "3.14.5",
+        "wheel": "rapidfuzz-3.14.5-cp313-cp313-win_amd64.whl"
+      },
+      "requests": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "PySocks!=1.5.7,>=1.5.6; extra == \"socks\"",
+          "chardet<8,>=3.0.2; extra == \"use-chardet-on-py3\""
+        ],
+        "requires": [
+          "certifi",
+          "charset-normalizer",
+          "idna",
+          "urllib3"
+        ],
+        "version": "2.34.2",
+        "wheel": "requests-2.34.2-py3-none-any.whl"
+      },
+      "requests-toolbelt": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [
+          "requests"
+        ],
+        "version": "1.0.0",
+        "wheel": "requests_toolbelt-1.0.0-py2.py3-none-any.whl"
+      },
+      "shellingham": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "1.5.4",
+        "wheel": "shellingham-1.5.4-py2.py3-none-any.whl"
+      },
+      "tomlkit": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "0.15.0",
+        "wheel": "tomlkit-0.15.0-py3-none-any.whl"
+      },
+      "trove-classifiers": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [],
+        "requires": [],
+        "version": "2026.6.1.19",
+        "wheel": "trove_classifiers-2026.6.1.19-py3-none-any.whl"
+      },
+      "urllib3": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "brotli>=1.2.0; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+          "brotlicffi>=1.2.0.0; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+          "h2<5,>=4; extra == 'h2'",
+          "pysocks!=1.5.7,<2.0,>=1.5.6; extra == 'socks'",
+          "backports-zstd>=1.0.0; (python_version < '3.14') and extra == 'zstd'"
+        ],
+        "requires": [],
+        "version": "2.7.0",
+        "wheel": "urllib3-2.7.0-py3-none-any.whl"
+      },
+      "virtualenv": {
+        "invalid_requirements": [],
+        "requirements_skipped_by_environment_marker": [
+          "filelock<=3.19.1,>=3.16.1; python_version < '3.10'",
+          "typing-extensions>=4.13.2; python_version < '3.11'"
+        ],
+        "requires": [
+          "distlib",
+          "filelock",
+          "platformdirs",
+          "python-discovery"
+        ],
+        "version": "21.6.1",
+        "wheel": "virtualenv-21.6.1-py3-none-any.whl"
+      }
+    },
+    "state": "PROVIDER_DEPENDENCY_GRAPH_CLOSED",
+    "wheel_count": 42
+  },
+  "entrypoint_probes": [
+    {
+      "records": [
+        {
+          "command": [
+            "D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\install-one\\Scripts\\poetry.exe",
+            "--version"
+          ],
+          "log_hash": "9701efd0582786bd7f6a4f3c18500b28303452343431685371680c813d129955",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\install-one\\Scripts\\poetry.exe",
+            "init",
+            "--help"
+          ],
+          "log_hash": "c37b0938cbb486f7bd0af910d7cbb8dc6899d46f431858ea9dc99376ddb96a11",
+          "returncode": 0
+        }
+      ],
+      "state": "PROVIDER_ENTRYPOINT_PROBE_PASSED"
+    },
+    {
+      "records": [
+        {
+          "command": [
+            "D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\install-two\\Scripts\\poetry.exe",
+            "--version"
+          ],
+          "log_hash": "9701efd0582786bd7f6a4f3c18500b28303452343431685371680c813d129955",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\install-two\\Scripts\\poetry.exe",
+            "init",
+            "--help"
+          ],
+          "log_hash": "c37b0938cbb486f7bd0af910d7cbb8dc6899d46f431858ea9dc99376ddb96a11",
+          "returncode": 0
+        }
+      ],
+      "state": "PROVIDER_ENTRYPOINT_PROBE_PASSED"
+    }
+  ],
+  "exact_blocker": null,
+  "import_probes": [
+    {
+      "log_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modules": [
+        "poetry"
+      ],
+      "returncode": 0,
+      "state": "PROVIDER_IMPORT_PROBE_PASSED"
+    },
+    {
+      "log_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modules": [
+        "poetry"
+      ],
+      "returncode": 0,
+      "state": "PROVIDER_IMPORT_PROBE_PASSED"
+    }
+  ],
+  "offline_installs": [
+    {
+      "command": [
+        "D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\install-one\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--find-links",
+        "D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\wheelhouse",
+        "poetry==2.4.1"
+      ],
+      "environment": "D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\install-one",
+      "log_hash": "fd7c1637ce442d7b661dbfd739ffe484ea8c20d87e48b31aa401e4d3af87c4dd",
+      "log_tail": "->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\wheelhouse\\h11-0.16.0-py3-none-any.whl (from httpcore==1.*->httpx<1,>=0.27.0->pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\wheelhouse\\distlib-0.4.3-py2.py3-none-any.whl (from virtualenv>=20.26.6->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\wheelhouse\\python_discovery-1.4.4-py3-none-any.whl (from virtualenv>=20.26.6->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\wheelhouse\\more_itertools-11.1.0-py3-none-any.whl (from jaraco.classes->keyring<26.0.0,>=25.1.0->poetry==2.4.1)\nInstalling collected packages: trove-classifiers, fastjsonschema, distlib, urllib3, tomlkit, shellingham, rapidfuzz, pywin32-ctypes, pyproject-hooks, poetry-core, platformdirs, pkginfo, pbs-installer, packaging, msgpack, more-itertools, jaraco.context, installer, idna, h11, filelock, crashtest, colorama, charset_normalizer, certifi, backports.zstd, requests, python-discovery, jaraco.functools, jaraco.classes, httpcore, findpython, dulwich, cleo, build, anyio, virtualenv, requests-toolbelt, keyring, httpx, cachecontrol, poetry\n\nSuccessfully installed anyio-4.14.2 backports.zstd-1.6.0 build-1.5.1 cachecontrol-0.14.4 certifi-2026.6.17 charset_normalizer-3.4.9 cleo-2.1.0 colorama-0.4.6 crashtest-0.4.1 distlib-0.4.3 dulwich-1.2.10 fastjsonschema-2.21.2 filelock-3.29.7 findpython-0.8.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.18 installer-1.0.1 jaraco.classes-3.4.0 jaraco.context-6.1.2 jaraco.functools-4.5.0 keyring-25.7.0 more-itertools-11.1.0 msgpack-1.2.1 packaging-26.2 pbs-installer-2026.6.10 pkginfo-1.12.1.2 platformdirs-4.10.0 poetry-2.4.1 poetry-core-2.4.0 pyproject-hooks-1.2.0 python-discovery-1.4.4 pywin32-ctypes-0.2.3 rapidfuzz-3.14.5 requests-2.34.2 requests-toolbelt-1.0.0 shellingham-1.5.4 tomlkit-0.15.0 trove-classifiers-2026.6.1.19 urllib3-2.7.0 virtualenv-21.6.1\n",
+      "returncode": 0,
+      "state": "PROVIDER_OFFLINE_INSTALL_PASSED"
+    },
+    {
+      "command": [
+        "D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\install-two\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--find-links",
+        "D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\wheelhouse",
+        "poetry==2.4.1"
+      ],
+      "environment": "D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\install-two",
+      "log_hash": "fd7c1637ce442d7b661dbfd739ffe484ea8c20d87e48b31aa401e4d3af87c4dd",
+      "log_tail": "->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\wheelhouse\\h11-0.16.0-py3-none-any.whl (from httpcore==1.*->httpx<1,>=0.27.0->pbs-installer[download,install]>=2025.6.10->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\wheelhouse\\distlib-0.4.3-py2.py3-none-any.whl (from virtualenv>=20.26.6->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\wheelhouse\\python_discovery-1.4.4-py3-none-any.whl (from virtualenv>=20.26.6->poetry==2.4.1)\nProcessing D:\\a\\_temp\\controllergate-runtime\\poetry-provider-v4\\wheelhouse\\more_itertools-11.1.0-py3-none-any.whl (from jaraco.classes->keyring<26.0.0,>=25.1.0->poetry==2.4.1)\nInstalling collected packages: trove-classifiers, fastjsonschema, distlib, urllib3, tomlkit, shellingham, rapidfuzz, pywin32-ctypes, pyproject-hooks, poetry-core, platformdirs, pkginfo, pbs-installer, packaging, msgpack, more-itertools, jaraco.context, installer, idna, h11, filelock, crashtest, colorama, charset_normalizer, certifi, backports.zstd, requests, python-discovery, jaraco.functools, jaraco.classes, httpcore, findpython, dulwich, cleo, build, anyio, virtualenv, requests-toolbelt, keyring, httpx, cachecontrol, poetry\n\nSuccessfully installed anyio-4.14.2 backports.zstd-1.6.0 build-1.5.1 cachecontrol-0.14.4 certifi-2026.6.17 charset_normalizer-3.4.9 cleo-2.1.0 colorama-0.4.6 crashtest-0.4.1 distlib-0.4.3 dulwich-1.2.10 fastjsonschema-2.21.2 filelock-3.29.7 findpython-0.8.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.18 installer-1.0.1 jaraco.classes-3.4.0 jaraco.context-6.1.2 jaraco.functools-4.5.0 keyring-25.7.0 more-itertools-11.1.0 msgpack-1.2.1 packaging-26.2 pbs-installer-2026.6.10 pkginfo-1.12.1.2 platformdirs-4.10.0 poetry-2.4.1 poetry-core-2.4.0 pyproject-hooks-1.2.0 python-discovery-1.4.4 pywin32-ctypes-0.2.3 rapidfuzz-3.14.5 requests-2.34.2 requests-toolbelt-1.0.0 shellingham-1.5.4 tomlkit-0.15.0 trove-classifiers-2026.6.1.19 urllib3-2.7.0 virtualenv-21.6.1\n",
+      "returncode": 0,
+      "state": "PROVIDER_OFFLINE_INSTALL_PASSED"
+    }
+  ],
+  "provider_capsule": {
+    "dependency_graph_hash": "574a66c4f7c2002d5351b6c374d6ee1af2d1335b6a3b890d03946343309234b0",
+    "plan_hash": "3dc9930177197a8265fc7bf529ae33c9a66d0f2e0ee68263d29ad5c32f414990",
+    "provider_seal": "08025a00f31901b6db4859c6a1716a7fb3d1d7695e8bfee5e31c46cb93d7caca",
+    "state": "PROVIDER_ARTIFACT_SET_SEALED",
+    "wheels": [
+      {
+        "bytes": 125813,
+        "path": "anyio-4.14.2-py3-none-any.whl",
+        "sha256": "9f505dda5ac9f0c8309b5e8bd445a8c2bf7246f3ce950121e45ea15bc41d1494"
+      },
+      {
+        "bytes": 329023,
+        "path": "backports_zstd-1.6.0-cp313-cp313-win_amd64.whl",
+        "sha256": "b067b1ef9c8e41fb0882c828aa37829938b5c0dab067eca72b23fc24c563b9da"
+      },
+      {
+        "bytes": 31195,
+        "path": "build-1.5.1-py3-none-any.whl",
+        "sha256": "f1a58fe2e5af5b0238a07b9e70207492c79ddebbdb1ad954fc86d62a56be3e0d"
+      },
+      {
+        "bytes": 22247,
+        "path": "cachecontrol-0.14.4-py3-none-any.whl",
+        "sha256": "b7ac014ff72ee199b5f8af1de29d60239954f223e948196fa3d84adaffc71d2b"
+      },
+      {
+        "bytes": 133289,
+        "path": "certifi-2026.6.17-py3-none-any.whl",
+        "sha256": "2227dcbaafe0d2f59279d1762ddddc37783ed4354594f194ffc31d20f41fc3db"
+      },
+      {
+        "bytes": 161947,
+        "path": "charset_normalizer-3.4.9-cp313-cp313-win_amd64.whl",
+        "sha256": "fe2c7201c642b7c308f1675355ad7ff7b66acfe3541625efe5a3ad38f29d6115"
+      },
+      {
+        "bytes": 78711,
+        "path": "cleo-2.1.0-py3-none-any.whl",
+        "sha256": "4a31bd4dd45695a64ee3c4758f583f134267c2bc518d8ae9a29cf237d009b07e"
+      },
+      {
+        "bytes": 25335,
+        "path": "colorama-0.4.6-py2.py3-none-any.whl",
+        "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+      },
+      {
+        "bytes": 7558,
+        "path": "crashtest-0.4.1-py3-none-any.whl",
+        "sha256": "8d23eac5fa660409f57472e3851dab7ac18aba459a8d19cbbba86d3d5aecd2a5"
+      },
+      {
+        "bytes": 470628,
+        "path": "distlib-0.4.3-py2.py3-none-any.whl",
+        "sha256": "4b0ce306c966eb73bc3a7b6abad017c556dadd92c44701562cd528ac7fde4d5b"
+      },
+      {
+        "bytes": 1053583,
+        "path": "dulwich-1.2.10-cp313-cp313-win_amd64.whl",
+        "sha256": "a2e884a93452e8e1fb4a4886d14b328bae65c7a2fa88466c0b38faa63204f34d"
+      },
+      {
+        "bytes": 24024,
+        "path": "fastjsonschema-2.21.2-py3-none-any.whl",
+        "sha256": "1c797122d0a86c5cace2e54bf4e819c36223b552017172f32c5c024a6b77e463"
+      },
+      {
+        "bytes": 46036,
+        "path": "filelock-3.29.7-py3-none-any.whl",
+        "sha256": "987db6f789a3a2a59f55081801b2b3697cb97e2a736b5f1a9e99b559285fbc51"
+      },
+      {
+        "bytes": 21980,
+        "path": "findpython-0.8.0-py3-none-any.whl",
+        "sha256": "4a61ee1618a8b55014f7d41f59345d322be93f6ce62395bdccccc651b3f7e28a"
+      },
+      {
+        "bytes": 37515,
+        "path": "h11-0.16.0-py3-none-any.whl",
+        "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+      },
+      {
+        "bytes": 78784,
+        "path": "httpcore-1.0.9-py3-none-any.whl",
+        "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"
+      },
+      {
+        "bytes": 73517,
+        "path": "httpx-0.28.1-py3-none-any.whl",
+        "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+      },
+      {
+        "bytes": 65455,
+        "path": "idna-3.18-py3-none-any.whl",
+        "sha256": "7f952cbe720b688055e3f87de14f5c3e5fdaa8bc3928985c4077ca689de849a2"
+      },
+      {
+        "bytes": 464455,
+        "path": "installer-1.0.1-py3-none-any.whl",
+        "sha256": "011d045df8b954ced7dde3a7e42ae4418da40ecda7990f2d11d5ed7c146fd98b"
+      },
+      {
+        "bytes": 6777,
+        "path": "jaraco.classes-3.4.0-py3-none-any.whl",
+        "sha256": "f662826b6bed8cace05e7ff873ce0f9283b5c924470fe664fff1c2f00f581790"
+      },
+      {
+        "bytes": 7871,
+        "path": "jaraco_context-6.1.2-py3-none-any.whl",
+        "sha256": "bf8150b79a2d5d91ae48629d8b427a8f7ba0e1097dd6202a9059f29a36379535"
+      },
+      {
+        "bytes": 10594,
+        "path": "jaraco_functools-4.5.0-py3-none-any.whl",
+        "sha256": "79ce39246eddbde4b3a03b77ea5f0f7878dc669b166a66cf3fa8e266aa3fa2f4"
+      },
+      {
+        "bytes": 39160,
+        "path": "keyring-25.7.0-py3-none-any.whl",
+        "sha256": "be4a0b195f149690c166e850609a477c532ddbfbaed96a404d4e43f8d5e2689f"
+      },
+      {
+        "bytes": 72226,
+        "path": "more_itertools-11.1.0-py3-none-any.whl",
+        "sha256": "4b65538ae22f6fed0ce4874efd317463a7489796a0939fa66824dd542125a192"
+      },
+      {
+        "bytes": 71274,
+        "path": "msgpack-1.2.1-cp313-cp313-win_amd64.whl",
+        "sha256": "33f14fba63278b714efe6ad07e50ea5f03d91537aa6a1c5f1ceca4cf44013ca9"
+      },
+      {
+        "bytes": 100195,
+        "path": "packaging-26.2-py3-none-any.whl",
+        "sha256": "5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e"
+      },
+      {
+        "bytes": 75718,
+        "path": "pbs_installer-2026.6.10-py3-none-any.whl",
+        "sha256": "c8d7faa06d529ec8db53975da810376fff44e850e5b7b440a29f3b88edd62bd6"
+      },
+      {
+        "bytes": 32717,
+        "path": "pkginfo-1.12.1.2-py3-none-any.whl",
+        "sha256": "c783ac885519cab2c34927ccfa6bf64b5a704d7c69afaea583dd9b7afe969343"
+      },
+      {
+        "bytes": 22743,
+        "path": "platformdirs-4.10.0-py3-none-any.whl",
+        "sha256": "fb516cdb12eb0d857d0cd85a7c57cea4d060bee4578d6cf5a14dfdf8cbf8784a"
+      },
+      {
+        "bytes": 294763,
+        "path": "poetry-2.4.1-py3-none-any.whl",
+        "sha256": "9966b44bef5410f1a5ba1d0659b14c8df246cc11684ef611bf9cfb6c2de8da1f"
+      },
+      {
+        "bytes": 374844,
+        "path": "poetry_core-2.4.0-py3-none-any.whl",
+        "sha256": "4305848477da00272bebd3f615bbec87f64bd117cdb858ab660b626a06a9d96c"
+      },
+      {
+        "bytes": 10216,
+        "path": "pyproject_hooks-1.2.0-py3-none-any.whl",
+        "sha256": "9e5c6bfa8dcc30091c74b0cf803c81fdd29d94f01992a7707bc97babb1141913"
+      },
+      {
+        "bytes": 34181,
+        "path": "python_discovery-1.4.4-py3-none-any.whl",
+        "sha256": "abebe9120b43453b68c908acfb1e72a19d1a959ed2cb620ad38fc57d08056dbe"
+      },
+      {
+        "bytes": 30756,
+        "path": "pywin32_ctypes-0.2.3-py3-none-any.whl",
+        "sha256": "8a1513379d709975552d202d942d9837758905c8d01eb82b8bcc30918929e7b8"
+      },
+      {
+        "bytes": 1538519,
+        "path": "rapidfuzz-3.14.5-cp313-cp313-win_amd64.whl",
+        "sha256": "11bfc2ed8fbe4ab86bd516fadefab126f90e6dcadffa761739fcb304707dfd35"
+      },
+      {
+        "bytes": 73075,
+        "path": "requests-2.34.2-py3-none-any.whl",
+        "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0"
+      },
+      {
+        "bytes": 54481,
+        "path": "requests_toolbelt-1.0.0-py2.py3-none-any.whl",
+        "sha256": "cccfdd665f0a24fcf4726e690f65639d272bb0637b9b92dfd91a5568ccf6bd06"
+      },
+      {
+        "bytes": 9755,
+        "path": "shellingham-1.5.4-py2.py3-none-any.whl",
+        "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"
+      },
+      {
+        "bytes": 41328,
+        "path": "tomlkit-0.15.0-py3-none-any.whl",
+        "sha256": "4dbc8f0fc024412b57ced8757ac7461305126a648ff8c2c807fcb8e133a78738"
+      },
+      {
+        "bytes": 14211,
+        "path": "trove_classifiers-2026.6.1.19-py3-none-any.whl",
+        "sha256": "ab4c4ec93cc4a4e7815fa759906e05e6bb3f2fbd92ea0f897288c6a43efd15b3"
+      },
+      {
+        "bytes": 131087,
+        "path": "urllib3-2.7.0-py3-none-any.whl",
+        "sha256": "9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897"
+      },
+      {
+        "bytes": 5506392,
+        "path": "virtualenv-21.6.1-py3-none-any.whl",
+        "sha256": "afe991df855715a2b2f60edfcc0107ef95a79fdfd8cb4cdaa71603d1c12e463b"
+      }
+    ]
+  },
+  "provider_execution_ready": true,
+  "state": "PROVIDER_EXECUTION_READY"
+}
