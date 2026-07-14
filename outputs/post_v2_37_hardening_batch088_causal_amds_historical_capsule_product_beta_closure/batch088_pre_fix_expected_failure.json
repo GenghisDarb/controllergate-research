@@ -1,0 +1,29 @@
+{
+  "critic": "scripts/audit_batch088_pre_fix_amds_truth.py",
+  "defects": {
+    "arbitrary_key_value_stdout_parser": true,
+    "builder_and_truth_created_in_same_orchestration_process": true,
+    "causal_elbow_inferred_from_terminal": true,
+    "contradiction_backtracking_structurally_unreachable": true,
+    "fixed_baseline_accuracy_constant": true,
+    "generic_anchor_hashes_reused_across_candidates": true,
+    "historical_jobs_only_emit_attempted_block_records": true,
+    "interlock_summary_not_independent_candidate_chains": true,
+    "no_information_gain_or_minimax_planner": true,
+    "observation_verification_not_semantic": true,
+    "one_directly_collapsing_probe_per_episode": true,
+    "probe_definitions_excluded_from_frame_hash": true,
+    "schedule_controls_reported_without_complete_adversarial_execution": true,
+    "semantic_class_proxy_probe_scripts": true,
+    "tld_projection_and_ablation_arrays_hand_authored": true,
+    "tld_winner_uses_array_index_outside_registered_window": true,
+    "wrong_authorization_not_exercised": true
+  },
+  "detected_defect_count": 17,
+  "expected_defect_count": 17,
+  "imports_batch087_release_decision": false,
+  "independent_from_batch087_builder": true,
+  "missing_preregistered_defects": [],
+  "starting_head": "f00bdc4a54786e20ac9cb6f82ed061b9af3cb2ec",
+  "status": "BATCH088_PRE_FIX_AUDIT_FAIL_EXPECTED"
+}

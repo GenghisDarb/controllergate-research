@@ -1,0 +1,79 @@
+{
+  "controls": [
+    {
+      "control": "missing_proof",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "forged_token",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "wrong_candidate",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "wrong_run",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "wrong_provider",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "stale_frame",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "changed_probe_contract",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "invalid_collection",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "unreproduced_failure",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "unresolved_ownership",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "missing_rollback",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    },
+    {
+      "control": "missing_duplicate_replay",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "token_bound": true
+    }
+  ],
+  "interlocks_can_authorize_patch": false,
+  "negative_control_count": 12,
+  "status": "PASS"
+}

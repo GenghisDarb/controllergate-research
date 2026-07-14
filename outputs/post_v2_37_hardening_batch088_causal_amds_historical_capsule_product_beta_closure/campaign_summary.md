@@ -1,0 +1,3 @@
+# Batch088 causal AMDS and Product Beta closure attempt
+
+Batch087 custody and canonical architecture are preserved. The new candidate-specific causal board executed neutral brokered probes with semantic isolation and real contradiction/backtracking controls. The physically separated truth join did not meet the preregistered historical quality threshold, so prospective effectiveness remains not established. Historical capsule transport and downstream lifecycle evidence are recorded separately; incomplete lifecycle and canary gates remain explicit blockers. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT`, package version remains `0.2.0b2.dev0`, and repair counts remain 6 issue-derived and 4 native external.

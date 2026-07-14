@@ -1,0 +1,3954 @@
+{
+  "arms": {
+    "fixed_registered_order": [
+      {
+        "arm": "fixed_registered_order",
+        "backtracks": 0,
+        "candidate_id": "darker_issue_112_relative_git_dir",
+        "contradictions": 0,
+        "cost_spent": 7.0,
+        "frame_hash": "d44ce0649894841e9530522ce9aecc7a24b5451e2ef5f4116d33ab83d997c0f8",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "darker_issue_112_relative_git_dir",
+            "planning_hash": "3c6b6e46af95438fb9a2e635f0dec32cbedf1104dc79c8dd023950b77f60bae9",
+            "scores": [
+              {
+                "contract_hash": "e7a89c477ed297daa0bc6bb5efb6ca0a450ed1a34ae85ca65644a6769dfe0ab9",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "2e1d2724e1c89f053d2878d63aa4f1588af63f307b4ea1b176ef8ed62fb555ce",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "cedc71e1b71d69ae47e8aec4cec7f75de49f42a4ba7a5cde6ab63b3fb604e0b0",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "b8c1f832d2e04a1bd732ac1893f03c8fe63b6712ac3af4530c489c6907b9b21d",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "e7a89c477ed297daa0bc6bb5efb6ca0a450ed1a34ae85ca65644a6769dfe0ab9",
+            "selected_probe_id": "p01",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "darker_issue_112_relative_git_dir",
+            "planning_hash": "e2718fb0c647d6e54e1ed97455be552dad44d777e6d6a46dafa62ad56ec43123",
+            "scores": [
+              {
+                "contract_hash": "cedc71e1b71d69ae47e8aec4cec7f75de49f42a4ba7a5cde6ab63b3fb604e0b0",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "b8c1f832d2e04a1bd732ac1893f03c8fe63b6712ac3af4530c489c6907b9b21d",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "b8c1f832d2e04a1bd732ac1893f03c8fe63b6712ac3af4530c489c6907b9b21d",
+            "selected_probe_id": "p02",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "darker_issue_112_relative_git_dir",
+            "planning_hash": "f692e26e303ba7fdbceeb649db8e407744c9c6953d74ce34c7e270f933d9ff4e",
+            "scores": [
+              {
+                "contract_hash": "cedc71e1b71d69ae47e8aec4cec7f75de49f42a4ba7a5cde6ab63b3fb604e0b0",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              }
+            ],
+            "selected_contract_hash": "cedc71e1b71d69ae47e8aec4cec7f75de49f42a4ba7a5cde6ab63b3fb604e0b0",
+            "selected_probe_id": "p04",
+            "selection_method": "deterministic_minimax_partition",
+            "status": "SELECTED",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "darker_issue_112_relative_git_dir",
+            "planning_hash": "896ebfb95da33a49f70461001cda0eb5dfe6b0b051f875eaac9cad6b7f65896c",
+            "scores": [
+              {
+                "contract_hash": "cedc71e1b71d69ae47e8aec4cec7f75de49f42a4ba7a5cde6ab63b3fb604e0b0",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              }
+            ],
+            "selected_contract_hash": "cedc71e1b71d69ae47e8aec4cec7f75de49f42a4ba7a5cde6ab63b3fb604e0b0",
+            "selected_probe_id": "p04",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "typed causal terminal committed; repair licensing remains separate",
+        "rounds": 3,
+        "run_id": "batch088-darker_issue_112_relative_git_dir",
+        "safe_abstention": false,
+        "snapshot_hash": "0a59507bb42a730467bbba0f54dc315a54e71fe5f44351178f95e4e92936d934",
+        "terminal": "harness_owned",
+        "terminal_hash": "0ba439048618d6e373b48874cdf5f4585dcc5298e9435ed113a9ce9bade19105",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "fixed_registered_order",
+        "backtracks": 0,
+        "candidate_id": "py_bugger_issue_65",
+        "contradictions": 0,
+        "cost_spent": 7.0,
+        "frame_hash": "a725961f913c8034608a265b244ca0e34d7a4a02d99b375d99c5a273b51f9811",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "py_bugger_issue_65",
+            "planning_hash": "79df0dd56a775babc6347302867c85dd0e4d7cc966d0d5344005223a98a78abc",
+            "scores": [
+              {
+                "contract_hash": "8374487b5ca660be8e430068c25f12bf4a2b5961dd71623472bb78b213b3d8ce",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "67a8a0cda22c296bb74c84312f9ef1806300eec432ccae634e136705919989e7",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "d5b71809ae7f033b58bc29c64b753b3798ea0aaca20c06c1f827c7a597eeaa07",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "750811f008e4e6a33b40d6b5a84bce7612a6e04ca9e7b81710f6c4e44d719f86",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "8374487b5ca660be8e430068c25f12bf4a2b5961dd71623472bb78b213b3d8ce",
+            "selected_probe_id": "p01",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "py_bugger_issue_65",
+            "planning_hash": "498beb29df86defb72c6755d494b5dd4fb55537f9677789edc9afd488af04400",
+            "scores": [
+              {
+                "contract_hash": "d5b71809ae7f033b58bc29c64b753b3798ea0aaca20c06c1f827c7a597eeaa07",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "750811f008e4e6a33b40d6b5a84bce7612a6e04ca9e7b81710f6c4e44d719f86",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "750811f008e4e6a33b40d6b5a84bce7612a6e04ca9e7b81710f6c4e44d719f86",
+            "selected_probe_id": "p02",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "platform_owned"
+            ],
+            "candidate_id": "py_bugger_issue_65",
+            "planning_hash": "bb59c80d2eccee134f449421ff50649181301d26cffd70393fd0196b955bbc28",
+            "scores": [
+              {
+                "contract_hash": "d5b71809ae7f033b58bc29c64b753b3798ea0aaca20c06c1f827c7a597eeaa07",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 2,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              }
+            ],
+            "selected_contract_hash": "d5b71809ae7f033b58bc29c64b753b3798ea0aaca20c06c1f827c7a597eeaa07",
+            "selected_probe_id": "p04",
+            "selection_method": "deterministic_minimax_partition",
+            "status": "SELECTED",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "platform_owned"
+            ],
+            "candidate_id": "py_bugger_issue_65",
+            "planning_hash": "0099f9e9872711e5a8fd9bea9b078a6fa1724460b7dd536693e29c5ffa271220",
+            "scores": [
+              {
+                "contract_hash": "d5b71809ae7f033b58bc29c64b753b3798ea0aaca20c06c1f827c7a597eeaa07",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 2,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              }
+            ],
+            "selected_contract_hash": "d5b71809ae7f033b58bc29c64b753b3798ea0aaca20c06c1f827c7a597eeaa07",
+            "selected_probe_id": "p04",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "multiple causal alternatives remain or evidence budget ended",
+        "rounds": 3,
+        "run_id": "batch088-py_bugger_issue_65",
+        "safe_abstention": true,
+        "snapshot_hash": "730bc522a2cd0215472ce73c782e8868d7bdf59c5a5390e3598148f4ff4391c3",
+        "terminal": "safe_abstention_insufficient_evidence",
+        "terminal_hash": "4217c1b6c18db01f6cf8f24c22c47558f5e6f5f1a141a70fd0644f21733acd6f",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "fixed_registered_order",
+        "backtracks": 0,
+        "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+        "contradictions": 0,
+        "cost_spent": 7.0,
+        "frame_hash": "99ff62b8389f7dad4c1de2b540fe48e71dbc8e98a5105f88ee57770b467d8212",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+            "planning_hash": "3797f14d22d98d60375a5fc972d36b518fd18dda3a5ec86633172a25765d79ee",
+            "scores": [
+              {
+                "contract_hash": "ff49ba69a3e8d28f4cf252232117e26ce25c028e5e19d95460995bd3f0af69d7",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "b0400fb646bc3a49d7de396e74d95f3150559f9da5a72d4f3987e34c9959b428",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "9420e6779a1414d0beb443e2ed538a03d1ddb4326451d76e0d2308bd87d2a8bb",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "ff881110308944216743fbf0b9c9559f6a51957113890ac07b25fe9695d7e197",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "ff49ba69a3e8d28f4cf252232117e26ce25c028e5e19d95460995bd3f0af69d7",
+            "selected_probe_id": "p01",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+            "planning_hash": "e41e9bee1b997546e5c6f5012e713ccf33b6280a0c7dc8f1c2fb09871be316ca",
+            "scores": [
+              {
+                "contract_hash": "9420e6779a1414d0beb443e2ed538a03d1ddb4326451d76e0d2308bd87d2a8bb",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "ff881110308944216743fbf0b9c9559f6a51957113890ac07b25fe9695d7e197",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "ff881110308944216743fbf0b9c9559f6a51957113890ac07b25fe9695d7e197",
+            "selected_probe_id": "p02",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "platform_owned"
+            ],
+            "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+            "planning_hash": "9abcb1ae753d3d1d1b01ef323611a6a0928e024a91b1931bb3d23f060bd33a71",
+            "scores": [
+              {
+                "contract_hash": "9420e6779a1414d0beb443e2ed538a03d1ddb4326451d76e0d2308bd87d2a8bb",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 2,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              }
+            ],
+            "selected_contract_hash": "9420e6779a1414d0beb443e2ed538a03d1ddb4326451d76e0d2308bd87d2a8bb",
+            "selected_probe_id": "p04",
+            "selection_method": "deterministic_minimax_partition",
+            "status": "SELECTED",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "platform_owned"
+            ],
+            "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+            "planning_hash": "2c2cb2c559533b7d0a44ca04df58fd70532e59e6a95f85912c6f038a63cdf9f8",
+            "scores": [
+              {
+                "contract_hash": "9420e6779a1414d0beb443e2ed538a03d1ddb4326451d76e0d2308bd87d2a8bb",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 2,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              }
+            ],
+            "selected_contract_hash": "9420e6779a1414d0beb443e2ed538a03d1ddb4326451d76e0d2308bd87d2a8bb",
+            "selected_probe_id": "p04",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "multiple causal alternatives remain or evidence budget ended",
+        "rounds": 3,
+        "run_id": "batch088-cloudpickle_507_py313_typevar_distutils",
+        "safe_abstention": true,
+        "snapshot_hash": "afc7402b55d0607d43132ca5578a065ff6870b52851c7c31ff2079a28453ec0b",
+        "terminal": "safe_abstention_insufficient_evidence",
+        "terminal_hash": "b76e78f30edcb3ec1abd25ddfbd204880b4430fa51bb669d3c3cc1c0102c10c1",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "fixed_registered_order",
+        "backtracks": 0,
+        "candidate_id": "freezegun_547_py313_datetimes_assertion",
+        "contradictions": 0,
+        "cost_spent": 6.0,
+        "frame_hash": "f1e35977b261edf3c808fdbd994acc96f4141fae591ccabd41830c660dfbeca9",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "freezegun_547_py313_datetimes_assertion",
+            "planning_hash": "a24411b7571868d965a7211988e50b33db205e42e29ac3c4a546b669806f0a82",
+            "scores": [
+              {
+                "contract_hash": "8d496ac65cb84ab2a014373f7ac35a5566049c8100feca54d7818f760947442b",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "aad9aa11e380142fcf3b32dafaed37d310c45a13ed3a6fdbab117bf89702d47e",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "bf1ae1b28b3b692c41dc42f6bd970d32cf200353588804eef09a6c5d9d310c1a",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "a1de5a1cf0e5262e2f5796c5963b7825ffc0f3d533df8e60ed90cd622d2ff9da",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "8d496ac65cb84ab2a014373f7ac35a5566049c8100feca54d7818f760947442b",
+            "selected_probe_id": "p01",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "freezegun_547_py313_datetimes_assertion",
+            "planning_hash": "6ae129158c2aa2b0123c3e058d36d5f7713376990bc98923970fefd450a1b8f4",
+            "scores": [
+              {
+                "contract_hash": "aad9aa11e380142fcf3b32dafaed37d310c45a13ed3a6fdbab117bf89702d47e",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "a1de5a1cf0e5262e2f5796c5963b7825ffc0f3d533df8e60ed90cd622d2ff9da",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r03": [
+                    "harness_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "a1de5a1cf0e5262e2f5796c5963b7825ffc0f3d533df8e60ed90cd622d2ff9da",
+            "selected_probe_id": "p02",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "freezegun_547_py313_datetimes_assertion",
+            "planning_hash": "001cdf4c9a1506d6b8bc8f60dc239e0233cb1c0a9be1e5b952fc0c64115975f0",
+            "scores": [
+              {
+                "contract_hash": "aad9aa11e380142fcf3b32dafaed37d310c45a13ed3a6fdbab117bf89702d47e",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              }
+            ],
+            "selected_contract_hash": "aad9aa11e380142fcf3b32dafaed37d310c45a13ed3a6fdbab117bf89702d47e",
+            "selected_probe_id": "p03",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "freezegun_547_py313_datetimes_assertion",
+            "planning_hash": "e4717eb129771899c89891656a471a1eafeeefdc390cf85ec6c17ce94a0f7a05",
+            "scores": [],
+            "selected_contract_hash": null,
+            "selected_probe_id": null,
+            "selection_method": "none",
+            "status": "NO_LEGAL_DISCRIMINATING_PROBE",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "multiple causal alternatives remain or evidence budget ended",
+        "rounds": 3,
+        "run_id": "batch088-freezegun_547_py313_datetimes_assertion",
+        "safe_abstention": true,
+        "snapshot_hash": "87416a731f098668eddb40903c496ed2b83046a178135edfec83134794fc6e4f",
+        "terminal": "safe_abstention_insufficient_evidence",
+        "terminal_hash": "46c68a7b07ac14069b378da00638a0e5ec744897242684660481a5ac6a6b98fc",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "fixed_registered_order",
+        "backtracks": 0,
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "contradictions": 0,
+        "cost_spent": 6.0,
+        "frame_hash": "9e96f2691d0ef6d925596d1d6cc428012e40408edf0b0dc3552b74b3626dd0ae",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "audioread_144_py313_aifc_removed",
+            "planning_hash": "7500078d1ed3d8eb1b730d9fb981d3950866949ae3f0c4e1cd8d4814c908fa20",
+            "scores": [
+              {
+                "contract_hash": "cf5483b412d68604c46304de1bbca9e262be8018a40e220ef521180912f8caae",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "a7acf7ec6c93e80378abb080db4b95be55a8ae68b4eb56fa7875f469e268bf1c",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "a9fe733b8d7e7d3f8c7d3faf99990c641680163f62708921560747faed98b620",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "74993b18d3a2b01b78feb61d9307a54caf8520b6ded34f9873e0c98310c855b6",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "cf5483b412d68604c46304de1bbca9e262be8018a40e220ef521180912f8caae",
+            "selected_probe_id": "p01",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "audioread_144_py313_aifc_removed",
+            "planning_hash": "7edd9087797362a617c2855911e5d3ec502eba514def08d168918a7115425fb2",
+            "scores": [
+              {
+                "contract_hash": "a7acf7ec6c93e80378abb080db4b95be55a8ae68b4eb56fa7875f469e268bf1c",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "74993b18d3a2b01b78feb61d9307a54caf8520b6ded34f9873e0c98310c855b6",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r03": [
+                    "harness_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "74993b18d3a2b01b78feb61d9307a54caf8520b6ded34f9873e0c98310c855b6",
+            "selected_probe_id": "p02",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "audioread_144_py313_aifc_removed",
+            "planning_hash": "0e6d93351cef8726851d9d3b77305076dca8e49642f19039a3f5017446bbdcba",
+            "scores": [
+              {
+                "contract_hash": "a7acf7ec6c93e80378abb080db4b95be55a8ae68b4eb56fa7875f469e268bf1c",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              }
+            ],
+            "selected_contract_hash": "a7acf7ec6c93e80378abb080db4b95be55a8ae68b4eb56fa7875f469e268bf1c",
+            "selected_probe_id": "p03",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "audioread_144_py313_aifc_removed",
+            "planning_hash": "772326c2e0ca4bd11e1e704889b6cbd572aabbe9940db23e33b096b427cf8c3f",
+            "scores": [],
+            "selected_contract_hash": null,
+            "selected_probe_id": null,
+            "selection_method": "none",
+            "status": "NO_LEGAL_DISCRIMINATING_PROBE",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "multiple causal alternatives remain or evidence budget ended",
+        "rounds": 3,
+        "run_id": "batch088-audioread_144_py313_aifc_removed",
+        "safe_abstention": true,
+        "snapshot_hash": "462f6e0917cdbb3b5d0de5f6c6ad0238a82a6cdc67a4b4114025065c5d9bcbcb",
+        "terminal": "safe_abstention_insufficient_evidence",
+        "terminal_hash": "f74fe4ebeef26c55b20cbca96e022a1fcd8c4c2b47b842d8ce127278d71900a7",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "fixed_registered_order",
+        "backtracks": 0,
+        "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+        "contradictions": 0,
+        "cost_spent": 6.0,
+        "frame_hash": "f91e9c79f6a84aecf23ef4ca5058b50970df303571cb97d8f5a05ecef1403a38",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+            "planning_hash": "eaa211bb1ff1a47f024475f596d35d5fa5ed70ccf1243bffbc7f7165efd7d6a3",
+            "scores": [
+              {
+                "contract_hash": "663032da2de62fecb8e760f4ce6e6ce3db6f8a8b181b3ded3b82104d25e9de7f",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "008b37f0e088a45f20b77be3ab1dc605b84c65e5b0afad9b9e99580b3116d06c",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "bb85f1aa888b98476573da91b5f83e56062dc42a895e8192407703a8a049ee93",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "f52aeba856f5c9a92acb07fa7d8ae058bfc7a01ab9d6a6c89841b58fe74c0c06",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "663032da2de62fecb8e760f4ce6e6ce3db6f8a8b181b3ded3b82104d25e9de7f",
+            "selected_probe_id": "p01",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+            "planning_hash": "11cd1ab84d1a84168a972bb66ea9598e5b599284046b7339b2386dcf6bbce488",
+            "scores": [
+              {
+                "contract_hash": "008b37f0e088a45f20b77be3ab1dc605b84c65e5b0afad9b9e99580b3116d06c",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "f52aeba856f5c9a92acb07fa7d8ae058bfc7a01ab9d6a6c89841b58fe74c0c06",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r03": [
+                    "harness_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "f52aeba856f5c9a92acb07fa7d8ae058bfc7a01ab9d6a6c89841b58fe74c0c06",
+            "selected_probe_id": "p02",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+            "planning_hash": "359611d2ba6adcd3c38d99beb1397bad0baf874c31290fc3f4986f24299d2108",
+            "scores": [
+              {
+                "contract_hash": "008b37f0e088a45f20b77be3ab1dc605b84c65e5b0afad9b9e99580b3116d06c",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              }
+            ],
+            "selected_contract_hash": "008b37f0e088a45f20b77be3ab1dc605b84c65e5b0afad9b9e99580b3116d06c",
+            "selected_probe_id": "p03",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "typed causal terminal committed; repair licensing remains separate",
+        "rounds": 3,
+        "run_id": "batch088-pytest_13480_wdefault_unraisable_threadexception",
+        "safe_abstention": false,
+        "snapshot_hash": "b1955cf86dc913163f241716f3013d46a17b656a4139e8f1aa6e7bcdcda5813b",
+        "terminal": "harness_owned",
+        "terminal_hash": "90feef643df9150d3e6b523077ec028f380183503ef74d507281967bcd6a6cc1",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "fixed_registered_order",
+        "backtracks": 0,
+        "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+        "contradictions": 0,
+        "cost_spent": 7.0,
+        "frame_hash": "149f01cc5b0bc4b5b5c0a1fdf1cf0bbd43a846274aa90fa2c60950722ff94a2e",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+            "planning_hash": "7db120895169ff149cd8607e7c84bc7ea0cb4e0cbed9a1be68fcc11e5f739ae3",
+            "scores": [
+              {
+                "contract_hash": "78ed2d785d948da75831580e57cdc0404b38f643bb5228dc4f127b646b0de455",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "d926007f1843dbeee6fadef0b73fb521d133065cc69b43cc9c63121ed642f76f",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "f8ffa235a0eef5f37e9c50eace7e011c3743b7a34af0a4b8808804b945a273b4",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "55bf72d94a2935883bf5388b922e0c70c20c3b800e5b2b4fda876d6cfebfac4b",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "78ed2d785d948da75831580e57cdc0404b38f643bb5228dc4f127b646b0de455",
+            "selected_probe_id": "p01",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+            "planning_hash": "49e53ab85980b742c8a233335de11d5bd1a2bab69c00fa21f2e64dcadcd9b4f3",
+            "scores": [
+              {
+                "contract_hash": "f8ffa235a0eef5f37e9c50eace7e011c3743b7a34af0a4b8808804b945a273b4",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "55bf72d94a2935883bf5388b922e0c70c20c3b800e5b2b4fda876d6cfebfac4b",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "55bf72d94a2935883bf5388b922e0c70c20c3b800e5b2b4fda876d6cfebfac4b",
+            "selected_probe_id": "p02",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+            "planning_hash": "2d4934ea056edc4586953ba39b86b1e2af947b40ec577df28de5987781c3023a",
+            "scores": [
+              {
+                "contract_hash": "f8ffa235a0eef5f37e9c50eace7e011c3743b7a34af0a4b8808804b945a273b4",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              }
+            ],
+            "selected_contract_hash": "f8ffa235a0eef5f37e9c50eace7e011c3743b7a34af0a4b8808804b945a273b4",
+            "selected_probe_id": "p04",
+            "selection_method": "deterministic_minimax_partition",
+            "status": "SELECTED",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+            "planning_hash": "6f170253a0c6c6c4104d57ae16ec897544a893878d859644b7f429c0786e9544",
+            "scores": [
+              {
+                "contract_hash": "f8ffa235a0eef5f37e9c50eace7e011c3743b7a34af0a4b8808804b945a273b4",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              }
+            ],
+            "selected_contract_hash": "f8ffa235a0eef5f37e9c50eace7e011c3743b7a34af0a4b8808804b945a273b4",
+            "selected_probe_id": "p04",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "typed causal terminal committed; repair licensing remains separate",
+        "rounds": 3,
+        "run_id": "batch088-incident_openbb_7585_modular_openapi_reproducer",
+        "safe_abstention": false,
+        "snapshot_hash": "4d52ed324c28f4e6c7104b1c6428fb9ebe3f3868c7eb2c968c2e84e68942dac6",
+        "terminal": "harness_owned",
+        "terminal_hash": "06f2ea2c15623a0cc598cef9e7e230933329687d8e1b6dda1f896c94b387c4c7",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "fixed_registered_order",
+        "backtracks": 0,
+        "candidate_id": "incident_poetry_10974_init_duplicate_name",
+        "contradictions": 0,
+        "cost_spent": 6.0,
+        "frame_hash": "034b76d9ea05d98cc3e472135fae2e43cbcc46ff67fbaee0970de320835613f0",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "incident_poetry_10974_init_duplicate_name",
+            "planning_hash": "61627d9c387ce0778cfc9f4aabe649f376bad0d30ef0a2bca8cf40a4b284ae03",
+            "scores": [
+              {
+                "contract_hash": "fe55bece3149732ce73dbdd2b8428b038a53c0a661393f9e55f2c2e6853b0d69",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "33b10b62e3ed7f0aeaa30c89db616fcd68ceff366077525c66c43ca7da558aa0",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "123f7152eb00135f685111c1b8525fe60fb807f804a6947618a1e1945b3d3810",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "e8be717e9fa7d7f20acfbd5af397c7d6127ff677268baa660b4fc14cd3a9e15c",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "fe55bece3149732ce73dbdd2b8428b038a53c0a661393f9e55f2c2e6853b0d69",
+            "selected_probe_id": "p01",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "incident_poetry_10974_init_duplicate_name",
+            "planning_hash": "b5594a6cd52b33c3da8309d444255d6cae20984b63a4cefed21543507bcf6f39",
+            "scores": [
+              {
+                "contract_hash": "33b10b62e3ed7f0aeaa30c89db616fcd68ceff366077525c66c43ca7da558aa0",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "e8be717e9fa7d7f20acfbd5af397c7d6127ff677268baa660b4fc14cd3a9e15c",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r03": [
+                    "harness_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "e8be717e9fa7d7f20acfbd5af397c7d6127ff677268baa660b4fc14cd3a9e15c",
+            "selected_probe_id": "p02",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "incident_poetry_10974_init_duplicate_name",
+            "planning_hash": "4c122f95219fd641d329d1f10c1abc388e9d54dee4ac3e0e331e0b8dc736a9df",
+            "scores": [
+              {
+                "contract_hash": "33b10b62e3ed7f0aeaa30c89db616fcd68ceff366077525c66c43ca7da558aa0",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 1,
+                "partitions": {
+                  "r05": [
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              }
+            ],
+            "selected_contract_hash": "33b10b62e3ed7f0aeaa30c89db616fcd68ceff366077525c66c43ca7da558aa0",
+            "selected_probe_id": "p03",
+            "selection_method": "fixed_registered_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "typed causal terminal committed; repair licensing remains separate",
+        "rounds": 3,
+        "run_id": "batch088-incident_poetry_10974_init_duplicate_name",
+        "safe_abstention": false,
+        "snapshot_hash": "6f43614d90c0f894b00349ecc5c337298d6ccab41f148d1fcadfc71ff5832cac",
+        "terminal": "harness_owned",
+        "terminal_hash": "21e00cc6e0786ae7c922e3d0b59406ee368dd7b65a236f2b6130cc58a4cbdeb8",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      }
+    ],
+    "random_legal_order": [
+      {
+        "arm": "random_legal_order",
+        "backtracks": 0,
+        "candidate_id": "darker_issue_112_relative_git_dir",
+        "contradictions": 0,
+        "cost_spent": 9.0,
+        "frame_hash": "d44ce0649894841e9530522ce9aecc7a24b5451e2ef5f4116d33ab83d997c0f8",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "darker_issue_112_relative_git_dir",
+            "planning_hash": "5083c969b2d49cd1f245388427c577b03ecc610a8a76db5a0077d769b82c590e",
+            "scores": [
+              {
+                "contract_hash": "e7a89c477ed297daa0bc6bb5efb6ca0a450ed1a34ae85ca65644a6769dfe0ab9",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "2e1d2724e1c89f053d2878d63aa4f1588af63f307b4ea1b176ef8ed62fb555ce",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "cedc71e1b71d69ae47e8aec4cec7f75de49f42a4ba7a5cde6ab63b3fb604e0b0",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "b8c1f832d2e04a1bd732ac1893f03c8fe63b6712ac3af4530c489c6907b9b21d",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "2e1d2724e1c89f053d2878d63aa4f1588af63f307b4ea1b176ef8ed62fb555ce",
+            "selected_probe_id": "p03",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "darker_issue_112_relative_git_dir",
+            "planning_hash": "4e0890584faafed062e2204b276d3015e401780c734ad0c0ea63fa36e895ed50",
+            "scores": [
+              {
+                "contract_hash": "cedc71e1b71d69ae47e8aec4cec7f75de49f42a4ba7a5cde6ab63b3fb604e0b0",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "b8c1f832d2e04a1bd732ac1893f03c8fe63b6712ac3af4530c489c6907b9b21d",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              },
+              {
+                "contract_hash": "e7a89c477ed297daa0bc6bb5efb6ca0a450ed1a34ae85ca65644a6769dfe0ab9",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              }
+            ],
+            "selected_contract_hash": "cedc71e1b71d69ae47e8aec4cec7f75de49f42a4ba7a5cde6ab63b3fb604e0b0",
+            "selected_probe_id": "p04",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "insufficient_evidence"
+            ],
+            "candidate_id": "darker_issue_112_relative_git_dir",
+            "planning_hash": "3a771e57515ee9f5219f7420ed4cbf7fbb041d2f744f81b587a435cf09c0e00b",
+            "scores": [
+              {
+                "contract_hash": "e7a89c477ed297daa0bc6bb5efb6ca0a450ed1a34ae85ca65644a6769dfe0ab9",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 2,
+                "partitions": {
+                  "r01": [
+                    "harness_owned"
+                  ],
+                  "r02": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "b8c1f832d2e04a1bd732ac1893f03c8fe63b6712ac3af4530c489c6907b9b21d",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 2,
+                "partitions": {
+                  "r03": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ],
+                  "r04": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "b8c1f832d2e04a1bd732ac1893f03c8fe63b6712ac3af4530c489c6907b9b21d",
+            "selected_probe_id": "p02",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "typed causal terminal committed; repair licensing remains separate",
+        "rounds": 3,
+        "run_id": "batch088-darker_issue_112_relative_git_dir",
+        "safe_abstention": false,
+        "snapshot_hash": "180ceb02747c243b50c31b60a643aeda602795dfb9e1cec33d2acb38cc01a730",
+        "terminal": "harness_owned",
+        "terminal_hash": "0ba439048618d6e373b48874cdf5f4585dcc5298e9435ed113a9ce9bade19105",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "random_legal_order",
+        "backtracks": 0,
+        "candidate_id": "py_bugger_issue_65",
+        "contradictions": 0,
+        "cost_spent": 5.0,
+        "frame_hash": "a725961f913c8034608a265b244ca0e34d7a4a02d99b375d99c5a273b51f9811",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "py_bugger_issue_65",
+            "planning_hash": "fe12e03e3114e516e39c027b080ae749ffbb893a2ac6dae0c60c3e8ba3ab8c52",
+            "scores": [
+              {
+                "contract_hash": "8374487b5ca660be8e430068c25f12bf4a2b5961dd71623472bb78b213b3d8ce",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "67a8a0cda22c296bb74c84312f9ef1806300eec432ccae634e136705919989e7",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "d5b71809ae7f033b58bc29c64b753b3798ea0aaca20c06c1f827c7a597eeaa07",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "750811f008e4e6a33b40d6b5a84bce7612a6e04ca9e7b81710f6c4e44d719f86",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "67a8a0cda22c296bb74c84312f9ef1806300eec432ccae634e136705919989e7",
+            "selected_probe_id": "p03",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "py_bugger_issue_65",
+            "planning_hash": "d26a581846a86816a3380f6e4ec2c76c4c2d579c6a4d61d707693b3fa6a7521f",
+            "scores": [
+              {
+                "contract_hash": "750811f008e4e6a33b40d6b5a84bce7612a6e04ca9e7b81710f6c4e44d719f86",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "750811f008e4e6a33b40d6b5a84bce7612a6e04ca9e7b81710f6c4e44d719f86",
+            "selected_probe_id": "p02",
+            "selection_method": "deterministic_minimax_partition",
+            "status": "SELECTED",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          },
+          {
+            "active_hypotheses": [
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "py_bugger_issue_65",
+            "planning_hash": "d26a581846a86816a3380f6e4ec2c76c4c2d579c6a4d61d707693b3fa6a7521f",
+            "scores": [
+              {
+                "contract_hash": "750811f008e4e6a33b40d6b5a84bce7612a6e04ca9e7b81710f6c4e44d719f86",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "750811f008e4e6a33b40d6b5a84bce7612a6e04ca9e7b81710f6c4e44d719f86",
+            "selected_probe_id": "p02",
+            "selection_method": "deterministic_minimax_partition",
+            "status": "SELECTED",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          },
+          {
+            "active_hypotheses": [
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "py_bugger_issue_65",
+            "planning_hash": "0bbd0dbe1c16e348ac832959c67c0b31874ae7c0ee8c37548178037509a2fb01",
+            "scores": [
+              {
+                "contract_hash": "750811f008e4e6a33b40d6b5a84bce7612a6e04ca9e7b81710f6c4e44d719f86",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "750811f008e4e6a33b40d6b5a84bce7612a6e04ca9e7b81710f6c4e44d719f86",
+            "selected_probe_id": "p02",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 2,
+        "reason": "typed causal terminal committed; repair licensing remains separate",
+        "rounds": 2,
+        "run_id": "batch088-py_bugger_issue_65",
+        "safe_abstention": false,
+        "snapshot_hash": "cd11e17e11f199ada0de9951c9df021b2d75e3d353a2e4a7288503753c45255a",
+        "terminal": "test_or_expectation_fragility",
+        "terminal_hash": "a7f1e40d0f24a1fab9abe124380cbd3f6abdeb0e8f8557f796932b869293cf68",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "random_legal_order",
+        "backtracks": 0,
+        "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+        "contradictions": 0,
+        "cost_spent": 7.0,
+        "frame_hash": "99ff62b8389f7dad4c1de2b540fe48e71dbc8e98a5105f88ee57770b467d8212",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+            "planning_hash": "ecb336dd8676c95cefb9156978dc5bc059fa33d35c880e6ddbf3e408bce287a3",
+            "scores": [
+              {
+                "contract_hash": "ff49ba69a3e8d28f4cf252232117e26ce25c028e5e19d95460995bd3f0af69d7",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "b0400fb646bc3a49d7de396e74d95f3150559f9da5a72d4f3987e34c9959b428",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "9420e6779a1414d0beb443e2ed538a03d1ddb4326451d76e0d2308bd87d2a8bb",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "ff881110308944216743fbf0b9c9559f6a51957113890ac07b25fe9695d7e197",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "9420e6779a1414d0beb443e2ed538a03d1ddb4326451d76e0d2308bd87d2a8bb",
+            "selected_probe_id": "p04",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+            "planning_hash": "2403490dbc3bc8cde4b17dce402cdf9be07ee6db49f69750cb78a7610873814a",
+            "scores": [
+              {
+                "contract_hash": "b0400fb646bc3a49d7de396e74d95f3150559f9da5a72d4f3987e34c9959b428",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "ff49ba69a3e8d28f4cf252232117e26ce25c028e5e19d95460995bd3f0af69d7",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "ff881110308944216743fbf0b9c9559f6a51957113890ac07b25fe9695d7e197",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r03": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "ff49ba69a3e8d28f4cf252232117e26ce25c028e5e19d95460995bd3f0af69d7",
+            "selected_probe_id": "p01",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "insufficient_evidence"
+            ],
+            "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+            "planning_hash": "e92eddf89dde38422a9cd0820a9d87adaea5a33331fb8a4b13af98b85bb80f4a",
+            "scores": [
+              {
+                "contract_hash": "ff881110308944216743fbf0b9c9559f6a51957113890ac07b25fe9695d7e197",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 2,
+                "partitions": {
+                  "r03": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ],
+                  "r04": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "ff881110308944216743fbf0b9c9559f6a51957113890ac07b25fe9695d7e197",
+            "selected_probe_id": "p02",
+            "selection_method": "deterministic_minimax_partition",
+            "status": "SELECTED",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "insufficient_evidence"
+            ],
+            "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+            "planning_hash": "ecc7203902eb8733d4a169bca61ba1ec110309012cd07a7452e3ebbe1b91a0d7",
+            "scores": [
+              {
+                "contract_hash": "ff881110308944216743fbf0b9c9559f6a51957113890ac07b25fe9695d7e197",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 2,
+                "partitions": {
+                  "r03": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ],
+                  "r04": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "ff881110308944216743fbf0b9c9559f6a51957113890ac07b25fe9695d7e197",
+            "selected_probe_id": "p02",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "multiple causal alternatives remain or evidence budget ended",
+        "rounds": 3,
+        "run_id": "batch088-cloudpickle_507_py313_typevar_distutils",
+        "safe_abstention": true,
+        "snapshot_hash": "f2e886c7011197432d90dec1b8f95fbc6e078c3c27ae5b148f9b2a64a317579e",
+        "terminal": "safe_abstention_insufficient_evidence",
+        "terminal_hash": "b76e78f30edcb3ec1abd25ddfbd204880b4430fa51bb669d3c3cc1c0102c10c1",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "random_legal_order",
+        "backtracks": 0,
+        "candidate_id": "freezegun_547_py313_datetimes_assertion",
+        "contradictions": 0,
+        "cost_spent": 6.0,
+        "frame_hash": "f1e35977b261edf3c808fdbd994acc96f4141fae591ccabd41830c660dfbeca9",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "freezegun_547_py313_datetimes_assertion",
+            "planning_hash": "41642f539bb7dede1e9c51e75ec33b53b597630af8400fd7705f9ecf1b654424",
+            "scores": [
+              {
+                "contract_hash": "8d496ac65cb84ab2a014373f7ac35a5566049c8100feca54d7818f760947442b",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "aad9aa11e380142fcf3b32dafaed37d310c45a13ed3a6fdbab117bf89702d47e",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "bf1ae1b28b3b692c41dc42f6bd970d32cf200353588804eef09a6c5d9d310c1a",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "a1de5a1cf0e5262e2f5796c5963b7825ffc0f3d533df8e60ed90cd622d2ff9da",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "a1de5a1cf0e5262e2f5796c5963b7825ffc0f3d533df8e60ed90cd622d2ff9da",
+            "selected_probe_id": "p02",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "freezegun_547_py313_datetimes_assertion",
+            "planning_hash": "f62e5328ed9e8baf12a742ccafb2ab8af145855ded078fd395374d29c4275ddd",
+            "scores": [
+              {
+                "contract_hash": "aad9aa11e380142fcf3b32dafaed37d310c45a13ed3a6fdbab117bf89702d47e",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "8d496ac65cb84ab2a014373f7ac35a5566049c8100feca54d7818f760947442b",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "bf1ae1b28b3b692c41dc42f6bd970d32cf200353588804eef09a6c5d9d310c1a",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              }
+            ],
+            "selected_contract_hash": "8d496ac65cb84ab2a014373f7ac35a5566049c8100feca54d7818f760947442b",
+            "selected_probe_id": "p01",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "freezegun_547_py313_datetimes_assertion",
+            "planning_hash": "1d5fa9203d4425012d485c0c1a1c8630c6ba7fd2271eec6c33e337a73e85e615",
+            "scores": [
+              {
+                "contract_hash": "aad9aa11e380142fcf3b32dafaed37d310c45a13ed3a6fdbab117bf89702d47e",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              }
+            ],
+            "selected_contract_hash": "aad9aa11e380142fcf3b32dafaed37d310c45a13ed3a6fdbab117bf89702d47e",
+            "selected_probe_id": "p03",
+            "selection_method": "deterministic_minimax_partition",
+            "status": "SELECTED",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "freezegun_547_py313_datetimes_assertion",
+            "planning_hash": "3a68d68c39c5896b433e049e2a4e05fc47669c606c16fdeead5c21eaf63a70a2",
+            "scores": [
+              {
+                "contract_hash": "aad9aa11e380142fcf3b32dafaed37d310c45a13ed3a6fdbab117bf89702d47e",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              }
+            ],
+            "selected_contract_hash": "aad9aa11e380142fcf3b32dafaed37d310c45a13ed3a6fdbab117bf89702d47e",
+            "selected_probe_id": "p03",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "multiple causal alternatives remain or evidence budget ended",
+        "rounds": 3,
+        "run_id": "batch088-freezegun_547_py313_datetimes_assertion",
+        "safe_abstention": true,
+        "snapshot_hash": "15842ae3289b10b3c84f64b78e1858e94217e57c6fa3692c065a703b98fa1f90",
+        "terminal": "safe_abstention_insufficient_evidence",
+        "terminal_hash": "46c68a7b07ac14069b378da00638a0e5ec744897242684660481a5ac6a6b98fc",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "random_legal_order",
+        "backtracks": 0,
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "contradictions": 0,
+        "cost_spent": 5.0,
+        "frame_hash": "9e96f2691d0ef6d925596d1d6cc428012e40408edf0b0dc3552b74b3626dd0ae",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "audioread_144_py313_aifc_removed",
+            "planning_hash": "6cc6138fa491a9e0bb1dc90898e4e5a9747426d7124f3b0193f99accccd6a31e",
+            "scores": [
+              {
+                "contract_hash": "cf5483b412d68604c46304de1bbca9e262be8018a40e220ef521180912f8caae",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "a7acf7ec6c93e80378abb080db4b95be55a8ae68b4eb56fa7875f469e268bf1c",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "a9fe733b8d7e7d3f8c7d3faf99990c641680163f62708921560747faed98b620",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "74993b18d3a2b01b78feb61d9307a54caf8520b6ded34f9873e0c98310c855b6",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "a7acf7ec6c93e80378abb080db4b95be55a8ae68b4eb56fa7875f469e268bf1c",
+            "selected_probe_id": "p03",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "audioread_144_py313_aifc_removed",
+            "planning_hash": "ec909153a63d337fc4b195a03dbe401b41b441fcdcdd8c231b3d46c29a5d2329",
+            "scores": [
+              {
+                "contract_hash": "74993b18d3a2b01b78feb61d9307a54caf8520b6ded34f9873e0c98310c855b6",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "74993b18d3a2b01b78feb61d9307a54caf8520b6ded34f9873e0c98310c855b6",
+            "selected_probe_id": "p02",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "audioread_144_py313_aifc_removed",
+            "planning_hash": "772326c2e0ca4bd11e1e704889b6cbd572aabbe9940db23e33b096b427cf8c3f",
+            "scores": [],
+            "selected_contract_hash": null,
+            "selected_probe_id": null,
+            "selection_method": "none",
+            "status": "NO_LEGAL_DISCRIMINATING_PROBE",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          },
+          {
+            "active_hypotheses": [
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "audioread_144_py313_aifc_removed",
+            "planning_hash": "772326c2e0ca4bd11e1e704889b6cbd572aabbe9940db23e33b096b427cf8c3f",
+            "scores": [],
+            "selected_contract_hash": null,
+            "selected_probe_id": null,
+            "selection_method": "none",
+            "status": "NO_LEGAL_DISCRIMINATING_PROBE",
+            "tie_break": "largest_partition_then_cost_then_risk_then_probe_id"
+          }
+        ],
+        "probe_count": 2,
+        "reason": "multiple causal alternatives remain or evidence budget ended",
+        "rounds": 2,
+        "run_id": "batch088-audioread_144_py313_aifc_removed",
+        "safe_abstention": true,
+        "snapshot_hash": "27e1fc0e5ffaad3d052db82a81dbf588727fe062e96fdae6f390455c5f6acb89",
+        "terminal": "safe_abstention_insufficient_evidence",
+        "terminal_hash": "f74fe4ebeef26c55b20cbca96e022a1fcd8c4c2b47b842d8ce127278d71900a7",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "random_legal_order",
+        "backtracks": 0,
+        "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+        "contradictions": 0,
+        "cost_spent": 4.0,
+        "frame_hash": "f91e9c79f6a84aecf23ef4ca5058b50970df303571cb97d8f5a05ecef1403a38",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+            "planning_hash": "991599ec296cf4684e1707790788206a8c7cdb53ed3df67ad37a73c8970985b5",
+            "scores": [
+              {
+                "contract_hash": "663032da2de62fecb8e760f4ce6e6ce3db6f8a8b181b3ded3b82104d25e9de7f",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "008b37f0e088a45f20b77be3ab1dc605b84c65e5b0afad9b9e99580b3116d06c",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "bb85f1aa888b98476573da91b5f83e56062dc42a895e8192407703a8a049ee93",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "f52aeba856f5c9a92acb07fa7d8ae058bfc7a01ab9d6a6c89841b58fe74c0c06",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "008b37f0e088a45f20b77be3ab1dc605b84c65e5b0afad9b9e99580b3116d06c",
+            "selected_probe_id": "p03",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+            "planning_hash": "bcacd0b6a107fc3994098d9229f99a13e16c371ac22cc27c667fa0f5541d1b50",
+            "scores": [
+              {
+                "contract_hash": "bb85f1aa888b98476573da91b5f83e56062dc42a895e8192407703a8a049ee93",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "f52aeba856f5c9a92acb07fa7d8ae058bfc7a01ab9d6a6c89841b58fe74c0c06",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              },
+              {
+                "contract_hash": "663032da2de62fecb8e760f4ce6e6ce3db6f8a8b181b3ded3b82104d25e9de7f",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              }
+            ],
+            "selected_contract_hash": "663032da2de62fecb8e760f4ce6e6ce3db6f8a8b181b3ded3b82104d25e9de7f",
+            "selected_probe_id": "p01",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 2,
+        "reason": "typed causal terminal committed; repair licensing remains separate",
+        "rounds": 2,
+        "run_id": "batch088-pytest_13480_wdefault_unraisable_threadexception",
+        "safe_abstention": false,
+        "snapshot_hash": "9156226ce8d92142ee725317c2a81052ed4bcee3f811d086c45ebe73d36c520e",
+        "terminal": "harness_owned",
+        "terminal_hash": "90feef643df9150d3e6b523077ec028f380183503ef74d507281967bcd6a6cc1",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "random_legal_order",
+        "backtracks": 0,
+        "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+        "contradictions": 0,
+        "cost_spent": 7.0,
+        "frame_hash": "149f01cc5b0bc4b5b5c0a1fdf1cf0bbd43a846274aa90fa2c60950722ff94a2e",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+            "planning_hash": "260b6b4b859208133c8582bb73f5e0ded69068a865071e495a32b465f6ef4ceb",
+            "scores": [
+              {
+                "contract_hash": "78ed2d785d948da75831580e57cdc0404b38f643bb5228dc4f127b646b0de455",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "d926007f1843dbeee6fadef0b73fb521d133065cc69b43cc9c63121ed642f76f",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "f8ffa235a0eef5f37e9c50eace7e011c3743b7a34af0a4b8808804b945a273b4",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "55bf72d94a2935883bf5388b922e0c70c20c3b800e5b2b4fda876d6cfebfac4b",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "f8ffa235a0eef5f37e9c50eace7e011c3743b7a34af0a4b8808804b945a273b4",
+            "selected_probe_id": "p04",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+            "planning_hash": "3984ffe6b8491bd466c69c40c62b59686dd39ead5c8f51b8d9bc3347bc4c0eac",
+            "scores": [
+              {
+                "contract_hash": "d926007f1843dbeee6fadef0b73fb521d133065cc69b43cc9c63121ed642f76f",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "78ed2d785d948da75831580e57cdc0404b38f643bb5228dc4f127b646b0de455",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "55bf72d94a2935883bf5388b922e0c70c20c3b800e5b2b4fda876d6cfebfac4b",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r03": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "78ed2d785d948da75831580e57cdc0404b38f643bb5228dc4f127b646b0de455",
+            "selected_probe_id": "p01",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "harness_owned",
+              "insufficient_evidence"
+            ],
+            "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+            "planning_hash": "6e53a2c06c4499543747a6a3558f3f4d5cf8c97242d02eb450e1e23f6979900b",
+            "scores": [
+              {
+                "contract_hash": "55bf72d94a2935883bf5388b922e0c70c20c3b800e5b2b4fda876d6cfebfac4b",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 2,
+                "partitions": {
+                  "r03": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ],
+                  "r04": [
+                    "harness_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "55bf72d94a2935883bf5388b922e0c70c20c3b800e5b2b4fda876d6cfebfac4b",
+            "selected_probe_id": "p02",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 3,
+        "reason": "typed causal terminal committed; repair licensing remains separate",
+        "rounds": 3,
+        "run_id": "batch088-incident_openbb_7585_modular_openapi_reproducer",
+        "safe_abstention": false,
+        "snapshot_hash": "1bb498bb5eb8d18bd948a8b3b6316dfdfed498152c66c0d7d19fff64e8eb1eb3",
+        "terminal": "harness_owned",
+        "terminal_hash": "06f2ea2c15623a0cc598cef9e7e230933329687d8e1b6dda1f896c94b387c4c7",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      },
+      {
+        "arm": "random_legal_order",
+        "backtracks": 0,
+        "candidate_id": "incident_poetry_10974_init_duplicate_name",
+        "contradictions": 0,
+        "cost_spent": 4.0,
+        "frame_hash": "034b76d9ea05d98cc3e472135fae2e43cbcc46ff67fbaee0970de320835613f0",
+        "meta_cell_expansions": 0,
+        "patch_authority": false,
+        "planning_records": [
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "mixed_failure",
+              "network_or_transport_owned",
+              "platform_owned",
+              "provider_owned",
+              "source_owned_behavior_defect",
+              "test_or_expectation_fragility"
+            ],
+            "candidate_id": "incident_poetry_10974_init_duplicate_name",
+            "planning_hash": "de2df4ea40a4e0b24a4d0fecdd5e4652a803ca1c53fa4a3e6c34a9e5d92e51bd",
+            "scores": [
+              {
+                "contract_hash": "fe55bece3149732ce73dbdd2b8428b038a53c0a661393f9e55f2c2e6853b0d69",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              },
+              {
+                "contract_hash": "33b10b62e3ed7f0aeaa30c89db616fcd68ceff366077525c66c43ca7da558aa0",
+                "cost": 3.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r05": [
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r06": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p03",
+                "risk": 0.30000000000000004
+              },
+              {
+                "contract_hash": "123f7152eb00135f685111c1b8525fe60fb807f804a6947618a1e1945b3d3810",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 6,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "mixed_failure",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "e8be717e9fa7d7f20acfbd5af397c7d6127ff677268baa660b4fc14cd3a9e15c",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 8,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned",
+                    "test_or_expectation_fragility"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "mixed_failure",
+                    "network_or_transport_owned",
+                    "platform_owned",
+                    "provider_owned",
+                    "source_owned_behavior_defect",
+                    "test_or_expectation_fragility"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              }
+            ],
+            "selected_contract_hash": "33b10b62e3ed7f0aeaa30c89db616fcd68ceff366077525c66c43ca7da558aa0",
+            "selected_probe_id": "p03",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          },
+          {
+            "active_hypotheses": [
+              "environment_owned",
+              "harness_owned",
+              "insufficient_evidence",
+              "network_or_transport_owned",
+              "platform_owned"
+            ],
+            "candidate_id": "incident_poetry_10974_init_duplicate_name",
+            "planning_hash": "4c94acd703aa42df2acb6df2d339d45404216667a3426292aaf822a2fffabb3c",
+            "scores": [
+              {
+                "contract_hash": "123f7152eb00135f685111c1b8525fe60fb807f804a6947618a1e1945b3d3810",
+                "cost": 4.0,
+                "largest_remaining_equivalence_class": 3,
+                "partitions": {
+                  "r07": [
+                    "environment_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ],
+                  "r08": [
+                    "harness_owned",
+                    "insufficient_evidence"
+                  ]
+                },
+                "probe_id": "p04",
+                "risk": 0.4
+              },
+              {
+                "contract_hash": "e8be717e9fa7d7f20acfbd5af397c7d6127ff677268baa660b4fc14cd3a9e15c",
+                "cost": 2.0,
+                "largest_remaining_equivalence_class": 4,
+                "partitions": {
+                  "r03": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "platform_owned"
+                  ],
+                  "r04": [
+                    "environment_owned",
+                    "harness_owned",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p02",
+                "risk": 0.2
+              },
+              {
+                "contract_hash": "fe55bece3149732ce73dbdd2b8428b038a53c0a661393f9e55f2c2e6853b0d69",
+                "cost": 1.0,
+                "largest_remaining_equivalence_class": 5,
+                "partitions": {
+                  "r01": [
+                    "harness_owned"
+                  ],
+                  "r02": [
+                    "environment_owned",
+                    "harness_owned",
+                    "insufficient_evidence",
+                    "network_or_transport_owned",
+                    "platform_owned"
+                  ]
+                },
+                "probe_id": "p01",
+                "risk": 0.1
+              }
+            ],
+            "selected_contract_hash": "fe55bece3149732ce73dbdd2b8428b038a53c0a661393f9e55f2c2e6853b0d69",
+            "selected_probe_id": "p01",
+            "selection_method": "random_legal_order",
+            "status": "SELECTED",
+            "tie_break": "preregistered-baseline-order"
+          }
+        ],
+        "probe_count": 2,
+        "reason": "typed causal terminal committed; repair licensing remains separate",
+        "rounds": 2,
+        "run_id": "batch088-incident_poetry_10974_init_duplicate_name",
+        "safe_abstention": false,
+        "snapshot_hash": "f46d136562ec4b2baef185f6441f05df6140c5aa5d00cee829ef6b2bc6075b4d",
+        "terminal": "harness_owned",
+        "terminal_hash": "21e00cc6e0786ae7c922e3d0b59406ee368dd7b65a236f2b6130cc58a4cbdeb8",
+        "terminal_writer": "controllergate.amds.dpp14.controller_audit",
+        "wrong_patch_authorizations": 0
+      }
+    ]
+  },
+  "equal_budget": true,
+  "fixed_order_executed": true,
+  "memory_status": "shadow_only_not_used",
+  "random_legal_order_executed": true,
+  "status": "PASS"
+}

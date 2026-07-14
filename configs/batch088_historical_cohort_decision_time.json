@@ -1,0 +1,63 @@
+{
+  "cohort_frozen_before_truth_access": true,
+  "episodes": [
+    {
+      "candidate_id": "darker_issue_112_relative_git_dir",
+      "decision_time_evidence": "outputs/clean_replication_batch_014/issue_derived_harness_verification_result.json",
+      "evidence_sha256": "0f96ccb9565bcc68fd2c51fc1d3267075f64fb541278ed82666eeddac3aae81c",
+      "repository": "akaihola/darker"
+    },
+    {
+      "candidate_id": "py_bugger_issue_65",
+      "decision_time_evidence": "outputs/v2_30_failure_signature_canonicalization_repair_lane/pre_repair_failure_signature_verification.json",
+      "evidence_sha256": "610bdfec4119361a980c13702eb7e95d24f26117b46f4d9a6a3ab4116793c71b",
+      "repository": "py-bugger/py-bugger"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_evidence": "outputs/post_v2_37_hardening_batch060c_cloudpickle_provider_runtime_recovery/cloudpickle_post_recovery_class_dict_family_log_raw.txt",
+      "evidence_sha256": "5e063f01b32d2bf2d87fa692729a9adfc9cad938fc51ef18e183b6d369ec3ab3",
+      "repository": "cloudpipe/cloudpickle"
+    },
+    {
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "decision_time_evidence": "outputs/post_v2_37_hardening_batch064_freezegun_source_only_patch_gate/freezegun_prerepair_replay_log_raw.txt",
+      "evidence_sha256": "647937dd3a4e327c09bb47251d6a89f3116b6de8b0f77bb01751b1aaad989f17",
+      "repository": "spulec/freezegun"
+    },
+    {
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_evidence": "outputs/post_v2_37_hardening_batch060f_audioread_provider_backend_capsule_replay/audioread_prerepair_replay_log_raw.txt",
+      "evidence_sha256": "acadd780f95dcfa6f5dc91f49e8f3310b051e1317700bd6beac9def72695a31e",
+      "repository": "beetbox/audioread"
+    },
+    {
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "decision_time_evidence": "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup/pytest_prerepair_replay_log_raw_batch063b.txt",
+      "evidence_sha256": "88d5cb6471157e151270f891a0b9a76915a7c963989af22095065001fcca6538",
+      "repository": "pytest-dev/pytest"
+    },
+    {
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "decision_time_evidence": "outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f/stage_evidence/openbb-diagnosis/duplicate_reproduction_result.json",
+      "evidence_sha256": "8032523df52ea5b81023b8a21b3edbbb40b69aadd291b8dff399254b4b3c6678",
+      "repository": "OpenBB-finance/OpenBB"
+    },
+    {
+      "candidate_id": "incident_poetry_10974_init_duplicate_name",
+      "decision_time_evidence": "outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f/stage_evidence/poetry-diagnosis/duplicate_reproduction_result.json",
+      "evidence_sha256": "05d4a697d8efc97d671b854f18f7099f59a6c3f50f208660810bee185f811d32",
+      "repository": "python-poetry/poetry"
+    }
+  ],
+  "forbidden_truth_fields": [
+    "terminal_class",
+    "expected_terminal",
+    "repair_outcome",
+    "patch_text",
+    "future_revision",
+    "gold_fix"
+  ],
+  "memory_mode": "no_memory_primary",
+  "schema_version": 1
+}

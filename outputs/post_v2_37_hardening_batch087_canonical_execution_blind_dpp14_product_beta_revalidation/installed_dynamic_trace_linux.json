@@ -1,6 +1,122 @@
 {
+  "authorization_and_nonce_observed": true,
+  "broker_operation_ids_observed": true,
+  "canonical_functions": [
+    "controllergate.engine.run_manifest",
+    "controllergate.pathways.canonical_maintenance.execute_stage",
+    "controllergate.state.repository.ControllerStateRepository",
+    "controllergate.execution.execution_broker.execute_external_operation"
+  ],
+  "commands": {
+    "doctor": {
+      "argv": [
+        "/tmp/controllergate-batch087-7pgkm_aa/venv/bin/controllergate",
+        "doctor",
+        "--runtime-root",
+        "/tmp/controllergate-batch087-7pgkm_aa/runtime"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"current_protocol\": \"v2.19\", \"git_available\": true, \"python\": \"3.13.14 (main, Jun 11 2026, 03:02:07) [GCC 13.3.0]\", \"runtime_root\": \"/tmp/controllergate-batch087-7pgkm_aa/runtime\", \"runtime_root_prohibited\": false, \"status\": \"PASS\", \"write_capable_connectors\": \"inactive\"}\n",
+      "stdout_sha256": "40b1eac24e28484ee83e5f45f886603574bef468c7cbcfbf151e2ec30c087f25"
+    },
+    "historical-run": {
+      "argv": [
+        "/tmp/controllergate-batch087-7pgkm_aa/venv/bin/controllergate",
+        "historical-run",
+        "--config",
+        "/tmp/controllergate-batch087-7pgkm_aa/historical.json"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"blocker\": null, \"completed_stages\": [\"candidate_identity\", \"source_acquisition\", \"runtime_attestation\", \"provider_execution\", \"target_provenance\", \"command_authority\", \"duplicate_failure\", \"causal_ownership\", \"ast_contact\", \"repair_license\", \"patch_application\", \"validation\", \"duplicate_clean_replay\", \"proof_append\"], \"database\": \"/tmp/controllergate-batch087-7pgkm_aa/runtime/state/controllergate.sqlite3\", \"event_chain\": {\"chain_head\": \"954e0ce4613b32d09e825e8dee1e9e990cdcaf18d1c66aedb5803d653073f28b\", \"errors\": [], \"event_count\": 15, \"status\": \"PASS\"}, \"historical_count_increment\": 0, \"reaction_token_hashes\": [\"2007d18ca4ddfd787c2c9782385c158a386b3a978a6a6b4f64b4555299df42c2\", \"eceacbc1229a6ce6ac3532e0f9f9c04ad3db6742f62f568af086bc4cc35bf9cf\", \"1013b0d6aaae48514a0089d23da92545fd4b091aa0757874d1cb47b567595b40\", \"0d0e0e47b7225debaeaa84b5865e17d80d33a830ddef8e5b176ce9b1b525f1b3\", \"caa4b8e6fa40154877273ee30f060f73c964ffd6117efc773167f6e3f71e8b03\", \"d2a6c9c3eeba33323534de90afca6c9c1f4ee8b2c98e6438d9b0ded2bbec927a\", \"e4acc3d5a62a9138b45050b087f55ee2006e184fec6482012ef4fbef5942bc14\", \"6e41fa893179a867e243a30fa8d8a66926aefa8ebcacf00a5a75ac78a3246a56\", \"015eca9c1fe165a6690ef31678cc8fd9215c1fba0d27d9af4b225deaf163689e\", \"27930f7bae3c95a00c9eaa69cddf1a0125f953126ff8babc0d67758fbe9d1ba6\", \"f864dda5ebd6d9f49cd8d3b2ae3f9c1025a5ae7dcf93b12fa70c6ed573e591c0\", \"c02220f68f4a5b6bd4530d2809dc47b03be9b6a367f29bdcb15a7de162820b9f\", \"bfbe06351de869141c48fd55b9617fc80de470938945173919200cd69f7bf043\", \"7da4fb2c8cf55d8a54de6cdae4290b001e7960a9297dc460a0baef1c037fba58\"], \"run_id\": \"installed-trace\", \"state_authority\": \"SQLite\", \"status\": \"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS\"}\n",
+      "stdout_sha256": "61a6c5ef20e32afa37efd319226fbd1750888c20ba1a7f930fbfef610e49f849"
+    },
+    "migrate-state": {
+      "argv": [
+        "/tmp/controllergate-batch087-7pgkm_aa/venv/bin/controllergate",
+        "migrate-state",
+        "--from-json",
+        "/tmp/controllergate-batch087-7pgkm_aa/old.json",
+        "--database",
+        "/tmp/controllergate-batch087-7pgkm_aa/runtime/state/controllergate.sqlite3"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"idempotent\": false, \"imported_run_id\": \"migrated-fixture\", \"result_hash\": \"45e76061df1c4a77a5662375bc37a22b83ac9fc8c5f2723db0b7de31ef32e986\", \"source_hash\": \"d5707e9604fa898b81ced030f905d05051aa82f7f2c2d56f6360a4e02722589b\", \"status\": \"PASS\"}\n",
+      "stdout_sha256": "9badafd58710dfeb1e4e51aa138f06bf6907139e5e533ee95c9d343d613d2161"
+    },
+    "resume": {
+      "argv": [
+        "/tmp/controllergate-batch087-7pgkm_aa/venv/bin/controllergate",
+        "resume",
+        "--run-id",
+        "installed-trace",
+        "--manifest",
+        "/tmp/controllergate-batch087-7pgkm_aa/manifest.json"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"blocker\": null, \"completed_stages\": [\"candidate_identity\", \"source_acquisition\", \"runtime_attestation\", \"provider_execution\", \"target_provenance\", \"command_authority\", \"duplicate_failure\", \"causal_ownership\", \"ast_contact\", \"repair_license\", \"patch_application\", \"validation\", \"duplicate_clean_replay\", \"proof_append\"], \"database\": \"/tmp/controllergate-batch087-7pgkm_aa/runtime/state/controllergate.sqlite3\", \"event_chain\": {\"chain_head\": \"954e0ce4613b32d09e825e8dee1e9e990cdcaf18d1c66aedb5803d653073f28b\", \"errors\": [], \"event_count\": 15, \"status\": \"PASS\"}, \"historical_count_increment\": 0, \"reaction_token_hashes\": [\"2007d18ca4ddfd787c2c9782385c158a386b3a978a6a6b4f64b4555299df42c2\", \"eceacbc1229a6ce6ac3532e0f9f9c04ad3db6742f62f568af086bc4cc35bf9cf\", \"1013b0d6aaae48514a0089d23da92545fd4b091aa0757874d1cb47b567595b40\", \"0d0e0e47b7225debaeaa84b5865e17d80d33a830ddef8e5b176ce9b1b525f1b3\", \"caa4b8e6fa40154877273ee30f060f73c964ffd6117efc773167f6e3f71e8b03\", \"d2a6c9c3eeba33323534de90afca6c9c1f4ee8b2c98e6438d9b0ded2bbec927a\", \"e4acc3d5a62a9138b45050b087f55ee2006e184fec6482012ef4fbef5942bc14\", \"6e41fa893179a867e243a30fa8d8a66926aefa8ebcacf00a5a75ac78a3246a56\", \"015eca9c1fe165a6690ef31678cc8fd9215c1fba0d27d9af4b225deaf163689e\", \"27930f7bae3c95a00c9eaa69cddf1a0125f953126ff8babc0d67758fbe9d1ba6\", \"f864dda5ebd6d9f49cd8d3b2ae3f9c1025a5ae7dcf93b12fa70c6ed573e591c0\", \"c02220f68f4a5b6bd4530d2809dc47b03be9b6a367f29bdcb15a7de162820b9f\", \"bfbe06351de869141c48fd55b9617fc80de470938945173919200cd69f7bf043\", \"7da4fb2c8cf55d8a54de6cdae4290b001e7960a9297dc460a0baef1c037fba58\"], \"run_id\": \"installed-trace\", \"state_authority\": \"SQLite\", \"status\": \"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS\"}\n",
+      "stdout_sha256": "61a6c5ef20e32afa37efd319226fbd1750888c20ba1a7f930fbfef610e49f849"
+    },
+    "run": {
+      "argv": [
+        "/tmp/controllergate-batch087-7pgkm_aa/venv/bin/controllergate",
+        "run",
+        "--manifest",
+        "/tmp/controllergate-batch087-7pgkm_aa/manifest.json"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"blocker\": null, \"completed_stages\": [\"candidate_identity\", \"source_acquisition\", \"runtime_attestation\", \"provider_execution\", \"target_provenance\", \"command_authority\", \"duplicate_failure\", \"causal_ownership\", \"ast_contact\", \"repair_license\", \"patch_application\", \"validation\", \"duplicate_clean_replay\", \"proof_append\"], \"database\": \"/tmp/controllergate-batch087-7pgkm_aa/runtime/state/controllergate.sqlite3\", \"event_chain\": {\"chain_head\": \"954e0ce4613b32d09e825e8dee1e9e990cdcaf18d1c66aedb5803d653073f28b\", \"errors\": [], \"event_count\": 15, \"status\": \"PASS\"}, \"historical_count_increment\": 0, \"reaction_token_hashes\": [\"2007d18ca4ddfd787c2c9782385c158a386b3a978a6a6b4f64b4555299df42c2\", \"eceacbc1229a6ce6ac3532e0f9f9c04ad3db6742f62f568af086bc4cc35bf9cf\", \"1013b0d6aaae48514a0089d23da92545fd4b091aa0757874d1cb47b567595b40\", \"0d0e0e47b7225debaeaa84b5865e17d80d33a830ddef8e5b176ce9b1b525f1b3\", \"caa4b8e6fa40154877273ee30f060f73c964ffd6117efc773167f6e3f71e8b03\", \"d2a6c9c3eeba33323534de90afca6c9c1f4ee8b2c98e6438d9b0ded2bbec927a\", \"e4acc3d5a62a9138b45050b087f55ee2006e184fec6482012ef4fbef5942bc14\", \"6e41fa893179a867e243a30fa8d8a66926aefa8ebcacf00a5a75ac78a3246a56\", \"015eca9c1fe165a6690ef31678cc8fd9215c1fba0d27d9af4b225deaf163689e\", \"27930f7bae3c95a00c9eaa69cddf1a0125f953126ff8babc0d67758fbe9d1ba6\", \"f864dda5ebd6d9f49cd8d3b2ae3f9c1025a5ae7dcf93b12fa70c6ed573e591c0\", \"c02220f68f4a5b6bd4530d2809dc47b03be9b6a367f29bdcb15a7de162820b9f\", \"bfbe06351de869141c48fd55b9617fc80de470938945173919200cd69f7bf043\", \"7da4fb2c8cf55d8a54de6cdae4290b001e7960a9297dc460a0baef1c037fba58\"], \"run_id\": \"installed-trace\", \"state_authority\": \"SQLite\", \"status\": \"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS\"}\n",
+      "stdout_sha256": "61a6c5ef20e32afa37efd319226fbd1750888c20ba1a7f930fbfef610e49f849"
+    },
+    "status": {
+      "argv": [
+        "/tmp/controllergate-batch087-7pgkm_aa/venv/bin/controllergate",
+        "status",
+        "--run-id",
+        "installed-trace",
+        "--database",
+        "/tmp/controllergate-batch087-7pgkm_aa/runtime/state/controllergate.sqlite3"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"checkpoint\": {\"committed_at\": \"2026-07-14T21:31:29.753939+00:00\", \"event_hash\": \"954e0ce4613b32d09e825e8dee1e9e990cdcaf18d1c66aedb5803d653073f28b\", \"run_id\": \"installed-trace\", \"stage\": \"proof_append\", \"state_json\": \"{\\\"stage\\\": \\\"proof_append\\\", \\\"token_hash\\\": \\\"7da4fb2c8cf55d8a54de6cdae4290b001e7960a9297dc460a0baef1c037fba58\\\"}\"}, \"run\": {\"blocker\": null, \"candidate_id\": \"synthetic-installed\", \"created_at\": \"2026-07-14T21:31:29.537415+00:00\", \"integrity\": {\"chain_head\": \"954e0ce4613b32d09e825e8dee1e9e990cdcaf18d1c66aedb5803d653073f28b\", \"errors\": [], \"event_count\": 15, \"status\": \"PASS\"}, \"reopen_state\": null, \"retry_count\": 0, \"run_id\": \"installed-trace\", \"status\": \"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS\", \"terminal\": 1, \"updated_at\": \"2026-07-14T21:31:29.754644+00:00\"}, \"state_authority\": \"SQLite\", \"status\": \"PASS\", \"token_hashes\": [\"2007d18ca4ddfd787c2c9782385c158a386b3a978a6a6b4f64b4555299df42c2\", \"eceacbc1229a6ce6ac3532e0f9f9c04ad3db6742f62f568af086bc4cc35bf9cf\", \"1013b0d6aaae48514a0089d23da92545fd4b091aa0757874d1cb47b567595b40\", \"0d0e0e47b7225debaeaa84b5865e17d80d33a830ddef8e5b176ce9b1b525f1b3\", \"caa4b8e6fa40154877273ee30f060f73c964ffd6117efc773167f6e3f71e8b03\", \"d2a6c9c3eeba33323534de90afca6c9c1f4ee8b2c98e6438d9b0ded2bbec927a\", \"e4acc3d5a62a9138b45050b087f55ee2006e184fec6482012ef4fbef5942bc14\", \"6e41fa893179a867e243a30fa8d8a66926aefa8ebcacf00a5a75ac78a3246a56\", \"015eca9c1fe165a6690ef31678cc8fd9215c1fba0d27d9af4b225deaf163689e\", \"27930f7bae3c95a00c9eaa69cddf1a0125f953126ff8babc0d67758fbe9d1ba6\", \"f864dda5ebd6d9f49cd8d3b2ae3f9c1025a5ae7dcf93b12fa70c6ed573e591c0\", \"c02220f68f4a5b6bd4530d2809dc47b03be9b6a367f29bdcb15a7de162820b9f\", \"bfbe06351de869141c48fd55b9617fc80de470938945173919200cd69f7bf043\", \"7da4fb2c8cf55d8a54de6cdae4290b001e7960a9297dc460a0baef1c037fba58\"]}\n",
+      "stdout_sha256": "f7ee921e8764fff420bcb0bbf7e6a1d262670cd365285a9569c964de6f55c1c4"
+    },
+    "verify": {
+      "argv": [
+        "/tmp/controllergate-batch087-7pgkm_aa/venv/bin/controllergate",
+        "verify",
+        "--run-id",
+        "installed-trace",
+        "--manifest",
+        "/tmp/controllergate-batch087-7pgkm_aa/manifest.json"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"event_chain\": {\"chain_head\": \"954e0ce4613b32d09e825e8dee1e9e990cdcaf18d1c66aedb5803d653073f28b\", \"errors\": [], \"event_count\": 15, \"status\": \"PASS\"}, \"exact_blocker\": null, \"idempotent\": true, \"run_id\": \"installed-trace\", \"state_authority\": \"SQLite\", \"status\": \"PASS\", \"terminal\": \"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS\"}\n",
+      "stdout_sha256": "03c795b3106dca6fc36c157aa51508bf8beb2756c30b927e155a41a6a6166d1a"
+    }
+  },
+  "console_entry_point": "/tmp/controllergate-batch087-7pgkm_aa/venv/bin/controllergate",
   "forbidden_imports": [],
+  "fresh_environment": true,
+  "installed_from_source_distribution": true,
   "platform_contract": "linux",
-  "reopen_condition": "execute official ubuntu-latest installed-wheel trace job",
-  "status": "NOT_RUN_LOCAL_PLATFORM"
+  "platform_observed": "linux",
+  "proof_and_release_reads_observed": true,
+  "semantic_contract_hash": "8ddca42e46848478db9fe6b60882c4be6640f33eb9f0c197e32df70292586a33",
+  "sqlite_transactions_observed": true,
+  "status": "PASS",
+  "worker_leases_observed": true
 }

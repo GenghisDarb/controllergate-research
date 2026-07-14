@@ -1,0 +1,44 @@
+{
+  "active": {
+    "accuracy": 0.25,
+    "correct": 2,
+    "mean_probe_cost": 6.0,
+    "mean_probe_count": 2.75,
+    "terminal_distribution": {
+      "harness_owned": 4,
+      "safe_abstention_insufficient_evidence": 4
+    }
+  },
+  "baseline_metrics": {
+    "fixed_registered_order": {
+      "accuracy": 0.25,
+      "correct": 2,
+      "mean_probe_cost": 6.5,
+      "mean_probe_count": 3.0
+    },
+    "random_legal_order": {
+      "accuracy": 0.25,
+      "correct": 2,
+      "mean_probe_cost": 5.875,
+      "mean_probe_count": 2.5
+    }
+  },
+  "candidate_identity_join_only": true,
+  "criteria": {
+    "active_beats_or_cheaper_noninferior_to_fixed": true,
+    "at_least_three_terminal_classes": false,
+    "cohort_at_least_eight": true,
+    "no_single_class_collapse": true,
+    "safe_abstention_accuracy_at_least_point_8": false,
+    "wrong_patch_authorizations_zero": true
+  },
+  "decision_time_truth_overlap_count": 0,
+  "historical_quality_result": "BLOCK_HISTORICAL_CAUSAL_QUALITY_CRITERIA_NOT_MET",
+  "memory_status": "shadow_only_not_used",
+  "prospective_effectiveness": "NOT_ESTABLISHED",
+  "safe_abstention_accuracy": 0.25,
+  "sealed_truth_sha256": "25347327018a69dd786b8b1bacf580d3ad0c426095ee8a6cef0615fcb82cbc02",
+  "terminal_registry_sha256": "c15e541dcca74b05612b19186a34122697e1612a051cd81ae5b890b80162aa64",
+  "truth_deletion_or_permutation_changes_builder_terminals": false,
+  "truth_received_after_terminal_commit": true
+}
