@@ -1,0 +1,100 @@
+{
+  "broker_module": "controllergate.execution.execution_broker",
+  "console_script_target": "controllergate.cli:main",
+  "dynamic_string_bindings": {
+    "controllergate.batch082.provider_capsule": [
+      "subprocess",
+      "subprocess",
+      "subprocess"
+    ],
+    "controllergate.batch082.reproducer_wave1f": [
+      "hashlib",
+      "hashlib",
+      "hashlib"
+    ],
+    "controllergate.core.artifact_ingest": [
+      "hashlib"
+    ],
+    "controllergate.core.batch042_repair_validation_count_lock": [
+      "json"
+    ],
+    "controllergate.core.batch043_episode_protocolization": [
+      "json"
+    ],
+    "controllergate.core.batch044_guardrail_seed_eligibility": [
+      "json"
+    ],
+    "controllergate.core.batch045_protocol_candidate_seed_inventory": [
+      "json"
+    ],
+    "controllergate.core.batch046_brot_bulb_environment_locator": [
+      "json"
+    ],
+    "controllergate.core.batch047_tot_bulb_probe_execution": [
+      "json"
+    ],
+    "controllergate.engine": [
+      "datetime",
+      "datetime",
+      "datetime",
+      "datetime"
+    ],
+    "controllergate.governance.engineering_constitution": [
+      "json"
+    ],
+    "controllergate.runtime.historical_provider_reconstructor": [
+      "datetime"
+    ],
+    "controllergate.state.repository": [
+      "hashlib"
+    ]
+  },
+  "entry_module": "controllergate.cli",
+  "forbidden_reachability_count": 0,
+  "forbidden_reachable_modules": [],
+  "reachable_module_count": 33,
+  "reachable_modules": [
+    "controllergate.cli",
+    "controllergate.connectors.audit",
+    "controllergate.connectors.circuit_breaker",
+    "controllergate.connectors.contract",
+    "controllergate.connectors.github_public_readonly",
+    "controllergate.connectors.read_only",
+    "controllergate.connectors.retry_policy",
+    "controllergate.core.evidence",
+    "controllergate.current_pathway",
+    "controllergate.deployment.deployment_proof",
+    "controllergate.engine",
+    "controllergate.execution.evidence_kind",
+    "controllergate.execution.execution_broker",
+    "controllergate.execution.execution_record",
+    "controllergate.pathways.canonical_maintenance",
+    "controllergate.product.doctor",
+    "controllergate.product.manifest",
+    "controllergate.proof.count_service",
+    "controllergate.proof.service",
+    "controllergate.reactions.stable_identity",
+    "controllergate.reactions.token_kernel",
+    "controllergate.state.database",
+    "controllergate.state.event_store",
+    "controllergate.state.integrity",
+    "controllergate.state.lease",
+    "controllergate.state.migrations",
+    "controllergate.state.repository",
+    "controllergate.state.schema",
+    "controllergate.watch.controller",
+    "controllergate.watch.cursor",
+    "controllergate.watch.deduplication",
+    "controllergate.watch.notification",
+    "controllergate.watch.queue"
+  ],
+  "relative_and_absolute_imports_resolved": true,
+  "status": "FAIL",
+  "transitive_reachability_resolved": true,
+  "unbrokered_external_operation_count": 1,
+  "unbrokered_external_operation_modules": {
+    "controllergate.connectors.read_only": [
+      "urllib.request"
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "authorization_and_nonce_observed": true,
+  "broker_operation_ids_observed": true,
+  "canonical_functions": [
+    "controllergate.engine.run_manifest",
+    "controllergate.pathways.canonical_maintenance.execute_stage",
+    "controllergate.state.repository.ControllerStateRepository",
+    "controllergate.execution.execution_broker.execute_external_operation"
+  ],
+  "commands": {
+    "doctor": {
+      "argv": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\venv\\Scripts\\controllergate.exe",
+        "doctor",
+        "--runtime-root",
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\runtime"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"current_protocol\": \"v2.19\", \"git_available\": true, \"python\": \"3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]\", \"runtime_root\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-puz6vt6n\\\\runtime\", \"runtime_root_prohibited\": false, \"status\": \"PASS\", \"write_capable_connectors\": \"inactive\"}\n",
+      "stdout_sha256": "398cf3e9f998e392c8089e57bcf2fb29a91b12259ecac3f47f139b2da5edf5c6"
+    },
+    "historical-run": {
+      "argv": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\venv\\Scripts\\controllergate.exe",
+        "historical-run",
+        "--config",
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\historical.json"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"blocker\": null, \"completed_stages\": [\"candidate_identity\", \"source_acquisition\", \"runtime_attestation\", \"provider_execution\", \"target_provenance\", \"command_authority\", \"duplicate_failure\", \"causal_ownership\", \"ast_contact\", \"repair_license\", \"patch_application\", \"validation\", \"duplicate_clean_replay\", \"proof_append\"], \"database\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-puz6vt6n\\\\runtime\\\\state\\\\controllergate.sqlite3\", \"event_chain\": {\"chain_head\": \"75a9d11992c6033b257df4534b63793e910b25bb9b07ec6a6b3387704e464e6b\", \"errors\": [], \"event_count\": 15, \"status\": \"PASS\"}, \"historical_count_increment\": 0, \"reaction_token_hashes\": [\"27c7bdd286c0c4b1e1159b440d91496686cfe86628835f25c9fe631927a163dd\", \"812eda9d0bcb297e9546f09a41bb5588c42fb12608bfe9d8c065541357e4c729\", \"811fdbd95e616be213bd4f1a281826f2ee8622c5c97edc3acf1d49e147a0c588\", \"4180a3088ee81a15c12cba259927392d008397831bf7f48e4fbedf1966f5e634\", \"6c6daab01100638f9fafb65d950a6cf8df278e71e01a87f06e3ec1a5d293d592\", \"9feddbf426269c571366d5e744993fa2122a9b10661f96d53ea260b60112fcdf\", \"59597b82ad435784dc5dd7a4c16f87af085cb3313cff2ef2ad00a4e9ac876c43\", \"d1059df23fa5a5df7786a47eda863a57599fbe659075b2b216f7b4d65067f71a\", \"0d4a3d31f705dee1379ad0e3b457f727a746c9b5c25a24081344463dce922f73\", \"8d4c764ddc6abe6c5c3a411eed7f91d40171f55613f25ba78973e295d91886b5\", \"2cd74d67cad2c5a5e6fa31e394f62780c2ddcfb95eea0a5c68829a75d9e82973\", \"784054f445d0c5a89d6c9c888c6ab37b5789728262b2a6730ef68483ca22b384\", \"29941c44e0e9382c9f1ffef78be4a97fbfca89ce35ab79a24d2d4b1f644391e9\", \"d83e23cd9cbf341bade08686ceb8556abdf6379dfa7489d515f67592c87a754e\"], \"run_id\": \"installed-trace\", \"state_authority\": \"SQLite\", \"status\": \"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS\"}\n",
+      "stdout_sha256": "70f3e86285d7bb9ba5bd03466afc1ba8e3ef80ec77cd69f6eabea4978bce2838"
+    },
+    "migrate-state": {
+      "argv": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\venv\\Scripts\\controllergate.exe",
+        "migrate-state",
+        "--from-json",
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\old.json",
+        "--database",
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\runtime\\state\\controllergate.sqlite3"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"idempotent\": false, \"imported_run_id\": \"migrated-fixture\", \"result_hash\": \"45e76061df1c4a77a5662375bc37a22b83ac9fc8c5f2723db0b7de31ef32e986\", \"source_hash\": \"d5707e9604fa898b81ced030f905d05051aa82f7f2c2d56f6360a4e02722589b\", \"status\": \"PASS\"}\n",
+      "stdout_sha256": "9badafd58710dfeb1e4e51aa138f06bf6907139e5e533ee95c9d343d613d2161"
+    },
+    "resume": {
+      "argv": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\venv\\Scripts\\controllergate.exe",
+        "resume",
+        "--run-id",
+        "installed-trace",
+        "--manifest",
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\manifest.json"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"blocker\": null, \"completed_stages\": [\"candidate_identity\", \"source_acquisition\", \"runtime_attestation\", \"provider_execution\", \"target_provenance\", \"command_authority\", \"duplicate_failure\", \"causal_ownership\", \"ast_contact\", \"repair_license\", \"patch_application\", \"validation\", \"duplicate_clean_replay\", \"proof_append\"], \"database\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-puz6vt6n\\\\runtime\\\\state\\\\controllergate.sqlite3\", \"event_chain\": {\"chain_head\": \"75a9d11992c6033b257df4534b63793e910b25bb9b07ec6a6b3387704e464e6b\", \"errors\": [], \"event_count\": 15, \"status\": \"PASS\"}, \"historical_count_increment\": 0, \"reaction_token_hashes\": [\"27c7bdd286c0c4b1e1159b440d91496686cfe86628835f25c9fe631927a163dd\", \"812eda9d0bcb297e9546f09a41bb5588c42fb12608bfe9d8c065541357e4c729\", \"811fdbd95e616be213bd4f1a281826f2ee8622c5c97edc3acf1d49e147a0c588\", \"4180a3088ee81a15c12cba259927392d008397831bf7f48e4fbedf1966f5e634\", \"6c6daab01100638f9fafb65d950a6cf8df278e71e01a87f06e3ec1a5d293d592\", \"9feddbf426269c571366d5e744993fa2122a9b10661f96d53ea260b60112fcdf\", \"59597b82ad435784dc5dd7a4c16f87af085cb3313cff2ef2ad00a4e9ac876c43\", \"d1059df23fa5a5df7786a47eda863a57599fbe659075b2b216f7b4d65067f71a\", \"0d4a3d31f705dee1379ad0e3b457f727a746c9b5c25a24081344463dce922f73\", \"8d4c764ddc6abe6c5c3a411eed7f91d40171f55613f25ba78973e295d91886b5\", \"2cd74d67cad2c5a5e6fa31e394f62780c2ddcfb95eea0a5c68829a75d9e82973\", \"784054f445d0c5a89d6c9c888c6ab37b5789728262b2a6730ef68483ca22b384\", \"29941c44e0e9382c9f1ffef78be4a97fbfca89ce35ab79a24d2d4b1f644391e9\", \"d83e23cd9cbf341bade08686ceb8556abdf6379dfa7489d515f67592c87a754e\"], \"run_id\": \"installed-trace\", \"state_authority\": \"SQLite\", \"status\": \"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS\"}\n",
+      "stdout_sha256": "70f3e86285d7bb9ba5bd03466afc1ba8e3ef80ec77cd69f6eabea4978bce2838"
+    },
+    "run": {
+      "argv": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\venv\\Scripts\\controllergate.exe",
+        "run",
+        "--manifest",
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\manifest.json"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"blocker\": null, \"completed_stages\": [\"candidate_identity\", \"source_acquisition\", \"runtime_attestation\", \"provider_execution\", \"target_provenance\", \"command_authority\", \"duplicate_failure\", \"causal_ownership\", \"ast_contact\", \"repair_license\", \"patch_application\", \"validation\", \"duplicate_clean_replay\", \"proof_append\"], \"database\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-puz6vt6n\\\\runtime\\\\state\\\\controllergate.sqlite3\", \"event_chain\": {\"chain_head\": \"75a9d11992c6033b257df4534b63793e910b25bb9b07ec6a6b3387704e464e6b\", \"errors\": [], \"event_count\": 15, \"status\": \"PASS\"}, \"historical_count_increment\": 0, \"reaction_token_hashes\": [\"27c7bdd286c0c4b1e1159b440d91496686cfe86628835f25c9fe631927a163dd\", \"812eda9d0bcb297e9546f09a41bb5588c42fb12608bfe9d8c065541357e4c729\", \"811fdbd95e616be213bd4f1a281826f2ee8622c5c97edc3acf1d49e147a0c588\", \"4180a3088ee81a15c12cba259927392d008397831bf7f48e4fbedf1966f5e634\", \"6c6daab01100638f9fafb65d950a6cf8df278e71e01a87f06e3ec1a5d293d592\", \"9feddbf426269c571366d5e744993fa2122a9b10661f96d53ea260b60112fcdf\", \"59597b82ad435784dc5dd7a4c16f87af085cb3313cff2ef2ad00a4e9ac876c43\", \"d1059df23fa5a5df7786a47eda863a57599fbe659075b2b216f7b4d65067f71a\", \"0d4a3d31f705dee1379ad0e3b457f727a746c9b5c25a24081344463dce922f73\", \"8d4c764ddc6abe6c5c3a411eed7f91d40171f55613f25ba78973e295d91886b5\", \"2cd74d67cad2c5a5e6fa31e394f62780c2ddcfb95eea0a5c68829a75d9e82973\", \"784054f445d0c5a89d6c9c888c6ab37b5789728262b2a6730ef68483ca22b384\", \"29941c44e0e9382c9f1ffef78be4a97fbfca89ce35ab79a24d2d4b1f644391e9\", \"d83e23cd9cbf341bade08686ceb8556abdf6379dfa7489d515f67592c87a754e\"], \"run_id\": \"installed-trace\", \"state_authority\": \"SQLite\", \"status\": \"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS\"}\n",
+      "stdout_sha256": "70f3e86285d7bb9ba5bd03466afc1ba8e3ef80ec77cd69f6eabea4978bce2838"
+    },
+    "status": {
+      "argv": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\venv\\Scripts\\controllergate.exe",
+        "status",
+        "--run-id",
+        "installed-trace",
+        "--database",
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\runtime\\state\\controllergate.sqlite3"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"checkpoint\": {\"committed_at\": \"2026-07-14T20:46:12.232207+00:00\", \"event_hash\": \"75a9d11992c6033b257df4534b63793e910b25bb9b07ec6a6b3387704e464e6b\", \"run_id\": \"installed-trace\", \"stage\": \"proof_append\", \"state_json\": \"{\\\"stage\\\": \\\"proof_append\\\", \\\"token_hash\\\": \\\"d83e23cd9cbf341bade08686ceb8556abdf6379dfa7489d515f67592c87a754e\\\"}\"}, \"run\": {\"blocker\": null, \"candidate_id\": \"synthetic-installed\", \"created_at\": \"2026-07-14T20:46:10.930611+00:00\", \"integrity\": {\"chain_head\": \"75a9d11992c6033b257df4534b63793e910b25bb9b07ec6a6b3387704e464e6b\", \"errors\": [], \"event_count\": 15, \"status\": \"PASS\"}, \"reopen_state\": null, \"retry_count\": 0, \"run_id\": \"installed-trace\", \"status\": \"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS\", \"terminal\": 1, \"updated_at\": \"2026-07-14T20:46:12.233591+00:00\"}, \"state_authority\": \"SQLite\", \"status\": \"PASS\", \"token_hashes\": [\"27c7bdd286c0c4b1e1159b440d91496686cfe86628835f25c9fe631927a163dd\", \"812eda9d0bcb297e9546f09a41bb5588c42fb12608bfe9d8c065541357e4c729\", \"811fdbd95e616be213bd4f1a281826f2ee8622c5c97edc3acf1d49e147a0c588\", \"4180a3088ee81a15c12cba259927392d008397831bf7f48e4fbedf1966f5e634\", \"6c6daab01100638f9fafb65d950a6cf8df278e71e01a87f06e3ec1a5d293d592\", \"9feddbf426269c571366d5e744993fa2122a9b10661f96d53ea260b60112fcdf\", \"59597b82ad435784dc5dd7a4c16f87af085cb3313cff2ef2ad00a4e9ac876c43\", \"d1059df23fa5a5df7786a47eda863a57599fbe659075b2b216f7b4d65067f71a\", \"0d4a3d31f705dee1379ad0e3b457f727a746c9b5c25a24081344463dce922f73\", \"8d4c764ddc6abe6c5c3a411eed7f91d40171f55613f25ba78973e295d91886b5\", \"2cd74d67cad2c5a5e6fa31e394f62780c2ddcfb95eea0a5c68829a75d9e82973\", \"784054f445d0c5a89d6c9c888c6ab37b5789728262b2a6730ef68483ca22b384\", \"29941c44e0e9382c9f1ffef78be4a97fbfca89ce35ab79a24d2d4b1f644391e9\", \"d83e23cd9cbf341bade08686ceb8556abdf6379dfa7489d515f67592c87a754e\"]}\n",
+      "stdout_sha256": "3aea33dc9269ffc65838cf5a4275987445c5cc964dde2176578c30bc15689c7a"
+    },
+    "verify": {
+      "argv": [
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\venv\\Scripts\\controllergate.exe",
+        "verify",
+        "--run-id",
+        "installed-trace",
+        "--manifest",
+        "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\manifest.json"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"event_chain\": {\"chain_head\": \"75a9d11992c6033b257df4534b63793e910b25bb9b07ec6a6b3387704e464e6b\", \"errors\": [], \"event_count\": 15, \"status\": \"PASS\"}, \"exact_blocker\": null, \"idempotent\": true, \"run_id\": \"installed-trace\", \"state_authority\": \"SQLite\", \"status\": \"PASS\", \"terminal\": \"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS\"}\n",
+      "stdout_sha256": "6f1bba55ae6f0f341c170bd1cd84b624a004c516a70a5f58ad21b27198426185"
+    }
+  },
+  "console_entry_point": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-puz6vt6n\\venv\\Scripts\\controllergate.exe",
+  "forbidden_imports": [],
+  "fresh_environment": true,
+  "installed_from_source_distribution": true,
+  "platform_contract": "windows-contract-local-preflight",
+  "platform_observed": "win32",
+  "proof_and_release_reads_observed": true,
+  "semantic_contract_hash": "8ddca42e46848478db9fe6b60882c4be6640f33eb9f0c197e32df70292586a33",
+  "sqlite_transactions_observed": true,
+  "status": "PASS",
+  "worker_leases_observed": true
+}

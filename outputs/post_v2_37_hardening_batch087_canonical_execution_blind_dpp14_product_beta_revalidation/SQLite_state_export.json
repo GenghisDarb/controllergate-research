@@ -1,0 +1,682 @@
+{
+  "export_hash": "ff6a517b6fc3ba05dc1bb8473c512f164d6f82972a277bfcd2278128a3e42c24",
+  "schema_version": 4,
+  "status": "PASS",
+  "tables": {
+    "authorizations": [
+      {
+        "authorization_id": "batch087-canonical-synthetic:provider_execution:authorization",
+        "consumed": 1,
+        "expires_at": null,
+        "run_id": "batch087-canonical-synthetic",
+        "scope_json": "{\"nonce\": \"42f549d3fbd58c503ebf659813b0e956a762c5d9\", \"operation_type\": \"provider_verification\", \"stage\": \"provider_execution\"}"
+      },
+      {
+        "authorization_id": "batch087-canonical-synthetic:duplicate_failure-a:authorization",
+        "consumed": 1,
+        "expires_at": null,
+        "run_id": "batch087-canonical-synthetic",
+        "scope_json": "{\"nonce\": \"59aab0d035a335ed56b4201d3bff6533f23678c5\", \"operation_type\": \"target_execution\", \"stage\": \"duplicate_failure-a\"}"
+      },
+      {
+        "authorization_id": "batch087-canonical-synthetic:duplicate_failure-b:authorization",
+        "consumed": 1,
+        "expires_at": null,
+        "run_id": "batch087-canonical-synthetic",
+        "scope_json": "{\"nonce\": \"7f6598676fd1a223d094b9c3aec28bd258154acc\", \"operation_type\": \"target_execution\", \"stage\": \"duplicate_failure-b\"}"
+      },
+      {
+        "authorization_id": "batch087-canonical-synthetic:patch_application:authorization",
+        "consumed": 1,
+        "expires_at": null,
+        "run_id": "batch087-canonical-synthetic",
+        "scope_json": "{\"nonce\": \"637d139333367b4d4a483cb237e1667c435f5177\", \"operation_type\": \"patch_application\", \"stage\": \"patch_application\"}"
+      },
+      {
+        "authorization_id": "batch087-canonical-synthetic:validation:authorization",
+        "consumed": 1,
+        "expires_at": null,
+        "run_id": "batch087-canonical-synthetic",
+        "scope_json": "{\"nonce\": \"4cfe71c7249c34c91b2d81824bb99aeb30ff9a32\", \"operation_type\": \"validation\", \"stage\": \"validation\"}"
+      },
+      {
+        "authorization_id": "batch087-canonical-synthetic:duplicate_clean_replay:authorization",
+        "consumed": 1,
+        "expires_at": null,
+        "run_id": "batch087-canonical-synthetic",
+        "scope_json": "{\"nonce\": \"1dc9476b201beb438e07234ea0f91e7b77e088e8\", \"operation_type\": \"duplicate_replay\", \"stage\": \"duplicate_clean_replay\"}"
+      }
+    ],
+    "broker_records": [
+      {
+        "authorization_id": "batch087-canonical-synthetic:provider_execution:authorization",
+        "created_at": "2026-07-14T21:11:50.792310+00:00",
+        "nonce": "42f549d3fbd58c503ebf659813b0e956a762c5d9",
+        "operation_id": "provider_verification:provider_execution:c6fe94b505739c9670f7",
+        "record_hash": "1d15f1c6ad38e2fe4243f6bf2c7d92c181db3a0e90feaaee41f8c4e87797afc9",
+        "record_json": "{\"actual_end_time\": \"2026-07-14T21:11:50.787991+00:00\", \"actual_start_time\": \"2026-07-14T21:11:50.492333+00:00\", \"argv\": [\"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\\\python.exe\", \"-c\", \"import sys;print(sys.implementation.name)\"], \"authorization_id\": \"batch087-canonical-synthetic:provider_execution:authorization\", \"callable_identity\": null, \"callable_source_hash\": null, \"candidate_id\": \"batch087-canonical-synthetic\", \"candidate_state\": \"UNCHANGED\", \"end_timestamp\": \"2026-07-14T21:11:50.787991+00:00\", \"evidence_kind\": \"EXECUTED_COMMAND\", \"evidence_status\": \"RECORDED\", \"execution_id\": \"provider_verification:provider_execution:1784063510.492333\", \"gate_decision\": \"PENDING_VERIFICATION\", \"independent_verifier\": \"controllergate.execution.execution_claim_verifier\", \"input_identities\": {}, \"input_paths_and_hashes\": {}, \"ledger_parent_hash\": null, \"monotonic_duration\": 0.29753489990253, \"network_byte_budget\": 0, \"network_bytes_observed\": 0, \"network_policy\": \"none\", \"network_request_budget\": 0, \"network_requests_observed\": 0, \"nonce\": \"42f549d3fbd58c503ebf659813b0e956a762c5d9\", \"observed_sentinels\": [], \"operation_id\": \"provider_verification:provider_execution:c6fe94b505739c9670f7\", \"operation_status\": \"COMPLETED\", \"operation_type\": \"provider_verification\", \"output_identities\": {}, \"output_paths_and_hashes\": {}, \"platform\": \"win32\", \"provider_identity\": null, \"record_hash\": \"1d15f1c6ad38e2fe4243f6bf2c7d92c181db3a0e90feaaee41f8c4e87797afc9\", \"required_sentinels\": [], \"return_code\": 0, \"run_id\": \"batch087-canonical-synthetic\", \"runtime\": \"3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]\", \"runtime_attestation_hash\": \"fac5861316c5f471f1334fcfe468a4f5cb73ab87b018d91c972eaf04e33d5de3\", \"runtime_root_identity\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\", \"source_tree_hash_after\": null, \"source_tree_hash_before\": \"2d56a24386e66baf320b1368ad851d4afc3ec491516efa04cb88b5217f5d64f5\", \"stage_id\": \"provider_execution\", \"start_timestamp\": \"2026-07-14T21:11:50.492333+00:00\", \"stderr_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"stdout_hash\": \"9e13091076809d9c845dc484b21ae2ba965895705d7fec77dd51ec3af7e26e31\", \"test_tree_hash_after\": null, \"test_tree_hash_before\": \"2d56a24386e66baf320b1368ad851d4afc3ec491516efa04cb88b5217f5d64f5\", \"verifier_result\": \"PENDING\", \"working_directory\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\\\\batch087-canonical-synthetic\\\\workspace\"}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "provider_execution"
+      },
+      {
+        "authorization_id": "batch087-canonical-synthetic:duplicate_failure-a:authorization",
+        "created_at": "2026-07-14T21:11:51.161493+00:00",
+        "nonce": "59aab0d035a335ed56b4201d3bff6533f23678c5",
+        "operation_id": "target_execution:duplicate_failure-a:a4888faa3667ed83c625",
+        "record_hash": "c4d929fd499c93918f5abe2410bb7b24da211f2dd4facb5ff6c79c7b6332c9e1",
+        "record_json": "{\"actual_end_time\": \"2026-07-14T21:11:51.157035+00:00\", \"actual_start_time\": \"2026-07-14T21:11:50.819500+00:00\", \"argv\": [\"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\\\python.exe\", \"verify.py\"], \"authorization_id\": \"batch087-canonical-synthetic:duplicate_failure-a:authorization\", \"callable_identity\": null, \"callable_source_hash\": null, \"candidate_id\": \"batch087-canonical-synthetic\", \"candidate_state\": \"UNCHANGED\", \"end_timestamp\": \"2026-07-14T21:11:51.157035+00:00\", \"evidence_kind\": \"EXECUTED_COMMAND\", \"evidence_status\": \"RECORDED\", \"execution_id\": \"target_execution:duplicate_failure-a:1784063510.8195\", \"gate_decision\": \"PENDING_VERIFICATION\", \"independent_verifier\": \"controllergate.execution.execution_claim_verifier\", \"input_identities\": {}, \"input_paths_and_hashes\": {}, \"ledger_parent_hash\": null, \"monotonic_duration\": 0.3398430999368429, \"network_byte_budget\": 0, \"network_bytes_observed\": 0, \"network_policy\": \"none\", \"network_request_budget\": 0, \"network_requests_observed\": 0, \"nonce\": \"59aab0d035a335ed56b4201d3bff6533f23678c5\", \"observed_sentinels\": [], \"operation_id\": \"target_execution:duplicate_failure-a:a4888faa3667ed83c625\", \"operation_status\": \"COMPLETED\", \"operation_type\": \"target_execution\", \"output_identities\": {}, \"output_paths_and_hashes\": {}, \"platform\": \"win32\", \"provider_identity\": null, \"record_hash\": \"c4d929fd499c93918f5abe2410bb7b24da211f2dd4facb5ff6c79c7b6332c9e1\", \"required_sentinels\": [], \"return_code\": 1, \"run_id\": \"batch087-canonical-synthetic\", \"runtime\": \"3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]\", \"runtime_attestation_hash\": \"fac5861316c5f471f1334fcfe468a4f5cb73ab87b018d91c972eaf04e33d5de3\", \"runtime_root_identity\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\", \"source_tree_hash_after\": null, \"source_tree_hash_before\": \"2d56a24386e66baf320b1368ad851d4afc3ec491516efa04cb88b5217f5d64f5\", \"stage_id\": \"duplicate_failure-a\", \"start_timestamp\": \"2026-07-14T21:11:50.819500+00:00\", \"stderr_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"stdout_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"test_tree_hash_after\": null, \"test_tree_hash_before\": \"2d56a24386e66baf320b1368ad851d4afc3ec491516efa04cb88b5217f5d64f5\", \"verifier_result\": \"PENDING\", \"working_directory\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\\\\batch087-canonical-synthetic\\\\workspace\"}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "duplicate_failure-a"
+      },
+      {
+        "authorization_id": "batch087-canonical-synthetic:duplicate_failure-b:authorization",
+        "created_at": "2026-07-14T21:11:51.425735+00:00",
+        "nonce": "7f6598676fd1a223d094b9c3aec28bd258154acc",
+        "operation_id": "target_execution:duplicate_failure-b:ced827b0a500fdbdae74",
+        "record_hash": "286936059769e08718a5eb78c8e9aff8ad62b04e08919f92a8197b714bb255b8",
+        "record_json": "{\"actual_end_time\": \"2026-07-14T21:11:51.422644+00:00\", \"actual_start_time\": \"2026-07-14T21:11:51.183472+00:00\", \"argv\": [\"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\\\python.exe\", \"verify.py\"], \"authorization_id\": \"batch087-canonical-synthetic:duplicate_failure-b:authorization\", \"callable_identity\": null, \"callable_source_hash\": null, \"candidate_id\": \"batch087-canonical-synthetic\", \"candidate_state\": \"UNCHANGED\", \"end_timestamp\": \"2026-07-14T21:11:51.422644+00:00\", \"evidence_kind\": \"EXECUTED_COMMAND\", \"evidence_status\": \"RECORDED\", \"execution_id\": \"target_execution:duplicate_failure-b:1784063511.183472\", \"gate_decision\": \"PENDING_VERIFICATION\", \"independent_verifier\": \"controllergate.execution.execution_claim_verifier\", \"input_identities\": {}, \"input_paths_and_hashes\": {}, \"ledger_parent_hash\": null, \"monotonic_duration\": 0.24035550002008677, \"network_byte_budget\": 0, \"network_bytes_observed\": 0, \"network_policy\": \"none\", \"network_request_budget\": 0, \"network_requests_observed\": 0, \"nonce\": \"7f6598676fd1a223d094b9c3aec28bd258154acc\", \"observed_sentinels\": [], \"operation_id\": \"target_execution:duplicate_failure-b:ced827b0a500fdbdae74\", \"operation_status\": \"COMPLETED\", \"operation_type\": \"target_execution\", \"output_identities\": {}, \"output_paths_and_hashes\": {}, \"platform\": \"win32\", \"provider_identity\": null, \"record_hash\": \"286936059769e08718a5eb78c8e9aff8ad62b04e08919f92a8197b714bb255b8\", \"required_sentinels\": [], \"return_code\": 1, \"run_id\": \"batch087-canonical-synthetic\", \"runtime\": \"3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]\", \"runtime_attestation_hash\": \"fac5861316c5f471f1334fcfe468a4f5cb73ab87b018d91c972eaf04e33d5de3\", \"runtime_root_identity\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\", \"source_tree_hash_after\": null, \"source_tree_hash_before\": \"fe4221049faeb9e0b19f3f2e5deb536bc307917c711684690f066a1750e57e33\", \"stage_id\": \"duplicate_failure-b\", \"start_timestamp\": \"2026-07-14T21:11:51.183472+00:00\", \"stderr_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"stdout_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"test_tree_hash_after\": null, \"test_tree_hash_before\": \"fe4221049faeb9e0b19f3f2e5deb536bc307917c711684690f066a1750e57e33\", \"verifier_result\": \"PENDING\", \"working_directory\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\\\\batch087-canonical-synthetic\\\\workspace\"}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "duplicate_failure-b"
+      },
+      {
+        "authorization_id": "batch087-canonical-synthetic:patch_application:authorization",
+        "created_at": "2026-07-14T21:11:51.849680+00:00",
+        "nonce": "637d139333367b4d4a483cb237e1667c435f5177",
+        "operation_id": "patch_application:patch_application:5788b934deb7317ef183",
+        "record_hash": "8701099c799a90e56df2b8cd8bd926df7070778643e2b5f1af8961c6fac7f2b3",
+        "record_json": "{\"actual_end_time\": \"2026-07-14T21:11:51.845965+00:00\", \"actual_start_time\": \"2026-07-14T21:11:51.458491+00:00\", \"argv\": [\"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\\\python.exe\", \"-c\", \"from pathlib import Path;import sys;p=Path(sys.argv[1]);s=p.read_text();old=sys.argv[2];new=sys.argv[3];assert old in s;p.write_text(s.replace(old,new,1),newline='\\\\n')\", \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\\\\batch087-canonical-synthetic\\\\workspace\\\\app.py\", \"return value.strip()\", \"return value.strip().lower()\"], \"authorization_id\": \"batch087-canonical-synthetic:patch_application:authorization\", \"callable_identity\": null, \"callable_source_hash\": null, \"candidate_id\": \"batch087-canonical-synthetic\", \"candidate_state\": \"UNCHANGED\", \"end_timestamp\": \"2026-07-14T21:11:51.845965+00:00\", \"evidence_kind\": \"EXECUTED_COMMAND\", \"evidence_status\": \"RECORDED\", \"execution_id\": \"patch_application:patch_application:1784063511.458491\", \"gate_decision\": \"PENDING_VERIFICATION\", \"independent_verifier\": \"controllergate.execution.execution_claim_verifier\", \"input_identities\": {}, \"input_paths_and_hashes\": {}, \"ledger_parent_hash\": null, \"monotonic_duration\": 0.3895958000794053, \"network_byte_budget\": 0, \"network_bytes_observed\": 0, \"network_policy\": \"none\", \"network_request_budget\": 0, \"network_requests_observed\": 0, \"nonce\": \"637d139333367b4d4a483cb237e1667c435f5177\", \"observed_sentinels\": [], \"operation_id\": \"patch_application:patch_application:5788b934deb7317ef183\", \"operation_status\": \"COMPLETED\", \"operation_type\": \"patch_application\", \"output_identities\": {}, \"output_paths_and_hashes\": {}, \"platform\": \"win32\", \"provider_identity\": null, \"record_hash\": \"8701099c799a90e56df2b8cd8bd926df7070778643e2b5f1af8961c6fac7f2b3\", \"required_sentinels\": [], \"return_code\": 0, \"run_id\": \"batch087-canonical-synthetic\", \"runtime\": \"3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]\", \"runtime_attestation_hash\": \"fac5861316c5f471f1334fcfe468a4f5cb73ab87b018d91c972eaf04e33d5de3\", \"runtime_root_identity\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\", \"source_tree_hash_after\": null, \"source_tree_hash_before\": \"fe4221049faeb9e0b19f3f2e5deb536bc307917c711684690f066a1750e57e33\", \"stage_id\": \"patch_application\", \"start_timestamp\": \"2026-07-14T21:11:51.458491+00:00\", \"stderr_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"stdout_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"test_tree_hash_after\": null, \"test_tree_hash_before\": \"fe4221049faeb9e0b19f3f2e5deb536bc307917c711684690f066a1750e57e33\", \"verifier_result\": \"PENDING\", \"working_directory\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\\\\batch087-canonical-synthetic\\\\workspace\"}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "patch_application"
+      },
+      {
+        "authorization_id": "batch087-canonical-synthetic:validation:authorization",
+        "created_at": "2026-07-14T21:11:52.082081+00:00",
+        "nonce": "4cfe71c7249c34c91b2d81824bb99aeb30ff9a32",
+        "operation_id": "validation:validation:94c69a097c5ab72e4140",
+        "record_hash": "36100966ba0574cd52afbb5e0c1f36ba46728383cfb68a237230d04bc0b18582",
+        "record_json": "{\"actual_end_time\": \"2026-07-14T21:11:52.078656+00:00\", \"actual_start_time\": \"2026-07-14T21:11:51.869551+00:00\", \"argv\": [\"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\\\python.exe\", \"verify.py\"], \"authorization_id\": \"batch087-canonical-synthetic:validation:authorization\", \"callable_identity\": null, \"callable_source_hash\": null, \"candidate_id\": \"batch087-canonical-synthetic\", \"candidate_state\": \"UNCHANGED\", \"end_timestamp\": \"2026-07-14T21:11:52.078656+00:00\", \"evidence_kind\": \"EXECUTED_COMMAND\", \"evidence_status\": \"RECORDED\", \"execution_id\": \"validation:validation:1784063511.869551\", \"gate_decision\": \"PENDING_VERIFICATION\", \"independent_verifier\": \"controllergate.execution.execution_claim_verifier\", \"input_identities\": {}, \"input_paths_and_hashes\": {}, \"ledger_parent_hash\": null, \"monotonic_duration\": 0.21068230003584176, \"network_byte_budget\": 0, \"network_bytes_observed\": 0, \"network_policy\": \"none\", \"network_request_budget\": 0, \"network_requests_observed\": 0, \"nonce\": \"4cfe71c7249c34c91b2d81824bb99aeb30ff9a32\", \"observed_sentinels\": [], \"operation_id\": \"validation:validation:94c69a097c5ab72e4140\", \"operation_status\": \"COMPLETED\", \"operation_type\": \"validation\", \"output_identities\": {}, \"output_paths_and_hashes\": {}, \"platform\": \"win32\", \"provider_identity\": null, \"record_hash\": \"36100966ba0574cd52afbb5e0c1f36ba46728383cfb68a237230d04bc0b18582\", \"required_sentinels\": [], \"return_code\": 0, \"run_id\": \"batch087-canonical-synthetic\", \"runtime\": \"3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]\", \"runtime_attestation_hash\": \"fac5861316c5f471f1334fcfe468a4f5cb73ab87b018d91c972eaf04e33d5de3\", \"runtime_root_identity\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\", \"source_tree_hash_after\": null, \"source_tree_hash_before\": \"5cb25bb168a85752a9cd275b6db00104507ac1eb9de42b2cc23ede2894efaaff\", \"stage_id\": \"validation\", \"start_timestamp\": \"2026-07-14T21:11:51.869551+00:00\", \"stderr_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"stdout_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"test_tree_hash_after\": null, \"test_tree_hash_before\": \"5cb25bb168a85752a9cd275b6db00104507ac1eb9de42b2cc23ede2894efaaff\", \"verifier_result\": \"PENDING\", \"working_directory\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\\\\batch087-canonical-synthetic\\\\workspace\"}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "validation"
+      },
+      {
+        "authorization_id": "batch087-canonical-synthetic:duplicate_clean_replay:authorization",
+        "created_at": "2026-07-14T21:11:52.320430+00:00",
+        "nonce": "1dc9476b201beb438e07234ea0f91e7b77e088e8",
+        "operation_id": "duplicate_replay:duplicate_clean_replay:d5e2ba2b5ba470977cab",
+        "record_hash": "3c51726ebdae6e647f1577becbd5d47d4f2dac97c901a9feff23eb13e25bc03c",
+        "record_json": "{\"actual_end_time\": \"2026-07-14T21:11:52.317522+00:00\", \"actual_start_time\": \"2026-07-14T21:11:52.098998+00:00\", \"argv\": [\"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\\\python.exe\", \"verify.py\"], \"authorization_id\": \"batch087-canonical-synthetic:duplicate_clean_replay:authorization\", \"callable_identity\": null, \"callable_source_hash\": null, \"candidate_id\": \"batch087-canonical-synthetic\", \"candidate_state\": \"UNCHANGED\", \"end_timestamp\": \"2026-07-14T21:11:52.317522+00:00\", \"evidence_kind\": \"EXECUTED_COMMAND\", \"evidence_status\": \"RECORDED\", \"execution_id\": \"duplicate_replay:duplicate_clean_replay:1784063512.098998\", \"gate_decision\": \"PENDING_VERIFICATION\", \"independent_verifier\": \"controllergate.execution.execution_claim_verifier\", \"input_identities\": {}, \"input_paths_and_hashes\": {}, \"ledger_parent_hash\": null, \"monotonic_duration\": 0.2200556000461802, \"network_byte_budget\": 0, \"network_bytes_observed\": 0, \"network_policy\": \"none\", \"network_request_budget\": 0, \"network_requests_observed\": 0, \"nonce\": \"1dc9476b201beb438e07234ea0f91e7b77e088e8\", \"observed_sentinels\": [], \"operation_id\": \"duplicate_replay:duplicate_clean_replay:d5e2ba2b5ba470977cab\", \"operation_status\": \"COMPLETED\", \"operation_type\": \"duplicate_replay\", \"output_identities\": {}, \"output_paths_and_hashes\": {}, \"platform\": \"win32\", \"provider_identity\": null, \"record_hash\": \"3c51726ebdae6e647f1577becbd5d47d4f2dac97c901a9feff23eb13e25bc03c\", \"required_sentinels\": [], \"return_code\": 0, \"run_id\": \"batch087-canonical-synthetic\", \"runtime\": \"3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]\", \"runtime_attestation_hash\": \"fac5861316c5f471f1334fcfe468a4f5cb73ab87b018d91c972eaf04e33d5de3\", \"runtime_root_identity\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\", \"source_tree_hash_after\": null, \"source_tree_hash_before\": \"faf35e10ff5b28561c2ab606f86c9c486e29e0951f3a3fe10e14a51e3799008a\", \"stage_id\": \"duplicate_clean_replay\", \"start_timestamp\": \"2026-07-14T21:11:52.098998+00:00\", \"stderr_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"stdout_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"test_tree_hash_after\": null, \"test_tree_hash_before\": \"faf35e10ff5b28561c2ab606f86c9c486e29e0951f3a3fe10e14a51e3799008a\", \"verifier_result\": \"PENDING\", \"working_directory\": \"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\\\\batch087-canonical-synthetic\\\\workspace\"}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "duplicate_clean_replay"
+      }
+    ],
+    "checkpoints": [
+      {
+        "committed_at": "2026-07-14T21:11:52.324212+00:00",
+        "event_hash": "986eab1269cd42a827516238b727b5f64997d4716f963c35311dd75339232187",
+        "run_id": "batch087-canonical-synthetic",
+        "stage": "proof_append",
+        "state_json": "{\"stage\": \"proof_append\", \"token_hash\": \"8575a6239520b809b1322e95267f0abfa2cddf002049fea9e9199f4396d9253c\"}"
+      }
+    ],
+    "count_records": [],
+    "events": [
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:50.445822+00:00",
+        "event_hash": "6178a6a9cef53cce5e65cd4cef63cc77f0f6aa1aebb9edaab9b3927cc822ba03",
+        "event_id": "batch087-canonical-synthetic:created",
+        "event_type": "RUN_CREATED",
+        "input_token_hashes": "[]",
+        "output_token_hashes": "[]",
+        "parent_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:50.473490+00:00",
+        "event_hash": "92aff1ca8f1df997c95da4fa3c42935011d227860b6695a92d9b988b06d9a7bf",
+        "event_id": "batch087-canonical-synthetic:candidate_identity:4f53cda18c2baa0c",
+        "event_type": "candidate_identity",
+        "input_token_hashes": "[]",
+        "output_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\"]",
+        "parent_event_hash": "6178a6a9cef53cce5e65cd4cef63cc77f0f6aa1aebb9edaab9b3927cc822ba03",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:50.476031+00:00",
+        "event_hash": "ecae92999f62306aba71617c57ec8c487442b0b464d0f0331386864563afa84f",
+        "event_id": "batch087-canonical-synthetic:source_acquisition:c08bf7e43a0ed314",
+        "event_type": "source_acquisition",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\"]",
+        "output_token_hashes": "[\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\"]",
+        "parent_event_hash": "92aff1ca8f1df997c95da4fa3c42935011d227860b6695a92d9b988b06d9a7bf",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:50.478483+00:00",
+        "event_hash": "40808d229d6b6984146f00eedb7a3f2c7a276277a236ddce3ded91523c56a9ec",
+        "event_id": "batch087-canonical-synthetic:runtime_attestation:bf4482bb42eb692b",
+        "event_type": "runtime_attestation",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\"]",
+        "output_token_hashes": "[\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\"]",
+        "parent_event_hash": "ecae92999f62306aba71617c57ec8c487442b0b464d0f0331386864563afa84f",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:50.795212+00:00",
+        "event_hash": "853d672c2141ec8378a359db8110acb566bd116c12b3a80fa499917c17c98c9d",
+        "event_id": "batch087-canonical-synthetic:provider_execution:68ab2631a8c04bde",
+        "event_type": "provider_execution",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\"]",
+        "output_token_hashes": "[\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\"]",
+        "parent_event_hash": "40808d229d6b6984146f00eedb7a3f2c7a276277a236ddce3ded91523c56a9ec",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:50.798023+00:00",
+        "event_hash": "b92212272043aced5ebc6d0b7f51a4132a94d2f85bf2cd0349357da9c02315ac",
+        "event_id": "batch087-canonical-synthetic:target_provenance:d87d74c2f0007d97",
+        "event_type": "target_provenance",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\",\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\"]",
+        "output_token_hashes": "[\"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\"]",
+        "parent_event_hash": "853d672c2141ec8378a359db8110acb566bd116c12b3a80fa499917c17c98c9d",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:50.801302+00:00",
+        "event_hash": "fe579be8f4d6e3eedca3fd2b158ec507ba74bed6a5f019c9c33574108b752322",
+        "event_id": "batch087-canonical-synthetic:command_authority:17b4eb0d1fae901c",
+        "event_type": "command_authority",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\",\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\",\"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\"]",
+        "output_token_hashes": "[\"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\"]",
+        "parent_event_hash": "b92212272043aced5ebc6d0b7f51a4132a94d2f85bf2cd0349357da9c02315ac",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:51.427373+00:00",
+        "event_hash": "31f368e9d75fdcd774f9cf01899db953bd7d25e1933c9b1fb609abf37d1ec17a",
+        "event_id": "batch087-canonical-synthetic:duplicate_failure:6d53244b0f224555",
+        "event_type": "duplicate_failure",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\",\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\",\"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\",\"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\"]",
+        "output_token_hashes": "[\"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\"]",
+        "parent_event_hash": "fe579be8f4d6e3eedca3fd2b158ec507ba74bed6a5f019c9c33574108b752322",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:51.430129+00:00",
+        "event_hash": "62485f47289858ed130180891afb4953e71b80c2ea00429817fc4ababaab100b",
+        "event_id": "batch087-canonical-synthetic:causal_ownership:1070dadfd160a31c",
+        "event_type": "causal_ownership",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\",\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\",\"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\",\"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\",\"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\"]",
+        "output_token_hashes": "[\"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\"]",
+        "parent_event_hash": "31f368e9d75fdcd774f9cf01899db953bd7d25e1933c9b1fb609abf37d1ec17a",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:51.432320+00:00",
+        "event_hash": "e7d9ac36c4b14a468f0d6d9070d4214bb14c415418db4f9dbc067f4669a0edb9",
+        "event_id": "batch087-canonical-synthetic:ast_contact:b0cada09b94515af",
+        "event_type": "ast_contact",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\",\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\",\"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\",\"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\",\"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\",\"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\"]",
+        "output_token_hashes": "[\"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\"]",
+        "parent_event_hash": "62485f47289858ed130180891afb4953e71b80c2ea00429817fc4ababaab100b",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:51.436448+00:00",
+        "event_hash": "df3986611a3d0c8933f220ddfea7ff2626f0583fe05d42ddb5986d5298745c2b",
+        "event_id": "batch087-canonical-synthetic:repair_license:d6b5821d81d772cd",
+        "event_type": "repair_license",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\",\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\",\"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\",\"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\",\"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\",\"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\",\"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\"]",
+        "output_token_hashes": "[\"941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d\"]",
+        "parent_event_hash": "e7d9ac36c4b14a468f0d6d9070d4214bb14c415418db4f9dbc067f4669a0edb9",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:51.851871+00:00",
+        "event_hash": "70cfb98d98a1dd9457115b1479a17551b6f7ba2099c294de91570034d0333116",
+        "event_id": "batch087-canonical-synthetic:patch_application:f7c990fef2637fb8",
+        "event_type": "patch_application",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\",\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\",\"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\",\"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\",\"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\",\"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\",\"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\",\"941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d\"]",
+        "output_token_hashes": "[\"89a7bd9bad7fb621debf4d5325bad368b8efc01300d71c4b0cfb188a75c5a480\"]",
+        "parent_event_hash": "df3986611a3d0c8933f220ddfea7ff2626f0583fe05d42ddb5986d5298745c2b",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:52.083546+00:00",
+        "event_hash": "4e99465927be3278f2cc6afef511f4b2355b3c955b7ba1938272039ee0eafd6e",
+        "event_id": "batch087-canonical-synthetic:validation:cd1130fcf51ce148",
+        "event_type": "validation",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\",\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\",\"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\",\"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\",\"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\",\"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\",\"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\",\"941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d\",\"89a7bd9bad7fb621debf4d5325bad368b8efc01300d71c4b0cfb188a75c5a480\"]",
+        "output_token_hashes": "[\"8fad2b1d5724c3472d7adb9005526d908d800acb114f869fe223ecad7d6485ba\"]",
+        "parent_event_hash": "70cfb98d98a1dd9457115b1479a17551b6f7ba2099c294de91570034d0333116",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:52.322021+00:00",
+        "event_hash": "cef02430eaa00ccbfb75ae0a1e17c3cf0743c40c2d542cc3b68f502a7d77afdc",
+        "event_id": "batch087-canonical-synthetic:duplicate_clean_replay:7c526a177da14104",
+        "event_type": "duplicate_clean_replay",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\",\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\",\"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\",\"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\",\"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\",\"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\",\"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\",\"941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d\",\"89a7bd9bad7fb621debf4d5325bad368b8efc01300d71c4b0cfb188a75c5a480\",\"8fad2b1d5724c3472d7adb9005526d908d800acb114f869fe223ecad7d6485ba\"]",
+        "output_token_hashes": "[\"02a04ff737bace663e183fab993919645717fc4ba125480716ef494569f35dcc\"]",
+        "parent_event_hash": "4e99465927be3278f2cc6afef511f4b2355b3c955b7ba1938272039ee0eafd6e",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:52.324372+00:00",
+        "event_hash": "986eab1269cd42a827516238b727b5f64997d4716f963c35311dd75339232187",
+        "event_id": "batch087-canonical-synthetic:proof_append:e4ca7ab58f8cb40b",
+        "event_type": "proof_append",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\",\"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\",\"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\",\"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\",\"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\",\"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\",\"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\",\"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\",\"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\",\"941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d\",\"89a7bd9bad7fb621debf4d5325bad368b8efc01300d71c4b0cfb188a75c5a480\",\"8fad2b1d5724c3472d7adb9005526d908d800acb114f869fe223ecad7d6485ba\",\"02a04ff737bace663e183fab993919645717fc4ba125480716ef494569f35dcc\"]",
+        "output_token_hashes": "[\"8575a6239520b809b1322e95267f0abfa2cddf002049fea9e9199f4396d9253c\"]",
+        "parent_event_hash": "cef02430eaa00ccbfb75ae0a1e17c3cf0743c40c2d542cc3b68f502a7d77afdc",
+        "run_id": "batch087-canonical-synthetic",
+        "status": "PASS",
+        "worker_identity": "controllergate:37856"
+      },
+      {
+        "blocker": null,
+        "created_at": "2026-07-14T21:11:57.255053+00:00",
+        "event_hash": "b221dd4eb669a4d0a4e32782c6b71d5343999841ac38dae31924a6b729849357",
+        "event_id": "batch087-migrated-fixture:created",
+        "event_type": "RUN_CREATED",
+        "input_token_hashes": "[]",
+        "output_token_hashes": "[]",
+        "parent_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "run_id": "batch087-migrated-fixture",
+        "status": "PASS",
+        "worker_identity": "controllergate"
+      }
+    ],
+    "proof_events": [],
+    "reaction_tokens": [
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:50.472756+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[]",
+        "payload_identity": "0dfb51358a90656ebe94b6177f2b3267716064ffa131b6df2f5e0db3f6606127",
+        "producer_event": "candidate_identity",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9",
+        "token_type": "CANDIDATE_IDENTITY_VERIFIED_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:50.475535+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\"]",
+        "payload_identity": "3481318499ed62a22722eb01f3010fd994d27b8cf4b563d6ab8ae29d539f5632",
+        "producer_event": "source_acquisition",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff",
+        "token_type": "SOURCE_ACQUIRED_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:50.477874+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\"]",
+        "payload_identity": "d30d8d288632709b60e10917ce921091dd5cd7abe2e38956950fbc6c5b029aa4",
+        "producer_event": "runtime_attestation",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f",
+        "token_type": "RUNTIME_ATTESTED_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:50.794241+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\"]",
+        "payload_identity": "b5cda8ec4b0360bcfc0179da3b9e1385360c41b9c211965a972a4f62abbc11e1",
+        "producer_event": "provider_execution",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f",
+        "token_type": "PROVIDER_EXECUTION_READY_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:50.797260+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\", \"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\"]",
+        "payload_identity": "d96506e247006360651774409767bb1c759ad5b0ae0873b49ab9c5cffb5c8da5",
+        "producer_event": "target_provenance",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37",
+        "token_type": "TARGET_OR_REPRODUCER_VERIFIED_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:50.800377+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\", \"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\", \"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\"]",
+        "payload_identity": "3fc06d23df7a5678a8318e55cf04a0b4563d62e64a24263dae72febad38fa1d6",
+        "producer_event": "command_authority",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107",
+        "token_type": "COMMAND_AUTHORITY_VERIFIED_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:51.426830+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\", \"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\", \"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\", \"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\"]",
+        "payload_identity": "afdc32c4e0d333ea18bd6286009aaa0edf9370e1bf03f3294329d6b01ac64646",
+        "producer_event": "duplicate_failure",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c",
+        "token_type": "DUPLICATE_FAILURE_REPRODUCED_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:51.429619+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\", \"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\", \"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\", \"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\", \"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\"]",
+        "payload_identity": "4e47cafa996a4fd264962e505682f392bf55d8524278007c7c0078ca2d1d7e60",
+        "producer_event": "causal_ownership",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e",
+        "token_type": "CAUSAL_OWNERSHIP_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:51.431690+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\", \"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\", \"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\", \"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\", \"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\", \"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\"]",
+        "payload_identity": "bc06c540abc1a3bdf9e1060dc8ad15b01533ddfce34936c3df7fbfe69586eae3",
+        "producer_event": "ast_contact",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f",
+        "token_type": "AST_CONTACT_DOMAIN_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:51.436011+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\", \"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\", \"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\", \"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\", \"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\", \"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\", \"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\"]",
+        "payload_identity": "9a1aaad696808184335e5b36bdc4a695950691e540581a9ec51b6cfb3494fdd3",
+        "producer_event": "repair_license",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d",
+        "token_type": "REPAIR_LICENSE_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:51.851242+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\", \"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\", \"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\", \"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\", \"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\", \"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\", \"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\", \"941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d\"]",
+        "payload_identity": "cbeda0ab4788ab51a2f4454237a59ff8468f216b7bbeaf080708283cb8e7793e",
+        "producer_event": "patch_application",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "89a7bd9bad7fb621debf4d5325bad368b8efc01300d71c4b0cfb188a75c5a480",
+        "token_type": "PATCH_APPLIED_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:52.083066+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\", \"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\", \"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\", \"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\", \"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\", \"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\", \"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\", \"941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d\", \"89a7bd9bad7fb621debf4d5325bad368b8efc01300d71c4b0cfb188a75c5a480\"]",
+        "payload_identity": "af4cc1309e434c705140e218aafb0106f327b7110a0a2813ba75d2c53beafe6c",
+        "producer_event": "validation",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "8fad2b1d5724c3472d7adb9005526d908d800acb114f869fe223ecad7d6485ba",
+        "token_type": "VALIDATION_PASSED_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:52.321410+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\", \"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\", \"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\", \"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\", \"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\", \"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\", \"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\", \"941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d\", \"89a7bd9bad7fb621debf4d5325bad368b8efc01300d71c4b0cfb188a75c5a480\", \"8fad2b1d5724c3472d7adb9005526d908d800acb114f869fe223ecad7d6485ba\"]",
+        "payload_identity": "f8489c50793fe7559520a08e7368b6978b73f2d8560a8217838c6e4d7f50aa27",
+        "producer_event": "duplicate_clean_replay",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "02a04ff737bace663e183fab993919645717fc4ba125480716ef494569f35dcc",
+        "token_type": "DUPLICATE_CLEAN_REPLAY_TOKEN"
+      },
+      {
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:52.323818+00:00",
+        "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+        "input_token_hashes": "[\"075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9\", \"235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff\", \"82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f\", \"33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f\", \"cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37\", \"1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107\", \"369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c\", \"4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e\", \"e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f\", \"941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d\", \"89a7bd9bad7fb621debf4d5325bad368b8efc01300d71c4b0cfb188a75c5a480\", \"8fad2b1d5724c3472d7adb9005526d908d800acb114f869fe223ecad7d6485ba\", \"02a04ff737bace663e183fab993919645717fc4ba125480716ef494569f35dcc\"]",
+        "payload_identity": "c6c1e35bbd62f540dd382c77833f1ac820d0306459d9c1f0e7fc9d8e6cd59c1c",
+        "producer_event": "proof_append",
+        "run_id": "batch087-canonical-synthetic",
+        "token_hash": "8575a6239520b809b1322e95267f0abfa2cddf002049fea9e9199f4396d9253c",
+        "token_type": "PROOF_APPENDED_TOKEN"
+      }
+    ],
+    "release_decisions": [
+      {
+        "created_at": "2026-07-14T21:12:33.666865+00:00",
+        "decision_hash": "a4722a58b46e03f10675cc784ec115f04918ca0109aaf79022f14157a14d0291",
+        "decision_json": "{\"blockers\": [\"canonical_historical_source_and_provider_capsules_not_present_in_main_artifact\", \"project_level_non_source_reproducer_capsules_not_present_for_canonical_reexecution\", \"canonical_historical_repair_package_not_available\", \"cross_platform_installed_package_evidence_requires_official_linux_and_windows_jobs\"], \"canonical_architecture\": \"IMPLEMENTED\", \"canonical_execution_graph\": \"PASS\", \"next_safe_action\": \"provide short-lived historical source/provider capsules to the official Batch087 canonical lifecycle jobs\", \"package_version\": \"0.2.0b2.dev0\", \"packaging\": \"LOCAL_PLATFORM_PASS_CROSS_PLATFORM_REVALIDATION_REQUIRED\", \"parent_hash\": \"0000000000000000000000000000000000000000000000000000000000000000\", \"release_lineage_status\": \"BATCH086_PROVISIONAL_RC_INVALIDATED_BEFORE_PUBLICATION\", \"reopen_conditions\": [\"transport verified historical source/provider capsules\", \"run two project-level non-source reproducers\", \"deploy a distinct repaired-package canary with health and rollback\", \"join official Linux and Windows installed traces\"], \"status\": \"PRODUCT_BETA_RC_BLOCKED_EXACT\"}",
+        "package_version": "0.2.0b2.dev0",
+        "parent_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "status": "PRODUCT_BETA_RC_BLOCKED_EXACT"
+      }
+    ],
+    "run_manifests": [
+      {
+        "manifest_hash": "8dbc443b8a1899ed1d35be2aa51f291426aff1122b924d0e2d43670c04b7bc6f",
+        "manifest_json": "{\"allowed_source_paths\":[\"app.py\"],\"candidate_id\":\"batch087-canonical-synthetic\",\"claim_boundary\":\"architecture-proof-not-repair-count\",\"fixture_root\":\"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\fixture\",\"incident_command\":[\"verify.py\"],\"incident_id\":\"synthetic-call-graph-proof\",\"patch_plan\":{\"new\":\"return value.strip().lower()\",\"old\":\"return value.strip()\",\"path\":\"app.py\"},\"run_id\":\"batch087-canonical-synthetic\",\"runtime_root\":\"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\canonical-runtime\"}",
+        "run_id": "batch087-canonical-synthetic"
+      },
+      {
+        "manifest_hash": "af94893f814313b93c9bdb403c32f02ec3374059e6f76e729838e8bb94339982",
+        "manifest_json": "{\"migration_source_hash\":\"c96c39e263bb7f19feffc65b1e2757d9d09028ac29c7d548938f488ba63c121f\",\"read_only_source\":\"C:\\\\Users\\\\thisb\\\\AppData\\\\Local\\\\Temp\\\\controllergate-batch087-runtime-o9b220fz\\\\legacy.json\"}",
+        "run_id": "batch087-migrated-fixture"
+      }
+    ],
+    "runs": [
+      {
+        "blocker": null,
+        "candidate_id": "batch087-canonical-synthetic",
+        "created_at": "2026-07-14T21:11:50.445354+00:00",
+        "reopen_state": null,
+        "retry_count": 0,
+        "run_id": "batch087-canonical-synthetic",
+        "status": "CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS",
+        "terminal": 1,
+        "updated_at": "2026-07-14T21:11:52.325838+00:00"
+      },
+      {
+        "blocker": null,
+        "candidate_id": "fixture",
+        "created_at": "2026-07-14T21:11:57.254270+00:00",
+        "reopen_state": null,
+        "retry_count": 0,
+        "run_id": "batch087-migrated-fixture",
+        "status": "CREATED",
+        "terminal": 0,
+        "updated_at": "2026-07-14T21:11:57.254270+00:00"
+      }
+    ],
+    "spent_nonces": [
+      {
+        "nonce": "42f549d3fbd58c503ebf659813b0e956a762c5d9",
+        "run_id": "batch087-canonical-synthetic",
+        "spent_at": "2026-07-14T21:11:50.790135+00:00"
+      },
+      {
+        "nonce": "59aab0d035a335ed56b4201d3bff6533f23678c5",
+        "run_id": "batch087-canonical-synthetic",
+        "spent_at": "2026-07-14T21:11:51.159637+00:00"
+      },
+      {
+        "nonce": "7f6598676fd1a223d094b9c3aec28bd258154acc",
+        "run_id": "batch087-canonical-synthetic",
+        "spent_at": "2026-07-14T21:11:51.424057+00:00"
+      },
+      {
+        "nonce": "637d139333367b4d4a483cb237e1667c435f5177",
+        "run_id": "batch087-canonical-synthetic",
+        "spent_at": "2026-07-14T21:11:51.848289+00:00"
+      },
+      {
+        "nonce": "4cfe71c7249c34c91b2d81824bb99aeb30ff9a32",
+        "run_id": "batch087-canonical-synthetic",
+        "spent_at": "2026-07-14T21:11:52.080446+00:00"
+      },
+      {
+        "nonce": "1dc9476b201beb438e07234ea0f91e7b77e088e8",
+        "run_id": "batch087-canonical-synthetic",
+        "spent_at": "2026-07-14T21:11:52.319276+00:00"
+      }
+    ],
+    "stage_outputs": [
+      {
+        "event_id": "batch087-canonical-synthetic:candidate_identity:4f53cda18c2baa0c",
+        "input_identity": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "output_hash": "837a98bdec8fe16dc14975ed4e8de005132a1a45850f4e3ee0867fa536680281",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"stage_id\": \"candidate_identity\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "candidate_identity"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:source_acquisition:c08bf7e43a0ed314",
+        "input_identity": "c08bf7e43a0ed3149183b5c5d39df9d03087b90924700f8b79b3b158dad28f77",
+        "output_hash": "194d7eba9bad6f8190476deb4f8b5e77bf6c3dbe9becd6f43eee00769a629961",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"stage_id\": \"source_acquisition\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "source_acquisition"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:runtime_attestation:bf4482bb42eb692b",
+        "input_identity": "bf4482bb42eb692b0b61c1d64602f2c09151966bff28e4b3efce74e35a4a0a49",
+        "output_hash": "449d8bceadfe44d65d875dabe649a31a41006a8412d7b3017098ab063ca6d486",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"stage_id\": \"runtime_attestation\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "runtime_attestation"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:provider_execution:68ab2631a8c04bde",
+        "input_identity": "68ab2631a8c04bde1ebfa63e4eeaac628f8b594e0721a725af274d14c4c001d4",
+        "output_hash": "28a8b5b860dbbfaa92f1216e61aa4c243ee1e7d1c7008f929827ed030f59bd63",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"broker_record_hash\": \"1d15f1c6ad38e2fe4243f6bf2c7d92c181db3a0e90feaaee41f8c4e87797afc9\", \"return_code\": 0, \"stage_id\": \"provider_execution\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "provider_execution"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:target_provenance:d87d74c2f0007d97",
+        "input_identity": "d87d74c2f0007d97579a84f70759cb6ab8677126c8844445919a0e7c6368204d",
+        "output_hash": "9d7b64e213e32094607f4c77a411f19f7032fce788fcae52c99734de6d72b796",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"stage_id\": \"target_provenance\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "target_provenance"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:command_authority:17b4eb0d1fae901c",
+        "input_identity": "17b4eb0d1fae901c84d372aa379811b19b4c66ae08325d832ec307fba9fbdd16",
+        "output_hash": "caff770cd0fb3db7fa702f0c97d1f3a107848c5603cb3dc7ae0d993010fe023f",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"stage_id\": \"command_authority\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "command_authority"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:duplicate_failure:6d53244b0f224555",
+        "input_identity": "6d53244b0f224555f6b6911a78604843fe468fe236b5a9258eb48fd941cc477c",
+        "output_hash": "acc90e8c55fd6eac1faba2c3c010bdb699ab7fe32bd79da9fd45940dd400c57a",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"executions\": [{\"record_hash\": \"c4d929fd499c93918f5abe2410bb7b24da211f2dd4facb5ff6c79c7b6332c9e1\", \"return_code\": 1}, {\"record_hash\": \"286936059769e08718a5eb78c8e9aff8ad62b04e08919f92a8197b714bb255b8\", \"return_code\": 1}], \"failure_reproduced\": true, \"stage_id\": \"duplicate_failure\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "duplicate_failure"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:causal_ownership:1070dadfd160a31c",
+        "input_identity": "1070dadfd160a31c623496f81441cf626c980e16acc8aaeef0bfb8652c75a1a8",
+        "output_hash": "b3d5c8685348c651bad85f3c9f741d57c502feb4eca23b9d5993fdf980e73983",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"stage_id\": \"causal_ownership\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "causal_ownership"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:ast_contact:b0cada09b94515af",
+        "input_identity": "b0cada09b94515afe050229f4bc364ee448fcb118985569fef5e5b835741bc7a",
+        "output_hash": "cbdf9e5f628c3864746c8f2f5afeb0043c69d6bc7f985a582c0445fbaa81c569",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"stage_id\": \"ast_contact\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "ast_contact"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:repair_license:d6b5821d81d772cd",
+        "input_identity": "d6b5821d81d772cd50c580be48ada88b795d14781f93a47a4331913c557d35b1",
+        "output_hash": "d2b2ec6af7c0a649f6a47ec52bc77851643833bf687bf219641045a38fe205b0",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"licensing_conditions\": {\"ast_source_contact_localized\": true, \"non_source_alternatives_excluded\": true, \"rollback_proof_nonduplication_claim_ready\": true, \"single_causal_family_after_executed_probes\": true, \"source_only_bounded_test_immutable\": true, \"validation_and_duplicate_replay_executable\": true}, \"repair_license\": true, \"stage_id\": \"repair_license\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "repair_license"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:patch_application:f7c990fef2637fb8",
+        "input_identity": "f7c990fef2637fb800940ccd30f0281ebca10cf832bc545e075fce3319a1a274",
+        "output_hash": "0f0098bb1e21fd7d1fc8bcebffe8ba07ade7bcf50d1a9d0a7acd5a63d80332a4",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"broker_record_hash\": \"8701099c799a90e56df2b8cd8bd926df7070778643e2b5f1af8961c6fac7f2b3\", \"return_code\": 0, \"stage_id\": \"patch_application\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "patch_application"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:validation:cd1130fcf51ce148",
+        "input_identity": "cd1130fcf51ce14866c408743021bb9144eb5b3666552221bf55be15119b5d3d",
+        "output_hash": "0e442b334543a2d0efa9db3e38285b55efd8ce4b70da371cdc7bdda53f2faca9",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"broker_record_hash\": \"36100966ba0574cd52afbb5e0c1f36ba46728383cfb68a237230d04bc0b18582\", \"passed\": true, \"return_code\": 0, \"stage_id\": \"validation\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "validation"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:duplicate_clean_replay:7c526a177da14104",
+        "input_identity": "7c526a177da14104b55e0a1f1cceb1935c175fe7296e451435467db42af5784e",
+        "output_hash": "c6a79a037598d7786c5fd1c534b6434fd4047b06ccc1be7b803f537c774d24ba",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"broker_record_hash\": \"3c51726ebdae6e647f1577becbd5d47d4f2dac97c901a9feff23eb13e25bc03c\", \"passed\": true, \"return_code\": 0, \"stage_id\": \"duplicate_clean_replay\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "duplicate_clean_replay"
+      },
+      {
+        "event_id": "batch087-canonical-synthetic:proof_append:e4ca7ab58f8cb40b",
+        "input_identity": "e4ca7ab58f8cb40b4acc324935f8af83ad3b96bbee61482bb9b60549c702050b",
+        "output_hash": "10814e2d3306a0552f33bd77081c73bf32b40b253635a9a85307432be6ddd0ae",
+        "output_json": "{\"anchor_hash\": \"a0d238358635c59ffd13b685107a955d3d3974f73b0f645d3b3a9b7d698d8dbd\", \"stage_id\": \"proof_append\", \"status\": \"PASS\", \"verified\": true}",
+        "run_id": "batch087-canonical-synthetic",
+        "stage_id": "proof_append"
+      }
+    ]
+  }
+}

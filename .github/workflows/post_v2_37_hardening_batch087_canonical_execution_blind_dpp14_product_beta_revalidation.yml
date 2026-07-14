@@ -1,0 +1,351 @@
+name: post_v2_37_hardening_batch087_canonical_execution_blind_dpp14_product_beta_revalidation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  OUT: outputs/post_v2_37_hardening_batch087_canonical_execution_blind_dpp14_product_beta_revalidation
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  artifact-custody:
+    name: 01 Batch086 artifact custody and portable-manifest reconciliation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/batch086_artifact_ingest.json')); assert p['status']=='PASS'; r=json.load(open('${{ env.OUT }}/batch086_outer_manifest_portability_reconciliation.json')); assert r['status']=='PASS' and r['normalized_failures']==0"
+
+  expected-red:
+    name: 02 expected-red pre-fix critic
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/batch087_pre_fix_expected_failure.json')); assert p['status']=='BATCH087_PRE_FIX_AUDIT_FAIL_EXPECTED' and p['discovered_defect_count']==9"
+
+  tests:
+    name: 03 complete tests and prior-regression preservation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.13'}
+      - run: python -m pip install -e . pytest packaging
+      - run: python -m pytest tests -q
+      - name: Preserve Batch073 through Batch086 audits
+        run: |
+          python scripts/audit_batch073_count5_revalidation_frozen_wave1.py
+          python scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py
+          python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
+          python scripts/audit_batch076_amds_causal_memory_calibration.py
+          python scripts/audit_batch077_typed_event_pathway_memory_v2.py
+          python scripts/audit_batch078_count6_minimal_closure_memory_wave1b.py
+          python scripts/audit_batch079_count6_runtime_incident_memory_wave1c.py
+          python scripts/audit_batch080_executed_preflight_provider_memory_wave1d.py
+          python scripts/audit_batch081_execution_constitution_provider_incident_pilot.py
+          python scripts/audit_batch082_ci_native_maintenance_order_provider_wave1f.py --output outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f
+          python scripts/audit_batch083_reaction_product_cross_area_wave1g.py --out outputs/post_v2_37_hardening_batch083_reaction_product_cross_area_wave1g
+          python scripts/audit_batch084_real_amds_canary_product_beta.py --out outputs/post_v2_37_hardening_batch084_real_amds_canary_product_beta
+          python scripts/audit_batch085_canonical_kernel_product_beta_rc.py
+          python scripts/audit_batch086_historical_lifecycle_dpp14_product_beta_rc.py
+      - name: Preserve protocol, uniqueness, language, and custody gates
+        run: |
+          python scripts/audit_v2_18_origin_licensing_source_acquisition.py
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_bugsinpy_materialized_test_provenance.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_no_hardcoded_production_counts.py
+          python scripts/audit_public_language.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/byte_custody_preflight.py
+      - run: python scripts/run_batch087_canonical_execution_blind_dpp14_product_beta_revalidation.py
+      - run: python scripts/audit_batch087_canonical_execution_blind_dpp14_product_beta_revalidation.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch087-base-evidence
+          path: ${{ env.OUT }}
+          retention-days: 1
+
+  static-reachability:
+    name: 04 static installed reachability
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/audit_installed_product_reachability.py --output ${{ env.OUT }}/canonical_installed_execution_graph.json
+      - run: python scripts/audit_installed_product_reachability.py --negative-control
+
+  dynamic-linux:
+    name: 05 Linux installed dynamic trace
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.13'}
+      - run: python scripts/trace_installed_product_execution.py --platform linux --output ${{ env.OUT }}/installed_dynamic_trace_linux.json
+      - uses: actions/upload-artifact@v4
+        with: {name: batch087-linux-trace, path: "${{ env.OUT }}/installed_dynamic_trace_linux.json", retention-days: 1}
+
+  dynamic-windows:
+    name: 06 Windows installed dynamic trace
+    needs: tests
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.13'}
+      - run: python scripts/trace_installed_product_execution.py --platform windows --output ${{ env.OUT }}/installed_dynamic_trace_windows.json
+      - uses: actions/upload-artifact@v4
+        with: {name: batch087-windows-trace, path: "${{ env.OUT }}/installed_dynamic_trace_windows.json", retention-days: 1}
+
+  sqlite-authority:
+    name: 07 SQLite sole-authority lease crash and resume
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/SQLite_sole_authority_audit.json')); assert p['status']=='PASS' and p['json_writable_authority_count']==0 and p['lease_observed']"
+
+  broker-boundary:
+    name: 08 external-operation broker boundary
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/external_operation_broker_coverage.json')); assert p['status']=='PASS' and p['unbrokered_external_operation_count']==0"
+
+  typed-pathway:
+    name: 09 executable Reactome pathway and 196 proof matrix
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; a=json.load(open('${{ env.OUT }}/reactome_maintenance_pathway_execution.json')); m=json.load(open('${{ env.OUT }}/proof_obligations_196_matrix.json')); assert a['status']=='PASS' and a['stage_count']==14 and m['status']=='PASS' and m['cell_count']==196"
+
+  dpp-decision:
+    name: 10 blind DPP decision bundle generation
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/blind_dpp14_decision_frame_registry.json')); assert p['status']=='PASS' and p['sealed_truth_access'] is False and p['forbidden_field_count']==0"
+
+  dpp-active:
+    name: 11 blind DPP active execution
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; rows=[json.loads(x) for x in open('${{ env.OUT }}/blind_dpp14_probe_execution_registry.jsonl')]; assert len(rows)>=8 and all(r['broker_record_hash'] for r in rows)"
+
+  truth-critic:
+    name: 12 sealed-truth critic join and quality metrics
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/blind_dpp14_quality_gate.json')); assert p['status']=='PASS' and p['episode_count']>=8 and p['wrong_patch_authorization_count']==0"
+
+  dpp-determinism:
+    name: 13 DPP schedule worker and crash determinism
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/blind_dpp14_schedule_determinism.json')); assert p['status']=='PASS' and p['spent_nonce_reuse_rejected']"
+
+  interlocks:
+    name: 14 proof-bound interlock negative controls
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/proof_bound_interlock_audit.json')); assert p['status']=='PASS' and p['literal_pass_authority_count']==0"
+
+  causal-elbow:
+    name: 15 execution-derived causal elbow
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/causal_elbow_execution_derivation.json')); assert p['status']=='PASS' and p['manual_elbow_authority'] is False"
+
+  cloudpickle-lifecycle:
+    name: 16 Cloudpickle canonical historical lifecycle
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/cloudpickle_canonical_historical_lifecycle.json')); assert p['attempted'] and p['historical_count_increment']==0"
+
+  freezegun-lifecycle:
+    name: 17 Freezegun canonical historical lifecycle
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/freezegun_canonical_historical_lifecycle.json')); assert p['attempted'] and p['historical_count_increment']==0"
+
+  non-source-preflight:
+    name: 18 frozen non-source preflight
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/historical_non_source_frozen_frame.json')); assert p['status']=='PASS' and p['sealed_before_execution']"
+
+  non-source-first:
+    name: 19 first non-source lifecycle
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/historical_non_source_lifecycle_results.json')); assert p['attempted'] and p['historical_count_increment']==0"
+
+  non-source-second:
+    name: 20 second non-source lifecycle
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/historical_non_source_lifecycle_results.json')); assert p['bare_import_or_name_presence_not_accepted']"
+
+  canary-health-rollback:
+    name: 21 repaired-package canary health and rollback
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/repaired_package_canary_health_rollback.json')); assert p['status']=='BLOCK' and p['same_target_only_canary_accepted'] is False"
+
+  tld-shadow:
+    name: 22 TLD projection elbow parity and metric-version shadow audit
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; names=['notebooklm_tld_requirements_status','tld_three_projection_execution','tld_projection_ablation','tld_curvature_elbow_audit','tld_baseline_parity_audit','tld_null_effective_sample_audit']; assert all(json.load(open('${{ env.OUT }}/'+n+'.json'))['status']=='PASS' for n in names)"
+
+  public-state:
+    name: 23 public-state generation and exact sync
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - run: python -c "import json; p=json.load(open('${{ env.OUT }}/public_state_generation_audit.json')); assert p['status']=='PASS' and p['generated_from_sqlite_release_decision']"
+      - run: python scripts/controllergate_audit.py --protocol current
+      - run: python scripts/controllergate_run.py --protocol current --dry-run
+
+  package-linux:
+    name: 24 Linux package validation
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.13'}
+      - run: python -c "from pathlib import Path; from scripts.run_batch087_canonical_execution_blind_dpp14_product_beta_revalidation import package_evidence; package_evidence(Path('${{ env.OUT }}'))"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch087-linux-package, path: "${{ env.OUT }}/package_linux.json", retention-days: 1}
+
+  package-windows:
+    name: 25 Windows package validation
+    needs: tests
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.13'}
+      - run: python -c "from pathlib import Path; from scripts.run_batch087_canonical_execution_blind_dpp14_product_beta_revalidation import package_evidence; package_evidence(Path(r'${{ env.OUT }}'))"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch087-windows-package, path: "${{ env.OUT }}/package_windows.json", retention-days: 1}
+
+  independent-critic:
+    name: 26 independent release critic
+    needs: [tests, dynamic-linux, dynamic-windows, package-linux, package-windows]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-base-evidence, path: "${{ env.OUT }}"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-linux-trace, path: "${{ env.OUT }}"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-windows-trace, path: "${{ env.OUT }}"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-linux-package, path: "${{ env.OUT }}"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-windows-package, path: "${{ env.OUT }}"}
+      - run: python -c "import json; a=json.load(open('${{ env.OUT }}/installed_dynamic_trace_linux.json')); b=json.load(open('${{ env.OUT }}/installed_dynamic_trace_windows.json')); open('${{ env.OUT }}/installed_trace_equivalence.json','w').write(json.dumps({'status':'PASS' if a['status']==b['status']=='PASS' else 'BLOCK','linux_status':a['status'],'windows_status':b['status'],'semantic_equivalence_required':True},indent=2,sort_keys=True)+'\n')"
+      - run: python scripts/audit_batch087_canonical_execution_blind_dpp14_product_beta_revalidation.py
+      - uses: actions/upload-artifact@v4
+        with: {name: batch087-critic-evidence, path: "${{ env.OUT }}", retention-days: 1}
+
+  portable-artifact:
+    name: 27 portable artifact packaging
+    needs: independent-critic
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch087-critic-evidence, path: "artifact/${{ env.OUT }}"}
+      - run: |
+          mkdir -p artifact/outputs/current artifact/outputs/frontier artifact/configs
+          cp outputs/current/*.json artifact/outputs/current/
+          cp outputs/frontier/CURRENT_FRONTIER_STATE.json artifact/outputs/frontier/
+          cp configs/batch087_prompt_contract.json configs/notebooklm_tld_requirements_registry.jsonl configs/tld_*.json artifact/configs/
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          root=Path('artifact')
+          records=[]
+          for path in sorted(root.rglob('*')):
+              if path.is_file() and path.name != 'ARTIFACT_SHA256SUMS.txt':
+                  records.append(f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.relative_to(root).as_posix()}\n")
+          (root/'ARTIFACT_SHA256SUMS.txt').write_text(''.join(records),encoding='utf-8',newline='\n')
+          assert not any(p.name.endswith('.pyc') or '__pycache__' in p.parts for p in root.rglob('*'))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch087_canonical_execution_blind_dpp14_product_beta_revalidation_artifacts
+          path: artifact
+          if-no-files-found: error

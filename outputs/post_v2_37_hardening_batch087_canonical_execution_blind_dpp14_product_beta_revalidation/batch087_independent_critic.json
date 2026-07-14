@@ -1,0 +1,43 @@
+{
+  "automatic_merge": "inactive",
+  "blocked_criteria": [
+    "cloudpickle_canonical_historical_lifecycle",
+    "freezegun_canonical_historical_lifecycle",
+    "two_non_source_historical_terminals",
+    "deployed_canary_health_rollback",
+    "linux_installed_package"
+  ],
+  "builder_decision_function_imported": false,
+  "builder_summary_fields_trusted": false,
+  "critic_reconstruction_status": "PASS",
+  "full_scoring": "NOT_RUN/disallowed",
+  "independent_implementation": "scripts/audit_batch087_canonical_execution_blind_dpp14_product_beta_revalidation.py",
+  "mutation_test_builder_summary_to_pass": "CRITIC_DECISION_UNCHANGED",
+  "package_version": "0.2.0b2.dev0",
+  "product_beta_rc": "PRODUCT_BETA_RC_BLOCKED_EXACT",
+  "production_readiness": false,
+  "public_write_connectors": "inactive",
+  "raw_evidence_criteria": {
+    "blind_dpp_quality": true,
+    "canonical_installed_execution_graph": true,
+    "cloudpickle_canonical_historical_lifecycle": false,
+    "deployed_canary_health_rollback": false,
+    "execution_derived_causal_elbow": true,
+    "external_operation_broker_coverage": true,
+    "freezegun_canonical_historical_lifecycle": false,
+    "label_and_truth_isolation": true,
+    "licensing_ring": true,
+    "linux_installed_package": false,
+    "native_contacts": true,
+    "proof_bound_interlocks": true,
+    "proof_matrix": true,
+    "public_state_exact_sync": true,
+    "sqlite_sole_mutable_authority": true,
+    "two_non_source_historical_terminals": false,
+    "typed_pathway": true,
+    "version_lineage": true,
+    "windows_installed_package": true
+  },
+  "self_maintaining_software": "false/not_demonstrated",
+  "status": "PASS"
+}

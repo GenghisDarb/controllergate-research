@@ -1,0 +1,758 @@
+{
+  "canonical_run": {
+    "blocker": null,
+    "completed_stages": [
+      "candidate_identity",
+      "source_acquisition",
+      "runtime_attestation",
+      "provider_execution",
+      "target_provenance",
+      "command_authority",
+      "duplicate_failure",
+      "causal_ownership",
+      "ast_contact",
+      "repair_license",
+      "patch_application",
+      "validation",
+      "duplicate_clean_replay",
+      "proof_append"
+    ],
+    "database": "C:\\Users\\thisb\\AppData\\Local\\Temp\\controllergate-batch087-runtime-o9b220fz\\canonical-runtime\\state\\controllergate.sqlite3",
+    "event_chain": {
+      "chain_head": "986eab1269cd42a827516238b727b5f64997d4716f963c35311dd75339232187",
+      "errors": [],
+      "event_count": 15,
+      "status": "PASS"
+    },
+    "historical_count_increment": 0,
+    "reaction_token_hashes": [
+      "075639fc30cd59682691848724313c7156378e9b5411fae5d7c420208d99e6e9",
+      "235efb9a4d19fbf7d05a9b824468a177c41a6b8033a052a56ac6ebc323fc63ff",
+      "82b1fd3df0e6aa18f762e362afca9709348382daa5f37c60f244496ceda5430f",
+      "33087ed57a627a58f1e4f3a48a7357fd6d28a6c18a2b599ee1e03d887a9ca57f",
+      "cb105ec289d97ccd249ba9ccf2efae527fcd2570d0c734374e19b426ba785b37",
+      "1baaab44d9e2a8b93dfd8bbaa63e70db9b20375b4ed521420b74b86337dd5107",
+      "369dd6a8ab374f4daaefcd2cfd85852e13523b2899407fff90ab0a801b1cfd7c",
+      "4294007291f25a1ad6479a314e71a3bdcf6131c56d50e8b65a45c9a378712d9e",
+      "e9c444c6e36d5510b17aec8955b661c605618caa22322ca73f9a76eff8e54f7f",
+      "941ed06fde58a6cb3f1650738383bac38a0945ef18a6ec80124d04018ec22a0d",
+      "89a7bd9bad7fb621debf4d5325bad368b8efc01300d71c4b0cfb188a75c5a480",
+      "8fad2b1d5724c3472d7adb9005526d908d800acb114f869fe223ecad7d6485ba",
+      "02a04ff737bace663e183fab993919645717fc4ba125480716ef494569f35dcc",
+      "8575a6239520b809b1322e95267f0abfa2cddf002049fea9e9199f4396d9253c"
+    ],
+    "run_id": "batch087-canonical-synthetic",
+    "state_authority": "SQLite",
+    "status": "CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS"
+  },
+  "five_anchors": [
+    "candidate_incident_identity",
+    "source_and_test_tree_identity",
+    "provider_runtime_abi_identity",
+    "target_and_command_authority",
+    "proof_claim_release_parent"
+  ],
+  "repair_authority_from_pass_strings": false,
+  "stage_count": 14,
+  "stages": [
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "CANDIDATE_IDENTITY_VERIFIED_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "CANDIDATE_IDENTITY_VERIFIED_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "candidate_identity"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "SOURCE_ACQUIRED_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "SOURCE_ACQUIRED_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "CANDIDATE_IDENTITY_VERIFIED_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "source_acquisition"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "RUNTIME_ATTESTED_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "RUNTIME_ATTESTED_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "SOURCE_ACQUIRED_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "runtime_attestation"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "PROVIDER_EXECUTION_READY_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "PROVIDER_EXECUTION_READY_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "RUNTIME_ATTESTED_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "provider_execution"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "TARGET_OR_REPRODUCER_VERIFIED_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "TARGET_OR_REPRODUCER_VERIFIED_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "PROVIDER_EXECUTION_READY_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "target_provenance"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "COMMAND_AUTHORITY_VERIFIED_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "COMMAND_AUTHORITY_VERIFIED_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "TARGET_OR_REPRODUCER_VERIFIED_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "command_authority"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "DUPLICATE_FAILURE_REPRODUCED_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "DUPLICATE_FAILURE_REPRODUCED_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "COMMAND_AUTHORITY_VERIFIED_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "duplicate_failure"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "CAUSAL_OWNERSHIP_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "CAUSAL_OWNERSHIP_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "DUPLICATE_FAILURE_REPRODUCED_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "causal_ownership"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "AST_CONTACT_DOMAIN_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "AST_CONTACT_DOMAIN_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "CAUSAL_OWNERSHIP_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "ast_contact"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "REPAIR_LICENSE_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "REPAIR_LICENSE_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "AST_CONTACT_DOMAIN_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "repair_license"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "PATCH_APPLIED_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "PATCH_APPLIED_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "REPAIR_LICENSE_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "patch_application"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "VALIDATION_PASSED_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "VALIDATION_PASSED_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "PATCH_APPLIED_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "validation"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "DUPLICATE_CLEAN_REPLAY_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "DUPLICATE_CLEAN_REPLAY_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "VALIDATION_PASSED_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "duplicate_clean_replay"
+    },
+    {
+      "allowed_mutation_scope": "none_unless_patch_stage_authorized",
+      "catalyst_identity": "controllergate.pathways.canonical_maintenance.execute_stage",
+      "destination_compartment": "sealed_candidate_workspace",
+      "expected_outputs": [
+        "PROOF_APPENDED_TOKEN"
+      ],
+      "failure_terminal": "SAFE_ABSTENTION",
+      "forbidden_outputs": [
+        "manual_pass_authority",
+        "cross_candidate_token"
+      ],
+      "independent_verifier": "controllergate.pathways.canonical_maintenance.verify_stage",
+      "negative_regulators": [
+        "forbidden_evidence",
+        "identity_drift",
+        "unbrokered_external_operation"
+      ],
+      "network_mode": "none",
+      "ordinary_inputs": [],
+      "output_token_type": "PROOF_APPENDED_TOKEN",
+      "positive_regulators": [
+        "verified_same_run_input_tokens",
+        "five_anchor_identity_stable"
+      ],
+      "proof_obligations": [
+        "candidate_identity",
+        "incident_snapshot",
+        "source_revision",
+        "source_test_immutability",
+        "runtime_attestation",
+        "provider_closure",
+        "command_authority",
+        "target_reproducer_provenance",
+        "runner_origin",
+        "harness_origin",
+        "duplicate_failure_reproduction",
+        "normal_incident_divergence",
+        "causal_ownership_ast_contact",
+        "rollback_proof_count_path"
+      ],
+      "reaction_type": "verified_maintenance_transition",
+      "reopen_condition": "new_decision_time_safe_direct_evidence",
+      "required_input_token_types": [
+        "DUPLICATE_CLEAN_REPLAY_TOKEN"
+      ],
+      "rollback_target": "five_anchor_checkpoint",
+      "source_compartment": "sealed_candidate_workspace",
+      "stage_id": "proof_append"
+    }
+  ],
+  "status": "PASS"
+}
