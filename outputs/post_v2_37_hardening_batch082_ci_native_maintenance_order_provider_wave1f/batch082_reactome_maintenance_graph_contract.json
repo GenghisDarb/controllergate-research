@@ -1,0 +1,440 @@
+{
+  "ordering_invariants": [
+    "repair licensing follows contact topology",
+    "repair licensing follows provider materialization",
+    "patching follows repair licensing",
+    "counting follows duplicate replay",
+    "proof lock follows rollback proof",
+    "inferred memory evidence does not establish ground truth",
+    "provider identity is not source ownership"
+  ],
+  "public_state_names_neutral": true,
+  "states": [
+    {
+      "allowed_inputs": [],
+      "blocker_codes": [
+        "blocked_reference_core_preserved"
+      ],
+      "expected_outputs": [
+        "CONTACT_TOPOLOGY_LEGIBLE"
+      ],
+      "forbidden_inputs": [
+        "CONTACT_TOPOLOGY_LEGIBLE",
+        "WORKSPACE_ACCESSIBLE",
+        "PROVIDER_COFACTOR_MATERIALIZED",
+        "REPAIR_LICENSE_GRANTED",
+        "BOUNDED_SYNTHESIS_COMPLETED",
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "forbidden_outputs": [
+        "WORKSPACE_ACCESSIBLE",
+        "PROVIDER_COFACTOR_MATERIALIZED",
+        "REPAIR_LICENSE_GRANTED",
+        "BOUNDED_SYNTHESIS_COMPLETED",
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "negative_regulators": [
+        "forbidden_evidence",
+        "provider_source_conflation",
+        "unverified_inference"
+      ],
+      "next_legal_states": [
+        "CONTACT_TOPOLOGY_LEGIBLE"
+      ],
+      "output_verifiers": [
+        "verify_reference_core_preserved"
+      ],
+      "positive_regulators": [
+        "direct_execution_evidence",
+        "verified_input_hashes"
+      ],
+      "reopen_conditions": [
+        "new decision-time-safe evidence resolves the exact blocker"
+      ],
+      "required_inputs": [],
+      "state": "REFERENCE_CORE_PRESERVED",
+      "state_hash": "813b12f05aae28f3277fec46abccfc06bd7c609907cf4b9aa3ecb894abe61287",
+      "terminal_states": [
+        "BLOCKED_EXACT"
+      ]
+    },
+    {
+      "allowed_inputs": [
+        "REFERENCE_CORE_PRESERVED"
+      ],
+      "blocker_codes": [
+        "blocked_contact_topology_legible"
+      ],
+      "expected_outputs": [
+        "WORKSPACE_ACCESSIBLE"
+      ],
+      "forbidden_inputs": [
+        "WORKSPACE_ACCESSIBLE",
+        "PROVIDER_COFACTOR_MATERIALIZED",
+        "REPAIR_LICENSE_GRANTED",
+        "BOUNDED_SYNTHESIS_COMPLETED",
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "forbidden_outputs": [
+        "PROVIDER_COFACTOR_MATERIALIZED",
+        "REPAIR_LICENSE_GRANTED",
+        "BOUNDED_SYNTHESIS_COMPLETED",
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "negative_regulators": [
+        "forbidden_evidence",
+        "provider_source_conflation",
+        "unverified_inference"
+      ],
+      "next_legal_states": [
+        "WORKSPACE_ACCESSIBLE"
+      ],
+      "output_verifiers": [
+        "verify_contact_topology_legible"
+      ],
+      "positive_regulators": [
+        "direct_execution_evidence",
+        "verified_input_hashes"
+      ],
+      "reopen_conditions": [
+        "new decision-time-safe evidence resolves the exact blocker"
+      ],
+      "required_inputs": [
+        "REFERENCE_CORE_PRESERVED"
+      ],
+      "state": "CONTACT_TOPOLOGY_LEGIBLE",
+      "state_hash": "5329b0295e29a9a27c67078b8f13830e8a257d55e6e57554e84375cde735378c",
+      "terminal_states": [
+        "BLOCKED_EXACT"
+      ]
+    },
+    {
+      "allowed_inputs": [
+        "CONTACT_TOPOLOGY_LEGIBLE"
+      ],
+      "blocker_codes": [
+        "blocked_workspace_accessible"
+      ],
+      "expected_outputs": [
+        "PROVIDER_COFACTOR_MATERIALIZED"
+      ],
+      "forbidden_inputs": [
+        "PROVIDER_COFACTOR_MATERIALIZED",
+        "REPAIR_LICENSE_GRANTED",
+        "BOUNDED_SYNTHESIS_COMPLETED",
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "forbidden_outputs": [
+        "REPAIR_LICENSE_GRANTED",
+        "BOUNDED_SYNTHESIS_COMPLETED",
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "negative_regulators": [
+        "forbidden_evidence",
+        "provider_source_conflation",
+        "unverified_inference"
+      ],
+      "next_legal_states": [
+        "PROVIDER_COFACTOR_MATERIALIZED"
+      ],
+      "output_verifiers": [
+        "verify_workspace_accessible"
+      ],
+      "positive_regulators": [
+        "direct_execution_evidence",
+        "verified_input_hashes"
+      ],
+      "reopen_conditions": [
+        "new decision-time-safe evidence resolves the exact blocker"
+      ],
+      "required_inputs": [
+        "CONTACT_TOPOLOGY_LEGIBLE"
+      ],
+      "state": "WORKSPACE_ACCESSIBLE",
+      "state_hash": "8ed3bac5a8dedf60932bd0a972661b515596ec840d07344d7856301cb7c7bec9",
+      "terminal_states": [
+        "BLOCKED_EXACT"
+      ]
+    },
+    {
+      "allowed_inputs": [
+        "WORKSPACE_ACCESSIBLE"
+      ],
+      "blocker_codes": [
+        "blocked_provider_cofactor_materialized"
+      ],
+      "expected_outputs": [
+        "REPAIR_LICENSE_GRANTED"
+      ],
+      "forbidden_inputs": [
+        "REPAIR_LICENSE_GRANTED",
+        "BOUNDED_SYNTHESIS_COMPLETED",
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "forbidden_outputs": [
+        "BOUNDED_SYNTHESIS_COMPLETED",
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "negative_regulators": [
+        "forbidden_evidence",
+        "provider_source_conflation",
+        "unverified_inference"
+      ],
+      "next_legal_states": [
+        "REPAIR_LICENSE_GRANTED"
+      ],
+      "output_verifiers": [
+        "verify_provider_cofactor_materialized"
+      ],
+      "positive_regulators": [
+        "direct_execution_evidence",
+        "verified_input_hashes"
+      ],
+      "reopen_conditions": [
+        "new decision-time-safe evidence resolves the exact blocker"
+      ],
+      "required_inputs": [
+        "WORKSPACE_ACCESSIBLE"
+      ],
+      "state": "PROVIDER_COFACTOR_MATERIALIZED",
+      "state_hash": "1b7576bed5e01ab745e0ab7e86f32c2d83baabdcae6f18dea479c14ad492b82d",
+      "terminal_states": [
+        "BLOCKED_EXACT"
+      ]
+    },
+    {
+      "allowed_inputs": [
+        "PROVIDER_COFACTOR_MATERIALIZED"
+      ],
+      "blocker_codes": [
+        "blocked_repair_license_granted"
+      ],
+      "expected_outputs": [
+        "BOUNDED_SYNTHESIS_COMPLETED"
+      ],
+      "forbidden_inputs": [
+        "BOUNDED_SYNTHESIS_COMPLETED",
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "forbidden_outputs": [
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "negative_regulators": [
+        "forbidden_evidence",
+        "provider_source_conflation",
+        "unverified_inference"
+      ],
+      "next_legal_states": [
+        "BOUNDED_SYNTHESIS_COMPLETED"
+      ],
+      "output_verifiers": [
+        "verify_repair_license_granted"
+      ],
+      "positive_regulators": [
+        "direct_execution_evidence",
+        "verified_input_hashes"
+      ],
+      "reopen_conditions": [
+        "new decision-time-safe evidence resolves the exact blocker"
+      ],
+      "required_inputs": [
+        "PROVIDER_COFACTOR_MATERIALIZED"
+      ],
+      "state": "REPAIR_LICENSE_GRANTED",
+      "state_hash": "1ebfcb20a97ca7421ac826624c253e3325c76fb50ecbcc4c27e8e2baa5e1d1c8",
+      "terminal_states": [
+        "BLOCKED_EXACT"
+      ]
+    },
+    {
+      "allowed_inputs": [
+        "REPAIR_LICENSE_GRANTED"
+      ],
+      "blocker_codes": [
+        "blocked_bounded_synthesis_completed"
+      ],
+      "expected_outputs": [
+        "CONTACT_AUDIT_PASSED"
+      ],
+      "forbidden_inputs": [
+        "CONTACT_AUDIT_PASSED",
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "forbidden_outputs": [
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "negative_regulators": [
+        "forbidden_evidence",
+        "provider_source_conflation",
+        "unverified_inference"
+      ],
+      "next_legal_states": [
+        "CONTACT_AUDIT_PASSED"
+      ],
+      "output_verifiers": [
+        "verify_bounded_synthesis_completed"
+      ],
+      "positive_regulators": [
+        "direct_execution_evidence",
+        "verified_input_hashes"
+      ],
+      "reopen_conditions": [
+        "new decision-time-safe evidence resolves the exact blocker"
+      ],
+      "required_inputs": [
+        "REPAIR_LICENSE_GRANTED"
+      ],
+      "state": "BOUNDED_SYNTHESIS_COMPLETED",
+      "state_hash": "3d137aa80666fa69b9c2929a7c0630acdc6f85469bf355c773d11773dbf75dc7",
+      "terminal_states": [
+        "BLOCKED_EXACT"
+      ]
+    },
+    {
+      "allowed_inputs": [
+        "BOUNDED_SYNTHESIS_COMPLETED"
+      ],
+      "blocker_codes": [
+        "blocked_contact_audit_passed"
+      ],
+      "expected_outputs": [
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED"
+      ],
+      "forbidden_inputs": [
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "forbidden_outputs": [
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "negative_regulators": [
+        "forbidden_evidence",
+        "provider_source_conflation",
+        "unverified_inference"
+      ],
+      "next_legal_states": [
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED"
+      ],
+      "output_verifiers": [
+        "verify_contact_audit_passed"
+      ],
+      "positive_regulators": [
+        "direct_execution_evidence",
+        "verified_input_hashes"
+      ],
+      "reopen_conditions": [
+        "new decision-time-safe evidence resolves the exact blocker"
+      ],
+      "required_inputs": [
+        "BOUNDED_SYNTHESIS_COMPLETED"
+      ],
+      "state": "CONTACT_AUDIT_PASSED",
+      "state_hash": "5211cd45f59026fdcfbc9228937271dee19dede391228352dcda3bc3d273bd7b",
+      "terminal_states": [
+        "BLOCKED_EXACT"
+      ]
+    },
+    {
+      "allowed_inputs": [
+        "CONTACT_AUDIT_PASSED"
+      ],
+      "blocker_codes": [
+        "blocked_duplicate_replay_and_rollback_passed"
+      ],
+      "expected_outputs": [
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "forbidden_inputs": [
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "forbidden_outputs": [],
+      "negative_regulators": [
+        "forbidden_evidence",
+        "provider_source_conflation",
+        "unverified_inference"
+      ],
+      "next_legal_states": [
+        "PROOF_LEDGER_TERMINAL_LOCKED"
+      ],
+      "output_verifiers": [
+        "verify_duplicate_replay_and_rollback_passed"
+      ],
+      "positive_regulators": [
+        "direct_execution_evidence",
+        "verified_input_hashes"
+      ],
+      "reopen_conditions": [
+        "new decision-time-safe evidence resolves the exact blocker"
+      ],
+      "required_inputs": [
+        "CONTACT_AUDIT_PASSED"
+      ],
+      "state": "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED",
+      "state_hash": "797eaeb93f3d0a7901ecfc86429b74257f0a707a139549e11b9dc01876594b9f",
+      "terminal_states": [
+        "BLOCKED_EXACT"
+      ]
+    },
+    {
+      "allowed_inputs": [
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED"
+      ],
+      "blocker_codes": [
+        "blocked_proof_ledger_terminal_locked"
+      ],
+      "expected_outputs": [
+        "TERMINAL_PROOF"
+      ],
+      "forbidden_inputs": [],
+      "forbidden_outputs": [],
+      "negative_regulators": [
+        "forbidden_evidence",
+        "provider_source_conflation",
+        "unverified_inference"
+      ],
+      "next_legal_states": [],
+      "output_verifiers": [
+        "verify_proof_ledger_terminal_locked"
+      ],
+      "positive_regulators": [
+        "direct_execution_evidence",
+        "verified_input_hashes"
+      ],
+      "reopen_conditions": [
+        "new decision-time-safe evidence resolves the exact blocker"
+      ],
+      "required_inputs": [
+        "DUPLICATE_REPLAY_AND_ROLLBACK_PASSED"
+      ],
+      "state": "PROOF_LEDGER_TERMINAL_LOCKED",
+      "state_hash": "45391f37c3b73f11a9c545fa72014320039aa058d8eb61caba819da7121b065e",
+      "terminal_states": [
+        "BLOCKED_EXACT",
+        "COMPLETE"
+      ]
+    }
+  ],
+  "version": 2
+}

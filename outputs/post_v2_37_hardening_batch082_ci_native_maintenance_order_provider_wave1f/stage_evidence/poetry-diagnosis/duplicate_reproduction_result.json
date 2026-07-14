@@ -1,0 +1,36 @@
+{
+  "candidate_id": "incident_poetry_10974_windows_name_normalization",
+  "duplicate_failure_admitted": false,
+  "exact_blocker": "batch082_windows_process_network_denial_not_verified",
+  "execution_ledger_tail": "d3612a714e355d7204c43d4e53778dfccec538665c12858a11788b592e22358a",
+  "failure_signatures_equivalent": true,
+  "network_denial_verified": false,
+  "repair_license": false,
+  "replays": [
+    {
+      "expected_project_name": "my-project-with-spaces",
+      "incident_reproduced": true,
+      "observed_project_name": "my project with spaces",
+      "pyproject_hash": "edfa95ef00dbc96f5022b8bfd4a148fbdb6dc1da94ede5d8d5acafd7bfc9d927",
+      "replay": 1,
+      "return_code": 0,
+      "stderr_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "working_directory": "D:\\a\\_temp\\controllergate-runtime\\incident_poetry_10974_windows_name_normalization-replay-1\\my project with spaces",
+      "working_directory_hash": "1a5c91ecd6645facab989999ec0dc837d581d4d6323917f30a7bafded446ec9a"
+    },
+    {
+      "expected_project_name": "my-project-with-spaces",
+      "incident_reproduced": true,
+      "observed_project_name": "my project with spaces",
+      "pyproject_hash": "edfa95ef00dbc96f5022b8bfd4a148fbdb6dc1da94ede5d8d5acafd7bfc9d927",
+      "replay": 2,
+      "return_code": 0,
+      "stderr_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "working_directory": "D:\\a\\_temp\\controllergate-runtime\\incident_poetry_10974_windows_name_normalization-replay-2\\my project with spaces",
+      "working_directory_hash": "0403430ca8d5ca4061ebef0ee06a7164ad30e5ccc02b7b67bca50a4b769583a0"
+    }
+  ],
+  "status": "CANDIDATE_FAILURE_REPRODUCED"
+}

@@ -1,0 +1,40 @@
+{
+  "adaptive_replacement_forbidden": true,
+  "candidate_order": [
+    "incident_openbb_7585_modular_openapi_reproducer",
+    "incident_poetry_10974_windows_name_normalization"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "commands": [
+        "openbb --generate-spec --server http://localhost:8000 --openapi-path /openapi.yaml --output eodhd.spec",
+        "openbb --generate-extension --spec eodhd.spec --provider-name eodhd --output ./openbb-eodhd"
+      ],
+      "external_network_during_reproduction": false,
+      "issue_url": "https://github.com/OpenBB-finance/OpenBB/issues/7585",
+      "lane": "ISSUE_DERIVED_REPRODUCER_LANE",
+      "platform": "linux",
+      "repository": "https://github.com/OpenBB-finance/OpenBB.git",
+      "runtime": "python3.11",
+      "secondary_input_cutoff": "2026-07-13T18:15:59Z",
+      "secondary_input_repository": "https://github.com/EodHistoricalData/EODHD-openapi.git",
+      "source_sha": "1c74893140292944e71ff5cdd9536edf12f05483"
+    },
+    {
+      "candidate_id": "incident_poetry_10974_windows_name_normalization",
+      "command": "poetry init -n",
+      "cutoff_comparison_sha": "f46702336862f30050d5c641d5ed6f7568ded793",
+      "expected_project_name": "my-project-with-spaces",
+      "issue_url": "https://github.com/python-poetry/poetry/issues/10974",
+      "lane": "ISSUE_DERIVED_REPRODUCER_LANE",
+      "platform": "windows",
+      "repository": "https://github.com/python-poetry/poetry.git",
+      "resolved_tag_sha": "811a12dae0fe81f199e3f1b88b8b8be9eed543c2",
+      "runtime": "python3.13",
+      "source_tag": "2.4.1",
+      "working_directory_basename": "my project with spaces"
+    }
+  ],
+  "frame_version": 1
+}

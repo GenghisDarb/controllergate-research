@@ -1,0 +1,86 @@
+{
+  "records": [
+    {
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "count_gate": {
+        "status": "NOT_RUN"
+      },
+      "duplicate_replay": {
+        "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+        "duplicate_failure_admitted": false,
+        "exact_blocker": "batch082_sealed_provider_install_failed",
+        "repair_license": false,
+        "replays": [],
+        "status": "BLOCK"
+      },
+      "exact_blocker": "batch082_sealed_provider_install_failed",
+      "provider_manifest": {
+        "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+        "exact_blocker": null,
+        "execution_ledger_tail": "7d3e46b825075bc15392be198ee9f01838a0f3c05dcba706974ef95d70635656",
+        "provider_seal": "24789a0a92aee88f5b7284fe9c51f080dc9f9e0810550025c6383a23f4f714e4",
+        "provider_verified": true,
+        "source_commit": "1c74893140292944e71ff5cdd9536edf12f05483",
+        "source_tree_hash": "21a322423d9b59635644f5474b0d147177e1f11aeef7cb780b72e0c6292b0bd8",
+        "status": "PASS",
+        "verification_status": "PASS",
+        "wheel_count": 1
+      }
+    },
+    {
+      "candidate_id": "incident_poetry_10974_windows_name_normalization",
+      "count_gate": {
+        "status": "NOT_RUN"
+      },
+      "duplicate_replay": {
+        "candidate_id": "incident_poetry_10974_windows_name_normalization",
+        "duplicate_failure_admitted": false,
+        "exact_blocker": "batch082_windows_process_network_denial_not_verified",
+        "execution_ledger_tail": "d3612a714e355d7204c43d4e53778dfccec538665c12858a11788b592e22358a",
+        "failure_signatures_equivalent": true,
+        "network_denial_verified": false,
+        "repair_license": false,
+        "replays": [
+          {
+            "expected_project_name": "my-project-with-spaces",
+            "incident_reproduced": true,
+            "observed_project_name": "my project with spaces",
+            "pyproject_hash": "edfa95ef00dbc96f5022b8bfd4a148fbdb6dc1da94ede5d8d5acafd7bfc9d927",
+            "replay": 1,
+            "return_code": 0,
+            "stderr_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "working_directory": "D:\\a\\_temp\\controllergate-runtime\\incident_poetry_10974_windows_name_normalization-replay-1\\my project with spaces",
+            "working_directory_hash": "1a5c91ecd6645facab989999ec0dc837d581d4d6323917f30a7bafded446ec9a"
+          },
+          {
+            "expected_project_name": "my-project-with-spaces",
+            "incident_reproduced": true,
+            "observed_project_name": "my project with spaces",
+            "pyproject_hash": "edfa95ef00dbc96f5022b8bfd4a148fbdb6dc1da94ede5d8d5acafd7bfc9d927",
+            "replay": 2,
+            "return_code": 0,
+            "stderr_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "working_directory": "D:\\a\\_temp\\controllergate-runtime\\incident_poetry_10974_windows_name_normalization-replay-2\\my project with spaces",
+            "working_directory_hash": "0403430ca8d5ca4061ebef0ee06a7164ad30e5ccc02b7b67bca50a4b769583a0"
+          }
+        ],
+        "status": "CANDIDATE_FAILURE_REPRODUCED"
+      },
+      "exact_blocker": "batch082_windows_process_network_denial_not_verified",
+      "provider_manifest": {
+        "candidate_id": "incident_poetry_10974_windows_name_normalization",
+        "exact_blocker": null,
+        "execution_ledger_tail": "c59a1661214b323ed34378525efe9178ecce1e9d5ed9ab57c28597d2b615a764",
+        "provider_seal": "0947c752f3a3b5038860d9883553d3caa7a5d8b6c225736d21b6e67fa5bff6e0",
+        "provider_verified": true,
+        "source_commit": "811a12dae0fe81f199e3f1b88b8b8be9eed543c2",
+        "source_tree_hash": "c99f0d391d114c0c89ab028ee2a06d5a5ff4471df979830dcb2da476b54f725f",
+        "status": "PASS",
+        "verification_status": "PASS",
+        "wheel_count": 42
+      }
+    }
+  ]
+}
