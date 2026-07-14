@@ -97,6 +97,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            controllergate
+            scripts
+            configs
       - uses: actions/setup-python@v5
         with: {python-version: '3.13'}
       - run: python scripts/trace_installed_product_execution.py --platform windows --output ${{ env.OUT }}/installed_dynamic_trace_windows.json
@@ -293,6 +298,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            controllergate
+            scripts
+            configs
       - uses: actions/setup-python@v5
         with: {python-version: '3.13'}
       - run: python -c "from pathlib import Path; from scripts.run_batch087_canonical_execution_blind_dpp14_product_beta_revalidation import package_evidence; package_evidence(Path(r'${{ env.OUT }}'))"

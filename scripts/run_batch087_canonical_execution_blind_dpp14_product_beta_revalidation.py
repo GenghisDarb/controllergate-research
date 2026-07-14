@@ -24,8 +24,8 @@ from controllergate.pathways.canonical_maintenance import (
 )
 from controllergate.state.integrity import canonical_hash
 from controllergate.state.repository import ControllerStateRepository
-from audit_installed_product_reachability import scan as scan_reachability
-from generate_current_state_views import generate as generate_current_views
+from scripts.audit_installed_product_reachability import scan as scan_reachability
+from scripts.generate_current_state_views import generate as generate_current_views
 
 
 OUTPUT_NAME = "post_v2_37_hardening_batch087_canonical_execution_blind_dpp14_product_beta_revalidation"

@@ -92,3 +92,9 @@ def test_batch087_runner_uses_platform_temp_directory():
     source = (root / "scripts/run_batch087_canonical_execution_blind_dpp14_product_beta_revalidation.py").read_text(encoding="utf-8")
     assert "tempfile.gettempdir()" in source
     assert 'os.environ.get("TEMP", "C:/Temp")' not in source
+
+
+def test_batch087_runner_is_importable_for_platform_package_jobs():
+    from scripts.run_batch087_canonical_execution_blind_dpp14_product_beta_revalidation import package_evidence
+
+    assert callable(package_evidence)
