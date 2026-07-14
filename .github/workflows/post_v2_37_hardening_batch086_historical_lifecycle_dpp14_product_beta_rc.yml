@@ -9,7 +9,6 @@ permissions:
 env:
   PYTHONDONTWRITEBYTECODE: "1"
   PYTHONPATH: .
-  CONTROLLERGATE_BATCH086_RUNTIME_ROOT: ${{ runner.temp }}/controllergate-runtime/batch086
 
 jobs:
   verify-and-ingest-Batch085:
@@ -45,6 +44,8 @@ jobs:
         with: {python-version: "3.13"}
       - run: python -m pip install --disable-pip-version-check pytest build wheel setuptools
       - run: python scripts/run_batch086_historical_lifecycle_dpp14_product_beta_rc.py
+        env:
+          CONTROLLERGATE_BATCH086_RUNTIME_ROOT: ${{ runner.temp }}/controllergate-runtime/batch086
       - uses: actions/upload-artifact@v4
         with:
           name: batch086-execution-evidence
