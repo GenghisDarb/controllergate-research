@@ -63,6 +63,7 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
+      - run: python -m pip install pytest
       - run: python scripts/batch083_ci_stage.py prepare --out "$RUNNER_TEMP/evidence" --runtime "$RUNNER_TEMP/controllergate-runtime"
       - run: python scripts/batch083_ci_stage.py network --out "$RUNNER_TEMP/evidence" --runtime "$RUNNER_TEMP/controllergate-runtime"
       - run: python -m pytest tests/core/test_batch083_reaction_core.py tests/governance/test_batch083_prompt_registry.py -q
@@ -92,7 +93,12 @@ jobs:
     timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 0}
+        with:
+          fetch-depth: 0
+          sparse-checkout: |
+            controllergate
+            scripts
+            configs
       - uses: actions/setup-python@v5
         with: {python-version: "3.13"}
       - uses: actions/download-artifact@v4
@@ -145,7 +151,12 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 0}
+        with:
+          fetch-depth: 0
+          sparse-checkout: |
+            controllergate
+            scripts
+            configs
       - uses: actions/setup-python@v5
         with: {python-version: "3.13"}
       - uses: actions/download-artifact@v4
@@ -379,6 +390,104 @@ jobs:
           python scripts/audit_public_language.py
           python scripts/audit_public_frontier_sync.py
           python scripts/run_local_controllergate_demo.py
+      - name: Report Batch083 evidence summary
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from collections import Counter
+          from pathlib import Path
+
+          out = Path("outputs") / os.environ["RESULT"]
+
+          def read(name):
+              return json.loads((out / name).read_text(encoding="utf-8"))
+
+          def rows(name):
+              return [json.loads(line) for line in (out / name).read_text(encoding="utf-8").splitlines() if line.strip()]
+
+          providers = {}
+          reproductions = {}
+          for candidate in ("openbb", "poetry"):
+              provider = read(f"batch083_{candidate}_provider_v4_result.json")
+              providers[candidate] = {
+                  "state": provider.get("state"),
+                  "provider_execution_ready": provider.get("provider_execution_ready"),
+                  "exact_blocker": provider.get("exact_blocker"),
+                  "capsule_status": provider.get("capsule_verification", {}).get("status"),
+                  "wheel_count": provider.get("capsule_verification", {}).get("wheel_count"),
+                  "missing_runtime_dependencies": provider.get("dependency_graph", {}).get("missing_runtime_dependencies"),
+                  "offline_install_states": [item.get("state") for item in provider.get("offline_installs", [])],
+                  "dependency_check_states": [item.get("state") for item in provider.get("dependency_checks", [])],
+                  "import_probe_states": [item.get("state") for item in provider.get("import_probes", [])],
+                  "entrypoint_probe_states": [item.get("state") for item in provider.get("entrypoint_probes", [])],
+              }
+              reproduction = read(f"batch083_{candidate}_duplicate_reproduction.json")
+              reproductions[candidate] = {
+                  "status": reproduction.get("status"),
+                  "duplicate_failure_admitted": reproduction.get("duplicate_failure_admitted"),
+                  "exact_blocker": reproduction.get("exact_blocker"),
+                  "replay_count": len(reproduction.get("replays", [])),
+                  "incident_reproduced": [item.get("incident_reproduced") for item in reproduction.get("replays", [])],
+              }
+
+          reactions = rows("batch083_reaction_ledger.jsonl")
+          tokens = rows("batch083_output_token_registry.jsonl")
+          failures = rows("batch083_failed_reaction_registry.jsonl")
+          historical = read("batch083_historical_amds_blind_challenge.json")
+          historical_arms = [arm for episode in historical.get("episodes", []) for arm in episode.get("arms", [])]
+          historical_probes = [probe for arm in historical_arms for probe in arm.get("probes", [])]
+          loose_ends = [json.loads(line) for line in Path("configs/controllergate_loose_end_registry_v2.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
+          maturity = read("batch083_capability_maturity_delta.json")
+          canary = read("batch083_historical_canary_health_rollback.json")
+          repair = read("batch083_conditional_repair_results.json")
+          count = read("batch083_duplicate_replay_proof_count_canary.json")
+          summary = {
+              "batch082_preservation": {
+                  "ingest": read("batch082_ingest_preservation.json"),
+                  "claims": read("batch082_claim_preservation.json"),
+                  "counts": read("batch082_count_preservation.json"),
+                  "artifact_byte_binding": read("batch083_batch082_artifact_verification_summary.json"),
+              },
+              "loose_end_registry": {"record_count": len(loose_ends), "status_counts": dict(Counter(item["status"] for item in loose_ends))},
+              "reaction_custody": {
+                  "reaction_count": len(reactions),
+                  "outcome_counts": dict(Counter(item.get("outcome") for item in reactions)),
+                  "output_token_count": len(tokens),
+                  "failure_count": len(failures),
+              },
+              "providers": providers,
+              "openapi_closure": {key: read("batch083_openapi_rooted_reference_closure.json").get(key) for key in ("state", "snapshot_file_count", "exact_blocker")},
+              "network_isolation": read("batch083_network_compartment_execution.json"),
+              "reproductions": reproductions,
+              "admitted_cohort": read("batch083_admitted_cohort_freeze.json"),
+              "prospective_diagnostic": read("batch083_prospective_diagnostic_comparison.json"),
+              "prospective_matched_nulls": {key: read("batch083_matched_nulls.json").get(key) for key in ("status", "eligible", "null_count", "actual_probe_count", "exact_blocker")},
+              "historical_amds": {
+                  "status": historical.get("status"),
+                  "episode_count": historical.get("episode_count"),
+                  "repository_count": historical.get("repository_count"),
+                  "arms_per_episode": historical.get("arms_per_episode"),
+                  "actual_arm_count": len(historical_arms),
+                  "actual_probe_count": len(historical_probes),
+              },
+              "routing_memory_counterfactual": read("batch083_routing_memory_counterfactual.json"),
+              "historical_canary": {key: canary.get(key) for key in ("status", "episode_count", "health_windows", "rollback_drills", "exact_blocker")},
+              "connectors": {
+                  "offline": read("batch083_offline_connector_canary.json"),
+                  "public_readonly": read("batch083_public_readonly_connector_pilot.json"),
+              },
+              "product_alpha": read("batch083_product_alpha_cycle.json"),
+              "constitution_v3": {"proof_count": len(list((out / "batch083_constitution_v3_law_proofs").glob("CG-LAW-*.json")))},
+              "critic": read("batch083_independent_critic.json"),
+              "repair": repair,
+              "count_gate": count,
+              "maturity_dimensions": maturity.get("dimensions", []),
+              "claim_boundary": read("batch083_final_claim_boundary.json"),
+              "final_state": read("batch083_final_state.json"),
+          }
+          print("BATCH083_FINAL_SUMMARY=" + json.dumps(summary, sort_keys=True, separators=(",", ":")))
+          PY
       - run: git diff --check
       - name: Reject provider, archive, cache, and compiled payloads
         run: |
