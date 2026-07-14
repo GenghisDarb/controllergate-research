@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "terminal_truth_sealed_until_all_arms_complete": true,
+  "episodes": [
+    {
+      "candidate_id": "darker_issue_112_relative_git_dir",
+      "repository_family": "akaihola/darker",
+      "proof_group": "issue-derived-counted-dark",
+      "evidence_root": "outputs/clean_replication_batch_014",
+      "terminal_class": "source_owned_behavior_defect",
+      "episode_kind": "successful_repair"
+    },
+    {
+      "candidate_id": "py_bugger_issue_65",
+      "repository_family": "py-bugger/py-bugger",
+      "proof_group": "issue-derived-counted-py-bugger",
+      "evidence_root": "outputs/v2_30_failure_signature_canonicalization_repair_lane",
+      "terminal_class": "source_owned_behavior_defect",
+      "episode_kind": "successful_repair"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "repository_family": "cloudpipe/cloudpickle",
+      "proof_group": "issue-derived-counted-cloudpickle",
+      "evidence_root": "outputs/post_v2_37_hardening_batch060c_cloudpickle_provider_runtime_recovery",
+      "terminal_class": "source_owned_behavior_defect",
+      "episode_kind": "successful_repair"
+    },
+    {
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "repository_family": "spulec/freezegun",
+      "proof_group": "issue-derived-counted-freezegun",
+      "evidence_root": "outputs/post_v2_37_hardening_batch064_freezegun_source_only_patch_gate",
+      "terminal_class": "source_owned_behavior_defect",
+      "episode_kind": "successful_repair"
+    },
+    {
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "repository_family": "beetbox/audioread",
+      "proof_group": "provider-abstention-audioread",
+      "evidence_root": "outputs/post_v2_37_hardening_batch060f_audioread_provider_backend_capsule_replay",
+      "terminal_class": "provider_owned",
+      "episode_kind": "safe_abstention"
+    },
+    {
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "repository_family": "pytest-dev/pytest",
+      "proof_group": "environment-abstention-pytest",
+      "evidence_root": "outputs/post_v2_37_hardening_batch063b_pytest_provider_runtime_recovery_followup",
+      "terminal_class": "environment_owned",
+      "episode_kind": "safe_abstention"
+    },
+    {
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "repository_family": "OpenBB-finance/OpenBB",
+      "proof_group": "harness-abstention-openbb",
+      "evidence_root": "outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f",
+      "terminal_class": "harness_owned",
+      "episode_kind": "safe_abstention"
+    },
+    {
+      "candidate_id": "incident_poetry_10974_init_duplicate_name",
+      "repository_family": "python-poetry/poetry",
+      "proof_group": "transport-abstention-poetry",
+      "evidence_root": "outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f",
+      "terminal_class": "network_or_transport_owned",
+      "episode_kind": "safe_abstention"
+    }
+  ],
+  "forbidden_memory_fields": [
+    "candidate_id",
+    "repository_identity",
+    "terminal_class",
+    "patch_text",
+    "source_snippet",
+    "repair_result",
+    "count_result",
+    "future_revision",
+    "gold_fix"
+  ]
+}

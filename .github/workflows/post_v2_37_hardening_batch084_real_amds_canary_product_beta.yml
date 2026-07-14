@@ -1,0 +1,202 @@
+name: post_v2_37_hardening_batch084_real_amds_canary_product_beta
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+env:
+  PYTHONPATH: ${{ github.workspace }}
+  RESULT: post_v2_37_hardening_batch084_real_amds_canary_product_beta
+
+jobs:
+  linux-operational-depth:
+    name: Historical AMDS, canary, Product Beta, connector, and OpenBB
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify prompt and starting boundary
+        run: |
+          test "$(git branch --show-current)" = "controllergate-v1.7-alpha-real-trace-pilot"
+          python - <<'PY'
+          import json
+          value=json.load(open('configs/batch084_prompt_contract.json'))
+          assert value['prompt_id']=='CG-BATCH084-REAL-AMDS-CANARY-PRODUCT-BETA-2026-07-14-V1'
+          assert value['prompt_sentinel']=='BEGIN_BATCH084_REAL_OPERATIONAL_DEPTH'
+          assert value['batch083_rerun_forbidden'] is True
+          PY
+      - name: Install ControllerGate test tooling
+        run: python -m pip install pytest
+      - name: Verify and extract exact Batch083 provider artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/controllergate-runtime/artifact-store"
+          for id in 8299791481 8299749040 8299757219; do
+            gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id/zip" > "$RUNNER_TEMP/controllergate-runtime/artifact-store/$id.zip"
+          done
+          python scripts/batch084_ci_stage.py artifacts --out "$GITHUB_WORKSPACE/.batch084-cache/linux-evidence" --runtime "$RUNNER_TEMP/controllergate-runtime" --store "$RUNNER_TEMP/controllergate-runtime/artifact-store" --verified "$RUNNER_TEMP/controllergate-runtime/verified"
+      - name: Reconcile Batch083 and cumulative maturity
+        run: python scripts/batch084_ci_stage.py prepare --out "$GITHUB_WORKSPACE/.batch084-cache/linux-evidence" --runtime "$RUNNER_TEMP/controllergate-runtime"
+      - name: Execute historical multi-probe AMDS and routing memory
+        run: python scripts/batch084_ci_stage.py historical --out "$GITHUB_WORKSPACE/.batch084-cache/linux-evidence" --runtime "$RUNNER_TEMP/controllergate-runtime"
+      - name: Execute locked historical canary identity gates
+        run: python scripts/batch084_ci_stage.py canary --out "$GITHUB_WORKSPACE/.batch084-cache/linux-evidence" --runtime "$RUNNER_TEMP/controllergate-runtime"
+      - name: Execute historical Product Beta canonical CLI boundary
+        run: python scripts/batch084_ci_stage.py product --out "$GITHUB_WORKSPACE/.batch084-cache/linux-evidence" --runtime "$RUNNER_TEMP/controllergate-runtime"
+      - name: Execute controlled local-write connector sandbox
+        run: python scripts/batch084_ci_stage.py connector --out "$GITHUB_WORKSPACE/.batch084-cache/linux-evidence" --runtime "$RUNNER_TEMP/controllergate-runtime"
+      - name: Execute OpenBB Docker network-none same-container replay
+        run: python scripts/batch084_ci_stage.py openbb --out "$GITHUB_WORKSPACE/.batch084-cache/linux-evidence" --runtime "$RUNNER_TEMP/controllergate-runtime/openbb" --verified "$RUNNER_TEMP/controllergate-runtime/verified"
+      - name: Focused Linux tests
+        run: python -m pytest tests/core/test_batch084_amds_v2.py tests/core/test_batch084_evidence_interlocks.py tests/core/test_batch084_operational_depth.py tests/runtime/test_batch084_openbb_supervisor.py tests/connectors/test_batch084_controlled_write_sandbox.py -q
+      - uses: actions/cache/save@v4
+        with:
+          path: .batch084-cache/linux-evidence
+          key: batch084-linux-evidence-${{ github.run_id }}
+          enableCrossOsArchive: true
+
+  poetry-differential-forensics:
+    name: Poetry frozen LOO and bounded LOTO differential
+    runs-on: windows-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Download and byte-check exact Poetry provider
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          New-Item -ItemType Directory -Force "$env:RUNNER_TEMP\controllergate-runtime\artifact-store" | Out-Null
+          gh api "repos/$env:GITHUB_REPOSITORY/actions/artifacts/8299757219/zip" > "$env:RUNNER_TEMP\controllergate-runtime\artifact-store\8299757219.zip"
+          $hash=(Get-FileHash "$env:RUNNER_TEMP\controllergate-runtime\artifact-store\8299757219.zip" -Algorithm SHA256).Hash.ToLower()
+          if($hash -ne 'a081efda39609bae3285adbfbdc209131d415a950fdae0ab352dd69ac7dc3124'){ throw "Poetry provider digest mismatch: $hash" }
+          if((Get-Item "$env:RUNNER_TEMP\controllergate-runtime\artifact-store\8299757219.zip").Length -ne 11685454){ throw 'Poetry provider size mismatch' }
+          Expand-Archive -LiteralPath "$env:RUNNER_TEMP\controllergate-runtime\artifact-store\8299757219.zip" -DestinationPath "$env:RUNNER_TEMP\controllergate-runtime\verified\8299757219"
+      - name: Execute Poetry one-factor arms twice then sealed pairwise arms
+        shell: pwsh
+        run: python scripts/batch084_ci_stage.py poetry --out "$env:GITHUB_WORKSPACE\.batch084-cache\windows-evidence" --runtime "$env:RUNNER_TEMP\controllergate-runtime\poetry" --verified "$env:RUNNER_TEMP\controllergate-runtime\verified"
+      - name: Focused Poetry contract test
+        shell: pwsh
+        run: python -m pytest tests/runtime/test_batch084_poetry_differential.py -q
+      - uses: actions/cache/save@v4
+        with:
+          path: .batch084-cache/windows-evidence
+          key: batch084-windows-evidence-${{ github.run_id }}
+          enableCrossOsArchive: true
+
+  final-audit-and-package:
+    name: Independent critic, regressions, final audit, and single artifact
+    needs: [linux-operational-depth, poetry-differential-forensics]
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install pytest
+      - uses: actions/cache/restore@v4
+        with:
+          path: .batch084-cache/linux-evidence
+          key: batch084-linux-evidence-${{ github.run_id }}
+          enableCrossOsArchive: true
+          fail-on-cache-miss: true
+      - uses: actions/cache/restore@v4
+        with:
+          path: .batch084-cache/windows-evidence
+          key: batch084-windows-evidence-${{ github.run_id }}
+          enableCrossOsArchive: true
+          fail-on-cache-miss: true
+      - name: Merge proof-independent execution evidence
+        run: |
+          mkdir -p "$RUNNER_TEMP/evidence"
+          cp -a "$GITHUB_WORKSPACE/.batch084-cache/linux-evidence/." "$RUNNER_TEMP/evidence/"
+          cp -a "$GITHUB_WORKSPACE/.batch084-cache/windows-evidence/." "$RUNNER_TEMP/evidence/"
+      - name: Final prospective adjudication and claim boundary
+        run: python scripts/batch084_ci_stage.py finalize --out "$RUNNER_TEMP/evidence" --runtime "$RUNNER_TEMP/controllergate-runtime"
+      - name: Focused Batch084 tests
+        run: python -m pytest tests/core/test_batch084_amds_v2.py tests/core/test_batch084_evidence_interlocks.py tests/core/test_batch084_operational_depth.py tests/runtime/test_batch084_openbb_supervisor.py tests/runtime/test_batch084_poetry_differential.py tests/connectors/test_batch084_controlled_write_sandbox.py -q
+      - name: Complete registered suites
+        run: python -m pytest tests/core tests/runtime tests/governance tests/connectors -q
+      - name: Batch073 through Batch083 preservation audits
+        run: |
+          python scripts/audit_batch073_count5_revalidation_frozen_wave1.py
+          python scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py
+          python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
+          python scripts/audit_batch076_amds_causal_memory_calibration.py
+          python scripts/audit_batch077_typed_event_pathway_memory_v2.py
+          python scripts/audit_batch078_count6_minimal_closure_memory_wave1b.py
+          python scripts/audit_batch079_count6_runtime_incident_memory_wave1c.py
+          python scripts/audit_batch080_executed_preflight_provider_memory_wave1d.py
+          python scripts/audit_batch081_execution_constitution_provider_incident_pilot.py
+          python scripts/audit_batch082_ci_native_maintenance_order_provider_wave1f.py --output outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f
+          python scripts/audit_batch083_reaction_product_cross_area_wave1g.py --out outputs/post_v2_37_hardening_batch083_reaction_product_cross_area_wave1g
+      - name: Protocol, frontier, public, maturity, and canonical-boundary audits
+        run: |
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/audit_public_language.py
+          python scripts/audit_public_frontier_sync.py
+          python scripts/audit_cumulative_maturity.py
+          python scripts/audit_canonical_boundary_usage.py
+      - name: Independent Batch084 audit
+        run: python scripts/audit_batch084_real_amds_canary_product_beta.py --out "$RUNNER_TEMP/evidence"
+      - name: Package one clean main artifact
+        run: |
+          STAGE="$RUNNER_TEMP/artifact-stage"
+          mkdir -p "$STAGE/outputs/$RESULT" "$STAGE/controllergate_v1_7_beta/reports/critic_review_package"
+          cp -a "$RUNNER_TEMP/evidence/." "$STAGE/outputs/$RESULT/"
+          cp controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md "$STAGE/controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md"
+          cp configs/batch084_prompt_contract.json configs/controllergate_capability_maturity_model_v2.json "$STAGE/"
+          if find "$STAGE" -type f \( -name '*.pyc' -o -name '*.zip' -o -name '*.tar' -o -name '*.tar.gz' \) | grep -q .; then exit 1; fi
+          if find "$STAGE" -type d -name '__pycache__' | grep -q .; then exit 1; fi
+          (cd "$STAGE" && find . -type f ! -name ARTIFACT_SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > ARTIFACT_SHA256SUMS.txt)
+          test -s "$STAGE/ARTIFACT_SHA256SUMS.txt"
+      - name: Publish concise run summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, os, pathlib
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])/'evidence'
+          state=json.load(open(out/'batch084_final_state.json'))
+          amds=json.load(open(out/'batch084_historical_amds_v2.json'))
+          canary=json.load(open(out/'batch084_real_canary_comparison.json'))
+          product=json.load(open(out/'batch084_historical_product_beta_replay.json'))
+          print('# Batch084 official result')
+          print(f"- Audit: PASS")
+          print(f"- Historical episodes: {len(amds['episodes'])}")
+          print(f"- Cloudpickle canary: {canary['cloudpickle']}")
+          print(f"- Freezegun canary: {canary['freezegun']}")
+          print(f"- Product Beta: {product['status']}")
+          print(f"- OpenBB: {state['openbb']}")
+          print(f"- Poetry: {state['poetry']}")
+          print(f"- Repair attempts: {state['repair_attempts']}")
+          print(f"- Issue-derived repairs: {state['issue_derived_repair_count']}")
+          print(f"- Native external repairs: {state['native_external_repair_count']}")
+          print(f"- Full scoring: {state['full_scoring']}")
+          print(f"- Prospective memory lift: {state['prospective_memory_lift']}")
+          print(f"- Self-maintaining software: {state['self_maintaining_software']}")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch084_real_amds_canary_product_beta_artifacts
+          path: ${{ runner.temp }}/artifact-stage
+          if-no-files-found: error
+          retention-days: 30

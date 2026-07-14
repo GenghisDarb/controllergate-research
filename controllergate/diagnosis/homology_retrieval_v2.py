@@ -11,7 +11,7 @@ def retrieve_structural(
         features = row.get("features", {})
         overlap = sorted(key for key in query_features if query_features[key] == features.get(key))
         scored.append((len(overlap), str(row.get("signature")), row, overlap))
-    selected = sorted(scored, reverse=True)[:limit]
+    selected = sorted(scored, key=lambda item: (item[0], item[1]), reverse=True)[:limit]
     return {
         "holdout_family": holdout_family,
         "excluded_repositories": [holdout_family],

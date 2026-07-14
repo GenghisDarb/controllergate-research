@@ -1,8 +1,14 @@
 # Current status
 
+## Batch084 operational-depth implementation boundary
+
+The official Batch083 workflow artifact is ingested and verified. Batch084 preserves its raw evidence while adding companion records that distinguish the Batch083 keyword-based historical classifier and log-integrity canary drill from real multi-probe diagnosis and repaired-software execution.
+
+Batch084 implements distinct-evidence probe contracts, deterministic constraint elimination when non-holdout likelihood calibration is unavailable, cross-family structural routing memory, separate stateless and randomization controls, cumulative maturity views, byte-locked historical canary admission, canonical historical CLI safe-abstention handling, a controlled local-write connector, provider-precondition and failed-branch ledgers, Docker network-none OpenBB replay, and a frozen Poetry LOO/LOTO matrix. Scientific blocks remain valid outcomes and cannot authorize patches. The current protocol remains v2.19; issue-derived and native external repair counts remain six and four unless an official workflow independently establishes a complete new repair. Full scoring, prospective memory lift, live connector writes, production readiness, and self-maintaining software remain unestablished.
+
 ## Batch083 implementation status
 
-Batch083 implements the Reaction-complete Product Alpha and cross-area Wave 1G execution surface. The implementation adds typed reaction events, resumable state, provider and input-closure verification, historical challenge probes, deployment canaries, bounded connectors, governance audits, and an independently checked Product Alpha cycle. Official Batch083 scientific results remain pending the GitHub Actions execution and artifact boundary. The current protocol remains v2.19; full scoring and self-maintaining-software claims remain disallowed.
+Batch083 implements the Reaction-complete Product Alpha and cross-area Wave 1G execution surface. Its official artifact is ingested. Typed reaction events, resumable state, provider and input-closure verification, bounded connectors, governance audits, and the controlled Product Alpha cycle remain preserved. Batch084 companion records explicitly constrain the historical AMDS, canary, health, rollback, and maturity claims to the depth actually executed.
 
 
 ## Batch082 CI-native implementation boundary

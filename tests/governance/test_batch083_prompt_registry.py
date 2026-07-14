@@ -19,5 +19,11 @@ def test_loose_end_registry_preserves_historical_ids_and_product_dimensions() ->
     assert {"CG-GAP-002","CG-GAP-003","CG-GAP-004","CG-GAP-005","CG-GAP-006","CG-GAP-013"}<=ids
 
 
-def test_batch083_result_directory_not_precommitted() -> None:
-    assert not (ROOT/"outputs/post_v2_37_hardening_batch083_reaction_product_cross_area_wave1g").exists()
+def test_batch083_official_result_directory_is_bound_to_ingest_record() -> None:
+    output = ROOT / "outputs/post_v2_37_hardening_batch083_reaction_product_cross_area_wave1g"
+    ingest = json.loads((ROOT / "evidence/official_ingests/batch083_artifact_ingest.json").read_text(encoding="utf-8"))
+    assert output.is_dir()
+    assert ingest["ingestion"]["status"] == "PASS"
+    assert ingest["ingested_output_directory"] == output.relative_to(ROOT).as_posix()
+    assert ingest["artifact_sha256"] == "81dc63a786d8d19a71b98874db909db20df7173e794b410e6f04eff1a60ab65e"
+    assert ingest["raw_zip_committed"] is False

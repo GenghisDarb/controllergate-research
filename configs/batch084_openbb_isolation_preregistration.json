@@ -1,0 +1,24 @@
+{
+  "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+  "frozen_before_candidate_execution": true,
+  "strategy_order": [
+    "docker_network_none_same_container",
+    "unprivileged_network_namespace_only_if_docker_unavailable_or_contract_cannot_start"
+  ],
+  "fallback_outcome_adaptive": false,
+  "required_sentinels": [
+    "CONTAINER_STARTED",
+    "PROVIDER_VERIFIED",
+    "LOOPBACK_INTERFACE_VERIFIED",
+    "LOCAL_SERVER_STARTED",
+    "LOCAL_SERVER_READY",
+    "EXTERNAL_DNS_BLOCKED",
+    "EXTERNAL_IP_BLOCKED",
+    "GENERATE_SPEC_STARTED",
+    "GENERATE_SPEC_COMPLETED",
+    "GENERATE_EXTENSION_STARTED",
+    "GENERATE_EXTENSION_COMPLETED",
+    "LOCAL_SERVER_STOPPED",
+    "CONTAINER_COMPLETED"
+  ]
+}

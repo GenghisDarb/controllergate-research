@@ -88,6 +88,21 @@ def run_manifest(manifest_path: str | Path) -> dict[str, Any]:
     if validation["status"] != "PASS": return {"status": "BLOCK", "exact_blocker": "manifest_invalid", **validation}
     store = StateStore(Path(manifest["runtime_root"]) / "state")
     state = RunState(manifest["run_id"], str(validation["manifest_hash"]))
+    if manifest.get("execution_mode") == "historical_non_counting":
+        attestations = manifest.get("historical_attestations", {})
+        failed = [name for name in ("source", "provider", "target") if attestations.get(name, {}).get("status") != "PASS"]
+        if failed:
+            state.status = "SAFE_ABSTENTION"
+            state.blocker = f"historical_admission_blocked:{','.join(failed)}"
+            state.evidence["historical_admission"] = {
+                "execution_mode": "historical_non_counting",
+                "attestations": attestations,
+                "repair_count_increment": False,
+            }
+            store.save(state)
+            return {"status": state.status, "run_id": state.run_id, "exact_blocker": state.blocker,
+                    "completed_stages": [], "repair_count_increment": False,
+                    "state_hash": state.record()["state_hash"]}
     store.save(state)
     return run_controlled_cycle(manifest, state, store, stop_after=manifest.get("stop_after"))
 
@@ -96,7 +111,12 @@ def resume_run(manifest_path: str | Path, run_id: str) -> dict[str, Any]:
     manifest, validation = load_manifest(manifest_path)
     if validation["status"] != "PASS": return {"status": "BLOCK", **validation}
     store = StateStore(Path(manifest["runtime_root"]) / "state")
-    return run_controlled_cycle(manifest, store.load(run_id), store)
+    state = store.load(run_id)
+    if manifest.get("execution_mode") == "historical_non_counting" and state.status == "SAFE_ABSTENTION":
+        return {"status": state.status, "run_id": run_id, "completed_stages": state.completed_stages,
+                "blocker": state.blocker, "repair_count_increment": False,
+                "state_hash": state.record()["state_hash"]}
+    return run_controlled_cycle(manifest, state, store)
 
 
 def verify_run(manifest_path: str | Path, run_id: str) -> dict[str, Any]:

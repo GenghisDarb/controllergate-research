@@ -1,5 +1,18 @@
 # Capability inventory
 
+## Batch084 depth-calibrated capabilities
+
+- Multi-probe diagnosis v2: implemented for retrospective proof-independent episodes with distinct hashed evidence contacts. Selection uses calibrated information gain only when non-holdout likelihood evidence is sufficient; otherwise it records `LIKELIHOOD_NOT_CALIBRATED` and uses deterministic constraint elimination.
+- Cross-family structural routing memory: implemented with repository-family and proof-group exclusion. Candidate identity, labels, outcomes, patch text, and exact edits are forbidden retrieval features.
+- Control taxonomy: real memory, no memory, shuffled memory, competent stateless baseline, randomization null, and fixed-order baseline remain separate.
+- Repaired-software historical canary: identity and provider-gated. No canary may pass from target-log hashes alone.
+- Historical Product Beta: canonical CLI admission and safe-abstention handling are implemented; complete replay requires real byte-bound source, provider, target, patch or abstention, validation, replay, rollback, and canary evidence.
+- Controlled write connector: local fixture only; public and credentialed writes remain inactive.
+- OpenBB and Poetry: candidate identities remain frozen. Docker network-none and preregistered differential forensics may diagnose them, but cannot authorize a source repair without direct source-owned divergence.
+- Cumulative maturity: historical maturity, current-batch delta, and production readiness are separate views.
+
+The validated protocol remains v2.19. Full scoring is disallowed, AMDS prospective effectiveness is not established, prospective memory lift is not demonstrated, and self-maintaining software is not demonstrated.
+
 Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Runtime-wrapper entries introduced in Batch015 are scaffold-level unless deterministic fixture evidence is recorded.
 
 ## Batch082 CI-native proof and provider boundary
