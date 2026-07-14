@@ -80,6 +80,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
+      - name: Install ControllerGate test tooling
+        shell: pwsh
+        run: python -m pip install pytest
       - name: Download and byte-check exact Poetry provider
         shell: pwsh
         env:
