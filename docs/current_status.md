@@ -1,5 +1,10 @@
 # Current status
 
+## Batch083 implementation status
+
+Batch083 implements the Reaction-complete Product Alpha and cross-area Wave 1G execution surface. The implementation adds typed reaction events, resumable state, provider and input-closure verification, historical challenge probes, deployment canaries, bounded connectors, governance audits, and an independently checked Product Alpha cycle. Official Batch083 scientific results remain pending the GitHub Actions execution and artifact boundary. The current protocol remains v2.19; full scoring and self-maintaining-software claims remain disallowed.
+
+
 ## Batch082 CI-native implementation boundary
 
 Batch081 has been officially verified and ingested. Its Constitution schema, registry, generic record validation, anti-stub fixtures, and test/audit workflow pass, while independent enforcement of all 40 laws, external-operation integration, CI-native scientific generation, and independent critic recomputation remain not established for Batch081 itself.

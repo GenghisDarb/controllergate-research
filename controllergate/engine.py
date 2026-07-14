@@ -6,6 +6,10 @@ from typing import Any
 
 from .core.frontier_state import verify_state_hash
 from .current_pathway import current_pathway
+from .product.cycle import run_controlled_cycle
+from .product.manifest import load_manifest
+from .state.run_state import RunState
+from .state.state_store import StateStore
 
 
 class FrontierEngine:
@@ -79,14 +83,26 @@ def run_manifest(manifest_path: str | Path) -> dict[str, Any]:
     runtime-root attestation and explicit authorization are attached.
     """
     path = Path(manifest_path)
-    if not path.is_file():
-        return {"status": "BLOCK", "exact_blocker": "manifest_missing"}
-    manifest = json.loads(path.read_text(encoding="utf-8"))
-    required = {"candidate_id", "authorization_id", "runtime_root", "steps"}
-    missing = sorted(required - set(manifest))
-    return {
-        "status": "ADMITTED_FOR_CANONICAL_DISPATCH" if not missing else "BLOCK",
-        "missing": missing,
-        "candidate_id": manifest.get("candidate_id"),
-        **current_pathway(),
-    }
+    if not path.is_file(): return {"status": "BLOCK", "exact_blocker": "manifest_missing"}
+    manifest, validation = load_manifest(path)
+    if validation["status"] != "PASS": return {"status": "BLOCK", "exact_blocker": "manifest_invalid", **validation}
+    store = StateStore(Path(manifest["runtime_root"]) / "state")
+    state = RunState(manifest["run_id"], str(validation["manifest_hash"]))
+    store.save(state)
+    return run_controlled_cycle(manifest, state, store, stop_after=manifest.get("stop_after"))
+
+
+def resume_run(manifest_path: str | Path, run_id: str) -> dict[str, Any]:
+    manifest, validation = load_manifest(manifest_path)
+    if validation["status"] != "PASS": return {"status": "BLOCK", **validation}
+    store = StateStore(Path(manifest["runtime_root"]) / "state")
+    return run_controlled_cycle(manifest, store.load(run_id), store)
+
+
+def verify_run(manifest_path: str | Path, run_id: str) -> dict[str, Any]:
+    manifest, validation = load_manifest(manifest_path)
+    store = StateStore(Path(manifest["runtime_root"]) / "state")
+    state = store.load(run_id); record = state.record()
+    return {"status": "PASS" if state.status in {"CONTROLLED_PRODUCT_ALPHA_CYCLE_PASS", "SAFE_ABSTENTION"} else "BLOCK",
+            "run_id": run_id, "idempotent": record == state.record(), "state_hash": record["state_hash"],
+            "manifest_hash": validation.get("manifest_hash")}

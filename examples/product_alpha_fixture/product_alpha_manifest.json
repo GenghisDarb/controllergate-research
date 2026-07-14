@@ -1,0 +1,14 @@
+{
+  "candidate_id": "product_alpha_fixture_normalization",
+  "allowed_source_paths": ["fixture_app.py"],
+  "fixture_root": "examples/product_alpha_fixture",
+  "incident_command": ["verify_fixture.py"],
+  "incident_id": "CG-PRODUCT-ALPHA-001",
+  "patch_plan": {
+    "new": "return value.strip().lower()",
+    "old": "return value.strip()",
+    "path": "fixture_app.py"
+  },
+  "run_id": "product-alpha-controlled-cycle",
+  "runtime_root": "C:/Dev/ControllerGate_Runtime/product-alpha"
+}
