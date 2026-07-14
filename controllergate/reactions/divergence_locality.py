@@ -3,7 +3,7 @@ from __future__ import annotations
 
 ALLOWED = {
     "SOURCE_OWNED_OUTPUT_DIVERGENCE", "PROVIDER_OWNED_OUTPUT_DIVERGENCE", "ENVIRONMENT_OWNED_OUTPUT_DIVERGENCE",
-    "HARNESS_OWNED_OUTPUT_DIVERGENCE", "EXPECTATION_DIVERGENCE", "MIXED_DIVERGENCE", "DIVERGENCE_NOT_LOCALIZED",
+    "PLATFORM_OWNED_OUTPUT_DIVERGENCE", "HARNESS_OWNED_OUTPUT_DIVERGENCE", "EXPECTATION_DIVERGENCE", "MIXED_DIVERGENCE", "DIVERGENCE_NOT_LOCALIZED",
 }
 
 
@@ -15,6 +15,8 @@ def adjudicate_divergence(direct_frames: dict[str, list[str]], mixed_source_adju
         terminal = "PROVIDER_OWNED_OUTPUT_DIVERGENCE"
     elif populated == {"environment"}:
         terminal = "ENVIRONMENT_OWNED_OUTPUT_DIVERGENCE"
+    elif populated == {"platform"}:
+        terminal = "PLATFORM_OWNED_OUTPUT_DIVERGENCE"
     elif populated == {"harness"}:
         terminal = "HARNESS_OWNED_OUTPUT_DIVERGENCE"
     elif len(populated) > 1:

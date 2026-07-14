@@ -1,9 +1,49 @@
 {
   "platforms": {
+    "linux": {
+      "checks": {
+        "doctor": {
+          "output_sha256": "bf2b9cc16ed8aad4d17a199744f481bb7edf08b351f0a953fc6c7041e6ef10b1",
+          "returncode": 0
+        },
+        "help": {
+          "output_sha256": "3727dcfdd07582ba1193a3d8cc37262f5c9e6923102a53c5ad1cb3d03b26c25d",
+          "returncode": 0
+        },
+        "historical_beta": {
+          "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "returncode": 0
+        },
+        "product_alpha": {
+          "output_sha256": "1f326b6f15ede5f2ba4f09efa76b55ca63f9fc37a27c3d6113562534dd918032",
+          "returncode": 0
+        },
+        "self_maintenance": {
+          "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "returncode": 0
+        },
+        "status": {
+          "output_sha256": "1f0139ea026bc0390f458c21c9072ad8affa931a424ab5bc14e56022e57c6de5",
+          "returncode": 0
+        },
+        "watch": {
+          "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "returncode": 0
+        }
+      },
+      "conditional_beta_version_applied": false,
+      "install_returncode": 0,
+      "platform": "linux",
+      "project_version": "0.1.0a1",
+      "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]",
+      "sdist_count": 1,
+      "status": "PASS",
+      "wheel_count": 1
+    },
     "windows": {
       "checks": {
         "doctor": {
-          "output_sha256": "82eadbb27e32bf91277d80e48a3a438165440550616287698a83cdef71fc9480",
+          "output_sha256": "0ec809f09cfe8a941b7bf6d590d3118ecfcc91f47d76a96ae668554609663c9e",
           "returncode": 0
         },
         "help": {
@@ -15,7 +55,7 @@
           "returncode": 0
         },
         "product_alpha": {
-          "output_sha256": "b3e88727632fab30bfcc97295f06340fdea7a42749f164790eda96a1e73095fd",
+          "output_sha256": "422c23a51e9e871080daad86e04b8d65ffd6ab0fb7d2d4047b4c959ed643ad2f",
           "returncode": 0
         },
         "self_maintenance": {
@@ -43,5 +83,5 @@
   },
   "product_beta_version_not_applied": true,
   "release_version": "0.1.0a1",
-  "status": "BLOCKED_EXACT_PLATFORM_VALIDATION_PENDING"
+  "status": "PASS"
 }

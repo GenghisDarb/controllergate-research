@@ -1,0 +1,44 @@
+{
+  "registry_version": 1,
+  "provider_bytes_in_git": false,
+  "default_runtime_root": "C:\\Dev\\ControllerGate_Runtime\\batch086",
+  "episodes": [
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "repo_url": "https://github.com/cloudpipe/cloudpickle",
+      "candidate_sha": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+      "cutoff": "2023-03-25T23:08:27Z",
+      "project_name": "cloudpickle",
+      "target": ["tests/cloudpickle_test.py", "-q", "--tb=no"],
+      "target_required_packages": [
+        {"name": "pytest", "version": "7.2.2", "dependency_parent": "dev-requirements.txt", "reason": "registered test runner"},
+        {"name": "psutil", "version": "5.9.4", "dependency_parent": "dev-requirements.txt", "reason": "registered target-suite dependency"},
+        {"name": "tornado", "version": "6.2", "dependency_parent": "dev-requirements.txt", "reason": "registered coroutine tests"},
+        {"name": "pluggy", "version": "1.0.0", "dependency_parent": "pytest", "reason": "pytest dependency"},
+        {"name": "iniconfig", "version": "2.0.0", "dependency_parent": "pytest", "reason": "pytest dependency"},
+        {"name": "packaging", "version": "23.0", "dependency_parent": "pytest", "reason": "pytest dependency"},
+        {"name": "attrs", "version": "22.2.0", "dependency_parent": "pytest", "reason": "historical pytest compatibility dependency"},
+        {"name": "colorama", "version": "0.4.6", "dependency_parent": "pytest", "reason": "Windows pytest dependency"}
+      ],
+      "declared_but_not_target_required": ["flake8", "pytest-cov", "codecov", "coverage"]
+    },
+    {
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "repo_url": "https://github.com/spulec/freezegun",
+      "candidate_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "cutoff": "2024-05-06T07:45:25Z",
+      "project_name": "freezegun",
+      "target": ["tests/test_datetimes.py", "-q", "--tb=no"],
+      "target_required_packages": [
+        {"name": "pytest", "version": "8.2.0", "dependency_parent": "requirements.txt", "reason": "registered test runner"},
+        {"name": "python-dateutil", "version": "2.9.0.post0", "dependency_parent": "requirements.txt", "reason": "runtime dependency"},
+        {"name": "pluggy", "version": "1.5.0", "dependency_parent": "pytest", "reason": "pytest dependency"},
+        {"name": "iniconfig", "version": "2.0.0", "dependency_parent": "pytest", "reason": "pytest dependency"},
+        {"name": "packaging", "version": "24.0", "dependency_parent": "pytest", "reason": "pytest dependency"},
+        {"name": "six", "version": "1.16.0", "dependency_parent": "python-dateutil", "reason": "python-dateutil dependency"},
+        {"name": "colorama", "version": "0.4.6", "dependency_parent": "pytest", "reason": "Windows pytest dependency"}
+      ],
+      "declared_but_not_target_required": ["pytest-cov", "coveralls", "maya"]
+    }
+  ]
+}

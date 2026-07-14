@@ -14,4 +14,8 @@ def migrate(connection: sqlite3.Connection) -> int:
     version = current_version(connection)
     if version > SCHEMA_VERSION:
         raise RuntimeError("state schema is newer than this ControllerGate build")
+    if version < 3:
+        connection.execute("INSERT OR IGNORE INTO schema_migrations(version,applied_at) VALUES (3,datetime('now'))")
+        connection.commit()
+        version = 3
     return version

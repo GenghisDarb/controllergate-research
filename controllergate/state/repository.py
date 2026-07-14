@@ -70,3 +70,24 @@ class ControllerStateRepository:
         rows = self.connection.execute("SELECT repair_class, COUNT(*) AS n FROM count_records WHERE decision='COUNT' GROUP BY repair_class").fetchall()
         values = {str(row["repair_class"]): int(row["n"]) for row in rows}
         return {"issue_derived": values.get("issue_derived", 0), "native_external": values.get("native_external", 0)}
+
+    def record_failed_branch(self, record: dict[str, Any]) -> str:
+        required = ("attempt_identity", "parent_event", "input_tokens", "candidate_id", "source_identity",
+                    "provider_seal", "operation_identity", "failure_class", "new_information",
+                    "rollback_target", "branch_closed", "reopen_condition", "next_legal_action")
+        missing = [key for key in required if key not in record]
+        if missing:
+            raise ValueError(f"failed branch lineage incomplete: {','.join(missing)}")
+        payload = {**record, "count_increment": False}
+        branch_hash = canonical_hash(payload)
+        now = datetime.now(timezone.utc).isoformat()
+        self.connection.execute(
+            "INSERT OR IGNORE INTO failed_branch_lineage(branch_hash,attempt_identity,parent_event,input_tokens,candidate_id,source_identity,provider_seal,operation_identity,patch_hash,failure_class,new_information,rollback_target,branch_closed,count_increment,reopen_condition,next_legal_action,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            (branch_hash, record["attempt_identity"], record["parent_event"], json.dumps(record["input_tokens"], sort_keys=True),
+             record["candidate_id"], record["source_identity"], record["provider_seal"], record["operation_identity"],
+             record.get("patch_hash"), record["failure_class"], json.dumps(record["new_information"], sort_keys=True),
+             record["rollback_target"], int(bool(record["branch_closed"])), 0, record["reopen_condition"],
+             record["next_legal_action"], now),
+        )
+        self.connection.commit()
+        return branch_hash
