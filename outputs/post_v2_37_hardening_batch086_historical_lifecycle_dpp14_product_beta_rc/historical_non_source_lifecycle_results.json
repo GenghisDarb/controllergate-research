@@ -20,7 +20,7 @@
         "frozen_frame": {
           "ast": "not source localized",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+            "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
             "-c",
             "import aifc"
           ],
@@ -28,7 +28,7 @@
             "ast": "not source localized",
             "candidate": null,
             "command": [
-              "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+              "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
               "-c",
               "import aifc"
             ],
@@ -38,9 +38,9 @@
             "normal": "registered normal",
             "platform": null,
             "proof": "46af167b373cffb109353122573d13fbc2704859c28a346ad05c0b46d4738e0f",
-            "provider": "99c05a7243816ff1f03bfaf34c70a8e69f5b7b68436482646061621c7fc64533",
+            "provider": "59f10d36eb3be1e7eadbdf18d5a224fdcc198db5a07d4ddd579f443645f89bf9",
             "rollback": "not required",
-            "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+            "runtime": "3.13.14 (main, Jun 11 2026, 03:02:07) [GCC 13.3.0]",
             "source": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
             "target": "historical target"
           },
@@ -53,7 +53,7 @@
               "verified": true
             }
           ],
-          "frame_hash": "f8743aa1873d6ace11207aecd19cc3439317dafdb539a939f4429bbb9352862b",
+          "frame_hash": "1ab641436c74c58bf2c00c82fbaa0e9b0a26f1eba927e770688e1dc4bae93b46",
           "harness": "46af167b373cffb109353122573d13fbc2704859c28a346ad05c0b46d4738e0f",
           "incident": "reproduced non-source",
           "interlocks": {
@@ -69,7 +69,7 @@
             }
           ],
           "proof": "46af167b373cffb109353122573d13fbc2704859c28a346ad05c0b46d4738e0f",
-          "provider": "99c05a7243816ff1f03bfaf34c70a8e69f5b7b68436482646061621c7fc64533",
+          "provider": "59f10d36eb3be1e7eadbdf18d5a224fdcc198db5a07d4ddd579f443645f89bf9",
           "repair_interlocks_pass": true,
           "requirements_materialized": {
             "command": true,
@@ -79,7 +79,7 @@
             "target": true
           },
           "rollback": "not required",
-          "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+          "runtime": "3.13.14 (main, Jun 11 2026, 03:02:07) [GCC 13.3.0]",
           "selected_probes": [
             {
               "classification": "provider_owned",
@@ -99,7 +99,7 @@
           {
             "classification": "provider_owned",
             "direct": true,
-            "frame_hash": "f8743aa1873d6ace11207aecd19cc3439317dafdb539a939f4429bbb9352862b",
+            "frame_hash": "1ab641436c74c58bf2c00c82fbaa0e9b0a26f1eba927e770688e1dc4bae93b46",
             "lane": "provider",
             "probe_id": "provider-import",
             "status": "PASS",
@@ -117,7 +117,7 @@
             "transition": "NormalizeEvidence"
           },
           {
-            "frame_hash": "f8743aa1873d6ace11207aecd19cc3439317dafdb539a939f4429bbb9352862b",
+            "frame_hash": "1ab641436c74c58bf2c00c82fbaa0e9b0a26f1eba927e770688e1dc4bae93b46",
             "status": "PASS",
             "transition": "FreezeFrame"
           },
@@ -191,18 +191,18 @@
       },
       "exact_blocker": null,
       "historical_non_counting": true,
-      "historical_terminal_proof_path": "outputs\\post_v2_37_hardening_batch060f_audioread_provider_backend_capsule_replay\\batch060f_final_decision.json",
+      "historical_terminal_proof_path": "outputs/post_v2_37_hardening_batch060f_audioread_provider_backend_capsule_replay/batch060f_final_decision.json",
       "historical_terminal_proof_sha256": "46af167b373cffb109353122573d13fbc2704859c28a346ad05c0b46d4738e0f",
-      "provider_seal": "99c05a7243816ff1f03bfaf34c70a8e69f5b7b68436482646061621c7fc64533",
+      "provider_seal": "59f10d36eb3be1e7eadbdf18d5a224fdcc198db5a07d4ddd579f443645f89bf9",
       "repair_count_increment": 0,
       "repair_license": false,
       "replay": {
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-c",
           "import aifc"
         ],
-        "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\audioread_144_py313_aifc_removed\\source",
+        "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/audioread_144_py313_aifc_removed/source",
         "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import aifc\nModuleNotFoundError: No module named 'aifc'",
         "returncode": 1,
         "semantic_failure_nodes": [],
@@ -235,19 +235,19 @@
         "frozen_frame": {
           "ast": "not source localized",
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+            "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
             "-c",
             "import pathlib,sys; p=pathlib.Path(sys.argv[1]); s=p.read_text(encoding='utf-8'); sys.exit(0 if 'test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests' in s else 2)",
-            "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source\\tests\\unit\\orchestrator\\test_orchestrator_engine.py"
+            "/home/runner/work/_temp/controllergate-runtime/batch086/prospective_yxyxy_hordeforge_issue_39/source/tests/unit/orchestrator/test_orchestrator_engine.py"
           ],
           "contacts": {
             "ast": "not source localized",
             "candidate": null,
             "command": [
-              "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+              "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
               "-c",
               "import pathlib,sys; p=pathlib.Path(sys.argv[1]); s=p.read_text(encoding='utf-8'); sys.exit(0 if 'test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests' in s else 2)",
-              "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source\\tests\\unit\\orchestrator\\test_orchestrator_engine.py"
+              "/home/runner/work/_temp/controllergate-runtime/batch086/prospective_yxyxy_hordeforge_issue_39/source/tests/unit/orchestrator/test_orchestrator_engine.py"
             ],
             "expectation": "historical terminal",
             "harness": "2fb1656eaa103ab93324b5cae98c24bb5b72f89590a19ccc6eacb7d13789c114",
@@ -257,7 +257,7 @@
             "proof": "2fb1656eaa103ab93324b5cae98c24bb5b72f89590a19ccc6eacb7d13789c114",
             "provider": "2ac1d986677247c808721cd70dd5ea8010ca3837e3967639a1893361b4e11bf3",
             "rollback": "not required",
-            "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+            "runtime": "3.13.14 (main, Jun 11 2026, 03:02:07) [GCC 13.3.0]",
             "source": "89977490c8daad668ade06847d3a6d33ab2209de",
             "target": "historical target"
           },
@@ -270,7 +270,7 @@
               "verified": true
             }
           ],
-          "frame_hash": "bbd4d55beb8f8c23419548d048358febcd68e9024219b0afab34f2d5bca4b5a7",
+          "frame_hash": "f16b879894128e0d76d4915a2ec3b06c88291e35d7c23d3ccdb16e9c05f30d82",
           "harness": "2fb1656eaa103ab93324b5cae98c24bb5b72f89590a19ccc6eacb7d13789c114",
           "incident": "reproduced non-source",
           "interlocks": {
@@ -296,7 +296,7 @@
             "target": true
           },
           "rollback": "not required",
-          "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+          "runtime": "3.13.14 (main, Jun 11 2026, 03:02:07) [GCC 13.3.0]",
           "selected_probes": [
             {
               "classification": "harness_owned",
@@ -316,7 +316,7 @@
           {
             "classification": "harness_owned",
             "direct": true,
-            "frame_hash": "bbd4d55beb8f8c23419548d048358febcd68e9024219b0afab34f2d5bca4b5a7",
+            "frame_hash": "f16b879894128e0d76d4915a2ec3b06c88291e35d7c23d3ccdb16e9c05f30d82",
             "lane": "harness",
             "probe_id": "harness-origin",
             "status": "PASS",
@@ -334,7 +334,7 @@
             "transition": "NormalizeEvidence"
           },
           {
-            "frame_hash": "bbd4d55beb8f8c23419548d048358febcd68e9024219b0afab34f2d5bca4b5a7",
+            "frame_hash": "f16b879894128e0d76d4915a2ec3b06c88291e35d7c23d3ccdb16e9c05f30d82",
             "status": "PASS",
             "transition": "FreezeFrame"
           },
@@ -408,19 +408,19 @@
       },
       "exact_blocker": null,
       "historical_non_counting": true,
-      "historical_terminal_proof_path": "outputs\\post_v2_37_hardening_batch077_typed_event_pathway_memory_v2\\hordeforge_runtime_compartment_correction.json",
+      "historical_terminal_proof_path": "outputs/post_v2_37_hardening_batch077_typed_event_pathway_memory_v2/hordeforge_runtime_compartment_correction.json",
       "historical_terminal_proof_sha256": "2fb1656eaa103ab93324b5cae98c24bb5b72f89590a19ccc6eacb7d13789c114",
       "provider_seal": "2ac1d986677247c808721cd70dd5ea8010ca3837e3967639a1893361b4e11bf3",
       "repair_count_increment": 0,
       "repair_license": false,
       "replay": {
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-c",
           "import pathlib,sys; p=pathlib.Path(sys.argv[1]); s=p.read_text(encoding='utf-8'); sys.exit(0 if 'test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests' in s else 2)",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source\\tests\\unit\\orchestrator\\test_orchestrator_engine.py"
+          "/home/runner/work/_temp/controllergate-runtime/batch086/prospective_yxyxy_hordeforge_issue_39/source/tests/unit/orchestrator/test_orchestrator_engine.py"
         ],
-        "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source",
+        "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/prospective_yxyxy_hordeforge_issue_39/source",
         "output_tail": "",
         "returncode": 0,
         "semantic_failure_nodes": [],

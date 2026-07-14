@@ -1,5 +1,13 @@
 # Public release readiness
 
+<!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
+## Current release gate
+
+Status: `PRODUCT_BETA_RC_BLOCKED_EXACT`. Development package version: `0.2.0b2.dev0`. Production readiness remains false.
+
+Exact blockers: canonical_historical_source_and_provider_capsules_not_present_in_main_artifact, project_level_non_source_reproducer_capsules_not_present_for_canonical_reexecution, canonical_historical_repair_package_not_available, cross_platform_installed_package_evidence_requires_official_linux_and_windows_jobs
+<!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
+
 ## Batch086 release-candidate boundary
 
 Batch086 passes the bounded Product Beta RC evidence gate after two complete historical repair lifecycles, two correct non-source terminal lifecycles, DPP-14 safety-quality validation, real target canaries, health monitoring, and exact rollback. ControllerGate is still not production-ready; public write connectors, automatic merge, full scoring, and autonomous live maintenance remain disabled.

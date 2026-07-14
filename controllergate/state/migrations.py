@@ -18,4 +18,8 @@ def migrate(connection: sqlite3.Connection) -> int:
         connection.execute("INSERT OR IGNORE INTO schema_migrations(version,applied_at) VALUES (3,datetime('now'))")
         connection.commit()
         version = 3
+    if version < 4:
+        connection.execute("INSERT OR IGNORE INTO schema_migrations(version,applied_at) VALUES (4,datetime('now'))")
+        connection.commit()
+        version = 4
     return version

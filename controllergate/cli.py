@@ -8,11 +8,9 @@ from .connectors.audit import audit_events
 from .connectors.contract import ConnectorContract
 from .connectors.github_public_readonly import read_frozen_resource
 from .deployment.deployment_proof import seal_deployment
-from .engine import resume_run, run_historical_lifecycle, run_manifest, verify_run
+from .engine import resume_run, run_historical_lifecycle, run_manifest, status_run, verify_run
 from .product.doctor import doctor
 from .product.manifest import load_manifest
-from .state.resume import resume_status
-from .state.state_store import StateStore
 from .state.repository import ControllerStateRepository
 from .proof.count_service import public_counts
 from .watch.controller import WatchController
@@ -25,6 +23,7 @@ def main(argv: list[str] | None = None) -> int:
     run = sub.add_parser("run")
     run.add_argument("--manifest", required=True)
     historical = sub.add_parser("historical-run"); historical.add_argument("--config", required=True)
+    migrate = sub.add_parser("migrate-state"); migrate.add_argument("--from-json", required=True); migrate.add_argument("--database", required=True)
     resume = sub.add_parser("resume"); resume.add_argument("--run-id", required=True); resume.add_argument("--manifest", required=True)
     status = sub.add_parser("status"); status.add_argument("--run-id"); status.add_argument("--runtime-root"); status.add_argument("--database")
     verify = sub.add_parser("verify"); verify.add_argument("--run-id", required=True); verify.add_argument("--manifest", required=True)
@@ -39,10 +38,9 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "resume": result = resume_run(args.manifest, args.run_id)
     elif args.command == "status":
         if args.database:
-            repository = ControllerStateRepository(args.database)
-            result = {"status": "PASS", "counts": public_counts(repository.connection), "run_count": repository.connection.execute("SELECT COUNT(*) FROM runs").fetchone()[0], "state_authority": "SQLite"}
+            result = status_run(args.database, args.run_id)
         elif args.run_id and args.runtime_root:
-            result = resume_status(StateStore(Path(args.runtime_root) / "state"), args.run_id)
+            result = status_run(Path(args.runtime_root) / "state" / "controllergate.sqlite3", args.run_id)
         else:
             result = {"status": "BLOCK", "blocker": "status_database_or_run_runtime_required"}
     elif args.command == "verify": result = verify_run(args.manifest, args.run_id)
@@ -51,6 +49,10 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "watch":
         events = json.loads(Path(args.events).read_text(encoding="utf-8"))
         result = WatchController(args.database).observe(args.connector_id, events, args.cursor)
+    elif args.command == "migrate-state":
+        repository = ControllerStateRepository(args.database)
+        try: result = repository.migrate_json_state(getattr(args, "from_json"))
+        finally: repository.close()
     else:
         value = json.loads(Path(args.manifest).read_text(encoding="utf-8")); contract = ConnectorContract(value["connector_id"], tuple(value["allowed_resources"]), False)
         events = [read_frozen_resource(value["resource"])] if contract.validate()["status"] == "CONNECTOR_SCHEMA_VALIDATED" else []

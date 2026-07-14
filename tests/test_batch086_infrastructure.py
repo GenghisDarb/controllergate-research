@@ -62,7 +62,9 @@ def test_dpp14_rejects_source_fallback_and_mutating_lane():
 def test_interlock_recovery_and_non_authorization():
     assert audit_registry(ROOT)["status"] == "PASS"
     contract = InterlockContract("source", ("source revision",))
-    assert apply_negative_regulation(contract, {"source revision": "PASS"})["status"] == "PASS"
+    token = {"token_type": "source revision", "token_hash": "a" * 64, "independent_verifier": "fixture-verifier"}
+    assert apply_negative_regulation(contract, {"source revision": token})["status"] == "PASS"
+    assert apply_negative_regulation(contract, {"source revision": "PASS"})["status"] == "BLOCK"
     blocked = apply_negative_regulation(contract, {"source revision": "MISSING"})
     assert blocked["status"] == "BLOCK"
     assert blocked["can_authorize_patch"] is False

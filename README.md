@@ -1,5 +1,11 @@
 # ControllerGate
 
+<!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
+## Current validated boundary
+
+ControllerGate's current protocol remains v2.19. SQLite is the sole mutable runtime authority and preserves 6 issue-derived and 4 native external repairs. The independent release state is `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+<!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
+
 <!-- CONTROLLERGATE_CURRENT_STATUS_BEGIN -->
 ## Current validated boundary
 

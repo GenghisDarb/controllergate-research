@@ -2,37 +2,37 @@
   "canary_runs": [
     {
       "command": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
         "-m",
         "pytest",
         "tests/test_datetimes.py",
         "-q",
         "--tb=no"
       ],
-      "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\canary",
-      "output_tail": ".................s...........s.........................................s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\canary\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\canary\\tests\\test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert now == datetime.datetime.utcfromtimestamp(time.time())\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\canary\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n69 passed, 3 skipped, 3 warnings in 2.37s",
+      "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/canary",
+      "output_tail": ".................s.....s.....s.s.......................................s [100%]\n=============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/canary/tests/test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/canary/tests/test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert now == datetime.datetime.utcfromtimestamp(time.time())\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/canary/tests/test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n67 passed, 5 skipped, 3 warnings in 0.42s",
       "returncode": 0,
       "semantic_failure_nodes": [],
       "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "a8cb05f16bf61163fedeee85d6a14870c1a14ee21adea6fd7ceaf25704508e6f"
+      "stdout_sha256": "afa25f5fc94d7c76c248804c416bc833bfe22ca22bd6cb3ea6d62f8313239653"
     },
     {
       "command": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
         "-m",
         "pytest",
         "tests/test_datetimes.py",
         "-q",
         "--tb=no"
       ],
-      "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\comparison",
-      "output_tail": ".................s...........s.........................................s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\comparison\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\comparison\\tests\\test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert now == datetime.datetime.utcfromtimestamp(time.time())\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\comparison\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n69 passed, 3 skipped, 3 warnings in 2.49s",
+      "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/comparison",
+      "output_tail": ".................s.....s.....s.s.......................................s [100%]\n=============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/comparison/tests/test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/comparison/tests/test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert now == datetime.datetime.utcfromtimestamp(time.time())\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/comparison/tests/test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n67 passed, 5 skipped, 3 warnings in 0.41s",
       "returncode": 0,
       "semantic_failure_nodes": [],
       "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "578b76f0c0e285be71285dc07f3cfa0e943d7d083e7b5028e4e8fa20f7f03062"
+      "stdout_sha256": "ea5d75aad8b22614c0333e6d50de5ef795125ad5b5fef13bf0b72694d2688891"
     }
   ],
   "candidate_id": "freezegun_547_py313_datetimes_assertion",
@@ -55,7 +55,7 @@
       "ast": "patch_touched_source",
       "ast_contact_domain": true,
       "command": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
         "-m",
         "pytest",
         "tests/test_datetimes.py",
@@ -66,7 +66,7 @@
         "ast": "patch_touched_source",
         "candidate": null,
         "command": [
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
           "-m",
           "pytest",
           "tests/test_datetimes.py",
@@ -79,9 +79,9 @@
         "normal": "patched_pass",
         "platform": null,
         "proof": "historical_non_counting",
-        "provider": "92c912881dbe5f4ec0243379328c324b85651adfb6b6fcba51903ab0c4b566ba",
+        "provider": "4bb2a90c295fc9fed8369ee5f6f8659b4c4da008ad466ec725baa83a604b65b4",
         "rollback": "PASS",
-        "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+        "runtime": "3.13.14 (main, Jun 11 2026, 03:02:07) [GCC 13.3.0]",
         "source": "df263dcec48f43154a5873eb0dff2d4ba94374da",
         "target": [
           "tests/test_datetimes.py",
@@ -100,7 +100,7 @@
           "verified": true
         }
       ],
-      "frame_hash": "a198773817086c561e8253c2ec209d5a37f7b0941564d109b95540acc991dd3e",
+      "frame_hash": "76654f4cc56f92fd7a192b92fd35d92ca19c3e4d4d191986ad4670475ccc61fd",
       "harness_target_alternative_excluded": true,
       "incident": "buggy_failure",
       "interlocks": {
@@ -116,7 +116,7 @@
         }
       ],
       "proof": "historical_non_counting",
-      "provider": "92c912881dbe5f4ec0243379328c324b85651adfb6b6fcba51903ab0c4b566ba",
+      "provider": "4bb2a90c295fc9fed8369ee5f6f8659b4c4da008ad466ec725baa83a604b65b4",
       "provider_alternative_excluded": true,
       "repair_interlocks_pass": true,
       "requirements_materialized": {
@@ -127,7 +127,7 @@
         "target": true
       },
       "rollback": "PASS",
-      "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+      "runtime": "3.13.14 (main, Jun 11 2026, 03:02:07) [GCC 13.3.0]",
       "selected_probes": [
         {
           "classification": "source_owned_behavior_defect",
@@ -152,7 +152,7 @@
       {
         "classification": "source_owned_behavior_defect",
         "direct": true,
-        "frame_hash": "a198773817086c561e8253c2ec209d5a37f7b0941564d109b95540acc991dd3e",
+        "frame_hash": "76654f4cc56f92fd7a192b92fd35d92ca19c3e4d4d191986ad4670475ccc61fd",
         "lane": "source",
         "probe_id": "source-divergence",
         "status": "PASS",
@@ -170,7 +170,7 @@
         "transition": "NormalizeEvidence"
       },
       {
-        "frame_hash": "a198773817086c561e8253c2ec209d5a37f7b0941564d109b95540acc991dd3e",
+        "frame_hash": "76654f4cc56f92fd7a192b92fd35d92ca19c3e4d4d191986ad4670475ccc61fd",
         "status": "PASS",
         "transition": "FreezeFrame"
       },
@@ -244,20 +244,20 @@
   },
   "duplicate_clean_replay": {
     "command": [
-      "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+      "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
       "-m",
       "pytest",
       "tests/test_datetimes.py",
       "-q",
       "--tb=no"
     ],
-    "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\duplicate",
-    "output_tail": ".................s...........s.........................................s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\duplicate\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\duplicate\\tests\\test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert now == datetime.datetime.utcfromtimestamp(time.time())\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\duplicate\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n69 passed, 3 skipped, 3 warnings in 2.16s",
+    "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/duplicate",
+    "output_tail": ".................s.....s.....s.s.......................................s [100%]\n=============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/duplicate/tests/test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/duplicate/tests/test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert now == datetime.datetime.utcfromtimestamp(time.time())\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/duplicate/tests/test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n67 passed, 5 skipped, 3 warnings in 0.41s",
     "returncode": 0,
     "semantic_failure_nodes": [],
     "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "stdout_sha256": "3e7aa618ed27df84fd039b3090cb6b0fd2aac139d5fc8931e16336b6b6b682cd"
+    "stdout_sha256": "30fc0fdb9cf122e6a0b0fc411a4a6ccfa70c1bc50d57df267d9c331095ebc4fd"
   },
   "exact_blocker": null,
   "health": {
@@ -270,13 +270,13 @@
   "idempotent_resume": true,
   "native_invariant": {
     "command": [
-      "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+      "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
       "-m",
       "compileall",
       "-q",
       "freezegun"
     ],
-    "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\validation",
+    "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/validation",
     "output_tail": "",
     "returncode": 0,
     "semantic_failure_nodes": [],
@@ -288,47 +288,45 @@
   "prepatch": [
     {
       "command": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
         "-m",
         "pytest",
         "tests/test_datetimes.py",
         "-q",
         "--tb=no"
       ],
-      "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\source",
-      "output_tail": ".................s...........s..................FFF..................F.s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\source\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\source\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello\nFAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n4 failed, 65 passed, 3 skipped, 2 warnings in 1.32s",
+      "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/source",
+      "output_tail": ".................s.....s.....s.s................FFF....................s [100%]\n=============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/source/tests/test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/source/tests/test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert now == datetime.datetime.utcfromtimestamp(time.time())\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/source/tests/test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)\n3 failed, 64 passed, 5 skipped, 3 warnings in 0.42s",
       "returncode": 1,
       "semantic_failure_nodes": [
-        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
-        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func",
-        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello",
-        "FAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone"
+        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)",
+        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)",
+        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)"
       ],
-      "semantic_signature_sha256": "4ed412effded45cc05d3fbc0889249f858932c9a5e7ba0ddce658b334fb0e5cd",
+      "semantic_signature_sha256": "bdbbdc260533d9f49b2966d09cd38d1c2e7ac64a9e4e686b8b8485fe633d7c9b",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "89cd2c5ead1ed44da08e104a870c2b5e1ed8605f51a5048c921cec1d261752b4"
+      "stdout_sha256": "fc76247cd6eb80b6ed53e0b4b1bdd3cf799cfd5ad8788df9f7922f8c56ba025b"
     },
     {
       "command": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
         "-m",
         "pytest",
         "tests/test_datetimes.py",
         "-q",
         "--tb=no"
       ],
-      "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\source",
-      "output_tail": ".................s...........s..................FFF..................F.s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\source\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\source\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello\nFAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n4 failed, 65 passed, 3 skipped, 2 warnings in 1.39s",
+      "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/source",
+      "output_tail": ".................s.....s.....s.s................FFF....................s [100%]\n=============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/source/tests/test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/source/tests/test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert now == datetime.datetime.utcfromtimestamp(time.time())\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/source/tests/test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)\n3 failed, 64 passed, 5 skipped, 3 warnings in 0.42s",
       "returncode": 1,
       "semantic_failure_nodes": [
-        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
-        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func",
-        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello",
-        "FAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone"
+        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)",
+        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)",
+        "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello - AssertionError: FakeDate(2013, 4, 9) != datetime.datetime(2013, 4, 9, 0, 0)"
       ],
-      "semantic_signature_sha256": "4ed412effded45cc05d3fbc0889249f858932c9a5e7ba0ddce658b334fb0e5cd",
+      "semantic_signature_sha256": "bdbbdc260533d9f49b2966d09cd38d1c2e7ac64a9e4e686b8b8485fe633d7c9b",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "5c58c2081409988e0c94e9228a66a37112057afb5066edf1ced8da864767e287"
+      "stdout_sha256": "fc76247cd6eb80b6ed53e0b4b1bdd3cf799cfd5ad8788df9f7922f8c56ba025b"
     }
   ],
   "provider": {
@@ -340,15 +338,15 @@
     "cutoff": "2024-05-06T07:45:25Z",
     "historical_equivalence_token": {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:03.133097+00:00",
+      "created_time": "2026-07-14T19:42:21.697720+00:00",
       "independent_verifier": "controllergate.runtime.historical_provider_equivalence",
       "input_token_hashes": [
-        "f8c0da853ab6081d308be7d0289eb87be22bb2a43b3b8804f96a1b6178d4eb26"
+        "194fb0fd045c369d7da614a4e193da997ca1f2cc0a04ca4f7b89d54e10e57cad"
       ],
-      "payload_identity": "46e150dd9865334329a253e046585ed2b840be2eb8685bccc8d7bc68050ee7db",
+      "payload_identity": "906fd9447ae6c3ee9a74836e03b9d85aaa26309a58ec1c56daf7a7451ddffa7c",
       "producer_event": "historical_provider_reconstructed_equivalent",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "566b96bb4ee2e71786d041c605a45468f8bdc335ffb2c39ed639a0f12328133a",
+      "token_hash": "5f2e0267ded6c64367e389f8e52aa275d34318ea454fbb5aa7db865e5d8e1425",
       "token_type": "HISTORICAL_PROVIDER_RECONSTRUCTED_EQUIVALENT_TOKEN"
     },
     "installed_graph_equivalence": {
@@ -405,12 +403,12 @@
         ],
         "installed_distribution_graph_hash": "477ce7328fd43af5ca747e16127bf5fe2e4772bff211ec1f79c732062f528859",
         "network_mode": "none",
-        "python": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "python": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
         "status": "PASS",
         "target_availability_returncode": 0,
-        "target_collection_hash": "c10578487287fe1c316f04b8dd15ad7942d2cfa99be4eea226561cfa634f052f",
+        "target_collection_hash": "55b744eab195c51d85f82277b3000c6d09cb460bb340977ef7e17015b6037b39",
         "target_local_paths": [],
-        "venv": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1"
+        "venv": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1"
       },
       {
         "blocker": null,
@@ -458,21 +456,21 @@
         ],
         "installed_distribution_graph_hash": "477ce7328fd43af5ca747e16127bf5fe2e4772bff211ec1f79c732062f528859",
         "network_mode": "none",
-        "python": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-2\\Scripts\\python.exe",
+        "python": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-2/bin/python",
         "status": "PASS",
         "target_availability_returncode": 0,
-        "target_collection_hash": "4485f2fd1685afc04caa0c5b7fcf8c4d6e1730140c78e379f12527a7ff2456c0",
+        "target_collection_hash": "675239c39d4cb0a78fe5b2028d3d41819fe128abd659af5102c5d2f1e66740c6",
         "target_local_paths": [],
-        "venv": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-2"
+        "venv": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-2"
       }
     ],
     "package_records": [
       {
         "artifact_filename": "pytest-8.2.0-py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\pytest-8.2.0\\pytest-8.2.0-py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/pytest-8.2.0/pytest-8.2.0-py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -480,7 +478,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\pytest-8.2.0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/pytest-8.2.0",
           "pytest==8.2.0"
         ],
         "cutoff_eligible": true,
@@ -499,10 +497,10 @@
       },
       {
         "artifact_filename": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\python-dateutil-2.9.0.post0\\python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/python-dateutil-2.9.0.post0/python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -510,7 +508,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\python-dateutil-2.9.0.post0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/python-dateutil-2.9.0.post0",
           "python-dateutil==2.9.0.post0"
         ],
         "cutoff_eligible": true,
@@ -529,10 +527,10 @@
       },
       {
         "artifact_filename": "pluggy-1.5.0-py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\pluggy-1.5.0\\pluggy-1.5.0-py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/pluggy-1.5.0/pluggy-1.5.0-py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -540,7 +538,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\pluggy-1.5.0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/pluggy-1.5.0",
           "pluggy==1.5.0"
         ],
         "cutoff_eligible": true,
@@ -559,10 +557,10 @@
       },
       {
         "artifact_filename": "iniconfig-2.0.0-py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\iniconfig-2.0.0\\iniconfig-2.0.0-py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/iniconfig-2.0.0/iniconfig-2.0.0-py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -570,7 +568,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\iniconfig-2.0.0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/iniconfig-2.0.0",
           "iniconfig==2.0.0"
         ],
         "cutoff_eligible": true,
@@ -589,10 +587,10 @@
       },
       {
         "artifact_filename": "packaging-24.0-py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\packaging-24.0\\packaging-24.0-py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/packaging-24.0/packaging-24.0-py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -600,7 +598,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\packaging-24.0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/packaging-24.0",
           "packaging==24.0"
         ],
         "cutoff_eligible": true,
@@ -619,10 +617,10 @@
       },
       {
         "artifact_filename": "six-1.16.0-py2.py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\six-1.16.0\\six-1.16.0-py2.py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/six-1.16.0/six-1.16.0-py2.py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -630,7 +628,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\six-1.16.0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/six-1.16.0",
           "six==1.16.0"
         ],
         "cutoff_eligible": true,
@@ -649,10 +647,10 @@
       },
       {
         "artifact_filename": "colorama-0.4.6-py2.py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\colorama-0.4.6\\colorama-0.4.6-py2.py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/colorama-0.4.6/colorama-0.4.6-py2.py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -660,7 +658,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse\\colorama-0.4.6",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse/colorama-0.4.6",
           "colorama==0.4.6"
         ],
         "cutoff_eligible": true,
@@ -684,7 +682,7 @@
         {
           "build": 1,
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+            "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
             "-m",
             "pip",
             "wheel",
@@ -692,17 +690,17 @@
             "--no-deps",
             "--no-build-isolation",
             "--wheel-dir",
-            "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\project-build-1\\wheel",
-            "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\project-build-1\\source"
+            "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/project-build-1/wheel",
+            "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/project-build-1/source"
           ],
           "returncode": 0,
           "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "stdout_sha256": "903a236bb7ffb04b290da77c4c51e858d10d7affa0abfa9e1955cc658ff15b5e"
+          "stdout_sha256": "a0afa565611989687e7160a554396d20cb97e964f2bf4c6b505429618b99a4b7"
         },
         {
           "build": 2,
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+            "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
             "-m",
             "pip",
             "wheel",
@@ -710,333 +708,333 @@
             "--no-deps",
             "--no-build-isolation",
             "--wheel-dir",
-            "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\project-build-2\\wheel",
-            "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\project-build-2\\source"
+            "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/project-build-2/wheel",
+            "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/project-build-2/source"
           ],
           "returncode": 0,
           "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "stdout_sha256": "ad0052e97ca97fffe9fced0d124d573df708b392be53d8d9cecf20d205b17027"
+          "stdout_sha256": "a2fea80aaa46cf567033e071993b0b6a64afbb4542beb5609e9738b13726fcfa"
         }
       ],
       "equivalence": {
         "non_reproducible_fields": [],
         "normalized_contents_equivalent": true,
-        "normalized_first_hash": "f997730fdbdfe55b7532fb6ac14283840492b85fd45f5f09f19dfa442892d599",
-        "normalized_second_hash": "f997730fdbdfe55b7532fb6ac14283840492b85fd45f5f09f19dfa442892d599",
-        "raw_first_sha256": "a7c4c7f68891e054c4fdff563071da43f6ffebe993be0c57e9d85f787e64b389",
-        "raw_second_sha256": "a7c4c7f68891e054c4fdff563071da43f6ffebe993be0c57e9d85f787e64b389",
+        "normalized_first_hash": "2fbd0c655de9ded952f9a9bf6ff4fb0623397744ce278b981fcf7e524418bf86",
+        "normalized_second_hash": "2fbd0c655de9ded952f9a9bf6ff4fb0623397744ce278b981fcf7e524418bf86",
+        "raw_first_sha256": "eba1428aa571292ed0409394142ca22acc3d684a855585d0f733888ff810365c",
+        "raw_second_sha256": "eba1428aa571292ed0409394142ca22acc3d684a855585d0f733888ff810365c",
         "status": "PASS"
       },
       "status": "PASS",
       "wheels": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\project-build-1\\wheel\\freezegun-1.5.0-py3-none-any.whl",
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\project-build-2\\wheel\\freezegun-1.5.0-py3-none-any.whl"
+        "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/project-build-1/wheel/freezegun-1.5.0-py3-none-any.whl",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/project-build-2/wheel/freezegun-1.5.0-py3-none-any.whl"
       ]
     },
     "provider_bytes_in_git": false,
-    "provider_python": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+    "provider_python": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
     "provider_ready_token": {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:03.133220+00:00",
+      "created_time": "2026-07-14T19:42:21.697803+00:00",
       "independent_verifier": "controllergate.runtime.provider_service",
       "input_token_hashes": [
-        "566b96bb4ee2e71786d041c605a45468f8bdc335ffb2c39ed639a0f12328133a"
+        "5f2e0267ded6c64367e389f8e52aa275d34318ea454fbb5aa7db865e5d8e1425"
       ],
-      "payload_identity": "f70cab800e7904311c7b88f3c09e33dccdaede5f85ec8ee1caebede9b9ca9057",
+      "payload_identity": "43d441649016dfd30b5a6fee7ed651826c74a8308bb1aa4892a0fc9cc3984a9f",
       "producer_event": "provider_execution_ready",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "071c94e8b7b0380d7e20ecf9e108da32e1dbc4699aa315d0f9bba8a44ea71705",
+      "token_hash": "798542d8c4f2e76b27f29debee6fb0abea9307607f05d5c54b663c967b0c9b23",
       "token_type": "PROVIDER_EXECUTION_READY_TOKEN"
     },
-    "provider_seal": "92c912881dbe5f4ec0243379328c324b85651adfb6b6fcba51903ab0c4b566ba",
+    "provider_seal": "4bb2a90c295fc9fed8369ee5f6f8659b4c4da008ad466ec725baa83a604b65b4",
     "status": "PASS",
-    "wheelhouse": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\sealed-wheelhouse"
+    "wheelhouse": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/sealed-wheelhouse"
   },
   "reaction_token_count": 20,
   "reaction_tokens": [
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:07:20.795066+00:00",
+      "created_time": "2026-07-14T19:42:09.254061+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [],
       "payload_identity": "85fa311e68f3d21a2065422eb5042a0513485cfb0011d8b0f1990b299ac34a66",
       "producer_event": "candidate_identity",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "d79423cd597fb93225e9ac4fd3235aa60eb64471435bd174c20c986be24b955a",
+      "token_hash": "ee834762c6843c715f02d3940251ee523034ef94d4c647221c46490c6aacc4b2",
       "token_type": "CANDIDATE_IDENTITY_VERIFIED_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:07:20.795232+00:00",
+      "created_time": "2026-07-14T19:42:09.254093+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "d79423cd597fb93225e9ac4fd3235aa60eb64471435bd174c20c986be24b955a"
+        "ee834762c6843c715f02d3940251ee523034ef94d4c647221c46490c6aacc4b2"
       ],
       "payload_identity": "e64615e6dd08e96a486567534634de8b927b5b4dda65a4dae5c6a87c41b8c429",
       "producer_event": "historical_proof_identity",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "a3fc149e31fbdeb7bf1103a9438f9063f654fdd1431d1b212ee44ac6c6c58b82",
+      "token_hash": "fcc6319510f8ced425738972784c489b47d12074f54e104088d8c60eb8172d31",
       "token_type": "ISSUE_SNAPSHOT_VERIFIED_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:07:20.795348+00:00",
+      "created_time": "2026-07-14T19:42:09.254114+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "a3fc149e31fbdeb7bf1103a9438f9063f654fdd1431d1b212ee44ac6c6c58b82"
+        "fcc6319510f8ced425738972784c489b47d12074f54e104088d8c60eb8172d31"
       ],
       "payload_identity": "6c357acfbcbd4eb0d606c6d1458f1cc4bdfc1a61cb3bf8f707545210de9aa5e2",
       "producer_event": "source_verified",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "f8c0da853ab6081d308be7d0289eb87be22bb2a43b3b8804f96a1b6178d4eb26",
+      "token_hash": "194fb0fd045c369d7da614a4e193da997ca1f2cc0a04ca4f7b89d54e10e57cad",
       "token_type": "SOURCE_ACQUIRED_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:07:20.795459+00:00",
+      "created_time": "2026-07-14T19:42:09.254130+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "f8c0da853ab6081d308be7d0289eb87be22bb2a43b3b8804f96a1b6178d4eb26"
+        "194fb0fd045c369d7da614a4e193da997ca1f2cc0a04ca4f7b89d54e10e57cad"
       ],
-      "payload_identity": "31a980d5a4160666d92a04ee9e45cf6116d523adea03da5f41f2a4a9b321e8e6",
+      "payload_identity": "a1ee8d6cf13d15a0045ca21a9bc8179a432ea86b37cc96da5a423b7e85644f37",
       "producer_event": "runtime_attested",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "3fae738449edcfdac5886e64f0d682f902a712af4a115b79545e95abdb0050a4",
+      "token_hash": "9caa5de65fbf6b1182ec9dfda8abb2dbd51e4e0ee4ab4d5b86002ca4356242c3",
       "token_type": "RUNTIME_ATTESTED_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:03.133097+00:00",
+      "created_time": "2026-07-14T19:42:21.697720+00:00",
       "independent_verifier": "controllergate.runtime.historical_provider_equivalence",
       "input_token_hashes": [
-        "f8c0da853ab6081d308be7d0289eb87be22bb2a43b3b8804f96a1b6178d4eb26"
+        "194fb0fd045c369d7da614a4e193da997ca1f2cc0a04ca4f7b89d54e10e57cad"
       ],
-      "payload_identity": "46e150dd9865334329a253e046585ed2b840be2eb8685bccc8d7bc68050ee7db",
+      "payload_identity": "906fd9447ae6c3ee9a74836e03b9d85aaa26309a58ec1c56daf7a7451ddffa7c",
       "producer_event": "historical_provider_reconstructed_equivalent",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "566b96bb4ee2e71786d041c605a45468f8bdc335ffb2c39ed639a0f12328133a",
+      "token_hash": "5f2e0267ded6c64367e389f8e52aa275d34318ea454fbb5aa7db865e5d8e1425",
       "token_type": "HISTORICAL_PROVIDER_RECONSTRUCTED_EQUIVALENT_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:03.133220+00:00",
+      "created_time": "2026-07-14T19:42:21.697803+00:00",
       "independent_verifier": "controllergate.runtime.provider_service",
       "input_token_hashes": [
-        "566b96bb4ee2e71786d041c605a45468f8bdc335ffb2c39ed639a0f12328133a"
+        "5f2e0267ded6c64367e389f8e52aa275d34318ea454fbb5aa7db865e5d8e1425"
       ],
-      "payload_identity": "f70cab800e7904311c7b88f3c09e33dccdaede5f85ec8ee1caebede9b9ca9057",
+      "payload_identity": "43d441649016dfd30b5a6fee7ed651826c74a8308bb1aa4892a0fc9cc3984a9f",
       "producer_event": "provider_execution_ready",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "071c94e8b7b0380d7e20ecf9e108da32e1dbc4699aa315d0f9bba8a44ea71705",
+      "token_hash": "798542d8c4f2e76b27f29debee6fb0abea9307607f05d5c54b663c967b0c9b23",
       "token_type": "PROVIDER_EXECUTION_READY_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.545563+00:00",
+      "created_time": "2026-07-14T19:42:33.262267+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "071c94e8b7b0380d7e20ecf9e108da32e1dbc4699aa315d0f9bba8a44ea71705"
+        "798542d8c4f2e76b27f29debee6fb0abea9307607f05d5c54b663c967b0c9b23"
       ],
       "payload_identity": "25d956febe7a24f54e8db7b2a0ea24029a53087017db50aec63b0e210264fc80",
       "producer_event": "target_verified",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "3d91256a6daca5ae34c1075ebfa2df2e8db8e6298aa09b1535e1f2604a952bc3",
+      "token_hash": "1e8cf65df975535663910f6b52220d5e6ad5eaae0f8099e5c5ba9bc80039f2bc",
       "token_type": "TARGET_OR_REPRODUCER_VERIFIED_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.545735+00:00",
+      "created_time": "2026-07-14T19:42:33.262307+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "3d91256a6daca5ae34c1075ebfa2df2e8db8e6298aa09b1535e1f2604a952bc3"
+        "1e8cf65df975535663910f6b52220d5e6ad5eaae0f8099e5c5ba9bc80039f2bc"
       ],
-      "payload_identity": "51b89a2a6fbd06951d449101438eae2286e48f2b6c9035e7a6cbcb424a284fb2",
+      "payload_identity": "1f1418cbfcd0a551a9c190b9222deb78c8c4a5e408974ceefd7a3222622be38a",
       "producer_event": "command_verified",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "a7e777ddd3b2f5b26643d883437ce070ee139fd2a0d9c8384fef816957400046",
+      "token_hash": "4091a0f5fba1292421f7bdf0376d573ab4b66c7b87e3854bed1856c9c0ba9ed8",
       "token_type": "COMMAND_AUTHORITY_VERIFIED_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.545846+00:00",
+      "created_time": "2026-07-14T19:42:33.262326+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "a7e777ddd3b2f5b26643d883437ce070ee139fd2a0d9c8384fef816957400046"
+        "4091a0f5fba1292421f7bdf0376d573ab4b66c7b87e3854bed1856c9c0ba9ed8"
       ],
-      "payload_identity": "412762ea21924c0a57b98f3c2d14eec55c61c887d42b3c22a47bdb3bbf37dfd3",
+      "payload_identity": "821f3e0c957f16192eff66e5b78360a7c8deef0161aaeb1a79ec894f0661dfae",
       "producer_event": "duplicate_failure",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "e180722266461ba0443fcf5a9417596d422d6336bbbfdf76299b368d4984bf66",
+      "token_hash": "45a56a6100679760b0a9bed9cc75b7d09d2a3e6d674ca1686145b27c145d03d9",
       "token_type": "DUPLICATE_FAILURE_REPRODUCED_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.546136+00:00",
+      "created_time": "2026-07-14T19:42:33.262374+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "e180722266461ba0443fcf5a9417596d422d6336bbbfdf76299b368d4984bf66"
+        "45a56a6100679760b0a9bed9cc75b7d09d2a3e6d674ca1686145b27c145d03d9"
       ],
       "payload_identity": "5b9ee4c0560c7e28e366c18e8946d2b8763171c105a1e64ed0c354c83d3ec683",
       "producer_event": "dpp14_controller_audit",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "8045c08397de1bdc481bb9a275d29817ad3df17b31442c19a68c06569a7e930a",
+      "token_hash": "a7ef0bf3b94481481f7fb74549e66505221449a74c3cdc3988b812d7de981502",
       "token_type": "CAUSAL_OWNERSHIP_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.546234+00:00",
+      "created_time": "2026-07-14T19:42:33.262389+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "8045c08397de1bdc481bb9a275d29817ad3df17b31442c19a68c06569a7e930a"
+        "a7ef0bf3b94481481f7fb74549e66505221449a74c3cdc3988b812d7de981502"
       ],
       "payload_identity": "3a9826970b09e380e1b87963e4603e68e3ceb88593a2ab81c82ea9f982e219f6",
       "producer_event": "ast_contact",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "22fab351410691219ada6a93bfa611901fe8b38b86c272a929308c0aa6b59df4",
+      "token_hash": "b85b8702e69a24595425eb745867fa9f0f48689e00181a8654297adb3a1675f1",
       "token_type": "AST_CONTACT_DOMAIN_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.546326+00:00",
+      "created_time": "2026-07-14T19:42:33.262402+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "22fab351410691219ada6a93bfa611901fe8b38b86c272a929308c0aa6b59df4"
+        "b85b8702e69a24595425eb745867fa9f0f48689e00181a8654297adb3a1675f1"
       ],
       "payload_identity": "d9e637920cd694d3cd9192e9dfb4c38f3503a363186264f74fa8d6a1b277b9fb",
       "producer_event": "repair_license",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "75f1159319e93518a025801b5423a711ec9cfed5a0eaf40c73f20f96febd8f43",
+      "token_hash": "dc14ad0b1af44bdba1154815f840e143a00d5b3834a6caf405b0cddb2feb71dd",
       "token_type": "REPAIR_LICENSE_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.546415+00:00",
+      "created_time": "2026-07-14T19:42:33.262416+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "75f1159319e93518a025801b5423a711ec9cfed5a0eaf40c73f20f96febd8f43"
+        "dc14ad0b1af44bdba1154815f840e143a00d5b3834a6caf405b0cddb2feb71dd"
       ],
       "payload_identity": "7f10bc9422920997b03e475e27cb2fff55ba587d3fe8b50f4527ceae8d701380",
       "producer_event": "patch_applied",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "08b1952e4e16b1a5e38591a12dbbf291806fcb8e1db44f8fdc502e526c6f9729",
+      "token_hash": "95822d66eb660852ae4831b00c67cd3304f37f775c2c267ee06a063d013e7a06",
       "token_type": "PATCH_APPLIED_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.546502+00:00",
+      "created_time": "2026-07-14T19:42:33.262430+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "08b1952e4e16b1a5e38591a12dbbf291806fcb8e1db44f8fdc502e526c6f9729"
+        "95822d66eb660852ae4831b00c67cd3304f37f775c2c267ee06a063d013e7a06"
       ],
-      "payload_identity": "2febeecb27d144ff6eb44473eb1c33664d355a4583c70ac5855ab1fa7d301843",
+      "payload_identity": "579d8a7cfa1d9bd15962ed085c71c28248d1c7dceb285ef7b216df3fc43bcfd6",
       "producer_event": "validation",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "891b1e4cd8a8e12c6d12ee24dbec632aefc1796d8c53f19a4a294fe5d7b714f5",
+      "token_hash": "62e38deb4afe8010f7c4b16747194c807d8db58e23f941527e0ed14e7a58c4f3",
       "token_type": "VALIDATION_PASSED_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.546651+00:00",
+      "created_time": "2026-07-14T19:42:33.262455+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "891b1e4cd8a8e12c6d12ee24dbec632aefc1796d8c53f19a4a294fe5d7b714f5"
+        "62e38deb4afe8010f7c4b16747194c807d8db58e23f941527e0ed14e7a58c4f3"
       ],
-      "payload_identity": "6499a5ba58a122a10178115b099396ce8968ac61d140194dc13fa6375ad7ef03",
+      "payload_identity": "93110228c0891b62011206c6e441bed75889b32ef7484673f2912906788a420e",
       "producer_event": "duplicate_clean_replay",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "9a53f73bf85569bed3ec21da376a09c16045c2ae9717b91166684747cdeeb90c",
+      "token_hash": "fca8be703cff908d54e1206989350ebfa75a57d296ca24251fb77b3dd1af1884",
       "token_type": "DUPLICATE_CLEAN_REPLAY_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.546794+00:00",
+      "created_time": "2026-07-14T19:42:33.262478+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "9a53f73bf85569bed3ec21da376a09c16045c2ae9717b91166684747cdeeb90c"
+        "fca8be703cff908d54e1206989350ebfa75a57d296ca24251fb77b3dd1af1884"
       ],
-      "payload_identity": "8796f0a42bddf23073f6f9cbd9e37b7304f0cc83859361b95116111af06790a4",
+      "payload_identity": "ef265d6f7a8dd732ff9e4d5986b1063009ab19695f0cde708c4baccba1503931",
       "producer_event": "rollback",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "af186f0e2f6d96220e6e20036a0cc09e2dbaf4c41d6bbd00edf05cf458521747",
+      "token_hash": "58224fdf7d6d319a4658928d3b530323f602725368e8deee0450f51a8c12af8c",
       "token_type": "ROLLBACK_READY_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.546892+00:00",
+      "created_time": "2026-07-14T19:42:33.262494+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "af186f0e2f6d96220e6e20036a0cc09e2dbaf4c41d6bbd00edf05cf458521747"
+        "58224fdf7d6d319a4658928d3b530323f602725368e8deee0450f51a8c12af8c"
       ],
       "payload_identity": "0403fb5cf1e36a37853f58033beddfb13d22425aa5765d36ec411b8c802f5c07",
       "producer_event": "historical_proof",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "d25478f5fc4c7392ed25a149e52feb28db35528bdd325471efd283f622da5cdb",
+      "token_hash": "ca83d5eb1bd7b1201a1e682c1208a74e606320b3e01ae65b62302ee6a9de2506",
       "token_type": "PROOF_APPENDED_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.546984+00:00",
+      "created_time": "2026-07-14T19:42:33.262507+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "d25478f5fc4c7392ed25a149e52feb28db35528bdd325471efd283f622da5cdb"
+        "ca83d5eb1bd7b1201a1e682c1208a74e606320b3e01ae65b62302ee6a9de2506"
       ],
       "payload_identity": "6db73c633eb2b60e162b6a5211cf42a25b62f1eb6b862104961f17efd46d7f1b",
       "producer_event": "count_decision",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "8b68c19c46c28d425964265e8194db5e8ea5321d3a7c89cfdc34e450af20d275",
+      "token_hash": "1a9cd727a819dcd59dc56afd3cfa89869d36e66a1708b26f4c6fbb66ea41722c",
       "token_type": "COUNT_DECISION_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.547068+00:00",
+      "created_time": "2026-07-14T19:42:33.262521+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "8b68c19c46c28d425964265e8194db5e8ea5321d3a7c89cfdc34e450af20d275"
+        "1a9cd727a819dcd59dc56afd3cfa89869d36e66a1708b26f4c6fbb66ea41722c"
       ],
-      "payload_identity": "3fd0a6e31c3bb841b0c590a0869dbba9f63e596f6e352b154d48034ebc3c088a",
+      "payload_identity": "7edad08a6d2801f4fc22b93981de73d743e9db28b8dbdcf14f123015cf1c3aaf",
       "producer_event": "canary_health",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "ef773d155d04d395bc1f49fae5b761e3281144eca493f80a1527972ccd75b607",
+      "token_hash": "a004d39fe635f333860546d252ed3dfe4baecf62eb389a5bcd3bb821a452d450",
       "token_type": "CANARY_HEALTH_TOKEN"
     },
     {
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "created_time": "2026-07-14T19:09:43.547309+00:00",
+      "created_time": "2026-07-14T19:42:33.262555+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "ef773d155d04d395bc1f49fae5b761e3281144eca493f80a1527972ccd75b607"
+        "a004d39fe635f333860546d252ed3dfe4baecf62eb389a5bcd3bb821a452d450"
       ],
       "payload_identity": "88791651c6f8e2096f3466332c6e5da3a42f1ccc6cde226d3d645d53955b9ec9",
       "producer_event": "terminal",
       "run_id": "batch086-freezegun_547_py313_datetimes_assertion",
-      "token_hash": "064cbd6cabb07b9b3a4e79f753ab26e74f5395d454cd5b157879287915534031",
+      "token_hash": "19c3d82ab10c453f4894c362e8288cf687db835862fc11a24e187cb6d6d51cd0",
       "token_type": "TERMINAL_MEMORY_TOKEN"
     }
   ],
   "repair_count_increment": 0,
   "rollback": {
     "exact_identity_required": true,
-    "original_source_tree_hash": "895b64693d4e44a7abc18850d09668f82bd471b48282b145b838b0f01c693068",
-    "patched_source_tree_hash": "889d188a200329a0c05459065cbfbe035b85f1d89b2b41963cf7daa7903d3bc5",
-    "rollback_source_tree_hash": "895b64693d4e44a7abc18850d09668f82bd471b48282b145b838b0f01c693068",
+    "original_source_tree_hash": "fcdbc3856c259250e7ba46e70ea276dfff61e7cbe9fb05600c2a101d911554b7",
+    "patched_source_tree_hash": "7665e7ff8cb9128ba151b1258652fb8dec159c92ce32b6eec64e5ed93b40f463",
+    "rollback_source_tree_hash": "fcdbc3856c259250e7ba46e70ea276dfff61e7cbe9fb05600c2a101d911554b7",
     "status": "PASS"
   },
   "status": "PASS",
   "validation": {
     "command": [
-      "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\provider\\offline-venv-1\\Scripts\\python.exe",
+      "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/provider/offline-venv-1/bin/python",
       "-m",
       "pytest",
       "tests/test_datetimes.py",
       "-q",
       "--tb=no"
     ],
-    "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\validation",
-    "output_tail": ".................s...........s.........................................s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\validation\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\validation\\tests\\test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert now == datetime.datetime.utcfromtimestamp(time.time())\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\freezegun_547_py313_datetimes_assertion\\validation\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n69 passed, 3 skipped, 3 warnings in 1.67s",
+    "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/validation",
+    "output_tail": ".................s.....s.....s.s.......................................s [100%]\n=============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/validation/tests/test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/validation/tests/test_datetimes.py:795: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert now == datetime.datetime.utcfromtimestamp(time.time())\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  /home/runner/work/_temp/controllergate-runtime/batch086/freezegun_547_py313_datetimes_assertion/validation/tests/test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n67 passed, 5 skipped, 3 warnings in 0.41s",
     "returncode": 0,
     "semantic_failure_nodes": [],
     "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "stdout_sha256": "2422ffdbbf51835c7ec253f6f877b6b7e593ec216a322842d7e8e0bf6cfd052c"
+    "stdout_sha256": "507c65b9f7b14da0f74f514d0bbffa59fd91da221568c6fa841f36eb8e8a4804"
   }
 }

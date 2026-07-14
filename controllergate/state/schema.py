@@ -1,13 +1,14 @@
 from __future__ import annotations
 
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 
 TABLES = (
     "runs", "run_manifests", "events", "reaction_tokens", "failed_reactions",
     "blockers", "reopen_conditions", "authorizations", "spent_nonces", "checkpoints",
     "worker_leases", "provider_identities", "candidate_identities", "proof_events",
     "count_records", "routing_memory_records", "truth_records", "patch_records",
-    "connector_cursors", "candidate_queue", "notifications", "failed_branch_lineage", "schema_migrations",
+    "connector_cursors", "candidate_queue", "notifications", "failed_branch_lineage",
+    "stage_outputs", "broker_records", "release_decisions", "json_state_migrations", "schema_migrations",
 )
 
 DDL = """
@@ -54,5 +55,22 @@ CREATE TABLE IF NOT EXISTS failed_branch_lineage(
   failure_class TEXT NOT NULL, new_information TEXT NOT NULL, rollback_target TEXT NOT NULL,
   branch_closed INTEGER NOT NULL, count_increment INTEGER NOT NULL DEFAULT 0,
   reopen_condition TEXT NOT NULL, next_legal_action TEXT NOT NULL, created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS stage_outputs(
+  event_id TEXT PRIMARY KEY REFERENCES events(event_id), run_id TEXT NOT NULL REFERENCES runs(run_id),
+  stage_id TEXT NOT NULL, input_identity TEXT NOT NULL, output_json TEXT NOT NULL, output_hash TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS broker_records(
+  record_hash TEXT PRIMARY KEY, run_id TEXT NOT NULL REFERENCES runs(run_id), operation_id TEXT NOT NULL UNIQUE,
+  stage_id TEXT NOT NULL, authorization_id TEXT NOT NULL, nonce TEXT NOT NULL UNIQUE,
+  record_json TEXT NOT NULL, created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS release_decisions(
+  decision_hash TEXT PRIMARY KEY, status TEXT NOT NULL, package_version TEXT NOT NULL,
+  parent_hash TEXT NOT NULL, decision_json TEXT NOT NULL, created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS json_state_migrations(
+  source_hash TEXT PRIMARY KEY, source_path TEXT NOT NULL, imported_run_id TEXT NOT NULL,
+  result_hash TEXT NOT NULL, migrated_at TEXT NOT NULL
 );
 """

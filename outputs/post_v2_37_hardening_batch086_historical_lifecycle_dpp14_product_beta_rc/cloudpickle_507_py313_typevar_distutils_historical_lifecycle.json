@@ -2,37 +2,37 @@
   "canary_runs": [
     {
       "command": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
         "-m",
         "pytest",
         "tests/cloudpickle_test.py",
         "-q",
         "--tb=no"
       ],
-      "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\canary",
-      "output_tail": "  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:809: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    keys = [ast.Str(key) for key in current.keys()]\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: 194 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\unittest\\case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\canary\\cloudpickle\\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\tornado\\ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n236 passed, 10 skipped, 2881 warnings in 72.74s (0:01:12)",
+      "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/canary",
+      "output_tail": "  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:809: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    keys = [ast.Str(key) for key in current.keys()]\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:933: 194 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1058: 158 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: 158 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/canary/cloudpickle/cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/tornado/ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n236 passed, 10 skipped, 2881 warnings in 10.77s",
       "returncode": 0,
       "semantic_failure_nodes": [],
       "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "025bc7a3782120ce10ee88a0ef7215807be5dd340e4ee029ebe5de872fa4d89a"
+      "stdout_sha256": "ce304aaf9d0317576894812ddc32d193d00338d60c201242f9e997ad39c54f21"
     },
     {
       "command": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
         "-m",
         "pytest",
         "tests/cloudpickle_test.py",
         "-q",
         "--tb=no"
       ],
-      "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\comparison",
-      "output_tail": "  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:809: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    keys = [ast.Str(key) for key in current.keys()]\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: 194 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\unittest\\case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\comparison\\cloudpickle\\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\tornado\\ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n236 passed, 10 skipped, 2881 warnings in 72.69s (0:01:12)",
+      "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/comparison",
+      "output_tail": "  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:809: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    keys = [ast.Str(key) for key in current.keys()]\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:933: 194 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1058: 158 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: 158 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/comparison/cloudpickle/cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/tornado/ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n236 passed, 10 skipped, 2881 warnings in 10.89s",
       "returncode": 0,
       "semantic_failure_nodes": [],
       "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "f086c4d19e2799bdda15daa2a04c3bb463b46da1bb9c2966b8c83064e6d857b7"
+      "stdout_sha256": "67397cfc7a7055e9ece303a93c5ce427da719ff9b381cfd1de97bfeb40c7e0c3"
     }
   ],
   "candidate_id": "cloudpickle_507_py313_typevar_distutils",
@@ -55,7 +55,7 @@
       "ast": "patch_touched_source",
       "ast_contact_domain": true,
       "command": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
         "-m",
         "pytest",
         "tests/cloudpickle_test.py",
@@ -66,7 +66,7 @@
         "ast": "patch_touched_source",
         "candidate": null,
         "command": [
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
           "-m",
           "pytest",
           "tests/cloudpickle_test.py",
@@ -79,9 +79,9 @@
         "normal": "patched_pass",
         "platform": null,
         "proof": "historical_non_counting",
-        "provider": "1faa228d5c45b7d19e24ee73826fb5650fb22a9618b3c94ecba4c5568df7260c",
+        "provider": "380f0c4e27815ef9ed2e965404d46c7a5b8322f6b466a1a0f917ee6cd6211376",
         "rollback": "PASS",
-        "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+        "runtime": "3.13.14 (main, Jun 11 2026, 03:02:07) [GCC 13.3.0]",
         "source": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
         "target": [
           "tests/cloudpickle_test.py",
@@ -100,7 +100,7 @@
           "verified": true
         }
       ],
-      "frame_hash": "2697d3897bd88dc2abc0aa66c89907b8458b08c32b46366cf7021ab308bc1ca0",
+      "frame_hash": "07df8c6f8cfe7dfbd1c5b6d5596580ef5aa89dcfac7629cd5361a4463fb57ff6",
       "harness_target_alternative_excluded": true,
       "incident": "buggy_failure",
       "interlocks": {
@@ -116,7 +116,7 @@
         }
       ],
       "proof": "historical_non_counting",
-      "provider": "1faa228d5c45b7d19e24ee73826fb5650fb22a9618b3c94ecba4c5568df7260c",
+      "provider": "380f0c4e27815ef9ed2e965404d46c7a5b8322f6b466a1a0f917ee6cd6211376",
       "provider_alternative_excluded": true,
       "repair_interlocks_pass": true,
       "requirements_materialized": {
@@ -127,7 +127,7 @@
         "target": true
       },
       "rollback": "PASS",
-      "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+      "runtime": "3.13.14 (main, Jun 11 2026, 03:02:07) [GCC 13.3.0]",
       "selected_probes": [
         {
           "classification": "source_owned_behavior_defect",
@@ -152,7 +152,7 @@
       {
         "classification": "source_owned_behavior_defect",
         "direct": true,
-        "frame_hash": "2697d3897bd88dc2abc0aa66c89907b8458b08c32b46366cf7021ab308bc1ca0",
+        "frame_hash": "07df8c6f8cfe7dfbd1c5b6d5596580ef5aa89dcfac7629cd5361a4463fb57ff6",
         "lane": "source",
         "probe_id": "source-divergence",
         "status": "PASS",
@@ -170,7 +170,7 @@
         "transition": "NormalizeEvidence"
       },
       {
-        "frame_hash": "2697d3897bd88dc2abc0aa66c89907b8458b08c32b46366cf7021ab308bc1ca0",
+        "frame_hash": "07df8c6f8cfe7dfbd1c5b6d5596580ef5aa89dcfac7629cd5361a4463fb57ff6",
         "status": "PASS",
         "transition": "FreezeFrame"
       },
@@ -244,20 +244,20 @@
   },
   "duplicate_clean_replay": {
     "command": [
-      "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+      "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
       "-m",
       "pytest",
       "tests/cloudpickle_test.py",
       "-q",
       "--tb=no"
     ],
-    "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\duplicate",
-    "output_tail": "  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:809: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    keys = [ast.Str(key) for key in current.keys()]\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: 194 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\unittest\\case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\duplicate\\cloudpickle\\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\tornado\\ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n236 passed, 10 skipped, 2881 warnings in 71.36s (0:01:11)",
+    "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/duplicate",
+    "output_tail": "  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:809: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    keys = [ast.Str(key) for key in current.keys()]\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:933: 194 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1058: 158 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: 158 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/duplicate/cloudpickle/cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/tornado/ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n236 passed, 10 skipped, 2881 warnings in 10.83s",
     "returncode": 0,
     "semantic_failure_nodes": [],
     "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "stdout_sha256": "e4a49b23e85de3ba7a4110e2ab09138cf9e37ee3eea50a91a20773855698906b"
+    "stdout_sha256": "bf040a2b824b022a9012995d069ec5ee8831a8d45b1dbeead38cffc8cd5f485f"
   },
   "exact_blocker": null,
   "health": {
@@ -270,13 +270,13 @@
   "idempotent_resume": true,
   "native_invariant": {
     "command": [
-      "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+      "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
       "-m",
       "compileall",
       "-q",
       "cloudpickle"
     ],
-    "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\validation",
+    "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/validation",
     "output_tail": "",
     "returncode": 0,
     "semantic_failure_nodes": [],
@@ -288,41 +288,41 @@
   "prepatch": [
     {
       "command": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
         "-m",
         "pytest",
         "tests/cloudpickle_test.py",
         "-q",
         "--tb=no"
       ],
-      "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\source",
-      "output_tail": "\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: 194 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\unittest\\case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\source\\cloudpickle\\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\tornado\\ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a...\n1 failed, 235 passed, 10 skipped, 2881 warnings in 88.92s (0:01:28)",
+      "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/source",
+      "output_tail": "  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: 158 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/source/cloudpickle/cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/tornado/ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: assert ['C_CONSTANT'...', 'method_c'] == ['C_CONSTANT'...', 'method_c']\n  At index 2 diff: '__firstlineno__' != 'method_c'\n  Left contains one more item: 'method_c'\n  Full diff:\n  - ['C_CONSTANT', '__doc__', 'method_c']\n  + ['C_CONSTANT', '__doc__', '__firstlineno__', 'method_c']\n  ?                          +++++++++++++++++++\n1 failed, 235 passed, 10 skipped, 2881 warnings in 11.36s",
       "returncode": 1,
       "semantic_failure_nodes": [
-        "FAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a..."
+        "FAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: assert ['C_CONSTANT'...', 'method_c'] == ['C_CONSTANT'...', 'method_c']"
       ],
-      "semantic_signature_sha256": "e935d1193295ad5349fbae270a6cea724e3b05308e8f8bf8c25b63fcad36a8c9",
+      "semantic_signature_sha256": "79ce8591f3bc46e82233b76c292877d26cf4dc260683b3622e7d11353739393a",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "9dede7fef4fc3bae391e0bffd52e2f7c294cf35c754ddd064588103a3003d7d1"
+      "stdout_sha256": "75e18fe9fc91487d2482341d139ebbec4797ee50646d65c49d7e463f0d40b3e9"
     },
     {
       "command": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
         "-m",
         "pytest",
         "tests/cloudpickle_test.py",
         "-q",
         "--tb=no"
       ],
-      "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\source",
-      "output_tail": "\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: 194 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\unittest\\case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\source\\cloudpickle\\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\tornado\\ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a...\n1 failed, 235 passed, 10 skipped, 2881 warnings in 77.26s (0:01:17)",
+      "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/source",
+      "output_tail": "  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: 158 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/source/cloudpickle/cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/tornado/ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: assert ['C_CONSTANT'...', 'method_c'] == ['C_CONSTANT'...', 'method_c']\n  At index 2 diff: '__firstlineno__' != 'method_c'\n  Left contains one more item: 'method_c'\n  Full diff:\n  - ['C_CONSTANT', '__doc__', 'method_c']\n  + ['C_CONSTANT', '__doc__', '__firstlineno__', 'method_c']\n  ?                          +++++++++++++++++++\n1 failed, 235 passed, 10 skipped, 2881 warnings in 10.96s",
       "returncode": 1,
       "semantic_failure_nodes": [
-        "FAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a..."
+        "FAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: assert ['C_CONSTANT'...', 'method_c'] == ['C_CONSTANT'...', 'method_c']"
       ],
-      "semantic_signature_sha256": "e935d1193295ad5349fbae270a6cea724e3b05308e8f8bf8c25b63fcad36a8c9",
+      "semantic_signature_sha256": "79ce8591f3bc46e82233b76c292877d26cf4dc260683b3622e7d11353739393a",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "632b8e94af3d192be4dc148894b5425d497c315bcad2341d5f594a0448762724"
+      "stdout_sha256": "de4184716d3bf2eb735e5b9b198722bf7a29a93f710f5aa34c0d5840f080f8e9"
     }
   ],
   "provider": {
@@ -334,15 +334,15 @@
     "cutoff": "2023-03-25T23:08:27Z",
     "historical_equivalence_token": {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T18:59:05.858929+00:00",
+      "created_time": "2026-07-14T19:40:52.903221+00:00",
       "independent_verifier": "controllergate.runtime.historical_provider_equivalence",
       "input_token_hashes": [
-        "a5b1f19dca6c94e9c2515ad8da4d1d88ae38f47b59d87fa7038b743925290f7a"
+        "4023a14696050b7dca024dfcd5ec8ae4a9adbd1e4710ef70593b60a143e1ae9c"
       ],
-      "payload_identity": "8c9be1c4020d5b96e52010442db44ec23d06c27fe3bdc5e664229703f6a5b143",
+      "payload_identity": "ae6be5840b93ce01bc48fb11d187c0369f3b59dc0936312da74edb99562f6a86",
       "producer_event": "historical_provider_reconstructed_equivalent",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "9a570709f7e92c51e50df338513dd23774f40f9727fcc62273ede4789626b14e",
+      "token_hash": "380f18bc358607ae9ce6bfcf23d3f7d5a4a58a4b6a4ba5fcca4d826f03f4aa0e",
       "token_type": "HISTORICAL_PROVIDER_RECONSTRUCTED_EQUIVALENT_TOKEN"
     },
     "installed_graph_equivalence": {
@@ -407,14 +407,14 @@
         ],
         "installed_distribution_graph_hash": "a582035cb9e5ee30224471e077b3df1996a521b1314499055370f7672b86ff11",
         "network_mode": "none",
-        "python": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+        "python": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
         "status": "PASS",
         "target_availability_returncode": 0,
-        "target_collection_hash": "465d2cd366444706643c325bf70c24ff6163df1e924c9cdfdbe5603dfdd4c187",
+        "target_collection_hash": "179578506c992a3ae1cd4b5a0cf622a0fe8fe91566d7154be94b885860bcd618",
         "target_local_paths": [
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\source\\tests\\cloudpickle_testpkg"
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/source/tests/cloudpickle_testpkg"
         ],
-        "venv": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1"
+        "venv": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1"
       },
       {
         "blocker": null,
@@ -470,23 +470,23 @@
         ],
         "installed_distribution_graph_hash": "a582035cb9e5ee30224471e077b3df1996a521b1314499055370f7672b86ff11",
         "network_mode": "none",
-        "python": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-2\\Scripts\\python.exe",
+        "python": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-2/bin/python",
         "status": "PASS",
         "target_availability_returncode": 0,
-        "target_collection_hash": "fd6baea4617c832c11242df3ce97f393fc4370ecae9fbf768315ef68a22656f5",
+        "target_collection_hash": "132df89f3c45c8ccfd7bea542fcbe871078e38bd637f272ca58b9939bd0f8a74",
         "target_local_paths": [
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\source\\tests\\cloudpickle_testpkg"
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/source/tests/cloudpickle_testpkg"
         ],
-        "venv": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-2"
+        "venv": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-2"
       }
     ],
     "package_records": [
       {
         "artifact_filename": "pytest-7.2.2-py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\pytest-7.2.2\\pytest-7.2.2-py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/pytest-7.2.2/pytest-7.2.2-py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -494,7 +494,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\pytest-7.2.2",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/pytest-7.2.2",
           "pytest==7.2.2"
         ],
         "cutoff_eligible": true,
@@ -512,11 +512,11 @@
         "version": "7.2.2"
       },
       {
-        "artifact_filename": "psutil-5.9.4-cp36-abi3-win_amd64.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\psutil-5.9.4\\psutil-5.9.4-cp36-abi3-win_amd64.whl",
+        "artifact_filename": "psutil-5.9.4-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/psutil-5.9.4/psutil-5.9.4-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -524,7 +524,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\psutil-5.9.4",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/psutil-5.9.4",
           "psutil==5.9.4"
         ],
         "cutoff_eligible": true,
@@ -534,19 +534,19 @@
         "platform_tag": "wheel",
         "python_abi": "runtime-selected-compatible-wheel",
         "reason_selected": "registered target-suite dependency",
-        "registry_sha256": "fd8522436a6ada7b4aad6638662966de0d61d241cb821239b2ae7013d41a43d4",
-        "sha256": "fd8522436a6ada7b4aad6638662966de0d61d241cb821239b2ae7013d41a43d4",
-        "source_url": "https://files.pythonhosted.org/packages/25/6e/ba97809175c90cbdcd33b470e466ebf0854d15d1506e605cc0ddd284d5b6/psutil-5.9.4-cp36-abi3-win_amd64.whl",
+        "registry_sha256": "54c0d3d8e0078b7666984e11b12b88af2db11d11249a8ac8920dd5ef68a66e08",
+        "sha256": "54c0d3d8e0078b7666984e11b12b88af2db11d11249a8ac8920dd5ef68a66e08",
+        "source_url": "https://files.pythonhosted.org/packages/6e/c8/784968329c1c67c28cce91991ef9af8a8913aa5a3399a6a8954b1380572f/psutil-5.9.4-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
         "status": "PASS",
-        "upload_timestamp": "2022-11-08T11:50:07.829565Z",
+        "upload_timestamp": "2022-11-07T18:45:11.831087Z",
         "version": "5.9.4"
       },
       {
-        "artifact_filename": "tornado-6.2-cp37-abi3-win_amd64.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\tornado-6.2\\tornado-6.2-cp37-abi3-win_amd64.whl",
+        "artifact_filename": "tornado-6.2-cp37-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/tornado-6.2/tornado-6.2-cp37-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -554,7 +554,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\tornado-6.2",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/tornado-6.2",
           "tornado==6.2"
         ],
         "cutoff_eligible": true,
@@ -564,19 +564,19 @@
         "platform_tag": "wheel",
         "python_abi": "runtime-selected-compatible-wheel",
         "reason_selected": "registered coroutine tests",
-        "registry_sha256": "e5f923aa6a47e133d1cf87d60700889d7eae68988704e20c75fb2d65677a8e4b",
-        "sha256": "e5f923aa6a47e133d1cf87d60700889d7eae68988704e20c75fb2d65677a8e4b",
-        "source_url": "https://files.pythonhosted.org/packages/1c/26/cbfa1103e74a02e09dd53291e419da3ad4c5b948f52aea5800e6671b56e0/tornado-6.2-cp37-abi3-win_amd64.whl",
+        "registry_sha256": "d3a2f5999215a3a06a4fc218026cd84c61b8b2b40ac5296a6db1f1451ef04c1e",
+        "sha256": "d3a2f5999215a3a06a4fc218026cd84c61b8b2b40ac5296a6db1f1451ef04c1e",
+        "source_url": "https://files.pythonhosted.org/packages/19/bb/b6c3d1668d2b10ad38a584f3a1ec9737984e274f8b708e09fcbb96427f5c/tornado-6.2-cp37-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
         "status": "PASS",
-        "upload_timestamp": "2022-07-03T22:39:39.968922Z",
+        "upload_timestamp": "2022-07-03T22:39:32.760210Z",
         "version": "6.2"
       },
       {
         "artifact_filename": "pluggy-1.0.0-py2.py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\pluggy-1.0.0\\pluggy-1.0.0-py2.py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/pluggy-1.0.0/pluggy-1.0.0-py2.py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -584,7 +584,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\pluggy-1.0.0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/pluggy-1.0.0",
           "pluggy==1.0.0"
         ],
         "cutoff_eligible": true,
@@ -603,10 +603,10 @@
       },
       {
         "artifact_filename": "iniconfig-2.0.0-py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\iniconfig-2.0.0\\iniconfig-2.0.0-py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/iniconfig-2.0.0/iniconfig-2.0.0-py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -614,7 +614,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\iniconfig-2.0.0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/iniconfig-2.0.0",
           "iniconfig==2.0.0"
         ],
         "cutoff_eligible": true,
@@ -633,10 +633,10 @@
       },
       {
         "artifact_filename": "packaging-23.0-py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\packaging-23.0\\packaging-23.0-py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/packaging-23.0/packaging-23.0-py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -644,7 +644,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\packaging-23.0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/packaging-23.0",
           "packaging==23.0"
         ],
         "cutoff_eligible": true,
@@ -663,10 +663,10 @@
       },
       {
         "artifact_filename": "attrs-22.2.0-py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\attrs-22.2.0\\attrs-22.2.0-py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/attrs-22.2.0/attrs-22.2.0-py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -674,7 +674,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\attrs-22.2.0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/attrs-22.2.0",
           "attrs==22.2.0"
         ],
         "cutoff_eligible": true,
@@ -693,10 +693,10 @@
       },
       {
         "artifact_filename": "setuptools-67.6.0-py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\setuptools-67.6.0\\setuptools-67.6.0-py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/setuptools-67.6.0/setuptools-67.6.0-py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -704,7 +704,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\setuptools-67.6.0",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/setuptools-67.6.0",
           "setuptools==67.6.0"
         ],
         "cutoff_eligible": true,
@@ -723,10 +723,10 @@
       },
       {
         "artifact_filename": "colorama-0.4.6-py2.py3-none-any.whl",
-        "artifact_path": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\colorama-0.4.6\\colorama-0.4.6-py2.py3-none-any.whl",
+        "artifact_path": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/colorama-0.4.6/colorama-0.4.6-py2.py3-none-any.whl",
         "blocker": null,
         "command": [
-          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
           "-m",
           "pip",
           "download",
@@ -734,7 +734,7 @@
           "--no-deps",
           "--only-binary=:all:",
           "--dest",
-          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse\\colorama-0.4.6",
+          "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse/colorama-0.4.6",
           "colorama==0.4.6"
         ],
         "cutoff_eligible": true,
@@ -758,7 +758,7 @@
         {
           "build": 1,
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+            "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
             "-m",
             "pip",
             "wheel",
@@ -766,17 +766,17 @@
             "--no-deps",
             "--no-build-isolation",
             "--wheel-dir",
-            "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\project-build-1\\wheel",
-            "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\project-build-1\\source"
+            "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/project-build-1/wheel",
+            "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/project-build-1/source"
           ],
           "returncode": 0,
-          "stderr_sha256": "6af20876388c34f1f1293c2f1d86738329aa4023407d1704e6568137a2058c27",
-          "stdout_sha256": "21baa419d09bcca348fb701d5727f0eb5fad416aa19e3f15d5705e43d7546425"
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "b62c326759d433477690e16f0d8d17970a335b0d95192c6105a8e8c347cbb6ae"
         },
         {
           "build": 2,
           "command": [
-            "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+            "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
             "-m",
             "pip",
             "wheel",
@@ -784,333 +784,333 @@
             "--no-deps",
             "--no-build-isolation",
             "--wheel-dir",
-            "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\project-build-2\\wheel",
-            "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\project-build-2\\source"
+            "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/project-build-2/wheel",
+            "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/project-build-2/source"
           ],
           "returncode": 0,
-          "stderr_sha256": "6af20876388c34f1f1293c2f1d86738329aa4023407d1704e6568137a2058c27",
-          "stdout_sha256": "bd509fb4bbb0588afb68fbf66411f93fdf379ce5211c40bf510ab502c2a2e88e"
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "cd390592cf207cf5a927a82352895276166c472f6a3fe9c9a2a24e6ae64da830"
         }
       ],
       "equivalence": {
         "non_reproducible_fields": [],
         "normalized_contents_equivalent": true,
-        "normalized_first_hash": "83db02aa0b475ae3ba40784f4793ad865143076ab5f0dcb74c48bd635c2359e5",
-        "normalized_second_hash": "83db02aa0b475ae3ba40784f4793ad865143076ab5f0dcb74c48bd635c2359e5",
-        "raw_first_sha256": "89dedf97b0685463d55b384566d9691071d66433fc97207da72a7c24ea698975",
-        "raw_second_sha256": "89dedf97b0685463d55b384566d9691071d66433fc97207da72a7c24ea698975",
+        "normalized_first_hash": "e60408b24fa16db10a1b8b23f8bd9c77e51b2a97ef1cbf7645fb3ccc3be9c642",
+        "normalized_second_hash": "e60408b24fa16db10a1b8b23f8bd9c77e51b2a97ef1cbf7645fb3ccc3be9c642",
+        "raw_first_sha256": "2ee54d2ab0b0db96e986f687612b947fe38833888666d3a8c1583dbeb03ee189",
+        "raw_second_sha256": "2ee54d2ab0b0db96e986f687612b947fe38833888666d3a8c1583dbeb03ee189",
         "status": "PASS"
       },
       "status": "PASS",
       "wheels": [
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\project-build-1\\wheel\\cloudpickle-2.3.0.dev0-py3-none-any.whl",
-        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\project-build-2\\wheel\\cloudpickle-2.3.0.dev0-py3-none-any.whl"
+        "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/project-build-1/wheel/cloudpickle-2.3.0.dev0-py3-none-any.whl",
+        "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/project-build-2/wheel/cloudpickle-2.3.0.dev0-py3-none-any.whl"
       ]
     },
     "provider_bytes_in_git": false,
-    "provider_python": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+    "provider_python": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
     "provider_ready_token": {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T18:59:05.859064+00:00",
+      "created_time": "2026-07-14T19:40:52.903275+00:00",
       "independent_verifier": "controllergate.runtime.provider_service",
       "input_token_hashes": [
-        "9a570709f7e92c51e50df338513dd23774f40f9727fcc62273ede4789626b14e"
+        "380f18bc358607ae9ce6bfcf23d3f7d5a4a58a4b6a4ba5fcca4d826f03f4aa0e"
       ],
-      "payload_identity": "3b59e0d2c5629a0863360c8ec2ae716f95ffab106f7488de8f6d9cc177edcb29",
+      "payload_identity": "b7dc28e64c0b9c38934b3766c0caa4851bfd599f007db92bc2aef5656b115bcb",
       "producer_event": "provider_execution_ready",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "da9ba24db84b5635b47f7765c999520a508cee76d834b09df7adeeaea8e25228",
+      "token_hash": "5d8fa1f9e3a1f7f6c1c6da9223383cf04a0e02b57fce5d5e35acd9a87ed56dcf",
       "token_type": "PROVIDER_EXECUTION_READY_TOKEN"
     },
-    "provider_seal": "1faa228d5c45b7d19e24ee73826fb5650fb22a9618b3c94ecba4c5568df7260c",
+    "provider_seal": "380f0c4e27815ef9ed2e965404d46c7a5b8322f6b466a1a0f917ee6cd6211376",
     "status": "PASS",
-    "wheelhouse": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\sealed-wheelhouse"
+    "wheelhouse": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/sealed-wheelhouse"
   },
   "reaction_token_count": 20,
   "reaction_tokens": [
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T18:56:43.720459+00:00",
+      "created_time": "2026-07-14T19:40:34.003453+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [],
       "payload_identity": "31cb38c3783a68545ffbbc019e7a4db2d33fa0e5b1d34d241c4199b9ecebb713",
       "producer_event": "candidate_identity",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "424870f52d6425035dfaa593ac9a63740e949a22e4a0b209df67da114c720737",
+      "token_hash": "44412b775724d77dc72550864d2e7b741285135c9ef27e96f4c946e118220a43",
       "token_type": "CANDIDATE_IDENTITY_VERIFIED_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T18:56:43.720581+00:00",
+      "created_time": "2026-07-14T19:40:34.003486+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "424870f52d6425035dfaa593ac9a63740e949a22e4a0b209df67da114c720737"
+        "44412b775724d77dc72550864d2e7b741285135c9ef27e96f4c946e118220a43"
       ],
       "payload_identity": "e64615e6dd08e96a486567534634de8b927b5b4dda65a4dae5c6a87c41b8c429",
       "producer_event": "historical_proof_identity",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "5857aef5a9eca615a9c8bafb0235251f9946d0f68abc14c0ce00615769ddbef2",
+      "token_hash": "84e8726da9520a076ba31afac49b48a3062b12a0cb802d954cb037f62c90a12a",
       "token_type": "ISSUE_SNAPSHOT_VERIFIED_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T18:56:43.720696+00:00",
+      "created_time": "2026-07-14T19:40:34.003507+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "5857aef5a9eca615a9c8bafb0235251f9946d0f68abc14c0ce00615769ddbef2"
+        "84e8726da9520a076ba31afac49b48a3062b12a0cb802d954cb037f62c90a12a"
       ],
       "payload_identity": "a8c09a33d29f22f3b9787b3be9e65dec6bc2e1dba7f7cf3181da8040eb930cbe",
       "producer_event": "source_verified",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "a5b1f19dca6c94e9c2515ad8da4d1d88ae38f47b59d87fa7038b743925290f7a",
+      "token_hash": "4023a14696050b7dca024dfcd5ec8ae4a9adbd1e4710ef70593b60a143e1ae9c",
       "token_type": "SOURCE_ACQUIRED_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T18:56:43.720810+00:00",
+      "created_time": "2026-07-14T19:40:34.003525+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "a5b1f19dca6c94e9c2515ad8da4d1d88ae38f47b59d87fa7038b743925290f7a"
+        "4023a14696050b7dca024dfcd5ec8ae4a9adbd1e4710ef70593b60a143e1ae9c"
       ],
-      "payload_identity": "31a980d5a4160666d92a04ee9e45cf6116d523adea03da5f41f2a4a9b321e8e6",
+      "payload_identity": "a1ee8d6cf13d15a0045ca21a9bc8179a432ea86b37cc96da5a423b7e85644f37",
       "producer_event": "runtime_attested",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "bf332382fab512773d5a8722c9f2d17eba3e71421a4a2147a4bf19f9f2858274",
+      "token_hash": "1ed12f4927b82979064309b1fcc2a2c11aed1e797d68556ae6325ebe3eeed069",
       "token_type": "RUNTIME_ATTESTED_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T18:59:05.858929+00:00",
+      "created_time": "2026-07-14T19:40:52.903221+00:00",
       "independent_verifier": "controllergate.runtime.historical_provider_equivalence",
       "input_token_hashes": [
-        "a5b1f19dca6c94e9c2515ad8da4d1d88ae38f47b59d87fa7038b743925290f7a"
+        "4023a14696050b7dca024dfcd5ec8ae4a9adbd1e4710ef70593b60a143e1ae9c"
       ],
-      "payload_identity": "8c9be1c4020d5b96e52010442db44ec23d06c27fe3bdc5e664229703f6a5b143",
+      "payload_identity": "ae6be5840b93ce01bc48fb11d187c0369f3b59dc0936312da74edb99562f6a86",
       "producer_event": "historical_provider_reconstructed_equivalent",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "9a570709f7e92c51e50df338513dd23774f40f9727fcc62273ede4789626b14e",
+      "token_hash": "380f18bc358607ae9ce6bfcf23d3f7d5a4a58a4b6a4ba5fcca4d826f03f4aa0e",
       "token_type": "HISTORICAL_PROVIDER_RECONSTRUCTED_EQUIVALENT_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T18:59:05.859064+00:00",
+      "created_time": "2026-07-14T19:40:52.903275+00:00",
       "independent_verifier": "controllergate.runtime.provider_service",
       "input_token_hashes": [
-        "9a570709f7e92c51e50df338513dd23774f40f9727fcc62273ede4789626b14e"
+        "380f18bc358607ae9ce6bfcf23d3f7d5a4a58a4b6a4ba5fcca4d826f03f4aa0e"
       ],
-      "payload_identity": "3b59e0d2c5629a0863360c8ec2ae716f95ffab106f7488de8f6d9cc177edcb29",
+      "payload_identity": "b7dc28e64c0b9c38934b3766c0caa4851bfd599f007db92bc2aef5656b115bcb",
       "producer_event": "provider_execution_ready",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "da9ba24db84b5635b47f7765c999520a508cee76d834b09df7adeeaea8e25228",
+      "token_hash": "5d8fa1f9e3a1f7f6c1c6da9223383cf04a0e02b57fce5d5e35acd9a87ed56dcf",
       "token_type": "PROVIDER_EXECUTION_READY_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.020865+00:00",
+      "created_time": "2026-07-14T19:42:07.746216+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "da9ba24db84b5635b47f7765c999520a508cee76d834b09df7adeeaea8e25228"
+        "5d8fa1f9e3a1f7f6c1c6da9223383cf04a0e02b57fce5d5e35acd9a87ed56dcf"
       ],
       "payload_identity": "4c699b7ad6e02207a80f36dc4f6b7ad2d928a42b3d14defea6a9d587e00c7a80",
       "producer_event": "target_verified",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "119a43bb8b328c561c6a146a2e2fb147d3befdda76416cc1b000cf9272e521b6",
+      "token_hash": "ce40acd6040e1697126312fb246d4b03cb44938544ff774f3dec93a763c8afd0",
       "token_type": "TARGET_OR_REPRODUCER_VERIFIED_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.020995+00:00",
+      "created_time": "2026-07-14T19:42:07.746259+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "119a43bb8b328c561c6a146a2e2fb147d3befdda76416cc1b000cf9272e521b6"
+        "ce40acd6040e1697126312fb246d4b03cb44938544ff774f3dec93a763c8afd0"
       ],
-      "payload_identity": "98252e0d4f917f952ac9058040808468f77e51cd15b415f247fd80b9d4515b63",
+      "payload_identity": "bf36dbf3a67ba4d42bf502b9e265ec59c264b817d927758a415b3b91d2ef681c",
       "producer_event": "command_verified",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "40a5e189e873134e709020b4d353f691258c074e594e4764fb1632aae52695a9",
+      "token_hash": "f3a5f73472bc64bdcfc30dde558bbe2f74bf4c5f507f1ccf8c8af09807e879f9",
       "token_type": "COMMAND_AUTHORITY_VERIFIED_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021061+00:00",
+      "created_time": "2026-07-14T19:42:07.746278+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "40a5e189e873134e709020b4d353f691258c074e594e4764fb1632aae52695a9"
+        "f3a5f73472bc64bdcfc30dde558bbe2f74bf4c5f507f1ccf8c8af09807e879f9"
       ],
-      "payload_identity": "1b507523e147e7c4a68838414256f0a4e5462f94e90dd237e34b81b5c484568a",
+      "payload_identity": "11cad3679889155e85ac5d1f9438549977df49711836f6d84cbb59c259b67180",
       "producer_event": "duplicate_failure",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "ef6e25b23ebb8300ebe55f7a22589b0473cc223148be6f8cbf8780b7b38d5c37",
+      "token_hash": "dcc4c62f229a034306fc1f23ce21e60d679fb25fd6e0c5f7a1ae3d2b47c4e7f8",
       "token_type": "DUPLICATE_FAILURE_REPRODUCED_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021235+00:00",
+      "created_time": "2026-07-14T19:42:07.746327+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "ef6e25b23ebb8300ebe55f7a22589b0473cc223148be6f8cbf8780b7b38d5c37"
+        "dcc4c62f229a034306fc1f23ce21e60d679fb25fd6e0c5f7a1ae3d2b47c4e7f8"
       ],
       "payload_identity": "5b9ee4c0560c7e28e366c18e8946d2b8763171c105a1e64ed0c354c83d3ec683",
       "producer_event": "dpp14_controller_audit",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "352bfc3c9e4e128b831c6dc8221be249c667b068f97c0b566dbe0e5b78b6008b",
+      "token_hash": "09c65d49f4af4a1492783c6ffb8ce346e4fe43b4191b3bf8f7753f4538467d32",
       "token_type": "CAUSAL_OWNERSHIP_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021288+00:00",
+      "created_time": "2026-07-14T19:42:07.746342+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "352bfc3c9e4e128b831c6dc8221be249c667b068f97c0b566dbe0e5b78b6008b"
+        "09c65d49f4af4a1492783c6ffb8ce346e4fe43b4191b3bf8f7753f4538467d32"
       ],
       "payload_identity": "3a9826970b09e380e1b87963e4603e68e3ceb88593a2ab81c82ea9f982e219f6",
       "producer_event": "ast_contact",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "3242d265a91d1815000be764feb1f3bb0bbcd994e4e95adaed5fdef2e67e87ba",
+      "token_hash": "f2f4aa4e2ca82fa8e1c1ed50fa1dd8fcc00b2c3fdb7ef84abafa383f9f50982a",
       "token_type": "AST_CONTACT_DOMAIN_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021341+00:00",
+      "created_time": "2026-07-14T19:42:07.746357+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "3242d265a91d1815000be764feb1f3bb0bbcd994e4e95adaed5fdef2e67e87ba"
+        "f2f4aa4e2ca82fa8e1c1ed50fa1dd8fcc00b2c3fdb7ef84abafa383f9f50982a"
       ],
       "payload_identity": "d9e637920cd694d3cd9192e9dfb4c38f3503a363186264f74fa8d6a1b277b9fb",
       "producer_event": "repair_license",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "3010bca3879d36a8c4bc4fb7ca76afd94c86c4b26a15dbc89f8055bf9c6cb008",
+      "token_hash": "8d14177b758dd95a1694f3e27be87104e8e40c8132112b7c9abb670f9e02f2c4",
       "token_type": "REPAIR_LICENSE_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021389+00:00",
+      "created_time": "2026-07-14T19:42:07.746370+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "3010bca3879d36a8c4bc4fb7ca76afd94c86c4b26a15dbc89f8055bf9c6cb008"
+        "8d14177b758dd95a1694f3e27be87104e8e40c8132112b7c9abb670f9e02f2c4"
       ],
       "payload_identity": "8da81ff04df1de72e32633f1979375616f61bb9e93648b368bafcb7e47daf0bf",
       "producer_event": "patch_applied",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "82c00357bc67c28a3c7c2cdc0784659632a08c79ee7b96e32ca78df8727fc1fe",
+      "token_hash": "160fa59f7eeb385a9215a012b47a26941e9859ffc353824bc426164a5b30ce8f",
       "token_type": "PATCH_APPLIED_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021436+00:00",
+      "created_time": "2026-07-14T19:42:07.746384+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "82c00357bc67c28a3c7c2cdc0784659632a08c79ee7b96e32ca78df8727fc1fe"
+        "160fa59f7eeb385a9215a012b47a26941e9859ffc353824bc426164a5b30ce8f"
       ],
-      "payload_identity": "4f4130cf9ff32c09fe8d88a13ae2544bcf990d7074d18a4f3c8522b5f09789dc",
+      "payload_identity": "5013557dfac6f2022d7d59e87d3d4a66423e61a157a6da8e2dce2eb34d298bd6",
       "producer_event": "validation",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "a9234feed6a677bb542a4b1bb7eeec3c8d8d65c1d4d2fb2e2f1ee16140fdf5a6",
+      "token_hash": "96fb273ff41669904ac617ad870935055ad84b5c4611f1fd46985f37e62570af",
       "token_type": "VALIDATION_PASSED_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021535+00:00",
+      "created_time": "2026-07-14T19:42:07.746413+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "a9234feed6a677bb542a4b1bb7eeec3c8d8d65c1d4d2fb2e2f1ee16140fdf5a6"
+        "96fb273ff41669904ac617ad870935055ad84b5c4611f1fd46985f37e62570af"
       ],
-      "payload_identity": "226249e647463b5fecdd1014a47407312879d08ab0624434ac3731a2a34f2b44",
+      "payload_identity": "3ab2320aaf0cf7d0a63d87cdb7fbe9773c37b080baec592cdd927229c596249d",
       "producer_event": "duplicate_clean_replay",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "2750ddb6323e1322f481a4a46e911d2345f9b6b03589ae5fa7912dbbd0cd3032",
+      "token_hash": "3dcc6884e85c7ec4321ecddb669c59a9e8a10fe538b82cb851bdb83d98d9c1d1",
       "token_type": "DUPLICATE_CLEAN_REPLAY_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021625+00:00",
+      "created_time": "2026-07-14T19:42:07.746439+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "2750ddb6323e1322f481a4a46e911d2345f9b6b03589ae5fa7912dbbd0cd3032"
+        "3dcc6884e85c7ec4321ecddb669c59a9e8a10fe538b82cb851bdb83d98d9c1d1"
       ],
-      "payload_identity": "03e381ef2a6bf8a171fef8a5a5c8eec807d95554d07143c64f87a89b0e593630",
+      "payload_identity": "7b423d25e9617c310b88e9e3ea473ec3f49451dad4b4c166d81aff9aa6ae1287",
       "producer_event": "rollback",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "c74a3660b613e36b98c46855843edb2411466920f5f6370b68a82a41ca4e2619",
+      "token_hash": "05d6fc7ca82de8217f9807009d0b09703837c087cf60ac35e1875bd727c3fce9",
       "token_type": "ROLLBACK_READY_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021683+00:00",
+      "created_time": "2026-07-14T19:42:07.746455+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "c74a3660b613e36b98c46855843edb2411466920f5f6370b68a82a41ca4e2619"
+        "05d6fc7ca82de8217f9807009d0b09703837c087cf60ac35e1875bd727c3fce9"
       ],
       "payload_identity": "0403fb5cf1e36a37853f58033beddfb13d22425aa5765d36ec411b8c802f5c07",
       "producer_event": "historical_proof",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "91c221c0bb09213819be5a982e745eeee3e27718bcfc99ef5bec817f65f8130c",
+      "token_hash": "5c45d45815e28f128f4a302d92baa14675b440a9daf8e8c85042ac7ba96ece71",
       "token_type": "PROOF_APPENDED_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021731+00:00",
+      "created_time": "2026-07-14T19:42:07.746468+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "91c221c0bb09213819be5a982e745eeee3e27718bcfc99ef5bec817f65f8130c"
+        "5c45d45815e28f128f4a302d92baa14675b440a9daf8e8c85042ac7ba96ece71"
       ],
       "payload_identity": "6db73c633eb2b60e162b6a5211cf42a25b62f1eb6b862104961f17efd46d7f1b",
       "producer_event": "count_decision",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "ec0b677aa2db8f936ad00d185dda1a0929a9e564d457caaf0e6aea2ef8ac20cd",
+      "token_hash": "29e336b294d41f60bcf9659c696d1cf43f0d2911074db4000701fe730dbb5b31",
       "token_type": "COUNT_DECISION_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.021886+00:00",
+      "created_time": "2026-07-14T19:42:07.746482+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "ec0b677aa2db8f936ad00d185dda1a0929a9e564d457caaf0e6aea2ef8ac20cd"
+        "29e336b294d41f60bcf9659c696d1cf43f0d2911074db4000701fe730dbb5b31"
       ],
-      "payload_identity": "64b91a9cd9f67f859e790315eb6aa8249cd13601ae7a5bb0adf5b6d8cea6b0b4",
+      "payload_identity": "959134e52c8774c5b9982eeb220ded2770e15845cc6f66fd41be8d78a857f6d1",
       "producer_event": "canary_health",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "01818298fd2b738c1ffd6ac2c204addfdf93d852ddf31e9dbf645150e3f33a1b",
+      "token_hash": "36aba48c4cbf09a41740502365b81c8f9ae598ee945279cc0f1c5c436e30aca6",
       "token_type": "CANARY_HEALTH_TOKEN"
     },
     {
       "candidate_id": "cloudpickle_507_py313_typevar_distutils",
-      "created_time": "2026-07-14T19:07:13.022106+00:00",
+      "created_time": "2026-07-14T19:42:07.746522+00:00",
       "independent_verifier": "controllergate.product.historical_lifecycle",
       "input_token_hashes": [
-        "01818298fd2b738c1ffd6ac2c204addfdf93d852ddf31e9dbf645150e3f33a1b"
+        "36aba48c4cbf09a41740502365b81c8f9ae598ee945279cc0f1c5c436e30aca6"
       ],
       "payload_identity": "88791651c6f8e2096f3466332c6e5da3a42f1ccc6cde226d3d645d53955b9ec9",
       "producer_event": "terminal",
       "run_id": "batch086-cloudpickle_507_py313_typevar_distutils",
-      "token_hash": "a2c3fb42c98701e03daee92164e09a75459456767ecce75d18eb2c8213a1a625",
+      "token_hash": "3195fc19f78c6b323b37bae5fdde2e24b806231ec0047253f5233f1e3d25e9de",
       "token_type": "TERMINAL_MEMORY_TOKEN"
     }
   ],
   "repair_count_increment": 0,
   "rollback": {
     "exact_identity_required": true,
-    "original_source_tree_hash": "7c5f20f3674822b8914a188548e417a3a8c83b1bfddf1d35bd0ebc06169a2eb6",
-    "patched_source_tree_hash": "9ae9fe23cda9f5c042449cacf1bd49381fbf669cebeeb684256763f19b448763",
-    "rollback_source_tree_hash": "7c5f20f3674822b8914a188548e417a3a8c83b1bfddf1d35bd0ebc06169a2eb6",
+    "original_source_tree_hash": "0f82ee1a52ddd84c3524cd3297e7b35951c497e085391711d6b9592b48dcdc56",
+    "patched_source_tree_hash": "7e41e6400a38db7036ad9a8ae92b5daf567e151a34a88400595e442f3d590d16",
+    "rollback_source_tree_hash": "0f82ee1a52ddd84c3524cd3297e7b35951c497e085391711d6b9592b48dcdc56",
     "status": "PASS"
   },
   "status": "PASS",
   "validation": {
     "command": [
-      "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Scripts\\python.exe",
+      "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/bin/python",
       "-m",
       "pytest",
       "tests/cloudpickle_test.py",
       "-q",
       "--tb=no"
     ],
-    "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\validation",
-    "output_tail": "  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:809: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    keys = [ast.Str(key) for key in current.keys()]\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: 194 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n..\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\unittest\\case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\validation\\cloudpickle\\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\cloudpickle_507_py313_typevar_distutils\\provider\\offline-venv-1\\Lib\\site-packages\\tornado\\ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n236 passed, 10 skipped, 2881 warnings in 73.46s (0:01:13)",
+    "cwd": "/home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/validation",
+    "output_tail": "  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:809: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    keys = [ast.Str(key) for key in current.keys()]\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:933: 194 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1058: 158 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n../provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: 158 warnings\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/validation/cloudpickle/cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  /home/runner/work/_temp/controllergate-runtime/batch086/cloudpickle_507_py313_typevar_distutils/provider/offline-venv-1/lib/python3.13/site-packages/tornado/ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n236 passed, 10 skipped, 2881 warnings in 11.06s",
     "returncode": 0,
     "semantic_failure_nodes": [],
     "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "stdout_sha256": "00eadc7ccbda2410e41371b494829290e64d60c4459c4542838e27b6264704c6"
+    "stdout_sha256": "cae3f148598c92714d4b3483775235b75de92afddb84a6c04d1ce720ffbd14a5"
   }
 }

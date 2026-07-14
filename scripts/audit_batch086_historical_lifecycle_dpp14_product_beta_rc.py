@@ -24,6 +24,33 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def approved_batch087_version_supersession(current_version: str) -> tuple[bool, str]:
+    """Validate the one approved post-Batch086 version-lineage transition.
+
+    Batch086 remains an era audit: its evidence is not rewritten merely because a
+    later lane invalidated its provisional RC.  A current-version mismatch is
+    accepted only when Batch087 records the exact, unpublished supersession and
+    the corresponding blocked release decision.
+    """
+    later = ROOT / "outputs/post_v2_37_hardening_batch087_canonical_execution_blind_dpp14_product_beta_revalidation"
+    lineage_path = later / "release_version_lineage.json"
+    reclassification_path = later / "batch086_product_beta_rc_reclassification.json"
+    if not lineage_path.is_file() or not reclassification_path.is_file():
+        return False, "batch087_lineage_missing"
+    lineage = json.loads(lineage_path.read_text(encoding="utf-8"))
+    reclassification = json.loads(reclassification_path.read_text(encoding="utf-8"))
+    valid = (
+        current_version == "0.2.0b2.dev0"
+        and lineage.get("status") == "PASS"
+        and lineage.get("0.2.0b1") == "BATCH086_PROVISIONAL_RC_INVALIDATED_BEFORE_PUBLICATION"
+        and lineage.get("current_development_version") == current_version
+        and lineage.get("public_tag_or_release_or_pypi_found") is False
+        and reclassification.get("status") == "PRODUCT_BETA_RC_BLOCKED_EXACT"
+        and reclassification.get("historical_replay_count_increment") == 0
+    )
+    return valid, "approved_batch087_prepublication_supersession" if valid else "batch087_lineage_invalid"
+
+
 def manifest_status(root: Path) -> dict:
     manifest = root / "SHA256SUMS.txt"; failures = []
     for line in manifest.read_text(encoding="utf-8").splitlines():
@@ -94,7 +121,10 @@ def audit() -> dict:
     if claims.get("protocol") != "v2.19" or claims.get("issue_derived_repair_count") != 6 or claims.get("native_external_repair_count") != 4 or claims.get("full_scoring") != "NOT_RUN/disallowed" or claims.get("production_readiness") is not False or claims.get("self_maintaining_software") != "false/not demonstrated": errors.append("claim_boundary_violation")
     version = next(line.split('"')[1] for line in (ROOT / "pyproject.toml").read_text(encoding="utf-8").splitlines() if line.startswith("version = "))
     expected_version = "0.2.0b1" if decision.get("status") == "PRODUCT_BETA_RC_PASS" else "0.1.0a1"
-    if version != expected_version: errors.append("package_version_decision_mismatch")
+    version_compatibility = "historical_version_still_current"
+    if version != expected_version:
+        approved, version_compatibility = approved_batch087_version_supersession(version)
+        if not approved: errors.append("package_version_decision_mismatch")
     manifest_before = manifest_status(OUT)
     if manifest_before["status"] != "PASS": errors.append("batch086_manifest_mismatch")
     return {"status": "PASS" if not errors else "FAIL", "errors": errors, "Batch085_artifact_identity": "PASS",
@@ -103,7 +133,9 @@ def audit() -> dict:
             "non_source_terminals_complete": sum(item.get("complete", False) for item in non_source["results"]),
             "DPP14_quality": quality.get("status"), "interlocks": audit_registry(ROOT)["status"], "causal_elbow": elbow.get("elbow"),
             "twist_return": twist.get("status"), "three_projection": projection.get("status"), "Product_Beta_RC": decision.get("status"),
-            "package_version": version, "independent_critic_recompute": "PASS" if not errors else "FAIL"}
+            "package_version": version, "historical_expected_version": expected_version,
+            "version_lineage_compatibility": version_compatibility,
+            "independent_critic_recompute": "PASS" if not errors else "FAIL"}
 
 
 def main() -> int:

@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 import sqlite3
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -11,6 +12,7 @@ from .database import connect, initialize, transaction
 from .event_store import append_event
 from .integrity import canonical_hash, verify_event_chain
 from .migrations import migrate
+from .lease import acquire as acquire_worker_lease, release as release_worker_lease
 
 
 RUN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$")
@@ -65,6 +67,116 @@ class ControllerStateRepository:
             "INSERT OR IGNORE INTO reaction_tokens(token_hash,token_type,candidate_id,run_id,producer_event,input_token_hashes,payload_identity,independent_verifier,created_at) VALUES (?,?,?,?,?,?,?,?,?)",
             (token["token_hash"], token["token_type"], token["candidate_id"], token["run_id"], token["producer_event"], json.dumps(token.get("input_token_hashes", [])), token["payload_identity"], token["independent_verifier"], token.get("created_time", token.get("created_at"))),
         )
+
+    def acquire_lease(self, run_id: str, worker_identity: str, ttl_seconds: float = 30.0) -> bool:
+        with transaction(self.connection):
+            return acquire_worker_lease(self.connection, run_id, worker_identity, ttl_seconds)
+
+    def release_lease(self, run_id: str, worker_identity: str) -> bool:
+        with transaction(self.connection):
+            return release_worker_lease(self.connection, run_id, worker_identity)
+
+    def authorize(self, run_id: str, authorization_id: str, scope: dict[str, Any], nonce: str) -> dict[str, Any]:
+        if not nonce or self.connection.execute("SELECT 1 FROM spent_nonces WHERE nonce=?", (nonce,)).fetchone():
+            raise ValueError("authorization nonce missing or already spent")
+        with transaction(self.connection):
+            self.connection.execute(
+                "INSERT INTO authorizations(authorization_id,run_id,scope_json,consumed) VALUES (?,?,?,0)",
+                (authorization_id, run_id, json.dumps({**scope, "nonce": nonce}, sort_keys=True)),
+            )
+        return {"authorization_id": authorization_id, "nonce": nonce, "status": "AUTHORIZED"}
+
+    def consume_authorization(self, run_id: str, authorization_id: str, nonce: str) -> None:
+        now = datetime.now(timezone.utc).isoformat()
+        with transaction(self.connection):
+            row = self.connection.execute(
+                "SELECT scope_json,consumed FROM authorizations WHERE authorization_id=? AND run_id=?",
+                (authorization_id, run_id),
+            ).fetchone()
+            if not row or row["consumed"] or json.loads(row["scope_json"]).get("nonce") != nonce:
+                raise ValueError("authorization invalid, consumed, or nonce mismatch")
+            self.connection.execute("INSERT INTO spent_nonces(nonce,run_id,spent_at) VALUES (?,?,?)", (nonce, run_id, now))
+            self.connection.execute("UPDATE authorizations SET consumed=1 WHERE authorization_id=?", (authorization_id,))
+
+    def record_broker_operation(self, run_id: str, record: dict[str, Any]) -> None:
+        with transaction(self.connection):
+            self.connection.execute(
+                "INSERT INTO broker_records(record_hash,run_id,operation_id,stage_id,authorization_id,nonce,record_json,created_at) VALUES (?,?,?,?,?,?,?,?)",
+                (record["record_hash"], run_id, record["operation_id"], record["stage_id"], record["authorization_id"],
+                 record["nonce"], json.dumps(record, sort_keys=True), datetime.now(timezone.utc).isoformat()),
+            )
+
+    def commit_stage(self, run_id: str, stage: str, input_tokens: list[str], token: dict[str, Any],
+                     output: dict[str, Any], worker: str = "controllergate") -> dict[str, Any]:
+        input_identity = canonical_hash(input_tokens)
+        event_id = f"{run_id}:{stage}:{input_identity[:16]}"
+        existing = self.connection.execute("SELECT * FROM events WHERE event_id=?", (event_id,)).fetchone()
+        if existing:
+            return {**dict(existing), "idempotent_replay": True}
+        now = datetime.now(timezone.utc).isoformat()
+        output_hash = canonical_hash(output)
+        with transaction(self.connection):
+            event = append_event(self.connection, event_id=event_id, run_id=run_id, event_type=stage,
+                                 input_token_hashes=input_tokens, output_token_hashes=[token["token_hash"]],
+                                 status="PASS", blocker=None, worker_identity=worker)
+            self.connection.execute(
+                "INSERT INTO reaction_tokens(token_hash,token_type,candidate_id,run_id,producer_event,input_token_hashes,payload_identity,independent_verifier,created_at) VALUES (?,?,?,?,?,?,?,?,?)",
+                (token["token_hash"], token["token_type"], token["candidate_id"], token["run_id"], token["producer_event"],
+                 json.dumps(token.get("input_token_hashes", [])), token["payload_identity"], token["independent_verifier"],
+                 token.get("created_time", now)),
+            )
+            self.connection.execute(
+                "INSERT INTO stage_outputs(event_id,run_id,stage_id,input_identity,output_json,output_hash) VALUES (?,?,?,?,?,?)",
+                (event_id, run_id, stage, input_identity, json.dumps(output, sort_keys=True), output_hash),
+            )
+            self.connection.execute("UPDATE runs SET status=?,updated_at=? WHERE run_id=?", (stage, now, run_id))
+            self.connection.execute(
+                "INSERT INTO checkpoints(run_id,stage,event_hash,state_json,committed_at) VALUES (?,?,?,?,?) "
+                "ON CONFLICT(run_id) DO UPDATE SET stage=excluded.stage,event_hash=excluded.event_hash,state_json=excluded.state_json,committed_at=excluded.committed_at",
+                (run_id, stage, event["event_hash"], json.dumps({"stage": stage, "token_hash": token["token_hash"]}, sort_keys=True), now),
+            )
+        return {**event, "output_hash": output_hash, "idempotent_replay": False}
+
+    def checkpoint(self, run_id: str) -> dict[str, Any] | None:
+        row = self.connection.execute("SELECT * FROM checkpoints WHERE run_id=?", (run_id,)).fetchone()
+        return dict(row) if row else None
+
+    def tokens(self, run_id: str) -> list[dict[str, Any]]:
+        return [dict(row) for row in self.connection.execute("SELECT * FROM reaction_tokens WHERE run_id=? ORDER BY rowid", (run_id,))]
+
+    def record_release_decision(self, decision: dict[str, Any]) -> str:
+        parent = self.connection.execute("SELECT decision_hash FROM release_decisions ORDER BY rowid DESC LIMIT 1").fetchone()
+        value = {**decision, "parent_hash": str(parent["decision_hash"]) if parent else "0" * 64}
+        decision_hash = canonical_hash(value)
+        with transaction(self.connection):
+            self.connection.execute(
+                "INSERT INTO release_decisions(decision_hash,status,package_version,parent_hash,decision_json,created_at) VALUES (?,?,?,?,?,?)",
+                (decision_hash, value["status"], value["package_version"], value["parent_hash"],
+                 json.dumps(value, sort_keys=True), datetime.now(timezone.utc).isoformat()),
+            )
+        return decision_hash
+
+    def latest_release_decision(self) -> dict[str, Any] | None:
+        row = self.connection.execute("SELECT decision_hash,decision_json FROM release_decisions ORDER BY rowid DESC LIMIT 1").fetchone()
+        return {**json.loads(row["decision_json"]), "decision_hash": row["decision_hash"]} if row else None
+
+    def migrate_json_state(self, source: str | Path) -> dict[str, Any]:
+        path = Path(source); raw = path.read_bytes(); source_hash = __import__("hashlib").sha256(raw).hexdigest()
+        existing = self.connection.execute("SELECT * FROM json_state_migrations WHERE source_hash=?", (source_hash,)).fetchone()
+        if existing:
+            return {**dict(existing), "status": "PASS", "idempotent": True}
+        value = json.loads(raw.decode("utf-8")); run_id = str(value.get("run_id", "")); candidate_id = str(value.get("candidate_id", "migrated-fixture"))
+        if not RUN_ID.fullmatch(run_id):
+            raise ValueError("JSON fixture state has unsafe or missing run_id")
+        if not self.connection.execute("SELECT 1 FROM runs WHERE run_id=?", (run_id,)).fetchone():
+            self.create_run(run_id, candidate_id, {"migration_source_hash": source_hash, "read_only_source": str(path.resolve())})
+        result_hash = canonical_hash({"source_hash": source_hash, "run_id": run_id})
+        with transaction(self.connection):
+            self.connection.execute(
+                "INSERT INTO json_state_migrations(source_hash,source_path,imported_run_id,result_hash,migrated_at) VALUES (?,?,?,?,?)",
+                (source_hash, str(path.resolve()), run_id, result_hash, datetime.now(timezone.utc).isoformat()),
+            )
+        return {"status": "PASS", "source_hash": source_hash, "imported_run_id": run_id, "result_hash": result_hash, "idempotent": False}
 
     def counts(self) -> dict[str, int]:
         rows = self.connection.execute("SELECT repair_class, COUNT(*) AS n FROM count_records WHERE decision='COUNT' GROUP BY repair_class").fetchall()

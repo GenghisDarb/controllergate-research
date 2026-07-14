@@ -1,0 +1,136 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any
+
+from controllergate.reactions.token_kernel import ReactionToken, require_tokens
+from controllergate.state.integrity import canonical_hash
+
+
+REFERENCE_ANCHORS = (
+    "candidate_incident_identity",
+    "source_and_test_tree_identity",
+    "provider_runtime_abi_identity",
+    "target_and_command_authority",
+    "proof_claim_release_parent",
+)
+
+NATIVE_CONTACTS = (
+    "candidate_identity", "incident_snapshot", "source_revision", "source_test_immutability",
+    "runtime_attestation", "provider_closure", "command_authority", "target_reproducer_provenance",
+    "runner_origin", "harness_origin", "duplicate_failure_reproduction", "normal_incident_divergence",
+    "causal_ownership_ast_contact", "rollback_proof_count_path",
+)
+
+LICENSING_CONDITIONS = (
+    "single_causal_family_after_executed_probes",
+    "non_source_alternatives_excluded",
+    "ast_source_contact_localized",
+    "source_only_bounded_test_immutable",
+    "validation_and_duplicate_replay_executable",
+    "rollback_proof_nonduplication_claim_ready",
+)
+
+STAGES = (
+    ("candidate_identity", "CANDIDATE_IDENTITY_VERIFIED_TOKEN", ()),
+    ("source_acquisition", "SOURCE_ACQUIRED_TOKEN", ("CANDIDATE_IDENTITY_VERIFIED_TOKEN",)),
+    ("runtime_attestation", "RUNTIME_ATTESTED_TOKEN", ("SOURCE_ACQUIRED_TOKEN",)),
+    ("provider_execution", "PROVIDER_EXECUTION_READY_TOKEN", ("RUNTIME_ATTESTED_TOKEN",)),
+    ("target_provenance", "TARGET_OR_REPRODUCER_VERIFIED_TOKEN", ("PROVIDER_EXECUTION_READY_TOKEN",)),
+    ("command_authority", "COMMAND_AUTHORITY_VERIFIED_TOKEN", ("TARGET_OR_REPRODUCER_VERIFIED_TOKEN",)),
+    ("duplicate_failure", "DUPLICATE_FAILURE_REPRODUCED_TOKEN", ("COMMAND_AUTHORITY_VERIFIED_TOKEN",)),
+    ("causal_ownership", "CAUSAL_OWNERSHIP_TOKEN", ("DUPLICATE_FAILURE_REPRODUCED_TOKEN",)),
+    ("ast_contact", "AST_CONTACT_DOMAIN_TOKEN", ("CAUSAL_OWNERSHIP_TOKEN",)),
+    ("repair_license", "REPAIR_LICENSE_TOKEN", ("AST_CONTACT_DOMAIN_TOKEN",)),
+    ("patch_application", "PATCH_APPLIED_TOKEN", ("REPAIR_LICENSE_TOKEN",)),
+    ("validation", "VALIDATION_PASSED_TOKEN", ("PATCH_APPLIED_TOKEN",)),
+    ("duplicate_clean_replay", "DUPLICATE_CLEAN_REPLAY_TOKEN", ("VALIDATION_PASSED_TOKEN",)),
+    ("proof_append", "PROOF_APPENDED_TOKEN", ("DUPLICATE_CLEAN_REPLAY_TOKEN",)),
+)
+
+
+@dataclass(frozen=True)
+class PathwayStage:
+    stage_id: str
+    output_token_type: str
+    required_input_token_types: tuple[str, ...]
+    reaction_type: str = "verified_maintenance_transition"
+    catalyst_identity: str = "controllergate.pathways.canonical_maintenance.execute_stage"
+    source_compartment: str = "sealed_candidate_workspace"
+    destination_compartment: str = "sealed_candidate_workspace"
+    network_mode: str = "none"
+    allowed_mutation_scope: str = "none_unless_patch_stage_authorized"
+    independent_verifier: str = "controllergate.pathways.canonical_maintenance.verify_stage"
+    failure_terminal: str = "SAFE_ABSTENTION"
+    reopen_condition: str = "new_decision_time_safe_direct_evidence"
+    rollback_target: str = "five_anchor_checkpoint"
+
+    def record(self) -> dict[str, Any]:
+        return {
+            **self.__dict__,
+            "ordinary_inputs": [],
+            "positive_regulators": ["verified_same_run_input_tokens", "five_anchor_identity_stable"],
+            "negative_regulators": ["forbidden_evidence", "identity_drift", "unbrokered_external_operation"],
+            "expected_outputs": [self.output_token_type],
+            "forbidden_outputs": ["manual_pass_authority", "cross_candidate_token"],
+            "proof_obligations": list(NATIVE_CONTACTS),
+        }
+
+
+CANONICAL_PATHWAY = tuple(PathwayStage(stage, token, tuple(required)) for stage, token, required in STAGES)
+
+
+def freeze_anchors(frame: dict[str, Any]) -> dict[str, Any]:
+    anchors = {name: frame.get(name) for name in REFERENCE_ANCHORS}
+    missing = [name for name, value in anchors.items() if value in (None, "", {})]
+    if missing:
+        raise ValueError(f"five reference anchors incomplete: {','.join(missing)}")
+    return {"anchors": anchors, "anchor_hash": canonical_hash(anchors), "status": "PASS"}
+
+
+def execute_stage(stage: PathwayStage, *, candidate_id: str, run_id: str,
+                  prior_tokens: list[ReactionToken], anchors: dict[str, Any],
+                  direct_output: dict[str, Any], verifier: str | None = None) -> ReactionToken:
+    require_tokens(prior_tokens, stage.required_input_token_types, candidate_id=candidate_id, run_id=run_id)
+    if direct_output.get("status") != "PASS" or direct_output.get("verified") is not True:
+        raise ValueError("failed or unverified stage cannot mint success token")
+    if direct_output.get("anchor_hash") != anchors.get("anchor_hash"):
+        raise ValueError("five-anchor identity drift")
+    return ReactionToken.mint(
+        token_type=stage.output_token_type,
+        candidate_id=candidate_id,
+        run_id=run_id,
+        producer_event=stage.stage_id,
+        input_tokens=prior_tokens,
+        payload={"anchors": anchors, "output": direct_output},
+        independent_verifier=verifier or stage.independent_verifier,
+    )
+
+
+def generated_proof_matrix(*, candidate_id: str, run_id: str,
+                           tokens: list[dict[str, Any]], contact_proofs: dict[str, str]) -> dict[str, Any]:
+    rows = [stage.output_token_type for stage in CANONICAL_PATHWAY]
+    cells: list[dict[str, Any]] = []
+    by_type = {str(token["token_type"]): token for token in tokens}
+    for row in rows:
+        token = by_type.get(row)
+        for contact in NATIVE_CONTACTS:
+            proof = contact_proofs.get(contact)
+            status = "PASS_WITH_PROOF" if token and proof else "BLOCK"
+            cells.append({
+                "candidate_id": candidate_id,
+                "run_id": run_id,
+                "row_token_type": row,
+                "row_token_hash": token.get("token_hash") if token else None,
+                "contact": contact,
+                "contact_proof_hash": proof,
+                "verifier_identity": "controllergate.pathways.canonical_maintenance.generated_proof_matrix",
+                "parent_event_hash": token.get("producer_event") if token else None,
+                "status": status,
+                "reason": "database token and proof present" if status == "PASS_WITH_PROOF" else "required token or proof missing",
+            })
+    return {
+        "status": "PASS" if all(cell["status"] == "PASS_WITH_PROOF" for cell in cells) else "BLOCK",
+        "rows": len(rows), "columns": len(NATIVE_CONTACTS), "cell_count": len(cells), "cells": cells,
+        "derived_from_database_and_proof_ledger": True,
+    }

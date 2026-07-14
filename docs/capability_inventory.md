@@ -3,7 +3,7 @@
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current operational gate status
 
-Implemented: canonical component registry, typed reaction tokens, SQLite durable state with failed-branch lineage, proof-derived counts, separated routing memory, structured collection, cutoff-bound historical provider reconstruction, DPP-14 ControllerAudit, recovered block-only interlocks, categorical causal elbow, exact orientation return, real repaired-software canary/health/rollback, controlled self-maintenance fixture, read-only watch loop, and local write levels 1–2. Batch086 passes the bounded Product Beta RC evidence gate. Disabled: public remote writes, full scoring, automatic merge, and autonomous live maintenance.
+Implemented: canonical installed execution graph, SQLite authority, typed pathway, broker boundary, proof/count services, and read-only connectors. Release classification: `PRODUCT_BETA_RC_BLOCKED_EXACT`. Disabled: public writes, full scoring, automatic merge, and autonomous live maintenance.
 <!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
 
 ## Batch084 depth-calibrated capabilities
